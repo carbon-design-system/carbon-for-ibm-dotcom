@@ -94,7 +94,7 @@ If your issue appears to be a bug, and hasn't been reported, open a new issue. H
 
 8. In Github, navigate to [IBM/carbon-addons-dotcom](https://github.com/IBM/carbon-addons-dotcom) and click the button that reads "Compare & pull request".
 
-9. Write a title and description, the click "Create pull request".
+9. Write a title and description, then click "Create pull request".
 
    See [how to write the perfect pull request](https://github.com/blog/1943-how-to-write-the-perfect-pull-request) for more details on writing good PRs.
 
