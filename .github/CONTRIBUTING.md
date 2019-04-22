@@ -48,7 +48,7 @@ If you want to help improve the docs, it's a good idea to let others know what y
    $ git remote -v
    ```
 
-4. Switch to our version of Node. If you are using (nvm [Node Version Manager)](https://github.com/creationix/nvm), you can run `nvm use` to quicky switch Node versions. If you are aren't using nvm, you can still check the `.nvmrc` dotfile in the root of this project to find the major stable version of Node we are using, and then you can switch manually.
+4. Switch to our version of Node. If you are using (nvm [Node Version Manager](https://github.com/creationix/nvm)), you can run `nvm use` to quicky switch Node versions. If you are aren't using nvm, you can still check the `.nvmrc` dotfile in the root of this project to find the major stable version of Node we are using, and then you can switch manually.
 
 ### Submitting an Issue
 
@@ -102,7 +102,6 @@ If your issue appears to be a bug, and hasn't been reported, open a new issue. H
 
     Once all revisions to your pull request are complete, a maintainer will squash and merge your commits for you.
 
-For all details related to development, make sure to check out our [development
-guide](/docs/developing.md)!
+For all details related to development, make sure to check out our [development guide](/docs/developing.md)!
 
 **That's it! Thank you for your contribution!**
