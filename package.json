@@ -12,8 +12,8 @@
   ],
   "scripts": {
     "ci-check": "npm run format:diff",
-    "format": "prettier --write '**/*.{js,md,scss,ts}' '!**/{build,es,lib,storybook,ts,umd}/**'",
-    "format:diff": "prettier --list-different '**/*.{js,md,scss,ts}' '!**/{build,es,lib,storybook,ts,umd}/**'",
+    "format": "prettier --write '**/*.{js,md,scss}'",
+    "format:diff": "prettier --list-different '**/*.{js,md,scss}'",
     "format:staged": "prettier --write"
   },
   "devDependencies": {
