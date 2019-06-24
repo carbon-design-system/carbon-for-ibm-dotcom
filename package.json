@@ -1,14 +1,14 @@
 {
-  "name": "carbon-addons-dotcom",
+  "name": "ibm-dotcom-library",
   "version": "0.0.0",
   "description": "This library is an extension of the Carbon IBM Design System. It contains unique components shared between the IBM.com user journeys to unify its look and feel.",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/IBM/carbon-addons-dotcom/issues"
+    "url": "https://github.com/carbon-design-system/dotcom-library/issues"
   },
-  "repository": "git@github.com:IBM/carbon-addons-dotcom.git",
+  "repository": "git@github.com:carbon-design-system/dotcom-library.git",
   "keywords": [
-    "carbon-design-system"
+    "carbon-design-system ibm-dotcom-library"
   ],
   "scripts": {
     "bootstrap": "lerna bootstrap --hoist",
