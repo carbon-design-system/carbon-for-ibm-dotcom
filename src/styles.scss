@@ -1,5 +1,5 @@
 @import '../node_modules/carbon-components/src/globals/scss/vendor/@carbon/elements/scss/type/styles';
-// @import '../node_modules/carbon-components/src/globals/scss/vendor/@carbon/type/scss/styles';
+@import '../node_modules/carbon-components/src/globals/scss/vendor/@carbon/type/scss/styles';
 
 $body-short-01: (
   font-family: carbon--font-family('sans'),
@@ -11,10 +11,4 @@ $body-short-01: (
 
 @mixin foo {
   @include type-style('body-short-01');
-}
-
-#app {
-  .bx--btn {
-    @include foo;
-  }
 }
