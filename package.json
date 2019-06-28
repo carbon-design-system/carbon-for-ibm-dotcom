@@ -2,7 +2,7 @@
   "name": "ibm-dotcom-library",
   "private": true,
   "version": "0.0.0",
-  "repository": "git@github.com:carbon-design-system/dotcom-library.git",
+  "repository": "git@github.com:carbon-design-system/ibm-dotcom-library.git",
   "license": "Apache-2.0",
   "engines": {
     "node": "10.x"
