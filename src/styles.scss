@@ -1,20 +1,2 @@
 @import '../node_modules/carbon-components/src/globals/scss/vendor/@carbon/elements/scss/type/styles';
-// @import '../node_modules/carbon-components/src/globals/scss/vendor/@carbon/type/scss/styles';
-
-$body-short-01: (
-  font-family: carbon--font-family('sans'),
-  font-size: carbon--type-scale(5),
-  font-weight: carbon--font-weight('regular'),
-  line-height: carbon--rem(18px),
-  letter-spacing: 0.16px,
-) !default;
-
-@mixin foo {
-  @include type-style('body-short-01');
-}
-
-#app {
-  .bx--btn {
-    @include foo;
-  }
-}
+@import '../node_modules/carbon-components/src/globals/scss/vendor/@carbon/type/scss/styles';
