@@ -37,15 +37,15 @@ fit within the scope of any of the existing doc fix projects.
 ### Setup
 
 1. Fork the project by navigating to the main
-   [repository](https://github.com/carbon-design-system/dotcom-library/) and
+   [repository](https://github.com/carbon-design-system/ibm-dotcom-library/) and
    clicking the **Fork** button on the top-right corner.
 
 2. Navigate to your forked repository and copy the **SSH url**. Clone your fork
    by running the following in your terminal:
 
    ```
-   $ git clone git@github.com:{ YOUR_USERNAME }/dotcom-library.git
-   $ cd dotcom-library
+   $ git clone git@github.com:{ YOUR_USERNAME }/ibm-dotcom-library.git
+   $ cd ibm-dotcom-library
    ```
 
    See [GitHub docs](https://help.github.com/articles/fork-a-repo/) for more
@@ -53,10 +53,10 @@ fit within the scope of any of the existing doc fix projects.
 
 3. Once cloned, you will see `origin` as your default remote, pointing to your
    personal forked repository. Add a remote named `upstream` pointing to the
-   main `dotcom-library`:
+   main `ibm-dotcom-library`:
 
    ```
-   $ git remote add upstream git@github.com:carbon-design-system/dotcom-library.git
+   $ git remote add upstream git@github.com:carbon-design-system/ibm-dotcom-library.git
    $ git remote -v
    ```
 
@@ -126,7 +126,7 @@ features, by not reporting duplicate issues.
    ```
 
 8. In Github, navigate to
-   [carbon-design-system/dotcom-library](https://github.com/carbon-design-system/dotcom-library/)
+   [carbon-design-system/ibm-dotcom-library](https://github.com/carbon-design-system/ibm-dotcom-library/)
    and click the button that reads "Compare & pull request".
 
 9. Write a title and description, then click "Create pull request".
