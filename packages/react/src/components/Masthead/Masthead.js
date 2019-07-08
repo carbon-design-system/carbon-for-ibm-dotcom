@@ -11,13 +11,13 @@ import React from 'react';
 const Masthead = ({ type }) => {
   if (type == 'branded') {
     return (
-      <div>
+      <div className="masthead">
         <p>This is a branded masthead</p>
       </div>
     );
   } else {
     return (
-      <div>
+      <div className="masthead">
         <p>This is the standard masthead</p>
       </div>
     );
