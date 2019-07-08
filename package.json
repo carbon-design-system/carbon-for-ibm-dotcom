@@ -20,7 +20,8 @@
     "format": "prettier --write '**/*.{js,md,scss}'",
     "format:diff": "prettier --list-different '**/*.{js,md,scss}'",
     "lint": "eslint packages",
-    "lint:styles": "stylelint '**/*.{css,scss}' --config ./packages/stylelint-config-elements"
+    "lint:styles": "stylelint '**/*.{css,scss}' --config ./packages/stylelint-config-elements",
+    "test": "cross-env BABEL_ENV=test jest"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
@@ -36,6 +37,8 @@
     "eslint-plugin-react-hooks": "^1.6.1",
     "husky": "^1.3.1",
     "jest": "^24.8.0",
+    "jest-circus": "^24.8.0",
+    "jest-junit": "^6.4.0",
     "lerna": "^3.15.0",
     "lint-staged": "^8.1.5",
     "prettier": "^1.17.0",
@@ -105,6 +108,59 @@
   "stylelint": {
     "extends": [
       "./packages/stylelint-config-elements"
+    ]
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "packages/**/src/**/*.js",
+      "!packages/{bundler,cli,components,sketch}/**",
+      "!packages/**/{examples,stories}/**",
+      "!**/*-story.js"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "json"
+    ],
+    "reporters": [
+      "default",
+      "jest-junit"
+    ],
+    "setupFiles": [
+      "./tasks/jest/setup.js"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "testMatch": [
+      "<rootDir>/**/__tests__/**/*.js?(x)",
+      "<rootDir>/**/?(*.)(spec|test).js?(x)",
+      "<rootDir>/**/?(*-)(spec|test).js?(x)"
+    ],
+    "transform": {
+      "^.+\\.(js|jsx)$": "./tasks/jest/jsTransform.js",
+      "^.+\\.css$": "./tasks/jest/cssTransform.js",
+      "^(?!.*\\.(js|jsx|css|json)$)": "./tasks/jest/fileTransform.js"
+    },
+    "testRunner": "jest-circus/runner",
+    "testPathIgnorePatterns": [
+      "/cjs/",
+      "/dist/",
+      "/es/",
+      "/lib/",
+      "e2e",
+      "examples",
+      "/umd/"
+    ],
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"
+    ],
+    "watchPathIgnorePatterns": [
+      "/cjs/",
+      "/dist/",
+      "/es/",
+      "/examples/",
+      "/lib/",
+      "/storybook/"
     ]
   },
   "dependencies": {}
