@@ -8,8 +8,14 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
+/**
+ * Test MastHead component
+ * @param {string} type Type of masthead
+ * @returns {*} Masthead component
+ * @class
+ */
 const Masthead = ({ type }) => {
-  if (type == 'branded') {
+  if (type === 'branded') {
     return (
       <div className="masthead">
         <p>This is a branded masthead</p>

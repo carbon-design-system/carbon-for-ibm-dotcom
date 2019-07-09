@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import Masthead from './Masthead';
+import Masthead from '../Masthead';
 import { shallow } from 'enzyme';
 
 describe('Masthead', () => {

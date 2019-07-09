@@ -6,7 +6,7 @@ jest.unmock('object-assign');
 
 global.__DEV__ = true;
 
-require('../polyfilles');
+require('../polyfills');
 
 const enzyme = require.requireActual('enzyme');
 const Adapter = require.requireActual('enzyme-adapter-react-16');

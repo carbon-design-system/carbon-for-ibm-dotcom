@@ -31,6 +31,23 @@ module.exports = {
     'jsdoc/check-param-names': 2,
     'jsdoc/check-tag-names': 2,
     'jsdoc/check-types': 2,
+    'require-jsdoc': [
+      'error',
+      {
+        require: {
+          FunctionDeclaration: true,
+          MethodDefinition: true,
+          ClassDeclaration: true,
+          ArrowFunctionExpression: true,
+        },
+      },
+    ],
+    'valid-jsdoc': [
+      'error',
+      {
+        requireReturn: false,
+      },
+    ],
     'jsx-a11y/no-static-element-interactions': 1,
     'jsx-a11y/no-noninteractive-element-interactions': 1,
     'jsx-a11y/click-events-have-key-events': 1,

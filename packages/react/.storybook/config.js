@@ -14,8 +14,8 @@ addDecorator(
 
 addDecorator(
   withOptions({
-    name: `carbon components react`,
-    url: 'https://github.com/IBM/carbon-components-react',
+    name: `IBM.com Library React Components`,
+    url: 'https://github.com/carbon-design-system/ibm-dotcom-library',
   })
 );
 
@@ -28,7 +28,7 @@ addDecorator(story => <Container story={story} />);
 // addDecorator(checkA11y);
 
 function loadStories() {
-  const req = require.context('../src/components', true, /\-story\.js$/);
+  const req = require.context('../src/components', true, /\.stories\.js$/);
   req.keys().forEach(filename => req(filename));
 }
 
