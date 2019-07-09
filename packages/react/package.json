@@ -1,11 +1,11 @@
 {
   "name": "ibm-dotcom-library-react",
   "description": "The Carbon Design System is IBM’s open-source design system for products and experiences.",
-  "version": "7.3.2",
+  "version": "1.0.0",
   "license": "Apache-2.0",
   "main": "lib/index.js",
   "module": "es/index.js",
-  "repository": "https://github.com/carbon-design-system/carbon/tree/master/packages/react",
+  "repository": "https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react",
   "bugs": "https://github.com/carbon-design-system/carbon/issues",
   "files": [
     "lib/**/*",
