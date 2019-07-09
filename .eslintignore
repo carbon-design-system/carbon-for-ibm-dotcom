@@ -1,0 +1,5 @@
+node_modules
+packages/react/es
+packages/react/umd
+packages/react/lib
+packages/react/node_modules
