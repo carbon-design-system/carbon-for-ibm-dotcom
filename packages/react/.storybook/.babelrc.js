@@ -21,5 +21,6 @@ const babelConfig = Object.keys(packageJson.babel).reduce((acc, key) => {
 }, {});
 
 babelConfig.plugins.push('transform-inline-environment-variables');
+babelConfig.plugins.push('require-context-hook');
 
 module.exports = babelConfig;
