@@ -2,16 +2,28 @@ version: 2
 jobs:
   test:
     docker:
-      - image: circleci/node:10
+      - image: circleci/node:10.15-browsers
     working_directory: ~/repo
     steps:
       - checkout
       - run:
-          name: Install dependencies
-          command: npm ci
+          name: Install yarn
+          command: |
+            curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.16.0
+            # Reference:
+            # https://circleci.com/docs/2.0/env-vars/#example-configuration-of-environment-variables
+            echo 'export PATH="$HOME/.yarn/bin:$PATH"' >> $BASH_ENV
       - run:
-          name: Run ci checks
-          command: npm run ci-check
+          name: Install dependencies
+          command: yarn install --offline --frozen-lockfile
+      - run:
+          name: Build packages
+          command: yarn build
+      - run:
+          name: Run Continuous Integration checks
+          command: |
+            yarn ci-check
+            yarn lerna run ci-check
 
 workflows:
   version: 2
