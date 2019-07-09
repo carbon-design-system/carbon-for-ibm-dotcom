@@ -15,6 +15,12 @@ const rollupPath = path
   .resolve(__dirname, '../node_modules/.bin/rollup')
   .replace(/ /g, '\\ ');
 
+/**
+ * Executes the corresponding comment
+ * @param {string} command Command to run
+ * @param {object} extraEnv Additional environment configurations
+ * @returns {Buffer} Buffer stream
+ */
 const exec = (command, extraEnv) =>
   execSync(command, {
     stdio: 'inherit',
@@ -33,13 +39,13 @@ try {
     BABEL_ENV: 'cjs',
   });
   exec(
-    `${rollupPath} -c scripts/rollup.config.js -o umd/carbon-components-react.js`,
+    `${rollupPath} -c scripts/rollup.config.js -o umd/ibmdotcom-components-react.js`,
     {
       NODE_ENV: 'development',
     }
   );
   exec(
-    `${rollupPath} -c scripts/rollup.config.js -o umd/carbon-components-react.min.js`,
+    `${rollupPath} -c scripts/rollup.config.js -o umd/ibmdotcom-components-react.min.js`,
     {
       NODE_ENV: 'production',
     }

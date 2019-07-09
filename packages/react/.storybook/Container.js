@@ -22,7 +22,7 @@ export default class Container extends Component {
     return (
       <React.StrictMode>
         <div
-          data-floating-menu-container
+          data-floating-menu-container=""
           role="main"
           style={{
             padding: '3em',

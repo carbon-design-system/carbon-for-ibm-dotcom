@@ -97,7 +97,7 @@ module.exports = ({ config, mode }) => {
   });
 
   config.module.rules.push({
-    test: /-story\.jsx?$/,
+    test: /.stories\.jsx?$/,
     loaders: [
       {
         loader: require.resolve('@storybook/addon-storysource/loader'),
