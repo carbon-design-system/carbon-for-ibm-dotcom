@@ -58,7 +58,6 @@ workflows:
       - release:
           requires:
             - system
-            - artifacts
           filters:
             branches:
               only:
