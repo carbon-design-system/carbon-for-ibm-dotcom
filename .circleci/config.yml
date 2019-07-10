@@ -46,40 +46,6 @@ jobs:
           command: yarn build
       - deploy:
           name: deploy to IBM Cloud
-          command: |
-            # Install `ibmcloud` CLI
-            # curl -fsSL https://clis.ng.bluemix.net/install/linux | sh
-
-            # install cf for now
-            wget https://s3.amazonaws.com/go-cli/releases/v6.12.4/cf-cli_amd64.deb -qO temp.deb && sudo dpkg -i temp.deb
-
-            # Login and push staging manifest
-            # ibmcloud login \
-            # --apikey $CLOUD_API_KEY \
-            # -a https://api.ng.bluemix.net \
-            # -o carbon-design-system
-
-            # use bluemix/cf for now
-            cf login \
-              -a https://api.w3ibm.bluemix.net \
-              -u $TEMP_USER
-              -p $TEMP_PASS
-              -o DigitalDesignSystem
-              -s dev
-
-            cf push ibm-dotcom-test
-
-            # ibmcloud target -s production
-
-            ibmcloud cf add-plugin-repo CF-Community https://plugins.cloudfoundry.org
-            ibmcloud cf install-plugin blue-green-deploy -f -r CF-Community
-
-            # Default storybook build
-            cd packages/react
-            yarn build-storybook
-            ibmcloud cf blue-green-deploy carbon-storybook \
-              -f manifest.yml \
-              --delete-old-apps
 
   release:
     docker:
