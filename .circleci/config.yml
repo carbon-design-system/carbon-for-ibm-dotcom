@@ -163,7 +163,7 @@ workflows:
           requires:
             - system
             - artifacts
-`          filters:
+          filters:
             branches:
               ignore: /.*/
             tags:
