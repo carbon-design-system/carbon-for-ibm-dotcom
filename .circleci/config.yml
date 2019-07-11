@@ -142,7 +142,7 @@ jobs:
               # Pipe to /dev/null to prevent any token leaks in CI output
               git push -q \
                 https://{$GH_TOKEN}:@github.com:kennylam/ibm-dotcom-library.git \
-                master \
+                dev \
                 > /dev/null 2>&1
             fi
 
@@ -163,7 +163,7 @@ workflows:
           requires:
             - system
             - artifacts
-          filters:
+`          filters:
             branches:
               ignore: /.*/
             tags:
