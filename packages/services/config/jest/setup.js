@@ -1,4 +1,4 @@
-'use strict';
+import 'babel-polyfill';
 
 jest.unmock('promise');
 jest.unmock('whatwg-fetch');
