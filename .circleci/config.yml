@@ -125,9 +125,9 @@ jobs:
       - run:
           name: Build packages
           command: yarn build
-      - run:
-          name: Sync project dependency files
-          command: yarn sync
+      # - run:
+      #     name: Sync project dependency files
+      #     command: yarn sync
       - run:
           name: Push generated artifacts to GitHub
           command: |
@@ -154,6 +154,7 @@ workflows:
       - release:
           requires:
             - system
+            - artifacts
           filters:
             branches:
               only:
@@ -161,6 +162,7 @@ workflows:
       - deploy:
           requires:
             - system
+            - artifacts
           filters:
             branches:
               ignore: /.*/
