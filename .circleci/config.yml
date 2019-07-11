@@ -157,7 +157,7 @@ workflows:
           filters:
             branches:
               only:
-                - circleci-release
+                - dev
       - deploy:
           requires:
             - system
