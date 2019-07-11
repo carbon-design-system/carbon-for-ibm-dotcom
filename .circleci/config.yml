@@ -78,9 +78,9 @@ workflows:
     jobs:
       - system
       - deploy:
-          requires: system
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^v\d+\.\d+\.\d+$/
+        requires: system
+        filters:
+          branches:
+            ignore: /.*/
+          tags:
+            only: /^v\d+\.\d+\.\d+$/
