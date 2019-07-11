@@ -77,10 +77,17 @@ workflows:
   main:
     jobs:
       - system
+      - release:
+          requires:
+            - system
+          filters:
+            branches:
+              only:
+                - circleci-release
       - deploy:
-        requires: system
-        filters:
-          branches:
-            ignore: /.*/
-          tags:
-            only: /^v\d+\.\d+\.\d+$/
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^v\d+\.\d+\.\d+$/
+              
