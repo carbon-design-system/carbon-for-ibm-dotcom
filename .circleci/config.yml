@@ -125,9 +125,6 @@ jobs:
       - run:
           name: Build packages
           command: yarn build
-      # - run:
-      #     name: Sync project dependency files
-      #     command: yarn sync
       - run:
           name: Push generated artifacts to GitHub
           command: |
