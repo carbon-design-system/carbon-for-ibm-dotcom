@@ -119,6 +119,8 @@ workflows:
               only:
                 - circleci-release
       - deploy:
+          requires:
+            - system
           filters:
             branches:
               ignore: /.*/
