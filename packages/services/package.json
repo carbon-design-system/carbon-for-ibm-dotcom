@@ -25,7 +25,7 @@
   },
   "scripts": {
     "build": "yarn clean && node scripts/build.js",
-    "ci-check": "yarn test-ssr",
+    "ci-check": "yarn build && yarn lint && yarn test",
     "clean": "rimraf es lib umd",
     "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate",
