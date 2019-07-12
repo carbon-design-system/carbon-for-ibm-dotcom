@@ -17,6 +17,7 @@ const rollupPath = path
 
 /**
  * Executes the corresponding comment
+ *
  * @param {string} command Command to run
  * @param {object} extraEnv Additional environment configurations
  * @returns {Buffer} Buffer stream
@@ -37,13 +38,13 @@ try {
     BABEL_ENV: 'cjs',
   });
   exec(
-    `${rollupPath} -c scripts/rollup.config.js -o umd/ibmdotcom-components-services.js`,
+    `${rollupPath} -c scripts/rollup.config.js -o umd/ibmdotcom-services.js`,
     {
       NODE_ENV: 'development',
     }
   );
   exec(
-    `${rollupPath} -c scripts/rollup.config.js -o umd/ibmdotcom-components-services.min.js`,
+    `${rollupPath} -c scripts/rollup.config.js -o umd/ibmdotcom-services.min.js`,
     {
       NODE_ENV: 'production',
     }

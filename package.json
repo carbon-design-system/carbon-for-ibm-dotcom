@@ -103,7 +103,7 @@
   },
   "eslintConfig": {
     "extends": [
-      "./packages/eslint-config-carbon"
+      "./packages/eslint-config-ibmdotcom"
     ]
   },
   "prettier": {

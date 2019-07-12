@@ -9,7 +9,11 @@
 
 module.exports = {
   parser: 'babel-eslint',
-  extends: ['eslint:recommended', 'plugin:jsx-a11y/recommended'],
+  extends: [
+    'eslint:recommended',
+    'plugin:jsx-a11y/recommended',
+    'plugin:jsdoc/recommended',
+  ],
   plugins: ['react', 'jsdoc', 'jsx-a11y', 'react-hooks'],
   rules: {
     // Handle cases where we are destructuring but may not be using the initial
@@ -28,26 +32,27 @@ module.exports = {
     'react/no-typos': 2,
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'error',
+    'jsdoc/require-jsdoc': [
+      2,
+      {
+        require: {
+          ArrowFunctionExpression: true,
+          ClassDeclaration: true,
+          FunctionDeclaration: true,
+          MethodDefinition: true,
+        },
+        // contexts: ['VariableDeclaration'],
+        exemptEmptyFunctions: false,
+      },
+    ],
+    'jsdoc/require-param-description': 2,
+    'jsdoc/require-param-name': 2,
+    'jsdoc/require-param': 2,
+    'jsdoc/require-param-type': 2,
+    'jsdoc/valid-types': 2,
     'jsdoc/check-param-names': 2,
     'jsdoc/check-tag-names': 2,
     'jsdoc/check-types': 2,
-    'require-jsdoc': [
-      'error',
-      {
-        require: {
-          FunctionDeclaration: true,
-          MethodDefinition: true,
-          ClassDeclaration: true,
-          ArrowFunctionExpression: true,
-        },
-      },
-    ],
-    'valid-jsdoc': [
-      'error',
-      {
-        requireReturn: false,
-      },
-    ],
     'jsx-a11y/no-static-element-interactions': 1,
     'jsx-a11y/no-noninteractive-element-interactions': 1,
     'jsx-a11y/click-events-have-key-events': 1,

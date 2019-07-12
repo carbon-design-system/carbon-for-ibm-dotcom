@@ -26,11 +26,12 @@
   "scripts": {
     "build": "yarn clean && node scripts/build.js",
     "ci-check": "yarn test-ssr",
-    "clean": "rimraf es lib umd storybook-static",
+    "clean": "rimraf es lib umd",
     "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate",
     "prepublish": "yarn build",
-    "test": "jest"
+    "test": "jest",
+    "jsdoc": "rimraf docs && jsdoc -c ./jsdoc.json"
   },
   "dependencies": {
     "window-or-global": "^1.0.1"
@@ -52,6 +53,7 @@
     "babel-plugin-dev-expression": "^0.2.1",
     "babel-plugin-transform-inline-environment-variables": "^0.4.0",
     "babel-polyfill": "^6.26.0",
+    "better-docs": "^1.1.6",
     "browserslist-config-carbon": "10.3.0",
     "chalk": "^2.3.0",
     "cli-table": "^0.3.0",
@@ -61,6 +63,7 @@
     "gzip-size": "^5.0.0",
     "jest": "^24.0.0",
     "jest-circus": "^24.0.0",
+    "jsdoc": "^3.6.2",
     "object-assign": "^4.1.1",
     "promise": "^8.0.1",
     "rimraf": "^2.6.3",
@@ -90,8 +93,7 @@
   },
   "jest": {
     "collectCoverageFrom": [
-      "src/components/**/*.js",
-      "!src/components/**/*-story.js"
+      "src/components/**/*.js"
     ],
     "coverageDirectory": "coverage",
     "coverageReporters": [

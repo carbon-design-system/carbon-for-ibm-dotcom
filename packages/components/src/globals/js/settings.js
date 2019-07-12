@@ -7,6 +7,7 @@
 
 /**
  * Settings.
+ *
  * @exports CarbonComponents.settings
  * @type Object
  * @property {boolean} [disableAutoInit]
