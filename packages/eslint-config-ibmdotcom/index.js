@@ -41,8 +41,6 @@ module.exports = {
           FunctionDeclaration: true,
           MethodDefinition: true,
         },
-        // contexts: ['VariableDeclaration'],
-        exemptEmptyFunctions: false,
       },
     ],
     'jsdoc/require-param-description': 2,
