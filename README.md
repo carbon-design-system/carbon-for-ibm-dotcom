@@ -16,7 +16,7 @@
     <img src="https://img.shields.io/badge/license-Apache--2.0-blue.svg" alt="Carbon is released under the Apache-2.0 license" />
   </a>
   <a href="https://circleci.com/gh/carbon-design-system/ibm-dotcom-library">
-    <img src="https://circleci.com/gh/carbon-design-system/carbon.svg?style=shield" alt="Build Status" />
+    <img src="https://circleci.com/gh/carbon-design-system/ibm-dotcom-library/tree/master.svg?style=shield" alt="Build Status" />
   </a>
   <a href="https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/.github/CONTRIBUTING.md">
     <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs welcome" />
