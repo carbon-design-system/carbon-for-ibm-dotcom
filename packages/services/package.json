@@ -1,7 +1,7 @@
 {
-  "name": "ibm-dotcom-library-services",
+  "name": "@ibmdotcom/services",
   "description": "IBM.com Library Services",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "license": "Apache-2.0",
   "main": "lib/index.js",
   "module": "es/index.js",
