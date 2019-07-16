@@ -1,6 +1,6 @@
 {
   "name": "@ibmdotcom/react",
-  "description": "The Carbon Design System is IBM’s open-source design system for products and experiences.",
+  "description": "IBM.com Library React Components",
   "version": "0.1.0",
   "license": "Apache-2.0",
   "main": "lib/index.js",
@@ -31,7 +31,6 @@
     "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate",
     "prepublish": "yarn build",
-    "semantic-release": "semantic-release",
     "start": "yarn storybook",
     "storybook": "start-storybook -p 9000",
     "test": "jest",
