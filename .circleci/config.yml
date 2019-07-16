@@ -154,7 +154,7 @@ workflows:
           filters:
             branches:
               only:
-                - dev
+                - master
       - release:
           requires:
             - system
@@ -162,7 +162,7 @@ workflows:
           filters:
             branches:
               only:
-                - dev
+                - master
       - deploy:
           requires:
             - system
