@@ -28,7 +28,7 @@
 ## Release Candidates
 
 6. Run
-   `./tasks/publish.sh --exact --preid rc --cd-version prerelease --force-publish=* --npm-tag rc`
+   `./tasks/publish.sh --exact --preid rc --force-publish=* --npm-tag rc`
 7. Confirm package changes
 
 ## Release
