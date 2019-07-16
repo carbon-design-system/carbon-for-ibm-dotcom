@@ -28,9 +28,7 @@ const exec = (command, extraEnv) =>
     env: Object.assign({}, process.env, extraEnv),
   });
 
-const ignoreGlobs = ['**/__tests__/*', '**/*-test.js', '**/*-story.js'].join(
-  ','
-);
+const ignoreGlobs = ['**/__tests__/*', '**/*.test.js'].join(',');
 
 try {
   exec(`${babelPath} src -q -d es --ignore "${ignoreGlobs}"`, {
@@ -40,13 +38,13 @@ try {
     BABEL_ENV: 'cjs',
   });
   exec(
-    `${rollupPath} -c scripts/rollup.config.js -o umd/ibmdotcom-components-react.js`,
+    `${rollupPath} -c scripts/rollup.config.js -o umd/ibmdotcom-services.js`,
     {
       NODE_ENV: 'development',
     }
   );
   exec(
-    `${rollupPath} -c scripts/rollup.config.js -o umd/ibmdotcom-components-react.min.js`,
+    `${rollupPath} -c scripts/rollup.config.js -o umd/ibmdotcom-services.min.js`,
     {
       NODE_ENV: 'production',
     }

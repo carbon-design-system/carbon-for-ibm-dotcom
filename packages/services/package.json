@@ -1,0 +1,136 @@
+{
+  "name": "ibm-dotcom-library-services",
+  "description": "IBM.com Library Services",
+  "version": "1.0.0",
+  "license": "Apache-2.0",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "repository": "https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/services",
+  "bugs": "https://github.com/carbon-design-system/ibm-dotcom-library/issues",
+  "files": [
+    "lib/**/*",
+    "es/**/*",
+    "umd/**/*"
+  ],
+  "keywords": [
+    "react",
+    "carbon",
+    "carbon-components",
+    "ibm",
+    "carbon-design-system",
+    "components"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "yarn clean && node scripts/build.js",
+    "ci-check": "yarn build && yarn test",
+    "clean": "rimraf es lib umd",
+    "contributors:add": "all-contributors add",
+    "contributors:generate": "all-contributors generate",
+    "prepublish": "yarn build",
+    "test": "jest",
+    "jsdoc": "rimraf docs && jsdoc -c ./jsdoc.json"
+  },
+  "dependencies": {
+    "window-or-global": "^1.0.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.3",
+    "@babel/core": "^7.4.3",
+    "@babel/plugin-external-helpers": "^7.2.0",
+    "@babel/plugin-proposal-class-properties": "^7.4.0",
+    "@babel/plugin-proposal-export-default-from": "^7.2.0",
+    "@babel/plugin-proposal-export-namespace-from": "^7.2.0",
+    "@babel/plugin-syntax-import-meta": "^7.2.0",
+    "@babel/plugin-transform-object-assign": "^7.2.0",
+    "@babel/preset-env": "^7.4.3",
+    "all-contributors-cli": "^5.2.1",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^23.6.0",
+    "babel-loader": "^8.0.4",
+    "babel-plugin-dev-expression": "^0.2.1",
+    "babel-plugin-transform-inline-environment-variables": "^0.4.0",
+    "babel-polyfill": "^6.26.0",
+    "browserslist-config-carbon": "10.3.0",
+    "chalk": "^2.3.0",
+    "cli-table": "^0.3.0",
+    "core-js": "^3.1.3",
+    "cross-env": "^5.2.0",
+    "fetch-mock": "^7.3.6",
+    "gzip-size": "^5.0.0",
+    "jest": "^24.0.0",
+    "jest-circus": "^24.0.0",
+    "jsdoc": "^3.6.2",
+    "object-assign": "^4.1.1",
+    "promise": "^8.0.1",
+    "rimraf": "^2.6.3",
+    "rollup": "^1.10.0",
+    "rollup-plugin-babel": "^4.3.2",
+    "rollup-plugin-commonjs": "^9.3.4",
+    "rollup-plugin-node-resolve": "^4.2.3",
+    "rollup-plugin-replace": "^2.2.0",
+    "rollup-plugin-sizes": "^0.5.0",
+    "rollup-plugin-terser": "^4.0.0",
+    "whatwg-fetch": "^2.0.3"
+  },
+  "sideEffects": false,
+  "babel": {
+    "presets": [
+      "./scripts/env"
+    ],
+    "plugins": [
+      "dev-expression",
+      "macros",
+      "@babel/plugin-syntax-dynamic-import",
+      "@babel/plugin-syntax-import-meta",
+      "@babel/plugin-proposal-class-properties",
+      "@babel/plugin-proposal-export-namespace-from",
+      "@babel/plugin-proposal-export-default-from"
+    ]
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/components/**/*.js"
+    ],
+    "coverageDirectory": "coverage",
+    "coverageReporters": [
+      "text",
+      "html"
+    ],
+    "setupFiles": [
+      "<rootDir>/config/jest/setup.js"
+    ],
+    "testMatch": [
+      "<rootDir>/**/__tests__/**/*.js?(x)",
+      "<rootDir>/**/?(*-)(spec|test).js?(x)"
+    ],
+    "testRunner": "jest-circus/runner",
+    "testURL": "http://localhost",
+    "transform": {
+      "^.+\\.(js|jsx)$": "<rootDir>/config/jest/jsTransform.js",
+      "^.+\\.s?css$": "<rootDir>/config/jest/cssTransform.js",
+      "^(?!.*\\.(js|jsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
+    },
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/examples/",
+      "/config/",
+      "/lib/",
+      "/es/",
+      "/cjs/"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "json"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
+  },
+  "bundleSizeThreshold": 120000,
+  "release": {
+    "branch": "master"
+  }
+}

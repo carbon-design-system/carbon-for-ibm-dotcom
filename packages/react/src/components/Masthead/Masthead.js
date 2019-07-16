@@ -10,6 +10,7 @@ import React from 'react';
 
 /**
  * Test MastHead component
+ *
  * @param {string} type Type of masthead
  * @returns {*} Masthead component
  * @class
