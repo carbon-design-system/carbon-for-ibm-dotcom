@@ -1,10 +1,21 @@
 node_modules
+
+# react
 packages/react/es
 packages/react/umd
 packages/react/lib
 packages/react/node_modules
+
+# services
 packages/services/docs
 packages/services/es
 packages/services/umd
 packages/services/lib
 packages/services/node_modules
+
+# utilities
+packages/utilities/docs
+packages/utilities/es
+packages/utilities/umd
+packages/utilities/lib
+packages/utilities/node_modules

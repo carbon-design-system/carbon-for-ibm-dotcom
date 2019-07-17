@@ -1,0 +1,23 @@
+{
+  "tags": {
+    "allowUnknownTags": ["category"]
+  },
+  "source": {
+    "include": ["./src"],
+    "includePattern": ".js$",
+    "excludePattern": "(node_modules/|docs)"
+  },
+  "plugins": [
+    "plugins/markdown"
+  ],
+  "opts": {
+    "encoding": "utf8",
+    "destination": "docs/",
+    "recurse": true,
+    "verbose": true
+  },
+  "templates": {
+    "cleverLinks": false,
+    "monospaceLinks": false
+  }
+}
