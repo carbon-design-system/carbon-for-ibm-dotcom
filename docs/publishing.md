@@ -33,11 +33,11 @@
 
 ## Release
 
-<!-- 6. Set `GH_TOKEN` in your terminal ENV, the specific value will be for the
-   `carbon-bot` functional ID and can be received from another team member.
+6. Set `GH_TOKEN` in your terminal ENV, the specific value will be for the
+   `ibmdotcom-bot` functional ID and can be received from another team member.
 7. Export value above by writing `export GH_TOKEN=XYZ`
 8. Run
-   `./tasks/publish.sh ---exact --conventional-commits --github-release --git-remote upstream` -->
+   `./tasks/publish.sh ---exact --conventional-commits --github-release --git-remote upstream`
 
 ## FAQ
 
