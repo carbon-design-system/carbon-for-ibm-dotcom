@@ -1,0 +1,9 @@
+---
+applications:
+- name: ibmdotcom-storybook
+  memory: 64M
+  buildpack: https://github.com/cloudfoundry/staticfile-buildpack.git
+  routes:
+  - route: ibm-dotcom-storybook.mybluemix.net
+  - route: ibm-dotcom-storybook-temp.mybluemix.net
+
