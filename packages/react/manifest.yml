@@ -1,0 +1,9 @@
+---
+applications:
+- name: dds-storybook
+  memory: 64M
+  buildpack: https://github.com/cloudfoundry/staticfile-buildpack.git
+  routes:
+  - route: dds-story-test.mybluemix.net
+  - route: dds-story-test-temp.mybluemix.net
+

@@ -1,0 +1,10 @@
+node_modules
+packages/react/es
+packages/react/umd
+packages/react/lib
+packages/react/node_modules
+packages/services/docs
+packages/services/es
+packages/services/umd
+packages/services/lib
+packages/services/node_modules
