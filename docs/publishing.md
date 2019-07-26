@@ -23,10 +23,11 @@
    task), if not commit and push changes, then go to Step 1
 5. Make sure dependencies are up-to-date by doing `yarn clean` && `yarn install`
 6. Run `yarn build` to build all package assets
-7. Run `./tasks/publish.sh` with the appropriate flags (see release steps below)
-8. Set `GH_TOKEN` in your terminal ENV, the specific value will be for the
+7. Set `GH_TOKEN` in your terminal ENV, the specific value will be for the
    `ibmdotcom-bot` functional ID and can be received from another team member.
-9. Export value above by writing `export GH_TOKEN=XYZ`
+8. Export value above by writing `export GH_TOKEN=XYZ`
+9. Run `./tasks/publish.sh` with the appropriate flags (see release steps below)
+
 
 ## Release Candidates
 
