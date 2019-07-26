@@ -1,7 +1,6 @@
 {
-  "name": "eslint-config-ibmdotcom",
+  "name": "@ibmdotcom/eslint-config-ibmdotcom",
   "private": true,
-  "version": "1.0.0",
   "license": "Apache-2.0",
   "main": "index.js",
   "repository": "https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/eslint-config-ibmdotcom",
@@ -13,9 +12,6 @@
     "components",
     "react"
   ],
-  "publishConfig": {
-    "access": "public"
-  },
   "peerDependencies": {
     "eslint": "^6.0.0"
   },

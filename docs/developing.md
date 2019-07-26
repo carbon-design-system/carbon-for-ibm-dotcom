@@ -6,6 +6,8 @@
 ## Table of Contents
 
 - [Installing dependencies](#installing-dependencies)
+- [Common tasks](#common-tasks)
+- [Developing Locally](#developing-locally)
 - [FAQ](#faq)
     - [CircleCI is failing saying that it cannot find a dependency in offline mode](#circleci-is-failing-saying-that-it-cannot-find-a-dependency-in-offline-mode)
 

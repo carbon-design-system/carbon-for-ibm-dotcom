@@ -5,7 +5,7 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 ## Table of Contents
 
-- [Pre-release](#pre-release)
+- [Release Candidates](#release-candidates)
 - [Release](#release)
 - [FAQ](#faq)
     - [How do I fix the repo state if I cancel during a publish?](#how-do-i-fix-the-repo-state-if-i-cancel-during-a-publish)
@@ -23,21 +23,24 @@
    task), if not commit and push changes, then go to Step 1
 5. Make sure dependencies are up-to-date by doing `yarn clean` && `yarn install`
 6. Run `yarn build` to build all package assets
-7. Run `./tasks/publish.sh` with the appropriate flags (see release steps below)
+7. Set `GH_TOKEN` in your terminal ENV, the specific value will be for the
+   `ibmdotcom-bot` functional ID and can be received from another team member.
+8. Export value above by writing `export GH_TOKEN=XYZ`
+9. Log into npm with publishing rights via `npm login`
+10. Run `./tasks/publish.sh` with the appropriate flags (see release steps below)
+
 
 ## Release Candidates
 
-6. Run
-   `./tasks/publish.sh --exact --canary minor --preid rc --force-publish=* --npm-tag rc`
-7. Confirm package changes
+11. Run
+   `./tasks/publish.sh --conventional-commits --conventional-prerelease=* --preid rc --force-publish=*`
+12. Confirm package changes
 
 ## Release
 
-6. Set `GH_TOKEN` in your terminal ENV, the specific value will be for the
-   `ibmdotcom-bot` functional ID and can be received from another team member.
-7. Export value above by writing `export GH_TOKEN=XYZ`
-8. Run
+11. Run
    `./tasks/publish.sh ---exact --conventional-commits --create-release=github --git-remote upstream`
+12. Confirm package changes
 
 ## FAQ
 
