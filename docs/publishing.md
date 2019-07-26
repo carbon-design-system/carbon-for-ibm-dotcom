@@ -26,20 +26,21 @@
 7. Set `GH_TOKEN` in your terminal ENV, the specific value will be for the
    `ibmdotcom-bot` functional ID and can be received from another team member.
 8. Export value above by writing `export GH_TOKEN=XYZ`
-9. Run `./tasks/publish.sh` with the appropriate flags (see release steps below)
+9. Log into npm with publishing rights via `npm login`
+10. Run `./tasks/publish.sh` with the appropriate flags (see release steps below)
 
 
 ## Release Candidates
 
-10. Run
+11. Run
    `./tasks/publish.sh --conventional-commits --conventional-prerelease=* --preid rc --force-publish=*`
-11. Confirm package changes
+12. Confirm package changes
 
 ## Release
 
-10. Run
+11. Run
    `./tasks/publish.sh ---exact --conventional-commits --create-release=github --git-remote upstream`
-11. Confirm package changes
+12. Confirm package changes
 
 ## FAQ
 
