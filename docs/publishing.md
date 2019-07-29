@@ -23,23 +23,34 @@
    task), if not commit and push changes, then go to Step 1
 5. Make sure dependencies are up-to-date by doing `yarn clean` && `yarn install`
 6. Run `yarn build` to build all package assets
-7. Set `GH_TOKEN` in your terminal ENV, the specific value will be for the
-   `ibmdotcom-bot` functional ID and can be received from another team member.
+7. Set `GH_TOKEN` in your terminal ENV, the specific value will be the personal access
+   token for the `ibmdotcom-bot` functional ID and can be received from another team member.
 8. Export value above by writing `export GH_TOKEN=XYZ`
+   > NOTE: In case a publish has already been kicked off without setting the GH_TOKEN, 
+the publish flow will request for username/password. Log in as `ibmdotcom-bot`,
+then set the password as the personal access token
+
 9. Log into npm with publishing rights via `npm login`
 10. Run `./tasks/publish.sh` with the appropriate flags (see release steps below)
 
-
 ## Release Candidates
 
-11. Run
-   `./tasks/publish.sh --conventional-commits --conventional-prerelease=* --preid rc --force-publish=*`
+11. If running the initial RC.0 release, run:
+    
+    `./tasks/publish.sh preminor --exact --conventional-commits --conventional-prerelease --preid rc --create-release github --git-remote upstream`
+    
+    otherwise, run for subsequent RC releases:
+    
+    `./tasks/publish.sh --exact --conventional-commits --conventional-prerelease --preid rc --create-release github --git-remote upstream`
+    
 12. Confirm package changes
 
 ## Release
 
 11. Run
-   `./tasks/publish.sh ---exact --conventional-commits --create-release=github --git-remote upstream`
+
+    `./tasks/publish.sh --exact --conventional-commits --conventional-graduate --create-release github --git-remote upstream`
+   
 12. Confirm package changes
 
 ## FAQ

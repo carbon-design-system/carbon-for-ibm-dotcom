@@ -1,6 +1,6 @@
 {
   "lerna": "3.13.4",
-  "version": "independent",
+  "version": "0.0.0",
   "npmClient": "yarn",
   "npmClientArgs": [
     "--frozen-lockfile"
@@ -16,7 +16,7 @@
   ],
   "command": {
     "version": {
-      "message": "chore(release): publish"
+      "message": "chore(release): publish %s"
     }
   }
 }
