@@ -1,0 +1,29 @@
+{
+  "name": "@ibmdotcom/styles",
+  "description": "IBM.com Library Styles",
+  "version": "0.0.0",
+  "license": "Apache-2.0",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "repository": "https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/styles",
+  "bugs": "https://github.com/carbon-design-system/ibm-dotcom-library/issues",
+  "files": [
+    "lib/**/*",
+    "es/**/*",
+    "umd/**/*"
+  ],
+  "keywords": [
+    "react",
+    "carbon",
+    "carbon-components",
+    "ibm",
+    "carbon-design-system",
+    "components"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "start": "yarn"
+  }
+}
