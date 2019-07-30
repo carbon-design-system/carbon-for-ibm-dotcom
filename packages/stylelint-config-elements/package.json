@@ -1,8 +1,8 @@
 {
-  "name": "@carbon/stylelint-config-elements",
+  "name": "@ibmdotcom/stylelint-config-elements",
   "private": true,
+  "version": "0.0.0",
   "description": "Stylelint configuration for Carbon Elements",
-  "version": "10.0.0",
   "license": "Apache-2.0",
   "main": "index.js",
   "repository": "https://github.com/carbon-design-system/carbon/tree/master/packages/stylelint-config-elements",
@@ -16,9 +16,6 @@
     "components",
     "react"
   ],
-  "publishConfig": {
-    "access": "public"
-  },
   "peerDependencies": {
     "stylelint": "^9.10.1"
   },
