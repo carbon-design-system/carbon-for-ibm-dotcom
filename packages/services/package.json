@@ -1,7 +1,7 @@
 {
   "name": "@ibmdotcom/services",
   "description": "IBM.com Library Services",
-  "version": "0.1.0-rc.0",
+  "version": "0.1.0",
   "license": "Apache-2.0",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -133,5 +133,5 @@
   "release": {
     "branch": "master"
   },
-  "gitHead": "a1e15fa11d4bd23f66a930b6a179784688d0f509"
+  "gitHead": "2f315158472924e2416bc7b4eb83a0363e89ba69"
 }
