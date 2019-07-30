@@ -17,6 +17,7 @@ const rollupPath = path
 
 /**
  * Executes the corresponding comment
+ *
  * @param {string} command Command to run
  * @param {object} extraEnv Additional environment configurations
  * @returns {Buffer} Buffer stream
