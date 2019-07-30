@@ -1,0 +1,20 @@
+{
+  "name": "@ibmdotcom/styles",
+  "description": "IBM.com Library Styles",
+  "version": "0.1.0",
+  "license": "Apache-2.0",
+  "repository": "https://github.com/kennylam/ibm-dotcom-library/styles",
+  "dependencies": {},
+  "devDependencies": {
+    "carbon-components": "^10.4.1",
+    "del": "^3.0.0",
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.2.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5"
+  },
+  "scripts": {
+    "start": "gulp"
+  }
+}
