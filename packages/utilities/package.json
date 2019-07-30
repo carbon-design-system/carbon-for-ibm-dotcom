@@ -1,7 +1,7 @@
 {
   "name": "@ibmdotcom/utilities",
   "description": "IBM.com Library Utilities",
-  "version": "0.0.0",
+  "version": "0.1.0-rc.0",
   "license": "Apache-2.0",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -132,5 +132,6 @@
   "bundleSizeThreshold": 120000,
   "release": {
     "branch": "master"
-  }
+  },
+  "gitHead": "a1e15fa11d4bd23f66a930b6a179784688d0f509"
 }
