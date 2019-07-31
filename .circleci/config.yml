@@ -64,6 +64,7 @@ jobs:
             # Default storybook build
             cd packages/react
             yarn build-storybook
+
             ibmcloud cf blue-green-deploy ibmdotcom-storybook \
               -f manifest.yml \
               --delete-old-apps
@@ -159,3 +160,4 @@ workflows:
               ignore: /.*/
             tags:
               only: /^v\d+\.\d+\.\d+$/
+
