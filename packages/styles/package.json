@@ -1,29 +1,18 @@
 {
   "name": "@kennylam/styles",
   "description": "IBM.com Library Styles",
-  "version": "0.1.1",
+  "version": "0.3.0",
   "license": "Apache-2.0",
-  "main": "lib/index.js",
-  "module": "es/index.js",
-  "repository": "https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/styles",
-  "bugs": "https://github.com/carbon-design-system/ibm-dotcom-library/issues",
-  "files": [
-    "lib/**/*",
-    "es/**/*",
-    "umd/**/*"
-  ],
-  "keywords": [
-    "react",
-    "carbon",
-    "carbon-components",
-    "ibm",
-    "carbon-design-system",
-    "components"
-  ],
-  "publishConfig": {
-    "access": "public"
+  "repository": "https://github.com/kennylam/ibm-dotcom-library/styles",
+  "dependencies": {},
+  "devDependencies": {
+    "del": "^3.0.0",
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.2.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2"
   },
   "scripts": {
-    "start": "yarn"
+    "start": "gulp"
   }
 }
