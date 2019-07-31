@@ -26,7 +26,6 @@
   "scripts": {
     "start": "gulp"
   },
-  "dependencies": {},
   "devDependencies": {
     "carbon-components": "^10.4.1",
     "del": "^3.0.0",
