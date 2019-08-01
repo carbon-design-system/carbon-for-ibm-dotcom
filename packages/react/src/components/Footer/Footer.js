@@ -11,7 +11,6 @@ import React from 'react';
 class Footer extends React.Component {
   /**
    * Renders the footer component
-   *
    * @returns {object} JSX object
    */
   render() {
