@@ -1,11 +1,11 @@
 {
   "name": "@ibmdotcom/styles",
   "description": "IBM.com Library Styles",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "Apache-2.0",
   "main": "lib/index.js",
   "module": "es/index.js",
-  "repository": "https://github.com/caron-design-system/ibm-dotcom-library/tree/master/packages/styles",
+  "repository": "https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/styles",
   "bugs": "https://github.com/carbon-design-system/ibm-dotcom-library/issues",
   "files": [
     "lib/**/*",
