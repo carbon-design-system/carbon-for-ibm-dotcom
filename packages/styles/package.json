@@ -24,7 +24,8 @@
     "access": "public"
   },
   "scripts": {
-    "start": "gulp"
+    "build": "gulp",
+    "start": "gulp dev"
   },
   "devDependencies": {
     "carbon-components": "^10.4.1",
