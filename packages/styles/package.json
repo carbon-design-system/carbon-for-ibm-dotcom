@@ -3,14 +3,13 @@
   "description": "IBM.com Library Styles",
   "version": "0.1.1",
   "license": "Apache-2.0",
-  "main": "lib/index.js",
-  "module": "es/index.js",
+  "main": "dist/ibm-dotcom-styles.min.css",
+  "module": "src/scss",
   "repository": "https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/styles",
   "bugs": "https://github.com/carbon-design-system/ibm-dotcom-library/issues",
   "files": [
-    "lib/**/*",
-    "es/**/*",
-    "umd/**/*"
+    "dist/**/*",
+    "src/**/*"
   ],
   "keywords": [
     "react",
