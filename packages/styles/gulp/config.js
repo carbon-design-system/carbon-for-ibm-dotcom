@@ -7,6 +7,6 @@ global.config = {
   distPath: 'dist/**/*',
   distCss: 'ibm-dotcom-styles.css',
   distCssMin: 'ibm-dotcom-styles.min.css',
-  scssEntry: 'src/scss/ibm-dotcom-styles.scss',
-  scssFiles: 'src/**/**/*.scss',
+  scssEntry: 'scss/ibm-dotcom-styles.scss',
+  scssFiles: 'scss/**/*.scss',
 };
