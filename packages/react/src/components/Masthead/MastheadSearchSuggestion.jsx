@@ -1,0 +1,67 @@
+import React from 'react';
+import classNames from 'classnames';
+import parse from 'autosuggest-highlight/parse';
+
+/**
+ * Matches a suggestion name with the query
+ *
+ * @param {*}regexp The regex expression containg the query and the global match flag
+ * @param {string} haystack The suggestion
+ * @returns {Array} Array of matches
+ * @private
+ */
+function _matchAll(regexp, haystack) {
+  const matches = [];
+  let match = regexp.exec(haystack);
+  while (match) {
+    matches.push([
+      match.index,
+      match.index + match[0].length,
+    ]);
+    match = regexp.exec(haystack);
+  }
+  return matches;
+}
+
+/**
+ * The rendered suggestion in the suggestion list
+ *
+ * @param {object} suggestion The individual object from the data
+ * @param {string} query The query being searched for
+ * @param {boolean} isHighlighted Whether the suggestion is currently highlighted by the user
+ * @param {Function} getSuggestionValue Gets the suggestion value
+ * @returns {*} The individual suggested item with styles
+ * @class
+ */
+export const MastheadSearchSuggestion = (
+  suggestion,
+  query,
+  isHighlighted,
+  getSuggestionValue,
+) => {
+  const suggestionValue = getSuggestionValue(suggestion);
+  const matches = _matchAll(new RegExp(query, 'gi'), suggestionValue);
+  const parts = parse(suggestionValue, matches);
+
+  return (
+    <div
+      className={classNames(
+        styles.suggestion,
+        {[styles.highlightedContainer]: isHighlighted},
+      )}
+    >
+      <div className={styles.suggestionText}>
+        {
+          parts.map((part, index) => (
+            <span
+              className={classNames({[styles.highlightText]: part.highlight})}
+              key={index}
+            >
+                {part.text}
+            </span>
+          ))
+        }
+      </div>
+    </div>
+  );
+};

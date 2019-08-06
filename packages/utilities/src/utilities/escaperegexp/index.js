@@ -6,4 +6,3 @@
  */
 
 export * from './escaperegexp';
-export * from './serialize';
