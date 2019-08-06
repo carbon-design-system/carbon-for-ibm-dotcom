@@ -132,64 +132,6 @@
     "whatwg-fetch": "^2.0.3"
   },
   "sideEffects": false,
-  "babel": {
-    "presets": [
-      "./scripts/env",
-      "@babel/preset-react"
-    ],
-    "plugins": [
-      "dev-expression",
-      "macros",
-      "@babel/plugin-syntax-dynamic-import",
-      "@babel/plugin-syntax-import-meta",
-      "@babel/plugin-proposal-class-properties",
-      "@babel/plugin-proposal-export-namespace-from",
-      "@babel/plugin-proposal-export-default-from"
-    ]
-  },
-  "jest": {
-    "collectCoverageFrom": [
-      "src/components/**/*.js",
-      "!src/components/**/*-story.js"
-    ],
-    "coverageDirectory": "coverage",
-    "coverageReporters": [
-      "text",
-      "html"
-    ],
-    "setupFiles": [
-      "<rootDir>/config/jest/setup.js"
-    ],
-    "testMatch": [
-      "<rootDir>/**/__tests__/**/*.js?(x)",
-      "<rootDir>/**/?(*-)(spec|test).js?(x)"
-    ],
-    "testRunner": "jest-circus/runner",
-    "testURL": "http://localhost",
-    "transform": {
-      "^.+\\.(js|jsx)$": "<rootDir>/config/jest/jsTransform.js",
-      "^.+\\.s?css$": "<rootDir>/config/jest/cssTransform.js",
-      "^(?!.*\\.(js|jsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
-    },
-    "testPathIgnorePatterns": [
-      "/node_modules/",
-      "/examples/",
-      "/config/",
-      "/lib/",
-      "/es/",
-      "/cjs/"
-    ],
-    "transformIgnorePatterns": [
-      "[/\\\\]node_modules[/\\\\](?!(carbon-icons)).+\\.(js|jsx)$"
-    ],
-    "moduleFileExtensions": [
-      "js",
-      "json"
-    ],
-    "snapshotSerializers": [
-      "enzyme-to-json/serializer"
-    ]
-  },
   "bundleSizeThreshold": 120000,
   "release": {
     "branch": "master"
