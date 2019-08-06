@@ -1,0 +1,56 @@
+{
+  "phrase-suggestions": {
+    "text": "red hat",
+    "offset": 0,
+    "length": 7,
+    "options": []
+  },
+  "product-suggestions": {
+    "results": {
+      "total": 142,
+      "max_score": 206.21886,
+      "items": [
+        {
+          "id": "5af31f850ae429daad9c8f49",
+          "type": "product",
+          "score": 206.21886,
+          "fields": {
+            "doc.name": [
+              "IBM Technology Support Services for Red Hat Products"
+            ]
+          }
+        },
+        {
+          "id": "5a4673e934b622434f8b61c5",
+          "type": "product",
+          "score": 12.559728,
+          "fields": {
+            "doc.name": [
+              "Warehouse Exchange"
+            ]
+          }
+        },
+        {
+          "id": "59c529c781d43a6d117ad573",
+          "type": "product",
+          "score": 11.368658,
+          "fields": {
+            "doc.name": [
+              "Aspera Shares"
+            ]
+          }
+        },
+        {
+          "id": "5b1839212f88100671e7ee85",
+          "type": "product",
+          "score": 10.791128,
+          "fields": {
+            "doc.name": [
+              "IBM Phytel Remind"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
