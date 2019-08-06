@@ -21,10 +21,38 @@ set -x
 cd ..
 root_path=$PWD
 
-if [ -n "$(git status --porcelain)" ]; then
-  echo "Your git status is not clean. Aborting.";
-  exit 1;
-fi
+# if [ -n "$(git status --porcelain)" ]; then
+#  echo "Your git status is not clean. Aborting.";
+#  exit 1;
+# fi
 
 # Go!
-./node_modules/.bin/lerna publish "$@"
+echo "What type of release are you running?"
+options=(
+  "alpha release"
+  "rc.0 (first release candidate)"
+  ">rc.0 (subsequent release candidates)"
+  "full release"
+  "cancel"
+)
+select release in "${options[@]}";
+do
+    case "$release" in
+        "alpha release")
+          ./tasks/publish.sh --canary minor --dist-tag canary --no-push --no-git-tag-version
+          ;;
+        "rc.0 (first release candidate)")
+          ./tasks/publish.sh preminor --exact --conventional-commits --conventional-prerelease --preid rc --no-git-tag-version
+          ;;
+        ">rc.0 (subsequent release candidates)")
+          ./tasks/publish.sh --exact --conventional-commits --conventional-prerelease --preid rc --no-git-tag-version
+          ;;
+        "full release")
+          ./tasks/publish.sh --exact --conventional-commits --conventional-graduate --no-git-tag-version
+          ;;
+        "cancel")
+          break
+          ;;
+        *) echo "invalid option $REPLY";;
+    esac
+done
