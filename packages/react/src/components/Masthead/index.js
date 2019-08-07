@@ -5,4 +5,5 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-export default from './Masthead';
+export { default as Masthead } from './Masthead';
+export { default as MastheadSearch } from './MastheadSearch';

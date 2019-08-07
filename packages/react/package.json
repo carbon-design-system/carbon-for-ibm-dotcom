@@ -46,6 +46,7 @@
   },
   "dependencies": {
     "@carbon/icons-react": "10.3.0",
+    "autosuggest-highlight": "^3.1.1",
     "classnames": "2.2.6",
     "downshift": "^1.31.14",
     "flatpickr": "4.6.1",

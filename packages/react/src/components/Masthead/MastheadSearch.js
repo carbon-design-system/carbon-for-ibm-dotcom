@@ -7,10 +7,11 @@
 
 import React, { useReducer } from 'react';
 import PropTypes from 'prop-types';
+import Autosuggest from 'react-autosuggest';
 import { SearchTypeaheadAPI } from '@ibmdotcom/services';
 import { escapeRegExp } from '@ibmdotcom/utilities';
-import { MastheadSearchInput, MastheadSearchSuggestion } from './';
-
+import MastheadSearchInput from './MastheadSearchInput';
+import MastheadSearchSuggestion from './MastheadSearchSuggestion';
 
 /**
  * Converts the string to lower case and trims extra white space
@@ -26,7 +27,7 @@ const _trimAndLower = valueString => valueString.toLowerCase().trim();
  * @param {object} suggestion The individual object from the data
  * @returns {*} The name val
  */
-const _getSuggestionValue = suggestion => suggestion.name;
+const _getSuggestionValue = suggestion => suggestion[0];
 
 /**
  * Initial state of the autocomplete component
@@ -52,17 +53,19 @@ const _initialState = {
 function _reducer(state, action) {
   switch (action.type) {
     case 'setVal':
-      return Object.assign({}, state, {val: action.payload.val});
+      return Object.assign({}, state, { val: action.payload.val });
     case 'emptySuggestions':
-      return Object.assign({}, state, {suggestions: []});
+      return Object.assign({}, state, { suggestions: [] });
     case 'setPrevSuggestions':
-      return Object.assign({}, state, {prevSuggestions: action.payload.prevSuggestions});
+      return Object.assign({}, state, {
+        prevSuggestions: action.payload.prevSuggestions,
+      });
     case 'setSuggestionsToPrevious':
-      return Object.assign({}, state, {suggestions: state.prevSuggestions});
+      return Object.assign({}, state, { suggestions: state.prevSuggestions });
     case 'showSuggestionsContainer':
-      return Object.assign({}, state, {suggestionContainerVisible: true});
+      return Object.assign({}, state, { suggestionContainerVisible: true });
     case 'hideSuggestionsContainer':
-      return Object.assign({}, state, {suggestionContainerVisible: false});
+      return Object.assign({}, state, { suggestionContainerVisible: false });
     default:
       return state;
   }
@@ -76,15 +79,12 @@ function _reducer(state, action) {
  * http://react-autosuggest.js.org/
  * https://github.com/moroshko/react-autosuggest
  *
- * @param {string} placeHolderText Placeholder text for the search field
- * @param {number} renderValue Number of characters to begin showing suggestions
- * @param {Function} getSuggestionValue Function for getting the suggestion value
+ * @param {object} props Incoming props
+ * @param {string} props.placeHolderText Placeholder text for the search field
+ * @param {number} props.renderValue Number of characters to begin showing suggestions
  * @class
  */
-const MastheadSearch = ({
-    placeHolderText,
-    renderValue,
-}) => {
+const MastheadSearch = ({ placeHolderText, renderValue }) => {
   const [state, dispatch] = useReducer(_reducer, _initialState);
 
   /**
@@ -94,7 +94,7 @@ const MastheadSearch = ({
    * @param {string} newValue The new val of the input
    */
   function onChange(event, { newValue }) {
-    dispatch({type: 'setVal', payload: {val: newValue}});
+    dispatch({ type: 'setVal', payload: { val: newValue } });
   }
 
   /**
@@ -106,8 +106,12 @@ const MastheadSearch = ({
     placeholder: placeHolderText,
     value: state.val,
     onChange,
-    onFocus: (e) => { e.target.placeholder = ''; },
-    onBlur: (e) => { e.target.placeholder = placeHolderText; },
+    onFocus: e => {
+      e.target.placeholder = '';
+    },
+    onBlur: e => {
+      e.target.placeholder = placeHolderText;
+    },
   };
 
   /**
@@ -128,12 +132,13 @@ const MastheadSearch = ({
   /**
    * Renders the Suggestion Value with the function for the adding the suggestion
    *
-   * @param {object} suggestion The suggestion
-   * @param {string} query The query being searched for
-   * @param {boolean} isHighlighted Whether the suggestion is currently highlighted by the user
+   * @param {object} suggestion The suggestion to render
+   * @param {object} properties The property object of the incoming suggestion
+   * @param {string} properties.query The query being searched for
+   * @param {boolean} properties.isHighlighted Whether the suggestion is currently highlighted by the user
    * @returns {*} The suggestion value
    */
-  function renderSuggestionValue(suggestion, {query, isHighlighted}) {
+  function renderSuggestion(suggestion, { query, isHighlighted }) {
     return (
       <MastheadSearchSuggestion
         suggestion={suggestion}
@@ -156,18 +161,26 @@ const MastheadSearch = ({
    * @param {string} request.value the current value of the input
    * @param {string} request.reason string describing why onSuggestionsFetchRequested was called
    */
-  function onSuggestionsFetchRequest(request) {
+  async function onSuggestionsFetchRequest(request) {
     const searchValue = _trimAndLower(escapeRegExp(request.value));
 
-    if (request.reason === 'input-changed') { // if the search input has changed
-      SearchTypeaheadAPI.getResults(searchValue).then((response) => {
-        dispatch({type: 'setPrevSuggestions', payload: {prevSuggestions: response}});
-        dispatch({type: 'setSuggestionsToPrevious'});
-        dispatch({type: 'showSuggestionsContainer'});
-      });
+    if (request.reason === 'input-changed') {
+      // if the search input has changed
+      let response = await SearchTypeaheadAPI.getResults(searchValue);
+      console.log('response', response);
+
+      if (response !== undefined) {
+        console.log('response', response);
+        dispatch({
+          type: 'setPrevSuggestions',
+          payload: { prevSuggestions: response },
+        });
+        dispatch({ type: 'setSuggestionsToPrevious' });
+        dispatch({ type: 'showSuggestionsContainer' });
+      }
     } else {
-      dispatch({type: 'setSuggestionsToPrevious'});
-      dispatch({type: 'showSuggestionsContainer'});
+      dispatch({ type: 'setSuggestionsToPrevious' });
+      dispatch({ type: 'showSuggestionsContainer' });
     }
   }
 
@@ -175,8 +188,8 @@ const MastheadSearch = ({
    * Called every time we clear suggestions
    */
   function onSuggestionsClearedRequested() {
-    dispatch({type: 'emptySuggestions'});
-    dispatch({type: 'hideSuggestionsContainer'});
+    dispatch({ type: 'emptySuggestions' });
+    dispatch({ type: 'hideSuggestionsContainer' });
   }
 
   /**
@@ -190,15 +203,13 @@ const MastheadSearch = ({
   }
 
   return (
-    <div
-      data-autoid="masthead__search"
-    >
+    <div data-autoid="masthead__search">
       <Autosuggest
         suggestions={state.suggestions} // The state value of suggestion
         onSuggestionsFetchRequested={onSuggestionsFetchRequest} // Method to fetch data (should be async call)
         onSuggestionsClearRequested={onSuggestionsClearedRequested} // When input bar loses focus
         getSuggestionValue={_getSuggestionValue} // Name of suggestion
-        renderSuggestion={renderSuggestionValue} // How to display a suggestion
+        renderSuggestion={renderSuggestion} // How to display a suggestion
         onSuggestionSelected={null} // When a suggestion is selected
         highlightFirstSuggestion // First suggestion is highlighted by default
         inputProps={inputProps}
@@ -212,7 +223,7 @@ const MastheadSearch = ({
 /**
  * @property propTypes
  * @description Defined property types for component
- * @type {{items: *}}
+ * @type {{placeHolderText: shim, renderValue: shim}}
  */
 MastheadSearch.propTypes = {
   placeHolderText: PropTypes.string,
@@ -220,8 +231,8 @@ MastheadSearch.propTypes = {
 };
 
 /**
- *
- * @type {{setSuggestionValue: (function(*=): {name: *}), placeHolderText: string, renderValue: number}}
+ * @property defaultProps
+ * @type {{placeHolderText: string, renderValue: number}}
  */
 MastheadSearch.defaultProps = {
   placeHolderText: '',
