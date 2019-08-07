@@ -8,6 +8,7 @@ const commonjs = require('rollup-plugin-commonjs');
 const resolve = require('rollup-plugin-node-resolve');
 const babel = require('rollup-plugin-babel');
 const replace = require('rollup-plugin-replace');
+const json = require('rollup-plugin-json');
 const { terser } = require('rollup-plugin-terser');
 const sizes = require('rollup-plugin-sizes');
 
@@ -86,6 +87,7 @@ module.exports = {
     replace({
       'process.env.NODE_ENV': JSON.stringify(env),
     }),
+    json(),
     ...prodSettings,
   ],
   external: peerDependencies.filter(
