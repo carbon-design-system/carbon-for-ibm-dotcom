@@ -6,6 +6,7 @@ const gzip = require('gzip-size');
 
 const commonjs = require('rollup-plugin-commonjs');
 const resolve = require('rollup-plugin-node-resolve');
+const builtins = require('rollup-plugin-node-builtins');
 const babel = require('rollup-plugin-babel');
 const replace = require('rollup-plugin-replace');
 const json = require('rollup-plugin-json');
@@ -82,11 +83,13 @@ module.exports = {
       },
     }),
     babel({
+      runtimeHelpers: true,
       exclude: ['node_modules/**'], // only transpile our source code
     }),
     replace({
       'process.env.NODE_ENV': JSON.stringify(env),
     }),
+    builtins(),
     json(),
     ...prodSettings,
   ],
