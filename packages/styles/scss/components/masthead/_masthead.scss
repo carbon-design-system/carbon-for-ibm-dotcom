@@ -19,7 +19,7 @@
     background: $ui-02;
     border-bottom: 1px solid $ui-01;
 
-    & > svg {
+    > svg {
       margin: 0 $spacing-07;
     }
   }
@@ -30,7 +30,7 @@
 
       &:hover {
         background-color: $ui-01;
-        & > svg {
+        > svg {
           fill: $text-01;
         }
       }
@@ -49,7 +49,7 @@
   }
 
   .#{$prefix}--header__action {
-    & > {
+    > {
       svg {
         fill: $text-01;
       }
@@ -57,7 +57,7 @@
 
     &:hover {
       background-color: $ui-01;
-      & > {
+      > {
         svg {
           fill: $text-01;
         }
@@ -69,4 +69,3 @@
 @include exports('masthead') {
   @include masthead;
 }
-
