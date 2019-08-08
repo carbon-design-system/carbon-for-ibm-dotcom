@@ -6,6 +6,7 @@ const gzip = require('gzip-size');
 
 const commonjs = require('rollup-plugin-commonjs');
 const resolve = require('rollup-plugin-node-resolve');
+const builtins = require('rollup-plugin-node-builtins');
 const babel = require('rollup-plugin-babel');
 const json = require('rollup-plugin-json');
 const replace = require('rollup-plugin-replace');
@@ -60,6 +61,7 @@ module.exports = {
   input: 'src/index.js',
   plugins: [
     resolve({
+      browser: true,
       mainFields: ['jsnext', 'module', 'main'],
     }),
     commonjs({
@@ -72,6 +74,7 @@ module.exports = {
     replace({
       'process.env.NODE_ENV': JSON.stringify(env),
     }),
+    builtins(),
     json(),
     ...prodSettings,
   ],
