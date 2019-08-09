@@ -64,21 +64,25 @@ do
     case "$release" in
         "alpha release")
           echo "Creating alpha release..."
+          set -x
           ./node_modules/.bin/lerna publish --canary minor --dist-tag canary --no-push --no-git-tag-version
           exit 1
           ;;
         "rc.0 (first release candidate)")
           echo "Creating rc.0 release..."
+          set -x
           ./node_modules/.bin/lerna publish preminor --exact --conventional-commits --conventional-prerelease --preid rc --no-git-tag-version
           exit 1
           ;;
         ">rc.0 (subsequent release candidates)")
           echo "Creating rc.1+ release..."
+          set -x
           ./node_modules/.bin/lerna publish --exact --conventional-commits --conventional-prerelease --preid rc --no-git-tag-version
           exit 1
           ;;
         "full release")
           echo "Creating full release..."
+          set -x
           ./node_modules/.bin/lerna publish --exact --conventional-commits --conventional-graduate --no-git-tag-version
           exit 1
           ;;
