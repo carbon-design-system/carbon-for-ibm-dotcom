@@ -9,8 +9,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Search20 from '@carbon/icons-react/lib/search/20';
 import UserProfile20 from '@carbon/icons-react/lib/user--profile/20';
-import { ReactComponent as Logo } from '../Icons/svg/ibm-logo.svg';
 import HeaderContainer from 'carbon-components-react/lib/components/UIShell/HeaderContainer';
+// import { ReactComponent as Logo } from '../Icon/svg/ibm-logo.svg';
+import Icon from '../Icon';
+import '@ibmdotcom/styles/scss/components/masthead/_masthead.scss';
 import {
   Header,
   HeaderMenuButton,
@@ -56,7 +58,7 @@ const Masthead = ({ navigation, type }) => {
                   onClick={onClickSideNavExpand}
                   isActive={isSideNavExpanded}
                 />
-                <Logo />
+                <Icon type="ibm-logo" size={20} />
                 <HeaderNavigation aria-label="IBM">
                   {navigation.map(item => {
                     if (item.subnav) {
