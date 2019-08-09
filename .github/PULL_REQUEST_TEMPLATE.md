@@ -6,7 +6,7 @@
 
 {{Add a human-readable description / detail summary of what the PR is changing and any details around how and why}}
 
-{{Include a screenshot indicating an example or examples of what the PR is changing in the application}}
+{{If applicable, include a screenshot indicating an example or examples of what the PR is changing in the application}}
 
 ### Changelog
 
