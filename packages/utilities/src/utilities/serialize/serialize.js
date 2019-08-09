@@ -4,6 +4,7 @@
 
 /**
  * Converts a JSON object to a serialized string
+ *
  * @param {object} obj Object to convert
  * @returns {string} Serialized string
  */

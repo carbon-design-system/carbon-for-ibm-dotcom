@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 /**
  * MarketingSearch API
  *
@@ -38,11 +40,16 @@ export default class MarketingSearchAPI {
   static async getResults(query) {
     const lc = 'en'; // TODO: create utility for fetching lc
     const cc = 'us'; // TODO: create utility for fetching cc
+    const url = `${_endpoint}?locale=${lc}-${cc}&q=${encodeURIComponent(
+      query
+    )}`;
 
-    let response = await fetch(
-      `${_endpoint}?locale=${lc}-${cc}&q=${encodeURIComponent(query)}`
-    );
-
-    return await response.json();
+    return await axios
+      .get(url, {
+        headers: {
+          'Content-Type': 'application/json; charset=utf-8',
+        },
+      })
+      .then(response => response.data);
   }
 }

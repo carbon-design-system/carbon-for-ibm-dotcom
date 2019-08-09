@@ -5,4 +5,5 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-export Masthead from './components/Masthead';
+export * from './Footer';
+export * from './Masthead';

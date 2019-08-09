@@ -1,19 +1,30 @@
 node_modules
 
 # react
+packages/react/coverage
 packages/react/es
 packages/react/umd
 packages/react/lib
 packages/react/node_modules
+packages/react/storybook-static
 
 # services
+packages/services/coverage
 packages/services/docs
 packages/services/es
 packages/services/umd
 packages/services/lib
 packages/services/node_modules
 
+# styles
+packages/styles/dist
+packages/styles/es
+packages/styles/umd
+packages/styles/lib
+packages/styles/node_modules
+
 # utilities
+packages/utilities/coverage
 packages/utilities/docs
 packages/utilities/es
 packages/utilities/umd
