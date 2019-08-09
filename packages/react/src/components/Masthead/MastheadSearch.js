@@ -8,10 +8,19 @@
 import React, { useReducer } from 'react';
 import PropTypes from 'prop-types';
 import Autosuggest from 'react-autosuggest';
+import root from 'window-or-global';
 import { SearchTypeaheadAPI } from '@ibmdotcom/services';
 import { escapeRegExp } from '@ibmdotcom/utilities';
 import MastheadSearchInput from './MastheadSearchInput';
 import MastheadSearchSuggestion from './MastheadSearchSuggestion';
+
+/**
+ * Sets up the redirect URL when a user selects a search suggestion
+ *
+ * @type {string}
+ * @private
+ */
+const _redirectUrl = `https://www.ibm.com/search?lnk=mhsrch`;
 
 /**
  * Converts the string to lower case and trims extra white space
@@ -167,10 +176,8 @@ const MastheadSearch = ({ placeHolderText, renderValue }) => {
     if (request.reason === 'input-changed') {
       // if the search input has changed
       let response = await SearchTypeaheadAPI.getResults(searchValue);
-      console.log('response', response);
 
       if (response !== undefined) {
-        console.log('response', response);
         dispatch({
           type: 'setPrevSuggestions',
           payload: { prevSuggestions: response },
@@ -193,6 +200,19 @@ const MastheadSearch = ({ placeHolderText, renderValue }) => {
   }
 
   /**
+   * Sends the user to the search results page when a suggestion is selected
+   *
+   * @param {object} event The event object
+   * @param {object} params Param object coming from react-autosuggest
+   * @param {string} params.suggestionValue Suggestion value
+   */
+  function onSuggestionSelected(event, { suggestionValue }) {
+    const lang = 'en'; // TODO: pull lang from locale selector
+    const cc = 'us'; // TODO: pull cc from the locale selector
+    root.location.href = `${_redirectUrl}&q=${suggestionValue}&lang=${lang}&cc=${cc}`;
+  }
+
+  /**
    * Only render suggestions if we have more than the renderValue
    *
    * @param {string} value Name of the suggestion
@@ -210,7 +230,7 @@ const MastheadSearch = ({ placeHolderText, renderValue }) => {
         onSuggestionsClearRequested={onSuggestionsClearedRequested} // When input bar loses focus
         getSuggestionValue={_getSuggestionValue} // Name of suggestion
         renderSuggestion={renderSuggestion} // How to display a suggestion
-        onSuggestionSelected={null} // When a suggestion is selected
+        onSuggestionSelected={onSuggestionSelected} // When a suggestion is selected
         highlightFirstSuggestion // First suggestion is highlighted by default
         inputProps={inputProps}
         renderInputComponent={renderInputComponent}
