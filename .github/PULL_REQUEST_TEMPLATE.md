@@ -1,8 +1,14 @@
-Closes #
+### Related Ticket(s)
 
-{{short description}}
+{{Provide url(s) to the related ticket(s) that this pull request addresses}}
 
-#### Changelog
+### Description
+
+{{Add a human-readable description / detail summary of what the PR is changing and any details around how and why}}
+
+{{Include a screenshot indicating an example or examples of what the PR is changing in the application}}
+
+### Changelog
 
 **New**
 
@@ -10,7 +16,7 @@ Closes #
 
 **Changed**
 
-- {{change thing}}
+- {{changed thing}}
 
 **Removed**
 
