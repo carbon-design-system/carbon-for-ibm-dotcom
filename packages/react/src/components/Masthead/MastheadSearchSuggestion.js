@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import classNames from 'classnames';
+import classNames from 'classnames';
 import parse from 'autosuggest-highlight/parse';
 
 /**
@@ -41,12 +41,21 @@ const MastheadSearchSuggestion = ({
   const suggestionValue = getSuggestionValue(suggestion);
   const matches = _matchAll(new RegExp(query, 'gi'), suggestionValue);
   const parts = parse(suggestionValue, matches);
-  console.log(isHighlighted);
 
   return (
-    <div>
+    <div
+      className={classNames('container-class', {
+        ['container-highlight-class']: isHighlighted,
+      })}
+      data-autoid={`masthead__searchresults--suggestion`}>
       {parts.map((part, index) => (
-        <span key={index}>{part.text}</span>
+        <span
+          key={index}
+          style={{
+            fontWeight: part.highlight ? 600 : 400, // TODO: switch to final styles
+          }}>
+          {part.text}
+        </span>
       ))}
     </div>
   );

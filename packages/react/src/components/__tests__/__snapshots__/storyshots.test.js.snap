@@ -313,6 +313,7 @@ Array [
                   aria-controls="react-autowhatever-1"
                   autoComplete="off"
                   className="react-autosuggest__input"
+                  data-autoid="masthead__search--input"
                   onBlur={[Function]}
                   onChange={[Function]}
                   onFocus={[Function]}

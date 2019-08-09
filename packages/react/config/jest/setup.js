@@ -6,6 +6,12 @@ jest.unmock('object-assign');
 
 global.__DEV__ = true;
 
+global.window = {
+  location: {
+    href: null,
+  },
+};
+
 require('../polyfills');
 
 const enzyme = require.requireActual('enzyme');
