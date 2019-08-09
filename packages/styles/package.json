@@ -27,8 +27,8 @@
     "start": "gulp dev"
   },
   "devDependencies": {
-    "carbon-components": "^10.4.1",
     "@carbon/themes": "^10.4.0",
+    "carbon-components": "^10.4.1",
     "del": "^3.0.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^6.1.0",
@@ -44,5 +44,7 @@
     "branch": "master"
   },
   "gitHead": "7011e424c53bf6494178e2d22ed738e07acc64d0",
-  "dependencies": {}
+  "dependencies": {
+    "@carbon/grid": "^10.4.0"
+  }
 }
