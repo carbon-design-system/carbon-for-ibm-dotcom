@@ -22,10 +22,10 @@ cd ..
 root_path=$PWD
 
 # Check the git status first
-if [ -n "$(git status --porcelain)" ]; then
-  echo "Your git status is not clean. Aborting.";
-  exit 1;
-fi
+#if [ -n "$(git status --porcelain)" ]; then
+#  echo "Your git status is not clean. Aborting.";
+#  exit 1;
+#fi
 
 # Go!
 PS3='Select an option and press Enter: '
@@ -65,21 +65,25 @@ do
         "alpha release")
           echo "Creating alpha release..."
           ./node_modules/.bin/lerna publish --canary minor --dist-tag canary --no-push --no-git-tag-version
+          exit 1
           ;;
         "rc.0 (first release candidate)")
           echo "Creating rc.0 release..."
           ./node_modules/.bin/lerna publish preminor --exact --conventional-commits --conventional-prerelease --preid rc --no-git-tag-version
+          exit 1
           ;;
         ">rc.0 (subsequent release candidates)")
           echo "Creating rc.1+ release..."
           ./node_modules/.bin/lerna publish --exact --conventional-commits --conventional-prerelease --preid rc --no-git-tag-version
+          exit 1
           ;;
         "full release")
           echo "Creating full release..."
           ./node_modules/.bin/lerna publish --exact --conventional-commits --conventional-graduate --no-git-tag-version
+          exit 1
           ;;
         "cancel")
-          break
+          exit 1
           ;;
         *) echo "invalid option $REPLY";;
     esac
