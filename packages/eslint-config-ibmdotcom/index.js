@@ -30,6 +30,8 @@ module.exports = {
     'react/jsx-uses-react': 1,
     'react/no-find-dom-node': 1,
     'react/no-typos': 2,
+    'react/no-unused-prop-types': 2,
+    'react/prop-types': 2,
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'error',
     'jsdoc/require-jsdoc': [
