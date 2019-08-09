@@ -15,40 +15,68 @@ cd "$(dirname "$0")"
 set -e
 
 # Echo every command being executed
-set -x
+# set -x
 
 # Go to root
 cd ..
 root_path=$PWD
 
-# if [ -n "$(git status --porcelain)" ]; then
-#  echo "Your git status is not clean. Aborting.";
-#  exit 1;
-# fi
+# Check the git status first
+if [ -n "$(git status --porcelain)" ]; then
+  echo "Your git status is not clean. Aborting.";
+  exit 1;
+fi
 
 # Go!
+PS3='Select an option and press Enter: '
+
+# Initial checks
+echo "Did you log into npm (npm login) with a user with publishing rights?"
+options_npm=(
+  "Yes"
+  "No"
+)
+select npm in "${options_npm[@]}"
+do
+    case "$npm" in
+        "Yes")
+          echo "Great!"
+          break
+          ;;
+        "No")
+          echo "Please log into npm first then re-run this script."
+          exit 1
+          ;;
+        *) echo "invalid option $REPLY";;
+    esac
+done
+
 echo "What type of release are you running?"
-options=(
+options_release=(
   "alpha release"
   "rc.0 (first release candidate)"
   ">rc.0 (subsequent release candidates)"
   "full release"
   "cancel"
 )
-select release in "${options[@]}";
+select release in "${options_release[@]}"
 do
     case "$release" in
         "alpha release")
-          ./tasks/publish.sh --canary minor --dist-tag canary --no-push --no-git-tag-version
+          echo "Creating alpha release..."
+          ./node_modules/.bin/lerna publish --canary minor --dist-tag canary --no-push --no-git-tag-version
           ;;
         "rc.0 (first release candidate)")
-          ./tasks/publish.sh preminor --exact --conventional-commits --conventional-prerelease --preid rc --no-git-tag-version
+          echo "Creating rc.0 release..."
+          ./node_modules/.bin/lerna publish preminor --exact --conventional-commits --conventional-prerelease --preid rc --no-git-tag-version
           ;;
         ">rc.0 (subsequent release candidates)")
-          ./tasks/publish.sh --exact --conventional-commits --conventional-prerelease --preid rc --no-git-tag-version
+          echo "Creating rc.1+ release..."
+          ./node_modules/.bin/lerna publish --exact --conventional-commits --conventional-prerelease --preid rc --no-git-tag-version
           ;;
         "full release")
-          ./tasks/publish.sh --exact --conventional-commits --conventional-graduate --no-git-tag-version
+          echo "Creating full release..."
+          ./node_modules/.bin/lerna publish --exact --conventional-commits --conventional-graduate --no-git-tag-version
           ;;
         "cancel")
           break
