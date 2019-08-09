@@ -6,16 +6,24 @@
  */
 
 import React from 'react';
+import { localeSelector } from '../../internal/FeatureFlags';
+import LocaleSelector from './LocaleSelector';
 
 /** Footer component */
 class Footer extends React.Component {
   /**
    * Renders the footer component
+   *
    * @returns {object} JSX object
    */
   render() {
     return (
-      <footer>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</footer>
+      <footer>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        {localeSelector ? (
+          <LocaleSelector text="Load the Locale Selector!" />
+        ) : null}
+      </footer>
     );
   }
 }
