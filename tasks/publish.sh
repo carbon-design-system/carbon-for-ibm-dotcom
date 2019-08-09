@@ -21,9 +21,9 @@ release_rc1plus () {
   ./node_modules/.bin/lerna publish --exact --conventional-commits --conventional-prerelease --preid rc --no-git-tag-version
 }
 
-# Full release
-release_full () {
-  ./node_modules/.bin/lerna publish --exact --conventional-commits --conventional-graduate --no-git-tag-version
+# Full minor release
+release_full_minor () {
+  ./node_modules/.bin/lerna publish minor --exact --conventional-commits --no-git-tag-version
 }
 
 # Start in tasks/ even if run from root directory
@@ -96,7 +96,7 @@ options_release=(
   "alpha release"
   "rc.0 (first release candidate)"
   "rc.1+ (subsequent release candidates)"
-  "full release"
+  "full release (minor)"
   "cancel"
 )
 select release in "${options_release[@]}"
@@ -121,9 +121,9 @@ do
           exit 1
           ;;
         "full release")
-          echo "Creating full release..."
+          echo "Creating full minor release..."
           set -x
-          release_full
+          release_full_minor
           exit 1
           ;;
         "cancel")
