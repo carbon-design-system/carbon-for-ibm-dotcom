@@ -209,7 +209,9 @@ const MastheadSearch = ({ placeHolderText, renderValue }) => {
   function onSuggestionSelected(event, { suggestionValue }) {
     const lang = 'en'; // TODO: pull lang from locale selector
     const cc = 'us'; // TODO: pull cc from the locale selector
-    root.location.href = `${_redirectUrl}&q=${suggestionValue}&lang=${lang}&cc=${cc}`;
+    root.location.href = `${_redirectUrl}&q=${encodeURIComponent(
+      suggestionValue
+    )}&lang=${lang}&cc=${cc}`;
   }
 
   /**
