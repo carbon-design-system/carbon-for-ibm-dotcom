@@ -1288,10 +1288,23 @@
   resolved "https://registry.yarnpkg.com/@carbon/colors/-/colors-10.3.0.tgz#99df98f141c6d3a237d72ac9b21ad58a07112348"
   integrity sha512-LI+ZINCwf7iKXtaE3BkTdRtHpSwOe5FJtLwWxkqdsy69X4nMDKPc41ZJOW/lYAemeN4EHvm+LL9GD66eQpcVQQ==
 
+"@carbon/grid@^10.4.0":
+  version "10.4.0"
+  resolved "https://na.artifactory.swg-devops.com:443/artifactory/api/npm/dbg-checkout-npm-virtual/@carbon/grid/-/grid-10.4.0.tgz#e6b7ece22c16f25b222f5039fb53c8a408194334"
+  integrity sha1-5rfs4iwW8lsiL1A5+1PIpAgZQzQ=
+  dependencies:
+    "@carbon/import-once" "10.3.0"
+    "@carbon/layout" "10.3.0"
+
 "@carbon/icon-helpers@10.2.0":
   version "10.2.0"
   resolved "https://registry.yarnpkg.com/@carbon/icon-helpers/-/icon-helpers-10.2.0.tgz#f58ab1d14b8b63d485d31e7d785d25057eac5409"
   integrity sha512-PAxu8KMuSrifF4VCW7N7bgu/QKG/Q4T9ojWUEqI0zKjTCkJnzEZTYgK1FrWAdE1uAdAwLlbPIjzIS/QzP15Uvw==
+
+"@carbon/icon-helpers@10.3.0":
+  version "10.3.0"
+  resolved "https://na.artifactory.swg-devops.com:443/artifactory/api/npm/dbg-checkout-npm-virtual/@carbon/icon-helpers/-/icon-helpers-10.3.0.tgz#b0a772a7be9c10d5633cf78034c5c988ce998982"
+  integrity sha1-sKdyp76cENVjPPeANMXJiM6ZiYI=
 
 "@carbon/icons-react@10.3.0":
   version "10.3.0"
@@ -1301,12 +1314,37 @@
     "@carbon/icon-helpers" "10.2.0"
     prop-types "^15.6.2"
 
+"@carbon/icons-react@10.4.1":
+  version "10.4.1"
+  resolved "https://na.artifactory.swg-devops.com:443/artifactory/api/npm/dbg-checkout-npm-virtual/@carbon/icons-react/-/icons-react-10.4.1.tgz#7107b9f41dd9014fed984c564be80c9e880cdb6c"
+  integrity sha1-cQe59B3ZAU/tmExWS+gMnogM22w=
+  dependencies:
+    "@carbon/icon-helpers" "10.3.0"
+
+"@carbon/import-once@10.3.0":
+  version "10.3.0"
+  resolved "https://na.artifactory.swg-devops.com:443/artifactory/api/npm/dbg-checkout-npm-virtual/@carbon/import-once/-/import-once-10.3.0.tgz#58617da4efb6d7a11352d8e6b7209da1d39f364d"
+  integrity sha1-WGF9pO+216ETUtjmtyCdodOfNk0=
+
+"@carbon/layout@10.3.0", "@carbon/layout@^10.3.0":
+  version "10.3.0"
+  resolved "https://na.artifactory.swg-devops.com:443/artifactory/api/npm/dbg-checkout-npm-virtual/@carbon/layout/-/layout-10.3.0.tgz#bbcac550bd3dcf573e504a48a61e290fa30b664c"
+  integrity sha1-u8rFUL09z1c+UEpIph4pD6MLZkw=
+
 "@carbon/themes@^10.4.0":
   version "10.4.0"
-  resolved "https://registry.yarnpkg.com/@carbon/themes/-/themes-10.4.0.tgz#c957feb6315006f16e98d5fd319f9f5821393daf"
-  integrity sha512-KVaSkp9XgK8yAmhJyua2DE+klRt7+R85ymQ0O79A3aOko1GWm1J2L/v+Gk8xQpU/wkNT8TFOaJtHBgGOz28Qkg==
+  resolved "https://na.artifactory.swg-devops.com:443/artifactory/api/npm/dbg-checkout-npm-virtual/@carbon/themes/-/themes-10.4.0.tgz#c957feb6315006f16e98d5fd319f9f5821393daf"
+  integrity sha1-yVf+tjFQBvFumNX9MZ+fWCE5Pa8=
   dependencies:
     "@carbon/colors" "10.3.0"
+
+"@carbon/type@^10.3.0":
+  version "10.3.0"
+  resolved "https://na.artifactory.swg-devops.com:443/artifactory/api/npm/dbg-checkout-npm-virtual/@carbon/type/-/type-10.3.0.tgz#77e180710d54e9367afab87708623a9370f17277"
+  integrity sha1-d+GAcQ1U6TZ6+rh3CGI6k3Dxcnc=
+  dependencies:
+    "@carbon/import-once" "10.3.0"
+    "@carbon/layout" "10.3.0"
 
 "@cnakazawa/watch@^1.0.3":
   version "1.0.3"
@@ -5898,6 +5936,24 @@ capture-stack-trace@^1.0.0:
   resolved "https://registry.yarnpkg.com/capture-stack-trace/-/capture-stack-trace-1.0.1.tgz#a6c0bbe1f38f3aa0b92238ecb6ff42c344d4135d"
   integrity sha512-mYQLZnx5Qt1JgB1WEiMCf2647plpGeQ2NMR/5L0HNZzGQo4fuSPnK+wjfPnKZV0aiJDgzmWqqkV/g7JD+DW0qw==
 
+carbon-components-react@^7.4.1:
+  version "7.4.1"
+  resolved "https://na.artifactory.swg-devops.com:443/artifactory/api/npm/dbg-checkout-npm-virtual/carbon-components-react/-/carbon-components-react-7.4.1.tgz#f45ac03783c38f6c51fdf761fe51d0b00a6ad68a"
+  integrity sha1-9FrAN4PDj2xR/fdh/lHQsApq1oo=
+  dependencies:
+    "@carbon/icons-react" "10.4.1"
+    classnames "2.2.6"
+    downshift "^1.31.14"
+    flatpickr "4.6.1"
+    focus-trap-react "^6.0.0"
+    invariant "^2.2.3"
+    lodash.debounce "^4.0.8"
+    lodash.isequal "^4.5.0"
+    lodash.omit "^4.5.0"
+    react-is "^16.8.6"
+    warning "^3.0.0"
+    window-or-global "^1.0.1"
+
 carbon-components@^10.1.0, carbon-components@^10.3.2:
   version "10.3.2"
   resolved "https://registry.yarnpkg.com/carbon-components/-/carbon-components-10.3.2.tgz#1d1571ce43ccbef06fa506605d60fbc5d75b6fa9"
@@ -5910,8 +5966,8 @@ carbon-components@^10.1.0, carbon-components@^10.3.2:
 
 carbon-components@^10.4.1:
   version "10.4.1"
-  resolved "https://registry.yarnpkg.com/carbon-components/-/carbon-components-10.4.1.tgz#e18bbf44be0bc30c9f74eb44a12531c06e227d17"
-  integrity sha512-TjRd69YceXbEBC/JgXmwd5PpV8G5BpeBixJpcLqsDKQROlJb5jzE/LjdzV4ktnqfKfJgcGrgV+qqTCNT/BM2xw==
+  resolved "https://na.artifactory.swg-devops.com:443/artifactory/api/npm/dbg-checkout-npm-virtual/carbon-components/-/carbon-components-10.4.1.tgz#e18bbf44be0bc30c9f74eb44a12531c06e227d17"
+  integrity sha1-4Yu/RL4LwwyfdOtEoSUxwG4ifRc=
   dependencies:
     carbon-icons "^7.0.7"
     flatpickr "4.6.1"
