@@ -34,5 +34,3 @@ Icon.propTypes = {
   type: PropTypes.string.isRequired,
   size: PropTypes.number,
 };
-
-export default Icon;

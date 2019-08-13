@@ -1,7 +1,7 @@
 'use strict';
 
 const path = require('path');
-const babelConfigFile = require('../babel.config.js');
+const babelConfigFile = require('../babel.config');
 
 const root = path.resolve(__dirname, '../');
 const babelConfig = Object.keys(babelConfigFile).reduce((acc, key) => {

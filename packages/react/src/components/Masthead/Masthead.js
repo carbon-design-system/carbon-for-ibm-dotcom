@@ -29,6 +29,7 @@ import {
   SideNavMenu,
   SideNavMenuItem,
 } from 'carbon-components-react/lib/components/UIShell';
+import MastheadSearch from './MastheadSearch';
 
 /**
  * Test MastHead component
@@ -42,7 +43,7 @@ const Masthead = ({ navigation, type }) => {
   if (type === 'branded') {
     return (
       <div className="masthead">
-        <p>This is a branded masthead</p>
+        <MastheadSearch />
       </div>
     );
   } else {
@@ -130,6 +131,8 @@ const Masthead = ({ navigation, type }) => {
             </>
           )}
         />
+      <div className="masthead">
+        <MastheadSearch />
       </div>
     );
   }
