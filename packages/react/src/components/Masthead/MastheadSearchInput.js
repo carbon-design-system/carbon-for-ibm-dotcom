@@ -12,7 +12,7 @@ import PropTypes from 'prop-types';
  */
 const MastheadSearchInput = ({ componentInputProps, dispatch }) => (
   <div>
-    <input {...componentInputProps} />
+    <input {...componentInputProps} data-autoid="masthead__search--input" />
     <button
       type="button"
       onClick={() =>
