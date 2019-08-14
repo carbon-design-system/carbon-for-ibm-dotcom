@@ -39,14 +39,16 @@
     "test:updateSnapshot": "jest -u",
     "test-ssr": "yarn build && node ssr-tests/*.js"
   },
-  "peerDependencies": {
-  },
+  "peerDependencies": {},
   "dependencies": {
     "@babel/runtime": "^7.5.5",
-    "@carbon/icons-react": "10.3.0",
-    "@ibmdotcom/services": "0.3.0-alpha.237",
-    "@ibmdotcom/utilities": "0.3.0-alpha.238",
+    "@carbon/icons-react": "^10.3.0",
+    "@carbon/import-once": "^10.3.0",
+    "@ibmdotcom/services": "^0.3.0-alpha.237",
+    "@ibmdotcom/utilities": "^0.3.0-alpha.238",
     "autosuggest-highlight": "^3.1.1",
+    "carbon-components": "^10.3.1",
+    "carbon-components-react": "^7.4.1",
     "classnames": "2.2.6",
     "downshift": "^1.31.14",
     "flatpickr": "4.6.1",
@@ -57,9 +59,7 @@
     "lodash.omit": "^4.5.0",
     "react-is": "^16.8.6",
     "warning": "^3.0.0",
-    "window-or-global": "^1.0.1",
-    "carbon-components": "^10.3.1",
-    "carbon-components-react": "^7.4.1",
+    "window-or-global": "^1.0.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.3",

@@ -1308,7 +1308,7 @@
   dependencies:
     "@carbon/icon-helpers" "10.3.0"
 
-"@carbon/import-once@10.3.0":
+"@carbon/import-once@10.3.0", "@carbon/import-once@^10.3.0":
   version "10.3.0"
   resolved "https://na.artifactory.swg-devops.com:443/artifactory/api/npm/dbg-checkout-npm-virtual/@carbon/import-once/-/import-once-10.3.0.tgz#58617da4efb6d7a11352d8e6b7209da1d39f364d"
   integrity sha1-WGF9pO+216ETUtjmtyCdodOfNk0=

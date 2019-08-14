@@ -24,11 +24,8 @@ export default class Container extends Component {
         <div
           data-floating-menu-container=""
           role="main"
+          className="storybook-container"
           style={{
-            padding: '3em',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
             backgroundColor: bgColor,
           }}>
           {story()}
