@@ -18,10 +18,13 @@
 
 ## Overview
 
-To assist the analytics teams with tag management, QA team with Selenium testing, 
-A/B testing, personalization, etc, we will need to add data attributes to any 
-dynamic elements to our HTML markup. This would include input elements and 
-dynamically loaded text. 
+To assist various teams with tag management, selenium testing, A/B testing,
+personalization, etc, we will need to add data attributes to any dynamic 
+elements to our HTML markup. This would include input elements and dynamically 
+loaded text. The purpose of adding a stable selector language is to provide a
+reliable system of accessing elements on the page that will not change due to
+possible changes in code (e.g. id's or classnames) that would break campaigns
+and automated tests.
 
 ## Naming Convention
 Based on discussions with the design team, we will look to use BEM as a naming 
