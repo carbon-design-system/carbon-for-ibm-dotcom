@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import MastheadSearch from './MastheadSearch';
 import HeaderContainer from 'carbon-components-react/lib/components/UIShell/HeaderContainer';
 import UserProfile20 from '@carbon/icons-react/lib/user--profile/20';
-import { ReactComponent as Logo }  from '../Icon/svg/ibm-logo.svg';
+import { ReactComponent as Logo } from '../Icon/svg/ibm-logo.svg';
 import {
   Header,
   HeaderMenuButton,
@@ -54,10 +54,10 @@ const Masthead = ({ navigation, type }) => {
             />
             {type === 'branded' ? (
               <>
-              <Logo />
-              <HeaderName href="#" prefix="">
-                [Platform]
-              </HeaderName>
+                <Logo />
+                <HeaderName href="#" prefix="">
+                  [Platform]
+                </HeaderName>
               </>
             ) : (
               <Logo />
@@ -70,8 +70,7 @@ const Masthead = ({ navigation, type }) => {
                     return (
                       <HeaderMenu
                         aria-label={item.name}
-                        menuLinkName={item.name}
-                      >
+                        menuLinkName={item.name}>
                         {item.subnav.map(subnav => {
                           return (
                             <HeaderMenuItem href={subnav.path}>
@@ -82,35 +81,32 @@ const Masthead = ({ navigation, type }) => {
                       </HeaderMenu>
                     );
                   } else {
-                    return <HeaderMenuItem href={item.path}>{item.name}</HeaderMenuItem>;
+                    return (
+                      <HeaderMenuItem href={item.path}>
+                        {item.name}
+                      </HeaderMenuItem>
+                    );
                   }
                 })}
               </HeaderNavigation>
               <MastheadSearch />
             </div>
-              <HeaderGlobalBar>
-                <HeaderGlobalAction
-                  aria-label="User Profile"
-                  onClick={() => {}}
-                >
-                  <UserProfile20 />
-                </HeaderGlobalAction>
-              </HeaderGlobalBar>
+            <HeaderGlobalBar>
+              <HeaderGlobalAction aria-label="User Profile" onClick={() => {}}>
+                <UserProfile20 />
+              </HeaderGlobalAction>
+            </HeaderGlobalBar>
 
             <SideNav
               aria-label="Side navigation"
               expanded={isSideNavExpanded}
-              isPersistent={false}
-            >
+              isPersistent={false}>
               <SideNavItems>
                 <HeaderSideNavItems>
                   {navigation.map(item => {
                     if (item.subnav) {
                       return (
-                        <SideNavMenu
-                          aria-label={item.name}
-                          title={item.name}
-                        >
+                        <SideNavMenu aria-label={item.name} title={item.name}>
                           {item.subnav.map(subnav => {
                             return (
                               <SideNavMenuItem href={subnav.path}>
@@ -122,9 +118,7 @@ const Masthead = ({ navigation, type }) => {
                       );
                     } else {
                       return (
-                        <SideNavLink href={item.path}>
-                          {item.name}
-                        </SideNavLink>
+                        <SideNavLink href={item.path}>{item.name}</SideNavLink>
                       );
                     }
                   })}

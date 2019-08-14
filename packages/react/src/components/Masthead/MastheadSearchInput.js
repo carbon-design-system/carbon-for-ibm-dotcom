@@ -15,33 +15,26 @@ const { prefix } = settings;
  * @param {Function} props.dispatch for component reducer
  * @returns {*} The rendered component
  */
-const MastheadSearchInput = ({
-  componentInputProps,
-  dispatch
-}) => {
+const MastheadSearchInput = ({ componentInputProps, dispatch }) => {
   const className = cx({
     [`${prefix}--header__search--input`]: true,
   });
 
   return (
     <>
-    <input
-      {...componentInputProps}
-      data-autoid={`${prefix}--header__search--input`}
-      className={className}
-    />
-    <HeaderGlobalAction
-      onClick={() =>
-        dispatch({ type: 'setVal', payload: { val: '' } })
-      }
-      aria-label="Search"
-    >
-      <Search20 />
-    </HeaderGlobalAction>
+      <input
+        {...componentInputProps}
+        data-autoid={`${prefix}--header__search--input`}
+        className={className}
+      />
+      <HeaderGlobalAction
+        onClick={() => dispatch({ type: 'setVal', payload: { val: '' } })}
+        aria-label="Search">
+        <Search20 />
+      </HeaderGlobalAction>
     </>
   );
 };
-
 
 /**
  * @property propTypes

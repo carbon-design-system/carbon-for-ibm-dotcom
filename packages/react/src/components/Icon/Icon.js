@@ -11,20 +11,17 @@ import IbmLogo from './svg/ibm-logo.svg';
 
 /**
  * Icon component
- * 
+ *
  * @param {string} type The icon
  * @param {string} size Set icon size
  * @returns {*} An icon
  */
-const Icon = ({
-  type,
-  size
-}) => {
+const Icon = ({ type, size }) => {
   switch (type) {
     case 'ibm-logo':
-      return (<IbmLogo width={size} height={size} />);
+      return <IbmLogo width={size} height={size} />;
     default:
-      return (<IbmLogo width={size} height={size} />);
+      return <IbmLogo width={size} height={size} />;
   }
 };
 
@@ -35,7 +32,7 @@ const Icon = ({
  */
 Icon.propTypes = {
   type: PropTypes.string.isRequired,
-  size: PropTypes.string
+  size: PropTypes.string,
 };
 
 export default Icon;

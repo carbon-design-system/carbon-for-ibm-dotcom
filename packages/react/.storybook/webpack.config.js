@@ -117,7 +117,7 @@ module.exports = ({ config, mode }) => {
   });
 
   config.module.rules = config.module.rules.map(rule => {
-    if (!rule.test.test(".svg")) {
+    if (!rule.test.test('.svg')) {
       return rule;
     }
 
@@ -130,7 +130,7 @@ module.exports = ({ config, mode }) => {
   // Adds new SVG loader
   config.module.rules.push({
     test: /\.svg$/,
-    use: ["@svgr/webpack", "url-loader"]
+    use: ['@svgr/webpack', 'url-loader'],
   });
 
   config.module.rules.push({
