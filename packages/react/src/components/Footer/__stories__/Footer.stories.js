@@ -6,5 +6,5 @@ import Footer from '../Footer';
 import '../../../../../styles/scss/components/footer/_index.scss';
 
 storiesOf('Footer', module)
-  .add('Default / Large', () => <Footer />)
-  .add('Small', () => <Footer size="small" />);
+  .add('Default / Tall', () => <Footer />)
+  .add('Short', () => <Footer type="short" />);

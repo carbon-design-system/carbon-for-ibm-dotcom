@@ -5,8 +5,10 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-/// Sets the prefix for all classes
+/// Temporarily sets the link type token
+/// (Can deprecate once theming becomes available)
+///
 /// @access public
 /// @type String
-/// @example .bx--batch-actions
-$prefix: 'bx' !default;
+$TEMP--link-type-token: 'body-short-02';
+$TEMP--legal-nav-height: carbon--mini-units(6); // 48px

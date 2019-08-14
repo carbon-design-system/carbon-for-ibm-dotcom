@@ -6,9 +6,11 @@
  */
 
 import React from 'react';
-import { localeSelector } from '../../internal/FeatureFlags';
-import LocaleSelector from './LocaleSelector';
+import PropTypes from 'prop-types';
+// import { localeSelector } from '../../internal/FeatureFlags';
+// import LocaleSelector from './LocaleSelector';
 import { settings } from 'carbon-components';
+import classNames from 'classnames';
 import LegalNav from './LegalNav';
 
 const { prefix } = settings;
@@ -22,24 +24,42 @@ class Footer extends React.Component {
    */
   render() {
     return (
-      <footer className={`${prefix}--footer`}>
+      <footer className={classNames(`${prefix}--footer`, this.getFooterType())}>
         <LegalNav
           items={[
-            { text: 'Contact IBM', href: '#' },
-            { text: 'Privacy', href: '#' },
-            { text: 'Terms of use', href: '#' },
-            { text: 'Accessibility', href: '#' },
-            { text: 'Feedback', href: '#' },
-            { text: 'Cookie preferences', href: '#' },
+            { title: 'Contact IBM', url: '#' },
+            { title: 'Privacy', url: '#' },
+            { title: 'Terms of use', url: '#' },
+            { title: 'Accessibility', url: '#' },
+            { title: 'Feedback', url: '#' },
+            { title: 'Cookie preferences', url: '#' },
           ]}
         />
-
-        {localeSelector ? (
-          <LocaleSelector text="Load the Locale Selector!" />
-        ) : null}
       </footer>
     );
   }
+
+  /**
+   * gets the footer type
+   *
+   * @returns {object} JSX object
+   */
+  getFooterType() {
+    let typeClassName;
+
+    if (this.props.type === 'short') {
+      typeClassName = `${prefix}--footer--short`;
+    }
+
+    return typeClassName;
+  }
 }
 
+Footer.propTypes = {
+  type: PropTypes.string,
+};
+
 export default Footer;
+
+// api for reference later
+// https://www.ibm.com/common/v18/js/data/usen.js

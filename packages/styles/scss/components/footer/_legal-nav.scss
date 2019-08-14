@@ -1,0 +1,49 @@
+//
+// Copyright IBM Corp. 2016, 2018
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import '@carbon/layout/scss/mini-unit';
+@import '@carbon/layout/scss/breakpoint';
+@import '@carbon/grid/scss/mixins';
+@import 'carbon-components/scss/globals/scss/vars'; // $prefix
+@import '../../globals/mixins.scss'; // paddingDiff()
+@import '../../globals/vars.scss'; // $TEMP--link-type-token
+
+/// Legal nav styles mixin
+/// @access private
+/// @group footer
+
+@mixin legal-nav () {
+  .#{$prefix}--legal-nav {
+    border-top: 1px solid $ui-03;
+    @include carbon--make-row();
+
+    &__container {
+      @include carbon--make-container();
+    }
+
+    &__list {
+      @include carbon--make-col-ready();
+      @include carbon--breakpoint('lg') {
+
+        .#{$prefix}--footer:not(.#{$prefix}--footer--short) & {
+          @include carbon--make-col(11, 16);
+          @include carbon--make-col-offset(5, 16);
+        }
+      }
+    }
+
+    &__list-item {
+      display: inline-block;
+      margin-right: carbon--mini-units(4);
+      padding: paddingDiff($TEMP--legal-nav-height, $TEMP--link-type-token) 0;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}

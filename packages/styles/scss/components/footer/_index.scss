@@ -1,0 +1,24 @@
+//
+// Copyright IBM Corp. 2016, 2018
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import '@carbon/import-once/scss/index';
+@import 'footer';
+@import 'legal-nav';
+
+/// Include footer components with g90 theme
+/// @access private
+/// @group footer
+
+@include carbon--theme($carbon--theme--g90) {
+  @include exports('footer') {
+    @include footer;
+  }
+
+  @include exports('legal-nav') {
+    @include legal-nav();
+  }
+}

@@ -21,11 +21,13 @@ class LegalNav extends React.Component {
    */
   render() {
     return (
-      <section className={`${prefix}--legal-nav`}>
-        <ul className={`${prefix}--legal-nav__list`}>
-          {this.renderListItems()}
-        </ul>
-      </section>
+      <aside className={`${prefix}--legal-nav__container`}>
+        <nav className={`${prefix}--legal-nav`}>
+          <ul className={`${prefix}--legal-nav__list`}>
+            {this.renderListItems()}
+          </ul>
+        </nav>
+      </aside>
     );
   }
 
@@ -42,7 +44,7 @@ class LegalNav extends React.Component {
 
       items.push(
         <li className={`${prefix}--legal-nav__list-item`}>
-          <Link href={item.href}>{item.text}</Link>
+          <Link href={item.url}>{item.title}</Link>
         </li>
       );
     }
@@ -54,10 +56,10 @@ class LegalNav extends React.Component {
 LegalNav.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.shape({
-      text: PropTypes.string,
-      href: PropTypes.string,
-    })
-  ),
+      title: PropTypes.string.isRequired,
+      url: PropTypes.string.isRequired,
+    }).isRequired
+  ).isRequired,
 };
 
 export default LegalNav;

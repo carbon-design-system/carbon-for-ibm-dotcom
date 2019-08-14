@@ -49,7 +49,7 @@
     "autosuggest-highlight": "^3.1.1",
     "carbon-components": "^10.3.1",
     "carbon-components-react": "^7.4.1",
-    "classnames": "2.2.6",
+    "classnames": "^2.2.6",
     "downshift": "^1.31.14",
     "flatpickr": "4.6.1",
     "focus-trap-react": "^6.0.0",

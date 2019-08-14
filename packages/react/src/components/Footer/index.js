@@ -5,4 +5,5 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-export default from './Footer';
+export { default as Footer } from './Footer';
+export { default as LegalNav } from './LegalNav';
