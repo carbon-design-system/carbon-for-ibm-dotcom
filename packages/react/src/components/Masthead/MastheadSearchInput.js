@@ -1,6 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import classNames from 'classnames';
+import Search20 from '@carbon/icons-react/lib/search/20';
+import { settings } from 'carbon-components';
+import cx from 'classnames';
+import { HeaderGlobalAction } from 'carbon-components-react/lib/components/UIShell';
+
+const { prefix } = settings;
 
 /**
  * Renders the input bar with the search icon
@@ -10,16 +15,26 @@ import PropTypes from 'prop-types';
  * @param {Function} props.dispatch for component reducer
  * @returns {*} The rendered component
  */
-const MastheadSearchInput = ({ componentInputProps, dispatch }) => (
-  <div>
-    <input {...componentInputProps} data-autoid="masthead__search--input" />
-    <button
-      type="button"
-      onClick={() =>
-        dispatch({ type: 'setVal', payload: { val: '' } })
-      }></button>
-  </div>
-);
+const MastheadSearchInput = ({ componentInputProps, dispatch }) => {
+  const className = cx({
+    [`${prefix}--header__search--input`]: true,
+  });
+
+  return (
+    <>
+      <input
+        {...componentInputProps}
+        data-autoid={`${prefix}--header__search--input`}
+        className={className}
+      />
+      <HeaderGlobalAction
+        onClick={() => dispatch({ type: 'setVal', payload: { val: '' } })}
+        aria-label="Search">
+        <Search20 />
+      </HeaderGlobalAction>
+    </>
+  );
+};
 
 /**
  * @property propTypes

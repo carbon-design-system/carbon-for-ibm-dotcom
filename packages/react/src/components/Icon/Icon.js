@@ -10,11 +10,11 @@ import PropTypes from 'prop-types';
 import IbmLogo from './svg/ibm-logo.svg';
 
 /**
- * Icon component for React
+ * Icon component
  *
- * @param {object} props Icon type and size
- * @returns {*} An svg icon
- * @class
+ * @param {string} type The icon
+ * @param {string} size Set icon size
+ * @returns {*} An icon
  */
 const Icon = ({ type, size }) => {
   switch (type) {
@@ -28,9 +28,11 @@ const Icon = ({ type, size }) => {
 /**
  * @property propTypes
  * @description Defined property types for component
- * @type {{type: string, size: number}}
+ * @type {{type: shim, size: shim}}
  */
 Icon.propTypes = {
   type: PropTypes.string.isRequired,
-  size: PropTypes.number,
+  size: PropTypes.string,
 };
+
+export default Icon;

@@ -7,17 +7,16 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import Search20 from '@carbon/icons-react/lib/search/20';
-import UserProfile20 from '@carbon/icons-react/lib/user--profile/20';
+import MastheadSearch from './MastheadSearch';
 import HeaderContainer from 'carbon-components-react/lib/components/UIShell/HeaderContainer';
-// import { ReactComponent as Logo } from '../Icon/svg/ibm-logo.svg';
-import Icon from '../Icon';
-import '@ibmdotcom/styles/scss/components/masthead/_masthead.scss';
+import UserProfile20 from '@carbon/icons-react/lib/user--profile/20';
+import { ReactComponent as Logo } from '../Icon/svg/ibm-logo.svg';
 import {
   Header,
   HeaderMenuButton,
   HeaderGlobalBar,
   HeaderGlobalAction,
+  HeaderName,
   HeaderNavigation,
   HeaderMenu,
   HeaderMenuItem,
@@ -29,113 +28,108 @@ import {
   SideNavMenu,
   SideNavMenuItem,
 } from 'carbon-components-react/lib/components/UIShell';
-import MastheadSearch from './MastheadSearch';
+import { settings } from 'carbon-components';
+import '@ibmdotcom/styles/scss/components/masthead/_masthead.scss';
+
+const { prefix } = settings;
 
 /**
- * Test MastHead component
+ * MastHead component
  *
  * @typedef {object} navigation Object containing navigation elements
- * @param {string} type Standard or Branded masthead
+ * @param {string} type Type of masthead
  * @returns {*} Masthead component
- * @class
  */
 const Masthead = ({ navigation, type }) => {
-  if (type === 'branded') {
-    return (
-      <div className="masthead">
-        <MastheadSearch />
-      </div>
-    );
-  } else {
-    return (
-      <div className="container">
-        <HeaderContainer
-          render={({ isSideNavExpanded, onClickSideNavExpand }) => (
-            <>
-              <Header aria-label="IBM">
-                <SkipToContent />
-                <HeaderMenuButton
-                  aria-label="Open menu"
-                  onClick={onClickSideNavExpand}
-                  isActive={isSideNavExpanded}
-                />
-                <Icon type="ibm-logo" size={20} />
-                <HeaderNavigation aria-label="IBM">
+  return (
+    <HeaderContainer
+      render={({ isSideNavExpanded, onClickSideNavExpand }) => (
+        <>
+          <Header aria-label="IBM">
+            <SkipToContent />
+            <HeaderMenuButton
+              aria-label="Open menu"
+              onClick={onClickSideNavExpand}
+              isActive={isSideNavExpanded}
+            />
+            {type === 'branded' ? (
+              <>
+                <Logo />
+                <HeaderName href="#" prefix="">
+                  [Platform]
+                </HeaderName>
+              </>
+            ) : (
+              <Logo />
+            )}
+
+            <div className={`${prefix}--header__search`}>
+              <HeaderNavigation aria-label="IBM">
+                {navigation.map(item => {
+                  if (item.subnav) {
+                    return (
+                      <HeaderMenu
+                        aria-label={item.name}
+                        menuLinkName={item.name}>
+                        {item.subnav.map(subnav => {
+                          return (
+                            <HeaderMenuItem href={subnav.path}>
+                              {subnav.name}
+                            </HeaderMenuItem>
+                          );
+                        })}
+                      </HeaderMenu>
+                    );
+                  } else {
+                    return (
+                      <HeaderMenuItem href={item.path}>
+                        {item.name}
+                      </HeaderMenuItem>
+                    );
+                  }
+                })}
+              </HeaderNavigation>
+              <MastheadSearch />
+            </div>
+            <HeaderGlobalBar>
+              <HeaderGlobalAction aria-label="User Profile" onClick={() => {}}>
+                <UserProfile20 />
+              </HeaderGlobalAction>
+            </HeaderGlobalBar>
+
+            <SideNav
+              aria-label="Side navigation"
+              expanded={isSideNavExpanded}
+              isPersistent={false}>
+              <SideNavItems>
+                <HeaderSideNavItems>
                   {navigation.map(item => {
                     if (item.subnav) {
                       return (
-                        <HeaderMenu
-                          aria-label={item.name}
-                          menuLinkName={item.name}>
+                        <SideNavMenu aria-label={item.name} title={item.name}>
                           {item.subnav.map(subnav => {
                             return (
-                              <HeaderMenuItem href={subnav.path}>
+                              <SideNavMenuItem href={subnav.path}>
                                 {subnav.name}
-                              </HeaderMenuItem>
+                              </SideNavMenuItem>
                             );
                           })}
-                        </HeaderMenu>
+                        </SideNavMenu>
                       );
                     } else {
                       return (
-                        <HeaderMenuItem href={item.path}>
-                          {item.name}
-                        </HeaderMenuItem>
+                        <SideNavLink href={item.path}>{item.name}</SideNavLink>
                       );
                     }
                   })}
-                </HeaderNavigation>
-                <HeaderGlobalBar>
-                  <HeaderGlobalAction aria-label="Search" onClick={() => {}}>
-                    <Search20 />
-                  </HeaderGlobalAction>
-                  <HeaderGlobalAction
-                    aria-label="User Profile"
-                    onClick={() => {}}>
-                    <UserProfile20 />
-                  </HeaderGlobalAction>
-                </HeaderGlobalBar>
-                <SideNav
-                  aria-label="Side navigation"
-                  expanded={isSideNavExpanded}
-                  isPersistent={false}>
-                  <SideNavItems>
-                    <HeaderSideNavItems>
-                      {navigation.map(item => {
-                        if (item.subnav) {
-                          return (
-                            <SideNavMenu
-                              aria-label={item.name}
-                              title={item.name}>
-                              {item.subnav.map(subnav => {
-                                return (
-                                  <SideNavMenuItem href={subnav.path}>
-                                    {subnav.name}
-                                  </SideNavMenuItem>
-                                );
-                              })}
-                            </SideNavMenu>
-                          );
-                        } else {
-                          return (
-                            <SideNavLink href={item.path}>
-                              {item.name}
-                            </SideNavLink>
-                          );
-                        }
-                      })}
-                    </HeaderSideNavItems>
-                  </SideNavItems>
-                </SideNav>
-              </Header>
-            </>
-          )}
-        />
-      <div className="masthead">
-        <MastheadSearch />
-      </div>
-    );
-  }
+                </HeaderSideNavItems>
+              </SideNavItems>
+            </SideNav>
+          </Header>
+        </>
+      )}
+    />
+  );
 };
 
 Masthead.propTypes = {

@@ -10,12 +10,12 @@
 @import '~carbon-components/scss/globals/scss/layout';
 @import '~carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/import-once/import-once';
 @import '~carbon-components/scss/globals/scss/css--reset';
+@import '~carbon-components/scss/components/ui-shell/ui-shell';
 
 @import '~carbon-components/scss/components/ui-shell/side-nav';
 
-/// Masthead styles
 /// @access private
-/// @group masthead
+/// @group dotcom ui-shell
 @mixin masthead {
   .#{$prefix}--header {
     background: $ui-02;
@@ -24,6 +24,10 @@
     > svg {
       margin: 0 $spacing-07;
     }
+  }
+
+  .#{$prefix}--header__global {
+    flex: 0;
   }
 
   .#{$prefix}--header__nav {
@@ -36,6 +40,7 @@
           fill: $text-01;
         }
       }
+      
       &:active, &:focus {
         background-color: $ui-01;
         & > svg {
@@ -83,7 +88,24 @@
         }
       }
     }
+
+    &:focus {
+      border-color: $interactive-01;
+    }
   }
+
+  //--------------------------------------------------------------------------
+  // Masthead - Search
+  //--------------------------------------------------------------------------
+  .#{$prefix}--header__search {
+    justify-content: flex-end;
+    flex: 1;
+  }
+
+  .#{$prefix}--header__search--input {
+    // display: none;
+  }
+
 }
 
 @include exports('masthead') {
