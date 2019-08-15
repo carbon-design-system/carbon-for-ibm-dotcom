@@ -28,7 +28,7 @@ jobs:
   deploy:
     docker:
       - image: circleci/node:10.15-browsers
-    working_directory: ~/repo
+    working_directory: /home/circleci/project
     steps:
       - checkout
       - run:
