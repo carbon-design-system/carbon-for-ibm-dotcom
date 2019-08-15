@@ -62,7 +62,7 @@ jobs:
       - deploy:
           name: deploy package react
           command: |
-            cd ~/packages/react
+            cd $CIRCLE_WORKING_DIRECTORY/packages/react
             yarn build-storybook
 
             ibmcloud cf blue-green-deploy ibmdotcomlibrary-react \
@@ -71,7 +71,7 @@ jobs:
       - deploy:
           name: deploy package services
           command: |
-            cd ~/packages/services
+            cd $CIRCLE_WORKING_DIRECTORY/packages/services
             yarn jsdoc
 
             ibmcloud cf blue-green-deploy ibmdotcomlibrary-services \
@@ -80,7 +80,7 @@ jobs:
       - deploy:
           name: deploy package utilities
           command: |
-            cd ~/packages/utilities
+            cd $CIRCLE_WORKING_DIRECTORY/packages/utilities
             yarn jsdoc
 
             ibmcloud cf blue-green-deploy ibmdotcomlibrary-utilities \
