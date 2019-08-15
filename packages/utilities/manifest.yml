@@ -1,0 +1,10 @@
+---
+applications:
+- name: ibmdotcomlibrary-utilities
+  path: ./docs
+  memory: 64M
+  buildpack: https://github.com/cloudfoundry/staticfile-buildpack.git
+  routes:
+  - route: ibmdotcomlibrary-utilities.mybluemix.net
+  - route: ibmdotcomlibrary-utilities-temp.mybluemix.net
+
