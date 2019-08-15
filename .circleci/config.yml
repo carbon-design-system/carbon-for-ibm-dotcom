@@ -176,4 +176,7 @@ workflows:
             - artifacts
           filters:
             branches:
-              only: feat/877-deployments
+              ignore: /.*/
+            tags:
+              only: /^v\d+\.\d+\.\d+$/
+
