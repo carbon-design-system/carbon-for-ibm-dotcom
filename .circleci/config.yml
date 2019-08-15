@@ -61,7 +61,7 @@ jobs:
             ibmcloud cf install-plugin blue-green-deploy -f -r CF-Community
       - deploy:
           name: deploy package react
-          command:
+          command: |
             cd ~/packages/react
             yarn build-storybook
 
@@ -70,7 +70,7 @@ jobs:
               --delete-old-apps
       - deploy:
           name: deploy package services
-          command:
+          command: |
             cd ~/packages/services
             yarn jsdoc
 
@@ -79,7 +79,7 @@ jobs:
             --delete-old-apps
       - deploy:
           name: deploy package utilities
-          command:
+          command: |
             cd ~/packages/utilities
             yarn jsdoc
 
