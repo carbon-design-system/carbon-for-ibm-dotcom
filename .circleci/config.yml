@@ -28,7 +28,7 @@ jobs:
   deploy:
     docker:
       - image: circleci/node:10.15-browsers
-    working_directory: ~/repo
+    working_directory: /home/circleci/project
     steps:
       - checkout
       - run:
@@ -44,30 +44,49 @@ jobs:
       - run:
           name: Build packages
           command: yarn build
-      - deploy:
-          name: deploy to IBM Cloud
+      - run:
+          name: Install ibmcloud CLI
+          command: curl -fsSL https://clis.ng.bluemix.net/install/linux | sh
+      - run:
+          name: IBM Cloud Login
           command: |
-            # Install `ibmcloud` CLI
-            curl -fsSL https://clis.ng.bluemix.net/install/linux | sh
-
-            # Login and push staging manifest
             ibmcloud login \
               --apikey $CLOUD_API_KEY \
               -a https://api.ng.bluemix.net \
               -o ibm-digital-design
 
-            ibmcloud target -s production
+            ibmcloud target -s ibmdotcom-production
 
             ibmcloud cf add-plugin-repo CF-Community https://plugins.cloudfoundry.org
             ibmcloud cf install-plugin blue-green-deploy -f -r CF-Community
-
-            # Default storybook build
-            cd packages/react
+      - deploy:
+          name: deploy package react
+          command: |
+            cd $CIRCLE_WORKING_DIRECTORY/packages/react
             yarn build-storybook
 
-            ibmcloud cf blue-green-deploy ibmdotcom-storybook \
+            ibmcloud cf blue-green-deploy ibmdotcomlibrary-react \
               -f manifest.yml \
               --delete-old-apps
+      - deploy:
+          name: deploy package services
+          command: |
+            cd $CIRCLE_WORKING_DIRECTORY/packages/services
+            yarn jsdoc
+
+            ibmcloud cf blue-green-deploy ibmdotcomlibrary-services \
+            -f manifest.yml \
+            --delete-old-apps
+      - deploy:
+          name: deploy package utilities
+          command: |
+            cd $CIRCLE_WORKING_DIRECTORY/packages/utilities
+            yarn jsdoc
+
+            ibmcloud cf blue-green-deploy ibmdotcomlibrary-utilities \
+            -f manifest.yml \
+            --delete-old-apps
+
 
   release:
     docker:
