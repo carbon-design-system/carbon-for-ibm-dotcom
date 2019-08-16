@@ -8,6 +8,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import MastheadSearch from './MastheadSearch';
+import { settings } from 'carbon-components';
 import HeaderContainer from 'carbon-components-react/lib/components/UIShell/HeaderContainer';
 import UserProfile20 from '@carbon/icons-react/lib/user--profile/20';
 import { ReactComponent as Logo } from '../Icon/svg/ibm-logo.svg';
@@ -28,7 +29,6 @@ import {
   SideNavMenu,
   SideNavMenuItem,
 } from 'carbon-components-react/lib/components/UIShell';
-import { settings } from 'carbon-components';
 import '@ibmdotcom/styles/scss/components/masthead/_masthead.scss';
 
 const { prefix } = settings;
@@ -54,13 +54,18 @@ const Masthead = ({ navigation, type }) => {
             />
             {type === 'branded' ? (
               <>
-                <Logo />
+                <div
+                  className={`${prefix}--header__logo ${prefix}--header__logo--platform`}>
+                  <Logo />
+                </div>
                 <HeaderName href="#" prefix="">
                   [Platform]
                 </HeaderName>
               </>
             ) : (
-              <Logo />
+              <div className={`${prefix}--header__logo`}>
+                <Logo />
+              </div>
             )}
 
             <div className={`${prefix}--header__search`}>
@@ -91,6 +96,7 @@ const Masthead = ({ navigation, type }) => {
               </HeaderNavigation>
               <MastheadSearch />
             </div>
+
             <HeaderGlobalBar>
               <HeaderGlobalAction aria-label="User Profile" onClick={() => {}}>
                 <UserProfile20 />

@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import Search20 from '@carbon/icons-react/lib/search/20';
 import { settings } from 'carbon-components';
-import cx from 'classnames';
 import { HeaderGlobalAction } from 'carbon-components-react/lib/components/UIShell';
+import Search20 from '@carbon/icons-react/lib/search/20';
+import Close20 from '@carbon/icons-react/lib/close/20';
 
 const { prefix } = settings;
 
@@ -15,22 +15,34 @@ const { prefix } = settings;
  * @param {Function} props.dispatch for component reducer
  * @returns {*} The rendered component
  */
-const MastheadSearchInput = ({ componentInputProps, dispatch }) => {
-  const className = cx({
-    [`${prefix}--header__search--input`]: true,
-  });
+const MastheadSearchInput = ({ componentInputProps, dispatch, isActive }) => {
+  const searchRef = useRef();
+
+  useEffect(() => {
+    if (isActive) {
+      searchRef.current.focus();
+    }
+  }, [isActive]);
 
   return (
     <>
       <input
         {...componentInputProps}
         data-autoid={`${prefix}--header__search--input`}
-        className={className}
+        onBlur={() => dispatch({ type: 'setSearchClosed' })}
+        ref={searchRef}
       />
       <HeaderGlobalAction
-        onClick={() => dispatch({ type: 'setVal', payload: { val: '' } })}
-        aria-label="Search">
+        onClick={() => dispatch({ type: 'setSearchOpen' })}
+        aria-label="Search"
+        className={`${prefix}--header__search--search`}>
         <Search20 />
+      </HeaderGlobalAction>
+      <HeaderGlobalAction
+        onClick={() => dispatch({ type: 'setSearchClosed' })}
+        aria-label="Close"
+        className={`${prefix}--header__search--close`}>
+        <Close20 />
       </HeaderGlobalAction>
     </>
   );
@@ -40,10 +52,12 @@ const MastheadSearchInput = ({ componentInputProps, dispatch }) => {
  * @property propTypes
  * @description Defined property types for component
  * @type {{placeHolderText: shim, renderValue: shim}}
+ * @param {boolean} isActive Search input active state
  */
 MastheadSearchInput.propTypes = {
   componentInputProps: PropTypes.object,
   dispatch: PropTypes.func,
+  isActive: PropTypes.bool,
 };
 
 /**
