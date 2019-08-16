@@ -23,7 +23,7 @@ $search-transition-timing: 95ms;
   .#{$prefix}--header {
     transition-timing-function: $search-transition;
     background: $ui-02;
-    border-bottom: 1px solid #dcdcdc;
+    border-bottom: 1px solid $carbon--gray-20;
 
     .#{$prefix}--header__logo {
       padding: 0 $spacing-07;
@@ -38,7 +38,7 @@ $search-transition-timing: 95ms;
         transform: translateY(-50%);
         height: 1.5rem;
         width: 0.0625rem;
-        background-color: #dcdcdc;
+        background-color: $carbon--gray-20;
       }
 
       &.#{$prefix}--header__logo--platform {
@@ -83,8 +83,9 @@ $search-transition-timing: 95ms;
     }
 
     .#{$prefix}--header__menu-title[role='menuitem'][aria-expanded='true'] {
+      background-color: $ui-01;
       & + .#{$prefix}--header__menu {
-        background: $ui-02;
+        background-color: $ui-02;
         .#{$prefix}--header__menu-item {
           &:hover {
             color: $text-01;
@@ -115,7 +116,7 @@ $search-transition-timing: 95ms;
     }
 
     .#{$prefix}--header__menu-item {
-      border-bottom: 1px solid #dcdcdc;
+      border-bottom: 1px solid $carbon--gray-20;
       padding: 0;
     }      
   }
@@ -235,6 +236,7 @@ $search-transition-timing: 95ms;
   }
 
   .react-autosuggest__suggestions-list {
+    background-color: $ui-background;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
   }
 
@@ -266,7 +268,7 @@ $search-transition-timing: 95ms;
     width: 0;
     // transition-timing-function: cubic-bezier(0.2, 0, 0.38, 0.9);
     transition: 120ms;
-    border-bottom: 1px solid #dcdcdc;
+    border-bottom: 1px solid $carbon--gray-20;
 
     &::placeholder {
       position: relative;

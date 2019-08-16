@@ -1,0 +1,136 @@
+//
+// Copyright IBM Corp. 2016, 2018
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+@import '~carbon-components/scss/globals/scss/vars';
+@import '~carbon-components/scss/globals/scss/helper-mixins';
+@import '~carbon-components/scss/globals/scss/layout';
+@import '~carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/import-once/import-once';
+@import '~carbon-components/scss/globals/scss/css--reset';
+
+/// @access private
+/// @group dotcom ui-shell Masthead L1
+
+$search-transition: cubic-bezier(0.2, 0, 0.38, 0.9);
+$search-transition-timing: 95ms;
+
+@mixin masthead-l1 {
+  .#{$prefix}--masthead__l1 {
+    display: flex;
+    width: 100vw;
+    height: 80px;
+    background-color: $ui-01;
+    transition-timing-function: $search-transition;
+  }
+
+  .#{$prefix}--masthead__l1-name {
+    display: flex;
+    height: 100%;
+    width: rem(336px);
+    background-color: $carbon--gray-90;
+    color: $text-04;
+    padding: $spacing-05;
+    align-items: flex-start;
+    flex-direction: column;
+
+    .#{$prefix}--masthead__l1-name-eyebrow {
+      a {
+        @include type-style('label-01');
+        color: $active-ui;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+          transition: $search-transition-timing;
+        }
+      }
+
+      svg {
+        position: relative;
+        top: 4px;
+        left: -2px;
+        fill: $active-ui;
+      }
+
+      &:hover {
+        a {
+          color: $inverse-support-04;
+        }
+
+        svg {
+          fill: $inverse-support-04;
+        }
+      }
+    }
+
+    .#{$prefix}--masthead__l1-name-title {
+      position: relative;
+      padding: 0 $spacing-05;
+      margin-top: auto;
+      @include type-style('productive-heading-02');
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -$spacing-05;
+        width: 100%;
+        height: 3px;
+        background-color: $interactive-01;
+      }
+    }
+  }
+
+  .#{$prefix}--masthead__l1-nav {
+    a.#{$prefix}--header__menu-item[role='menuitem'] {
+      align-items: flex-end;
+      padding-bottom: $spacing-05;
+
+      &:hover {
+        background-color: $ui-03;
+      }
+
+      &:focus {
+        border-color: $interactive-01;
+      }
+
+      svg {
+        position: relative;
+        top: -6px;
+      }
+    }
+
+    a.#{$prefix}--header__menu-title[role='menuitem'][aria-expanded='true'] {
+      background-color: $ui-03;
+      & + .#{$prefix}--header__menu {
+
+        li {
+          background-color: $ui-01;
+
+          &:hover {
+            background-color: $hover-ui;
+          }
+
+          a.#{$prefix}--header__menu-item {
+            &:hover {
+              color: $text-01;
+              background-color: $hover-ui;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 66rem) {
+  .#{$prefix}--masthead__l1 {
+    display: none !important;
+  }
+}
+
+@include exports('masthead-l1') {
+  @include masthead-l1;
+}
