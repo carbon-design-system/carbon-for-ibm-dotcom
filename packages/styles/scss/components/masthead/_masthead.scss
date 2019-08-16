@@ -187,6 +187,7 @@ $search-transition-timing: 95ms;
       position: absolute;
       z-index: 999;
       width: 100%;
+
       .#{$prefix}--header__search--input {
         padding: 0 $spacing-05;
         width: 100%;
@@ -194,6 +195,13 @@ $search-transition-timing: 95ms;
         outline: 2px solid transparent;
         outline-offset: -2px;
         background-color: $ui-01;
+
+        &::placeholder {
+          left: 0;
+          opacity: 1;
+          transition-duration: 112ms;
+          transition-delay: 200ms;
+        }
       }
 
       .#{$prefix}--header__search--close {
@@ -258,6 +266,12 @@ $search-transition-timing: 95ms;
     // transition-timing-function: cubic-bezier(0.2, 0, 0.38, 0.9);
     transition: 120ms;
     border-bottom: 1px solid #dcdcdc;
+
+    &::placeholder {
+      position: relative;
+      left: 5rem;
+      opacity: 0;
+    }
   }
 }
 
