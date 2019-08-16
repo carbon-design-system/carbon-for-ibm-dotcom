@@ -6,6 +6,31 @@
 # LICENSE file in the root directory of this source tree.
 #
 
+# Alpha release
+release_alpha () {
+  ./node_modules/.bin/lerna publish --canary minor --dist-tag canary --no-push --no-git-tag-version
+}
+
+# RC.0 release
+release_rc0 () {
+  ./node_modules/.bin/lerna publish preminor --exact --conventional-commits --conventional-prerelease --preid rc --no-git-tag-version
+}
+
+# RC.1+ release
+release_rc1plus () {
+  ./node_modules/.bin/lerna publish --exact --conventional-commits --conventional-prerelease --preid rc --no-git-tag-version
+}
+
+# Full minor release
+release_full_minor () {
+  ./node_modules/.bin/lerna publish minor --exact --conventional-commits --no-git-tag-version
+}
+
+# Full major release
+release_full_major () {
+  ./node_modules/.bin/lerna publish major --exact --conventional-commits --no-git-tag-version
+}
+
 # Start in tasks/ even if run from root directory
 cd "$(dirname "$0")"
 
@@ -14,17 +39,108 @@ cd "$(dirname "$0")"
 # properly and that we do not need to validate that the output is correct
 set -e
 
-# Echo every command being executed
-set -x
-
 # Go to root
 cd ..
 root_path=$PWD
 
+# Check the git status first
 if [ -n "$(git status --porcelain)" ]; then
   echo "Your git status is not clean. Aborting.";
   exit 1;
 fi
 
 # Go!
-./node_modules/.bin/lerna publish "$@"
+PS3='Select an option and press Enter: '
+
+# Check if logged into npm
+echo "Did you log into npm (npm login) with a user with publishing rights?"
+options_npm=(
+  "Yes"
+  "No"
+)
+select npm in "${options_npm[@]}"
+do
+    case "$npm" in
+        "Yes")
+          echo "Great!"
+          break
+          ;;
+        "No")
+          echo "Please log into npm first then re-run this script."
+          exit 1
+          ;;
+        *) echo "invalid option $REPLY";;
+    esac
+done
+
+# Check if current user is the release manager
+echo "Are you the release manager for this cycle?"
+options_manager=(
+  "Yes"
+  "No"
+)
+select manager in "${options_manager[@]}"
+do
+    case "$manager" in
+        "Yes")
+          break
+          ;;
+        "No")
+          echo "You are only permitted to run an alpha release. Running now..."
+          set -x
+          release_alpha
+          exit 1
+          ;;
+        *) echo "invalid option $REPLY";;
+    esac
+done
+
+# Ask what type of release to run if the user is the release manager
+echo "What type of release are you running?"
+options_release=(
+  "alpha release"
+  "rc.0 (first release candidate)"
+  "rc.1+ (subsequent release candidates)"
+  "full release (minor)"
+  "full release (major)"
+  "cancel"
+)
+select release in "${options_release[@]}"
+do
+    case "$release" in
+        "alpha release")
+          echo "Creating alpha release..."
+          set -x
+          release_alpha
+          exit 1
+          ;;
+        "rc.0 (first release candidate)")
+          echo "Creating rc.0 release..."
+          set -x
+          release_rc0
+          exit 1
+          ;;
+        "rc.1+ (subsequent release candidates)")
+          echo "Creating rc.1+ release..."
+          set -x
+          release_rc1plus
+          exit 1
+          ;;
+        "full release (minor)")
+          echo "Creating full minor release..."
+          set -x
+          release_full_minor
+          exit 1
+          ;;
+        "full release (major)")
+          echo "Creating full major release..."
+          set -x
+          release_full_major
+          exit 1
+          ;;
+        "cancel")
+          exit 1
+          ;;
+        *) echo "invalid option $REPLY";;
+    esac
+done
