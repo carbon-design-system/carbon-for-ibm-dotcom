@@ -195,6 +195,7 @@ $search-transition-timing: 95ms;
         outline: 2px solid transparent;
         outline-offset: -2px;
         background-color: $ui-01;
+        height: $spacing-09;
 
         &::placeholder {
           left: 0;
