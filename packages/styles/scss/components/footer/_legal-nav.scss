@@ -5,45 +5,43 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import '@carbon/layout/scss/mini-unit';
-@import '@carbon/layout/scss/breakpoint';
-@import '@carbon/grid/scss/mixins';
-@import 'carbon-components/scss/globals/scss/vars'; // $prefix
-@import '../../globals/mixins.scss'; // paddingDiff()
-@import '../../globals/vars.scss'; // $TEMP--link-type-token
-
-/// Legal nav styles mixin
+/// Legal nav styles
 /// @access private
 /// @group footer
 
-@mixin legal-nav () {
-  .#{$prefix}--legal-nav {
-    border-top: 1px solid $ui-03;
-    @include carbon--make-row();
+.#{$prefix}--legal-nav {
+  @include carbon--make-row;
 
-    &__container {
-      @include carbon--make-container();
+  border-top: 1px solid $ui-03;
+
+  .#{$prefix}--footer:not(.#{$prefix}--footer--short) & {
+    @include carbon--breakpoint-down($TEMP--breakpoint-down--md) {
+      border-top: 0;
     }
+  }
 
-    &__list {
-      @include carbon--make-col-ready();
+  &__container {
+    @include carbon--make-container;
+  }
+
+  &__list {
+    @include carbon--make-col-ready;
+
+    .#{$prefix}--footer:not(.#{$prefix}--footer--short) & {
       @include carbon--breakpoint('lg') {
-
-        .#{$prefix}--footer:not(.#{$prefix}--footer--short) & {
-          @include carbon--make-col(11, 16);
-          @include carbon--make-col-offset(5, 16);
-        }
+        @include carbon--make-col-offset(4, 16);
+        @include carbon--make-col(12, 16);
       }
     }
+  }
 
-    &__list-item {
-      display: inline-block;
-      margin-right: carbon--mini-units(4);
-      padding: paddingDiff($TEMP--legal-nav-height, $TEMP--link-type-token) 0;
+  &__list-item {
+    display: inline-block;
+    margin-right: carbon--mini-units(4);
+    padding: TEMP--padding-diff($TEMP--link-height, $TEMP--link-type) 0;
 
-      &:last-child {
-        margin-right: 0;
-      }
+    &:last-child {
+      margin-right: 0;
     }
   }
 }

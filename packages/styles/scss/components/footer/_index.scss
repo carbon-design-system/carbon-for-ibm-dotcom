@@ -6,19 +6,25 @@
 //
 
 @import '@carbon/import-once/scss/index';
-@import 'footer';
-@import 'legal-nav';
+@import '@carbon/layout/scss/mini-unit';
+@import '@carbon/layout/scss/breakpoint';
+@import '@carbon/grid/scss/mixins';
+@import '@carbon/type/scss/type';
+
+@import 'carbon-components/scss/globals/scss/vars'; // $prefix
+@import 'carbon-components/scss/globals/scss/css--reset';
+
+@import '../../globals/vars.scss'; // $TEMP
+@import '../../globals/mixins.scss'; // $TEMP
 
 /// Include footer components with g90 theme
 /// @access private
 /// @group footer
 
 @include carbon--theme($carbon--theme--g90) {
-  @include exports('footer') {
-    @include footer;
-  }
-
-  @include exports('legal-nav') {
-    @include legal-nav();
-  }
+  @import 'footer';
+  @import 'footer-title';
+  @import 'footer-nav';
+  @import 'footer-nav-group';
+  @import 'legal-nav';
 }

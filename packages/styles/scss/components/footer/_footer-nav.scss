@@ -1,0 +1,56 @@
+//
+// Copyright IBM Corp. 2016, 2018
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+/// Footer nav styles
+/// @access private
+/// @group footer
+
+.#{$prefix}--footer-nav {
+  @import '../accordion/accordion-expressive';
+  @include carbon--make-col-ready;
+
+  padding: 0;
+
+  @include carbon--breakpoint('md') {
+    padding: 0 $carbon--grid-gutter / 2;
+  }
+
+  @include carbon--breakpoint-between('md', $TEMP--breakpoint-down--lg) {
+    padding-top: carbon--mini-units(2);
+    border-top: 1px solid $ui-03;
+  }
+
+  @include carbon--breakpoint('lg') {
+    @include carbon--make-col-offset(2, 16);
+    @include carbon--make-col(12, 16);
+  }
+
+  &__list--mobile {
+    @include carbon--breakpoint('md') {
+      display: none;
+    }
+  }
+
+  &__list--desktop {
+    display: none;
+
+    @include carbon--breakpoint('md') {
+      @include carbon--make-row;
+      display: block;
+      column-count: 2;
+    }
+
+    @include carbon--breakpoint('lg') {
+      column-count: 3;
+    }
+  }
+
+  &__list-item {
+    @include carbon--make-col-ready;
+    display: inline-block;
+  }
+}

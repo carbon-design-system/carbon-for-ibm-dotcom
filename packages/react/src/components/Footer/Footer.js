@@ -11,7 +11,14 @@ import PropTypes from 'prop-types';
 // import LocaleSelector from './LocaleSelector';
 import { settings } from 'carbon-components';
 import classNames from 'classnames';
+import FooterTitle from './FooterTitle';
+import FooterNav from './FooterNav';
 import LegalNav from './LegalNav';
+
+import footerMenuData from './__stories__/data/footer-menu';
+import footerLegalData from './__stories__/data/footer-legal';
+
+console.log(footerLegalData);
 
 const { prefix } = settings;
 
@@ -23,31 +30,44 @@ class Footer extends React.Component {
    * @returns {object} JSX object
    */
   render() {
+    const { type } = this.props;
+
     return (
-      <footer className={classNames(`${prefix}--footer`, this.getFooterType())}>
-        <LegalNav
-          items={[
-            { title: 'Contact IBM', url: '#' },
-            { title: 'Privacy', url: '#' },
-            { title: 'Terms of use', url: '#' },
-            { title: 'Accessibility', url: '#' },
-            { title: 'Feedback', url: '#' },
-            { title: 'Cookie preferences', url: '#' },
-          ]}
-        />
+      <footer
+        className={classNames(`${prefix}--footer`, this.setFooterType(type))}>
+        <section className={`${prefix}--footer__main`}>
+          <div class={`${prefix}--footer__main-container`}>
+            <FooterTitle />
+            {this.optionalFooterNav(type)}
+          </div>
+        </section>
+        <LegalNav links={footerLegalData} />
       </footer>
     );
   }
 
   /**
-   * gets the footer type
+   * renders optional footer nav for tall
    *
+   * @param {string} type type of footer in use
    * @returns {object} JSX object
    */
-  getFooterType() {
+  optionalFooterNav(type) {
+    if (type !== 'short') {
+      return <FooterNav groups={footerMenuData} />;
+    }
+  }
+
+  /**
+   * sets the footer type
+   *
+   * @param {string} type type of footer in use
+   * @returns {object} JSX object
+   */
+  setFooterType(type) {
     let typeClassName;
 
-    if (this.props.type === 'short') {
+    if (type === 'short') {
       typeClassName = `${prefix}--footer--short`;
     }
 

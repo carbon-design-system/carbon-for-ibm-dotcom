@@ -5,10 +5,18 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-/// Temporarily sets the link type token
-/// (Can deprecate once theming becomes available)
-///
-/// @access public
-/// @type String
-$TEMP--link-type-token: 'body-short-02';
-$TEMP--legal-nav-height: carbon--mini-units(6); // 48px
+@import '@carbon/layout/scss/mini-unit';
+@import '@carbon/layout/scss/breakpoint';
+@import 'mixins';
+
+$TEMP--footer-nav-group-type: 'heading-02';
+
+$TEMP--link-type: 'body-short-02';
+$TEMP--link-height: carbon--mini-units(6); // 48px
+
+$TEMP--accordion-type: 'body-long-02';
+$TEMP--accordion-height: carbon--mini-units(6); // 48px
+$TEMP--accordion-arrow-size: TEMP--get-icon-size($TEMP--accordion-type); // 48px
+
+$TEMP--breakpoint-down--md: map-get(map-get($carbon--grid-breakpoints, 'md'), 'width') - carbon--rem(1px);
+$TEMP--breakpoint-down--lg: map-get(map-get($carbon--grid-breakpoints, 'lg'), 'width') - carbon--rem(1px);

@@ -1,0 +1,38 @@
+//
+// Copyright IBM Corp. 2016, 2018
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import '@carbon/import-once/scss/index';
+@import 'carbon-components/scss/components/accordion/accordion';
+@import '../../globals/mixins.scss';
+@import '../../globals/vars.scss';
+
+/// Temporary overrides for accordion's expressive moment
+/// @access private
+/// @group expressive-overrides
+
+@mixin accordion-expressive () {
+  .#{$prefix}--accordion {
+    &__heading {
+      padding: TEMP--padding-diff($TEMP--accordion-height, $TEMP--accordion-type) 0;
+    }
+
+    &__title {
+      @include carbon--type-style($TEMP--accordion-type); // need to remove once 16 variants come out
+    }
+
+    &__arrow {
+      flex: 0 0 $TEMP--accordion-arrow-size;
+      width: $TEMP--accordion-arrow-size;
+      height: $TEMP--accordion-arrow-size;
+      margin-right: ($TEMP--accordion-height - $TEMP--accordion-arrow-size) / 2;
+    }
+  }
+}
+
+@include exports('accordion-expressive') {
+  @include accordion-expressive;
+}

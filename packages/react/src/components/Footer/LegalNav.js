@@ -20,11 +20,13 @@ class LegalNav extends React.Component {
    * @returns {object} JSX object
    */
   render() {
+    const { links } = this.props;
+
     return (
       <aside className={`${prefix}--legal-nav__container`}>
         <nav className={`${prefix}--legal-nav`}>
           <ul className={`${prefix}--legal-nav__list`}>
-            {this.renderListItems()}
+            {this.renderListItems(links)}
           </ul>
         </nav>
       </aside>
@@ -34,27 +36,30 @@ class LegalNav extends React.Component {
   /**
    * Loops through and renders list items for legal nav
    *
+   * @param {Array} links A list of links to be rendered
    * @returns {object} JSX object
    */
-  renderListItems() {
-    const items = [];
+  renderListItems(links) {
+    const toRender = [];
 
-    for (let i = 0; i < this.props.items.length; i += 1) {
-      const item = this.props.items[i];
+    for (let i = 0; i < links.length; i += 1) {
+      const { title, url } = links[i];
 
-      items.push(
+      console.log(url);
+
+      toRender.push(
         <li className={`${prefix}--legal-nav__list-item`}>
-          <Link href={item.url}>{item.title}</Link>
+          <Link href={url}>{title}</Link>
         </li>
       );
     }
 
-    return items;
+    return toRender;
   }
 }
 
 LegalNav.propTypes = {
-  items: PropTypes.arrayOf(
+  links: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string.isRequired,
       url: PropTypes.string.isRequired,

@@ -5,46 +5,44 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import '@carbon/type/scss/type';
-@import '@carbon/layout/scss/mini-unit';
-@import 'carbon-components/scss/globals/scss/vars'; // $prefix
-@import '../../globals/vars.scss'; // $TEMP--link-type-token
-
-@import 'carbon-components/scss/components/link/link';
-
-/// Footer styles mixin
+/// Footer styles
 /// @access private
 /// @group footer
 
-@mixin footer () {
-  .#{$prefix}--footer {
+.#{$prefix}--footer {
+  color: $text-01;
+  background-color: $ui-background;
+  padding-top: carbon--mini-units(6); // 48px
 
-    background-color: $ui-background;
-    padding-top: carbon--mini-units(6); // 48px
+  &--short {
+    padding-top: carbon--mini-units(4); // 32px
+  }
 
-    &--short {
-      padding-top: carbon--mini-units(4); // 32px
+  &__main {
+    @include carbon--make-container;
+  }
+
+  &__main-container {
+    @include carbon--make-row;
+  }
+
+  @import '../link/link-expressive';
+  .#{$prefix}--link {
+    &,
+    &:visited {
+      color: $text-02;
     }
 
-    .bx--link {
-      @include carbon--type-style($TEMP--link-type-token); // need to remove once 16 variants come out
+    &:focus {
+      outline-color: $focus;
+    }
 
-      &,
-      &:visited {
-        color: $text-02;
-      }
+    &:active {
+      color: $text-04;
+    }
 
-      &:focus {
-        outline-color: $focus;
-      }
-
-      &:active {
-        color: $text-04;
-      }
-
-      &:hover {
-        color: $text-01;
-      }
+    &:hover {
+      color: $text-01;
     }
   }
 }
