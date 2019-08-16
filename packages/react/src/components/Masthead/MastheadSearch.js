@@ -129,9 +129,6 @@ const MastheadSearch = ({ placeHolderText, renderValue }) => {
     placeholder: placeHolderText,
     value: state.val,
     onChange,
-    onFocus: e => {
-      e.target.placeholder = '';
-    },
     className: `${prefix}--header__search--input`,
   };
 
