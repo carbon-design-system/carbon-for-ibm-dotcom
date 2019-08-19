@@ -9,8 +9,8 @@ import React, { useReducer } from 'react';
 import PropTypes from 'prop-types';
 import Autosuggest from 'react-autosuggest';
 import root from 'window-or-global';
-import { SearchTypeaheadAPI } from '@ibmdotcom/services';
-import { escapeRegExp } from '@ibmdotcom/utilities';
+// import { SearchTypeaheadAPI } from '@ibmdotcom/services';
+// import { escapeRegExp } from '@ibmdotcom/utilities';
 import MastheadSearchInput from './MastheadSearchInput';
 import MastheadSearchSuggestion from './MastheadSearchSuggestion';
 
@@ -171,7 +171,8 @@ const MastheadSearch = ({ placeHolderText, renderValue }) => {
    * @param {string} request.reason string describing why onSuggestionsFetchRequested was called
    */
   async function onSuggestionsFetchRequest(request) {
-    const searchValue = _trimAndLower(escapeRegExp(request.value));
+    console.log('request', request);
+    /*const searchValue = _trimAndLower(escapeRegExp(request.value));
 
     if (request.reason === 'input-changed') {
       // if the search input has changed
@@ -188,7 +189,7 @@ const MastheadSearch = ({ placeHolderText, renderValue }) => {
     } else {
       dispatch({ type: 'setSuggestionsToPrevious' });
       dispatch({ type: 'showSuggestionsContainer' });
-    }
+    }*/
   }
 
   /**
