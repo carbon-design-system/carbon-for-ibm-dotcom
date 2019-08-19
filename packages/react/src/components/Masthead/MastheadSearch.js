@@ -8,7 +8,7 @@
 import React, { useReducer } from 'react';
 import PropTypes from 'prop-types';
 import Autosuggest from 'react-autosuggest';
-import root from 'window-or-global';
+// import root from 'window-or-global';
 // import { SearchTypeaheadAPI } from '@ibmdotcom/services';
 // import { escapeRegExp } from '@ibmdotcom/utilities';
 import MastheadSearchInput from './MastheadSearchInput';
@@ -210,7 +210,7 @@ const MastheadSearch = ({ placeHolderText, renderValue }) => {
   function onSuggestionSelected(event, { suggestionValue }) {
     const lang = 'en'; // TODO: pull lang from locale selector
     const cc = 'us'; // TODO: pull cc from the locale selector
-    root.location.href = `${_redirectUrl}&q=${encodeURIComponent(
+    window.location.href = `${_redirectUrl}&q=${encodeURIComponent(
       suggestionValue
     )}&lang=${lang}&cc=${cc}`;
   }
