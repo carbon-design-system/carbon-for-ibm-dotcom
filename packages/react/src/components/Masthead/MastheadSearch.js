@@ -11,8 +11,8 @@ import Autosuggest from 'react-autosuggest';
 // import root from 'window-or-global';
 // import { SearchTypeaheadAPI } from '@ibmdotcom/services';
 // import { escapeRegExp } from '@ibmdotcom/utilities';
-import MastheadSearchInput from './MastheadSearchInput';
-import MastheadSearchSuggestion from './MastheadSearchSuggestion';
+// import MastheadSearchInput from './MastheadSearchInput';
+// import MastheadSearchSuggestion from './MastheadSearchSuggestion';
 
 /**
  * Sets up the redirect URL when a user selects a search suggestion
@@ -130,12 +130,14 @@ const MastheadSearch = ({ placeHolderText, renderValue }) => {
    * @returns {*} The rendered component
    */
   function renderInputComponent(componentInputProps) {
-    return (
+    console.log('componentInputProps', componentInputProps);
+    return <div />;
+    /*return (
       <MastheadSearchInput
         componentInputProps={componentInputProps}
         dispatch={dispatch}
       />
-    );
+    );*/
   }
 
   /**
@@ -148,14 +150,16 @@ const MastheadSearch = ({ placeHolderText, renderValue }) => {
    * @returns {*} The suggestion value
    */
   function renderSuggestion(suggestion, { query, isHighlighted }) {
-    return (
-      <MastheadSearchSuggestion
-        suggestion={suggestion}
-        query={query}
-        isHighlighted={isHighlighted}
-        getSuggestionValue={_getSuggestionValue}
-      />
-    );
+    console.log('suggestion', suggestion, query, isHighlighted);
+    return <div />;
+    // return (
+    //   <MastheadSearchSuggestion
+    //     suggestion={suggestion}
+    //     query={query}
+    //     isHighlighted={isHighlighted}
+    //     getSuggestionValue={_getSuggestionValue}
+    //   />
+    // );
   }
 
   /**
