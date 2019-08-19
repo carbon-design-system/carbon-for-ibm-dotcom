@@ -8,11 +8,11 @@
 import React, { useReducer } from 'react';
 import PropTypes from 'prop-types';
 import Autosuggest from 'react-autosuggest';
-// import root from 'window-or-global';
-// import { SearchTypeaheadAPI } from '@ibmdotcom/services';
-// import { escapeRegExp } from '@ibmdotcom/utilities';
-// import MastheadSearchInput from './MastheadSearchInput';
-// import MastheadSearchSuggestion from './MastheadSearchSuggestion';
+import root from 'window-or-global';
+import { SearchTypeaheadAPI } from '@ibmdotcom/services';
+import { escapeRegExp } from '@ibmdotcom/utilities';
+import MastheadSearchInput from './MastheadSearchInput';
+import MastheadSearchSuggestion from './MastheadSearchSuggestion';
 
 /**
  * Sets up the redirect URL when a user selects a search suggestion
@@ -130,14 +130,12 @@ const MastheadSearch = ({ placeHolderText, renderValue }) => {
    * @returns {*} The rendered component
    */
   function renderInputComponent(componentInputProps) {
-    console.log('componentInputProps', componentInputProps);
-    return <div />;
-    /*return (
+    return (
       <MastheadSearchInput
         componentInputProps={componentInputProps}
         dispatch={dispatch}
       />
-    );*/
+    );
   }
 
   /**
@@ -150,16 +148,14 @@ const MastheadSearch = ({ placeHolderText, renderValue }) => {
    * @returns {*} The suggestion value
    */
   function renderSuggestion(suggestion, { query, isHighlighted }) {
-    console.log('suggestion', suggestion, query, isHighlighted);
-    return <div />;
-    // return (
-    //   <MastheadSearchSuggestion
-    //     suggestion={suggestion}
-    //     query={query}
-    //     isHighlighted={isHighlighted}
-    //     getSuggestionValue={_getSuggestionValue}
-    //   />
-    // );
+    return (
+      <MastheadSearchSuggestion
+        suggestion={suggestion}
+        query={query}
+        isHighlighted={isHighlighted}
+        getSuggestionValue={_getSuggestionValue}
+      />
+    );
   }
 
   /**
@@ -175,8 +171,7 @@ const MastheadSearch = ({ placeHolderText, renderValue }) => {
    * @param {string} request.reason string describing why onSuggestionsFetchRequested was called
    */
   async function onSuggestionsFetchRequest(request) {
-    console.log('request', request);
-    /*const searchValue = _trimAndLower(escapeRegExp(request.value));
+    const searchValue = _trimAndLower(escapeRegExp(request.value));
 
     if (request.reason === 'input-changed') {
       // if the search input has changed
@@ -193,7 +188,7 @@ const MastheadSearch = ({ placeHolderText, renderValue }) => {
     } else {
       dispatch({ type: 'setSuggestionsToPrevious' });
       dispatch({ type: 'showSuggestionsContainer' });
-    }*/
+    }
   }
 
   /**
@@ -214,7 +209,7 @@ const MastheadSearch = ({ placeHolderText, renderValue }) => {
   function onSuggestionSelected(event, { suggestionValue }) {
     const lang = 'en'; // TODO: pull lang from locale selector
     const cc = 'us'; // TODO: pull cc from the locale selector
-    window.location.href = `${_redirectUrl}&q=${encodeURIComponent(
+    root.location.href = `${_redirectUrl}&q=${encodeURIComponent(
       suggestionValue
     )}&lang=${lang}&cc=${cc}`;
   }
