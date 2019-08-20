@@ -15,9 +15,8 @@ const MastheadSearchInput = ({ componentInputProps, dispatch }) => (
     <input {...componentInputProps} data-autoid="masthead__search--input" />
     <button
       type="button"
-      onClick={() =>
-        dispatch({ type: 'setVal', payload: { val: '' } })
-      }></button>
+      onClick={() => dispatch({ type: 'setVal', payload: { val: '' } })}
+    />
   </div>
 );
 
