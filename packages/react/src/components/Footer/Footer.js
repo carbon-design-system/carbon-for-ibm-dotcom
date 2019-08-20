@@ -9,8 +9,29 @@ import React from 'react';
 import { localeSelector } from '../../internal/FeatureFlags';
 import LocaleSelector from './LocaleSelector';
 
+/**
+ * Test async/await function
+ *
+ * @param {number} ms timer in milliseconds
+ * @returns {Promise} Promise object with setTimeout
+ */
+async function wait(ms) {
+  return new Promise(resolve => {
+    setTimeout(resolve, ms);
+  });
+}
+
 /** Footer component */
 class Footer extends React.Component {
+  /**
+   * Test await function
+   *
+   * @returns {Promise} Await function
+   */
+  async test() {
+    await wait(500);
+  }
+
   /**
    * Renders the footer component
    *
