@@ -1,5 +1,4 @@
 module.exports = {
-  runtimeHelpers: true,
   presets: ['./scripts/env', '@babel/preset-react'],
   plugins: [
     'dev-expression',

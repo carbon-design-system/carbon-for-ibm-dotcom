@@ -98,15 +98,6 @@ module.exports = ({ config, mode }) => {
     ],
   };
 
-  config.module.rules.filter(
-    rule =>
-      !(
-        rule.use &&
-        rule.use.length &&
-        rule.use.find(({ loader }) => loader === 'babel-loader')
-      )
-  );
-
   config.module.rules.push({
     test: /(\/|\\)FeatureFlags\.js$/,
     loader: 'string-replace-loader',
@@ -119,7 +110,7 @@ module.exports = ({ config, mode }) => {
     },
   });
 
-  /*config.module.rules.push({
+  config.module.rules.push({
     test: /.stories\.jsx?$/,
     loaders: [
       {
@@ -137,7 +128,7 @@ module.exports = ({ config, mode }) => {
       },
     ],
     enforce: 'pre',
-  });*/
+  });
 
   config.module.rules.push({
     test: /\.scss$/,
