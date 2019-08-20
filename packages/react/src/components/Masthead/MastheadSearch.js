@@ -8,7 +8,7 @@
 // import React, { useReducer } from 'react';
 import React from 'react';
 import PropTypes from 'prop-types';
-import Autosuggest from 'react-autosuggest';
+// import Autosuggest from 'react-autosuggest';
 import root from 'window-or-global';
 import { SearchTypeaheadAPI } from '@ibmdotcom/services';
 import { escapeRegExp } from '@ibmdotcom/utilities';
@@ -228,7 +228,7 @@ const MastheadSearch = ({ placeHolderText, renderValue }) => {
 
   return (
     <div data-autoid="masthead__search">
-      <Autosuggest
+      <MastheadSearchInput
         // suggestions={state.suggestions} // The state value of suggestion
         onSuggestionsFetchRequested={onSuggestionsFetchRequest} // Method to fetch data (should be async call)
         onSuggestionsClearRequested={onSuggestionsClearedRequested} // When input bar loses focus
