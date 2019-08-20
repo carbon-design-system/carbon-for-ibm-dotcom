@@ -28,6 +28,18 @@ module.exports = {
     ],
     'react/jsx-uses-vars': 1,
     'react/jsx-uses-react': 1,
+
+    // Require ES6 class declarations over React.createClass
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-es6-class.md
+    'react/prefer-es6-class': ['error', 'always'],
+
+    // Require stateless functions when not using lifecycle methods, setState or ref
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-stateless-function.md
+    'react/prefer-stateless-function': [
+      'error',
+      { ignorePureComponents: true },
+    ],
+
     'react/no-find-dom-node': 1,
     'react/no-typos': 2,
     'react/no-unused-prop-types': 2,
