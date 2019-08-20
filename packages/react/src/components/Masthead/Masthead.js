@@ -7,7 +7,7 @@
 
 import PropTypes from 'prop-types';
 import React from 'react';
-import MastheadSearchInput from './MastheadSearchInput';
+import MastheadSearch from './MastheadSearch';
 
 /**
  * Test MastHead component
@@ -20,7 +20,11 @@ const Masthead = ({ type }) => {
   if (type === 'branded') {
     return <div className="masthead">Branded</div>;
   } else {
-    return <MastheadSearchInput />;
+    return (
+      <div className="masthead">
+        <MastheadSearch />
+      </div>
+    );
   }
 };
 
