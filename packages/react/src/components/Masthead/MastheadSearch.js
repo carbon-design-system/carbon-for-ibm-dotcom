@@ -5,7 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, { useReducer } from 'react';
+// import React, { useReducer } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Autosuggest from 'react-autosuggest';
 import root from 'window-or-global';
@@ -94,7 +95,7 @@ function _reducer(state, action) {
  * @class
  */
 const MastheadSearch = ({ placeHolderText, renderValue }) => {
-  const [state, dispatch] = useReducer(_reducer, _initialState);
+  // const [state, dispatch] = useReducer(_reducer, _initialState);
 
   /**
    * When the input field changes, we set the new val to our state
@@ -103,7 +104,8 @@ const MastheadSearch = ({ placeHolderText, renderValue }) => {
    * @param {string} newValue The new val of the input
    */
   function onChange(event, { newValue }) {
-    dispatch({ type: 'setVal', payload: { val: newValue } });
+    console.log(newValue);
+    // dispatch({ type: 'setVal', payload: { val: newValue } });
   }
 
   /**
@@ -113,7 +115,7 @@ const MastheadSearch = ({ placeHolderText, renderValue }) => {
    */
   const inputProps = {
     placeholder: placeHolderText,
-    value: state.val,
+    // value: state.val,
     onChange,
     onFocus: e => {
       e.target.placeholder = '';
@@ -133,7 +135,7 @@ const MastheadSearch = ({ placeHolderText, renderValue }) => {
     return (
       <MastheadSearchInput
         componentInputProps={componentInputProps}
-        dispatch={dispatch}
+        // dispatch={dispatch}
       />
     );
   }
@@ -178,16 +180,16 @@ const MastheadSearch = ({ placeHolderText, renderValue }) => {
       let response = await SearchTypeaheadAPI.getResults(searchValue);
 
       if (response !== undefined) {
-        dispatch({
+        /*dispatch({
           type: 'setPrevSuggestions',
           payload: { prevSuggestions: response },
         });
         dispatch({ type: 'setSuggestionsToPrevious' });
-        dispatch({ type: 'showSuggestionsContainer' });
+        dispatch({ type: 'showSuggestionsContainer' });*/
       }
     } else {
-      dispatch({ type: 'setSuggestionsToPrevious' });
-      dispatch({ type: 'showSuggestionsContainer' });
+      /*dispatch({ type: 'setSuggestionsToPrevious' });
+      dispatch({ type: 'showSuggestionsContainer' });*/
     }
   }
 
@@ -195,8 +197,8 @@ const MastheadSearch = ({ placeHolderText, renderValue }) => {
    * Called every time we clear suggestions
    */
   function onSuggestionsClearedRequested() {
-    dispatch({ type: 'emptySuggestions' });
-    dispatch({ type: 'hideSuggestionsContainer' });
+    /*dispatch({ type: 'emptySuggestions' });
+    dispatch({ type: 'hideSuggestionsContainer' });*/
   }
 
   /**
@@ -227,7 +229,7 @@ const MastheadSearch = ({ placeHolderText, renderValue }) => {
   return (
     <div data-autoid="masthead__search">
       <Autosuggest
-        suggestions={state.suggestions} // The state value of suggestion
+        // suggestions={state.suggestions} // The state value of suggestion
         onSuggestionsFetchRequested={onSuggestionsFetchRequest} // Method to fetch data (should be async call)
         onSuggestionsClearRequested={onSuggestionsClearedRequested} // When input bar loses focus
         getSuggestionValue={_getSuggestionValue} // Name of suggestion
