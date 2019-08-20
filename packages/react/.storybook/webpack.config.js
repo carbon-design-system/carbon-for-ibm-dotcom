@@ -3,14 +3,28 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const rtlcss = require('rtlcss');
 
-const useExternalCss =
-  process.env.CARBON_REACT_STORYBOOK_USE_EXTERNAL_CSS === 'true';
+/**
+ * Flag to switch to use the miniextract plugin
+ *
+ * @type {boolean}
+ */
+const useExternalCss = process.env.REACT_STORYBOOK_USE_EXTERNAL_CSS === 'true';
 
-const useStyleSourceMap =
-  process.env.CARBON_REACT_STORYBOOK_USE_STYLE_SOURCEMAP === 'true';
+/**
+ * Determines if sourcemaps should be turned on or off
+ *
+ * @type {boolean}
+ */
+const useStyleSourceMap = process.env.REACT_STORYBOOK_SOURCEMAPS === 'true';
 
 const useControlledStateWithEventListener =
   process.env.CARBON_REACT_USE_CONTROLLED_STATE_WITH_EVENT_LISTENER === 'true';
+
+/**
+ * Sets the document direction (https://developer.mozilla.org/en-US/docs/Web/API/Document/dir)
+ *
+ * @type {boolean}
+ */
 const useRtl = process.env.CARBON_REACT_STORYBOOK_USE_RTL === 'true';
 
 const replaceTable = {
