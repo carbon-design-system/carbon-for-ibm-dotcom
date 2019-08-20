@@ -1,3 +1,6 @@
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
+
 import 'core-js/modules/es.array.includes';
 import 'core-js/modules/es.array.fill';
 import 'core-js/modules/es.string.includes';
