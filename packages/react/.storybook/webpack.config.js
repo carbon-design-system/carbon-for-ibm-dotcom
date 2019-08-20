@@ -98,7 +98,7 @@ module.exports = ({ config, mode }) => {
     ],
   };
 
-  config.module.rules.push({
+  /*config.module.rules.push({
     test: /(\/|\\)FeatureFlags\.js$/,
     loader: 'string-replace-loader',
     options: {
@@ -108,7 +108,7 @@ module.exports = ({ config, mode }) => {
         flags: 'i',
       })),
     },
-  });
+  });*/
 
   /*config.module.rules.push({
     test: /.stories\.jsx?$/,
