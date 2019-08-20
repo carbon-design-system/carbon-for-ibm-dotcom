@@ -29,7 +29,6 @@ const MastheadSearchInput = ({ componentInputProps, dispatch, isActive }) => {
       <input
         {...componentInputProps}
         data-autoid={`${prefix}--header__search--input`}
-        onBlur={() => dispatch({ type: 'setSearchClosed' })}
         ref={searchRef}
       />
       <HeaderGlobalAction

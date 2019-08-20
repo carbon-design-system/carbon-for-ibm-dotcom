@@ -130,6 +130,9 @@ const MastheadSearch = ({ placeHolderText, renderValue }) => {
     value: state.val,
     onChange,
     className: `${prefix}--header__search--input`,
+    onBlur: () => {
+      dispatch({ type: 'setSearchClosed' });
+    },
   };
 
   /**

@@ -40,7 +40,9 @@ const { prefix } = settings;
  * @param {string} type Type of masthead
  * @returns {*} Masthead component
  */
-const Masthead = ({ navigation, type }) => {
+const Masthead = ({ navigation }) => {
+  const navigationLinks = navigation.links;
+
   return (
     <HeaderContainer
       render={({ isSideNavExpanded, onClickSideNavExpand }) => (
@@ -52,14 +54,14 @@ const Masthead = ({ navigation, type }) => {
               onClick={onClickSideNavExpand}
               isActive={isSideNavExpanded}
             />
-            {type === 'branded' ? (
+            {navigation.platform ? (
               <>
                 <div
                   className={`${prefix}--header__logo ${prefix}--header__logo--platform`}>
                   <Logo />
                 </div>
                 <HeaderName href="#" prefix="">
-                  [Platform]
+                  {navigation.platform}
                 </HeaderName>
               </>
             ) : (
@@ -70,7 +72,7 @@ const Masthead = ({ navigation, type }) => {
 
             <div className={`${prefix}--header__search`}>
               <HeaderNavigation aria-label="IBM">
-                {navigation.map(item => {
+                {navigationLinks.map(item => {
                   if (item.subnav) {
                     return (
                       <HeaderMenu
@@ -109,7 +111,7 @@ const Masthead = ({ navigation, type }) => {
               isPersistent={false}>
               <SideNavItems>
                 <HeaderSideNavItems>
-                  {navigation.map(item => {
+                  {navigationLinks.map(item => {
                     if (item.subnav) {
                       return (
                         <SideNavMenu aria-label={item.name} title={item.name}>
@@ -144,11 +146,6 @@ Masthead.propTypes = {
    * See ./MastheadLinks.js for example structure.
    */
   navigation: PropTypes.object,
-
-  /**
-   * Specify Masthead type
-   */
-  type: PropTypes.string,
 };
 
 export default Masthead;

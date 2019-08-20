@@ -8,7 +8,6 @@
   "repository": "https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react",
   "bugs": "https://github.com/carbon-design-system/carbon/issues",
   "files": [
-    "src/**/*",
     "lib/**/*",
     "es/**/*",
     "umd/**/*"
