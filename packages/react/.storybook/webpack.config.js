@@ -8,14 +8,14 @@ const rtlcss = require('rtlcss');
  *
  * @type {boolean}
  */
-const useExternalCss = process.env.STORYBOOK_USE_EXTERNAL_CSS === 'true';
+const useExternalCss = process.env.REACT_STORYBOOK_USE_EXTERNAL_CSS === 'true';
 
 /**
  * Determines if sourcemaps should be turned on or off
  *
  * @type {boolean}
  */
-const useStyleSourceMap = process.env.STORYBOOK_SOURCEMAPS === 'true';
+const useStyleSourceMap = process.env.REACT_STORYBOOK_SOURCEMAPS === 'true';
 
 const useControlledStateWithEventListener =
   process.env.CARBON_REACT_USE_CONTROLLED_STATE_WITH_EVENT_LISTENER === 'true';
@@ -98,7 +98,16 @@ module.exports = ({ config, mode }) => {
     ],
   };
 
-  /*config.module.rules.push({
+  config.module.rules.filter(
+    rule =>
+      !(
+        rule.use &&
+        rule.use.length &&
+        rule.use.find(({ loader }) => loader === 'babel-loader')
+      )
+  );
+
+  config.module.rules.push({
     test: /(\/|\\)FeatureFlags\.js$/,
     loader: 'string-replace-loader',
     options: {
@@ -108,7 +117,7 @@ module.exports = ({ config, mode }) => {
         flags: 'i',
       })),
     },
-  });*/
+  });
 
   /*config.module.rules.push({
     test: /.stories\.jsx?$/,
