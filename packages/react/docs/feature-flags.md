@@ -1,3 +1,15 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+## Table of Contents
+
+- [Feature Flags](#feature-flags)
+- [Overview](#overview)
+- [Creating a Feature Flag](#creating-a-feature-flag)
+- [Using Feature Flags](#using-feature-flags)
+- [Turning On/Off Feature Flags Locally](#turning-onoff-feature-flags-locally)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Feature Flags
 
 > Guidelines for how to create and use feature flags in the React package
@@ -76,9 +88,7 @@ export default MyComponent;
 
 # Turning On/Off Feature Flags Locally
 
-To enable a feature locally, create a file called `.env` at the root of the
-react package folder, then copy and paste the contents of `.env.example` into
-the file.
+To enable a feature locally, follow the instructions on [environment variables](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/docs/environment-variables.md).
 
 Replace the helper text with the value `true`. For example:
 
