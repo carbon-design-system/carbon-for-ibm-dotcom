@@ -1,37 +1,31 @@
-# @ibmdotcom/styles
+# @ibmdotcom/services
 
-A single, shared CSS resource for the IBM.com Library.
+> A collection of IBM.com service classes
 
-## Getting started
+### Getting Started
 
-To install `@ibmdotcom/styles` in your project, you will need to run the
-following command using [npm](https://www.npmjs.com/):
+Run the following command using [npm](https://www.npmjs.com/):
 
 ```bash
-npm i @ibmdotcom/styles
+npm i @ibmdotcom/services
 ```
 
 If you prefer [Yarn](https://yarnpkg.com/en/), use the following command
 instead:
 
 ```bash
-yarn add @ibmdotcom/styles
+yarn add @ibmdotcom/services
 ```
+
+These services require the use of [Webpack](https://webpack.js.org/) in your
+project.
 
 ## Usage
 
-Import the package css into the top of your main CSS file.
+### List of Available Services
 
-```css
-@import 'node_modules/@ibmdotcom/styles/src/scss/components/footer/footer';
-```
-
-In Webpack, the full package can also be included to the root of your
-application:
-
-```javascript
-import '@ibmdotcom/styles';
-```
+View available services
+[here](https://ibmdotcomlibrary-services.mybluemix.net/).
 
 ## Documentation
 
