@@ -17,7 +17,7 @@
  * const result = serialize(obj);
  * console.log(result); // param1=one&param2=two&param3=three
  */
-const serialize = ({ obj }) => {
+function serialize(obj) {
   return Object.keys(obj)
     .map(key => {
       let value;
@@ -29,6 +29,6 @@ const serialize = ({ obj }) => {
       return `${encodeURIComponent(key)}=${value}`;
     })
     .join('&');
-};
+}
 
 export default serialize;

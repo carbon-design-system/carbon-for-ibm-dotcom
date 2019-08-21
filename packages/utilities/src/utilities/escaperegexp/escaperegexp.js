@@ -13,8 +13,8 @@
  * console.log(result); // Hello\?!\*`~World\(\)\[\]
  *
  */
-const escapeRegExp = ({ str }) => {
+function escapeRegExp(str) {
   return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-};
+}
 
 export default escapeRegExp;
