@@ -9,11 +9,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import MastheadSearch from './MastheadSearch';
 import { settings } from 'carbon-components';
-import HeaderContainer from 'carbon-components-react/lib/components/UIShell/HeaderContainer';
-import UserProfile20 from '@carbon/icons-react/lib/user--profile/20';
+import User20 from '@carbon/icons-react/lib/user/20';
 import { ReactComponent as Logo } from '../Icon/svg/ibm-logo.svg';
 import {
   Header,
+  HeaderContainer,
   HeaderMenuButton,
   HeaderGlobalBar,
   HeaderGlobalAction,
@@ -28,7 +28,8 @@ import {
   SideNavLink,
   SideNavMenu,
   SideNavMenuItem,
-} from 'carbon-components-react/lib/components/UIShell';
+} from 'carbon-components-react';
+import cx from 'classnames';
 import '@ibmdotcom/styles/scss/components/masthead/_masthead.scss';
 
 const { prefix } = settings;
@@ -43,6 +44,11 @@ const { prefix } = settings;
 const Masthead = ({ navigation }) => {
   const navigationLinks = navigation.links;
 
+  const className = cx({
+    [`${prefix}--header__logo`]: true,
+    [`${prefix}--header__logo--platform`]: navigation.platform,
+  });
+
   return (
     <HeaderContainer
       render={({ isSideNavExpanded, onClickSideNavExpand }) => (
@@ -55,29 +61,19 @@ const Masthead = ({ navigation }) => {
               onClick={onClickSideNavExpand}
               isActive={isSideNavExpanded}
             />
+            <div className={className}>
+              <a href="https://ibm.com">
+                <Logo data-autoid={`${prefix}--masthead__logo`} />
+              </a>
+            </div>
             {navigation.platform ? (
-              <>
-                <div
-                  className={`${prefix}--header__logo ${prefix}--header__logo--platform`}>
-                  <a href="https://ibm.com">
-                    <Logo data-autoid={`${prefix}--masthead__logo`} />
-                  </a>
-                </div>
-                <HeaderName
-                  prefix=""
-                  href={navigation.platform.path}
-                  data-autoid={`${prefix}--masthead__platform-name`}>
-                  {navigation.platform.name}
-                </HeaderName>
-              </>
-            ) : (
-              <div className={`${prefix}--header__logo`}>
-                <a href="https://ibm.com">
-                  <Logo data-autoid={`${prefix}--masthead__logo`} />
-                </a>
-              </div>
-            )}
-
+              <HeaderName
+                prefix=""
+                href={navigation.platform.path}
+                data-autoid={`${prefix}--masthead__platform-name`}>
+                {navigation.platform.name}
+              </HeaderName>
+            ) : null}
             <div className={`${prefix}--header__search`}>
               <HeaderNavigation
                 aria-label="IBM"
@@ -119,7 +115,7 @@ const Masthead = ({ navigation }) => {
                 aria-label="User Profile"
                 data-autoid={`${prefix}--masthead__profile`}
                 onClick={() => {}}>
-                <UserProfile20 />
+                <User20 />
               </HeaderGlobalAction>
             </HeaderGlobalBar>
 

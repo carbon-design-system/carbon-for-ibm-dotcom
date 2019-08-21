@@ -22,8 +22,8 @@ $search-transition-timing: 95ms;
 @mixin masthead {
   .#{$prefix}--header {
     transition-timing-function: $search-transition;
-    background: $ui-02;
-    border-bottom: 1px solid $carbon--gray-20;
+    background: $ui-background;
+    border-bottom: 1px solid $ui-03;
 
     .#{$prefix}--header__logo {
       padding: 0 $spacing-07;
@@ -36,9 +36,9 @@ $search-transition-timing: 95ms;
         right: 0;
         top: 50%;
         transform: translateY(-50%);
-        height: 1.5rem;
-        width: 0.0625rem;
-        background-color: $carbon--gray-20;
+        height: carbon--mini-units(3);
+        width: carbon--rem(1px);
+        background-color: $ui-03;
       }
 
       &.#{$prefix}--header__logo--platform {
@@ -116,7 +116,7 @@ $search-transition-timing: 95ms;
     }
 
     .#{$prefix}--header__menu-item {
-      border-bottom: 1px solid $carbon--gray-20;
+      border-bottom: 1px solid $ui-03;
       padding: 0;
     }      
   }
@@ -196,7 +196,7 @@ $search-transition-timing: 95ms;
         outline: 2px solid transparent;
         outline-offset: -2px;
         background-color: $ui-01;
-        height: $spacing-09;
+        height: carbon--mini-units(6);
 
         &::placeholder {
           left: 0;
@@ -243,7 +243,6 @@ $search-transition-timing: 95ms;
   .react-autosuggest__suggestion {
     height: $spacing-09;
     display: flex;
-    // align-items: center;
     padding: 0 $spacing-05;
 
     .container-class {
@@ -266,7 +265,7 @@ $search-transition-timing: 95ms;
     border: none;
     width: 0;
     transition: 120ms;
-    border-bottom: 1px solid $carbon--gray-20;
+    border-bottom: 1px solid $ui-03;
     padding: 0;
 
     &::placeholder {
