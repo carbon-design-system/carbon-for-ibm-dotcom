@@ -1,7 +1,8 @@
 # @ibmdotcom/react
 
 > A collection of IBM.com components implemented using
-> [React](https://reactjs.org/).
+> [React](https://reactjs.org/) and
+> [Carbon](https://www.carbondesignsystem.com/).
 
 ## Getting Started
 
