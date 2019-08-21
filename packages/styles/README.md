@@ -37,7 +37,7 @@ import '@ibmdotcom/styles';
 
 - See our documentation site [here](https://carbonforibm-website.mybluemix.net)
   for full how-to docs and guidelines
-- [Contributing](https://github.com/carbon-design-system/ibm-dotcom-library/.github/CONTRIBUTING.md):
+- [Contributing](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/.github/CONTRIBUTING.md):
   Guidelines for making contributions to this repo.
 
 ## 🙌 Contributing
@@ -45,12 +45,12 @@ import '@ibmdotcom/styles';
 We're always looking for contributors to help us fix bugs, build new features,
 or help us improve the project documentation. If you're interested, definitely
 check out our
-[Contributing Guide](https://github.com/carbon-design-system/ibm-dotcom-library/.github/CONTRIBUTING.md)
+[Contributing Guide](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/.github/CONTRIBUTING.md)
 and our
-[Developer Guide](https://github.com/carbon-design-system/ibm-dotcom-library/docs/developing.md)!
+[Developer Guide](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/docs/developing.md)!
 👀
 
 ## 📝 License
 
 Licensed under the
-[Apache 2.0 License](https://github.com/carbon-design-system/ibm-dotcom-library/LICENSE).
+[Apache 2.0 License](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/LICENSE).
