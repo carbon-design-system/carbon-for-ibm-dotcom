@@ -1,8 +1,8 @@
 # @ibmdotcom/services
 
-> A collection of IBM.com service classes
+A collection of IBM.com service classes
 
-### Getting Started
+## Getting Started
 
 Run the following command using [npm](https://www.npmjs.com/):
 
@@ -31,16 +31,20 @@ View available services
 
 - See our documentation site [here](https://carbonforibm-website.mybluemix.net)
   for full how-to docs and guidelines
-- [Contributing](../../.github/CONTRIBUTING.md): Guidelines for making
-  contributions to this repo.
+- [Contributing](https://github.com/carbon-design-system/ibm-dotcom-library/.github/CONTRIBUTING.md):
+  Guidelines for making contributions to this repo.
 
 ## 🙌 Contributing
 
 We're always looking for contributors to help us fix bugs, build new features,
 or help us improve the project documentation. If you're interested, definitely
-check out our [Contributing Guide](../../.github/CONTRIBUTING.md) and our
-[Developer Guide](../../docs/developing.md)! 👀
+check out our
+[Contributing Guide](https://github.com/carbon-design-system/ibm-dotcom-library/.github/CONTRIBUTING.md)
+and our
+[Developer Guide](https://github.com/carbon-design-system/ibm-dotcom-library/docs/developing.md)!
+👀
 
 ## 📝 License
 
-Licensed under the [Apache 2.0 License](/LICENSE).
+Licensed under the
+[Apache 2.0 License](https://github.com/carbon-design-system/ibm-dotcom-library/LICENSE).

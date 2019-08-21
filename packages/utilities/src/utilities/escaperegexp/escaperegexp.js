@@ -1,14 +1,20 @@
 /**
- * @module Utilities/escaperegexp
- */
-
-/**
  * Utiltity function for escaping regex expressions
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions#Escaping
  *
  * @param {string} str String to escape regex
- * @returns {*} Final string with escaped regex
+ * @returns {string} Final string with escaped regex
+ * @example
+ * import { escapeRegExp } from '@ibmdotcom/utilities'
+ * // or for tree-shaking:
+ * import { escapeRegExp } from '@ibmdotcom/utilities/es/utilities/escaperegexp';
+ *
+ * const result = escapeRegExp('Hello?!*`~World()[]');
+ * console.log(result); // Hello\?!\*`~World\(\)\[\]
+ *
  */
-export function escapeRegExp(str) {
+const escapeRegExp = ({ str }) => {
   return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-}
+};
+
+export default escapeRegExp;
