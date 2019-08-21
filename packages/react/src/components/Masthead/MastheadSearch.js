@@ -238,7 +238,7 @@ const MastheadSearch = ({ placeHolderText, renderValue }) => {
   }
 
   return (
-    <div data-autoid="masthead__search" className={className}>
+    <div data-autoid={`${prefix}--masthead__search`} className={className}>
       <Autosuggest
         suggestions={state.suggestions} // The state value of suggestion
         onSuggestionsFetchRequested={onSuggestionsFetchRequest} // Method to fetch data (should be async call)

@@ -256,7 +256,6 @@ $search-transition-timing: 95ms;
     &:hover {
       cursor: pointer;
       background-color: $ui-01;
-      // transition-timing-function: cubic-bezier(0.2, 0, 0.38, 0.9);
       transition: $search-transition-timing;
     }
   }
@@ -266,9 +265,9 @@ $search-transition-timing: 95ms;
     line-height: 1.375rem;
     border: none;
     width: 0;
-    // transition-timing-function: cubic-bezier(0.2, 0, 0.38, 0.9);
     transition: 120ms;
     border-bottom: 1px solid $carbon--gray-20;
+    padding: 0;
 
     &::placeholder {
       position: relative;

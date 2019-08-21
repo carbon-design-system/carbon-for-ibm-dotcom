@@ -47,10 +47,11 @@ const Masthead = ({ navigation }) => {
     <HeaderContainer
       render={({ isSideNavExpanded, onClickSideNavExpand }) => (
         <>
-          <Header aria-label="IBM">
+          <Header aria-label="IBM" data-autoid={`${prefix}--masthead`}>
             <SkipToContent />
             <HeaderMenuButton
               aria-label="Open menu"
+              data-autoid={`${prefix}--masthead__hamburger`}
               onClick={onClickSideNavExpand}
               isActive={isSideNavExpanded}
             />
@@ -58,29 +59,41 @@ const Masthead = ({ navigation }) => {
               <>
                 <div
                   className={`${prefix}--header__logo ${prefix}--header__logo--platform`}>
-                  <Logo />
+                  <a href="https://ibm.com">
+                    <Logo data-autoid={`${prefix}--masthead__logo`} />
+                  </a>
                 </div>
-                <HeaderName href="#" prefix="">
-                  {navigation.platform}
+                <HeaderName
+                  prefix=""
+                  href={navigation.platform.path}
+                  data-autoid={`${prefix}--masthead__platform-name`}>
+                  {navigation.platform.name}
                 </HeaderName>
               </>
             ) : (
               <div className={`${prefix}--header__logo`}>
-                <Logo />
+                <a href="https://ibm.com">
+                  <Logo data-autoid={`${prefix}--masthead__logo`} />
+                </a>
               </div>
             )}
 
             <div className={`${prefix}--header__search`}>
-              <HeaderNavigation aria-label="IBM">
-                {navigationLinks.map(item => {
+              <HeaderNavigation
+                aria-label="IBM"
+                data-autoid={`${prefix}--masthead__l0-nav`}>
+                {navigationLinks.map((item, index) => {
                   if (item.subnav) {
                     return (
                       <HeaderMenu
                         aria-label={item.name}
-                        menuLinkName={item.name}>
-                        {item.subnav.map(subnav => {
+                        menuLinkName={item.name}
+                        data-autoid={`${prefix}--masthead__l0-nav--nav-${index}`}>
+                        {item.subnav.map((subnav, index) => {
                           return (
-                            <HeaderMenuItem href={subnav.path}>
+                            <HeaderMenuItem
+                              href={subnav.path}
+                              data-autoid={`masthead__l0-nav--subnav-${index}`}>
                               {subnav.name}
                             </HeaderMenuItem>
                           );
@@ -89,7 +102,9 @@ const Masthead = ({ navigation }) => {
                     );
                   } else {
                     return (
-                      <HeaderMenuItem href={item.path}>
+                      <HeaderMenuItem
+                        href={item.path}
+                        data-autoid={`${prefix}--masthead__l0-nav--nav-${index}`}>
                         {item.name}
                       </HeaderMenuItem>
                     );
@@ -100,7 +115,10 @@ const Masthead = ({ navigation }) => {
             </div>
 
             <HeaderGlobalBar>
-              <HeaderGlobalAction aria-label="User Profile" onClick={() => {}}>
+              <HeaderGlobalAction
+                aria-label="User Profile"
+                data-autoid={`${prefix}--masthead__profile`}
+                onClick={() => {}}>
                 <UserProfile20 />
               </HeaderGlobalAction>
             </HeaderGlobalBar>
@@ -109,29 +127,37 @@ const Masthead = ({ navigation }) => {
               aria-label="Side navigation"
               expanded={isSideNavExpanded}
               isPersistent={false}>
-              <SideNavItems>
-                <HeaderSideNavItems>
-                  {navigationLinks.map(item => {
-                    if (item.subnav) {
-                      return (
-                        <SideNavMenu aria-label={item.name} title={item.name}>
-                          {item.subnav.map(subnav => {
-                            return (
-                              <SideNavMenuItem href={subnav.path}>
-                                {subnav.name}
-                              </SideNavMenuItem>
-                            );
-                          })}
-                        </SideNavMenu>
-                      );
-                    } else {
-                      return (
-                        <SideNavLink href={item.path}>{item.name}</SideNavLink>
-                      );
-                    }
-                  })}
-                </HeaderSideNavItems>
-              </SideNavItems>
+              <div data-autoid={`${prefix}--masthead__l0-sidenav`}>
+                <SideNavItems>
+                  <HeaderSideNavItems>
+                    {navigationLinks.map((item, index) => {
+                      if (item.subnav) {
+                        return (
+                          <SideNavMenu aria-label={item.name} title={item.name}>
+                            {item.subnav.map((subnav, index) => {
+                              return (
+                                <SideNavMenuItem
+                                  href={subnav.path}
+                                  data-autoid={`${prefix}--masthead__l0-sidenav--subnav-${index}`}>
+                                  {subnav.name}
+                                </SideNavMenuItem>
+                              );
+                            })}
+                          </SideNavMenu>
+                        );
+                      } else {
+                        return (
+                          <SideNavLink
+                            href={item.path}
+                            data-autoid={`${prefix}--masthead__l0-sidenav--nav-${index}`}>
+                            {item.name}
+                          </SideNavLink>
+                        );
+                      }
+                    })}
+                  </HeaderSideNavItems>
+                </SideNavItems>
+              </div>
             </SideNav>
           </Header>
         </>

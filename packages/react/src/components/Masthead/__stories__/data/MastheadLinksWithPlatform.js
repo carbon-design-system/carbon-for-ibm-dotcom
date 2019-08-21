@@ -5,7 +5,10 @@
  */
 
 const mastheadLinksWithPlatform = {
-  platform: 'Platform Name',
+  platform: {
+    name: 'Platform Name',
+    path: '#',
+  },
   links: [
     {
       path: '#',

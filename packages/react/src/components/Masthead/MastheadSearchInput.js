@@ -34,13 +34,15 @@ const MastheadSearchInput = ({ componentInputProps, dispatch, isActive }) => {
       <HeaderGlobalAction
         onClick={() => dispatch({ type: 'setSearchOpen' })}
         aria-label="Search"
-        className={`${prefix}--header__search--search`}>
+        className={`${prefix}--header__search--search`}
+        data-autoid={`${prefix}--header__search--search`}>
         <Search20 />
       </HeaderGlobalAction>
       <HeaderGlobalAction
         onClick={() => dispatch({ type: 'setSearchClosed' })}
         aria-label="Close"
-        className={`${prefix}--header__search--close`}>
+        className={`${prefix}--header__search--close`}
+        data-autoid={`${prefix}--header__search--close`}>
         <Close20 />
       </HeaderGlobalAction>
     </>
