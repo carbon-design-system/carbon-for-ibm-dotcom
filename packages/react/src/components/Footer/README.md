@@ -33,17 +33,16 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 ## Stable selectors
 
-| Name                        | Description |
-| --------------------------- | ----------- |
-| `footer`                    | Component   |
-| `footer-nav`                | Component   |
-| `footer-nav-group--desktop` | Component   |
-| `footer-nav-group--mobile`  | Component   |
-| `footer-nav-group__link`    | Interactive |
-| `footer-logo`               | Component   |
-| `footer-logo__link`         | Interactive |
-| `legal-nav`                 | Component   |
-| `legal-nav__link`           | Interactive |
+| Name                     | Description |
+| ------------------------ | ----------- |
+| `footer`                 | Component   |
+| `footer-nav`             | Component   |
+| `footer-nav-group`       | Component   |
+| `footer-nav-group__link` | Interactive |
+| `footer-logo`            | Component   |
+| `footer-logo__link`      | Interactive |
+| `legal-nav`              | Component   |
+| `legal-nav__link`        | Interactive |
 
 ## 🙌 Contributing
 

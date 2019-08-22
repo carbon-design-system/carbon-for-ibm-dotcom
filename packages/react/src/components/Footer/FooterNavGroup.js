@@ -18,25 +18,15 @@ const { prefix } = settings;
  * @param {object} props react proptypes
  * @returns {object} JSX object
  */
-const FooterNavGroup = ({ isMobile, title, links }) => {
-  if (isMobile) {
-    return (
-      <AccordionItem
-        data-autoid="footer-nav-group--mobile"
-        title={title}
-        className={`${prefix}--footer-nav-group`}>
-        <ul>{renderListItems(links, isMobile)}</ul>
-      </AccordionItem>
-    );
-  }
-
+const FooterNavGroup = ({ title, links }) => {
   return (
-    <div
-      data-autoid="footer-nav-group--desktop"
+    <AccordionItem
+      data-autoid="footer-nav-group"
+      title={title}
       className={`${prefix}--footer-nav-group`}>
       <h2 className={`${prefix}--footer-nav-group__title`}>{title}</h2>
       <ul>{renderListItems(links)}</ul>
-    </div>
+    </AccordionItem>
   );
 };
 
@@ -44,18 +34,20 @@ const FooterNavGroup = ({ isMobile, title, links }) => {
  * Loops through and renders a list of links for footer nav group
  *
  * @param {Array} links A list of links to be rendered
- * @param {boolean} isMobile pass in type for situational className
  * @returns {object} JSX object
  */
-function renderListItems(links, isMobile) {
+function renderListItems(links) {
   const toRender = [];
 
   for (let i = 0; i < links.length; i += 1) {
     const { url, title } = links[i];
 
     toRender.push(
-      <li className={!isMobile ? `${prefix}--footer-nav-group__item` : null}>
-        <Link data-autoid="footer-nav-group__link" href={url}>
+      <li className={`${prefix}--footer-nav-group__item`}>
+        <Link
+          className={`${prefix}--footer-nav-group__link`}
+          data-autoid="footer-nav-group__link"
+          href={url}>
           {title}
         </Link>
       </li>
@@ -66,7 +58,6 @@ function renderListItems(links, isMobile) {
 }
 
 FooterNavGroup.propTypes = {
-  isMobile: PropTypes.bool,
   title: PropTypes.string.isRequired,
   links: PropTypes.arrayOf(
     PropTypes.shape({

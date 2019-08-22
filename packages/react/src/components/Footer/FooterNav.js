@@ -9,7 +9,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { settings } from 'carbon-components';
 import { Accordion } from 'carbon-components-react';
-import classNames from 'classnames';
 
 import FooterNavGroup from './FooterNavGroup';
 
@@ -24,20 +23,9 @@ const { prefix } = settings;
 const FooterNav = ({ groups }) => {
   return (
     <nav data-autoid="footer-nav" className={`${prefix}--footer-nav`}>
-      <ul
-        className={classNames(
-          `${prefix}--footer-nav__list`,
-          `${prefix}--footer-nav__list--desktop`
-        )}>
-        {renderGroups(groups)}
-      </ul>
-      <Accordion
-        className={classNames(
-          `${prefix}--footer-nav__list`,
-          `${prefix}--footer-nav__list--mobile`
-        )}>
-        {renderMobileGroups(groups)}
-      </Accordion>
+      <div className={`${prefix}--footer-nav__container`}>
+        <Accordion>{renderGroups(groups)}</Accordion>
+      </div>
     </nav>
   );
 };
@@ -54,31 +42,7 @@ function renderGroups(groups) {
   for (let i = 0; i < groups.length; i += 1) {
     const { title, links } = groups[i];
 
-    toRender.push(
-      <li className={`${prefix}--footer-nav__list-item`}>
-        <FooterNavGroup title={title} links={links} />
-      </li>
-    );
-  }
-
-  return toRender;
-}
-
-/**
- * Loops through and renders a list of nav groups for the footer nav
- *
- * @param {Array} groups A list of groups to be rendered
- * @returns {object} JSX object
- */
-function renderMobileGroups(groups) {
-  const toRender = [];
-
-  for (let i = 0; i < groups.length; i += 1) {
-    const { title, links } = groups[i];
-
-    toRender.push(
-      <FooterNavGroup isMobile={true} title={title} links={links} />
-    );
+    toRender.push(<FooterNavGroup title={title} links={links} />);
   }
 
   return toRender;

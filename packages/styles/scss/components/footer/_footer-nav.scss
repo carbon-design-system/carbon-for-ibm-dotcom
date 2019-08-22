@@ -29,19 +29,11 @@
   }
 
   @include carbon--breakpoint('lg') {
-    @include carbon--make-col-offset(2, 16);
     @include carbon--make-col(12, 16);
+    @include carbon--make-col-offset(2, 16);
   }
 
-  &__list--mobile {
-    @include carbon--breakpoint('md') {
-      display: none;
-    }
-  }
-
-  &__list--desktop {
-    display: none;
-
+  &__container {
     @include carbon--breakpoint('md') {
       @include carbon--make-row;
       display: block;
@@ -51,10 +43,5 @@
     @include carbon--breakpoint('lg') {
       column-count: 3;
     }
-  }
-
-  &__list-item {
-    @include carbon--make-col-ready;
-    display: inline-block;
   }
 }
