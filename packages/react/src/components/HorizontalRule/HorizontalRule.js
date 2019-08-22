@@ -26,12 +26,11 @@ const { prefix } = settings;
  */
 const HorizontalRule = ({ type, length, color, width }) => (
   <hr
-    noshade
     className={classnames(
       `${prefix}--hr`,
-      `${prefix}--hr__${type}`,
+      `${prefix}--hr__${type}__${color}`,
+      { [`${prefix}--hr__dashed`]: type === 'dashed' },
       `${prefix}--hr__${length}`,
-      `${prefix}--hr__${color}`,
       `${prefix}--hr__${width}`
     )}
   />

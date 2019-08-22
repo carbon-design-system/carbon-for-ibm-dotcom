@@ -15,14 +15,11 @@
 @mixin horizontalrule {
     .#{$prefix}--hr {
         margin: $spacing-05 0;
-        border-top-width: 1px;
+        border: none;
+        height: 1px;
 
         &__thick {
-            border-top-width: 2px;
-        }
-
-        &__dashed {
-            border-top-style: dashed;
+            height: 2px;
         }
     
         &__small {
@@ -59,21 +56,40 @@
                 margin-right: -$spacing-08;
             }
         }
+    }
 
+    .#{$prefix}--hr__solid {
         &__low-contrast {
-            border-top-color: $ui-03;
+            background: $ui-03;
         }
 
         &__medium-contrast {
-            border-top-color: $ui-04;
+            background: $ui-04;
         }
 
         &__high-contrast {
-            border-top-color: $ui-05;
+            background: $ui-05;
+        }
+    }
+
+    .#{$prefix}--hr__dashed {
+        background-size: $spacing-05 1px;
+        background-repeat: repeat-x;
+
+        &__low-contrast {
+            background-image: linear-gradient(to right, $ui-03 50%, transparent 50%);
+        }
+
+        &__medium-contrast {
+            background-image: linear-gradient(to right, $ui-04 50%, transparent 50%);
+        }
+
+        &__high-contrast {
+            background-image: linear-gradient(to right, $ui-05 50%, transparent 50%);
         }
     }
 }
 
 @include exports('horizontalrule') {
     @include horizontalrule;
-  }
+}
