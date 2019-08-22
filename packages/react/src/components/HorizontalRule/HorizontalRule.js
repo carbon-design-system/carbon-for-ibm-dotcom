@@ -18,24 +18,37 @@ const { prefix } = settings;
  *
  * @param {object} props props object
  * @param {string} props.type type of rule (solid or dashed)
+ * @param {string} props.color color of the rule
+ * @param {string} props.width width of the rule
  * @param {string} props.length length of rule
  * @returns {*} Horizontal Rule component
  * @class
  */
-const HorizontalRule = ({ type, length }) => (
+const HorizontalRule = ({ type, length, color, width }) => (
   <hr
-    className={classnames(`${prefix}--hr__${type}`, `${prefix}--hr__${length}`)}
+    noshade
+    className={classnames(
+      `${prefix}--hr`,
+      `${prefix}--hr__${type}`,
+      `${prefix}--hr__${length}`,
+      `${prefix}--hr__${color}`,
+      `${prefix}--hr__${width}`
+    )}
   />
 );
 
 HorizontalRule.propTypes = {
   type: PropTypes.string,
   length: PropTypes.string,
+  color: PropTypes.string,
+  width: PropTypes.string,
 };
 
 HorizontalRule.defaultProps = {
   type: 'solid',
   length: 'small',
+  color: 'medium-contrast',
+  width: 'thin',
 };
 
 export default HorizontalRule;
