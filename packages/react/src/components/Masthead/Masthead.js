@@ -7,9 +7,8 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import MastheadSearch from './MastheadSearch';
 import { settings } from 'carbon-components';
-import User20 from '@carbon/icons-react/lib/user/20';
+import { User20 } from '@carbon/icons-react';
 import { ReactComponent as Logo } from '../Icon/svg/ibm-logo.svg';
 import {
   Header,
@@ -29,6 +28,7 @@ import {
   SideNavMenu,
   SideNavMenuItem,
 } from 'carbon-components-react';
+import MastheadSearch from './MastheadSearch';
 import cx from 'classnames';
 import '@ibmdotcom/styles/scss/components/masthead/_masthead.scss';
 
