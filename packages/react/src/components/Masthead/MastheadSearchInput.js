@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import settings from 'carbon-components/es/globals/js/settings';
+import { settings } from 'carbon-components';
 import { HeaderGlobalAction } from 'carbon-components-react/es/components/UIShell';
 import Search20 from '@carbon/icons-react/es/search/20';
 import Close20 from '@carbon/icons-react/es/close/20';

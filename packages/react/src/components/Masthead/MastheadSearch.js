@@ -13,7 +13,7 @@ import { SearchTypeaheadAPI } from '@ibmdotcom/services';
 import { escapeRegExp } from '@ibmdotcom/utilities';
 import MastheadSearchInput from './MastheadSearchInput';
 import MastheadSearchSuggestion from './MastheadSearchSuggestion';
-import settings from 'carbon-components/es/globals/js/settings';
+import { settings } from 'carbon-components';
 import cx from 'classnames';
 
 const { prefix } = settings;
