@@ -12,54 +12,50 @@ import { AccordionItem, Link } from 'carbon-components-react';
 
 const { prefix } = settings;
 
-/** Footer nav group component */
-class FooterNavGroup extends React.Component {
-  /**
-   * Renders the footer nav group component
-   *
-   * @returns {object} JSX object
-   */
-  render() {
-    const { isMobile, title, links } = this.props;
-
-    if (isMobile) {
-      return (
-        <AccordionItem title={title} className={`${prefix}--footer-nav-group`}>
-          <ul>{this.renderListItems(links, isMobile)}</ul>
-        </AccordionItem>
-      );
-    }
-
+/**
+ * Footer nav group component
+ *
+ * @param {object} props react proptypes
+ * @returns {object} JSX object
+ */
+const FooterNavGroup = ({ isMobile, title, links }) => {
+  if (isMobile) {
     return (
-      <div className={`${prefix}--footer-nav-group`}>
-        <h2 className={`${prefix}--footer-nav-group__title`}>{title}</h2>
-        <ul>{this.renderListItems(links)}</ul>
-      </div>
+      <AccordionItem title={title} className={`${prefix}--footer-nav-group`}>
+        <ul>{renderListItems(links, isMobile)}</ul>
+      </AccordionItem>
     );
   }
 
-  /**
-   * Loops through and renders a list of links for footer nav group
-   *
-   * @param {Array} links A list of links to be rendered
-   * @param {boolean} isMobile pass in type for situational className
-   * @returns {object} JSX object
-   */
-  renderListItems(links, isMobile) {
-    const toRender = [];
+  return (
+    <div className={`${prefix}--footer-nav-group`}>
+      <h2 className={`${prefix}--footer-nav-group__title`}>{title}</h2>
+      <ul>{renderListItems(links)}</ul>
+    </div>
+  );
+};
 
-    for (let i = 0; i < links.length; i += 1) {
-      const { url, title } = links[i];
+/**
+ * Loops through and renders a list of links for footer nav group
+ *
+ * @param {Array} links A list of links to be rendered
+ * @param {boolean} isMobile pass in type for situational className
+ * @returns {object} JSX object
+ */
+function renderListItems(links, isMobile) {
+  const toRender = [];
 
-      toRender.push(
-        <li className={!isMobile ? `${prefix}--footer-nav-group__link` : false}>
-          <Link href={url}>{title}</Link>
-        </li>
-      );
-    }
+  for (let i = 0; i < links.length; i += 1) {
+    const { url, title } = links[i];
 
-    return toRender;
+    toRender.push(
+      <li className={!isMobile ? `${prefix}--footer-nav-group__link` : null}>
+        <Link href={url}>{title}</Link>
+      </li>
+    );
   }
+
+  return toRender;
 }
 
 FooterNavGroup.propTypes = {

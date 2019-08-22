@@ -20,57 +20,52 @@ import footerLegalData from './__stories__/data/footer-legal';
 
 const { prefix } = settings;
 
-/** Footer component */
-class Footer extends React.Component {
-  /**
-   * Renders the footer component
-   *
-   * @returns {object} JSX object
-   */
-  render() {
-    const { type } = this.props;
+/**
+ * Footer component
+ *
+ * @param {object} props react proptypes
+ * @returns {object} JSX object
+ */
+const Footer = ({ type }) => {
+  return (
+    <footer className={classNames(`${prefix}--footer`, setFooterType(type))}>
+      <section className={`${prefix}--footer__main`}>
+        <div class={`${prefix}--footer__main-container`}>
+          <FooterTitle />
+          {optionalFooterNav(type)}
+        </div>
+      </section>
+      <LegalNav links={footerLegalData} />
+    </footer>
+  );
+};
 
-    return (
-      <footer
-        className={classNames(`${prefix}--footer`, this.setFooterType(type))}>
-        <section className={`${prefix}--footer__main`}>
-          <div class={`${prefix}--footer__main-container`}>
-            <FooterTitle />
-            {this.optionalFooterNav(type)}
-          </div>
-        </section>
-        <LegalNav links={footerLegalData} />
-      </footer>
-    );
+/**
+ * renders optional footer nav for tall
+ *
+ * @param {string} type type of footer in use
+ * @returns {object} JSX object
+ */
+function optionalFooterNav(type) {
+  if (type !== 'short') {
+    return <FooterNav groups={footerMenuData} />;
+  }
+}
+
+/**
+ * sets the footer type
+ *
+ * @param {string} type type of footer in use
+ * @returns {object} JSX object
+ */
+function setFooterType(type) {
+  let typeClassName;
+
+  if (type === 'short') {
+    typeClassName = `${prefix}--footer--short`;
   }
 
-  /**
-   * renders optional footer nav for tall
-   *
-   * @param {string} type type of footer in use
-   * @returns {object} JSX object
-   */
-  optionalFooterNav(type) {
-    if (type !== 'short') {
-      return <FooterNav groups={footerMenuData} />;
-    }
-  }
-
-  /**
-   * sets the footer type
-   *
-   * @param {string} type type of footer in use
-   * @returns {object} JSX object
-   */
-  setFooterType(type) {
-    let typeClassName;
-
-    if (type === 'short') {
-      typeClassName = `${prefix}--footer--short`;
-    }
-
-    return typeClassName;
-  }
+  return typeClassName;
 }
 
 Footer.propTypes = {

@@ -12,48 +12,44 @@ import { Link } from 'carbon-components-react';
 
 const { prefix } = settings;
 
-/** Footer Legal Nav component */
-class LegalNav extends React.Component {
-  /**
-   * Renders the legal nav component
-   *
-   * @returns {object} JSX object
-   */
-  render() {
-    const { links } = this.props;
+/**
+ * Footer legal nav component
+ *
+ * @param {object} props react proptypes
+ * @returns {object} JSX object
+ */
+const LegalNav = ({ links }) => {
+  return (
+    <aside className={`${prefix}--legal-nav__container`}>
+      <nav className={`${prefix}--legal-nav`}>
+        <ul className={`${prefix}--legal-nav__list`}>
+          {renderListItems(links)}
+        </ul>
+      </nav>
+    </aside>
+  );
+};
 
-    return (
-      <aside className={`${prefix}--legal-nav__container`}>
-        <nav className={`${prefix}--legal-nav`}>
-          <ul className={`${prefix}--legal-nav__list`}>
-            {this.renderListItems(links)}
-          </ul>
-        </nav>
-      </aside>
+/**
+ * Loops through and renders list items for legal nav
+ *
+ * @param {Array} links A list of links to be rendered
+ * @returns {object} JSX object
+ */
+function renderListItems(links) {
+  const toRender = [];
+
+  for (let i = 0; i < links.length; i += 1) {
+    const { title, url } = links[i];
+
+    toRender.push(
+      <li className={`${prefix}--legal-nav__list-item`}>
+        <Link href={url}>{title}</Link>
+      </li>
     );
   }
 
-  /**
-   * Loops through and renders list items for legal nav
-   *
-   * @param {Array} links A list of links to be rendered
-   * @returns {object} JSX object
-   */
-  renderListItems(links) {
-    const toRender = [];
-
-    for (let i = 0; i < links.length; i += 1) {
-      const { title, url } = links[i];
-
-      toRender.push(
-        <li className={`${prefix}--legal-nav__list-item`}>
-          <Link href={url}>{title}</Link>
-        </li>
-      );
-    }
-
-    return toRender;
-  }
+  return toRender;
 }
 
 LegalNav.propTypes = {

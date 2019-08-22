@@ -15,77 +15,73 @@ import FooterNavGroup from './FooterNavGroup';
 
 const { prefix } = settings;
 
-/** Footer nav component */
-class FooterNav extends React.Component {
-  /**
-   * Renders the footer nav component
-   *
-   * @returns {object} JSX object
-   */
-  render() {
-    const { groups } = this.props;
+/**
+ * Footer nav component
+ *
+ * @param {object} props react proptypes
+ * @returns {object} JSX object
+ */
+const FooterNav = ({ groups }) => {
+  return (
+    <nav className={`${prefix}--footer-nav`}>
+      <ul
+        className={classNames(
+          `${prefix}--footer-nav__list`,
+          `${prefix}--footer-nav__list--desktop`
+        )}>
+        {renderGroups(groups)}
+      </ul>
+      <Accordion
+        className={classNames(
+          `${prefix}--footer-nav__list`,
+          `${prefix}--footer-nav__list--mobile`
+        )}>
+        {renderMobileGroups(groups)}
+      </Accordion>
+    </nav>
+  );
+};
 
-    return (
-      <nav className={`${prefix}--footer-nav`}>
-        <ul
-          className={classNames(
-            `${prefix}--footer-nav__list`,
-            `${prefix}--footer-nav__list--desktop`
-          )}>
-          {this.renderGroups(groups)}
-        </ul>
-        <Accordion
-          className={classNames(
-            `${prefix}--footer-nav__list`,
-            `${prefix}--footer-nav__list--mobile`
-          )}>
-          {this.renderMobileGroups(groups)}
-        </Accordion>
-      </nav>
+/**
+ * Loops through and renders a list of nav groups for the footer nav
+ *
+ * @param {Array} groups A list of groups to be rendered
+ * @returns {object} JSX object
+ */
+function renderGroups(groups) {
+  const toRender = [];
+
+  for (let i = 0; i < groups.length; i += 1) {
+    const { title, links } = groups[i];
+
+    toRender.push(
+      <li className={`${prefix}--footer-nav__list-item`}>
+        <FooterNavGroup title={title} links={links} />
+      </li>
     );
   }
 
-  /**
-   * Loops through and renders a list of nav groups for the footer nav
-   *
-   * @param {Array} groups A list of groups to be rendered
-   * @returns {object} JSX object
-   */
-  renderGroups(groups) {
-    const toRender = [];
+  return toRender;
+}
 
-    for (let i = 0; i < groups.length; i += 1) {
-      const { title, links } = groups[i];
+/**
+ * Loops through and renders a list of nav groups for the footer nav
+ *
+ * @param {Array} groups A list of groups to be rendered
+ * @returns {object} JSX object
+ */
+function renderMobileGroups(groups) {
+  const toRender = [];
 
-      toRender.push(
-        <li className={`${prefix}--footer-nav__list-item`}>
-          <FooterNavGroup title={title} links={links} />
-        </li>
-      );
-    }
+  for (let i = 0; i < groups.length; i += 1) {
+    const { title, links } = groups[i];
 
-    return toRender;
+    toRender.push(
+      <FooterNavGroup isMobile={true} title={title} links={links} />
+    );
   }
 
-  /**
-   * Loops through and renders a list of nav groups for the footer nav
-   *
-   * @param {Array} groups A list of groups to be rendered
-   * @returns {object} JSX object
-   */
-  renderMobileGroups(groups) {
-    const toRender = [];
-
-    for (let i = 0; i < groups.length; i += 1) {
-      const { title, links } = groups[i];
-
-      toRender.push(
-        <FooterNavGroup isMobile={true} title={title} links={links} />
-      );
-    }
-
-    return toRender;
-  }
+  return toRender;
 }
 
 FooterNav.propTypes = {
