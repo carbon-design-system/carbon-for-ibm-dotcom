@@ -16,13 +16,29 @@ storiesOf('HorizontalRule', module)
       medium: 'medium',
       large: 'large',
       inset: 'inset',
+      overhung: 'overhung',
+    };
+
+    const colors = {
+      low: 'low-contrast',
+      medium: 'medium-contrast',
+      high: 'high-contrast',
+    };
+
+    const widths = {
+      thin: 'thin',
+      thick: 'thick',
     };
 
     return (
-      <div className="hr--container">
+      <div
+        className="bx--grid bx--grid--full-width"
+        style={{ marginTop: '50px' }}>
         <HorizontalRule
           type={select('type', types, 'solid')}
           length={select('length', lengths, 'small')}
+          color={select('color', colors, 'medium-contrast')}
+          width={select('width', widths, 'thin')}
         />
       </div>
     );

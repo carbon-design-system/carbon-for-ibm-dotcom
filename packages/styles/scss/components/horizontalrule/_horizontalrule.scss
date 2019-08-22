@@ -13,28 +13,64 @@
 @import '~carbon-components/scss/globals/scss/css--reset';
 
 @mixin horizontalrule {
-    .#{$prefix}--hr__dashed {
-        border-top-style: dashed;
-    }
+    .#{$prefix}--hr {
+        margin: $spacing-05 0;
+        border-top-width: 1px;
 
-    .#{$prefix}--hr__solid {
-        border-top-style: solid;
-    }
+        &__thick {
+            border-top-width: 2px;
+        }
 
-    .#{$prefix}--hr__small {
-        width: $layout-03;
-    }
+        &__dashed {
+            border-top-style: dashed;
+        }
+    
+        &__small {
+            width: $layout-03;
+        }
+    
+        &__medium {
+            width: $layout-04;
+        }
+    
+        &__large {
+            width: $layout-05;
+        }
+    
+        &__inset {
+            width: 100%;
+        }
 
-    .#{$prefix}--hr__medium {
-        width: $layout-04;
-    }
+        &__overhung {
+            width: auto;
 
-    .#{$prefix}--hr__large {
-        width: $layout-05;
-    }
+            @include carbon--breakpoint('sm') {
+                margin-left: -$spacing-05;
+                margin-right: -$spacing-05;
+            }
 
-    .#{$prefix}--hr__inset {
-        width: 100%;
+            @include carbon--breakpoint('md') {
+                margin-left: -$spacing-07;
+                margin-right: -$spacing-07;
+            }
+
+            @include carbon--breakpoint('max') {
+                margin-left: -$spacing-08;
+                margin-right: -$spacing-08;
+            }
+        }
+
+        &__low-contrast {
+            border-top-color: $ui-03;
+        }
+
+        &__medium-contrast {
+            border-top-color: $ui-04;
+        }
+
+        &__high-contrast {
+            border-top-color: $ui-05;
+        }
     }
 }
 
