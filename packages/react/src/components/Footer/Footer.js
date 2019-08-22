@@ -11,7 +11,7 @@ import PropTypes from 'prop-types';
 // import LocaleSelector from './LocaleSelector';
 import { settings } from 'carbon-components';
 import classNames from 'classnames';
-import FooterTitle from './FooterTitle';
+import FooterLogo from './FooterLogo';
 import FooterNav from './FooterNav';
 import LegalNav from './LegalNav';
 
@@ -33,7 +33,7 @@ const Footer = ({ type }) => {
       className={classNames(`${prefix}--footer`, setFooterType(type))}>
       <section className={`${prefix}--footer__main`}>
         <div class={`${prefix}--footer__main-container`}>
-          <FooterTitle />
+          <FooterLogo />
           {optionalFooterNav(type)}
         </div>
       </section>

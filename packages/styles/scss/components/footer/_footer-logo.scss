@@ -9,7 +9,7 @@
 /// @access private
 /// @group footer
 
-.#{$prefix}--footer-title {
+.#{$prefix}--footer-logo {
   @include carbon--make-col-ready;
   @include carbon--make-col(2, 4);
 
@@ -26,7 +26,6 @@
   &__link {
     $logo-padding: $carbon--grid-gutter / 2;
     $logo-size: carbon--mini-units(16) + ($logo-padding * 2);
-
 
     color: $text-01;
     margin-top: -1 * $logo-padding;
