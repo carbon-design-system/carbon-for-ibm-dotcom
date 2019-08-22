@@ -18,10 +18,10 @@ Use these modifiers with `.bx--footer` class.
 
 #### Blocks
 
-| Class                   | Description                                        |
-| ----------------------- | -------------------------------------------------- |
-| `.bx--footer`           | The high level class name for the footer component |
-| `.bx--footer-title`     | The high level class name for the footer component |
-| `.bx--footer-nav`       | Main navigational section within the footer        |
-| `.bx--footer-nav-group` | A title and list of links for footer               |
-| `.bx--legal-nav`        | Required legal navigation below the footer         |
+| Class                   | Description                                       |
+| ----------------------- | ------------------------------------------------- |
+| `.bx--footer`           | Highest level class name for the footer component |
+| `.bx--footer-title`     | Title / logo for the Footer                       |
+| `.bx--footer-nav`       | Main navigational section within the footer       |
+| `.bx--footer-nav-group` | A title and list of links for footer              |
+| `.bx--legal-nav`        | Required legal navigation below the footer        |
