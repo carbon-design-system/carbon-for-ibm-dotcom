@@ -24,7 +24,6 @@ export default class Container extends Component {
         <div
           data-floating-menu-container=""
           role="main"
-          className="storybook-container"
           style={{
             backgroundColor: bgColor,
           }}>
