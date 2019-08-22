@@ -18,8 +18,6 @@ import LegalNav from './LegalNav';
 import footerMenuData from './__stories__/data/footer-menu';
 import footerLegalData from './__stories__/data/footer-legal';
 
-console.log(footerLegalData);
-
 const { prefix } = settings;
 
 /** Footer component */

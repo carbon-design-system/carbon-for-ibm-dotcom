@@ -45,8 +45,6 @@ class LegalNav extends React.Component {
     for (let i = 0; i < links.length; i += 1) {
       const { title, url } = links[i];
 
-      console.log(url);
-
       toRender.push(
         <li className={`${prefix}--legal-nav__list-item`}>
           <Link href={url}>{title}</Link>
