@@ -12,7 +12,7 @@ import {
   HeaderMenu,
   HeaderMenuItem,
 } from 'carbon-components-react/es/components/UIShell';
-import ArrowLeft16 from '@carbon/icons-react/es/arrow--left/16';
+import { ArrowLeft16 } from '@carbon/icons-react';
 import cx from 'classnames';
 import '@ibmdotcom/styles/scss/components/masthead/_masthead-l1.scss';
 

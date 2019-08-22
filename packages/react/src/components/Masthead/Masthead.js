@@ -8,7 +8,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { settings } from 'carbon-components';
-import User20 from '@carbon/icons-react/es/user/20';
+import { User20 } from '@carbon/icons-react';
 import { IbmLogo } from '../Icon';
 import {
   Header,
