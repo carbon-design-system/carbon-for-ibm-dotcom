@@ -18,14 +18,14 @@ const { prefix } = settings;
  *
  * @param {object} props props object
  * @param {string} props.type type of rule (solid or dashed)
- * @param {string} props.color color of the rule
- * @param {string} props.width width of the rule
- * @param {string} props.length length of rule
+ * @param {string} props.color color of the rule (low-contrast, medium-contrast, or high-contrast)
+ * @param {string} props.width width of the rule (thin or thick)
+ * @param {string} props.length length of rule (small, medium, large, inset, or overhung)
  * @returns {*} Horizontal Rule component
- * @class
  */
 const HorizontalRule = ({ type, length, color, width }) => (
   <hr
+    data-autoid="hr"
     className={classnames(
       `${prefix}--hr`,
       `${prefix}--hr__${type}__${color}`,
