@@ -7,10 +7,8 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { settings } from 'carbon-components';
-import { Link } from 'carbon-components-react';
-
-const { prefix } = settings;
+import { prefix } from 'carbon-components/es/globals/js/settings';
+import Link from 'carbon-components-react/es/components/Link';
 
 /**
  * Footer legal nav component
@@ -45,7 +43,7 @@ function renderListItems(links) {
     const { title, url } = links[i];
 
     toRender.push(
-      <li className={`${prefix}--legal-nav__list-item`}>
+      <li className={`${prefix}--legal-nav__list-item`} key={i}>
         <Link data-autoid="footer-legal-nav__link" href={url}>
           {title}
         </Link>

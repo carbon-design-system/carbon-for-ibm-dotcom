@@ -7,12 +7,9 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { settings } from 'carbon-components';
-import { Accordion } from 'carbon-components-react';
-
+import { prefix } from 'carbon-components/es/globals/js/settings';
+import Accordion from 'carbon-components-react/es/components/Accordion';
 import FooterNavGroup from './FooterNavGroup';
-
-const { prefix } = settings;
 
 /**
  * Footer nav component
@@ -42,7 +39,7 @@ function renderGroups(groups) {
   for (let i = 0; i < groups.length; i += 1) {
     const { title, links } = groups[i];
 
-    toRender.push(<FooterNavGroup title={title} links={links} />);
+    toRender.push(<FooterNavGroup title={title} links={links} key={i} />);
   }
 
   return toRender;

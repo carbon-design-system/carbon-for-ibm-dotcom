@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { Footer } from '../';
+import { Footer } from '@ibmdotcom/react/es/components/Footer';
 
 import '@ibmdotcom/styles/scss/components/footer/index.scss';
 

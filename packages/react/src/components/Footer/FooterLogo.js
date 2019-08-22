@@ -6,9 +6,7 @@
  */
 
 import React from 'react';
-import { settings } from 'carbon-components';
-
-const { prefix } = settings;
+import { prefix } from 'carbon-components/es/globals/js/settings';
 
 /**
  * Footer logo component
@@ -23,7 +21,7 @@ const Logo = () => {
         className={`${prefix}--footer-logo__link`}
         href="https://www.ibm.com/">
         <svg
-          class={`${prefix}--footer-logo__logo`}
+          className={`${prefix}--footer-logo__logo`}
           viewBox="0 0 157 65"
           role="img"
           aria-labelledby="footer-logo">

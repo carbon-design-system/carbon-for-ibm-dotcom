@@ -7,10 +7,9 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { settings } from 'carbon-components';
-import { AccordionItem, Link } from 'carbon-components-react';
-
-const { prefix } = settings;
+import { prefix } from 'carbon-components/es/globals/js/settings';
+import AccordionItem from 'carbon-components-react/es/components/AccordionItem';
+import Link from 'carbon-components-react/es/components/Link';
 
 /**
  * Footer nav group component
@@ -43,7 +42,7 @@ function renderListItems(links) {
     const { url, title } = links[i];
 
     toRender.push(
-      <li className={`${prefix}--footer-nav-group__item`}>
+      <li className={`${prefix}--footer-nav-group__item`} key={i}>
         <Link
           className={`${prefix}--footer-nav-group__link`}
           data-autoid="footer-nav-group__link"
