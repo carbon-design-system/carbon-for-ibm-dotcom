@@ -51,7 +51,7 @@ $search-transition-timing: 95ms;
     color: $text-01;
     padding-left: 0;
     padding-right: $spacing-05;
-    
+
     &:hover {
       color: $text-01;
     }
@@ -73,18 +73,21 @@ $search-transition-timing: 95ms;
           fill: $text-01;
         }
       }
-      
-      &:active, &:focus {
+
+      &:active,
+      &:focus {
         background-color: $ui-01;
-        & > svg {
+        > svg {
           fill: $text-01;
         }
+
+        border-color: $interactive-01;
       }
     }
 
     .#{$prefix}--header__menu-title[role='menuitem'][aria-expanded='true'] {
       background-color: $ui-01;
-      & + .#{$prefix}--header__menu {
+      + .#{$prefix}--header__menu {
         background-color: $ui-02;
         .#{$prefix}--header__menu-item {
           &:hover {
@@ -118,7 +121,7 @@ $search-transition-timing: 95ms;
     .#{$prefix}--header__menu-item {
       border-bottom: 1px solid $ui-03;
       padding: 0;
-    }      
+    }
   }
 
   .#{$prefix}--header__menu-arrow {
@@ -145,7 +148,8 @@ $search-transition-timing: 95ms;
       }
     }
 
-    &:focus, &:active {
+    &:focus,
+    &:active {
       border-color: $interactive-01;
       background-color: $ui-01;
     }
@@ -161,9 +165,8 @@ $search-transition-timing: 95ms;
   .#{$prefix}--header__search--search {
     border: none;
     outline: none;
-    width: $spacing-09;;
+    width: $spacing-09;
   }
-
 
   //--------------------------------------------------------------------------
   // Masthead - Search
@@ -207,7 +210,7 @@ $search-transition-timing: 95ms;
       }
 
       .#{$prefix}--header__search--close {
-        width: $spacing-09;;
+        width: $spacing-09;
         background-color: $ui-01;
         border-bottom: 2px solid $interactive-01;
         transition-property: width;
