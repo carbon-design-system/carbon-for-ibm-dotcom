@@ -17,8 +17,9 @@ const { prefix } = settings;
  */
 const Logo = () => {
   return (
-    <h1 className={`${prefix}--footer-title`}>
+    <h1 data-autoid="footer-title" className={`${prefix}--footer-title`}>
       <a
+        data-autoid="footer-title__link"
         className={`${prefix}--footer-title__link`}
         href="https://www.ibm.com/">
         <svg class={`${prefix}--footer-title__logo`} viewBox="0 0 157 65">

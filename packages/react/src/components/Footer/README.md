@@ -31,6 +31,20 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 | `tall`/`default` | Default footer variant includes additional navigation taking up more space. |
 | `short`          | Short footer variant reduces space by removing any additional navigation.   |
 
+## Stable selectors
+
+| Name                        | Type        |
+| --------------------------- | ----------- |
+| `footer`                    | Component   |
+| `footer-nav`                | Component   |
+| `footer-nav-group--desktop` | Component   |
+| `footer-nav-group--mobile`  | Component   |
+| `footer-nav-group__link`    | Interactive |
+| `footer-title`              | Component   |
+| `footer-title__link`        | Interactive |
+| `legal-nav`                 | Component   |
+| `legal-nav__link`           | Interactive |
+
 ## 🙌 Contributing
 
 We're always looking for contributors to help us fix bugs, build new features,

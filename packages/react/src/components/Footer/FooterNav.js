@@ -23,7 +23,7 @@ const { prefix } = settings;
  */
 const FooterNav = ({ groups }) => {
   return (
-    <nav className={`${prefix}--footer-nav`}>
+    <nav data-autoid="footer-nav" className={`${prefix}--footer-nav`}>
       <ul
         className={classNames(
           `${prefix}--footer-nav__list`,

@@ -28,7 +28,9 @@ const { prefix } = settings;
  */
 const Footer = ({ type }) => {
   return (
-    <footer className={classNames(`${prefix}--footer`, setFooterType(type))}>
+    <footer
+      data-autoid="footer"
+      className={classNames(`${prefix}--footer`, setFooterType(type))}>
       <section className={`${prefix}--footer__main`}>
         <div class={`${prefix}--footer__main-container`}>
           <FooterTitle />

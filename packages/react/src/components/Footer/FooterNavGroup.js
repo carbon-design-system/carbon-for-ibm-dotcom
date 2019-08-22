@@ -21,14 +21,19 @@ const { prefix } = settings;
 const FooterNavGroup = ({ isMobile, title, links }) => {
   if (isMobile) {
     return (
-      <AccordionItem title={title} className={`${prefix}--footer-nav-group`}>
+      <AccordionItem
+        data-autoid="footer-nav-group--mobile"
+        title={title}
+        className={`${prefix}--footer-nav-group`}>
         <ul>{renderListItems(links, isMobile)}</ul>
       </AccordionItem>
     );
   }
 
   return (
-    <div className={`${prefix}--footer-nav-group`}>
+    <div
+      data-autoid="footer-nav-group--desktop"
+      className={`${prefix}--footer-nav-group`}>
       <h2 className={`${prefix}--footer-nav-group__title`}>{title}</h2>
       <ul>{renderListItems(links)}</ul>
     </div>
@@ -50,7 +55,9 @@ function renderListItems(links, isMobile) {
 
     toRender.push(
       <li className={!isMobile ? `${prefix}--footer-nav-group__link` : null}>
-        <Link href={url}>{title}</Link>
+        <Link data-autoid="footer-nav-group__link" href={url}>
+          {title}
+        </Link>
       </li>
     );
   }

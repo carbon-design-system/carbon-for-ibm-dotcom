@@ -20,7 +20,9 @@ const { prefix } = settings;
  */
 const LegalNav = ({ links }) => {
   return (
-    <aside className={`${prefix}--legal-nav__container`}>
+    <aside
+      data-autoid="footer-legal-nav"
+      className={`${prefix}--legal-nav__container`}>
       <nav className={`${prefix}--legal-nav`}>
         <ul className={`${prefix}--legal-nav__list`}>
           {renderListItems(links)}
@@ -44,7 +46,9 @@ function renderListItems(links) {
 
     toRender.push(
       <li className={`${prefix}--legal-nav__list-item`}>
-        <Link href={url}>{title}</Link>
+        <Link data-autoid="footer-legal-nav__link" href={url}>
+          {title}
+        </Link>
       </li>
     );
   }
