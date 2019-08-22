@@ -54,7 +54,7 @@ function renderListItems(links, isMobile) {
     const { url, title } = links[i];
 
     toRender.push(
-      <li className={!isMobile ? `${prefix}--footer-nav-group__link` : null}>
+      <li className={!isMobile ? `${prefix}--footer-nav-group__item` : null}>
         <Link data-autoid="footer-nav-group__link" href={url}>
           {title}
         </Link>
