@@ -20,9 +20,9 @@ storiesOf('HorizontalRule', module)
     };
 
     const colors = {
-      low: 'low-contrast',
-      medium: 'medium-contrast',
-      high: 'high-contrast',
+      'low-contrast': 'low-contrast',
+      'medium-contrast': 'medium-contrast',
+      'high-contrast': 'high-contrast',
     };
 
     const widths = {
