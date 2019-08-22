@@ -6,15 +6,15 @@
  */
 
 import React from 'react';
-import { settings } from 'carbon-components';
+import settings from 'carbon-components/es/globals/js/settings';
 import {
   HeaderNavigation,
   HeaderMenu,
   HeaderMenuItem,
-} from 'carbon-components-react/lib/components/UIShell';
-import ArrowLeft16 from '@carbon/icons-react/lib/arrow--left/16';
-import '@ibmdotcom/styles/scss/components/masthead/_masthead-l1.scss';
+} from 'carbon-components-react/es/components/UIShell';
+import ArrowLeft16 from '@carbon/icons-react/es/arrow--left/16';
 import cx from 'classnames';
+import '@ibmdotcom/styles/scss/components/masthead/_masthead-l1.scss';
 
 const { prefix } = settings;
 

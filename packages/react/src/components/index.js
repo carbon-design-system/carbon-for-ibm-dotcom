@@ -5,4 +5,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-export { default as IbmLogo } from './IbmLogo';
+export * from './Icon';
+export * from './Footer';
+export * from './Masthead';

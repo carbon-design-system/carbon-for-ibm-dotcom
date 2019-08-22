@@ -7,9 +7,9 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { settings } from 'carbon-components';
-import { User20 } from '@carbon/icons-react';
-import { ReactComponent as Logo } from '../Icon/svg/ibm-logo.svg';
+import settings from 'carbon-components/es/globals/js/settings';
+import User20 from '@carbon/icons-react/es/user/20';
+import { IbmLogo } from '../Icon';
 import {
   Header,
   HeaderContainer,
@@ -27,7 +27,7 @@ import {
   SideNavLink,
   SideNavMenu,
   SideNavMenuItem,
-} from 'carbon-components-react';
+} from 'carbon-components-react/es/components/UIShell';
 import MastheadSearch from './MastheadSearch';
 import cx from 'classnames';
 import '@ibmdotcom/styles/scss/components/masthead/_masthead.scss';
@@ -63,7 +63,7 @@ const Masthead = ({ navigation }) => {
             />
             <div className={className}>
               <a href="https://ibm.com">
-                <Logo data-autoid={`${prefix}--masthead__logo`} />
+                <IbmLogo data-autoid={`${prefix}--masthead__logo`} />
               </a>
             </div>
             {navigation.platform ? (
