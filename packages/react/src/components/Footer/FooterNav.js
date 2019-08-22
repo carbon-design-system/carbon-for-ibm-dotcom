@@ -34,15 +34,9 @@ const FooterNav = ({ groups }) => {
  * @returns {object} JSX object
  */
 function renderGroups(groups) {
-  const toRender = [];
-
-  for (let i = 0; i < groups.length; i += 1) {
-    const { title, links } = groups[i];
-
-    toRender.push(<FooterNavGroup title={title} links={links} key={i} />);
-  }
-
-  return toRender;
+  return groups.map(({ title, links }, index) => (
+    <FooterNavGroup title={title} links={links} key={index} />
+  ));
 }
 
 FooterNav.propTypes = {

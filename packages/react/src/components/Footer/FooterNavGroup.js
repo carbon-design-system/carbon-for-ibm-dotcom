@@ -36,24 +36,16 @@ const FooterNavGroup = ({ title, links }) => {
  * @returns {object} JSX object
  */
 function renderListItems(links) {
-  const toRender = [];
-
-  for (let i = 0; i < links.length; i += 1) {
-    const { url, title } = links[i];
-
-    toRender.push(
-      <li className={`${prefix}--footer-nav-group__item`} key={i}>
-        <Link
-          className={`${prefix}--footer-nav-group__link`}
-          data-autoid="footer-nav-group__link"
-          href={url}>
-          {title}
-        </Link>
-      </li>
-    );
-  }
-
-  return toRender;
+  return links.map(({ title, url }, index) => (
+    <li className={`${prefix}--footer-nav-group__item`} key={index}>
+      <Link
+        className={`${prefix}--footer-nav-group__link`}
+        data-autoid="footer-nav-group__link"
+        href={url}>
+        {title}
+      </Link>
+    </li>
+  ));
 }
 
 FooterNavGroup.propTypes = {

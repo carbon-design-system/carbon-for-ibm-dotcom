@@ -37,21 +37,13 @@ const LegalNav = ({ links }) => {
  * @returns {object} JSX object
  */
 function renderListItems(links) {
-  const toRender = [];
-
-  for (let i = 0; i < links.length; i += 1) {
-    const { title, url } = links[i];
-
-    toRender.push(
-      <li className={`${prefix}--legal-nav__list-item`} key={i}>
-        <Link data-autoid="footer-legal-nav__link" href={url}>
-          {title}
-        </Link>
-      </li>
-    );
-  }
-
-  return toRender;
+  return links.map(({ title, url }, index) => (
+    <li className={`${prefix}--legal-nav__list-item`} key={index}>
+      <Link data-autoid="footer-legal-nav__link" href={url}>
+        {title}
+      </Link>
+    </li>
+  ));
 }
 
 LegalNav.propTypes = {
