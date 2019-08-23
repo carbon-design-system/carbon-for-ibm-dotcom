@@ -31,7 +31,7 @@
     "contributors:generate": "all-contributors generate",
     "prepublish": "yarn build",
     "test": "jest",
-    "jsdoc": "rimraf docs && jsdoc -c ./jsdoc.json"
+    "jsdoc": "rimraf docs && jsdoc -c ./jsdoc.json ./README.md"
   },
   "dependencies": {
     "window-or-global": "^1.0.1"
