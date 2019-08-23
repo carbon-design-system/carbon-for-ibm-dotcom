@@ -17,37 +17,37 @@ const { prefix } = settings;
  * Horizontal Rule component
  *
  * @param {object} props props object
- * @param {string} props.type type of rule (solid or dashed)
- * @param {string} props.color color of the rule (low-contrast, medium-contrast, or high-contrast)
- * @param {string} props.width width of the rule (thin or thick)
- * @param {string} props.length length of rule (small, medium, large, inset, or overhung)
+ * @param {string} props.style style of rule (solid or dashed)
+ * @param {string} props.contrast color of the rule (low-contrast, medium-contrast, or high-contrast)
+ * @param {string} props.weight weight of the rule (thin or thick)
+ * @param {string} props.size size of rule (small, medium, large, inset, or overhung)
  * @returns {*} Horizontal Rule component
  */
-const HorizontalRule = ({ type, length, color, width }) => (
+const HorizontalRule = ({ style, size, contrast, weight }) => (
   <hr
     data-autoid="hr"
     className={classnames(
       `${prefix}--hr`,
-      `${prefix}--hr__${type}__${color}`,
-      { [`${prefix}--hr__dashed`]: type === 'dashed' },
-      `${prefix}--hr__${length}`,
-      `${prefix}--hr__${width}`
+      `${prefix}--hr--${style}--${contrast}`,
+      { [`${prefix}--hr--dashed`]: style === 'dashed' },
+      `${prefix}--hr--${size}`,
+      `${prefix}--hr--${weight}`
     )}
   />
 );
 
 HorizontalRule.propTypes = {
-  type: PropTypes.string,
-  length: PropTypes.string,
-  color: PropTypes.string,
-  width: PropTypes.string,
+  style: PropTypes.string,
+  size: PropTypes.string,
+  contrast: PropTypes.string,
+  weight: PropTypes.string,
 };
 
 HorizontalRule.defaultProps = {
-  type: 'solid',
-  length: 'small',
-  color: 'medium-contrast',
-  width: 'thin',
+  style: 'solid',
+  size: 'small',
+  contrast: 'medium',
+  weight: 'thin',
 };
 
 export default HorizontalRule;

@@ -6,12 +6,12 @@ import HorizontalRule from '../HorizontalRule';
 storiesOf('HorizontalRule', module)
   .addDecorator(withKnobs)
   .add('Default', () => {
-    const types = {
+    const styles = {
       solid: 'solid',
       dashed: 'dashed',
     };
 
-    const lengths = {
+    const sizes = {
       small: 'small',
       medium: 'medium',
       large: 'large',
@@ -19,13 +19,13 @@ storiesOf('HorizontalRule', module)
       overhung: 'overhung',
     };
 
-    const colors = {
-      'low-contrast': 'low-contrast',
-      'medium-contrast': 'medium-contrast',
-      'high-contrast': 'high-contrast',
+    const contrasts = {
+      low: 'low',
+      medium: 'medium',
+      high: 'high',
     };
 
-    const widths = {
+    const weights = {
       thin: 'thin',
       thick: 'thick',
     };
@@ -36,17 +36,19 @@ storiesOf('HorizontalRule', module)
     );
 
     return (
-      <div
-        className="bx--grid bx--grid--full-width"
-        style={{ marginTop: '50px' }}>
-        <h3>{words}</h3>
-        <HorizontalRule
-          type={select('type', types, 'solid')}
-          length={select('length', lengths, 'small')}
-          color={select('color', colors, 'medium-contrast')}
-          width={select('width', widths, 'thin')}
-        />
-        <h3>{words}</h3>
+      <div className="bx--grid bx--grid--full-width">
+        <div className="bx--row">
+          <div className="bx--col">
+            <h3>{words}</h3>
+            <HorizontalRule
+              style={select('style', styles, 'solid')}
+              size={select('size', sizes, 'small')}
+              contrast={select('contrast', contrasts, 'medium')}
+              weight={select('weight', weights, 'thin')}
+            />
+            <h3>{words}</h3>
+          </div>
+        </div>
       </div>
     );
   });

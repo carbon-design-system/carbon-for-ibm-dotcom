@@ -12,33 +12,37 @@
 @import '~carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/import-once/import-once';
 @import '~carbon-components/scss/globals/scss/css--reset';
 
+$low-contrast: $ui-03;
+$medium-contrast: $ui-04;
+$high-contrast: $ui-05;
+
 @mixin horizontalrule {
     .#{$prefix}--hr {
         margin: $spacing-05 0;
         border: none;
         height: 1px;
 
-        &__thick {
+        &--thick {
             height: 2px;
         }
     
-        &__small {
+        &--small {
             width: $layout-03;
         }
     
-        &__medium {
+        &--medium {
             width: $layout-04;
         }
     
-        &__large {
+        &--large {
             width: $layout-05;
         }
     
-        &__inset {
+        &--inset {
             width: 100%;
         }
 
-        &__overhung {
+        &--overhung {
             width: auto;
 
             @include carbon--breakpoint('sm') {
@@ -58,34 +62,34 @@
         }
     }
 
-    .#{$prefix}--hr__solid {
-        &__low-contrast {
-            background: $ui-03;
+    .#{$prefix}--hr--solid {
+        &--low {
+            background: $low-contrast;
         }
 
-        &__medium-contrast {
-            background: $ui-04;
+        &--medium {
+            background: $medium-contrast;
         }
 
-        &__high-contrast {
-            background: $ui-05;
+        &--high {
+            background: $high-contrast;
         }
     }
 
-    .#{$prefix}--hr__dashed {
+    .#{$prefix}--hr--dashed {
         background-size: $spacing-05 1px;
         background-repeat: repeat-x;
 
-        &__low-contrast {
-            background-image: linear-gradient(to right, $ui-03 50%, transparent 50%);
+        &--low {
+            background-image: linear-gradient(to right, $low-contrast 50%, transparent 50%);
         }
 
-        &__medium-contrast {
-            background-image: linear-gradient(to right, $ui-04 50%, transparent 50%);
+        &--medium {
+            background-image: linear-gradient(to right, $medium-contrast 50%, transparent 50%);
         }
 
-        &__high-contrast {
-            background-image: linear-gradient(to right, $ui-05 50%, transparent 50%);
+        &--high {
+            background-image: linear-gradient(to right, $high-contrast 50%, transparent 50%);
         }
     }
 }
