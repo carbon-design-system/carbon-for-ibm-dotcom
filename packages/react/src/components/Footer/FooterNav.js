@@ -7,9 +7,11 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { prefix } from 'carbon-components/es/globals/js/settings';
+import settings from 'carbon-components/es/globals/js/settings';
 import Accordion from 'carbon-components-react/es/components/Accordion';
 import FooterNavGroup from './FooterNavGroup';
+
+const { prefix } = settings;
 
 /**
  * Footer nav component

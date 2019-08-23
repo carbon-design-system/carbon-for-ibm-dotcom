@@ -6,7 +6,9 @@
  */
 
 import React from 'react';
-import { prefix } from 'carbon-components/es/globals/js/settings';
+import settings from 'carbon-components/es/globals/js/settings';
+
+const { prefix } = settings;
 
 /**
  * Footer logo component

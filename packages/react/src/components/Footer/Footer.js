@@ -9,7 +9,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // import { localeSelector } from '../../internal/FeatureFlags';
 // import LocaleSelector from './LocaleSelector';
-import { prefix } from 'carbon-components/es/globals/js/settings';
+import settings from 'carbon-components/es/globals/js/settings';
 import classNames from 'classnames';
 import FooterLogo from './FooterLogo';
 import FooterNav from './FooterNav';
@@ -17,6 +17,8 @@ import LegalNav from './LegalNav';
 
 import footerMenuData from './__stories__/data/footer-menu';
 import footerLegalData from './__stories__/data/footer-legal';
+
+const { prefix } = settings;
 
 /**
  * Footer component
