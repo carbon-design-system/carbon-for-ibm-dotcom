@@ -20,77 +20,47 @@ $high-contrast: $ui-05;
     .#{$prefix}--hr {
         margin: $spacing-05 0;
         border: none;
-        height: 1px;
-
-        &--thick {
-            height: 2px;
-        }
+        height: carbon--rem(1px);
+        background: $medium-contrast;
     
         &--small {
-            width: $layout-03;
+            width: carbon--mini-units(4);
         }
     
         &--medium {
-            width: $layout-04;
+            width: carbon--mini-units(6);
         }
     
         &--large {
-            width: $layout-05;
-        }
-    
-        &--inset {
-            width: 100%;
+            width: carbon--mini-units(8);
         }
 
-        &--overhung {
-            width: auto;
-
-            @include carbon--breakpoint('sm') {
-                margin-left: -$spacing-05;
-                margin-right: -$spacing-05;
-            }
-
-            @include carbon--breakpoint('md') {
-                margin-left: -$spacing-07;
-                margin-right: -$spacing-07;
-            }
-
-            @include carbon--breakpoint('max') {
-                margin-left: -$spacing-08;
-                margin-right: -$spacing-08;
-            }
-        }
-    }
-
-    .#{$prefix}--hr--solid {
-        &--low {
+        &--low-contrast {
             background: $low-contrast;
         }
-
-        &--medium {
-            background: $medium-contrast;
-        }
-
-        &--high {
+    
+        &--high-contrast {
             background: $high-contrast;
         }
     }
 
-    .#{$prefix}--hr--dashed {
+    .#{$prefix}--hr--dashed.#{$prefix}--hr--fluid{
+        background: none;
         background-size: $spacing-05 1px;
         background-repeat: repeat-x;
+        background-image: linear-gradient(to right, $medium-contrast 50%, transparent 50%);
 
-        &--low {
+        &.#{$prefix}--hr--low-contrast {
             background-image: linear-gradient(to right, $low-contrast 50%, transparent 50%);
         }
 
-        &--medium {
-            background-image: linear-gradient(to right, $medium-contrast 50%, transparent 50%);
-        }
-
-        &--high {
+        &.#{$prefix}--hr--high-contrast {
             background-image: linear-gradient(to right, $high-contrast 50%, transparent 50%);
         }
+    }
+
+    .#{$prefix}--hr--fluid.#{$prefix}--hr--thick {
+        height: carbon--rem(2px);
     }
 }
 
