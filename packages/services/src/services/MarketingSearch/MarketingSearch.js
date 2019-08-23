@@ -1,12 +1,6 @@
 import axios from 'axios';
 
 /**
- * MarketingSearch API
- *
- * @module MarketingSearchAPI
- */
-
-/**
  * @constant {string | string} Host for the API calls
  * @private
  */
@@ -30,12 +24,21 @@ const _endpoint = `${_host}/marketplace/api/search/${_version}/combined_suggesti
  * MarketingSearch API class with methods of fetching search results for
  * ibm.com
  */
-export default class MarketingSearchAPI {
+class MarketingSearchAPI {
   /**
    * Gets search results for marketing
    *
    * @param {string} query Query string to pass to the service
    * @returns {Promise<any>} Response data from ibm search
+   * @example
+   * import { MarketingSearchAPI } from '@ibmdotcom/services';
+   * // or for tree-shaking:
+   * import { MarketingSearchAPI } from '@ibmdotcom/services/es/services/MarketingSearch';
+   *
+   * async function getResults(query) {
+   *   const response = await MarketingSearchAPI.getResults(query);
+   *   return response;
+   * }
    */
   static async getResults(query) {
     const lc = 'en'; // TODO: create utility for fetching lc
@@ -53,3 +56,5 @@ export default class MarketingSearchAPI {
       .then(response => response.data);
   }
 }
+
+export default MarketingSearchAPI;

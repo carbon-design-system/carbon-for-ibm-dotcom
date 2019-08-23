@@ -1,4 +1,4 @@
-import { escapeRegExp } from '../escaperegexp';
+import { escapeRegExp } from '../';
 
 describe('Escape Regular Expressions utility', () => {
   const str = 'Hello?!*`~World()[]';
