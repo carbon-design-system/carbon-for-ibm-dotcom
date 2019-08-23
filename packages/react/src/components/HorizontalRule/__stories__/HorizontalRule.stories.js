@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, select } from '@storybook/addon-knobs';
+import { withKnobs, select, text } from '@storybook/addon-knobs';
 import HorizontalRule from '../HorizontalRule';
 
 storiesOf('HorizontalRule', module)
@@ -30,16 +30,23 @@ storiesOf('HorizontalRule', module)
       thick: 'thick',
     };
 
+    const words = text(
+      'text',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+    );
+
     return (
       <div
         className="bx--grid bx--grid--full-width"
         style={{ marginTop: '50px' }}>
+        <h3>{words}</h3>
         <HorizontalRule
           type={select('type', types, 'solid')}
           length={select('length', lengths, 'small')}
           color={select('color', colors, 'medium-contrast')}
           width={select('width', widths, 'thin')}
         />
+        <h3>{words}</h3>
       </div>
     );
   });
