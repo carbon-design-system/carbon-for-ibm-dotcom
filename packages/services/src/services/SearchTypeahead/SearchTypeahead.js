@@ -1,12 +1,6 @@
 import axios from 'axios';
 
 /**
- * SearchTypeahead Typeahead API
- *
- * @module SearchTypeaheadAPI
- */
-
-/**
  * @constant {string | string} Host for the API calls
  * @private
  */
@@ -19,7 +13,7 @@ const _host = process.env.SEARCH_TYPEAHEAD_HOST || 'https://www-api.ibm.com';
 const _version = process.env.SEARCH_TYPEAHEAD_VERSION || 'v1';
 
 /**
- * SearchTypeahead Typeahead endpoint
+ * SearchTypeahead endpoint
  *
  * @type {string}
  * @private
@@ -30,12 +24,21 @@ const _endpoint = `${_host}/search/typeahead/${_version}`;
  * SearchTypeahead API class with methods of fetching search results for
  * ibm.com
  */
-export default class SearchTypeaheadAPI {
+class SearchTypeaheadAPI {
   /**
    * Gets search results
    *
    * @param {string} query Query string to pass to the service
    * @returns {Promise<any>} Response data from ibm search
+   * @example
+   * import { SearchTypeaheadAPI } from '@ibmdotcom/services';
+   * // or for tree-shaking:
+   * import { SearchTypeaheadAPI } from '@ibmdotcom/services/es/services/SearchTypeahead';
+   *
+   * async function getResults(query) {
+   *   const response = await SearchTypeaheadAPI.getResults(query);
+   *   return response;
+   * }
    */
   static async getResults(query) {
     const lc = 'en'; // TODO: create utility for fetching lc
@@ -53,3 +56,5 @@ export default class SearchTypeaheadAPI {
       .then(response => response.data.response);
   }
 }
+
+export default SearchTypeaheadAPI;
