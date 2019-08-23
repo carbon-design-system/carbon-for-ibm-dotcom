@@ -22,3 +22,41 @@
     <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs welcome" />
   </a>
 </p>
+
+## Getting started
+
+If you're just getting started, check out
+[`react`](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react).
+Vanilla components are coming soon!
+
+If you're trying to find something specific, here's a full list of packages that
+we support!
+
+| Package name                                                                                                        | Description                                              |
+| ------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
+| [`@ibmdotcom/react`](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react)         | IBM.com React components                                 |
+| [`@ibmdotcom/services`](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/services)   | IBM.com ES6 Service classes                              |
+| [`@ibmdotcom/styles`](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles)       | Framework agnostic styles package for IBM.com components |
+| [`@ibmdotcom/utilities`](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/utilities) | IBM.com ES6 Utility classes                              |
+
+## Documentation
+
+- See our documentation site [here](https://carbonforibm-website.mybluemix.net)
+  for full how-to docs and guidelines
+- [Contributing](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/.github/CONTRIBUTING.md):
+  Guidelines for making contributions to this repo.
+
+## 🙌 Contributing
+
+We're always looking for contributors to help us fix bugs, build new features,
+or help us improve the project documentation. If you're interested, definitely
+check out our
+[Contributing Guide](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/.github/CONTRIBUTING.md)
+and our
+[Developer Guide](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/docs/developing.md)!
+👀
+
+## 📝 License
+
+Licensed under the
+[Apache 2.0 License](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/LICENSE).
