@@ -1,6 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, select, text } from '@storybook/addon-knobs';
+import '@ibmdotcom/styles/scss/components/horizontalrule/_horizontalrule.scss';
+
 import HorizontalRule from '../HorizontalRule';
 
 storiesOf('HorizontalRule', module)
@@ -19,9 +21,9 @@ storiesOf('HorizontalRule', module)
     };
 
     const contrasts = {
-      low: 'low-contrast',
-      medium: 'medium-contrast',
-      high: 'high-contrast',
+      'low-contrast': 'low-contrast',
+      'medium-contrast': 'medium-contrast',
+      'high-contrast': 'high-contrast',
     };
 
     const weights = {

@@ -24,15 +24,15 @@ $high-contrast: $ui-05;
         background: $medium-contrast;
     
         &--small {
-            width: carbon--mini-units(4);
+            max-width: carbon--mini-units(4);
         }
     
         &--medium {
-            width: carbon--mini-units(6);
+            max-width: carbon--mini-units(6);
         }
     
         &--large {
-            width: carbon--mini-units(8);
+            max-width: carbon--mini-units(8);
         }
 
         &--low-contrast {

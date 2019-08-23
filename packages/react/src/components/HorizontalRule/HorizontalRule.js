@@ -10,8 +10,6 @@ import React from 'react';
 import classnames from 'classnames';
 import settings from 'carbon-components/es/globals/js/settings';
 
-import '@ibmdotcom/styles/scss/components/horizontalrule/_horizontalrule.scss';
-
 const { prefix } = settings;
 
 /**
