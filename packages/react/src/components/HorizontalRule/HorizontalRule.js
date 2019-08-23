@@ -13,6 +13,17 @@ import settings from 'carbon-components/es/globals/js/settings';
 import '@ibmdotcom/styles/scss/components/horizontalrule/_horizontalrule.scss';
 
 const { prefix } = settings;
+
+/**
+ * creates modifier classnames
+ *
+ * @param {string} mod modifier
+ * @returns {*} Horizontal Rule component
+ */
+function hrMod(mod) {
+  return mod && `${prefix}--hr--${mod}`;
+}
+
 /**
  * Horizontal Rule component
  *
@@ -20,7 +31,7 @@ const { prefix } = settings;
  * @param {string} props.style style of rule (solid or dashed)
  * @param {string} props.contrast color of the rule (low-contrast, medium-contrast, or high-contrast)
  * @param {string} props.weight weight of the rule (thin or thick)
- * @param {string} props.size size of rule (small, medium, large, inset, or overhung)
+ * @param {string} props.size size of rule (small, medium, large, fluid)
  * @returns {*} Horizontal Rule component
  */
 const HorizontalRule = ({ style, size, contrast, weight }) => (
@@ -28,10 +39,10 @@ const HorizontalRule = ({ style, size, contrast, weight }) => (
     data-autoid="hr"
     className={classnames(
       `${prefix}--hr`,
-      `${prefix}--hr--${style}--${contrast}`,
-      { [`${prefix}--hr--dashed`]: style === 'dashed' },
-      `${prefix}--hr--${size}`,
-      `${prefix}--hr--${weight}`
+      hrMod(style),
+      hrMod(contrast),
+      hrMod(size),
+      hrMod(weight)
     )}
   />
 );
@@ -41,13 +52,6 @@ HorizontalRule.propTypes = {
   size: PropTypes.string,
   contrast: PropTypes.string,
   weight: PropTypes.string,
-};
-
-HorizontalRule.defaultProps = {
-  style: 'solid',
-  size: 'small',
-  contrast: 'medium',
-  weight: 'thin',
 };
 
 export default HorizontalRule;
