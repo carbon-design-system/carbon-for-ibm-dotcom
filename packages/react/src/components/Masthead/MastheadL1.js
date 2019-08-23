@@ -11,10 +11,9 @@ import {
   HeaderNavigation,
   HeaderMenu,
   HeaderMenuItem,
-} from 'carbon-components-react/es/components/UIShell';
+} from 'carbon-components-react';
 import { ArrowLeft16 } from '@carbon/icons-react';
 import cx from 'classnames';
-import '@ibmdotcom/styles/scss/components/masthead/_masthead-l1.scss';
 
 const { prefix } = settings;
 

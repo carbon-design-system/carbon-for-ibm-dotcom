@@ -40,7 +40,6 @@
     "test-ssr": "yarn build && node ssr-tests/*.js"
   },
   "peerDependencies": {
-    "carbon-components": "10.3.1",
     "carbon-icons": "^7.0.7",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
@@ -50,6 +49,7 @@
     "@ibmdotcom/services": "^0.3.0-alpha.213",
     "@ibmdotcom/utilities": "^0.3.0-alpha.213",
     "autosuggest-highlight": "^3.1.1",
+    "carbon-components": "^10.4.1",
     "classnames": "2.2.6",
     "downshift": "^1.31.14",
     "flatpickr": "4.6.1",
@@ -143,7 +143,7 @@
     "whatwg-fetch": "^2.0.3"
   },
   "sideEffects": false,
-  "bundleSizeThreshold": 170000,
+  "bundleSizeThreshold": 270000,
   "release": {
     "branch": "master"
   },

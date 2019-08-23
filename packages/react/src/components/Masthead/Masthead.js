@@ -27,10 +27,9 @@ import {
   SideNavLink,
   SideNavMenu,
   SideNavMenuItem,
-} from 'carbon-components-react/es/components/UIShell';
+} from 'carbon-components-react';
 import MastheadSearch from './MastheadSearch';
 import cx from 'classnames';
-import '@ibmdotcom/styles/scss/components/masthead/_masthead.scss';
 
 const { prefix } = settings;
 

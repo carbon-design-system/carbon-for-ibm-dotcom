@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { settings } from 'carbon-components';
-import { HeaderGlobalAction } from 'carbon-components-react/es/components/UIShell';
+import { HeaderGlobalAction } from 'carbon-components-react';
 import { Search20 } from '@carbon/icons-react';
 import { Close20 } from '@carbon/icons-react';
 
