@@ -1,8 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { Footer } from '@ibmdotcom/react';
+import { Footer } from '../';
 
-import '@ibmdotcom/styles/scss/components/footer/index.scss';
+import '../../../../../styles/scss/components/footer/index.scss';
 
 storiesOf('Footer', module)
   .add('Default / Tall', () => <Footer />)
