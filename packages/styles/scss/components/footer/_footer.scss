@@ -5,44 +5,51 @@
 // LICENSE file in the root directory of this source tree.
 //
 
+@import '../link/link-expressive';
+
 /// Footer styles
 /// @access private
 /// @group footer
 
-.#{$prefix}--footer {
-  color: $text-01;
-  background-color: $ui-background;
-  padding-top: carbon--mini-units(6); // 48px
+@mixin footer {
+  .#{$prefix}--footer {
+    color: $text-01;
+    background-color: $ui-background;
+    padding-top: carbon--mini-units(6);
 
-  &--short {
-    padding-top: carbon--mini-units(4); // 32px
-  }
-
-  &__main {
-    @include carbon--make-container;
-  }
-
-  &__main-container {
-    @include carbon--make-row;
-  }
-
-  @import '../link/link-expressive';
-  .#{$prefix}--link {
-    &,
-    &:visited {
-      color: $text-02;
+    &--short {
+      padding-top: carbon--mini-units(4);
     }
 
-    &:focus {
-      outline-color: $focus;
+    &__main {
+      @include carbon--make-container;
     }
 
-    &:active {
-      color: $text-04;
+    &__main-container {
+      @include carbon--make-row;
     }
 
-    &:hover {
-      color: $text-01;
+    .#{$prefix}--link {
+      &,
+      &:visited {
+        color: $text-02;
+      }
+
+      &:focus {
+        outline-color: $focus;
+      }
+
+      &:active {
+        color: $text-04;
+      }
+
+      &:hover {
+        color: $text-01;
+      }
     }
   }
+}
+
+@include exports('footer') {
+  @include footer;
 }

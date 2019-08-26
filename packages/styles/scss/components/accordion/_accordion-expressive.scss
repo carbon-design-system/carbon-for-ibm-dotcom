@@ -14,14 +14,19 @@
 /// @access private
 /// @group expressive-overrides
 
-@mixin accordion-expressive () {
+@mixin accordion-expressive() {
   .#{$prefix}--accordion {
     &__heading {
-      padding: TEMP--padding-diff($TEMP--accordion-height, $TEMP--accordion-type) 0;
+      padding: temp--padding-diff(
+          $TEMP--accordion-height,
+          $TEMP--accordion-type
+        )
+        0;
     }
 
     &__title {
-      @include carbon--type-style($TEMP--accordion-type); // need to remove once 16 variants come out
+      // need to remove once 16 variants come out
+      @include carbon--type-style($TEMP--accordion-type);
     }
 
     &__arrow {
