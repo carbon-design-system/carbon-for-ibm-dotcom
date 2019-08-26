@@ -4,3 +4,27 @@
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
 //
+
+@function TEMP--padding-diff($height, $type-token, $remove-more: 0, $theme-tokens: $tokens) {
+  @return ($height - map-get(map-get($theme-tokens, $type-token), 'line-height') - $remove-more) / 2;
+}
+
+@function TEMP--get-icon-size($type-token, $theme-tokens: $tokens) {
+  @return TEMP--type-icon-size(map-get(map-get($theme-tokens, $type-token), 'font-size'));
+}
+
+@function TEMP--type-icon-size($font-size) {
+  $type-icon-scale: (
+    0.875rem: rem(16px),
+    1rem: rem(20px),
+    1.25rem: rem(24px),
+    1.5rem: rem(32px),
+  );
+
+  @if map-has-key($type-icon-scale, $font-size) {
+    @return map-get($type-icon-scale, $font-size);
+  } @else {
+    @warn 'Font-size: `#{$font-size}` does not translate to an icon size. Using `#{$font-size}` for the icon size.';
+    @return $font-size;
+  }
+}

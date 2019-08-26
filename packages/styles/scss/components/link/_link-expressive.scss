@@ -1,0 +1,25 @@
+//
+// Copyright IBM Corp. 2016, 2018
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import '@carbon/import-once/scss/index';
+@import '@carbon/type/scss/type';
+@import 'carbon-components/scss/components/link/link';
+@import '../../globals/vars.scss'; // $TEMP
+
+/// Temporary overrides for link's expressive moment
+/// @access private
+/// @group expressive-overrides
+
+@mixin link-expressive () {
+  .#{$prefix}--link {
+    @include carbon--type-style($TEMP--link-type); // need to remove once 16 variants come out
+  }
+}
+
+@include exports('link-expressive') {
+  @include link-expressive;
+}

@@ -25,10 +25,6 @@ export default class Container extends Component {
           data-floating-menu-container=""
           role="main"
           style={{
-            padding: '3em',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
             backgroundColor: bgColor,
           }}>
           {story()}
