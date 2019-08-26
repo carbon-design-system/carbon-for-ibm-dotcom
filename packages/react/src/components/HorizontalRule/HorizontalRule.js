@@ -26,10 +26,10 @@ function hrMod(mod) {
  * Horizontal Rule component
  *
  * @param {object} props props object
- * @param {string} props.style style of rule (solid or dashed)
- * @param {string} props.contrast color of the rule (low-contrast, medium-contrast, or high-contrast)
- * @param {string} props.weight weight of the rule (thin or thick)
- * @param {string} props.size size of rule (small, medium, large, fluid)
+ * @param {string} props.style style of rule (dashed)
+ * @param {string} props.contrast color of the rule (low-contrast, or high-contrast)
+ * @param {string} props.weight weight of the rule (thick)
+ * @param {string} props.size size of rule (small, medium, large)
  * @returns {*} Horizontal Rule component
  */
 const HorizontalRule = ({ style, size, contrast, weight }) => (
