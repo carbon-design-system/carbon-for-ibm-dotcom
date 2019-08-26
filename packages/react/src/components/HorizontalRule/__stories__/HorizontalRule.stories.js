@@ -9,7 +9,7 @@ storiesOf('HorizontalRule', module)
   .addDecorator(withKnobs)
   .add('Default', () => {
     const styles = {
-      solid: 'solid',
+      solid: '',
       dashed: 'dashed',
     };
 
@@ -22,7 +22,7 @@ storiesOf('HorizontalRule', module)
 
     const contrasts = {
       'low-contrast': 'low-contrast',
-      'medium-contrast': 'medium-contrast',
+      'medium-contrast': '',
       'high-contrast': 'high-contrast',
     };
 
@@ -45,9 +45,9 @@ storiesOf('HorizontalRule', module)
           <div className="bx--row bx--no-gutter">
             <div className="bx--col">
               <HorizontalRule
-                style={select('style', styles, 'solid')}
+                style={select('style', styles, '')}
                 size={select('size', sizes, 'fluid')}
-                contrast={select('contrast', contrasts, 'medium-contrast')}
+                contrast={select('contrast', contrasts, '')}
                 weight={select('weight', weights, 'thin')}
               />
             </div>
@@ -62,9 +62,9 @@ storiesOf('HorizontalRule', module)
             <div className="bx--col">
               <h3>{words}</h3>
               <HorizontalRule
-                style={select('style', styles, 'solid')}
+                style={select('style', styles, '')}
                 size={select('size', sizes, 'fluid')}
-                contrast={select('contrast', contrasts, 'medium-contrast')}
+                contrast={select('contrast', contrasts, '')}
                 weight={select('weight', weights, 'thin')}
               />
               <h3>{words}</h3>
