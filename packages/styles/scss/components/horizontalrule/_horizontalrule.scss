@@ -12,13 +12,13 @@
 @import '~carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/import-once/import-once';
 @import '~carbon-components/scss/globals/scss/css--reset';
 
-$low-contrast: $ui-03;
-$medium-contrast: $ui-04;
-$high-contrast: $ui-05;
-
 @mixin horizontalrule {
+    $low-contrast: $ui-03;
+    $medium-contrast: $ui-04;
+    $high-contrast: $ui-05;
+
     .#{$prefix}--hr {
-        margin: $spacing-05 0;
+        margin: $carbon--spacing-05 0;
         border: none;
         height: carbon--rem(1px);
         background: $medium-contrast;
@@ -46,7 +46,7 @@ $high-contrast: $ui-05;
 
     .#{$prefix}--hr--dashed.#{$prefix}--hr--fluid{
         background: none;
-        background-size: $spacing-05 1px;
+        background-size: $carbon--spacing-05 carbon--rem(1px);
         background-repeat: repeat-x;
         background-image: linear-gradient(to right, $medium-contrast 50%, transparent 50%);
 
