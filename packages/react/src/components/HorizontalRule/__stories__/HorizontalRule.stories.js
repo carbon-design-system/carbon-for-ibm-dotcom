@@ -27,7 +27,7 @@ storiesOf('HorizontalRule', module)
     };
 
     const weights = {
-      thin: 'thin',
+      thin: '',
       thick: 'thick',
     };
 
@@ -48,7 +48,7 @@ storiesOf('HorizontalRule', module)
                 style={select('style', styles, '')}
                 size={select('size', sizes, 'fluid')}
                 contrast={select('contrast', contrasts, '')}
-                weight={select('weight', weights, 'thin')}
+                weight={select('weight', weights, '')}
               />
             </div>
           </div>
@@ -65,7 +65,7 @@ storiesOf('HorizontalRule', module)
                 style={select('style', styles, '')}
                 size={select('size', sizes, 'fluid')}
                 contrast={select('contrast', contrasts, '')}
-                weight={select('weight', weights, 'thin')}
+                weight={select('weight', weights, '')}
               />
               <h3>{words}</h3>
             </div>
