@@ -17,7 +17,6 @@ Use these modifiers with `.bx--hr` class.
 | `.bx--hr--small`         | The className for the short fixed-length hr variant  |
 | `.bx--hr--medium`        | The className for the medium fixed-length hr variant |
 | `.bx--hr--large`         | The className for the large fixed-length hr variant  |
-| `.bx--hr--fluid`         | The className for the fluid length hr variant        |
 | `.bx--hr--low-contrast`  | The className for the low contrast color hr variant  |
 | `.bx--hr--high-contrast` | The className for the high contrast color hr variant |
 | `.bx--hr--dashed`        | The className for the dashed hr variant              |
