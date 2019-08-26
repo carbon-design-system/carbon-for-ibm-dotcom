@@ -17,7 +17,7 @@ storiesOf('HorizontalRule', module)
       small: 'small',
       medium: 'medium',
       large: 'large',
-      fluid: 'fluid',
+      fluid: '',
     };
 
     const contrasts = {
@@ -46,7 +46,7 @@ storiesOf('HorizontalRule', module)
             <div className="bx--col">
               <HorizontalRule
                 style={select('style', styles, '')}
-                size={select('size', sizes, 'fluid')}
+                size={select('size', sizes, '')}
                 contrast={select('contrast', contrasts, '')}
                 weight={select('weight', weights, '')}
               />
@@ -63,7 +63,7 @@ storiesOf('HorizontalRule', module)
               <h3>{words}</h3>
               <HorizontalRule
                 style={select('style', styles, '')}
-                size={select('size', sizes, 'fluid')}
+                size={select('size', sizes, '')}
                 contrast={select('contrast', contrasts, '')}
                 weight={select('weight', weights, '')}
               />
