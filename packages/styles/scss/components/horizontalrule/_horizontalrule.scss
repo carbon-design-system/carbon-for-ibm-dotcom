@@ -1,0 +1,89 @@
+//
+// Copyright IBM Corp. 2016, 2018
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import '~@carbon/themes/scss/themes';
+@import '~carbon-components/scss/globals/scss/vars';
+@import '~carbon-components/scss/globals/scss/helper-mixins';
+@import '~carbon-components/scss/globals/scss/layout';
+@import '~carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/import-once/import-once';
+@import '~carbon-components/scss/globals/scss/css--reset';
+
+@mixin horizontalrule {
+  $low-contrast: $ui-03;
+  $medium-contrast: $ui-04;
+  $high-contrast: $ui-05;
+  $thin-weight: carbon--rem(1px);
+
+  .#{$prefix}--hr {
+    margin: $carbon--spacing-05 0;
+    border: none;
+    height: $thin-weight;
+    background: $medium-contrast;
+
+    &--small {
+      max-width: carbon--mini-units(4);
+    }
+
+    &--medium {
+      max-width: carbon--mini-units(6);
+    }
+
+    &--large {
+      max-width: carbon--mini-units(8);
+    }
+
+    &--low-contrast {
+      background: $low-contrast;
+    }
+
+    &--high-contrast {
+      background: $high-contrast;
+    }
+
+    &--thick {
+      height: carbon--rem(2px);
+    }
+
+    &--small,
+    &--medium,
+    &--large {
+      height: $thin-weight;
+    }
+  }
+
+  .#{$prefix}--hr--dashed {
+    height: $thin-weight;
+    background-color: transparent;
+    background-size: $carbon--spacing-05 $thin-weight;
+    background-repeat: repeat-x;
+    background-image: linear-gradient(
+      to right,
+      $medium-contrast 50%,
+      transparent 50%
+    );
+
+    &.#{$prefix}--hr--low-contrast {
+      background-image: linear-gradient(
+        to right,
+        $low-contrast 50%,
+        transparent 50%
+      );
+    }
+
+    &.#{$prefix}--hr--high-contrast {
+      background-image: linear-gradient(
+        to right,
+        $high-contrast 50%,
+        transparent 50%
+      );
+    }
+  }
+}
+
+@include exports('horizontalrule') {
+  @include horizontalrule;
+}

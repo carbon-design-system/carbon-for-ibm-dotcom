@@ -11,11 +11,11 @@
 @import '@carbon/grid/scss/mixins';
 @import '@carbon/type/scss/type';
 
-@import 'carbon-components/scss/globals/scss/vars'; // $prefix
+@import 'carbon-components/scss/globals/scss/vars';
 @import 'carbon-components/scss/globals/scss/css--reset';
 
-@import '../../globals/vars.scss'; // $TEMP
-@import '../../globals/mixins.scss'; // $TEMP
+@import '../../globals/vars.scss';
+@import '../../globals/mixins.scss';
 
 /// Include footer components with g90 theme
 /// @access private

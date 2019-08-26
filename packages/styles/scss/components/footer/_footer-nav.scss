@@ -5,43 +5,51 @@
 // LICENSE file in the root directory of this source tree.
 //
 
+@import '../accordion/accordion-expressive';
+
 /// Footer nav styles
 /// @access private
 /// @group footer
 
-.#{$prefix}--footer-nav {
-  @import '../accordion/accordion-expressive';
-  @include carbon--make-col-ready;
+@mixin footer-nav {
+  .#{$prefix}--footer-nav {
+    @include carbon--make-col-ready;
 
-  padding: 0;
+    padding: 0;
 
-  .#{$prefix}--footer--short & {
-    display: none;
-  }
+    .#{$prefix}--footer--short & {
+      display: none;
+    }
 
-  @include carbon--breakpoint('md') {
-    padding: 0 $carbon--grid-gutter / 2;
-  }
-
-  @include carbon--breakpoint-between('md', $TEMP--breakpoint-down--lg) {
-    padding-top: carbon--mini-units(2);
-    border-top: 1px solid $ui-03;
-  }
-
-  @include carbon--breakpoint('lg') {
-    @include carbon--make-col(12, 16);
-    @include carbon--make-col-offset(2, 16);
-  }
-
-  &__container {
     @include carbon--breakpoint('md') {
-      @include carbon--make-row;
-      display: block;
-      column-count: 2;
+      padding: 0 $carbon--grid-gutter / 2;
+    }
+
+    @include carbon--breakpoint-between('md', $TEMP--breakpoint-down--lg) {
+      padding-top: carbon--mini-units(2);
+      border-top: 1px solid $ui-03;
     }
 
     @include carbon--breakpoint('lg') {
-      column-count: 3;
+      @include carbon--make-col(12, 16);
+      @include carbon--make-col-offset(2, 16);
+    }
+
+    &__container {
+      @include carbon--breakpoint('md') {
+        @include carbon--make-row;
+
+        display: block;
+        column-count: 2;
+      }
+
+      @include carbon--breakpoint('lg') {
+        column-count: 3;
+      }
     }
   }
+}
+
+@include exports('footer-nav') {
+  @include footer-nav;
 }
