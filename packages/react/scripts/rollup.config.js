@@ -78,6 +78,8 @@ module.exports = {
           'Fragment',
           'PropTypes',
           'createElement',
+          'useState',
+          'useReducer',
         ],
         'react-dom/index.js': ['render'],
         'react-is/index.js': ['isForwardRef'],

@@ -1,0 +1,30 @@
+//
+// Copyright IBM Corp. 2016, 2018
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import '@carbon/import-once/scss/index';
+@import '@carbon/layout/scss/mini-unit';
+@import '@carbon/layout/scss/breakpoint';
+@import '@carbon/grid/scss/mixins';
+@import '@carbon/type/scss/type';
+
+@import 'carbon-components/scss/globals/scss/vars'; // $prefix
+@import 'carbon-components/scss/globals/scss/css--reset';
+
+@import '../../globals/vars.scss'; // $TEMP
+@import '../../globals/mixins.scss'; // $TEMP
+
+/// Include footer components with g90 theme
+/// @access private
+/// @group footer
+
+@include carbon--theme($carbon--theme--g90) {
+  @import 'footer';
+  @import 'footer-logo';
+  @import 'footer-nav';
+  @import 'footer-nav-group';
+  @import 'legal-nav';
+}

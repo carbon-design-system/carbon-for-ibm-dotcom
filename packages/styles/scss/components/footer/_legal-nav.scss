@@ -1,0 +1,47 @@
+//
+// Copyright IBM Corp. 2016, 2018
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+/// Legal nav styles
+/// @access private
+/// @group footer
+
+.#{$prefix}--legal-nav {
+  @include carbon--make-row;
+
+  border-top: 1px solid $ui-03;
+
+  .#{$prefix}--footer:not(.#{$prefix}--footer--short) & {
+    @include carbon--breakpoint-down($TEMP--breakpoint-down--md) {
+      border-top: 0;
+    }
+  }
+
+  &__container {
+    @include carbon--make-container;
+  }
+
+  &__list {
+    @include carbon--make-col-ready;
+
+    .#{$prefix}--footer:not(.#{$prefix}--footer--short) & {
+      @include carbon--breakpoint('lg') {
+        @include carbon--make-col-offset(4, 16);
+        @include carbon--make-col(12, 16);
+      }
+    }
+  }
+
+  &__list-item {
+    display: inline-block;
+    margin-right: carbon--mini-units(4);
+    padding: TEMP--padding-diff($TEMP--link-height, $TEMP--link-type) 0;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
