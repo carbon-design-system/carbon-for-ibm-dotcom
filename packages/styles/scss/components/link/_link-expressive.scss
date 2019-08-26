@@ -8,15 +8,16 @@
 @import '@carbon/import-once/scss/index';
 @import '@carbon/type/scss/type';
 @import 'carbon-components/scss/components/link/link';
-@import '../../globals/vars.scss'; // $TEMP
+@import '../../globals/vars.scss';
 
 /// Temporary overrides for link's expressive moment
 /// @access private
 /// @group expressive-overrides
 
-@mixin link-expressive () {
+@mixin link-expressive() {
   .#{$prefix}--link {
-    @include carbon--type-style($TEMP--link-type); // need to remove once 16 variants come out
+    // need to remove once 16 variants come out
+    @include carbon--type-style($TEMP--link-type);
   }
 }
 
