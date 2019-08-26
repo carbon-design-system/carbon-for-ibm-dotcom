@@ -1711,6 +1711,13 @@
   dependencies:
     window-or-global "^1.0.1"
 
+"@ibmdotcom/styles@^0.3.0-alpha.213":
+  version "0.3.0-alpha.213"
+  resolved "https://registry.yarnpkg.com/@ibmdotcom/styles/-/styles-0.3.0-alpha.213.tgz#70a5248661d2f332bc36f2bd9f4836d5a3ae3f70"
+  integrity sha512-QJlt0B+rg6gBlcKCnzqxDbH3nDzkMaN3VLo9krLzxaJb6t+Y9pef1qRuWmiN/wKiSPoqSgcO7rYMDL8Jsbdwew==
+  dependencies:
+    "@carbon/themes" "^10.4.0"
+
 "@ibmdotcom/utilities@^0.3.0-alpha.213":
   version "0.3.0-alpha.244"
   resolved "https://registry.yarnpkg.com/@ibmdotcom/utilities/-/utilities-0.3.0-alpha.244.tgz#7d2aeff3619e1f593828b0db6eaee381f1c57424"
@@ -5943,7 +5950,7 @@ carbon-components@^10.4.1:
     lodash.debounce "^4.0.8"
     warning "^3.0.0"
 
-carbon-icons@^7.0.5, carbon-icons@^7.0.7:
+carbon-icons@^7.0.7:
   version "7.0.7"
   resolved "https://registry.yarnpkg.com/carbon-icons/-/carbon-icons-7.0.7.tgz#ebafe3e9fa25df973796a8eca06d8a7c501cc610"
   integrity sha512-3vgkdXJRgCViCrH3fLUdyAXo0I8wmohO6QETv7vWFx6yc7s+SirWFBSFL38zUx4MHtR8iTxIlLEzkeU6FlFtXg==

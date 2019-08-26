@@ -21,7 +21,7 @@ function _sass() {
   return gulp
     .src(global.config.scssEntry)
     .pipe(sourcemaps.init())
-    .pipe(sass().on('error', sass.logError))
+    .pipe(sass({ includePaths: 'node_modules' }).on('error', sass.logError))
     .pipe(
       prefix(['> 1%', 'last 2 versions'], {
         cascade: true,

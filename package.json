@@ -11,7 +11,9 @@
     "packages": [
       "packages/*"
     ],
-    "nohoist": []
+    "nohoist": [
+      "**/carbon-components"
+    ]
   },
   "scripts": {
     "build": "lerna run build --stream --prefix --npm-client yarn",
