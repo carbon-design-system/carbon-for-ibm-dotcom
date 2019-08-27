@@ -38,6 +38,14 @@
     &--thick {
       height: carbon--rem(2px);
     }
+
+    &--low-contrast {
+      background: $low-contrast;
+    }
+
+    &--high-contrast {
+      background: $high-contrast;
+    }
   }
 
   .#{$prefix}--hr--dashed {
