@@ -24,7 +24,7 @@ $search-transition-timing: 95ms;
     background: $ui-background;
     border-bottom: 1px solid $ui-03;
 
-    .#{$prefix}--header__logo {
+    &__logo {
       padding: 0 $spacing-07;
       margin-right: $spacing-05;
       position: relative;
@@ -40,9 +40,66 @@ $search-transition-timing: 95ms;
         background-color: $ui-03;
       }
 
-      &.#{$prefix}--header__logo--platform {
+      &__logo--platform {
         margin-right: $spacing-07;
       }
+    }
+
+    &__global {
+      flex: 0;
+    }
+
+    &__action {
+      > {
+        svg {
+          fill: $text-01;
+        }
+      }
+
+      &:hover {
+        background-color: $ui-01;
+        transition-duration: $search-transition-timing;
+        > {
+          svg {
+            fill: $text-01;
+          }
+        }
+      }
+
+      &:focus,
+      &:active {
+        border-color: $interactive-01;
+        background-color: $ui-01;
+      }
+    }
+
+    &__search--close {
+      overflow: hidden;
+      width: 0;
+      border: none;
+      outline: none;
+    }
+
+    &__search--search {
+      border: none;
+      outline: none;
+    }
+
+    &__menu-arrow {
+      fill: $text-01;
+      &:hover {
+        fill: $text-01;
+      }
+    }
+
+    // main nav/search container excluding
+    // profile and logo icons - TODO rename this
+    &__search {
+      display: flex;
+      align-items: center;
+      flex: 1;
+      height: 100%;
+      position: relative;
     }
   }
 
@@ -54,10 +111,6 @@ $search-transition-timing: 95ms;
     &:hover {
       color: $text-01;
     }
-  }
-
-  .#{$prefix}--header__global {
-    flex: 0;
   }
 
   .#{$prefix}--header__nav {
@@ -123,63 +176,9 @@ $search-transition-timing: 95ms;
     }
   }
 
-  .#{$prefix}--header__menu-arrow {
-    fill: $text-01;
-    &:hover {
-      fill: $text-01;
-    }
-  }
-
-  .#{$prefix}--header__action {
-    > {
-      svg {
-        fill: $text-01;
-      }
-    }
-
-    &:hover {
-      background-color: $ui-01;
-      transition-duration: $search-transition-timing;
-      > {
-        svg {
-          fill: $text-01;
-        }
-      }
-    }
-
-    &:focus,
-    &:active {
-      border-color: $interactive-01;
-      background-color: $ui-01;
-    }
-  }
-
-  .#{$prefix}--header__search--close {
-    overflow: hidden;
-    width: 0;
-    border: none;
-    outline: none;
-  }
-
-  .#{$prefix}--header__search--search {
-    border: none;
-    outline: none;
-    width: $spacing-09;
-  }
-
   //--------------------------------------------------------------------------
   // Masthead - Search
   //--------------------------------------------------------------------------
-
-  // main nav/search container excluding
-  // profile and logo icons - TODO rename this
-  .#{$prefix}--header__search {
-    display: flex;
-    align-items: center;
-    flex: 1;
-    height: 100%;
-    position: relative;
-  }
 
   // search container
   .#{$prefix}--masthead__search {

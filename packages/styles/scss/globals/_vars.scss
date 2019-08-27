@@ -5,8 +5,9 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import '@carbon/layout/scss/mini-unit';
-@import '@carbon/layout/scss/breakpoint';
+@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/themes/themes';
+@import 'carbon-components/scss/globals/scss/vendor/@carbon/layout/scss/mini-unit';
+@import 'carbon-components/scss/globals/scss/vendor/@carbon/layout/scss/breakpoint';
 @import 'mixins';
 
 $TEMP--footer-nav-group-type: 'heading-02';

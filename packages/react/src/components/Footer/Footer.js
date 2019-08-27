@@ -7,8 +7,6 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-// import { localeSelector } from '../../internal/FeatureFlags';
-// import LocaleSelector from './LocaleSelector';
 import { settings } from 'carbon-components';
 import classNames from 'classnames';
 import FooterLogo from './FooterLogo';
