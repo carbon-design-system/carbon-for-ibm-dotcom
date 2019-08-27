@@ -18,10 +18,16 @@ const gulp = require('gulp'),
  * @private
  */
 function _sass() {
+  // prettier-ignore
   return gulp
     .src(global.config.scssEntry)
     .pipe(sourcemaps.init())
-    .pipe(sass({ includePaths: 'node_modules' }).on('error', sass.logError))
+    .pipe(sass({
+      includePaths: [
+        'node_modules',
+        'node_modules/carbon-components/scss/globals/scss/vendor/',
+      ]
+    }).on('error', sass.logError))
     .pipe(
       prefix(['> 1%', 'last 2 versions'], {
         cascade: true,
