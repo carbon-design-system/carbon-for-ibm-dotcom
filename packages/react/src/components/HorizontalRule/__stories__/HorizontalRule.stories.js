@@ -2,11 +2,17 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, select, text } from '@storybook/addon-knobs';
 import '@ibmdotcom/styles/scss/components/horizontalrule/_horizontalrule.scss';
+import readme from '../README.md';
 
 import HorizontalRule from '../HorizontalRule';
 
 storiesOf('HorizontalRule', module)
   .addDecorator(withKnobs)
+  .addParameters({
+    readme: {
+      sidebar: readme,
+    },
+  })
   .add('Default', () => {
     const styles = {
       solid: '',
