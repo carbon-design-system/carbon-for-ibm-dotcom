@@ -72,16 +72,16 @@
   .#{$prefix}--hr--medium,
   .#{$prefix}--hr--large {
     height: $thin-weight;
-    background-color: $medium-contrast;
+    background: $medium-contrast;
     background-image: none;
-  }
 
-  .#{$prefix}--hr--low-contrast {
-    background: $low-contrast;
-  }
+    &.#{$prefix}--hr--low-contrast {
+      background: $low-contrast;
+    }
 
-  .#{$prefix}--hr--high-contrast {
-    background: $high-contrast;
+    &.#{$prefix}--hr--high-contrast {
+      background: $high-contrast;
+    }
   }
 }
 
