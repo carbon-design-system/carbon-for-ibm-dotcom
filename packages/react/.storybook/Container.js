@@ -15,7 +15,10 @@ export default class Container extends Component {
     const { story } = this.props;
 
     let bgColor = '#ffffff';
-    if (story().props.context.kind === '[Experimental] UI Shell') {
+    if (
+      story().props.context &&
+      story().props.context.kind === '[Experimental] UI Shell'
+    ) {
       bgColor = '#f3f3f3';
     }
 

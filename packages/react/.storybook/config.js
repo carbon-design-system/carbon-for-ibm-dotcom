@@ -4,6 +4,7 @@ import { configure, addDecorator } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { withOptions } from '@storybook/addon-options';
 import { configureActions } from '@storybook/addon-actions';
+import { addReadme } from 'storybook-readme';
 // import { checkA11y } from 'storybook-addon-a11y';
 import Container from './Container';
 
@@ -19,6 +20,8 @@ addDecorator(
     url: 'https://github.com/carbon-design-system/ibm-dotcom-library',
   })
 );
+
+addDecorator(addReadme);
 
 configureActions({
   depth: 100,
