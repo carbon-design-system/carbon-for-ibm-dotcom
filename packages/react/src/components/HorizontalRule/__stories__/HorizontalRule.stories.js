@@ -41,7 +41,7 @@ storiesOf('HorizontalRule', module)
         <h1>
           <b>Grid with no Gutter</b>
         </h1>
-        <div className="bx-grid">
+        <div className="bx-grid" style={{ marginBottom: '50px' }}>
           <div className="bx--row bx--no-gutter">
             <div className="bx--col">
               <HorizontalRule
