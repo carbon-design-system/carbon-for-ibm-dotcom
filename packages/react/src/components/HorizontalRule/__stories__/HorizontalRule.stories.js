@@ -44,10 +44,10 @@ storiesOf('HorizontalRule', module)
 
     return (
       <div>
-        <div className="bx-grid">
-          <h1>
-            <b>Grid with no Gutter</b>
-          </h1>
+        <h1>
+          <b>Grid with no Gutter</b>
+        </h1>
+        <div className="bx-grid" style={{ marginBottom: '50px' }}>
           <div className="bx--row bx--no-gutter">
             <div className="bx--col">
               <HorizontalRule
@@ -60,20 +60,20 @@ storiesOf('HorizontalRule', module)
           </div>
         </div>
 
+        <h1>
+          <b>Grid with Gutter</b>
+        </h1>
         <div className="bx--grid bx--grid--full-width">
-          <h1>
-            <b>Grid with Gutter</b>
-          </h1>
           <div className="bx--row">
             <div className="bx--col">
-              <h3>{words}</h3>
+              <h4>{words}</h4>
               <HorizontalRule
                 style={select('style', styles, '')}
                 size={select('size', sizes, '')}
                 contrast={select('contrast', contrasts, '')}
                 weight={select('weight', weights, '')}
               />
-              <h3>{words}</h3>
+              <h4>{words}</h4>
             </div>
           </div>
         </div>
