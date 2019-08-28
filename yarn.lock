@@ -1288,27 +1288,19 @@
   resolved "https://registry.yarnpkg.com/@carbon/colors/-/colors-10.4.0.tgz#8c21127926bc389dcb4d415b55d4eae278f3d525"
   integrity sha512-UERU07hWXAjsaWu6JPJDyJnwVLkJr+8wTvFrbCkubCfl/MZjKoyLgz0CNypu8hSg8ZaDUzl/NfXMgRpprzuSjQ==
 
-"@carbon/grid@^10.4.0":
-  version "10.5.0"
-  resolved "https://registry.yarnpkg.com/@carbon/grid/-/grid-10.5.0.tgz#c35a029d06cea924ad23f265f31590968315bbe3"
-  integrity sha512-XQSHojbzP1Wo18m/s1a3NDr9QOQ7mO/+m/gGY7XrbsNletLhDYmCWmLObHWrQZoNerc5OcdL+o2+i0/xJfUMqA==
-  dependencies:
-    "@carbon/import-once" "10.3.0"
-    "@carbon/layout" "10.4.0"
-
 "@carbon/icon-helpers@10.4.0":
   version "10.4.0"
   resolved "https://registry.yarnpkg.com/@carbon/icon-helpers/-/icon-helpers-10.4.0.tgz#771ba51efcaa9d2be03800f8e0f50c7aa779febf"
   integrity sha512-52H97nT0Hv3mneNaDXBELt/shrO9AUZIpX5TuxRUcdva0xqLNnjhsLw0PTytjQRw3yNCLmDw8hOutzlReXCleQ==
 
-"@carbon/icons-react@10.5.0", "@carbon/icons-react@^10.3.0":
+"@carbon/icons-react@10.5.0":
   version "10.5.0"
   resolved "https://registry.yarnpkg.com/@carbon/icons-react/-/icons-react-10.5.0.tgz#f6162c1e8374c2c061052b7f92ec7f9f596d3ab1"
   integrity sha512-YfKSsKgO3lKyDq/XtplkKwn1Hyxedo0pdjvajQUq/jZ5vrg7Os5k3OdLNBFgMgS0xLwdqpkDBOtjnCZsDJhRlg==
   dependencies:
     "@carbon/icon-helpers" "10.4.0"
 
-"@carbon/import-once@10.3.0", "@carbon/import-once@^10.3.0":
+"@carbon/import-once@10.3.0":
   version "10.3.0"
   resolved "https://registry.yarnpkg.com/@carbon/import-once/-/import-once-10.3.0.tgz#58617da4efb6d7a11352d8e6b7209da1d39f364d"
   integrity sha512-PFk3FhMe3psihYtCg3JsyPHismqglnbUqIpz1DCG5Gn/kt0HdVKhGvHdEq7E305rGoBUCKzMn/4xoY9v9mcmlg==
@@ -1712,14 +1704,24 @@
     normalize-path "^2.0.1"
     through2 "^2.0.3"
 
-"@ibmdotcom/services@^0.3.0-alpha.237":
+"@ibmdotcom/services@^0.3.0-alpha.213":
   version "0.3.0-alpha.244"
   resolved "https://registry.yarnpkg.com/@ibmdotcom/services/-/services-0.3.0-alpha.244.tgz#567114d2bc5f160680293697692a64451056f8ad"
   integrity sha512-suQWajMNPtRLnx6C5L1+BmFiRgJC6nAbQbqFCuIfIfUJQa7d7xpquW9IlSotXFHCtsAfojdJFmo7xM1jnEexyQ==
   dependencies:
     window-or-global "^1.0.1"
 
-"@ibmdotcom/utilities@^0.3.0-alpha.238":
+"@ibmdotcom/styles@^0.3.0-alpha.213":
+  version "0.3.0-alpha.292"
+  resolved "https://registry.yarnpkg.com/@ibmdotcom/styles/-/styles-0.3.0-alpha.292.tgz#06a1a913463bf56382e0658e1c022fd1dba49571"
+  integrity sha512-DcJ2DEJpRkuo/aWJT04PVbe4/3ZkZh3wp1jbc1ckOwKJ0hHDiEx58krJ2VsLznhtSJUOPLARzuhpFWHKqN74nw==
+  dependencies:
+    "@carbon/layout" "^10.3.0"
+    "@carbon/themes" "^10.4.0"
+    "@carbon/type" "^10.3.0"
+    carbon-components "^10.4.1"
+
+"@ibmdotcom/utilities@^0.3.0-alpha.213":
   version "0.3.0-alpha.244"
   resolved "https://registry.yarnpkg.com/@ibmdotcom/utilities/-/utilities-0.3.0-alpha.244.tgz#7d2aeff3619e1f593828b0db6eaee381f1c57424"
   integrity sha512-Cb1cwhs74hRaHuMgiJJL0HQtPsy9R+XMtERerQzV78k2xPx4tlWXpTE17e959S0ucNkKKU5eRjOyqon9njnglA==
@@ -5923,7 +5925,7 @@ capture-stack-trace@^1.0.0:
   resolved "https://registry.yarnpkg.com/capture-stack-trace/-/capture-stack-trace-1.0.1.tgz#a6c0bbe1f38f3aa0b92238ecb6ff42c344d4135d"
   integrity sha512-mYQLZnx5Qt1JgB1WEiMCf2647plpGeQ2NMR/5L0HNZzGQo4fuSPnK+wjfPnKZV0aiJDgzmWqqkV/g7JD+DW0qw==
 
-carbon-components-react@^7.4.1:
+carbon-components-react@^7.5.1:
   version "7.5.1"
   resolved "https://registry.yarnpkg.com/carbon-components-react/-/carbon-components-react-7.5.1.tgz#c7dd8c1c552508b34011228a5c04f8cf5e7f4f2d"
   integrity sha512-8CbHdwiWjNO3KG4Gg+jeHxyyjaU6Lxn6zaL3OT3KlIeoH6AIlhduqBCS8AixCdFbrQfvqrxy+BS754OxtJm2zQ==
@@ -5941,7 +5943,7 @@ carbon-components-react@^7.4.1:
     warning "^3.0.0"
     window-or-global "^1.0.1"
 
-carbon-components@^10.1.0, carbon-components@^10.3.1, carbon-components@^10.4.1:
+carbon-components@^10.4.1:
   version "10.5.1"
   resolved "https://registry.yarnpkg.com/carbon-components/-/carbon-components-10.5.1.tgz#e779ec3bee84b72a648b3500b2bf4e84bc491144"
   integrity sha512-1h/vRHZhTTj9VpWZOJUYR7Xd7avr7XynwaEj8Lp7MBt8KfXk8CVxJOY/uNhxz25cnrBajP2m+jid1daEBXiGbw==
@@ -6128,7 +6130,7 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
-classnames@2.2.6, classnames@^2.2.5, classnames@^2.2.6:
+classnames@2.2.6, classnames@^2.2.5:
   version "2.2.6"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
   integrity sha512-JR/iSQOSt+LQIWwrwEzJ9uk0xfN3mTVYMwt1Ir5mUcSN6pU+V4zQFFaJsclJbPuAUQH+yfWef6tm7l1quW3C8Q==
@@ -13457,6 +13459,29 @@ node-releases@^1.1.23:
   dependencies:
     semver "^5.3.0"
 
+node-sass@4, node-sass@^4.8.3:
+  version "4.12.0"
+  resolved "https://registry.yarnpkg.com/node-sass/-/node-sass-4.12.0.tgz#0914f531932380114a30cc5fa4fa63233a25f017"
+  integrity sha512-A1Iv4oN+Iel6EPv77/HddXErL2a+gZ4uBeZUy+a8O35CFYTXhgA8MgLCWBtwpGZdCvTvQ9d+bQxX/QC36GDPpQ==
+  dependencies:
+    async-foreach "^0.1.3"
+    chalk "^1.1.1"
+    cross-spawn "^3.0.0"
+    gaze "^1.0.0"
+    get-stdin "^4.0.1"
+    glob "^7.0.3"
+    in-publish "^2.0.0"
+    lodash "^4.17.11"
+    meow "^3.7.0"
+    mkdirp "^0.5.1"
+    nan "^2.13.2"
+    node-gyp "^3.8.0"
+    npmlog "^4.0.0"
+    request "^2.88.0"
+    sass-graph "^2.2.4"
+    stdout-stream "^1.4.0"
+    "true-case-path" "^1.0.2"
+
 node-sass@4.10.0:
   version "4.10.0"
   resolved "https://registry.yarnpkg.com/node-sass/-/node-sass-4.10.0.tgz#dcc2b364c0913630945ccbf7a2bbf1f926effca4"
@@ -13475,29 +13500,6 @@ node-sass@4.10.0:
     meow "^3.7.0"
     mkdirp "^0.5.1"
     nan "^2.10.0"
-    node-gyp "^3.8.0"
-    npmlog "^4.0.0"
-    request "^2.88.0"
-    sass-graph "^2.2.4"
-    stdout-stream "^1.4.0"
-    "true-case-path" "^1.0.2"
-
-node-sass@^4.8.3:
-  version "4.12.0"
-  resolved "https://registry.yarnpkg.com/node-sass/-/node-sass-4.12.0.tgz#0914f531932380114a30cc5fa4fa63233a25f017"
-  integrity sha512-A1Iv4oN+Iel6EPv77/HddXErL2a+gZ4uBeZUy+a8O35CFYTXhgA8MgLCWBtwpGZdCvTvQ9d+bQxX/QC36GDPpQ==
-  dependencies:
-    async-foreach "^0.1.3"
-    chalk "^1.1.1"
-    cross-spawn "^3.0.0"
-    gaze "^1.0.0"
-    get-stdin "^4.0.1"
-    glob "^7.0.3"
-    in-publish "^2.0.0"
-    lodash "^4.17.11"
-    meow "^3.7.0"
-    mkdirp "^0.5.1"
-    nan "^2.13.2"
     node-gyp "^3.8.0"
     npmlog "^4.0.0"
     request "^2.88.0"
@@ -16682,6 +16684,14 @@ rollup-plugin-replace@^2.2.0:
     magic-string "^0.25.2"
     rollup-pluginutils "^2.6.0"
 
+rollup-plugin-scss@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-scss/-/rollup-plugin-scss-1.0.2.tgz#ebc1f32518ba9b213b3d98ad6ed2674f8e34bb29"
+  integrity sha512-5KWIomRCMOY1w1U+Kaa69k2L0EuYcctrO/ma42tD67eOPrZ6v1KTco/fWGNttPRnNNdvczytiZFL8u78xEyt9A==
+  dependencies:
+    node-sass "4"
+    rollup-pluginutils "2"
+
 rollup-plugin-sizes@^0.5.0:
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/rollup-plugin-sizes/-/rollup-plugin-sizes-0.5.1.tgz#ede42da1a253e5f2225096958345ba145c989a4f"
@@ -16710,7 +16720,7 @@ rollup-plugin-visualizer@^2.5.4:
     pupa "^2.0.0"
     source-map "^0.7.3"
 
-rollup-pluginutils@^2.5.0, rollup-pluginutils@^2.6.0, rollup-pluginutils@^2.8.1:
+rollup-pluginutils@2, rollup-pluginutils@^2.5.0, rollup-pluginutils@^2.6.0, rollup-pluginutils@^2.8.1:
   version "2.8.1"
   resolved "https://registry.yarnpkg.com/rollup-pluginutils/-/rollup-pluginutils-2.8.1.tgz#8fa6dd0697344938ef26c2c09d2488ce9e33ce97"
   integrity sha512-J5oAoysWar6GuZo0s+3bZ6sVZAC0pfqKz68De7ZgDi5z63jOVZn1uJL/+z1jeKHNbGII8kAyHF5q8LnxSX5lQg==

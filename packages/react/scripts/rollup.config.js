@@ -17,9 +17,9 @@ const sizes = require('rollup-plugin-sizes');
 const visualizer = require('rollup-plugin-visualizer');
 
 const packageJson = require('../package.json');
-/*const peerDependencies = Object.keys(packageJson.peerDependencies || {}).concat(
+const peerDependencies = Object.keys(packageJson.peerDependencies || {}).concat(
   ['classnames', 'prop-types']
-);*/
+);
 
 const env = process.env.NODE_ENV || 'production';
 const prodSettings =
@@ -107,6 +107,13 @@ module.exports = {
     json(),
     ...prodSettings,
   ],
+  treeshake: {
+    propertyReadSideEffects: false,
+    pureExternalModules: true,
+  },
+  external: peerDependencies.filter(
+    dependency => dependency !== 'carbon-components'
+  ),
   output: {
     name: 'IBMDotcomReact',
     format: 'umd',
