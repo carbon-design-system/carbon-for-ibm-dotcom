@@ -29,6 +29,7 @@ import {
   SideNavMenuItem,
 } from 'carbon-components-react';
 import MastheadSearch from './MastheadSearch';
+import MastheadProfile from './MastheadProfile';
 import cx from 'classnames';
 
 const { prefix } = settings;
@@ -114,7 +115,13 @@ const Masthead = ({ navigation }) => {
                 aria-label="User Profile"
                 data-autoid={`${prefix}--masthead__profile`}
                 onClick={() => {}}>
-                <User20 />
+                <MastheadProfile
+                  overflowMenuProps={{
+                    flipped: true,
+                    style: { width: 'auto' },
+                    renderIcon: () => <User20 />,
+                  }}
+                />
               </HeaderGlobalAction>
             </HeaderGlobalBar>
 
