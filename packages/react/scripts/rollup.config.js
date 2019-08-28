@@ -21,7 +21,7 @@ const peerDependencies = Object.keys(packageJson.peerDependencies || {}).concat(
   ['classnames', 'prop-types']
 );
 
-const env = process.env.NODE_ENV || 'production';
+const env = process.env.NODE_ENV || 'development';
 const prodSettings =
   env === 'development'
     ? []
@@ -64,8 +64,6 @@ const prodSettings =
       ];
 
 process.env.BABEL_ENV = 'es';
-
-console.log('env', env);
 
 module.exports = {
   input: 'src/index.js',

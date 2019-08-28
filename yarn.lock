@@ -1293,7 +1293,7 @@
   resolved "https://registry.yarnpkg.com/@carbon/icon-helpers/-/icon-helpers-10.4.0.tgz#771ba51efcaa9d2be03800f8e0f50c7aa779febf"
   integrity sha512-52H97nT0Hv3mneNaDXBELt/shrO9AUZIpX5TuxRUcdva0xqLNnjhsLw0PTytjQRw3yNCLmDw8hOutzlReXCleQ==
 
-"@carbon/icons-react@10.5.0":
+"@carbon/icons-react@10.5.0", "@carbon/icons-react@^10.5.0":
   version "10.5.0"
   resolved "https://registry.yarnpkg.com/@carbon/icons-react/-/icons-react-10.5.0.tgz#f6162c1e8374c2c061052b7f92ec7f9f596d3ab1"
   integrity sha512-YfKSsKgO3lKyDq/XtplkKwn1Hyxedo0pdjvajQUq/jZ5vrg7Os5k3OdLNBFgMgS0xLwdqpkDBOtjnCZsDJhRlg==

@@ -7,27 +7,25 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { settings } from 'carbon-components';
-import { User20 } from '@carbon/icons-react';
+import settings from 'carbon-components/es/globals/js/settings';
+import User20 from '@carbon/icons-react/es/user/20';
 import { IbmLogo } from '../Icon';
-import {
-  Header,
-  HeaderContainer,
-  HeaderMenuButton,
-  HeaderGlobalBar,
-  HeaderGlobalAction,
-  HeaderName,
-  HeaderNavigation,
-  HeaderMenu,
-  HeaderMenuItem,
-  HeaderSideNavItems,
-  SkipToContent,
-  SideNav,
-  SideNavItems,
-  SideNavLink,
-  SideNavMenu,
-  SideNavMenuItem,
-} from 'carbon-components-react';
+import Header from 'carbon-components-react/es/components/UIShell/Header';
+import HeaderContainer from 'carbon-components-react/es/components/UIShell/HeaderContainer';
+import HeaderMenuButton from 'carbon-components-react/es/components/UIShell/HeaderMenuButton';
+import HeaderGlobalBar from 'carbon-components-react/es/components/UIShell/HeaderGlobalBar';
+import HeaderGlobalAction from 'carbon-components-react/es/components/UIShell/HeaderGlobalAction';
+import HeaderName from 'carbon-components-react/es/components/UIShell/HeaderName';
+import HeaderNavigation from 'carbon-components-react/es/components/UIShell/HeaderNavigation';
+import HeaderMenu from 'carbon-components-react/es/components/UIShell/HeaderMenu';
+import HeaderMenuItem from 'carbon-components-react/es/components/UIShell/HeaderMenuItem';
+import HeaderSideNavItems from 'carbon-components-react/es/components/UIShell/HeaderSideNavItems';
+import SkipToContent from 'carbon-components-react/es/components/UIShell/SkipToContent';
+import SideNav from 'carbon-components-react/es/components/UIShell/SideNav';
+import SideNavItems from 'carbon-components-react/es/components/UIShell/SideNavItems';
+import SideNavLink from 'carbon-components-react/es/components/UIShell/SideNavLink';
+import SideNavMenu from 'carbon-components-react/es/components/UIShell/SideNavMenu';
+import SideNavMenuItem from 'carbon-components-react/es/components/UIShell/SideNavMenuItem';
 import MastheadSearch from './MastheadSearch';
 import cx from 'classnames';
 

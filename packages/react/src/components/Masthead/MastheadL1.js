@@ -6,13 +6,11 @@
  */
 
 import React from 'react';
-import { settings } from 'carbon-components';
-import {
-  HeaderNavigation,
-  HeaderMenu,
-  HeaderMenuItem,
-} from 'carbon-components-react';
-import { ArrowLeft16 } from '@carbon/icons-react';
+import settings from 'carbon-components/es/globals/js/settings';
+import HeaderNavigation from 'carbon-components-react/es/components/UIShell/HeaderNavigation';
+import HeaderMenu from 'carbon-components-react/es/components/UIShell/HeaderMenu';
+import HeaderMenuItem from 'carbon-components-react/es/components/UIShell/HeaderMenuItem';
+import ArrowLeft16 from '@carbon/icons-react/es/arrow--left/16';
 import cx from 'classnames';
 
 const { prefix } = settings;
