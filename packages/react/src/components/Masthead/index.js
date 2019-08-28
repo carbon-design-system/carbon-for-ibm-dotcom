@@ -6,4 +6,5 @@
  */
 
 export { default as Masthead } from './Masthead';
+export { default as MastheadL1 } from './MastheadL1';
 export { default as MastheadSearch } from './MastheadSearch';

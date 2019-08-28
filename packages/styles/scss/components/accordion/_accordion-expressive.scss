@@ -5,10 +5,7 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import '@carbon/import-once/scss/index';
 @import 'carbon-components/scss/components/accordion/accordion';
-@import '../../globals/mixins.scss';
-@import '../../globals/vars.scss';
 
 /// Temporary overrides for accordion's expressive moment
 /// @access private

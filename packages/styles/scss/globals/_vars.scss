@@ -5,8 +5,9 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import '@carbon/layout/scss/mini-unit';
-@import '@carbon/layout/scss/breakpoint';
+@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/themes/themes';
+@import 'carbon-components/scss/globals/scss/vendor/@carbon/layout/scss/mini-unit';
+@import 'carbon-components/scss/globals/scss/vendor/@carbon/layout/scss/breakpoint';
 @import 'mixins';
 
 $TEMP--footer-nav-group-type: 'heading-02';
@@ -16,7 +17,8 @@ $TEMP--link-height: carbon--mini-units(6);
 
 $TEMP--accordion-type: 'body-long-02';
 $TEMP--accordion-height: carbon--mini-units(6);
-$TEMP--accordion-arrow-size: temp--get-icon-size($TEMP--accordion-type);
+// $TEMP--accordion-arrow-size: temp--get-icon-size($TEMP--accordion-type);
+$TEMP--accordion-arrow-size: 1.25rem;
 
 $TEMP--breakpoint-down--md: map-get(
     map-get($carbon--grid-breakpoints, 'md'),

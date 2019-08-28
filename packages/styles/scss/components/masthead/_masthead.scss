@@ -4,27 +4,65 @@
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
 //
-@import '@carbon/import-once/scss/index';
-@import '@carbon/themes/scss/themes';
 @import 'carbon-components/scss/globals/scss/vars';
 @import 'carbon-components/scss/globals/scss/helper-mixins';
 @import 'carbon-components/scss/globals/scss/layout';
+@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/import-once/import-once';
 @import 'carbon-components/scss/globals/scss/css--reset';
+@import 'carbon-components/scss/components/ui-shell/ui-shell';
+@import 'carbon-components/scss/components/ui-shell/side-nav';
 
-/// Masthead styles
 /// @access private
-/// @group masthead
+/// @group dotcom ui-shell
+
+$search-transition: cubic-bezier(0.2, 0, 0.38, 0.9);
+$search-transition-timing: 95ms;
+
 @mixin masthead {
   .#{$prefix}--header {
-    background: $ui-02;
-    border-bottom: 1px solid $ui-01;
+    transition-timing-function: $search-transition;
+    background: $ui-background;
+    border-bottom: 1px solid $ui-03;
 
-    > svg {
-      margin: 0 $spacing-07;
+    .#{$prefix}--header__logo {
+      padding: 0 $spacing-07;
+      margin-right: $spacing-05;
+      position: relative;
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        height: carbon--mini-units(3);
+        width: carbon--rem(1px);
+        background-color: $ui-03;
+      }
+
+      &.#{$prefix}--header__logo--platform {
+        margin-right: $spacing-07;
+      }
     }
   }
 
+  a.#{$prefix}--header__name {
+    color: $text-01;
+    padding-left: 0;
+    padding-right: $spacing-05;
+
+    &:hover {
+      color: $text-01;
+    }
+  }
+
+  .#{$prefix}--header__global {
+    flex: 0;
+  }
+
   .#{$prefix}--header__nav {
+    padding-left: 0;
+
     a.#{$prefix}--header__menu-item[role='menuitem'] {
       color: $text-01;
 
@@ -34,10 +72,54 @@
           fill: $text-01;
         }
       }
+
+      &:active,
+      &:focus {
+        background-color: $ui-01;
+        > svg {
+          fill: $text-01;
+        }
+
+        border-color: $interactive-01;
+      }
+    }
+
+    .#{$prefix}--header__menu-title[role='menuitem'][aria-expanded='true'] {
+      background-color: $ui-01;
+      + .#{$prefix}--header__menu {
+        background-color: $ui-02;
+        .#{$prefix}--header__menu-item {
+          &:hover {
+            color: $text-01;
+            background-color: $ui-01;
+          }
+        }
+      }
     }
 
     &::before {
-      background-color: $ui-01;
+      display: none;
+    }
+  }
+
+  .#{$prefix}--header__menu[role='menu'] {
+    li {
+      padding: 0 $spacing-05;
+
+      &:hover {
+        background-color: $ui-01;
+      }
+
+      &:last-of-type {
+        .#{$prefix}--header__menu-item {
+          border: none;
+        }
+      }
+    }
+
+    .#{$prefix}--header__menu-item {
+      border-bottom: 1px solid $ui-03;
+      padding: 0;
     }
   }
 
@@ -57,11 +139,141 @@
 
     &:hover {
       background-color: $ui-01;
+      transition-duration: $search-transition-timing;
       > {
         svg {
           fill: $text-01;
         }
       }
+    }
+
+    &:focus,
+    &:active {
+      border-color: $interactive-01;
+      background-color: $ui-01;
+    }
+  }
+
+  .#{$prefix}--header__search--close {
+    overflow: hidden;
+    width: 0;
+    border: none;
+    outline: none;
+  }
+
+  .#{$prefix}--header__search--search {
+    border: none;
+    outline: none;
+    width: $spacing-09;
+  }
+
+  //--------------------------------------------------------------------------
+  // Masthead - Search
+  //--------------------------------------------------------------------------
+
+  // main nav/search container excluding
+  // profile and logo icons - TODO rename this
+  .#{$prefix}--header__search {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    height: 100%;
+    position: relative;
+  }
+
+  // search container
+  .#{$prefix}--masthead__search {
+    flex: 1;
+
+    &.#{$prefix}--masthead__search--active {
+      left: 0;
+      position: absolute;
+      z-index: 999;
+      width: 100%;
+
+      .#{$prefix}--header__search--input {
+        padding: 0 $spacing-05;
+        width: 100%;
+        border-bottom: 2px solid $interactive-01;
+        outline: 2px solid transparent;
+        outline-offset: -2px;
+        background-color: $ui-01;
+        height: carbon--mini-units(6);
+
+        &::placeholder {
+          left: 0;
+          opacity: 1;
+          transition-duration: 112ms;
+          transition-delay: 200ms;
+        }
+      }
+
+      .#{$prefix}--header__search--close {
+        width: $spacing-09;
+        background-color: $ui-01;
+        border-bottom: 2px solid $interactive-01;
+        transition-property: width;
+        transition-delay: 380ms;
+        transition-duration: 112ms;
+      }
+
+      .#{$prefix}--header__search--search {
+        background-color: $ui-01;
+        border-bottom: 2px solid $interactive-01;
+      }
+    }
+  }
+
+  .react-autosuggest__container {
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+  }
+
+  .react-autosuggest__suggestions-container {
+    position: absolute;
+    top: $spacing-09;
+    left: 0;
+    width: 100%;
+  }
+
+  .react-autosuggest__suggestions-list {
+    background-color: $ui-background;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+  }
+
+  .react-autosuggest__suggestion {
+    height: $spacing-09;
+    display: flex;
+    padding: 0 $spacing-05;
+
+    .container-class {
+      display: flex;
+      border-bottom: 1px solid $ui-01;
+      flex: 1;
+      align-items: center;
+    }
+
+    &:hover {
+      cursor: pointer;
+      background-color: $ui-01;
+      transition: $search-transition-timing;
+    }
+  }
+
+  .#{$prefix}--header__search--input {
+    font-size: $spacing-05;
+    line-height: 1.375rem;
+    border: none;
+    width: 0;
+    transition: 120ms;
+    border-bottom: 1px solid $ui-03;
+    padding: 0;
+
+    &::placeholder {
+      position: relative;
+      left: 5rem;
+      opacity: 0;
     }
   }
 }

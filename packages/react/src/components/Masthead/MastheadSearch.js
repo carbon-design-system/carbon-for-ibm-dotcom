@@ -13,6 +13,10 @@ import { SearchTypeaheadAPI } from '@ibmdotcom/services';
 import { escapeRegExp } from '@ibmdotcom/utilities';
 import MastheadSearchInput from './MastheadSearchInput';
 import MastheadSearchSuggestion from './MastheadSearchSuggestion';
+import { settings } from 'carbon-components';
+import cx from 'classnames';
+
+const { prefix } = settings;
 
 /**
  * Sets up the redirect URL when a user selects a search suggestion
@@ -49,6 +53,7 @@ const _initialState = {
   suggestions: [],
   prevSuggestions: [],
   suggestionContainerVisible: false,
+  isSearchOpen: false,
 };
 
 /**
@@ -75,6 +80,10 @@ function _reducer(state, action) {
       return Object.assign({}, state, { suggestionContainerVisible: true });
     case 'hideSuggestionsContainer':
       return Object.assign({}, state, { suggestionContainerVisible: false });
+    case 'setSearchOpen':
+      return Object.assign({}, state, { isSearchOpen: true });
+    case 'setSearchClosed':
+      return Object.assign({}, state, { isSearchOpen: false });
     default:
       return state;
   }
@@ -96,6 +105,11 @@ function _reducer(state, action) {
 const MastheadSearch = ({ placeHolderText, renderValue }) => {
   const [state, dispatch] = useReducer(_reducer, _initialState);
 
+  const className = cx({
+    [`${prefix}--masthead__search`]: true,
+    [`${prefix}--masthead__search--active`]: state.isSearchOpen,
+  });
+
   /**
    * When the input field changes, we set the new val to our state
    *
@@ -115,11 +129,9 @@ const MastheadSearch = ({ placeHolderText, renderValue }) => {
     placeholder: placeHolderText,
     value: state.val,
     onChange,
-    onFocus: e => {
-      e.target.placeholder = '';
-    },
-    onBlur: e => {
-      e.target.placeholder = placeHolderText;
+    className: `${prefix}--header__search--input`,
+    onBlur: () => {
+      dispatch({ type: 'setSearchClosed' });
     },
   };
 
@@ -134,6 +146,7 @@ const MastheadSearch = ({ placeHolderText, renderValue }) => {
       <MastheadSearchInput
         componentInputProps={componentInputProps}
         dispatch={dispatch}
+        isActive={state.isSearchOpen}
       />
     );
   }
@@ -225,7 +238,7 @@ const MastheadSearch = ({ placeHolderText, renderValue }) => {
   }
 
   return (
-    <div data-autoid="masthead__search">
+    <div data-autoid={`${prefix}--masthead__search`} className={className}>
       <Autosuggest
         suggestions={state.suggestions} // The state value of suggestion
         onSuggestionsFetchRequested={onSuggestionsFetchRequest} // Method to fetch data (should be async call)
@@ -257,7 +270,7 @@ MastheadSearch.propTypes = {
  * @type {{placeHolderText: string, renderValue: number}}
  */
 MastheadSearch.defaultProps = {
-  placeHolderText: '',
+  placeHolderText: 'Search',
   renderValue: 3,
 };
 
