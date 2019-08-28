@@ -13,18 +13,22 @@ const replace = require('rollup-plugin-replace');
 const json = require('rollup-plugin-json');
 const { terser } = require('rollup-plugin-terser');
 const sizes = require('rollup-plugin-sizes');
+// const analyze = require('rollup-plugin-analyzer').analyze;
+const visualizer = require('rollup-plugin-visualizer');
 
 const packageJson = require('../package.json');
-const peerDependencies = Object.keys(packageJson.peerDependencies || {}).concat(
+/*const peerDependencies = Object.keys(packageJson.peerDependencies || {}).concat(
   ['classnames', 'prop-types']
-);
+);*/
 
-const env = process.env.NODE_ENV || 'development';
+const env = process.env.NODE_ENV || 'production';
 const prodSettings =
   env === 'development'
     ? []
     : [
         terser(),
+        // analyze(),
+        visualizer(),
         sizes({
           report(details) {
             const table = new Table({
@@ -60,6 +64,8 @@ const prodSettings =
       ];
 
 process.env.BABEL_ENV = 'es';
+
+console.log('env', env);
 
 module.exports = {
   input: 'src/index.js',
@@ -101,11 +107,8 @@ module.exports = {
     json(),
     ...prodSettings,
   ],
-  external: peerDependencies.filter(
-    dependency => dependency !== 'carbon-components'
-  ),
   output: {
-    name: 'CarbonComponentsReact',
+    name: 'IBMDotcomReact',
     format: 'umd',
     globals: {
       classnames: 'classNames',

@@ -7,8 +7,8 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { settings } from 'carbon-components';
-import { Link } from 'carbon-components-react';
+import settings from 'carbon-components/es/globals/js/settings';
+import Link from 'carbon-components-react/es/components/Link';
 
 const { prefix } = settings;
 

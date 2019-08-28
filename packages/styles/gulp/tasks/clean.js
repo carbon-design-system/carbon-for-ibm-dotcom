@@ -18,6 +18,7 @@ function _clean() {
 
 /**
  * Gulp task export
+ *
  * @module clean
  */
 module.exports = gulp.task('clean', _clean);
