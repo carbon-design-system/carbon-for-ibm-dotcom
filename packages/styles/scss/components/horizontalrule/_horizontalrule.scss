@@ -35,22 +35,16 @@
       max-width: carbon--mini-units(8);
     }
 
+    &--thick {
+      height: carbon--rem(2px);
+    }
+
     &--low-contrast {
       background: $low-contrast;
     }
 
     &--high-contrast {
       background: $high-contrast;
-    }
-
-    &--thick {
-      height: carbon--rem(2px);
-    }
-
-    &--small,
-    &--medium,
-    &--large {
-      height: $thin-weight;
     }
   }
 
@@ -79,6 +73,22 @@
         $high-contrast 50%,
         transparent 50%
       );
+    }
+  }
+
+  .#{$prefix}--hr--small,
+  .#{$prefix}--hr--medium,
+  .#{$prefix}--hr--large {
+    height: $thin-weight;
+    background: $medium-contrast;
+    background-image: none;
+
+    &.#{$prefix}--hr--low-contrast {
+      background: $low-contrast;
+    }
+
+    &.#{$prefix}--hr--high-contrast {
+      background: $high-contrast;
     }
   }
 }
