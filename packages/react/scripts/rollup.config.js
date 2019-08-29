@@ -13,7 +13,6 @@ const replace = require('rollup-plugin-replace');
 const json = require('rollup-plugin-json');
 const { terser } = require('rollup-plugin-terser');
 const sizes = require('rollup-plugin-sizes');
-// const analyze = require('rollup-plugin-analyzer').analyze;
 const visualizer = require('rollup-plugin-visualizer');
 
 const packageJson = require('../package.json');
@@ -27,7 +26,6 @@ const prodSettings =
     ? []
     : [
         terser(),
-        // analyze(),
         visualizer(),
         sizes({
           report(details) {
@@ -95,7 +93,7 @@ module.exports = {
     }),
     babel({
       runtimeHelpers: true,
-      exclude: ['node_modules/**'], // only transpile our source code
+      // exclude: ['node_modules/**'], // only transpile our source code
     }),
     replace({
       'process.env.NODE_ENV': JSON.stringify(env),
@@ -109,9 +107,7 @@ module.exports = {
     propertyReadSideEffects: false,
     pureExternalModules: true,
   },
-  external: peerDependencies.filter(
-    dependency => dependency !== 'carbon-components'
-  ),
+  external: peerDependencies,
   output: {
     name: 'IBMDotcomReact',
     format: 'umd',

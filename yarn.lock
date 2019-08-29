@@ -1288,6 +1288,14 @@
   resolved "https://registry.yarnpkg.com/@carbon/colors/-/colors-10.4.0.tgz#8c21127926bc389dcb4d415b55d4eae278f3d525"
   integrity sha512-UERU07hWXAjsaWu6JPJDyJnwVLkJr+8wTvFrbCkubCfl/MZjKoyLgz0CNypu8hSg8ZaDUzl/NfXMgRpprzuSjQ==
 
+"@carbon/grid@^10.5.0":
+  version "10.5.0"
+  resolved "https://registry.yarnpkg.com/@carbon/grid/-/grid-10.5.0.tgz#c35a029d06cea924ad23f265f31590968315bbe3"
+  integrity sha512-XQSHojbzP1Wo18m/s1a3NDr9QOQ7mO/+m/gGY7XrbsNletLhDYmCWmLObHWrQZoNerc5OcdL+o2+i0/xJfUMqA==
+  dependencies:
+    "@carbon/import-once" "10.3.0"
+    "@carbon/layout" "10.4.0"
+
 "@carbon/icon-helpers@10.4.0":
   version "10.4.0"
   resolved "https://registry.yarnpkg.com/@carbon/icon-helpers/-/icon-helpers-10.4.0.tgz#771ba51efcaa9d2be03800f8e0f50c7aa779febf"
@@ -5943,7 +5951,7 @@ carbon-components-react@^7.5.1:
     warning "^3.0.0"
     window-or-global "^1.0.1"
 
-carbon-components@^10.4.1:
+carbon-components@^10.4.1, carbon-components@^10.5.1:
   version "10.5.1"
   resolved "https://registry.yarnpkg.com/carbon-components/-/carbon-components-10.5.1.tgz#e779ec3bee84b72a648b3500b2bf4e84bc491144"
   integrity sha512-1h/vRHZhTTj9VpWZOJUYR7Xd7avr7XynwaEj8Lp7MBt8KfXk8CVxJOY/uNhxz25cnrBajP2m+jid1daEBXiGbw==
