@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import settings from 'carbon-components/es/globals/js/settings';
+import { settings } from 'carbon-components';
 
 const { prefix } = settings;
 

@@ -7,9 +7,8 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import settings from 'carbon-components/es/globals/js/settings';
-import Link from 'carbon-components-react/es/components/Link';
-import AccordionItem from 'carbon-components-react/es/components/Accordion/AccordionItem';
+import { settings } from 'carbon-components';
+import { AccordionItem, Link } from 'carbon-components-react';
 
 const { prefix } = settings;
 

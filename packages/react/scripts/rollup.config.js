@@ -117,6 +117,8 @@ module.exports = {
       react: 'React',
       'react-dom': 'ReactDOM',
       'carbon-icons': 'CarbonIcons',
+      'carbon-components': 'CarbonComponents',
+      'carbon-components-react': 'CarbonComponentsReact',
     },
   },
 };
