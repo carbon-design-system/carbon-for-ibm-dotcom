@@ -8,7 +8,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { settings } from 'carbon-components';
-import { User20 } from '@carbon/icons-react';
+import { User20, UserOnline20 } from '@carbon/icons-react';
 import { IbmLogo } from '../Icon';
 import {
   Header,
@@ -57,8 +57,6 @@ const Masthead = ({ navigation }) => {
     const status = loginStatus();
     setStatus(status.user === 'Authenticated');
   }, []);
-
-  console.log('isAuthenticated', isAuthenticated);
 
   const navigationLinks = navigation.links;
 
@@ -137,7 +135,8 @@ const Masthead = ({ navigation }) => {
                   overflowMenuProps={{
                     flipped: true,
                     style: { width: 'auto' },
-                    renderIcon: () => <User20 />,
+                    renderIcon: () =>
+                      isAuthenticated ? <UserOnline20 /> : <User20 />,
                   }}
                 />
               </HeaderGlobalAction>
