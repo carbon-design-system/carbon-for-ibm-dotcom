@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/eslint-config-ibmdotcom/compare/@ibmdotcom/eslint-config-ibmdotcom@0.1.0...@ibmdotcom/eslint-config-ibmdotcom@0.3.0) (2019-08-29)
+
+# 0.3.0-rc.0 (2019-08-28)
+
+### Bug Fixes
+
+- **eslint:** adding additional eslint checks for react components
+  ([#54](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/eslint-config-ibmdotcom/issues/54))
+  ([040153b](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/eslint-config-ibmdotcom/commit/040153b))
+
+### Features
+
+- **search:** adding integration of typeahead api to autosuggest
+  ([36fb186](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/eslint-config-ibmdotcom/commit/36fb186))
+
+# 0.2.0-rc.0 (2019-08-05)
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [0.3.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/eslint-config-ibmdotcom/compare/@ibmdotcom/eslint-config-ibmdotcom@0.1.0...@ibmdotcom/eslint-config-ibmdotcom@0.3.0-rc.0) (2019-08-28)
 
 ### Bug Fixes
