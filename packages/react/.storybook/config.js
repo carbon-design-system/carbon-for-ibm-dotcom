@@ -8,11 +8,11 @@ import { addReadme } from 'storybook-readme';
 // import { checkA11y } from 'storybook-addon-a11y';
 import Container from './Container';
 
-addDecorator(
-  withInfo({
-    maxPropStringLength: 200, // Displays the first 200 characters in the default prop string
-  })
-);
+// addDecorator(
+//   withInfo({
+//     maxPropStringLength: 200, // Displays the first 200 characters in the default prop string
+//   })
+// );
 
 addDecorator(
   withOptions({
