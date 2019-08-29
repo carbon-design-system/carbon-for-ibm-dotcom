@@ -884,14 +884,6 @@
   resolved "https://registry.yarnpkg.com/@carbon/colors/-/colors-10.4.0.tgz#8c21127926bc389dcb4d415b55d4eae278f3d525"
   integrity sha512-UERU07hWXAjsaWu6JPJDyJnwVLkJr+8wTvFrbCkubCfl/MZjKoyLgz0CNypu8hSg8ZaDUzl/NfXMgRpprzuSjQ==
 
-"@carbon/grid@^10.4.0":
-  version "10.5.0"
-  resolved "https://registry.yarnpkg.com/@carbon/grid/-/grid-10.5.0.tgz#c35a029d06cea924ad23f265f31590968315bbe3"
-  integrity sha512-XQSHojbzP1Wo18m/s1a3NDr9QOQ7mO/+m/gGY7XrbsNletLhDYmCWmLObHWrQZoNerc5OcdL+o2+i0/xJfUMqA==
-  dependencies:
-    "@carbon/import-once" "10.3.0"
-    "@carbon/layout" "10.4.0"
-
 "@carbon/icon-helpers@10.4.0":
   version "10.4.0"
   resolved "https://registry.yarnpkg.com/@carbon/icon-helpers/-/icon-helpers-10.4.0.tgz#771ba51efcaa9d2be03800f8e0f50c7aa779febf"
@@ -1310,20 +1302,22 @@
     normalize-path "^2.0.1"
     through2 "^2.0.3"
 
-"@ibmdotcom/services@^0.3.0-alpha.213":
-  version "0.3.0-alpha.244"
-  resolved "https://registry.yarnpkg.com/@ibmdotcom/services/-/services-0.3.0-alpha.244.tgz#567114d2bc5f160680293697692a64451056f8ad"
-  integrity sha512-suQWajMNPtRLnx6C5L1+BmFiRgJC6nAbQbqFCuIfIfUJQa7d7xpquW9IlSotXFHCtsAfojdJFmo7xM1jnEexyQ==
+"@ibmdotcom/services@^0.4.0-alpha.264":
+  version "0.4.0-alpha.264"
+  resolved "https://registry.yarnpkg.com/@ibmdotcom/services/-/services-0.4.0-alpha.264.tgz#3cf4160871fc711bac259632da26db46575186bd"
+  integrity sha512-ZkMFINsvdvA4HWXNUTkoHimProkA0eonzL5iXQ2F7agtaMGkhhceff04rKht0mvnQHZQJ1NiEbtIrI1pF7Svsw==
   dependencies:
+    jsonp "^0.2.1"
     window-or-global "^1.0.1"
 
-"@ibmdotcom/styles@^0.3.0-alpha.213":
-  version "0.3.0-alpha.281"
-  resolved "https://registry.yarnpkg.com/@ibmdotcom/styles/-/styles-0.3.0-alpha.281.tgz#c8f36a767dbc68d8d9a5cb9a7ef806481aac6842"
-  integrity sha512-6Xzf4g+r55W8R2P7WQUshRzfuEJBjVK2VzSwG4WYyuACKHR5+jetCtsBTLMwewHTlD4sw4sPnzeNqx67Mqjk7w==
+"@ibmdotcom/styles@^0.4.0-alpha.260":
+  version "0.4.0-alpha.264"
+  resolved "https://registry.yarnpkg.com/@ibmdotcom/styles/-/styles-0.4.0-alpha.264.tgz#add362bf04289eb897fe86cae5c3f96d01658728"
+  integrity sha512-xIADPXtRRDMxjQTWL0pM8xgC6XyDj02LknRbdk+XppbIkaW6IM8d0l1+2PXsNnvkreS8SEQbNubBGU6Vz7nprg==
   dependencies:
-    "@carbon/grid" "^10.4.0"
+    "@carbon/layout" "^10.3.0"
     "@carbon/themes" "^10.4.0"
+    "@carbon/type" "^10.3.0"
     carbon-components "^10.4.1"
 
 "@ibmdotcom/utilities@^0.3.0-alpha.213":
@@ -11271,6 +11265,13 @@ jsonify@~0.0.0:
   version "0.0.0"
   resolved "https://registry.yarnpkg.com/jsonify/-/jsonify-0.0.0.tgz#2c74b6ee41d93ca51b7b5aaee8f503631d252a73"
   integrity sha1-LHS27kHZPKUbe1qu6PUDYx0lKnM=
+
+jsonp@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/jsonp/-/jsonp-0.2.1.tgz#a65b4fa0f10bda719a05441ea7b94c55f3e15bae"
+  integrity sha1-pltPoPEL2nGaBUQep7lMVfPhW64=
+  dependencies:
+    debug "^2.1.3"
 
 jsonparse@^1.2.0:
   version "1.3.1"
