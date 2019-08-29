@@ -3,6 +3,35 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/services/compare/@ibmdotcom/services@0.1.0...@ibmdotcom/services@0.3.0) (2019-08-29)
+
+# 0.3.0-rc.0 (2019-08-28)
+
+### Bug Fixes
+
+- **search:** fixing axios/rollup configuration
+  ([60b554c](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/services/commit/60b554c))
+
+### Features
+
+- **deployments:** added and updated deployment scripts for packages
+  ([b8f8ccf](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/services/commit/b8f8ccf))
+- **jest:** adding coverage reports for jest
+  ([7145a7c](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/services/commit/7145a7c))
+- **search:** adding initial search services
+  ([72fba4f](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/services/commit/72fba4f))
+- **search:** adding integration of typeahead api to autosuggest
+  ([36fb186](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/services/commit/36fb186))
+
+# 0.2.0 (2019-08-05)
+
+# 0.2.0-rc.0 (2019-08-05)
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [0.3.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/services/compare/@ibmdotcom/services@0.1.0...@ibmdotcom/services@0.3.0-rc.0) (2019-08-28)
 
 ### Bug Fixes
