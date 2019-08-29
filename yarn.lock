@@ -1712,30 +1712,6 @@
     normalize-path "^2.0.1"
     through2 "^2.0.3"
 
-"@ibmdotcom/services@^0.3.0-alpha.213":
-  version "0.3.0-alpha.244"
-  resolved "https://registry.yarnpkg.com/@ibmdotcom/services/-/services-0.3.0-alpha.244.tgz#567114d2bc5f160680293697692a64451056f8ad"
-  integrity sha512-suQWajMNPtRLnx6C5L1+BmFiRgJC6nAbQbqFCuIfIfUJQa7d7xpquW9IlSotXFHCtsAfojdJFmo7xM1jnEexyQ==
-  dependencies:
-    window-or-global "^1.0.1"
-
-"@ibmdotcom/styles@^0.3.0-alpha.213":
-  version "0.3.0-alpha.292"
-  resolved "https://registry.yarnpkg.com/@ibmdotcom/styles/-/styles-0.3.0-alpha.292.tgz#06a1a913463bf56382e0658e1c022fd1dba49571"
-  integrity sha512-DcJ2DEJpRkuo/aWJT04PVbe4/3ZkZh3wp1jbc1ckOwKJ0hHDiEx58krJ2VsLznhtSJUOPLARzuhpFWHKqN74nw==
-  dependencies:
-    "@carbon/layout" "^10.3.0"
-    "@carbon/themes" "^10.4.0"
-    "@carbon/type" "^10.3.0"
-    carbon-components "^10.4.1"
-
-"@ibmdotcom/utilities@^0.3.0-alpha.213":
-  version "0.3.0-alpha.244"
-  resolved "https://registry.yarnpkg.com/@ibmdotcom/utilities/-/utilities-0.3.0-alpha.244.tgz#7d2aeff3619e1f593828b0db6eaee381f1c57424"
-  integrity sha512-Cb1cwhs74hRaHuMgiJJL0HQtPsy9R+XMtERerQzV78k2xPx4tlWXpTE17e959S0ucNkKKU5eRjOyqon9njnglA==
-  dependencies:
-    window-or-global "^1.0.1"
-
 "@icons/material@^0.2.4":
   version "0.2.4"
   resolved "https://registry.yarnpkg.com/@icons/material/-/material-0.2.4.tgz#e90c9f71768b3736e76d7dd6783fc6c2afa88bc8"
