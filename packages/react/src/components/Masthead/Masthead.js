@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { settings } from 'carbon-components';
 import { User20 } from '@carbon/icons-react';
@@ -28,6 +28,7 @@ import {
   SideNavMenu,
   SideNavMenuItem,
 } from 'carbon-components-react';
+import { ProfileAPI } from '@ibmdotcom/services';
 import MastheadSearch from './MastheadSearch';
 import MastheadProfile from './MastheadProfile';
 import cx from 'classnames';
@@ -42,6 +43,23 @@ const { prefix } = settings;
  * @returns {*} Masthead component
  */
 const Masthead = ({ navigation }) => {
+  const [isAuthenticated, setStatus] = useState(false);
+
+  useEffect(() => {
+    /**
+     *  Login Status of user
+     *
+     *  @returns {*} User authentication status
+     */
+    async function loginStatus() {
+      return await ProfileAPI.getUserStatus();
+    }
+    const status = loginStatus();
+    setStatus(status.user === 'Authenticated');
+  }, []);
+
+  console.log('isAuthenticated', isAuthenticated);
+
   const navigationLinks = navigation.links;
 
   const className = cx({
