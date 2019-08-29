@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './polyfills';
 import './_container.scss';
-import settings from 'carbon-components/es/globals/js/settings';
+import { settings } from 'carbon-components';
 
 const { prefix } = settings;
 export default class Container extends Component {

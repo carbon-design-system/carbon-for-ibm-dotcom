@@ -49,9 +49,9 @@
   "dependencies": {
     "@babel/runtime": "^7.5.5",
     "@carbon/icons-react": "^10.5.0",
-    "@ibmdotcom/services": "0.3.0",
-    "@ibmdotcom/styles": "0.3.0",
-    "@ibmdotcom/utilities": "0.3.0",
+    "@ibmdotcom/services": "^0.3.0",
+    "@ibmdotcom/styles": "^0.3.0",
+    "@ibmdotcom/utilities": "^0.3.0",
     "autosuggest-highlight": "^3.1.1",
     "classnames": "2.2.6",
     "react-autosuggest": "^9.4.3",
