@@ -4,8 +4,8 @@ import Masthead from '../Masthead';
 import MastheadL1 from '../MastheadL1';
 import mastheadLinks from './data/MastheadLinks.js';
 import mastheadLinksWithPlatform from './data/MastheadLinksWithPlatform.js';
-import '@ibmdotcom/styles/scss/components/masthead/_masthead.scss';
-import '@ibmdotcom/styles/scss/components/masthead/_masthead-l1.scss';
+import '../../../../../styles/scss/components/masthead/_masthead.scss';
+import '../../../../../styles/scss/components/masthead/_masthead-l1.scss';
 
 storiesOf('Masthead', module)
   .add('Default', () => <Masthead navigation={mastheadLinks} />)

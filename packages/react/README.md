@@ -9,14 +9,14 @@
 Run the following command using [npm](https://www.npmjs.com/):
 
 ```bash
-npm i @ibmdotcom/react
+npm i @ibmdotcom/react carbon-components-react carbon-components carbon-icons
 ```
 
 If you prefer [Yarn](https://yarnpkg.com/en/), use the following command
 instead:
 
 ```bash
-yarn add @ibmdotcom/react
+yarn add @ibmdotcom/react carbon-components-react carbon-components carbon-icons
 ```
 
 1. These components require the use of [Webpack](https://webpack.js.org/) in

@@ -11,6 +11,7 @@
 
 /**
  * This determines if the locale selector will be rendered or not
+ *
  * @type {string | boolean}
  */
 export const localeSelector = process.env.LOCALE_SELECTOR === 'true' || false;

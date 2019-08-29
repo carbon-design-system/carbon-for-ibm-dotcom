@@ -14,7 +14,7 @@ module.exports = {
     'plugin:jsx-a11y/recommended',
     'plugin:jsdoc/recommended',
   ],
-  plugins: ['react', 'jsdoc', 'jsx-a11y', 'react-hooks'],
+  plugins: ['react', 'jsdoc', 'jsx-a11y', 'react-hooks', 'tree-shaking'],
   rules: {
     // Handle cases where we are destructuring but may not be using the initial
     // variables
@@ -81,6 +81,23 @@ module.exports = {
       },
     ],
   },
+  overrides: [
+    {
+      files: [
+        'packages/react/src/*.js',
+        'packages/services/src/*.js',
+        'packages/utilities/src/*.js',
+      ],
+      rules: {
+        'tree-shaking/no-side-effects-in-initialization': [
+          2,
+          {
+            compatibility: 'rollup',
+          },
+        ],
+      },
+    },
+  ],
   env: {
     node: true,
     browser: true,
