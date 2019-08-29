@@ -24,7 +24,8 @@
   },
   "scripts": {
     "build": "gulp",
-    "start": "gulp dev"
+    "start": "gulp dev",
+    "ci-check": "gulp"
   },
   "dependencies": {
     "@carbon/layout": "^10.3.0",
