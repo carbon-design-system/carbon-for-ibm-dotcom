@@ -23,7 +23,7 @@ release_rc1plus () {
 
 # Full minor release
 release_full_minor () {
-  ./node_modules/.bin/lerna publish minor --exact --conventional-commits --no-git-tag-version
+  ./node_modules/.bin/lerna publish minor --exact --conventional-commits --no-git-tag-version --force-publish=*
 }
 
 # Full major release
