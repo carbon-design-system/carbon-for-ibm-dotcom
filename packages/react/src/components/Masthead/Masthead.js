@@ -55,7 +55,7 @@ const Masthead = ({ navigation }) => {
       return await ProfileAPI.getUserStatus();
     }
     const status = loginStatus();
-    setStatus(status.user === 'Authenticated');
+    status.then(result => setStatus(result.user === 'Authenticated'));
   }, []);
 
   const navigationLinks = navigation.links;
