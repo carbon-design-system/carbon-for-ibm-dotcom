@@ -9,6 +9,7 @@
 @import 'carbon-components/scss/globals/scss/layout';
 @import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/import-once/import-once';
 @import 'carbon-components/scss/globals/scss/css--reset';
+@import 'carbon-components/scss/components/overflow-menu/overflow-menu';
 @import 'carbon-components/scss/components/ui-shell/ui-shell';
 @import 'carbon-components/scss/components/ui-shell/side-nav';
 
@@ -30,7 +31,7 @@ $search-transition-timing: 95ms;
     width: 100%;
     position: static;
 
-    .#{$prefix}--header__logo {
+    &__logo {
       padding: 0 $spacing-07;
       margin-right: $spacing-05;
       position: relative;
@@ -50,6 +51,144 @@ $search-transition-timing: 95ms;
         margin-right: $spacing-07;
       }
     }
+
+    &__global {
+      flex: 0;
+    }
+
+    &__nav {
+      padding-left: 0;
+
+      a.#{$prefix}--header__menu-item[role='menuitem'] {
+        color: $text-01;
+
+        &:hover {
+          background-color: $ui-01;
+          > svg {
+            fill: $text-01;
+          }
+        }
+
+        &:active,
+        &:focus {
+          background-color: $ui-01;
+          > svg {
+            fill: $text-01;
+          }
+
+          border-color: $interactive-01;
+        }
+      }
+
+      .#{$prefix}--header__menu-title[role='menuitem'][aria-expanded='true'] {
+        background-color: $ui-01;
+        + .#{$prefix}--header__menu {
+          background-color: $ui-02;
+          .#{$prefix}--header__menu-item {
+            &:hover {
+              color: $text-01;
+              background-color: $ui-01;
+            }
+          }
+        }
+      }
+
+      &::before {
+        display: none;
+      }
+    }
+
+    &__action {
+      > {
+        svg {
+          fill: $text-01;
+        }
+      }
+
+      &:hover {
+        background-color: $ui-01;
+        transition-duration: $search-transition-timing;
+        > {
+          svg {
+            fill: $text-01;
+          }
+        }
+      }
+
+      &:focus,
+      &:active {
+        border-color: $interactive-01;
+        background-color: $ui-01;
+      }
+
+      .#{$prefix}--overflow-menu {
+        height: $spacing-09;
+
+        &.#{$prefix}--overflow-menu--open {
+          box-shadow: none;
+          outline: 2px solid $interactive-01;
+        }
+
+        &:hover {
+          background: none;
+        }
+
+        &:focus {
+          outline: none;
+          box-shadow: none;
+        }
+      }
+
+      &[aria-label='User Profile'] {
+        outline: none;
+        border: none;
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+
+    &__menu[role='menu'] {
+      li {
+        padding: 0 $spacing-05;
+
+        &:hover {
+          background-color: $ui-01;
+        }
+
+        &:last-of-type {
+          .#{$prefix}--header__menu-item {
+            border: none;
+          }
+        }
+      }
+
+      .#{$prefix}--header__menu-item {
+        border-bottom: 1px solid $ui-03;
+        padding: 0;
+      }
+    }
+
+    .#{$prefix}--header__menu-arrow {
+      fill: $text-01;
+      &:hover {
+        fill: $text-01;
+      }
+    }
+
+    &__search--close {
+      overflow: hidden;
+      width: 0;
+      border: none;
+      outline: none;
+    }
+
+    &__search--search {
+      border: none;
+      outline: none;
+      width: $spacing-09;
+    }
   }
 
   a.#{$prefix}--header__name {
@@ -62,115 +201,27 @@ $search-transition-timing: 95ms;
     }
   }
 
-  .#{$prefix}--header__global {
-    flex: 0;
-  }
+  .#{$prefix}--overflow-menu-options {
+    background-color: $ui-background;
+    z-index: 5999;
 
-  .#{$prefix}--header__nav {
-    padding-left: 0;
-
-    a.#{$prefix}--header__menu-item[role='menuitem'] {
+    &__btn {
       color: $text-01;
 
       &:hover {
         background-color: $ui-01;
-        > svg {
-          fill: $text-01;
-        }
-      }
-
-      &:active,
-      &:focus {
-        background-color: $ui-01;
-        > svg {
-          fill: $text-01;
-        }
-
-        border-color: $interactive-01;
       }
     }
 
-    .#{$prefix}--header__menu-title[role='menuitem'][aria-expanded='true'] {
-      background-color: $ui-01;
-      + .#{$prefix}--header__menu {
-        background-color: $ui-02;
-        .#{$prefix}--header__menu-item {
-          &:hover {
-            color: $text-01;
-            background-color: $ui-01;
-          }
-        }
-      }
-    }
-
-    &::before {
-      display: none;
-    }
-  }
-
-  .#{$prefix}--header__menu[role='menu'] {
-    li {
-      padding: 0 $spacing-05;
-
+    &__option {
       &:hover {
         background-color: $ui-01;
       }
-
-      &:last-of-type {
-        .#{$prefix}--header__menu-item {
-          border: none;
-        }
-      }
     }
 
-    .#{$prefix}--header__menu-item {
-      border-bottom: 1px solid $ui-03;
-      padding: 0;
+    &:focus {
+      outline: none;
     }
-  }
-
-  .#{$prefix}--header__menu-arrow {
-    fill: $text-01;
-    &:hover {
-      fill: $text-01;
-    }
-  }
-
-  .#{$prefix}--header__action {
-    > {
-      svg {
-        fill: $text-01;
-      }
-    }
-
-    &:hover {
-      background-color: $ui-01;
-      transition-duration: $search-transition-timing;
-      > {
-        svg {
-          fill: $text-01;
-        }
-      }
-    }
-
-    &:focus,
-    &:active {
-      border-color: $interactive-01;
-      background-color: $ui-01;
-    }
-  }
-
-  .#{$prefix}--header__search--close {
-    overflow: hidden;
-    width: 0;
-    border: none;
-    outline: none;
-  }
-
-  .#{$prefix}--header__search--search {
-    border: none;
-    outline: none;
-    width: $spacing-09;
   }
 
   //--------------------------------------------------------------------------
@@ -230,40 +281,42 @@ $search-transition-timing: 95ms;
     }
   }
 
-  .react-autosuggest__container {
-    display: flex;
-    justify-content: flex-end;
-    position: relative;
-  }
-
-  .react-autosuggest__suggestions-container {
-    position: absolute;
-    top: $spacing-09;
-    left: 0;
-    width: 100%;
-  }
-
-  .react-autosuggest__suggestions-list {
-    background-color: $ui-background;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
-  }
-
-  .react-autosuggest__suggestion {
-    height: $spacing-09;
-    display: flex;
-    padding: 0 $spacing-05;
-
-    .container-class {
+  .react-autosuggest {
+    &__container {
       display: flex;
-      border-bottom: 1px solid $ui-01;
-      flex: 1;
-      align-items: center;
+      justify-content: flex-end;
+      position: relative;
     }
 
-    &:hover {
-      cursor: pointer;
-      background-color: $ui-01;
-      transition: $search-transition-timing;
+    &__suggestions-container {
+      position: absolute;
+      top: $spacing-09;
+      left: 0;
+      width: 100%;
+    }
+
+    &__suggestions-list {
+      background-color: $ui-background;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+    }
+
+    &__suggestion {
+      height: $spacing-09;
+      display: flex;
+      padding: 0 $spacing-05;
+
+      .container-class {
+        display: flex;
+        border-bottom: 1px solid $ui-01;
+        flex: 1;
+        align-items: center;
+      }
+
+      &:hover {
+        cursor: pointer;
+        background-color: $ui-01;
+        transition: $search-transition-timing;
+      }
     }
   }
 

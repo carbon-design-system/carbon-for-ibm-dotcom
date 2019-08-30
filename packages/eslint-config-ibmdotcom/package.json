@@ -1,7 +1,7 @@
 {
   "name": "@ibmdotcom/eslint-config-ibmdotcom",
   "private": true,
-  "version": "0.2.0",
+  "version": "0.3.0",
   "license": "Apache-2.0",
   "main": "index.js",
   "repository": "https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/eslint-config-ibmdotcom",
@@ -27,6 +27,7 @@
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-react": "^7.13.0",
     "eslint-plugin-react-hooks": "^1.6.0",
+    "eslint-plugin-tree-shaking": "^1.7.4",
     "eslint-restricted-globals": "^0.2.0"
   }
 }
