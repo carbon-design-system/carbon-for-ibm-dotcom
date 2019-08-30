@@ -11,8 +11,7 @@ import {
   StructuredListCell,
 } from 'carbon-components-react';
 import mastheadLinks from '../../Masthead/__stories__/data/MastheadLinks.js';
-import '@ibmdotcom/styles/scss/components/dotcom-shell/_dotcom-shell.scss';
-import '@ibmdotcom/styles/scss/components/horizontalrule/_horizontalrule.scss';
+import '../../../../../styles/scss/components/dotcom-shell/_dotcom-shell.scss';
 import 'carbon-components/scss/components/button/_button.scss';
 import 'carbon-components/scss/components/data-table/_data-table.scss';
 import 'carbon-components/scss/components/structured-list/_structured-list.scss';
