@@ -48,7 +48,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.5.5",
-    "@ibmdotcom/services": "^0.4.0-alpha.264",
+    "@ibmdotcom/services": "^0.4.0-alpha.276",
     "@ibmdotcom/styles": "^0.4.0-alpha.260",
     "@ibmdotcom/utilities": "^0.3.0-alpha.213",
     "autosuggest-highlight": "^3.1.1",

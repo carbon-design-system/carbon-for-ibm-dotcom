@@ -38,16 +38,12 @@ class ProfileAPI {
    *   return response;
    * }
    */
-  static async getUserStatus() {
+  static getUserStatus() {
     const url = _endpoint;
 
-    return await jsonp(url, null, function(err, data) {
-      if (err) {
-        console.error(err.message);
-      } else {
-        return data;
-      }
-    });
+    return new Promise((resolve, reject) =>
+      jsonp(url, null, (err, data) => (err ? reject(err) : resolve(data)))
+    );
   }
 }
 
