@@ -1310,10 +1310,10 @@
     normalize-path "^2.0.1"
     through2 "^2.0.3"
 
-"@ibmdotcom/services@^0.4.0-alpha.264":
-  version "0.4.0-alpha.264"
-  resolved "https://registry.yarnpkg.com/@ibmdotcom/services/-/services-0.4.0-alpha.264.tgz#3cf4160871fc711bac259632da26db46575186bd"
-  integrity sha512-ZkMFINsvdvA4HWXNUTkoHimProkA0eonzL5iXQ2F7agtaMGkhhceff04rKht0mvnQHZQJ1NiEbtIrI1pF7Svsw==
+"@ibmdotcom/services@^0.4.0-alpha.276":
+  version "0.4.0-alpha.276"
+  resolved "https://registry.yarnpkg.com/@ibmdotcom/services/-/services-0.4.0-alpha.276.tgz#584f43538010090bc41b931cc0d7f077e13c1874"
+  integrity sha512-ip+NKeTgC/YzdGEGqjv8Du7CMaKbmlHT4SamHT/L43DCbkaCb21rFuXLQy069YDSDkAFCHlurD4vAGtfPI1iFQ==
   dependencies:
     jsonp "^0.2.1"
     window-or-global "^1.0.1"
