@@ -7,3 +7,4 @@
 
 export * from './MarketingSearch';
 export * from './SearchTypeahead';
+export * from './Profile';
