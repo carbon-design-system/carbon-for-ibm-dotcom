@@ -29,7 +29,7 @@ const DotcomShell = ({ navigation, content }) => {
         </div>
         <Content
           id={`${prefix}--dotcom-shell__content`}
-          className={`${prefix}--row`}
+          className={`${prefix}--grid`}
           style={{
             paddingTop: '80px',
             paddingBottom: '80px',
