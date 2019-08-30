@@ -12,7 +12,10 @@
       "packages/*"
     ],
     "nohoist": [
-      "**/carbon-components"
+      "**/carbon-components",
+      "**/@ibmdotcom/services",
+      "**/@ibmdotcom/styles",
+      "**/@ibmdotcom/utilities"
     ]
   },
   "scripts": {

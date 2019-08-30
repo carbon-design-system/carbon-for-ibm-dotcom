@@ -884,7 +884,7 @@
   resolved "https://registry.yarnpkg.com/@carbon/colors/-/colors-10.4.0.tgz#8c21127926bc389dcb4d415b55d4eae278f3d525"
   integrity sha512-UERU07hWXAjsaWu6JPJDyJnwVLkJr+8wTvFrbCkubCfl/MZjKoyLgz0CNypu8hSg8ZaDUzl/NfXMgRpprzuSjQ==
 
-"@carbon/grid@^10.4.0":
+"@carbon/grid@^10.5.0":
   version "10.5.0"
   resolved "https://registry.yarnpkg.com/@carbon/grid/-/grid-10.5.0.tgz#c35a029d06cea924ad23f265f31590968315bbe3"
   integrity sha512-XQSHojbzP1Wo18m/s1a3NDr9QOQ7mO/+m/gGY7XrbsNletLhDYmCWmLObHWrQZoNerc5OcdL+o2+i0/xJfUMqA==
@@ -1310,28 +1310,23 @@
     normalize-path "^2.0.1"
     through2 "^2.0.3"
 
-"@ibmdotcom/services@^0.3.0-alpha.213":
-  version "0.3.0-alpha.244"
-  resolved "https://registry.yarnpkg.com/@ibmdotcom/services/-/services-0.3.0-alpha.244.tgz#567114d2bc5f160680293697692a64451056f8ad"
-  integrity sha512-suQWajMNPtRLnx6C5L1+BmFiRgJC6nAbQbqFCuIfIfUJQa7d7xpquW9IlSotXFHCtsAfojdJFmo7xM1jnEexyQ==
+"@ibmdotcom/services@^0.4.0-alpha.264":
+  version "0.4.0-alpha.264"
+  resolved "https://registry.yarnpkg.com/@ibmdotcom/services/-/services-0.4.0-alpha.264.tgz#3cf4160871fc711bac259632da26db46575186bd"
+  integrity sha512-ZkMFINsvdvA4HWXNUTkoHimProkA0eonzL5iXQ2F7agtaMGkhhceff04rKht0mvnQHZQJ1NiEbtIrI1pF7Svsw==
   dependencies:
+    jsonp "^0.2.1"
     window-or-global "^1.0.1"
 
-"@ibmdotcom/styles@^0.3.0-alpha.213":
-  version "0.3.0-alpha.281"
-  resolved "https://registry.yarnpkg.com/@ibmdotcom/styles/-/styles-0.3.0-alpha.281.tgz#c8f36a767dbc68d8d9a5cb9a7ef806481aac6842"
-  integrity sha512-6Xzf4g+r55W8R2P7WQUshRzfuEJBjVK2VzSwG4WYyuACKHR5+jetCtsBTLMwewHTlD4sw4sPnzeNqx67Mqjk7w==
+"@ibmdotcom/styles@^0.4.0-alpha.260":
+  version "0.4.0-alpha.264"
+  resolved "https://registry.yarnpkg.com/@ibmdotcom/styles/-/styles-0.4.0-alpha.264.tgz#add362bf04289eb897fe86cae5c3f96d01658728"
+  integrity sha512-xIADPXtRRDMxjQTWL0pM8xgC6XyDj02LknRbdk+XppbIkaW6IM8d0l1+2PXsNnvkreS8SEQbNubBGU6Vz7nprg==
   dependencies:
-    "@carbon/grid" "^10.4.0"
+    "@carbon/layout" "^10.3.0"
     "@carbon/themes" "^10.4.0"
+    "@carbon/type" "^10.3.0"
     carbon-components "^10.4.1"
-
-"@ibmdotcom/utilities@^0.3.0-alpha.213":
-  version "0.3.0-alpha.244"
-  resolved "https://registry.yarnpkg.com/@ibmdotcom/utilities/-/utilities-0.3.0-alpha.244.tgz#7d2aeff3619e1f593828b0db6eaee381f1c57424"
-  integrity sha512-Cb1cwhs74hRaHuMgiJJL0HQtPsy9R+XMtERerQzV78k2xPx4tlWXpTE17e959S0ucNkKKU5eRjOyqon9njnglA==
-  dependencies:
-    window-or-global "^1.0.1"
 
 "@icons/material@^0.2.4":
   version "0.2.4"
@@ -5590,7 +5585,7 @@ carbon-components-react@^7.5.1:
     warning "^3.0.0"
     window-or-global "^1.0.1"
 
-carbon-components@^10.4.1:
+carbon-components@^10.4.1, carbon-components@^10.5.1:
   version "10.5.1"
   resolved "https://registry.yarnpkg.com/carbon-components/-/carbon-components-10.5.1.tgz#e779ec3bee84b72a648b3500b2bf4e84bc491144"
   integrity sha512-1h/vRHZhTTj9VpWZOJUYR7Xd7avr7XynwaEj8Lp7MBt8KfXk8CVxJOY/uNhxz25cnrBajP2m+jid1daEBXiGbw==
@@ -7591,6 +7586,11 @@ es6-weak-map@^2.0.1, es6-weak-map@^2.0.2:
     es6-iterator "^2.0.3"
     es6-symbol "^3.1.1"
 
+escape-goat@^2.0.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/escape-goat/-/escape-goat-2.1.0.tgz#0f55d3fa1d41a4175fc7a26e25bdb5b2d1afbe31"
+  integrity sha512-7fMXQmS/6yjYQT/yydWKCAm5ucuU7QtqP6/CE7BIKk6z3xTP4MLqkdUBwaViQVuTAde8yZgZIjSnEAPRl6u53g==
+
 escape-html@^1.0.3, escape-html@~1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/escape-html/-/escape-html-1.0.3.tgz#0258eae4d3d0c0974de1c169188ef0051d1d1988"
@@ -7740,6 +7740,11 @@ eslint-plugin-react@^7.13.0, eslint-plugin-react@^7.14.2:
     object.values "^1.1.0"
     prop-types "^15.7.2"
     resolve "^1.10.1"
+
+eslint-plugin-tree-shaking@^1.7.4:
+  version "1.7.4"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-tree-shaking/-/eslint-plugin-tree-shaking-1.7.4.tgz#8ee2d5fda11fd8a962268cd8856b9d95cd1b1f36"
+  integrity sha512-oHe/k4TLpxBraiVuVJ7oX/3yB3mRoxTLSeqTLM/n0jbaNosIJVjYRFNjQDAq3/QWkoIxQebxuxo+2eBCoqUEaQ==
 
 eslint-restricted-globals@^0.2.0:
   version "0.2.0"
@@ -11271,6 +11276,13 @@ jsonify@~0.0.0:
   version "0.0.0"
   resolved "https://registry.yarnpkg.com/jsonify/-/jsonify-0.0.0.tgz#2c74b6ee41d93ca51b7b5aaee8f503631d252a73"
   integrity sha1-LHS27kHZPKUbe1qu6PUDYx0lKnM=
+
+jsonp@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/jsonp/-/jsonp-0.2.1.tgz#a65b4fa0f10bda719a05441ea7b94c55f3e15bae"
+  integrity sha1-pltPoPEL2nGaBUQep7lMVfPhW64=
+  dependencies:
+    debug "^2.1.3"
 
 jsonparse@^1.2.0:
   version "1.3.1"
@@ -14880,6 +14892,13 @@ punycode@^2.1.0, punycode@^2.1.1:
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-2.1.1.tgz#b58b010ac40c22c5657616c8d2c2c02c7bf479ec"
   integrity sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==
 
+pupa@^2.0.0:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/pupa/-/pupa-2.0.1.tgz#dbdc9ff48ffbea4a26a069b6f9f7abb051008726"
+  integrity sha512-hEJH0s8PXLY/cdXh66tNEQGndDrIKNqNC5xmrysZy3i5C3oEoLna7YAOad+7u125+zH1HNXUmGEkrhb3c2VriA==
+  dependencies:
+    escape-goat "^2.0.0"
+
 q@^1.1.2, q@^1.5.1:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/q/-/q-1.5.1.tgz#7e32f75b41381291d04611f1bf14109ac00651d7"
@@ -16228,6 +16247,11 @@ ripemd160@^2.0.0, ripemd160@^2.0.1:
     hash-base "^3.0.0"
     inherits "^2.0.1"
 
+rollup-plugin-analyzer@^3.1.2:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-analyzer/-/rollup-plugin-analyzer-3.1.2.tgz#f30d6231715d1500c18cff9159dbf6759040529b"
+  integrity sha512-NOUC9W+pJ59x1MmYsQNARD8JFKCNB3X2zq4JoTxwnA3jvWLGYvZMu58HO61kUDFZTb53FVFfsrWsn0vwjTn1bA==
+
 rollup-plugin-babel@^4.3.2:
   version "4.3.3"
   resolved "https://registry.yarnpkg.com/rollup-plugin-babel/-/rollup-plugin-babel-4.3.3.tgz#7eb5ac16d9b5831c3fd5d97e8df77ba25c72a2aa"
@@ -16306,6 +16330,16 @@ rollup-plugin-terser@^4.0.0:
     jest-worker "^24.0.0"
     serialize-javascript "^1.6.1"
     terser "^3.14.1"
+
+rollup-plugin-visualizer@^2.5.4:
+  version "2.5.4"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-visualizer/-/rollup-plugin-visualizer-2.5.4.tgz#195945e1d5329067a18d2973066ef23b24a30acc"
+  integrity sha512-ehMX8Us4UmHmt9y6uvBdtW3ASAQDqCcmp07Qrm8dBqQMf1eAd89Rc/owGZr0cDp764dvLKQRA03W+nWlRajl4w==
+  dependencies:
+    mkdirp "^0.5.1"
+    open "^6.3.0"
+    pupa "^2.0.0"
+    source-map "^0.7.3"
 
 rollup-pluginutils@2, rollup-pluginutils@^2.5.0, rollup-pluginutils@^2.6.0, rollup-pluginutils@^2.8.1:
   version "2.8.1"
@@ -16979,7 +17013,7 @@ source-map@^0.6.0, source-map@^0.6.1, source-map@~0.6.0, source-map@~0.6.1:
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
   integrity sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==
 
-source-map@^0.7.2:
+source-map@^0.7.2, source-map@^0.7.3:
   version "0.7.3"
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.7.3.tgz#5302f8169031735226544092e64981f751750383"
   integrity sha512-CkCj6giN3S+n9qrYiBTX5gystlENnRW5jZeNLHpe6aue+SrHcG5VYwujhW9s4dY31mEGsxBDrHR6oI69fTXsaQ==

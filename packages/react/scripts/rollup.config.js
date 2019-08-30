@@ -13,6 +13,7 @@ const replace = require('rollup-plugin-replace');
 const json = require('rollup-plugin-json');
 const { terser } = require('rollup-plugin-terser');
 const sizes = require('rollup-plugin-sizes');
+const visualizer = require('rollup-plugin-visualizer');
 
 const packageJson = require('../package.json');
 const peerDependencies = Object.keys(packageJson.peerDependencies || {}).concat(
@@ -25,6 +26,7 @@ const prodSettings =
     ? []
     : [
         terser(),
+        visualizer(),
         sizes({
           report(details) {
             const table = new Table({
@@ -101,11 +103,13 @@ module.exports = {
     json(),
     ...prodSettings,
   ],
-  external: peerDependencies.filter(
-    dependency => dependency !== 'carbon-components'
-  ),
+  treeshake: {
+    propertyReadSideEffects: false,
+    pureExternalModules: true,
+  },
+  external: peerDependencies,
   output: {
-    name: 'CarbonComponentsReact',
+    name: 'IBMDotcomReact',
     format: 'umd',
     globals: {
       classnames: 'classNames',
@@ -113,6 +117,8 @@ module.exports = {
       react: 'React',
       'react-dom': 'ReactDOM',
       'carbon-icons': 'CarbonIcons',
+      'carbon-components': 'CarbonComponents',
+      'carbon-components-react': 'CarbonComponentsReact',
     },
   },
 };
