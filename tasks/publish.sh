@@ -8,7 +8,7 @@
 
 # Alpha release
 release_alpha () {
-  ./node_modules/.bin/lerna publish --canary minor --dist-tag canary --no-push --no-git-tag-version
+  ./node_modules/.bin/lerna publish --canary minor --dist-tag canary --no-push --no-git-tag-version --force-publish=*
 }
 
 # RC.0 release
