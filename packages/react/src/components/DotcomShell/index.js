@@ -5,6 +5,4 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-export * from './Footer';
-export * from './Icon';
-export * from './Masthead';
+export { default as DotcomShell } from './DotcomShell';

@@ -24,6 +24,12 @@ $search-transition-timing: 95ms;
     transition-timing-function: $search-transition;
     background: $ui-background;
     border-bottom: 1px solid $ui-03;
+    // width: inherit;
+    // max-width: inherit;
+    // left: auto;
+    // right: auto;
+    width: 100%;
+    position: static;
 
     &__logo {
       padding: 0 $spacing-07;
