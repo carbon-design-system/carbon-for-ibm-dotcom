@@ -1,14 +1,14 @@
-# @carbom/ibmdotcom-styles
+# @carbon/ibmdotcom-styles
 
 A single, shared CSS resource for the IBM.com Library.
 
 ## Getting started
 
-To install `@carbom/ibmdotcom-styles` in your project, you will need to run the
+To install `@carbon/ibmdotcom-styles` in your project, you will need to run the
 following command using [npm](https://www.npmjs.com/):
 
 ```bash
-npm i @carbom/ibmdotcom-styles
+npm i @carbon/ibmdotcom-styles
 ```
 
 If you prefer [Yarn](https://yarnpkg.com/en/), use the following command
@@ -23,14 +23,14 @@ yarn add @carbon/ibmdotcom-styles
 Import the package css into the top of your main CSS file.
 
 ```css
-@import 'node_modules/@carbom/ibmdotcom-styles/src/scss/components/footer/footer';
+@import 'node_modules/@carbon/ibmdotcom-styles/src/scss/components/footer/footer';
 ```
 
 In Webpack, the full package can also be included to the root of your
 application:
 
 ```javascript
-import '@carbom/ibmdotcom-styles';
+import '@carbon/ibmdotcom-styles';
 ```
 
 ## Documentation

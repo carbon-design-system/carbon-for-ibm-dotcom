@@ -10,7 +10,7 @@ import MastheadSearch from '../MastheadSearch';
 import { mount } from 'enzyme';
 import { SearchTypeaheadAPI } from '@carbon/ibmdotcom-services';
 
-jest.mock('@carbom/ibmdotcom-services', () => ({
+jest.mock('@carbon/ibmdotcom-services', () => ({
   __esModule: true,
   SearchTypeaheadAPI: {
     getResults: jest.fn(() =>
