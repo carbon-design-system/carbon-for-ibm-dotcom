@@ -9,7 +9,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { settings } from 'carbon-components';
 import { Content } from 'carbon-components-react';
-import { Masthead, Footer } from '@ibmdotcom/react';
+import { Masthead, Footer } from '@carbon/ibmdotcom-react';
 
 const { prefix } = settings;
 

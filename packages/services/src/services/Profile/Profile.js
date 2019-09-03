@@ -29,9 +29,7 @@ class ProfileAPI {
    *
    * @returns {Promise<any>} User status
    * @example
-   * import { ProfileAPI } from '@ibmdotcom/services';
-   * // or for tree-shaking:
-   * import { ProfileAPI } from '@ibmdotcom/services/es/services/Profile';
+   * import { ProfileAPI } from '@carbon/ibmdotcom-services';
    *
    * async function getUserStatus() {
    *   const response = await ProfileAPI.getUserStatus();

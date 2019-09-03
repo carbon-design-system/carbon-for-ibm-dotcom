@@ -31,9 +31,7 @@ class MarketingSearchAPI {
    * @param {string} query Query string to pass to the service
    * @returns {Promise<any>} Response data from ibm search
    * @example
-   * import { MarketingSearchAPI } from '@ibmdotcom/services';
-   * // or for tree-shaking:
-   * import { MarketingSearchAPI } from '@ibmdotcom/services/es/services/MarketingSearch';
+   * import { MarketingSearchAPI } from '@carbon/ibmdotcom-services';
    *
    * async function getResults(query) {
    *   const response = await MarketingSearchAPI.getResults(query);

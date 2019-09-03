@@ -28,7 +28,7 @@ import {
   SideNavMenu,
   SideNavMenuItem,
 } from 'carbon-components-react';
-import { ProfileAPI } from '@ibmdotcom/services';
+import { ProfileAPI } from '@carbon/ibmdotcom-services';
 import MastheadSearch from './MastheadSearch';
 import MastheadProfile from './MastheadProfile';
 import cx from 'classnames';

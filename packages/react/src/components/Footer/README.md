@@ -10,9 +10,9 @@ Here's a quick example to get you started.
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Footer } from '@ibmdotcom/react';
+import { Footer } from '@carbon/ibmdotcom-react';
 
-import '@ibmdotcom/styles/scss/components/footer/index.scss';
+import '@carbon/ibmdotcom-styles/scss/components/footer/index.scss';
 
 function App() {
   return <Footer />;
@@ -22,7 +22,7 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 ```
 
 > 💡 Don't forget to import the footer styles from
-> [@ibmdotcom/styles](/packages/styles).
+> [@carbon/ibmdotcom-styles](/packages/styles).
 
 ## Types (optional)
 

@@ -10,8 +10,8 @@ Here's a quick example to get you started.
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { HorizontalRule } from '@ibmdotcom/react';
-import '@ibmdotcom/styles/scss/components/horizontalrule/index.scss';
+import { HorizontalRule } from '@carbon/ibmdotcom-react';
+import '@carbon/ibmdotcom-styles/scss/components/horizontalrule/index.scss';
 function App() {
   return <HorizontalRule />;
 }
@@ -19,7 +19,7 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 ```
 
 > 💡 Don't forget to import the horizontal rule styles from
-> [@ibmdotcom/styles](/packages/styles).
+> [@carbon/ibmdotcom-styles](/packages/styles).
 
 ## Styles (optional)
 

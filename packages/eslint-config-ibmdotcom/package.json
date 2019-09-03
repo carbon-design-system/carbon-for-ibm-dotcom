@@ -1,5 +1,5 @@
 {
-  "name": "@ibmdotcom/eslint-config-ibmdotcom",
+  "name": "@carbon/ibmdotcom-eslint-config",
   "private": true,
   "version": "0.3.0",
   "license": "Apache-2.0",

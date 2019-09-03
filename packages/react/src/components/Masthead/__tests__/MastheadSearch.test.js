@@ -8,9 +8,9 @@
 import React from 'react';
 import MastheadSearch from '../MastheadSearch';
 import { mount } from 'enzyme';
-import { SearchTypeaheadAPI } from '@ibmdotcom/services';
+import { SearchTypeaheadAPI } from '@carbon/ibmdotcom-services';
 
-jest.mock('@ibmdotcom/services', () => ({
+jest.mock('@carbom/ibmdotcom-services', () => ({
   __esModule: true,
   SearchTypeaheadAPI: {
     getResults: jest.fn(() =>

@@ -1,5 +1,5 @@
 {
-  "name": "@ibmdotcom/stylelint-config-elements",
+  "name": "@carbon/ibmdotcom-stylelint-config",
   "private": true,
   "version": "0.2.0",
   "description": "Stylelint configuration for Carbon Elements",

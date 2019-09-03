@@ -13,15 +13,16 @@
     ],
     "nohoist": [
       "**/carbon-components",
-      "**/@ibmdotcom/services",
-      "**/@ibmdotcom/styles",
-      "**/@ibmdotcom/utilities"
+      "**/@carbon/ibmdotcom-services",
+      "**/@carbon/ibmdotcom-styles",
+      "**/@carbon/ibmdotcom-utilities"
     ]
   },
   "scripts": {
     "build": "lerna run build --stream --prefix --npm-client yarn",
     "ci-check": "npm run format:diff",
     "clean": "lerna run clean && lerna clean --yes && rimraf node_modules",
+    "reset": "yarn cache clean && yarn clean && yarn install && yarn build",
     "doctoc": "doctoc --title '## Table of Contents' docs",
     "format": "prettier --write '**/*.{js,md,scss}'",
     "format:diff": "prettier --list-different '**/*.{js,md,scss}'",

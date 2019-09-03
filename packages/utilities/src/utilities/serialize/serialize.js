@@ -4,9 +4,7 @@
  * @param {object} obj Object to convert
  * @returns {string} Serialized string
  * @example
- * import { serialize } from '@ibmdotcom/utilities'
- * // or for tree-shaking:
- * import { serialize } from '@ibmdotcom/utilities/es/utilities/serialize';
+ * import { serialize } from '@carbon/ibmdotcom-utilities'
  *
  * const obj = {
  *  param1: 'one',

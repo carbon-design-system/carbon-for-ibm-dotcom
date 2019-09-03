@@ -32,12 +32,12 @@ Vanilla components are coming soon!
 If you're trying to find something specific, here's a full list of packages that
 we support!
 
-| Package name                                                                                                        | Description                                              |
-| ------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
-| [`@ibmdotcom/react`](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react)         | IBM.com React components                                 |
-| [`@ibmdotcom/services`](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/services)   | IBM.com ES6 Service classes                              |
-| [`@ibmdotcom/styles`](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles)       | Framework agnostic styles package for IBM.com components |
-| [`@ibmdotcom/utilities`](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/utilities) | IBM.com ES6 Utility classes                              |
+| Package name                                                                                                               | Description                                              |
+| -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
+| [`@carbon/ibmdotcom-react`](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react)         | IBM.com React components                                 |
+| [`@carbon/ibmdotcom-services`](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/services)   | IBM.com ES6 Service classes                              |
+| [`@carbon/ibmdotcom-styles`](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles)       | Framework agnostic styles package for IBM.com components |
+| [`@carbon/ibmdotcom-utilities`](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/utilities) | IBM.com ES6 Utility classes                              |
 
 ## Documentation
 
