@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { Footer } from '../';
 import readme from '../README.md';
 
-import '@ibmdotcom/styles/scss/components/footer/index.scss';
+import '@carbon/ibmdotcom-styles/scss/components/footer/index.scss';
 
 storiesOf('Footer', module)
   .addParameters({

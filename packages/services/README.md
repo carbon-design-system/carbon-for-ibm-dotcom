@@ -1,4 +1,4 @@
-# @ibmdotcom/services
+# @carbon/ibmdotcom-services
 
 A collection of IBM.com service classes
 
@@ -7,14 +7,14 @@ A collection of IBM.com service classes
 Run the following command using [npm](https://www.npmjs.com/):
 
 ```bash
-npm i @ibmdotcom/services
+npm i @carbon/ibmdotcom-services
 ```
 
 If you prefer [Yarn](https://yarnpkg.com/en/), use the following command
 instead:
 
 ```bash
-yarn add @ibmdotcom/services
+yarn add @carbon/ibmdotcom-services
 ```
 
 These services require the use of [Webpack](https://webpack.js.org/) in your

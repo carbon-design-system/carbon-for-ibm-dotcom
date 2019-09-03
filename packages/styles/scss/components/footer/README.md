@@ -5,7 +5,7 @@
 Import the package css into the top of your main CSS file.
 
 ```css
-@import '@ibmdotcom/styles/scss/components/footer/index';
+@import '@carbon/ibmdotcom-styles/scss/components/footer/index';
 ```
 
 #### Modifiers

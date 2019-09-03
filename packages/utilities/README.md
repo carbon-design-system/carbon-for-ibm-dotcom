@@ -1,4 +1,4 @@
-# @ibmdotcom/utilities
+# @carbon/ibmdotcom-utilities
 
 A collection of IBM.com utility classes
 
@@ -7,14 +7,14 @@ A collection of IBM.com utility classes
 Run the following command using [npm](https://www.npmjs.com/):
 
 ```bash
-npm install -S @ibmdotcom/utilities
+npm install -S @carbon/ibmdotcom-utilities
 ```
 
 If you prefer [Yarn](https://yarnpkg.com/en/), use the following command
 instead:
 
 ```bash
-yarn add @ibmdotcom/utilities
+yarn add @carbon/ibmdotcom-utilities
 ```
 
 These utilities require the use of [Webpack](https://webpack.js.org/) in your

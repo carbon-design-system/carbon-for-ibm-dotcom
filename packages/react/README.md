@@ -1,4 +1,4 @@
-# @ibmdotcom/react
+# @carbon/ibmdotcom-react
 
 > A collection of IBM.com components implemented using
 > [React](https://reactjs.org/) and
@@ -9,14 +9,14 @@
 Run the following command using [npm](https://www.npmjs.com/):
 
 ```bash
-npm i @ibmdotcom/react carbon-components-react carbon-components carbon-icons
+npm i @carbon/ibmdotcom-react carbon-components-react carbon-components carbon-icons
 ```
 
 If you prefer [Yarn](https://yarnpkg.com/en/), use the following command
 instead:
 
 ```bash
-yarn add @ibmdotcom/react carbon-components-react carbon-components carbon-icons
+yarn add @carbon/ibmdotcom-react carbon-components-react carbon-components carbon-icons
 ```
 
 1. These components require the use of [Webpack](https://webpack.js.org/) in
@@ -25,7 +25,7 @@ yarn add @ibmdotcom/react carbon-components-react carbon-components carbon-icons
    example configuration.
 
 2. Components do not import any of the styles themselves, use the scss or css
-   from `@ibmdotcom/styles` to bring in styling.
+   from `@carbon/ibmdotcom-styles` to bring in styling.
 
 3. For older browsers (e.g. IE11), polyfills listed in
    [`packages/react/.storybook/polyfills.js` file](./.storybook/polyfills.js) is

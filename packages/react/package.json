@@ -1,5 +1,5 @@
 {
-  "name": "@ibmdotcom/react",
+  "name": "@carbon/ibmdotcom-react",
   "description": "IBM.com Library React Components",
   "version": "0.3.0",
   "license": "Apache-2.0",
@@ -48,9 +48,9 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.5.5",
-    "@ibmdotcom/services": "^0.4.0-alpha.276",
-    "@ibmdotcom/styles": "^0.4.0-alpha.260",
-    "@ibmdotcom/utilities": "^0.3.0-alpha.213",
+    "@carbon/ibmdotcom-services": "^0.4.0-alpha.291",
+    "@carbon/ibmdotcom-styles": "^0.4.0-alpha.291",
+    "@carbon/ibmdotcom-utilities": "^0.4.0-alpha.291",
     "autosuggest-highlight": "^3.1.1",
     "classnames": "2.2.6",
     "react-autosuggest": "^9.4.3",

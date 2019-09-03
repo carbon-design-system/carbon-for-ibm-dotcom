@@ -1,7 +1,8 @@
 {
-  "name": "@ibmdotcom/eslint-config-ibmdotcom",
+  "name": "@carbon/eslint-config-ibmdotcom",
   "private": true,
   "version": "0.3.0",
+  "description": "ESLint configuration for the IBM.com Library",
   "license": "Apache-2.0",
   "main": "index.js",
   "repository": "https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/eslint-config-ibmdotcom",

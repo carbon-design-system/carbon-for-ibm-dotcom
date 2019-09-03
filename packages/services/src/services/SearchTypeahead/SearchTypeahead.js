@@ -31,9 +31,7 @@ class SearchTypeaheadAPI {
    * @param {string} query Query string to pass to the service
    * @returns {Promise<any>} Response data from ibm search
    * @example
-   * import { SearchTypeaheadAPI } from '@ibmdotcom/services';
-   * // or for tree-shaking:
-   * import { SearchTypeaheadAPI } from '@ibmdotcom/services/es/services/SearchTypeahead';
+   * import { SearchTypeaheadAPI } from '@carbon/ibmdotcom-services';
    *
    * async function getResults(query) {
    *   const response = await SearchTypeaheadAPI.getResults(query);

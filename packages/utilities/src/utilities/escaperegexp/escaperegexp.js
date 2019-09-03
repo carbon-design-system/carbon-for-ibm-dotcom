@@ -5,9 +5,7 @@
  * @param {string} str String to escape regex
  * @returns {string} Final string with escaped regex
  * @example
- * import { escapeRegExp } from '@ibmdotcom/utilities'
- * // or for tree-shaking:
- * import { escapeRegExp } from '@ibmdotcom/utilities/es/utilities/escaperegexp';
+ * import { escapeRegExp } from '@carbon/ibmdotcom-utilities'
  *
  * const result = escapeRegExp('Hello?!*`~World()[]');
  * console.log(result); // Hello\?!\*`~World\(\)\[\]
