@@ -27,7 +27,7 @@
     "format": "prettier --write '**/*.{js,md,scss}'",
     "format:diff": "prettier --list-different '**/*.{js,md,scss}'",
     "lint": "eslint packages",
-    "lint:styles": "stylelint '**/*.{css,scss}' --config ./packages/stylelint-config-elements",
+    "lint:styles": "stylelint '**/*.{css,scss}' --config ./packages/stylelint-config-ibmdotcom",
     "test": "cross-env BABEL_ENV=test jest"
   },
   "devDependencies": {
@@ -123,7 +123,7 @@
   },
   "stylelint": {
     "extends": [
-      "./packages/stylelint-config-elements"
+      "./packages/stylelint-config-ibmdotcom"
     ]
   },
   "jest": {

@@ -1,12 +1,12 @@
 {
-  "name": "@carbon/ibmdotcom-stylelint-config",
+  "name": "@carbon/stylelint-config-ibmdotcom",
   "private": true,
   "version": "0.2.0",
-  "description": "Stylelint configuration for Carbon Elements",
+  "description": "Stylelint configuration for the IBM.com Library",
   "license": "Apache-2.0",
   "main": "index.js",
-  "repository": "https://github.com/carbon-design-system/carbon/tree/master/packages/stylelint-config-elements",
-  "bugs": "https://github.com/carbon-design-system/carbon/issues",
+  "repository": "https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/stylelint-config-ibmdotcom",
+  "bugs": "https://github.com/carbon-design-system/ibm-dotcom-library/issues",
   "keywords": [
     "ibm",
     "elements",
