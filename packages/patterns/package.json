@@ -1,11 +1,11 @@
 {
-  "name": "@carbon/ibmdotcom-react",
-  "description": "IBM.com Library React Components",
+  "name": "@carbon/ibmdotcom-patterns",
+  "description": "IBM.com Library React Patterns",
   "version": "0.3.0",
   "license": "Apache-2.0",
   "main": "lib/index.js",
   "module": "es/index.js",
-  "repository": "https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react",
+  "repository": "https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/patterns",
   "bugs": "https://github.com/carbon-design-system/ibm-dotcom-library/issues",
   "files": [
     "lib/**/*",
@@ -32,7 +32,6 @@
     "contributors:generate": "all-contributors generate",
     "doctoc": "doctoc --title '## Table of Contents' docs",
     "prepublish": "yarn build",
-    "semantic-release": "semantic-release",
     "start": "yarn storybook",
     "storybook": "start-storybook -p 9000",
     "test": "jest",
@@ -48,12 +47,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.5.5",
-    "@carbon/ibmdotcom-services": "^0.4.0-alpha.291",
-    "@carbon/ibmdotcom-styles": "^0.4.0-alpha.291",
-    "@carbon/ibmdotcom-utilities": "^0.4.0-alpha.291",
-    "autosuggest-highlight": "^3.1.1",
     "classnames": "2.2.6",
-    "react-autosuggest": "^9.4.3",
     "window-or-global": "^1.0.1"
   },
   "devDependencies": {
@@ -130,8 +124,6 @@
     "rollup-plugin-visualizer": "^2.5.4",
     "rtlcss": "^2.4.0",
     "sass-loader": "^7.1.0",
-    "semantic-release": "^15.13.18",
-    "semantic-release-cli": "^5.1.1",
     "storybook-readme": "^5.0.3",
     "string-replace-loader": "^2.1.0",
     "terser-webpack-plugin": "^1.1.0",
