@@ -14,4 +14,5 @@
  *
  * @type {string | boolean}
  */
-export const localeSelector = process.env.LOCALE_SELECTOR === 'true' || false;
+export const footerLocaleButton =
+  process.env.FOOTER_LOCALE_BTN === 'true' || false;

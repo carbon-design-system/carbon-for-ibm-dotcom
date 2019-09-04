@@ -12,13 +12,16 @@
 
 $TEMP--footer-nav-group-type: 'heading-02';
 
+$TEMP--button-type: 'body-long-02';
+$TEMP--button-height: carbon--mini-units(6);
+$TEMP--button-icon-size: temp--get-icon-size($TEMP--button-type);
+
 $TEMP--link-type: 'body-short-02';
 $TEMP--link-height: carbon--mini-units(6);
 
 $TEMP--accordion-type: 'body-long-02';
 $TEMP--accordion-height: carbon--mini-units(6);
-// $TEMP--accordion-arrow-size: temp--get-icon-size($TEMP--accordion-type);
-$TEMP--accordion-arrow-size: 1.25rem;
+$TEMP--accordion-arrow-size: temp--get-icon-size($TEMP--accordion-type);
 
 $TEMP--breakpoint-down--md: map-get(
     map-get($carbon--grid-breakpoints, 'md'),

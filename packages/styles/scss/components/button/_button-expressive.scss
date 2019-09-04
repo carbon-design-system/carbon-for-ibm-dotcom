@@ -1,0 +1,37 @@
+//
+// Copyright IBM Corp. 2016, 2018
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import 'carbon-components/scss/components/button/button';
+
+@import '../../globals/vars.scss';
+@import '../../globals/mixins.scss';
+
+/// Temporary overrides for button's expressive moment
+/// @access private
+/// @group expressive-overrides
+
+@mixin button-expressive() {
+  $border: carbon--rem(3px);
+
+  .#{$prefix}--btn:not(.#{$prefix}--btn--sm) {
+    @include carbon--type-style($TEMP--button-type);
+
+    $button-padding: temp--padding-diff($TEMP--button-height, $TEMP--button-type, $border);
+    padding-top: $button-padding;
+    padding-bottom: $button-padding;
+
+    & .#{$prefix}--btn__icon {
+      width: $TEMP--button-icon-size;
+      height: $TEMP--button-icon-size;
+      right: (($TEMP--button-height - $TEMP--button-icon-size) / 2) - $border;
+    }
+  }
+}
+
+@include exports('button-expressive') {
+  @include button-expressive;
+}
