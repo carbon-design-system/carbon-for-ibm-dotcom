@@ -29,7 +29,7 @@ $search-transition-timing: 95ms;
     // left: auto;
     // right: auto;
     width: 100%;
-    position: static;
+    position: relative;
 
     &__logo {
       padding: 0 $spacing-07;
