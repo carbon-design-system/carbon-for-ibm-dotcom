@@ -13,7 +13,6 @@
 
 @mixin local-button {
   .#{$prefix}--locale-btn {
-
     max-width: 100%;
     width: 100%;
 
@@ -29,6 +28,7 @@
     &__container {
       @include carbon--make-col-ready;
       @include carbon--make-col(4, 4);
+
       margin-top: carbon--mini-units(2);
       padding-left: 0;
       padding-right: 0;
@@ -40,6 +40,7 @@
 
       @include carbon--breakpoint('md') {
         @include carbon--make-col(4, 8);
+
         margin-bottom: carbon--mini-units(2);
 
         .#{$prefix}--footer--short & {
@@ -49,6 +50,7 @@
 
       @include carbon--breakpoint('lg') {
         @include carbon--make-col(4, 16);
+
         order: 1;
 
         .#{$prefix}--footer--short & {

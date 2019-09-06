@@ -19,12 +19,16 @@
 
   .#{$prefix}--btn:not(.#{$prefix}--btn--sm) {
     @include carbon--type-style($TEMP--button-type);
+    $button-padding: temp--padding-diff(
+      $TEMP--button-height,
+      $TEMP--button-type,
+      $border
+    );
 
-    $button-padding: temp--padding-diff($TEMP--button-height, $TEMP--button-type, $border);
     padding-top: $button-padding;
     padding-bottom: $button-padding;
 
-    & .#{$prefix}--btn__icon {
+    .#{$prefix}--btn__icon {
       width: $TEMP--button-icon-size;
       height: $TEMP--button-icon-size;
       right: (($TEMP--button-height - $TEMP--button-icon-size) / 2) - $border;

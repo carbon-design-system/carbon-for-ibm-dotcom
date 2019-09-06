@@ -27,6 +27,7 @@
 
     &__main-container {
       @include carbon--make-row;
+
       flex-direction: column;
 
       .#{$prefix}--footer--short & {
