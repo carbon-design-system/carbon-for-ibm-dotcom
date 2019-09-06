@@ -40,13 +40,13 @@ try {
     BABEL_ENV: 'cjs',
   });
   exec(
-    `${rollupPath} -c scripts/rollup.config.js -o umd/ibmdotcom-patterns.js`,
+    `${rollupPath} -c scripts/rollup.config.js -o umd/ibmdotcom-patterns-react.js`,
     {
       NODE_ENV: 'development',
     }
   );
   exec(
-    `${rollupPath} -c scripts/rollup.config.js -o umd/ibmdotcom-patterns.min.js`,
+    `${rollupPath} -c scripts/rollup.config.js -o umd/ibmdotcom-patterns-react.min.js`,
     {
       NODE_ENV: 'production',
     }
