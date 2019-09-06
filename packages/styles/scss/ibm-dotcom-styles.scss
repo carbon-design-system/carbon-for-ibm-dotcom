@@ -7,6 +7,11 @@
 
 @import 'globals/vars';
 @import 'globals/mixins';
+
+// Components
 @import 'components/masthead/masthead';
 @import 'components/horizontalrule/horizontalrule';
 @import 'components/footer/index';
+
+// Patterns
+@import 'patterns/leadspace/leadspace';

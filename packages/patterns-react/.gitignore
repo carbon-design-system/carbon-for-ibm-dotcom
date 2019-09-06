@@ -1,0 +1,8 @@
+.env
+coverage
+
+# Storybook
+storybook-static
+
+# rollup
+stats.html
