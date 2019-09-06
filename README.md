@@ -26,18 +26,21 @@
 ## Getting started
 
 If you're just getting started, check out
-[`react`](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react).
-Vanilla components are coming soon!
+[`react`](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react)
+or
+[`patterns-react`](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/patterns-react).
+Vanilla components and patterns are coming soon!
 
 If you're trying to find something specific, here's a full list of packages that
 we support!
 
-| Package name                                                                                                               | Description                                              |
-| -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
-| [`@carbon/ibmdotcom-react`](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react)         | IBM.com React components                                 |
-| [`@carbon/ibmdotcom-services`](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/services)   | IBM.com ES6 Service classes                              |
-| [`@carbon/ibmdotcom-styles`](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles)       | Framework agnostic styles package for IBM.com components |
-| [`@carbon/ibmdotcom-utilities`](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/utilities) | IBM.com ES6 Utility classes                              |
+| Package name                                                                                                                         | Description                                              |
+| ------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------- |
+| [`@carbon/ibmdotcom-react`](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react)                   | IBM.com React components                                 |
+| [`@carbon/ibmdotcom-patterns-react`](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/patterns-react) | IBM.com React patterns                                   |
+| [`@carbon/ibmdotcom-services`](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/services)             | IBM.com ES6 Service classes                              |
+| [`@carbon/ibmdotcom-styles`](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles)                 | Framework agnostic styles package for IBM.com components |
+| [`@carbon/ibmdotcom-utilities`](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/utilities)           | IBM.com ES6 Utility classes                              |
 
 ## Documentation
 
