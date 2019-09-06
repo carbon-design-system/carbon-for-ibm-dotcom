@@ -48,7 +48,7 @@ const prodSettings =
         {
           generateBundle(options, bundle) {
             const gzipSize = gzip.sync(
-              bundle['ibmdotcom-patterns.min.js'].code
+              bundle['ibmdotcom-patterns-react.min.js'].code
             );
             const { bundleSizeThreshold } = packageJson;
             console.log('Total size (gzipped):', gzipSize); // eslint-disable-line no-console

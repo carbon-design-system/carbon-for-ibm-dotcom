@@ -1,4 +1,4 @@
-# @carbon/ibmdotcom-patterns
+# @carbon/ibmdotcom-patterns-react
 
 > A collection of IBM.com patterns implemented using
 > [React](https://reactjs.org/) and
