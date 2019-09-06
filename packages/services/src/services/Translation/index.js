@@ -5,7 +5,4 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-export * from './MarketingSearch';
-export * from './SearchTypeahead';
-export * from './Profile';
-export * from './Translation';
+export { default as TranslationAPI } from './Translation';
