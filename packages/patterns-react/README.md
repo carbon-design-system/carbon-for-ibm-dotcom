@@ -9,14 +9,14 @@
 Run the following command using [npm](https://www.npmjs.com/):
 
 ```bash
-npm i @carbon/ibmdotcom-patterns carbon-components-react carbon-components carbon-icons
+npm i @carbon/ibmdotcom-patterns-react carbon-components-react carbon-components carbon-icons
 ```
 
 If you prefer [Yarn](https://yarnpkg.com/en/), use the following command
 instead:
 
 ```bash
-yarn add @carbon/ibmdotcom-patterns carbon-components-react carbon-components carbon-icons
+yarn add @carbon/ibmdotcom-patterns-react carbon-components-react carbon-components carbon-icons
 ```
 
 1. These components require the use of [Webpack](https://webpack.js.org/) in
@@ -28,7 +28,7 @@ yarn add @carbon/ibmdotcom-patterns carbon-components-react carbon-components ca
    from `@carbon/ibmdotcom-styles` to bring in styling.
 
 3. For older browsers (e.g. IE11), polyfills listed in
-   [`packages/patterns/.storybook/polyfills.js` file](./.storybook/polyfills.js)
+   [`packages/patterns-react/.storybook/polyfills.js` file](./.storybook/polyfills.js)
    is required.
 
 ## Usage
@@ -36,7 +36,7 @@ yarn add @carbon/ibmdotcom-patterns carbon-components-react carbon-components ca
 ### List of Available Components
 
 View available React Patterns
-[here](https://ibmdotcomlibrary-patterns.mybluemix.net). You can see usage
+[here](https://ibmdotcom-patterns-react.netlify.com/). You can see usage
 information in several ways:
 
 1. Clicking the blue **Show Info** icon in the top right corner of the selected
