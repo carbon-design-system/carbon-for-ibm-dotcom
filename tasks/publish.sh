@@ -13,12 +13,12 @@ release_alpha () {
 
 # RC.0 release
 release_rc0 () {
-  ./node_modules/.bin/lerna publish preminor --exact --conventional-commits --conventional-prerelease --preid rc --no-git-tag-version
+  ./node_modules/.bin/lerna publish preminor --exact --conventional-commits --preid rc --no-git-tag-version
 }
 
 # RC.1+ release
 release_rc1plus () {
-  ./node_modules/.bin/lerna publish --exact --conventional-commits --conventional-prerelease --preid rc --no-git-tag-version
+  ./node_modules/.bin/lerna publish --exact --conventional-commits --preid rc --no-git-tag-version
 }
 
 # Full minor release
