@@ -3,6 +3,8 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.3.0 (2019-09-09)
+
 # 0.3.0-rc.0 (2019-09-09)
 
 ### Bug Fixes
