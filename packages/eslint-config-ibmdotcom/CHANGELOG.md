@@ -3,27 +3,24 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [0.3.0](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/eslint-config-ibmdotcom/compare/@ibmdotcom/eslint-config-ibmdotcom@0.1.0...@ibmdotcom/eslint-config-ibmdotcom@0.3.0) (2019-08-29)
-
-# 0.3.0-rc.0 (2019-08-28)
+# 0.4.0-rc.0 (2019-09-09)
 
 ### Bug Fixes
 
 - **eslint:** adding additional eslint checks for react components
   ([#54](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/eslint-config-ibmdotcom/issues/54))
   ([040153b](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/eslint-config-ibmdotcom/commit/040153b))
+- **packages:** renamed lint packages to be consistent
+  ([f5d8149](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/eslint-config-ibmdotcom/commit/f5d8149))
 
 ### Features
 
+- **carbon:** switched to carbon ibmdotcom packages
+  ([b541b73](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/eslint-config-ibmdotcom/commit/b541b73))
 - **search:** adding integration of typeahead api to autosuggest
   ([36fb186](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/eslint-config-ibmdotcom/commit/36fb186))
 
-# 0.2.0-rc.0 (2019-08-05)
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+# [0.3.0](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/eslint-config-ibmdotcom/compare/@ibmdotcom/eslint-config-ibmdotcom@0.1.0...@ibmdotcom/eslint-config-ibmdotcom@0.3.0) (2019-08-29)
 
 # [0.3.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/eslint-config-ibmdotcom/compare/@ibmdotcom/eslint-config-ibmdotcom@0.1.0...@ibmdotcom/eslint-config-ibmdotcom@0.3.0-rc.0) (2019-08-28)
 
@@ -37,13 +34,6 @@ All notable changes to this project will be documented in this file. See
 
 - **search:** adding integration of typeahead api to autosuggest
   ([36fb186](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/eslint-config-ibmdotcom/commit/36fb186))
-
-# 0.2.0-rc.0 (2019-08-05)
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # 0.2.0 (2019-08-05)
 
