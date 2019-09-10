@@ -1,0 +1,58 @@
+//
+// Copyright IBM Corp. 2016, 2018
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import '../../globals/imports';
+
+@mixin leadspace {
+  .#{$prefix}--leadspace {
+    position: relative;
+    height: carbon--rem(560px);
+
+    &__image {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+
+    &__content {
+      padding: carbon--mini-units(4) 0 carbon--mini-units(4)
+        carbon--mini-units(4);
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    & h1 {
+      @include carbon--type-style(display-01);
+      margin-bottom: carbon--mini-units(4);
+    }
+
+    & p {
+      @include carbon--type-style(expressive-heading-03);
+    }
+
+    & button {
+      margin: carbon--mini-units(4) carbon--mini-units(2) 0 0;
+    }
+
+    &__lower-content {
+      position: absolute;
+      bottom: carbon--mini-units(4);
+    }
+  }
+
+  .#{prefix}--leadspace--productive {
+    & h1 {
+      @include carbon--type-style(expressive-heading-06);
+    }
+  }
+}
+
+@include exports('leadspace') {
+  @include leadspace;
+}
