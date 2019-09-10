@@ -9,25 +9,6 @@ All notable changes to this project will be documented in this file. See
 
 - **release:** reset versions to rc.0 temporarily
   ([e7c46ce](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/stylelint-config-ibmdotcom/commit/e7c46ce))
-
-# 0.4.0 (2019-09-09)
-
-### Bug Fixes
-
-- **packages:** renamed lint packages to be consistent
-  ([f5d8149](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/stylelint-config-ibmdotcom/commit/f5d8149))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
-# 0.3.0 (2019-09-09)
-
-# 0.3.0-rc.0 (2019-09-09)
-
-### Bug Fixes
-
 - **packages:** renamed lint packages to be consistent
   ([f5d8149](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/stylelint-config-ibmdotcom/commit/f5d8149))
 
