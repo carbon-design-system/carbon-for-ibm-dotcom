@@ -13,27 +13,27 @@ release_alpha () {
 
 # RC.0 minor release
 release_rc0_minor () {
-  ./node_modules/.bin/lerna publish preminor --exact --conventional-commits --conventional-prerelease --preid rc --no-git-tag-version
+  ./node_modules/.bin/lerna publish preminor --exact --conventional-commits --conventional-prerelease --preid rc
 }
 
 # RC.0 major release
 release_rc0_major () {
-  ./node_modules/.bin/lerna publish premajor --exact --conventional-commits --conventional-prerelease --preid rc --no-git-tag-version
+  ./node_modules/.bin/lerna publish premajor --exact --conventional-commits --conventional-prerelease --preid rc
 }
 
 # RC.1+ release
 release_rc1plus () {
-  ./node_modules/.bin/lerna publish --exact --conventional-commits --conventional-prerelease --preid rc --no-git-tag-version
+  ./node_modules/.bin/lerna publish --exact --conventional-commits --conventional-prerelease --preid rc
 }
 
 # Full minor release
 release_full_minor () {
-  ./node_modules/.bin/lerna publish minor --exact --conventional-commits --conventional-graduate --no-git-tag-version
+  ./node_modules/.bin/lerna publish minor --exact --conventional-commits --conventional-graduate
 }
 
 # Full major release
 release_full_major () {
-  ./node_modules/.bin/lerna publish major --exact --conventional-commits --conventional-graduate --no-git-tag-version
+  ./node_modules/.bin/lerna publish major --exact --conventional-commits --conventional-graduate
 }
 
 # Start in tasks/ even if run from root directory
