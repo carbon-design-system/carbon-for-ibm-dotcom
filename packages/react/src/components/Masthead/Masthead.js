@@ -82,15 +82,15 @@ const Masthead = ({ navigation }) => {
                 <IbmLogo data-autoid={`${prefix}--masthead__logo`} />
               </a>
             </div>
-            {navigation.platform ? (
-              <HeaderName
-                prefix=""
-                href={navigation.platform.path}
-                data-autoid={`${prefix}--masthead__platform-name`}>
-                {navigation.platform.name}
-              </HeaderName>
-            ) : null}
             <div className={`${prefix}--header__search`}>
+              {navigation.platform ? (
+                <HeaderName
+                  prefix=""
+                  href={navigation.platform.path}
+                  data-autoid={`${prefix}--masthead__platform-name`}>
+                  {navigation.platform.name}
+                </HeaderName>
+              ) : null}
               <HeaderNavigation
                 aria-label="IBM"
                 data-autoid={`${prefix}--masthead__l0-nav`}>
