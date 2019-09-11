@@ -28,7 +28,8 @@ import {
   SideNavMenu,
   SideNavMenuItem,
 } from 'carbon-components-react';
-import { ProfileAPI } from '@carbon/ibmdotcom-services';
+import { ProfileAPI, TranslationAPI } from '@carbon/ibmdotcom-services';
+// import { TranslationAPI } from '../../../../services/src/services/Translation';
 import MastheadSearch from './MastheadSearch';
 import MastheadProfile from './MastheadProfile';
 import cx from 'classnames';
@@ -43,7 +44,15 @@ const { prefix } = settings;
  * @returns {*} Masthead component
  */
 const Masthead = ({ navigation }) => {
+  /**
+   * Returns IBM.com authenticated status
+   *
+   * @param {boolean} isAuthenticated Whether the user is authenticated to IBM.com
+   * @returns {*} The user status
+   */
   const [isAuthenticated, setStatus] = useState(false);
+  const [mastheadData, setMastheadData] = useState([]);
+  const [profileData, setProfileData] = useState([]);
 
   useEffect(() => {
     /**
@@ -56,7 +65,52 @@ const Masthead = ({ navigation }) => {
     }
     const status = loginStatus();
     status.then(result => setStatus(result.user === 'Authenticated'));
+
+    /**
+     * Page data including masthead, footer, profile links
+     *
+     * @returns {*} Page data object
+     */
+    async function getPageData() {
+      return await TranslationAPI.getTranslation();
+    }
+    const pageData = getPageData();
+    pageData.then(result => {
+      setMastheadData(result.mastheadNav.links);
+      setProfileData(result.profileMenu);
+    });
   }, []);
+
+  const mastheadNav = mastheadData.map((link, i) => {
+    if (link.hasMenu) {
+      return (
+        <HeaderMenu
+          aria-label={link.title}
+          menuLinkName={link.title}
+          data-autoid={`${prefix}--masthead__l0-nav--nav-${i}`}>
+          {link.menuSections[0].menuItems[
+            i
+          ].megapanelContent.quickLinks.links.map((item, j) => {
+            return (
+              <HeaderMenuItem
+                href={item.url}
+                data-autoid={`masthead__l0-nav--subnav-${j}`}>
+                {item.title}
+              </HeaderMenuItem>
+            );
+          })}
+        </HeaderMenu>
+      );
+    } else {
+      return (
+        <HeaderMenuItem
+          href={link.url}
+          data-autoid={`${prefix}--masthead__l0-nav--nav-${i}`}>
+          {link.title}
+        </HeaderMenuItem>
+      );
+    }
+  });
 
   const navigationLinks = navigation.links;
 
@@ -91,37 +145,11 @@ const Masthead = ({ navigation }) => {
                   {navigation.platform.name}
                 </HeaderName>
               ) : null}
+
               <HeaderNavigation
                 aria-label="IBM"
                 data-autoid={`${prefix}--masthead__l0-nav`}>
-                {navigationLinks.map((item, index) => {
-                  if (item.subnav) {
-                    return (
-                      <HeaderMenu
-                        aria-label={item.name}
-                        menuLinkName={item.name}
-                        data-autoid={`${prefix}--masthead__l0-nav--nav-${index}`}>
-                        {item.subnav.map((subnav, index) => {
-                          return (
-                            <HeaderMenuItem
-                              href={subnav.path}
-                              data-autoid={`masthead__l0-nav--subnav-${index}`}>
-                              {subnav.name}
-                            </HeaderMenuItem>
-                          );
-                        })}
-                      </HeaderMenu>
-                    );
-                  } else {
-                    return (
-                      <HeaderMenuItem
-                        href={item.path}
-                        data-autoid={`${prefix}--masthead__l0-nav--nav-${index}`}>
-                        {item.name}
-                      </HeaderMenuItem>
-                    );
-                  }
-                })}
+                {mastheadNav}
               </HeaderNavigation>
               <MastheadSearch />
             </div>
@@ -138,6 +166,11 @@ const Masthead = ({ navigation }) => {
                     renderIcon: () =>
                       isAuthenticated ? <UserOnline20 /> : <User20 />,
                   }}
+                  profileMenu={
+                    isAuthenticated
+                      ? profileData.signedin
+                      : profileData.signedout
+                  }
                 />
               </HeaderGlobalAction>
             </HeaderGlobalBar>
