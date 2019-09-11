@@ -1,7 +1,5 @@
-import {
-  featureFlag,
-  FOOTER_LOCALE_BUTTON,
-} from '../../internal/FeatureFlags.js';
+import { FOOTER_LOCALE_BUTTON } from '../../internal/FeatureFlags.js';
+import { featureFlag } from '@carbon/ibmdotcom-utilities';
 
 import React, { useState } from 'react';
 import {
