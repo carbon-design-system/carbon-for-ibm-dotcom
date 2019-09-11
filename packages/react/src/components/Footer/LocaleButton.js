@@ -1,5 +1,3 @@
-import { FeatureFlagContext } from '../../internal/FeatureFlagsContext';
-
 import React, { useState } from 'react';
 import {
   Button,
@@ -20,7 +18,7 @@ const { prefix } = settings;
  */
 const LocaleButton = () => {
   const [isOpen, setIsOpen] = useState(false);
-  return thisFeatureFlag(
+  return window.localeButton ? (
     <div className={`${prefix}--locale-btn__container`}>
       <Button
         data-autoid="locale-btn"
@@ -43,7 +41,7 @@ const LocaleButton = () => {
         </ModalBody>
       </ComposedModal>
     </div>
-  );
+  ) : null;
 
   /**
    * Sets modal state to open
@@ -61,24 +59,6 @@ const LocaleButton = () => {
    */
   function close() {
     setIsOpen(false);
-  }
-
-  /**
-   * feature flag context consumer
-   *
-   * @param {string} jsx jsx
-   * @private
-   * @returns {object} JSX object
-   */
-  function thisFeatureFlag(jsx) {
-    return (
-      <FeatureFlagContext.Consumer>
-        {featureFlags => {
-          console.log(featureFlags);
-          return featureFlags.localeButton ? jsx : null;
-        }}
-      </FeatureFlagContext.Consumer>
-    );
   }
 };
 
