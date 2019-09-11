@@ -10,6 +10,18 @@
  */
 
 /**
+ * Helper function for rendering feature flag
+ *
+ * @param {string} flag identifies which flag is used
+ * @param {string} jsx pass in the jsx to render conditionally
+ * @private
+ * @returns {object} JSX object
+ */
+export const featureFlag = (flag, jsx) => {
+  return flag ? jsx : null;
+};
+
+/**
  * This determines if the locale selector will be rendered or not
  *
  * @type {string | boolean}
