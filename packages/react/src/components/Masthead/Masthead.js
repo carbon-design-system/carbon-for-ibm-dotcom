@@ -29,9 +29,9 @@ import {
   SideNavMenuItem,
 } from 'carbon-components-react';
 import { ProfileAPI, TranslationAPI } from '@carbon/ibmdotcom-services';
-// import { TranslationAPI } from '../../../../services/src/services/Translation';
 import MastheadSearch from './MastheadSearch';
 import MastheadProfile from './MastheadProfile';
+import MastheadTopNav from './MastheadTopNav';
 import cx from 'classnames';
 
 const { prefix } = settings;
@@ -52,7 +52,7 @@ const Masthead = ({ navigation }) => {
    */
   const [isAuthenticated, setStatus] = useState(false);
   const [mastheadData, setMastheadData] = useState([]);
-  const [profileData, setProfileData] = useState([]);
+  const [profileData, setProfileData] = useState({signedin: [], signedout: []});
 
   useEffect(() => {
     /**
@@ -81,38 +81,76 @@ const Masthead = ({ navigation }) => {
     });
   }, []);
 
-  const mastheadNav = mastheadData.map((link, i) => {
+  /**
+   * Top masthead navigation
+   *
+   * @returns {*} Top masthead navigation
+   */
+  // const mastheadNav = mastheadData.map((link, i) => {
+  //   if (link.hasMenu) {
+  //     return (
+  //       <HeaderMenu
+  //         aria-label={link.title}
+  //         menuLinkName={link.title}
+  //         data-autoid={`${prefix}--masthead__l0-nav--nav-${i}`}>
+  //         {link.menuSections[0].menuItems[
+  //           i
+  //         ].megapanelContent.quickLinks.links.map((item, j) => {
+  //           return (
+  //             <HeaderMenuItem
+  //               href={item.url}
+  //               data-autoid={`masthead__l0-nav--subnav-${j}`}>
+  //               {item.title}
+  //             </HeaderMenuItem>
+  //           );
+  //         })}
+  //       </HeaderMenu>
+  //     );
+  //   } else {
+  //     return (
+  //       <HeaderMenuItem
+  //         href={link.url}
+  //         data-autoid={`${prefix}--masthead__l0-nav--nav-${i}`}>
+  //         {link.title}
+  //       </HeaderMenuItem>
+  //     );
+  //   }
+  // });
+
+  /**
+   * Left navigation
+   *
+   * @returns {*} Left navigation
+   */
+   const sideNav = mastheadData.map((link, i) => {
     if (link.hasMenu) {
       return (
-        <HeaderMenu
-          aria-label={link.title}
-          menuLinkName={link.title}
-          data-autoid={`${prefix}--masthead__l0-nav--nav-${i}`}>
-          {link.menuSections[0].menuItems[
+        <SideNavMenu aria-label={link.title} title={link.title}>
+        {link.menuSections[0].menuItems[
             i
           ].megapanelContent.quickLinks.links.map((item, j) => {
-            return (
-              <HeaderMenuItem
-                href={item.url}
-                data-autoid={`masthead__l0-nav--subnav-${j}`}>
-                {item.title}
-              </HeaderMenuItem>
+          return (
+            <SideNavMenuItem
+            href={item.url}
+            data-autoid={`${prefix}--masthead__l0-sidenav--subnav-${j}`}>
+            {item.title}
+            </SideNavMenuItem>
             );
-          })}
-        </HeaderMenu>
+        })}
+        </SideNavMenu>
       );
     } else {
       return (
-        <HeaderMenuItem
-          href={link.url}
-          data-autoid={`${prefix}--masthead__l0-nav--nav-${i}`}>
-          {link.title}
-        </HeaderMenuItem>
+        <SideNavLink
+        href={link.url}
+        data-autoid={`${prefix}--masthead__l0-sidenav--nav-${i}`}>
+        {link.title}
+        </SideNavLink>
       );
     }
-  });
+   });
 
-  const navigationLinks = navigation.links;
+  // const navigationLinks = navigation.links;
 
   const className = cx({
     [`${prefix}--header__logo`]: true,
@@ -149,7 +187,7 @@ const Masthead = ({ navigation }) => {
               <HeaderNavigation
                 aria-label="IBM"
                 data-autoid={`${prefix}--masthead__l0-nav`}>
-                {mastheadNav}
+                <MastheadTopNav navigation={mastheadData} />
               </HeaderNavigation>
               <MastheadSearch />
             </div>
@@ -166,11 +204,7 @@ const Masthead = ({ navigation }) => {
                     renderIcon: () =>
                       isAuthenticated ? <UserOnline20 /> : <User20 />,
                   }}
-                  profileMenu={
-                    isAuthenticated
-                      ? profileData.signedin
-                      : profileData.signedout
-                  }
+                  profileMenu={isAuthenticated ? profileData.signedin : profileData.signedout}
                 />
               </HeaderGlobalAction>
             </HeaderGlobalBar>
@@ -182,31 +216,7 @@ const Masthead = ({ navigation }) => {
               <div data-autoid={`${prefix}--masthead__l0-sidenav`}>
                 <SideNavItems>
                   <HeaderSideNavItems>
-                    {navigationLinks.map((item, index) => {
-                      if (item.subnav) {
-                        return (
-                          <SideNavMenu aria-label={item.name} title={item.name}>
-                            {item.subnav.map((subnav, index) => {
-                              return (
-                                <SideNavMenuItem
-                                  href={subnav.path}
-                                  data-autoid={`${prefix}--masthead__l0-sidenav--subnav-${index}`}>
-                                  {subnav.name}
-                                </SideNavMenuItem>
-                              );
-                            })}
-                          </SideNavMenu>
-                        );
-                      } else {
-                        return (
-                          <SideNavLink
-                            href={item.path}
-                            data-autoid={`${prefix}--masthead__l0-sidenav--nav-${index}`}>
-                            {item.name}
-                          </SideNavLink>
-                        );
-                      }
-                    })}
+                    {sideNav}
                   </HeaderSideNavItems>
                 </SideNavItems>
               </div>
