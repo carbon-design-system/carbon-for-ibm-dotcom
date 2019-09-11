@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, text } from '@storybook/addon-knobs';
+import { withKnobs, text, select, object } from '@storybook/addon-knobs';
 import '../../../../../styles/scss/components/leadspace/_leadspace.scss';
 import LeadSpace from '../LeadSpace';
 import readme from '../README.md';
@@ -20,17 +20,23 @@ storiesOf('LeadSpace', module)
 
     const title = text('title', 'Lead space title');
 
-    const imageUrl = text('imageUrl', 'https://picsum.photos/id/603/1000/400');
+    const variations = {
+      expressive: '',
+      productive: 'productive',
+    };
+
+    const imageUrl = text('imageUrl', 'https://picsum.photos/1000/400');
+
     const buttons = [
       {
         link: '',
-        copy: 'Secondary action',
-        arrowIcon: false,
+        copy: 'Primary action',
+        renderArrow: true,
       },
       {
         link: '',
-        copy: 'Primary action',
-        arrowIcon: true,
+        copy: 'Secondary action',
+        renderArrow: false,
       },
     ];
 
@@ -38,8 +44,9 @@ storiesOf('LeadSpace', module)
       <LeadSpace
         title={title}
         copy={copy}
-        buttons={buttons}
+        buttons={object('buttons', buttons)}
         imageUrl={imageUrl}
+        variation={select('variation', variations, '')}
       />
     );
   });

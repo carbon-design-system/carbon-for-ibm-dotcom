@@ -8,6 +8,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classnames from 'classnames';
+import { ArrowRight20 } from '@carbon/icons-react';
 import { settings } from 'carbon-components';
 import { Button } from 'carbon-components-react';
 
@@ -20,8 +21,16 @@ const { prefix } = settings;
  * @returns {*} button components
  */
 function renderButtons(buttons) {
-  return buttons.map(button => {
-    return <Button href={button.link}>{button.copy}</Button>;
+  return buttons.map((button, key) => {
+    if (key > 1) return;
+    return (
+      <Button
+        renderIcon={button.renderArrow && ArrowRight20}
+        href={button.link}
+        kind={key === 0 ? 'primary' : 'tertiary'}>
+        {button.copy}
+      </Button>
+    );
   });
 }
 
@@ -42,11 +51,11 @@ const LeadSpace = ({ variation, title, copy, buttons, imageUrl }) => (
       [`${prefix}--leadspace--productive`]: variation === 'productive',
     })}>
     <img className={`${prefix}--leadspace__image`} src={imageUrl} alt="" />
-    <div className={`${prefix}--leadspace__content`}>
+    <div className={`${prefix}--leadspace__content-container`}>
       <h1>{title}</h1>
-      <div className={`${prefix}--leadspace__lower-content`}>
+      <div className={`${prefix}--leadspace__content`}>
         <p>{copy}</p>
-        {renderButtons(buttons)}
+        <div>{renderButtons(buttons)}</div>
       </div>
     </div>
   </div>
@@ -56,7 +65,7 @@ LeadSpace.propTypes = {
   buttons: PropTypes.array,
   copy: PropTypes.string,
   imageUrl: PropTypes.string,
-  title: PropTypes.string,
+  title: PropTypes.string.isRequired,
   variation: PropTypes.string,
 };
 

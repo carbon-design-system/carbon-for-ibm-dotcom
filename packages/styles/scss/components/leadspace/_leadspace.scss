@@ -6,6 +6,7 @@
 //
 
 @import '../../globals/imports';
+@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/grid/grid';
 
 @mixin leadspace {
   .#{$prefix}--leadspace {
@@ -18,37 +19,47 @@
       height: 100%;
     }
 
-    &__content {
+    &__content-container {
       padding: carbon--mini-units(4) 0 carbon--mini-units(4)
         carbon--mini-units(4);
       position: absolute;
       top: 0;
-      width: 100%;
       height: 100%;
+      width: 100%;
     }
 
-    & h1 {
+    h1 {
       @include carbon--type-style(display-01);
-      margin-bottom: carbon--mini-units(4);
+      @include carbon--make-col(7, 16);
     }
 
-    & p {
+    p {
       @include carbon--type-style(expressive-heading-03);
+      @include carbon--make-col(4, 16);
     }
 
-    & button {
+    button {
       margin: carbon--mini-units(4) carbon--mini-units(2) 0 0;
     }
 
-    &__lower-content {
+    button:nth-child(2) {
+      float: left;
+    }
+
+    &__content {
       position: absolute;
+      width: 100%;
       bottom: carbon--mini-units(4);
     }
   }
 
   .#{prefix}--leadspace--productive {
-    & h1 {
+    position: relative;
+    height: carbon--rem(560px);
+
+    h1 {
       @include carbon--type-style(expressive-heading-06);
+      @include carbon--make-col(8, 16);
     }
   }
 }
