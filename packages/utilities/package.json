@@ -1,7 +1,7 @@
 {
   "name": "@carbon/ibmdotcom-utilities",
   "description": "IBM.com Library Utilities",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "license": "Apache-2.0",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -80,5 +80,5 @@
   "release": {
     "branch": "master"
   },
-  "gitHead": "7011e424c53bf6494178e2d22ed738e07acc64d0"
+  "gitHead": "37ae2adac6241513f4d1974505a207705e9e2784"
 }

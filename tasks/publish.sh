@@ -11,24 +11,29 @@ release_alpha () {
   ./node_modules/.bin/lerna publish --canary minor --dist-tag canary --no-push --no-git-tag-version --force-publish=*
 }
 
-# RC.0 release
-release_rc0 () {
-  ./node_modules/.bin/lerna publish preminor --exact --conventional-commits --conventional-prerelease --preid rc --no-git-tag-version
+# RC.0 minor release
+release_rc0_minor () {
+  ./node_modules/.bin/lerna publish preminor --exact --conventional-commits --conventional-prerelease --preid rc
+}
+
+# RC.0 major release
+release_rc0_major () {
+  ./node_modules/.bin/lerna publish premajor --exact --conventional-commits --conventional-prerelease --preid rc
 }
 
 # RC.1+ release
 release_rc1plus () {
-  ./node_modules/.bin/lerna publish --exact --conventional-commits --conventional-prerelease --preid rc --no-git-tag-version
+  ./node_modules/.bin/lerna publish --exact --conventional-commits --conventional-prerelease --preid rc
 }
 
 # Full minor release
 release_full_minor () {
-  ./node_modules/.bin/lerna publish minor --exact --conventional-commits --no-git-tag-version --force-publish=*
+  ./node_modules/.bin/lerna publish minor --exact --conventional-commits --conventional-graduate
 }
 
 # Full major release
 release_full_major () {
-  ./node_modules/.bin/lerna publish major --exact --conventional-commits --no-git-tag-version
+  ./node_modules/.bin/lerna publish major --exact --conventional-commits --conventional-graduate
 }
 
 # Start in tasks/ even if run from root directory
@@ -99,7 +104,8 @@ done
 echo "What type of release are you running?"
 options_release=(
   "alpha release"
-  "rc.0 (first release candidate)"
+  "rc.0 minor (first release candidate)"
+  "rc.0 major (first release candidate)"
   "rc.1+ (subsequent release candidates)"
   "full release (minor)"
   "full release (major)"
@@ -114,10 +120,16 @@ do
           release_alpha
           exit 1
           ;;
-        "rc.0 (first release candidate)")
-          echo "Creating rc.0 release..."
+        "rc.0 minor (first release candidate)")
+          echo "Creating minor rc.0 release..."
           set -x
-          release_rc0
+          release_rc0_minor
+          exit 1
+          ;;
+        "rc.0 major (first release candidate)")
+          echo "Creating major rc.0 release..."
+          set -x
+          release_rc0_major
           exit 1
           ;;
         "rc.1+ (subsequent release candidates)")
