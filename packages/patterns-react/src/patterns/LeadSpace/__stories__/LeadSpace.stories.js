@@ -2,6 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, select, object } from '@storybook/addon-knobs';
 import '../../../../../styles/scss/components/leadspace/_leadspace.scss';
+import 'carbon-components/scss/components/button/_button.scss';
 import LeadSpace from '../LeadSpace';
 import readme from '../README.md';
 
