@@ -1,5 +1,4 @@
-import { FOOTER_LOCALE_BUTTON } from '../../internal/FeatureFlags.js';
-import { featureFlag } from '@carbon/ibmdotcom-utilities';
+import { FeatureFlagContext } from '../../internal/FeatureFlagsContext';
 
 import React, { useState } from 'react';
 import {
@@ -21,9 +20,7 @@ const { prefix } = settings;
  */
 const LocaleButton = () => {
   const [isOpen, setIsOpen] = useState(false);
-
-  return featureFlag(
-    FOOTER_LOCALE_BUTTON,
+  return thisFeatureFlag(
     <div className={`${prefix}--locale-btn__container`}>
       <Button
         data-autoid="locale-btn"
@@ -64,6 +61,24 @@ const LocaleButton = () => {
    */
   function close() {
     setIsOpen(false);
+  }
+
+  /**
+   * feature flag context consumer
+   *
+   * @param {string} jsx jsx
+   * @private
+   * @returns {object} JSX object
+   */
+  function thisFeatureFlag(jsx) {
+    return (
+      <FeatureFlagContext.Consumer>
+        {featureFlags => {
+          console.log(featureFlags);
+          return featureFlags.localeButton ? jsx : null;
+        }}
+      </FeatureFlagContext.Consumer>
+    );
   }
 };
 
