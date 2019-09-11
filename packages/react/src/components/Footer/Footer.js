@@ -85,6 +85,3 @@ Footer.propTypes = {
 };
 
 export default Footer;
-
-// api for reference later
-// https://www.ibm.com/common/v18/js/data/usen.js
