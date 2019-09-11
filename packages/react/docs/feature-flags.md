@@ -54,9 +54,9 @@ import { featureFlag } from '@carbon/ibmdotcom-utilities';
  * @private
  * @class
  */
-const FeatureName = () => <div>Lorem Ipsum</div>;
+const FeatureName = () => featureFlag(aFeatureFlag, <div>Lorem Ipsum</div>);
 
-export default aFeatureFlag ? FeatureName : null;
+export default FeatureName;
 ```
 
 The feature can also be selectively injected into another component using the
@@ -79,7 +79,7 @@ class MyComponent extends React.Component {
     return (
       <div>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        {aFeatureFlag ? <FeatureName /> : null}
+        {featureFlag(aFeatureFlag, <FeatureName />)}
       </div>
     );
   }
