@@ -1,3 +1,8 @@
+import {
+  featureFlag,
+  FOOTER_LOCALE_BUTTON,
+} from '../../internal/FeatureFlags.js';
+
 import React, { useState } from 'react';
 import {
   Button,
@@ -18,7 +23,9 @@ const { prefix } = settings;
  */
 const LocaleButton = () => {
   const [isOpen, setIsOpen] = useState(false);
-  return window.localeButton ? (
+
+  return featureFlag(
+    FOOTER_LOCALE_BUTTON,
     <div className={`${prefix}--locale-btn__container`}>
       <Button
         data-autoid="locale-btn"
@@ -41,7 +48,7 @@ const LocaleButton = () => {
         </ModalBody>
       </ComposedModal>
     </div>
-  ) : null;
+  );
 
   /**
    * Sets modal state to open

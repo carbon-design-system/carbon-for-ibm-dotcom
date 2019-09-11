@@ -26,5 +26,5 @@ export const featureFlag = (flag, jsx) => {
  *
  * @type {string | boolean}
  */
-export const footerLocaleButton =
-  process.env.FOOTER_LOCALE_BTN === 'true' || false;
+export const FOOTER_LOCALE_BUTTON =
+  process.env.FOOTER_LOCALE_BUTTON === 'true' || false;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean, select } from '@storybook/addon-knobs';
+import { withKnobs, select } from '@storybook/addon-knobs';
 import { Footer } from '../';
 import readme from '../README.md';
 
@@ -14,6 +14,14 @@ storiesOf('Footer', module)
     },
   })
   .add('Default', () => {
-    window.localeButton = boolean('Feature Flag localeButton', false);
-    return <Footer type={select('type', { tall: '', short: 'short' }, '')} />;
+    const footerTypeOptions = {
+      tall: '',
+      short: 'short',
+    };
+
+    return (
+      <Footer
+        type={select('type', footerTypeOptions, footerTypeOptions.tall)}
+      />
+    );
   });
