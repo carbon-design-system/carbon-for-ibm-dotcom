@@ -44,7 +44,8 @@ For example:
 ```javascript
 import React from 'react';
 import PropTypes from 'prop-types';
-import { aFeatureFlag } from '../../internal/FeatureFlags';
+import { FOOTER_LOCALE_BUTTON } from '../../internal/FeatureFlags.js';
+import { featureFlag } from '@carbon/ibmdotcom-utilities';
 
 /**
  * EXPERIMENTAL: Renders Lorem ipsum component
@@ -53,9 +54,9 @@ import { aFeatureFlag } from '../../internal/FeatureFlags';
  * @private
  * @class
  */
-const FeatureName = () => <div>Lorem Ipsum</div>;
+const FeatureName = () => featureFlag(aFeatureFlag, <div>Lorem Ipsum</div>);
 
-export default aFeatureFlag ? FeatureName : null;
+export default FeatureName;
 ```
 
 The feature can also be selectively injected into another component using the
@@ -63,7 +64,8 @@ feature flag:
 
 ```javascript
 import React from 'react';
-import { aFeatureFlag } from '../../internal/FeatureFlags';
+import { FOOTER_LOCALE_BUTTON } from '../../internal/FeatureFlags.js';
+import { featureFlag } from '@carbon/ibmdotcom-utilities';
 import FeatureName from './FeatureName';
 
 /** Footer component */
@@ -77,7 +79,7 @@ class MyComponent extends React.Component {
     return (
       <div>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        {aFeatureFlag ? <FeatureName /> : null}
+        {featureFlag(aFeatureFlag, <FeatureName />)}
       </div>
     );
   }

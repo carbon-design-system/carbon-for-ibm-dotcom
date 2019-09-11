@@ -44,7 +44,8 @@ For example:
 ```javascript
 import React from 'react';
 import PropTypes from 'prop-types';
-import { aFeatureFlag } from '../../internal/FeatureFlags';
+import { aFeatureFlag } from '../../internal/FeatureFlags.js';
+import { featureFlag } from '@carbon/ibmdotcom-utilities';
 
 /**
  * EXPERIMENTAL: Renders Lorem ipsum component
@@ -63,7 +64,8 @@ feature flag:
 
 ```javascript
 import React from 'react';
-import { aFeatureFlag } from '../../internal/FeatureFlags';
+import { aFeatureFlag } from '../../internal/FeatureFlags.js';
+import { featureFlag } from '@carbon/ibmdotcom-utilities';
 import FeatureName from './FeatureName';
 
 /** Footer component */
