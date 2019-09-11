@@ -1,10 +1,9 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs } from '@storybook/addon-knobs';
-import '../../../../../styles/scss/patterns/leadspace/_leadspace.scss';
-import readme from '../README.md';
-
+import { withKnobs, text, select, object } from '@storybook/addon-knobs';
+import '../../../../../styles/scss/components/leadspace/_leadspace.scss';
 import LeadSpace from '../LeadSpace';
+import readme from '../README.md';
 
 storiesOf('LeadSpace', module)
   .addDecorator(withKnobs)
@@ -14,5 +13,40 @@ storiesOf('LeadSpace', module)
     },
   })
   .add('Default', () => {
-    return <LeadSpace />;
+    const copy = text(
+      'copy',
+      'Use this area for a short line of copy to support the title'
+    );
+
+    const title = text('title', 'Lead space title');
+
+    const variations = {
+      expressive: '',
+      productive: 'productive',
+    };
+
+    const imageUrl = text('imageUrl', 'https://picsum.photos/id/1025/1000/400');
+
+    const buttons = [
+      {
+        link: '',
+        copy: 'Primary action',
+        renderArrow: true,
+      },
+      {
+        link: '',
+        copy: 'Secondary action',
+        renderArrow: false,
+      },
+    ];
+
+    return (
+      <LeadSpace
+        title={title}
+        copy={copy}
+        buttons={object('buttons', buttons)}
+        imageUrl={imageUrl}
+        variation={select('variation', variations, '')}
+      />
+    );
   });
