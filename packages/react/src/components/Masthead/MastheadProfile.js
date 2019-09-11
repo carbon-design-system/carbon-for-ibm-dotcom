@@ -15,22 +15,34 @@ import { OverflowMenu, OverflowMenuItem } from 'carbon-components-react';
  * @param {object} props Incoming props
  * @returns {*} Masthead Profile component
  */
-const MastheadProfile = ({ overflowMenuProps, overflowMenuItemProps }) => {
-  return (
-    <OverflowMenu {...overflowMenuProps}>
-      <OverflowMenuItem {...overflowMenuItemProps} itemText="My IBM" />
+const MastheadProfile = ({
+  overflowMenuProps,
+  overflowMenuItemProps,
+  profileMenu,
+}) => {
+  /**
+   * Masthead profile menu
+   *
+   * @returns {*} Masthead profile menu
+   */
+  const profileNav = profileMenu.map((item, i) => {
+    return (
       <OverflowMenuItem
         {...overflowMenuItemProps}
-        itemText="Log in"
-        hasDivider
+        itemText={item.title}
+        href={item.url}
+        hasDivider={i > 0}
       />
-    </OverflowMenu>
-  );
+    );
+  });
+
+  return <OverflowMenu {...overflowMenuProps}>{profileNav}</OverflowMenu>;
 };
 
 MastheadProfile.propTypes = {
   overflowMenuProps: PropTypes.object,
   overflowMenuItemProps: PropTypes.object,
+  profileMenu: PropTypes.object,
 };
 
 export default MastheadProfile;
