@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, select, object } from '@storybook/addon-knobs';
-import '../../../../../styles/scss/patterns/leadspace/_leadspace.scss';
+import '../../../../../styles/scss/patterns/leadspace/index.scss';
 import 'carbon-components/scss/components/button/_button.scss';
 import LeadSpace from '../LeadSpace';
 import readme from '../README.md';
@@ -46,8 +46,14 @@ storiesOf('LeadSpace', module)
       },
     ];
 
+    const themes = {
+      dark: 'g100',
+      light: 'white',
+    };
+
     return (
       <LeadSpace
+        classname={select('theme', themes, 'g100')}
         title={title}
         copy={copy}
         buttons={object('buttons', buttons)}

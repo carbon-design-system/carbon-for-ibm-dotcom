@@ -39,17 +39,23 @@ function renderButtons(buttons) {
  *
  * @param {object} props props object
  * @param {string} props.variation variation of the lead space (expressive (default) or productive)
+ * @param {string} props.classname classname
  * @param {string} props.title lead space title
  * @param {string} props.copy lead space short copy to support the title
  * @param {object} props.image image object with diff source for diff breakpoints
  * @param {Array} props.buttons array of buttons for lead space (max 2 buttons)
  * @returns {*} Lead space component
  */
-const LeadSpace = ({ variation, title, copy, buttons, image }) => (
+const LeadSpace = ({ variation, title, copy, buttons, image, classname }) => (
   <section
-    className={classnames(`${prefix}--leadspace`, {
-      [`${prefix}--leadspace--productive`]: variation === 'productive',
-    })}>
+    data-autoid="leadspace"
+    className={classnames(
+      `${prefix}--leadspace`,
+      `${prefix}--leadspace--${classname}`,
+      {
+        [`${prefix}--leadspace--productive`]: variation === 'productive',
+      }
+    )}>
     <picture>
       <img
         className={`${prefix}--leadspace__image`}
@@ -71,8 +77,14 @@ const LeadSpace = ({ variation, title, copy, buttons, image }) => (
 
 LeadSpace.propTypes = {
   buttons: PropTypes.array,
+  classname: PropTypes.string,
   copy: PropTypes.string,
-  image: PropTypes.object,
+  image: PropTypes.shape({
+    mobile: PropTypes.string,
+    tablet: PropTypes.string,
+    default: PropTypes.string,
+    alt: PropTypes.string,
+  }),
   title: PropTypes.string.isRequired,
   variation: PropTypes.string,
 };

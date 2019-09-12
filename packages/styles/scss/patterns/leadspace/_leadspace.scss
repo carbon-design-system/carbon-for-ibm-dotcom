@@ -12,6 +12,7 @@
   .#{$prefix}--leadspace {
     position: relative;
     height: carbon--rem(480px);
+    background: $ui-background;
 
     &__image {
       object-fit: cover;

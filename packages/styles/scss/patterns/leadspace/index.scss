@@ -1,0 +1,8 @@
+@import '@carbon/themes/scss/themes';
+@import './leadspace';
+
+.bx--leadspace--g100 {
+  @include carbon--theme($carbon--theme--g100) {
+    @include leadspace;
+  }
+}
