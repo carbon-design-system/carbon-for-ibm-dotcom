@@ -20,13 +20,13 @@ const { prefix } = settings;
  * @returns {object} JSX object
  */
 const FooterNav = ({ groups }) => {
-  return (
+  return groups ? (
     <nav data-autoid="footer-nav" className={`${prefix}--footer-nav`}>
       <div className={`${prefix}--footer-nav__container`}>
         <Accordion>{renderGroups(groups)}</Accordion>
       </div>
     </nav>
-  );
+  ) : null;
 };
 
 /**

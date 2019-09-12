@@ -5,16 +5,17 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { settings } from 'carbon-components';
+import { TranslationAPI } from '@carbon/ibmdotcom-services';
 import classNames from 'classnames';
 import FooterLogo from './FooterLogo';
 import FooterNav from './FooterNav';
 import LegalNav from './LegalNav';
 
-import footerMenuData from './__stories__/data/footer-menu';
-import footerLegalData from './__stories__/data/footer-legal';
+// import footerMenuData from './__stories__/data/footer-menu';
+// import footerLegalData from './__stories__/data/footer-legal';
 
 const { prefix } = settings;
 
@@ -25,28 +26,40 @@ const { prefix } = settings;
  * @returns {object} JSX object
  */
 const Footer = ({ type }) => {
-  return (
+  const [footerMenuData, setFooterMenuData] = useState([]);
+  const [footerLegalData, setFooterLegalData] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      const response = await TranslationAPI.getTranslation();
+      setFooterMenuData(response.footerMenu);
+      setFooterLegalData(response.footerThin);
+    })();
+  }, []);
+
+  return footerMenuData && footerLegalData ? (
     <footer
       data-autoid="footer"
       className={classNames(`${prefix}--footer`, setFooterType(type))}>
       <section className={`${prefix}--footer__main`}>
         <div className={`${prefix}--footer__main-container`}>
           <FooterLogo />
-          {optionalFooterNav(type)}
+          {optionalFooterNav(type, footerMenuData)}
         </div>
       </section>
       <LegalNav links={footerLegalData} />
     </footer>
-  );
+  ) : null;
 };
 
 /**
  * renders optional footer nav for tall
  *
  * @param {string} type type of footer in use
+ * @param {string} footerMenuData footer menu data
  * @returns {object} JSX object
  */
-function optionalFooterNav(type) {
+function optionalFooterNav(type, footerMenuData) {
   if (type !== 'short') {
     return <FooterNav groups={footerMenuData} />;
   }
