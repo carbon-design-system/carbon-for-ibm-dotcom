@@ -23,7 +23,6 @@ const { prefix } = settings;
 function renderButtons(buttons) {
   return buttons.map((button, key) => {
     if (key > 1) return;
-    console.log('Button', <Button />);
     return (
       <Button
         renderIcon={button.renderArrow && ArrowRight20}
@@ -42,30 +41,38 @@ function renderButtons(buttons) {
  * @param {string} props.variation variation of the lead space (expressive (default) or productive)
  * @param {string} props.title lead space title
  * @param {string} props.copy lead space short copy to support the title
- * @param {string} props.imageUrl lead space image
+ * @param {object} props.image image object with diff source for diff breakpoints
  * @param {Array} props.buttons array of buttons for lead space (max 2 buttons)
  * @returns {*} Lead space component
  */
-const LeadSpace = ({ variation, title, copy, buttons, imageUrl }) => (
-  <div
+const LeadSpace = ({ variation, title, copy, buttons, image }) => (
+  <section
     className={classnames(`${prefix}--leadspace`, {
       [`${prefix}--leadspace--productive`]: variation === 'productive',
     })}>
-    <img className={`${prefix}--leadspace__image`} src={imageUrl} alt="" />
-    <div className={`${prefix}--leadspace__content-container`}>
+    <picture>
+      <img
+        className={`${prefix}--leadspace__image`}
+        src={image.default}
+        alt={image.alt}
+      />
+    </picture>
+    <div className={`${prefix}--leadspace__container`}>
       <h1>{title}</h1>
       <div className={`${prefix}--leadspace__content`}>
         <p>{copy}</p>
-        <div>{renderButtons(buttons)}</div>
+        <div className={`${prefix}--leadspace__ctas`}>
+          {renderButtons(buttons)}
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 );
 
 LeadSpace.propTypes = {
   buttons: PropTypes.array,
   copy: PropTypes.string,
-  imageUrl: PropTypes.string,
+  image: PropTypes.object,
   title: PropTypes.string.isRequired,
   variation: PropTypes.string,
 };
