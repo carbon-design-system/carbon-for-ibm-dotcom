@@ -27,9 +27,9 @@ storiesOf('LeadSpace', module)
     };
 
     const image = {
-      mobile: 'https://picsum.photos/id/1025/672/400',
+      mobile: 'https://picsum.photos/id/1025/320/370',
       tablet: 'https://picsum.photos/id/1025/672/400',
-      default: 'https://picsum.photos/id/1025/672/400',
+      default: 'https://picsum.photos/id/1025/1056/480',
       alt: 'lead space image',
     };
 
