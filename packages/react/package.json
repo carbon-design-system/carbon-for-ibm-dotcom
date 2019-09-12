@@ -1,7 +1,7 @@
 {
   "name": "@carbon/ibmdotcom-react",
   "description": "IBM.com Library React Components",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "license": "Apache-2.0",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -48,9 +48,9 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.5.5",
-    "@carbon/ibmdotcom-services": "^0.4.0-alpha.291",
-    "@carbon/ibmdotcom-styles": "^0.4.0-alpha.291",
-    "@carbon/ibmdotcom-utilities": "^0.4.0-alpha.291",
+    "@carbon/ibmdotcom-services": "0.4.0",
+    "@carbon/ibmdotcom-styles": "0.4.0",
+    "@carbon/ibmdotcom-utilities": "0.4.0",
     "autosuggest-highlight": "^3.1.1",
     "classnames": "2.2.6",
     "react-autosuggest": "^9.4.3",
@@ -143,5 +143,5 @@
   "release": {
     "branch": "master"
   },
-  "gitHead": "7011e424c53bf6494178e2d22ed738e07acc64d0"
+  "gitHead": "37ae2adac6241513f4d1974505a207705e9e2784"
 }
