@@ -14,9 +14,6 @@ import FooterLogo from './FooterLogo';
 import FooterNav from './FooterNav';
 import LegalNav from './LegalNav';
 
-// import footerMenuData from './__stories__/data/footer-menu';
-// import footerLegalData from './__stories__/data/footer-legal';
-
 const { prefix } = settings;
 
 /**
@@ -37,7 +34,7 @@ const Footer = ({ type }) => {
     })();
   }, []);
 
-  return footerMenuData && footerLegalData ? (
+  return (
     <footer
       data-autoid="footer"
       className={classNames(`${prefix}--footer`, setFooterType(type))}>
@@ -49,19 +46,19 @@ const Footer = ({ type }) => {
       </section>
       <LegalNav links={footerLegalData} />
     </footer>
-  ) : null;
+  );
 };
 
 /**
  * renders optional footer nav for tall
  *
  * @param {string} type type of footer in use
- * @param {string} footerMenuData footer menu data
+ * @param {string} data footer menu data
  * @returns {object} JSX object
  */
-function optionalFooterNav(type, footerMenuData) {
+function optionalFooterNav(type, data) {
   if (type !== 'short') {
-    return <FooterNav groups={footerMenuData} />;
+    return <FooterNav groups={data} />;
   }
 }
 
