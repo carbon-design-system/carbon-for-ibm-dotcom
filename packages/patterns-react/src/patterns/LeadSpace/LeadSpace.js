@@ -25,6 +25,7 @@ function renderButtons(buttons) {
     if (key > 1) return;
     return (
       <Button
+        data-autoid={`leadspace__cta-${key}`}
         renderIcon={button.renderArrow && ArrowRight20}
         href={button.link}
         kind={key === 0 ? 'primary' : 'tertiary'}>

@@ -6,7 +6,6 @@
 //
 
 @import '../../globals/imports';
-@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/grid/grid';
 
 @mixin leadspace {
   .#{$prefix}--leadspace {
