@@ -52,13 +52,14 @@ storiesOf('LeadSpace', module)
     };
 
     return (
-      <LeadSpace
-        classname={select('theme', themes, 'g100')}
-        title={title}
-        copy={copy}
-        buttons={object('buttons', buttons)}
-        image={object('image', image)}
-        variation={select('variation', variations, '')}
-      />
+      <div className={`bx--leadspace--${select('theme', themes, 'g100')}`}>
+        <LeadSpace
+          title={title}
+          copy={copy}
+          buttons={object('buttons', buttons)}
+          image={object('image', image)}
+          variation={select('variation', variations, '')}
+        />
+      </div>
     );
   });

@@ -49,10 +49,12 @@
 
     h1 {
       @include carbon--type-style(display-01, true);
+      color: $text-01;
     }
 
     p {
       @include carbon--type-style(expressive-heading-03, true);
+      color: $text-01;
     }
 
     &__ctas {
