@@ -20,11 +20,17 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 > 💡 Don't forget to import the leadspace styles from
 > [@carbon/ibmdotcom-styles](/packages/styles).
 
+## ENV variable
+
+To be able to utilize the lead space pattern, set in the .env file:
+`LEADSPACE=true`
+
 ## Stable selectors
 
-| Name        | Description |
-| ----------- | ----------- |
-| `leadspace` | Pattern     |
+| Name                     | Description    |
+| ------------------------ | -------------- |
+| `leadspace`              | Pattern        |
+| `leadspace__cta--${key}` | LeadSpace CTAs |
 
 ## 🙌 Contributing
 
