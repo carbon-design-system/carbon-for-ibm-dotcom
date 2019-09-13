@@ -15,22 +15,12 @@ import {
   HeaderContainer,
   HeaderMenuButton,
   HeaderGlobalBar,
-  HeaderGlobalAction,
-  HeaderName,
-  HeaderNavigation,
-  HeaderMenu,
-  HeaderMenuItem,
-  HeaderSideNavItems,
   SkipToContent,
-  SideNav,
-  SideNavItems,
-  SideNavLink,
-  SideNavMenu,
-  SideNavMenuItem,
 } from 'carbon-components-react';
 import { ProfileAPI, TranslationAPI } from '@carbon/ibmdotcom-services';
 import MastheadSearch from './MastheadSearch';
 import MastheadProfile from './MastheadProfile';
+import MastheadLeftNav from './MastheadLeftNav';
 import MastheadTopNav from './MastheadTopNav';
 import cx from 'classnames';
 
@@ -43,7 +33,7 @@ const { prefix } = settings;
  * @param {string} type Type of masthead
  * @returns {*} Masthead component
  */
-const Masthead = ({ navigation }) => {
+const Masthead = ({ navigation, ...mastheadProps }) => {
   /**
    * Returns IBM.com authenticated status
    *
@@ -51,9 +41,6 @@ const Masthead = ({ navigation }) => {
    * @returns {*} The user status
    */
   const [isAuthenticated, setStatus] = useState(false);
-  const [mastheadData, setMastheadData] = useState([]);
-  const [profileData, setProfileData] = useState({signedin: [], signedout: []});
-
   useEffect(() => {
     /**
      *  Login Status of user
@@ -65,7 +52,19 @@ const Masthead = ({ navigation }) => {
     }
     const status = loginStatus();
     status.then(result => setStatus(result.user === 'Authenticated'));
+  }, []);
 
+  const className = cx({
+    [`${prefix}--header__logo`]: true,
+    // [`${prefix}--header__logo--platform`]: navigation.platform,
+  });
+
+  let [mastheadData, setMastheadData] = useState([]);
+  const [profileData, setProfileData] = useState({
+    signedin: [],
+    signedout: [],
+  });
+  useEffect(() => {
     /**
      * Page data including masthead, footer, profile links
      *
@@ -81,81 +80,19 @@ const Masthead = ({ navigation }) => {
     });
   }, []);
 
-  /**
-   * Top masthead navigation
-   *
-   * @returns {*} Top masthead navigation
-   */
-  // const mastheadNav = mastheadData.map((link, i) => {
-  //   if (link.hasMenu) {
-  //     return (
-  //       <HeaderMenu
-  //         aria-label={link.title}
-  //         menuLinkName={link.title}
-  //         data-autoid={`${prefix}--masthead__l0-nav--nav-${i}`}>
-  //         {link.menuSections[0].menuItems[
-  //           i
-  //         ].megapanelContent.quickLinks.links.map((item, j) => {
-  //           return (
-  //             <HeaderMenuItem
-  //               href={item.url}
-  //               data-autoid={`masthead__l0-nav--subnav-${j}`}>
-  //               {item.title}
-  //             </HeaderMenuItem>
-  //           );
-  //         })}
-  //       </HeaderMenu>
-  //     );
-  //   } else {
-  //     return (
-  //       <HeaderMenuItem
-  //         href={link.url}
-  //         data-autoid={`${prefix}--masthead__l0-nav--nav-${i}`}>
-  //         {link.title}
-  //       </HeaderMenuItem>
-  //     );
-  //   }
-  // });
-
-  /**
-   * Left navigation
-   *
-   * @returns {*} Left navigation
-   */
-   const sideNav = mastheadData.map((link, i) => {
-    if (link.hasMenu) {
-      return (
-        <SideNavMenu aria-label={link.title} title={link.title}>
-        {link.menuSections[0].menuItems[
-            i
-          ].megapanelContent.quickLinks.links.map((item, j) => {
-          return (
-            <SideNavMenuItem
-            href={item.url}
-            data-autoid={`${prefix}--masthead__l0-sidenav--subnav-${j}`}>
-            {item.title}
-            </SideNavMenuItem>
-            );
-        })}
-        </SideNavMenu>
-      );
-    } else {
-      return (
-        <SideNavLink
-        href={link.url}
-        data-autoid={`${prefix}--masthead__l0-sidenav--nav-${i}`}>
-        {link.title}
-        </SideNavLink>
-      );
-    }
-   });
-
-  // const navigationLinks = navigation.links;
-
-  const className = cx({
-    [`${prefix}--header__logo`]: true,
-    [`${prefix}--header__logo--platform`]: navigation.platform,
-  });
+  switch (typeof navigation) {
+    case 'string':
+      // eslint-disable-next-line
+      mastheadData = mastheadData;
+      break;
+    case 'object':
+      mastheadData = navigation;
+      break;
+    case false:
+      break;
+    default:
+      break;
+  }
 
   return (
     <HeaderContainer
@@ -175,52 +112,29 @@ const Masthead = ({ navigation }) => {
               </a>
             </div>
             <div className={`${prefix}--header__search`}>
-              {navigation.platform ? (
-                <HeaderName
-                  prefix=""
-                  href={navigation.platform.path}
-                  data-autoid={`${prefix}--masthead__platform-name`}>
-                  {navigation.platform.name}
-                </HeaderName>
+              {navigation !== false ? (
+                <MastheadTopNav navigation={mastheadData} {...mastheadProps} />
               ) : null}
-
-              <HeaderNavigation
-                aria-label="IBM"
-                data-autoid={`${prefix}--masthead__l0-nav`}>
-                <MastheadTopNav navigation={mastheadData} />
-              </HeaderNavigation>
               <MastheadSearch />
             </div>
 
             <HeaderGlobalBar>
-              <HeaderGlobalAction
-                aria-label="User Profile"
-                data-autoid={`${prefix}--masthead__profile`}
-                onClick={() => {}}>
-                <MastheadProfile
-                  overflowMenuProps={{
-                    flipped: true,
-                    style: { width: 'auto' },
-                    renderIcon: () =>
-                      isAuthenticated ? <UserOnline20 /> : <User20 />,
-                  }}
-                  profileMenu={isAuthenticated ? profileData.signedin : profileData.signedout}
-                />
-              </HeaderGlobalAction>
+              <MastheadProfile
+                overflowMenuProps={{
+                  flipped: true,
+                  style: { width: 'auto' },
+                  renderIcon: () =>
+                    isAuthenticated ? <UserOnline20 /> : <User20 />,
+                }}
+                profileMenu={
+                  isAuthenticated ? profileData.signedin : profileData.signedout
+                }
+              />
             </HeaderGlobalBar>
-
-            <SideNav
-              aria-label="Side navigation"
-              expanded={isSideNavExpanded}
-              isPersistent={false}>
-              <div data-autoid={`${prefix}--masthead__l0-sidenav`}>
-                <SideNavItems>
-                  <HeaderSideNavItems>
-                    {sideNav}
-                  </HeaderSideNavItems>
-                </SideNavItems>
-              </div>
-            </SideNav>
+            <MastheadLeftNav
+              navigation={mastheadData}
+              isSideNavExpanded={isSideNavExpanded}
+            />
           </Header>
         </>
       )}
@@ -228,11 +142,12 @@ const Masthead = ({ navigation }) => {
   );
 };
 
+/**
+ * @property propTypes
+ * @description Defined property types for component
+ * @type {{navigation: {}}}
+ */
 Masthead.propTypes = {
-  /**
-   * Navigation elements object to populate the masthead.
-   * See ./MastheadLinks.js for example structure.
-   */
   navigation: PropTypes.object,
 };
 

@@ -7,7 +7,14 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { OverflowMenu, OverflowMenuItem } from 'carbon-components-react';
+import { settings } from 'carbon-components';
+import {
+  HeaderGlobalAction,
+  OverflowMenu,
+  OverflowMenuItem,
+} from 'carbon-components-react';
+
+const { prefix } = settings;
 
 /**
  * MastHead Profile component
@@ -36,7 +43,14 @@ const MastheadProfile = ({
     );
   });
 
-  return <OverflowMenu {...overflowMenuProps}>{profileNav}</OverflowMenu>;
+  return (
+    <HeaderGlobalAction
+      aria-label="User Profile"
+      data-autoid={`${prefix}--masthead__profile`}
+      onClick={() => {}}>
+      <OverflowMenu {...overflowMenuProps}>{profileNav}</OverflowMenu>
+    </HeaderGlobalAction>
+  );
 };
 
 MastheadProfile.propTypes = {
