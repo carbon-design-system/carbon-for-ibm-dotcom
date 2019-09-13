@@ -892,31 +892,6 @@
     "@carbon/import-once" "10.3.0"
     "@carbon/layout" "10.4.0"
 
-"@carbon/ibmdotcom-services@^0.4.0-alpha.291":
-  version "0.4.0-alpha.291"
-  resolved "https://registry.yarnpkg.com/@carbon/ibmdotcom-services/-/ibmdotcom-services-0.4.0-alpha.291.tgz#ec95f1ce6458ee1980b7702c9aa4b39bbb9f0cec"
-  integrity sha512-J35u6hOslLPXReWOEYmFdTGZA50hTCZwYTmOHCKSbKZNkatyr+DbUa2S1lowlhwmvvdjJsvWgZgpgfPHjYnXWA==
-  dependencies:
-    jsonp "^0.2.1"
-    window-or-global "^1.0.1"
-
-"@carbon/ibmdotcom-styles@^0.4.0-alpha.291":
-  version "0.4.0-alpha.291"
-  resolved "https://registry.yarnpkg.com/@carbon/ibmdotcom-styles/-/ibmdotcom-styles-0.4.0-alpha.291.tgz#445ef932c0503872a93bf780948c89d9e49cfd03"
-  integrity sha512-g8A5hfIWLfndgDiFffzq+Is3e0TG9/+umsuc6QYxoJKRJflVKN0kOP2QOQf6FYWVUG1Cs9MwGj1zgtIihaLtmg==
-  dependencies:
-    "@carbon/layout" "^10.3.0"
-    "@carbon/themes" "^10.4.0"
-    "@carbon/type" "^10.3.0"
-    carbon-components "^10.4.1"
-
-"@carbon/ibmdotcom-utilities@^0.4.0-alpha.291":
-  version "0.4.0-alpha.291"
-  resolved "https://registry.yarnpkg.com/@carbon/ibmdotcom-utilities/-/ibmdotcom-utilities-0.4.0-alpha.291.tgz#662a81e5ccc8595f6e6ee84aad117eec6188e773"
-  integrity sha512-MWlLYqIvFLcFeGQE+rsfK3aDb944s2QcTwJ/QsM2k/B4Z9bnA2ui3AkjkSMjAZZLNSFfnJpnm/t/m4+8kGYhRw==
-  dependencies:
-    window-or-global "^1.0.1"
-
 "@carbon/icon-helpers@10.4.0":
   version "10.4.0"
   resolved "https://registry.yarnpkg.com/@carbon/icon-helpers/-/icon-helpers-10.4.0.tgz#771ba51efcaa9d2be03800f8e0f50c7aa779febf"
