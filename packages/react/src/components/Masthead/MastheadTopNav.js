@@ -5,36 +5,32 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { settings } from 'carbon-components';
-import { User20, UserOnline20 } from '@carbon/icons-react';
-import { IbmLogo } from '../Icon';
 import {
-  Header,
-  HeaderContainer,
-  HeaderMenuButton,
-  HeaderGlobalBar,
-  HeaderGlobalAction,
-  HeaderName,
   HeaderNavigation,
   HeaderMenu,
   HeaderMenuItem,
-  HeaderSideNavItems,
-  SkipToContent,
+  HeaderName,
 } from 'carbon-components-react';
 
 const { prefix } = settings;
 
 /**
- * MastHead top navigation component
+ * Masthead top nav component
  *
- * @typedef {object} navigation Object containing navigation elements
- * @param {string} type Type of masthead
- * @returns {*} Masthead component
+ * @param {object} navigation Object containing top navigation elements
+ * @returns {*} Masthead top nav component
  */
-const MastheadTopNav = ({ navigation }) => {
-  const mastheadNav = mastheadData.map((link, i) => {
+const MastheadTopNav = ({ navigation, ...topNavprops }) => {
+  /**
+   * Top masthead navigation
+   *
+   * @returns {*} Top masthead navigation
+   */
+
+  const mastheadLinks = navigation.map((link, i) => {
     if (link.hasMenu) {
       return (
         <HeaderMenu
@@ -64,13 +60,32 @@ const MastheadTopNav = ({ navigation }) => {
       );
     }
   });
+
+  return (
+    <>
+      {topNavprops.platform ? (
+        <HeaderName
+          prefix=""
+          href={topNavprops.platform.url}
+          data-autoid={`${prefix}--masthead__platform-name`}>
+          {topNavprops.platform.name}
+        </HeaderName>
+      ) : null}
+      <HeaderNavigation
+        aria-label="IBM"
+        data-autoid={`${prefix}--masthead__l0-nav`}>
+        {mastheadLinks}
+      </HeaderNavigation>
+    </>
+  );
 };
 
+/**
+ * @property propTypes
+ * @description Defined property types for component
+ * @type {{navigation: {}}}
+ */
 MastheadTopNav.propTypes = {
-  /**
-   * Navigation elements object to populate the masthead.
-   * See ./MastheadLinks.js for example structure.
-   */
   navigation: PropTypes.object,
 };
 
