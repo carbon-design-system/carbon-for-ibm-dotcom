@@ -10,7 +10,7 @@
 @mixin leadspace {
   .#{$prefix}--leadspace {
     position: relative;
-    padding-top: 370px / 320px * 100%;
+    padding-top: carbon--rem(370px) / carbon--mini-units(40) * 100%;
     height: 0;
     background: $ui-background;
 
@@ -28,8 +28,7 @@
     }
 
     &__overlay {
-      padding: carbon--mini-units(4) carbon--mini-units(2) carbon--mini-units(4)
-        carbon--mini-units(2);
+      padding: $layout-03 $layout-01;
       position: absolute;
       top: 0;
       height: 100%;
@@ -43,7 +42,7 @@
 
     &__content {
       position: absolute;
-      bottom: carbon--mini-units(4);
+      bottom: $layout-03;
     }
 
     h1 {
@@ -68,7 +67,7 @@
 
     button:nth-child(2),
     a:nth-child(2) {
-      margin: carbon--mini-units(4) 0 carbon--mini-units(2) 0;
+      margin: $layout-03 0 $layout-01 0;
     }
   }
 
@@ -78,11 +77,10 @@
 
   @include carbon--breakpoint(md) {
     .#{$prefix}--leadspace {
-      padding-top: 400px / 672px * 100%;
+      padding-top: carbon--mini-units(50) / carbon--mini-units(84) * 100%;
 
       &__overlay {
-        padding: carbon--mini-units(4) carbon--mini-units(4)
-          carbon--mini-units(4) carbon--mini-units(4);
+        padding: $layout-03;
         background-image: linear-gradient(
           to right,
           rgba($ui-background, 1),
@@ -107,7 +105,7 @@
       &__ctas {
         flex-direction: row-reverse;
         float: left;
-        margin-top: carbon--mini-units(4);
+        margin-top: $layout-03;
       }
 
       button,
@@ -117,14 +115,14 @@
 
       button:nth-child(2),
       a:nth-child(2) {
-        margin: 0 carbon--mini-units(2) 0 0;
+        margin: 0 $layout-01 0 0;
       }
     }
   }
 
   @include carbon--breakpoint(lg) {
     .#{$prefix}--leadspace {
-      padding-top: 480px / 1056px * 100%;
+      padding-top: carbon--mini-units(60) / carbon--mini-units(132) * 100%;
 
       h1 {
         @include carbon--make-col(8, 16);
