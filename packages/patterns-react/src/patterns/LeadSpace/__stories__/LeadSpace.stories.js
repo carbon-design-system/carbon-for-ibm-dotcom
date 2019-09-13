@@ -2,7 +2,6 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, select, object } from '@storybook/addon-knobs';
 import '../../../../../styles/scss/patterns/leadspace/index.scss';
-import 'carbon-components/scss/components/button/_button.scss';
 import LeadSpace from '../LeadSpace';
 import readme from '../README.md';
 
@@ -13,7 +12,49 @@ storiesOf('LeadSpace', module)
       sidebar: readme,
     },
   })
-  .add('Default', () => {
+  .add('Default with no image', () => {
+    const copy = text(
+      'copy',
+      'Use this area for a short line of copy to support the title'
+    );
+
+    const title = text('title', 'Lead space title');
+
+    const variations = {
+      expressive: '',
+      productive: 'productive',
+    };
+
+    const buttons = [
+      {
+        link: '',
+        copy: 'Primary action',
+        renderArrow: true,
+      },
+      {
+        link: '',
+        copy: 'Secondary action',
+        renderArrow: false,
+      },
+    ];
+
+    const themes = {
+      'dark (g100)': 'g100',
+      'light (white)': 'white',
+    };
+
+    return (
+      <div className={`bx--leadspace--${select('theme', themes, 'g100')}`}>
+        <LeadSpace
+          title={title}
+          copy={copy}
+          buttons={object('buttons', buttons)}
+          variation={select('variation', variations, '')}
+        />
+      </div>
+    );
+  })
+  .add('Default with image', () => {
     const copy = text(
       'copy',
       'Use this area for a short line of copy to support the title'
@@ -47,8 +88,8 @@ storiesOf('LeadSpace', module)
     ];
 
     const themes = {
-      dark: 'g100',
-      light: 'white',
+      'dark (g100)': 'g100',
+      'light (white)': 'white',
     };
 
     return (

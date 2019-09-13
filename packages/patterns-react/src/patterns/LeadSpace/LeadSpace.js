@@ -53,23 +53,27 @@ const LeadSpace = ({ variation, title, copy, buttons, image }) => (
       [`${prefix}--leadspace--productive`]: variation === 'productive',
     })}>
     <div className={`${prefix}--leadspace__container`}>
-      <picture>
-        <source media="(min-width: 1056px)" srcset={image.default} />
-        <source media="(min-width: 672px)" srcset={image.tablet} />
-        <source media="(min-width: 0px)" srcset={image.mobile} />
-        <img
-          className={`${prefix}--leadspace__image`}
-          src={image.default}
-          alt={image.alt}
-        />
-      </picture>
+      {image && (
+        <picture>
+          <source media="(min-width: 1056px)" srcset={image.default} />
+          <source media="(min-width: 672px)" srcset={image.tablet} />
+          <source media="(min-width: 0px)" srcset={image.mobile} />
+          <img
+            className={`${prefix}--leadspace__image`}
+            src={image.default}
+            alt={image.alt}
+          />
+        </picture>
+      )}
       <div className={`${prefix}--leadspace__overlay`}>
         <h1>{title}</h1>
         <div className={`${prefix}--leadspace__content`}>
           <p>{copy}</p>
-          <div className={`${prefix}--leadspace__ctas`}>
-            {renderButtons(buttons)}
-          </div>
+          {buttons && buttons.length > 0 && (
+            <div className={`${prefix}--leadspace__ctas`}>
+              {renderButtons(buttons)}
+            </div>
+          )}
         </div>
       </div>
     </div>
