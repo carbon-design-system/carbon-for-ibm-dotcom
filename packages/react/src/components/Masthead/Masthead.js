@@ -98,22 +98,22 @@ const Masthead = ({ navigation, ...mastheadProps }) => {
     <HeaderContainer
       render={({ isSideNavExpanded, onClickSideNavExpand }) => (
         <>
-          <Header aria-label="IBM" data-autoid={`${prefix}--masthead`}>
+          <Header aria-label="IBM" data-autoid="masthead">
             <SkipToContent />
             <HeaderMenuButton
               aria-label="Open menu"
-              data-autoid={`${prefix}--masthead__hamburger`}
+              data-autoid="masthead__hamburger"
               onClick={onClickSideNavExpand}
               isActive={isSideNavExpanded}
             />
             <div className={className}>
               <a href="https://ibm.com">
-                <IbmLogo data-autoid={`${prefix}--masthead__logo`} />
+                <IbmLogo data-autoid="masthead__logo" />
               </a>
             </div>
             <div className={`${prefix}--header__search`}>
               {navigation !== false ? (
-                <MastheadTopNav navigation={mastheadData} {...mastheadProps} />
+                <MastheadTopNav {...mastheadProps} navigation={mastheadData} />
               ) : null}
               <MastheadSearch />
             </div>

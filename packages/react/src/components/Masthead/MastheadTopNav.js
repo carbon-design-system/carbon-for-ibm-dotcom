@@ -7,15 +7,12 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { settings } from 'carbon-components';
 import {
   HeaderNavigation,
   HeaderMenu,
   HeaderMenuItem,
   HeaderName,
 } from 'carbon-components-react';
-
-const { prefix } = settings;
 
 /**
  * Masthead top nav component
@@ -36,7 +33,7 @@ const MastheadTopNav = ({ navigation, ...topNavprops }) => {
         <HeaderMenu
           aria-label={link.title}
           menuLinkName={link.title}
-          data-autoid={`${prefix}--masthead__l0-nav--nav-${i}`}>
+          data-autoid={`masthead__l0-nav--nav-${i}`}>
           {link.menuSections[0].menuItems[
             i
           ].megapanelContent.quickLinks.links.map((item, j) => {
@@ -54,7 +51,7 @@ const MastheadTopNav = ({ navigation, ...topNavprops }) => {
       return (
         <HeaderMenuItem
           href={link.url}
-          data-autoid={`${prefix}--masthead__l0-nav--nav-${i}`}>
+          data-autoid={`masthead__l0-nav--nav-${i}`}>
           {link.title}
         </HeaderMenuItem>
       );
@@ -67,13 +64,11 @@ const MastheadTopNav = ({ navigation, ...topNavprops }) => {
         <HeaderName
           prefix=""
           href={topNavprops.platform.url}
-          data-autoid={`${prefix}--masthead__platform-name`}>
+          data-autoid="masthead__platform-name">
           {topNavprops.platform.name}
         </HeaderName>
       ) : null}
-      <HeaderNavigation
-        aria-label="IBM"
-        data-autoid={`${prefix}--masthead__l0-nav`}>
+      <HeaderNavigation aria-label="IBM" data-autoid="masthead__l0-nav">
         {mastheadLinks}
       </HeaderNavigation>
     </>

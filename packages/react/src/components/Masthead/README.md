@@ -22,12 +22,24 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 > 💡 Don't forget to import the masthead styles from
 > [@carbon/ibmdotcom-styles](/packages/styles).
 
-## Types (optional)
+## Types
 
-| Name            | Description                                                       |
-| --------------- | ----------------------------------------------------------------- |
-| `default`       | Default masthead variant.                                         |
-| `with platform` | Includes platform name to the right of IBM logo (e.g. IBM Cloud). |
+| Name      | Description                           |
+| --------- | ------------------------------------- |
+| `default` | Default navigation data from IBM.com. |
+| `custom`  | Custom navigation data.               |
+| `none`    | No navigation.                        |
+
+> 💡 `Custom` navigation data must follow the same structure and key names as
+> `default`. See `mastheadNav` >
+> [here](https://www.ibm.com/common/v18/js/data/jsononly/usen.json) for an
+> example.
+
+## Options
+
+| Name            | Description                                                          |
+| --------------- | -------------------------------------------------------------------- |
+| `with platform` | Includes platform name (only available with `default` and `custom`). |
 
 ## Stable selectors
 
@@ -40,6 +52,8 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 | `masthead__l0-nav`                     | Component   |
 | `masthead__l0-nav--nav-${item}`        | Interactive |
 | `masthead__l0-nav--subnav-${item}`     | Interactive |
+| `masthead__l0-sidenav`                 | Component   |
+| `masthead__l0-sidenav--nav-${item}`    | Interactive |
 | `masthead__l0-sidenav--subnav-${item}` | Interactive |
 
 ## 🙌 Contributing
