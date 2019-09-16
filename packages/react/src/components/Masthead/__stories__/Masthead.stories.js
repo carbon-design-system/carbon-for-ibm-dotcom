@@ -5,8 +5,7 @@ import Masthead from '../Masthead';
 import MastheadL1 from '../MastheadL1';
 import mastheadLinks from './data/MastheadLinks.js';
 import readme from '../README.md';
-import '../../../../../styles/scss/components/masthead/_masthead.scss';
-import '../../../../../styles/scss/components/masthead/_masthead-l1.scss';
+import '../../../../../styles/scss/components/masthead/index.scss';
 
 const platformName = {
   platform: {

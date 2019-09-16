@@ -9,7 +9,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { settings } from 'carbon-components';
 import { Content } from 'carbon-components-react';
-import { Masthead, Footer } from '@carbon/ibmdotcom-react';
+import { Masthead, MastheadL1, Footer } from '@carbon/ibmdotcom-react';
 
 const { prefix } = settings;
 
@@ -25,7 +25,10 @@ const DotcomShell = ({ navigation, children }) => {
     <>
       <div className={`${prefix}--grid ${prefix}--dotcom-shell`}>
         <div className={`${prefix}--dotcom-shell__masthead`}>
-          <Masthead navigation={navigation} />
+          <>
+            <Masthead navigation={navigation} />
+            <MastheadL1 />
+          </>
         </div>
         <Content
           id={`${prefix}--dotcom-shell__content`}

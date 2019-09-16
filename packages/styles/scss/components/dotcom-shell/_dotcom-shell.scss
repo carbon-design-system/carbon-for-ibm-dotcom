@@ -18,9 +18,28 @@
 
     &__masthead {
       width: 100%;
-      position: static;
-      top: 0;
+      position: sticky;
+      top: -48px;
       z-index: 99999;
+    }
+
+    // Dotcom shell - grid overrides
+    .#{$prefix}--content {
+      @include carbon--breakpoint-down(lg) {
+        padding: 0 $spacing-05;
+      }
+    }
+
+    &.#{$prefix}--grid {
+      @include carbon--breakpoint-down(lg) {
+        padding-left: $spacing-05;
+        padding-right: $spacing-05;
+      }
+
+      @include carbon--breakpoint-down(md) {
+        padding-left: 0;
+        padding-right: 0;
+      }
     }
   }
 }
