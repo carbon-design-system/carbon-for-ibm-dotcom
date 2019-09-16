@@ -211,17 +211,10 @@ $search-transition-timing: 95ms;
     }
   }
 
-  //--------------------------------------------------------------------------
-  // Masthead - Profile menu
-  //--------------------------------------------------------------------------
+  // masthead profile menu
   .#{$prefix}--overflow-menu-options__btn {
     text-decoration: none;
   }
-
-
-  //--------------------------------------------------------------------------
-  // Masthead - Search
-  //--------------------------------------------------------------------------
 
   // main nav/search container excluding
   // profile and logo icons - TODO rename this
