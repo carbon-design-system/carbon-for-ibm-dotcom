@@ -60,14 +60,14 @@ const MastheadTopNav = ({ navigation, ...topNavprops }) => {
 
   return (
     <>
-      {topNavprops.platform ? (
+      {topNavprops.platform && (
         <HeaderName
           prefix=""
           href={topNavprops.platform.url}
           data-autoid="masthead__platform-name">
           {topNavprops.platform.name}
         </HeaderName>
-      ) : null}
+      )}
       <HeaderNavigation aria-label="IBM" data-autoid="masthead__l0-nav">
         {mastheadLinks}
       </HeaderNavigation>
