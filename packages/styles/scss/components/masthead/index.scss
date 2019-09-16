@@ -1,0 +1,19 @@
+//
+// Copyright IBM Corp. 2016, 2018
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+@import '../../globals/imports';
+@import 'carbon-components/scss/components/overflow-menu/overflow-menu';
+@import 'carbon-components/scss/components/ui-shell/ui-shell';
+@import 'carbon-components/scss/components/ui-shell/side-nav';
+
+// Include masthead components
+// @access private
+// @group masthead
+
+@import 'masthead';
+@import 'masthead-l1';
+@import 'masthead-search';
+@import 'masthead-leftnav';
