@@ -64,6 +64,17 @@ const LeadSpace = ({ variation, title, copy, buttons, image }) =>
     LEADSPACE,
     <section data-autoid="leadspace" className={className(variation)}>
       <div className={`${prefix}--leadspace__container`}>
+        <div className={`${prefix}--leadspace__overlay`}>
+          <h1 className={`${prefix}--leadspace__title`}>{title}</h1>
+          <div className={`${prefix}--leadspace__content`}>
+            <p className={`${prefix}--leadspace__desc`}>{copy}</p>
+            {buttons && buttons.length > 0 && (
+              <div className={`${prefix}--leadspace__ctas`}>
+                {renderButtons(buttons)}
+              </div>
+            )}
+          </div>
+        </div>
         {image && (
           <picture>
             <source media="(min-width: 1056px)" srcset={image.default} />
@@ -76,17 +87,6 @@ const LeadSpace = ({ variation, title, copy, buttons, image }) =>
             />
           </picture>
         )}
-        <div className={`${prefix}--leadspace__overlay`}>
-          <h1 className={`${prefix}--leadspace__title`}>{title}</h1>
-          <div className={`${prefix}--leadspace__content`}>
-            <p className={`${prefix}--leadspace__desc`}>{copy}</p>
-            {buttons && buttons.length > 0 && (
-              <div className={`${prefix}--leadspace__ctas`}>
-                {renderButtons(buttons)}
-              </div>
-            )}
-          </div>
-        </div>
       </div>
     </section>
   );

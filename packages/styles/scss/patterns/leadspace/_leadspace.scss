@@ -26,7 +26,9 @@
     }
 
     &__overlay {
-      padding: $layout-03 $layout-01;
+      @include carbon--make-container;
+      padding-top: $layout-03;
+      padding-bottom: $layout-03;
       position: absolute;
       top: 0;
       height: 100%;
@@ -74,7 +76,6 @@
       padding-top: carbon--mini-units(50) / carbon--mini-units(84) * 100%;
 
       &__overlay {
-        padding: $layout-03;
         background-image: linear-gradient(
           to right,
           rgba($ui-background, 1),
@@ -87,6 +88,8 @@
       }
 
       .#{$prefix}--leadspace__title {
+        @include carbon--make-row;
+        @include carbon--make-col-ready;
         @include carbon--make-col(7, 8);
       }
 
@@ -117,6 +120,8 @@
       }
 
       .#{$prefix}--leadspace__desc {
+        @include carbon--make-row;
+        @include carbon--make-col-ready;
         @include carbon--make-col(4, 16);
       }
     }
