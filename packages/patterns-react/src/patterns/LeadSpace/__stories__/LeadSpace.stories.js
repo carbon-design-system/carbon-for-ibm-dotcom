@@ -40,16 +40,21 @@ storiesOf('LeadSpace', module)
 
     const themes = {
       'dark (g100)': 'g100',
-      'light (white)': 'white',
+      'light (white)': '',
     };
 
     return (
-      <div className={`bx--leadspace--${select('theme', themes, 'g100')}`}>
+      <div
+        className={`bx--leadspace--${select(
+          'theme',
+          themes,
+          themes['dark (g100)']
+        )}`}>
         <LeadSpace
           title={title}
           copy={copy}
           buttons={object('buttons', buttons)}
-          variation={select('variation', variations, '')}
+          variation={select('variation', variations, variations.expressive)}
         />
       </div>
     );
@@ -89,17 +94,22 @@ storiesOf('LeadSpace', module)
 
     const themes = {
       'dark (g100)': 'g100',
-      'light (white)': 'white',
+      'light (white)': '',
     };
 
     return (
-      <div className={`bx--leadspace--${select('theme', themes, 'g100')}`}>
+      <div
+        className={`bx--leadspace--${select(
+          'theme',
+          themes,
+          themes['dark (g100)']
+        )}`}>
         <LeadSpace
           title={title}
           copy={copy}
           buttons={object('buttons', buttons)}
           image={object('image', image)}
-          variation={select('variation', variations, '')}
+          variation={select('variation', variations, variations.expressive)}
         />
       </div>
     );

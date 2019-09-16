@@ -56,14 +56,12 @@
     &__ctas {
       display: flex;
       flex-direction: column-reverse;
+      margin-top: $layout-01;
     }
 
     .#{$prefix}--btn {
       width: 100%;
-    }
-
-    .#{$prefix}--btn:nth-child(2) {
-      margin: $layout-03 0 $layout-01 0;
+      margin-top: $layout-01;
     }
   }
 
@@ -80,10 +78,8 @@
         background-image: linear-gradient(
           to right,
           rgba($ui-background, 1),
-          transparent
+          transparent 50%
         );
-        background-size: 50%;
-        background-repeat: no-repeat;
       }
 
       &__content {
@@ -106,10 +102,8 @@
 
       .#{$prefix}--btn {
         width: auto;
-      }
-
-      .#{$prefix}--btn:nth-child(2) {
-        margin: 0 $layout-01 0 0;
+        margin-top: 0;
+        margin-right: $layout-01;
       }
     }
   }
