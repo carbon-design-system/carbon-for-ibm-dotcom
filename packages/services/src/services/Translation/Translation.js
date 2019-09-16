@@ -50,7 +50,18 @@ class TranslationAPI {
           'Content-Type': 'text/plain',
         },
       })
-      .then(response => response.data);
+      .then(response => this.transformData(response.data));
+  }
+
+  /**
+   * Transforms translation data
+   *
+   * @param   {object} data translation data to be transformed
+   * @returns {object} Translation data
+   */
+  static transformData(data) {
+    data.footerMenu.push(data.socialFollow);
+    return data;
   }
 }
 
