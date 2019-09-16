@@ -11,6 +11,8 @@ import classnames from 'classnames';
 import { ArrowRight20 } from '@carbon/icons-react';
 import { settings } from 'carbon-components';
 import { Button } from 'carbon-components-react';
+import { featureFlag } from '@carbon/ibmdotcom-utilities';
+import { LEADSPACE } from '../../internal/FeatureFlags';
 
 const { prefix } = settings;
 
@@ -46,39 +48,41 @@ function renderButtons(buttons) {
  * @param {Array} props.buttons array of buttons for lead space (max 2 buttons)
  * @returns {*} Lead space component
  */
-const LeadSpace = ({ variation, title, copy, buttons, image }) => (
-  <section
-    data-autoid="leadspace"
-    className={classnames(`${prefix}--leadspace`, {
-      [`${prefix}--leadspace--productive`]: variation === 'productive',
-    })}>
-    <div className={`${prefix}--leadspace__container`}>
-      {image && (
-        <picture>
-          <source media="(min-width: 1056px)" srcset={image.default} />
-          <source media="(min-width: 672px)" srcset={image.tablet} />
-          <source media="(min-width: 0px)" srcset={image.mobile} />
-          <img
-            className={`${prefix}--leadspace__image`}
-            src={image.default}
-            alt={image.alt}
-          />
-        </picture>
-      )}
-      <div className={`${prefix}--leadspace__overlay`}>
-        <h1>{title}</h1>
-        <div className={`${prefix}--leadspace__content`}>
-          <p>{copy}</p>
-          {buttons && buttons.length > 0 && (
-            <div className={`${prefix}--leadspace__ctas`}>
-              {renderButtons(buttons)}
-            </div>
-          )}
+const LeadSpace = ({ variation, title, copy, buttons, image }) =>
+  featureFlag(
+    LEADSPACE,
+    <section
+      data-autoid="leadspace"
+      className={classnames(`${prefix}--leadspace`, {
+        [`${prefix}--leadspace--productive`]: variation === 'productive',
+      })}>
+      <div className={`${prefix}--leadspace__container`}>
+        {image && (
+          <picture>
+            <source media="(min-width: 1056px)" srcset={image.default} />
+            <source media="(min-width: 672px)" srcset={image.tablet} />
+            <source media="(min-width: 0px)" srcset={image.mobile} />
+            <img
+              className={`${prefix}--leadspace__image`}
+              src={image.default}
+              alt={image.alt}
+            />
+          </picture>
+        )}
+        <div className={`${prefix}--leadspace__overlay`}>
+          <h1>{title}</h1>
+          <div className={`${prefix}--leadspace__content`}>
+            <p>{copy}</p>
+            {buttons && buttons.length > 0 && (
+              <div className={`${prefix}--leadspace__ctas`}>
+                {renderButtons(buttons)}
+              </div>
+            )}
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
 
 LeadSpace.propTypes = {
   buttons: PropTypes.array,
