@@ -5,6 +5,4 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-export * from './escaperegexp';
-export * from './featureflag';
-export * from './serialize';
+export { default as featureFlag } from './featureflag';
