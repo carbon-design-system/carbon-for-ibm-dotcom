@@ -43,12 +43,12 @@
       bottom: $layout-03;
     }
 
-    h1 {
+    .#{$prefix}--leadspace__title {
       @include carbon--type-style(display-01, true);
       color: $text-01;
     }
 
-    p {
+    .#{$prefix}--leadspace__desc {
       @include carbon--type-style(expressive-heading-03, true);
       color: $text-01;
     }
@@ -58,18 +58,16 @@
       flex-direction: column-reverse;
     }
 
-    button,
-    a {
+    .#{$prefix}--btn {
       width: 100%;
     }
 
-    button:nth-child(2),
-    a:nth-child(2) {
+    .#{$prefix}--btn:nth-child(2) {
       margin: $layout-03 0 $layout-01 0;
     }
   }
 
-  .#{$prefix}--leadspace--productive h1 {
+  .#{$prefix}--leadspace--productive .#{$prefix}--leadspace__title {
     @include carbon--type-style(expressive-heading-06, true);
   }
 
@@ -92,11 +90,11 @@
         width: 100%;
       }
 
-      h1 {
+      .#{$prefix}--leadspace__title {
         @include carbon--make-col(7, 8);
       }
 
-      p {
+      .#{$prefix}--leadspace__desc {
         width: 50%;
       }
 
@@ -106,13 +104,11 @@
         margin-top: $layout-03;
       }
 
-      button,
-      a {
+      .#{$prefix}--btn {
         width: auto;
       }
 
-      button:nth-child(2),
-      a:nth-child(2) {
+      .#{$prefix}--btn:nth-child(2) {
         margin: 0 $layout-01 0 0;
       }
     }
@@ -122,16 +118,16 @@
     .#{$prefix}--leadspace {
       padding-top: carbon--mini-units(60) / carbon--mini-units(132) * 100%;
 
-      h1 {
+      .#{$prefix}--leadspace__title {
         @include carbon--make-col(8, 16);
       }
 
-      p {
+      .#{$prefix}--leadspace__desc {
         @include carbon--make-col(4, 16);
       }
     }
 
-    .#{$prefix}--leadspace--productive h1 {
+    .#{$prefix}--leadspace--productive .#{$prefix}--leadspace__title {
       @include carbon--make-col(7, 16);
     }
   }

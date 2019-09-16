@@ -18,13 +18,15 @@ Use these modifiers with `.bx--leadspace` class.
 
 #### Elements
 
-| Class                       | Description                                           |
-| --------------------------- | ----------------------------------------------------- |
-| `.bx--leadspace__image`     | Background image of the lead space pattern (optional) |
-| `.bx--leadspace__container` | Element containing all copy/cta content               |
-| `.bx--leadspace__overlay`   | Gradient overlay behind copy content                  |
-| `.bx--leadspace__content`   | Optional short description and cta(s)                 |
-| `.bx--leadspace__ctas`      | CTA buttons                                           |
+| Class                       | Description                                            |
+| --------------------------- | ------------------------------------------------------ |
+| `.bx--leadspace__image`     | Background image of the lead space pattern (optional)  |
+| `.bx--leadspace__container` | Element containing all copy/cta content                |
+| `.bx--leadspace__overlay`   | Gradient overlay behind copy content                   |
+| `.bx--leadspace__title`     | Required title/heading for the lead space              |
+| `.bx--leadspace__content`   | Content holder for optional short description and ctas |
+| `.bx--leadspace__desc`      | Optional short description                             |
+| `.bx--leadspace__ctas`      | Optional CTA buttons                                   |
 
 #### Blocks
 

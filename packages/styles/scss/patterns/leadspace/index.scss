@@ -3,7 +3,7 @@
 @import 'carbon-components/scss/components/button/_button.scss';
 @import './leadspace';
 
-.bx--leadspace--g100 {
+.#{$prefix}--leadspace--g100 {
   @include carbon--theme($carbon--theme--g100) {
     @include button;
     @include leadspace;

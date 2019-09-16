@@ -38,6 +38,17 @@ function renderButtons(buttons) {
 }
 
 /**
+ * renders the pattern classnames
+ *
+ * @param {string} variation variation of the pattern
+ * @returns {string} classnames
+ */
+const className = variation =>
+  classnames(`${prefix}--leadspace`, {
+    [`${prefix}--leadspace--productive`]: variation === 'productive',
+  });
+
+/**
  * Lead space component
  *
  * @param {object} props props object
@@ -51,11 +62,7 @@ function renderButtons(buttons) {
 const LeadSpace = ({ variation, title, copy, buttons, image }) =>
   featureFlag(
     LEADSPACE,
-    <section
-      data-autoid="leadspace"
-      className={classnames(`${prefix}--leadspace`, {
-        [`${prefix}--leadspace--productive`]: variation === 'productive',
-      })}>
+    <section data-autoid="leadspace" className={className(variation)}>
       <div className={`${prefix}--leadspace__container`}>
         {image && (
           <picture>
@@ -70,9 +77,9 @@ const LeadSpace = ({ variation, title, copy, buttons, image }) =>
           </picture>
         )}
         <div className={`${prefix}--leadspace__overlay`}>
-          <h1>{title}</h1>
+          <h1 className={`${prefix}--leadspace__title`}>{title}</h1>
           <div className={`${prefix}--leadspace__content`}>
-            <p>{copy}</p>
+            <p className={`${prefix}--leadspace__desc`}>{copy}</p>
             {buttons && buttons.length > 0 && (
               <div className={`${prefix}--leadspace__ctas`}>
                 {renderButtons(buttons)}
