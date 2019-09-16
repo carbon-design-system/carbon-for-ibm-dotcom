@@ -38,8 +38,8 @@ class TranslationAPI {
    * }
    */
   static async getTranslation() {
-    const lc = 'en'; // TODO: create utility for fetching lc
-    const cc = 'us'; // TODO: create utility for fetching cc
+    const lc = lc ? lc : 'en'; // TODO: create utility for fetching lc
+    const cc = cc ? cc : 'us'; // TODO: create utility for fetching cc
     const currenthost = `${root.location.protocol}//${root.location.host}`;
     const proxy = currenthost !== _host ? _proxy : '';
     const url = `${proxy}${_endpoint}/${cc}${lc}.json`;
