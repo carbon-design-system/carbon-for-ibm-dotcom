@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.2](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/compare/@carbon/ibmdotcom-react@0.5.1...@carbon/ibmdotcom-react@0.5.2) (2019-09-17)
+
+### Bug Fixes
+
+- **react:** exports DotcomShell; fixes
+  [#94](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/issues/94)
+  ([d2e2fdb](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/commit/d2e2fdb))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [0.5.1](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/compare/@carbon/ibmdotcom-react@0.5.0...@carbon/ibmdotcom-react@0.5.1) (2019-09-17)
 
 ### Bug Fixes
