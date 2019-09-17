@@ -61,7 +61,8 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 This component makes cross-origin requests to `www.ibm.com`, which will require
 a cors proxy to be configured to make successful calls from a lower environment.
 
-A cors proxy can be configured using the following environment variable:
+A cors proxy can be configured using the following
+[environment variable](../../../docs/environment-variables.md):
 
 `CORS_PROXY=https://myproxy.com/`
 
