@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.1](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/compare/@carbon/ibmdotcom-react@0.5.0...@carbon/ibmdotcom-react@0.5.1) (2019-09-17)
+
+### Bug Fixes
+
+- **hr:** export hr in components
+  ([e2736a8](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/commit/e2736a8))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [0.5.0](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/compare/@carbon/ibmdotcom-react@0.5.0-rc.0...@carbon/ibmdotcom-react@0.5.0) (2019-09-17)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-react
