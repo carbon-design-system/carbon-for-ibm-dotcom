@@ -26,6 +26,11 @@ release_rc1plus () {
   ./node_modules/.bin/lerna publish --exact --conventional-commits --conventional-prerelease --preid rc
 }
 
+# Full patch release
+release_full_patch () {
+  ./node_modules/.bin/lerna publish patch --exact --conventional-commits
+}
+
 # Full minor release
 release_full_minor () {
   ./node_modules/.bin/lerna publish minor --exact --conventional-commits --conventional-graduate
@@ -107,6 +112,7 @@ options_release=(
   "rc.0 minor (first release candidate)"
   "rc.0 major (first release candidate)"
   "rc.1+ (subsequent release candidates)"
+  "full release (patch)"
   "full release (minor)"
   "full release (major)"
   "cancel"
@@ -136,6 +142,12 @@ do
           echo "Creating rc.1+ release..."
           set -x
           release_rc1plus
+          exit 1
+          ;;
+        "full release (patch)")
+          echo "Creating full patch release..."
+          set -x
+          release_full_patch
           exit 1
           ;;
         "full release (minor)")
