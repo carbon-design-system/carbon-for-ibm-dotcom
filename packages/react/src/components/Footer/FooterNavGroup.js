@@ -19,6 +19,10 @@ const { prefix } = settings;
  * @returns {object} JSX object
  */
 const FooterNavGroup = ({ title, links }) => {
+  if (!title || !links || !links.length) {
+    return null;
+  }
+
   return (
     <AccordionItem
       data-autoid="footer-nav-group"
@@ -37,16 +41,22 @@ const FooterNavGroup = ({ title, links }) => {
  * @returns {object} JSX object
  */
 function renderListItems(links) {
-  return links.map(({ title, url }, index) => (
-    <li className={`${prefix}--footer-nav-group__item`} key={index}>
-      <Link
-        className={`${prefix}--footer-nav-group__link`}
-        data-autoid="footer-nav-group__link"
-        href={url}>
-        {title}
-      </Link>
-    </li>
-  ));
+  return links.map(({ title, url }, index) => {
+    if (!title || !url) {
+      return null;
+    }
+
+    return (
+      <li className={`${prefix}--footer-nav-group__item`} key={index}>
+        <Link
+          className={`${prefix}--footer-nav-group__link`}
+          data-autoid="footer-nav-group__link"
+          href={url}>
+          {title}
+        </Link>
+      </li>
+    );
+  });
 }
 
 FooterNavGroup.propTypes = {

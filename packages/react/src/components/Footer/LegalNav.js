@@ -19,6 +19,10 @@ const { prefix } = settings;
  * @returns {object} JSX object
  */
 const LegalNav = ({ links }) => {
+  if (!links || !links.length) {
+    return null;
+  }
+
   return (
     <aside
       data-autoid="footer-legal-nav"
@@ -39,13 +43,19 @@ const LegalNav = ({ links }) => {
  * @returns {object} JSX object
  */
 function renderListItems(links) {
-  return links.map(({ title, url }, index) => (
-    <li className={`${prefix}--legal-nav__list-item`} key={index}>
-      <Link data-autoid="footer-legal-nav__link" href={url}>
-        {title}
-      </Link>
-    </li>
-  ));
+  return links.map(({ title, url }, index) => {
+    if (!title || !url) {
+      return null;
+    }
+
+    return (
+      <li className={`${prefix}--legal-nav__list-item`} key={index}>
+        <Link data-autoid="footer-legal-nav__link" href={url}>
+          {title}
+        </Link>
+      </li>
+    );
+  });
 }
 
 LegalNav.propTypes = {
