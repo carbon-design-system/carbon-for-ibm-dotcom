@@ -1,11 +1,11 @@
 {
   "name": "@carbon/ibmdotcom-utilities",
   "description": "IBM.com Library Utilities",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "license": "Apache-2.0",
   "main": "lib/index.js",
   "module": "es/index.js",
-  "repository": "https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/utilities",
+  "repository": "https://github.com/carbon-design-system/ibm-dotcom-library",
   "bugs": "https://github.com/carbon-design-system/ibm-dotcom-library/issues",
   "files": [
     "lib/**/*",

@@ -1,11 +1,11 @@
 {
   "name": "@carbon/ibmdotcom-styles",
   "description": "IBM.com Library Styles",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "license": "Apache-2.0",
   "main": "dist/ibm-dotcom-styles.min.css",
   "module": "src/scss",
-  "repository": "https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/styles",
+  "repository": "https://github.com/carbon-design-system/ibm-dotcom-library",
   "bugs": "https://github.com/carbon-design-system/ibm-dotcom-library/issues",
   "files": [
     "dist/**/*",
