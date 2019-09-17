@@ -12,9 +12,9 @@ Import the package css into the top of your main CSS file.
 
 Use these modifiers with `.bx--leadspace` class.
 
-| Class                        | Description                                                   |
-| ---------------------------- | ------------------------------------------------------------- |
-| `.bx--leadspace--productive` | The className for 'productive' variant, changes title styling |
+| Class                        | Description                                                        |
+| ---------------------------- | ------------------------------------------------------------------ |
+| `.bx--leadspace--productive` | The className for 'productive' variant which changes title styling |
 
 #### Elements
 
