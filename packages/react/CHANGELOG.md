@@ -3,6 +3,58 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/compare/@carbon/ibmdotcom-react@0.5.0-rc.0...@carbon/ibmdotcom-react@0.5.0) (2019-09-17)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [0.5.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/compare/@carbon/ibmdotcom-react@0.4.0...@carbon/ibmdotcom-react@0.5.0-rc.0) (2019-09-17)
+
+### Bug Fixes
+
+- **jest:** various jest test fixes
+  ([0c93cf1](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/commit/0c93cf1))
+- **storybook:** removed commented code
+  ([23d5968](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/commit/23d5968))
+- **storybook:** various fixes to the storybook configuration
+  ([a7cc11a](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/commit/a7cc11a))
+
+### Features
+
+- **component:** adds translation data to masthead
+  ([7f55815](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/commit/7f55815))
+- **footer:** fetching content from translation service
+  ([86e6d6f](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/commit/86e6d6f))
+- **masthead:** adds masthead types with translation API
+  ([60223fb](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/commit/60223fb))
+- **profile:** add dynamic profile menu from translation api
+  ([68c40df](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/commit/68c40df))
+
+# 0.4.0 (2019-09-10)
+
+### Bug Fixes
+
+- **react:** removed test Translation API call
+  ([71ae263](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/commit/71ae263))
+
+### Features
+
+- **patterns:** added placeholder scss file for leadspace
+  ([7df5633](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/commit/7df5633))
+- **patterns:** initial patterns package (WIP)
+  ([436e5eb](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/commit/436e5eb))
+- **translation:** switching name to patterns-react
+  ([b035c10](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/commit/b035c10))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # 0.4.0 (2019-09-10)
 
 ### Bug Fixes

@@ -3,6 +3,46 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/services/compare/@carbon/ibmdotcom-services@0.5.0-rc.0...@carbon/ibmdotcom-services@0.5.0) (2019-09-17)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-services
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [0.5.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/services/compare/@carbon/ibmdotcom-services@0.4.0...@carbon/ibmdotcom-services@0.5.0-rc.0) (2019-09-17)
+
+### Bug Fixes
+
+- **jest:** fixes to the jest env settings to share across packages
+  ([30a3ec7](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/services/commit/30a3ec7))
+
+### Features
+
+- **footer:** added socialFollow data to footer content
+  ([973f1af](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/services/commit/973f1af))
+- **masthead:** adds masthead types with translation API
+  ([60223fb](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/services/commit/60223fb))
+
+# 0.4.0 (2019-09-10)
+
+### Bug Fixes
+
+- **translation:** added translation service export
+  ([726ae4e](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/services/commit/726ae4e))
+
+### Features
+
+- **translation:** added translation service
+  ([e4f9d90](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/services/commit/e4f9d90))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # 0.4.0 (2019-09-10)
 
 ### Bug Fixes
