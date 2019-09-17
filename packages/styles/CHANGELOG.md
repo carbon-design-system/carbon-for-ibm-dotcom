@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/styles/compare/@carbon/ibmdotcom-styles@0.4.0...@carbon/ibmdotcom-styles@0.5.0-rc.0) (2019-09-17)
+
+### Features
+
+- **profile:** add dynamic profile menu from translation api
+  ([68c40df](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/styles/commit/68c40df))
+
+# 0.4.0 (2019-09-10)
+
+### Features
+
+- **patterns:** added placeholder scss file for leadspace
+  ([7df5633](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/styles/commit/7df5633))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # 0.4.0 (2019-09-10)
 
 ### Bug Fixes
