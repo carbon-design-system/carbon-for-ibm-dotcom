@@ -56,6 +56,15 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 | `masthead__l0-sidenav--nav-${item}`    | Interactive |
 | `masthead__l0-sidenav--subnav-${item}` | Interactive |
 
+## CORS Proxy
+
+This component makes cross-origin requests to `www.ibm.com`, which will require
+a cors proxy to be configured to make successful calls from a lower environment.
+
+A cors proxy can be configured using the following environment variable:
+
+`CORS_PROXY=https://myproxy.com/`
+
 ## 🙌 Contributing
 
 We're always looking for contributors to help us fix bugs, build new features,
