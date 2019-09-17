@@ -27,6 +27,7 @@
 
     &__overlay {
       @include carbon--make-container;
+
       padding-top: $layout-03;
       padding-bottom: $layout-03;
       position: absolute;
@@ -47,11 +48,13 @@
 
     .#{$prefix}--leadspace__title {
       @include carbon--type-style(display-01, true);
+
       color: $text-01;
     }
 
     .#{$prefix}--leadspace__desc {
       @include carbon--type-style(expressive-heading-03, true);
+
       color: $text-01;
     }
 

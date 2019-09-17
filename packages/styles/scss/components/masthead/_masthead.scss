@@ -188,12 +188,14 @@ $search-transition-timing: 95ms;
     }
   }
 
+  // masthead profile menu
   .#{$prefix}--overflow-menu-options {
     background-color: $ui-background;
     z-index: 5999;
 
     &__btn {
       color: $text-01;
+      text-decoration: none;
 
       &:hover {
         background-color: $ui-01;
@@ -209,11 +211,6 @@ $search-transition-timing: 95ms;
     &:focus {
       outline: none;
     }
-  }
-
-  // masthead profile menu
-  .#{$prefix}--overflow-menu-options__btn {
-    text-decoration: none;
   }
 
   // main nav/search container excluding
