@@ -12,10 +12,11 @@
 // These are imports that are included in all components. These should be
 // isolated as helper functions/mixins/utilities and should have minimal
 // effect on the final artifact size
-@import '@carbon/themes/scss/themes';
-@import 'carbon-components/scss/globals/scss/vars';
-@import 'carbon-components/scss/globals/scss/helper-mixins';
-@import 'carbon-components/scss/globals/scss/layout';
-@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/import-once/import-once';
-@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/grid/mixins';
-@import 'carbon-components/scss/globals/scss/css--reset';
+
+@import '~@carbon/themes/scss/themes';
+@import '~carbon-components/scss/globals/scss/vars';
+@import '~carbon-components/scss/globals/scss/helper-mixins';
+@import '~carbon-components/scss/globals/scss/layout';
+@import '~carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/import-once/import-once';
+@import '~carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/grid/mixins';
+@import '~carbon-components/scss/globals/scss/css--reset';
