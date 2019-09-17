@@ -30,6 +30,7 @@ const Footer = ({ type }) => {
   useEffect(() => {
     (async () => {
       const response = await TranslationAPI.getTranslation();
+      console.log(response);
       setFooterMenuData(response.footerMenu);
       setFooterLegalData(response.footerThin);
     })();

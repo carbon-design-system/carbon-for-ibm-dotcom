@@ -934,12 +934,12 @@
   resolved "https://registry.yarnpkg.com/@carbon/import-once/-/import-once-10.3.0.tgz#58617da4efb6d7a11352d8e6b7209da1d39f364d"
   integrity sha512-PFk3FhMe3psihYtCg3JsyPHismqglnbUqIpz1DCG5Gn/kt0HdVKhGvHdEq7E305rGoBUCKzMn/4xoY9v9mcmlg==
 
-"@carbon/layout@10.4.0", "@carbon/layout@^10.3.0":
+"@carbon/layout@10.4.0":
   version "10.4.0"
   resolved "https://registry.yarnpkg.com/@carbon/layout/-/layout-10.4.0.tgz#e65d46d9081c2ae61a828ddffb60da0ccc6d4842"
   integrity sha512-UHNpfAkQ3hWizp7AMgBvsopClMtWrd2yfmneU+Yu8XPsAdjRvi0xmKj9GzMAbP6WIsiewKLLFcF/PpQBSAEQ8Q==
 
-"@carbon/layout@10.5.0", "@carbon/layout@^10.5.0":
+"@carbon/layout@10.5.0", "@carbon/layout@^10.3.0", "@carbon/layout@^10.5.0":
   version "10.5.0"
   resolved "https://registry.yarnpkg.com/@carbon/layout/-/layout-10.5.0.tgz#02b79bb4713ea750622e432c9e8ada626cdb6555"
   integrity sha512-Ri4lJLDlSrZwvMUWvz4mowY47yegaN4nVhoimxx2252UwJK4Q5EIp8oXkFW6caonM01VU3AJmfUIowU/fdDLWg==
@@ -15380,7 +15380,7 @@ react-transition-group@^2.2.1:
     prop-types "^15.6.2"
     react-lifecycles-compat "^3.0.4"
 
-react@^16.8.3, react@^16.8.6:
+react@^16.8.3, react@^16.8.6, react@^16.9.0:
   version "16.9.0"
   resolved "https://registry.yarnpkg.com/react/-/react-16.9.0.tgz#40ba2f9af13bc1a38d75dbf2f4359a5185c4f7aa"
   integrity sha512-+7LQnFBwkiw+BobzOF6N//BdoNw0ouwmSJTEm9cglOOmsg/TMiFHZLe2sEoN5M7LgJTj9oHH0gxklfnQe66S1w==
