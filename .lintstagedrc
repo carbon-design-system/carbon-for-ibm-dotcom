@@ -1,9 +1,7 @@
 {
   "**/*.js": [
     "prettier --write",
-    "yarn test",
     "eslint packages",
-    "yarn test",
     "git add"
   ],
   "packages/components/**/*.scss": [
