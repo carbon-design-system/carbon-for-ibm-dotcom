@@ -20,7 +20,7 @@ const { prefix } = settings;
  * @param {string} User content
  * @returns {*} DotcomShell component
  */
-const DotcomShell = ({ navigation, children }) => {
+const DotcomShell = ({ navigation, footer, children }) => {
   return (
     <>
       <div className={`${prefix}--grid ${prefix}--dotcom-shell`}>
@@ -38,7 +38,7 @@ const DotcomShell = ({ navigation, children }) => {
           {children}
         </Content>
       </div>
-      <Footer />
+      <Footer type={footer} />
     </>
   );
 };
@@ -52,6 +52,7 @@ DotcomShell.propTypes = {
     PropTypes.node,
   ]).isRequired,
   navigation: PropTypes.object,
+  footer: PropTypes.string,
 };
 
 export default DotcomShell;
