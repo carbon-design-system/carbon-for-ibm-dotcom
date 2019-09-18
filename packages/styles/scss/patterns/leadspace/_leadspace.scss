@@ -34,6 +34,7 @@
       top: 0;
       height: 100%;
       width: 100%;
+      max-width: none;
       background-image: linear-gradient(
         to bottom,
         rgba($ui-background, 1),
@@ -131,6 +132,13 @@
 
     .#{$prefix}--leadspace--productive .#{$prefix}--leadspace__title {
       @include carbon--make-col(7, 16);
+    }
+  }
+
+  @include carbon--breakpoint(max) {
+    .#{$prefix}--leadspace__overlay {
+      padding-top: $spacing-08;
+      padding-bottom: $spacing-08;
     }
   }
 }
