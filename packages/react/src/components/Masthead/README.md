@@ -41,6 +41,17 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 | --------------- | -------------------------------------------------------------------- |
 | `with platform` | Includes platform name (only available with `default` and `custom`). |
 
+```javascript
+const topNavProps = {
+  platform: {
+    name: 'IBM Cloud',
+    url: 'https://www.ibm.com/cloud',
+  },
+};
+
+<Masthead {...topNavProps} />;
+```
+
 ## Stable selectors
 
 | Name                                   | Description |
@@ -66,12 +77,12 @@ A cors proxy can be configured using the following
 
 `CORS_PROXY=https://myproxy.com/`
 
-## 🙌 Contributing
+## í ½í¹Œ Contributing
 
 We're always looking for contributors to help us fix bugs, build new features,
 or help us improve the project documentation. If you're interested, definitely
-check out our [Contributing Guide](/.github/CONTRIBUTING.md)! 👀
+check out our [Contributing Guide](/.github/CONTRIBUTING.md)! í ½í±€
 
-## 📝 License
+## í ½í³ License
 
 Licensed under the [Apache 2.0 License](/LICENSE).

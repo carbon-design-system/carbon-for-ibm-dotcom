@@ -38,7 +38,7 @@ import content from 'content';
 
 function App() {
   return (
-    <DotcomShell navigation={navigation} footer="short">
+    <DotcomShell navigation={navigation} footerType="short">
       {content}
     </DotcomShell>
   );

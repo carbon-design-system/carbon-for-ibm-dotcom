@@ -26,7 +26,7 @@ const props = {
   },
   footer: () => {
     return {
-      footer: select('Footer', {
+      footerType: select('Footer', {
         default: 'default',
         short: 'short',
       }),
