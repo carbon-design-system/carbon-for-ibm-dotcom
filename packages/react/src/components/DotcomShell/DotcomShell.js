@@ -20,12 +20,12 @@ const { prefix } = settings;
  * @param {string} User content
  * @returns {*} DotcomShell component
  */
-const DotcomShell = ({ navigation, footer, children }) => {
+const DotcomShell = ({ navigation, footer, children, ...mastheadProps }) => {
   return (
     <>
       <div className={`${prefix}--grid ${prefix}--dotcom-shell`}>
         <div className={`${prefix}--dotcom-shell__masthead`}>
-          <Masthead navigation={navigation} />
+          <Masthead navigation={navigation} {...mastheadProps} />
         </div>
         <Content
           id={`${prefix}--dotcom-shell__content`}

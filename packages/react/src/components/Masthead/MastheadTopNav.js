@@ -20,7 +20,7 @@ import {
  * @param {object} navigation Object containing top navigation elements
  * @returns {*} Masthead top nav component
  */
-const MastheadTopNav = ({ navigation, ...topNavprops }) => {
+const MastheadTopNav = ({ navigation, ...topNavProps }) => {
   /**
    * Top masthead navigation
    *
@@ -60,12 +60,12 @@ const MastheadTopNav = ({ navigation, ...topNavprops }) => {
 
   return (
     <>
-      {topNavprops.platform && (
+      {topNavProps.platform && (
         <HeaderName
           prefix=""
-          href={topNavprops.platform.url}
+          href={topNavProps.platform.url}
           data-autoid="masthead__platform-name">
-          {topNavprops.platform.name}
+          {topNavProps.platform.name}
         </HeaderName>
       )}
       <HeaderNavigation aria-label="IBM" data-autoid="masthead__l0-nav">

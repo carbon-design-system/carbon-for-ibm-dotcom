@@ -9,6 +9,7 @@ import '../../../../../styles/scss/components/masthead/_masthead.scss';
 import '../../../../../styles/scss/components/masthead/_masthead-l1.scss';
 
 const platformName = {
+  none: 'undefined',
   platform: {
     name: 'IBM Cloud',
     url: 'https://www.ibm.com/cloud',
