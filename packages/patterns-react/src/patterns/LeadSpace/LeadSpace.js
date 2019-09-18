@@ -67,7 +67,7 @@ const LeadSpace = ({ variation, title, copy, buttons, image }) =>
         <div className={`${prefix}--leadspace__overlay`}>
           <h1 className={`${prefix}--leadspace__title`}>{title}</h1>
           <div className={`${prefix}--leadspace__content`}>
-            <p className={`${prefix}--leadspace__desc`}>{copy}</p>
+            {copy && <p className={`${prefix}--leadspace__desc`}>{copy}</p>}
             {buttons && buttons.length > 0 && (
               <div className={`${prefix}--leadspace__ctas`}>
                 {renderButtons(buttons)}

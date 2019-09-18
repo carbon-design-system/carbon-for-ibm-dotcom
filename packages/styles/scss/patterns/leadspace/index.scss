@@ -1,5 +1,5 @@
 @import '../../globals/imports';
-@import 'carbon-components/scss/components/button/_button.scss';
+@import '~carbon-components/scss/components/button/button';
 @import './leadspace';
 
 .#{$prefix}--leadspace--g100 {
