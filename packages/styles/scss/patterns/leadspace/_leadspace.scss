@@ -58,8 +58,6 @@
     }
 
     &__ctas {
-      @include carbon--make-col-ready;
-
       display: flex;
       flex-direction: column-reverse;
       margin-top: $layout-01;
@@ -79,6 +77,10 @@
     .#{$prefix}--leadspace {
       padding-top: carbon--mini-units(50) / carbon--mini-units(84) * 100%;
 
+      &__row {
+        @include carbon--make-row;
+      }
+
       &__overlay {
         background-image: linear-gradient(
           to right,
@@ -95,10 +97,13 @@
       }
 
       .#{$prefix}--leadspace__desc {
-        width: 50%;
+        @include carbon--make-col-ready;
+        @include carbon--make-col(4, 8);
       }
 
       &__ctas {
+        @include carbon--make-col-ready;
+
         flex-direction: row-reverse;
         justify-content: flex-end;
         margin-top: $layout-03;
