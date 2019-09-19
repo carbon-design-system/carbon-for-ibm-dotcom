@@ -45,7 +45,7 @@ function App() {
 }
 ```
 
-> 💡 > And don't forget to import the masthead and footer styles from
+> 💡 > And don't forget to import the DotcomShell styles from
 > [@carbon/ibmdotcom-styles](/packages/styles).
 
 ## Data and content
