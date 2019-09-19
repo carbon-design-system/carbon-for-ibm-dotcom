@@ -5,6 +5,8 @@
 // LICENSE file in the root directory of this source tree.
 //
 
+@import 'carbon-components/scss/globals/scss/vendor/@carbon/type/scss/styles';
+
 @function temp--padding-diff(
   $height,
   $type-token,
@@ -12,9 +14,9 @@
   $theme-tokens: $tokens
 ) {
   @return (
-      $height - map-get(map-get($theme-tokens, $type-token), 'line-height') -
-        $remove-more
-    ) / 2;
+      ($height - map-get(map-get($theme-tokens, $type-token), 'line-height')) /
+        2
+    ) - $remove-more;
 }
 
 @function temp--get-icon-size($type-token, $theme-tokens: $tokens) {

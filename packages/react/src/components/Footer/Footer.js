@@ -13,6 +13,7 @@ import classNames from 'classnames';
 import FooterLogo from './FooterLogo';
 import FooterNav from './FooterNav';
 import LegalNav from './LegalNav';
+import LocaleButton from './LocaleButton';
 
 const { prefix } = settings;
 
@@ -42,6 +43,7 @@ const Footer = ({ type }) => {
         <div className={`${prefix}--footer__main-container`}>
           <FooterLogo />
           {optionalFooterNav(type, footerMenuData)}
+          <LocaleButton />
         </div>
       </section>
       <LegalNav links={footerLegalData} />
@@ -83,6 +85,3 @@ Footer.propTypes = {
 };
 
 export default Footer;
-
-// api for reference later
-// https://www.ibm.com/common/v18/js/data/usen.js

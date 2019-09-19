@@ -19,9 +19,12 @@
 // /// @group footer
 
 @include carbon--theme($carbon--theme--g90) {
+  @import 'locale-button';
   @import 'footer';
   @import 'footer-logo';
   @import 'footer-nav';
   @import 'footer-nav-group';
   @import 'legal-nav';
 }
+
+@import 'carbon-components/scss/components/modal/modal';

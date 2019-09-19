@@ -7,6 +7,9 @@
 
 @import '~carbon-components/scss/components/accordion/accordion';
 
+@import '../../globals/vars.scss';
+@import '../../globals/mixins.scss';
+
 /// Temporary overrides for accordion's expressive moment
 /// @access private
 /// @group expressive-overrides
