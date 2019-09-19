@@ -58,7 +58,6 @@
     }
 
     &__ctas {
-      @include carbon--make-row;
       @include carbon--make-col-ready;
 
       display: flex;
@@ -89,7 +88,6 @@
       }
 
       .#{$prefix}--leadspace__title {
-        @include carbon--make-row;
         @include carbon--make-col-ready;
         @include carbon--make-col(7, 8);
 
@@ -123,7 +121,6 @@
       }
 
       .#{$prefix}--leadspace__desc {
-        @include carbon--make-row;
         @include carbon--make-col-ready;
         @include carbon--make-col(4, 16);
       }
