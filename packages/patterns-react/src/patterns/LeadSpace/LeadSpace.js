@@ -65,17 +65,17 @@ const LeadSpace = ({ variation, title, copy, buttons, image }) =>
     <section data-autoid="leadspace" className={className(variation)}>
       <div className={`${prefix}--leadspace__container`}>
         <div className={`${prefix}--leadspace__overlay`}>
-          <div className="bx--row">
+          <div className={`${prefix}--leadspace__row`}>
             <h1 className={`${prefix}--leadspace__title`}>{title}</h1>
           </div>
           <div className={`${prefix}--leadspace__content`}>
             {copy && (
-              <div className="bx--row">
+              <div className={`${prefix}--leadspace__row`}>
                 <p className={`${prefix}--leadspace__desc`}>{copy}</p>
               </div>
             )}
             {buttons && buttons.length > 0 && (
-              <div className="bx--row">
+              <div className={`${prefix}--leadspace__row`}>
                 <div className={`${prefix}--leadspace__ctas`}>
                   {renderButtons(buttons)}
                 </div>
