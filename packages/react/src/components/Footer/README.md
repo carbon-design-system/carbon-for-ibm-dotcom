@@ -24,6 +24,18 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 > 💡 Don't forget to import the footer styles from
 > [@carbon/ibmdotcom-styles](/packages/styles).
 
+#### Feature Flags
+
+To utilize the following features, set the following variable's to `true` within
+your `.env` file or your application build settings.
+
+```
+FOOTER_LOCALE_BUTTON=true
+```
+
+> See [feature-flags.md](../../../docs/feature-flags.md) and
+> [.env.example](../../../.env.example) for more information
+
 ## Types (optional)
 
 | Name             | Description                                                                 |
@@ -41,8 +53,10 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 | `footer-nav-group__link` | Interactive |
 | `footer-logo`            | Component   |
 | `footer-logo__link`      | Interactive |
+| `footer-locale-btn`      | Interactive |
 | `legal-nav`              | Component   |
 | `legal-nav__link`        | Interactive |
+| `locale-modal`           | Component   |
 
 ## CORS Proxy
 

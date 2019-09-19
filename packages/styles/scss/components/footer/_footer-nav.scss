@@ -16,6 +16,7 @@
     @include carbon--make-col-ready;
 
     padding: 0;
+    order: 1;
 
     .#{$prefix}--footer--short & {
       display: none;
