@@ -22,8 +22,12 @@
     &__masthead {
       width: 100%;
       position: sticky;
-      top: -48px;
+      top: 0;
       z-index: 99999;
+
+      &--has-l1 {
+        top: -48px;
+      }
     }
 
     // Dotcom shell - grid overrides

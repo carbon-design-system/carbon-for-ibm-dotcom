@@ -77,12 +77,12 @@ A cors proxy can be configured using the following
 
 `CORS_PROXY=https://myproxy.com/`
 
-## í ½í¹Œ Contributing
+## 🙌 Contributing
 
 We're always looking for contributors to help us fix bugs, build new features,
 or help us improve the project documentation. If you're interested, definitely
-check out our [Contributing Guide](/.github/CONTRIBUTING.md)! í ½í±€
+check out our [Contributing Guide](/.github/CONTRIBUTING.md)! 👀
 
-## í ½í³ License
+## 📝 License
 
 Licensed under the [Apache 2.0 License](/LICENSE).
