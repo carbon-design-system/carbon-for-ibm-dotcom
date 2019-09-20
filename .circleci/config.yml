@@ -25,68 +25,6 @@ jobs:
             yarn ci-check
             yarn lerna run ci-check
 
-  deploy:
-    docker:
-      - image: circleci/node:10.15-browsers
-    working_directory: /home/circleci/project
-    steps:
-      - checkout
-      - run:
-          name: Install yarn
-          command: |
-            curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.16.0
-            # Reference:
-            # https://circleci.com/docs/2.0/env-vars/#example-configuration-of-environment-variables
-            echo 'export PATH="$HOME/.yarn/bin:$PATH"' >> $BASH_ENV
-      - run:
-          name: Install dependencies
-          command: yarn install --offline --frozen-lockfile
-      - run:
-          name: Build packages
-          command: yarn build
-      - run:
-          name: Install ibmcloud CLI
-          command: curl -fsSL https://clis.ng.bluemix.net/install/linux | sh
-      - run:
-          name: IBM Cloud Login
-          command: |
-            ibmcloud login \
-              --apikey $CLOUD_API_KEY \
-              -a https://api.ng.bluemix.net \
-              -o ibm-digital-design
-
-            ibmcloud target -s ibmdotcom-production
-
-            ibmcloud cf add-plugin-repo CF-Community https://plugins.cloudfoundry.org
-            ibmcloud cf install-plugin blue-green-deploy -f -r CF-Community
-      - deploy:
-          name: deploy package react
-          command: |
-            cd $CIRCLE_WORKING_DIRECTORY/packages/react
-            yarn build-storybook
-
-            ibmcloud cf blue-green-deploy ibmdotcom-react \
-              -f manifest.yml \
-              --delete-old-apps
-      - deploy:
-          name: deploy package services
-          command: |
-            cd $CIRCLE_WORKING_DIRECTORY/packages/services
-            yarn jsdoc
-
-            ibmcloud cf blue-green-deploy ibmdotcom-services \
-            -f manifest.yml \
-            --delete-old-apps
-      - deploy:
-          name: deploy package utilities
-          command: |
-            cd $CIRCLE_WORKING_DIRECTORY/packages/utilities
-            yarn jsdoc
-
-            ibmcloud cf blue-green-deploy ibmdotcom-utilities \
-            -f manifest.yml \
-            --delete-old-apps
-
 
   release:
     docker:
@@ -179,4 +117,3 @@ workflows:
               ignore: /.*/
             tags:
               only: /^v\d+\.\d+\.\d+$/
-
