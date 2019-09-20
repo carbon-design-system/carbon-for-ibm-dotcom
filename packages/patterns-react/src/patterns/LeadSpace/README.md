@@ -1,6 +1,6 @@
 # Lead Space
 
-> The Lead Space pattern is to be utilized within IBM.com for Lorem Ipsum.
+> The Lead Space pattern is to be utilized within IBM.com.
 
 ## Getting started
 
@@ -17,14 +17,34 @@ function App() {
 ReactDOM.render(<App />, document.querySelector('#app'));
 ```
 
-> 💡 Don't forget to import the horizontal rule styles from
+> 💡 Don't forget to import the leadspace styles from
 > [@carbon/ibmdotcom-styles](/packages/styles).
+
+#### Feature Flags
+
+To utilize the following features, set the following variable's to `true` within
+your `.env` file or your application build settings.
+
+```
+LEADSPACE=true
+```
+
+> See [feature-flags.md](../../../docs/feature-flags.md) and
+> [.env.example](../../../.env.example) for more information
+
+## Variations
+
+| Name                   | Description                             |
+| ---------------------- | --------------------------------------- |
+| `expressive`/`default` | Expressive style of the leadspace title |
+| `productive`           | Productive style of the leadspace title |
 
 ## Stable selectors
 
-| Name        | Description |
-| ----------- | ----------- |
-| `leadspace` | Pattern     |
+| Name                     | Description    |
+| ------------------------ | -------------- |
+| `leadspace`              | Pattern        |
+| `leadspace__cta--${key}` | LeadSpace CTAs |
 
 ## 🙌 Contributing
 

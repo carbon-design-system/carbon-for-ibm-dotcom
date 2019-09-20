@@ -52,10 +52,14 @@ storiesOf('HorizontalRule', module)
           <div className="bx--row bx--no-gutter">
             <div className="bx--col">
               <HorizontalRule
-                style={select('style', styles, '')}
-                size={select('size', sizes, '')}
-                contrast={select('contrast', contrasts, '')}
-                weight={select('weight', weights, '')}
+                style={select('style', styles, styles.solid)}
+                size={select('size', sizes, sizes.fluid)}
+                contrast={select(
+                  'contrast',
+                  contrasts,
+                  contrasts['medium-contrast']
+                )}
+                weight={select('weight', weights, weights.thin)}
               />
             </div>
           </div>
@@ -69,10 +73,14 @@ storiesOf('HorizontalRule', module)
             <div className="bx--col">
               <h4>{words}</h4>
               <HorizontalRule
-                style={select('style', styles, '')}
-                size={select('size', sizes, '')}
-                contrast={select('contrast', contrasts, '')}
-                weight={select('weight', weights, '')}
+                style={select('style', styles, styles.solid)}
+                size={select('size', sizes, sizes.fluid)}
+                contrast={select(
+                  'contrast',
+                  contrasts,
+                  contrasts['medium-contrast']
+                )}
+                weight={select('weight', weights, weights.thin)}
               />
               <h4>{words}</h4>
             </div>

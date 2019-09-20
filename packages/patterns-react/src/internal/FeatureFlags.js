@@ -10,6 +10,8 @@
  */
 
 /**
- * There are currently no feature flags in the patterns package at this time,
- * but keeping this here as a placeholder.
+ * This determines if the leadspace will be rendered or not
+ *
+ * @type {string | boolean}
  */
+export const LEADSPACE = process.env.LEADSPACE === 'true' || false;
