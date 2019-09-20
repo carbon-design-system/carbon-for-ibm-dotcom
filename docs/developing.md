@@ -25,7 +25,7 @@ dependencies and publishing our packages. These include:
 
 - [Yarn workspaces](https://yarnpkg.com/lang/en/docs/workspaces/) for handling
   dependencies across all packages
-- [Lerna](https://lernajs.io/) for publishing packages, tagging versions, and
+- [Lerna](https://lerna.js.org/) for publishing packages, tagging versions, and
   more
 
 In order for you to install all the dependencies in this project, you'll need to

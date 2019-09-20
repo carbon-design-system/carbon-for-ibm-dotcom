@@ -65,7 +65,7 @@ jobs:
             cd $CIRCLE_WORKING_DIRECTORY/packages/react
             yarn build-storybook
 
-            ibmcloud cf blue-green-deploy ibmdotcomlibrary-react \
+            ibmcloud cf blue-green-deploy ibmdotcom-react \
               -f manifest.yml \
               --delete-old-apps
       - deploy:
@@ -74,7 +74,7 @@ jobs:
             cd $CIRCLE_WORKING_DIRECTORY/packages/services
             yarn jsdoc
 
-            ibmcloud cf blue-green-deploy ibmdotcomlibrary-services \
+            ibmcloud cf blue-green-deploy ibmdotcom-services \
             -f manifest.yml \
             --delete-old-apps
       - deploy:
@@ -83,7 +83,7 @@ jobs:
             cd $CIRCLE_WORKING_DIRECTORY/packages/utilities
             yarn jsdoc
 
-            ibmcloud cf blue-green-deploy ibmdotcomlibrary-utilities \
+            ibmcloud cf blue-green-deploy ibmdotcom-utilities \
             -f manifest.yml \
             --delete-old-apps
 
