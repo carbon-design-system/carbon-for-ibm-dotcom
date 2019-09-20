@@ -19,7 +19,7 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 ```
 
 > 💡 Don't forget to import the horizontal rule styles from
-> [@carbon/ibmdotcom-styles](/packages/styles).
+> [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
 ## Styles (optional)
 
@@ -62,8 +62,11 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 We're always looking for contributors to help us fix bugs, build new features,
 or help us improve the project documentation. If you're interested, definitely
-check out our [Contributing Guide](/.github/CONTRIBUTING.md)! 👀
+check out our
+[Contributing Guide](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/.github/CONTRIBUTING.md)!
+👀
 
 ## 📝 License
 
-Licensed under the [Apache 2.0 License](/LICENSE).
+Licensed under the
+[Apache 2.0 License](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/LICENSE).

@@ -21,14 +21,14 @@ yarn add @carbon/ibmdotcom-patterns-react carbon-components-react carbon-compone
 
 1. These components require the use of [Webpack](https://webpack.js.org/) in
    your project. See our
-   [`webpack.config.js`](/packages/react/.storybook/webpack.config.js) for an
-   example configuration.
+   [`webpack.config.js`](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/.storybook/webpack.config.js)
+   for an example configuration.
 
 2. Components do not import any of the styles themselves, use the scss or css
    from `@carbon/ibmdotcom-styles` to bring in styling.
 
 3. For older browsers (e.g. IE11), polyfills listed in
-   [`packages/patterns-react/.storybook/polyfills.js` file](./.storybook/polyfills.js)
+   [`packages/patterns-react/.storybook/polyfills.js` file](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/patterns-react/.storybook/polyfills.js)
    is required.
 
 ## Usage

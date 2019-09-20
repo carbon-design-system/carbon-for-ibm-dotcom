@@ -53,7 +53,7 @@ yarn build
 
 Afterwards, you should be good to go! For more information about how we handle
 dependencies, definitely take a look at our write-up
-[here](/docs/dependencies.md).
+[here](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/docs/dependencies.md).
 
 ## Common tasks
 
