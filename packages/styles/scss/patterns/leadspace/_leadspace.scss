@@ -38,29 +38,38 @@
       height: 100%;
       width: 100%;
       max-width: none;
+    }
 
-      &--gradient {
-        background-image: linear-gradient(
-          to bottom,
-          rgba($ui-background, 1),
-          transparent
-        );
-      }
+    &--gradient {
+      background-image: linear-gradient(
+        to bottom,
+        rgba($ui-background, 1),
+        transparent
+      );
     }
 
     .#{$prefix}--leadspace__title {
       @include carbon--type-style(display-01, true);
+      @include carbon--make-col-ready;
 
       color: $text-01;
     }
 
+    &__row {
+      @include carbon--make-row;
+    }
+
     .#{$prefix}--leadspace__desc {
       @include carbon--type-style(expressive-heading-03, true);
+      @include carbon--make-col-ready;
+      @include carbon--make-col(7, 8);
 
       color: $text-01;
     }
 
     &__ctas {
+      @include carbon--make-col-ready;
+
       display: flex;
       flex-direction: column-reverse;
       margin-top: $layout-01;
@@ -80,10 +89,6 @@
     .#{$prefix}--leadspace {
       padding-top: carbon--mini-units(50) / carbon--mini-units(84) * 100%;
 
-      &__row {
-        @include carbon--make-row;
-      }
-
       &--gradient {
         background-image: linear-gradient(
           to right,
@@ -93,20 +98,16 @@
       }
 
       .#{$prefix}--leadspace__title {
-        @include carbon--make-col-ready;
         @include carbon--make-col(7, 8);
 
         flex-shrink: 1;
       }
 
       .#{$prefix}--leadspace__desc {
-        @include carbon--make-col-ready;
         @include carbon--make-col(4, 8);
       }
 
       &__ctas {
-        @include carbon--make-col-ready;
-
         flex-direction: row-reverse;
         justify-content: flex-end;
         margin-top: $layout-03;

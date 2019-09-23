@@ -123,7 +123,7 @@ storiesOf('LeadSpace', module)
           title={title}
           copy={copy}
           gradient={graident}
-          buttons={object('buttons', buttons)}
+          buttons={buttons}
           image={object('image', image)}
           variation={select('variation', variations, variations.expressive)}
         />
