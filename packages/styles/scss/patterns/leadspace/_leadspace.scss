@@ -5,11 +5,142 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import '../../globals/imports';
-
 @mixin leadspace {
   .#{$prefix}--leadspace {
-    background-color: transparent;
+    position: relative;
+    padding-top: carbon--rem(370px) / carbon--mini-units(40) * 100%;
+    height: 0;
+    background: $ui-background;
+
+    &__image {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+
+    &__container {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      width: 100%;
+    }
+
+    &__overlay {
+      @include carbon--make-container;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding-top: $layout-03;
+      padding-bottom: $layout-03;
+      position: absolute;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      max-width: none;
+      background-image: linear-gradient(
+        to bottom,
+        rgba($ui-background, 1),
+        transparent
+      );
+    }
+
+    .#{$prefix}--leadspace__title {
+      @include carbon--type-style(display-01, true);
+
+      color: $text-01;
+    }
+
+    .#{$prefix}--leadspace__desc {
+      @include carbon--type-style(expressive-heading-03, true);
+
+      color: $text-01;
+    }
+
+    &__ctas {
+      display: flex;
+      flex-direction: column-reverse;
+      margin-top: $layout-01;
+    }
+
+    .#{$prefix}--btn {
+      width: 100%;
+      margin-top: $layout-01;
+    }
+  }
+
+  .#{$prefix}--leadspace--productive .#{$prefix}--leadspace__title {
+    @include carbon--type-style(expressive-heading-06, true);
+  }
+
+  @include carbon--breakpoint(md) {
+    .#{$prefix}--leadspace {
+      padding-top: carbon--mini-units(50) / carbon--mini-units(84) * 100%;
+
+      &__row {
+        @include carbon--make-row;
+      }
+
+      &__overlay {
+        background-image: linear-gradient(
+          to right,
+          rgba($ui-background, 1),
+          transparent 50%
+        );
+      }
+
+      .#{$prefix}--leadspace__title {
+        @include carbon--make-col-ready;
+        @include carbon--make-col(7, 8);
+
+        flex-shrink: 1;
+      }
+
+      .#{$prefix}--leadspace__desc {
+        @include carbon--make-col-ready;
+        @include carbon--make-col(4, 8);
+      }
+
+      &__ctas {
+        @include carbon--make-col-ready;
+
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+        margin-top: $layout-03;
+      }
+
+      .#{$prefix}--btn {
+        width: auto;
+        margin-top: 0;
+        margin-right: $layout-01;
+      }
+    }
+  }
+
+  @include carbon--breakpoint(lg) {
+    .#{$prefix}--leadspace {
+      padding-top: carbon--mini-units(60) / carbon--mini-units(132) * 100%;
+
+      .#{$prefix}--leadspace__title {
+        @include carbon--make-col(8, 16);
+      }
+
+      .#{$prefix}--leadspace__desc {
+        @include carbon--make-col-ready;
+        @include carbon--make-col(4, 16);
+      }
+    }
+
+    .#{$prefix}--leadspace--productive .#{$prefix}--leadspace__title {
+      @include carbon--make-col(7, 16);
+    }
+  }
+
+  @include carbon--breakpoint(max) {
+    .#{$prefix}--leadspace__overlay {
+      padding-top: $spacing-08;
+      padding-bottom: $spacing-08;
+    }
   }
 }
 

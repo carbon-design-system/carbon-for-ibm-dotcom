@@ -27,6 +27,16 @@
 
     &__main-container {
       @include carbon--make-row;
+
+      flex-direction: column;
+
+      .#{$prefix}--footer--short & {
+        flex-direction: row;
+      }
+
+      @include carbon--breakpoint('lg') {
+        flex-direction: row;
+      }
     }
 
     .#{$prefix}--link {

@@ -1,0 +1,10 @@
+@import '../../globals/imports';
+@import '~carbon-components/scss/components/button/button';
+@import './leadspace';
+
+.#{$prefix}--leadspace--g100 {
+  @include carbon--theme($carbon--theme--g100) {
+    @include button;
+    @include leadspace;
+  }
+}
