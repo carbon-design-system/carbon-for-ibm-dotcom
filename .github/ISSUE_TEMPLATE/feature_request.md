@@ -1,16 +1,20 @@
 ---
 name: Feature Request 💡
 about: Suggest a new idea for the project.
+title: ''
+labels: enhancement
 ---
 
-**Is your feature request related to a problem? Please describe.** A clear and
-concise description of what the problem is. Ex. I'm always frustrated when [...]
+<!-- replace _{{...}}_ with your own words -->
 
-**Describe the solution you'd like** A clear and concise description of what you
-want to happen.
+### The problem
+_{{A clear and concise description of what the problem this new feature is trying to solve. (ex. I'm always frustrated when...)}}_
 
-**Describe alternatives you've considered** A clear and concise description of
-any alternative solutions or features you've considered.
+### The solution
+_{{A clear and concise description of what you want to happen}}_
 
-**Additional context** Add any other context or screenshots about the feature
-request here.
+### Additional information
+ _{{Please provide any additional information or resources for reference}}_
+ - _{{user research}}_
+ - _{{user insights}}_
+ - _{{user metrics}}_
