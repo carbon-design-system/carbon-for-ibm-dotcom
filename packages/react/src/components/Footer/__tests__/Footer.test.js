@@ -38,20 +38,6 @@ describe('<Footer />', () => {
     container = null;
   });
 
-  // it('renders only the logo if data fails to load', async () => {
-  //
-  //   await act(async () => {
-  //     await ReactDOM.render(<Footer />, container);
-  //   });
-  //
-  //   const footer = container.querySelector('.bx--footer');
-  //
-  //   expect(TranslationAPI.getTranslation).toHaveBeenCalledTimes(1);
-  //   expect(footer.querySelectorAll('.bx--footer-nav-group')).toHaveLength(MOCK_DATA.footerMenu.length);
-  //   expect(footer.querySelectorAll('.bx--footer-nav-group')).toHaveLength(MOCK_DATA.footerMenu.length);
-  //   expect(footer.querySelectorAll('.bx--legal-nav__list-item')).toHaveLength(MOCK_DATA.footerThin.length);
-  // });
-
   it('renders with everything as expected', async () => {
     await act(async () => {
       await ReactDOM.render(<Footer />, container);
@@ -60,7 +46,6 @@ describe('<Footer />', () => {
     const footer = container.querySelector('.bx--footer');
 
     expect(TranslationAPI.getTranslation).toHaveBeenCalledTimes(1);
-    // expect(footer).toHaveLength(1);
     expect(footer.querySelectorAll('.bx--footer-logo')).toHaveLength(1);
     expect(footer.querySelectorAll('.bx--footer-nav-group')).toHaveLength(
       MOCK_DATA.footerMenu.length
