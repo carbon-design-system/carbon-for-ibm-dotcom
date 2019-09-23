@@ -137,9 +137,13 @@
   }
 
   @include carbon--breakpoint(max) {
-    .#{$prefix}--leadspace__overlay {
-      padding-top: $spacing-08;
-      padding-bottom: $spacing-08;
+    .#{$prefix}--leadspace {
+      padding-top: carbon--mini-units(80) / carbon--mini-units(198) * 100%;
+
+      &__overlay {
+        padding-top: $spacing-08;
+        padding-bottom: $spacing-08;
+      }
     }
   }
 }

@@ -2,6 +2,7 @@
   "**/*.js": [
     "prettier --write",
     "eslint packages",
+    "yarn test",
     "git add"
   ],
   "packages/components/**/*.scss": [
