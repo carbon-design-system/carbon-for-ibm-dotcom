@@ -15,7 +15,9 @@ $search-transition-timing: 95ms;
 @mixin masthead-l1 {
   .#{$prefix}--masthead__l1 {
     display: flex;
-    width: 100%;
+    max-width: 95rem;
+    margin-left: auto;
+    margin-right: auto;
     height: 80px;
     background-color: $ui-01;
     transition-timing-function: $search-transition;

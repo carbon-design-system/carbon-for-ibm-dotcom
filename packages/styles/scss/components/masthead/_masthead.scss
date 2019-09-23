@@ -13,11 +13,45 @@ $search-transition: cubic-bezier(0.2, 0, 0.38, 0.9);
 $search-transition-timing: 95ms;
 
 @mixin masthead {
+  .#{$prefix}--masthead {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99999;
+    transition-delay: 200ms;
+    transition-timing-function: $search-transition;
+    transition-duration: 300ms;
+
+    &--sticky {
+      &.#{$prefix}--masthead--sticky__l1 {
+        top: -48px;
+      }
+    }
+  }
+
+  .#{$prefix}--masthead__l0 {
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 100vw;
+      height: 1px;
+      bottom: 0;
+      left: 0;
+      z-index: 9999;
+      background-color: $ui-03;
+    }
+  }
+
   .#{$prefix}--header {
     transition-timing-function: $search-transition;
     background: $ui-background;
-    border-bottom: 1px solid $ui-03;
-    width: 100%;
+    border: none;
+    max-width: 95rem;
+    margin-left: auto;
+    margin-right: auto;
     position: relative;
 
     &__logo {
@@ -191,6 +225,7 @@ $search-transition-timing: 95ms;
 
     &__btn {
       color: $text-01;
+      text-decoration: none;
 
       &:hover {
         background-color: $ui-01;
@@ -206,11 +241,6 @@ $search-transition-timing: 95ms;
     &:focus {
       outline: none;
     }
-  }
-
-  // masthead profile menu
-  .#{$prefix}--overflow-menu-options__btn {
-    text-decoration: none;
   }
 }
 
