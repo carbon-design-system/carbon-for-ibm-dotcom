@@ -1,6 +1,12 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, text, select, object } from '@storybook/addon-knobs';
+import {
+  withKnobs,
+  text,
+  select,
+  object,
+  boolean,
+} from '@storybook/addon-knobs';
 import '../../../../../styles/scss/patterns/leadspace/index.scss';
 import LeadSpace from '../LeadSpace';
 import readme from '../README.md';
@@ -29,12 +35,12 @@ storiesOf('LeadSpace', module)
       {
         link: '',
         copy: 'Primary action',
-        renderArrow: true,
+        renderIcon: 'ArrowDown',
       },
       {
         link: '',
         copy: 'Secondary action',
-        renderArrow: false,
+        renderIcon: 'ArrowRight',
       },
     ];
 
@@ -79,16 +85,23 @@ storiesOf('LeadSpace', module)
       alt: 'lead space image',
     };
 
+    const icons = {
+      ArrowRight: 'ArrowRight',
+      ArrowDown: 'ArrowDown',
+      Pdf: 'Pdf',
+      none: 'none',
+    };
+
     const buttons = [
       {
         link: '',
         copy: 'Primary action',
-        renderArrow: true,
+        renderIcon: select('button icon', icons, icons.ArrowRight),
       },
       {
         link: '',
         copy: 'Secondary action',
-        renderArrow: false,
+        renderIcon: select('button icon', icons, icons.ArrowRight),
       },
     ];
 
@@ -96,6 +109,8 @@ storiesOf('LeadSpace', module)
       'dark (g100)': 'g100',
       'light (white)': '',
     };
+
+    const graident = boolean('gradient overlay', true);
 
     return (
       <div
@@ -107,6 +122,7 @@ storiesOf('LeadSpace', module)
         <LeadSpace
           title={title}
           copy={copy}
+          gradient={graident}
           buttons={object('buttons', buttons)}
           image={object('image', image)}
           variation={select('variation', variations, variations.expressive)}

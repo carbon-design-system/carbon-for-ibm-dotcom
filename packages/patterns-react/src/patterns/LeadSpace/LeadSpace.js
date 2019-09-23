@@ -8,7 +8,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classnames from 'classnames';
-import { ArrowRight20 } from '@carbon/icons-react';
+import { ArrowRight20, ArrowDown20, Pdf20 } from '@carbon/icons-react';
 import { settings } from 'carbon-components';
 import { Button } from 'carbon-components-react';
 import { featureFlag } from '@carbon/ibmdotcom-utilities';
@@ -23,12 +23,17 @@ const { prefix } = settings;
  * @returns {*} button components
  */
 function renderButtons(buttons) {
+  const iconMap = new Map([
+    ['ArrowRight', ArrowRight20],
+    ['ArrowDown', ArrowDown20],
+    ['Pdf', Pdf20],
+  ]);
   return buttons.map((button, key) => {
     if (key > 1) return;
     return (
       <Button
         data-autoid={`leadspace__cta-${key}`}
-        renderIcon={button.renderArrow && ArrowRight20}
+        renderIcon={iconMap.get(button.renderIcon)}
         href={button.link}
         kind={key === 0 ? 'primary' : 'tertiary'}>
         {button.copy}
@@ -49,22 +54,34 @@ const className = variation =>
   });
 
 /**
+ * renders the pattern classnames
+ *
+ * @param {boolean} gradient determines whether to render gradient
+ * @returns {string} classnames
+ */
+const overlayClassname = gradient =>
+  classnames(`${prefix}--leadspace__overlay`, {
+    [`${prefix}--leadspace--gradient`]: gradient,
+  });
+
+/**
  * Lead space component
  *
  * @param {object} props props object
  * @param {string} props.variation variation of the lead space (expressive (default) or productive)
  * @param {string} props.title lead space title
  * @param {string} props.copy lead space short copy to support the title
+ * @param {boolean} props.gradient determines whether to render gradient overlay
  * @param {object} props.image image object with diff source for diff breakpoints
  * @param {Array} props.buttons array of buttons for lead space (max 2 buttons)
  * @returns {*} Lead space component
  */
-const LeadSpace = ({ variation, title, copy, buttons, image }) =>
+const LeadSpace = ({ variation, title, copy, buttons, image, gradient }) =>
   featureFlag(
     LEADSPACE,
     <section data-autoid="leadspace" className={className(variation)}>
       <div className={`${prefix}--leadspace__container`}>
-        <div className={`${prefix}--leadspace__overlay`}>
+        <div className={overlayClassname(gradient)}>
           <div className={`${prefix}--leadspace__row`}>
             <h1 className={`${prefix}--leadspace__title`}>{title}</h1>
           </div>
@@ -110,6 +127,7 @@ LeadSpace.propTypes = {
   }),
   title: PropTypes.string.isRequired,
   variation: PropTypes.string,
+  gradient: PropTypes.bool,
 };
 
 export default LeadSpace;
