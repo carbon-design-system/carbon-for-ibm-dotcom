@@ -108,12 +108,3 @@ workflows:
             branches:
               only:
                 - master
-      - deploy:
-          requires:
-            - system
-            - artifacts
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^v\d+\.\d+\.\d+$/
