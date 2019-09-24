@@ -9,7 +9,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import FooterNavGroup from '../FooterNavGroup';
 
-import FOOTER_NAV_DATA from './data/footer-menu';
+const FOOTER_NAV_DATA = require('../__data__/footer-menu.json').data;
 
 describe('<FooterNavGroup />', () => {
   let MOCK_DATA;

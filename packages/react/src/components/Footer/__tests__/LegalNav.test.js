@@ -9,13 +9,13 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import LegalNav from '../LegalNav';
 
-import LEGAL_NAV_DATA from './data/footer-legal';
+const FOOTER_NAV_DATA = require('../__data__/footer-legal.json').data;
 
 describe('<LegalNav />', () => {
   let MOCK_DATA;
 
   beforeEach(() => {
-    MOCK_DATA = JSON.parse(JSON.stringify(LEGAL_NAV_DATA));
+    MOCK_DATA = JSON.parse(JSON.stringify(FOOTER_NAV_DATA));
   });
 
   it('returns null if no "links" prop', () => {
@@ -37,7 +37,7 @@ describe('<LegalNav />', () => {
 
     expect(legalNav.exists('.bx--legal-nav')).toBeTruthy();
     expect(legalNav.find('.bx--legal-nav__list-item')).toHaveLength(
-      LEGAL_NAV_DATA.length - 1
+      FOOTER_NAV_DATA.length - 1
     );
   });
 
@@ -48,7 +48,7 @@ describe('<LegalNav />', () => {
 
     expect(legalNav.exists('.bx--legal-nav')).toBeTruthy();
     expect(legalNav.find('.bx--legal-nav__list-item')).toHaveLength(
-      LEGAL_NAV_DATA.length - 1
+      FOOTER_NAV_DATA.length - 1
     );
   });
 
@@ -57,7 +57,7 @@ describe('<LegalNav />', () => {
 
     expect(legalNav.exists('.bx--legal-nav')).toBeTruthy();
     expect(legalNav.find('.bx--legal-nav__list-item')).toHaveLength(
-      LEGAL_NAV_DATA.length
+      FOOTER_NAV_DATA.length
     );
   });
 });

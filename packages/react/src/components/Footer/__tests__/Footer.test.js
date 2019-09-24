@@ -8,11 +8,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { act } from 'react-dom/test-utils';
+import { shallow } from 'enzyme';
 import { TranslationAPI } from '@carbon/ibmdotcom-services';
 import Footer from '../Footer';
 
-import FOOTER_MENU_MOCK_DATA from './data/footer-menu';
-import LEGAL_NAV_MOCK_DATA from './data/footer-legal';
+const FOOTER_MENU_MOCK_DATA = require('../__data__/footer-menu.json').data;
+const LEGAL_NAV_MOCK_DATA = require('../__data__/footer-legal.json').data;
 
 const MOCK_DATA = {
   footerMenu: FOOTER_MENU_MOCK_DATA,
@@ -56,5 +57,10 @@ describe('<Footer />', () => {
     expect(footer.querySelectorAll('.bx--legal-nav__list-item')).toHaveLength(
       MOCK_DATA.footerThin.length
     );
+  });
+
+  it('renders the short footer', async () => {
+    const footer = shallow(<Footer type="short" />);
+    expect(footer.hasClass('bx--footer--short')).toBeTruthy();
   });
 });

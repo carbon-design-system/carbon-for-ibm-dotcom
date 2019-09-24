@@ -9,7 +9,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import FooterNav from '../FooterNav';
 
-import FOOTER_NAV_DATA from './data/footer-menu';
+const FOOTER_NAV_DATA = require('../__data__/footer-menu.json').data;
 
 describe('<FooterNav />', () => {
   it('returns null if no "groups" prop', () => {
