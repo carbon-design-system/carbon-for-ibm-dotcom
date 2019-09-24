@@ -32,8 +32,7 @@ export default content;
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { DotcomShell } from '@carbon/ibmdotcom-react';
-import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead.scss';
-import '@carbon/ibmdotcom-styles/scss/components/footer/footer.scss';
+import '@carbon/ibmdotcom-styles/scss/components/dotcom-shell/_dotcom-shell.scss';
 import content from 'content';
 
 function App() {

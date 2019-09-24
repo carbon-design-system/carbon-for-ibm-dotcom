@@ -170,9 +170,11 @@ const Masthead = ({ navigation, ...mastheadProps }) => {
               />
             </Header>
           </div>
-          <div ref={mastheadL1Ref}>
-            <MastheadL1 />
-          </div>
+          {navigation !== false ? (
+            <div ref={mastheadL1Ref}>
+              <MastheadL1 />
+            </div>
+          ) : null}
         </div>
       )}
     />

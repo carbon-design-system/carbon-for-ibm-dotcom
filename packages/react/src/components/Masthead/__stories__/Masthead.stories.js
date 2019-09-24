@@ -2,7 +2,6 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, select } from '@storybook/addon-knobs';
 import Masthead from '../Masthead';
-import MastheadL1 from '../MastheadL1';
 import mastheadLinks from './data/MastheadLinks.js';
 import readme from '../README.md';
 import '../../../../../styles/scss/components/masthead/index.scss';
@@ -44,12 +43,14 @@ storiesOf('Masthead', module)
   })
   .add('Default', () => {
     return <Masthead {...props.navigation()} {...props.platform()} />;
-  })
-  .add('Default with L1', () => {
-    return (
-      <>
-        <Masthead {...props.navigation()} {...props.platform()} />
-        <MastheadL1 />
-      </>
-    );
   });
+// .add('Default with L1', () => {
+//   return (
+//     <>
+//       <Masthead {...props.navigation()} {...props.platform()} />
+//       <div style={{ paddingTop: 48+'px' }}>
+//         <MastheadL1 />
+//       </div>
+//     </>
+//   );
+// });
