@@ -15,11 +15,11 @@
 
 Environment variables can be set for the React package in order to set various 
 behavior within the application. This includes 
-[feature flags](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/docs/feature-flags.md) 
+[feature flags](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/patterns-react/docs/feature-flags.md) 
 and other settings.
 
 ## Local Environment Variables
-Environment variables can be set within the locla package, which are picked up
+Environment variables can be set within the local package, which are picked up
 by start-storybook. To use environment variables, create a file called `.env` at
 the root of the react package folder, then copy and paste the contents of 
 `.env.example` into the file.
