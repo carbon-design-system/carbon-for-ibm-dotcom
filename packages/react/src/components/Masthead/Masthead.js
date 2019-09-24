@@ -8,6 +8,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { settings } from 'carbon-components';
+import root from 'window-or-global';
 import { User20, UserOnline20 } from '@carbon/icons-react';
 import { IbmLogo } from '../Icon';
 import {
@@ -95,13 +96,13 @@ const Masthead = ({ navigation, ...mastheadProps }) => {
      * L0 will hide/show only in the top 25% of the viewport.
      *
      */
-    const handleScroll = window.addEventListener('scroll', () => {
+    const handleScroll = root.addEventListener('scroll', () => {
       if (mastheadL1Ref.current != null) {
-        setSticky(window.pageYOffset > window.innerHeight * 0.25);
+        setSticky(root.pageYOffset > root.innerHeight * 0.25);
       }
     });
     return () => {
-      window.removeEventListener('scroll', () => handleScroll);
+      root.removeEventListener('scroll', () => handleScroll);
     };
   }, []);
 
