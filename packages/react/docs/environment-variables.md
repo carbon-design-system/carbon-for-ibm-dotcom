@@ -19,7 +19,7 @@ behavior within the application. This includes
 and other settings.
 
 ## Local Environment Variables
-Environment variables can be set within the locla package, which are picked up
+Environment variables can be set within the local package, which are picked up
 by start-storybook. To use environment variables, create a file called `.env` at
 the root of the react package folder, then copy and paste the contents of 
 `.env.example` into the file.

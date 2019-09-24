@@ -144,6 +144,6 @@ features, by not reporting duplicate issues.
     squash and merge your commits for you.
 
 For all details related to development, make sure to check out our
-[development guide](/docs/developing.md)!
+[development guide](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/docs/developing.md)!
 
 **That's it! Thank you for your contribution!**

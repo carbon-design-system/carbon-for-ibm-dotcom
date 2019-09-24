@@ -74,7 +74,7 @@ module.exports = {
     ...prodSettings,
   ],
   output: {
-    name: 'IBMDotcomLibraryUtilities',
+    name: 'IBMDotcomUtilities',
     format: 'umd',
     globals: {},
   },
