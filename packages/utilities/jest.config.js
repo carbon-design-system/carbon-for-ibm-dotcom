@@ -3,6 +3,14 @@ module.exports = {
   collectCoverageFrom: ['src/utilities/**/*.js'],
   coverageDirectory: 'coverage',
   coverageReporters: ['text', 'html'],
+  coverageThreshold: {
+    global: {
+      branches: 80,
+      functions: 80,
+      lines: 80,
+      statements: 80,
+    },
+  },
   setupFiles: ['<rootDir>/config/jest/setup.js'],
   testMatch: [
     '<rootDir>/**/__tests__/**/*.js?(x)',

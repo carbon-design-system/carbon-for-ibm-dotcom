@@ -43,4 +43,12 @@ module.exports = {
   coverageDirectory: 'coverage',
   coverageReporters: ['text', 'html'],
   testURL: 'http://localhost',
+  coverageThreshold: {
+    global: {
+      branches: 80,
+      functions: 80,
+      lines: 80,
+      statements: 80,
+    },
+  },
 };
