@@ -21,23 +21,22 @@ yarn add @carbon/ibmdotcom-react carbon-components-react carbon-components carbo
 
 1. These components require the use of [Webpack](https://webpack.js.org/) in
    your project. See our
-   [`webpack.config.js`](/packages/react/.storybook/webpack.config.js) for an
-   example configuration.
+   [`webpack.config.js`](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/.storybook/webpack.config.js)
+   for an example configuration.
 
 2. Components do not import any of the styles themselves, use the scss or css
    from `@carbon/ibmdotcom-styles` to bring in styling.
 
 3. For older browsers (e.g. IE11), polyfills listed in
-   [`packages/react/.storybook/polyfills.js` file](./.storybook/polyfills.js) is
-   required.
+   [`packages/react/.storybook/polyfills.js` file](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/.storybook/polyfills.js)
+   is required.
 
 ## Usage
 
 ### List of Available Components
 
-View available React Components
-[here](https://ibmdotcomlibrary-react.mybluemix.net). You can see usage
-information in several ways:
+View available React Components [here](https://ibmdotcom-react.netlify.com). You
+can see usage information in several ways:
 
 1. Clicking the blue **Show Info** icon in the top right corner of the selected
    component. You can see the list of available React props
