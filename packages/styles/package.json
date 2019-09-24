@@ -32,6 +32,7 @@
   },
   "dependencies": {
     "@carbon/layout": "^10.5.0",
+    "@carbon/grid": "^10.6.0",
     "@carbon/themes": "^10.4.0",
     "@carbon/type": "^10.3.0"
   },
@@ -44,7 +45,7 @@
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.5",
     "require-dir": "^1.2.0",
-    "carbon-components": "^10.5.1"
+    "carbon-components": "^10.6.0"
   },
   "sideEffects": false,
   "bundleSizeThreshold": 120000,
