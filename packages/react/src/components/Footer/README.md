@@ -22,7 +22,7 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 ```
 
 > 💡 Don't forget to import the footer styles from
-> [@carbon/ibmdotcom-styles](/packages/styles).
+> [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
 #### Feature Flags
 
@@ -33,8 +33,11 @@ your `.env` file or your application build settings.
 FOOTER_LOCALE_BUTTON=true
 ```
 
-> See [feature-flags.md](../../../docs/feature-flags.md) and
-> [.env.example](../../../.env.example) for more information
+> See
+> [feature-flags.md](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/docs/feature-flags.md)
+> and
+> [.env.example](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/.env.example)
+> for more information
 
 ## Types (optional)
 
@@ -64,7 +67,7 @@ This component makes cross-origin requests to `www.ibm.com`, which will require
 a cors proxy to be configured to make successful calls from a lower environment.
 
 A cors proxy can be configured using the following
-[environment variable](../../../docs/environment-variables.md):
+[environment variable](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/docs/environment-variables.md):
 
 `CORS_PROXY=https://myproxy.com/`
 
@@ -72,8 +75,11 @@ A cors proxy can be configured using the following
 
 We're always looking for contributors to help us fix bugs, build new features,
 or help us improve the project documentation. If you're interested, definitely
-check out our [Contributing Guide](/.github/CONTRIBUTING.md)! 👀
+check out our
+[Contributing Guide](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/.github/CONTRIBUTING.md)!
+👀
 
 ## 📝 License
 
-Licensed under the [Apache 2.0 License](/LICENSE).
+Licensed under the
+[Apache 2.0 License](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/LICENSE).

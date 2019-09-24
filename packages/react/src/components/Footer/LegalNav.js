@@ -13,6 +13,20 @@ import { Link } from 'carbon-components-react';
 const { prefix } = settings;
 
 /**
+ * Placeholder <li/> element for injection of the TrustE cookie preferences link
+ *
+ * @returns {*} JSX object
+ */
+const renderTrusteItem = () => {
+  return (
+    <li
+      className={`${prefix}--legal-nav__list-item`}
+      data-autoid="dds-privacy-cp"
+    />
+  );
+};
+
+/**
  * Footer legal nav component
  *
  * @param {object} props react proptypes
@@ -30,6 +44,7 @@ const LegalNav = ({ links }) => {
       <nav className={`${prefix}--legal-nav`}>
         <ul className={`${prefix}--legal-nav__list`}>
           {renderListItems(links)}
+          {renderTrusteItem()}
         </ul>
       </nav>
     </aside>
