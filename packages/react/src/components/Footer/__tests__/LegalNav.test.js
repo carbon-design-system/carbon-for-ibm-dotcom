@@ -37,7 +37,7 @@ describe('<LegalNav />', () => {
 
     expect(legalNav.exists('.bx--legal-nav')).toBeTruthy();
     expect(legalNav.find('.bx--legal-nav__list-item')).toHaveLength(
-      FOOTER_NAV_DATA.length - 1
+      FOOTER_NAV_DATA.length
     );
   });
 
@@ -48,7 +48,7 @@ describe('<LegalNav />', () => {
 
     expect(legalNav.exists('.bx--legal-nav')).toBeTruthy();
     expect(legalNav.find('.bx--legal-nav__list-item')).toHaveLength(
-      FOOTER_NAV_DATA.length - 1
+      FOOTER_NAV_DATA.length
     );
   });
 
@@ -57,7 +57,7 @@ describe('<LegalNav />', () => {
 
     expect(legalNav.exists('.bx--legal-nav')).toBeTruthy();
     expect(legalNav.find('.bx--legal-nav__list-item')).toHaveLength(
-      FOOTER_NAV_DATA.length
+      FOOTER_NAV_DATA.length + 1
     );
   });
 });

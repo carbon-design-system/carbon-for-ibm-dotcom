@@ -76,10 +76,18 @@ function renderListItems(links) {
 LegalNav.propTypes = {
   links: PropTypes.arrayOf(
     PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      url: PropTypes.string.isRequired,
-    }).isRequired
-  ).isRequired,
+      title: PropTypes.string,
+      url: PropTypes.string,
+    })
+  ),
+};
+
+/**
+ * @property defaultProps
+ * @type {{groups: Array}}
+ */
+LegalNav.defaultProps = {
+  links: null,
 };
 
 export default LegalNav;

@@ -51,11 +51,8 @@ describe('<Footer />', () => {
     expect(footer.querySelectorAll('.bx--footer-nav-group')).toHaveLength(
       MOCK_DATA.footerMenu.length
     );
-    expect(footer.querySelectorAll('.bx--footer-nav-group')).toHaveLength(
-      MOCK_DATA.footerMenu.length
-    );
     expect(footer.querySelectorAll('.bx--legal-nav__list-item')).toHaveLength(
-      MOCK_DATA.footerThin.length
+      MOCK_DATA.footerThin.length + 1
     );
   });
 
