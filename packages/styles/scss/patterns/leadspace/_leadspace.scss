@@ -41,11 +41,7 @@
     }
 
     &--gradient {
-      background-image: linear-gradient(
-        to bottom,
-        rgba($ui-background, 1),
-        transparent
-      );
+      background-color: rgba($ui-background, 0.75);
     }
 
     .#{$prefix}--leadspace__title {
@@ -90,10 +86,11 @@
       padding-top: carbon--mini-units(50) / carbon--mini-units(84) * 100%;
 
       &--gradient {
+        background-color: transparent;
         background-image: linear-gradient(
           to right,
-          rgba($ui-background, 1),
-          transparent 50%
+          rgba($ui-background, 0.95),
+          transparent 75%
         );
       }
 
