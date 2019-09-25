@@ -8,6 +8,7 @@ module.exports = {
   moduleFileExtensions: ['js', 'json'],
   reporters: ['default', 'jest-junit'],
   setupFiles: ['./tasks/jest/setup.js'],
+  setupFilesAfterEnv: ['./tasks/jest/setupafter.js'],
   snapshotSerializers: ['enzyme-to-json/serializer'],
   testMatch: [
     '<rootDir>/**/__tests__/**/*.js?(x)',
