@@ -7,6 +7,7 @@ module.exports = {
   coverageDirectory: 'coverage',
   coverageReporters: ['text', 'html'],
   setupFiles: ['<rootDir>/config/jest/setup.js'],
+  setupFilesAfterEnv: ['../../tasks/jest/setupafter.js'],
   testMatch: [
     '<rootDir>/**/__tests__/**/*.js?(x)',
     '<rootDir>/**/?(*-)(spec|test).js?(x)',

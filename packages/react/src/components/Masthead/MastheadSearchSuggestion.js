@@ -67,7 +67,7 @@ const MastheadSearchSuggestion = ({
  * @type {{isHighlighted: shim, suggestion: shim, query: shim, getSuggestionValue: shim}}
  */
 MastheadSearchSuggestion.propTypes = {
-  suggestion: PropTypes.object,
+  suggestion: PropTypes.array,
   query: PropTypes.string,
   isHighlighted: PropTypes.bool,
   getSuggestionValue: PropTypes.func,
@@ -78,7 +78,7 @@ MastheadSearchSuggestion.propTypes = {
  * @type {{isHighlighted: boolean, suggestion: {}, query: string, getSuggestionValue: MastheadSearchSuggestion.defaultProps.getSuggestionValue}}
  */
 MastheadSearchSuggestion.defaultProps = {
-  suggestion: {},
+  suggestion: [],
   query: '',
   isHighlighted: false,
   getSuggestionValue: () => {},
