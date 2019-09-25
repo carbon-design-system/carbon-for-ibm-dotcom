@@ -223,6 +223,10 @@ $search-transition-timing: 95ms;
     height: 100%;
   }
 
+  .#{$prefix}--masthead__nav-item li {
+    height: 100%;
+  }
+
   // search container
   .#{$prefix}--masthead__search {
     flex: 1;
