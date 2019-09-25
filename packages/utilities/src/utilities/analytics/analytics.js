@@ -7,7 +7,6 @@
  */
 function analytics(eventData) {
   if (window.ibmStats) {
-    console.log('sending info');
     return window.ibmStats.event(eventData);
   }
 }
