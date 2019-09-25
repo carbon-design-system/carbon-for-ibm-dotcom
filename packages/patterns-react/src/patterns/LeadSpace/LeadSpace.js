@@ -25,10 +25,16 @@ const { prefix } = settings;
 function renderButtons(buttons) {
   return buttons.map((button, key) => {
     if (key > 1) return;
+    const renderIcon = button.renderArrow
+      ? {
+          renderIcon: ArrowRight20,
+        }
+      : {};
     return (
       <Button
+        {...renderIcon}
+        key={key}
         data-autoid={`leadspace__cta-${key}`}
-        renderIcon={button.renderArrow && ArrowRight20}
         href={button.link}
         kind={key === 0 ? 'primary' : 'tertiary'}>
         {button.copy}

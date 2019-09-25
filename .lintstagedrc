@@ -2,7 +2,7 @@
   "**/*.js": [
     "prettier --write",
     "eslint packages",
-    "yarn test",
+    "cross-env BABEL_ENV=test jest",
     "git add"
   ],
   "packages/components/**/*.scss": [

@@ -81,7 +81,7 @@ const MastheadTopNav = ({ navigation, ...topNavprops }) => {
  * @type {{navigation: {}}}
  */
 MastheadTopNav.propTypes = {
-  navigation: PropTypes.object,
+  navigation: PropTypes.array,
 };
 
 export default MastheadTopNav;
