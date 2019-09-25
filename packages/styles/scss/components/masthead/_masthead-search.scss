@@ -1,0 +1,146 @@
+//
+// Copyright IBM Corp. 2016, 2018
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@mixin masthead-search {
+  // main nav/search container excluding
+  // profile and logo icons - TODO rename this
+  .#{$prefix}--header__search {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    position: relative;
+    height: 100%;
+
+    .#{$prefix}--header__nav {
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 1.5rem;
+        width: 0.0625rem;
+        background-color: #dcdcdc;
+      }
+    }
+  }
+
+  // search container
+  .#{$prefix}--masthead__search {
+    flex: 1;
+
+    &.#{$prefix}--masthead__search--active {
+      position: absolute;
+      z-index: 999;
+      width: 100%;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: block;
+        border-bottom: 2px solid $interactive-01;
+      }
+
+      @include carbon--breakpoint-down(md) {
+        width: 100vw;
+        right: (-$spacing-09);
+      }
+
+      .#{$prefix}--header__search--input {
+        display: flex;
+        flex: 1;
+        padding: 0 $spacing-05;
+        outline: 2px solid transparent;
+        outline-offset: -2px;
+        background-color: $ui-01;
+        height: carbon--mini-units(6);
+
+        &::placeholder {
+          left: 0;
+          opacity: 1;
+          transition-duration: 112ms;
+          transition-delay: 200ms;
+        }
+      }
+
+      .#{$prefix}--header__search--close {
+        width: $spacing-09;
+      }
+
+      .#{$prefix}--header__action {
+        background-color: $ui-01;
+        transition-property: width;
+        transition-delay: 380ms;
+        transition-duration: 112ms;
+      }
+    }
+  }
+
+  .react-autosuggest {
+    &__container {
+      display: flex;
+      justify-content: flex-end;
+      position: relative;
+    }
+
+    &__suggestions-container {
+      position: absolute;
+      top: $spacing-09;
+      left: 0;
+      width: 100%;
+    }
+
+    &__suggestions-list {
+      background-color: $ui-background;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+    }
+
+    &__suggestion {
+      height: $spacing-09;
+      display: flex;
+      padding: 0 $spacing-05;
+
+      .container-class {
+        display: flex;
+        border-bottom: 1px solid $ui-01;
+        flex: 1;
+        align-items: center;
+      }
+
+      &:hover {
+        cursor: pointer;
+        background-color: $ui-01;
+        transition: $search-transition-timing;
+      }
+    }
+  }
+
+  .#{$prefix}--header__search--input {
+    font-size: $spacing-05;
+    line-height: 1.375rem;
+    border: none;
+    width: 0;
+    transition: 120ms;
+    border-bottom: 1px solid $ui-03;
+    padding: 0;
+
+    &::placeholder {
+      position: relative;
+      left: 5rem;
+      opacity: 0;
+    }
+  }
+}
+
+@include exports('masthead-search') {
+  @include masthead-search;
+}

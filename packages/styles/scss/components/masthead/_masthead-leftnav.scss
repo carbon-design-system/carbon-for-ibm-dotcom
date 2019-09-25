@@ -1,0 +1,40 @@
+//
+// Copyright IBM Corp. 2016, 2018
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+// Include left navigation component
+// @access private
+// group masthead
+@mixin masthead-sidenav {
+  .#{$prefix}--side-nav__header-navigation {
+    height: 100vh;
+  }
+
+  .#{$prefix}--side-nav__submenu[aria-expanded='true'] {
+    + .#{$prefix}--side-nav__menu[role='menu'] {
+      position: absolute;
+      top: 0;
+      background: $ui-background;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      transform: translateX(0);
+      transition-timing-function: $search-transition;
+      transition-duration: $search-transition-timing;
+      a {
+        padding-left: $spacing-05;
+      }
+    }
+  }
+
+  .#{$prefix}--side-nav__menu[role='menu'] {
+    transform: translateX(100%);
+  }
+}
+
+@include exports('masthead-sidenav') {
+  @include masthead-sidenav;
+}
