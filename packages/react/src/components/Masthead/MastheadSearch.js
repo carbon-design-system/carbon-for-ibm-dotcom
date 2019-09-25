@@ -10,6 +10,7 @@ import PropTypes from 'prop-types';
 import Autosuggest from 'react-autosuggest';
 import root from 'window-or-global';
 import { SearchTypeaheadAPI } from '@carbon/ibmdotcom-services';
+import { analytics } from '@carbon/ibmdotcom-utilities';
 import { escapeRegExp } from '@carbon/ibmdotcom-utilities';
 import MastheadSearchInput from './MastheadSearchInput';
 import MastheadSearchSuggestion from './MastheadSearchSuggestion';
@@ -238,7 +239,19 @@ const MastheadSearch = ({ placeHolderText, renderValue }) => {
   }
 
   return (
-    <div data-autoid={`${prefix}--masthead__search`} className={className}>
+    <div
+      data-autoid={`${prefix}--masthead__search`}
+      onMouseEnter={() =>
+        analytics({
+          type: 'element',
+          primaryCategory: 'MASTHEAD',
+          eventName: 'HOVER',
+          executionPath: 'masthead__profile',
+          execPathReturnCode: 'none',
+          targetTitle: 'profile',
+        })
+      }
+      className={className}>
       <Autosuggest
         suggestions={state.suggestions} // The state value of suggestion
         onSuggestionsFetchRequested={onSuggestionsFetchRequest} // Method to fetch data (should be async call)

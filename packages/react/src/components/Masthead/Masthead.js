@@ -9,6 +9,7 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { settings } from 'carbon-components';
 import { User20, UserOnline20 } from '@carbon/icons-react';
+import { analytics } from '@carbon/ibmdotcom-utilities';
 import { IbmLogo } from '../Icon';
 import {
   Header,
@@ -107,7 +108,18 @@ const Masthead = ({ navigation, ...mastheadProps }) => {
               isActive={isSideNavExpanded}
             />
             <div className={className}>
-              <a href="https://ibm.com">
+              <a
+                href="https://ibm.com"
+                onMouseEnter={() =>
+                  analytics({
+                    type: 'element',
+                    primaryCategory: 'MASTHEAD',
+                    eventName: 'HOVER',
+                    executionPath: 'masthead__logo',
+                    execPathReturnCode: 'none',
+                    targetTitle: 'logo',
+                  })
+                }>
                 <IbmLogo data-autoid="masthead__logo" />
               </a>
             </div>

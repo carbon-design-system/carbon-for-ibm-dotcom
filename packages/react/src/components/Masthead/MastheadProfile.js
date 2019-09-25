@@ -8,6 +8,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { settings } from 'carbon-components';
+import { analytics } from '@carbon/ibmdotcom-utilities';
 import {
   HeaderGlobalAction,
   OverflowMenu,
@@ -47,6 +48,16 @@ const MastheadProfile = ({
     <HeaderGlobalAction
       aria-label="User Profile"
       data-autoid={`${prefix}--masthead__profile`}
+      onMouseEnter={() =>
+        analytics({
+          type: 'element',
+          primaryCategory: 'MASTHEAD',
+          eventName: 'HOVER',
+          executionPath: 'masthead__profile',
+          execPathReturnCode: 'none',
+          targetTitle: 'profile',
+        })
+      }
       onClick={() => {}}>
       <OverflowMenu {...overflowMenuProps}>{profileNav}</OverflowMenu>
     </HeaderGlobalAction>
