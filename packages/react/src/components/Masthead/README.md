@@ -41,6 +41,17 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 | --------------- | -------------------------------------------------------------------- |
 | `with platform` | Includes platform name (only available with `default` and `custom`). |
 
+```javascript
+const topNavProps = {
+  platform: {
+    name: 'IBM Cloud',
+    url: 'https://www.ibm.com/cloud',
+  },
+};
+
+<Masthead {...topNavProps} />;
+```
+
 ## Stable selectors
 
 | Name                                   | Description |

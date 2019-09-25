@@ -254,6 +254,189 @@ Array [
                   </div>
                 </nav>
               </header>
+              <div
+                className="bx--masthead__l1"
+              >
+                <div
+                  className="bx--masthead__l1-name"
+                >
+                  <span
+                    className="bx--masthead__l1-name-eyebrow"
+                  >
+                    <svg
+                      aria-hidden={true}
+                      focusable="false"
+                      height={16}
+                      preserveAspectRatio="xMidYMid meet"
+                      style={
+                        Object {
+                          "willChange": "transform",
+                        }
+                      }
+                      viewBox="0 0 16 16"
+                      width={16}
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M6.7 12.3L2.9 8.5H15v-1H2.9l3.8-3.8L6 3 1 8l5 5z"
+                      />
+                    </svg>
+                    <a
+                      href="#"
+                    >
+                      Eyebrow
+                    </a>
+                  </span>
+                  <span
+                    className="bx--masthead__l1-name-title"
+                  >
+                    Stock Charts
+                  </span>
+                </div>
+                <nav
+                  className="bx--header__nav bx--masthead__l1-nav"
+                >
+                  <ul
+                    className="bx--header__menu-bar"
+                    role="menubar"
+                  >
+                    <li>
+                      <a
+                        className="bx--header__menu-item"
+                        href="#"
+                        role="menuitem"
+                        tabIndex={0}
+                      >
+                        <span
+                          className="bx--text-truncate--end"
+                        >
+                          Link 1
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="bx--header__menu-item"
+                        href="#"
+                        role="menuitem"
+                        tabIndex={0}
+                      >
+                        <span
+                          className="bx--text-truncate--end"
+                        >
+                          Link 2
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="bx--header__menu-item"
+                        href="#"
+                        role="menuitem"
+                        tabIndex={0}
+                      >
+                        <span
+                          className="bx--text-truncate--end"
+                        >
+                          Link 3
+                        </span>
+                      </a>
+                    </li>
+                    <li
+                      className="bx--header__submenu"
+                      onBlur={[Function]}
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                    >
+                      <a
+                        aria-expanded={false}
+                        aria-haspopup="menu"
+                        aria-label="Link 4"
+                        className="bx--header__menu-item bx--header__menu-title"
+                        href="javascript:void(0)"
+                        onKeyDown={[Function]}
+                        role="menuitem"
+                        tabIndex={0}
+                      >
+                        Link 4
+                        <svg
+                          aria-hidden={true}
+                          className="bx--header__menu-arrow"
+                          focusable="false"
+                          height={6}
+                          preserveAspectRatio="xMidYMid meet"
+                          style={
+                            Object {
+                              "willChange": "transform",
+                            }
+                          }
+                          viewBox="0 0 10 6"
+                          width={10}
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M5 6L0 1 .7.3 5 4.6 9.3.3l.7.7z"
+                          />
+                        </svg>
+                      </a>
+                      <ul
+                        aria-label="Link 4"
+                        className="bx--header__menu"
+                        role="menu"
+                      >
+                        <li
+                          role="none"
+                        >
+                          <a
+                            className="bx--header__menu-item"
+                            href="#"
+                            role="menuitem"
+                            tabIndex={0}
+                          >
+                            <span
+                              className="bx--text-truncate--end"
+                            >
+                              Sub-link 1
+                            </span>
+                          </a>
+                        </li>
+                        <li
+                          role="none"
+                        >
+                          <a
+                            className="bx--header__menu-item"
+                            href="#"
+                            role="menuitem"
+                            tabIndex={0}
+                          >
+                            <span
+                              className="bx--text-truncate--end"
+                            >
+                              Sub-link 2
+                            </span>
+                          </a>
+                        </li>
+                        <li
+                          role="none"
+                        >
+                          <a
+                            className="bx--header__menu-item"
+                            href="#"
+                            role="menuitem"
+                            tabIndex={0}
+                          >
+                            <span
+                              className="bx--text-truncate--end"
+                            >
+                              Sub-link 3
+                            </span>
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
             </div>
             <main
               className="bx--content bx--grid"
@@ -1417,9 +1600,11 @@ Array [
               </span>
             </div>
             <nav
+              aria-label=""
               className="bx--header__nav bx--masthead__l1-nav"
             >
               <ul
+                aria-label=""
                 className="bx--header__menu-bar"
                 role="menubar"
               >

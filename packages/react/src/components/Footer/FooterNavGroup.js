@@ -59,14 +59,28 @@ function renderListItems(links) {
   });
 }
 
+/**
+ * @property propTypes
+ * @description Defined property types for component
+ * @type {{links: shim, title: shim}}
+ */
 FooterNavGroup.propTypes = {
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   links: PropTypes.arrayOf(
     PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      url: PropTypes.string.isRequired,
-    }).isRequired
-  ).isRequired,
+      title: PropTypes.string,
+      url: PropTypes.string,
+    })
+  ),
+};
+
+/**
+ * @property defaultProps
+ * @type {{links: Array, title: null}}
+ */
+FooterNavGroup.defaultProps = {
+  title: null,
+  links: null,
 };
 
 export default FooterNavGroup;

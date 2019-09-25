@@ -74,10 +74,10 @@ const MastheadLeftNav = ({ navigation, isSideNavExpanded }) => {
 /**
  * @property propTypes
  * @description Defined property types for component
- * @type {{isSideNavExpanded: boolean, navigation: {}}}
+ * @type {{isSideNavExpanded: boolean, navigation: []}}
  */
 MastheadLeftNav.propTypes = {
-  navigation: PropTypes.object,
+  navigation: PropTypes.array,
   isSideNavExpanded: PropTypes.bool,
 };
 

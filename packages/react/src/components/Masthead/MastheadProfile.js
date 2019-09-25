@@ -67,7 +67,7 @@ const MastheadProfile = ({
 MastheadProfile.propTypes = {
   overflowMenuProps: PropTypes.object,
   overflowMenuItemProps: PropTypes.object,
-  profileMenu: PropTypes.object,
+  profileMenu: PropTypes.array,
 };
 
 export default MastheadProfile;

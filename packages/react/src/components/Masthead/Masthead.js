@@ -5,11 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { settings } from 'carbon-components';
+import root from 'window-or-global';
 import { User20, UserOnline20 } from '@carbon/icons-react';
-import { analytics } from '@carbon/ibmdotcom-utilities';
 import { IbmLogo } from '../Icon';
 import {
   Header,
@@ -19,6 +19,7 @@ import {
   SkipToContent,
 } from 'carbon-components-react';
 import { ProfileAPI, TranslationAPI } from '@carbon/ibmdotcom-services';
+import MastheadL1 from './MastheadL1';
 import MastheadSearch from './MastheadSearch';
 import MastheadProfile from './MastheadProfile';
 import MastheadLeftNav from './MastheadLeftNav';
@@ -55,11 +56,6 @@ const Masthead = ({ navigation, ...mastheadProps }) => {
     status.then(result => setStatus(result.user === 'Authenticated'));
   }, []);
 
-  const className = cx({
-    [`${prefix}--header__logo`]: true,
-    // [`${prefix}--header__logo--platform`]: navigation.platform,
-  });
-
   let [mastheadData, setMastheadData] = useState([]);
   const [profileData, setProfileData] = useState({
     signedin: [],
@@ -81,6 +77,37 @@ const Masthead = ({ navigation, ...mastheadProps }) => {
     });
   }, []);
 
+  const [isMastheadSticky, setIsMastheadSticky] = useState(false);
+  const stickyRef = useRef(null);
+  const mastheadL1Ref = useRef(null);
+
+  const mastheadSticky = cx({
+    [`${prefix}--masthead--sticky`]: isMastheadSticky,
+    [`${prefix}--masthead--sticky__l1`]: mastheadL1Ref.current != null,
+  });
+
+  useEffect(() => {
+    /**
+     * Sets sticky masthead. If both L0 and L1 are present, L1 will be sticky.
+     *
+     */
+    const hideTopnavThreshold = 0.25;
+    const handleScroll = root.addEventListener('scroll', () => {
+      /**
+       * L0 will hide/show only in the top 25% of the viewport.
+       *
+       */
+      if (mastheadL1Ref.current != null) {
+        setIsMastheadSticky(
+          root.pageYOffset > root.innerHeight * hideTopnavThreshold
+        );
+      }
+    });
+    return () => {
+      root.removeEventListener('scroll', () => handleScroll);
+    };
+  }, []);
+
   switch (typeof navigation) {
     case 'string':
       // eslint-disable-next-line
@@ -98,57 +125,58 @@ const Masthead = ({ navigation, ...mastheadProps }) => {
   return (
     <HeaderContainer
       render={({ isSideNavExpanded, onClickSideNavExpand }) => (
-        <>
-          <Header aria-label="IBM" data-autoid="masthead">
-            <SkipToContent />
-            <HeaderMenuButton
-              aria-label="Open menu"
-              data-autoid="masthead__hamburger"
-              onClick={onClickSideNavExpand}
-              isActive={isSideNavExpanded}
-            />
-            <div className={className}>
-              <a
-                href="https://ibm.com"
-                onMouseEnter={() =>
-                  analytics({
-                    type: 'element',
-                    primaryCategory: 'MASTHEAD',
-                    eventName: 'HOVER',
-                    executionPath: 'masthead__logo',
-                    execPathReturnCode: 'none',
-                    targetTitle: 'logo',
-                  })
-                }>
-                <IbmLogo data-autoid="masthead__logo" />
-              </a>
-            </div>
-            <div className={`${prefix}--header__search`}>
-              {navigation !== false ? (
-                <MastheadTopNav {...mastheadProps} navigation={mastheadData} />
-              ) : null}
-              <MastheadSearch />
-            </div>
-
-            <HeaderGlobalBar>
-              <MastheadProfile
-                overflowMenuProps={{
-                  flipped: true,
-                  style: { width: 'auto' },
-                  renderIcon: () =>
-                    isAuthenticated ? <UserOnline20 /> : <User20 />,
-                }}
-                profileMenu={
-                  isAuthenticated ? profileData.signedin : profileData.signedout
-                }
+        <div
+          className={`${prefix}--masthead ${mastheadSticky}`}
+          ref={stickyRef}>
+          <div className={`${prefix}--masthead__l0`}>
+            <Header aria-label="IBM" data-autoid="masthead">
+              <SkipToContent />
+              <HeaderMenuButton
+                aria-label="Open menu"
+                data-autoid="masthead__hamburger"
+                onClick={onClickSideNavExpand}
+                isActive={isSideNavExpanded}
               />
-            </HeaderGlobalBar>
-            <MastheadLeftNav
-              navigation={mastheadData}
-              isSideNavExpanded={isSideNavExpanded}
-            />
-          </Header>
-        </>
+
+              <IbmLogo />
+
+              <div className={`${prefix}--header__search`}>
+                {navigation !== false ? (
+                  <MastheadTopNav
+                    {...mastheadProps}
+                    navigation={mastheadData}
+                  />
+                ) : null}
+                <MastheadSearch />
+              </div>
+
+              <HeaderGlobalBar>
+                <MastheadProfile
+                  overflowMenuProps={{
+                    flipped: true,
+                    style: { width: 'auto' },
+                    renderIcon: () =>
+                      isAuthenticated ? <UserOnline20 /> : <User20 />,
+                  }}
+                  profileMenu={
+                    isAuthenticated
+                      ? profileData.signedin
+                      : profileData.signedout
+                  }
+                />
+              </HeaderGlobalBar>
+              <MastheadLeftNav
+                navigation={mastheadData}
+                isSideNavExpanded={isSideNavExpanded}
+              />
+            </Header>
+          </div>
+          {navigation !== false ? (
+            <div ref={mastheadL1Ref}>
+              <MastheadL1 />
+            </div>
+          ) : null}
+        </div>
       )}
     />
   );
@@ -157,10 +185,11 @@ const Masthead = ({ navigation, ...mastheadProps }) => {
 /**
  * @property propTypes
  * @description Defined property types for component
- * @type {{navigation: {}}}
+ * @type {{navigation: {}}, {mastheadProps: {}}}
  */
 Masthead.propTypes = {
-  navigation: PropTypes.object,
+  navigation: PropTypes.array,
+  mastheadProp: PropTypes.object,
 };
 
 export default Masthead;

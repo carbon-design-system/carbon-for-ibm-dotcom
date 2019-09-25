@@ -36,8 +36,10 @@ describe('<LegalNav />', () => {
     const legalNav = shallow(<LegalNav links={MOCK_DATA} />);
 
     expect(legalNav.exists('.bx--legal-nav')).toBeTruthy();
+
+    // adding an additional LI to legalNav for the `dds-privacy-cp` placeholder
     expect(legalNav.find('.bx--legal-nav__list-item')).toHaveLength(
-      FOOTER_NAV_DATA.length - 1
+      FOOTER_NAV_DATA.length
     );
   });
 
@@ -47,8 +49,10 @@ describe('<LegalNav />', () => {
     const legalNav = shallow(<LegalNav links={MOCK_DATA} />);
 
     expect(legalNav.exists('.bx--legal-nav')).toBeTruthy();
+
+    // adding an additional LI to legalNav for the `dds-privacy-cp` placeholder
     expect(legalNav.find('.bx--legal-nav__list-item')).toHaveLength(
-      FOOTER_NAV_DATA.length - 1
+      FOOTER_NAV_DATA.length
     );
   });
 
@@ -56,8 +60,10 @@ describe('<LegalNav />', () => {
     const legalNav = shallow(<LegalNav links={MOCK_DATA} />);
 
     expect(legalNav.exists('.bx--legal-nav')).toBeTruthy();
+
+    // adding an additional LI to legalNav for the `dds-privacy-cp` placeholder
     expect(legalNav.find('.bx--legal-nav__list-item')).toHaveLength(
-      FOOTER_NAV_DATA.length
+      FOOTER_NAV_DATA.length + 1
     );
   });
 });
