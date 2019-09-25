@@ -39,7 +39,7 @@ const MastheadL1 = () => {
           Stock Charts
         </span>
       </div>
-      <HeaderNavigation className={`${prefix}--masthead__l1-nav`}>
+      <HeaderNavigation className={`${prefix}--masthead__l1-nav`} aria-label="">
         <HeaderMenuItem href="#">Link 1</HeaderMenuItem>
         <HeaderMenuItem href="#">Link 2</HeaderMenuItem>
         <HeaderMenuItem href="#">Link 3</HeaderMenuItem>

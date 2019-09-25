@@ -45,13 +45,26 @@ function renderGroups(groups) {
   ));
 }
 
+/**
+ * @property propTypes
+ * @description Defined property types for component
+ * @type {{groups: shim}}
+ */
 FooterNav.propTypes = {
   groups: PropTypes.arrayOf(
     PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      links: PropTypes.array.isRequired,
-    }).isRequired
-  ).isRequired,
+      title: PropTypes.string,
+      links: PropTypes.array,
+    })
+  ),
+};
+
+/**
+ * @property defaultProps
+ * @type {{groups: Array}}
+ */
+FooterNav.defaultProps = {
+  groups: null,
 };
 
 export default FooterNav;

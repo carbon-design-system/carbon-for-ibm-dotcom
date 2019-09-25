@@ -1600,9 +1600,11 @@ Array [
               </span>
             </div>
             <nav
+              aria-label=""
               className="bx--header__nav bx--masthead__l1-nav"
             >
               <ul
+                aria-label=""
                 className="bx--header__menu-bar"
                 role="menubar"
               >
