@@ -4,7 +4,7 @@
     "eslint packages",
     "git add"
   ],
-  "**/*.test.js": [
+  "*.test.js": [
     "yarn test"
   ],
   "packages/components/**/*.scss": [
