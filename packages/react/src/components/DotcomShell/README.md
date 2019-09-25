@@ -1,25 +1,18 @@
 # DotcomShell
 
-> The DotcomShell component includes the `Masthead`, `Footer`, and `Content`
-> components, all wrapped in a UI shell using Carbon's grid.
+> The DotcomShell component includes the `Masthead`, and `Footer` components,
+> all wrapped in a UI shell using Carbon's grid.
 
 ## Getting started
-
-The `DotcomShell` uses Carbon's `Content` component. All user-provided content
-should be placed here. This can be anything from HTML to a React component.
-Here's a quick example to get you started.
 
 ### Content
 
 ```javascript
 import React from 'react';
-import { Button, StructuredListBody } from 'carbon-components-react';
 
 const content = (
   <>
     <p>Your content here (probably include something nicer than this! 😄)</p>
-    <Button />
-    <StructuredListBody />
   </>
 );
 
@@ -30,7 +23,6 @@ export default content;
 
 ```javascript
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { DotcomShell } from '@carbon/ibmdotcom-react';
 import '@carbon/ibmdotcom-styles/scss/components/dotcom-shell/_dotcom-shell.scss';
 import content from 'content';

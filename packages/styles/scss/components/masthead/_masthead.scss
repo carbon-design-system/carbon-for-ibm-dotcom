@@ -57,17 +57,6 @@ $search-transition-timing: 95ms;
     &__logo {
       padding: 0 $spacing-07;
       position: relative;
-      &::after {
-        content: '';
-        display: block;
-        position: absolute;
-        right: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        height: carbon--mini-units(3);
-        width: carbon--rem(1px);
-        background-color: $ui-03;
-      }
     }
 
     &__global {

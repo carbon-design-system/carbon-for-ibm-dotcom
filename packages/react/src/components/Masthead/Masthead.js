@@ -56,10 +56,6 @@ const Masthead = ({ navigation, ...mastheadProps }) => {
     status.then(result => setStatus(result.user === 'Authenticated'));
   }, []);
 
-  const className = cx({
-    [`${prefix}--header__logo`]: true,
-  });
-
   let [mastheadData, setMastheadData] = useState([]);
   const [profileData, setProfileData] = useState({
     signedin: [],
@@ -81,7 +77,7 @@ const Masthead = ({ navigation, ...mastheadProps }) => {
     });
   }, []);
 
-  const [isMastheadSticky, setSticky] = useState(false);
+  const [isMastheadSticky, setIsMastheadSticky] = useState(false);
   const stickyRef = useRef(null);
   const mastheadL1Ref = useRef(null);
 
@@ -92,13 +88,19 @@ const Masthead = ({ navigation, ...mastheadProps }) => {
 
   useEffect(() => {
     /**
-     * Sets sticky masthead. If bot L0 and L1 are present, L1 will be sticky.
-     * L0 will hide/show only in the top 25% of the viewport.
+     * Sets sticky masthead. If both L0 and L1 are present, L1 will be sticky.
      *
      */
+    const hideTopnavThreshold = 0.25;
     const handleScroll = root.addEventListener('scroll', () => {
+      /**
+       * L0 will hide/show only in the top 25% of the viewport.
+       *
+       */
       if (mastheadL1Ref.current != null) {
-        setSticky(root.pageYOffset > root.innerHeight * 0.25);
+        setIsMastheadSticky(
+          root.pageYOffset > root.innerHeight * hideTopnavThreshold
+        );
       }
     });
     return () => {
@@ -135,11 +137,9 @@ const Masthead = ({ navigation, ...mastheadProps }) => {
                 onClick={onClickSideNavExpand}
                 isActive={isSideNavExpanded}
               />
-              <div className={className}>
-                <a href="https://ibm.com">
-                  <IbmLogo data-autoid="masthead__logo" />
-                </a>
-              </div>
+
+              <IbmLogo />
+
               <div className={`${prefix}--header__search`}>
                 {navigation !== false ? (
                   <MastheadTopNav
@@ -188,7 +188,7 @@ const Masthead = ({ navigation, ...mastheadProps }) => {
  * @type {{navigation: {}}, {mastheadProps: {}}}
  */
 Masthead.propTypes = {
-  navigation: PropTypes.object,
+  navigation: PropTypes.array,
   mastheadProp: PropTypes.object,
 };
 

@@ -44,13 +44,3 @@ storiesOf('Masthead', module)
   .add('Default', () => {
     return <Masthead {...props.navigation()} {...props.platform()} />;
   });
-// .add('Default with L1', () => {
-//   return (
-//     <>
-//       <Masthead {...props.navigation()} {...props.platform()} />
-//       <div style={{ paddingTop: 48+'px' }}>
-//         <MastheadL1 />
-//       </div>
-//     </>
-//   );
-// });

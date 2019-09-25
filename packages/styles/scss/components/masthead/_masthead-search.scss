@@ -14,6 +14,20 @@
     align-items: center;
     position: relative;
     height: 100%;
+
+    .#{$prefix}--header__nav {
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 1.5rem;
+        width: 0.0625rem;
+        background-color: #dcdcdc;        
+      }
+    }
   }
 
   // search container
