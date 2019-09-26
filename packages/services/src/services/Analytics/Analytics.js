@@ -15,11 +15,10 @@
   }
  *
  */
-function registerAnalyticsEvent(eventData) {
+function RegisterAnalyticsEvent(eventData) {
   if (window.ibmStats) {
-    console.log('sending info', eventData);
     return window.ibmStats.event(eventData);
   }
 }
 
-export default registerAnalyticsEvent;
+export default RegisterAnalyticsEvent;

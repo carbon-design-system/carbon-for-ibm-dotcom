@@ -5,4 +5,4 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-export default from './Analytics';
+export { default as RegisterAnalyticsEvent } from './Analytics';
