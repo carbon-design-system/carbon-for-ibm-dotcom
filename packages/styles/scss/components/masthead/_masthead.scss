@@ -9,6 +9,7 @@
 /// @access private
 /// @group dotcom-shell
 
+$button-transition: background-color 110ms, border-color 110ms, color 110ms;
 $search-transition: cubic-bezier(0.2, 0, 0.38, 0.9);
 $search-transition-timing: 95ms;
 
@@ -38,7 +39,7 @@ $search-transition-timing: 95ms;
       position: absolute;
       width: 100vw;
       height: 1px;
-      bottom: 0;
+      bottom: -1px;
       left: 0;
       z-index: 9999;
       background-color: $ui-03;
@@ -52,11 +53,27 @@ $search-transition-timing: 95ms;
     max-width: 95rem;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 1px;
     position: relative;
 
     &__logo {
-      padding: 0 $spacing-07;
-      position: relative;
+      height: 100%;
+      a {
+        display: flex;
+        height: 100%;
+        align-items: center;
+        padding: 0 $spacing-07;
+        border: solid 2px transparent;
+        transition: $button-transition;
+
+        &:hover {
+          background-color: $ui-01;
+        }
+
+        &:active, &:focus {
+          border-color: $focus;
+        }
+      }
     }
 
     &__global {
@@ -90,6 +107,7 @@ $search-transition-timing: 95ms;
         background-color: $ui-01;
         + .#{$prefix}--header__menu {
           background-color: $ui-02;
+          box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.3);
           .#{$prefix}--header__menu-item {
             &:hover {
               color: $text-01;
@@ -128,11 +146,14 @@ $search-transition-timing: 95ms;
       }
 
       .#{$prefix}--overflow-menu {
-        height: $spacing-09;
+        // height: $spacing-09;
+        width: 100%;
+        height: 100%;
 
         &.#{$prefix}--overflow-menu--open {
           box-shadow: none;
-          outline: 2px solid $interactive-01;
+          // outline: 2px solid $interactive-01;
+          border-color: $interactive-01;
         }
 
         &:hover {
@@ -146,11 +167,11 @@ $search-transition-timing: 95ms;
       }
 
       &[aria-label='User Profile'] {
-        outline: none;
-        border: none;
+        // outline: none;
+        // border: none;
 
         &:focus {
-          outline: none;
+          // outline: none;
         }
       }
     }
