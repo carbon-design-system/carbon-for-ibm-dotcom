@@ -1,11 +1,17 @@
+import root from 'window-or-global';
 /**
- * service to fire a stats/metrics event for an action
- *
- * @param {object} eventData Object with standard IBM metric event properties and values to send to Coremetrics
- * @returns {object} JSX object
- * 
- * example of eventData object expected:
- * {
+ * Analytics API class with methods for firing analytics events on
+ * ibm.com
+ */
+class AnalyticsAPI {
+  /**
+   * service to fire a stats/metrics event for an action
+   *
+   * @param {object} eventData Object with standard IBM metric event properties and values to send to Coremetrics
+   * @returns {object} JSX object
+   * 
+   * example of eventData object expected:
+   * {
     type: 'element',
     primaryCategory: 'MASTHEAD',
     eventName: 'CLICK',
@@ -13,12 +19,38 @@
     execPathReturnCode: 'none',
     targetTitle: 'profile',
   }
- *
- */
-function RegisterAnalyticsEvent(eventData) {
-  if (window.ibmStats) {
-    return window.ibmStats.event(eventData);
+   *
+   */
+  static registerEvent(eventData) {
+    if (root.ibmStats) {
+      return root.ibmStats.event(eventData);
+    }
+  }
+
+  /**
+   *
+   * method scroll tracking
+   *
+   **/
+  static initScrollAnalytics() {
+    let maxScrollDepth = 0;
+    const scrollAnalytics = root.addEventListener('scroll', () => {
+      let scrollDepth = root.pageYOffset;
+
+      // Only fire the event at 400px intervals and at the deepest scroll depth
+      if (scrollDepth % 400 === 0 && scrollDepth > maxScrollDepth) {
+        maxScrollDepth = scrollDepth;
+        this.registerEvent({
+          type: 'element',
+          primaryCategory: 'SCROLL DISTANCE',
+          eventName: scrollDepth,
+          executionPath: root.innerWidth,
+          execPathReturnCode: root.innerHeight,
+        });
+      }
+    });
+    root.removeEventListener('scroll', () => scrollAnalytics);
   }
 }
 
-export default RegisterAnalyticsEvent;
+export default AnalyticsAPI;

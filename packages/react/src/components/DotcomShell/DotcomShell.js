@@ -5,10 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { settings } from 'carbon-components';
 import { Masthead, Footer } from '@carbon/ibmdotcom-react';
+import { AnalyticsAPI } from '@carbon/ibmdotcom-services';
 
 const { prefix } = settings;
 
@@ -25,6 +26,10 @@ const DotcomShell = ({
   children,
   ...mastheadProps
 }) => {
+  useEffect(() => {
+    AnalyticsAPI.initScrollAnalytics();
+  }, []);
+
   return (
     <>
       <Masthead navigation={navigation} {...mastheadProps} />

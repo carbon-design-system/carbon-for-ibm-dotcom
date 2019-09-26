@@ -18,11 +18,7 @@ import {
   HeaderGlobalBar,
   SkipToContent,
 } from 'carbon-components-react';
-import {
-  ProfileAPI,
-  TranslationAPI,
-  RegisterAnalyticsEvent,
-} from '@carbon/ibmdotcom-services';
+import { ProfileAPI, TranslationAPI } from '@carbon/ibmdotcom-services';
 import MastheadL1 from './MastheadL1';
 import MastheadSearch from './MastheadSearch';
 import MastheadProfile from './MastheadProfile';
@@ -108,26 +104,8 @@ const Masthead = ({ navigation, ...mastheadProps }) => {
       }
     });
 
-    let maxScrollDepth = 0;
-
-    const scrollAnalytics = root.addEventListener('scroll', () => {
-      let scrollDepth = root.pageYOffset;
-
-      // Only fire the event at 400px intervals and at the deepest scroll depth
-      if (scrollDepth % 400 === 0 && scrollDepth > maxScrollDepth) {
-        maxScrollDepth = scrollDepth;
-        RegisterAnalyticsEvent({
-          type: 'element',
-          primaryCategory: 'SCROLL DISTANCE',
-          eventName: scrollDepth,
-          executionPath: root.innerWidth,
-          execPathReturnCode: root.innerHeight,
-        });
-      }
-    });
     return () => {
       root.removeEventListener('scroll', () => handleScroll);
-      root.removeEventListener('scroll', () => scrollAnalytics);
     };
   }, []);
 
