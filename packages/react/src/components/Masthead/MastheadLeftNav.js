@@ -7,6 +7,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import { settings } from '@carbon/ibmdotcom-utilities';
 import {
   HeaderSideNavItems,
   SideNav,
@@ -15,6 +16,8 @@ import {
   SideNavMenu,
   SideNavMenuItem,
 } from 'carbon-components-react';
+
+const { prefix } = settings;
 
 /**
  * Masthead left nav component
@@ -39,7 +42,7 @@ const MastheadLeftNav = ({ navigation, isSideNavExpanded }) => {
             return (
               <SideNavMenuItem
                 href={item.url}
-                data-autoid={`masthead__l0-sidenav--subnav-${j}`}>
+                data-autoid={`${prefix}--masthead__l0-sidenav--subnav-${j}`}>
                 {item.title}
               </SideNavMenuItem>
             );
@@ -50,7 +53,7 @@ const MastheadLeftNav = ({ navigation, isSideNavExpanded }) => {
       return (
         <SideNavLink
           href={link.url}
-          data-autoid={`masthead__l0-sidenav--nav-${i}`}>
+          data-autoid={`${prefix}--masthead__l0-sidenav--nav-${i}`}>
           {link.title}
         </SideNavLink>
       );
@@ -62,7 +65,7 @@ const MastheadLeftNav = ({ navigation, isSideNavExpanded }) => {
       aria-label="Side navigation"
       expanded={isSideNavExpanded}
       isPersistent={false}>
-      <div data-autoid="masthead__l0-sidenav">
+      <div data-autoid={`${prefix}--masthead__l0-sidenav`}>
         <SideNavItems>
           <HeaderSideNavItems>{sideNav}</HeaderSideNavItems>
         </SideNavItems>

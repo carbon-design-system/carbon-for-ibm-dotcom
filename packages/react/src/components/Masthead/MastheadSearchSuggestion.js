@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { settings } from '@carbon/ibmdotcom-utilities';
 import classNames from 'classnames';
 import parse from 'autosuggest-highlight/parse';
+
+const { prefix } = settings;
 
 /**
  * Matches a suggestion name with the query
@@ -47,7 +50,7 @@ const MastheadSearchSuggestion = ({
       className={classNames('container-class', {
         ['container-highlight-class']: isHighlighted,
       })}
-      data-autoid={`masthead__searchresults--suggestion`}>
+      data-autoid={`${prefix}--masthead__searchresults--suggestion`}>
       {parts.map((part, index) => (
         <span
           key={index}

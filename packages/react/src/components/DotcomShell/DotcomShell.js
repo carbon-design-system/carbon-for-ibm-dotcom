@@ -7,11 +7,11 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { settings } from 'carbon-components';
-import { Masthead, Footer } from '@carbon/ibmdotcom-react';
+import { settings as carbonSettings } from 'carbon-components';
+import { Footer } from '@carbon/ibmdotcom-react';
+import Masthead from '../Masthead/Masthead';
 
-const { prefix } = settings;
-
+const cPrefix = carbonSettings.prefix;
 /**
  * DotcomShell component
  *
@@ -28,8 +28,8 @@ const DotcomShell = ({
   return (
     <>
       <Masthead navigation={navigation} {...mastheadProps} />
-      <div className={`${prefix}--dotcom-shell`}>
-        <div className={`${prefix}--dotcom-shell__content`}>{children}</div>
+      <div className={`${cPrefix}--dotcom-shell`}>
+        <div className={`${cPrefix}--dotcom-shell__content`}>{children}</div>
       </div>
       <Footer type={footerType} />
     </>

@@ -7,7 +7,8 @@
 
 import React, { useEffect, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { settings } from 'carbon-components';
+import { settings } from '@carbon/ibmdotcom-utilities';
+import { settings as carbonSettings } from 'carbon-components';
 import root from 'window-or-global';
 import { User20, UserOnline20 } from '@carbon/icons-react';
 import { IbmLogo } from '../Icon';
@@ -27,6 +28,7 @@ import MastheadTopNav from './MastheadTopNav';
 import cx from 'classnames';
 
 const { prefix } = settings;
+const cPrefix = carbonSettings.prefix;
 
 /**
  * MastHead component
@@ -82,8 +84,8 @@ const Masthead = ({ navigation, ...mastheadProps }) => {
   const mastheadL1Ref = useRef(null);
 
   const mastheadSticky = cx({
-    [`${prefix}--masthead--sticky`]: isMastheadSticky,
-    [`${prefix}--masthead--sticky__l1`]: mastheadL1Ref.current != null,
+    [`${cPrefix}--masthead--sticky`]: isMastheadSticky,
+    [`${cPrefix}--masthead--sticky__l1`]: mastheadL1Ref.current != null,
   });
 
   useEffect(() => {
@@ -126,21 +128,21 @@ const Masthead = ({ navigation, ...mastheadProps }) => {
     <HeaderContainer
       render={({ isSideNavExpanded, onClickSideNavExpand }) => (
         <div
-          className={`${prefix}--masthead ${mastheadSticky}`}
+          className={`${cPrefix}--masthead ${mastheadSticky}`}
           ref={stickyRef}>
-          <div className={`${prefix}--masthead__l0`}>
-            <Header aria-label="IBM" data-autoid="masthead">
+          <div className={`${cPrefix}--masthead__l0`}>
+            <Header aria-label="IBM" data-autoid={`${prefix}--masthead`}>
               <SkipToContent />
               <HeaderMenuButton
                 aria-label="Open menu"
-                data-autoid="masthead__hamburger"
+                data-autoid={`${prefix}--masthead__hamburger`}
                 onClick={onClickSideNavExpand}
                 isActive={isSideNavExpanded}
               />
 
               <IbmLogo />
 
-              <div className={`${prefix}--header__search`}>
+              <div className={`${cPrefix}--header__search`}>
                 {navigation !== false ? (
                   <MastheadTopNav
                     {...mastheadProps}
