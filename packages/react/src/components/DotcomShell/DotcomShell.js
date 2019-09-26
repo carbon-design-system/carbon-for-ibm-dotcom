@@ -27,7 +27,7 @@ const DotcomShell = ({
   ...mastheadProps
 }) => {
   useEffect(() => {
-    AnalyticsAPI.initScrollAnalytics();
+    AnalyticsAPI.initScrollTracker();
   }, []);
 
   return (

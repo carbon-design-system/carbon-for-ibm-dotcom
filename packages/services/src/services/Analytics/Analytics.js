@@ -9,16 +9,10 @@ class AnalyticsAPI {
    *
    * @param {object} eventData Object with standard IBM metric event properties and values to send to Coremetrics
    * @returns {object} JSX object
-   * 
-   * example of eventData object expected:
-   * {
-    type: 'element',
-    primaryCategory: 'MASTHEAD',
-    eventName: 'CLICK',
-    executionPath: 'masthead__profile',
-    execPathReturnCode: 'none',
-    targetTitle: 'profile',
-  }
+   *
+   * @example
+   * {type: 'element', primaryCategory: 'MASTHEAD', eventName: 'CLICK', executionPath: 'masthead__profile', execPathReturnCode: 'none', targetTitle: 'profile'}
+   *
    *
    */
   static registerEvent(eventData) {
@@ -32,7 +26,7 @@ class AnalyticsAPI {
    * method scroll tracking
    *
    **/
-  static initScrollAnalytics() {
+  static initScrollTracker() {
     let maxScrollDepth = 0;
     const scrollAnalytics = root.addEventListener('scroll', () => {
       let scrollDepth = root.pageYOffset;
