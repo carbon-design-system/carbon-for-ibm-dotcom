@@ -54,9 +54,9 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 ## Stable selectors
 
-| Name | Description |
-| ---- | ----------- |
-| `hr` | Component   |
+| Name      | Description |
+| --------- | ----------- |
+| `dds--hr` | Component   |
 
 ## 🙌 Contributing
 

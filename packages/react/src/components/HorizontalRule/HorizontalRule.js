@@ -5,12 +5,14 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import PropTypes from 'prop-types';
 import React from 'react';
+import PropTypes from 'prop-types';
+import { settings } from '@carbon/ibmdotcom-utilities';
+import { settings as carbonSettings } from 'carbon-components';
 import classnames from 'classnames';
-import { settings } from 'carbon-components';
 
 const { prefix } = settings;
+const cPrefix = carbonSettings.prefix;
 
 /**
  * creates modifier classnames
@@ -34,9 +36,9 @@ function hrMod(mod) {
  */
 const HorizontalRule = ({ style, size, contrast, weight }) => (
   <hr
-    data-autoid="hr"
+    data-autoid={`${prefix}--hr`}
     className={classnames(
-      `${prefix}--hr`,
+      `${cPrefix}--hr`,
       hrMod(style),
       hrMod(contrast),
       hrMod(size),

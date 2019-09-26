@@ -6,9 +6,11 @@
  */
 
 import React from 'react';
-import { settings } from 'carbon-components';
+import { settings } from '@carbon/ibmdotcom-utilities';
+import { settings as carbonSettings } from 'carbon-components';
 
 const { prefix } = settings;
+const cPrefix = carbonSettings.prefix;
 
 /**
  * Footer logo component
@@ -17,13 +19,15 @@ const { prefix } = settings;
  */
 const Logo = () => {
   return (
-    <div data-autoid="footer-logo" className={`${prefix}--footer-logo`}>
+    <div
+      data-autoid={`${prefix}--footer-logo`}
+      className={`${cPrefix}--footer-logo`}>
       <a
-        data-autoid="footer-logo__link"
-        className={`${prefix}--footer-logo__link`}
+        data-autoid={`${prefix}--footer-logo__link`}
+        className={`${cPrefix}--footer-logo__link`}
         href="https://www.ibm.com/">
         <svg
-          className={`${prefix}--footer-logo__logo`}
+          className={`${cPrefix}--footer-logo__logo`}
           viewBox="0 0 157 65"
           role="img"
           aria-labelledby="footer-logo">
