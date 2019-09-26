@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { settings } from '@carbon/ibmdotcom-utilities';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import { settings } from 'carbon-components';
 import classNames from 'classnames';
 import parse from 'autosuggest-highlight/parse';
 
+const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
@@ -47,10 +49,10 @@ const MastheadSearchSuggestion = ({
 
   return (
     <div
-      className={classNames('container-class', {
-        ['container-highlight-class']: isHighlighted,
+      className={classNames(`${prefix}--container-class`, {
+        [`${prefix}--container-highlight-class`]: isHighlighted,
       })}
-      data-autoid={`${prefix}--masthead__searchresults--suggestion`}>
+      data-autoid={`${stablePrefix}--masthead__searchresults--suggestion`}>
       {parts.map((part, index) => (
         <span
           key={index}

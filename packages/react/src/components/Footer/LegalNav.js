@@ -23,7 +23,7 @@ const renderTrusteItem = () => {
   return (
     <li
       className={`${cPrefix}--legal-nav__list-item`}
-      data-autoid={`${prefix}--dds-privacy-cp`}
+      data-autoid={`${prefix}--privacy-cp`}
     />
   );
 };

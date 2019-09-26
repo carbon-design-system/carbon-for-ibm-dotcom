@@ -7,8 +7,8 @@
 
 import React, { useEffect, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { settings } from '@carbon/ibmdotcom-utilities';
-import { settings as carbonSettings } from 'carbon-components';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import { settings } from 'carbon-components';
 import root from 'window-or-global';
 import { User20, UserOnline20 } from '@carbon/icons-react';
 import { IbmLogo } from '../Icon';
@@ -27,8 +27,8 @@ import MastheadLeftNav from './MastheadLeftNav';
 import MastheadTopNav from './MastheadTopNav';
 import cx from 'classnames';
 
+const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
-const cPrefix = carbonSettings.prefix;
 
 /**
  * MastHead component
@@ -84,8 +84,8 @@ const Masthead = ({ navigation, ...mastheadProps }) => {
   const mastheadL1Ref = useRef(null);
 
   const mastheadSticky = cx({
-    [`${cPrefix}--masthead--sticky`]: isMastheadSticky,
-    [`${cPrefix}--masthead--sticky__l1`]: mastheadL1Ref.current != null,
+    [`${prefix}--masthead--sticky`]: isMastheadSticky,
+    [`${prefix}--masthead--sticky__l1`]: mastheadL1Ref.current != null,
   });
 
   useEffect(() => {
@@ -128,21 +128,21 @@ const Masthead = ({ navigation, ...mastheadProps }) => {
     <HeaderContainer
       render={({ isSideNavExpanded, onClickSideNavExpand }) => (
         <div
-          className={`${cPrefix}--masthead ${mastheadSticky}`}
+          className={`${prefix}--masthead ${mastheadSticky}`}
           ref={stickyRef}>
-          <div className={`${cPrefix}--masthead__l0`}>
-            <Header aria-label="IBM" data-autoid={`${prefix}--masthead`}>
+          <div className={`${prefix}--masthead__l0`}>
+            <Header aria-label="IBM" data-autoid={`${stablePrefix}--masthead`}>
               <SkipToContent />
               <HeaderMenuButton
                 aria-label="Open menu"
-                data-autoid={`${prefix}--masthead__hamburger`}
+                data-autoid={`${stablePrefix}--masthead__hamburger`}
                 onClick={onClickSideNavExpand}
                 isActive={isSideNavExpanded}
               />
 
               <IbmLogo />
 
-              <div className={`${cPrefix}--header__search`}>
+              <div className={`${prefix}--header__search`}>
                 {navigation !== false ? (
                   <MastheadTopNav
                     {...mastheadProps}

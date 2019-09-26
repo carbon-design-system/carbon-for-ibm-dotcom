@@ -7,14 +7,14 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { settings } from '@carbon/ibmdotcom-utilities';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import {
   HeaderGlobalAction,
   OverflowMenu,
   OverflowMenuItem,
 } from 'carbon-components-react';
 
-const { prefix } = settings;
+const { stablePrefix } = ddsSettings;
 
 /**
  * MastHead Profile component
@@ -46,7 +46,7 @@ const MastheadProfile = ({
   return (
     <HeaderGlobalAction
       aria-label="User Profile"
-      data-autoid={`${prefix}--masthead__profile`}
+      data-autoid={`${stablePrefix}--masthead__profile`}
       onClick={() => {}}>
       <OverflowMenu {...overflowMenuProps}>{profileNav}</OverflowMenu>
     </HeaderGlobalAction>

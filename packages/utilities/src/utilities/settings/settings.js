@@ -8,7 +8,7 @@
  *
  */
 const settings = {
-  prefix: 'dds',
+  stablePrefix: 'dds',
 };
 
 export default settings;

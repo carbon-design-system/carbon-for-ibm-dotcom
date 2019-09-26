@@ -6,11 +6,11 @@
  */
 
 import React from 'react';
-import { settings } from '@carbon/ibmdotcom-utilities';
-import { settings as carbonSettings } from 'carbon-components';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import { settings } from 'carbon-components';
 
+const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
-const cPrefix = carbonSettings.prefix;
 
 /**
  * IBM 8-bar Logo
@@ -20,10 +20,10 @@ const cPrefix = carbonSettings.prefix;
  */
 const IbmLogo = () => (
   <div
-    data-autoid={`${prefix}--masthead-logo`}
-    className={`${cPrefix}--header__logo`}>
+    data-autoid={`${stablePrefix}--masthead-logo`}
+    className={`${prefix}--header__logo`}>
     <a
-      data-autoid={`${prefix}--masthead-logo__link`}
+      data-autoid={`${stablePrefix}--masthead-logo__link`}
       href="https://www.ibm.com/">
       <svg width={54} height={23}>
         <path

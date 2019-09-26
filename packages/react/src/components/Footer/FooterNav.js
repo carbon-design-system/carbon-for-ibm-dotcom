@@ -7,13 +7,13 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { settings } from '@carbon/ibmdotcom-utilities';
-import { settings as carbonSettings } from 'carbon-components';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import { settings } from 'carbon-components';
 import { Accordion } from 'carbon-components-react';
 import FooterNavGroup from './FooterNavGroup';
 
+const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
-const cPrefix = carbonSettings.prefix;
 
 /**
  * Footer nav component
@@ -28,9 +28,9 @@ const FooterNav = ({ groups }) => {
 
   return (
     <nav
-      data-autoid={`${prefix}--footer-nav`}
-      className={`${cPrefix}--footer-nav`}>
-      <div className={`${cPrefix}--footer-nav__container`}>
+      data-autoid={`${stablePrefix}--footer-nav`}
+      className={`${prefix}--footer-nav`}>
+      <div className={`${prefix}--footer-nav__container`}>
         <Accordion>{renderGroups(groups)}</Accordion>
       </div>
     </nav>

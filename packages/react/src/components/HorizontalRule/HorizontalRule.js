@@ -7,12 +7,12 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { settings } from '@carbon/ibmdotcom-utilities';
-import { settings as carbonSettings } from 'carbon-components';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import { settings } from 'carbon-components';
 import classnames from 'classnames';
 
+const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
-const cPrefix = carbonSettings.prefix;
 
 /**
  * creates modifier classnames
@@ -36,9 +36,9 @@ function hrMod(mod) {
  */
 const HorizontalRule = ({ style, size, contrast, weight }) => (
   <hr
-    data-autoid={`${prefix}--hr`}
+    data-autoid={`${stablePrefix}--hr`}
     className={classnames(
-      `${cPrefix}--hr`,
+      `${prefix}--hr`,
       hrMod(style),
       hrMod(contrast),
       hrMod(size),

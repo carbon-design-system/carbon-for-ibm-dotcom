@@ -7,12 +7,12 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { settings } from '@carbon/ibmdotcom-utilities';
-import { settings as carbonSettings } from 'carbon-components';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import { settings } from 'carbon-components';
 import { AccordionItem, Link } from 'carbon-components-react';
 
+const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
-const cPrefix = carbonSettings.prefix;
 
 /**
  * Footer nav group component
@@ -27,10 +27,10 @@ const FooterNavGroup = ({ title, links }) => {
 
   return (
     <AccordionItem
-      data-autoid={`${prefix}--footer-nav-group`}
+      data-autoid={`${stablePrefix}--footer-nav-group`}
       title={title}
-      className={`${cPrefix}--footer-nav-group`}>
-      <h2 className={`${cPrefix}--footer-nav-group__title`}>{title}</h2>
+      className={`${prefix}--footer-nav-group`}>
+      <h2 className={`${prefix}--footer-nav-group__title`}>{title}</h2>
       <ul>{renderListItems(links)}</ul>
     </AccordionItem>
   );
@@ -49,10 +49,10 @@ function renderListItems(links) {
     }
 
     return (
-      <li className={`${cPrefix}--footer-nav-group__item`} key={index}>
+      <li className={`${prefix}--footer-nav-group__item`} key={index}>
         <Link
-          className={`${cPrefix}--footer-nav-group__link`}
-          data-autoid={`${prefix}--footer-nav-group__link`}
+          className={`${prefix}--footer-nav-group__link`}
+          data-autoid={`${stablePrefix}--footer-nav-group__link`}
           href={url}>
           {title}
         </Link>

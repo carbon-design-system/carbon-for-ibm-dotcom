@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { settings as carbonSettings } from 'carbon-components';
+import { settings } from 'carbon-components';
 import {
   HeaderNavigation,
   HeaderMenu,
@@ -15,7 +15,7 @@ import {
 import { ArrowLeft16 } from '@carbon/icons-react';
 import cx from 'classnames';
 
-const cPrefix = carbonSettings.prefix;
+const { prefix } = settings;
 
 /**
  * MastHead L1 component
@@ -25,23 +25,21 @@ const cPrefix = carbonSettings.prefix;
  */
 const MastheadL1 = () => {
   const className = cx({
-    [`${cPrefix}--masthead__l1`]: true,
+    [`${prefix}--masthead__l1`]: true,
   });
 
   return (
     <div className={className}>
-      <div className={`${cPrefix}--masthead__l1-name`}>
-        <span className={`${cPrefix}--masthead__l1-name-eyebrow`}>
+      <div className={`${prefix}--masthead__l1-name`}>
+        <span className={`${prefix}--masthead__l1-name-eyebrow`}>
           <ArrowLeft16 />
           <a href="#">Eyebrow</a>
         </span>
-        <span className={`${cPrefix}--masthead__l1-name-title`}>
+        <span className={`${prefix}--masthead__l1-name-title`}>
           Stock Charts
         </span>
       </div>
-      <HeaderNavigation
-        className={`${cPrefix}--masthead__l1-nav`}
-        aria-label="">
+      <HeaderNavigation className={`${prefix}--masthead__l1-nav`} aria-label="">
         <HeaderMenuItem href="#">Link 1</HeaderMenuItem>
         <HeaderMenuItem href="#">Link 2</HeaderMenuItem>
         <HeaderMenuItem href="#">Link 3</HeaderMenuItem>

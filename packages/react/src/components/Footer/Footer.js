@@ -7,8 +7,8 @@
 
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { settings } from '@carbon/ibmdotcom-utilities';
-import { settings as carbonSettings } from 'carbon-components';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import { settings } from 'carbon-components';
 import { TranslationAPI } from '@carbon/ibmdotcom-services';
 import classNames from 'classnames';
 import FooterLogo from './FooterLogo';
@@ -16,8 +16,8 @@ import FooterNav from './FooterNav';
 import LegalNav from './LegalNav';
 import LocaleButton from './LocaleButton';
 
+const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
-const cPrefix = carbonSettings.prefix;
 
 /**
  * Footer component
@@ -39,10 +39,10 @@ const Footer = ({ type }) => {
 
   return (
     <footer
-      data-autoid={`${prefix}--footer`}
-      className={classNames(`${cPrefix}--footer`, setFooterType(type))}>
-      <section className={`${cPrefix}--footer__main`}>
-        <div className={`${cPrefix}--footer__main-container`}>
+      data-autoid={`${stablePrefix}--footer`}
+      className={classNames(`${prefix}--footer`, setFooterType(type))}>
+      <section className={`${prefix}--footer__main`}>
+        <div className={`${prefix}--footer__main-container`}>
           <FooterLogo />
           {optionalFooterNav(type, footerMenuData)}
           <LocaleButton />
@@ -76,7 +76,7 @@ function setFooterType(type) {
   let typeClassName;
 
   if (type === 'short') {
-    typeClassName = `${cPrefix}--footer--short`;
+    typeClassName = `${prefix}--footer--short`;
   }
 
   return typeClassName;

@@ -1,13 +1,13 @@
 import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { settings } from '@carbon/ibmdotcom-utilities';
-import { settings as carbonSettings } from 'carbon-components';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import { settings } from 'carbon-components';
 import { HeaderGlobalAction } from 'carbon-components-react';
 import { Search20 } from '@carbon/icons-react';
 import { Close20 } from '@carbon/icons-react';
 
+const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
-const cPrefix = carbonSettings.prefix;
 
 /**
  * Renders the input bar with the search icon
@@ -30,21 +30,21 @@ const MastheadSearchInput = ({ componentInputProps, dispatch, isActive }) => {
     <>
       <input
         {...componentInputProps}
-        data-autoid={`${prefix}--header__search--input`}
+        data-autoid={`${stablePrefix}--header__search--input`}
         ref={searchRef}
       />
       <HeaderGlobalAction
         onClick={() => dispatch({ type: 'setSearchOpen' })}
         aria-label="Search"
-        className={`${cPrefix}--header__search--search`}
-        data-autoid={`${prefix}--header__search--search`}>
+        className={`${prefix}--header__search--search`}
+        data-autoid={`${stablePrefix}--header__search--search`}>
         <Search20 />
       </HeaderGlobalAction>
       <HeaderGlobalAction
         onClick={() => dispatch({ type: 'setSearchClosed' })}
         aria-label="Close"
-        className={`${cPrefix}--header__search--close`}
-        data-autoid={`${prefix}--header__search--close`}>
+        className={`${prefix}--header__search--close`}
+        data-autoid={`${stablePrefix}--header__search--close`}>
         <Close20 />
       </HeaderGlobalAction>
     </>

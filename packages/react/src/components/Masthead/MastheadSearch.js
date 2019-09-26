@@ -7,8 +7,8 @@
 
 import React, { useReducer } from 'react';
 import PropTypes from 'prop-types';
-import { settings } from '@carbon/ibmdotcom-utilities';
-import { settings as carbonSettings } from 'carbon-components';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import { settings } from 'carbon-components';
 import Autosuggest from 'react-autosuggest';
 import root from 'window-or-global';
 import { SearchTypeaheadAPI } from '@carbon/ibmdotcom-services';
@@ -17,8 +17,8 @@ import MastheadSearchInput from './MastheadSearchInput';
 import MastheadSearchSuggestion from './MastheadSearchSuggestion';
 import cx from 'classnames';
 
+const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
-const cPrefix = carbonSettings.prefix;
 
 /**
  * Sets up the redirect URL when a user selects a search suggestion
@@ -108,8 +108,8 @@ const MastheadSearch = ({ placeHolderText, renderValue }) => {
   const [state, dispatch] = useReducer(_reducer, _initialState);
 
   const className = cx({
-    [`${cPrefix}--masthead__search`]: true,
-    [`${cPrefix}--masthead__search--active`]: state.isSearchOpen,
+    [`${prefix}--masthead__search`]: true,
+    [`${prefix}--masthead__search--active`]: state.isSearchOpen,
   });
 
   /**
@@ -131,7 +131,7 @@ const MastheadSearch = ({ placeHolderText, renderValue }) => {
     placeholder: placeHolderText,
     value: state.val,
     onChange,
-    className: `${cPrefix}--header__search--input`,
+    className: `${prefix}--header__search--input`,
     onBlur: () => {
       dispatch({ type: 'setSearchClosed' });
     },
@@ -240,7 +240,9 @@ const MastheadSearch = ({ placeHolderText, renderValue }) => {
   }
 
   return (
-    <div data-autoid={`${prefix}--masthead__search`} className={className}>
+    <div
+      data-autoid={`${stablePrefix}--masthead__search`}
+      className={className}>
       <Autosuggest
         suggestions={state.suggestions} // The state value of suggestion
         onSuggestionsFetchRequested={onSuggestionsFetchRequest} // Method to fetch data (should be async call)
