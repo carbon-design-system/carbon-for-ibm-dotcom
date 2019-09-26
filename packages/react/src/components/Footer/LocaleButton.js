@@ -8,12 +8,12 @@ import {
   ModalHeader,
   ModalBody,
 } from 'carbon-components-react';
-import { settings } from '@carbon/ibmdotcom-utilities';
-import { settings as carbonSettings } from 'carbon-components';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import { settings } from 'carbon-components';
 import { Globe20 } from '@carbon/icons-react';
 
+const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
-const cPrefix = carbonSettings.prefix;
 
 /**
  * EXPERIMENTAL: Renders the locale button
@@ -26,10 +26,10 @@ const LocaleButton = () => {
 
   return featureFlag(
     FOOTER_LOCALE_BUTTON,
-    <div className={`${cPrefix}--locale-btn__container`}>
+    <div className={`${prefix}--locale-btn__container`}>
       <Button
-        data-autoid={`${prefix}--locale-btn`}
-        className={`${cPrefix}--locale-btn`}
+        data-autoid={`${stablePrefix}--locale-btn`}
+        className={`${prefix}--locale-btn`}
         kind="secondary"
         onClick={open}
         renderIcon={Globe20}>
@@ -39,13 +39,13 @@ const LocaleButton = () => {
       <ComposedModal
         open={isOpen}
         onClose={close}
-        data-autoid={`${prefix}--locale-modal`}>
+        data-autoid={`${stablePrefix}--locale-modal`}>
         <ModalHeader
           label="United States — English"
           title="Select your region"
         />
         <ModalBody>
-          <p className={`${cPrefix}--modal-content__text`}>
+          <p className={`${prefix}--modal-content__text`}>
             Placeholder text for now
           </p>
         </ModalBody>

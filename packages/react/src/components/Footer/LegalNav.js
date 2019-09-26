@@ -7,12 +7,12 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { settings } from '@carbon/ibmdotcom-utilities';
-import { settings as carbonSettings } from 'carbon-components';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import { settings } from 'carbon-components';
 import { Link } from 'carbon-components-react';
 
+const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
-const cPrefix = carbonSettings.prefix;
 
 /**
  * Placeholder <li/> element for injection of the TrustE cookie preferences link
@@ -22,8 +22,8 @@ const cPrefix = carbonSettings.prefix;
 const renderTrusteItem = () => {
   return (
     <li
-      className={`${cPrefix}--legal-nav__list-item`}
-      data-autoid={`${prefix}--privacy-cp`}
+      className={`${prefix}--legal-nav__list-item`}
+      data-autoid={`${stablePrefix}--privacy-cp`}
     />
   );
 };
@@ -41,10 +41,10 @@ const LegalNav = ({ links }) => {
 
   return (
     <aside
-      data-autoid={`${prefix}--footer-legal-nav`}
-      className={`${cPrefix}--legal-nav__container`}>
-      <nav className={`${cPrefix}--legal-nav`}>
-        <ul className={`${cPrefix}--legal-nav__list`}>
+      data-autoid={`${stablePrefix}--footer-legal-nav`}
+      className={`${prefix}--legal-nav__container`}>
+      <nav className={`${prefix}--legal-nav`}>
+        <ul className={`${prefix}--legal-nav__list`}>
           {renderListItems(links)}
           {renderTrusteItem()}
         </ul>
@@ -66,8 +66,10 @@ function renderListItems(links) {
     }
 
     return (
-      <li className={`${cPrefix}--legal-nav__list-item`} key={index}>
-        <Link data-autoid={`${prefix}--footer-legal-nav__link`} href={url}>
+      <li className={`${prefix}--legal-nav__list-item`} key={index}>
+        <Link
+          data-autoid={`${stablePrefix}--footer-legal-nav__link`}
+          href={url}>
           {title}
         </Link>
       </li>
