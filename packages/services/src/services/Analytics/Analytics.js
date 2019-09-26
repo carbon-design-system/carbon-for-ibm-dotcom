@@ -10,7 +10,14 @@ class AnalyticsAPI {
    * @param {object} eventData Object with standard IBM metric event properties and values to send to Coremetrics
    *
    * @example
-   * {type: 'element', primaryCategory: 'MASTHEAD', eventName: 'CLICK', executionPath: 'masthead__profile', execPathReturnCode: 'none', targetTitle: 'profile'}
+   * const eventData = {
+   * type: 'element',
+   * primaryCategory: 'MASTHEAD',
+   * eventName: 'CLICK',
+   * executionPath: 'masthead__profile',
+   * execPathReturnCode: 'none',
+   * targetTitle: 'profile'
+   * }
    *
    *
    */
@@ -23,6 +30,7 @@ class AnalyticsAPI {
   /**
    *
    * method scroll tracking
+   * Only fires the event at 400px intervals and at the deepest scroll depth
    *
    **/
   static initScrollTracker() {
@@ -30,7 +38,6 @@ class AnalyticsAPI {
     const scrollAnalytics = root.addEventListener('scroll', () => {
       let scrollDepth = root.pageYOffset;
 
-      // Only fire the event at 400px intervals and at the deepest scroll depth
       if (scrollDepth % 400 === 0 && scrollDepth > maxScrollDepth) {
         maxScrollDepth = scrollDepth;
         this.registerEvent({
