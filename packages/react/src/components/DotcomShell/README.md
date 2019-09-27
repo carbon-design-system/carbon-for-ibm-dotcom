@@ -53,6 +53,13 @@ function App() {
 > [Footer](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/components/Footer)
 > component documentation for their specific usage.
 
+## Stable selectors
+
+| Name                         | Description |
+| ---------------------------- | ----------- |
+| `dds--dotcom-shell`          | Component   |
+| `dds--dotcom-shell__content` | Component   |
+
 ## CORS Proxy
 
 This component makes cross-origin requests to `www.ibm.com`, which will require

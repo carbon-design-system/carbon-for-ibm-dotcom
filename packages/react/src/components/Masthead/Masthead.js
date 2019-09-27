@@ -7,6 +7,7 @@
 
 import React, { useEffect, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
 import root from 'window-or-global';
 import { User20, UserOnline20 } from '@carbon/icons-react';
@@ -26,6 +27,7 @@ import MastheadLeftNav from './MastheadLeftNav';
 import MastheadTopNav from './MastheadTopNav';
 import cx from 'classnames';
 
+const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
@@ -129,11 +131,11 @@ const Masthead = ({ navigation, ...mastheadProps }) => {
           className={`${prefix}--masthead ${mastheadSticky}`}
           ref={stickyRef}>
           <div className={`${prefix}--masthead__l0`}>
-            <Header aria-label="IBM" data-autoid="masthead">
+            <Header aria-label="IBM" data-autoid={`${stablePrefix}--masthead`}>
               <SkipToContent />
               <HeaderMenuButton
                 aria-label="Open menu"
-                data-autoid="masthead__hamburger"
+                data-autoid={`${stablePrefix}--masthead__hamburger`}
                 onClick={onClickSideNavExpand}
                 isActive={isSideNavExpanded}
               />

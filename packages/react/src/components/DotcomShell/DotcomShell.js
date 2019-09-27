@@ -7,9 +7,11 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
 import { Masthead, Footer } from '@carbon/ibmdotcom-react';
 
+const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
@@ -28,8 +30,14 @@ const DotcomShell = ({
   return (
     <>
       <Masthead navigation={navigation} {...mastheadProps} />
-      <div className={`${prefix}--dotcom-shell`}>
-        <div className={`${prefix}--dotcom-shell__content`}>{children}</div>
+      <div
+        data-autoid={`${stablePrefix}--dotcom-shell`}
+        className={`${prefix}--dotcom-shell`}>
+        <div
+          data-autoid={`${stablePrefix}--dotcom-shell__content`}
+          className={`${prefix}--dotcom-shell__content`}>
+          {children}
+        </div>
       </div>
       <Footer type={footerType} />
     </>
