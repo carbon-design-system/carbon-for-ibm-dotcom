@@ -109,7 +109,7 @@
       display: flex;
       padding: 0 $spacing-05;
 
-      .container-class {
+      .#{$prefix}--container-class {
         display: flex;
         border-bottom: 1px solid $ui-01;
         flex: 1;

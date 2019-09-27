@@ -7,15 +7,17 @@
 
 import React, { useReducer } from 'react';
 import PropTypes from 'prop-types';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import { settings } from 'carbon-components';
 import Autosuggest from 'react-autosuggest';
 import root from 'window-or-global';
 import { SearchTypeaheadAPI } from '@carbon/ibmdotcom-services';
 import { escapeRegExp } from '@carbon/ibmdotcom-utilities';
 import MastheadSearchInput from './MastheadSearchInput';
 import MastheadSearchSuggestion from './MastheadSearchSuggestion';
-import { settings } from 'carbon-components';
 import cx from 'classnames';
 
+const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
@@ -238,7 +240,9 @@ const MastheadSearch = ({ placeHolderText, renderValue }) => {
   }
 
   return (
-    <div data-autoid={`${prefix}--masthead__search`} className={className}>
+    <div
+      data-autoid={`${stablePrefix}--masthead__search`}
+      className={className}>
       <Autosuggest
         suggestions={state.suggestions} // The state value of suggestion
         onSuggestionsFetchRequested={onSuggestionsFetchRequest} // Method to fetch data (should be async call)
