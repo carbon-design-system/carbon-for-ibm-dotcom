@@ -7,9 +7,11 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
 import { AccordionItem, Link } from 'carbon-components-react';
 
+const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
@@ -25,7 +27,7 @@ const FooterNavGroup = ({ title, links }) => {
 
   return (
     <AccordionItem
-      data-autoid="footer-nav-group"
+      data-autoid={`${stablePrefix}--footer-nav-group`}
       title={title}
       className={`${prefix}--footer-nav-group`}>
       <h2 className={`${prefix}--footer-nav-group__title`}>{title}</h2>
@@ -50,7 +52,7 @@ function renderListItems(links) {
       <li className={`${prefix}--footer-nav-group__item`} key={index}>
         <Link
           className={`${prefix}--footer-nav-group__link`}
-          data-autoid="footer-nav-group__link"
+          data-autoid={`${stablePrefix}--footer-nav-group__link`}
           href={url}>
           {title}
         </Link>

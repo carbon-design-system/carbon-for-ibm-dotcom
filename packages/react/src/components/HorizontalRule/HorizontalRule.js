@@ -5,11 +5,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import PropTypes from 'prop-types';
 import React from 'react';
-import classnames from 'classnames';
+import PropTypes from 'prop-types';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
+import classnames from 'classnames';
 
+const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
@@ -34,7 +36,7 @@ function hrMod(mod) {
  */
 const HorizontalRule = ({ style, size, contrast, weight }) => (
   <hr
-    data-autoid="hr"
+    data-autoid={`${stablePrefix}--hr`}
     className={classnames(
       `${prefix}--hr`,
       hrMod(style),

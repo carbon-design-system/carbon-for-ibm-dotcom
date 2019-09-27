@@ -6,8 +6,10 @@
  */
 
 import React from 'react';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
 
+const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
@@ -17,9 +19,11 @@ const { prefix } = settings;
  */
 const Logo = () => {
   return (
-    <div data-autoid="footer-logo" className={`${prefix}--footer-logo`}>
+    <div
+      data-autoid={`${stablePrefix}--footer-logo`}
+      className={`${prefix}--footer-logo`}>
       <a
-        data-autoid="footer-logo__link"
+        data-autoid={`${stablePrefix}--footer-logo__link`}
         className={`${prefix}--footer-logo__link`}
         href="https://www.ibm.com/">
         <svg
