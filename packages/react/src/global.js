@@ -2,10 +2,10 @@ import { AnalyticsAPI } from '@carbon/ibmdotcom-services';
 
 /**
  * Global methods to be used in various components
- * including analytics scroll tracking
  */
-const global = () => {
+const globalMethods = () => {
+  // analytics scroll tracking
   AnalyticsAPI.initScrollTracker();
 };
 
-export default global;
+export default globalMethods;
