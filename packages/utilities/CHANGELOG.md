@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-utilities@0.5.2...@carbon/ibmdotcom-utilities@1.0.0-rc.0) (2019-09-27)
+
+### Bug Fixes
+
+- **release:** fixed repository links for changelogs
+  ([bc6fd1e](https://github.com/carbon-design-system/ibm-dotcom-library/commit/bc6fd1e))
+- **settings:** revert carbon prefix and update dds with new one
+  ([cd9747c](https://github.com/carbon-design-system/ibm-dotcom-library/commit/cd9747c))
+
+### Features
+
+- **ddo:** adding ddo service
+  ([36c71d6](https://github.com/carbon-design-system/ibm-dotcom-library/commit/36c71d6))
+- **util:** adds global settings to utilities
+  ([cc89fc1](https://github.com/carbon-design-system/ibm-dotcom-library/commit/cc89fc1))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [0.5.2](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-utilities@0.5.1...@carbon/ibmdotcom-utilities@0.5.2) (2019-09-17)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-utilities
