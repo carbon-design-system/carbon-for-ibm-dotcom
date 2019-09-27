@@ -7,9 +7,11 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
 import { Link } from 'carbon-components-react';
 
+const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
@@ -21,7 +23,7 @@ const renderTrusteItem = () => {
   return (
     <li
       className={`${prefix}--legal-nav__list-item`}
-      data-autoid="dds-privacy-cp"
+      data-autoid={`${stablePrefix}--privacy-cp`}
     />
   );
 };
@@ -39,7 +41,7 @@ const LegalNav = ({ links }) => {
 
   return (
     <aside
-      data-autoid="footer-legal-nav"
+      data-autoid={`${stablePrefix}--footer-legal-nav`}
       className={`${prefix}--legal-nav__container`}>
       <nav className={`${prefix}--legal-nav`}>
         <ul className={`${prefix}--legal-nav__list`}>
@@ -65,7 +67,9 @@ function renderListItems(links) {
 
     return (
       <li className={`${prefix}--legal-nav__list-item`} key={index}>
-        <Link data-autoid="footer-legal-nav__link" href={url}>
+        <Link
+          data-autoid={`${stablePrefix}--footer-legal-nav__link`}
+          href={url}>
           {title}
         </Link>
       </li>
@@ -76,10 +80,18 @@ function renderListItems(links) {
 LegalNav.propTypes = {
   links: PropTypes.arrayOf(
     PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      url: PropTypes.string.isRequired,
-    }).isRequired
-  ).isRequired,
+      title: PropTypes.string,
+      url: PropTypes.string,
+    })
+  ),
+};
+
+/**
+ * @property defaultProps
+ * @type {{groups: Array}}
+ */
+LegalNav.defaultProps = {
+  links: null,
 };
 
 export default LegalNav;

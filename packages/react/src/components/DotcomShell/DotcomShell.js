@@ -7,10 +7,12 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
-import { Content } from 'carbon-components-react';
 import { Masthead, Footer } from '@carbon/ibmdotcom-react';
+import '../../global';
 
+const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
@@ -20,25 +22,25 @@ const { prefix } = settings;
  * @param {string} User content
  * @returns {*} DotcomShell component
  */
-const DotcomShell = ({ navigation, children }) => {
+const DotcomShell = ({
+  navigation,
+  footerType,
+  children,
+  ...mastheadProps
+}) => {
   return (
     <>
-      <div className={`${prefix}--grid ${prefix}--dotcom-shell`}>
-        <div className={`${prefix}--dotcom-shell__masthead`}>
-          <Masthead navigation={navigation} />
-        </div>
-        <Content
-          id={`${prefix}--dotcom-shell__content`}
-          className={`${prefix}--grid`}
-          style={{
-            paddingTop: '80px',
-            paddingBottom: '80px',
-            flex: '1',
-          }}>
+      <Masthead navigation={navigation} {...mastheadProps} />
+      <div
+        data-autoid={`${stablePrefix}--dotcom-shell`}
+        className={`${prefix}--dotcom-shell`}>
+        <div
+          data-autoid={`${stablePrefix}--dotcom-shell__content`}
+          className={`${prefix}--dotcom-shell__content`}>
           {children}
-        </Content>
+        </div>
       </div>
-      <Footer />
+      <Footer type={footerType} />
     </>
   );
 };
@@ -52,6 +54,8 @@ DotcomShell.propTypes = {
     PropTypes.node,
   ]).isRequired,
   navigation: PropTypes.object,
+  footerType: PropTypes.string,
+  mastheadProps: PropTypes.object,
 };
 
 export default DotcomShell;

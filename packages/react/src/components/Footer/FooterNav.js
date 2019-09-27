@@ -7,10 +7,12 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
 import { Accordion } from 'carbon-components-react';
 import FooterNavGroup from './FooterNavGroup';
 
+const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
@@ -25,7 +27,9 @@ const FooterNav = ({ groups }) => {
   }
 
   return (
-    <nav data-autoid="footer-nav" className={`${prefix}--footer-nav`}>
+    <nav
+      data-autoid={`${stablePrefix}--footer-nav`}
+      className={`${prefix}--footer-nav`}>
       <div className={`${prefix}--footer-nav__container`}>
         <Accordion>{renderGroups(groups)}</Accordion>
       </div>
@@ -45,13 +49,26 @@ function renderGroups(groups) {
   ));
 }
 
+/**
+ * @property propTypes
+ * @description Defined property types for component
+ * @type {{groups: shim}}
+ */
 FooterNav.propTypes = {
   groups: PropTypes.arrayOf(
     PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      links: PropTypes.array.isRequired,
-    }).isRequired
-  ).isRequired,
+      title: PropTypes.string,
+      links: PropTypes.array,
+    })
+  ),
+};
+
+/**
+ * @property defaultProps
+ * @type {{groups: Array}}
+ */
+FooterNav.defaultProps = {
+  groups: null,
 };
 
 export default FooterNav;

@@ -9,3 +9,4 @@ export * from './MarketingSearch';
 export * from './SearchTypeahead';
 export * from './Profile';
 export * from './Translation';
+export * from './Analytics';

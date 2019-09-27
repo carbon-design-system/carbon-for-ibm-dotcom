@@ -5,22 +5,20 @@
 // LICENSE file in the root directory of this source tree.
 //
 @import '../../globals/imports';
+@import '../footer/index';
+@import '../masthead/masthead';
+@import '../masthead/masthead-l1';
 
 @mixin dotcom-shell {
   .#{$prefix}--dotcom-shell {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    padding-top: $layout-07;
+    padding-bottom: $layout-06;
 
     &__content {
       flex: 1;
-    }
-
-    &__masthead {
-      width: 100%;
-      position: static;
-      top: 0;
-      z-index: 99999;
     }
   }
 }

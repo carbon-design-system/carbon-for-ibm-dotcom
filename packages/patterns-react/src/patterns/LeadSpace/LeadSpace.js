@@ -30,8 +30,15 @@ function renderButtons(buttons) {
   ]);
   return buttons.map((button, key) => {
     if (key > 1) return;
+    const renderIcon = button.renderArrow
+      ? {
+          renderIcon: ArrowRight20,
+        }
+      : {};
     return (
       <Button
+        {...renderIcon}
+        key={key}
         data-autoid={`leadspace__cta-${key}`}
         renderIcon={iconMap.get(button.renderIcon)}
         href={button.link}

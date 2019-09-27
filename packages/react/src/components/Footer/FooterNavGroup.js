@@ -7,9 +7,11 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
 import { AccordionItem, Link } from 'carbon-components-react';
 
+const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
@@ -25,7 +27,7 @@ const FooterNavGroup = ({ title, links }) => {
 
   return (
     <AccordionItem
-      data-autoid="footer-nav-group"
+      data-autoid={`${stablePrefix}--footer-nav-group`}
       title={title}
       className={`${prefix}--footer-nav-group`}>
       <h2 className={`${prefix}--footer-nav-group__title`}>{title}</h2>
@@ -50,7 +52,7 @@ function renderListItems(links) {
       <li className={`${prefix}--footer-nav-group__item`} key={index}>
         <Link
           className={`${prefix}--footer-nav-group__link`}
-          data-autoid="footer-nav-group__link"
+          data-autoid={`${stablePrefix}--footer-nav-group__link`}
           href={url}>
           {title}
         </Link>
@@ -59,14 +61,28 @@ function renderListItems(links) {
   });
 }
 
+/**
+ * @property propTypes
+ * @description Defined property types for component
+ * @type {{links: shim, title: shim}}
+ */
 FooterNavGroup.propTypes = {
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   links: PropTypes.arrayOf(
     PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      url: PropTypes.string.isRequired,
-    }).isRequired
-  ).isRequired,
+      title: PropTypes.string,
+      url: PropTypes.string,
+    })
+  ),
+};
+
+/**
+ * @property defaultProps
+ * @type {{links: Array, title: null}}
+ */
+FooterNavGroup.defaultProps = {
+  title: null,
+  links: null,
 };
 
 export default FooterNavGroup;

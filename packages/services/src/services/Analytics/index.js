@@ -5,7 +5,4 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-export * from './escaperegexp';
-export * from './featureflag';
-export * from './serialize';
-export * from './settings';
+export { default as AnalyticsAPI } from './Analytics';

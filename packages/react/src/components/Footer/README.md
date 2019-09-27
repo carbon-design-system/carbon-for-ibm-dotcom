@@ -48,18 +48,18 @@ FOOTER_LOCALE_BUTTON=true
 
 ## Stable selectors
 
-| Name                     | Description |
-| ------------------------ | ----------- |
-| `footer`                 | Component   |
-| `footer-nav`             | Component   |
-| `footer-nav-group`       | Component   |
-| `footer-nav-group__link` | Interactive |
-| `footer-logo`            | Component   |
-| `footer-logo__link`      | Interactive |
-| `footer-locale-btn`      | Interactive |
-| `legal-nav`              | Component   |
-| `legal-nav__link`        | Interactive |
-| `locale-modal`           | Component   |
+| Name                          | Description |
+| ----------------------------- | ----------- |
+| `dds--footer`                 | Component   |
+| `dds--footer-nav`             | Component   |
+| `dds--footer-nav-group`       | Component   |
+| `dds--footer-nav-group__link` | Interactive |
+| `dds--footer-logo`            | Component   |
+| `dds--footer-logo__link`      | Interactive |
+| `dds--footer-locale-btn`      | Interactive |
+| `dds--legal-nav`              | Component   |
+| `dds--legal-nav__link`        | Interactive |
+| `dds--locale-modal`           | Component   |
 
 ## CORS Proxy
 

@@ -41,20 +41,31 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 | --------------- | -------------------------------------------------------------------- |
 | `with platform` | Includes platform name (only available with `default` and `custom`). |
 
+```javascript
+const topNavProps = {
+  platform: {
+    name: 'IBM Cloud',
+    url: 'https://www.ibm.com/cloud',
+  },
+};
+
+<Masthead {...topNavProps} />;
+```
+
 ## Stable selectors
 
-| Name                                   | Description |
-| -------------------------------------- | ----------- |
-| `masthead`                             | Component   |
-| `masthead__hamburger`                  | Interactive |
-| `masthead__logo`                       | Interactive |
-| `masthead__platform-name`              | Interactive |
-| `masthead__l0-nav`                     | Component   |
-| `masthead__l0-nav--nav-${item}`        | Interactive |
-| `masthead__l0-nav--subnav-${item}`     | Interactive |
-| `masthead__l0-sidenav`                 | Component   |
-| `masthead__l0-sidenav--nav-${item}`    | Interactive |
-| `masthead__l0-sidenav--subnav-${item}` | Interactive |
+| Name                                        | Description |
+| ------------------------------------------- | ----------- |
+| `dds--masthead`                             | Component   |
+| `dds--masthead__hamburger`                  | Interactive |
+| `dds--masthead__logo`                       | Interactive |
+| `dds--masthead__platform-name`              | Interactive |
+| `dds--masthead__l0-nav`                     | Component   |
+| `dds--masthead__l0-nav--nav-${item}`        | Interactive |
+| `dds--masthead__l0-nav--subnav-${item}`     | Interactive |
+| `dds--masthead__l0-sidenav`                 | Component   |
+| `dds--masthead__l0-sidenav--nav-${item}`    | Interactive |
+| `dds--masthead__l0-sidenav--subnav-${item}` | Interactive |
 
 ## CORS Proxy
 

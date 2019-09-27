@@ -7,6 +7,7 @@
 
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
 import { TranslationAPI } from '@carbon/ibmdotcom-services';
 import classNames from 'classnames';
@@ -15,6 +16,7 @@ import FooterNav from './FooterNav';
 import LegalNav from './LegalNav';
 import LocaleButton from './LocaleButton';
 
+const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
@@ -37,7 +39,7 @@ const Footer = ({ type }) => {
 
   return (
     <footer
-      data-autoid="footer"
+      data-autoid={`${stablePrefix}--footer`}
       className={classNames(`${prefix}--footer`, setFooterType(type))}>
       <section className={`${prefix}--footer__main`}>
         <div className={`${prefix}--footer__main-container`}>

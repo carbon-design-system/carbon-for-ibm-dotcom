@@ -13,7 +13,7 @@ import 'carbon-components/scss/components/data-table/_data-table.scss';
 import 'carbon-components/scss/components/structured-list/_structured-list.scss';
 
 const content = (
-  <div>
+  <div className="bx--grid">
     <div className="bx--row">
       <div className="bx--col-lg-8">
         <h1>Some random content</h1>

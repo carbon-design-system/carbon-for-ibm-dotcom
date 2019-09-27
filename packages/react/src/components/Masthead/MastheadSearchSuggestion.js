@@ -1,7 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import { settings } from 'carbon-components';
 import classNames from 'classnames';
 import parse from 'autosuggest-highlight/parse';
+
+const { stablePrefix } = ddsSettings;
+const { prefix } = settings;
 
 /**
  * Matches a suggestion name with the query
@@ -44,10 +49,10 @@ const MastheadSearchSuggestion = ({
 
   return (
     <div
-      className={classNames('container-class', {
-        ['container-highlight-class']: isHighlighted,
+      className={classNames(`${prefix}--container-class`, {
+        [`${prefix}--container-highlight-class`]: isHighlighted,
       })}
-      data-autoid={`masthead__searchresults--suggestion`}>
+      data-autoid={`${stablePrefix}--masthead__searchresults--suggestion`}>
       {parts.map((part, index) => (
         <span
           key={index}
@@ -67,7 +72,7 @@ const MastheadSearchSuggestion = ({
  * @type {{isHighlighted: shim, suggestion: shim, query: shim, getSuggestionValue: shim}}
  */
 MastheadSearchSuggestion.propTypes = {
-  suggestion: PropTypes.object,
+  suggestion: PropTypes.array,
   query: PropTypes.string,
   isHighlighted: PropTypes.bool,
   getSuggestionValue: PropTypes.func,
@@ -78,7 +83,7 @@ MastheadSearchSuggestion.propTypes = {
  * @type {{isHighlighted: boolean, suggestion: {}, query: string, getSuggestionValue: MastheadSearchSuggestion.defaultProps.getSuggestionValue}}
  */
 MastheadSearchSuggestion.defaultProps = {
-  suggestion: {},
+  suggestion: [],
   query: '',
   isHighlighted: false,
   getSuggestionValue: () => {},

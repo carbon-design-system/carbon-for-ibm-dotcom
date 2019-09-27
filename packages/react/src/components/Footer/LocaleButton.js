@@ -8,9 +8,11 @@ import {
   ModalHeader,
   ModalBody,
 } from 'carbon-components-react';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
 import { Globe20 } from '@carbon/icons-react';
 
+const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
@@ -26,7 +28,7 @@ const LocaleButton = () => {
     FOOTER_LOCALE_BUTTON,
     <div className={`${prefix}--locale-btn__container`}>
       <Button
-        data-autoid="locale-btn"
+        data-autoid={`${stablePrefix}--locale-btn`}
         className={`${prefix}--locale-btn`}
         kind="secondary"
         onClick={open}
@@ -34,7 +36,10 @@ const LocaleButton = () => {
         United States — English
       </Button>
 
-      <ComposedModal open={isOpen} onClose={close} data-autoid="locale-modal">
+      <ComposedModal
+        open={isOpen}
+        onClose={close}
+        data-autoid={`${stablePrefix}--locale-modal`}>
         <ModalHeader
           label="United States — English"
           title="Select your region"
