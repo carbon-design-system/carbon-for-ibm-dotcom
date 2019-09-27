@@ -77,7 +77,6 @@ $search-transition-timing: 95ms;
     }
 
     &__global {
-      height: auto;
       flex: 0;
     }
 
@@ -146,14 +145,13 @@ $search-transition-timing: 95ms;
       }
 
       .#{$prefix}--overflow-menu {
-        // height: $spacing-09;
         width: 100%;
         height: 100%;
 
         &.#{$prefix}--overflow-menu--open {
           box-shadow: none;
-          // outline: 2px solid $interactive-01;
-          border-color: $interactive-01;
+          outline: 2px solid $interactive-01;
+          outline-offset: 0;
         }
 
         &:hover {
@@ -163,15 +161,6 @@ $search-transition-timing: 95ms;
         &:focus {
           outline: none;
           box-shadow: none;
-        }
-      }
-
-      &[aria-label='User Profile'] {
-        // outline: none;
-        // border: none;
-
-        &:focus {
-          // outline: none;
         }
       }
     }
@@ -232,7 +221,8 @@ $search-transition-timing: 95ms;
   // masthead profile menu
   .#{$prefix}--overflow-menu-options {
     background-color: $ui-background;
-    z-index: 5999;
+    z-index: 99999;
+    top: 48px !important;
 
     &__btn {
       color: $text-01;
@@ -251,6 +241,10 @@ $search-transition-timing: 95ms;
 
     &:focus {
       outline: none;
+    }
+
+    &::after {
+      display: none;
     }
   }
 }

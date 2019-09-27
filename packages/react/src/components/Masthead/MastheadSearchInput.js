@@ -35,7 +35,7 @@ const MastheadSearchInput = ({ componentInputProps, dispatch, isActive }) => {
       />
       <HeaderGlobalAction
         onClick={() => dispatch({ type: 'setSearchOpen' })}
-        aria-label="Search"
+        aria-label="Search all of IBM"
         className={`${prefix}--header__search--search`}
         data-autoid={`${stablePrefix}--header__search--search`}>
         <Search20 />
