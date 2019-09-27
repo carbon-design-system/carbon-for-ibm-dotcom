@@ -46,7 +46,7 @@ $search-transition-timing: 95ms;
       position: relative;
       top: -7px;
       a {
-        @include type-style('label-01');
+        @include type-style('body-short-01');
 
         color: $active-ui;
         text-decoration: none;
@@ -104,9 +104,14 @@ $search-transition-timing: 95ms;
   .#{$prefix}--masthead__l1-nav {
     padding-left: 0;
 
+    li:not([role="none"]) {
+      > a {
+        align-items: flex-end;
+        padding-bottom: $spacing-05;
+      }
+    }
+
     a.#{$prefix}--header__menu-item[role='menuitem'] {
-      align-items: flex-end;
-      padding-bottom: $spacing-05;
 
       &:hover {
         background-color: $hover-ui;
