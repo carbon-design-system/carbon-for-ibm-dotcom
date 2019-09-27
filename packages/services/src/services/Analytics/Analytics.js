@@ -1,4 +1,11 @@
 import root from 'window-or-global';
+
+/**
+ * @constant {boolean} scrollTracker determines whether scroll tracking analytics is enabled
+ * @private
+ */
+const scrollTracker = process.env.SCROLL_TRACKING === 'true' || false;
+
 /**
  * Analytics API class with methods for firing analytics events on
  * ibm.com
@@ -34,22 +41,24 @@ class AnalyticsAPI {
    *
    **/
   static initScrollTracker() {
-    let maxScrollDepth = 0;
-    const scrollAnalytics = root.addEventListener('scroll', () => {
-      let scrollDepth = root.pageYOffset;
+    if (scrollTracker) {
+      let maxScrollDepth = 0;
+      const scrollAnalytics = root.addEventListener('scroll', () => {
+        let scrollDepth = root.pageYOffset;
 
-      if (scrollDepth % 400 === 0 && scrollDepth > maxScrollDepth) {
-        maxScrollDepth = scrollDepth;
-        this.registerEvent({
-          type: 'element',
-          primaryCategory: 'SCROLL DISTANCE',
-          eventName: scrollDepth,
-          executionPath: root.innerWidth,
-          execPathReturnCode: root.innerHeight,
-        });
-      }
-    });
-    root.removeEventListener('scroll', () => scrollAnalytics);
+        if (scrollDepth % 400 === 0 && scrollDepth > maxScrollDepth) {
+          maxScrollDepth = scrollDepth;
+          this.registerEvent({
+            type: 'element',
+            primaryCategory: 'SCROLL DISTANCE',
+            eventName: scrollDepth,
+            executionPath: root.innerWidth,
+            execPathReturnCode: root.innerHeight,
+          });
+        }
+      });
+      root.removeEventListener('scroll', () => scrollAnalytics);
+    }
   }
 }
 
