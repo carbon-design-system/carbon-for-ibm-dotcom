@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
 import { Masthead, Footer } from '@carbon/ibmdotcom-react';
-import { AnalyticsAPI } from '@carbon/ibmdotcom-services';
+import global from '../../global';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
@@ -29,7 +29,7 @@ const DotcomShell = ({
   ...mastheadProps
 }) => {
   useEffect(() => {
-    AnalyticsAPI.initScrollTracker();
+    global();
   }, []);
 
   return (
