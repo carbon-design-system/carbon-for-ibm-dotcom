@@ -26,7 +26,20 @@ class DDOAPI {
   }
 
   /**
+   * Gets the full digitalData (DDO) object
+   *
+   * @returns {Promise<*>} Promise object
+   */
+  static async getAll() {
+    return await this.isReady().then(() => {
+      return root.digitalData;
+    });
+  }
+
+  /**
    * Sets the version of the library to the DDO
+   *
+   * @returns {Promise<any>} Promise object
    */
   static async setVersion() {
     return await this.isReady().then(() => {

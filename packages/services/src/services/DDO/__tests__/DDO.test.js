@@ -13,6 +13,12 @@ describe('DDOAPI', () => {
     root.digitalData = digitalDataResponse;
   });
 
+  it('should return the full DDO', async () => {
+    const ddo = await DDOAPI.getAll();
+
+    expect(ddo).toEqual(digitalDataResponse);
+  });
+
   it('should return the language', async () => {
     const language = await DDOAPI.getLanguage();
 
