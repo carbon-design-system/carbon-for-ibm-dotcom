@@ -55,21 +55,34 @@ class AnalyticsAPI {
    **/
   static initScrollTracker() {
     if (scrollTracker) {
-      let maxScrollDepth = 0;
-      const scrollAnalytics = root.addEventListener('scroll', () => {
-        let scrollDepth = root.pageYOffset;
+      const trackingInterval = 400;
+      let trackedMarker = 0;
+      let curMarker = 0;
+      let didScroll = false;
+      const fireEvent = this.registerEvent;
 
-        if (scrollDepth % 400 === 0 && scrollDepth > maxScrollDepth) {
-          maxScrollDepth = scrollDepth;
-          this.registerEvent({
-            type: 'element',
-            primaryCategory: 'SCROLL DISTANCE',
-            eventName: scrollDepth,
-            executionPath: root.innerWidth,
-            execPathReturnCode: root.innerHeight,
-          });
-        }
+      const scrollAnalytics = root.addEventListener('scroll', () => {
+        didScroll = true;
       });
+
+      setInterval(function() {
+        if (didScroll) {
+          didScroll = false;
+          curMarker = Math.floor(root.pageYOffset / trackingInterval);
+
+          if (curMarker > trackedMarker) {
+            trackedMarker = curMarker;
+            fireEvent({
+              type: 'element',
+              primaryCategory: 'SCROLL DISTANCE',
+              eventName: trackingInterval * trackedMarker,
+              executionPath: root.innerWidth,
+              execPathReturnCode: root.innerHeight,
+            });
+          }
+        }
+      }, 50);
+
       root.removeEventListener('scroll', () => scrollAnalytics);
     }
   }
