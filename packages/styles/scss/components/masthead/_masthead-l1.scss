@@ -104,7 +104,7 @@ $search-transition-timing: 95ms;
   .#{$prefix}--masthead__l1-nav {
     padding-left: 0;
 
-    li:not([role="none"]) {
+    li:not([role='none']) {
       > a {
         align-items: flex-end;
         padding-bottom: $spacing-05;
@@ -112,7 +112,6 @@ $search-transition-timing: 95ms;
     }
 
     a.#{$prefix}--header__menu-item[role='menuitem'] {
-
       &:hover {
         background-color: $hover-ui;
       }

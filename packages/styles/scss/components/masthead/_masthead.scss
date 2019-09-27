@@ -70,7 +70,8 @@ $search-transition-timing: 95ms;
           background-color: $ui-01;
         }
 
-        &:active, &:focus {
+        &:active,
+        &:focus {
           border-color: $focus;
         }
       }
@@ -222,7 +223,6 @@ $search-transition-timing: 95ms;
   .#{$prefix}--overflow-menu-options {
     background-color: $ui-background;
     z-index: 99999;
-    top: 48px !important;
 
     &__btn {
       color: $text-01;
