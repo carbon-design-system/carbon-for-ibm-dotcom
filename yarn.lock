@@ -900,6 +900,15 @@
     jsonp "^0.2.1"
     window-or-global "^1.0.1"
 
+"@carbon/ibmdotcom-services@0.6.0-alpha.507":
+  version "0.6.0-alpha.507"
+  resolved "https://registry.yarnpkg.com/@carbon/ibmdotcom-services/-/ibmdotcom-services-0.6.0-alpha.507.tgz#601d1333428db1b148bddc6587dec4c8653910e1"
+  integrity sha512-8kk6/cMEindesjFIJBpLtZYPGS6uURDeTn2zkNX6wByPL4DX9HHP2RG9o+3n3LY+xBj8LYFlZeb28WKx608zuQ==
+  dependencies:
+    axios "^0.19.0"
+    jsonp "^0.2.1"
+    window-or-global "^1.0.1"
+
 "@carbon/ibmdotcom-styles@0.4.0":
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/@carbon/ibmdotcom-styles/-/ibmdotcom-styles-0.4.0.tgz#ab4c7d27fd2b20bf2d12aaa9fe6923928a9b2634"
