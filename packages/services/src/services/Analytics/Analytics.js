@@ -12,18 +12,24 @@ const scrollTracker = process.env.SCROLL_TRACKING === 'true' || false;
  */
 class AnalyticsAPI {
   /**
-   * service to fire a stats/metrics event for an action
+   * This method checks that the analytics script has been loaded
+   * and fires an event to Coremetrics
    *
    * @param {object} eventData Object with standard IBM metric event properties and values to send to Coremetrics
    *
    * @example
-   * const eventData = {
-   * type: 'element',
-   * primaryCategory: 'MASTHEAD',
-   * eventName: 'CLICK',
-   * executionPath: 'masthead__profile',
-   * execPathReturnCode: 'none',
-   * targetTitle: 'profile'
+   * import { AnalyticsAPI } from '@carbon/ibmdotcom-services';
+   *
+   * function fireEvent() {
+   *    const eventData = {
+   *        type: 'element',
+   *        primaryCategory: 'MASTHEAD',
+   *        eventName: 'CLICK',
+   *        executionPath: 'masthead__profile',
+   *        execPathReturnCode: 'none',
+   *        targetTitle: 'profile'
+   *    }
+   *    AnalyticsAPI.registerEvent(eventData);
    * }
    *
    *
@@ -36,9 +42,16 @@ class AnalyticsAPI {
 
   /**
    *
-   * method scroll tracking
-   * Only fires the event at 400px intervals and at the deepest scroll depth
+   * If scroll tracking is enabled, this method will fire an event for every 400px
+   * user scrolls down the page. Only the deepest depth will fire the event (e.g if
+   * user scrolls back up the page, the event will not be triggered)
    *
+   * @example
+   * import { AnalyticsAPI } from '@carbon/ibmdotcom-services';
+   *
+   * useEffect(() => {
+   *    AnalyticsAPI.initScrollTracker();
+   * },[]);
    **/
   static initScrollTracker() {
     if (scrollTracker) {
