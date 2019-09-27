@@ -105,6 +105,7 @@ const Masthead = ({ navigation, ...mastheadProps }) => {
         );
       }
     });
+
     return () => {
       root.removeEventListener('scroll', () => handleScroll);
     };

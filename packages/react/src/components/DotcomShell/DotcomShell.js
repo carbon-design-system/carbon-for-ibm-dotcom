@@ -10,6 +10,7 @@ import PropTypes from 'prop-types';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
 import { Masthead, Footer } from '@carbon/ibmdotcom-react';
+import '../../global';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
