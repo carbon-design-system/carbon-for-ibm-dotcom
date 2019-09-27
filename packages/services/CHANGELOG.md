@@ -3,6 +3,43 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@0.5.2...@carbon/ibmdotcom-services@1.0.0-rc.0) (2019-09-27)
+
+### Bug Fixes
+
+- **ddo:** adding babel runtime helpers for services package
+  ([80e5b19](https://github.com/carbon-design-system/ibm-dotcom-library/commit/80e5b19))
+- **ddo:** updating export of the DDO service
+  ([7589039](https://github.com/carbon-design-system/ibm-dotcom-library/commit/7589039))
+- **release:** fixed repository links for changelogs
+  ([bc6fd1e](https://github.com/carbon-design-system/ibm-dotcom-library/commit/bc6fd1e))
+
+### Features
+
+- **analytics:** add env var to enable/disable scroll
+  ([467aed8](https://github.com/carbon-design-system/ibm-dotcom-library/commit/467aed8))
+- **analytics:** add more description to jsDocs
+  ([6a1383e](https://github.com/carbon-design-system/ibm-dotcom-library/commit/6a1383e))
+- **analytics:** adjusted logic as previous did not work
+  ([91bd88e](https://github.com/carbon-design-system/ibm-dotcom-library/commit/91bd88e))
+- **analytics:** create analytics services
+  ([280c7ac](https://github.com/carbon-design-system/ibm-dotcom-library/commit/280c7ac))
+- **analytics:** example of eventData object jsDoc
+  ([c7781d7](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c7781d7))
+- **analytics:** moving scroll tracking to dotcomshell
+  ([d0a1822](https://github.com/carbon-design-system/ibm-dotcom-library/commit/d0a1822))
+- **analytics:** scroll tracker analytics service
+  ([6a92fdf](https://github.com/carbon-design-system/ibm-dotcom-library/commit/6a92fdf))
+- **ddo:** adding ddo service
+  ([36c71d6](https://github.com/carbon-design-system/ibm-dotcom-library/commit/36c71d6))
+- **ddo:** adding getAll method for getting the full DDO
+  ([143f871](https://github.com/carbon-design-system/ibm-dotcom-library/commit/143f871))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [0.5.2](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@0.5.1...@carbon/ibmdotcom-services@0.5.2) (2019-09-17)
 
 ### Bug Fixes
