@@ -83,6 +83,8 @@ $search-transition-timing: 95ms;
 
     &__nav {
       a.#{$prefix}--header__menu-item[role='menuitem'] {
+        @include carbon--type-style(body-short-02, true);
+
         color: $text-01;
 
         &:hover {
@@ -285,6 +287,8 @@ $search-transition-timing: 95ms;
     z-index: 99999;
 
     &__btn {
+      @include carbon--type-style(body-short-02, true);
+
       color: $text-01;
       text-decoration: none;
 
