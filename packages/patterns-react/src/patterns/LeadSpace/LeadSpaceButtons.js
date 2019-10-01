@@ -4,9 +4,9 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-
+import React, { useLayoutEffect } from 'react';
 import PropTypes from 'prop-types';
-import React from 'react';
+import root from 'window-or-global';
 import { ArrowRight20, ArrowDown20, Pdf20 } from '@carbon/icons-react';
 import { Button } from 'carbon-components-react';
 import { settings } from 'carbon-components';
@@ -28,6 +28,19 @@ const ButtonGroup = ({ buttons }) => {
     ['ArrowDown', ArrowDown20],
     ['Pdf', Pdf20],
   ]);
+
+  // ensure buttons have equal width, based off the largest width of the two
+  useLayoutEffect(() => {
+    root.addEventListener('load', () => {
+      const buttons = document.getElementsByClassName('bx--btn');
+      if (buttons.length > 1) {
+        buttons[0].offsetWidth > buttons[1].offsetWidth
+          ? (buttons[1].style.width = `${buttons[0].offsetWidth}px`)
+          : (buttons[0].style.width = `${buttons[1].offsetWidth}px`);
+      }
+    });
+  }, []);
+
   return (
     <div className={`${prefix}--leadspace__row`}>
       <div className={`${prefix}--leadspace__ctas`}>

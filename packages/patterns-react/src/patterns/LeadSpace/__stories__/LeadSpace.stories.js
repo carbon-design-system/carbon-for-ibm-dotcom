@@ -39,7 +39,7 @@ storiesOf('LeadSpace', module)
       },
       {
         link: '',
-        copy: 'Secondary action',
+        copy: 'Secondary',
         renderIcon: 'ArrowRight',
       },
     ];
