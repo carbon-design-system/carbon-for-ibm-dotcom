@@ -5,10 +5,15 @@
 // LICENSE file in the root directory of this source tree.
 //
 
+@function aspectRatio($height, $width) {
+  $ratio: carbon--rem($height) / carbon--rem($width) * 100%;
+  @return $ratio;
+}
+
 @mixin leadspace {
   .#{$prefix}--leadspace {
     position: relative;
-    padding-top: carbon--rem(370px) / carbon--mini-units(40) * 100%;
+    padding-top: aspectRatio(370px, 320px);
     height: 0;
     background: $ui-background;
 
@@ -46,9 +51,14 @@
 
     .#{$prefix}--leadspace__title {
       @include carbon--type-style(display-01, true);
-      @include carbon--make-col-ready;
 
       color: $text-01;
+    }
+
+    &__title,
+    &__desc,
+    &__ctas {
+      @include carbon--make-col-ready;
     }
 
     &__row {
@@ -57,15 +67,12 @@
 
     .#{$prefix}--leadspace__desc {
       @include carbon--type-style(expressive-heading-03, true);
-      @include carbon--make-col-ready;
-      @include carbon--make-col(7, 8);
+      @include carbon--make-col(3, 4);
 
       color: $text-01;
     }
 
     &__ctas {
-      @include carbon--make-col-ready;
-
       display: flex;
       flex-direction: column-reverse;
       margin-top: $layout-01;
@@ -83,7 +90,7 @@
 
   @include carbon--breakpoint(md) {
     .#{$prefix}--leadspace {
-      padding-top: carbon--mini-units(50) / carbon--mini-units(84) * 100%;
+      padding-top: aspectRatio(400px, 672px);
 
       &--gradient {
         background-color: transparent;
@@ -120,7 +127,7 @@
 
   @include carbon--breakpoint(lg) {
     .#{$prefix}--leadspace {
-      padding-top: carbon--mini-units(60) / carbon--mini-units(132) * 100%;
+      padding-top: aspectRatio(480px, 1056px);
 
       .#{$prefix}--leadspace__title {
         @include carbon--make-col(8, 16);
@@ -137,9 +144,15 @@
     }
   }
 
+  @include carbon--breakpoint(xlg) {
+    .#{$prefix}--leadspace {
+      padding-top: aspectRatio(560px, 1312px);
+    }
+  }
+
   @include carbon--breakpoint(max) {
     .#{$prefix}--leadspace {
-      padding-top: carbon--mini-units(80) / carbon--mini-units(198) * 100%;
+      padding-top: aspectRatio(640px, 1584px);
 
       &__overlay {
         padding-top: $spacing-08;

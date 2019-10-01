@@ -8,46 +8,16 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classnames from 'classnames';
-import { ArrowRight20, ArrowDown20, Pdf20 } from '@carbon/icons-react';
 import { settings } from 'carbon-components';
-import { Button } from 'carbon-components-react';
-import { featureFlag } from '@carbon/ibmdotcom-utilities';
+import {
+  featureFlag,
+  settings as ddsSettings,
+} from '@carbon/ibmdotcom-utilities';
 import { LEADSPACE } from '../../internal/FeatureFlags';
+import LeadSpaceButtons from './LeadSpaceButtons';
 
+const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
-
-/**
- * renders the buttons (max 2 buttons)
- *
- * @param {Array} buttons array of buttons
- * @returns {*} button components
- */
-function renderButtons(buttons) {
-  const iconMap = new Map([
-    ['ArrowRight', ArrowRight20],
-    ['ArrowDown', ArrowDown20],
-    ['Pdf', Pdf20],
-  ]);
-  return buttons.map((button, key) => {
-    if (key > 1) return;
-    const renderIcon = button.renderArrow
-      ? {
-          renderIcon: ArrowRight20,
-        }
-      : {};
-    return (
-      <Button
-        {...renderIcon}
-        key={key}
-        data-autoid={`leadspace__cta-${key}`}
-        renderIcon={iconMap.get(button.renderIcon)}
-        href={button.link}
-        kind={key === 0 ? 'primary' : 'tertiary'}>
-        {button.copy}
-      </Button>
-    );
-  });
-}
 
 /**
  * renders the pattern classnames
@@ -86,7 +56,9 @@ const overlayClassname = gradient =>
 const LeadSpace = ({ variation, title, copy, buttons, image, gradient }) =>
   featureFlag(
     LEADSPACE,
-    <section data-autoid="leadspace" className={className(variation)}>
+    <section
+      data-autoid={`${stablePrefix}--leadspace`}
+      className={className(variation)}>
       <div className={`${prefix}--leadspace__container`}>
         <div className={overlayClassname(gradient)}>
           <div className={`${prefix}--leadspace__row`}>
@@ -99,11 +71,7 @@ const LeadSpace = ({ variation, title, copy, buttons, image, gradient }) =>
               </div>
             )}
             {buttons && buttons.length > 0 && (
-              <div className={`${prefix}--leadspace__row`}>
-                <div className={`${prefix}--leadspace__ctas`}>
-                  {renderButtons(buttons)}
-                </div>
-              </div>
+              <LeadSpaceButtons buttons={buttons} />
             )}
           </div>
         </div>
