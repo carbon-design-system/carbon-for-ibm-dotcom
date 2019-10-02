@@ -31,18 +31,30 @@ const ButtonGroup = ({ buttons }) => {
 
   const buttonsRef = useRef(buttons.map(() => createRef()));
 
-  // ensure buttons have equal width, based off the largest width of the two
-  useLayoutEffect(() => {
-    root.addEventListener('load', () => {
-      if (buttonsRef.current.length > 1) {
-        const button1 = buttonsRef.current[0];
-        const button2 = buttonsRef.current[1];
+  /**
+   * ensure buttons have equal width, based off the
+   * largest width of the two
+   */
+  function adjustWidths() {
+    console.log('triggered');
+    const button1 = buttonsRef.current[0];
+    const button2 = buttonsRef.current[1];
 
-        button1.current.offsetWidth > button2.current.offsetWidth
-          ? (button2.current.style.width = `${button1.current.offsetWidth}px`)
-          : (button1.current.style.width = `${button2.current.offsetWidth}px`);
-      }
-    });
+    button1.current.offsetWidth > button2.current.offsetWidth
+      ? (button2.current.style.width = `${button1.current.offsetWidth}px`)
+      : (button1.current.style.width = `${button2.current.offsetWidth}px`);
+  }
+
+  useLayoutEffect(() => {
+    if (buttonsRef.current.length > 1) {
+      console.log('innerWidth', root.innerWidth);
+      root.addEventListener('load', adjustWidths);
+      root.addEventListener('resize', adjustWidths);
+    }
+    return () => {
+      root.removeEventListener('load', adjustWidths);
+      root.removeEventListener('resize', adjustWidths);
+    };
   }, []);
 
   return (

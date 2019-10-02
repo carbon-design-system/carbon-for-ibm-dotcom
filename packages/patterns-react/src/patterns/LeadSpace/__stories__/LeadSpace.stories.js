@@ -34,12 +34,12 @@ storiesOf('LeadSpace', module)
     const buttons = [
       {
         link: '',
-        copy: 'Primary action button Primary action button',
+        copy: 'Primary action button',
         renderIcon: 'ArrowDown',
       },
       {
         link: '',
-        copy: 'Secondary action button Secondary action button',
+        copy: 'Secondary action button',
         renderIcon: 'ArrowRight',
       },
     ];
@@ -79,9 +79,9 @@ storiesOf('LeadSpace', module)
     };
 
     const image = {
-      mobile: 'https://picsum.photos/id/1025/320/370',
-      tablet: 'https://picsum.photos/id/1025/672/400',
-      default: 'https://picsum.photos/id/1025/1056/480',
+      mobile: 'https://picsum.photos/id/1076/320/370',
+      tablet: 'https://picsum.photos/id/1076/672/400',
+      default: 'https://picsum.photos/id/1076/1056/480',
       alt: 'lead space image',
     };
 
@@ -100,7 +100,7 @@ storiesOf('LeadSpace', module)
       },
       {
         link: '',
-        copy: 'Secondary action',
+        copy: 'Secondary',
         renderIcon: select('button icon', icons, icons.ArrowRight),
       },
     ];
