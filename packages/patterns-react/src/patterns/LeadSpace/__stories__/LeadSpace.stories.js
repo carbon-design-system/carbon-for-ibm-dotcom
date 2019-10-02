@@ -34,12 +34,12 @@ storiesOf('LeadSpace', module)
     const buttons = [
       {
         link: '',
-        copy: 'Primary action button',
+        copy: 'Primary action button Primary action button',
         renderIcon: 'ArrowDown',
       },
       {
         link: '',
-        copy: 'Secondary',
+        copy: 'Secondary action button Secondary action button',
         renderIcon: 'ArrowRight',
       },
     ];
