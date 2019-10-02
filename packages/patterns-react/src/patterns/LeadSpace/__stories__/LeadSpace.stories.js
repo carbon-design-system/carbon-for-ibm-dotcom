@@ -34,7 +34,7 @@ storiesOf('LeadSpace', module)
     const buttons = [
       {
         link: '',
-        copy: 'Primary action',
+        copy: 'Primary action button',
         renderIcon: 'ArrowDown',
       },
       {
@@ -95,7 +95,7 @@ storiesOf('LeadSpace', module)
     const buttons = [
       {
         link: '',
-        copy: 'Primary action',
+        copy: 'Primary action button',
         renderIcon: select('button icon', icons, icons.ArrowRight),
       },
       {

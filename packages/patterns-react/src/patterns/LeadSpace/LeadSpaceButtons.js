@@ -4,7 +4,7 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import React, { useLayoutEffect } from 'react';
+import React, { useLayoutEffect, useRef, createRef } from 'react';
 import PropTypes from 'prop-types';
 import root from 'window-or-global';
 import { ArrowRight20, ArrowDown20, Pdf20 } from '@carbon/icons-react';
@@ -23,20 +23,24 @@ const { prefix } = settings;
  * @returns {*} button components
  */
 const ButtonGroup = ({ buttons }) => {
-  const iconMap = new Map([
-    ['ArrowRight', ArrowRight20],
-    ['ArrowDown', ArrowDown20],
-    ['Pdf', Pdf20],
-  ]);
+  const icons = {
+    ArrowDown: ArrowDown20,
+    ArrowRight: ArrowRight20,
+    Pdf: Pdf20,
+  };
+
+  const buttonsRef = useRef(buttons.map(() => createRef()));
 
   // ensure buttons have equal width, based off the largest width of the two
   useLayoutEffect(() => {
     root.addEventListener('load', () => {
-      const buttons = document.getElementsByClassName('bx--btn');
-      if (buttons.length > 1) {
-        buttons[0].offsetWidth > buttons[1].offsetWidth
-          ? (buttons[1].style.width = `${buttons[0].offsetWidth}px`)
-          : (buttons[0].style.width = `${buttons[1].offsetWidth}px`);
+      if (buttonsRef.current.length > 1) {
+        const button1 = buttonsRef.current[0];
+        const button2 = buttonsRef.current[1];
+
+        button1.current.offsetWidth > button2.current.offsetWidth
+          ? (button2.current.style.width = `${button1.current.offsetWidth}px`)
+          : (button1.current.style.width = `${button2.current.offsetWidth}px`);
       }
     });
   }, []);
@@ -56,8 +60,9 @@ const ButtonGroup = ({ buttons }) => {
               {...renderIcon}
               key={key}
               data-autoid={`${stablePrefix}--leadspace__cta-${key}`}
-              renderIcon={iconMap.get(button.renderIcon)}
+              renderIcon={icons[button.renderIcon]}
               href={button.link}
+              ref={buttonsRef.current[key]}
               kind={key === 0 ? 'primary' : 'tertiary'}>
               {button.copy}
             </Button>
