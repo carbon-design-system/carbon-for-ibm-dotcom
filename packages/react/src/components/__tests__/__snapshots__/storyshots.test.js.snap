@@ -480,13 +480,6 @@ Array [
                   className="bx--row"
                 >
                   <div
-                    className="bx--col"
-                  />
-                </div>
-                <div
-                  className="bx--row"
-                >
-                  <div
                     className="bx--col-lg-10"
                     style={
                       Object {

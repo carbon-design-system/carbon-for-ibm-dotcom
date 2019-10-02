@@ -5,7 +5,7 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@function aspectRatio($height, $width) {
+@function aspectratio($height, $width) {
   $ratio: carbon--rem($height) / carbon--rem($width) * 100%;
   @return $ratio;
 }
@@ -15,7 +15,7 @@
 
   .#{$prefix}--leadspace {
     position: relative;
-    padding-top: aspectRatio(370px, 320px);
+    padding-top: aspectratio(370px, 320px);
     height: 0;
     background: $ui-background;
 
@@ -93,7 +93,7 @@
 
   @include carbon--breakpoint(md) {
     .#{$prefix}--leadspace {
-      padding-top: aspectRatio(400px, 672px);
+      padding-top: aspectratio(400px, 672px);
 
       &--gradient {
         background-color: transparent;
@@ -130,7 +130,7 @@
 
   @include carbon--breakpoint(lg) {
     .#{$prefix}--leadspace {
-      padding-top: aspectRatio(480px, 1056px);
+      padding-top: aspectratio(480px, 1056px);
 
       .#{$prefix}--leadspace__title {
         @include carbon--make-col(8, 16);
@@ -149,13 +149,13 @@
 
   @include carbon--breakpoint(xlg) {
     .#{$prefix}--leadspace {
-      padding-top: aspectRatio(560px, 1312px);
+      padding-top: aspectratio(560px, 1312px);
     }
   }
 
   @include carbon--breakpoint(max) {
     .#{$prefix}--leadspace {
-      padding-top: aspectRatio(640px, 1584px);
+      padding-top: aspectratio(640px, 1584px);
 
       &__overlay {
         padding-top: $spacing-08;
