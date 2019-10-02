@@ -36,7 +36,6 @@ const ButtonGroup = ({ buttons }) => {
    * largest width of the two
    */
   function adjustWidths() {
-    console.log('triggered');
     const button1 = buttonsRef.current[0];
     const button2 = buttonsRef.current[1];
 
