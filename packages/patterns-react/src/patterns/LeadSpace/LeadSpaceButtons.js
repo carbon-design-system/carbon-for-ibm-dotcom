@@ -46,7 +46,6 @@ const ButtonGroup = ({ buttons }) => {
 
   useLayoutEffect(() => {
     if (buttonsRef.current.length > 1) {
-      console.log('innerWidth', root.innerWidth);
       root.addEventListener('load', adjustWidths);
       root.addEventListener('resize', adjustWidths);
     }
