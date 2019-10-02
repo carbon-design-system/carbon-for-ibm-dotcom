@@ -5,7 +5,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+export * from './Analytics';
+export * from './DDO';
 export * from './MarketingSearch';
-export * from './SearchTypeahead';
 export * from './Profile';
+export * from './SearchTypeahead';
 export * from './Translation';

@@ -69,6 +69,7 @@ module.exports = {
       sourceMap: true,
     }),
     babel({
+      runtimeHelpers: true,
       exclude: ['node_modules/**'], // only transpile our source code
     }),
     replace({
