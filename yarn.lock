@@ -900,10 +900,10 @@
     jsonp "^0.2.1"
     window-or-global "^1.0.1"
 
-"@carbon/ibmdotcom-services@1.0.0-alpha.0":
-  version "1.0.0-alpha.0"
-  resolved "https://registry.yarnpkg.com/@carbon/ibmdotcom-services/-/ibmdotcom-services-1.0.0-alpha.0.tgz#5f2dffa63b661e94c2132563f49d5c586c30e9cf"
-  integrity sha512-gZ3kGJUvkAKY0GF8patbZL/X4v4ixb/MyGqeSIjnn5sGj7z5dF5z2QPFRmvXdvTQ0FqU9H+/PBH47GzDj2U0LA==
+"@carbon/ibmdotcom-services@1.0.0-alpha.1":
+  version "1.0.0-alpha.1"
+  resolved "https://registry.yarnpkg.com/@carbon/ibmdotcom-services/-/ibmdotcom-services-1.0.0-alpha.1.tgz#83c90b45e0162087196191bf8bb53330e371551b"
+  integrity sha512-dFdXIeLmGnPog68R7g4HtCuMePsaVgOk5vnqU1HZpTgZtgiRm3UyLCNBOY61IAl7Vb9CEhRgg34SdebYcuCJWg==
   dependencies:
     axios "^0.19.0"
     jsonp "^0.2.1"
