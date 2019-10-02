@@ -69,7 +69,7 @@ const MastheadSearchSuggestion = ({
 /**
  * @property propTypes
  * @description Defined property types for component
- * @type {{isHighlighted: shim, suggestion: shim, query: shim, getSuggestionValue: shim}}
+ * @type {{isHighlighted: boolean, suggestion: Array, query: string, getSuggestionValue: Function}}
  */
 MastheadSearchSuggestion.propTypes = {
   suggestion: PropTypes.array,

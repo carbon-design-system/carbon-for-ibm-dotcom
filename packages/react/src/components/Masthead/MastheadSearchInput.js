@@ -54,8 +54,7 @@ const MastheadSearchInput = ({ componentInputProps, dispatch, isActive }) => {
 /**
  * @property propTypes
  * @description Defined property types for component
- * @type {{placeHolderText: shim, renderValue: shim}}
- * @param {boolean} isActive Search input active state
+ * @type {{dispatch: Function, componentInputProps: object, isActive: boolean}}
  */
 MastheadSearchInput.propTypes = {
   componentInputProps: PropTypes.object,
