@@ -188,7 +188,8 @@ const Masthead = ({ navigation, ...mastheadProps }) => {
 /**
  * @property propTypes
  * @description Defined property types for component
- * @type {{navigation: {}}, {mastheadProps: {}}}
+ *
+ * @type {{mastheadProp: object, navigation: Array}}
  */
 Masthead.propTypes = {
   navigation: PropTypes.array,

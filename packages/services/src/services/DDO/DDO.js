@@ -20,7 +20,7 @@ class DDOAPI {
       ) {
         resolve();
       } else {
-        root.addEventListener('datalayer_ready', () => resolve);
+        root.document.addEventListener('datalayer_ready', () => resolve);
       }
     });
   }
