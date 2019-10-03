@@ -31,18 +31,17 @@ describe('DDOAPI', () => {
     expect(root.digitalData.page.version).toEqual('dds.v1.0.0');
   });
 
-  it('should set an event listener if the data layer is not ready', () => {
+  it('should set a loop if the data layer is not ready', () => {
     root.digitalData.page.isDataLayerReady = false;
     jest.useFakeTimers();
 
     DDOAPI.isReady();
 
     setTimeout(() => {
-      root.digitalData.page.isDataLayerReady = 'test ready';
-      root.dispatchEvent(new Event('datalayer_ready'));
+      root.digitalData.page.isDataLayerReady = true;
     }, 500);
     jest.runAllTimers();
 
-    expect(root.digitalData.page.isDataLayerReady).toEqual('test ready');
+    expect(root.digitalData.page.isDataLayerReady).toEqual(true);
   });
 });
