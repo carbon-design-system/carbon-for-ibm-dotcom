@@ -46,8 +46,12 @@
     }
 
     a.#{$prefix}--header__name {
+      @include carbon--type-style(expressive-heading-02, true);
+
       color: $text-01;
-      padding-left: $spacing-07;
+      padding-left: $spacing-05;
+      padding-right: $spacing-05;
+      margin-left: $spacing-05;
       border: solid 2px transparent;
       transition: $button-transition;
       position: relative;
@@ -55,10 +59,6 @@
       &:hover {
         background-color: $ui-01;
         color: $text-01;
-
-        &::before {
-          display: none;
-        }
       }
 
       &:active,
@@ -71,7 +71,7 @@
         content: '';
         display: block;
         position: absolute;
-        left: 0;
+        left: calc(-1rem - 2px);
         top: 50%;
         transform: translateY(-50%);
         height: 1.5rem;
