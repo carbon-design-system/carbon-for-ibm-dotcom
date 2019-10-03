@@ -10,3 +10,4 @@ export * from './Footer';
 export * from './HorizontalRule';
 export * from './Icon';
 export * from './Masthead';
+export * from './carbon-components-react/UIShell';

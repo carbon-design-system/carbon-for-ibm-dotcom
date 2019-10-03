@@ -13,7 +13,7 @@ import {
   HeaderMenuItem,
   HeaderName,
 } from 'carbon-components-react';
-import HeaderMenu from '../carbon-components-react/HeaderMenu';
+import HeaderMenu from '../carbon-components-react/UIShell/HeaderMenu';
 
 const { stablePrefix } = ddsSettings;
 

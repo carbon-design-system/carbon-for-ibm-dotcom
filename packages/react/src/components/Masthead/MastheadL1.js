@@ -8,7 +8,7 @@
 import React from 'react';
 import { settings } from 'carbon-components';
 import { HeaderNavigation, HeaderMenuItem } from 'carbon-components-react';
-import HeaderMenu from '../carbon-components-react/HeaderMenu';
+import HeaderMenu from '../carbon-components-react/UIShell/HeaderMenu';
 import { ArrowLeft16 } from '@carbon/icons-react';
 import cx from 'classnames';
 

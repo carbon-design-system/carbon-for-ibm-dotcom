@@ -10,11 +10,8 @@ import { settings } from 'carbon-components';
 import cx from 'classnames';
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  keys,
-  matches,
-} from '../../../node_modules/carbon-components-react/es/internal/keyboard';
-import { AriaLabelPropType } from '../../../node_modules/carbon-components-react/es/prop-types/AriaPropTypes';
+import { keys, matches } from '../../../internal/keyboard';
+import { AriaLabelPropType } from '../../../prop-types/AriaPropTypes';
 
 const { prefix } = settings;
 
