@@ -39,9 +39,12 @@ const ButtonGroup = ({ buttons }) => {
     const button1 = buttonsRef.current[0];
     const button2 = buttonsRef.current[1];
 
-    button1.current.offsetWidth > button2.current.offsetWidth
-      ? (button2.current.style.width = `${button1.current.offsetWidth}px`)
-      : (button1.current.style.width = `${button2.current.offsetWidth}px`);
+    if (button1.current.offsetWidth != button2.current.offsetWidth) {
+      console.log('triggered');
+      button1.current.offsetWidth > button2.current.offsetWidth
+        ? (button2.current.style.width = `${button1.current.offsetWidth}px`)
+        : (button1.current.style.width = `${button2.current.offsetWidth}px`);
+    }
   }
 
   useLayoutEffect(() => {
