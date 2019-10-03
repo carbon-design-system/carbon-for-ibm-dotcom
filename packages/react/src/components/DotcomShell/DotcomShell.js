@@ -9,7 +9,8 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
-import { Masthead, Footer } from '@carbon/ibmdotcom-react';
+import { Masthead } from '../Masthead';
+import { Footer } from '../Footer';
 import { init } from '../../global';
 
 const { stablePrefix } = ddsSettings;
