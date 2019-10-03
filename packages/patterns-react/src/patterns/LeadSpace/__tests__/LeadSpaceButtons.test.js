@@ -2,8 +2,8 @@ import React from 'react';
 import { mount } from 'enzyme';
 import LeadSpaceButtons from '../LeadSpaceButtons';
 
-describe('<LeadSpace />', () => {
-  it('renders pattern with required title', () => {
+describe('<LeadSpaceButtons />', () => {
+  it('renders pattern as expected', () => {
     const buttons = [
       {
         link: '',

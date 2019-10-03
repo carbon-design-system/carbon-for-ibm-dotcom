@@ -15,6 +15,7 @@ import {
 } from '@carbon/ibmdotcom-utilities';
 import { LEADSPACE } from '../../internal/FeatureFlags';
 import LeadSpaceButtons from './LeadSpaceButtons';
+import LeadSpaceImage from './LeadSpaceImage';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
@@ -75,18 +76,7 @@ const LeadSpace = ({ variation, title, copy, buttons, image, gradient }) =>
             )}
           </div>
         </div>
-        {image && (
-          <picture>
-            <source media="(min-width: 1056px)" srcset={image.default} />
-            <source media="(min-width: 672px)" srcset={image.tablet} />
-            <source media="(min-width: 0px)" srcset={image.mobile} />
-            <img
-              className={`${prefix}--leadspace__image`}
-              src={image.default}
-              alt={image.alt}
-            />
-          </picture>
-        )}
+        {image && <LeadSpaceImage image={image} />}
       </div>
     </section>
   );

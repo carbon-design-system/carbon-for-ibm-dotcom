@@ -7,3 +7,4 @@
 
 export { default as LeadSpace } from './LeadSpace';
 export { default as LeadSpaceButtons } from './LeadSpaceButtons';
+export { default as LeadSpaceImage } from './LeadSpaceImage';
