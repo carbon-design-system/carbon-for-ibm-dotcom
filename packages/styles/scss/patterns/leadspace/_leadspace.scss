@@ -115,9 +115,8 @@
       }
 
       &__ctas {
-        flex-direction: row-reverse;
+        flex-flow: row-reverse wrap-reverse;
         justify-content: flex-end;
-        flex-wrap: wrap;
         @include carbon--make-col(4, 8);
       }
 
