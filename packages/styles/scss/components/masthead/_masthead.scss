@@ -73,6 +73,7 @@ $search-transition-timing: 95ms;
         &:active,
         &:focus {
           border-color: $focus;
+          background-color: $ui-01;
         }
       }
     }
@@ -265,17 +266,6 @@ $search-transition-timing: 95ms;
       border: none;
       outline: none;
       width: $spacing-09;
-    }
-  }
-
-  a.#{$prefix}--header__name {
-    color: $text-01;
-    padding-left: 0;
-    padding-right: 0;
-    margin-left: $spacing-07;
-
-    &:hover {
-      color: $text-01;
     }
   }
 
