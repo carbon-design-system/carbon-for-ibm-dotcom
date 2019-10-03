@@ -15,6 +15,16 @@
     position: relative;
     height: 100%;
 
+    &.#{$prefix}--masthead__platform {
+      .#{$prefix}--header__nav {
+        padding-left: 0;
+
+        &::before {
+          display: none;
+        }
+      }
+    }
+
     &--search {
       display: flex;
       align-items: center;
@@ -34,6 +44,42 @@
         background-color: #dcdcdc;
       }
     }
+
+    a.#{$prefix}--header__name {
+      color: $text-01;
+      padding-left: $spacing-07;
+      border: solid 2px transparent;
+      transition: $button-transition;
+      position: relative;
+
+      &:hover {
+        background-color: $ui-01;
+        color: $text-01;
+
+        &::before {
+          display: none;
+        }
+      }
+
+      &:active,
+      &:focus {
+        border-color: $focus;
+        background-color: $ui-01;
+      }
+
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 1.5rem;
+        width: 0.0625rem;
+        background-color: #dcdcdc;
+      }
+    }
+
   }
 
   // search container
