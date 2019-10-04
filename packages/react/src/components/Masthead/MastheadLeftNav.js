@@ -14,9 +14,9 @@ import {
   SideNav,
   SideNavItems,
   SideNavLink,
-  SideNavMenu,
-  SideNavMenuItem,
 } from 'carbon-components-react';
+import SideNavMenu from '../carbon-components-react/UIShell/SideNavMenu';
+import SideNavMenuItem from '../carbon-components-react/UIShell/SideNavMenuItem';
 import { ArrowLeft16 } from '@carbon/icons-react';
 
 const { stablePrefix } = ddsSettings;
@@ -38,15 +38,15 @@ const MastheadLeftNav = ({ navigation, isSideNavExpanded }) => {
   const sideNav = navigation.map((link, i) => {
     if (link.hasMenu) {
       return (
-        <SideNavMenu aria-label={link.title} title={link.title}>
-          <li className={`${prefix}--masthead__side-nav--submemu-back`}>
-            <a
-              className={`${prefix}--masthead__side-nav--submemu-back-link`}
-              href="#">
-              <ArrowLeft16 />
-              Back
-            </a>
-          </li>
+        <SideNavMenu title={link.title}>
+          <SideNavMenuItem
+            href="javascript:void(0);"
+            className={`${prefix}--masthead__side-nav--submemu-back`}
+            data-autoid={`${stablePrefix}--masthead__l0-sidenav--subnav-back-${i}`}
+            isBackButton>
+            <ArrowLeft16 />
+            Back
+          </SideNavMenuItem>
           {link.menuSections[0].menuItems[
             i
           ].megapanelContent.quickLinks.links.map((item, j) => {

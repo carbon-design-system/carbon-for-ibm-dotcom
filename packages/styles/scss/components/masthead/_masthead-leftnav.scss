@@ -58,12 +58,33 @@
         transform: translateX(0);
         transition-timing-function: $search-transition;
         transition-duration: $search-transition-timing;
-        a:not(.#{$prefix}--masthead__side-nav--submemu-back-link) {
+
+        a {
           @include carbon--type-style(body-short-02, true);
 
           padding-left: $spacing-05;
           height: carbon--mini-units(6);
           border-bottom: 1px solid $ui-03;
+        }
+
+        .#{$prefix}--masthead__side-nav--submemu-back {
+          a {
+            border-bottom: none;
+            > .#{$prefix}--side-nav__link-text {
+              @include carbon--type-style(body-short-01, true);
+
+              color: $text-02;
+            }
+
+            svg {
+              position: relative;
+              top: 2px;
+              margin-right: 5px;
+              path {
+                fill: $text-02;
+              }
+            }
+          }
         }
       }
 
@@ -85,44 +106,6 @@
     &-chevron {
       svg {
         transform: rotate(-90deg);
-      }
-    }
-  }
-
-  .#{$prefix}--masthead__side-nav--submemu {
-    &-back {
-      a {
-        @include carbon--type-style(body-short-01, true);
-
-        padding: $spacing-05;
-        color: $text-02;
-        text-decoration: none;
-        display: block;
-
-        svg {
-          position: relative;
-          top: 2px;
-          margin-right: 5px;
-          path {
-            fill: $text-02;
-          }
-        }
-
-        &:hover {
-          color: $interactive-01;
-          text-decoration: underline;
-          transition: $search-transition-timing;
-          svg {
-            path {
-              fill: $interactive-01;
-            }
-          }
-        }
-
-        &:focus {
-          outline: 2px solid $interactive-01;
-          outline-offset: -2px;
-        }
       }
     }
   }

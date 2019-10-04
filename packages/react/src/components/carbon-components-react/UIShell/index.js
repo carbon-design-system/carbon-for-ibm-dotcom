@@ -6,3 +6,6 @@
  */
 
 export HeaderMenu from './HeaderMenu';
+export SideNavIcon from './SideNavIcon';
+export SideNavMenu from './SideNavMenu';
+export SideNavMenuItem from './SideNavMenuItem';
