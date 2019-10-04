@@ -16,6 +16,11 @@ packages/react/lib
 packages/react/node_modules
 packages/react/storybook-static
 
+# local carbon-components-react
+packages/react/src/components/carbon-components-react
+packages/react/src/internal/keyboard
+packages/react/src/prop-types
+
 # services
 packages/services/coverage
 packages/services/docs
