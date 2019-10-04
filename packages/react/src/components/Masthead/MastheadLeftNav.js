@@ -47,6 +47,9 @@ const MastheadLeftNav = ({ navigation, isSideNavExpanded }) => {
             <ArrowLeft16 />
             Back
           </SideNavMenuItem>
+          <li className={`${prefix}--masthead__side-nav--submemu-title`}>
+            {link.title}
+          </li>
           {link.menuSections[0].menuItems[
             i
           ].megapanelContent.quickLinks.links.map((item, j) => {

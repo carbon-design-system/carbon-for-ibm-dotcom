@@ -9,6 +9,12 @@
 // @access private
 // group masthead
 @mixin masthead-sidenav {
+  .#{$prefix}--side-nav__navigation {
+    @include carbon--breakpoint-up(lg) {
+      display: none;
+    }
+  }
+
   .#{$prefix}--header__menu-trigger {
     margin-right: 0;
   }
@@ -42,6 +48,8 @@
     > {
       .#{$prefix}--side-nav__link-text {
         @include carbon--type-style(body-short-02, true);
+
+        color: $text-01;
       }
     }
   }
@@ -65,6 +73,18 @@
           padding-left: $spacing-05;
           height: carbon--mini-units(6);
           border-bottom: 1px solid $ui-03;
+
+          &:hover {
+            text-decoration: none;
+          }
+        }
+
+        .#{$prefix}--masthead__side-nav--submemu-title {
+          @include carbon--type-style(expressive-heading-03, true);
+
+          color: $text-01;
+          padding: $spacing-05;
+          border-bottom: 1px solid $ui-03;
         }
 
         .#{$prefix}--masthead__side-nav--submemu-back {
@@ -73,12 +93,12 @@
             > .#{$prefix}--side-nav__link-text {
               @include carbon--type-style(body-short-01, true);
 
-              color: $text-02;
+              color: $text-01;
             }
 
             svg {
               position: relative;
-              top: 2px;
+              top: 3px;
               margin-right: 5px;
               path {
                 fill: $text-02;
@@ -97,6 +117,8 @@
 
     .#{$prefix}--side-nav__submenu-title {
       @include carbon--type-style(body-short-02, true);
+
+      color: $text-01;
     }
 
     &[aria-haspopup='true'] {
