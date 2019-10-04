@@ -35,7 +35,7 @@ const MastheadSearchInput = ({ componentInputProps, dispatch, isActive }) => {
       />
       <HeaderGlobalAction
         onClick={() => dispatch({ type: 'setSearchOpen' })}
-        aria-label="Search"
+        aria-label="Search all of IBM"
         className={`${prefix}--header__search--search`}
         data-autoid={`${stablePrefix}--header__search--search`}>
         <Search20 />
@@ -54,8 +54,7 @@ const MastheadSearchInput = ({ componentInputProps, dispatch, isActive }) => {
 /**
  * @property propTypes
  * @description Defined property types for component
- * @type {{placeHolderText: shim, renderValue: shim}}
- * @param {boolean} isActive Search input active state
+ * @type {{dispatch: Function, componentInputProps: object, isActive: boolean}}
  */
 MastheadSearchInput.propTypes = {
   componentInputProps: PropTypes.object,

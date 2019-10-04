@@ -10,10 +10,10 @@ import PropTypes from 'prop-types';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import {
   HeaderNavigation,
-  HeaderMenu,
   HeaderMenuItem,
   HeaderName,
 } from 'carbon-components-react';
+import HeaderMenu from '../carbon-components-react/UIShell/HeaderMenu';
 
 const { stablePrefix } = ddsSettings;
 
@@ -36,14 +36,16 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
         <HeaderMenu
           aria-label={link.title}
           menuLinkName={link.title}
-          data-autoid={`${stablePrefix}--masthead__l0-nav--nav-${i}`}>
+          data-autoid={`${stablePrefix}--masthead__l0-nav--nav-${i}`}
+          key={i}>
           {link.menuSections[0].menuItems[
             i
           ].megapanelContent.quickLinks.links.map((item, j) => {
             return (
               <HeaderMenuItem
                 href={item.url}
-                data-autoid={`${stablePrefix}--masthead__l0-nav--subnav-${j}`}>
+                data-autoid={`${stablePrefix}--masthead__l0-nav--subnav-${j}`}
+                key={j}>
                 {item.title}
               </HeaderMenuItem>
             );
@@ -54,7 +56,8 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
       return (
         <HeaderMenuItem
           href={link.url}
-          data-autoid={`${stablePrefix}--masthead__l0-nav--nav-${i}`}>
+          data-autoid={`${stablePrefix}--masthead__l0-nav--nav-${i}`}
+          key={i}>
           {link.title}
         </HeaderMenuItem>
       );

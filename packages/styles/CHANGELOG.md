@@ -3,6 +3,106 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-styles@1.0.0-rc.0...@carbon/ibmdotcom-styles@1.0.0-rc.1) (2019-10-04)
+
+### Bug Fixes
+
+- **conflict:** merge conflicts
+  ([e91d1d5](https://github.com/carbon-design-system/ibm-dotcom-library/commit/e91d1d5))
+- **css:** adds hover/focus to platform name; fixes
+  [#114](https://github.com/carbon-design-system/ibm-dotcom-library/issues/114)
+  ([5135392](https://github.com/carbon-design-system/ibm-dotcom-library/commit/5135392))
+- **css:** fix focus/active state for close button
+  ([1aa7d23](https://github.com/carbon-design-system/ibm-dotcom-library/commit/1aa7d23))
+- **css:** fix L0 focus/hover states; fixes
+  [#127](https://github.com/carbon-design-system/ibm-dotcom-library/issues/127)
+  ([39ee91b](https://github.com/carbon-design-system/ibm-dotcom-library/commit/39ee91b))
+- **css:** fix prettier error
+  ([9520028](https://github.com/carbon-design-system/ibm-dotcom-library/commit/9520028))
+- **css:** fixes
+  [#152](https://github.com/carbon-design-system/ibm-dotcom-library/issues/152)
+  (again)
+  ([5fc086d](https://github.com/carbon-design-system/ibm-dotcom-library/commit/5fc086d))
+- **css:** fixes leftnav css; fixes
+  [#144](https://github.com/carbon-design-system/ibm-dotcom-library/issues/144)
+  ([eba3f12](https://github.com/carbon-design-system/ibm-dotcom-library/commit/eba3f12))
+- **css:** masthead font-size to 16px; fixes
+  [#136](https://github.com/carbon-design-system/ibm-dotcom-library/issues/136)
+  ([88fde01](https://github.com/carbon-design-system/ibm-dotcom-library/commit/88fde01))
+- **hamburger:** fixes
+  [#144](https://github.com/carbon-design-system/ibm-dotcom-library/issues/144),
+  fixes
+  [#143](https://github.com/carbon-design-system/ibm-dotcom-library/issues/143)
+  ([c5bbe8f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c5bbe8f))
+- **masthead:** css fixes; fixes
+  [#104](https://github.com/carbon-design-system/ibm-dotcom-library/issues/104),
+  fixes
+  [#107](https://github.com/carbon-design-system/ibm-dotcom-library/issues/107),
+  fixes
+  [#108](https://github.com/carbon-design-system/ibm-dotcom-library/issues/108),
+  fixes
+  [#110](https://github.com/carbon-design-system/ibm-dotcom-library/issues/110),
+  fixes
+  [#113](https://github.com/carbon-design-system/ibm-dotcom-library/issues/113),
+  fixes
+  [#119](https://github.com/carbon-design-system/ibm-dotcom-library/issues/119),
+  fixes
+  [#125](https://github.com/carbon-design-system/ibm-dotcom-library/issues/125)
+  ([d7c570a](https://github.com/carbon-design-system/ibm-dotcom-library/commit/d7c570a))
+- **masthead:** css fixes; fixes
+  [#104](https://github.com/carbon-design-system/ibm-dotcom-library/issues/104),
+  fixes
+  [#107](https://github.com/carbon-design-system/ibm-dotcom-library/issues/107),
+  fixes
+  [#108](https://github.com/carbon-design-system/ibm-dotcom-library/issues/108),
+  fixes
+  [#110](https://github.com/carbon-design-system/ibm-dotcom-library/issues/110),
+  fixes
+  [#113](https://github.com/carbon-design-system/ibm-dotcom-library/issues/113),
+  fixes
+  [#119](https://github.com/carbon-design-system/ibm-dotcom-library/issues/119),
+  fixes
+  [#125](https://github.com/carbon-design-system/ibm-dotcom-library/issues/125)
+  ([5832110](https://github.com/carbon-design-system/ibm-dotcom-library/commit/5832110))
+- **masthead:** css fixes; fixes
+  [#112](https://github.com/carbon-design-system/ibm-dotcom-library/issues/112),
+  fixes
+  [#115](https://github.com/carbon-design-system/ibm-dotcom-library/issues/115),
+  fixes
+  [#116](https://github.com/carbon-design-system/ibm-dotcom-library/issues/116),
+  fixes
+  [#118](https://github.com/carbon-design-system/ibm-dotcom-library/issues/118),
+  fixes
+  [#124](https://github.com/carbon-design-system/ibm-dotcom-library/issues/124),
+  fixes
+  [#126](https://github.com/carbon-design-system/ibm-dotcom-library/issues/126)
+  ([7b22a7f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/7b22a7f))
+- **masthead:** css fixes; fixes
+  [#112](https://github.com/carbon-design-system/ibm-dotcom-library/issues/112),
+  fixes
+  [#115](https://github.com/carbon-design-system/ibm-dotcom-library/issues/115),
+  fixes
+  [#116](https://github.com/carbon-design-system/ibm-dotcom-library/issues/116),
+  fixes
+  [#118](https://github.com/carbon-design-system/ibm-dotcom-library/issues/118),
+  fixes
+  [#124](https://github.com/carbon-design-system/ibm-dotcom-library/issues/124),
+  fixes
+  [#126](https://github.com/carbon-design-system/ibm-dotcom-library/issues/126)
+  ([47a37a6](https://github.com/carbon-design-system/ibm-dotcom-library/commit/47a37a6))
+- **prettier:** fix prettier css errors
+  ([9a38755](https://github.com/carbon-design-system/ibm-dotcom-library/commit/9a38755))
+- **prettier:** fix prettier css errors
+  ([199489e](https://github.com/carbon-design-system/ibm-dotcom-library/commit/199489e))
+- **sidenav:** fixes
+  [#145](https://github.com/carbon-design-system/ibm-dotcom-library/issues/145)
+  ([da08acc](https://github.com/carbon-design-system/ibm-dotcom-library/commit/da08acc))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.0.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-styles@0.5.2...@carbon/ibmdotcom-styles@1.0.0-rc.0) (2019-09-27)
 
 ### Bug Fixes
