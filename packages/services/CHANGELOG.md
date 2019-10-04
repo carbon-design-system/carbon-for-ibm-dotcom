@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.0.0-rc.0...@carbon/ibmdotcom-services@1.0.0-rc.1) (2019-10-04)
+
+### Bug Fixes
+
+- **ddo:** fixed ddo ready method
+  ([b4106d0](https://github.com/carbon-design-system/ibm-dotcom-library/commit/b4106d0))
+- **ddo:** fixing datalayer_ready listener in DDO API
+  ([94d7aa1](https://github.com/carbon-design-system/ibm-dotcom-library/commit/94d7aa1))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.0.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@0.5.2...@carbon/ibmdotcom-services@1.0.0-rc.0) (2019-09-27)
 
 ### Bug Fixes

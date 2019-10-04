@@ -3,6 +3,57 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.0.0-rc.0...@carbon/ibmdotcom-react@1.0.0-rc.1) (2019-10-04)
+
+### Bug Fixes
+
+- **carbon:** add local carbon internal utils
+  ([415c254](https://github.com/carbon-design-system/ibm-dotcom-library/commit/415c254))
+- **css:** fixes leftnav css; fixes
+  [#144](https://github.com/carbon-design-system/ibm-dotcom-library/issues/144)
+  ([eba3f12](https://github.com/carbon-design-system/ibm-dotcom-library/commit/eba3f12))
+- **ddo:** fixing datalayer_ready listener in DDO API
+  ([94d7aa1](https://github.com/carbon-design-system/ibm-dotcom-library/commit/94d7aa1))
+- **ddo:** updated react package to point to services v1.0.0-alpha.1
+  ([7362c77](https://github.com/carbon-design-system/ibm-dotcom-library/commit/7362c77))
+- **ddo:** updating services package in react to 1.0.0-alpha.0
+  ([f04fc4b](https://github.com/carbon-design-system/ibm-dotcom-library/commit/f04fc4b))
+- **hamburger:** fixes
+  [#144](https://github.com/carbon-design-system/ibm-dotcom-library/issues/144),
+  fixes
+  [#143](https://github.com/carbon-design-system/ibm-dotcom-library/issues/143)
+  ([c5bbe8f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c5bbe8f))
+- **masthead:** add platform css class
+  ([e554b6b](https://github.com/carbon-design-system/ibm-dotcom-library/commit/e554b6b))
+- **masthead:** css fixes; fixes
+  [#112](https://github.com/carbon-design-system/ibm-dotcom-library/issues/112),
+  fixes
+  [#115](https://github.com/carbon-design-system/ibm-dotcom-library/issues/115),
+  fixes
+  [#116](https://github.com/carbon-design-system/ibm-dotcom-library/issues/116),
+  fixes
+  [#118](https://github.com/carbon-design-system/ibm-dotcom-library/issues/118),
+  fixes
+  [#124](https://github.com/carbon-design-system/ibm-dotcom-library/issues/124),
+  fixes
+  [#126](https://github.com/carbon-design-system/ibm-dotcom-library/issues/126)
+  ([7b22a7f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/7b22a7f))
+- **masthead:** fix nav menu toggle; fixes
+  [#111](https://github.com/carbon-design-system/ibm-dotcom-library/issues/111)
+  ([e65cdce](https://github.com/carbon-design-system/ibm-dotcom-library/commit/e65cdce))
+- **masthead:** fix toggle states based on blur
+  ([31fbc85](https://github.com/carbon-design-system/ibm-dotcom-library/commit/31fbc85))
+- **shell:** fixed dotcom shell imports
+  ([72683f9](https://github.com/carbon-design-system/ibm-dotcom-library/commit/72683f9))
+- **sidenav:** fixes
+  [#145](https://github.com/carbon-design-system/ibm-dotcom-library/issues/145)
+  ([da08acc](https://github.com/carbon-design-system/ibm-dotcom-library/commit/da08acc))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.0.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@0.5.2...@carbon/ibmdotcom-react@1.0.0-rc.0) (2019-09-27)
 
 ### Bug Fixes
