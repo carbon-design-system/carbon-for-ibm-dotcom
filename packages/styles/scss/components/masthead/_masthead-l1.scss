@@ -33,7 +33,7 @@ $search-transition-timing: 95ms;
     min-width: rem(336px);
     background-color: $carbon--gray-90;
     color: $text-04;
-    padding: $spacing-05;
+    padding: $spacing-05 $spacing-05 rem(12px);
     align-items: flex-start;
     flex-direction: column;
 
@@ -54,6 +54,11 @@ $search-transition-timing: 95ms;
         &:hover {
           text-decoration: underline;
           transition: $search-transition-timing;
+        }
+
+        &:focus {
+          outline: 2px solid $interactive-01;
+          outline-offset: 2px;
         }
       }
 
@@ -89,7 +94,7 @@ $search-transition-timing: 95ms;
         content: '';
         position: absolute;
         left: 0;
-        bottom: -$spacing-05;
+        bottom: rem(-12px);
         width: 100%;
         height: 3px;
         background-color: $inverse-support-04;
@@ -107,7 +112,7 @@ $search-transition-timing: 95ms;
     li:not([role='none']) {
       > a {
         align-items: flex-end;
-        padding-bottom: $spacing-05;
+        padding-bottom: rem(12px);
       }
     }
 
