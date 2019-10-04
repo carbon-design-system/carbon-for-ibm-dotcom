@@ -230,6 +230,7 @@ $search-transition-timing: 95ms;
 
       &--active {
         border: 2px solid $interactive-01;
+        background-color: $ui-01;
       }
     }
 
