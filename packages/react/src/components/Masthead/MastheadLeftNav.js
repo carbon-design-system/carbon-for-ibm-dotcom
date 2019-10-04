@@ -13,10 +13,10 @@ import {
   HeaderSideNavItems,
   SideNav,
   SideNavItems,
+  SideNavMenuItem,
   SideNavLink,
 } from 'carbon-components-react';
 import SideNavMenu from '../carbon-components-react/UIShell/SideNavMenu';
-import SideNavMenuItem from '../carbon-components-react/UIShell/SideNavMenuItem';
 import { ArrowLeft16 } from '@carbon/icons-react';
 
 const { stablePrefix } = ddsSettings;
