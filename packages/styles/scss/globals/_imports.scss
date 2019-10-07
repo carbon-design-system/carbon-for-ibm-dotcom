@@ -20,3 +20,11 @@
 @import '~carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/import-once/import-once';
 @import '~carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/grid/mixins';
 @import '~carbon-components/scss/globals/scss/css--reset';
+
+@import '@carbon/type/scss/type';
+@import '@carbon/type/scss/font-face/mono';
+@import '@carbon/type/scss/font-face/sans';
+
+@include carbon--type-reset();
+@include carbon--font-face-mono();
+@include carbon--font-face-sans();
