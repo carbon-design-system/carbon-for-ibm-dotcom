@@ -125,7 +125,7 @@ const MastheadSearch = ({ placeHolderText, renderValue }) => {
   /**
    * Autosuggest will pass through all these props to the input.
    *
-   * @type {{onBlur: onBlur, onChange: onChange, placeholder: *, value: *, onFocus: onFocus}}
+   * @type {{onBlur: Function, onChange: Function, placeholder: string, value: string, onFocus: Function}}
    */
   const inputProps = {
     placeholder: placeHolderText,
@@ -262,7 +262,7 @@ const MastheadSearch = ({ placeHolderText, renderValue }) => {
 /**
  * @property propTypes
  * @description Defined property types for component
- * @type {{placeHolderText: shim, renderValue: shim}}
+ * @type {{placeHolderText: string, renderValue: number}}
  */
 MastheadSearch.propTypes = {
   placeHolderText: PropTypes.string,
@@ -274,7 +274,7 @@ MastheadSearch.propTypes = {
  * @type {{placeHolderText: string, renderValue: number}}
  */
 MastheadSearch.defaultProps = {
-  placeHolderText: 'Search',
+  placeHolderText: 'Search all of IBM',
   renderValue: 3,
 };
 

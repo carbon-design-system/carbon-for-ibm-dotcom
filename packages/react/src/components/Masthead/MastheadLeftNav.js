@@ -8,16 +8,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import { settings } from 'carbon-components';
 import {
   HeaderSideNavItems,
   SideNav,
   SideNavItems,
-  SideNavLink,
-  SideNavMenu,
   SideNavMenuItem,
+  SideNavLink,
 } from 'carbon-components-react';
+import SideNavMenu from '../carbon-components-react/UIShell/SideNavMenu';
+import { ArrowLeft16 } from '@carbon/icons-react';
 
 const { stablePrefix } = ddsSettings;
+const { prefix } = settings;
 
 /**
  * Masthead left nav component
@@ -35,7 +38,18 @@ const MastheadLeftNav = ({ navigation, isSideNavExpanded }) => {
   const sideNav = navigation.map((link, i) => {
     if (link.hasMenu) {
       return (
-        <SideNavMenu aria-label={link.title} title={link.title}>
+        <SideNavMenu title={link.title}>
+          <SideNavMenuItem
+            href="javascript:void(0);"
+            className={`${prefix}--masthead__side-nav--submemu-back`}
+            data-autoid={`${stablePrefix}--masthead__l0-sidenav--subnav-back-${i}`}
+            isBackButton>
+            <ArrowLeft16 />
+            Back
+          </SideNavMenuItem>
+          <li className={`${prefix}--masthead__side-nav--submemu-title`}>
+            {link.title}
+          </li>
           {link.menuSections[0].menuItems[
             i
           ].megapanelContent.quickLinks.links.map((item, j) => {
@@ -65,11 +79,11 @@ const MastheadLeftNav = ({ navigation, isSideNavExpanded }) => {
       aria-label="Side navigation"
       expanded={isSideNavExpanded}
       isPersistent={false}>
-      <div data-autoid={`${stablePrefix}--masthead__l0-sidenav`}>
+      <nav data-autoid={`${stablePrefix}--masthead__l0-sidenav`}>
         <SideNavItems>
           <HeaderSideNavItems>{sideNav}</HeaderSideNavItems>
         </SideNavItems>
-      </div>
+      </nav>
     </SideNav>
   );
 };

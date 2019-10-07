@@ -15,12 +15,63 @@
     position: relative;
     height: 100%;
 
+    &.#{$prefix}--masthead__platform {
+      .#{$prefix}--header__nav {
+        padding-left: 0;
+
+        &::before {
+          display: none;
+        }
+      }
+    }
+
+    &--search {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
     .#{$prefix}--header__nav {
       &::before {
         content: '';
         display: block;
         position: absolute;
         right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 1.5rem;
+        width: 0.0625rem;
+        background-color: #dcdcdc;
+      }
+    }
+
+    a.#{$prefix}--header__name {
+      @include carbon--type-style(expressive-heading-02, true);
+
+      color: $text-01;
+      padding-left: $spacing-05;
+      padding-right: $spacing-05;
+      margin-left: $spacing-05;
+      border: solid 2px transparent;
+      transition: $button-transition;
+      position: relative;
+
+      &:hover {
+        background-color: $ui-01;
+        color: $text-01;
+      }
+
+      &:active,
+      &:focus {
+        border-color: $focus;
+        background-color: $ui-01;
+      }
+
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        left: calc(-1rem - 2px);
         top: 50%;
         transform: translateY(-50%);
         height: 1.5rem;

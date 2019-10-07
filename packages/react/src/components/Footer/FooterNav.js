@@ -52,7 +52,7 @@ function renderGroups(groups) {
 /**
  * @property propTypes
  * @description Defined property types for component
- * @type {{groups: shim}}
+ * @type {{groups: Array}}
  */
 FooterNav.propTypes = {
   groups: PropTypes.arrayOf(

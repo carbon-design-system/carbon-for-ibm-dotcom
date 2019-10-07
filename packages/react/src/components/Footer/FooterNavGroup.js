@@ -64,7 +64,7 @@ function renderListItems(links) {
 /**
  * @property propTypes
  * @description Defined property types for component
- * @type {{links: shim, title: shim}}
+ * @type {{links: Array, title: string}}
  */
 FooterNavGroup.propTypes = {
   title: PropTypes.string,

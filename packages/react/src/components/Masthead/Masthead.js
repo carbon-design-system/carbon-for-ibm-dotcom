@@ -88,6 +88,10 @@ const Masthead = ({ navigation, ...mastheadProps }) => {
     [`${prefix}--masthead--sticky__l1`]: mastheadL1Ref.current != null,
   });
 
+  const hasPlatform = cx({
+    [`${prefix}--masthead__platform`]: mastheadProps.platform,
+  });
+
   useEffect(() => {
     /**
      * Sets sticky masthead. If both L0 and L1 are present, L1 will be sticky.
@@ -143,7 +147,7 @@ const Masthead = ({ navigation, ...mastheadProps }) => {
 
               <IbmLogo />
 
-              <div className={`${prefix}--header__search`}>
+              <div className={`${prefix}--header__search ${hasPlatform}`}>
                 {navigation !== false ? (
                   <MastheadTopNav
                     {...mastheadProps}
@@ -188,7 +192,8 @@ const Masthead = ({ navigation, ...mastheadProps }) => {
 /**
  * @property propTypes
  * @description Defined property types for component
- * @type {{navigation: {}}, {mastheadProps: {}}}
+ *
+ * @type {{mastheadProp: object, navigation: Array}}
  */
 Masthead.propTypes = {
   navigation: PropTypes.array,
