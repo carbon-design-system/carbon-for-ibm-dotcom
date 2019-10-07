@@ -34,7 +34,7 @@
     "@carbon/grid": "^10.6.0",
     "@carbon/layout": "^10.5.0",
     "@carbon/themes": "^10.4.0",
-    "@carbon/type": "^10.3.0"
+    "@carbon/type": "^10.5.1"
   },
   "devDependencies": {
     "carbon-components": "^10.6.0",
