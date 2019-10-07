@@ -164,7 +164,6 @@ export class SideNavMenu extends React.Component {
   }
 
   _renderSideNavItem = (item, index) => {
-    console.log('item:', item);
     return React.cloneElement(item, {
       onClick:
         item.props.isBackButton === true
