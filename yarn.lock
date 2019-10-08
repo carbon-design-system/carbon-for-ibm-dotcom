@@ -968,6 +968,14 @@
     "@carbon/import-once" "10.3.0"
     "@carbon/layout" "10.4.0"
 
+"@carbon/type@^10.5.1":
+  version "10.5.1"
+  resolved "https://registry.yarnpkg.com/@carbon/type/-/type-10.5.1.tgz#07a9c1ca154042ccd8ae6da753a6c738a46ece0b"
+  integrity sha512-FVPfVhUwddJuquuOpHoc65LKBW9/N8mZnJ7sd5iSYgMUUmh6Aa+lFVNETjGmwMKauz6NZRQCrJGiTr0lzfYDUg==
+  dependencies:
+    "@carbon/import-once" "10.3.0"
+    "@carbon/layout" "10.5.0"
+
 "@cnakazawa/watch@^1.0.3":
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/@cnakazawa/watch/-/watch-1.0.3.tgz#099139eaec7ebf07a27c1786a3ff64f39464d2ef"
