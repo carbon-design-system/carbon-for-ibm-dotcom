@@ -1,0 +1,45 @@
+import Cookies from 'js-cookie';
+
+/**
+ * Utility to set and get the ipcInfo cookie needed to determine country and language code
+ *
+ */
+class ipcinfoCookie {
+  /**
+   * retreive the ipcInfo cookie that contains the cc and lc
+   * decodes and converts to object
+   *
+   * @returns {object} objects ipc info object
+   */
+  static get() {
+    const ipcinfo = Cookies.get('ipcInfo');
+    if (ipcinfo) {
+      let cc;
+      let lc;
+      const info = decodeURIComponent(ipcinfo).split(';');
+      info.map(code => {
+        const itemParts = code.split('=');
+        if (itemParts[0] === 'cc') cc = itemParts[1];
+        if (itemParts[0] === 'lc') lc = itemParts[1];
+      });
+
+      return { cc, lc };
+    }
+  }
+
+  /**
+   * set the ipcInfo cookie
+   * takes care of converting to string and encoding
+   *
+   * @param {string} cc country coude
+   * @param {string} lc language code
+   *
+   */
+  static set(cc, lc) {
+    const info = `cc=${cc};lc=${lc}`;
+
+    Cookies.set('ipcInfo', encodeURIComponent(info));
+  }
+}
+
+export default ipcinfoCookie;
