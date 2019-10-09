@@ -42,6 +42,7 @@
 
         display: block;
         column-count: 2;
+        column-gap: 0;
       }
 
       @include carbon--breakpoint('lg') {
