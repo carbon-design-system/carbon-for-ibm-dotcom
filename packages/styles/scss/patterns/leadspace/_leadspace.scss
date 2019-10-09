@@ -117,7 +117,7 @@
       &__ctas {
         flex-flow: row-reverse wrap-reverse;
         justify-content: flex-end;
-        @include carbon--make-col(4, 8);
+        @include carbon--make-col(6, 8);
       }
 
       .#{$prefix}--btn {
@@ -137,7 +137,7 @@
 
       .#{$prefix}--leadspace__desc {
         @include carbon--make-col-ready;
-        @include carbon--make-col(4, 16);
+        @include carbon--make-col(6, 16);
       }
     }
 

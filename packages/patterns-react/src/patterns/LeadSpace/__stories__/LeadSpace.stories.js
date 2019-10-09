@@ -108,12 +108,12 @@ storiesOf('LeadSpace', module)
       {
         link: '',
         copy: 'Primary action button',
-        renderIcon: select('button icon', icons, icons.ArrowRight),
+        renderIcon: select('primary button icon', icons, icons.ArrowRight),
       },
       {
         link: '',
         copy: 'Secondary',
-        renderIcon: select('button icon', icons, icons.ArrowRight),
+        renderIcon: select('secondary button icon', icons, icons.ArrowRight),
       },
     ];
 
