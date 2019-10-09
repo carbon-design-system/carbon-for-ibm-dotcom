@@ -14,6 +14,12 @@ class ipcinfoCookie {
    * retreive the ipcInfo cookie that contains the cc and lc
    * decodes and converts to object
    *
+   * @example
+   * import { ipcinfoCookie } from '@carbon/ibmdotcom-utilities';
+   *
+   * const info = ipcinfoCookie.get();
+   *
+   *
    * @returns {object} object containing cc and lc
    */
   static get() {
@@ -38,6 +44,11 @@ class ipcinfoCookie {
    *
    * @param {string} cc country coude
    * @param {string} lc language code
+   *
+   * @example
+   * import { ipcinfoCookie } from '@carbon/ibmdotcom-utilities';
+   *
+   * ipcinfoCookie.set("us", "en");
    *
    */
   static set(cc, lc) {
