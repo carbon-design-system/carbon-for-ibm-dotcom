@@ -1,4 +1,5 @@
 import axios from 'axios';
+import root from 'window-or-global';
 
 const _endpoint = process.env.GEO_API;
 /**
@@ -25,7 +26,7 @@ async function geolocation() {
   const cc = location && location.country;
 
   // get language preference from browser
-  const lc = window.navigator.language;
+  const lc = root.navigator.language;
 
   if (cc && lc) {
     return { cc, lc };
