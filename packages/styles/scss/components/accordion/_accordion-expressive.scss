@@ -16,6 +16,8 @@
 
 @mixin accordion-expressive() {
   .#{$prefix}--accordion {
+    overflow: hidden;
+
     &__heading {
       padding: temp--padding-diff(
           $TEMP--accordion-height,
