@@ -1,6 +1,11 @@
 import Cookies from 'js-cookie';
 
 /**
+ *  Name of cookie needed to grab cc and lc
+ */
+const _cookieName = 'ipcInfo';
+
+/**
  * Utility to set and get the ipcInfo cookie needed to determine country and language code
  *
  */
@@ -9,10 +14,10 @@ class ipcinfoCookie {
    * retreive the ipcInfo cookie that contains the cc and lc
    * decodes and converts to object
    *
-   * @returns {object} objects ipc info object
+   * @returns {object} object containing cc and lc
    */
   static get() {
-    const ipcinfo = Cookies.get('ipcInfo');
+    const ipcinfo = Cookies.get(_cookieName);
     if (ipcinfo) {
       let cc;
       let lc;
@@ -38,7 +43,7 @@ class ipcinfoCookie {
   static set(cc, lc) {
     const info = `cc=${cc};lc=${lc}`;
 
-    Cookies.set('ipcInfo', encodeURIComponent(info));
+    Cookies.set(_cookieName, encodeURIComponent(info));
   }
 }
 
