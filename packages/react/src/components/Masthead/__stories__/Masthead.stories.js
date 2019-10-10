@@ -26,8 +26,8 @@ storiesOf('Masthead', module)
           mastheadKnobs.platform,
           mastheadKnobs.platform.none
         )}
-        hasProfile={boolean('Show profile', true)}
-        hasSearch={boolean('Show search', true)}
+        hasProfile={boolean('Has profile', true)}
+        hasSearch={boolean('Has search', true)}
       />
     );
   });

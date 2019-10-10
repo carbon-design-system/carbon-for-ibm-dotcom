@@ -208,4 +208,13 @@ Masthead.propTypes = {
   mastheadProp: PropTypes.object,
 };
 
+/**
+ * @property defaultProps
+ * @type {{hasProfile: boolean, hasSearch: boolean}}
+ */
+Masthead.defaultProps = {
+  hasProfile: true,
+  hasSearch: true,
+};
+
 export default Masthead;

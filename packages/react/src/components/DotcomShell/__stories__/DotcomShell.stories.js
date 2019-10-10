@@ -33,8 +33,8 @@ storiesOf('Dotcom Shell', module)
           mastheadKnobs.platform.none
         )}
         footerType={select('Footer', footer, footer.default)}
-        hasProfile={boolean('Show profile', true)}
-        hasSearch={boolean('Show search', true)}>
+        hasProfile={boolean('Has profile', true)}
+        hasSearch={boolean('Has search', true)}>
         {content}
       </DotcomShell>
     );
