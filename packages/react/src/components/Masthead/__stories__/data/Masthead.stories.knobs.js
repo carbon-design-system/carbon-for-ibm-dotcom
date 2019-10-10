@@ -14,13 +14,6 @@ const platformName = {
 };
 
 const mastheadKnobs = {
-  platformName: {
-    none: null,
-    platform: {
-      name: 'IBM Cloud',
-      url: 'https://www.ibm.com/cloud',
-    },
-  },
   navigation: {
     default: 'string',
     custom: mastheadLinks,
@@ -28,7 +21,7 @@ const mastheadKnobs = {
   },
   platform: {
     none: null,
-    hasName: platformName.platform,
+    platform: platformName.platform,
   },
 };
 

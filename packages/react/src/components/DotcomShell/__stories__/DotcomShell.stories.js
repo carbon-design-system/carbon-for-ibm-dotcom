@@ -27,6 +27,11 @@ storiesOf('Dotcom Shell', module)
           mastheadKnobs.navigation,
           mastheadKnobs.navigation.default
         )}
+        platform={select(
+          'Platform name',
+          mastheadKnobs.platform,
+          mastheadKnobs.platform.none
+        )}
         footerType={select('Footer', footer, footer.default)}
         hasProfile={boolean('Show profile', true)}
         hasSearch={boolean('Show search', true)}>
