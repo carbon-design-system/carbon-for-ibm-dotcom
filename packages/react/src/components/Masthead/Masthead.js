@@ -37,7 +37,7 @@ const { prefix } = settings;
  * @param {string} type Type of masthead
  * @returns {*} Masthead component
  */
-const Masthead = ({ navigation, ...mastheadProps }) => {
+const Masthead = ({ navigation, hasProfile, hasSearch, ...mastheadProps }) => {
   /**
    * Returns IBM.com authenticated status
    *
@@ -157,10 +157,10 @@ const Masthead = ({ navigation, ...mastheadProps }) => {
                     navigation={mastheadData}
                   />
                 )}
-                {mastheadProps.hasSearch && <MastheadSearch />}
+                {hasSearch && <MastheadSearch />}
               </div>
 
-              {mastheadProps.hasProfile && (
+              {hasProfile && (
                 <HeaderGlobalBar>
                   <MastheadProfile
                     overflowMenuProps={{
@@ -201,10 +201,12 @@ const Masthead = ({ navigation, ...mastheadProps }) => {
  * @property propTypes
  * @description Defined property types for component
  *
- * @type {{mastheadProp: object, navigation: Array}}
+ * @type {{mastheadProp: object, navigation: Array, hasProfile: boolean, hasSearch: boolean}}
  */
 Masthead.propTypes = {
   navigation: PropTypes.array,
+  hasProfile: PropTypes.bool,
+  hasSearch: PropTypes.bool,
   mastheadProp: PropTypes.object,
 };
 
