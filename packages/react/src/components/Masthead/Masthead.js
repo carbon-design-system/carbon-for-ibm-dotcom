@@ -154,24 +154,28 @@ const Masthead = ({ navigation, ...mastheadProps }) => {
                     navigation={mastheadData}
                   />
                 ) : null}
-                <MastheadSearch />
+
+                {mastheadProps.hasSearch && <MastheadSearch />}
               </div>
 
-              <HeaderGlobalBar>
-                <MastheadProfile
-                  overflowMenuProps={{
-                    flipped: true,
-                    style: { width: 'auto' },
-                    renderIcon: () =>
-                      isAuthenticated ? <UserOnline20 /> : <User20 />,
-                  }}
-                  profileMenu={
-                    isAuthenticated
-                      ? profileData.signedin
-                      : profileData.signedout
-                  }
-                />
-              </HeaderGlobalBar>
+              {mastheadProps.hasProfile && (
+                <HeaderGlobalBar>
+                  <MastheadProfile
+                    overflowMenuProps={{
+                      flipped: true,
+                      style: { width: 'auto' },
+                      renderIcon: () =>
+                        isAuthenticated ? <UserOnline20 /> : <User20 />,
+                    }}
+                    profileMenu={
+                      isAuthenticated
+                        ? profileData.signedin
+                        : profileData.signedout
+                    }
+                  />
+                </HeaderGlobalBar>
+              )}
+
               <MastheadLeftNav
                 navigation={mastheadData}
                 isSideNavExpanded={isSideNavExpanded}

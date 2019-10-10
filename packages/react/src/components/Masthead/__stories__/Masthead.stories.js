@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, select } from '@storybook/addon-knobs';
+import { withKnobs, select, boolean } from '@storybook/addon-knobs';
 import Masthead from '../Masthead';
 import mastheadLinks from './data/MastheadLinks.js';
 import readme from '../README.md';
@@ -32,6 +32,16 @@ const props = {
       }),
     };
   },
+  profile: () => {
+    return {
+      hasProfile: boolean('Show profile', true),
+    };
+  },
+  search: () => {
+    return {
+      hasSearch: boolean('Show search', true),
+    };
+  },
 };
 
 storiesOf('Masthead', module)
@@ -42,5 +52,12 @@ storiesOf('Masthead', module)
     },
   })
   .add('Default', () => {
-    return <Masthead {...props.navigation()} {...props.platform()} />;
+    return (
+      <Masthead
+        {...props.navigation()}
+        {...props.platform()}
+        {...props.profile()}
+        {...props.search()}
+      />
+    );
   });
