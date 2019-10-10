@@ -8,5 +8,6 @@
 export * from './escaperegexp';
 export * from './featureflag';
 export * from './geolocation';
+export * from './ipcinfoCookie';
 export * from './serialize';
 export * from './settings';
