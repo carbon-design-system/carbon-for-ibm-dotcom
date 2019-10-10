@@ -115,18 +115,18 @@ const Masthead = ({ navigation, ...mastheadProps }) => {
     };
   }, []);
 
-  switch (typeof navigation) {
-    case 'string':
-      // eslint-disable-next-line
-      mastheadData = mastheadData;
-      break;
-    case 'object':
-      mastheadData = navigation;
-      break;
-    case false:
-      break;
-    default:
-      break;
+  if (navigation) {
+    switch (typeof navigation) {
+      case 'string':
+        // eslint-disable-next-line
+        mastheadData = mastheadData;
+        break;
+      case 'object':
+        mastheadData = navigation;
+        break;
+      default:
+        break;
+    }
   }
 
   return (
@@ -138,23 +138,25 @@ const Masthead = ({ navigation, ...mastheadProps }) => {
           <div className={`${prefix}--masthead__l0`}>
             <Header aria-label="IBM" data-autoid={`${stablePrefix}--masthead`}>
               <SkipToContent />
-              <HeaderMenuButton
-                aria-label="Open menu"
-                data-autoid={`${stablePrefix}--masthead__hamburger`}
-                onClick={onClickSideNavExpand}
-                isActive={isSideNavExpanded}
-              />
+
+              {navigation && (
+                <HeaderMenuButton
+                  aria-label="Open menu"
+                  data-autoid={`${stablePrefix}--masthead__hamburger`}
+                  onClick={onClickSideNavExpand}
+                  isActive={isSideNavExpanded}
+                />
+              )}
 
               <IbmLogo />
 
               <div className={`${prefix}--header__search ${hasPlatform}`}>
-                {navigation !== false ? (
+                {navigation && (
                   <MastheadTopNav
                     {...mastheadProps}
                     navigation={mastheadData}
                   />
-                ) : null}
-
+                )}
                 {mastheadProps.hasSearch && <MastheadSearch />}
               </div>
 
@@ -176,17 +178,19 @@ const Masthead = ({ navigation, ...mastheadProps }) => {
                 </HeaderGlobalBar>
               )}
 
-              <MastheadLeftNav
-                navigation={mastheadData}
-                isSideNavExpanded={isSideNavExpanded}
-              />
+              {navigation && (
+                <MastheadLeftNav
+                  navigation={mastheadData}
+                  isSideNavExpanded={isSideNavExpanded}
+                />
+              )}
             </Header>
           </div>
-          {navigation !== false ? (
+          {navigation && (
             <div ref={mastheadL1Ref}>
               <MastheadL1 />
             </div>
-          ) : null}
+          )}
         </div>
       )}
     />
