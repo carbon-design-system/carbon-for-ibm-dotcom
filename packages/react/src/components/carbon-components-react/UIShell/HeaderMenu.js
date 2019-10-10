@@ -67,8 +67,6 @@ class HeaderMenu extends React.Component {
       selectedIndex: null,
     };
     this.items = [];
-    this.setIgnoreBlur = this.setIgnoreBlur.bind(this);
-    this.clearIgnoreBlur = this.clearIgnoreBlur.bind(this);
   }
 
   /**
@@ -103,20 +101,9 @@ class HeaderMenu extends React.Component {
    * clicking off of the menu or menubar.
    */
   handleOnBlur = event => {
-    // Always close current expanded menu onBlur
-    if (this.ignoreBlur) return;
-    this.setState({ expanded: false, selectedIndex: null });
-  };
-
-  /**
-   * Sets and clears blur status to prevent menu from collapsing when losing
-   * focus by clicking a subnav item
-   */
-  setIgnoreBlur = () => {
-    this.ignoreBlur = true;
-  };
-  clearIgnoreBlur = () => {
-    this.ignoreBlur = false;
+    if (!event.currentTarget.contains(event.relatedTarget)) {
+      this.setState({ expanded: false, selectedIndex: null });
+    }
   };
 
   /**
@@ -224,8 +211,6 @@ class HeaderMenu extends React.Component {
     return React.cloneElement(item, {
       ref: this.handleItemRef(index),
       role: 'none',
-      onMouseOver: this.setIgnoreBlur.bind(this),
-      onMouseOut: this.clearIgnoreBlur.bind(this),
     });
   };
 }
