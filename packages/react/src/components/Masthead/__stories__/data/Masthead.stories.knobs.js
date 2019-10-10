@@ -5,14 +5,6 @@
  */
 import mastheadLinks from './MastheadLinks.js';
 
-const platformName = {
-  none: null,
-  platform: {
-    name: 'IBM Cloud',
-    url: 'https://www.ibm.com/cloud',
-  },
-};
-
 const mastheadKnobs = {
   navigation: {
     default: 'string',
@@ -21,7 +13,10 @@ const mastheadKnobs = {
   },
   platform: {
     none: null,
-    platform: platformName.platform,
+    platform: {
+      name: 'IBM Cloud',
+      url: 'https://www.ibm.com/cloud',
+    },
   },
 };
 
