@@ -28,15 +28,17 @@ const sortSources = sources => {
  * renders background image
  *
  * @param {object} props props object
- * @param {object} props.image array of images used for diff breakpoints
+ * @param {object} props.images array of images used for diff breakpoints
+ * @param {string} props.defaultImage default image (usually image for largest breakpoint)
+ * @param {string} props.alt alt of the image
  * @returns {*} picture element
  */
-const Image = ({ image }) => {
-  const images = sortSources(image.sources);
+const Image = ({ images, defaultImage, alt }) => {
+  const sortedImages = sortSources(images);
 
   return (
     <picture data-autoid={`${stablePrefix}--leadspace__image`}>
-      {images.map((imgSrc, key) => {
+      {sortedImages.map((imgSrc, key) => {
         return (
           <source
             key={key}
@@ -47,24 +49,22 @@ const Image = ({ image }) => {
       })}
       <img
         className={`${prefix}--leadspace__image`}
-        src={image.default}
-        alt={image.alt}
+        src={defaultImage}
+        alt={alt}
       />
     </picture>
   );
 };
 
 Image.propTypes = {
-  image: PropTypes.shape({
-    sources: PropTypes.arrayOf(
-      PropTypes.shape({
-        minWidth: PropTypes.number,
-        url: PropTypes.string,
-      })
-    ),
-    default: PropTypes.string,
-    alt: PropTypes.string,
-  }),
+  images: PropTypes.arrayOf(
+    PropTypes.shape({
+      minWidth: PropTypes.number,
+      url: PropTypes.string,
+    })
+  ),
+  defaultImage: PropTypes.string,
+  alt: PropTypes.string,
 };
 
 export default Image;

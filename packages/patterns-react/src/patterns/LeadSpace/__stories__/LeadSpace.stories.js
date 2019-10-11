@@ -78,21 +78,9 @@ storiesOf('LeadSpace', module)
       productive: 'productive',
     };
 
-    const image = {
-      sources: [
-        {
-          minWidth: 0,
-          url: 'https://picsum.photos/id/1076/320/370',
-        },
-        {
-          minWidth: 672,
-          url: 'https://picsum.photos/id/1076/672/400',
-        },
-        {
-          minWidth: 1056,
-          url: 'https://picsum.photos/id/1076/1056/480',
-        },
-      ],
+    const images = {
+      mobile: 'https://picsum.photos/id/1076/320/370',
+      tablet: 'https://picsum.photos/id/1076/672/400',
       default: 'https://picsum.photos/id/1076/1056/480',
       alt: 'lead space image',
     };
@@ -136,7 +124,7 @@ storiesOf('LeadSpace', module)
           copy={copy}
           gradient={graident}
           buttons={buttons}
-          image={object('image', image)}
+          image={object('image', images)}
           variation={select('variation', variations, variations.expressive)}
         />
       </div>

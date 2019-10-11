@@ -43,6 +43,29 @@ const overlayClassname = gradient =>
   });
 
 /**
+ * sorts images by breakpoints for the LeadSpaceImage component
+ *
+ * @param {object} images object with all the image srcs for diff breakpoints
+ * @returns {Array} images sorted
+ */
+const sortImages = images => {
+  return [
+    {
+      minWidth: 1056,
+      url: images.default,
+    },
+    {
+      minWidth: 672,
+      url: images.tablet,
+    },
+    {
+      minWidth: 0,
+      url: images.mobile,
+    },
+  ];
+};
+
+/**
  * Lead space component
  *
  * @param {object} props props object
@@ -76,7 +99,13 @@ const LeadSpace = ({ variation, title, copy, buttons, image, gradient }) =>
             )}
           </div>
         </div>
-        {image && <LeadSpaceImage image={image} />}
+        {image && (
+          <LeadSpaceImage
+            images={sortImages(image)}
+            defaultImage={image.default}
+            alt={image.alt}
+          />
+        )}
       </div>
     </section>
   );
