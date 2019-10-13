@@ -1,0 +1,61 @@
+//
+// Copyright IBM Corp. 2016, 2018
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import '../../globals/imports';
+
+@mixin dotcom-modal {
+  .#{$prefix}--dotcom-modal {
+    .#{$prefix}--modal {
+      &-container {
+        background-color: $ui-background;
+      }
+
+      &-header {
+        padding-top: $spacing-07;
+        padding-left: $spacing-07;
+        margin-bottom: $spacing-07;
+
+        &__heading {
+          @include carbon--type-style('expressive-heading-04', true);
+        }
+
+        &__label {
+          @include carbon--type-style('body-short-01');
+
+          display: flex;
+          color: $text-01;
+          margin-bottom: rem(12px);
+
+          svg {
+            margin-left: $spacing-02;
+          }
+        }
+      }
+
+      &-content {
+        padding-left: $spacing-07;
+        margin-bottom: 0;
+        &__inner {
+          padding-bottom: calc(#{$layout-03} + #{$layout-06});
+        }
+      }
+
+      &-close {
+        top: $spacing-05;
+        right: $spacing-05;
+      }
+    }
+
+    &-footer {
+      padding-bottom: $spacing-07;
+    }
+  }
+}
+
+@include exports('dotcom-modal') {
+  @include dotcom-modal;
+}

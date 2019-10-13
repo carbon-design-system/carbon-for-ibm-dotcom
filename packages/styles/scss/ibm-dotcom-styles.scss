@@ -9,9 +9,10 @@
 @import 'globals/mixins';
 
 // Components
-@import 'components/masthead/masthead';
-@import 'components/horizontalrule/horizontalrule';
+@import 'components/dotcom-modal';
 @import 'components/footer/index';
+@import 'components/horizontalrule/horizontalrule';
+@import 'components/masthead/masthead';
 
 // Patterns
 @import 'patterns/leadspace/leadspace';
