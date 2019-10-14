@@ -52,7 +52,7 @@ class LocaleAPI {
       const cc = await geolocation();
       /**
        * get language preference from browser
-       * returns in en-US format so will need to extract language only
+       * can return in either 'en-US' format or 'en' so will need to extract language only
        */
       const lang = root.navigator.language;
 
