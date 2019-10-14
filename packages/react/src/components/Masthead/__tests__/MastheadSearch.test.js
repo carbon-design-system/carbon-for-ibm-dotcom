@@ -9,9 +9,9 @@ import React from 'react';
 import MastheadSearch from '../MastheadSearch';
 import { mount } from 'enzyme';
 import { SearchTypeaheadAPI } from '@carbon/ibmdotcom-services';
-import { settings } from 'carbon-components';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 
-const { prefix } = settings;
+const { stablePrefix } = ddsSettings;
 
 jest.mock('@carbon/ibmdotcom-services', () => ({
   __esModule: true,
@@ -45,7 +45,7 @@ describe('MastheadSearch', () => {
   it('should search for results if the user enters 3 or more characters', async () => {
     const masthead = mount(<MastheadSearch />);
     const input = masthead.find(
-      `[data-autoid="${prefix}--header__search--input"]`
+      `[data-autoid="${stablePrefix}--header__search--input"]`
     );
 
     input.simulate('change', {
@@ -62,7 +62,7 @@ describe('MastheadSearch', () => {
   it('should redirect to the results page when a user clicks a suggestion', async () => {
     const masthead = mount(<MastheadSearch />);
     const input = masthead.find(
-      `[data-autoid="${prefix}--header__search--input"]`
+      `[data-autoid="${stablePrefix}--header__search--input"]`
     );
 
     input.simulate('change', {
