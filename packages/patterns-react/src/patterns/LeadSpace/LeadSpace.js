@@ -8,40 +8,17 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classnames from 'classnames';
-import { ArrowRight20 } from '@carbon/icons-react';
 import { settings } from 'carbon-components';
-import { Button } from 'carbon-components-react';
-import { featureFlag } from '@carbon/ibmdotcom-utilities';
+import {
+  featureFlag,
+  settings as ddsSettings,
+} from '@carbon/ibmdotcom-utilities';
 import { LEADSPACE } from '../../internal/FeatureFlags';
+import LeadSpaceButtons from './LeadSpaceButtons';
+import LeadSpaceImage from './LeadSpaceImage';
 
+const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
-
-/**
- * renders the buttons (max 2 buttons)
- *
- * @param {Array} buttons array of buttons
- * @returns {*} button components
- */
-function renderButtons(buttons) {
-  return buttons.map((button, key) => {
-    if (key > 1) return;
-    const renderIcon = button.renderArrow
-      ? {
-          renderIcon: ArrowRight20,
-        }
-      : {};
-    return (
-      <Button
-        {...renderIcon}
-        key={key}
-        data-autoid={`leadspace__cta-${key}`}
-        href={button.link}
-        kind={key === 0 ? 'primary' : 'tertiary'}>
-        {button.copy}
-      </Button>
-    );
-  });
-}
 
 /**
  * renders the pattern classnames
@@ -55,22 +32,59 @@ const className = variation =>
   });
 
 /**
+ * renders the pattern classnames
+ *
+ * @param {boolean} gradient determines whether to render gradient
+ * @returns {string} classnames
+ */
+const overlayClassname = gradient =>
+  classnames(`${prefix}--leadspace__overlay`, {
+    [`${prefix}--leadspace--gradient`]: gradient,
+  });
+
+/**
+ * sorts images by breakpoints for the LeadSpaceImage component
+ *
+ * @param {object} images object with all the image srcs for diff breakpoints
+ * @returns {Array} images sorted
+ */
+const sortImages = images => {
+  return [
+    {
+      minWidth: 1056,
+      url: images.default,
+    },
+    {
+      minWidth: 672,
+      url: images.tablet,
+    },
+    {
+      minWidth: 0,
+      url: images.mobile,
+    },
+  ];
+};
+
+/**
  * Lead space component
  *
  * @param {object} props props object
  * @param {string} props.variation variation of the lead space (expressive (default) or productive)
  * @param {string} props.title lead space title
  * @param {string} props.copy lead space short copy to support the title
+ * @param {boolean} props.gradient determines whether to render gradient overlay
  * @param {object} props.image image object with diff source for diff breakpoints
  * @param {Array} props.buttons array of buttons for lead space (max 2 buttons)
  * @returns {*} Lead space component
  */
-const LeadSpace = ({ variation, title, copy, buttons, image }) =>
+const LeadSpace = ({ variation, title, copy, buttons, image, gradient }) =>
   featureFlag(
     LEADSPACE,
-    <section data-autoid="leadspace" className={className(variation)}>
+    <section
+      data-autoid={`${stablePrefix}--leadspace`}
+      className={className(variation)}>
       <div className={`${prefix}--leadspace__container`}>
-        <div className={`${prefix}--leadspace__overlay`}>
+        <div className={overlayClassname(gradient)}>
           <div className={`${prefix}--leadspace__row`}>
             <h1 className={`${prefix}--leadspace__title`}>{title}</h1>
           </div>
@@ -81,25 +95,16 @@ const LeadSpace = ({ variation, title, copy, buttons, image }) =>
               </div>
             )}
             {buttons && buttons.length > 0 && (
-              <div className={`${prefix}--leadspace__row`}>
-                <div className={`${prefix}--leadspace__ctas`}>
-                  {renderButtons(buttons)}
-                </div>
-              </div>
+              <LeadSpaceButtons buttons={buttons} />
             )}
           </div>
         </div>
         {image && (
-          <picture>
-            <source media="(min-width: 1056px)" srcset={image.default} />
-            <source media="(min-width: 672px)" srcset={image.tablet} />
-            <source media="(min-width: 0px)" srcset={image.mobile} />
-            <img
-              className={`${prefix}--leadspace__image`}
-              src={image.default}
-              alt={image.alt}
-            />
-          </picture>
+          <LeadSpaceImage
+            images={sortImages(image)}
+            defaultImage={image.default}
+            alt={image.alt}
+          />
         )}
       </div>
     </section>
@@ -116,6 +121,7 @@ LeadSpace.propTypes = {
   }),
   title: PropTypes.string.isRequired,
   variation: PropTypes.string,
+  gradient: PropTypes.bool,
 };
 
 export default LeadSpace;

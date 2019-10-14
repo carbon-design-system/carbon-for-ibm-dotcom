@@ -15,6 +15,7 @@ Use these modifiers with `.bx--leadspace` class.
 | Class                        | Description                                                        |
 | ---------------------------- | ------------------------------------------------------------------ |
 | `.bx--leadspace--productive` | The className for 'productive' variant which changes title styling |
+| `.bx--leadspace--gradient`   | Renders pattern with gradient overlay                              |
 
 #### Elements
 
