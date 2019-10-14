@@ -85,7 +85,7 @@ Array [
                   </a>
                 </div>
                 <div
-                  className="bx--header__search"
+                  className="bx--header__search "
                 >
                   <nav
                     aria-label="IBM"
@@ -120,12 +120,12 @@ Array [
                         onChange={[Function]}
                         onFocus={[Function]}
                         onKeyDown={[Function]}
-                        placeholder="Search"
+                        placeholder="Search all of IBM"
                         type="text"
                         value=""
                       />
                       <button
-                        aria-label="Search"
+                        aria-label="Search all of IBM"
                         className="bx--header__search--search bx--header__action"
                         data-autoid="dds--header__search--search"
                         onClick={[Function]}
@@ -243,7 +243,7 @@ Array [
                   onMouseEnter={[Function]}
                   onMouseLeave={[Function]}
                 >
-                  <div
+                  <nav
                     data-autoid="dds--masthead__l0-sidenav"
                   >
                     <ul
@@ -253,7 +253,7 @@ Array [
                         className="bx--side-nav__header-navigation"
                       />
                     </ul>
-                  </div>
+                  </nav>
                 </nav>
               </header>
             </div>
@@ -1143,7 +1143,7 @@ Array [
                   </a>
                 </div>
                 <div
-                  className="bx--header__search"
+                  className="bx--header__search "
                 >
                   <nav
                     aria-label="IBM"
@@ -1178,12 +1178,12 @@ Array [
                         onChange={[Function]}
                         onFocus={[Function]}
                         onKeyDown={[Function]}
-                        placeholder="Search"
+                        placeholder="Search all of IBM"
                         type="text"
                         value=""
                       />
                       <button
-                        aria-label="Search"
+                        aria-label="Search all of IBM"
                         className="bx--header__search--search bx--header__action"
                         data-autoid="dds--header__search--search"
                         onClick={[Function]}
@@ -1301,7 +1301,7 @@ Array [
                   onMouseEnter={[Function]}
                   onMouseLeave={[Function]}
                 >
-                  <div
+                  <nav
                     data-autoid="dds--masthead__l0-sidenav"
                   >
                     <ul
@@ -1311,7 +1311,7 @@ Array [
                         className="bx--side-nav__header-navigation"
                       />
                     </ul>
-                  </div>
+                  </nav>
                 </nav>
               </header>
             </div>
