@@ -2,9 +2,11 @@ import { ipcinfoCookie } from '../';
 
 describe('ipcinfo cookie utility', () => {
   it('should set the ipcInfo cookie', () => {
+    const locale = { cc: 'us', lc: 'en' };
+
     const mockSet = jest.fn();
     ipcinfoCookie.set = mockSet;
-    ipcinfoCookie.set('US', 'en');
+    ipcinfoCookie.set(locale);
     expect(mockSet).toBeCalled();
   });
 

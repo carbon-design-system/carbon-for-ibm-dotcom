@@ -20,7 +20,7 @@ const _proxy = process.env.CORS_PROXY || '';
  * @type {string}
  * @private
  */
-const _endpoint = `${_host}/common/v18/js/data/jsononly/locale`;
+const _endpoint = `${_proxy}${_host}/common/v18/js/data/jsononly/locale`;
 
 /**
  * Locale API class with method of fetching user's locale for
@@ -59,7 +59,7 @@ class LocaleAPI {
       const lc = lang.split('-')[0];
 
       if (cc && lc) {
-        const list = await this.getList();
+        const list = await this.getList(cc, lc);
         const verifiedCodes = this.verifyLocale(cc, lc, list);
 
         // set the ipcInfo cookie
@@ -73,6 +73,9 @@ class LocaleAPI {
   /**
    * Get the country list of all supported countries and their languages
    *
+   * @param {string} cc country code
+   * @param {string} lc language code
+   *
    * @returns {Promise <any>} promise object
    *
    * @example
@@ -82,16 +85,24 @@ class LocaleAPI {
    *    const list = await LocaleAPI.getList();
    * }
    */
-  static async getList() {
-    const url = `${_proxy}${_endpoint}/usen-locale.json`;
-
+  static async getList(cc, lc) {
     return await axios
-      .get(url, {
+      .get(`${_endpoint}/${cc}${lc}-locale.json`, {
         headers: {
           'Content-Type': 'application/json; charset=utf-8',
         },
       })
-      .then(response => response.data);
+      .then(response => response.data)
+      .catch(async () => {
+        //default to us-en locale if previous call fails
+        return await axios
+          .get(`${_endpoint}/usen-locale.json`, {
+            headers: {
+              'Content-Type': 'application/json; charset=utf-8',
+            },
+          })
+          .then(response => response.data);
+      });
   }
 
   /**
