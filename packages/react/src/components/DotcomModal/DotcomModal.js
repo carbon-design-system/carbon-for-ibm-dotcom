@@ -27,10 +27,16 @@ const DotcomModal = ({ children, dotcomButtons, ...props }) => {
       data-autoid={`${stablePrefix}--dotcom-modal`}
       className={`${prefix}--dotcom-modal`}
       {...props}>
-      {children}
+      <div
+        data-autoid={`${stablePrefix}--dotcom-modal-content`}
+        className="bx--modal-content__inner">
+        {children}
+      </div>
 
       {dotcomButtons && dotcomButtons.length > 0 && (
-        <div className={`${prefix}--dotcom-modal-footer`}>
+        <div
+          data-autoid={`${stablePrefix}--dotcom-modal-footer`}
+          className={`${prefix}--dotcom-modal-footer`}>
           <ButtonGroup buttons={dotcomButtons} />
         </div>
       )}
@@ -42,7 +48,7 @@ const DotcomModal = ({ children, dotcomButtons, ...props }) => {
  * @property propTypes
  * @description Defined property types for component
  *
- * @type {{children: object, dotcomButtons: array, props: object}}
+ * @type {{children: object, dotcomButtons: array}}
  */
 DotcomModal.propTypes = {
   children: PropTypes.array,
