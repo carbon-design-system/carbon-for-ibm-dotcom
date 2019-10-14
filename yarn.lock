@@ -919,10 +919,10 @@
     "@carbon/type" "^10.3.0"
     carbon-components "^10.4.1"
 
-"@carbon/ibmdotcom-utilities@0.5.0-alpha.331":
-  version "0.5.0-alpha.331"
-  resolved "https://registry.yarnpkg.com/@carbon/ibmdotcom-utilities/-/ibmdotcom-utilities-0.5.0-alpha.331.tgz#e102f287967485b82757bbcc6023a0d332907f04"
-  integrity sha512-leE+LnH9tTOZVYz14VUaxFL0Fk2EstnJb0w4yv6yfMVV04YtwsHwg1ywoygX/9IsbJbVprxG8oSShVQ+T5kusg==
+"@carbon/ibmdotcom-utilities@0.6.0-alpha.511":
+  version "0.6.0-alpha.511"
+  resolved "https://registry.yarnpkg.com/@carbon/ibmdotcom-utilities/-/ibmdotcom-utilities-0.6.0-alpha.511.tgz#086b56736fe0f2eb87543c7d86a1dd1e50e58bef"
+  integrity sha512-QSPZ+KG5LP8Kose7dGF7an6zJSo0W0h1F8f9r6c6FXL0IzNRsh80I8HVaX11uVVBi4KF7mgjaQNwbUwdBytmBw==
   dependencies:
     window-or-global "^1.0.1"
 
