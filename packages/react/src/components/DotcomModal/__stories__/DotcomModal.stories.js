@@ -1,13 +1,18 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
+import readme from '../README.md';
 import '../../../../../styles/scss/components/dotcom-modal/index.scss';
 
 import DotcomModal from '../DotcomModal';
 
 storiesOf('DotcomModal', module)
   .addDecorator(withKnobs)
-  .addParameters({})
+  .addParameters({
+    readme: {
+      sidebar: readme,
+    },
+  })
   .add('Default', () => {
     const modalAriaLabel = text(
       'ARIA label, used only if modalLabel not provided (modalAriaLabel)',
@@ -51,9 +56,7 @@ storiesOf('DotcomModal', module)
         modalHeading={modalHeading}
         iconDescription={modalCloseDescription}
         dotcomButtons={select('Dotcom Modal Buttons', buttons, buttons.none)}>
-        <div className="bx--modal-content__inner">
-          <p>{modalContent}</p>
-        </div>
+        <p>{modalContent}</p>
       </DotcomModal>
     );
   });

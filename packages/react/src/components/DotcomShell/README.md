@@ -5,6 +5,8 @@
 
 ## Getting started
 
+Here's a quick example to get you started.
+
 ### Content
 
 ```javascript
