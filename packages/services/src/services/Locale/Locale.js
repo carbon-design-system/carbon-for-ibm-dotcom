@@ -35,6 +35,7 @@ class LocaleAPI {
    * browser language preference then set the cookie
    *
    * @returns {object} object with lc and cc
+   *
    * @example
    * import { LocaleAPI } from '@carbon/ibmdotcom-services';
    *
@@ -49,7 +50,6 @@ class LocaleAPI {
       return cookie;
     } else {
       const cc = await geolocation();
-
       /**
        * get language preference from browser
        * returns in en-US format so will need to extract language only
@@ -76,7 +76,7 @@ class LocaleAPI {
    * @param {string} cc country code
    * @param {string} lc language code
    *
-   * @returns {Promise <any>} promise object
+   * @returns {Promise<any>} promise object
    *
    * @example
    * import { LocaleAPI } from '@carbon/ibmdotcom-services';
@@ -86,23 +86,37 @@ class LocaleAPI {
    * }
    */
   static async getList(cc, lc) {
-    return await axios
-      .get(`${_endpoint}/${cc}${lc}-locale.json`, {
+    const url = `${_endpoint}/${cc}${lc}-locale.json`;
+    const defaultUrl = `${_endpoint}/usen-locale.json`;
+
+    /**
+     * currently there is regex on the URL paths
+     * www.ibm.com/common/v18/js/data(([/\?].*)?$)
+     * if hitting files that don't exist in the js/data folder, it will
+     * redirect to https://www.ibm.com/common/v18/js/data/usen.js
+     *
+     * need to check response and if need be, make another call to get country list
+     */
+    let response = await axios
+      .get(url, {
         headers: {
           'Content-Type': 'application/json; charset=utf-8',
         },
       })
-      .then(response => response.data)
-      .catch(async () => {
-        //default to us-en locale if previous call fails
-        return await axios
-          .get(`${_endpoint}/usen-locale.json`, {
-            headers: {
-              'Content-Type': 'application/json; charset=utf-8',
-            },
-          })
-          .then(response => response.data);
-      });
+      .then(response => response.data);
+
+    if (!response || !response.regionList) {
+      //default to us-en locale if previous call fails
+      response = await axios
+        .get(defaultUrl, {
+          headers: {
+            'Content-Type': 'application/json; charset=utf-8',
+          },
+        })
+        .then(response => response.data);
+    }
+
+    return response;
   }
 
   /**
