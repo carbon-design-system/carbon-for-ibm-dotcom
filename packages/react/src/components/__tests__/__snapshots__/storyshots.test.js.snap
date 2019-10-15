@@ -1058,6 +1058,78 @@ Array [
 ]
 `;
 
+exports[`Storyshots Link with Icon Default 1`] = `
+Array [
+  <div
+    data-floating-menu-container=""
+    role="main"
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+      }
+    }
+  >
+    <div
+      className="storybook-readme-story"
+    >
+      <div
+        style={Object {}}
+      >
+        <div>
+          <div
+            style={
+              Object {
+                "alignItems": "center",
+                "display": "flex",
+                "flexDirection": "column",
+                "padding": "2rem",
+              }
+            }
+          >
+            <div
+              data-autoid="dds--link-with-icon"
+            >
+              <a
+                className="bx--link bx--link-with-icon"
+                disabled={false}
+                href="https://www.ibm.com"
+              >
+                <span>
+                  Text link
+                </span>
+                <svg
+                  aria-hidden={true}
+                  focusable="false"
+                  height={20}
+                  preserveAspectRatio="xMidYMid meet"
+                  style={
+                    Object {
+                      "willChange": "transform",
+                    }
+                  }
+                  viewBox="0 0 20 20"
+                  width={20}
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11.8 2.8l-1 1 5.4 5.5H1v1.4h15.2l-5.4 5.5 1 1L19 10z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <input
+    aria-label="input-text-offleft"
+    className="bx--visually-hidden"
+    type="text"
+  />,
+]
+`;
+
 exports[`Storyshots Masthead Default 1`] = `
 Array [
   <div
