@@ -12,22 +12,18 @@ jest.mock('@carbon/ibmdotcom-utilities', () => ({
 }));
 
 describe('LocaleAPI', () => {
-  // combo that does not currently exist
   const _cc = 'us';
   const _lc = 'es';
 
   const endpoint = `${process.env.TRANSLATION_HOST}/common/v18/js/data/jsononly/locale`;
   const fetchUrl = `${endpoint}/${_cc}${_lc}-locale.json`;
-  const defaultUrl = `${endpoint}/usen-locale.json`;
 
-  beforeEach(() => {
-    mockAxios.get.mockImplementation(url => {
-      if (url === fetchUrl) {
-        return Promise.resolve({ data: {} });
-      } else {
-        return Promise.resolve({ data: response });
-      }
-    });
+  beforeEach(function() {
+    mockAxios.get.mockImplementationOnce(() =>
+      Promise.resolve({
+        data: response,
+      })
+    );
   });
 
   afterEach(() => {
@@ -58,16 +54,11 @@ describe('LocaleAPI', () => {
     expect(geolocation).toHaveBeenCalledTimes(1);
   });
 
-  it('should make the call for the default us-en list', async () => {
+  it('should make the call for the country list', async () => {
     const data = await LocaleAPI.getList(_cc, _lc);
 
     expect(data).toEqual(response);
     expect(mockAxios.get).toHaveBeenCalledWith(fetchUrl, {
-      headers: {
-        'Content-Type': 'application/json; charset=utf-8',
-      },
-    });
-    expect(mockAxios.get).toHaveBeenCalledWith(defaultUrl, {
       headers: {
         'Content-Type': 'application/json; charset=utf-8',
       },

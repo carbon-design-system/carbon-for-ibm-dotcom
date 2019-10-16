@@ -87,36 +87,18 @@ class LocaleAPI {
    */
   static async getList(cc, lc) {
     const url = `${_endpoint}/${cc}${lc}-locale.json`;
-    const defaultUrl = `${_endpoint}/usen-locale.json`;
 
     /**
-     * currently there is regex on the URL paths
-     * www.ibm.com/common/v18/js/data(([/\?].*)?$)
-     * if hitting files that don't exist in the js/data folder, it will
-     * redirect to https://www.ibm.com/common/v18/js/data/usen.js
-     *
-     * need to check response and if need be, make another call to get country list
+     * if the json file for the cc-lc combo does not exist,
+     * browser will automatically redirect to the us-en country list
      */
-    let response = await axios
+    return await axios
       .get(url, {
         headers: {
           'Content-Type': 'application/json; charset=utf-8',
         },
       })
       .then(response => response.data);
-
-    if (!response || !response.regionList) {
-      //default to us-en locale if previous call fails
-      response = await axios
-        .get(defaultUrl, {
-          headers: {
-            'Content-Type': 'application/json; charset=utf-8',
-          },
-        })
-        .then(response => response.data);
-    }
-
-    return response;
   }
 
   /**
@@ -132,8 +114,6 @@ class LocaleAPI {
    * import { LocaleAPI } from '@carbon/ibmdotcom-services';
    *
    * async function getLocale() {
-   *   const cc = 'us';
-   *   const lc = 'en'
    *   const locale = await LocaleAPI.verifyLocale(cc, lc, data);
    *   return locale;
    * }
