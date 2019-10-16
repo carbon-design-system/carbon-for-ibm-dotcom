@@ -22,7 +22,7 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 > 💡 Don't forget to import the masthead styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
-## Types
+## Navigation Types
 
 | Name      | Description                           |
 | --------- | ------------------------------------- |
@@ -31,15 +31,17 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 | `none`    | No navigation.                        |
 
 > 💡 `Custom` navigation data must follow the same structure and key names as
-> `default`. See `mastheadNav` >
-> [here](https://www.ibm.com/common/v18/js/data/jsononly/usen.json) for an
+> `default`. See
+> [this](https://www.ibm.com/common/v18/js/data/jsononly/usen.json) for an
 > example.
 
 ## Options
 
-| Name            | Description                                                          |
-| --------------- | -------------------------------------------------------------------- |
-| `with platform` | Includes platform name (only available with `default` and `custom`). |
+| Name         | Description                                                          |
+| ------------ | -------------------------------------------------------------------- |
+| `platform`   | Includes platform name (only available with `default` and `custom`). |
+| `hasProfile` | Includes IBM profile menu.                                           |
+| `hasSearch`  | Includes IBM search.                                                 |
 
 ```javascript
 const topNavProps = {
