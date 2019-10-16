@@ -10,6 +10,7 @@
 
 @mixin link-with-icon {
   .#{$prefix}--link-with-icon {
+    display: inline-block;
     span {
       vertical-align: middle;
     }
