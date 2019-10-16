@@ -17,7 +17,8 @@ const { prefix } = settings;
 /**
  * LinkWithIcon component
  *
- * @param {object} props react proptypes
+ * @typedef {object} children User content
+ * @param {string} href Link url
  * @returns {*} LinkWithIcon component
  */
 const LinkWithIcon = ({ children, href, ...props }) => {
