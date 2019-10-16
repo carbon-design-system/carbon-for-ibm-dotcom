@@ -25,7 +25,7 @@ storiesOf('Link with Icon', module)
         <LinkWithIcon
           href="https://www.ibm.com"
           disabled={boolean('Disabled', false)}>
-          <span>Text link</span>
+          <span>Link text</span>
           <ArrowRight20 />
         </LinkWithIcon>
       </div>

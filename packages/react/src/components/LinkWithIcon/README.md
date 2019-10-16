@@ -15,7 +15,7 @@ import '@carbon/ibmdotcom-styles/scss/components/link-with-icon/_link-with-icon.
 function App() {
   return (
     <LinkWithIcon href="https://www.ibm.com">
-      <span>Text link</span>
+      <span>Link text</span>
       <ArrowRight20 />
     </LinkWithIcon>
   );
@@ -27,9 +27,10 @@ function App() {
 
 ## Data
 
-| Name   | Description |
-| ------ | ----------- |
-| `href` | url         |
+| Name       | Description        |
+| ---------- | ------------------ |
+| `children` | Link text and icon |
+| `href`     | url                |
 
 > 💡 See the
 > [Carbon link](https://www.carbondesignsystem.com/components/link/code) for a
