@@ -38,12 +38,13 @@ const MastheadLeftNav = ({ navigation, isSideNavExpanded }) => {
   const sideNav = navigation.map((link, i) => {
     if (link.hasMenu) {
       return (
-        <SideNavMenu title={link.title}>
+        <SideNavMenu title={link.title} key={i}>
           <SideNavMenuItem
             href="javascript:void(0);"
             className={`${prefix}--masthead__side-nav--submemu-back`}
             data-autoid={`${stablePrefix}--masthead__l0-sidenav--subnav-back-${i}`}
-            isBackButton>
+            isBackButton
+            key={i}>
             <ArrowLeft16 />
             Back
           </SideNavMenuItem>
@@ -56,7 +57,8 @@ const MastheadLeftNav = ({ navigation, isSideNavExpanded }) => {
             return (
               <SideNavMenuItem
                 href={item.url}
-                data-autoid={`${stablePrefix}--masthead__l0-sidenav--subnav-${j}`}>
+                data-autoid={`${stablePrefix}--masthead__l0-sidenav--subnav-${j}`}
+                key={j}>
                 {item.title}
               </SideNavMenuItem>
             );
@@ -67,7 +69,8 @@ const MastheadLeftNav = ({ navigation, isSideNavExpanded }) => {
       return (
         <SideNavLink
           href={link.url}
-          data-autoid={`${stablePrefix}--masthead__l0-sidenav--nav-${i}`}>
+          data-autoid={`${stablePrefix}--masthead__l0-sidenav--nav-${i}`}
+          key={i}>
           {link.title}
         </SideNavLink>
       );
