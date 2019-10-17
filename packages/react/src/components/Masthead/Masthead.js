@@ -201,10 +201,10 @@ const Masthead = ({ navigation, hasProfile, hasSearch, ...mastheadProps }) => {
  * @property propTypes
  * @description Defined property types for component
  *
- * @type {{mastheadProp: object, navigation: Array, hasProfile: boolean, hasSearch: boolean}}
+ * @type {{mastheadProp: object, navigation: object, hasProfile: boolean, hasSearch: boolean}}
  */
 Masthead.propTypes = {
-  navigation: PropTypes.array,
+  navigation: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   hasProfile: PropTypes.bool,
   hasSearch: PropTypes.bool,
   mastheadProp: PropTypes.object,

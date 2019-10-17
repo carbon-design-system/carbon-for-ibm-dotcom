@@ -101,6 +101,7 @@ Array [
                   <div
                     className="bx--masthead__search"
                     data-autoid="dds--masthead__search"
+                    onBlur={[Function]}
                   >
                     <div
                       aria-expanded={false}
@@ -1159,6 +1160,7 @@ Array [
                   <div
                     className="bx--masthead__search"
                     data-autoid="dds--masthead__search"
+                    onBlur={[Function]}
                   >
                     <div
                       aria-expanded={false}
