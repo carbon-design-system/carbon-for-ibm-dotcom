@@ -42,16 +42,18 @@ class ipcinfoCookie {
    * set the ipcInfo cookie
    * takes care of converting to string and encoding
    *
-   * @param {string} cc country coude
-   * @param {string} lc language code
+   * @param {object} params params object
+   * @param {string} params.cc country code
+   * @param {string} params.lc language code
    *
    * @example
    * import { ipcinfoCookie } from '@carbon/ibmdotcom-utilities';
    *
-   * ipcinfoCookie.set("us", "en");
+   * const locale = {cc: 'us', lc: 'en'}
+   * ipcinfoCookie.set(locale);
    *
    */
-  static set(cc, lc) {
+  static set({ cc, lc }) {
     const info = `cc=${cc};lc=${lc}`;
 
     Cookies.set(_cookieName, encodeURIComponent(info));
