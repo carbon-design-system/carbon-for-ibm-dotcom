@@ -20,7 +20,7 @@ const _proxy = process.env.CORS_PROXY || '';
  * @type {string}
  * @private
  */
-const _endpoint = `${_proxy}${_host}/common/v18/js/data/jsononly/locale`;
+const _endpoint = `${_proxy}${_host}/common/v18/js/data/countrylist`;
 
 /**
  * Locale API class with method of fetching user's locale for
@@ -86,7 +86,7 @@ class LocaleAPI {
    * }
    */
   static async getList(cc, lc) {
-    const url = `${_endpoint}/${cc}${lc}-locale.json`;
+    const url = `${_endpoint}/${cc}${lc}-utf8.json`;
 
     /**
      * if the json file for the cc-lc combo does not exist,
