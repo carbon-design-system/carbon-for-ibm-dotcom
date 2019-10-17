@@ -15,8 +15,8 @@ describe('LocaleAPI', () => {
   const _cc = 'us';
   const _lc = 'es';
 
-  const endpoint = `${process.env.TRANSLATION_HOST}/common/v18/js/data/jsononly/locale`;
-  const fetchUrl = `${endpoint}/${_cc}${_lc}-locale.json`;
+  const endpoint = `${process.env.TRANSLATION_HOST}/common/v18/js/data/countrylist`;
+  const fetchUrl = `${endpoint}/${_cc}${_lc}-utf8.json`;
 
   beforeEach(function() {
     mockAxios.get.mockImplementationOnce(() =>
