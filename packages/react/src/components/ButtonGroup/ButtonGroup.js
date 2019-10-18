@@ -92,7 +92,8 @@ ButtonGroup.propTypes = {
     PropTypes.shape({
       copy: PropTypes.string.isRequired,
       link: PropTypes.string.isRequired,
-      renderArrow: PropTypes.bool.isRequired,
+      renderIcon: PropTypes.string,
+      renderArrow: PropTypes.bool,
     })
   ),
 };

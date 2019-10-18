@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import ButtonGroup from '../ButtonGroup';
 
 describe('<ButtonGroup />', () => {
-  it('renders pattern as expected', () => {
+  it('renders ButtonGroup as expected', () => {
     const buttons = [
       {
         link: '',
@@ -17,7 +17,7 @@ describe('<ButtonGroup />', () => {
       },
     ];
     const buttonGroup = mount(<ButtonGroup buttons={buttons} />);
-    expect(buttonGroup.find('.bx--leadspace__ctas')).toHaveLength(1);
+    expect(buttonGroup.find('.bx--buttongroup__ctas')).toHaveLength(1);
   });
 
   it('renders only 2 buttons max', () => {
