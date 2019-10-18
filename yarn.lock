@@ -926,6 +926,15 @@
   dependencies:
     window-or-global "^1.0.1"
 
+"@carbon/ibmdotcom-utilities@^1.1.0-alpha.610":
+  version "1.1.0-alpha.610"
+  resolved "https://registry.yarnpkg.com/@carbon/ibmdotcom-utilities/-/ibmdotcom-utilities-1.1.0-alpha.610.tgz#500307c9315a86baf1b726359c5f683249d8046a"
+  integrity sha512-0BWExTz3R7Y6l0cJm1NKtMctw3Bli01Qn+RhnslJM/AfPpe+82mfBXugasKK1qjgZGLUgp4Wrlp3sOkafd0vRA==
+  dependencies:
+    axios "^0.19.0"
+    js-cookie "^2.2.1"
+    window-or-global "^1.0.1"
+
 "@carbon/icon-helpers@10.4.0":
   version "10.4.0"
   resolved "https://registry.yarnpkg.com/@carbon/icon-helpers/-/icon-helpers-10.4.0.tgz#771ba51efcaa9d2be03800f8e0f50c7aa779febf"

@@ -10,19 +10,10 @@ mockAxios.get.mockImplementationOnce(() =>
 );
 
 describe('Geolocation utility', () => {
-  it('should return an object with the expected cc and lc', async () => {
-    Object.defineProperty(window.navigator, 'language', {
-      writable: true,
-      value: 'en',
-    });
-
+  it('should return an object with the expected cc', async () => {
     const info = await geolocation();
     const endpoint = process.env.GEO_API;
-    const expected = {
-      cc: 'us',
-      lc: 'en',
-    };
-    expect(info).toStrictEqual(expected);
+    expect(info).toBe('us');
     expect(mockAxios.get).toHaveBeenCalledWith(endpoint, {
       headers: {
         'Content-Type': 'application/json; charset=utf-8',
