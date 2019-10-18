@@ -10,7 +10,11 @@ import root from 'window-or-global';
 import { ArrowRight20, ArrowDown20, Pdf20 } from '@carbon/icons-react';
 import { Button } from 'carbon-components-react';
 import { settings } from 'carbon-components';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import { BUTTON_GROUP } from '../../internal/FeatureFlags';
+import {
+  featureFlag,
+  settings as ddsSettings,
+} from '@carbon/ibmdotcom-utilities';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
@@ -57,7 +61,8 @@ const ButtonGroup = ({ buttons }) => {
     };
   }, []);
 
-  return (
+  return featureFlag(
+    BUTTON_GROUP,
     <div
       className={`${prefix}--buttongroup`}
       data-autoid={`${stablePrefix}--buttongroup`}>
