@@ -66,28 +66,26 @@ const ButtonGroup = ({ buttons }) => {
     <div
       className={`${prefix}--buttongroup`}
       data-autoid={`${stablePrefix}--buttongroup`}>
-      <div className={`${prefix}--buttongroup__ctas`}>
-        {buttons.map((button, key) => {
-          if (key > 1) return;
-          const renderIcon = button.renderArrow
-            ? {
-                renderIcon: ArrowRight20,
-              }
-            : {};
-          return (
-            <Button
-              {...renderIcon}
-              key={key}
-              data-autoid={`${stablePrefix}--buttongroup-${key}`}
-              renderIcon={icons[button.renderIcon]}
-              href={button.link}
-              ref={buttonsRef.current[key]}
-              kind={key === 0 ? 'primary' : 'tertiary'}>
-              {button.copy}
-            </Button>
-          );
-        })}
-      </div>
+      {buttons.map((button, key) => {
+        if (key > 1) return;
+        const renderIcon = button.renderArrow
+          ? {
+              renderIcon: ArrowRight20,
+            }
+          : {};
+        return (
+          <Button
+            {...renderIcon}
+            key={key}
+            data-autoid={`${stablePrefix}--buttongroup-${key}`}
+            renderIcon={icons[button.renderIcon]}
+            href={button.link}
+            ref={buttonsRef.current[key]}
+            kind={key === 0 ? 'primary' : 'tertiary'}>
+            {button.copy}
+          </Button>
+        );
+      })}
     </div>
   );
 };

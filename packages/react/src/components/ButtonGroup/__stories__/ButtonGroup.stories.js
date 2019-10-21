@@ -2,7 +2,6 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, object } from '@storybook/addon-knobs';
 import '../../../../../styles/scss/components/buttongroup/_buttongroup.scss';
-import 'carbon-components/scss/globals/grid/_grid.scss';
 import readme from '../README.md';
 import { BUTTON_GROUP } from '../../../internal/FeatureFlags';
 
