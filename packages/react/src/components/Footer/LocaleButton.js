@@ -1,5 +1,5 @@
 import { FOOTER_LOCALE_BUTTON } from '../../internal/FeatureFlags.js';
-import { featureFlag } from '@carbon/ibmdotcom-utilities';
+import { featureFlag, ipcinfoCookie } from '@carbon/ibmdotcom-utilities';
 
 import React, { useState } from 'react';
 import {
@@ -7,6 +7,7 @@ import {
   ComposedModal,
   ModalHeader,
   ModalBody,
+  ComboBox,
 } from 'carbon-components-react';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
@@ -19,10 +20,45 @@ const { prefix } = settings;
  * EXPERIMENTAL: Renders the locale button
  *
  * @private
+ *
  * @returns {object} JSX object
  */
 const LocaleButton = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  // retrieve list from local storage
+  const list = JSON.parse(localStorage.getItem('countryList'));
+
+  /**
+   * method to handle when country/region has been selected from dropdown
+   *
+   * @param {object} item selected country/region
+   */
+  const selectItem = item => {
+    const stringLocale = item.selectedItem.locale[0][0];
+    const locale = stringLocale.split('-');
+    const objectLocale = {
+      cc: locale[1],
+      lc: locale[0],
+    };
+    ipcinfoCookie.set(objectLocale);
+  };
+
+  /**
+   *  method to sort list to be used by the dropdown
+   *
+   * @param {object} list country list
+   *
+   * @returns {object} list item
+   */
+  const sortList = list => {
+    let countryList = [];
+    list.regionList &&
+      list.regionList.map(region => {
+        countryList = countryList.concat(region.countryList);
+      });
+    return countryList;
+  };
 
   return featureFlag(
     FOOTER_LOCALE_BUTTON,
@@ -45,9 +81,16 @@ const LocaleButton = () => {
           title="Select your region"
         />
         <ModalBody>
-          <p className={`${prefix}--modal-content__text`}>
-            Placeholder text for now
-          </p>
+          <ComboBox
+            id="id"
+            type="default"
+            itemToString={item =>
+              item ? `${item.name}-${item.locale[0][1]}` : ''
+            }
+            onChange={selectItem}
+            items={sortList(list)}
+            placeholder="Select a country/region"
+          />
         </ModalBody>
       </ComposedModal>
     </div>

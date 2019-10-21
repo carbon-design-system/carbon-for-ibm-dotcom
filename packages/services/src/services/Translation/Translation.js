@@ -1,5 +1,6 @@
 import axios from 'axios';
 import root from 'window-or-global';
+import { LocaleAPI } from '../Locale';
 
 /**
  * @constant {string | string} Host for the Translation API call
@@ -38,11 +39,10 @@ class TranslationAPI {
    * }
    */
   static async getTranslation() {
-    const lc = lc ? lc : 'en'; // TODO: create utility for fetching lc
-    const cc = cc ? cc : 'us'; // TODO: create utility for fetching cc
+    const locale = await LocaleAPI.getLocale();
     const currenthost = `${root.location.protocol}//${root.location.host}`;
     const proxy = currenthost !== _host ? _proxy : '';
-    const url = `${proxy}${_endpoint}/${cc}${lc}.json`;
+    const url = `${proxy}${_endpoint}/${locale.cc}${locale.lc}.json`;
 
     return await axios
       .get(url, {

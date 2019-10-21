@@ -59,7 +59,7 @@ class LocaleAPI {
       const lc = lang.split('-')[0];
 
       if (cc && lc) {
-        const list = await this.getList(cc, lc);
+        const list = await this.getList({ cc, lc });
         const verifiedCodes = this.verifyLocale(cc, lc, list);
 
         // set the ipcInfo cookie
@@ -72,9 +72,11 @@ class LocaleAPI {
 
   /**
    * Get the country list of all supported countries and their languages
+   * then set in Local Storage
    *
-   * @param {string} cc country code
-   * @param {string} lc language code
+   * @param {object} params params object
+   * @param {string} params.cc country code
+   * @param {string} params.lc language code
    *
    * @returns {Promise<any>} promise object
    *
@@ -85,20 +87,24 @@ class LocaleAPI {
    *    const list = await LocaleAPI.getList();
    * }
    */
-  static async getList(cc, lc) {
+  static async getList({ cc, lc }) {
     const url = `${_endpoint}/${cc}${lc}-utf8.json`;
 
     /**
      * if the json file for the cc-lc combo does not exist,
      * browser will automatically redirect to the us-en country list
      */
-    return await axios
+    const list = await axios
       .get(url, {
         headers: {
           'Content-Type': 'application/json; charset=utf-8',
         },
       })
       .then(response => response.data);
+
+    localStorage.setItem('countryList', JSON.stringify(list));
+
+    return list;
   }
 
   /**

@@ -55,7 +55,7 @@ describe('LocaleAPI', () => {
   });
 
   it('should make the call for the country list', async () => {
-    const data = await LocaleAPI.getList(_cc, _lc);
+    const data = await LocaleAPI.getList({ cc: _cc, lc: _lc });
 
     expect(data).toEqual(response);
     expect(mockAxios.get).toHaveBeenCalledWith(fetchUrl, {
