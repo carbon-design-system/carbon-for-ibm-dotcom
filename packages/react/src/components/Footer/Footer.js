@@ -7,7 +7,10 @@
 
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import {
+  settings as ddsSettings,
+  ipcinfoCookie,
+} from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
 import { TranslationAPI } from '@carbon/ibmdotcom-services';
 import classNames from 'classnames';
@@ -28,6 +31,7 @@ const { prefix } = settings;
 const Footer = ({ type }) => {
   const [footerMenuData, setFooterMenuData] = useState([]);
   const [footerLegalData, setFooterLegalData] = useState([]);
+  const [locale, setLocale] = useState({});
 
   useEffect(() => {
     (async () => {
@@ -35,7 +39,23 @@ const Footer = ({ type }) => {
       setFooterMenuData(response.footerMenu);
       setFooterLegalData(response.footerThin);
     })();
-  }, []);
+  }, [locale]);
+
+  /**
+   * method to handle when country/region has been selected from dropdown
+   *
+   * @param {object} item selected country/region
+   */
+  const selectItem = item => {
+    const stringLocale = item.selectedItem.locale[0][0];
+    const locale = stringLocale.split('-');
+    const objectLocale = {
+      cc: locale[1],
+      lc: locale[0],
+    };
+    ipcinfoCookie.set(objectLocale);
+    setLocale(objectLocale);
+  };
 
   return (
     <footer
@@ -45,7 +65,7 @@ const Footer = ({ type }) => {
         <div className={`${prefix}--footer__main-container`}>
           <FooterLogo />
           {optionalFooterNav(type, footerMenuData)}
-          <LocaleButton />
+          <LocaleButton selectItem={selectItem} />
         </div>
       </section>
       <LegalNav links={footerLegalData} />
