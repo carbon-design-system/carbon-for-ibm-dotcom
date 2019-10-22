@@ -5,4 +5,4 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-export * from './horizontalrule';
+export { default as horizontalruleTemplate } from './horizontalrule.template';

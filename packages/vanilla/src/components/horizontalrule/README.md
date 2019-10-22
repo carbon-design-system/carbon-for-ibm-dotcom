@@ -10,11 +10,11 @@ Here's a quick example to get you started:
 ### ES6 Template Literal
 
 ```javascript
-import { horizontalrule } from '@carbon/ibmdotcom-vanilla';
+import { horizontalruleTemplate } from '@carbon/ibmdotcom-vanilla';
 import '@carbon/ibmdotcom-styles/scss/components/horizontalrule/index.scss';
 
 console.log(
-  horizontalrule({
+  horizontalruleTemplate({
     style: '', // dashed | default
     size: '', // small | medium | large | fluid (default)
     contrast: '', // low | large | medium (default)

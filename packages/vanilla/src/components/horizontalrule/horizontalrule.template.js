@@ -1,5 +1,5 @@
 /**
- * Horizontal Rule component
+ * Horizontal Rule template literal
  *
  * @param {object} props Property object passed into the template
  * @param {string} props.style solid vs dashed [''|'dashed']
@@ -8,7 +8,7 @@
  * @param {string} props.weight weight of the rule [''|'thick']
  * @returns {string} ES6 template literal of the horizontal rule
  */
-const HorizontalRule = ({ style, size, contrast, weight }) => {
+const horizontalruleTemplate = ({ style, size, contrast, weight }) => {
   const hrStyle = style === 'dashed' ? 'bx--hr--dashed' : '';
   const hrSize = size && size !== '' ? `bx--hr--${size}` : '';
   const hrContrast =
@@ -21,4 +21,4 @@ const HorizontalRule = ({ style, size, contrast, weight }) => {
     />`;
 };
 
-export default HorizontalRule;
+export default horizontalruleTemplate;

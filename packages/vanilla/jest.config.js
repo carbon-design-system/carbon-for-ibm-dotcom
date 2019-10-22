@@ -15,6 +15,9 @@ module.exports = {
     '^.+\\.s?css$': '<rootDir>/config/jest/cssTransform.js',
     '^(?!.*\\.(js|jsx|css|json)$)': '<rootDir>/config/jest/fileTransform.js',
   },
+  moduleNameMapper: {
+    '^.+\\.(css|less|scss)$': 'identity-obj-proxy',
+  },
   testPathIgnorePatterns: [
     '/node_modules/',
     '/examples/',
@@ -22,6 +25,7 @@ module.exports = {
     '/lib/',
     '/es/',
     '/cjs/',
+    '/__stories__/',
   ],
   moduleFileExtensions: ['js', 'json'],
   snapshotSerializers: ['enzyme-to-json/serializer'],

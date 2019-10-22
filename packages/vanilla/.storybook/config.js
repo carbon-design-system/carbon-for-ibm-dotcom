@@ -1,4 +1,3 @@
-import React from 'react';
 import { configure, addParameters, addDecorator } from '@storybook/html';
 import requireContext from 'require-context.macro';
 import { addReadme } from 'storybook-readme/html';
