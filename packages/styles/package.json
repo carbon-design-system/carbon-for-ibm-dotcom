@@ -33,11 +33,11 @@
   "dependencies": {
     "@carbon/grid": "^10.6.0",
     "@carbon/layout": "^10.5.0",
-    "@carbon/themes": "^10.7.0",
-    "@carbon/type": "^10.6.0"
+    "@carbon/themes": "^10.4.0",
+    "@carbon/type": "^10.5.1"
   },
   "devDependencies": {
-    "carbon-components": "^10.7.1",
+    "carbon-components": "^10.6.0",
     "del": "^3.0.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^6.1.0",

@@ -891,11 +891,6 @@
   resolved "https://registry.yarnpkg.com/@carbon/colors/-/colors-10.4.0.tgz#8c21127926bc389dcb4d415b55d4eae278f3d525"
   integrity sha512-UERU07hWXAjsaWu6JPJDyJnwVLkJr+8wTvFrbCkubCfl/MZjKoyLgz0CNypu8hSg8ZaDUzl/NfXMgRpprzuSjQ==
 
-"@carbon/colors@10.5.0":
-  version "10.5.0"
-  resolved "https://registry.yarnpkg.com/@carbon/colors/-/colors-10.5.0.tgz#097b5194db3102090c552b5ab96a5968e7b825c3"
-  integrity sha512-KTKBps+2GuvRtpxKqfQQsYCpGGc+JEZ5VGq4o18WKgVqNGZSTXtcFMiytMP92F8Wy1NTes9zpKG1211b2+ETsQ==
-
 "@carbon/grid@^10.6.0":
   version "10.6.0"
   resolved "https://registry.yarnpkg.com/@carbon/grid/-/grid-10.6.0.tgz#299028aa862aedc9ffa60f4d90c4beb67fea4d33"
@@ -981,22 +976,6 @@
   dependencies:
     "@carbon/colors" "10.4.0"
 
-"@carbon/themes@^10.7.0":
-  version "10.7.0"
-  resolved "https://registry.yarnpkg.com/@carbon/themes/-/themes-10.7.0.tgz#dfc795263bd18fdf1257c039c9153a299dbd41b7"
-  integrity sha512-Gn7XoCvuH4nNT7LwDtuwVHe/uAsBC1oB36iH2lhHsdIsmH/0onZC36Hm/0CPrA9bU7Oii0XncY1rkj/L5j1Xiw==
-  dependencies:
-    "@carbon/colors" "10.5.0"
-    "@carbon/type" "10.6.0"
-
-"@carbon/type@10.6.0", "@carbon/type@^10.6.0":
-  version "10.6.0"
-  resolved "https://registry.yarnpkg.com/@carbon/type/-/type-10.6.0.tgz#ef3f2376f4728fb10bb2e0b493f3cd15efa7910a"
-  integrity sha512-AWFxHilzzdS3UEd06KW+Z8097ka+Ppr3J5ake5ZFrnZaTXCePHZgaV8bME89klHY0jm+uMb8ftZhZi49V7uOWA==
-  dependencies:
-    "@carbon/import-once" "10.3.0"
-    "@carbon/layout" "10.5.0"
-
 "@carbon/type@^10.3.0":
   version "10.4.1"
   resolved "https://registry.yarnpkg.com/@carbon/type/-/type-10.4.1.tgz#25ee658672621260bf51b192b9fd40a87e7bbd74"
@@ -1004,6 +983,14 @@
   dependencies:
     "@carbon/import-once" "10.3.0"
     "@carbon/layout" "10.4.0"
+
+"@carbon/type@^10.5.1":
+  version "10.6.0"
+  resolved "https://registry.yarnpkg.com/@carbon/type/-/type-10.6.0.tgz#ef3f2376f4728fb10bb2e0b493f3cd15efa7910a"
+  integrity sha512-AWFxHilzzdS3UEd06KW+Z8097ka+Ppr3J5ake5ZFrnZaTXCePHZgaV8bME89klHY0jm+uMb8ftZhZi49V7uOWA==
+  dependencies:
+    "@carbon/import-once" "10.3.0"
+    "@carbon/layout" "10.5.0"
 
 "@cnakazawa/watch@^1.0.3":
   version "1.0.3"
@@ -6078,16 +6065,6 @@ carbon-components@^10.5.1:
   version "10.5.1"
   resolved "https://registry.yarnpkg.com/carbon-components/-/carbon-components-10.5.1.tgz#e779ec3bee84b72a648b3500b2bf4e84bc491144"
   integrity sha512-1h/vRHZhTTj9VpWZOJUYR7Xd7avr7XynwaEj8Lp7MBt8KfXk8CVxJOY/uNhxz25cnrBajP2m+jid1daEBXiGbw==
-  dependencies:
-    carbon-icons "^7.0.7"
-    flatpickr "4.6.1"
-    lodash.debounce "^4.0.8"
-    warning "^3.0.0"
-
-carbon-components@^10.7.1:
-  version "10.7.1"
-  resolved "https://registry.yarnpkg.com/carbon-components/-/carbon-components-10.7.1.tgz#74ebb771eedb6c61ee264d02609ac06b5d87d090"
-  integrity sha512-DRc8xv9PT+3XJXZ2fUBAVvZMJ302YYz5CRrEZrukKv1Rrmm6IKwAfzjF4VCoGLyrt7+TPghQNE2c4Xnbfor3wg==
   dependencies:
     carbon-icons "^7.0.7"
     flatpickr "4.6.1"
