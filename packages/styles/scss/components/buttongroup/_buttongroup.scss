@@ -30,6 +30,8 @@
       .#{$prefix}--btn {
         width: auto;
         margin-right: $layout-03;
+        flex-grow: 1;
+        flex-basis: 0;
       }
     }
   }
