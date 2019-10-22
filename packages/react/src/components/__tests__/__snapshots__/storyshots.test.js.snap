@@ -1096,7 +1096,7 @@ Array [
                 href="https://www.ibm.com"
               >
                 <span>
-                  Text link
+                  Link text
                 </span>
                 <svg
                   aria-hidden={true}
