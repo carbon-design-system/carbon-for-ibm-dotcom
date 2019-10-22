@@ -36,7 +36,7 @@ const MastheadLeftNav = ({ navigation, isSideNavExpanded }) => {
    * @returns {*} Left side navigation
    */
   const sideNav = navigation.map((link, i) => {
-    if (link.hasMenu) {
+    if (link.hasMenu && link.hasMegapanel) {
       return (
         <SideNavMenu title={link.title} key={i}>
           <SideNavMenuItem

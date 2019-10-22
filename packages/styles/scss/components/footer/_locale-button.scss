@@ -12,6 +12,10 @@
 /// @group footer
 
 @mixin local-button {
+  .#{$prefix}--modal-content {
+    height: 500px;
+  }
+
   .#{$prefix}--locale-btn {
     max-width: 100%;
     width: 100%;

@@ -32,7 +32,7 @@ const LocaleButton = ({ selectItem }) => {
   const list = JSON.parse(localStorage.getItem('countryList'));
 
   /**
-   *  method to sort list to be used by the dropdown
+   *  method to merge list and sort alphabetically by country
    *
    * @param {object} list country list
    *
@@ -44,6 +44,7 @@ const LocaleButton = ({ selectItem }) => {
       list.regionList.map(region => {
         countryList = countryList.concat(region.countryList);
       });
+    countryList.sort((a, b) => (a.name > b.name ? 1 : -1));
     return countryList;
   };
 

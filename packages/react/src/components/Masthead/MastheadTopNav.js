@@ -31,7 +31,7 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
    */
 
   const mastheadLinks = navigation.map((link, i) => {
-    if (link.hasMenu) {
+    if (link.hasMenu && link.hasMegapanel) {
       return (
         <HeaderMenu
           aria-label={link.title}

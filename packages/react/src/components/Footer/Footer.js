@@ -49,12 +49,12 @@ const Footer = ({ type }) => {
   const selectItem = item => {
     const stringLocale = item.selectedItem.locale[0][0];
     const locale = stringLocale.split('-');
-    const objectLocale = {
+    const localeObj = {
       cc: locale[1],
       lc: locale[0],
     };
-    ipcinfoCookie.set(objectLocale);
-    setLocale(objectLocale);
+    ipcinfoCookie.set(localeObj);
+    setLocale(localeObj);
   };
 
   return (
