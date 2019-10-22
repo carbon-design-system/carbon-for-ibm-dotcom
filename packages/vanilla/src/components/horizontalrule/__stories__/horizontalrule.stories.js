@@ -4,9 +4,15 @@ import wrapper from './templates/wrapper.template';
 import horizontalrule from '../horizontalrule.template';
 import '../../../../../styles/scss/components/horizontalrule/_horizontalrule.scss';
 import 'carbon-components/scss/globals/grid/_grid.scss';
+import readme from '../README.md';
 
 storiesOf('HorizontalRule', module)
   .addDecorator(withKnobs)
+  .addParameters({
+    readme: {
+      sidebar: readme,
+    },
+  })
   .add('Default', () => {
     const styles = {
       solid: '',
