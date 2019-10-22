@@ -7,11 +7,6 @@ import path from 'path';
  * and create additional tests in there.
  */
 initStoryshots({
-  /* configuration options */
   configPath: path.resolve(__dirname, '../../../.storybook'),
-
   framework: 'html',
-
-  // Ignore stories with "skip" in the storiesOf text value
-  storyKindRegex: /^((?!.*?skip).)*$/,
 });

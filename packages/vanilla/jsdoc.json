@@ -3,16 +3,16 @@
     "allowUnknownTags": ["category"]
   },
   "source": {
-    "include": ["./src"],
+    "include": ["./src/components"],
     "includePattern": ".js$",
-    "excludePattern": "(node_modules/|docs)"
+    "excludePattern": "(node_modules/|jsdocs/|__stories__)"
   },
   "plugins": [
     "plugins/markdown"
   ],
   "opts": {
     "encoding": "utf8",
-    "destination": "docs/",
+    "destination": "jsdocs/",
     "recurse": true,
     "verbose": true
   },

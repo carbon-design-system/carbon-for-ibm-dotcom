@@ -12,7 +12,7 @@ module.exports = {
   testURL: 'http://localhost',
   transform: {
     '^.+\\.(js|jsx)$': '<rootDir>/config/jest/jsTransform.js',
-    '^.+\\.s?css$': '<rootDir>/config/jest/cssTransform.js',
+    // '^.+\\.s?css$': '<rootDir>/config/jest/cssTransform.js',
     '^(?!.*\\.(js|jsx|css|json)$)': '<rootDir>/config/jest/fileTransform.js',
   },
   moduleNameMapper: {
@@ -25,7 +25,6 @@ module.exports = {
     '/lib/',
     '/es/',
     '/cjs/',
-    '/__stories__/',
   ],
   moduleFileExtensions: ['js', 'json'],
   snapshotSerializers: ['enzyme-to-json/serializer'],

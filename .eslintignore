@@ -47,6 +47,7 @@ packages/utilities/node_modules
 # vanilla
 packages/vanilla/coverage
 packages/vanilla/es
+packages/vanilla/jsdocs
 packages/vanilla/umd
 packages/vanilla/lib
 packages/vanilla/node_modules

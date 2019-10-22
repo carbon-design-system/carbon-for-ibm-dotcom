@@ -1,5 +1,6 @@
 .env
 coverage
+jsdocs
 
 # Storybook
 storybook-static

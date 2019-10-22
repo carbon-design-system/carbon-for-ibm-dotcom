@@ -29,6 +29,7 @@
     "clean": "rimraf es lib umd storybook-static",
     "prepublish": "yarn build",
     "test": "jest",
+    "test:updateSnapshot": "jest -u",
     "jsdoc": "rimraf docs && jsdoc -c ./jsdoc.json ./README.md",
     "build-storybook": "build-storybook",
     "start": "yarn storybook",
