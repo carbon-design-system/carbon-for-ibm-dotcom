@@ -10,25 +10,25 @@ storiesOf('HorizontalRule', module)
   .add('Default', () => {
     const styles = {
       solid: '',
-      dashed: 'bx--hr--dashed',
+      dashed: 'dashed',
     };
 
     const sizes = {
-      small: 'bx--hr--small',
-      medium: 'bx--hr--medium',
-      large: 'bx--hr--large',
+      small: 'small',
+      medium: 'medium',
+      large: 'large',
       fluid: '',
     };
 
     const contrasts = {
-      'low-contrast': 'bx--hr--low-contrast',
+      'low-contrast': 'low',
       'medium-contrast': '',
-      'high-contrast': 'bx--hr--high-contrast',
+      'high-contrast': 'high',
     };
 
     const weights = {
       thin: '',
-      thick: 'bx--hr--thick',
+      thick: 'thick',
     };
 
     const words = text(
