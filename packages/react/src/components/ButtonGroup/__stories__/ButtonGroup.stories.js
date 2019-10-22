@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, object } from '@storybook/addon-knobs';
+import { withKnobs, text, select } from '@storybook/addon-knobs';
+import { ArrowRight20, ArrowDown20, Pdf20 } from '@carbon/icons-react';
 import '../../../../../styles/scss/components/buttongroup/_buttongroup.scss';
 import readme from '../README.md';
 import { BUTTON_GROUP } from '../../../internal/FeatureFlags';
@@ -16,16 +17,38 @@ if (BUTTON_GROUP) {
       },
     })
     .add('Default', () => {
+      const iconMap = {
+        ArrowRight20,
+        ArrowDown20,
+        Pdf20,
+      };
+
+      const iconOptions = {
+        None: null,
+        'Arrow Right': 'ArrowRight20',
+        'Arrow Down': 'ArrowDown20',
+        PDF: 'Pdf20',
+      };
+
+      const primaryIcon =
+        iconMap[
+          select('Primary button icon', iconOptions, iconOptions['Arrow Right'])
+        ];
+      const secondaryIcon =
+        iconMap[
+          select('Secondary button icon', iconOptions, iconOptions['PDF'])
+        ];
+
       const buttons = [
         {
           link: '',
-          copy: 'Primary action button',
-          renderIcon: 'ArrowDown',
+          copy: text('Primary button copy', 'Primary action button'),
+          renderIcon: primaryIcon || null,
         },
         {
           link: '',
-          copy: 'Secondary action button',
-          renderIcon: 'ArrowRight',
+          copy: text('Secondary button copy', 'Secondary action button'),
+          renderIcon: secondaryIcon || null,
         },
       ];
 
@@ -38,7 +61,7 @@ if (BUTTON_GROUP) {
             flexDirection: 'column',
             backgroundColor: 'black',
           }}>
-          <ButtonGroup buttons={object('buttons', buttons)} />
+          <ButtonGroup buttons={buttons} />
         </div>
       );
     });

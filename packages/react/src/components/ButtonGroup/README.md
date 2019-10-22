@@ -1,7 +1,7 @@
 # Button Group
 
 > The button group component is to be utilized within IBM.com for grouping two
-> Button components together.
+> or more Button components together.
 
 ## Getting started
 
@@ -10,6 +10,7 @@ Here's a quick example to get you started.
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { ArrowRight20, ArrowDown20 } from '@carbon/icons-react';
 import { ButtonGroup } from '@carbon/ibmdotcom-react';
 import '@carbon/ibmdotcom-styles/scss/components/buttongroup/_buttongroup.scss';
 function App() {
@@ -19,12 +20,12 @@ function App() {
       {
         link: '',
         copy: 'Primary action button',
-        renderIcon: 'ArrowDown',
+        renderIcon: ArrowDown20,
       },
       {
         link: '',
         copy: 'Secondary action button',
-        renderIcon: 'ArrowRight',
+        renderIcon: ArrowRight20,
       },
     ]}
   />;
@@ -52,16 +53,24 @@ BUTTON_GROUP=true
 
 ## Buttons
 
-| Name      | Description                                                                                    |
-| --------- | ---------------------------------------------------------------------------------------------- |
-| `buttons` | Array of button objects to render. Each object should contain `link`, `copy`, and `renderIcon` |
+| Name      | Description                                                 |
+| --------- | ----------------------------------------------------------- |
+| `buttons` | Array of button objects to render. See `Button Item` below. |
+
+### Button Item
+
+| Name         | Description                           |
+| ------------ | ------------------------------------- |
+| `link`       | URL for the button item               |
+| `copy`       | Button copy                           |
+| `renderIcon` | Custom Icon to render with the button |
 
 ## Stable selectors
 
-| Name                        | Description                                 |
-| --------------------------- | ------------------------------------------- |
-| `dds--buttongroup`          | `ButtonGroup` wrapper layer                 |
-| `dds--buttongroup-${index}` | `Button` component within the `ButtonGroup` |
+| Name                         | Description                                 |
+| ---------------------------- | ------------------------------------------- |
+| `dds--button-group`          | `ButtonGroup` wrapper layer                 |
+| `dds--button-group-${index}` | `Button` component within the `ButtonGroup` |
 
 ## 🙌 Contributing
 
