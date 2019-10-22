@@ -48,7 +48,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.5.5",
-    "@carbon/ibmdotcom-services": "1.1.0-alpha.677",
+    "@carbon/ibmdotcom-services": "1.1.0-alpha.696",
     "@carbon/ibmdotcom-styles": "1.0.0",
     "@carbon/ibmdotcom-utilities": "1.1.0-alpha.677",
     "autosuggest-highlight": "^3.1.1",
