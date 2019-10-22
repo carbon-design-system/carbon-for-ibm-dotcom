@@ -23,6 +23,20 @@ const _contrastOptions = ['low', 'high'];
  * @param {string} props.contrast color of the rule [''|'low'|'high']
  * @param {string} props.weight weight of the rule [''|'thick']
  * @returns {string} ES6 template literal of the horizontal rule
+ *
+ * @example
+ * import { horizontalruleTemplate } from '@carbon/ibmdotcom-vanilla';
+ * import '@carbon/ibmdotcom-styles/scss/components/horizontalrule/index.scss';
+ *
+ * console.log(
+ *   horizontalruleTemplate({
+ *     style: '', // dashed | default
+ *     size: '', // small | medium | large | fluid (default)
+ *     contrast: '', // low | large | medium (default)
+ *     weight: '', // thick | thin (default)
+ *   })
+ * ); // <hr data-autoid="dds--hr" class="bx--hr" />
+ *
  */
 const horizontalruleTemplate = ({ style, size, contrast, weight }) => {
   const hrStyle = style === 'dashed' ? 'bx--hr--dashed' : '';

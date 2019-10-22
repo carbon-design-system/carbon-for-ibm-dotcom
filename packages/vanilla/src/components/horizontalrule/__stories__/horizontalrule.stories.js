@@ -3,7 +3,7 @@ import { withKnobs, select, text } from '@storybook/addon-knobs';
 import wrapper from './templates/wrapper.template';
 import horizontalrule from '../horizontalrule.template';
 import '../../../../../styles/scss/components/horizontalrule/_horizontalrule.scss';
-import 'carbon-components/scss/globals/grid/_grid.scss';
+import '@carbon/grid/scss/grid.scss';
 import readme from '../README.md';
 
 storiesOf('HorizontalRule', module)
