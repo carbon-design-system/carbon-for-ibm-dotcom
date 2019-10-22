@@ -76,7 +76,7 @@ const LocaleButton = ({ selectItem }) => {
               item ? `${item.name}-${item.locale[0][1]}` : ''
             }
             onChange={selectItem}
-            items={sortList(list)}
+            items={list && sortList(list)}
             placeholder="Select a country/region"
           />
         </ModalBody>
