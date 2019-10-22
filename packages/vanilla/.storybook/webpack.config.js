@@ -23,7 +23,7 @@ const useStyleSourceMap = process.env.VANILLA_STORYBOOK_SOURCEMAPS === 'true';
  *
  * @type {boolean}
  */
-const useRtl = process.env.CARBON_REACT_STORYBOOK_USE_RTL === 'true';
+const useRtl = process.env.VANILLA_STORYBOOK_USE_RTL === 'true';
 
 const styleLoaders = [
   {

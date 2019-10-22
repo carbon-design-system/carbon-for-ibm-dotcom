@@ -1,4 +1,20 @@
 /**
+ * Available size options
+ *
+ * @type {string[]}
+ * @private
+ */
+const _sizeOptions = ['small', 'medium', 'large'];
+
+/**
+ * Available contrast options
+ *
+ * @type {string[]}
+ * @private
+ */
+const _contrastOptions = ['low', 'high'];
+
+/**
  * Horizontal Rule template literal
  *
  * @param {object} props Property object passed into the template
@@ -10,9 +26,11 @@
  */
 const horizontalruleTemplate = ({ style, size, contrast, weight }) => {
   const hrStyle = style === 'dashed' ? 'bx--hr--dashed' : '';
-  const hrSize = size && size !== '' ? `bx--hr--${size}` : '';
+  const hrSize = _sizeOptions.indexOf(size) !== -1 ? `bx--hr--${size}` : '';
   const hrContrast =
-    contrast && contrast !== '' ? `bx--hr--${contrast}-contrast` : '';
+    _contrastOptions.indexOf(contrast) !== -1
+      ? `bx--hr--${contrast}-contrast`
+      : '';
   const hrWeight = weight === 'thick' ? 'bx--hr--thick' : '';
 
   return `<hr
