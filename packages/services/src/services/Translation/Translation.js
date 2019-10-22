@@ -40,9 +40,11 @@ class TranslationAPI {
    */
   static async getTranslation() {
     const locale = await LocaleAPI.getLocale();
+    const cc = locale.cc || 'us';
+    const lc = locale.lc || 'en';
     const currenthost = `${root.location.protocol}//${root.location.host}`;
     const proxy = currenthost !== _host ? _proxy : '';
-    const url = `${proxy}${_endpoint}/${locale.cc}${locale.lc}.json`;
+    const url = `${proxy}${_endpoint}/${cc}${lc}.json`;
 
     return await axios
       .get(url, {
