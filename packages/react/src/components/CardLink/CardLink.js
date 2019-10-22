@@ -18,8 +18,6 @@ import { ClickableTile } from 'carbon-components-react';
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
-console.log('testing 1,2,3');
-
 /**
  * Card Link Component
  *
@@ -30,8 +28,6 @@ const CardLink = ({ title, href, content, icon, className, ...props }) => {
   if (!title || !href) {
     return null;
   }
-
-  console.log('testing');
 
   return featureFlag(
     CARD_LINK,
