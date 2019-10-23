@@ -56,9 +56,6 @@ if (BUTTON_GROUP) {
         <div
           style={{
             padding: 2 + `rem`,
-            display: 'flex',
-            alignItems: 'center',
-            flexDirection: 'column',
             backgroundColor: 'black',
           }}>
           <ButtonGroup buttons={buttons} />
