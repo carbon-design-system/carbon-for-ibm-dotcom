@@ -6,9 +6,6 @@
 //
 
 @mixin jumplink {
-    body {
-       @include motion(standard, productive);
-    }
     .#{$prefix}--jumplink {
         color: $link-01;
         text-decoration: none;
