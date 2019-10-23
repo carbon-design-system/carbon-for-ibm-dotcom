@@ -14,25 +14,26 @@
     display: flex;
     flex-direction: column-reverse;
     margin-top: $layout-01;
-    width: 100%;
-
-    .#{$prefix}--btn {
-      width: 100%;
-      margin-top: $layout-01;
-      min-width: carbon--mini-units($btn-min-width);
-    }
 
     @include carbon--breakpoint(md) {
       flex-flow: row-reverse wrap-reverse;
       justify-content: flex-end;
-      width: 100%;
+    }
 
-      .#{$prefix}--btn {
-        width: auto;
-        margin-right: $layout-03;
-        flex-grow: 1;
-        flex-basis: 0;
-      }
+    .#{$prefix}--btn {
+      position: relative;
+      width: 100%;
+    }
+  }
+
+  .#{$prefix}--buttongroup-item {
+    margin-top: $layout-01;
+    max-width: 22rem;
+    min-width: 0;
+
+    @include carbon--breakpoint(md) {
+      padding-right: $layout-03;
+      flex: 1 1 0;
     }
   }
 }

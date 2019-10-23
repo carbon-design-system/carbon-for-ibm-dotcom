@@ -30,22 +30,24 @@ const { prefix } = settings;
 const ButtonGroup = ({ buttons }) => {
   return featureFlag(
     BUTTON_GROUP,
-    <div
+    <ol
       className={`${prefix}--buttongroup`}
       data-autoid={`${stablePrefix}--button-group`}>
       {buttons.map((button, key) => {
         return (
-          <Button
-            key={key}
-            data-autoid={`${stablePrefix}--button-group-${key}`}
-            renderIcon={button.renderIcon || null}
-            href={button.link}
-            kind={key === 0 ? 'primary' : 'tertiary'}>
-            {button.copy}
-          </Button>
+          <li className={`${prefix}--buttongroup-item`}>
+            <Button
+              key={key}
+              data-autoid={`${stablePrefix}--button-group-${key}`}
+              {...button}
+              renderIcon={button.renderIcon || null}
+              kind={key === 0 ? 'primary' : 'tertiary'}>
+              {button.copy}
+            </Button>
+          </li>
         );
       })}
-    </div>
+    </ol>
   );
 };
 
