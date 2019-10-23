@@ -1,0 +1,33 @@
+//
+// Copyright IBM Corp. 2016, 2018
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@mixin simplelink {
+    .#{$prefix}--simplelink {
+        color: $link-01;
+        text-decoration: none;
+        outline: none;
+        display: flex;
+        align-items: center;
+        &:hover {
+          text-decoration: underline;
+        }
+        &:focus {
+          @include focus-outline;
+        }
+        &__text {
+          @include type-style('body-short-02');
+          color: $link-01;
+        }
+        &__icon {
+          fill: $link-01;
+          margin-left: $spacing-03;
+        }
+    }
+} 
+@include exports('simplelink') {
+@include simplelink;
+}

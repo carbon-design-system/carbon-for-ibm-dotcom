@@ -51,6 +51,8 @@
     "@carbon/ibmdotcom-styles": "0.4.0",
     "@carbon/ibmdotcom-utilities": "0.5.0-alpha.331",
     "classnames": "2.2.6",
+    "dompurify": "^2.0.6",
+    "jsdom": "^15.2.0",
     "window-or-global": "^1.0.1"
   },
   "devDependencies": {
