@@ -5,6 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+export * from './ButtonGroup';
 export * from './DotcomShell';
 export * from './Footer';
 export * from './HorizontalRule';
