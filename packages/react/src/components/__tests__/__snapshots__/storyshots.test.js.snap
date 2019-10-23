@@ -26,44 +26,7 @@ Array [
             >
               <div
                 className="bx--col-sm-2 bx--col-md-3 bx--col-lg-6 bx--col-xlg-4 bx--no-gutter"
-              >
-                <a
-                  className="bx--link bx--tile bx--tile--clickable bx--card-link"
-                  data-autoid="dds--card-link"
-                  href="https://example.com"
-                  onClick={[Function]}
-                  onKeyDown={[Function]}
-                  target=""
-                >
-                  <h3
-                    className="bx--card-link__title"
-                  >
-                    Lorem ipsum dolor sit amet
-                  </h3>
-                  <footer
-                    className="bx--card-link__footer"
-                  >
-                    <svg
-                      aria-hidden={true}
-                      focusable="false"
-                      height={20}
-                      preserveAspectRatio="xMidYMid meet"
-                      style={
-                        Object {
-                          "willChange": "transform",
-                        }
-                      }
-                      viewBox="0 0 20 20"
-                      width={20}
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M11.8 2.8l-1 1 5.4 5.5H1v1.4h15.2l-5.4 5.5 1 1L19 10z"
-                      />
-                    </svg>
-                  </footer>
-                </a>
-              </div>
+              />
             </div>
           </div>
         </div>
