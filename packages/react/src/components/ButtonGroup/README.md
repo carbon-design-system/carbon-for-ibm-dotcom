@@ -18,12 +18,12 @@ function App() {
   <ButtonGroup
     buttons={[
       {
-        link: '',
+        href: '',
         copy: 'Primary action button',
         renderIcon: ArrowDown20,
       },
       {
-        link: '',
+        href: '',
         copy: 'Secondary action button',
         renderIcon: ArrowRight20,
       },
@@ -61,9 +61,13 @@ BUTTON_GROUP=true
 
 | Name         | Description                           |
 | ------------ | ------------------------------------- |
-| `link`       | URL for the button item               |
+| `href`       | URL for the button item               |
 | `copy`       | Button copy                           |
 | `renderIcon` | Custom Icon to render with the button |
+
+Visit the
+[Button documentation](http://react.carbondesignsystem.com/?path=/story/buttons--default)
+from Carbon for a full list of available props.
 
 ## Stable selectors
 

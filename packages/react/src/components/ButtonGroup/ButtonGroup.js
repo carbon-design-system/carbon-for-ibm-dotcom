@@ -23,7 +23,7 @@ const { prefix } = settings;
  * @param {object} props props object
  * @param {Array.<{copy: string}>} props.buttons array of buttons
  * @param {string} props.buttons[].copy Button copy
- * @param {string} props.buttons[].link URL for the button item
+ * @param {string} props.buttons[].href URL for the button item
  * @param {object} props.buttons[].renderIcon Optional icon type
  * @returns {*} button components
  */
@@ -35,12 +35,10 @@ const ButtonGroup = ({ buttons }) => {
       data-autoid={`${stablePrefix}--button-group`}>
       {buttons.map((button, key) => {
         return (
-          <li className={`${prefix}--buttongroup-item`}>
+          <li key={key} className={`${prefix}--buttongroup-item`}>
             <Button
-              key={key}
               data-autoid={`${stablePrefix}--button-group-${key}`}
               {...button}
-              renderIcon={button.renderIcon || null}
               kind={key === 0 ? 'primary' : 'tertiary'}>
               {button.copy}
             </Button>
@@ -55,7 +53,7 @@ ButtonGroup.propTypes = {
   buttons: PropTypes.arrayOf(
     PropTypes.shape({
       copy: PropTypes.string.isRequired,
-      link: PropTypes.string.isRequired,
+      href: PropTypes.string.isRequired,
       renderIcon: PropTypes.element,
     })
   ),
