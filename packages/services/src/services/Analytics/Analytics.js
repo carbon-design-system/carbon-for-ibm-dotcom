@@ -49,9 +49,9 @@ class AnalyticsAPI {
    * @example
    * import { AnalyticsAPI } from '@carbon/ibmdotcom-services';
    *
-   * useEffect(() => {
-   *    AnalyticsAPI.initScrollTracker();
-   * },[]);
+   * function init() {
+   *   AnalyticsAPI.initScrollTracker();
+   * }
    **/
   static initScrollTracker() {
     if (scrollTracker) {
@@ -85,6 +85,34 @@ class AnalyticsAPI {
 
       root.removeEventListener('scroll', () => scrollAnalytics);
     }
+  }
+
+  /**
+   * This instantiates an event listener to trigger an event if the Carbon
+   * Tabs component is being interacted with by the user
+   *
+   * @example
+   * import { AnalyticsAPI } from '@carbon/ibmdotcom-services';
+   *
+   * function init() {
+   *   AnalyticsAPI.initDynamicTabs();
+   * }
+   */
+  static initDynamicTabs() {
+    // const fireEvent = this.registerEvent;
+    console.log('init dynamic tabs');
+
+    root.addEventListener('tab-selected', function(evt) {
+      console.log('evt', evt);
+      /*fireEvent({
+        type: 'element',
+        primaryCategory: 'WIDGET',
+        eventName: 'CLICK',
+        eventCategoryGroup: 'TABS DYNAMIC',
+        executionPath: $id,
+        targetTitle: $text
+      });*/
+    });
   }
 }
 

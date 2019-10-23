@@ -5,13 +5,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
 import { Masthead } from '../Masthead';
 import { Footer } from '../Footer';
-import { init } from '../../global';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
@@ -29,10 +28,6 @@ const DotcomShell = ({
   children,
   ...mastheadProps
 }) => {
-  useEffect(() => {
-    init();
-  }, []);
-
   return (
     <>
       <Masthead navigation={navigation} {...mastheadProps} />
