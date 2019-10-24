@@ -2,6 +2,7 @@
 name: Bug Report 🐛
 about: Something isn't working as expected? Here is the right place to report.
 labels: bug
+assignees: photodow, JennySanchez
 ---
 
 <!-- Feel free to remove sections that aren't relevant.
