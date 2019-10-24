@@ -9,8 +9,6 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
-import { Masthead } from '../Masthead';
-import { Footer } from '../Footer';
 import { init } from '../../global';
 
 const { stablePrefix } = ddsSettings;
@@ -23,14 +21,13 @@ const { prefix } = settings;
  * @param {string} User content
  * @returns {*} DotcomShell component
  */
-const Layout = ({ navigation, footerType, children, ...mastheadProps }) => {
+const Layout = ({ children }) => {
   useEffect(() => {
     init();
   }, []);
 
   return (
     <>
-      <Masthead navigation={navigation} {...mastheadProps} />
       <div
         data-autoid={`${stablePrefix}--dotcom-shell`}
         className={`${prefix}--dotcom-shell`}>
@@ -40,7 +37,6 @@ const Layout = ({ navigation, footerType, children, ...mastheadProps }) => {
           {children}
         </div>
       </div>
-      <Footer type={footerType} />
     </>
   );
 };
@@ -53,9 +49,6 @@ Layout.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]).isRequired,
-  navigation: PropTypes.object,
-  footerType: PropTypes.string,
-  mastheadProps: PropTypes.object,
 };
 
 export default Layout;

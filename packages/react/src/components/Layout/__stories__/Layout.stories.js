@@ -16,7 +16,9 @@ storiesOf('Layout', module)
   .add('Default', () => {
     return (
       <Layout type="1-3">
-        <div sticky={true}>...content</div>
+        <div class="bx--sticky" sticky={true}>
+          ...content
+        </div>
         <div>..content</div>
       </Layout>
     );

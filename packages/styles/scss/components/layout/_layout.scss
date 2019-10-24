@@ -1,8 +1,19 @@
-.sticky{
-  background-color:#A0A0A0;
-  width:33%;
-  height:300px;
-  position:fixed;
-  padding-top:20px;
-  padding-left:20px;
+//
+// Copyright IBM Corp. 2016, 2018
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import '../../globals/imports';
+
+@mixin layout {
+
+  .#{$prefix}--sticky {
+    position:fixed;
+  }
+}
+
+@include exports('layout') {
+  @include layout;
 }
