@@ -16,3 +16,10 @@
  */
 export const FOOTER_LOCALE_BUTTON =
   process.env.FOOTER_LOCALE_BUTTON === 'true' || false;
+
+/**
+ * This flag turns on/off the ButtonGroup component
+ *
+ * @type {string | boolean}
+ */
+export const BUTTON_GROUP = process.env.BUTTON_GROUP === 'true' || false;
