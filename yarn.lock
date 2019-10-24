@@ -985,9 +985,9 @@
     "@carbon/layout" "10.4.0"
 
 "@carbon/type@^10.5.1":
-  version "10.5.1"
-  resolved "https://registry.yarnpkg.com/@carbon/type/-/type-10.5.1.tgz#07a9c1ca154042ccd8ae6da753a6c738a46ece0b"
-  integrity sha512-FVPfVhUwddJuquuOpHoc65LKBW9/N8mZnJ7sd5iSYgMUUmh6Aa+lFVNETjGmwMKauz6NZRQCrJGiTr0lzfYDUg==
+  version "10.6.0"
+  resolved "https://registry.yarnpkg.com/@carbon/type/-/type-10.6.0.tgz#ef3f2376f4728fb10bb2e0b493f3cd15efa7910a"
+  integrity sha512-AWFxHilzzdS3UEd06KW+Z8097ka+Ppr3J5ake5ZFrnZaTXCePHZgaV8bME89klHY0jm+uMb8ftZhZi49V7uOWA==
   dependencies:
     "@carbon/import-once" "10.3.0"
     "@carbon/layout" "10.5.0"
