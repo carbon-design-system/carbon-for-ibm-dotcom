@@ -38,18 +38,19 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
           menuLinkName={link.title}
           data-autoid={`${stablePrefix}--masthead__l0-nav--nav-${i}`}
           key={i}>
-          {link.menuSections[0].menuItems[
-            i
-          ].megapanelContent.quickLinks.links.map((item, j) => {
-            return (
-              <HeaderMenuItem
-                href={item.url}
-                data-autoid={`${stablePrefix}--masthead__l0-nav--subnav-${j}`}
-                key={j}>
-                {item.title}
-              </HeaderMenuItem>
-            );
-          })}
+          {link.menuSections[0].menuItems[i].megapanelContent &&
+            link.menuSections[0].menuItems[
+              i
+            ].megapanelContent.quickLinks.links.map((item, j) => {
+              return (
+                <HeaderMenuItem
+                  href={item.url}
+                  data-autoid={`${stablePrefix}--masthead__l0-nav--subnav-${j}`}
+                  key={j}>
+                  {item.title}
+                </HeaderMenuItem>
+              );
+            })}
         </HeaderMenu>
       );
     } else {

@@ -48,6 +48,13 @@ class LocaleAPI {
     const cookie = ipcinfoCookie.get();
     if (cookie && cookie.cc && cookie.lc) {
       return cookie;
+    } else if (root.document.documentElement.lang) {
+      // grab locale from the html lang attribute
+      const lang = root.document.documentElement.lang.toLowerCase();
+      const codes = lang.split('-');
+      const locale = { cc: codes[1], lc: codes[0] };
+      await this.getList(locale);
+      return locale;
     } else {
       const cc = await geolocation();
       /**
