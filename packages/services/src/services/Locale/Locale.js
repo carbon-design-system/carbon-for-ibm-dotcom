@@ -23,6 +23,13 @@ const _proxy = process.env.CORS_PROXY || '';
 const _endpoint = `${_proxy}${_host}/common/v18/js/data/countrylist`;
 
 /**
+ * Session Storage key for country list
+ * @type {string}
+ * @private
+ */
+const _sessionList = 'countryList';
+
+/**
  * Locale API class with method of fetching user's locale for
  * ibm.com
  */
@@ -47,6 +54,7 @@ class LocaleAPI {
   static async getLocale() {
     const cookie = ipcinfoCookie.get();
     if (cookie && cookie.cc && cookie.lc) {
+      await this.getList(cookie);
       return cookie;
     } else if (root.document.documentElement.lang) {
       // grab locale from the html lang attribute
@@ -79,7 +87,7 @@ class LocaleAPI {
 
   /**
    * Get the country list of all supported countries and their languages
-   * then set in Local Storage
+   * if not set in session storage
    *
    * @param {object} params params object
    * @param {string} params.cc country code
@@ -96,22 +104,33 @@ class LocaleAPI {
    */
   static async getList({ cc, lc }) {
     const url = `${_endpoint}/${cc}${lc}-utf8.json`;
+    const sessionList = JSON.parse(sessionStorage.getItem(_sessionList));
 
-    /**
-     * if the json file for the cc-lc combo does not exist,
-     * browser will automatically redirect to the us-en country list
-     */
-    const list = await axios
-      .get(url, {
-        headers: {
-          'Content-Type': 'application/json; charset=utf-8',
-        },
-      })
-      .then(response => response.data);
+    if (sessionList && sessionList.locale === `${lc}-${cc}`) {
+      return sessionList;
+    } else {
+      /**
+       * if the json file for the cc-lc combo does not exist,
+       * browser will automatically redirect to the us-en country list
+       */
+      const list = await axios
+        .get(url, {
+          headers: {
+            'Content-Type': 'application/json; charset=utf-8',
+          },
+        })
+        .then(response => response.data);
 
-    localStorage.setItem('countryList', JSON.stringify(list));
+      // add locale key to the country list object
+      const countryList = {
+        ...list,
+        locale: `${lc}-${cc}`,
+      };
 
-    return list;
+      sessionStorage.setItem(_sessionList, JSON.stringify(countryList));
+
+      return list;
+    }
   }
 
   /**

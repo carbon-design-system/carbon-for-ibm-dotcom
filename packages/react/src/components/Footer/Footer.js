@@ -31,7 +31,6 @@ const { prefix } = settings;
 const Footer = ({ type }) => {
   const [footerMenuData, setFooterMenuData] = useState([]);
   const [footerLegalData, setFooterLegalData] = useState([]);
-  const [locale, setLocale] = useState({});
 
   useEffect(() => {
     (async () => {
@@ -39,10 +38,11 @@ const Footer = ({ type }) => {
       setFooterMenuData(response.footerMenu);
       setFooterLegalData(response.footerThin);
     })();
-  }, [locale]);
+  }, []);
 
   /**
-   * method to handle when country/region has been selected from dropdown
+   * method to handle when country/region has been selected
+   * sets the ipcInfo cookie with selected locale
    *
    * @param {object} item selected country/region
    */
@@ -54,7 +54,6 @@ const Footer = ({ type }) => {
       lc: locale[0],
     };
     ipcinfoCookie.set(localeObj);
-    setLocale(localeObj);
   };
 
   return (

@@ -29,7 +29,7 @@ const LocaleButton = ({ selectItem }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   // retrieve list from local storage
-  const list = JSON.parse(localStorage.getItem('countryList'));
+  const list = JSON.parse(sessionStorage.getItem('countryList'));
 
   /**
    *  method to merge list and sort alphabetically by country
@@ -76,7 +76,7 @@ const LocaleButton = ({ selectItem }) => {
               item ? `${item.name}-${item.locale[0][1]}` : ''
             }
             onChange={selectItem}
-            items={list && sortList(list)}
+            items={list ? sortList(list) : []}
             placeholder="Select a country/region"
           />
         </ModalBody>
