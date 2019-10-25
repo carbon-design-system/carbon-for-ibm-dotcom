@@ -36,16 +36,32 @@ function _updateChild(type, children) {
   const final = [];
 
   children.map((child, i) => {
-    const className = classnames(
-      child.props.className,
-      _types[type] && _types[type][i] ? _types[type][i] : `${prefix}--col`
-    );
-    final.push(
-      React.cloneElement(child, {
-        className,
-        key: i,
-      })
-    );
+    if (child.props['data-sticky'] === 'true') {
+      final.push(
+        <div
+          className={
+            _types[type] && _types[type][i] ? _types[type][i] : `${prefix}--col`
+          }>
+          {React.cloneElement(child, {
+            className: classnames(
+              child.props.className,
+              `${prefix}--layout--sticky`
+            ),
+            key: i,
+          })}
+        </div>
+      );
+    } else {
+      final.push(
+        React.cloneElement(child, {
+          className: classnames(
+            child.props.className,
+            _types[type] && _types[type][i] ? _types[type][i] : `${prefix}--col`
+          ),
+          key: i,
+        })
+      );
+    }
   });
 
   return final;

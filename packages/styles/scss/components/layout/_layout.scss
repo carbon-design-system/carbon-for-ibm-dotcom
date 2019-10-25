@@ -10,6 +10,11 @@
 
 @mixin layout {
   .#{$prefix}--layout {
+    &--sticky {
+      position: sticky;
+      top: 0;
+    }
+
     &__top {
       &-layout-01 {
         margin-top: $layout-01;

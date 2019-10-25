@@ -23,6 +23,20 @@ function App() {
 ReactDOM.render(<App />, document.querySelector('#app'));
 ```
 
+If setting one of the columns as a sticky column, the attribute
+`data-sticky="true"` can be added:
+
+```javascript
+function App() {
+  return (
+    <Layout>
+      <div data-sticky="true">Column 1 content sticky</div>
+      <div>Column 2 content</div>
+    </Layout>
+  );
+}
+```
+
 > 💡 Don't forget to import the layout styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
