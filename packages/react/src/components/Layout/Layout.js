@@ -73,8 +73,9 @@ function _updateChild(type, children) {
  * @param {string} position top or bottom position of the layout
  * @param {string} modifier layout modifier from the layout scale
  * @returns {*|string} vertical rhythm class
+ * @private
  */
-function vrClass(position, modifier) {
+function _vrClass(position, modifier) {
   return modifier && `${prefix}--layout__${position}-${modifier}`;
 }
 
@@ -95,8 +96,8 @@ const Layout = ({ type, marginTop, marginBottom, children }) => (
     data-autoid={`${stablePrefix}--layout`}
     className={classnames(
       `${prefix}--grid`,
-      vrClass('top', marginTop),
-      vrClass('bottom', marginBottom)
+      _vrClass('top', marginTop),
+      _vrClass('bottom', marginBottom)
     )}>
     <div className={`${prefix}--row`}>{_updateChild(type, children)}</div>
   </section>
