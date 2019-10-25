@@ -2,7 +2,7 @@
 name: Feature Request 💡
 about: Suggest a new idea for the project.
 title: ''
-labels: enhancement
+labels: Feature request
 ---
 
 <!-- replace _{{...}}_ with your own words -->
