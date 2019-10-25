@@ -25,18 +25,18 @@ const { prefix } = settings;
  * @param {object} props props object
  * @param {string} props.title simple long form title
  * @param {string} props.copy simple long form  short copy to support the title
- * @param {string} props.variation variation of the simple long form standard, standard with jump link and standard with card link
+ * @param {string} props.linkType link type ( simple | jump | card )
  * @param {object} props.link link object which includes url, link text and target properties.
  * @returns {*} Simple long form pattern
  */
-const SimpleLongForm = ({ title, copy, variation, link }) =>
+const SimpleLongForm = ({ title, copy, linkType, link }) =>
   featureFlag(
     SIMPLELONGFORM,
     <section
       data-autoid={`${stablePrefix}--simplelongform`}
       className={classNames(
         `${prefix}--simplelongform`,
-        setVariation(variation)
+        setLinkType(linkType)
       )}>
       <div className={`${prefix}--simplelongform__container`}>
         <div className={`${prefix}--simplelongform__row`}>
@@ -45,7 +45,7 @@ const SimpleLongForm = ({ title, copy, variation, link }) =>
             <div className={`${prefix}--simplelongform__content`}>{copy}</div>
           </div>
           <div className={`${prefix}--simplelongform__link__col`}>
-            {renderLink(variation, link)}
+            {renderLink(linkType, link)}
           </div>
           <div className={`${prefix}--simplelongform__divider__col`}>
             <div className={`${prefix}--simplelongform__divider`}></div>
@@ -56,52 +56,49 @@ const SimpleLongForm = ({ title, copy, variation, link }) =>
   );
 
 /**
+ * renderLink based on link type
  *
- *
- * @param {object} type variation of pattern (with simple link, jump link or card link)
+ * @param {object} type link type ( simple | jump | card )
  * @param {object} data object with href, text & target properties
  * @returns {*} JSX Object
  */
 const renderLink = (type, data) => {
-  return type === 'standard with jump link' ? (
+  return type === 'jump' ? (
     <JumpLink link={data} />
-  ) : type === 'standard with card link' ? (
+  ) : type === 'card' ? (
     <CardLink link={data} />
-  ) : type === 'standard with simple link' ? (
+  ) : type === 'simple' ? (
     <SimpleLink link={data} />
   ) : null;
 };
 
 /**
- * sets the class name for pattern variations
+ * sets the class name based on link type
  *
- * @param {string} type variation of pattern (with simple link, jump link or card link)
+ * @param {string} type link type ( simple | jump | card )
  * @returns {string} link type css class names
  */
-const setVariation = type => {
-  let variation;
+const setLinkType = type => {
+  let linkType;
   switch (type) {
-    case 'standard':
-      variation = `${prefix}--simplelongform--standard`;
-      break;
-    case 'standard with jump link':
-      variation = `${prefix}--simplelongform--standard-with-jump-link`;
+    case 'jump':
+      linkType = `${prefix}--simplelongform--jump`;
       break;
     case 'standard with card link':
-      variation = `${prefix}--simplelongform--standard-with-card-link`;
+      linkType = `${prefix}--simplelongform--card`;
       break;
     case 'standard with simple link':
-      variation = `${prefix}--simplelongform--standard-with-simple-link`;
+      linkType = `${prefix}--simplelongform--simple`;
       break;
     default:
   }
-  return variation;
+  return linkType;
 };
 
 SimpleLongForm.propTypes = {
   title: PropTypes.string.isRequired,
   copy: PropTypes.string,
-  variation: PropTypes.string,
+  linkType: PropTypes.string,
   link: PropTypes.shape({
     href: PropTypes.string,
     text: PropTypes.string,

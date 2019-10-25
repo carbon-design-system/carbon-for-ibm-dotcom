@@ -45,11 +45,11 @@ if (SIMPLELONGFORM) {
         'light (white)': '',
       };
 
-      const variations = {
-        standard: 'standard',
-        standardWithSimpleLink: 'standard with simple link',
-        standardWithJumpLink: 'standard with jump link',
-        standardWithCardLink: 'standard with card link',
+      const linkType = {
+        simple: 'simple',
+        jump: 'jump',
+        card: 'card',
+        none: 'none',
       };
 
       return (
@@ -62,7 +62,7 @@ if (SIMPLELONGFORM) {
           <SimpleLongForm
             title={title}
             copy={copy}
-            variation={select('variations', variations, variations.standard)}
+            linkType={select('link type', linkType, linkType.none)}
             link={object('link', link)}
           />
         </div>
