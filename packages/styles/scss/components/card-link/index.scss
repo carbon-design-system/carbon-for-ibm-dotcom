@@ -11,30 +11,37 @@
 
 @import '~carbon-components/scss/components/tile/tile';
 
-.#{$prefix}--card-link {
-  color: $text-01;
-  text-decoration: none;
-  display: flex;
-  flex-direction: column;
+@mixin card-link {
+  .#{$prefix}--card-link {
+    color: $text-01;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
 
-  > *:not(:last-child) {
-    margin-bottom: $spacing-07;
-  }
+    > *:not(:last-child) {
+      margin-bottom: $spacing-07;
+    }
 
-  &__title {
-    @include carbon--type-style('expressive-heading-03');
-  }
+    &__title {
+      @include carbon--type-style('expressive-heading-03');
+    }
 
-  &__content {
-    @include carbon--type-style('body-short-02');
-    color: $text-02;
-  }
+    &__content {
+      @include carbon--type-style('body-short-02');
 
-  &__footer {
-    margin-top: auto;
+      color: $text-02;
+    }
 
-    svg {
-      fill: currentColor;
+    &__footer {
+      margin-top: auto;
+
+      svg {
+        fill: currentColor;
+      }
     }
   }
+}
+
+@include exports('card-link') {
+  @include card-link;
 }
