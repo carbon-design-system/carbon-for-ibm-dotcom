@@ -11,9 +11,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { SimpleLongForm } from '@carbon/ibmdotcom-patterns-react';
 import '@carbon/ibmdotcom-styles/scss/patterns/simplelongform/index.scss';
+
 function App() {
-  return <SimpleLongForm />;
+  return (
+    <SimpleLongForm title={title} copy={copy} linkType={linkType} link={link} />
+  );
 }
+
 ReactDOM.render(<App />, document.querySelector('#app'));
 ```
 
@@ -37,47 +41,30 @@ SIMPLELONGFORM=true
 
 ## Props
 
-| Name        | Description                                                                                                                 |
-| ----------- | --------------------------------------------------------------------------------------------------------------------------- |
-| `title`     | Simple long form title                                                                                                      |
-| `copy`      | Simple long form content                                                                                                    |
-| `variation` | Simple long form variation ( _standard_,_standard with simple link_, _standard with card link_, _standard with jump link_ ) |
-| `link`      | Simple long form link object with _href, text and target_ properties                                                        |
+| Name       | Description                                                           |
+| ---------- | --------------------------------------------------------------------- |
+| `title`    | Simple long form title `{title}`                                      |
+| `copy`     | Simple long form content `{copy}`                                     |
+| `linkType` | Simple long form link type `{linkType: { none, simple, card, jump }}` |
+| `link`     | Simple long form link object `{link: { href, text, target }}`         |
 
-## Variations
+## Link type
 
-| Name                   | Description                             |
-| ---------------------- | --------------------------------------- |
-| `standard`             | Default Simple long form without link   |
-| `standardWithJumpLink` | Default Simple long form with jump link |
-| `standardWithCardLink` | Default Simple long form with card link |
+| Name     | Description                       |
+| -------- | --------------------------------- |
+| `none`   | Simple long form without link     |
+| `simple` | Simple long form with simple link |
+| `jump`   | Simple long form with jump link   |
+| `card`   | Simple long form with card link   |
 
 ## Stable selectors
 
-| Name                                 | Description |
-| ------------------------------------ | ----------- |
-| `bx--simplelongform`                 | Pattern     |
-| `bx--simplelongform--with-jump-link` | interactive |
-| `bx--simplelongform--with-card-link` | interactive |
-| `bx--simplelongform__container`      | interactive |
-| `bx--simplelongform__row`            | interactive |
-| `bx--simplelongform__col`            | interactive |
-| `bx--simplelongform__title`          | interactive |
-| `bx--simplelongform__content`        | interactive |
-| `bx--simplelongform__link__col`      | interactive |
-| `bx--simplelongform__divider__col`   | interactive |
-| `bx--simplelongform__divider`        | interactive |
-| `bx--simplelongform__link`           | component   |
-| `bx--simplelink`                     | interactive |
-| `bx--simplelink__text`               | interactive |
-| `bx--simplelink__icon`               | interactive |
-| `bx--jumplink`                       | component   |
-| `bx--jumplink__text`                 | interactive |
-| `bx--jumplink__icon`                 | interactive |
-| `bx--cardlink`                       | component   |
-| `bx--cardlink__card`                 | interactive |
-| `bx--cardlink__card__text`           | interactive |
-| `bx--cardlink__card__icon`           | interactive |
+| Name                  | Description |
+| --------------------- | ----------- |
+| `dds--simplelongform` | component   |
+| `dds--simplelink`     | interactive |
+| `dds--jumplink`       | interactive |
+| `dds--cardlink`       | interactive |
 
 ## 🙌 Contributing
 
