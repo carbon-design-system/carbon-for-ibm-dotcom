@@ -1,7 +1,17 @@
+/**
+ * Copyright IBM Corp. 2016, 2018
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 import React from 'react';
 import PropTypes from 'prop-types';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
 import { XAxis16 } from '@carbon/icons-react';
+
+const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
@@ -28,7 +38,7 @@ const JumpLink = ({ link: { href, text } }) => {
 
   return (
     <a
-      data-autoid={`${prefix}--jumplink`}
+      data-autoid={`${stablePrefix}--jumplink`}
       className={`${prefix}--jumplink`}
       onClick={e => scrollToEle(e, href)}>
       <XAxis16

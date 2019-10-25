@@ -8,6 +8,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
 import { featureFlag } from '@carbon/ibmdotcom-utilities';
 import { SIMPLELONGFORM } from '../../internal/FeatureFlags';
@@ -15,6 +16,7 @@ import JumpLink from './JumpLink';
 import CardLink from './CardLink';
 import SimpleLink from './SimpleLink';
 
+const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
@@ -31,7 +33,7 @@ const SimpleLongForm = ({ title, copy, variation, link }) =>
   featureFlag(
     SIMPLELONGFORM,
     <section
-      data-autoid={`${prefix}--simplelongform`}
+      data-autoid={`${stablePrefix}--simplelongform`}
       className={classNames(
         `${prefix}--simplelongform`,
         setVariation(variation)

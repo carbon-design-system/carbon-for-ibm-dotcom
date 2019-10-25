@@ -1,7 +1,10 @@
 import React, { useLayoutEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
 import { ArrowRight20 } from '@carbon/icons-react';
+
+const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
@@ -43,7 +46,7 @@ const CardLink = ({ link: { href, text, target } }) => {
 
   return (
     <a
-      data-autoid={`${prefix}--cardlink`}
+      data-autoid={`${stablePrefix}--cardlink`}
       className={`${prefix}--cardlink`}
       href={href}
       target={target === 'blank' ? '_blank' : '_self'}>
