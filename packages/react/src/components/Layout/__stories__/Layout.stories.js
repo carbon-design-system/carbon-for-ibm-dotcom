@@ -51,12 +51,12 @@ storiesOf('Layout', module)
           marginTop={select(
             'Top Margin (marginTop)',
             layoutOptions,
-            layoutOptions.none
+            layoutOptions['layout-03']
           )}
           marginBottom={select(
             'Bottom Margin (marginBottom)',
             layoutOptions,
-            layoutOptions.none
+            layoutOptions['layout-06']
           )}>
           <div
             data-sticky={select(
