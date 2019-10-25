@@ -5,10 +5,17 @@
 // LICENSE file in the root directory of this source tree.
 //
 
+@function aspectratio($height, $width) {
+  $ratio: carbon--rem($height) / carbon--rem($width) * 100%;
+  @return $ratio;
+}
+
 @mixin leadspace {
+  $btn-min-width: 26;
+
   .#{$prefix}--leadspace {
     position: relative;
-    padding-top: carbon--rem(370px) / carbon--mini-units(40) * 100%;
+    padding-top: aspectratio(370px, 320px);
     height: 0;
     background: $ui-background;
 
@@ -38,11 +45,10 @@
       height: 100%;
       width: 100%;
       max-width: none;
-      background-image: linear-gradient(
-        to bottom,
-        rgba($ui-background, 1),
-        transparent
-      );
+    }
+
+    &--gradient {
+      background-color: rgba($ui-background, 0.75);
     }
 
     .#{$prefix}--leadspace__title {
@@ -51,8 +57,19 @@
       color: $text-01;
     }
 
+    &__title,
+    &__desc,
+    &__ctas {
+      @include carbon--make-col-ready;
+    }
+
+    &__row {
+      @include carbon--make-row;
+    }
+
     .#{$prefix}--leadspace__desc {
       @include carbon--type-style(expressive-heading-03, true);
+      @include carbon--make-col(3, 4);
 
       color: $text-01;
     }
@@ -66,6 +83,7 @@
     .#{$prefix}--btn {
       width: 100%;
       margin-top: $layout-01;
+      min-width: carbon--mini-units($btn-min-width);
     }
   }
 
@@ -75,51 +93,43 @@
 
   @include carbon--breakpoint(md) {
     .#{$prefix}--leadspace {
-      padding-top: carbon--mini-units(50) / carbon--mini-units(84) * 100%;
+      padding-top: aspectratio(400px, 672px);
 
-      &__row {
-        @include carbon--make-row;
-      }
-
-      &__overlay {
+      &--gradient {
+        background-color: transparent;
         background-image: linear-gradient(
           to right,
-          rgba($ui-background, 1),
-          transparent 50%
+          rgba($ui-background, 0.95),
+          transparent 75%
         );
       }
 
       .#{$prefix}--leadspace__title {
-        @include carbon--make-col-ready;
         @include carbon--make-col(7, 8);
 
         flex-shrink: 1;
       }
 
       .#{$prefix}--leadspace__desc {
-        @include carbon--make-col-ready;
         @include carbon--make-col(4, 8);
       }
 
       &__ctas {
-        @include carbon--make-col-ready;
-
-        flex-direction: row-reverse;
+        flex-flow: row-reverse wrap-reverse;
         justify-content: flex-end;
-        margin-top: $layout-03;
+        @include carbon--make-col(6, 8);
       }
 
       .#{$prefix}--btn {
         width: auto;
-        margin-top: 0;
-        margin-right: $layout-01;
+        margin-right: $layout-03;
       }
     }
   }
 
   @include carbon--breakpoint(lg) {
     .#{$prefix}--leadspace {
-      padding-top: carbon--mini-units(60) / carbon--mini-units(132) * 100%;
+      padding-top: aspectratio(480px, 1056px);
 
       .#{$prefix}--leadspace__title {
         @include carbon--make-col(8, 16);
@@ -127,7 +137,7 @@
 
       .#{$prefix}--leadspace__desc {
         @include carbon--make-col-ready;
-        @include carbon--make-col(4, 16);
+        @include carbon--make-col(6, 16);
       }
     }
 
@@ -136,10 +146,20 @@
     }
   }
 
+  @include carbon--breakpoint(xlg) {
+    .#{$prefix}--leadspace {
+      padding-top: aspectratio(560px, 1312px);
+    }
+  }
+
   @include carbon--breakpoint(max) {
-    .#{$prefix}--leadspace__overlay {
-      padding-top: $spacing-08;
-      padding-bottom: $spacing-08;
+    .#{$prefix}--leadspace {
+      padding-top: aspectratio(640px, 1584px);
+
+      &__overlay {
+        padding-top: $spacing-08;
+        padding-bottom: $spacing-08;
+      }
     }
   }
 }

@@ -1,45 +1,15 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, select } from '@storybook/addon-knobs';
+import { withKnobs, select, boolean } from '@storybook/addon-knobs';
 import DotcomShell from '../DotcomShell';
-import mastheadLinks from '../../Masthead/__stories__/data/MastheadLinks.js';
+import mastheadKnobs from '../../Masthead/__stories__/data/Masthead.stories.knobs.js';
 import readme from '../README.md';
 import '../../../../../styles/scss/components/dotcom-shell/_dotcom-shell.scss';
 import content from './data/content';
 
-const platformName = {
-  platform: {
-    name: 'IBM Cloud',
-    url: 'https://www.ibm.com/cloud',
-  },
-};
-
-const props = {
-  navigation: () => {
-    return {
-      navigation: select('Navigation', {
-        default: 'string',
-        custom: mastheadLinks,
-        none: false,
-      }),
-    };
-  },
-  footer: () => {
-    return {
-      footerType: select('Footer', {
-        default: 'default',
-        short: 'short',
-      }),
-    };
-  },
-  platform: () => {
-    return {
-      platform: select('Platform', {
-        none: 'undefined',
-        hasName: platformName.platform,
-      }),
-    };
-  },
+const footer = {
+  default: 'default',
+  short: 'short',
 };
 
 storiesOf('Dotcom Shell', module)
@@ -52,9 +22,19 @@ storiesOf('Dotcom Shell', module)
   .add('Default', () => {
     return (
       <DotcomShell
-        {...props.navigation()}
-        {...props.footer()}
-        {...props.platform()}>
+        navigation={select(
+          'Navigation',
+          mastheadKnobs.navigation,
+          mastheadKnobs.navigation.default
+        )}
+        platform={select(
+          'Platform name',
+          mastheadKnobs.platform,
+          mastheadKnobs.platform.none
+        )}
+        footerType={select('Footer', footer, footer.default)}
+        hasProfile={boolean('Has profile', true)}
+        hasSearch={boolean('Has search', true)}>
         {content}
       </DotcomShell>
     );

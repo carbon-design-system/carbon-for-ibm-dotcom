@@ -98,10 +98,14 @@ $search-transition-timing: 95ms;
         width: 100%;
         height: 3px;
         background-color: $inverse-support-04;
+        @include carbon--breakpoint-down(lg) {
+          bottom: 0;
+        }
       }
 
       @include carbon--breakpoint-down(lg) {
         line-height: inherit;
+        padding-bottom: $spacing-05;
       }
     }
   }
@@ -112,7 +116,7 @@ $search-transition-timing: 95ms;
     li:not([role='none']) {
       > a {
         align-items: flex-end;
-        padding-bottom: rem(12px);
+        padding-bottom: rem(10px);
       }
     }
 

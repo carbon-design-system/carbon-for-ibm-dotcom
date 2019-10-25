@@ -44,10 +44,11 @@ LEADSPACE=true
 
 ## Stable selectors
 
-| Name                     | Description    |
-| ------------------------ | -------------- |
-| `leadspace`              | Pattern        |
-| `leadspace__cta--${key}` | LeadSpace CTAs |
+| Name                    | Description                |
+| ----------------------- | -------------------------- |
+| `dds--leadspace`        | Pattern                    |
+| `dds--leadspace__image` | LeadSpace background image |
+| `dds--leadspace__cta`   | LeadSpace CTAs             |
 
 ## 🙌 Contributing
 
