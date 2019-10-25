@@ -49,11 +49,7 @@
     "@babel/runtime": "^7.5.5",
     "@carbon/ibmdotcom-services": "0.4.0",
     "@carbon/ibmdotcom-styles": "0.4.0",
-<<<<<<< Updated upstream
-    "@carbon/ibmdotcom-utilities": "0.6.0-alpha.511",
-=======
     "@carbon/ibmdotcom-utilities": "^1.1.0-alpha.610",
->>>>>>> Stashed changes
     "classnames": "2.2.6",
     "dompurify": "^2.0.6",
     "jsdom": "^15.2.0",
