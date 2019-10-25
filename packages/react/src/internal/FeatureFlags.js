@@ -23,3 +23,10 @@ export const FOOTER_LOCALE_BUTTON =
  * @type {string | boolean}
  */
 export const BUTTON_GROUP = process.env.BUTTON_GROUP === 'true' || false;
+
+/*
+ * Feature flag for CardLink component
+ *
+ * @type {string | boolean}
+ */
+export const CARD_LINK = process.env.CARD_LINK === 'true' || false;
