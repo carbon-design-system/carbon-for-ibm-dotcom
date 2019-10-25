@@ -934,10 +934,10 @@
   dependencies:
     window-or-global "^1.0.1"
 
-"@carbon/ibmdotcom-utilities@1.1.0-alpha.677":
-  version "1.1.0-alpha.677"
-  resolved "https://registry.yarnpkg.com/@carbon/ibmdotcom-utilities/-/ibmdotcom-utilities-1.1.0-alpha.677.tgz#769fe75c296e4e57a1783eaa1ea92f2ca3c72515"
-  integrity sha512-s/sKd0uXkCArPeUgDyBrSG4G8N5QEE3P4/rx0oosY+uhs5CqhGbbQosrxtirS33e8SO6Glnu5UEiPmPWtTv5BA==
+"@carbon/ibmdotcom-utilities@1.1.0-alpha.696":
+  version "1.1.0-alpha.696"
+  resolved "https://registry.yarnpkg.com/@carbon/ibmdotcom-utilities/-/ibmdotcom-utilities-1.1.0-alpha.696.tgz#d8c0a43f8598b0cbfee0b511ffd1cb340070416e"
+  integrity sha512-9jjEftmbIKSAvOfxsMj82iYI/1PrTUxzECP7xPWt3emk0+cZ+vMplzsLOrkKdxNB6LGRK49lGsukP2oOypfoCA==
   dependencies:
     axios "^0.19.0"
     js-cookie "^2.2.1"
