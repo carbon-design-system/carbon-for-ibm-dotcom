@@ -1,0 +1,55 @@
+//
+// Copyright IBM Corp. 2016, 2018
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@mixin list {
+    .#{$prefix}--list {
+      color: $text-01;
+      &__title {
+        @include type-style('expressive-heading-02');
+      }
+      &__content {
+        @include type-style('body-long-02');
+      }
+      &__link {
+        color: $link-01;
+        text-decoration: none;
+        outline: none;
+        cursor: pointer;
+        display: inline-block;
+        border: solid 2px transparent;
+        @include type-style('body-short-02');
+        &:visited {
+          color: $text-02;
+        }
+        &:focus {
+          border-color: $focus;
+        }
+        &:hover {
+          text-decoration: underline;
+        }
+        &__inner {
+          display: flex;
+          align-items: center;
+        }
+        &__icon {
+          fill: $link-01;
+          margin-left: $spacing-03;
+        }
+      }
+    @include carbon--breakpoint('sm') {
+      &__title {
+        margin-top: $layout-03;
+      }
+      &__link {
+        margin-top: $spacing-03;
+      }
+    }
+  }
+} 
+@include exports('list') {
+  @include list;
+}

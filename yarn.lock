@@ -919,13 +919,6 @@
     "@carbon/type" "^10.3.0"
     carbon-components "^10.4.1"
 
-"@carbon/ibmdotcom-utilities@0.5.0-alpha.331":
-  version "0.5.0-alpha.331"
-  resolved "https://registry.yarnpkg.com/@carbon/ibmdotcom-utilities/-/ibmdotcom-utilities-0.5.0-alpha.331.tgz#e102f287967485b82757bbcc6023a0d332907f04"
-  integrity sha512-leE+LnH9tTOZVYz14VUaxFL0Fk2EstnJb0w4yv6yfMVV04YtwsHwg1ywoygX/9IsbJbVprxG8oSShVQ+T5kusg==
-  dependencies:
-    window-or-global "^1.0.1"
-
 "@carbon/icon-helpers@10.4.0":
   version "10.4.0"
   resolved "https://registry.yarnpkg.com/@carbon/icon-helpers/-/icon-helpers-10.4.0.tgz#771ba51efcaa9d2be03800f8e0f50c7aa779febf"
