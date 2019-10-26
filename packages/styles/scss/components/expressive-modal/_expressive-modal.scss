@@ -1,0 +1,48 @@
+//
+// Copyright IBM Corp. 2016, 2018
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import '../../globals/imports';
+@import '../../globals/vars.scss';
+@import '../../globals/mixins.scss';
+
+@import 'carbon-components/scss/components/modal/modal';
+
+/// Expressive modal
+/// @access private
+/// @group expressive-modal
+
+@mixin local-button {
+  $modal: '.#{$prefix}--modal';
+
+  #{$modal}--expressive {
+    $button-size: carbon--rem(48px);
+    $icon-size: carbon--rem(20px);
+    $offset-close-icon: $spacing-07 - (($button-size - $icon-size) / 2);
+
+    color: $text-01;
+
+    #{$modal}-content {
+      padding-left: 0;
+      padding-right: $button-size - $offset-close-icon;
+      margin-bottom: 0;
+    }
+
+    #{$modal}-close {
+      top: $offset-close-icon;
+      right: $offset-close-icon;
+    }
+
+    #{$modal}-container {
+      padding: $spacing-07;
+      min-height: $spacing-07 + $icon-size + $spacing-07;
+    }
+  }
+}
+
+@include exports('local-button') {
+  @include local-button;
+}
