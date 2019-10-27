@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const _endpoint = process.env.GEO_API;
+const _endpoint =
+  process.env.GEO_API || 'https://api.www.s81c.com/webmaster/dbip/';
 /**
  * Utility to retrieve user's country code based on their IP address
  *
