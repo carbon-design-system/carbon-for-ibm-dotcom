@@ -1,7 +1,8 @@
 import { FOOTER_LOCALE_BUTTON } from '../../internal/FeatureFlags.js';
 import { featureFlag } from '@carbon/ibmdotcom-utilities';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import root from 'window-or-global';
 import {
   Button,
   ComposedModal,
@@ -9,7 +10,11 @@ import {
   ModalBody,
   ComboBox,
 } from 'carbon-components-react';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import {
+  settings as ddsSettings,
+  ipcinfoCookie,
+} from '@carbon/ibmdotcom-utilities';
+import { LocaleAPI } from '@carbon/ibmdotcom-services';
 import { settings } from 'carbon-components';
 import { Globe20 } from '@carbon/icons-react';
 
@@ -27,9 +32,16 @@ const { prefix } = settings;
  */
 const LocaleButton = ({ selectItem }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [list, setList] = useState({});
 
-  // retrieve list from local storage
-  const list = JSON.parse(sessionStorage.getItem('countryList'));
+  useEffect(() => {
+    (async () => {
+      const locale =
+        root.document.documentElement.lang || (await ipcinfoCookie.get());
+      const list = await LocaleAPI.getList(locale);
+      setList(list);
+    })();
+  }, []);
 
   /**
    *  method to merge list and sort alphabetically by country
