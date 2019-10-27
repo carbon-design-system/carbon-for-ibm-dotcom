@@ -907,12 +907,12 @@
     jsonp "^0.2.1"
     window-or-global "^1.0.1"
 
-"@carbon/ibmdotcom-services@1.1.0-alpha.737":
-  version "1.1.0-alpha.737"
-  resolved "https://registry.yarnpkg.com/@carbon/ibmdotcom-services/-/ibmdotcom-services-1.1.0-alpha.737.tgz#4b92eee536abe1d3509911bb7a4e6934a21a3fdf"
-  integrity sha512-40xlUByX2m8ccN5A22ooaZiatLBy3Kxz4rHehoDNRFL0uaVPFA0TxMmUp0k/V3udqrQLu4xyHSwkxeLjJ7XOlA==
+"@carbon/ibmdotcom-services@1.1.0-alpha.739":
+  version "1.1.0-alpha.739"
+  resolved "https://registry.yarnpkg.com/@carbon/ibmdotcom-services/-/ibmdotcom-services-1.1.0-alpha.739.tgz#0f13d7f58514a1eefd33d841f750f2df0dff9cf1"
+  integrity sha512-mZC9byM0O1y+SUn3afqSjU6oyVqLKC2lU8l3euVE4JgBbSZme63Jo2EwkpAmlb5TppV2iuaHOY+IBB1M2CxyGw==
   dependencies:
-    "@carbon/ibmdotcom-utilities" "1.1.0-alpha.696"
+    "@carbon/ibmdotcom-utilities" "1.1.0-alpha.737"
     axios "^0.19.0"
     jsonp "^0.2.1"
     window-or-global "^1.0.1"
@@ -934,19 +934,19 @@
   dependencies:
     window-or-global "^1.0.1"
 
-"@carbon/ibmdotcom-utilities@1.1.0-alpha.696":
-  version "1.1.0-alpha.696"
-  resolved "https://registry.yarnpkg.com/@carbon/ibmdotcom-utilities/-/ibmdotcom-utilities-1.1.0-alpha.696.tgz#d8c0a43f8598b0cbfee0b511ffd1cb340070416e"
-  integrity sha512-9jjEftmbIKSAvOfxsMj82iYI/1PrTUxzECP7xPWt3emk0+cZ+vMplzsLOrkKdxNB6LGRK49lGsukP2oOypfoCA==
+"@carbon/ibmdotcom-utilities@1.1.0-alpha.737":
+  version "1.1.0-alpha.737"
+  resolved "https://registry.yarnpkg.com/@carbon/ibmdotcom-utilities/-/ibmdotcom-utilities-1.1.0-alpha.737.tgz#2e66a54ea918dbcfaf776af959b58d9ac8d5f2d6"
+  integrity sha512-LJFHhD3JSXYicEUulkJSXpOqxlTgIu4k6XROCODml6ryBsb7f0UFwMs3dfepPFCv43qOiLnLcRUVs3E4zflVlQ==
   dependencies:
     axios "^0.19.0"
     js-cookie "^2.2.1"
     window-or-global "^1.0.1"
 
-"@carbon/ibmdotcom-utilities@1.1.0-alpha.737":
-  version "1.1.0-alpha.737"
-  resolved "https://registry.yarnpkg.com/@carbon/ibmdotcom-utilities/-/ibmdotcom-utilities-1.1.0-alpha.737.tgz#2e66a54ea918dbcfaf776af959b58d9ac8d5f2d6"
-  integrity sha512-LJFHhD3JSXYicEUulkJSXpOqxlTgIu4k6XROCODml6ryBsb7f0UFwMs3dfepPFCv43qOiLnLcRUVs3E4zflVlQ==
+"@carbon/ibmdotcom-utilities@1.1.0-alpha.739":
+  version "1.1.0-alpha.739"
+  resolved "https://registry.yarnpkg.com/@carbon/ibmdotcom-utilities/-/ibmdotcom-utilities-1.1.0-alpha.739.tgz#9438debdf6a5df60c50b83e04ebb3d6d28117287"
+  integrity sha512-NyhoJqK360rjLqjSIKLOkVTGFhu0wkX0Q8WnbCk3p68ml9TVXejEznodt5X4ipoc/BaJVKxU/D8onvBQs8yWnQ==
   dependencies:
     axios "^0.19.0"
     js-cookie "^2.2.1"
