@@ -27,7 +27,7 @@ const _endpoint = `${_proxy}${_host}/common/v18/js/data/countrylist`;
  * @type {string}
  * @private
  */
-const _sessionList = 'countryList';
+const _sessionListKey = 'countrylist';
 
 /**
  * Locale API class with method of fetching user's locale for
@@ -37,6 +37,7 @@ class LocaleAPI {
   /**
    * Gets the user's locale
    *
+   * Grab the locale from the `lang` attribute from html, else
    * check if ipcinfo cookie exists (ipcinfoCookie util)
    * if not, retrieve the user's locale through geolocation util + gets user's
    * browser language preference then set the cookie
@@ -53,16 +54,16 @@ class LocaleAPI {
    */
   static async getLocale() {
     const cookie = ipcinfoCookie.get();
-    if (cookie && cookie.cc && cookie.lc) {
+    const lang = this.getLang();
+    // grab locale from the html lang attribute
+    if (lang) {
+      const locale = await this.getList(lang);
+      return locale;
+    }
+    // grab the locale from the cookie
+    else if (cookie && cookie.cc && cookie.lc) {
       await this.getList(cookie);
       return cookie;
-    } else if (root.document.documentElement.lang) {
-      // grab locale from the html lang attribute
-      const lang = root.document.documentElement.lang.toLowerCase();
-      const codes = lang.split('-');
-      const locale = { cc: codes[1], lc: codes[0] };
-      await this.getList(locale);
-      return locale;
     } else {
       const cc = await geolocation();
       /**
@@ -86,6 +87,27 @@ class LocaleAPI {
   }
 
   /**
+   * Gets the `lang` html attribute containing the cc and lc
+   *
+   * @returns {object} locale object
+   *
+   * @example
+   * import { LocaleAPI } from '@carbon/ibmdotcom-services';
+   *
+   * function async getLocale() {
+   *    const locale = await LocaleAPI.getLang();
+   * }
+   */
+  static getLang() {
+    if (root.document.documentElement.lang) {
+      const lang = root.document.documentElement.lang.toLowerCase();
+      const codes = lang.split('-');
+      const locale = { cc: codes[1], lc: codes[0] };
+      return locale;
+    }
+  }
+
+  /**
    * Get the country list of all supported countries and their languages
    * if not set in session storage
    *
@@ -103,12 +125,14 @@ class LocaleAPI {
    * }
    */
   static async getList({ cc, lc }) {
-    const url = `${_endpoint}/${cc}${lc}-utf8.json`;
-    const sessionList = JSON.parse(sessionStorage.getItem(_sessionList));
+    const sessionList = JSON.parse(
+      sessionStorage.getItem(`${_sessionListKey}-${cc}-${lc}`)
+    );
 
-    if (sessionList && sessionList.locale === `${lc}-${cc}`) {
+    if (sessionList) {
       return sessionList;
     } else {
+      const url = `${_endpoint}/${cc}${lc}-utf8.json`;
       /**
        * if the json file for the cc-lc combo does not exist,
        * browser will automatically redirect to the us-en country list
@@ -121,13 +145,10 @@ class LocaleAPI {
         })
         .then(response => response.data);
 
-      // add locale key to the country list object
-      const countryList = {
-        ...list,
-        locale: `${lc}-${cc}`,
-      };
-
-      sessionStorage.setItem(_sessionList, JSON.stringify(countryList));
+      sessionStorage.setItem(
+        `${_sessionListKey}-${cc}-${lc}`,
+        JSON.stringify(list)
+      );
 
       return list;
     }

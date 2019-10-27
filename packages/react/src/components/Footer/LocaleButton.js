@@ -2,7 +2,6 @@ import { FOOTER_LOCALE_BUTTON } from '../../internal/FeatureFlags.js';
 import { featureFlag } from '@carbon/ibmdotcom-utilities';
 
 import React, { useState, useEffect } from 'react';
-import root from 'window-or-global';
 import {
   Button,
   ComposedModal,
@@ -10,10 +9,7 @@ import {
   ModalBody,
   ComboBox,
 } from 'carbon-components-react';
-import {
-  settings as ddsSettings,
-  ipcinfoCookie,
-} from '@carbon/ibmdotcom-utilities';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { LocaleAPI } from '@carbon/ibmdotcom-services';
 import { settings } from 'carbon-components';
 import { Globe20 } from '@carbon/icons-react';
@@ -36,9 +32,8 @@ const LocaleButton = ({ selectItem }) => {
 
   useEffect(() => {
     (async () => {
-      const locale =
-        root.document.documentElement.lang || (await ipcinfoCookie.get());
-      const list = await LocaleAPI.getList(locale);
+      const locale = await LocaleAPI.getLocale();
+      const list = locale && (await LocaleAPI.getList(locale));
       setList(list);
     })();
   }, []);
