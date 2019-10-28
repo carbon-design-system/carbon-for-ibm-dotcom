@@ -12,8 +12,18 @@
       @include type-style('expressive-heading-04');
     }
     @include carbon--breakpoint('sm') {
+      &__col {
+        padding-left: $layout-01;
+        padding-right: $layout-01;
+      }
       &__title {
         margin-top: $layout-05;
+      }
+    }
+    @include carbon--breakpoint('md') {
+      &__col {
+        padding-left: 0;
+        padding-right: 0;
       }
     }
     @include carbon--breakpoint('lg') {
