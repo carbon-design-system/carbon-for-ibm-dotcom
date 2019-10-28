@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
@@ -23,8 +23,19 @@ const MastheadSearchInput = ({ componentInputProps, dispatch, isActive }) => {
   useEffect(() => {
     if (isActive) {
       searchRef.current.focus();
-    }
-  }, [isActive]);
+    } else resetSearch();
+  }, [isActive, resetSearch]);
+
+  /**
+   * Clear search and clear input when called
+   */
+  const resetSearch = useCallback(() => {
+    dispatch({ type: 'setSearchClosed' });
+    dispatch({
+      type: 'setVal',
+      payload: { val: '' },
+    });
+  }, [dispatch]);
 
   return (
     <>
@@ -41,7 +52,7 @@ const MastheadSearchInput = ({ componentInputProps, dispatch, isActive }) => {
         <Search20 />
       </HeaderGlobalAction>
       <HeaderGlobalAction
-        onClick={() => dispatch({ type: 'setSearchClosed' })}
+        onClick={resetSearch}
         aria-label="Close"
         className={`${prefix}--header__search--close`}
         data-autoid={`${stablePrefix}--header__search--close`}>

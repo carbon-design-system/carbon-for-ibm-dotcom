@@ -1,38 +1,10 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, select } from '@storybook/addon-knobs';
+import { withKnobs, select, boolean } from '@storybook/addon-knobs';
 import Masthead from '../Masthead';
-import mastheadLinks from './data/MastheadLinks.js';
+import mastheadKnobs from './data/Masthead.stories.knobs.js';
 import readme from '../README.md';
 import '../../../../../styles/scss/components/masthead/index.scss';
-
-const platformName = {
-  none: 'undefined',
-  platform: {
-    name: 'IBM Cloud',
-    url: 'https://www.ibm.com/cloud',
-  },
-};
-
-const props = {
-  navigation: () => {
-    return {
-      navigation: select('Navigation', {
-        default: 'string',
-        custom: mastheadLinks,
-        none: false,
-      }),
-    };
-  },
-  platform: () => {
-    return {
-      platform: select('Platform', {
-        none: 'undefined',
-        hasName: platformName.platform,
-      }),
-    };
-  },
-};
 
 storiesOf('Masthead', module)
   .addDecorator(withKnobs)
@@ -42,5 +14,20 @@ storiesOf('Masthead', module)
     },
   })
   .add('Default', () => {
-    return <Masthead {...props.navigation()} {...props.platform()} />;
+    return (
+      <Masthead
+        navigation={select(
+          'Navigation',
+          mastheadKnobs.navigation,
+          mastheadKnobs.navigation.default
+        )}
+        platform={select(
+          'Platform name',
+          mastheadKnobs.platform,
+          mastheadKnobs.platform.none
+        )}
+        hasProfile={boolean('Has profile', true)}
+        hasSearch={boolean('Has search', true)}
+      />
+    );
   });
