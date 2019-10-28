@@ -39,7 +39,7 @@ const ListSection = ({ title, copy, listGroup }) =>
             <div className={`${prefix}--listsection__content`}>{copy}</div>
           </div>
           <div className={`${prefix}--listsection__listgroup__col`}>
-            {renderListGroup(listGroup)}
+            {_renderListGroup(listGroup)}
           </div>
           <div className={`${prefix}--listsection__divider__col`}>
             <div className={`${prefix}--listsection__divider`}></div>
@@ -52,10 +52,11 @@ const ListSection = ({ title, copy, listGroup }) =>
 /**
  * Render List Section Group Component
  *
+ * @private
  * @param {object} listGroupItems listGroupItems Object
  * @returns {object} JSX Object
  */
-const renderListGroup = listGroupItems => {
+const _renderListGroup = listGroupItems => {
   return listGroupItems.map(listGroupItem => {
     return (
       <ListSectionGroup key={listGroupItem.title} listGroup={listGroupItem} />

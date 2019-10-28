@@ -29,7 +29,7 @@ const ListSectionGroup = ({ listGroup: { title, lists } }) => {
       className={`${prefix}--listsection-group ${prefix}--listsection-group__col`}>
       <div className={`${prefix}--listsection-group__title`}>{title}</div>
       <div className={`${prefix}--listsection-group__list`}>
-        {renderList(lists)}
+        {_renderList(lists)}
       </div>
     </div>
   );
@@ -38,10 +38,11 @@ const ListSectionGroup = ({ listGroup: { title, lists } }) => {
 /**
  * Render List Component
  *
+ * @private
  * @param {object} listItems listItems Object
  * @returns {object} JSX Object
  */
-const renderList = listItems => {
+const _renderList = listItems => {
   return listItems.map(listItem => {
     return <ListSectonItem key={listItem.title} lists={listItem} />;
   });
