@@ -19,6 +19,9 @@ const { prefix } = settings;
  * Expressive Modal
  *
  * @param {object} props react proptypes
+ * @param {string} props.iconDescription accessible description that describes icon action
+ * @param {string|string[]} props.btnClassName pass a custom class name to the button
+ * @param {string|string[]} props.iconClassName pass a custom class name to the icon
  * @returns {object} JSX object
  */
 const ExpressiveModalCloseBtn = ({

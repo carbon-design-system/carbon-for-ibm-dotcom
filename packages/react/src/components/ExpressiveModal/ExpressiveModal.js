@@ -20,6 +20,10 @@ const { prefix } = settings;
  * Expressive Modal
  *
  * @param {object} props react proptypes
+ * @param {boolean} props.open sets whether the modal is open/close
+ * @param {Function} props.onClose do something on close in addition, return false to completely replace
+ * @param {string|string[]} props.className allows custom classes to be added in addition
+ * @param {*} props.children any type of content to be rendered inside modal
  * @returns {object} JSX object
  */
 const ExpressiveModal = ({ open, className, children, onClose, ...props }) => {
@@ -62,7 +66,7 @@ const ExpressiveModal = ({ open, className, children, onClose, ...props }) => {
 
 ExpressiveModal.propTypes = {
   open: PropTypes.bool,
-  className: PropTypes.string,
+  className: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
   children: PropTypes.node,
   onClose: PropTypes.func,
 };
