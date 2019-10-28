@@ -29,7 +29,7 @@ const List = ({
   lists: {
     title,
     copy,
-    link: { href, target },
+    link: { href, text, target },
   },
 }) => {
   return (
@@ -43,7 +43,7 @@ const List = ({
         href={href}
         target={target === 'blank' ? '_blank' : '_self'}>
         <div className={`${prefix}--list__link__inner`}>
-          <span className={`${prefix}--list__link__text`}> Learn more</span>
+          <span className={`${prefix}--list__link__text`}>{text}</span>
           <ArrowRight20
             aria-label="Learn more link"
             className={`${prefix}--list__link__icon`}
@@ -60,6 +60,7 @@ List.propTypes = {
     copy: PropTypes.string,
     link: PropTypes.PropTypes.shape({
       href: PropTypes.string,
+      text: PropTypes.string,
       target: PropTypes.string,
     }),
   }),
