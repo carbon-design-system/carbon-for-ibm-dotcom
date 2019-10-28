@@ -41,11 +41,13 @@ const JumpLink = ({ link: { href, text } }) => {
       data-autoid={`${stablePrefix}--jumplink`}
       className={`${prefix}--jumplink`}
       onClick={e => scrollToEle(e, href)}>
-      <XAxis16
-        aria-label="Learn more link"
-        className={`${prefix}--jumplink__icon`}
-      />
-      <span className={`${prefix}--jumplink__text`}>{text}</span>
+      <div className={`${prefix}--list__link__inner`}>
+        <XAxis16
+          aria-label="Learn more link"
+          className={`${prefix}--jumplink__icon`}
+        />
+        <span className={`${prefix}--jumplink__text`}>{text}</span>
+      </div>
     </a>
   );
 };

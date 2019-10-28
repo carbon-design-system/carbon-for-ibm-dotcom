@@ -35,11 +35,13 @@ const SimpleLink = ({ link: { href, target } }) => {
       className={`${prefix}--simplelink`}
       href={href}
       target={target === 'blank' ? '_blank' : '_self'}>
-      <span className={`${prefix}--simplelink__text`}>Learn more</span>
-      <ArrowRight16
-        aria-label="Learn more link"
-        className={`${prefix}--simplelink__icon`}
-      />
+      <div className={`${prefix}--simplelink__inner`}>
+        <span className={`${prefix}--simplelink__text`}>Learn more</span>
+        <ArrowRight16
+          aria-label="Learn more link"
+          className={`${prefix}--simplelink__icon`}
+        />
+      </div>
     </a>
   );
 };

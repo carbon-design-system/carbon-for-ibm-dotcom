@@ -7,25 +7,32 @@
 
 @mixin simplelink {
     .#{$prefix}--simplelink {
-        color: $link-01;
-        text-decoration: none;
-        outline: none;
+      color: $link-01;
+      text-decoration: none;
+      outline: none;
+      display: inline-block;
+      border: solid 2px transparent;
+      &:visited {
+        color: $text-02;
+      }
+      &:focus {
+        border-color: $focus;
+      }
+      &:hover {
+        text-decoration: underline;
+        cursor: pointer;
+      }
+      &__inner {
         display: flex;
         align-items: center;
-        &:hover {
-          text-decoration: underline;
-        }
-        &:focus {
-          @include focus-outline;
-        }
-        &__text {
-          @include type-style('body-short-02');
-          color: $link-01;
-        }
-        &__icon {
-          fill: $link-01;
-          margin-left: $spacing-03;
-        }
+      }
+      &__text {
+        @include type-style('body-short-02');
+      }
+      &__icon {
+        fill: $link-01;
+        margin-left: $spacing-03;
+      }
     }
 } 
 @include exports('simplelink') {
