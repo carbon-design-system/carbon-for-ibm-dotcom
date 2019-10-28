@@ -7,11 +7,12 @@
 
 @mixin listsection { 
   .#{$prefix}--listsection {
+    color: $text-01;
+    background: $ui-background;
     &__container {
       padding-left: $layout-01;
       padding-right: $layout-01;
     }
-    color: $text-01;
     &__col {
       @include carbon--make-col-offset(4, 16);
       @include carbon--make-col(7, 16);
