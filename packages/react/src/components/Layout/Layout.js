@@ -41,13 +41,13 @@ function _updateChild(type, children) {
         <div
           className={
             _types[type] && _types[type][i] ? _types[type][i] : `${prefix}--col`
-          }>
+          }
+          key={i}>
           {React.cloneElement(child, {
             className: classnames(
               child.props.className,
               `${prefix}--layout--sticky`
             ),
-            key: i,
           })}
         </div>
       );
@@ -68,14 +68,14 @@ function _updateChild(type, children) {
 }
 
 /**
- * Returns the vertical rhythm modifier class
+ * Returns the spacing modifier class
  *
  * @param {string} position top or bottom position of the layout
  * @param {string} modifier layout modifier from the layout scale
- * @returns {*|string} vertical rhythm class
+ * @returns {*|string} spacing class
  * @private
  */
-function _vrClass(position, modifier) {
+function _spacingClass(position, modifier) {
   return modifier && `${prefix}--layout__${position}-${modifier}`;
 }
 
@@ -96,8 +96,8 @@ const Layout = ({ type, marginTop, marginBottom, children }) => (
     data-autoid={`${stablePrefix}--layout`}
     className={classnames(
       `${prefix}--grid`,
-      _vrClass('top', marginTop),
-      _vrClass('bottom', marginBottom)
+      _spacingClass('top', marginTop),
+      _spacingClass('bottom', marginBottom)
     )}>
     <div className={`${prefix}--row`}>{_updateChild(type, children)}</div>
   </section>

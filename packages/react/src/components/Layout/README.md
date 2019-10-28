@@ -15,26 +15,12 @@ import '@carbon/ibmdotcom-styles/scss/components/layout/_layout.scss';
 function App() {
   return (
     <Layout>
-      <div>Column 1 content</div>
+      <div data-sticky="true">Column 1 content (sticky)</div>
       <div>Column 2 content</div>
     </Layout>
   );
 }
 ReactDOM.render(<App />, document.querySelector('#app'));
-```
-
-If setting one of the columns as a sticky column, the attribute
-`data-sticky="true"` can be added:
-
-```javascript
-function App() {
-  return (
-    <Layout>
-      <div data-sticky="true">Column 1 content sticky</div>
-      <div>Column 2 content</div>
-    </Layout>
-  );
-}
 ```
 
 > 💡 Don't forget to import the layout styles from
@@ -57,6 +43,12 @@ function App() {
 | Name                    | Description                               |
 | ----------------------- | ----------------------------------------- |
 | `layout-01 - layout-07` | Layout token values for the bottom margin |
+
+## data-sticky="true"
+
+When adding the data attribute `data-sticky="true"` to one of the child columns,
+this will set that column to have `position: sticky` with the correct supporting
+HTML structure.
 
 ## Stable selectors
 
