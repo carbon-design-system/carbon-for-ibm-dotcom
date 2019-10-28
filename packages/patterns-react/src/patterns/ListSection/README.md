@@ -39,19 +39,19 @@ LISTSECTION=true
 
 ## Props
 
-| Name        | Description                                                                    |
-| ----------- | ------------------------------------------------------------------------------ |
-| `title`     | List section title `{title}`                                                   |
-| `copy`      | List section content `{copy}`                                                  |
-| `listGroup` | List section listGroup `{listGroup: [ {title, copy, link: {href, target} } ]}` |
+| Name        | Description                                                                          |
+| ----------- | ------------------------------------------------------------------------------------ |
+| `title`     | List section title `{title}`                                                         |
+| `copy`      | List section content `{copy}`                                                        |
+| `listGroup` | List section listGroup `{listGroup: [ {title, copy, link: {href, text, target} } ]}` |
 
 ## Stable selectors
 
-| Name               | Description |
-| ------------------ | ----------- |
-| `dds--listsection` | Component   |
-| `dds--listgroup`   | Component   |
-| `dds--list`        | Component   |
+| Name                     | Description |
+| ------------------------ | ----------- |
+| `dds--listsection`       | Component   |
+| `dds--listsection-group` | Component   |
+| `dds--listsection-item`  | Component   |
 
 ## 🙌 Contributing
 
