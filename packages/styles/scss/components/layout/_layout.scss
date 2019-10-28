@@ -14,51 +14,17 @@
       top: 0;
     }
 
-    &--top {
-      &-layout-01 {
-        margin-top: $carbon--layout-01;
+    @each $layout in $carbon--layout {
+      $i: index($carbon--layout, $layout);
+      &--top {
+        &-layout-0#{$i} {
+          margin-top: $layout;
+        }
       }
-      &-layout-02 {
-        margin-top: $carbon--layout-02;
-      }
-      &-layout-03 {
-        margin-top: $carbon--layout-03;
-      }
-      &-layout-04 {
-        margin-top: $carbon--layout-04;
-      }
-      &-layout-05 {
-        margin-top: $carbon--layout-05;
-      }
-      &-layout-06 {
-        margin-top: $carbon--layout-06;
-      }
-      &-layout-07 {
-        margin-top: $carbon--layout-07;
-      }
-    }
-
-    &--bottom {
-      &-layout-01 {
-        margin-bottom: $carbon--layout-01;
-      }
-      &-layout-02 {
-        margin-bottom: $carbon--layout-02;
-      }
-      &-layout-03 {
-        margin-bottom: $carbon--layout-03;
-      }
-      &-layout-04 {
-        margin-bottom: $carbon--layout-04;
-      }
-      &-layout-05 {
-        margin-bottom: $carbon--layout-05;
-      }
-      &-layout-06 {
-        margin-bottom: $carbon--layout-06;
-      }
-      &-layout-07 {
-        margin-bottom: $carbon--layout-07;
+      &--bottom {
+        &-layout-0#{$i} {
+          margin-bottom: $layout;
+        }
       }
     }
   }

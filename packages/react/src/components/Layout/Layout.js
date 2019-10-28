@@ -76,7 +76,7 @@ function _updateChild(type, children) {
  * @private
  */
 function _spacingClass(position, modifier) {
-  return modifier && `${prefix}--layout__${position}-${modifier}`;
+  return modifier && `${prefix}--layout--${position}-${modifier}`;
 }
 
 /**
