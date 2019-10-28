@@ -28,7 +28,7 @@ const { prefix } = settings;
  * @param {string} props.target simple link text
  * @returns {*} SimpleLink component
  */
-const SimpleLink = ({ link: { href, target } }) => {
+const SimpleLink = ({ link: { href, text, target } }) => {
   return (
     <a
       data-autoid={`${stablePrefix}--simplelink`}
@@ -36,7 +36,7 @@ const SimpleLink = ({ link: { href, target } }) => {
       href={href}
       target={target === 'blank' ? '_blank' : '_self'}>
       <div className={`${prefix}--simplelink__inner`}>
-        <span className={`${prefix}--simplelink__text`}>Learn more</span>
+        <span className={`${prefix}--simplelink__text`}>{text}</span>
         <ArrowRight16
           aria-label="Learn more link"
           className={`${prefix}--simplelink__icon`}
@@ -49,6 +49,7 @@ const SimpleLink = ({ link: { href, target } }) => {
 SimpleLink.propTypes = {
   link: PropTypes.shape({
     href: PropTypes.string.isRequired,
+    text: PropTypes.string,
     target: PropTypes.string,
   }),
 };
