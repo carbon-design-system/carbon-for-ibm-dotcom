@@ -9,7 +9,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
-import List from './List';
+import ListSectonItem from './ListSectionItem';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
@@ -41,7 +41,7 @@ const ListGroup = ({ listGroup: { title, lists } }) => {
  */
 const renderList = listItems => {
   return listItems.map(listItem => {
-    return <List key={listItem.title} lists={listItem} />;
+    return <ListSectonItem key={listItem.title} lists={listItem} />;
   });
 };
 

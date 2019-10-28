@@ -25,7 +25,7 @@ const { prefix } = settings;
  * @param {string} props.lists.link.target List Component target property of link object
  * @returns {object} JSX Object
  */
-const List = ({
+const ListSectionItem = ({
   lists: {
     title,
     copy,
@@ -34,19 +34,21 @@ const List = ({
 }) => {
   return (
     <div
-      data-autoid={`${stablePrefix}--list`}
-      className={`${prefix}--list ${prefix}--list__col`}>
-      <div className={`${prefix}--list__title`}>{title}</div>
-      <div className={`${prefix}--list__content`}>{copy}</div>
+      data-autoid={`${stablePrefix}--listsection-item`}
+      className={`${prefix}--listsection-item ${prefix}--listsection-item__col`}>
+      <div className={`${prefix}--listsection-item__title`}>{title}</div>
+      <div className={`${prefix}--listsection-item__content`}>{copy}</div>
       <a
-        className={`${prefix}--list__link`}
+        className={`${prefix}--listsection-item__link`}
         href={href}
         target={target === 'blank' ? '_blank' : '_self'}>
-        <div className={`${prefix}--list__link__inner`}>
-          <span className={`${prefix}--list__link__text`}>{text}</span>
+        <div className={`${prefix}--listsection-item__link__inner`}>
+          <span className={`${prefix}--listsection-item__link__text`}>
+            {text}
+          </span>
           <ArrowRight20
             aria-label="Learn more link"
-            className={`${prefix}--list__link__icon`}
+            className={`${prefix}--listsection-item__link__icon`}
           />
         </div>
       </a>
@@ -54,7 +56,7 @@ const List = ({
   );
 };
 
-List.propTypes = {
+ListSectionItem.propTypes = {
   lists: PropTypes.shape({
     title: PropTypes.string,
     copy: PropTypes.string,
@@ -66,4 +68,4 @@ List.propTypes = {
   }),
 };
 
-export default List;
+export default ListSectionItem;
