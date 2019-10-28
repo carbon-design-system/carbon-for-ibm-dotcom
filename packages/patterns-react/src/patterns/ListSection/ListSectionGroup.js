@@ -9,26 +9,28 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
-import List from './List';
+import ListSectonItem from './ListSectionItem';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
- * List Group Component
+ * List Section Group Component
  *
  * @param {object} props props object
  * @param {string} props.title List Group title
- * @param {string} props.lists link Group lists object
+ * @param {Array} props.lists link Group lists array
  * @returns {object} JSX Object
  */
-const ListGroup = ({ listGroup: { title, lists } }) => {
+const ListSectionGroup = ({ listGroup: { title, lists } }) => {
   return (
     <div
-      data-autoid={`${stablePrefix}--listgroup`}
-      className={`${prefix}--listgroup ${prefix}--listgroup__col`}>
-      <div className={`${prefix}--listgroup__title`}>{title}</div>
-      <div className={`${prefix}--listgroup__list`}>{renderList(lists)}</div>
+      data-autoid={`${stablePrefix}--listsection-group`}
+      className={`${prefix}--listsection-group`}>
+      <div className={`${prefix}--listsection-group__title`}>{title}</div>
+      <div className={`${prefix}--listsection-group__list`}>
+        {_renderList(lists)}
+      </div>
     </div>
   );
 };
@@ -36,20 +38,21 @@ const ListGroup = ({ listGroup: { title, lists } }) => {
 /**
  * Render List Component
  *
+ * @private
  * @param {object} listItems listItems Object
  * @returns {object} JSX Object
  */
-const renderList = listItems => {
+const _renderList = listItems => {
   return listItems.map(listItem => {
-    return <List key={listItem.title} lists={listItem} />;
+    return <ListSectonItem key={listItem.title} lists={listItem} />;
   });
 };
 
-ListGroup.propTypes = {
+ListSectionGroup.propTypes = {
   listGroup: PropTypes.shape({
     title: PropTypes.string,
-    lists: PropTypes.object,
+    lists: PropTypes.array,
   }),
 };
 
-export default ListGroup;
+export default ListSectionGroup;

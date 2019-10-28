@@ -10,6 +10,8 @@ import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
 import PropTypes from 'prop-types';
 import { ArrowRight20 } from '@carbon/icons-react';
+import { LinkWithIcon } from '@carbon/ibmdotcom-react';
+import '@carbon/ibmdotcom-styles/scss/components/link-with-icon/_link-with-icon.scss';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
@@ -25,7 +27,7 @@ const { prefix } = settings;
  * @param {string} props.lists.link.target List Component target property of link object
  * @returns {object} JSX Object
  */
-const List = ({
+const ListSectionItem = ({
   lists: {
     title,
     copy,
@@ -34,27 +36,21 @@ const List = ({
 }) => {
   return (
     <div
-      data-autoid={`${stablePrefix}--list`}
-      className={`${prefix}--list ${prefix}--list__col`}>
-      <div className={`${prefix}--list__title`}>{title}</div>
-      <div className={`${prefix}--list__content`}>{copy}</div>
-      <a
-        className={`${prefix}--list__link`}
-        href={href}
-        target={target === 'blank' ? '_blank' : '_self'}>
-        <div className={`${prefix}--list__link__inner`}>
-          <span className={`${prefix}--list__link__text`}>{text}</span>
-          <ArrowRight20
-            aria-label="Learn more link"
-            className={`${prefix}--list__link__icon`}
-          />
-        </div>
-      </a>
+      data-autoid={`${stablePrefix}--listsection-item`}
+      className={`${prefix}--listsection-item`}>
+      <div className={`${prefix}--listsection-item__title`}>{title}</div>
+      <div className={`${prefix}--listsection-item__content`}>{copy}</div>
+      <div className={`${prefix}--listsection-item__link`}>
+        <LinkWithIcon href={href} target={target}>
+          <span>{text}</span>
+          <ArrowRight20 />
+        </LinkWithIcon>
+      </div>
     </div>
   );
 };
 
-List.propTypes = {
+ListSectionItem.propTypes = {
   lists: PropTypes.shape({
     title: PropTypes.string,
     copy: PropTypes.string,
@@ -66,4 +62,4 @@ List.propTypes = {
   }),
 };
 
-export default List;
+export default ListSectionItem;

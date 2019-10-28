@@ -1,18 +1,20 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { LISTSECTION } from '../../../internal/FeatureFlags';
-import { withKnobs, text, select, object } from '@storybook/addon-knobs';
+import {
+  withKnobs,
+  text,
+  select,
+  object,
+  boolean,
+} from '@storybook/addon-knobs';
 import '../../../../../styles/scss/patterns/listsection/index.scss';
 import ListSection from '../ListSection';
 import readme from '../README.md';
 
 if (LISTSECTION) {
   storiesOf('List section', module)
-    .addDecorator(
-      withKnobs({
-        escapeHTML: true,
-      })
-    )
+    .addDecorator(withKnobs)
     .addParameters({
       readme: {
         sidebar: readme,
@@ -44,7 +46,7 @@ if (LISTSECTION) {
               link: {
                 href: 'https://www.example.com',
                 text: 'Learn more',
-                target: 'self',
+                target: '_self',
               },
             },
             {
@@ -54,7 +56,7 @@ if (LISTSECTION) {
               link: {
                 href: 'https://www.example.com',
                 text: 'Learn more',
-                target: 'self',
+                target: '_self',
               },
             },
             {
@@ -64,7 +66,7 @@ if (LISTSECTION) {
               link: {
                 href: 'https://www.example.com',
                 text: 'Learn more',
-                target: 'self',
+                target: '_self',
               },
             },
           ],
@@ -79,7 +81,7 @@ if (LISTSECTION) {
               link: {
                 href: 'https://www.example.com',
                 text: 'Learn more',
-                target: 'self',
+                target: '_self',
               },
             },
             {
@@ -89,7 +91,7 @@ if (LISTSECTION) {
               link: {
                 href: 'https://www.example.com',
                 text: 'Learn more',
-                target: 'self',
+                target: '_self',
               },
             },
             {
@@ -99,7 +101,7 @@ if (LISTSECTION) {
               link: {
                 href: 'https://www.example.com',
                 text: 'Learn more',
-                target: 'self',
+                target: '_self',
               },
             },
           ],
@@ -114,7 +116,7 @@ if (LISTSECTION) {
               link: {
                 href: 'https://www.example.com',
                 text: 'Learn more',
-                target: 'self',
+                target: '_self',
               },
             },
             {
@@ -124,7 +126,7 @@ if (LISTSECTION) {
               link: {
                 href: 'https://www.example.com',
                 text: 'Learn more',
-                target: 'self',
+                target: '_self',
               },
             },
             {
@@ -134,7 +136,7 @@ if (LISTSECTION) {
               link: {
                 href: 'https://www.example.com',
                 text: 'Learn more',
-                target: 'self',
+                target: '_self',
               },
             },
           ],
@@ -146,16 +148,19 @@ if (LISTSECTION) {
         'light (white)': '',
       };
 
+      const withBorder = boolean('with border', true);
+
       return (
         <div
           className={`bx--listsection--${select(
             'theme',
             themes,
-            themes['dark (g100)']
+            themes['light (white)']
           )}`}>
           <ListSection
             title={title}
             copy={copy}
+            border={withBorder}
             listGroup={object('listGroup', listGroup)}
           />
         </div>
