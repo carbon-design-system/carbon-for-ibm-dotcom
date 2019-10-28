@@ -18,7 +18,6 @@
         color: $link-01;
         text-decoration: none;
         outline: none;
-        cursor: pointer;
         display: inline-block;
         border: solid 2px transparent;
         @include type-style('body-short-02');
@@ -30,6 +29,7 @@
         }
         &:hover {
           text-decoration: underline;
+          cursor: pointer;
         }
         &__inner {
           display: flex;
