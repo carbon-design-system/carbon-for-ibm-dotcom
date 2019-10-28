@@ -34,7 +34,7 @@
     "jsdoc": "rimraf docs && jsdoc -c ./jsdoc.json ./README.md"
   },
   "dependencies": {
-    "@carbon/ibmdotcom-utilities": "^1.1.0-alpha.610",
+    "@carbon/ibmdotcom-utilities": "1.1.0-alpha.743",
     "axios": "^0.19.0",
     "jsonp": "^0.2.1",
     "window-or-global": "^1.0.1"

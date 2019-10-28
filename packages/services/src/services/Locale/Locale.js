@@ -23,6 +23,13 @@ const _proxy = process.env.CORS_PROXY || '';
 const _endpoint = `${_proxy}${_host}/common/v18/js/data/countrylist`;
 
 /**
+ * Session Storage key for country list
+ * @type {string}
+ * @private
+ */
+const _sessionListKey = 'countrylist';
+
+/**
  * Locale API class with method of fetching user's locale for
  * ibm.com
  */
@@ -30,6 +37,7 @@ class LocaleAPI {
   /**
    * Gets the user's locale
    *
+   * Grab the locale from the `lang` attribute from html, else
    * check if ipcinfo cookie exists (ipcinfoCookie util)
    * if not, retrieve the user's locale through geolocation util + gets user's
    * browser language preference then set the cookie
@@ -46,7 +54,15 @@ class LocaleAPI {
    */
   static async getLocale() {
     const cookie = ipcinfoCookie.get();
-    if (cookie && cookie.cc && cookie.lc) {
+    const lang = this.getLang();
+    // grab locale from the html lang attribute
+    if (lang) {
+      const locale = await this.getList(lang);
+      return locale;
+    }
+    // grab the locale from the cookie
+    else if (cookie && cookie.cc && cookie.lc) {
+      await this.getList(cookie);
       return cookie;
     } else {
       const cc = await geolocation();
@@ -59,7 +75,7 @@ class LocaleAPI {
       const lc = lang.split('-')[0];
 
       if (cc && lc) {
-        const list = await this.getList(cc, lc);
+        const list = await this.getList({ cc, lc });
         const verifiedCodes = this.verifyLocale(cc, lc, list);
 
         // set the ipcInfo cookie
@@ -71,10 +87,33 @@ class LocaleAPI {
   }
 
   /**
-   * Get the country list of all supported countries and their languages
+   * Gets the `lang` html attribute containing the cc and lc
    *
-   * @param {string} cc country code
-   * @param {string} lc language code
+   * @returns {object} locale object
+   *
+   * @example
+   * import { LocaleAPI } from '@carbon/ibmdotcom-services';
+   *
+   * function async getLocale() {
+   *    const locale = await LocaleAPI.getLang();
+   * }
+   */
+  static getLang() {
+    if (root.document.documentElement.lang) {
+      const lang = root.document.documentElement.lang.toLowerCase();
+      const codes = lang.split('-');
+      const locale = { cc: codes[1], lc: codes[0] };
+      return locale;
+    }
+  }
+
+  /**
+   * Get the country list of all supported countries and their languages
+   * if not set in session storage
+   *
+   * @param {object} params params object
+   * @param {string} params.cc country code
+   * @param {string} params.lc language code
    *
    * @returns {Promise<any>} promise object
    *
@@ -85,20 +124,34 @@ class LocaleAPI {
    *    const list = await LocaleAPI.getList();
    * }
    */
-  static async getList(cc, lc) {
-    const url = `${_endpoint}/${cc}${lc}-utf8.json`;
+  static async getList({ cc, lc }) {
+    const sessionList = JSON.parse(
+      sessionStorage.getItem(`${_sessionListKey}-${cc}-${lc}`)
+    );
 
-    /**
-     * if the json file for the cc-lc combo does not exist,
-     * browser will automatically redirect to the us-en country list
-     */
-    return await axios
-      .get(url, {
-        headers: {
-          'Content-Type': 'application/json; charset=utf-8',
-        },
-      })
-      .then(response => response.data);
+    if (sessionList) {
+      return sessionList;
+    } else {
+      const url = `${_endpoint}/${cc}${lc}-utf8.json`;
+      /**
+       * if the json file for the cc-lc combo does not exist,
+       * browser will automatically redirect to the us-en country list
+       */
+      const list = await axios
+        .get(url, {
+          headers: {
+            'Content-Type': 'application/json; charset=utf-8',
+          },
+        })
+        .then(response => response.data);
+
+      sessionStorage.setItem(
+        `${_sessionListKey}-${cc}-${lc}`,
+        JSON.stringify(list)
+      );
+
+      return list;
+    }
   }
 
   /**

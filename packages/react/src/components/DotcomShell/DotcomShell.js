@@ -58,7 +58,7 @@ DotcomShell.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]).isRequired,
-  navigation: PropTypes.object,
+  navigation: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   footerType: PropTypes.string,
   mastheadProps: PropTypes.object,
 };
