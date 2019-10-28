@@ -18,7 +18,7 @@ if (SIMPLELONGFORM) {
         sidebar: readme,
       },
     })
-    .add('Standard', () => {
+    .add('Default', () => {
       const title = text(
         'title (required)',
         'Maecenas Tincidunt Eget Sapien a Pretium'
