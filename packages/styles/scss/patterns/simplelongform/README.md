@@ -5,31 +5,36 @@
 Import the package css into the top of your main CSS file.
 
 ```css
-@import '@carbon/ibmdotcom-styles/scss/patterns/leadspace/index';
+@import '@carbon/ibmdotcom-styles/scss/patterns/simplelongform/index';
 ```
 
 #### Modifiers
 
-Use these modifiers with `.bx--leadspace` class.
+Use these modifiers with `.bx--simplelongform` class.
 
-| Class                        | Description                                                        |
-| ---------------------------- | ------------------------------------------------------------------ |
-| `.bx--leadspace--productive` | The className for 'productive' variant which changes title styling |
+| Class                         | Description                                         |
+| ----------------------------- | --------------------------------------------------- |
+| `.bx--simplelongform--simple` | The className for simple long form with simple link |
+| `.bx--simplelongform--jump`   | The className for simple long form with jump link   |
+| `.bx--simplelongform--card`   | The className for simple long form with card link   |
 
 #### Elements
 
-| Class                       | Description                                            |
-| --------------------------- | ------------------------------------------------------ |
-| `.bx--leadspace__image`     | Background image of the lead space pattern (optional)  |
-| `.bx--leadspace__container` | Element containing all copy/cta content                |
-| `.bx--leadspace__overlay`   | Gradient overlay behind copy content                   |
-| `.bx--leadspace__title`     | Required title/heading for the lead space              |
-| `.bx--leadspace__content`   | Content holder for optional short description and ctas |
-| `.bx--leadspace__desc`      | Optional short description                             |
-| `.bx--leadspace__ctas`      | Optional CTA buttons                                   |
+| Class | Description |
+| ----- | ----------- |
+
+
+| `.bx--simplelongform__container` | Element containing all simple long form
+content | | `.bx--simplelongform__row` | Vertical divisions across the viewport
+| | `.bx--simplelongform__col` | Horizonal divisions across the viewport and
+change in width at different screen | | `.bx--simplelongform__title` | Title for
+simple long form pattern | | `.bx--simplelongform__content` | Content holder for
+short description | | `.bx--simplelongform__link_col` |Horizonal division for
+link element | | `.bx--simplelongform__divider_col` | Horizonal division for
+divider element | | `.bx--simplelongform__divider` | Divider element |
 
 #### Blocks
 
-| Class            | Description                                        |
-| ---------------- | -------------------------------------------------- |
-| `.bx--leadspace` | Highest level class name for the leadspace pattern |
+| Class                 | Description                                               |
+| --------------------- | --------------------------------------------------------- |
+| `.bx--simplelongform` | Highest level class name for the simple long form pattern |

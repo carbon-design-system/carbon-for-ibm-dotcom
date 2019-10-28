@@ -63,6 +63,7 @@ const SimpleLongForm = ({ title, copy, linkType, link }) =>
  * @returns {*} JSX Object
  */
 const renderLink = (type, data) => {
+  console.log(type, data);
   return type === 'jump' ? (
     <JumpLink link={data} />
   ) : type === 'card' ? (
@@ -84,10 +85,10 @@ const setLinkType = type => {
     case 'jump':
       linkType = `${prefix}--simplelongform--jump`;
       break;
-    case 'standard with card link':
+    case 'card':
       linkType = `${prefix}--simplelongform--card`;
       break;
-    case 'standard with simple link':
+    case 'simple':
       linkType = `${prefix}--simplelongform--simple`;
       break;
     default:
