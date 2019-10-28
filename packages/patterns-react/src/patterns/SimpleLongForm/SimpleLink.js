@@ -9,7 +9,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
-import { ArrowRight16 } from '@carbon/icons-react';
+import { ArrowRight20 } from '@carbon/icons-react';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
@@ -37,7 +37,7 @@ const SimpleLink = ({ link: { href, text, target } }) => {
       target={target === 'blank' ? '_blank' : '_self'}>
       <div className={`${prefix}--simplelink__inner`}>
         <span className={`${prefix}--simplelink__text`}>{text}</span>
-        <ArrowRight16
+        <ArrowRight20
           aria-label="Learn more link"
           className={`${prefix}--simplelink__icon`}
         />
