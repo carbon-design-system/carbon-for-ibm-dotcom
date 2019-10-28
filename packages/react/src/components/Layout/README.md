@@ -11,6 +11,7 @@ Here's a quick example to get you started.
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Layout } from '@carbon/ibmdotcom-react';
+import '@carbon/grid/scss/grid.scss';
 import '@carbon/ibmdotcom-styles/scss/components/layout/_layout.scss';
 function App() {
   return (

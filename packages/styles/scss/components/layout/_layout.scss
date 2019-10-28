@@ -6,7 +6,6 @@
 //
 
 @import '../../globals/imports';
-@import '~@carbon/grid/scss/grid.scss';
 
 @mixin layout {
   .#{$prefix}--layout {
