@@ -13,7 +13,10 @@ import { settings } from 'carbon-components';
 import { featureFlag } from '@carbon/ibmdotcom-utilities';
 import { SIMPLELONGFORM } from '../../internal/FeatureFlags';
 import JumpLink from './JumpLink';
-import CardLink from './CardLink';
+// import CardLink from './CardLink';
+import { CardLink } from '@carbon/ibmdotcom-react';
+import '@carbon/ibmdotcom-styles/scss/components/card-link/index.scss';
+import { ArrowRight20 } from '@carbon/icons-react';
 import SimpleLink from './SimpleLink';
 
 const { stablePrefix } = ddsSettings;
@@ -63,11 +66,10 @@ const SimpleLongForm = ({ title, copy, linkType, link }) =>
  * @returns {*} JSX Object
  */
 const renderLink = (type, data) => {
-  console.log(type, data);
   return type === 'jump' ? (
     <JumpLink link={data} />
   ) : type === 'card' ? (
-    <CardLink link={data} />
+    <CardLink title={data.text} href={data.href} icon={<ArrowRight20 />} />
   ) : type === 'simple' ? (
     <SimpleLink link={data} />
   ) : null;

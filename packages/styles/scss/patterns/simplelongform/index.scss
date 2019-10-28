@@ -1,7 +1,6 @@
 @import '../../globals/imports';
 @import './simplelongform';
 @import './jumplink';
-@import './cardlink';
 @import './simplelink';
 
 
@@ -9,7 +8,6 @@
   @include carbon--theme($carbon--theme--g100) {
     @include simplelongform;
     @include jumplink;
-    @include cardlink;
     @include simplelink;
   }
 }
