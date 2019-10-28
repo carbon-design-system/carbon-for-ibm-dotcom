@@ -15,20 +15,22 @@ const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
- * List Group Component
+ * List Section Group Component
  *
  * @param {object} props props object
  * @param {string} props.title List Group title
- * @param {string} props.lists link Group lists object
+ * @param {Array} props.lists link Group lists array
  * @returns {object} JSX Object
  */
-const ListGroup = ({ listGroup: { title, lists } }) => {
+const ListSectionGroup = ({ listGroup: { title, lists } }) => {
   return (
     <div
-      data-autoid={`${stablePrefix}--listgroup`}
-      className={`${prefix}--listgroup ${prefix}--listgroup__col`}>
-      <div className={`${prefix}--listgroup__title`}>{title}</div>
-      <div className={`${prefix}--listgroup__list`}>{renderList(lists)}</div>
+      data-autoid={`${stablePrefix}--listsection-group`}
+      className={`${prefix}--listsection-group ${prefix}--listsection-group__col`}>
+      <div className={`${prefix}--listsection-group__title`}>{title}</div>
+      <div className={`${prefix}--listsection-group__list`}>
+        {renderList(lists)}
+      </div>
     </div>
   );
 };
@@ -45,11 +47,11 @@ const renderList = listItems => {
   });
 };
 
-ListGroup.propTypes = {
+ListSectionGroup.propTypes = {
   listGroup: PropTypes.shape({
     title: PropTypes.string,
-    lists: PropTypes.object,
+    lists: PropTypes.array,
   }),
 };
 
-export default ListGroup;
+export default ListSectionGroup;

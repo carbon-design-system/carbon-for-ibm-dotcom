@@ -5,8 +5,8 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@mixin listgroup {
-    .#{$prefix}--listgroup {
+@mixin listsection-group {
+    .#{$prefix}--listsection-group {
     color: $text-01;
     &__title {
       @include type-style('expressive-heading-04');
@@ -23,6 +23,6 @@
     }
   }
 } 
-@include exports('listgroup') {
-  @include listgroup;
+@include exports('listsection-group') {
+  @include listsection-group;
 }

@@ -12,7 +12,7 @@ import { settings } from 'carbon-components';
 import classNames from 'classnames';
 import { featureFlag } from '@carbon/ibmdotcom-utilities';
 import { LISTSECTION } from '../../internal/FeatureFlags';
-import ListGroup from './ListGroup';
+import ListSectionGroup from './ListSectionGroup';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
@@ -50,21 +50,23 @@ const ListSection = ({ title, copy, listGroup }) =>
   );
 
 /**
- * Render List Group Component
+ * Render List Section Group Component
  *
  * @param {object} listGroupItems listGroupItems Object
  * @returns {object} JSX Object
  */
 const renderListGroup = listGroupItems => {
   return listGroupItems.map(listGroupItem => {
-    return <ListGroup listGroup={listGroupItem} />;
+    return (
+      <ListSectionGroup key={listGroupItem.title} listGroup={listGroupItem} />
+    );
   });
 };
 
 ListSection.propTypes = {
   title: PropTypes.string.isRequired,
   copy: PropTypes.string,
-  listGroup: PropTypes.shape({
+  listGroupItems: PropTypes.shape({
     title: PropTypes.string,
     lists: PropTypes.array,
   }),
