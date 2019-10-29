@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
 import root from 'window-or-global';
-import { init } from '../../global';
+import { globalInit } from '@carbon/ibmdotcom-utilities';
 import { User20, UserOnline20 } from '@carbon/icons-react';
 import { IbmLogo } from '../Icon';
 import {
@@ -49,7 +49,7 @@ const Masthead = ({ navigation, hasProfile, hasSearch, ...mastheadProps }) => {
 
   useEffect(() => {
     // initialize global execution calls
-    init();
+    globalInit();
   }, []);
 
   useEffect(() => {

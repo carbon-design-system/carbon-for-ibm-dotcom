@@ -12,7 +12,7 @@ let _initialized = false;
 /**
  * Initializes various global functions
  */
-export function init() {
+export function globalInit() {
   if (_initialized) {
     return;
   } else {
@@ -23,6 +23,5 @@ export function init() {
   DDOAPI.setVersion();
 
   // analytics tracking
-  AnalyticsAPI.initScrollTracker();
-  AnalyticsAPI.initDynamicTabs();
+  AnalyticsAPI.initAll();
 }
