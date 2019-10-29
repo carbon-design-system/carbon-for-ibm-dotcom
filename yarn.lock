@@ -899,14 +899,6 @@
     "@carbon/import-once" "10.3.0"
     "@carbon/layout" "10.5.0"
 
-"@carbon/ibmdotcom-services@0.4.0":
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/@carbon/ibmdotcom-services/-/ibmdotcom-services-0.4.0.tgz#02448684ef4853a7789b4fda7b4f86951bb83cf0"
-  integrity sha512-LxDcD/PU/r3i6MMcdfG4CfWK7BTzd93YVqPw9tcQy2B2kki6zPlYcDpOyJisYfCnhZuTU2wHZmQxzOmqg6HoUw==
-  dependencies:
-    jsonp "^0.2.1"
-    window-or-global "^1.0.1"
-
 "@carbon/ibmdotcom-services@1.0.0-alpha.1":
   version "1.0.0-alpha.1"
   resolved "https://registry.yarnpkg.com/@carbon/ibmdotcom-services/-/ibmdotcom-services-1.0.0-alpha.1.tgz#83c90b45e0162087196191bf8bb53330e371551b"
