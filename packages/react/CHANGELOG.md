@@ -3,6 +3,97 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.0.0...@carbon/ibmdotcom-react@1.1.0-rc.0) (2019-10-29)
+
+### Bug Fixes
+
+- **buttongroup:** adding ButtonGroup
+  ([9ec6f96](https://github.com/carbon-design-system/ibm-dotcom-library/commit/9ec6f96))
+- **buttongroup:** adjustment to the buttongroup story
+  ([6fea3fe](https://github.com/carbon-design-system/ibm-dotcom-library/commit/6fea3fe))
+- **buttongroup:** fix button group test
+  ([5cdc971](https://github.com/carbon-design-system/ibm-dotcom-library/commit/5cdc971))
+- **buttongroup:** fixed ButtonGroup story props
+  ([14ac86d](https://github.com/carbon-design-system/ibm-dotcom-library/commit/14ac86d))
+- **buttongroup:** fixes to ButtonGroup props and unit tests
+  ([de19918](https://github.com/carbon-design-system/ibm-dotcom-library/commit/de19918))
+- **buttongroup:** removed cap for number of buttons in the group
+  ([308a1e3](https://github.com/carbon-design-system/ibm-dotcom-library/commit/308a1e3))
+- **buttongroup:** simplified buttongroup layout
+  ([da0c546](https://github.com/carbon-design-system/ibm-dotcom-library/commit/da0c546))
+- **buttongroup:** updated button group to allow any icons
+  ([9923fd8](https://github.com/carbon-design-system/ibm-dotcom-library/commit/9923fd8))
+- **buttongroup:** various fixes to the ButtonGroup layout
+  ([d8a65d9](https://github.com/carbon-design-system/ibm-dotcom-library/commit/d8a65d9))
+- **buttongroup:** various fixes to the Buttons and documentation
+  ([ca53867](https://github.com/carbon-design-system/ibm-dotcom-library/commit/ca53867))
+- **featureflag:** hiding experimental stories from production
+  ([#577](https://github.com/carbon-design-system/ibm-dotcom-library/issues/577))
+  ([394b9df](https://github.com/carbon-design-system/ibm-dotcom-library/commit/394b9df))
+- **jest:** fixes stable selector prefix
+  ([428b452](https://github.com/carbon-design-system/ibm-dotcom-library/commit/428b452))
+- **js:** remove dupe object
+  ([c8fcd4b](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c8fcd4b))
+- **lint:** fix jsdoc linting errors
+  ([eb9c36c](https://github.com/carbon-design-system/ibm-dotcom-library/commit/eb9c36c))
+- **locale:** check if list first
+  ([4d1d08c](https://github.com/carbon-design-system/ibm-dotcom-library/commit/4d1d08c))
+- **locale:** rely on locale service to get countrylist
+  ([fe3c7ce](https://github.com/carbon-design-system/ibm-dotcom-library/commit/fe3c7ce))
+- **masthead:** add default props
+  ([fbce7ea](https://github.com/carbon-design-system/ibm-dotcom-library/commit/fbce7ea))
+- **masthead:** add proptypes
+  ([cbf91f6](https://github.com/carbon-design-system/ibm-dotcom-library/commit/cbf91f6))
+- **masthead:** fix masthead keyboard accessibility; fixes
+  [#160](https://github.com/carbon-design-system/ibm-dotcom-library/issues/160)
+  ([588d0f7](https://github.com/carbon-design-system/ibm-dotcom-library/commit/588d0f7))
+- **package:** update utilities package in services
+  ([115c48a](https://github.com/carbon-design-system/ibm-dotcom-library/commit/115c48a))
+- **props:** add missing props
+  ([22df546](https://github.com/carbon-design-system/ibm-dotcom-library/commit/22df546))
+- **react:** adding linkwithicon for import
+  ([49aa879](https://github.com/carbon-design-system/ibm-dotcom-library/commit/49aa879))
+- **search:** update focus and active states
+  ([858c84b](https://github.com/carbon-design-system/ibm-dotcom-library/commit/858c84b))
+- **translation:** adjust masthead for diff data structures
+  ([8e3c4fa](https://github.com/carbon-design-system/ibm-dotcom-library/commit/8e3c4fa))
+
+### Features
+
+- **analytics:** adding initial event for dynamic tabs
+  ([6ad3085](https://github.com/carbon-design-system/ibm-dotcom-library/commit/6ad3085))
+- **analytics:** global analytics for modal and dynamic tabs
+  ([1dade0e](https://github.com/carbon-design-system/ibm-dotcom-library/commit/1dade0e))
+- **block-link:** added feature flag
+  ([b2a51b7](https://github.com/carbon-design-system/ibm-dotcom-library/commit/b2a51b7))
+- **buttongroup:** added feature flag for ButtonGroup
+  ([7666688](https://github.com/carbon-design-system/ibm-dotcom-library/commit/7666688))
+- **cardlink:** added new cardlink component
+  ([47b2aed](https://github.com/carbon-design-system/ibm-dotcom-library/commit/47b2aed))
+- **component:** adds LinkWithIcon component; fixes
+  [#163](https://github.com/carbon-design-system/ibm-dotcom-library/issues/163)
+  ([8ffb21b](https://github.com/carbon-design-system/ibm-dotcom-library/commit/8ffb21b))
+- **geolocation:** geolocation utility
+  ([5878365](https://github.com/carbon-design-system/ibm-dotcom-library/commit/5878365))
+- **locale:** add checks in masthead logic and pull lang attr
+  ([3d06d52](https://github.com/carbon-design-system/ibm-dotcom-library/commit/3d06d52))
+- **locale:** displays list of countries/regions in dropdown
+  ([ac54e31](https://github.com/carbon-design-system/ibm-dotcom-library/commit/ac54e31))
+- **locale:** footer hooked up to reload translation
+  ([27998eb](https://github.com/carbon-design-system/ibm-dotcom-library/commit/27998eb))
+- **locale:** split get lang attr into its own method
+  ([36315fa](https://github.com/carbon-design-system/ibm-dotcom-library/commit/36315fa))
+- **locale:** use session storage for country list
+  ([1adcd87](https://github.com/carbon-design-system/ibm-dotcom-library/commit/1adcd87))
+- **masthead:** makes search and profile optional; fixes
+  [#101](https://github.com/carbon-design-system/ibm-dotcom-library/issues/101)
+  ([79df921](https://github.com/carbon-design-system/ibm-dotcom-library/commit/79df921))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.0.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.0.0-rc.2...@carbon/ibmdotcom-react@1.0.0) (2019-10-07)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-react
