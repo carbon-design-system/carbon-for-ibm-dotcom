@@ -10,70 +10,37 @@
     color: $text-01;
     background: $ui-background;
     &__container {
-      padding-left: $layout-01;
-      padding-right: $layout-01;
+      @include carbon--make-container;
     }
-    &__col {
-      @include carbon--make-col-offset(4, 16);
-      @include carbon--make-col(7, 16);
-    }
-    
     &__row {
       @include carbon--make-row;
     }
+    &__col {
+      @include carbon--make-col-ready;
+    }
     &__title {
       @include type-style('expressive-heading-05');
+      margin-top: $layout-05;
+      margin-bottom: $layout-03;
     }
     &__content {
       @include type-style('body-long-02');
     }
     &__divider {
       border-bottom: 1px solid $ui-04;
-    }
-    @include carbon--breakpoint('sm') {
+      margin-bottom: $layout-01;
+      margin-top: $layout-06;
+      margin-left: -$layout-01;
+      margin-right: -$layout-01;
       &__col {
-        @include carbon--make-col-offset(0, 4);
-        @include carbon--make-col(4, 4);
-        padding-left: $layout-01;
-        padding-right: $layout-01;
-      }
-      &__title {
-        @include type-style('expressive-heading-05');
-        margin-top: $layout-05;
-        margin-bottom: $layout-03;
-      }
-      &__content {
-        @include type-style('body-long-02');
-      }
-      &__divider {
-        border-bottom: 1px solid $ui-04;
-        margin-bottom: $layout-01;
-        margin-top: $layout-06;
-        &__col {
-          @include carbon--make-col-offset(0, 4);
-          @include carbon--make-col(4, 4);
-        }
+        @include carbon--make-col-ready;
       }
     }
     @include carbon--breakpoint('md') {
       &__col {
         @include carbon--make-col(7, 8);
-        padding-left: $layout-03;
-        padding-right: $layout-03;
-      }
-      &__listgroup { 
-        &__col {
-          @include carbon--make-col(7, 8);
-          padding-left: $layout-03;
-          padding-right: $layout-03;
-        }
-      }
-      &__divider {
-        &__col {
-          @include carbon--make-col(8, 8);
-          padding-left: $layout-01;
-          padding-right: $layout-01;
-        }
+        padding-left: $layout-01;
+        padding-right: $layout-01;
       }
     }
     @include carbon--breakpoint('lg') {
@@ -83,19 +50,12 @@
       }
       &__title {
         margin-top: $layout-06;
-        margin-bottom: $layout-03;
-      }
-      &__listgroup { 
-        &__col {
-          @include carbon--make-col-offset(4, 16);
-          @include carbon--make-col(7, 16);
-        }
       }
       &__divider {
         margin-top: $layout-07;
         &__col {
           @include carbon--make-col-offset(4, 16);
-          @include carbon--make-col(7, 16);
+          @include carbon--make-col(12, 16);
         }
       }
     }
