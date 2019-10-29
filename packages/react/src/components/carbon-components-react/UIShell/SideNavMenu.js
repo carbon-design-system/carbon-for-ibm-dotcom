@@ -124,6 +124,7 @@ export class SideNavMenu extends React.Component {
       hasActiveChild = Array.isArray(children)
         ? children.some(child => {
             if (
+              child &&
               child.props &&
               (child.props.isActive === true || child.props['aria-current'])
             ) {
@@ -170,12 +171,14 @@ export class SideNavMenu extends React.Component {
   }
 
   _renderSideNavItem = (item, index) => {
-    return React.cloneElement(item, {
-      onClick:
-        item.props.isBackButton === true
-          ? this.handleToggleExpand.bind(this)
-          : null,
-    });
+    if (item) {
+      return React.cloneElement(item, {
+        onClick:
+          item.props.isBackButton === true
+            ? this.handleToggleExpand.bind(this)
+            : null,
+      });
+    }
   };
 }
 
