@@ -23,24 +23,12 @@ const { prefix } = settings;
  * @returns {*} JumpLink component
  */
 const JumpLink = ({ link: { href, text } }) => {
-  /**
-   * Scroll to html element of provided id
-   *
-   * @param {*} e javascript event object
-   * @param {*} id id attribute of element
-   */
-  const scrollToEle = (e, id) => {
-    e.preventDefault();
-    document
-      .getElementById(id)
-      .scrollIntoView({ behavior: 'smooth', block: 'center' });
-  };
-
   return (
     <a
+      href={href}
       data-autoid={`${stablePrefix}--jumplink`}
       className={`${prefix}--jumplink`}
-      onClick={e => scrollToEle(e, href)}>
+      onClick={e => _scrollToEle(e, href)}>
       <div className={`${prefix}--list__link__inner`}>
         <XAxis16
           aria-label="Learn more link"
@@ -50,6 +38,20 @@ const JumpLink = ({ link: { href, text } }) => {
       </div>
     </a>
   );
+};
+
+/**
+ * Scroll to html element of provided id
+ *
+ * @private
+ * @param {*} e javascript event object
+ * @param {*} id id attribute of element
+ */
+const _scrollToEle = (e, id) => {
+  e.preventDefault();
+  document
+    .getElementById(id)
+    .scrollIntoView({ behavior: 'smooth', block: 'center' });
 };
 
 JumpLink.propTypes = {

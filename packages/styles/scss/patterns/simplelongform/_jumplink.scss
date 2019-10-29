@@ -11,12 +11,8 @@
       text-decoration: none;
       outline: none;
       display: inline-block;
-      border: solid 2px transparent;
-      &:visited {
-        color: $text-02;
-      }
       &:focus {
-        border-color: $focus;
+        outline: 2px solid $focus;
       }
       &:hover {
         text-decoration: underline;
