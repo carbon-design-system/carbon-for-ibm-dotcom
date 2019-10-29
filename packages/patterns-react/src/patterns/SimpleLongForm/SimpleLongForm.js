@@ -15,7 +15,6 @@ import { SIMPLELONGFORM } from '../../internal/FeatureFlags';
 import JumpLink from './JumpLink';
 // import CardLink from './CardLink';
 import { CardLink } from '@carbon/ibmdotcom-react';
-import '@carbon/ibmdotcom-styles/scss/components/card-link/index.scss';
 import { ArrowRight20 } from '@carbon/icons-react';
 import SimpleLink from './SimpleLink';
 
@@ -44,10 +43,8 @@ const SimpleLongForm = ({ title, copy, linkType, link }) =>
       <div className={`${prefix}--simplelongform__container`}>
         <div className={`${prefix}--simplelongform__row`}>
           <div className={`${prefix}--simplelongform__col`}>
-            <h1 className={`${prefix}--simplelongform__title`}>{title}</h1>
+            <h3 className={`${prefix}--simplelongform__title`}>{title}</h3>
             <div className={`${prefix}--simplelongform__content`}>{copy}</div>
-          </div>
-          <div className={`${prefix}--simplelongform__link__col`}>
             {renderLink(linkType, link)}
           </div>
           <div className={`${prefix}--simplelongform__divider__col`}>
