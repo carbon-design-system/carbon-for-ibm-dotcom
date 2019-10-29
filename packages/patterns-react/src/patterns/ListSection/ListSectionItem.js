@@ -35,7 +35,7 @@ const ListSectionItem = ({
   return (
     <div
       data-autoid={`${stablePrefix}--listsection-item`}
-      className={`${prefix}--listsection-item ${prefix}--listsection-item__col`}>
+      className={`${prefix}--listsection-item`}>
       <div className={`${prefix}--listsection-item__title`}>{title}</div>
       <div className={`${prefix}--listsection-item__content`}>{copy}</div>
       <a

@@ -26,7 +26,7 @@ const ListSectionGroup = ({ listGroup: { title, lists } }) => {
   return (
     <div
       data-autoid={`${stablePrefix}--listsection-group`}
-      className={`${prefix}--listsection-group ${prefix}--listsection-group__col`}>
+      className={`${prefix}--listsection-group`}>
       <div className={`${prefix}--listsection-group__title`}>{title}</div>
       <div className={`${prefix}--listsection-group__list`}>
         {_renderList(lists)}
