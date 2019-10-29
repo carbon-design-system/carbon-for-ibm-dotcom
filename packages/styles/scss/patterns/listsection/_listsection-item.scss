@@ -20,13 +20,9 @@
       margin-top: $spacing-03;
       outline: none;
       display: inline-block;
-      border: solid 2px transparent;
       @include type-style('body-short-02');
-      &:visited {
-        color: $text-02;
-      }
       &:focus {
-        border-color: $focus;
+        outline: 2px solid $focus;
       }
       &:hover {
         text-decoration: underline;
