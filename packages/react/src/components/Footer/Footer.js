@@ -11,6 +11,7 @@ import {
   settings as ddsSettings,
   ipcinfoCookie,
 } from '@carbon/ibmdotcom-utilities';
+import { globalInit } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
 import { TranslationAPI } from '@carbon/ibmdotcom-services';
 import classNames from 'classnames';
@@ -31,6 +32,11 @@ const { prefix } = settings;
 const Footer = ({ type }) => {
   const [footerMenuData, setFooterMenuData] = useState([]);
   const [footerLegalData, setFooterLegalData] = useState([]);
+
+  useEffect(() => {
+    // initialize global execution calls
+    globalInit();
+  }, []);
 
   useEffect(() => {
     (async () => {
