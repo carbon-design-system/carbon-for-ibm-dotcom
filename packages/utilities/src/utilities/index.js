@@ -5,6 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+export * from './altlangs';
 export * from './escaperegexp';
 export * from './featureflag';
 export * from './geolocation';
