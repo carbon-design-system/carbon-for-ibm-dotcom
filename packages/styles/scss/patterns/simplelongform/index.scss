@@ -2,7 +2,7 @@
 @import './simplelongform';
 @import './jumplink';
 @import './simplelink';
-@import './cardlink';
+@import '@carbon/ibmdotcom-styles/scss/components/card-link/index';
 
 
 .#{$prefix}--simplelongform--g100 {
@@ -10,6 +10,7 @@
     @include simplelongform;
     @include jumplink;
     @include simplelink;
-    @include cardlink;
+    @include tile;
+    @include card-link;
   }
 }
