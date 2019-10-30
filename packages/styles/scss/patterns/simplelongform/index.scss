@@ -2,6 +2,7 @@
 @import './simplelongform';
 @import './jumplink';
 @import './simplelink';
+@import './cardlink';
 
 
 .#{$prefix}--simplelongform--g100 {
@@ -9,5 +10,6 @@
     @include simplelongform;
     @include jumplink;
     @include simplelink;
+    @include cardlink;
   }
 }

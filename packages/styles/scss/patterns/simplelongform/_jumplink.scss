@@ -8,7 +8,8 @@
 @mixin jumplink {
     .#{$prefix}--jumplink {
       color: $link-01;
-      margin-top: $layout-03;
+      margin-left: $spacing-05;
+      margin-right: $spacing-05;
       text-decoration: none;
       outline: none;
       display: inline-block;

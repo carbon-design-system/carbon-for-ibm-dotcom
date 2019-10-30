@@ -14,8 +14,9 @@ import { featureFlag } from '@carbon/ibmdotcom-utilities';
 import { SIMPLELONGFORM } from '../../internal/FeatureFlags';
 import JumpLink from './JumpLink';
 // import CardLink from './CardLink';
-import { CardLink } from '@carbon/ibmdotcom-react';
 import { ArrowRight20 } from '@carbon/icons-react';
+import { CardLink } from '@carbon/ibmdotcom-react';
+import '@carbon/ibmdotcom-styles/scss/components/card-link/index.scss';
 import SimpleLink from './SimpleLink';
 
 const { stablePrefix } = ddsSettings;
@@ -45,7 +46,11 @@ const SimpleLongForm = ({ title, copy, linkType, link }) =>
           <div className={`${prefix}--simplelongform__col`}>
             <h3 className={`${prefix}--simplelongform__title`}>{title}</h3>
             <div className={`${prefix}--simplelongform__content`}>{copy}</div>
-            {renderLink(linkType, link)}
+          </div>
+          <div className={`${prefix}--simplelongform__link__col`}>
+            <div className={`${prefix}--simplelongform__link`}>
+              {renderLink(linkType, link)}
+            </div>
           </div>
           <div className={`${prefix}--simplelongform__divider__col`}>
             <div className={`${prefix}--simplelongform__divider`}></div>
@@ -66,7 +71,12 @@ const renderLink = (type, data) => {
   return type === 'jump' ? (
     <JumpLink link={data} />
   ) : type === 'card' ? (
-    <CardLink title={data.text} href={data.href} icon={<ArrowRight20 />} />
+    <CardLink
+      title={data.text}
+      href={data.href}
+      target={data.target}
+      icon={<ArrowRight20 />}
+    />
   ) : type === 'simple' ? (
     <SimpleLink link={data} />
   ) : null;

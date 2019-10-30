@@ -8,7 +8,8 @@
 @mixin simplelink {
     .#{$prefix}--simplelink {
       color: $link-01;
-      margin-top: $layout-03;
+      margin-left: $spacing-05;
+      margin-right: $spacing-05;
       max-width: carbon--mini-units(40);
       text-decoration: none;
       outline: none;
