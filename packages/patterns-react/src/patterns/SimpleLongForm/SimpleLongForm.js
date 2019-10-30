@@ -13,10 +13,8 @@ import { settings } from 'carbon-components';
 import { featureFlag } from '@carbon/ibmdotcom-utilities';
 import { SIMPLELONGFORM } from '../../internal/FeatureFlags';
 import JumpLink from './JumpLink';
-// import CardLink from './CardLink';
 import { ArrowRight20 } from '@carbon/icons-react';
 import { CardLink } from '@carbon/ibmdotcom-react';
-import '@carbon/ibmdotcom-styles/scss/components/card-link/index.scss';
 import SimpleLink from './SimpleLink';
 
 const { stablePrefix } = ddsSettings;
@@ -74,7 +72,7 @@ const renderLink = (type, data) => {
     <CardLink
       title={data.text}
       href={data.href}
-      target={data.target}
+      target={data.target === 'blank' ? '_blank' : '_self'}
       icon={<ArrowRight20 />}
     />
   ) : type === 'simple' ? (
