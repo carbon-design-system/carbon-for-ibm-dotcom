@@ -3,6 +3,73 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-styles@1.0.0...@carbon/ibmdotcom-styles@1.1.0-rc.0) (2019-10-29)
+
+### Bug Fixes
+
+- **buttongroup:** adding ButtonGroup
+  ([9ec6f96](https://github.com/carbon-design-system/ibm-dotcom-library/commit/9ec6f96))
+- **buttongroup:** removed cap for number of buttons in the group
+  ([308a1e3](https://github.com/carbon-design-system/ibm-dotcom-library/commit/308a1e3))
+- **buttongroup:** simplified buttongroup layout
+  ([da0c546](https://github.com/carbon-design-system/ibm-dotcom-library/commit/da0c546))
+- **buttongroup:** various fixes to the ButtonGroup layout
+  ([d8a65d9](https://github.com/carbon-design-system/ibm-dotcom-library/commit/d8a65d9))
+- **css:** fix search focus/active states; fixes
+  [#117](https://github.com/carbon-design-system/ibm-dotcom-library/issues/117),
+  fixes
+  [#156](https://github.com/carbon-design-system/ibm-dotcom-library/issues/156)
+  ([7e07b4f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/7e07b4f))
+- **css:** make link inline-block for full rectangle border/focus
+  ([a40060b](https://github.com/carbon-design-system/ibm-dotcom-library/commit/a40060b))
+- **footer:** added overflow:hidden to accordion
+  ([26e7886](https://github.com/carbon-design-system/ibm-dotcom-library/commit/26e7886))
+- **footer:** removed default gutter added by css multi-columns
+  ([5c6b10c](https://github.com/carbon-design-system/ibm-dotcom-library/commit/5c6b10c))
+- **leadspace:** ensure buttons appear in correct order and width
+  ([6495b4a](https://github.com/carbon-design-system/ibm-dotcom-library/commit/6495b4a))
+- **lint:** wrap card-link styles in mixin
+  ([8c1d308](https://github.com/carbon-design-system/ibm-dotcom-library/commit/8c1d308))
+- **masthead-l1:** pixel perfect fixes
+  ([490b48b](https://github.com/carbon-design-system/ibm-dotcom-library/commit/490b48b))
+- **translation:** adjust masthead for diff data structures
+  ([8e3c4fa](https://github.com/carbon-design-system/ibm-dotcom-library/commit/8e3c4fa))
+
+### Features
+
+- **block-link:** added feature flag
+  ([b2a51b7](https://github.com/carbon-design-system/ibm-dotcom-library/commit/b2a51b7))
+- **cardlink:** added new cardlink component
+  ([47b2aed](https://github.com/carbon-design-system/ibm-dotcom-library/commit/47b2aed))
+- **component:** adds LinkWithIcon component; fixes
+  [#163](https://github.com/carbon-design-system/ibm-dotcom-library/issues/163)
+  ([8ffb21b](https://github.com/carbon-design-system/ibm-dotcom-library/commit/8ffb21b))
+- **leadspace:** add separate knobs for the button icons
+  ([f8a3f32](https://github.com/carbon-design-system/ibm-dotcom-library/commit/f8a3f32))
+- **leadspace:** adjustments to the gradient opacity
+  ([1ff5e08](https://github.com/carbon-design-system/ibm-dotcom-library/commit/1ff5e08))
+- **leadspace:** button styling updates
+  ([b167b0f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/b167b0f))
+- **leadspace:** make buttons equal width
+  ([316e654](https://github.com/carbon-design-system/ibm-dotcom-library/commit/316e654))
+- **leadspace:** make gradient optional and few icons for buttons
+  ([ae26bc1](https://github.com/carbon-design-system/ibm-dotcom-library/commit/ae26bc1))
+- **leadspace:** set col width for desc in sm breakpoint
+  ([bddcfb6](https://github.com/carbon-design-system/ibm-dotcom-library/commit/bddcfb6))
+- **leadspace:** set max width aspect ratio
+  ([f729211](https://github.com/carbon-design-system/ibm-dotcom-library/commit/f729211))
+- **leadspace:** simplify css
+  ([b22c352](https://github.com/carbon-design-system/ibm-dotcom-library/commit/b22c352))
+- **locale:** displays list of countries/regions in dropdown
+  ([ac54e31](https://github.com/carbon-design-system/ibm-dotcom-library/commit/ac54e31))
+- **react:** replaced fills with currentColor
+  ([bb88ad4](https://github.com/carbon-design-system/ibm-dotcom-library/commit/bb88ad4))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.0.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-styles@1.0.0-rc.2...@carbon/ibmdotcom-styles@1.0.0) (2019-10-07)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-styles

@@ -18,26 +18,7 @@
     svg {
       margin-left: $spacing-03;
       vertical-align: middle;
-      path {
-        fill: $interactive-01;
-      }
-    }
-
-    &:active {
-      outline: none;
-      svg {
-        path {
-          fill: #171717;
-        }
-      }
-    }
-
-    &:not([href]) {
-      svg {
-        path {
-          fill: $disabled-02;
-        }
-      }
+      fill: currentColor;
     }
 
     &:not(:first-of-type) {

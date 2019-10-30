@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-utilities@1.0.0...@carbon/ibmdotcom-utilities@1.1.0-rc.0) (2019-10-29)
+
+### Bug Fixes
+
+- **locale:** get list from retrieved locale and default to usen
+  ([ec4d91b](https://github.com/carbon-design-system/ibm-dotcom-library/commit/ec4d91b))
+
+### Features
+
+- **analytics:** global analytics for modal and dynamic tabs
+  ([1dade0e](https://github.com/carbon-design-system/ibm-dotcom-library/commit/1dade0e))
+- **geolocation:** geolocation utility
+  ([5878365](https://github.com/carbon-design-system/ibm-dotcom-library/commit/5878365))
+- **ipcInfo:** utility to get and set ipcInfo cookie
+  ([a01c26d](https://github.com/carbon-design-system/ibm-dotcom-library/commit/a01c26d))
+- **locale:** add default endpoint for geolocation
+  ([c41a90a](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c41a90a))
+- **locale:** getLocale service standup
+  ([111d8d7](https://github.com/carbon-design-system/ibm-dotcom-library/commit/111d8d7))
+- **locale:** use session storage for country list
+  ([1adcd87](https://github.com/carbon-design-system/ibm-dotcom-library/commit/1adcd87))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.0.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-utilities@1.0.0-rc.0...@carbon/ibmdotcom-utilities@1.0.0) (2019-10-07)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-utilities

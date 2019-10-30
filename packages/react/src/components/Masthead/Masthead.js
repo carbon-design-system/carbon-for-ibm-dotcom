@@ -10,6 +10,7 @@ import PropTypes from 'prop-types';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
 import root from 'window-or-global';
+import { globalInit } from '@carbon/ibmdotcom-utilities';
 import { User20, UserOnline20 } from '@carbon/icons-react';
 import { IbmLogo } from '../Icon';
 import {
@@ -45,6 +46,12 @@ const Masthead = ({ navigation, hasProfile, hasSearch, ...mastheadProps }) => {
    * @returns {*} The user status
    */
   const [isAuthenticated, setStatus] = useState(false);
+
+  useEffect(() => {
+    // initialize global execution calls
+    globalInit();
+  }, []);
+
   useEffect(() => {
     /**
      *  Login Status of user
@@ -63,6 +70,7 @@ const Masthead = ({ navigation, hasProfile, hasSearch, ...mastheadProps }) => {
     signedin: [],
     signedout: [],
   });
+
   useEffect(() => {
     /**
      * Page data including masthead, footer, profile links
@@ -201,10 +209,10 @@ const Masthead = ({ navigation, hasProfile, hasSearch, ...mastheadProps }) => {
  * @property propTypes
  * @description Defined property types for component
  *
- * @type {{mastheadProp: object, navigation: Array, hasProfile: boolean, hasSearch: boolean}}
+ * @type {{mastheadProp: object, navigation: object, hasProfile: boolean, hasSearch: boolean}}
  */
 Masthead.propTypes = {
-  navigation: PropTypes.array,
+  navigation: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   hasProfile: PropTypes.bool,
   hasSearch: PropTypes.bool,
   mastheadProp: PropTypes.object,

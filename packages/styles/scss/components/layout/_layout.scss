@@ -1,0 +1,35 @@
+//
+// Copyright IBM Corp. 2016, 2018
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import '../../globals/imports';
+
+@mixin layout {
+  .#{$prefix}--layout {
+    &--sticky {
+      position: sticky;
+      top: 0;
+    }
+
+    @each $layout in $carbon--layout {
+      $i: index($carbon--layout, $layout);
+      &--top {
+        &-layout-0#{$i} {
+          margin-top: $layout;
+        }
+      }
+      &--bottom {
+        &-layout-0#{$i} {
+          margin-bottom: $layout;
+        }
+      }
+    }
+  }
+}
+
+@include exports('layout') {
+  @include layout;
+}
