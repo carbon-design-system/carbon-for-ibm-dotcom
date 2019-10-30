@@ -40,11 +40,20 @@
       margin-top: $layout-03;
       margin-left: -$layout-01;
       margin-right: -$layout-01;
-      &__col {
-        max-width: 320px;
-        @include carbon--make-col-ready;
+      max-width: carbon--mini-units(40);
+      .bx--card-link {
+        &__title {
+          @include carbon--type-style('body-short-02');
+        }
+        &:hover {
+          cursor: pointer;
+        }
+        svg {
+          fill: $link-01;
+        }
       }
     }
+
     @include carbon--breakpoint('lg') {
       &__col {
         @include carbon--make-col-offset(4, 16);
@@ -52,12 +61,6 @@
       }
       &__title {
         margin-top: $layout-06;
-      }
-      &__link {
-        &__col {
-          @include carbon--make-col-offset(4, 16);
-          @include carbon--make-col(4, 16);
-        }
       }
       &__divider {
         margin-top: $layout-07;

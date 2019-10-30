@@ -44,8 +44,6 @@ const SimpleLongForm = ({ title, copy, linkType, link }) =>
           <div className={`${prefix}--simplelongform__col`}>
             <h3 className={`${prefix}--simplelongform__title`}>{title}</h3>
             <div className={`${prefix}--simplelongform__content`}>{copy}</div>
-          </div>
-          <div className={`${prefix}--simplelongform__link__col`}>
             <div className={`${prefix}--simplelongform__link`}>
               {renderLink(linkType, link)}
             </div>
