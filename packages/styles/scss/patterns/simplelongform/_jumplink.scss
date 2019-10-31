@@ -25,7 +25,7 @@
         align-items: center;
       }
       &__text {
-          @include type-style('body-short-02');
+          @include carbon--type-style('body-short-02');
           color: $link-01;
       }
       &__icon {

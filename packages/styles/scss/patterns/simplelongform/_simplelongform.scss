@@ -20,11 +20,11 @@
     }
     &__title {
       margin-top: $layout-05;
-      @include type-style('expressive-heading-05');
+      @include carbon--type-style('expressive-heading-05');
     }
     &__content {
       margin-top: $layout-03;
-      @include type-style('body-long-02');
+      @include carbon--type-style('body-long-02');
     }
     &__divider {
       border-bottom: 1px solid $ui-04;
