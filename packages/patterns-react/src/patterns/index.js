@@ -6,3 +6,4 @@
  */
 
 export * from './LeadSpace';
+export * from './SimpleLongForm';
