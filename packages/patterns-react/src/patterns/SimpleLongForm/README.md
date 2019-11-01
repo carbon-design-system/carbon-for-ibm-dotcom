@@ -14,7 +14,13 @@ import '@carbon/ibmdotcom-styles/scss/patterns/simplelongform/index.scss';
 
 function App() {
   return (
-    <SimpleLongForm title={title} copy={copy} linkType={linkType} link={link} />
+    <SimpleLongForm
+      title={title}
+      copy={copy}
+      linkType={linkType}
+      border="true"
+      link={link}
+    />
   );
 }
 
@@ -41,30 +47,27 @@ SIMPLELONGFORM=true
 
 ## Props
 
-| Name       | Description                                                           |
-| ---------- | --------------------------------------------------------------------- |
-| `title`    | Simple long form title `{title}`                                      |
-| `copy`     | Simple long form content `{copy}`                                     |
-| `linkType` | Simple long form link type `{linkType: { none, simple, card, jump }}` |
-| `link`     | Simple long form link object `{link: { href, text, target }}`         |
+| Name       | Description                                                                   |
+| ---------- | ----------------------------------------------------------------------------- |
+| `title`    | Simple long form title `{title}`                                              |
+| `copy`     | Simple long form content `{copy}`                                             |
+| `linkType` | Simple long form link type `{linkType: { none, simple, card, jump }}`         |
+| `border`   | Simple long form border value which show or hide border bottom `true | false` |
+| `link`     | Simple long form link object `{link: { href, text, target }}`                 |
 
 ## Link type
 
-| Name     | Description                       |
-| -------- | --------------------------------- |
-| `none`   | Simple long form without link     |
-| `simple` | Simple long form with simple link |
-| `jump`   | Simple long form with jump link   |
-| `card`   | Simple long form with card link   |
+| Name       | Description                     |
+| ---------- | ------------------------------- |
+| `none`     | Simple long form with no link   |
+| `iconLink` | Simple long form with icon link |
+| `cardLink` | Simple long form with card link |
 
 ## Stable selectors
 
 | Name                  | Description |
 | --------------------- | ----------- |
 | `dds--simplelongform` | component   |
-| `dds--simplelink`     | interactive |
-| `dds--jumplink`       | interactive |
-| `dds--cardlink`       | interactive |
 
 ## 🙌 Contributing
 
