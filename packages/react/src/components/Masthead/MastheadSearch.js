@@ -5,9 +5,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, { useReducer } from 'react';
+import React, { useReducer, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import { LocaleAPI } from '@carbon/ibmdotcom-services';
 import { settings } from 'carbon-components';
 import Autosuggest from 'react-autosuggest';
 import root from 'window-or-global';
@@ -26,7 +27,9 @@ const { prefix } = settings;
  * @type {string}
  * @private
  */
-const _redirectUrl = `https://www.ibm.com/search?lnk=mhsrch`;
+const _redirectUrl =
+  process.env.SEARCH_REDIRECT_ENDPOINT ||
+  `https://www.ibm.com/search?lnk=mhsrch`;
 
 /**
  * Converts the string to lower case and trims extra white space
@@ -56,6 +59,8 @@ const _initialState = {
   prevSuggestions: [],
   suggestionContainerVisible: false,
   isSearchOpen: false,
+  lc: 'en',
+  cc: 'us',
 };
 
 /**
@@ -82,8 +87,6 @@ function _reducer(state, action) {
       return Object.assign({}, state, { suggestionContainerVisible: true });
     case 'hideSuggestionsContainer':
       return Object.assign({}, state, { suggestionContainerVisible: false });
-    case 'setSearchOpen':
-      return Object.assign({}, state, { isSearchOpen: true });
     case 'setSearchClosed':
       return Object.assign({}, state, { isSearchOpen: false });
     default:
@@ -104,12 +107,25 @@ function _reducer(state, action) {
  * @param {number} props.renderValue Number of characters to begin showing suggestions
  * @class
  */
-const MastheadSearch = ({ placeHolderText, renderValue }) => {
+const MastheadSearch = ({ placeHolderText, renderValue, searchOpenOnload }) => {
   const [state, dispatch] = useReducer(_reducer, _initialState);
+  const [isSearchOpen, setSearchOpen] = useState(searchOpenOnload);
+  const [lc, setLc] = useState(_initialState.lc);
+  const [cc, setCc] = useState(_initialState.cc);
+
+  useEffect(() => {
+    (async () => {
+      const response = await LocaleAPI.getLang();
+      if (response) {
+        setLc(response.lc);
+        setCc(response.cc);
+      }
+    })();
+  }, []);
 
   const className = cx({
     [`${prefix}--masthead__search`]: true,
-    [`${prefix}--masthead__search--active`]: state.isSearchOpen,
+    [`${prefix}--masthead__search--active`]: isSearchOpen,
   });
 
   /**
@@ -154,6 +170,19 @@ const MastheadSearch = ({ placeHolderText, renderValue }) => {
   };
 
   /**
+   * Executes the logic for the search icon depending on search input state.
+   * This will execute the search if the search is open, or will open the
+   * search field if closed.
+   */
+  function searchIconClick() {
+    if (isSearchOpen) {
+      root.parent.location.href = getRedirect(state.val);
+    } else {
+      setSearchOpen(true);
+    }
+  }
+
+  /**
    * Renders the input bar with the search icon
    *
    * @param {object} componentInputProps contains the input props
@@ -164,9 +193,20 @@ const MastheadSearch = ({ placeHolderText, renderValue }) => {
       <MastheadSearchInput
         componentInputProps={componentInputProps}
         dispatch={dispatch}
-        isActive={state.isSearchOpen}
+        isActive={isSearchOpen}
+        searchIconClick={searchIconClick}
       />
     );
+  }
+
+  /**
+   * Returns the action/redirect value
+   *
+   * @param {string} value string value from the input or suggestions list
+   * @returns {string} final redirect string
+   */
+  function getRedirect(value) {
+    return `${_redirectUrl}&q=${encodeURIComponent(value)}&lang=${lc}&cc=${cc}`;
   }
 
   /**
@@ -238,11 +278,7 @@ const MastheadSearch = ({ placeHolderText, renderValue }) => {
    * @param {string} params.suggestionValue Suggestion value
    */
   function onSuggestionSelected(event, { suggestionValue }) {
-    const lang = 'en'; // TODO: pull lang from locale selector
-    const cc = 'us'; // TODO: pull cc from the locale selector
-    root.location.href = `${_redirectUrl}&q=${encodeURIComponent(
-      suggestionValue
-    )}&lang=${lang}&cc=${cc}`;
+    root.parent.location.href = getRedirect(suggestionValue);
   }
 
   /**
@@ -260,18 +296,23 @@ const MastheadSearch = ({ placeHolderText, renderValue }) => {
       data-autoid={`${stablePrefix}--masthead__search`}
       className={className}
       onBlur={onBlur}>
-      <Autosuggest
-        suggestions={state.suggestions} // The state value of suggestion
-        onSuggestionsFetchRequested={onSuggestionsFetchRequest} // Method to fetch data (should be async call)
-        onSuggestionsClearRequested={onSuggestionsClearedRequested} // When input bar loses focus
-        getSuggestionValue={_getSuggestionValue} // Name of suggestion
-        renderSuggestion={renderSuggestion} // How to display a suggestion
-        onSuggestionSelected={onSuggestionSelected} // When a suggestion is selected
-        highlightFirstSuggestion // First suggestion is highlighted by default
-        inputProps={inputProps}
-        renderInputComponent={renderInputComponent}
-        shouldRenderSuggestions={shouldRenderSuggestions}
-      />
+      <form action={_redirectUrl} method="get">
+        <input type="hidden" name="lang" value={lc} />
+        <input type="hidden" name="cc" value={cc} />
+        <input type="hidden" name="lnk" value="mhsrch" />
+        <Autosuggest
+          suggestions={state.suggestions} // The state value of suggestion
+          onSuggestionsFetchRequested={onSuggestionsFetchRequest} // Method to fetch data (should be async call)
+          onSuggestionsClearRequested={onSuggestionsClearedRequested} // When input bar loses focus
+          getSuggestionValue={_getSuggestionValue} // Name of suggestion
+          renderSuggestion={renderSuggestion} // How to display a suggestion
+          onSuggestionSelected={onSuggestionSelected} // When a suggestion is selected
+          highlightFirstSuggestion // First suggestion is highlighted by default
+          inputProps={inputProps}
+          renderInputComponent={renderInputComponent}
+          shouldRenderSuggestions={shouldRenderSuggestions}
+        />
+      </form>
     </div>
   );
 };
@@ -284,6 +325,7 @@ const MastheadSearch = ({ placeHolderText, renderValue }) => {
 MastheadSearch.propTypes = {
   placeHolderText: PropTypes.string,
   renderValue: PropTypes.number,
+  searchOpenOnload: PropTypes.bool,
 };
 
 /**
@@ -293,6 +335,7 @@ MastheadSearch.propTypes = {
 MastheadSearch.defaultProps = {
   placeHolderText: 'Search all of IBM',
   renderValue: 3,
+  searchOpenOnload: false,
 };
 
 // Export the react component
