@@ -60,7 +60,7 @@ const MastheadSearchSuggestion = ({
           style={{
             fontWeight: part.highlight ? 600 : 400, // TODO: switch to final styles
           }}>
-          {part.text}
+          {part.text === ' ' ? '&nbsp;' : part.text}
         </span>
       ))}
     </div>
