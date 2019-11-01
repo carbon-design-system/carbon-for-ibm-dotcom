@@ -10,12 +10,12 @@ describe('<ButtonGroup />', () => {
   it('renders ButtonGroup as expected', () => {
     const buttons = [
       {
-        link: '',
+        href: '',
         copy: 'Primary action button',
         renderIcon: 'ArrowDown',
       },
       {
-        link: '',
+        href: '',
         copy: 'Secondary action button',
         renderIcon: 'ArrowRight',
       },

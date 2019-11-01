@@ -15,6 +15,17 @@ const _host = process.env.TRANSLATION_HOST || 'https://www.ibm.com';
 const _proxy = process.env.CORS_PROXY || '';
 
 /**
+ * Sets the default location if nothing is returned
+ *
+ * @type {string}
+ * @private
+ */
+const _localeDefault = {
+  lc: 'us',
+  cc: 'en',
+};
+
+/**
  * Locale API endpoint
  *
  * @type {string}
@@ -57,8 +68,7 @@ class LocaleAPI {
     const lang = this.getLang();
     // grab locale from the html lang attribute
     if (lang) {
-      const locale = await this.getList(lang);
-      return locale;
+      return await this.getList(lang);
     }
     // grab the locale from the cookie
     else if (cookie && cookie.cc && cookie.lc) {
@@ -102,8 +112,9 @@ class LocaleAPI {
     if (root.document.documentElement.lang) {
       const lang = root.document.documentElement.lang.toLowerCase();
       const codes = lang.split('-');
-      const locale = { cc: codes[1], lc: codes[0] };
-      return locale;
+      return { cc: codes[1], lc: codes[0] };
+      //    } else {
+      //      return _localeDefault;
     }
   }
 

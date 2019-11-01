@@ -8,7 +8,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { act } from 'react-dom/test-utils';
-import MockedComponent from './mock-component';
+import MockedComponent from './mocks/mock-component';
 import ExpressiveModal from '../ExpressiveModal';
 
 describe('<ExpressiveModal />', () => {
