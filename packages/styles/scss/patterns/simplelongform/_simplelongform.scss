@@ -19,30 +19,32 @@
       @include carbon--make-col-ready;
     }
     &__title {
-      margin-top: $layout-05;
+      margin-top: $spacing-07;
+      margin-bottom: $spacing-07;
       @include carbon--type-style('expressive-heading-05');
+
     }
     &__content {
-      margin-top: $layout-03;
       @include carbon--type-style('body-long-02');
     }
     &__divider {
-      border-bottom: 1px solid $ui-04;
-      margin-bottom: $layout-01;
-      margin-top: $layout-06;
-      margin-left: -$layout-01;
-      margin-right: -$layout-01;
+      margin-top: $layout-05;
+      margin-left: -$spacing-05;
+      margin-right: -$spacing-05;
+      
       &__col {
         @include carbon--make-col-ready;
       }
     }
+    &--with-border {
+      .#{$prefix}--simplelongform__divider {
+        border-bottom: 1px solid $ui-04;
+      }
+    }
     &__link {
       margin-top: $layout-03;
-      margin-left: -$layout-01;
-      margin-right: -$layout-01;
       max-width: carbon--mini-units(40);
       .bx--link-with-icon {
-        margin-left: $layout-01;
         color: $link-01;
         span {
           @include carbon--type-style('body-short-02');
@@ -54,10 +56,14 @@
           outline: 2px solid $focus;
         }
         svg {
-          fill: $link-01; 
+          fill: currentColor; 
         }
       }
       .bx--card-link {
+        margin-left: -$layout-01;
+        margin-right: -$layout-01;
+        padding: $layout-01;
+
         &__title {
           color: $text-01;
           @include carbon--type-style('body-short-02');
@@ -71,14 +77,22 @@
         }
       }
     }
-
+    @include carbon--breakpoint('md') {
+      &__title {
+        margin-top: $layout-05;
+      }
+      &__divider {
+        margin-top: $layout-06;
+      }
+    }
     @include carbon--breakpoint('lg') {
       &__col {
+        max-width: 40rem;
         @include carbon--make-col-offset(4, 16);
-        @include carbon--make-col(7, 16);
+        @include carbon--make-col(8, 16);
       }
       &__title {
-        margin-top: $layout-06;
+        margin-bottom: $spacing-09;
       }
       &__divider {
         margin-top: $layout-07;

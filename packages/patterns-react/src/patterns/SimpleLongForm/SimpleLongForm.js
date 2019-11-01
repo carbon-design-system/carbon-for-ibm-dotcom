@@ -12,7 +12,6 @@ import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
 import { featureFlag } from '@carbon/ibmdotcom-utilities';
 import { SIMPLELONGFORM } from '../../internal/FeatureFlags';
-import JumpLink from './JumpLink';
 import { ArrowRight20 } from '@carbon/icons-react';
 import { CardLink } from '@carbon/ibmdotcom-react';
 import { LinkWithIcon } from '@carbon/ibmdotcom-react';
@@ -31,14 +30,15 @@ const { prefix } = settings;
  * @param {object} props.link link object which includes url, link text and target properties.
  * @returns {*} Simple long form pattern
  */
-const SimpleLongForm = ({ title, copy, linkType, link }) =>
+const SimpleLongForm = ({ title, copy, linkType, border, link }) =>
   featureFlag(
     SIMPLELONGFORM,
     <section
       data-autoid={`${stablePrefix}--simplelongform`}
       className={classNames(
         `${prefix}--simplelongform`,
-        setLinkType(linkType)
+        setLinkType(linkType),
+        setBorder(border)
       )}>
       <div className={`${prefix}--simplelongform__container`}>
         <div className={`${prefix}--simplelongform__row`}>
@@ -67,14 +67,14 @@ const SimpleLongForm = ({ title, copy, linkType, link }) =>
 const renderLink = (type, data) => {
   return type === 'jump' ? (
     <JumpLink link={data} />
-  ) : type === 'card' ? (
+  ) : type === 'cardLink' ? (
     <CardLink
       title={data.text}
       href={data.href}
       target={data.target === 'blank' ? '_blank' : '_self'}
       icon={<ArrowRight20 />}
     />
-  ) : type === 'simple' ? (
+  ) : type === 'iconLink' ? (
     <LinkWithIcon
       href={data.href}
       target={data.target === 'blank' ? '_blank' : '_self'}>
@@ -107,10 +107,23 @@ const setLinkType = type => {
   return linkType;
 };
 
+/**
+ * sets the class name based on border type
+ *
+ * @param {string} border includes border or not ( true | false )
+ * @returns {string} border type css class names
+ */
+const setBorder = border => {
+  let withBorder;
+  withBorder = border === true ? `${prefix}--simplelongform--with-border` : '';
+  return withBorder;
+};
+
 SimpleLongForm.propTypes = {
   title: PropTypes.string.isRequired,
   copy: PropTypes.string,
   linkType: PropTypes.string,
+  border: PropTypes.bool,
   link: PropTypes.shape({
     href: PropTypes.string,
     text: PropTypes.string,
