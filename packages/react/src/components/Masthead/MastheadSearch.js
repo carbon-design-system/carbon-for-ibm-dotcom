@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, { useReducer, useEffect, useState } from 'react';
+import React, { useReducer, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { LocaleAPI } from '@carbon/ibmdotcom-services';
@@ -87,8 +87,14 @@ function _reducer(state, action) {
       return Object.assign({}, state, { suggestionContainerVisible: true });
     case 'hideSuggestionsContainer':
       return Object.assign({}, state, { suggestionContainerVisible: false });
+    case 'setSearchOpen':
+      return Object.assign({}, state, { isSearchOpen: true });
     case 'setSearchClosed':
       return Object.assign({}, state, { isSearchOpen: false });
+    case 'setLc':
+      return Object.assign({}, state, { val: action.payload.lc });
+    case 'setCc':
+      return Object.assign({}, state, { val: action.payload.cc });
     default:
       return state;
   }
@@ -108,24 +114,24 @@ function _reducer(state, action) {
  * @class
  */
 const MastheadSearch = ({ placeHolderText, renderValue, searchOpenOnload }) => {
+  if (searchOpenOnload) {
+    _initialState.isSearchOpen = true;
+  }
   const [state, dispatch] = useReducer(_reducer, _initialState);
-  const [isSearchOpen, setSearchOpen] = useState(searchOpenOnload);
-  const [lc, setLc] = useState(_initialState.lc);
-  const [cc, setCc] = useState(_initialState.cc);
 
   useEffect(() => {
     (async () => {
       const response = await LocaleAPI.getLang();
       if (response) {
-        setLc(response.lc);
-        setCc(response.cc);
+        dispatch({ type: 'setLc', payload: { lc: response.lc } });
+        dispatch({ type: 'setLc', payload: { cc: response.cc } });
       }
     })();
   }, []);
 
   const className = cx({
     [`${prefix}--masthead__search`]: true,
-    [`${prefix}--masthead__search--active`]: isSearchOpen,
+    [`${prefix}--masthead__search--active`]: state.isSearchOpen,
   });
 
   /**
@@ -175,10 +181,10 @@ const MastheadSearch = ({ placeHolderText, renderValue, searchOpenOnload }) => {
    * search field if closed.
    */
   function searchIconClick() {
-    if (isSearchOpen) {
+    if (state.isSearchOpen) {
       root.parent.location.href = getRedirect(state.val);
     } else {
-      setSearchOpen(true);
+      dispatch({ type: 'setSearchOpen' });
     }
   }
 
@@ -193,7 +199,7 @@ const MastheadSearch = ({ placeHolderText, renderValue, searchOpenOnload }) => {
       <MastheadSearchInput
         componentInputProps={componentInputProps}
         dispatch={dispatch}
-        isActive={isSearchOpen}
+        isActive={state.isSearchOpen}
         searchIconClick={searchIconClick}
       />
     );
@@ -206,7 +212,9 @@ const MastheadSearch = ({ placeHolderText, renderValue, searchOpenOnload }) => {
    * @returns {string} final redirect string
    */
   function getRedirect(value) {
-    return `${_redirectUrl}&q=${encodeURIComponent(value)}&lang=${lc}&cc=${cc}`;
+    return `${_redirectUrl}&q=${encodeURIComponent(value)}&lang=${
+      state.lc
+    }&cc=${state.cc}`;
   }
 
   /**
@@ -297,8 +305,8 @@ const MastheadSearch = ({ placeHolderText, renderValue, searchOpenOnload }) => {
       className={className}
       onBlur={onBlur}>
       <form action={_redirectUrl} method="get">
-        <input type="hidden" name="lang" value={lc} />
-        <input type="hidden" name="cc" value={cc} />
+        <input type="hidden" name="lang" value={state.lc} />
+        <input type="hidden" name="cc" value={state.cc} />
         <input type="hidden" name="lnk" value="mhsrch" />
         <Autosuggest
           suggestions={state.suggestions} // The state value of suggestion

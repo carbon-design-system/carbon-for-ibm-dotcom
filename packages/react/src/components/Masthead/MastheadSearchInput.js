@@ -14,9 +14,9 @@ const { prefix } = settings;
  *
  * @param {object} props Incoming props
  * @param {object} props.componentInputProps contains the input props
- * @param {Function} props.dispatch for component reducer
  * @param {boolean} props.isActive flag to determine if the search is active
  * @param {Function} props.searchIconClick executes when the search icon is clicked
+ * @param {Function} props.searchCloseClick executes when the close icon is clicked
  * @returns {*} The rendered component
  */
 const MastheadSearchInput = ({
@@ -26,12 +26,6 @@ const MastheadSearchInput = ({
   searchIconClick,
 }) => {
   const searchRef = useRef();
-
-  useEffect(() => {
-    if (isActive) {
-      searchRef.current && searchRef.current.focus();
-    } else resetSearch();
-  }, [isActive, resetSearch]);
 
   /**
    * Clear search and clear input when called
@@ -43,6 +37,12 @@ const MastheadSearchInput = ({
       payload: { val: '' },
     });
   }, [dispatch]);
+
+  useEffect(() => {
+    if (isActive) {
+      searchRef.current && searchRef.current.focus();
+    } else resetSearch();
+  }, [isActive, resetSearch]);
 
   return (
     <>
