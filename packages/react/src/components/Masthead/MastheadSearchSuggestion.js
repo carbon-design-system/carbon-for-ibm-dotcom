@@ -3,28 +3,11 @@ import PropTypes from 'prop-types';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
 import classNames from 'classnames';
+import match from 'autosuggest-highlight/match';
 import parse from 'autosuggest-highlight/parse';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
-
-/**
- * Matches a suggestion name with the query
- *
- * @param {*}regexp The regex expression containg the query and the global match flag
- * @param {string} haystack The suggestion
- * @returns {Array} Array of matches
- * @private
- */
-function _matchAll(regexp, haystack) {
-  const matches = [];
-  let match = regexp.exec(haystack);
-  while (match) {
-    matches.push([match.index, match.index + match[0].length]);
-    match = regexp.exec(haystack);
-  }
-  return matches;
-}
 
 /**
  * The rendered suggestion in the suggestion list
@@ -44,7 +27,7 @@ const MastheadSearchSuggestion = ({
   getSuggestionValue,
 }) => {
   const suggestionValue = getSuggestionValue(suggestion);
-  const matches = _matchAll(new RegExp(query, 'gi'), suggestionValue);
+  const matches = match(suggestionValue, query);
   const parts = parse(suggestionValue, matches);
 
   return (
@@ -60,7 +43,7 @@ const MastheadSearchSuggestion = ({
           style={{
             fontWeight: part.highlight ? 600 : 400, // TODO: switch to final styles
           }}>
-          {part.text === ' ' ? '&nbsp;' : part.text}
+          {part.text.replace(' ', '\u00A0')}
         </span>
       ))}
     </div>
