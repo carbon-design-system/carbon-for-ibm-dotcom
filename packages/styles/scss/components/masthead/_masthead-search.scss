@@ -174,13 +174,13 @@
     &__suggestion {
       height: $spacing-09;
       display: flex;
-      padding: 0 $spacing-05;
 
       .#{$prefix}--container-class {
         display: flex;
         border-bottom: 1px solid $ui-01;
         flex: 1;
         align-items: center;
+        padding: 0 $spacing-05;
 
         &:focus {
           outline: none;
@@ -193,6 +193,7 @@
         transition: $search-transition-timing;
       }
 
+      .#{$prefix}--container-highlight-class:not(:hover),
       &:focus,
       &:active {
         outline: 2px solid $focus;
