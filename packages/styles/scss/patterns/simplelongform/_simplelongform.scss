@@ -9,6 +9,7 @@
   .#{$prefix}--simplelongform {
     color: $text-01;
     background: $ui-background;
+
     &__container {
       @include carbon--make-container;
     }
@@ -19,18 +20,21 @@
       @include carbon--make-col-ready;
     }
     &__title {
-      margin-top: $spacing-07;
-      margin-bottom: $spacing-07;
+      margin-top: $carbon--spacing-07;
+      margin-bottom: $carbon--spacing-07;
       @include carbon--type-style('expressive-heading-05');
 
     }
     &__content {
       @include carbon--type-style('body-long-02');
+      > p:not(:last-child) {
+        margin-bottom: $carbon--spacing-06;
+      }
     }
     &__divider {
-      margin-top: $layout-05;
-      margin-left: -$spacing-05;
-      margin-right: -$spacing-05;
+      margin-top: $carbon--layout-05;
+      margin-left: -$carbon--spacing-05;
+      margin-right: -$carbon--spacing-05;
       
       &__col {
         @include carbon--make-col-ready;
@@ -42,7 +46,7 @@
       }
     }
     &__link {
-      margin-top: $layout-03;
+      margin-top: $carbon--layout-03;
       max-width: carbon--mini-units(40);
       .bx--link-with-icon {
         color: $link-01;
@@ -60,12 +64,13 @@
         }
       }
       .bx--card-link {
-        margin-left: -$layout-01;
-        margin-right: -$layout-01;
-        padding: $layout-01;
+        margin-left: -$carbon--layout-01;
+        margin-right: -$carbon--layout-01;
+        padding: $carbon--layout-01;
+        min-height: 10rem;
 
         &__title {
-          color: $text-01;
+          color: $interactive-02;
           @include carbon--type-style('body-short-02');
         }
         &:hover {
@@ -73,34 +78,41 @@
           text-decoration: none;
         }
         svg {
-          fill: $link-01;
+          fill: $interactive-01;
         }
       }
     }
     @include carbon--breakpoint('md') {
+      min-height: carbon--rem(320px);
       &__title {
-        margin-top: $layout-05;
+        margin-top: $carbon--layout-05;
       }
       &__divider {
-        margin-top: $layout-06;
+        margin-top: $carbon--layout-06;
       }
     }
     @include carbon--breakpoint('lg') {
+      min-height: carbon--rem(400px);
       &__col {
-        max-width: 40rem;
         @include carbon--make-col-offset(4, 16);
         @include carbon--make-col(8, 16);
       }
+      &__main {
+        max-width: 40rem;
+      }
       &__title {
-        margin-bottom: $spacing-09;
+        margin-bottom: $carbon--spacing-09;
       }
       &__divider {
-        margin-top: $layout-07;
+        margin-top: $carbon--layout-07;
         &__col {
           @include carbon--make-col-offset(4, 16);
           @include carbon--make-col(12, 16);
         }
       }
+    }
+    @include carbon--breakpoint('xlg') {
+      min-height: carbon--rem(480px);
     }
   }
 }

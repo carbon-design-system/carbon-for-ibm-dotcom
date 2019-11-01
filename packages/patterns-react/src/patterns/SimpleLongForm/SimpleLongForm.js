@@ -43,8 +43,10 @@ const SimpleLongForm = ({ title, copy, linkType, border, link }) =>
       <div className={`${prefix}--simplelongform__container`}>
         <div className={`${prefix}--simplelongform__row`}>
           <div className={`${prefix}--simplelongform__col`}>
-            <h3 className={`${prefix}--simplelongform__title`}>{title}</h3>
-            <div className={`${prefix}--simplelongform__content`}>{copy}</div>
+            <div className={`${prefix}--simplelongform__main`}>
+              <h3 className={`${prefix}--simplelongform__title`}>{title}</h3>
+              <div className={`${prefix}--simplelongform__content`}>{copy}</div>
+            </div>
             <div className={`${prefix}--simplelongform__link`}>
               {renderLink(linkType, link)}
             </div>
