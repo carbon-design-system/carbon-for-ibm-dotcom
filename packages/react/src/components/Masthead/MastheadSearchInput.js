@@ -29,7 +29,7 @@ const MastheadSearchInput = ({
 
   useEffect(() => {
     if (isActive) {
-      searchRef.current.focus();
+      searchRef.current && searchRef.current.focus();
     } else resetSearch();
   }, [isActive, resetSearch]);
 
