@@ -94,11 +94,9 @@
     @include carbon--breakpoint('lg') {
       min-height: carbon--rem(400px);
       &__col {
+        max-width: carbon--rem(640px);
         @include carbon--make-col-offset(4, 16);
         @include carbon--make-col(8, 16);
-      }
-      &__main {
-        max-width: 40rem;
       }
       &__title {
         margin-bottom: $carbon--spacing-09;
