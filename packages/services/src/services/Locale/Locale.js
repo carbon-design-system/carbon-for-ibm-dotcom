@@ -68,8 +68,7 @@ class LocaleAPI {
     const lang = this.getLang();
     // grab locale from the html lang attribute
     if (lang) {
-      const locale = await this.getList(lang);
-      return locale;
+      return await this.getList(lang);
     }
     // grab the locale from the cookie
     else if (cookie && cookie.cc && cookie.lc) {
@@ -114,8 +113,8 @@ class LocaleAPI {
       const lang = root.document.documentElement.lang.toLowerCase();
       const codes = lang.split('-');
       return { cc: codes[1], lc: codes[0] };
-    } else {
-      return _localeDefault;
+      //    } else {
+      //      return _localeDefault;
     }
   }
 

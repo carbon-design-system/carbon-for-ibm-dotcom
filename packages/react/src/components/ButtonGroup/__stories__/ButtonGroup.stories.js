@@ -41,12 +41,12 @@ if (BUTTON_GROUP) {
 
       const buttons = [
         {
-          href: '',
+          href: 'https://www.ibm.com',
           copy: text('Primary button copy', 'Primary action button'),
           renderIcon: primaryIcon || null,
         },
         {
-          href: '',
+          href: 'https://www.ibm.com',
           copy: text('Secondary button copy', 'Secondary action button'),
           renderIcon: secondaryIcon || null,
         },
