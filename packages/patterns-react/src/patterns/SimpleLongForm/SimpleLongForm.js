@@ -73,13 +73,11 @@ const renderLink = (type, data) => {
     <CardLink
       title={data.text}
       href={data.href}
-      target={data.target === 'blank' ? '_blank' : '_self'}
+      target={data.target}
       icon={<ArrowRight20 />}
     />
   ) : type === 'iconLink' ? (
-    <LinkWithIcon
-      href={data.href}
-      target={data.target === 'blank' ? '_blank' : '_self'}>
+    <LinkWithIcon href={data.href} target={data.target}>
       <span>{data.text}</span>
       <ArrowRight20 />
     </LinkWithIcon>
@@ -89,20 +87,17 @@ const renderLink = (type, data) => {
 /**
  * sets the class name based on link type
  *
- * @param {string} type link type ( simple | jump | card )
+ * @param {string} type link type ( iconLink | cardLink )
  * @returns {string} link type css class names
  */
 const setLinkType = type => {
   let linkType;
   switch (type) {
-    case 'jump':
-      linkType = `${prefix}--simplelongform--jump`;
+    case 'iconLink':
+      linkType = `${prefix}--simplelongform--icon-link`;
       break;
-    case 'card':
-      linkType = `${prefix}--simplelongform--card`;
-      break;
-    case 'simple':
-      linkType = `${prefix}--simplelongform--simple`;
+    case 'cardLink':
+      linkType = `${prefix}--simplelongform--card-link`;
       break;
     default:
   }
