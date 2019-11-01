@@ -10,6 +10,13 @@
  */
 
 /**
+ * Feature flag to turn on the Masthead L1
+ *
+ * @type {boolean}
+ */
+export const MASTHEAD_L1 = process.env.MASTHEAD_L1 === 'true' || false;
+
+/**
  * This determines if the locale selector will be rendered or not
  *
  * @type {string | boolean}
@@ -24,9 +31,8 @@ export const FOOTER_LOCALE_BUTTON =
  */
 export const BUTTON_GROUP = process.env.BUTTON_GROUP === 'true' || false;
 
-/*
+/**
  * Feature flag for CardLink component
- *
- * @type {string | boolean}
+ * @type {boolean}
  */
 export const CARD_LINK = process.env.CARD_LINK === 'true' || false;
