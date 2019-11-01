@@ -110,7 +110,7 @@ const setLinkType = type => {
 /**
  * sets the class name based on border type
  *
- * @param {string} border includes border or not ( true | false )
+ * @param {boolean} border includes border or not ( true | false )
  * @returns {string} border type css class names
  */
 const setBorder = border => {
