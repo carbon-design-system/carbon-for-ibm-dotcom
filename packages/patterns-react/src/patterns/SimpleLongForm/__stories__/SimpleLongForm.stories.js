@@ -14,11 +14,7 @@ import readme from '../README.md';
 
 if (SIMPLELONGFORM) {
   storiesOf('Simple Long Form', module)
-    .addDecorator(
-      withKnobs({
-        escapeHTML: true,
-      })
-    )
+    .addDecorator(withKnobs)
     .addParameters({
       readme: {
         sidebar: readme,
