@@ -44,7 +44,7 @@ if (SIMPLELONGFORM) {
       const link = {
         href: 'https://www.ibm.com',
         text: 'Nunc Pulvinar Nisi',
-        target: 'blank',
+        target: '_blank',
       };
 
       const themes = {
