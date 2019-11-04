@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.1.0-rc.0...@carbon/ibmdotcom-react@1.1.0-rc.1) (2019-11-04)
+
+### Bug Fixes
+
+- **jest:** multiple jest test fixes
+  ([2174892](https://github.com/carbon-design-system/ibm-dotcom-library/commit/2174892))
+- **masthead:** adds space for suggestion item
+  ([#594](https://github.com/carbon-design-system/ibm-dotcom-library/issues/594))
+  ([57ea91f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/57ea91f))
+- **masthead:** fix to search input not closing
+  ([a12bdf2](https://github.com/carbon-design-system/ibm-dotcom-library/commit/a12bdf2))
+- **react:** moved container class onto accordion
+  ([#600](https://github.com/carbon-design-system/ibm-dotcom-library/issues/600))
+  ([5ee78a5](https://github.com/carbon-design-system/ibm-dotcom-library/commit/5ee78a5))
+
+### Features
+
+- **masthead:** flag to open masthead search by default, multiple fixes
+  ([#592](https://github.com/carbon-design-system/ibm-dotcom-library/issues/592))
+  ([c93fe40](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c93fe40))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.1.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.0.0...@carbon/ibmdotcom-react@1.1.0-rc.0) (2019-10-29)
 
 ### Bug Fixes
