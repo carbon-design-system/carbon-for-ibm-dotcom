@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ExpressiveModal from '../ExpressiveModal';
+import ExpressiveModal from '../../ExpressiveModal';
 
 /**
  * wrapper for testing open/close expressive modal

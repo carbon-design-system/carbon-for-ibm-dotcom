@@ -14,11 +14,7 @@ import readme from '../README.md';
 
 if (SIMPLELONGFORM) {
   storiesOf('Simple Long Form', module)
-    .addDecorator(
-      withKnobs({
-        escapeHTML: true,
-      })
-    )
+    .addDecorator(withKnobs)
     .addParameters({
       readme: {
         sidebar: readme,
@@ -44,7 +40,7 @@ if (SIMPLELONGFORM) {
       const link = {
         href: 'https://www.ibm.com',
         text: 'Nunc Pulvinar Nisi',
-        target: 'blank',
+        target: '_blank',
       };
 
       const themes = {

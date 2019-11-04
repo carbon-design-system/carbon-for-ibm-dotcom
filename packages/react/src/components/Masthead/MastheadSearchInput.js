@@ -14,17 +14,18 @@ const { prefix } = settings;
  *
  * @param {object} props Incoming props
  * @param {object} props.componentInputProps contains the input props
- * @param {Function} props.dispatch for component reducer
+ * @param {boolean} props.isActive flag to determine if the search is active
+ * @param {Function} props.searchIconClick executes when the search icon is clicked
+ * @param {Function} props.searchCloseClick executes when the close icon is clicked
  * @returns {*} The rendered component
  */
-const MastheadSearchInput = ({ componentInputProps, dispatch, isActive }) => {
+const MastheadSearchInput = ({
+  componentInputProps,
+  dispatch,
+  isActive,
+  searchIconClick,
+}) => {
   const searchRef = useRef();
-
-  useEffect(() => {
-    if (isActive) {
-      searchRef.current.focus();
-    } else resetSearch();
-  }, [isActive, resetSearch]);
 
   /**
    * Clear search and clear input when called
@@ -37,15 +38,22 @@ const MastheadSearchInput = ({ componentInputProps, dispatch, isActive }) => {
     });
   }, [dispatch]);
 
+  useEffect(() => {
+    if (isActive) {
+      searchRef.current && searchRef.current.focus();
+    } else resetSearch();
+  }, [isActive, resetSearch]);
+
   return (
     <>
       <input
         {...componentInputProps}
         data-autoid={`${stablePrefix}--header__search--input`}
         ref={searchRef}
+        name="q"
       />
       <HeaderGlobalAction
-        onClick={() => dispatch({ type: 'setSearchOpen' })}
+        onClick={searchIconClick}
         aria-label="Search all of IBM"
         className={`${prefix}--header__search--search`}
         data-autoid={`${stablePrefix}--header__search--search`}>
@@ -71,6 +79,7 @@ MastheadSearchInput.propTypes = {
   componentInputProps: PropTypes.object,
   dispatch: PropTypes.func,
   isActive: PropTypes.bool,
+  searchIconClick: PropTypes.func,
 };
 
 /**
@@ -80,6 +89,7 @@ MastheadSearchInput.propTypes = {
 MastheadSearchInput.defaultProps = {
   componentInputProps: {},
   dispatch: () => {},
+  searchIconClick: () => {},
 };
 
 export default MastheadSearchInput;

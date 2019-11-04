@@ -11,7 +11,7 @@ module.exports = {
   setupFilesAfterEnv: ['./tasks/jest/setupafter.js'],
   snapshotSerializers: ['enzyme-to-json/serializer'],
   testMatch: [
-    '<rootDir>/**/__tests__/**/*.js?(x)',
+    '<rootDir>/**/__tests__/**/*.test.js?(x)',
     '<rootDir>/**/?(*.)(spec|test).js?(x)',
     '<rootDir>/**/?(*-)(spec|test).js?(x)',
   ],

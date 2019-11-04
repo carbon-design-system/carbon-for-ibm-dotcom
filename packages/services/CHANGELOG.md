@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.1.0-rc.0...@carbon/ibmdotcom-services@1.1.0-rc.1) (2019-11-04)
+
+### Bug Fixes
+
+- **just:** fixed localeapi jest tests
+  ([185392a](https://github.com/carbon-design-system/ibm-dotcom-library/commit/185392a))
+
+### Features
+
+- **masthead:** flag to open masthead search by default, multiple fixes
+  ([#592](https://github.com/carbon-design-system/ibm-dotcom-library/issues/592))
+  ([c93fe40](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c93fe40))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.1.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.0.0...@carbon/ibmdotcom-services@1.1.0-rc.0) (2019-10-29)
 
 ### Bug Fixes
