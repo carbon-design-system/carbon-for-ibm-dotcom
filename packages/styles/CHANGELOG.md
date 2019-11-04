@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-styles@1.1.0-rc.0...@carbon/ibmdotcom-styles@1.1.0-rc.1) (2019-11-04)
+
+### Bug Fixes
+
+- **styles:** highlight on key down and up
+  ([#591](https://github.com/carbon-design-system/ibm-dotcom-library/issues/591))
+  ([a6c7371](https://github.com/carbon-design-system/ibm-dotcom-library/commit/a6c7371))
+- **styles:** masthead search button fixed focus
+  ([#596](https://github.com/carbon-design-system/ibm-dotcom-library/issues/596))
+  ([d7115f9](https://github.com/carbon-design-system/ibm-dotcom-library/commit/d7115f9))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.1.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-styles@1.0.0...@carbon/ibmdotcom-styles@1.1.0-rc.0) (2019-10-29)
 
 ### Bug Fixes

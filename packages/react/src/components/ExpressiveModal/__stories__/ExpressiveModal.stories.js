@@ -30,6 +30,7 @@ function dummyContent() {
         <ButtonGroup
           buttons={[
             {
+              href: '',
               copy: button,
               renderIcon: ArrowRight20,
             },

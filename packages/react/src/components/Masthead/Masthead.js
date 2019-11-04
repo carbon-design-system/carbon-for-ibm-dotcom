@@ -27,6 +27,7 @@ import MastheadProfile from './MastheadProfile';
 import MastheadLeftNav from './MastheadLeftNav';
 import MastheadTopNav from './MastheadTopNav';
 import cx from 'classnames';
+import { MASTHEAD_L1 } from '../../internal/FeatureFlags';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
@@ -165,7 +166,11 @@ const Masthead = ({ navigation, hasProfile, hasSearch, ...mastheadProps }) => {
                     navigation={mastheadData}
                   />
                 )}
-                {hasSearch && <MastheadSearch />}
+                {hasSearch && (
+                  <MastheadSearch
+                    searchOpenOnload={mastheadProps.searchOpenOnload}
+                  />
+                )}
               </div>
 
               {hasProfile && (
@@ -194,7 +199,7 @@ const Masthead = ({ navigation, hasProfile, hasSearch, ...mastheadProps }) => {
               )}
             </Header>
           </div>
-          {navigation && (
+          {MASTHEAD_L1 && navigation && (
             <div ref={mastheadL1Ref}>
               <MastheadL1 />
             </div>
