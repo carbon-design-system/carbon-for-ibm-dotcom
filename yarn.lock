@@ -907,26 +907,6 @@
     jsonp "^0.2.1"
     window-or-global "^1.0.1"
 
-"@carbon/ibmdotcom-services@1.1.0-alpha.762":
-  version "1.1.0-alpha.762"
-  resolved "https://registry.yarnpkg.com/@carbon/ibmdotcom-services/-/ibmdotcom-services-1.1.0-alpha.762.tgz#8774eeefcdb6d8c15eae13c0600bb9e7268b2ed9"
-  integrity sha512-UVjtUTTIVgDySYPAI5PK+VKB3bJzvxpBDlfQ+9K3vdU7uqu7vAbfErlXwDEMPp/SDImyzKkaeBrf312xAUo/rg==
-  dependencies:
-    "@carbon/ibmdotcom-utilities" "1.1.0-alpha.743"
-    axios "^0.19.0"
-    jsonp "^0.2.1"
-    window-or-global "^1.0.1"
-
-"@carbon/ibmdotcom-services@1.1.0-alpha.763":
-  version "1.1.0-alpha.763"
-  resolved "https://registry.yarnpkg.com/@carbon/ibmdotcom-services/-/ibmdotcom-services-1.1.0-alpha.763.tgz#da20ed0a5e00a2af49155eec223ecabd77ccc203"
-  integrity sha512-T2RTEPh3NPdRyqJjE1eplfryS2RIaRrpdZQvRMTt4cXxRePYFdh6Ebb4iEdM0rCH16LiT67wEIzgYJflI/DE/w==
-  dependencies:
-    "@carbon/ibmdotcom-utilities" "1.1.0-alpha.762"
-    axios "^0.19.0"
-    jsonp "^0.2.1"
-    window-or-global "^1.0.1"
-
 "@carbon/ibmdotcom-styles@0.4.0":
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/@carbon/ibmdotcom-styles/-/ibmdotcom-styles-0.4.0.tgz#ab4c7d27fd2b20bf2d12aaa9fe6923928a9b2634"
@@ -942,24 +922,6 @@
   resolved "https://registry.yarnpkg.com/@carbon/ibmdotcom-utilities/-/ibmdotcom-utilities-0.6.0-alpha.511.tgz#086b56736fe0f2eb87543c7d86a1dd1e50e58bef"
   integrity sha512-QSPZ+KG5LP8Kose7dGF7an6zJSo0W0h1F8f9r6c6FXL0IzNRsh80I8HVaX11uVVBi4KF7mgjaQNwbUwdBytmBw==
   dependencies:
-    window-or-global "^1.0.1"
-
-"@carbon/ibmdotcom-utilities@1.1.0-alpha.743":
-  version "1.1.0-alpha.743"
-  resolved "https://registry.yarnpkg.com/@carbon/ibmdotcom-utilities/-/ibmdotcom-utilities-1.1.0-alpha.743.tgz#e74e5c51fa6ddd870957bb371bee6118809dd73b"
-  integrity sha512-xwWdtIMR4/amekGoRKubJ5Elm8GJcifyaXsWwt4ut5XnNHd352k8BKCqLN3PJjDuBj+ucyMeLBFzw02Zun6SZQ==
-  dependencies:
-    axios "^0.19.0"
-    js-cookie "^2.2.1"
-    window-or-global "^1.0.1"
-
-"@carbon/ibmdotcom-utilities@1.1.0-alpha.762":
-  version "1.1.0-alpha.762"
-  resolved "https://registry.yarnpkg.com/@carbon/ibmdotcom-utilities/-/ibmdotcom-utilities-1.1.0-alpha.762.tgz#c745466910042f946ccc13b55cb49ea655f0a227"
-  integrity sha512-6jCBH3TU/PH53PBXyFyzI5BJMDPtDlGPrcUl5MP5T0YCmhW1k2EAA0TAFEVlXpun+25xU1CyfEGTIXQZDElV5A==
-  dependencies:
-    axios "^0.19.0"
-    js-cookie "^2.2.1"
     window-or-global "^1.0.1"
 
 "@carbon/icon-helpers@10.4.0":
