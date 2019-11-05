@@ -39,7 +39,7 @@ const ListSectionItem = ({
     <div
       data-autoid={`${stablePrefix}--listsection-item`}
       className={`${prefix}--listsection-item`}>
-      <div className={`${prefix}--listsection-item__title`}>{title}</div>
+      <h3 className={`${prefix}--listsection-item__title`}>{title}</h3>
       <div className={`${prefix}--listsection-item__content`}>{copy}</div>
       <div className={`${prefix}--listsection-item__link`}>
         <LinkWithIcon href={href} target={target}>

@@ -36,7 +36,7 @@ const ListSection = ({ title, copy, border, listGroup }) =>
       <div className={`${prefix}--listsection__container`}>
         <div className={`${prefix}--listsection__row`}>
           <div className={`${prefix}--listsection__col`}>
-            <h3 className={`${prefix}--listsection__title`}>{title}</h3>
+            <h1 className={`${prefix}--listsection__title`}>{title}</h1>
             <div className={`${prefix}--listsection__content`}>{copy}</div>
             {_renderListGroup(listGroup)}
           </div>
