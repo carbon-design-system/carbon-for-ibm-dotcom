@@ -17,6 +17,14 @@
 export const LEADSPACE = process.env.LEADSPACE === 'true' || false;
 
 /**
+ * This determines if the listsection will be rendered or not
+ *
+ * @type {string | boolean}
+ */
+export const LISTSECTION =
+  process.env.LISTSECTION === 'true' || DDS_FLAGS_ALL || false;
+
+/**
  * This determines if the leadspace will be rendered or not
  *
  * @type {string | boolean}
