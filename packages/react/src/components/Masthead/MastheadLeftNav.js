@@ -36,7 +36,7 @@ const MastheadLeftNav = ({ navigation, isSideNavExpanded }) => {
    * @returns {*} Left side navigation
    */
   const sideNav = navigation.map((link, i) => {
-    if (link.hasMenu) {
+    if (link.hasMenu && link.hasMegapanel) {
       return (
         <SideNavMenu title={link.title} key={i}>
           <SideNavMenuItem
@@ -51,18 +51,19 @@ const MastheadLeftNav = ({ navigation, isSideNavExpanded }) => {
           <li className={`${prefix}--masthead__side-nav--submemu-title`}>
             {link.title}
           </li>
-          {link.menuSections[0].menuItems[
-            i
-          ].megapanelContent.quickLinks.links.map((item, j) => {
-            return (
-              <SideNavMenuItem
-                href={item.url}
-                data-autoid={`${stablePrefix}--masthead__l0-sidenav--subnav-${j}`}
-                key={j}>
-                {item.title}
-              </SideNavMenuItem>
-            );
-          })}
+          {link.menuSections[0].menuItems[i].megapanelContent &&
+            link.menuSections[0].menuItems[
+              i
+            ].megapanelContent.quickLinks.links.map((item, j) => {
+              return (
+                <SideNavMenuItem
+                  href={item.url}
+                  data-autoid={`${stablePrefix}--masthead__l0-sidenav--subnav-${j}`}
+                  key={j}>
+                  {item.title}
+                </SideNavMenuItem>
+              );
+            })}
         </SideNavMenu>
       );
     } else {

@@ -24,6 +24,16 @@ jest.mock('@carbon/ibmdotcom-services', () => ({
   TranslationAPI: {
     getTranslation: jest.fn(() => Promise.resolve(MOCK_DATA)),
   },
+  LocaleAPI: {
+    getLocale: jest.fn(() => Promise.resolve({ cc: 'us', lc: 'en' })),
+    getList: jest.fn(() => Promise.resolve({})),
+  },
+  DDOAPI: {
+    setVersion: jest.fn(),
+  },
+  AnalyticsAPI: {
+    initAll: jest.fn(),
+  },
 }));
 
 describe('<Footer />', () => {

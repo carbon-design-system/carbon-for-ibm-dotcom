@@ -3,6 +3,70 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.1.0-rc.1...@carbon/ibmdotcom-services@1.1.0) (2019-11-04)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-services
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.1.0-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.1.0-rc.0...@carbon/ibmdotcom-services@1.1.0-rc.1) (2019-11-04)
+
+### Bug Fixes
+
+- **just:** fixed localeapi jest tests
+  ([185392a](https://github.com/carbon-design-system/ibm-dotcom-library/commit/185392a))
+
+### Features
+
+- **masthead:** flag to open masthead search by default, multiple fixes
+  ([#592](https://github.com/carbon-design-system/ibm-dotcom-library/issues/592))
+  ([c93fe40](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c93fe40))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.1.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.0.0...@carbon/ibmdotcom-services@1.1.0-rc.0) (2019-10-29)
+
+### Bug Fixes
+
+- **locale:** check response to determine whether to make call
+  ([8ae26d8](https://github.com/carbon-design-system/ibm-dotcom-library/commit/8ae26d8))
+- **locale:** get list from retrieved locale and default to usen
+  ([ec4d91b](https://github.com/carbon-design-system/ibm-dotcom-library/commit/ec4d91b))
+- **package:** update utilities package in services
+  ([115c48a](https://github.com/carbon-design-system/ibm-dotcom-library/commit/115c48a))
+
+### Features
+
+- **analytics:** adding initial event for dynamic tabs
+  ([6ad3085](https://github.com/carbon-design-system/ibm-dotcom-library/commit/6ad3085))
+- **analytics:** global analytics for modal and dynamic tabs
+  ([1dade0e](https://github.com/carbon-design-system/ibm-dotcom-library/commit/1dade0e))
+- **locale:** add checks in masthead logic and pull lang attr
+  ([3d06d52](https://github.com/carbon-design-system/ibm-dotcom-library/commit/3d06d52))
+- **locale:** change path to countrylist folder
+  ([b83dac2](https://github.com/carbon-design-system/ibm-dotcom-library/commit/b83dac2))
+- **locale:** displays list of countries/regions in dropdown
+  ([ac54e31](https://github.com/carbon-design-system/ibm-dotcom-library/commit/ac54e31))
+- **locale:** getLocale service standup
+  ([111d8d7](https://github.com/carbon-design-system/ibm-dotcom-library/commit/111d8d7))
+- **locale:** remove check for country list path
+  ([9249e09](https://github.com/carbon-design-system/ibm-dotcom-library/commit/9249e09))
+- **locale:** split get lang attr into its own method
+  ([36315fa](https://github.com/carbon-design-system/ibm-dotcom-library/commit/36315fa))
+- **locale:** use session storage for country list
+  ([1adcd87](https://github.com/carbon-design-system/ibm-dotcom-library/commit/1adcd87))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.0.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.0.0-rc.1...@carbon/ibmdotcom-services@1.0.0) (2019-10-07)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-services

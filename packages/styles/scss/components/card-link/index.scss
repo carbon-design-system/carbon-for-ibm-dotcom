@@ -1,0 +1,47 @@
+//
+// Copyright IBM Corp. 2016, 2018
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import '../../globals/imports';
+@import '../../globals/vars';
+@import '../../globals/mixins.scss';
+
+@import '~carbon-components/scss/components/tile/tile';
+
+@mixin card-link {
+  .#{$prefix}--card-link {
+    color: $text-01;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+
+    > *:not(:last-child) {
+      margin-bottom: $spacing-07;
+    }
+
+    &__title {
+      @include carbon--type-style('expressive-heading-03');
+    }
+
+    &__content {
+      @include carbon--type-style('body-short-02');
+
+      color: $text-02;
+    }
+
+    &__footer {
+      margin-top: auto;
+
+      svg {
+        fill: currentColor;
+      }
+    }
+  }
+}
+
+@include exports('card-link') {
+  @include card-link;
+}

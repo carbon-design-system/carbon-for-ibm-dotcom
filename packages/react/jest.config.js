@@ -9,7 +9,7 @@ module.exports = {
   setupFiles: ['<rootDir>/config/jest/setup.js'],
   setupFilesAfterEnv: ['../../tasks/jest/setupafter.js'],
   testMatch: [
-    '<rootDir>/**/__tests__/**/*.js?(x)',
+    '<rootDir>/**/__tests__/**/*.test.js?(x)',
     '<rootDir>/**/?(*-)(spec|test).js?(x)',
   ],
   testRunner: 'jest-circus/runner',

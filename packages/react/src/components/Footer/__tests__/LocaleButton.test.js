@@ -9,11 +9,19 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import LocaleButton from '../LocaleButton';
 import { ComposedModal } from 'carbon-components-react';
+import mocklist from '../__data__/locale-list.json';
 
 require('../../../internal/FeatureFlags.js');
 
 jest.mock('../../../internal/FeatureFlags.js', () => ({
   FOOTER_LOCALE_BUTTON: true,
+}));
+
+jest.mock('@carbon/ibmdotcom-services', () => ({
+  LocaleAPI: {
+    getLocale: jest.fn(() => Promise.resolve({ cc: 'us', lc: 'en' })),
+    getList: jest.fn(() => Promise.resolve(mocklist)),
+  },
 }));
 
 describe('<LocaleButton />', () => {

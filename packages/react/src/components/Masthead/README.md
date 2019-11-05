@@ -23,6 +23,21 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 > 💡 Don't forget to import the masthead styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
+#### Feature Flags
+
+To utilize the following features, set the following variable's to `true` within
+your `.env` file or your application build settings.
+
+```
+MASTHEAD_L1=true
+```
+
+> See
+> [feature-flags.md](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/docs/feature-flags.md)
+> and
+> [.env.example](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/.env.example)
+> for more information
+
 ## Navigation Types
 
 | Name      | Description                           |
@@ -38,11 +53,12 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 ## Options
 
-| Name         | Description                                                          |
-| ------------ | -------------------------------------------------------------------- |
-| `platform`   | Includes platform name (only available with `default` and `custom`). |
-| `hasProfile` | Includes IBM profile menu.                                           |
-| `hasSearch`  | Includes IBM search.                                                 |
+| Name               | Description                                                          |
+| ------------------ | -------------------------------------------------------------------- |
+| `platform`         | Includes platform name (only available with `default` and `custom`). |
+| `hasProfile`       | Includes IBM profile menu.                                           |
+| `hasSearch`        | Includes IBM search.                                                 |
+| `searchOpenOnload` | Has the search open by default                                       |
 
 ```javascript
 const topNavProps = {
