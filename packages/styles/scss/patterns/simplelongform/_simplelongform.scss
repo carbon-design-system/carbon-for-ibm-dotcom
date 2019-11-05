@@ -5,11 +5,10 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@mixin simplelongform { 
+@mixin simplelongform {
   .#{$prefix}--simplelongform {
     color: $text-01;
     background: $ui-background;
-
     &__container {
       @include carbon--make-container;
     }
@@ -23,7 +22,6 @@
       margin-top: $carbon--spacing-07;
       margin-bottom: $carbon--spacing-07;
       @include carbon--type-style('expressive-heading-05');
-
     }
     &__content {
       @include carbon--type-style('body-long-02');
@@ -35,7 +33,6 @@
       margin-top: $carbon--layout-05;
       margin-left: -$carbon--spacing-05;
       margin-right: -$carbon--spacing-05;
-      
       &__col {
         @include carbon--make-col-ready;
       }
@@ -60,7 +57,7 @@
           outline: 2px solid $focus;
         }
         svg {
-          fill: currentColor; 
+          fill: currentColor;
         }
       }
       .bx--card-link {
@@ -68,7 +65,6 @@
         margin-right: -$carbon--layout-01;
         padding: $carbon--layout-01;
         min-height: 10rem;
-
         &__title {
           color: $interactive-02;
           @include carbon--type-style('body-short-02');
