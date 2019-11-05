@@ -123,17 +123,33 @@ const MastheadSearch = ({ placeHolderText, renderValue }) => {
   }
 
   /**
+   * Close search and suggestions only when search container blurs
+   *
+   * @param {event} event The callback event
+   */
+  function onBlur(event) {
+    if (!event.currentTarget.contains(event.relatedTarget)) {
+      dispatch({ type: 'setSearchClosed' });
+    }
+  }
+
+  /**
    * Autosuggest will pass through all these props to the input.
    *
-   * @type {{onBlur: Function, onChange: Function, placeholder: string, value: string, onFocus: Function}}
+   * @type {{placeholder: string, value: string, onChange: Function, className: string, onKeyDown: Function}}
    */
   const inputProps = {
     placeholder: placeHolderText,
     value: state.val,
     onChange,
     className: `${prefix}--header__search--input`,
-    onBlur: () => {
-      dispatch({ type: 'setSearchClosed' });
+    onKeyDown: event => {
+      switch (event.key) {
+        case 'Escape':
+          return dispatch({ type: 'setSearchClosed' });
+        default:
+          break;
+      }
     },
   };
 
@@ -242,7 +258,8 @@ const MastheadSearch = ({ placeHolderText, renderValue }) => {
   return (
     <div
       data-autoid={`${stablePrefix}--masthead__search`}
-      className={className}>
+      className={className}
+      onBlur={onBlur}>
       <Autosuggest
         suggestions={state.suggestions} // The state value of suggestion
         onSuggestionsFetchRequested={onSuggestionsFetchRequest} // Method to fetch data (should be async call)
