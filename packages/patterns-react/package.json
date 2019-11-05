@@ -47,9 +47,9 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.5.5",
-    "@carbon/ibmdotcom-react": "^1.1.0",
-    "@carbon/ibmdotcom-styles": "0.4.0",
-    "@carbon/ibmdotcom-utilities": "^1.1.0-alpha.610",
+    "@carbon/ibmdotcom-react": "1.1.0",
+    "@carbon/ibmdotcom-styles": "1.1.0",
+    "@carbon/ibmdotcom-utilities": "1.1.0",
     "classnames": "2.2.6",
     "window-or-global": "^1.0.1"
   },
