@@ -1,0 +1,99 @@
+//
+// Copyright IBM Corp. 2016, 2018
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import '../../globals/imports';
+
+@import '~carbon-components/scss/components/search/search';
+
+@import '../../globals/vars.scss';
+@import '../../globals/mixins.scss';
+
+/// Locale modal
+/// @access private
+/// @group locale-modal
+
+@mixin locale-modal {
+  .#{$prefix}--modal-container {
+    background-color: $ui-background;
+  }
+
+  .#{$prefix}--locale-modal {
+    padding-right: $spacing-05;
+
+    &__locales {
+      text-decoration: none;
+      border: 2px solid transparent;
+      display: flex;
+      height: $spacing-09;
+      border-bottom: 1px solid $ui-03;
+      transition: background-color $duration--fast-02
+          motion(standard, expressive),
+        border $duration--fast-02 motion(standard, expressive);
+
+      &__name {
+        width: 50%;
+        color: $text-03;
+        padding: $spacing-04 $spacing-05;
+
+        &:first-of-type {
+          color: $text-01;
+        }
+      }
+
+      @include carbon--type-style(body-short-02, true);
+
+      &:hover {
+        background-color: $hover-ui;
+      }
+
+      &:active,
+      &:focus {
+        border: 2px solid $focus;
+        outline: none;
+      }
+    }
+
+    &__locales-hidden {
+      display: none;
+    }
+  }
+
+  .#{$prefix}--locale-modal__search {
+    position: sticky;
+    top: 0;
+    padding-top: $spacing-07;
+    background-color: $ui-background;
+    border-bottom: 1px solid $icon-02;
+
+    &-text {
+      padding: $spacing-05;
+      height: $spacing-09;
+
+      @include carbon--type-style(heading-01, true);
+    }
+  }
+
+  .#{$prefix}--modal {
+    .#{$prefix}--search-input {
+      background-color: $ui-01;
+    }
+  }
+
+  .#{$prefix}--modal-header {
+    &__label {
+      margin-bottom: $spacing-04;
+    }
+
+    &__heading {
+      @include carbon--type-style(expressive-heading-04, true);
+    }
+  }
+}
+
+@include exports('locale-modal') {
+  @include locale-modal;
+}
