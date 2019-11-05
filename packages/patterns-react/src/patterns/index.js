@@ -7,3 +7,4 @@
 
 export * from './LeadSpace';
 export * from './ListSection';
+export * from './SimpleLongForm';

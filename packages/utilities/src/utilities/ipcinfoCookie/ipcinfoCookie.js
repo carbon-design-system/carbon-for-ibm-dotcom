@@ -39,7 +39,7 @@ class ipcinfoCookie {
   }
 
   /**
-   * set the ipcInfo cookie
+   * set the ipcInfo cookie with expiration of a year
    * takes care of converting to string and encoding
    *
    * @param {object} params params object
@@ -56,7 +56,12 @@ class ipcinfoCookie {
   static set({ cc, lc }) {
     const info = `cc=${cc};lc=${lc}`;
 
-    Cookies.set(_cookieName, encodeURIComponent(info));
+    Cookies.set(
+      _cookieName,
+      encodeURIComponent(info),
+      { expires: 365 },
+      { secure: true }
+    );
   }
 }
 

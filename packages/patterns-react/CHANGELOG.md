@@ -3,6 +3,53 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-patterns-react@1.1.0-rc.0...@carbon/ibmdotcom-patterns-react@1.1.0) (2019-11-04)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-patterns-react
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.1.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-patterns-react@1.0.0...@carbon/ibmdotcom-patterns-react@1.1.0-rc.0) (2019-10-29)
+
+### Bug Fixes
+
+- **featureflag:** hiding experimental stories from production
+  ([#577](https://github.com/carbon-design-system/ibm-dotcom-library/issues/577))
+  ([394b9df](https://github.com/carbon-design-system/ibm-dotcom-library/commit/394b9df))
+- **leadspace:** ensure buttons appear in correct order and width
+  ([4fd8054](https://github.com/carbon-design-system/ibm-dotcom-library/commit/4fd8054))
+
+### Features
+
+- **leadspace:** add button width function on resize
+  ([325a530](https://github.com/carbon-design-system/ibm-dotcom-library/commit/325a530))
+- **leadspace:** add separate knobs for the button icons
+  ([f8a3f32](https://github.com/carbon-design-system/ibm-dotcom-library/commit/f8a3f32))
+- **leadspace:** button styling updates
+  ([b167b0f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/b167b0f))
+- **leadspace:** edit leadspace to handle the srcs instead of adopter
+  ([db3b6ed](https://github.com/carbon-design-system/ibm-dotcom-library/commit/db3b6ed))
+- **leadspace:** make buttons equal width
+  ([316e654](https://github.com/carbon-design-system/ibm-dotcom-library/commit/316e654))
+- **leadspace:** make gradient optional and few icons for buttons
+  ([ae26bc1](https://github.com/carbon-design-system/ibm-dotcom-library/commit/ae26bc1))
+- **leadspace:** separate image into its own component
+  ([136fac5](https://github.com/carbon-design-system/ibm-dotcom-library/commit/136fac5))
+- **leadspace:** set col width for desc in sm breakpoint
+  ([bddcfb6](https://github.com/carbon-design-system/ibm-dotcom-library/commit/bddcfb6))
+- **leadspace:** simplify css
+  ([b22c352](https://github.com/carbon-design-system/ibm-dotcom-library/commit/b22c352))
+- **leadspace:** use Ref react hook for DOM manipulation
+  ([253d688](https://github.com/carbon-design-system/ibm-dotcom-library/commit/253d688))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.0.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-patterns-react@1.0.0-rc.0...@carbon/ibmdotcom-patterns-react@1.0.0) (2019-10-07)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-patterns-react

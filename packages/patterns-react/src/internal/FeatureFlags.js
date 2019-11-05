@@ -22,3 +22,10 @@ export const LEADSPACE = process.env.LEADSPACE === 'true' || false;
  * @type {string | boolean}
  */
 export const LISTSECTION = process.env.LISTSECTION === 'true' || false;
+
+/**
+ * This determines if the leadspace will be rendered or not
+ *
+ * @type {string | boolean}
+ */
+export const SIMPLELONGFORM = process.env.SIMPLELONGFORM === 'true' || false;
