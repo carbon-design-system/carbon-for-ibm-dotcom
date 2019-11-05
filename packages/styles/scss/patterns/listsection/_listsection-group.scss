@@ -8,7 +8,7 @@
 @mixin listsection-group {
     .#{$prefix}--listsection-group {
     &__title {
-      @include carbon--type-style('expressive-heading-04');
+      @include type-style('expressive-heading-04');
       margin-top: $carbon--layout-05;
     }
     @include carbon--breakpoint('lg') {
