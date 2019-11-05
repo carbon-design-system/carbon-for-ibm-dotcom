@@ -10,24 +10,15 @@
  */
 
 /**
- * This flag will determine if all feature flags should be enabled
+ * This determines if the leadspace will be rendered or not
  *
- * @type {boolean}
+ * @type {string | boolean}
  */
-export const DDS_FLAGS_ALL = process.env.DDS_FLAGS_ALL === 'true' || false;
+export const LEADSPACE = process.env.LEADSPACE === 'true' || false;
 
 /**
  * This determines if the leadspace will be rendered or not
  *
  * @type {string | boolean}
  */
-export const LEADSPACE =
-  process.env.LEADSPACE === 'true' || DDS_FLAGS_ALL || false;
-
-/**
- * This determines if the leadspace will be rendered or not
- *
- * @type {string | boolean}
- */
-export const SIMPLELONGFORM =
-  process.env.SIMPLELONGFORM === 'true' || DDS_FLAGS_ALL || false;
+export const SIMPLELONGFORM = process.env.SIMPLELONGFORM === 'true' || false;

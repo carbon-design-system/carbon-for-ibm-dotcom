@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { SIMPLELONGFORM } from '../../../internal/FeatureFlags';
+import { featureFlag } from '@carbon/ibmdotcom-utilities';
 import {
   withKnobs,
   text,
@@ -12,7 +13,7 @@ import '../../../../../styles/scss/patterns/simplelongform/index.scss';
 import SimpleLongForm from '../SimpleLongForm';
 import readme from '../README.md';
 
-if (SIMPLELONGFORM) {
+featureFlag(SIMPLELONGFORM, () => {
   storiesOf('Simple Long Form', module)
     .addDecorator(withKnobs)
     .addParameters({
@@ -28,11 +29,11 @@ if (SIMPLELONGFORM) {
 
       const copy = text(
         'copy (required)',
-        ` 
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc pulvinar nisi id libero sagittis laoreet sed 
+        `
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc pulvinar nisi id libero sagittis laoreet sed
         ut purus. In eu est tellus. Vivamus quis nisi ut nunc facilisis tincidunt. Fusce sodales ante ac sollicitudin
         tristique. Maecenas sit amet metus id risus pulvinar placerat. Vestibulum mattis rutrum pulvinar. Suspendisse
-        sed eros non erat semper fermentum at sed massa. Maecenas id sem pellentesque, ultrices leo sit amet, 
+        sed eros non erat semper fermentum at sed massa. Maecenas id sem pellentesque, ultrices leo sit amet,
         tristique odio. Etiam fermentum neque et vehicula volutpat. Curabitur non eros urna. Cras eu dapibus enim.
       `
       );
@@ -73,4 +74,4 @@ if (SIMPLELONGFORM) {
         </div>
       );
     });
-}
+});

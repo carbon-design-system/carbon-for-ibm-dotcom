@@ -11,8 +11,9 @@ import '../../../../../styles/scss/patterns/leadspace/index.scss';
 import LeadSpace from '../LeadSpace';
 import readme from '../README.md';
 import { LEADSPACE } from '../../../internal/FeatureFlags';
+import { featureFlag } from '@carbon/ibmdotcom-utilities';
 
-if (LEADSPACE) {
+featureFlag(LEADSPACE, () => {
   storiesOf('LeadSpace', module)
     .addDecorator(withKnobs)
     .addParameters({
@@ -132,4 +133,4 @@ if (LEADSPACE) {
         </div>
       );
     });
-}
+});

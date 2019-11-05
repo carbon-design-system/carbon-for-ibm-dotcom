@@ -5,11 +5,12 @@ import { CardLink } from '../';
 import { ArrowRight20 } from '@carbon/icons-react';
 import readme from '../README.md';
 import { CARD_LINK } from '../../../internal/FeatureFlags';
+import { featureFlag } from '@carbon/ibmdotcom-utilities';
 
 import '../../../../../styles/scss/components/card-link/index.scss';
 import '@carbon/grid/scss/index.scss';
 
-if (CARD_LINK) {
+featureFlag(CARD_LINK, () => {
   storiesOf('Card', module)
     .addDecorator(withKnobs)
     .addDecorator(Story => {
@@ -68,4 +69,4 @@ if (CARD_LINK) {
         </div>
       );
     });
-}
+});
