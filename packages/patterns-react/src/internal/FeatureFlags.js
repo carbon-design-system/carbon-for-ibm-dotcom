@@ -29,7 +29,8 @@ export const LEADSPACE =
  *
  * @type {string | boolean}
  */
-export const LISTSECTION = process.env.LISTSECTION === 'true' || false;
+export const LISTSECTION =
+  process.env.LISTSECTION === 'true' || DDS_FLAGS_ALL || false;
 
 /**
  * This determines if the leadspace will be rendered or not
