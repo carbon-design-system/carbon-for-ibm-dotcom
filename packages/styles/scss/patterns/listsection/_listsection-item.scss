@@ -9,6 +9,7 @@
   .#{$prefix}--listsection-item {
     &__title {
       @include carbon--type-style('heading-02');
+
       margin-top: $carbon--layout-03;
     }
     &__content {
@@ -30,12 +31,12 @@
         svg {
           path {
             fill: $link-01;
-          } 
+          }
         }
       }
     }
   }
-} 
+}
 @include exports('listsection-item') {
   @include listsection-item;
 }
