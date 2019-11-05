@@ -5,9 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+export * from './ButtonGroup';
 export * from './DotcomShell';
 export * from './Footer';
 export * from './HorizontalRule';
 export * from './Icon';
 export * from './Masthead';
+export * from './CardLink';
 export * from './carbon-components-react/UIShell';

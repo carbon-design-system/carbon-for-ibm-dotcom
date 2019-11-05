@@ -39,6 +39,7 @@ const MastheadProfile = ({
         itemText={item.title}
         href={item.url}
         hasDivider={i > 0}
+        key={i}
       />
     );
   });

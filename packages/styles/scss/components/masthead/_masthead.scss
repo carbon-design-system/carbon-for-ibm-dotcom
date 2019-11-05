@@ -186,6 +186,7 @@ $search-transition-timing: 95ms;
     }
 
     &__action {
+      border: 2px solid transparent;
       > {
         svg {
           fill: $text-01;
@@ -204,7 +205,7 @@ $search-transition-timing: 95ms;
 
       &:focus,
       &:active {
-        border-color: $interactive-01;
+        border-color: $focus;
         background-color: $ui-01;
       }
 
@@ -265,11 +266,14 @@ $search-transition-timing: 95ms;
       overflow: hidden;
       width: 0;
       border: none;
-      outline: none;
+
+      svg {
+        position: relative;
+        top: 2px;
+      }
     }
 
     &__search--search {
-      border: none;
       outline: none;
       width: $spacing-09;
     }

@@ -37,7 +37,7 @@ const { prefix } = settings;
  * @param {string} type Type of masthead
  * @returns {*} Masthead component
  */
-const Masthead = ({ navigation, ...mastheadProps }) => {
+const Masthead = ({ navigation, hasProfile, hasSearch, ...mastheadProps }) => {
   /**
    * Returns IBM.com authenticated status
    *
@@ -115,18 +115,18 @@ const Masthead = ({ navigation, ...mastheadProps }) => {
     };
   }, []);
 
-  switch (typeof navigation) {
-    case 'string':
-      // eslint-disable-next-line
-      mastheadData = mastheadData;
-      break;
-    case 'object':
-      mastheadData = navigation;
-      break;
-    case false:
-      break;
-    default:
-      break;
+  if (navigation) {
+    switch (typeof navigation) {
+      case 'string':
+        // eslint-disable-next-line
+        mastheadData = mastheadData;
+        break;
+      case 'object':
+        mastheadData = navigation;
+        break;
+      default:
+        break;
+    }
   }
 
   return (
@@ -138,51 +138,59 @@ const Masthead = ({ navigation, ...mastheadProps }) => {
           <div className={`${prefix}--masthead__l0`}>
             <Header aria-label="IBM" data-autoid={`${stablePrefix}--masthead`}>
               <SkipToContent />
-              <HeaderMenuButton
-                aria-label="Open menu"
-                data-autoid={`${stablePrefix}--masthead__hamburger`}
-                onClick={onClickSideNavExpand}
-                isActive={isSideNavExpanded}
-              />
+
+              {navigation && (
+                <HeaderMenuButton
+                  aria-label="Open menu"
+                  data-autoid={`${stablePrefix}--masthead__hamburger`}
+                  onClick={onClickSideNavExpand}
+                  isActive={isSideNavExpanded}
+                />
+              )}
 
               <IbmLogo />
 
               <div className={`${prefix}--header__search ${hasPlatform}`}>
-                {navigation !== false ? (
+                {navigation && (
                   <MastheadTopNav
                     {...mastheadProps}
                     navigation={mastheadData}
                   />
-                ) : null}
-                <MastheadSearch />
+                )}
+                {hasSearch && <MastheadSearch />}
               </div>
 
-              <HeaderGlobalBar>
-                <MastheadProfile
-                  overflowMenuProps={{
-                    flipped: true,
-                    style: { width: 'auto' },
-                    renderIcon: () =>
-                      isAuthenticated ? <UserOnline20 /> : <User20 />,
-                  }}
-                  profileMenu={
-                    isAuthenticated
-                      ? profileData.signedin
-                      : profileData.signedout
-                  }
+              {hasProfile && (
+                <HeaderGlobalBar>
+                  <MastheadProfile
+                    overflowMenuProps={{
+                      flipped: true,
+                      style: { width: 'auto' },
+                      renderIcon: () =>
+                        isAuthenticated ? <UserOnline20 /> : <User20 />,
+                    }}
+                    profileMenu={
+                      isAuthenticated
+                        ? profileData.signedin
+                        : profileData.signedout
+                    }
+                  />
+                </HeaderGlobalBar>
+              )}
+
+              {navigation && (
+                <MastheadLeftNav
+                  navigation={mastheadData}
+                  isSideNavExpanded={isSideNavExpanded}
                 />
-              </HeaderGlobalBar>
-              <MastheadLeftNav
-                navigation={mastheadData}
-                isSideNavExpanded={isSideNavExpanded}
-              />
+              )}
             </Header>
           </div>
-          {navigation !== false ? (
+          {navigation && (
             <div ref={mastheadL1Ref}>
               <MastheadL1 />
             </div>
-          ) : null}
+          )}
         </div>
       )}
     />
@@ -193,11 +201,22 @@ const Masthead = ({ navigation, ...mastheadProps }) => {
  * @property propTypes
  * @description Defined property types for component
  *
- * @type {{mastheadProp: object, navigation: Array}}
+ * @type {{mastheadProp: object, navigation: Array, hasProfile: boolean, hasSearch: boolean}}
  */
 Masthead.propTypes = {
   navigation: PropTypes.array,
+  hasProfile: PropTypes.bool,
+  hasSearch: PropTypes.bool,
   mastheadProp: PropTypes.object,
+};
+
+/**
+ * @property defaultProps
+ * @type {{hasProfile: boolean, hasSearch: boolean}}
+ */
+Masthead.defaultProps = {
+  hasProfile: true,
+  hasSearch: true,
 };
 
 export default Masthead;
