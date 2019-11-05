@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, select, text } from '@storybook/addon-knobs';
+import '../../../../../styles/scss/globals/_fonts.scss';
 import '../../../../../styles/scss/components/horizontalrule/_horizontalrule.scss';
 import 'carbon-components/scss/globals/grid/_grid.scss';
 import readme from '../README.md';

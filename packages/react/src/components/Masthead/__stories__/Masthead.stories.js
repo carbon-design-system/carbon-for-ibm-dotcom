@@ -5,6 +5,7 @@ import Masthead from '../Masthead';
 import mastheadKnobs from './data/Masthead.stories.knobs.js';
 import readme from '../README.md';
 import '../../../../../styles/scss/components/masthead/index.scss';
+import '../../../../../styles/scss/globals/_fonts.scss';
 
 storiesOf('Masthead', module)
   .addDecorator(withKnobs)

@@ -4,6 +4,7 @@ import { withKnobs, select, boolean } from '@storybook/addon-knobs';
 import DotcomShell from '../DotcomShell';
 import mastheadKnobs from '../../Masthead/__stories__/data/Masthead.stories.knobs.js';
 import readme from '../README.md';
+import '../../../../../styles/scss/globals/_fonts.scss';
 import '../../../../../styles/scss/components/dotcom-shell/_dotcom-shell.scss';
 import content from './data/content';
 

@@ -4,6 +4,7 @@ import { withKnobs, select } from '@storybook/addon-knobs';
 import { Footer } from '../';
 import readme from '../README.md';
 
+import '../../../../../styles/scss/globals/_fonts.scss';
 import '../../../../../styles/scss/components/footer/index.scss';
 
 storiesOf('Footer', module)
