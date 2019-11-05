@@ -26,6 +26,11 @@ const MastheadSearchInput = ({
   searchIconClick,
 }) => {
   const searchRef = useRef();
+  const searchIconRef = document.querySelector(
+    `.${prefix}--header__search--search`
+  );
+
+  // console.log(searchRef.current.querySelector('bx--header__search--search'));
 
   /**
    * Clear search and clear input when called
@@ -37,6 +42,14 @@ const MastheadSearchInput = ({
       payload: { val: '' },
     });
   }, [dispatch]);
+
+  /**
+   * closeBtnAction resets and sets focus after search is closed
+   */
+  function closeBtnAction() {
+    resetSearch();
+    searchIconRef && searchIconRef.focus();
+  }
 
   useEffect(() => {
     if (isActive) {
@@ -61,7 +74,7 @@ const MastheadSearchInput = ({
         <Search20 />
       </HeaderGlobalAction>
       <HeaderGlobalAction
-        onClick={resetSearch}
+        onClick={closeBtnAction}
         aria-label="Close"
         className={`${prefix}--header__search--close`}
         data-autoid={`${stablePrefix}--header__search--close`}>
