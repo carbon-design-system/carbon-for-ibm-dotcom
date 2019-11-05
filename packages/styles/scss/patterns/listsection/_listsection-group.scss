@@ -1,0 +1,24 @@
+//
+// Copyright IBM Corp. 2016, 2018
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@mixin listsection-group {
+  .#{$prefix}--listsection-group {
+    &__title {
+      @include type-style('expressive-heading-04');
+
+      margin-top: $carbon--layout-05;
+    }
+    @include carbon--breakpoint('lg') {
+      &__title {
+        margin-top: $carbon--layout-06;
+      }
+    }
+  }
+}
+@include exports('listsection-group') {
+  @include listsection-group;
+}
