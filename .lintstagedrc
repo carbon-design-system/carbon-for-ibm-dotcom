@@ -4,9 +4,9 @@
     "eslint packages",
     "git add"
   ],
-  "packages/components/**/*.scss": [
+  "**/*.scss": [
     "prettier --write",
-    "yarn lint:styles",
+    "stylelint --config packages/stylelint-config-ibmdotcom",
     "git add"
   ],
   "*.md": [
