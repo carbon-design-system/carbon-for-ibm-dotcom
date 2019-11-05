@@ -7,6 +7,21 @@ import readme from '../README.md';
 import '../../../../../styles/scss/components/masthead/index.scss';
 import '../../../../../styles/scss/globals/_fonts.scss';
 
+const standardProps = {
+  navigation: select(
+    'Navigation',
+    mastheadKnobs.navigation,
+    mastheadKnobs.navigation.default
+  ),
+  platform: select(
+    'Platform name',
+    mastheadKnobs.platform,
+    mastheadKnobs.platform.none
+  ),
+  hasProfile: boolean('Has profile', true),
+  hasSearch: boolean('Has search', true),
+};
+
 storiesOf('Masthead', module)
   .addDecorator(withKnobs)
   .addParameters({
@@ -15,20 +30,8 @@ storiesOf('Masthead', module)
     },
   })
   .add('Default', () => {
-    return (
-      <Masthead
-        navigation={select(
-          'Navigation',
-          mastheadKnobs.navigation,
-          mastheadKnobs.navigation.default
-        )}
-        platform={select(
-          'Platform name',
-          mastheadKnobs.platform,
-          mastheadKnobs.platform.none
-        )}
-        hasProfile={boolean('Has profile', true)}
-        hasSearch={boolean('Has search', true)}
-      />
-    );
+    return <Masthead {...standardProps} />;
+  })
+  .add('Search open by default', () => {
+    return <Masthead {...standardProps} searchOpenOnload={true} />;
   });

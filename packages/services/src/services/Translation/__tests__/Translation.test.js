@@ -2,8 +2,11 @@ import mockAxios from 'axios';
 import TranslationAPI from '../Translation';
 import responseSuccess from './data/response.json';
 
-const _lc = 'en'; // TODO: bake in tests where lc changes
-const _cc = 'us'; // TODO: bake in tests where cc changes
+jest.mock('../../Locale', () => ({
+  LocaleAPI: {
+    getLocale: jest.fn(() => Promise.resolve({ cc: 'us', lc: 'en' })),
+  },
+}));
 
 describe('TranslationAPI', () => {
   beforeEach(function() {
@@ -16,7 +19,7 @@ describe('TranslationAPI', () => {
 
   it('should fetch the i18n data', async () => {
     const endpoint = `${process.env.TRANSLATION_HOST}/common/v18/js/data/jsononly`;
-    const fetchUrl = `${endpoint}/${_cc}${_lc}.json`;
+    const fetchUrl = `${endpoint}/usen.json`;
 
     const response = await TranslationAPI.getTranslation();
     expect(response).toEqual(responseSuccess);

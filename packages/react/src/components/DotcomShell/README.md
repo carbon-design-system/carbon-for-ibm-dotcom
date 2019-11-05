@@ -38,8 +38,9 @@ function App() {
 ```
 
 > 💡 > And don't forget to import the DotcomShell styles from
-> [@carbon/ibmdotcom-styles](/packages/styles). Only import the `_fonts.scss`
-> file once to reduce load time
+> [@carbon/ibmdotcom-styles](/packages/styles). 
+Only import the `_fonts.scss` file once to reduce load time
+
 
 ## Data and content
 

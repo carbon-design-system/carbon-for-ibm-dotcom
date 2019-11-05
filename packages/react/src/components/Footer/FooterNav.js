@@ -30,9 +30,9 @@ const FooterNav = ({ groups }) => {
     <nav
       data-autoid={`${stablePrefix}--footer-nav`}
       className={`${prefix}--footer-nav`}>
-      <div className={`${prefix}--footer-nav__container`}>
-        <Accordion>{renderGroups(groups)}</Accordion>
-      </div>
+      <Accordion className={`${prefix}--footer-nav__container`}>
+        {renderGroups(groups)}
+      </Accordion>
     </nav>
   );
 };

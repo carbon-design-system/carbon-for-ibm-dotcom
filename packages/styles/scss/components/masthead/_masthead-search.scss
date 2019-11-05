@@ -129,16 +129,16 @@
 
       .#{$prefix}--header__search--close {
         width: $spacing-09;
+      }
+
+      .#{$prefix}--header__search--close,
+      .#{$prefix}--header__search--search {
         border: 2px solid transparent;
 
         &:focus,
         &:active {
           border: 2px solid $focus;
         }
-      }
-
-      .#{$prefix}--header__search--search {
-        border: 2px solid transparent;
       }
 
       .#{$prefix}--header__action {
@@ -174,12 +174,12 @@
     &__suggestion {
       height: $spacing-09;
       display: flex;
-      padding: 0 $spacing-05;
 
       .#{$prefix}--container-class {
         display: flex;
         border-bottom: 1px solid $ui-01;
         flex: 1;
+        padding: 0 $spacing-05;
         align-items: center;
 
         &:focus {
@@ -193,6 +193,7 @@
         transition: $search-transition-timing;
       }
 
+      .#{$prefix}--container-highlight-class:not(:hover),
       &:focus,
       &:active {
         outline: 2px solid $focus;

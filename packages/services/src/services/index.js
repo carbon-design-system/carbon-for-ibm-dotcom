@@ -7,6 +7,7 @@
 
 export * from './Analytics';
 export * from './DDO';
+export * from './Locale';
 export * from './MarketingSearch';
 export * from './Profile';
 export * from './SearchTypeahead';
