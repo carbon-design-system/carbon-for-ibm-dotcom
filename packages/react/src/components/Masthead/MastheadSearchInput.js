@@ -51,6 +51,7 @@ const MastheadSearchInput = ({
         data-autoid={`${stablePrefix}--header__search--input`}
         ref={searchRef}
         name="q"
+        tabIndex={isActive ? null : '-1'}
       />
       <HeaderGlobalAction
         onClick={searchIconClick}
