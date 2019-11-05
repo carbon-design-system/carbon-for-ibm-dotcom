@@ -1,0 +1,12 @@
+@import '../../globals/imports';
+@import './simplelongform';
+@import '@carbon/ibmdotcom-styles/scss/components/card-link/index';
+
+
+.#{$prefix}--simplelongform--g100 {
+  @include carbon--theme($carbon--theme--g100) {
+    @include simplelongform;
+    @include tile;
+    @include card-link;
+  }
+}

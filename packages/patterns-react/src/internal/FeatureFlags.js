@@ -15,3 +15,10 @@
  * @type {string | boolean}
  */
 export const LEADSPACE = process.env.LEADSPACE === 'true' || false;
+
+/**
+ * This determines if the leadspace will be rendered or not
+ *
+ * @type {string | boolean}
+ */
+export const SIMPLELONGFORM = process.env.SIMPLELONGFORM === 'true' || false;
