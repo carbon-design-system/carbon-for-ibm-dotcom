@@ -25,6 +25,7 @@ export default content;
 import React from 'react';
 import { DotcomShell } from '@carbon/ibmdotcom-react';
 import '@carbon/ibmdotcom-styles/scss/components/dotcom-shell/_dotcom-shell.scss';
+import 'node_modules/@carbon/ibmdotcom-styles/src/scss/globals/_fonts.scss';
 import content from 'content';
 
 function App() {
@@ -37,7 +38,8 @@ function App() {
 ```
 
 > 💡 > And don't forget to import the DotcomShell styles from
-> [@carbon/ibmdotcom-styles](/packages/styles).
+> [@carbon/ibmdotcom-styles](/packages/styles). Only import the `_fonts.scss`
+> file once to reduce load time
 
 ## Data and content
 

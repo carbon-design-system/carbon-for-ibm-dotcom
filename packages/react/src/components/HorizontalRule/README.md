@@ -12,6 +12,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { HorizontalRule } from '@carbon/ibmdotcom-react';
 import '@carbon/ibmdotcom-styles/scss/components/horizontalrule/index.scss';
+import 'node_modules/@carbon/ibmdotcom-styles/src/scss/globals/_fonts.scss';
 function App() {
   return <HorizontalRule />;
 }
@@ -20,6 +21,7 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 > 💡 Don't forget to import the horizontal rule styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
+> Only import the `_fonts.scss` file once to reduce load time
 
 ## Styles (optional)
 

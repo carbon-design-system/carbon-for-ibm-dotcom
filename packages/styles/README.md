@@ -23,8 +23,11 @@ yarn add @carbon/ibmdotcom-styles
 Import the package css into the top of your main CSS file.
 
 ```css
+@import 'node_modules/@carbon/ibmdotcom-styles/src/scss/globals/_fonts.scss';
 @import 'node_modules/@carbon/ibmdotcom-styles/src/scss/components/footer/footer';
 ```
+
+Only import the `_fonts.scss` file once to reduce load time
 
 In Webpack, the full package can also be included to the root of your
 application:

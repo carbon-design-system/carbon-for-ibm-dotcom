@@ -13,7 +13,7 @@ import ReactDOM from 'react-dom';
 import { Footer } from '@carbon/ibmdotcom-react';
 
 import '@carbon/ibmdotcom-styles/scss/components/footer/index.scss';
-
+import 'node_modules/@carbon/ibmdotcom-styles/src/scss/globals/_fonts.scss';
 function App() {
   return <Footer />;
 }
@@ -23,6 +23,7 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 > 💡 Don't forget to import the footer styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
+> Only import the `_fonts.scss` file once to reduce load time
 
 #### Feature Flags
 

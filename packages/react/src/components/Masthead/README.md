@@ -13,6 +13,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Masthead } from '@carbon/ibmdotcom-react';
 import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead.scss';
+import 'node_modules/@carbon/ibmdotcom-styles/src/scss/globals/_fonts.scss';
 function App() {
   return <Masthead />;
 }
@@ -33,7 +34,7 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 > 💡 `Custom` navigation data must follow the same structure and key names as
 > `default`. See
 > [this](https://www.ibm.com/common/v18/js/data/jsononly/usen.json) for an
-> example.
+> example. Only import the `_fonts.scss` file once to reduce load time
 
 ## Options
 
