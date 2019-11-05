@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, select, object } from '@storybook/addon-knobs';
+import { withKnobs, select, object, boolean } from '@storybook/addon-knobs';
 import { Footer } from '../';
 import footerMenu from '../__data__/footer-menu.json';
 import footerThin from '../__data__/footer-legal.json';
@@ -26,9 +26,11 @@ storiesOf('Footer', module)
       footerThin: footerThin.data,
     });
 
+    let isCustom = boolean('show custom navigation', true);
+
     return (
       <Footer
-        navigation={navigation}
+        navigation={isCustom && navigation}
         type={select('type', footerTypeOptions, footerTypeOptions.tall)}
       />
     );
