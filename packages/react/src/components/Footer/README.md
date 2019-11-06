@@ -79,8 +79,9 @@ made to retrieve navigation links
 ```javascript
 import { TranslationAPI } from '@carbon/ibmdotcom-services';
 import { Footer } from '@carbon/ibmdotcom-react';
+
 server.get('/', async (req, res) => {
-  const response = await TranslationAPI.getTranslation();
+  const response = await TranslationAPI.getTranslation({ lc: 'en', cc: 'us' });
   const body = renderToString(<Footer navigation={response} />);
   res.send(body);
 });
