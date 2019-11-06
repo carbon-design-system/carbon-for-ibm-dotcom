@@ -29,9 +29,7 @@ class TranslationAPI {
   /**
    * Returns translation i18n data
    *
-   * @param {object} param object
-   * @param {string} param.lc language code
-   * @param {string} param.cc country code
+   * @param {object} codes object containing lc and cc
    *
    * @returns {Promise<any>} Translation data
    * @example
@@ -42,17 +40,17 @@ class TranslationAPI {
    *   return response;
    * }
    */
-  static async getTranslation({ lc, cc }) {
+  static async getTranslation(codes) {
     let lang = 'en';
     let country = 'us';
 
-    if (lc && cc) {
-      lang = lc;
-      country = cc;
+    if (codes && codes.lc && codes.cc) {
+      lang = codes.lc;
+      country = codes.cc;
     } else {
       const locale = await LocaleAPI.getLocale();
-      lc = locale.lc;
-      cc = locale.cc;
+      lang = locale.lc;
+      country = locale.cc;
     }
 
     let proxy = '';
