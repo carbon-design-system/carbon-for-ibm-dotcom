@@ -74,7 +74,8 @@ A cors proxy can be configured using the following
 ## Server Side Rendering
 
 To server side render the footer, the `Translation` service call needs to be
-made to retrieve navigation links
+made to retrieve navigation links. Make sure to pass in the `lc` and `cc` values
+as shown in the example below.
 
 ```javascript
 import { TranslationAPI } from '@carbon/ibmdotcom-services';
