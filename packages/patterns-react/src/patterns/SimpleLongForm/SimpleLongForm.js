@@ -15,7 +15,6 @@ import { SIMPLELONGFORM } from '../../internal/FeatureFlags';
 import { ArrowRight20 } from '@carbon/icons-react';
 import { CardLink } from '@carbon/ibmdotcom-react';
 import { LinkWithIcon } from '@carbon/ibmdotcom-react';
-import '@carbon/ibmdotcom-styles/scss/components/link-with-icon/_link-with-icon.scss';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;

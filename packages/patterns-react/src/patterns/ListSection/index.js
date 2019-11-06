@@ -5,6 +5,4 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-export * from './LeadSpace';
-export * from './ListSection';
-export * from './SimpleLongForm';
+export { default as ListSection } from './ListSection';
