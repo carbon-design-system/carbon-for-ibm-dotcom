@@ -121,7 +121,7 @@ const MastheadSearch = ({ placeHolderText, renderValue, searchOpenOnload }) => {
       const response = await LocaleAPI.getLang();
       if (response) {
         dispatch({ type: 'setLc', payload: { lc: response.lc } });
-        dispatch({ type: 'setLc', payload: { cc: response.cc } });
+        dispatch({ type: 'setCc', payload: { cc: response.cc } });
       }
     })();
   }, []);
