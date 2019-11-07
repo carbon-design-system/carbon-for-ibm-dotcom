@@ -76,9 +76,9 @@ function _reducer(state, action) {
     case 'setSearchClosed':
       return Object.assign({}, state, { isSearchOpen: false });
     case 'setLc':
-      return Object.assign({}, state, { val: action.payload.lc });
+      return Object.assign({}, state, { lc: action.payload.lc });
     case 'setCc':
-      return Object.assign({}, state, { val: action.payload.cc });
+      return Object.assign({}, state, { cc: action.payload.cc });
     default:
       return state;
   }
