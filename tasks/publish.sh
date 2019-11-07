@@ -11,6 +11,11 @@ release_alpha () {
   ./node_modules/.bin/lerna publish --canary minor --dist-tag canary --no-push --no-git-tag-version --force-publish=*
 }
 
+# RC.0 patch release
+release_rc0_patch () {
+  ./node_modules/.bin/lerna publish prepatch --exact --conventional-commits --conventional-prerelease --preid rc
+}
+
 # RC.0 minor release
 release_rc0_minor () {
   ./node_modules/.bin/lerna publish preminor --exact --conventional-commits --conventional-prerelease --preid rc
@@ -109,6 +114,7 @@ done
 echo "What type of release are you running?"
 options_release=(
   "alpha release"
+  "rc.0 patch (first release candidate)"
   "rc.0 minor (first release candidate)"
   "rc.0 major (first release candidate)"
   "rc.1+ (subsequent release candidates)"
@@ -124,6 +130,12 @@ do
           echo "Creating alpha release..."
           set -x
           release_alpha
+          exit 1
+          ;;
+        "rc.0 patch (first release candidate)")
+          echo "Creating patch rc.0 release..."
+          set -x
+          release_rc0_patch
           exit 1
           ;;
         "rc.0 minor (first release candidate)")
