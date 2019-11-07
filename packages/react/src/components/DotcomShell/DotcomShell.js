@@ -24,6 +24,7 @@ const { prefix } = settings;
  */
 const DotcomShell = ({
   navigation,
+  footerNav,
   footerType,
   children,
   ...mastheadProps
@@ -40,7 +41,7 @@ const DotcomShell = ({
           {children}
         </div>
       </div>
-      <Footer type={footerType} />
+      <Footer navigation={footerNav} type={footerType} />
     </>
   );
 };
@@ -54,6 +55,7 @@ DotcomShell.propTypes = {
     PropTypes.node,
   ]).isRequired,
   navigation: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  footerNav: PropTypes.object,
   footerType: PropTypes.string,
   mastheadProps: PropTypes.object,
 };
