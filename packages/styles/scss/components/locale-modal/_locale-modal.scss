@@ -6,11 +6,10 @@
 //
 
 @import '../../globals/imports';
-
-@import '~carbon-components/scss/components/search/search';
-
 @import '../../globals/vars.scss';
 @import '../../globals/mixins.scss';
+
+@import '~carbon-components/scss/components/search/search';
 
 /// Locale modal
 /// @access private
@@ -23,12 +22,13 @@
 
   .#{$prefix}--locale-modal {
     padding-right: $spacing-05;
+    margin-top: $spacing-07;
 
     &__locales {
       text-decoration: none;
       border: 2px solid transparent;
       display: flex;
-      height: $spacing-09;
+      min-height: $spacing-09;
       border-bottom: 1px solid $ui-03;
       transition: background-color $duration--fast-02
           motion(standard, expressive),
@@ -44,8 +44,6 @@
         }
       }
 
-      @include carbon--type-style(body-short-02, true);
-
       &:hover {
         background-color: $hover-ui;
       }
@@ -60,18 +58,75 @@
     &__locales-hidden {
       display: none;
     }
+
+    &__filtering {
+      .#{$prefix}--locale-modal__filter {
+        opacity: 1;
+        z-index: 1;
+        transform: translate3d(0, 0, 0);
+        transition: 240ms cubic-bezier(0, 0, 0.3, 1);
+        display: block;
+      }
+
+      .#{$prefix}--locale-modal__regions {
+        visibility: hidden;
+        z-index: -1;
+        opacity: 0;
+        height: 0;
+        transition: 240ms cubic-bezier(0, 0, 0.3, 1);
+      }
+
+      .#{$prefix}--locale-modal__locales-filtered {
+        display: none;
+      }
+    }
+
+    &__back {
+      .#{$prefix}--modal-header__label {
+        &:hover {
+          cursor: pointer;
+          color: $interactive-01;
+        }
+
+        svg {
+          fill: currentColor;
+        }
+      }
+    }
+
+    @include carbon--type-style(body-short-02, true);
+  }
+
+  .#{$prefix}--locale-modal__filter {
+    z-index: -1;
+    opacity: 0;
+    transform: translate3d(0, -24px, 0);
+    transition: transform 240ms cubic-bezier(0.4, 0.14, 1, 1);
+    display: none;
+    top: 3rem;
+  }
+
+  .#{$prefix}--locale-modal__regions {
+    > .#{$prefix}--row {
+      margin-left: 0;
+      margin-right: 0;
+    }
+    .#{$prefix}--card-link {
+      min-height: rem(184px);
+      outline: 1px solid $ui-02;
+      outline-offset: -1px;
+    }
   }
 
   .#{$prefix}--locale-modal__search {
     position: sticky;
     top: 0;
-    padding-top: $spacing-07;
     background-color: $ui-background;
     border-bottom: 1px solid $icon-02;
 
     &-text {
       padding: $spacing-05;
-      height: $spacing-09;
+      min-height: $spacing-09;
 
       @include carbon--type-style(heading-01, true);
     }
@@ -86,6 +141,21 @@
   .#{$prefix}--modal-header {
     &__label {
       margin-bottom: $spacing-04;
+      color: $text-01;
+
+      svg {
+        position: relative;
+        top: 5px;
+      }
+
+      .#{$prefix}--locale-modal__label-globe {
+        margin-left: $spacing-03;
+      }
+      .#{$prefix}--locale-modal__label-arrow {
+        margin-right: $spacing-03;
+      }
+
+      @include carbon--type-style(body-short-01, true);
     }
 
     &__heading {
