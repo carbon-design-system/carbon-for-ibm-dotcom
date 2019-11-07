@@ -27,11 +27,12 @@ const { prefix } = settings;
  * Footer component
  *
  * @param {object} props react proptypes
+ * @param {object} props.navigation footer navigation object
  * @returns {object} JSX object
  */
-const Footer = ({ type }) => {
-  const [footerMenuData, setFooterMenuData] = useState([]);
-  const [footerLegalData, setFooterLegalData] = useState([]);
+const Footer = ({ type, navigation }) => {
+  let [footerMenuData, setFooterMenuData] = useState([]);
+  let [footerLegalData, setFooterLegalData] = useState([]);
 
   useEffect(() => {
     // initialize global execution calls
@@ -39,12 +40,19 @@ const Footer = ({ type }) => {
   }, []);
 
   useEffect(() => {
-    (async () => {
-      const response = await TranslationAPI.getTranslation();
-      setFooterMenuData(response.footerMenu);
-      setFooterLegalData(response.footerThin);
-    })();
-  }, []);
+    if (!navigation) {
+      (async () => {
+        const response = await TranslationAPI.getTranslation();
+        setFooterMenuData(response.footerMenu);
+        setFooterLegalData(response.footerThin);
+      })();
+    }
+  }, [navigation]);
+
+  if (navigation) {
+    footerMenuData = navigation.footerMenu;
+    footerLegalData = navigation.footerThin;
+  }
 
   /**
    * method to handle when country/region has been selected
@@ -108,6 +116,7 @@ function setFooterType(type) {
 }
 
 Footer.propTypes = {
+  navigation: PropTypes.object,
   type: PropTypes.string,
 };
 

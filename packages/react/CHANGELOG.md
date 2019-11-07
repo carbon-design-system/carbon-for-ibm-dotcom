@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.1.0...@carbon/ibmdotcom-react@1.1.1-rc.0) (2019-11-07)
+
+### Bug Fixes
+
+- **footer:** add navigation prop to be passed into Dotcomshell
+  ([20117fb](https://github.com/carbon-design-system/ibm-dotcom-library/commit/20117fb))
+- **footer:** add to readme and be able to turn of custom navigation
+  ([67f5eab](https://github.com/carbon-design-system/ibm-dotcom-library/commit/67f5eab))
+- **footer:** pass params to the translationapi and small lint changes
+  ([a4ee671](https://github.com/carbon-design-system/ibm-dotcom-library/commit/a4ee671))
+- **lang:** dispatch correct action type
+  ([0f28637](https://github.com/carbon-design-system/ibm-dotcom-library/commit/0f28637))
+- **masthead:** skipping focusing hidden elements
+  ([363d300](https://github.com/carbon-design-system/ibm-dotcom-library/commit/363d300))
+- **react:** moved initial state inside component func
+  ([5c7c0fa](https://github.com/carbon-design-system/ibm-dotcom-library/commit/5c7c0fa))
+- **react:** open by default blur shouldnt close search
+  ([0eddcc2](https://github.com/carbon-design-system/ibm-dotcom-library/commit/0eddcc2))
+- **search-input:** set correct key in actions
+  ([18bdc78](https://github.com/carbon-design-system/ibm-dotcom-library/commit/18bdc78))
+- **storybook-knobs:** move knobs within the add scope
+  ([da711a1](https://github.com/carbon-design-system/ibm-dotcom-library/commit/da711a1))
+
+### Features
+
+- **masthead:** add focus on search button after close
+  ([03fd742](https://github.com/carbon-design-system/ibm-dotcom-library/commit/03fd742))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.1.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.1.0-rc.1...@carbon/ibmdotcom-react@1.1.0) (2019-11-04)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-react

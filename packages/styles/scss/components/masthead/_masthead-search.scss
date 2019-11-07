@@ -129,6 +129,7 @@
 
       .#{$prefix}--header__search--close {
         width: $spacing-09;
+        display: block;
       }
 
       .#{$prefix}--header__search--close,
