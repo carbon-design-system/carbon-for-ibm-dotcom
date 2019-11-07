@@ -6,3 +6,5 @@
  */
 
 export { default as LocaleModal } from './LocaleModal';
+export { default as LocaleModalCountries } from './LocaleModalCountries';
+export { default as LocaleModalRegions } from './LocaleModalRegions';

@@ -7,15 +7,14 @@
 
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import { settings as ddsSettings, altlangs } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
-import {
-  ComposedModal,
-  ModalHeader,
-  ModalBody,
-  Search,
-} from 'carbon-components-react';
+import LocaleModalRegions from './LocaleModalRegions';
+import LocaleModalCountries from './LocaleModalCountries';
+import { ArrowLeft20, Globe20 } from '@carbon/icons-react';
+import { ComposedModal, ModalHeader, ModalBody } from 'carbon-components-react';
 import { LocaleAPI } from '@carbon/ibmdotcom-services';
+import cx from 'classnames';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
@@ -23,27 +22,21 @@ const { prefix } = settings;
 /**
  * LocaleModal component
  *
- * @param {boolean} isOpen Opens modal
- * @property {boolean} setIsOpen isOpen state of modal
- * @property {string} availabilityText locale list header
- * @property {string} unavailabilityText locale list header when no results in search
- * @property {string} placeHolderText placeholder text for the Search
- * @property {string} labelText label text for the Search icon
- * @property {string} headerLabel modal header label
- * @property {string} headerTitle modal header title
+ * @param {object} props props object
+ * @param {boolean} props.isOpen Opens modal
+ * @param {boolean} props.setIsOpen isOpen state of modal
+ * @param {string} props.headerLabel modal header label
+ * @param {string} props.headerTitle modal header title
  * @returns {*} LocaleModal component
  */
-const LocaleModal = ({
-  isOpen,
-  setIsOpen,
-  availabilityText,
-  unavailabilityText,
-  placeHolderText,
-  labelText,
-  headerLabel,
-  headerTitle,
-}) => {
+const LocaleModal = ({ isOpen, setIsOpen, ...localeModalProps }) => {
   const [list, setList] = useState({});
+  const [isFiltering, setIsFiltering] = useState(false);
+  const [currentRegion, setCurrentRegion] = useState();
+
+  const filterClass = cx({
+    [`${prefix}--locale-modal__filtering`]: isFiltering,
+  });
 
   useEffect(() => {
     (async () => {
@@ -53,83 +46,70 @@ const LocaleModal = ({
     })();
   }, []);
 
-  useEffect(() => {
-    const localeFilter = document.getElementById(
-      `${prefix}--locale-modal__filter`
-    );
-    const localeItems = document.querySelectorAll(
-      `.${prefix}--locale-modal__locales`
-    );
-    const localeText = document.querySelector(
-      `.${prefix}--locale-modal__search-text`
-    );
-    const closeBtn = document.querySelector(
-      `.${prefix}--search .${prefix}--search-close`
-    );
-    const localeHidden = `${prefix}--locale-modal__locales-hidden`;
-
-    localeFilter.addEventListener('keyup', filterLocale);
-
-    /**
-     * Filter locale links based on search input
-     *
-     */
-    function filterLocale() {
-      const filterVal = localeFilter.value.toUpperCase();
-
-      [...localeItems].map(item => {
-        const locale = item.getElementsByTagName('div');
-        const country = locale[0];
-        const language = locale[1];
-
-        if (
-          country.innerHTML.toUpperCase().indexOf(filterVal) > -1 ||
-          language.innerHTML.toUpperCase().indexOf(filterVal) > -1
-        ) {
-          item.classList.remove(localeHidden);
-        } else {
-          item.classList.add(localeHidden);
-        }
-      });
-
-      /**
-       * Update locale copy when no results
-       *
-       */
-      const localeItemsHidden = document.querySelectorAll(`.${localeHidden}`);
-
-      localeText.innerHTML =
-        localeItems.length == localeItemsHidden.length
-          ? unavailabilityText
-          : availabilityText;
-    }
-
-    /**
-     * Show all links when close button clicked
-     *
-     */
-    closeBtn.addEventListener('click', () => {
-      [...localeItems].map(item => {
-        item.classList.remove(localeHidden);
-      });
-    });
-  });
-
   /**
-   *  method to merge list and sort alphabetically by country
+   *  New region/country list based lang attributes available on page
    *
    * @param {object} list country list
    *
    * @returns {object} list item
    */
   const sortList = list => {
-    let countryList = [];
+    const pageLangs = altlangs();
+    const filterList = [];
+
     list.regionList &&
-      list.regionList.map(region => {
-        countryList = countryList.concat(region.countryList);
+      list.regionList.map((region, index) => {
+        let isAmericas = region.name.indexOf('America') > -1;
+
+        filterList.push({
+          name: isAmericas ? 'Americas' : region.name,
+          key: isAmericas ? 'nala' : region.key,
+          countries: [],
+        });
+
+        for (let [key, value] of Object.entries(pageLangs)) {
+          region.countryList.map(country => {
+            if (country.locale[0][0].includes(key)) {
+              filterList[index].countries.push({
+                region: isAmericas ? 'nala' : region.key,
+                name: country.name,
+                locale: country.locale[0][0],
+                language: country.locale[0][1],
+                href: value,
+              });
+            }
+          });
+        }
       });
-    countryList.sort((a, b) => (a.name > b.name ? 1 : -1));
-    return countryList;
+
+    /**
+     *  Sort lists and merge regions with same name (Americas)
+     *
+     * @param {object} list region list
+     *
+     * @returns {object} region list
+     */
+    const regions = filterList.reduce((acc, cur) => {
+      const occurs = acc.reduce((n, item, i) => {
+        return item.name === cur.name ? i : n;
+      }, -1);
+
+      if (occurs >= 0) {
+        acc[occurs].countries = acc[occurs].countries
+          .concat(cur.countries)
+          .sort(sort);
+      } else {
+        const obj = {
+          name: cur.name,
+          key: cur.key,
+          countries: cur.countries.sort(sort),
+        };
+        acc = acc.concat([obj]).sort(sort);
+      }
+      return acc;
+    }, []);
+
+    return regions;
   };
 
   return (
@@ -137,35 +117,36 @@ const LocaleModal = ({
       open={isOpen}
       onClose={close}
       data-autoid={`${stablePrefix}--locale-modal`}>
-      <ModalHeader label={headerLabel} title={headerTitle} />
-      <ModalBody className={`${prefix}--locale-modal`}>
-        <div className={`${prefix}--locale-modal__search`}>
-          <Search
-            data-autoid={`${stablePrefix}--locale-modal__filter`}
-            placeHolderText={placeHolderText}
-            labelText={labelText}
-            id={`${prefix}--locale-modal__filter`}
-          />
-          <p className={`${prefix}--locale-modal__search-text`}>
-            {availabilityText}
-          </p>
-        </div>
-        <div className={`${prefix}--locale-modal__list`}>
-          {sortList(list).map((item, index) => (
-            <a
-              data-autoid={`${stablePrefix}--locale-modal__locales`}
-              key={index}
-              className={`${prefix}--locale-modal__locales`}
-              href={`https://www.ibm.com/${item.locale[0][0]}`}>
-              <div className={`${prefix}--locale-modal__locales__name`}>
-                {item.name}
-              </div>
-              <div className={`${prefix}--locale-modal__locales__name`}>
-                {item.locale[0][1]}
-              </div>
-            </a>
-          ))}
-        </div>
+      {isFiltering ? (
+        <ModalHeader
+          data-autoid={`${stablePrefix}--locale-modal__region-back`}
+          label={[
+            <ArrowLeft20 className={`${prefix}--locale-modal__label-arrow`} />,
+            localeModalProps.headerTitle,
+          ]}
+          title={currentRegion}
+          className={`${prefix}--locale-modal__back`}></ModalHeader>
+      ) : (
+        <ModalHeader
+          label={[
+            localeModalProps.headerLabel,
+            <Globe20 className={`${prefix}--locale-modal__label-globe`} />,
+          ]}
+          title={localeModalProps.headerTitle}
+        />
+      )}
+      <ModalBody className={`${prefix}--locale-modal ${filterClass}`}>
+        <LocaleModalRegions
+          regionList={sortList(list)}
+          setCurrentRegion={setCurrentRegion}
+          setIsFiltering={setIsFiltering}
+          {...localeModalProps}
+        />
+        <LocaleModalCountries
+          regionList={sortList(list)}
+          setIsFiltering={setIsFiltering}
+          {...localeModalProps}
+        />
       </ModalBody>
     </ComposedModal>
   );
@@ -178,37 +159,41 @@ const LocaleModal = ({
   function close() {
     setIsOpen(false);
   }
+
+  /**
+   * Sort region and countries alphabetically
+   *
+   * @param {string} a string to sort
+   * @param {string} b string to sort
+   * @private
+   */
+  function sort(a, b) {
+    return a.name > b.name ? 1 : -1;
+  }
 };
 
 /**
  * @property propTypes
  * @description Defined property types for component
- * @type {{isOpen: boolean, setIsOpen: boolean, availabilityText: string, unavailabilityText: string, placeHolderText: string, labelText: string, labelText: string, headerLabel: string, headerTitle: string}}
+ * @type {{isOpen: boolean, setIsOpen: boolean, headerLabel: string, headerTitle: string}}
  */
 LocaleModal.propTypes = {
   isOpen: PropTypes.bool,
   setIsOpen: PropTypes.bool,
-  availabilityText: PropTypes.string,
-  unavailabilityText: PropTypes.string,
-  placeHolderText: PropTypes.string,
-  labelText: PropTypes.string,
   headerLabel: PropTypes.string,
   headerTitle: PropTypes.string,
 };
 
 /**
  * @property defaultProps
- * @type {{availabilityText: string, unavailabilityText: string, placeHolderText: string, labelText: string, headerLabel: string, headerTitle: string}}
+ * @type {{availabilityText: string, unavailabilityText: string, placeHolderText: string, labelText: string}}
  */
 LocaleModal.defaultProps = {
-  availabilityText:
-    'This page is available in the following locations and languages',
+  headerLabel: 'United States — English',
+  headerTitle: 'Select region',
+  availabilityText: 'This page is available in the',
   unavailabilityText:
     'This page is unavailable in your preferred location or language',
-  placeHolderText: 'Search',
-  labelText: 'Search',
-  headerLabel: 'United States — English',
-  headerTitle: 'Select your region',
 };
 
 export default LocaleModal;

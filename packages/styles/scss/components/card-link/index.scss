@@ -9,6 +9,7 @@
 @import '../../globals/vars';
 @import '../../globals/mixins.scss';
 
+@import '~carbon-components/scss/components/link/link';
 @import '~carbon-components/scss/components/tile/tile';
 
 @mixin card-link {
@@ -17,6 +18,8 @@
     text-decoration: none;
     display: flex;
     flex-direction: column;
+    padding: $spacing-05;
+    // outline: 1px solid $ui-02;
 
     > *:not(:last-child) {
       margin-bottom: $spacing-07;
