@@ -26,7 +26,7 @@ storiesOf('Footer', module)
       footerThin: footerThin.data,
     });
 
-    let isCustom = boolean('show custom navigation', true);
+    let isCustom = boolean('show custom navigation (not a prop)', true);
 
     return (
       <Footer
