@@ -39,11 +39,11 @@ MASTHEAD_L1=true
 
 ## Navigation Types
 
-| Name      | Description                           |
-| --------- | ------------------------------------- |
-| `default` | Default navigation data from IBM.com. |
-| `custom`  | Custom navigation data.               |
-| `none`    | No navigation.                        |
+| Name      | Description                          |
+| --------- | ------------------------------------ |
+| `default` | Default navigation data from IBM.com |
+| `custom`  | Custom navigation data               |
+| `none`    | No navigation                        |
 
 > 💡 `Custom` navigation data must follow the same structure and key names as
 > `default`. See
@@ -52,12 +52,13 @@ MASTHEAD_L1=true
 
 ## Options
 
-| Name               | Description                                                          |
-| ------------------ | -------------------------------------------------------------------- |
-| `platform`         | Includes platform name (only available with `default` and `custom`). |
-| `hasProfile`       | Includes IBM profile menu.                                           |
-| `hasSearch`        | Includes IBM search.                                                 |
-| `searchOpenOnload` | Has the search open by default                                       |
+| Name               | Description                                                         |
+| ------------------ | ------------------------------------------------------------------- |
+| `platform`         | Includes platform name (only available with `default` and `custom`) |
+| `hasProfile`       | Includes IBM profile menu                                           |
+| `hasSearch`        | Includes IBM search                                                 |
+| `searchOpenOnload` | Has the search open by default                                      |
+| `placeHolderText`  | Placeholder value for search input                                  |
 
 ```javascript
 const topNavProps = {
