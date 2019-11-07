@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.1.0...@carbon/ibmdotcom-services@1.1.1-rc.0) (2019-11-07)
+
+### Bug Fixes
+
+- **footer:** pass params to the translationapi and small lint changes
+  ([a4ee671](https://github.com/carbon-design-system/ibm-dotcom-library/commit/a4ee671))
+- **lang-footer:** return the lang attr
+  ([e6ef638](https://github.com/carbon-design-system/ibm-dotcom-library/commit/e6ef638))
+- **translation:** fix undefined lc error
+  ([83af87a](https://github.com/carbon-design-system/ibm-dotcom-library/commit/83af87a))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.1.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.1.0-rc.1...@carbon/ibmdotcom-services@1.1.0) (2019-11-04)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-services
