@@ -142,6 +142,7 @@ Array [
                           onFocus={[Function]}
                           onKeyDown={[Function]}
                           placeholder="Search all of IBM"
+                          tabIndex="-1"
                           type="text"
                           value=""
                         />
@@ -1887,6 +1888,7 @@ Array [
                           onFocus={[Function]}
                           onKeyDown={[Function]}
                           placeholder="Search all of IBM"
+                          tabIndex="-1"
                           type="text"
                           value=""
                         />
@@ -2179,6 +2181,7 @@ Array [
                           onFocus={[Function]}
                           onKeyDown={[Function]}
                           placeholder="Search all of IBM"
+                          tabIndex={null}
                           type="text"
                           value=""
                         />

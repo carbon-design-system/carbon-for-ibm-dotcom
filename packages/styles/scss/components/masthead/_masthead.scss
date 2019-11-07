@@ -58,6 +58,7 @@ $search-transition-timing: 95ms;
 
     &__logo {
       height: 100%;
+
       a {
         display: flex;
         height: 100%;
@@ -65,6 +66,7 @@ $search-transition-timing: 95ms;
         padding: 0 $spacing-07;
         border: solid 2px transparent;
         transition: $button-transition;
+        outline: none;
 
         &:hover {
           background-color: $ui-01;
@@ -266,6 +268,7 @@ $search-transition-timing: 95ms;
       overflow: hidden;
       width: 0;
       border: none;
+      display: none;
 
       svg {
         position: relative;
