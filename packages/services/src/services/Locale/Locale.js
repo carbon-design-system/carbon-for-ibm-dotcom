@@ -68,7 +68,8 @@ class LocaleAPI {
     const lang = this.getLang();
     // grab locale from the html lang attribute
     if (lang) {
-      return await this.getList(lang);
+      await this.getList(lang);
+      return lang;
     }
     // grab the locale from the cookie
     else if (cookie && cookie.cc && cookie.lc) {

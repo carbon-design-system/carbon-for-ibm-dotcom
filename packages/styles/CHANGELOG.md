@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-styles@1.1.0...@carbon/ibmdotcom-styles@1.1.1-rc.0) (2019-11-07)
+
+### Bug Fixes
+
+- **masthead:** skipping focusing hidden elements
+  ([363d300](https://github.com/carbon-design-system/ibm-dotcom-library/commit/363d300))
+
+### Features
+
+- **masthead:** add focus on search button after close
+  ([03fd742](https://github.com/carbon-design-system/ibm-dotcom-library/commit/03fd742))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.1.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-styles@1.1.0-rc.1...@carbon/ibmdotcom-styles@1.1.0) (2019-11-04)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-styles

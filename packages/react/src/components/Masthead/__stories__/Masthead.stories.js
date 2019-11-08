@@ -6,21 +6,6 @@ import mastheadKnobs from './data/Masthead.stories.knobs.js';
 import readme from '../README.md';
 import '../../../../../styles/scss/components/masthead/index.scss';
 
-const standardProps = {
-  navigation: select(
-    'Navigation',
-    mastheadKnobs.navigation,
-    mastheadKnobs.navigation.default
-  ),
-  platform: select(
-    'Platform name',
-    mastheadKnobs.platform,
-    mastheadKnobs.platform.none
-  ),
-  hasProfile: boolean('Has profile', true),
-  hasSearch: boolean('Has search', true),
-};
-
 storiesOf('Masthead', module)
   .addDecorator(withKnobs)
   .addParameters({
@@ -29,6 +14,20 @@ storiesOf('Masthead', module)
     },
   })
   .add('Default', () => {
+    const standardProps = {
+      navigation: select(
+        'Navigation',
+        mastheadKnobs.navigation,
+        mastheadKnobs.navigation.default
+      ),
+      platform: select(
+        'Platform name',
+        mastheadKnobs.platform,
+        mastheadKnobs.platform.none
+      ),
+      hasProfile: boolean('Has profile', true),
+      hasSearch: boolean('Has search', true),
+    };
     return (
       <Masthead
         {...standardProps}
@@ -37,6 +36,20 @@ storiesOf('Masthead', module)
     );
   })
   .add('Search open by default', () => {
+    const standardProps = {
+      navigation: select(
+        'Navigation',
+        mastheadKnobs.navigation,
+        mastheadKnobs.navigation.default
+      ),
+      platform: select(
+        'Platform name',
+        mastheadKnobs.platform,
+        mastheadKnobs.platform.none
+      ),
+      hasProfile: boolean('Has profile', true),
+      hasSearch: boolean('Has search', true),
+    };
     return (
       <Masthead
         {...standardProps}
