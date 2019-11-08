@@ -6,6 +6,6 @@ import { DotcomShell } from '@carbon/ibmdotcom-react';
 /**
  * Initializes the homepage
  */
-const Home = () => <DotcomShell>This is the page</DotcomShell>;
+const Home = () => <DotcomShell navigation="default"></DotcomShell>;
 
 export default Home;
