@@ -32,6 +32,7 @@
   },
   "dependencies": {
     "@carbon/grid": "^10.6.0",
+    "@carbon/import-once": "^10.3.0",
     "@carbon/layout": "^10.5.0",
     "@carbon/themes": "^10.4.0",
     "@carbon/type": "^10.5.1"
