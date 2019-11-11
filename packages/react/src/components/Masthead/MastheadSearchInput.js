@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
+import root from 'window-or-global';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
 import { HeaderGlobalAction } from 'carbon-components-react';
@@ -16,7 +17,6 @@ const { prefix } = settings;
  * @param {object} props.componentInputProps contains the input props
  * @param {boolean} props.isActive flag to determine if the search is active
  * @param {Function} props.searchIconClick executes when the search icon is clicked
- * @param {Function} props.searchCloseClick executes when the close icon is clicked
  * @returns {*} The rendered component
  */
 const MastheadSearchInput = ({
@@ -26,11 +26,6 @@ const MastheadSearchInput = ({
   searchIconClick,
 }) => {
   const searchRef = useRef();
-  const searchIconRef = document.querySelector(
-    `.${prefix}--header__search--search`
-  );
-
-  // console.log(searchRef.current.querySelector('bx--header__search--search'));
 
   /**
    * Clear search and clear input when called
@@ -48,7 +43,10 @@ const MastheadSearchInput = ({
    */
   function closeBtnAction() {
     resetSearch();
-    searchIconRef && searchIconRef.focus();
+    const searchIconRef = root.document.querySelectorAll(
+      `[data-autoid="${stablePrefix}--header__search--search"]`
+    );
+    searchIconRef && searchIconRef[0].focus();
   }
 
   useEffect(() => {
