@@ -33,9 +33,17 @@ export const LISTSECTION =
   process.env.LISTSECTION === 'true' || DDS_FLAGS_ALL || false;
 
 /**
- * This determines if the leadspace will be rendered or not
+ * This determines if the simplelongform will be rendered or not
  *
  * @type {string | boolean}
  */
 export const SIMPLELONGFORM =
   process.env.SIMPLELONGFORM === 'true' || DDS_FLAGS_ALL || false;
+
+/**
+ * This determines if the tableofcontents will be rendered or not
+ *
+ * @type {string | boolean}
+ */
+export const TABLE_OF_CONTENTS =
+  process.env.TABLE_OF_CONTENTS === 'true' || DDS_FLAGS_ALL || false;

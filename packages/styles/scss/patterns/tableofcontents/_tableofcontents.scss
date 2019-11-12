@@ -1,0 +1,116 @@
+//
+// Copyright IBM Corp. 2016, 2018
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import '@carbon/grid/scss/grid.scss';
+@import '@carbon/ibmdotcom-styles/scss/components/layout/_layout.scss';
+
+@mixin tableofcontents {
+  .#{$prefix}--tableofcontents {
+    color: $text-01;
+    background: $ui-background;
+    &__mobile-menu {
+      position: sticky;
+      top: 0;
+      display: none;
+      &__wrapper {
+        color: $text-01;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: $field-01;
+        padding-left: $carbon--spacing-05;
+      }
+      &__select {
+        border-radius: 0;
+        border: none;
+        background-color: transparent;
+        height: carbon--rem(48px);
+        width: carbon--rem(48px);
+        appearance: none;
+        visibility: hidden;
+      }
+      &__button {
+        border: none;
+        margin: 0;
+        padding: 0;
+        overflow: visible;
+        background: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        height: carbon--rem(48px);
+        width: carbon--rem(48px);
+        padding-right: $carbon--spacing-05;
+        &:hover {
+          cursor: pointer;
+        }
+        &:focus {
+          outline: none;
+        }
+      }
+      &__divider {
+        border-bottom: 1px solid $ui-04;
+      }
+    }
+
+    &__desktop-menu {
+      margin-top: $carbon--spacing-07;
+      padding-top: $carbon--spacing-07;
+      &__item {
+        a {
+          color: $text-02;
+          text-decoration: none;
+          display: inline-block;
+          width: 100%;
+          padding-top: carbon--rem(13px);
+          padding-bottom: carbon--rem(13px);
+          padding-left: carbon--rem(12px);
+          border-left: carbon--rem(4px) solid $ui-01;
+          @include carbon--type-style('body-short-02');
+
+          transition: all 2s motion(standard, productive);
+        }
+        a:hover {
+          cursor: pointer;
+        }
+        &--active {
+          a {
+            color: $text-01;
+            border-left-color: $interactive-04;
+          }
+        }
+      }
+    }
+    @include carbon--breakpoint('sm') {
+      &__mobile-menu {
+        display: block;
+      }
+      &__desktop-menu {
+        display: none;
+      }
+    }
+    @include carbon--breakpoint('md') {
+      &__mobile-menu {
+        &__wrapper {
+          padding-left: $carbon--spacing-07;
+        }
+      }
+    }
+    @include carbon--breakpoint('lg') {
+      &__mobile-menu {
+        display: none;
+      }
+      &__desktop-menu {
+        display: block;
+      }
+    }
+  }
+}
+
+@include exports('tableofcontents') {
+  @include tableofcontents;
+}
