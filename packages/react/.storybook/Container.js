@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './polyfills';
 import './_container.scss';
 import { settings } from 'carbon-components';
+import '@carbon/ibmdotcom-styles';
 
 const { prefix } = settings;
 export default class Container extends Component {
