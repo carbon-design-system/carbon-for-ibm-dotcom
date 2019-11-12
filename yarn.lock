@@ -955,7 +955,7 @@
   dependencies:
     "@carbon/icon-helpers" "10.4.0"
 
-"@carbon/import-once@10.3.0":
+"@carbon/import-once@10.3.0", "@carbon/import-once@^10.3.0":
   version "10.3.0"
   resolved "https://registry.yarnpkg.com/@carbon/import-once/-/import-once-10.3.0.tgz#58617da4efb6d7a11352d8e6b7209da1d39f364d"
   integrity sha512-PFk3FhMe3psihYtCg3JsyPHismqglnbUqIpz1DCG5Gn/kt0HdVKhGvHdEq7E305rGoBUCKzMn/4xoY9v9mcmlg==
