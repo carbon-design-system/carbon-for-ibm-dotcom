@@ -72,7 +72,7 @@
           border-left: carbon--rem(4px) solid $ui-01;
           @include carbon--type-style('body-short-02');
 
-          transition: all 2s motion(standard, productive);
+          transition: all 0.2s motion(standard, productive);
         }
         a:hover {
           cursor: pointer;
