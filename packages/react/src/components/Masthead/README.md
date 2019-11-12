@@ -37,28 +37,22 @@ MASTHEAD_L1=true
 > [.env.example](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/.env.example)
 > for more information
 
-## Navigation Types
+## navigation (String | Object | null)
 
-| Name      | Description                          |
-| --------- | ------------------------------------ |
-| `default` | Default navigation data from IBM.com |
-| `custom`  | Custom navigation data               |
-| `none`    | No navigation                        |
+| Behavior           | Data Type | Description                                 | Example                             |
+| ------------------ | --------- | ------------------------------------------- | ----------------------------------- |
+| default navigation | String    | Default navigation data from IBM.com        | `<Masthead navigation="default" />` |
+| custom navigation  | Object    | Pass in custom navigation data as an object | `<Masthead navigation={myNavObj}/>` |  |
+| none               | null      | No navigation                               | `<Masthead />`                      |
 
 > 💡 `Custom` navigation data must follow the same structure and key names as
 > `default`. See
 > [this](https://www.ibm.com/common/v18/js/data/jsononly/usen.json) for an
 > example.
 
-## Options
+## platform (Object)
 
-| Name               | Description                                                         |
-| ------------------ | ------------------------------------------------------------------- |
-| `platform`         | Includes platform name (only available with `default` and `custom`) |
-| `hasProfile`       | Includes IBM profile menu                                           |
-| `hasSearch`        | Includes IBM search                                                 |
-| `searchOpenOnload` | Has the search open by default                                      |
-| `placeHolderText`  | Placeholder value for search input                                  |
+Includes platform name (only available with `default` and `custom navigation`)
 
 ```javascript
 const topNavProps = {
@@ -70,6 +64,15 @@ const topNavProps = {
 
 <Masthead {...topNavProps} />;
 ```
+
+## Other Props
+
+| Name               | Data Type | Default value       | Description                        |
+| ------------------ | --------- | ------------------- | ---------------------------------- |
+| `hasProfile`       | Boolean   | `true`              | Includes IBM profile menu          |
+| `hasSearch`        | Boolean   | `true`              | Includes IBM search                |
+| `searchOpenOnload` | Boolean   | `false`             | Has the search open by default     |
+| `placeHolderText`  | String    | `Search all of IBM` | Placeholder value for search input |
 
 ## Stable selectors
 
