@@ -6,6 +6,7 @@
  */
 
 import React from 'react';
+import PropTypes from 'prop-types';
 import { settings } from 'carbon-components';
 import { HeaderNavigation, HeaderMenuItem } from 'carbon-components-react';
 import HeaderMenu from '../carbon-components-react/UIShell/HeaderMenu';
@@ -20,15 +21,21 @@ const { prefix } = settings;
  * @typedef {object} navigation Object containing navigation elements
  * @returns {*} Masthead component
  */
-const MastheadL1 = () => {
+const MastheadL1 = ({ isShort }) => {
   const className = cx({
     [`${prefix}--masthead__l1`]: true,
+    [`${prefix}--masthead__l1--short`]: isShort,
+  });
+
+  const eyebrowHidden = cx({
+    [`${prefix}--masthead__l1-name-eyebrow--hidden`]: isShort,
   });
 
   return (
     <div className={className}>
       <div className={`${prefix}--masthead__l1-name`}>
-        <span className={`${prefix}--masthead__l1-name-eyebrow`}>
+        <span
+          className={`${prefix}--masthead__l1-name-eyebrow ${eyebrowHidden}`}>
           <ArrowLeft16 />
           <a href="#">Eyebrow</a>
         </span>
@@ -48,6 +55,16 @@ const MastheadL1 = () => {
       </HeaderNavigation>
     </div>
   );
+};
+
+/**
+ * @property propTypes
+ * @description Defined property types for component
+ *
+ * @type {{isShort: boolean}}
+ */
+MastheadL1.propTypes = {
+  isShort: PropTypes.bool,
 };
 
 export default MastheadL1;

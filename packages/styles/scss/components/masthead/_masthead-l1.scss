@@ -12,6 +12,14 @@
 $search-transition: cubic-bezier(0.2, 0, 0.38, 0.9);
 $search-transition-timing: 95ms;
 
+@mixin mastheadL1Short {
+  height: 48px;
+}
+
+@mixin eyebrowHidden {
+  display: none;
+}
+
 @mixin masthead-l1 {
   .#{$prefix}--masthead__l1 {
     display: flex;
@@ -22,8 +30,12 @@ $search-transition-timing: 95ms;
     background-color: $ui-01;
     transition-timing-function: $search-transition;
 
+    &--short {
+      @include mastheadL1Short;
+    }
+
     @include carbon--breakpoint-down(lg) {
-      height: 48px;
+      @include mastheadL1Short;
     }
   }
 
@@ -79,8 +91,12 @@ $search-transition-timing: 95ms;
         }
       }
 
+      &--hidden {
+        @include eyebrowHidden;
+      }
+
       @include carbon--breakpoint-down(lg) {
-        display: none;
+        @include eyebrowHidden;
       }
     }
 
