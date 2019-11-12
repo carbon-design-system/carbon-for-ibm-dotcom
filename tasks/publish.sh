@@ -33,7 +33,7 @@ release_rc1plus () {
 
 # Full patch release
 release_full_patch () {
-  ./node_modules/.bin/lerna publish patch --exact --conventional-commits
+  ./node_modules/.bin/lerna publish patch --exact --conventional-commits --conventional-graduate
 }
 
 # Full minor release
