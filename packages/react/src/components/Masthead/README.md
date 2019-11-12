@@ -52,17 +52,16 @@ MASTHEAD_L1=true
 
 ## platform (Object)
 
-Includes platform name (only available with `default` and `custom navigation`)
+Includes platform name (only available with `default` and `custom navigation`).
+Object requires `name` and `url`.
 
 ```javascript
-const topNavProps = {
-  platform: {
-    name: 'IBM Cloud',
-    url: 'https://www.ibm.com/cloud',
-  },
+const platformData = {
+  name: 'IBM Cloud',
+  url: 'https://www.ibm.com/cloud',
 };
 
-<Masthead {...topNavProps} />;
+<Masthead platform={platformData} navigation="default" />;
 ```
 
 ## Other Props
