@@ -7,9 +7,9 @@
 
 @import '../../globals/imports';
 @import '../../globals/vars';
-@import '../../globals/mixins.scss';
+@import '../../globals/mixins';
 
-@import '~carbon-components/scss/components/tile/tile';
+@import 'carbon-components/scss/components/tile/tile';
 
 @mixin card-link {
   .#{$prefix}--card-link {
