@@ -899,6 +899,50 @@
     "@carbon/import-once" "10.3.0"
     "@carbon/layout" "10.5.0"
 
+"@carbon/ibmdotcom-react@1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@carbon/ibmdotcom-react/-/ibmdotcom-react-1.1.0.tgz#39ba446827c01aaef50bf193ea67932a1480778b"
+  integrity sha512-fWTRAQymm3NKMaGdGhZrOTc/+Idj6x1UT2LMzI/RFqd6IKa6wQ/WM9O3mV4yViWojJC9SwHYgX0Q9A9jrGB/Dg==
+  dependencies:
+    "@babel/runtime" "^7.5.5"
+    "@carbon/ibmdotcom-services" "1.1.0"
+    "@carbon/ibmdotcom-styles" "1.1.0"
+    "@carbon/ibmdotcom-utilities" "1.1.0"
+    autosuggest-highlight "^3.1.1"
+    classnames "2.2.6"
+    react-autosuggest "^9.4.3"
+    window-or-global "^1.0.1"
+
+"@carbon/ibmdotcom-services@1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@carbon/ibmdotcom-services/-/ibmdotcom-services-1.1.0.tgz#eac2be96b6e6d7b0333ceae48bf0b8f3b0a2d7d6"
+  integrity sha512-ulQPeh1YsBdUMtq2poNuyQ7UCgl/6S5VYAbnGIYIb0Bae7nHjfIkOFnUo5fbkJphOmFlv//t5uSG8RMX3xo19A==
+  dependencies:
+    "@carbon/ibmdotcom-utilities" "1.1.0"
+    axios "^0.19.0"
+    jsonp "^0.2.1"
+    window-or-global "^1.0.1"
+
+"@carbon/ibmdotcom-styles@1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@carbon/ibmdotcom-styles/-/ibmdotcom-styles-1.1.0.tgz#6f7a720acdb83b1c5b473de99ebad6d12b5c89b4"
+  integrity sha512-lwZdkPT+mr9dys3WMrYcg8qhBqfjcQQM9xfKUkUjdaCKAFPG3+KBEdeSfEYA3t7h2zM3sqIz4m4qw8+okNvLnQ==
+  dependencies:
+    "@carbon/grid" "^10.6.0"
+    "@carbon/layout" "^10.5.0"
+    "@carbon/themes" "^10.4.0"
+    "@carbon/type" "^10.5.1"
+
+"@carbon/ibmdotcom-utilities@1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@carbon/ibmdotcom-utilities/-/ibmdotcom-utilities-1.1.0.tgz#7f2d8b31d87a353811bc1789a2adc687815b9b62"
+  integrity sha512-syU6VVdkdcHHUHiPypwAJGnjk2eS12zohUfCZwy4f591zJNabVYp0CB/1ADeHqx0riTwGa8GzYUKGv61cBgSDw==
+  dependencies:
+    "@carbon/ibmdotcom-services" "1.1.0"
+    axios "^0.19.0"
+    js-cookie "^2.2.1"
+    window-or-global "^1.0.1"
+
 "@carbon/icon-helpers@10.4.0":
   version "10.4.0"
   resolved "https://registry.yarnpkg.com/@carbon/icon-helpers/-/icon-helpers-10.4.0.tgz#771ba51efcaa9d2be03800f8e0f50c7aa779febf"
@@ -16046,7 +16090,7 @@ react-dom@^16.8.3, react-dom@^16.8.6:
     prop-types "^15.6.2"
     scheduler "^0.15.0"
 
-react-dom@^16.8.4:
+react-dom@^16.8.4, react-dom@^16.9.0:
   version "16.11.0"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.11.0.tgz#7e7c4a5a85a569d565c2462f5d345da2dd849af5"
   integrity sha512-nrRyIUE1e7j8PaXSPtyRKtz+2y9ubW/ghNgqKFHHAHaeP0fpF5uXR+sq8IMRHC+ZUxw7W9NyCDTBtwWxvkb0iA==

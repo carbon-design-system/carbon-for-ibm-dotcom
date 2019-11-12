@@ -21,12 +21,16 @@ describe('TranslationAPI', () => {
     const endpoint = `${process.env.TRANSLATION_HOST}/common/v18/js/data/jsononly`;
     const fetchUrl = `${endpoint}/usen.json`;
 
-    const response = await TranslationAPI.getTranslation();
+    const response = await TranslationAPI.getTranslation({
+      lc: 'en',
+      cc: 'us',
+    });
     expect(response).toEqual(responseSuccess);
 
     expect(mockAxios.get).toHaveBeenCalledWith(fetchUrl, {
       headers: {
         'Content-Type': 'text/plain',
+        origin: 'https://ibm.com',
       },
     });
   });
