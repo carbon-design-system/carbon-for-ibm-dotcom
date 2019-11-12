@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
+import root from 'window-or-global';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
 import { HeaderGlobalAction } from 'carbon-components-react';
@@ -16,7 +17,6 @@ const { prefix } = settings;
  * @param {object} props.componentInputProps contains the input props
  * @param {boolean} props.isActive flag to determine if the search is active
  * @param {Function} props.searchIconClick executes when the search icon is clicked
- * @param {Function} props.searchCloseClick executes when the close icon is clicked
  * @returns {*} The rendered component
  */
 const MastheadSearchInput = ({
@@ -38,6 +38,17 @@ const MastheadSearchInput = ({
     });
   }, [dispatch]);
 
+  /**
+   * closeBtnAction resets and sets focus after search is closed
+   */
+  function closeBtnAction() {
+    resetSearch();
+    const searchIconRef = root.document.querySelectorAll(
+      `[data-autoid="${stablePrefix}--header__search--search"]`
+    );
+    searchIconRef && searchIconRef[0].focus();
+  }
+
   useEffect(() => {
     if (isActive) {
       searchRef.current && searchRef.current.focus();
@@ -51,6 +62,7 @@ const MastheadSearchInput = ({
         data-autoid={`${stablePrefix}--header__search--input`}
         ref={searchRef}
         name="q"
+        tabIndex={isActive ? null : '-1'}
       />
       <HeaderGlobalAction
         onClick={searchIconClick}
@@ -60,7 +72,7 @@ const MastheadSearchInput = ({
         <Search20 />
       </HeaderGlobalAction>
       <HeaderGlobalAction
-        onClick={resetSearch}
+        onClick={closeBtnAction}
         aria-label="Close"
         className={`${prefix}--header__search--close`}
         data-autoid={`${stablePrefix}--header__search--close`}>

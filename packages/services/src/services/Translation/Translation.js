@@ -29,6 +29,8 @@ class TranslationAPI {
   /**
    * Returns translation i18n data
    *
+   * @param {object} codes object containing lc and cc
+   *
    * @returns {Promise<any>} Translation data
    * @example
    * import { TranslationAPI } from '@carbon/ibmdotcom-services';
@@ -38,18 +40,31 @@ class TranslationAPI {
    *   return response;
    * }
    */
-  static async getTranslation() {
-    const locale = await LocaleAPI.getLocale();
-    const cc = locale.cc || 'us';
-    const lc = locale.lc || 'en';
-    const currenthost = `${root.location.protocol}//${root.location.host}`;
-    const proxy = currenthost !== _host ? _proxy : '';
-    const url = `${proxy}${_endpoint}/${cc}${lc}.json`;
+  static async getTranslation(codes) {
+    let lang = 'en';
+    let country = 'us';
+
+    if (codes && codes.lc && codes.cc) {
+      lang = codes.lc;
+      country = codes.cc;
+    } else {
+      const locale = await LocaleAPI.getLocale();
+      lang = locale.lc;
+      country = locale.cc;
+    }
+
+    let proxy = '';
+    if (root.location) {
+      const currenthost = `${root.location.protocol}//${root.location.host}`;
+      proxy = currenthost !== _host ? _proxy : '';
+    }
+    const url = `${proxy}${_endpoint}/${country}${lang}.json`;
 
     return await axios
       .get(url, {
         headers: {
           'Content-Type': 'text/plain',
+          origin: _host,
         },
       })
       .then(response => this.transformData(response.data));

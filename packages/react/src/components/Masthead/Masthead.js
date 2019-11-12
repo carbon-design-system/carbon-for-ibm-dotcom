@@ -169,6 +169,7 @@ const Masthead = ({ navigation, hasProfile, hasSearch, ...mastheadProps }) => {
                 {hasSearch && (
                   <MastheadSearch
                     searchOpenOnload={mastheadProps.searchOpenOnload}
+                    placeHolderText={mastheadProps.placeHolderText}
                   />
                 )}
               </div>
