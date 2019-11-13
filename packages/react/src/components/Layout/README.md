@@ -7,10 +7,21 @@
 
 Here's a quick example to get you started.
 
+```scss
+// yourapplication.scss
+@import '@carbon/type/scss/font-face/mono';
+@import '@carbon/type/scss/font-face/sans';
+@include carbon--font-face-mono();
+@include carbon--font-face-sans();
+```
+
+> 💡 Only import font's once per usage
+
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Layout } from '@carbon/ibmdotcom-react';
+import 'yourapplication.scss';
 import '@carbon/grid/scss/grid.scss';
 import '@carbon/ibmdotcom-styles/scss/components/layout/_layout.scss';
 function App() {
