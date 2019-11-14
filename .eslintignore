@@ -11,6 +11,7 @@ packages/patterns-react/storybook-static
 # react
 packages/react/coverage
 packages/react/es
+packages/react/examples
 packages/react/umd
 packages/react/lib
 packages/react/node_modules
