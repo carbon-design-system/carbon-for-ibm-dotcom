@@ -27,25 +27,14 @@ const MastheadL1 = ({ isShort }) => {
     [`${prefix}--masthead__l1--short`]: isShort,
   });
 
-  const nameShortL1 = cx({
-    [`${prefix}--masthead__l1-name--shortl1`]: isShort,
-  });
-  const eyebrowShortL1 = cx({
-    [`${prefix}--masthead__l1-name-eyebrow--shortl1`]: isShort,
-  });
-  const titleShortL1 = cx({
-    [`${prefix}--masthead__l1-name-title--shortl1`]: isShort,
-  });
-
   return (
     <div className={className}>
-      <div className={`${prefix}--masthead__l1-name ${nameShortL1}`}>
-        <span
-          className={`${prefix}--masthead__l1-name-eyebrow ${eyebrowShortL1}`}>
+      <div className={`${prefix}--masthead__l1-name`}>
+        <span className={`${prefix}--masthead__l1-name-eyebrow`}>
           <ArrowLeft16 />
           <a href="#">Eyebrow</a>
         </span>
-        <span className={`${prefix}--masthead__l1-name-title ${titleShortL1}`}>
+        <span className={`${prefix}--masthead__l1-name-title`}>
           Stock Charts
         </span>
       </div>

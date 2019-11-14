@@ -12,28 +12,6 @@
 $search-transition: cubic-bezier(0.2, 0, 0.38, 0.9);
 $search-transition-timing: 95ms;
 
-@mixin short-masthead-l1 {
-  height: carbon--mini-units(6);
-}
-
-@mixin short-masthead-l1__name {
-  min-width: rem(208px);
-  padding-left: 0;
-}
-
-@mixin short-masthead-l1__eyebrow {
-  display: none;
-}
-
-@mixin short-masthead-l1__title {
-  line-height: inherit;
-  padding-bottom: $spacing-05;
-}
-
-@mixin short-masthead-l1__title-after {
-  bottom: 0;
-}
-
 @mixin masthead-l1 {
   .#{$prefix}--masthead__l1 {
     display: flex;
@@ -45,11 +23,29 @@ $search-transition-timing: 95ms;
     transition-timing-function: $search-transition;
 
     &--short {
-      @include short-masthead-l1();
+      height: carbon--mini-units(6);
+
+      .#{$prefix}--masthead__l1-name {
+        min-width: rem(208px);
+        padding-left: 0;
+
+        .#{$prefix}--masthead__l1-name-eyebrow {
+          display: none;
+        }
+
+        .#{$prefix}--masthead__l1-name-title {
+          &::after {
+            bottom: 0;
+          }
+
+          line-height: inherit;
+          padding-bottom: $spacing-05;
+        }
+      }
     }
 
     @include carbon--breakpoint-down(lg) {
-      @include short-masthead-l1();
+      height: carbon--mini-units(6);
     }
   }
 
@@ -63,12 +59,9 @@ $search-transition-timing: 95ms;
     align-items: flex-start;
     flex-direction: column;
 
-    &--shortl1 {
-      @include short-masthead-l1__name();
-    }
-
     @include carbon--breakpoint-down(lg) {
-      @include short-masthead-l1__name();
+      min-width: rem(208px);
+      padding-left: 0;
     }
 
     .#{$prefix}--masthead__l1-name-eyebrow {
@@ -108,12 +101,8 @@ $search-transition-timing: 95ms;
         }
       }
 
-      &--shortl1 {
-        @include short-masthead-l1__eyebrow();
-      }
-
       @include carbon--breakpoint-down(lg) {
-        @include short-masthead-l1__eyebrow();
+        display: none;
       }
     }
 
@@ -131,22 +120,14 @@ $search-transition-timing: 95ms;
         width: 100%;
         height: 3px;
         background-color: $inverse-support-04;
-
         @include carbon--breakpoint-down(lg) {
-          @include short-masthead-l1__title-after();
-        }
-      }
-
-      &--shortl1 {
-        @include short-masthead-l1__title();
-
-        &::after {
-          @include short-masthead-l1__title-after();
+          bottom: 0;
         }
       }
 
       @include carbon--breakpoint-down(lg) {
-        @include short-masthead-l1__title();
+        line-height: inherit;
+        padding-bottom: $spacing-05;
       }
     }
   }
