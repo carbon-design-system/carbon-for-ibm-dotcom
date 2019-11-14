@@ -5,10 +5,21 @@
 
 ## Getting started
 
+```scss
+// yourapplication.scss
+@import '@carbon/type/scss/font-face/mono';
+@import '@carbon/type/scss/font-face/sans';
+@include carbon--font-face-mono();
+@include carbon--font-face-sans();
+```
+
+> 💡 Only import font's once per usage
+
 ### Content
 
 ```javascript
 import React from 'react';
+import 'yourapplication.scss';
 
 const content = (
   <>

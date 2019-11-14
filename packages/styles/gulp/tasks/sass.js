@@ -5,6 +5,7 @@ const gulp = require('gulp'),
   cleanCSS = require('gulp-clean-css'),
   rename = require('gulp-rename'),
   sass = require('gulp-sass'),
+  path = require('path'),
   sourcemaps = require('gulp-sourcemaps');
 
 /**
@@ -24,8 +25,8 @@ function _sass() {
     .pipe(sourcemaps.init())
     .pipe(sass({
       includePaths: [
-        'node_modules',
-        'node_modules/carbon-components/scss/globals/scss/vendor/',
+        path.resolve(__dirname, '../../', 'node_modules'),
+        path.resolve(__dirname, '../../../../', 'node_modules'),
       ]
     }).on('error', sass.logError))
     .pipe(

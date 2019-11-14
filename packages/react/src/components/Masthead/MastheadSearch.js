@@ -48,22 +48,6 @@ const _trimAndLower = valueString => valueString.toLowerCase().trim();
 const _getSuggestionValue = suggestion => suggestion[0];
 
 /**
- * Initial state of the autocomplete component
- *
- * @type {{val: string, prevSuggestions: Array, suggestions: Array, suggestionContainerVisible: boolean}}
- * @private
- */
-const _initialState = {
-  val: '',
-  suggestions: [],
-  prevSuggestions: [],
-  suggestionContainerVisible: false,
-  isSearchOpen: false,
-  lc: 'en',
-  cc: 'us',
-};
-
-/**
  * Reducer for the useReducer hook
  *
  * @param {object} state The state
@@ -92,9 +76,9 @@ function _reducer(state, action) {
     case 'setSearchClosed':
       return Object.assign({}, state, { isSearchOpen: false });
     case 'setLc':
-      return Object.assign({}, state, { val: action.payload.lc });
+      return Object.assign({}, state, { lc: action.payload.lc });
     case 'setCc':
-      return Object.assign({}, state, { val: action.payload.cc });
+      return Object.assign({}, state, { cc: action.payload.cc });
     default:
       return state;
   }
@@ -114,9 +98,22 @@ function _reducer(state, action) {
  * @class
  */
 const MastheadSearch = ({ placeHolderText, renderValue, searchOpenOnload }) => {
-  if (searchOpenOnload) {
-    _initialState.isSearchOpen = true;
-  }
+  /**
+   * Initial state of the autocomplete component
+   *
+   * @type {{val: string, prevSuggestions: Array, suggestions: Array, suggestionContainerVisible: boolean}}
+   * @private
+   */
+  const _initialState = {
+    val: '',
+    suggestions: [],
+    prevSuggestions: [],
+    suggestionContainerVisible: false,
+    isSearchOpen: searchOpenOnload,
+    lc: 'en',
+    cc: 'us',
+  };
+
   const [state, dispatch] = useReducer(_reducer, _initialState);
 
   useEffect(() => {
@@ -124,7 +121,7 @@ const MastheadSearch = ({ placeHolderText, renderValue, searchOpenOnload }) => {
       const response = await LocaleAPI.getLang();
       if (response) {
         dispatch({ type: 'setLc', payload: { lc: response.lc } });
-        dispatch({ type: 'setLc', payload: { cc: response.cc } });
+        dispatch({ type: 'setCc', payload: { cc: response.cc } });
       }
     })();
   }, []);
@@ -150,7 +147,10 @@ const MastheadSearch = ({ placeHolderText, renderValue, searchOpenOnload }) => {
    * @param {event} event The callback event
    */
   function onBlur(event) {
-    if (!event.currentTarget.contains(event.relatedTarget)) {
+    if (
+      !searchOpenOnload &&
+      !event.currentTarget.contains(event.relatedTarget)
+    ) {
       dispatch({ type: 'setSearchClosed' });
     }
   }
