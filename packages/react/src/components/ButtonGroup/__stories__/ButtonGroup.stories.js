@@ -2,6 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 import { ArrowRight20, ArrowDown20, Pdf20 } from '@carbon/icons-react';
+import '@carbon/grid/scss/grid.scss';
 import '../../../../../styles/scss/components/buttongroup/_buttongroup.scss';
 import readme from '../README.md';
 import { BUTTON_GROUP } from '../../../internal/FeatureFlags';
@@ -54,11 +55,26 @@ if (BUTTON_GROUP) {
 
       return (
         <div
+          className="bx-grid"
           style={{
             padding: 2 + `rem`,
             backgroundColor: 'black',
           }}>
-          <ButtonGroup buttons={buttons} />
+          <div className="bx--row">
+            <div className="bx--col-lg-16 bx--col-md-6 bx--col-sm-16">
+              <ButtonGroup buttons={buttons} />
+            </div>
+          </div>
+          <div className="bx--row">
+            <div className="bx--col-lg-12 bx--col-md-8 bx--col-sm-16">
+              <ButtonGroup buttons={buttons} />
+            </div>
+          </div>
+          <div className="bx--row">
+            <div className="bx--col-lg-12 bx--col-md-4 bx--col-sm-16">
+              <ButtonGroup buttons={buttons} />
+            </div>
+          </div>
         </div>
       );
     });
