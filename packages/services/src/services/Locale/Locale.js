@@ -21,8 +21,8 @@ const _proxy = process.env.CORS_PROXY || '';
  * @private
  */
 const _localeDefault = {
-  lc: 'us',
-  cc: 'en',
+  lc: 'en',
+  cc: 'us',
 };
 
 /**
@@ -114,8 +114,8 @@ class LocaleAPI {
       const lang = root.document.documentElement.lang.toLowerCase();
       const codes = lang.split('-');
       return { cc: codes[1], lc: codes[0] };
-      //    } else {
-      //      return _localeDefault;
+    } else {
+      return _localeDefault;
     }
   }
 
