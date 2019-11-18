@@ -107,17 +107,19 @@ const TableOfContents = ({ menuItems, children, menuLabel }) => {
     setSelectedTitle(title);
   };
 
-  const layoutProps = {};
-  layoutProps['type'] = '1-3';
-  layoutProps['marginTop'] = 'none';
-  layoutProps['marginBottom'] = 'none';
+  const layoutProps = {
+    type: '1-3',
+    marginTop: 'none',
+    marginBottom: 'none',
+  };
 
-  const props = {};
-  props['menuItems'] = menuItems;
-  props['selectedId'] = selectedId;
-  props['selectedTitle'] = selectedTitle;
-  props['menuLabel'] = menuLabel;
-  props['updateState'] = updateState;
+  const props = {
+    menuItems,
+    selectedId,
+    selectedTitle,
+    menuLabel,
+    updateState,
+  };
 
   /**
    * Render TableOfContents pattern
