@@ -46,4 +46,4 @@ export const SIMPLELONGFORM =
  * @type {string | boolean}
  */
 export const USECASES =
-  process.env.USECASES === 'true' || DDS_FLAGS_ALL || false;
+  process.env.DDS_USECASES === 'true' || DDS_FLAGS_ALL || false;
