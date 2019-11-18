@@ -83,6 +83,8 @@ const platformData = {
 | `hasSearch`        | Boolean   | `true`              | Includes IBM search                |
 | `searchOpenOnload` | Boolean   | `false`             | Has the search open by default     |
 | `placeHolderText`  | String    | `Search all of IBM` | Placeholder value for search input |
+| `eyebrowLink`      | String    |                     | Link for eyebrow in L1 masthead    |
+| `title`            | String    |                     | Title for L1 masthead              |
 
 ## Stable selectors
 
