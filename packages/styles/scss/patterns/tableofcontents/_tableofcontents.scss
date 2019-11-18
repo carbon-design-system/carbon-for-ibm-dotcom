@@ -4,9 +4,8 @@
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
 //
-
 @import '@carbon/grid/scss/grid.scss';
-@import '@carbon/ibmdotcom-styles/scss/components/layout/_layout.scss';
+@import '../../components/layout/layout';
 
 @mixin tableofcontents {
   .#{$prefix}--tableofcontents {
@@ -15,45 +14,34 @@
     &__mobile-menu {
       position: sticky;
       top: 0;
-      display: none;
-      &__wrapper {
-        color: $text-01;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        background-color: $field-01;
-        padding-left: $carbon--spacing-05;
+      background-color: $field-01;
+      border-top: 1px solid $ui-04;
+      border-bottom: 1px solid $ui-04;
+      padding-right: $carbon--spacing-05;
+      padding-left: $carbon--spacing-05;
+      &:hover {
+        background-color: $hover-ui;
       }
       &__select {
         border-radius: 0;
         border: none;
         background-color: transparent;
         height: carbon--rem(48px);
-        width: carbon--rem(48px);
+        width: 100%;
         appearance: none;
-        visibility: hidden;
-      }
-      &__button {
-        border: none;
-        margin: 0;
-        padding: 0;
-        overflow: visible;
-        background: transparent;
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        height: carbon--rem(48px);
-        width: carbon--rem(48px);
-        padding-right: $carbon--spacing-05;
-        &:hover {
-          cursor: pointer;
+        @include focus-outline('reset');
+
+        display: block;
+        cursor: pointer;
+        transition: background-color $duration--fast-01
+            motion(standard, productive),
+          outline $duration--fast-01 motion(standard, productive);
+        &__wrapper {
+          position: relative;
+          display: flex;
+          align-items: center;
+          flex: 1 1 100%;
         }
-        &:focus {
-          outline: none;
-        }
-      }
-      &__divider {
-        border-bottom: 1px solid $ui-04;
       }
     }
 
@@ -72,7 +60,7 @@
           border-left: carbon--rem(4px) solid $ui-01;
           @include carbon--type-style('body-short-02');
 
-          transition: all 0.2s motion(standard, productive);
+          transition: all $duration--fast-01 motion(standard, productive);
         }
         a:hover {
           cursor: pointer;
@@ -86,18 +74,13 @@
       }
     }
     @include carbon--breakpoint('sm') {
-      &__mobile-menu {
-        display: block;
-      }
       &__desktop-menu {
         display: none;
       }
     }
     @include carbon--breakpoint('md') {
       &__mobile-menu {
-        &__wrapper {
-          padding-left: $carbon--spacing-07;
-        }
+        padding-left: $carbon--spacing-07;
       }
     }
     @include carbon--breakpoint('lg') {

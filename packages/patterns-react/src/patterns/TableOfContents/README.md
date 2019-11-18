@@ -14,30 +14,29 @@ import '@carbon/ibmdotcom-styles/scss/patterns/tableofcontents/index.scss';
 
 function App() {
   return (
-    <TableOfContents
-      layoutType="1-4 - 3/4 layout"
-      menuItems={menuItems}
-      marginTop="none"
-      marginBottom="none">
-      <div data-driverlocation="1" style={{ marginBottom: '2rem' }}>
-        <h3 style={{ marginBottom: '1rem', marginTop: '2rem' }}>
-          {' '}
-          Cras molestie condimentum{' '}
-        </h3>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie
-          condimentum consectetur. Nulla tristique lacinia elit, at elementum
-          dui gravida non. Mauris et nisl semper,
-        </p>
-      </div>
-      <div data-driverlocation="2" style={{ marginBottom: '2rem' }}>
-        <h3 style={{ marginBottom: '1rem' }}> Praesent fermentum sodales </h3>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie
-          condimentum consectetur. Nulla tristique lacinia elit, at elementum
-          dui gravida non. Mauris et nisl semper,
-        </p>
-      </div>
+    <TableOfContents menuLabel={menuLabel} menuItems={menuItems}>
+      <a name="8"></a>
+      <h3 style={{ paddingBottom: '1rem', paddingTop: '2rem' }}>
+        Cras molestie condimentum
+      </h3>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie
+        condimentum consectetur. Nulla tristique lacinia elit, at elementum dui
+        gravida non. Mauris et nisl semper, elementum quam non, lacinia purus.
+        Vivamus aliquam vitae sapien volutpat efficitur.
+      </p>
+
+      <a name="7"></a>
+      <h3 style={{ paddingBottom: '1rem', paddingTop: '2rem' }}>
+        Praesent fermentum sodales
+      </h3>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie
+        condimentum consectetur. Nulla tristique lacinia elit, at elementum dui
+        gravida non. Mauris et nisl semper, elementum quam non, lacinia purus.
+        Vivamus aliquam vitae sapien volutpat efficitur. Curabitur sagittis
+        neque facilisis magna posuere consectetur.
+      </p>
     </TableOfContents>
   );
 }
@@ -65,19 +64,17 @@ TABLE_OF_CONTENTS=true
 
 ## Props
 
-| Name           | Description                                                                                                                                        |
-| -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `layoutType`   | Type of layout for table of content `1-4 - 3/4 layout`                                                                                             |
-| `menuItems`    | Menu items for table of content `{menuItems: [ {title, id} ]}`                                                                                     |
-| `marginTop`    | Margin top based on carbon spacing layout tokens `[ none | layout-01 | layout-02 | layout-03 | layout-04 | layout-05 | layout-06 | layout-07 ]`    |
-| `marginBottom` | Margin bottom based on carbon spacing layout tokens `[ none | layout-01 | layout-02 | layout-03 | layout-04 | layout-05 | layout-06 | layout-07 ]` |
+| Name        | Description                                                     |
+| ----------- | --------------------------------------------------------------- |
+| `menuLabel` | Label for mobile menu `Jump to ...`                             |
+| `menuItems` | Menu items for table of contents `{menuItems: [ {title, id} ]}` |
 
 ## Stable selectors
 
-| Name                  | Description |
-| --------------------- | ----------- |
-| `dds--tableofcontent` | component   |
-| `dds--layout`         | component   |
+| Name                   | Description |
+| ---------------------- | ----------- |
+| `dds--tableofcontents` | component   |
+| `dds--layout`          | component   |
 
 ## 🙌 Contributing
 
