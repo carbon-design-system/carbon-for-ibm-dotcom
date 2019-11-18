@@ -8,10 +8,21 @@
 
 Here's a quick example to get you started.
 
+```scss
+// yourapplication.scss
+@import '@carbon/type/scss/font-face/mono';
+@import '@carbon/type/scss/font-face/sans';
+@include carbon--font-face-mono();
+@include carbon--font-face-sans();
+```
+
+> 💡 Only import font's once per usage
+
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Masthead } from '@carbon/ibmdotcom-react';
+import 'yourapplication.scss';
 import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead.scss';
 function App() {
   return <Masthead />;
@@ -75,18 +86,18 @@ const platformData = {
 
 ## Stable selectors
 
-| Name                                        | Description |
-| ------------------------------------------- | ----------- |
-| `dds--masthead`                             | Component   |
-| `dds--masthead__hamburger`                  | Interactive |
-| `dds--masthead__logo`                       | Interactive |
-| `dds--masthead__platform-name`              | Interactive |
-| `dds--masthead__l0-nav`                     | Component   |
-| `dds--masthead__l0-nav--nav-${item}`        | Interactive |
-| `dds--masthead__l0-nav--subnav-${item}`     | Interactive |
-| `dds--masthead__l0-sidenav`                 | Component   |
-| `dds--masthead__l0-sidenav--nav-${item}`    | Interactive |
-| `dds--masthead__l0-sidenav--subnav-${item}` | Interactive |
+| Name                                                       | Description |
+| ---------------------------------------------------------- | ----------- |
+| `dds--masthead`                                            | Component   |
+| `dds--masthead__hamburger`                                 | Interactive |
+| `dds--masthead__logo`                                      | Interactive |
+| `dds--masthead__platform-name`                             | Interactive |
+| `dds--masthead__l0-nav`                                    | Component   |
+| `dds--masthead__l0-nav--nav-${item}`                       | Interactive |
+| `dds--masthead__l0-nav--subnav-col${item}-item${item}`     | Interactive |
+| `dds--masthead__l0-sidenav`                                | Component   |
+| `dds--masthead__l0-sidenav--nav-${item}`                   | Interactive |
+| `dds--masthead__l0-sidenav--subnav-col${item}-item${item}` | Interactive |
 
 ## CORS Proxy
 

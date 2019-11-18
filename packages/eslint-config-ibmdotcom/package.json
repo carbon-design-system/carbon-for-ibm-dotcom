@@ -1,7 +1,7 @@
 {
   "name": "@carbon/eslint-config-ibmdotcom",
   "private": true,
-  "version": "1.1.0",
+  "version": "1.1.1-rc.0",
   "description": "ESLint configuration for the IBM.com Library",
   "license": "Apache-2.0",
   "main": "index.js",
