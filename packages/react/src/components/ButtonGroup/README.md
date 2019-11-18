@@ -7,11 +7,22 @@
 
 Here's a quick example to get you started.
 
+```scss
+// yourapplication.scss
+@import '@carbon/type/scss/font-face/mono';
+@import '@carbon/type/scss/font-face/sans';
+@include carbon--font-face-mono();
+@include carbon--font-face-sans();
+```
+
+> 💡 Only import font's once per usage
+
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { ArrowRight20, ArrowDown20 } from '@carbon/icons-react';
 import { ButtonGroup } from '@carbon/ibmdotcom-react';
+import 'yourapplication.scss';
 import '@carbon/ibmdotcom-styles/scss/components/buttongroup/_buttongroup.scss';
 function App() {
   return;

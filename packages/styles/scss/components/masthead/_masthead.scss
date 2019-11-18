@@ -77,6 +77,10 @@ $search-transition-timing: 95ms;
           border-color: $focus;
           background-color: $ui-01;
         }
+
+        @include carbon--breakpoint-down(lg) {
+          padding: 0 $spacing-05;
+        }
       }
     }
 

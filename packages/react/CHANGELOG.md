@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.2-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.1.1...@carbon/ibmdotcom-react@1.1.2-rc.0) (2019-11-15)
+
+### Bug Fixes
+
+- **masthead:** fixes masthead link render from json; fixes
+  [#634](https://github.com/carbon-design-system/ibm-dotcom-library/issues/634)'
+  ([6ebbd80](https://github.com/carbon-design-system/ibm-dotcom-library/commit/6ebbd80))
+
+## 1.1.1 (2019-11-11)
+
+### Bug Fixes
+
+- **bug:** expose search placeholder prop; fixes
+  [#631](https://github.com/carbon-design-system/ibm-dotcom-library/issues/631)
+  ([79370ce](https://github.com/carbon-design-system/ibm-dotcom-library/commit/79370ce))
+- **layout:** added Layout in index export
+  ([a293156](https://github.com/carbon-design-system/ibm-dotcom-library/commit/a293156))
+- **storybook:** fixed storybook version dependencies
+  ([21efb79](https://github.com/carbon-design-system/ibm-dotcom-library/commit/21efb79))
+
+### Features
+
+- **altlang:** utility for fetching all alternative languages on page
+  ([#580](https://github.com/carbon-design-system/ibm-dotcom-library/issues/580))
+  ([c0ca382](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c0ca382))
+- **flags:** adding DDS_FLAGS_ALL environment flag
+  ([c4d2f1d](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c4d2f1d))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.1.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.1.1-rc.1...@carbon/ibmdotcom-react@1.1.1) (2019-11-11)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-react

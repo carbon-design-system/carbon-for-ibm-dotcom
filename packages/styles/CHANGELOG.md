@@ -3,6 +3,74 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.2-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-styles@1.1.1...@carbon/ibmdotcom-styles@1.1.2-rc.0) (2019-11-15)
+
+### Bug Fixes
+
+- **css:** update back link color
+  ([5b34952](https://github.com/carbon-design-system/ibm-dotcom-library/commit/5b34952))
+- **css:** update ibm logo padding
+  ([4b4c11f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/4b4c11f))
+
+## 1.1.1 (2019-11-11)
+
+### Bug Fixes
+
+- added carbon prefix to sass mixins
+  ([ca00fc0](https://github.com/carbon-design-system/ibm-dotcom-library/commit/ca00fc0))
+- added CardLink global component
+  ([623e442](https://github.com/carbon-design-system/ibm-dotcom-library/commit/623e442))
+- adjusted jumlink spacing
+  ([e85d311](https://github.com/carbon-design-system/ibm-dotcom-library/commit/e85d311))
+- applied styling and layout adjustment
+  ([57f117f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/57f117f))
+- corrected simplelink and jumplink spacing and focus state ui
+  ([8a13e61](https://github.com/carbon-design-system/ibm-dotcom-library/commit/8a13e61))
+- included simple long form sass in patterns import
+  ([b524f45](https://github.com/carbon-design-system/ibm-dotcom-library/commit/b524f45))
+- layout and sass update to align with new specs
+  ([e8a3ad1](https://github.com/carbon-design-system/ibm-dotcom-library/commit/e8a3ad1))
+- remove builtin cardlink
+  ([075e424](https://github.com/carbon-design-system/ibm-dotcom-library/commit/075e424))
+- removed jump link
+  ([81e0acd](https://github.com/carbon-design-system/ibm-dotcom-library/commit/81e0acd))
+- removed main warpper from main content
+  ([f4ffc94](https://github.com/carbon-design-system/ibm-dotcom-library/commit/f4ffc94))
+- replaced builtin component with global LinkWithIcon component
+  ([068ea91](https://github.com/carbon-design-system/ibm-dotcom-library/commit/068ea91))
+- sass readme update
+  ([e99f40b](https://github.com/carbon-design-system/ibm-dotcom-library/commit/e99f40b))
+- swapped out with the global CardLink
+  ([c36ac9c](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c36ac9c))
+- updated pattern to be aligned with latest specs
+  ([23299a9](https://github.com/carbon-design-system/ibm-dotcom-library/commit/23299a9))
+- updated readme with new class names
+  ([5cf530a](https://github.com/carbon-design-system/ibm-dotcom-library/commit/5cf530a))
+- updated simple link and card link focus state ui
+  ([42bb46f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/42bb46f))
+- **patterns:** fixed ci-check build issues
+  ([f1971a1](https://github.com/carbon-design-system/ibm-dotcom-library/commit/f1971a1))
+- **patterns:** fixed ci-check build issues for listsection
+  ([92a1f9e](https://github.com/carbon-design-system/ibm-dotcom-library/commit/92a1f9e))
+- **prettier:** various fixes for prettier and stylelint
+  ([6bec129](https://github.com/carbon-design-system/ibm-dotcom-library/commit/6bec129))
+- **stylelint:** various stylelint fixes
+  ([a3507e5](https://github.com/carbon-design-system/ibm-dotcom-library/commit/a3507e5))
+
+### Features
+
+- **pattern:** created simple long form pattern, resolves
+  [#466](https://github.com/carbon-design-system/ibm-dotcom-library/issues/466)
+  ([58cd9bd](https://github.com/carbon-design-system/ibm-dotcom-library/commit/58cd9bd))
+- **pattern:** list section pattern, resolves
+  [#449](https://github.com/carbon-design-system/ibm-dotcom-library/issues/449)
+  ([87e6bd9](https://github.com/carbon-design-system/ibm-dotcom-library/commit/87e6bd9))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.1.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-styles@1.1.1-rc.0...@carbon/ibmdotcom-styles@1.1.1) (2019-11-11)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-styles

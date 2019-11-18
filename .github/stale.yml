@@ -4,10 +4,9 @@ daysUntilStale: 30
 daysUntilClose: 3
 # Issues with these labels will never be considered stale
 exemptLabels:
-  - 'type: a11y ♿️'
-  - 'bug 🐛'
-  - 'Severity 1 🚨'
+  - 'severity 1'
   - 'priority: high'
+  - 'epic'
 # Label to use when marking an issue as stale
 staleLabel: inactive
 # Comment to post when marking an issue as stale. Set to `false` to disable
