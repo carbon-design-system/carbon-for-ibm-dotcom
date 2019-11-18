@@ -60,21 +60,20 @@ if (BUTTON_GROUP) {
             padding: 2 + `rem`,
             backgroundColor: 'black',
           }}>
+          <div style={{ color: 'white' }}>
+            This button group is wrapped within the grid to let the buttons
+            shrink when the text gets smaller
+          </div>
           <div className="bx--row">
             <div className="bx--col-lg-16 bx--col-md-6 bx--col-sm-16">
               <ButtonGroup buttons={buttons} />
             </div>
           </div>
-          <div className="bx--row">
-            <div className="bx--col-lg-12 bx--col-md-8 bx--col-sm-16">
-              <ButtonGroup buttons={buttons} />
-            </div>
+          <div style={{ color: 'white', paddingTop: '20px' }}>
+            This button group is not using the grid, so the buttons won't shrink
+            according to the text size
           </div>
-          <div className="bx--row">
-            <div className="bx--col-lg-12 bx--col-md-4 bx--col-sm-16">
-              <ButtonGroup buttons={buttons} />
-            </div>
-          </div>
+          <ButtonGroup buttons={buttons} />
         </div>
       );
     });

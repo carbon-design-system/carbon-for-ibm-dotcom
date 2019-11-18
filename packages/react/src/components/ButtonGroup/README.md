@@ -15,7 +15,9 @@ Here's a quick example to get you started.
 @include carbon--font-face-sans();
 ```
 
-> 💡 Only import font's once per usage
+> 💡 Only import font's once per usage 💡 This example utilizes the grid system
+> in order to adjust the button size based on the text size 💡 Adjust columns as
+> needed
 
 ```javascript
 import React from 'react';
@@ -52,7 +54,36 @@ function App() {
 ReactDOM.render(<App />, document.querySelector('#app'));
 ```
 
-> Utilize the grid system to resize the buttons to fit the desired sizes 💡
+> 💡 Only import font's once per usage 💡 This example is not using the grid
+> system, so the button sizes won't adjust based on text size
+
+```javascript
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { ArrowRight20, ArrowDown20 } from '@carbon/icons-react';
+import { ButtonGroup } from '@carbon/ibmdotcom-react';
+import 'yourapplication.scss';
+import '@carbon/ibmdotcom-styles/scss/components/buttongroup/_buttongroup.scss';
+function App() {
+  return;
+  <ButtonGroup
+    buttons={[
+      {
+        href: '',
+        copy: 'Primary action button',
+        renderIcon: ArrowDown20,
+      },
+      {
+        href: '',
+        copy: 'Secondary action button',
+        renderIcon: ArrowRight20,
+      },
+    ]}
+  />;
+}
+ReactDOM.render(<App />, document.querySelector('#app'));
+```
+
 > Don't forget to import the button group styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
