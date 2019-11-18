@@ -30,6 +30,43 @@ describe('LocaleAPI', () => {
     jest.clearAllMocks();
   });
 
+  it('should fetch the lang from the html attribute', () => {
+    Object.defineProperty(window.document.documentElement, 'lang', {
+      value: 'fr-ca',
+      configurable: true,
+    });
+
+    const lang = LocaleAPI.getLang();
+
+    expect(lang).toEqual({
+      cc: 'ca',
+      lc: 'fr',
+    });
+  });
+
+  it('should default to en-us from the html attribute if cc and lc are not defined', () => {
+    Object.defineProperty(window.document.documentElement, 'lang', {
+      value: 'it',
+      configurable: true,
+    });
+
+    const lang = LocaleAPI.getLang();
+
+    expect(lang).toEqual({
+      cc: 'us',
+      lc: 'en',
+    });
+  });
+
+  it('should default to en-us if lang is not defined', () => {
+    const lang = LocaleAPI.getLang();
+
+    expect(lang).toEqual({
+      cc: 'us',
+      lc: 'en',
+    });
+  });
+
   it('should fetch locale from cookie if availiable', async () => {
     Object.defineProperty(window.document, 'cookie', {
       writable: true,

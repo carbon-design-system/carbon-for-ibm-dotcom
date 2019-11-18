@@ -112,8 +112,12 @@ class LocaleAPI {
   static getLang() {
     if (root.document.documentElement.lang) {
       const lang = root.document.documentElement.lang.toLowerCase();
-      const codes = lang.split('-');
-      return { cc: codes[1], lc: codes[0] };
+      if (lang.indexOf('-') === -1) {
+        return _localeDefault;
+      } else {
+        const codes = lang.split('-');
+        return { cc: codes[1], lc: codes[0] };
+      }
     } else {
       return _localeDefault;
     }
