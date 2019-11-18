@@ -36,7 +36,7 @@ const MastheadLeftNav = ({ navigation, isSideNavExpanded }) => {
    * @returns {*} Left side navigation
    */
   const sideNav = navigation.map((link, i) => {
-    if (link.hasMenu && link.hasMegapanel) {
+    if (link.hasMenu) {
       return (
         <SideNavMenu title={link.title} key={i}>
           <SideNavMenuItem
@@ -51,19 +51,7 @@ const MastheadLeftNav = ({ navigation, isSideNavExpanded }) => {
           <li className={`${prefix}--masthead__side-nav--submemu-title`}>
             {link.title}
           </li>
-          {link.menuSections[0].menuItems[i].megapanelContent &&
-            link.menuSections[0].menuItems[
-              i
-            ].megapanelContent.quickLinks.links.map((item, j) => {
-              return (
-                <SideNavMenuItem
-                  href={item.url}
-                  data-autoid={`${stablePrefix}--masthead__l0-sidenav--subnav-${j}`}
-                  key={j}>
-                  {item.title}
-                </SideNavMenuItem>
-              );
-            })}
+          {renderNav(link.menuSections)}
         </SideNavMenu>
       );
     } else {
@@ -91,6 +79,29 @@ const MastheadLeftNav = ({ navigation, isSideNavExpanded }) => {
     </SideNav>
   );
 };
+
+/**
+ * Loops through and renders a list of links for the side nav
+ *
+ * @param {Array} sections A list of links to be rendered
+ * @returns {object} JSX object
+ */
+function renderNav(sections) {
+  const navItems = [];
+  sections.forEach((section, i) => {
+    section.menuItems.forEach((item, j) => {
+      navItems.push(
+        <SideNavMenuItem
+          href={item.url}
+          data-autoid={`${stablePrefix}--masthead__l0-sidenav--subnav-col${i}-item${j}`}
+          key={item.title}>
+          {item.title}
+        </SideNavMenuItem>
+      );
+    });
+  });
+  return navItems;
+}
 
 /**
  * @property propTypes

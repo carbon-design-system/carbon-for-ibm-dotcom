@@ -86,18 +86,18 @@ const platformData = {
 
 ## Stable selectors
 
-| Name                                        | Description |
-| ------------------------------------------- | ----------- |
-| `dds--masthead`                             | Component   |
-| `dds--masthead__hamburger`                  | Interactive |
-| `dds--masthead__logo`                       | Interactive |
-| `dds--masthead__platform-name`              | Interactive |
-| `dds--masthead__l0-nav`                     | Component   |
-| `dds--masthead__l0-nav--nav-${item}`        | Interactive |
-| `dds--masthead__l0-nav--subnav-${item}`     | Interactive |
-| `dds--masthead__l0-sidenav`                 | Component   |
-| `dds--masthead__l0-sidenav--nav-${item}`    | Interactive |
-| `dds--masthead__l0-sidenav--subnav-${item}` | Interactive |
+| Name                                                       | Description |
+| ---------------------------------------------------------- | ----------- |
+| `dds--masthead`                                            | Component   |
+| `dds--masthead__hamburger`                                 | Interactive |
+| `dds--masthead__logo`                                      | Interactive |
+| `dds--masthead__platform-name`                             | Interactive |
+| `dds--masthead__l0-nav`                                    | Component   |
+| `dds--masthead__l0-nav--nav-${item}`                       | Interactive |
+| `dds--masthead__l0-nav--subnav-col${item}-item${item}`     | Interactive |
+| `dds--masthead__l0-sidenav`                                | Component   |
+| `dds--masthead__l0-sidenav--nav-${item}`                   | Interactive |
+| `dds--masthead__l0-sidenav--subnav-col${item}-item${item}` | Interactive |
 
 ## CORS Proxy
 
