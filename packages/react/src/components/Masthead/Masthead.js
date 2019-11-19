@@ -202,11 +202,7 @@ const Masthead = ({ navigation, hasProfile, hasSearch, ...mastheadProps }) => {
           </div>
           {MASTHEAD_L1 && navigation && (
             <div ref={mastheadL1Ref}>
-              <MastheadL1
-                isShort={isMastheadSticky}
-                title={mastheadProps.title}
-                eyebrowLink={mastheadProps.eyebrowLink}
-              />
+              <MastheadL1 isShort={isMastheadSticky} />
             </div>
           )}
         </div>

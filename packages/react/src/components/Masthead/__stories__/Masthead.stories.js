@@ -27,8 +27,6 @@ storiesOf('Masthead', module)
       ),
       hasProfile: boolean('Has profile', true),
       hasSearch: boolean('Has search', true),
-      title: text('Title', 'Stock Charts'),
-      eyebrowLink: text('Eyebrow link', '#'),
     };
     return (
       <Masthead
@@ -51,8 +49,6 @@ storiesOf('Masthead', module)
       ),
       hasProfile: boolean('Has profile', true),
       hasSearch: boolean('Has search', true),
-      title: text('Title', 'Stock Charts'),
-      eyebrowLink: text('Eyebrow link', '#'),
     };
     return (
       <Masthead

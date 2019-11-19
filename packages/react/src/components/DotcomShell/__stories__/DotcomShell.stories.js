@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, select, boolean, text } from '@storybook/addon-knobs';
+import { withKnobs, select, boolean } from '@storybook/addon-knobs';
 import DotcomShell from '../DotcomShell';
 import mastheadKnobs from '../../Masthead/__stories__/data/Masthead.stories.knobs.js';
 import readme from '../README.md';
@@ -34,9 +34,7 @@ storiesOf('Dotcom Shell', module)
         )}
         footerType={select('Footer', footer, footer.default)}
         hasProfile={boolean('Has profile', true)}
-        hasSearch={boolean('Has search', true)}
-        title={text('Title', 'Stock Charts')}
-        eyebrowLink={text('Eyebrow link', '#')}>
+        hasSearch={boolean('Has search', true)}>
         {content}
       </DotcomShell>
     );

@@ -21,7 +21,7 @@ const { prefix } = settings;
  * @typedef {object} navigation Object containing navigation elements
  * @returns {*} Masthead component
  */
-const MastheadL1 = ({ isShort, title, eyebrowLink }) => {
+const MastheadL1 = ({ isShort }) => {
   const className = cx({
     [`${prefix}--masthead__l1`]: true,
     [`${prefix}--masthead__l1--short`]: isShort,
@@ -32,9 +32,11 @@ const MastheadL1 = ({ isShort, title, eyebrowLink }) => {
       <div className={`${prefix}--masthead__l1-name`}>
         <span className={`${prefix}--masthead__l1-name-eyebrow`}>
           <ArrowLeft16 />
-          <a href={eyebrowLink}>Eyebrow</a>
+          <a href="#">Eyebrow</a>
         </span>
-        <span className={`${prefix}--masthead__l1-name-title`}>{title}</span>
+        <span className={`${prefix}--masthead__l1-name-title`}>
+          Stock Charts
+        </span>
       </div>
       <HeaderNavigation className={`${prefix}--masthead__l1-nav`} aria-label="">
         <HeaderMenuItem href="#">Link 1</HeaderMenuItem>
@@ -54,12 +56,10 @@ const MastheadL1 = ({ isShort, title, eyebrowLink }) => {
  * @property propTypes
  * @description Defined property types for component
  *
- * @type {{isShort: boolean, title: string, eyebrowLink: string}}
+ * @type {{isShort: boolean}}
  */
 MastheadL1.propTypes = {
   isShort: PropTypes.bool,
-  title: PropTypes.string,
-  eyebrowLink: PropTypes.string,
 };
 
 export default MastheadL1;
