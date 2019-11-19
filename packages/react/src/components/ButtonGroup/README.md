@@ -17,6 +17,11 @@ Here's a quick example to get you started.
 
 > 💡 Only import font's once per usage
 
+### Base example
+
+This is the base example 'ButtonGroup'. Note, the buttons will not resize based
+on text size.
+
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -44,7 +49,49 @@ function App() {
 ReactDOM.render(<App />, document.querySelector('#app'));
 ```
 
-> 💡 Don't forget to import the button group styles from
+> 💡 Only import font's once per usage 💡
+
+### Example with buttons based on text size
+
+This example utilizes the grid system in order to adjust the button size based
+on text size. Adjust the columns as needed.
+
+```javascript
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { ArrowRight20, ArrowDown20 } from '@carbon/icons-react';
+import { ButtonGroup } from '@carbon/ibmdotcom-react';
+import '@carbon/grid/scss/grid.scss';
+import 'yourapplication.scss';
+import '@carbon/ibmdotcom-styles/scss/components/buttongroup/_buttongroup.scss';
+function App() {
+  return;
+  <div className="bx-grid">
+    <div className="row">
+      <div className="bx--col-lg-12 bx--col-md-8 bx--col-sm-16">
+        <ButtonGroup
+          buttons={[
+            {
+              href: '',
+              copy: 'Primary action button',
+              renderIcon: ArrowDown20,
+            },
+            {
+              href: '',
+              copy: 'Secondary action button',
+              renderIcon: ArrowRight20,
+            },
+          ]}
+        />
+        ;
+      </div>
+    </div>
+  </div>;
+}
+ReactDOM.render(<App />, document.querySelector('#app'));
+```
+
+> Don't forget to import the button group styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
 #### Feature Flags
