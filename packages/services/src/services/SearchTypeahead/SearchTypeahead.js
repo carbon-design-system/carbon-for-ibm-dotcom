@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { LocaleAPI } from '../Locale';
 
 /**
  * @constant {string | string} Host for the API calls
@@ -39,11 +40,13 @@ class SearchTypeaheadAPI {
    * }
    */
   static async getResults(query) {
-    const lc = 'en'; // TODO: create utility for fetching lc
-    const cc = 'us'; // TODO: create utility for fetching cc
-    const url = `${_endpoint}?lang=${lc}&cc=${cc}&query=${encodeURIComponent(
-      query
-    )}`;
+    const lang = LocaleAPI.getLang();
+    const urlQuery = [
+      `lang=${lang.lc}`,
+      `cc=${lang.cc}`,
+      `query=${encodeURIComponent(query)}`,
+    ].join('&');
+    const url = `${_endpoint}?${urlQuery}`;
 
     return await axios
       .get(url, {
