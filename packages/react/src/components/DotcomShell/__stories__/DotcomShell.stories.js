@@ -1,11 +1,12 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, select, boolean } from '@storybook/addon-knobs';
+import { withKnobs, select, boolean, text } from '@storybook/addon-knobs';
 import DotcomShell from '../DotcomShell';
 import mastheadKnobs from '../../Masthead/__stories__/data/Masthead.stories.knobs.js';
 import readme from '../README.md';
 import '../../../../../styles/scss/components/dotcom-shell/_dotcom-shell.scss';
 import content from './data/content';
+import { MASTHEAD_L1 } from '../../../internal/FeatureFlags';
 
 const footer = {
   default: 'default',
@@ -20,6 +21,11 @@ storiesOf('Dotcom Shell', module)
     },
   })
   .add('Default', () => {
+    const mastheadL1Props = MASTHEAD_L1 && {
+      title: text('Title', 'Stock Charts'),
+      eyebrowText: text('Eyebrow text', 'Eyebrow'),
+      eyebrowLink: text('Eyebrow link', '#'),
+    };
     return (
       <DotcomShell
         navigation={select(
@@ -34,7 +40,8 @@ storiesOf('Dotcom Shell', module)
         )}
         footerType={select('Footer', footer, footer.default)}
         hasProfile={boolean('Has profile', true)}
-        hasSearch={boolean('Has search', true)}>
+        hasSearch={boolean('Has search', true)}
+        {...mastheadL1Props}>
         {content}
       </DotcomShell>
     );
