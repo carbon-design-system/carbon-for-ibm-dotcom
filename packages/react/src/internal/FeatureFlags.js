@@ -53,4 +53,4 @@ export const CARD_LINK =
  * @type {string | boolean}
  */
 export const TABLE_OF_CONTENTS =
-  process.env.TABLE_OF_CONTENTS === 'true' || DDS_FLAGS_ALL || false;
+  process.env.DDS_TOC === 'true' || DDS_FLAGS_ALL || false;

@@ -48,7 +48,7 @@ To utilize the following features, set the following variable's to `true` within
 your `.env` file or your application build settings.
 
 ```
-TABLE_OF_CONTENTS=true
+DDS_TOC=true
 ```
 
 > See
