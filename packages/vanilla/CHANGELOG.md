@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.2](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-vanilla@0.1.2-rc.0...@carbon/ibmdotcom-vanilla@0.1.2) (2019-11-19)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-vanilla
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [0.1.2-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-vanilla@0.1.1...@carbon/ibmdotcom-vanilla@0.1.2-rc.0) (2019-11-15)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-vanilla
