@@ -46,3 +46,11 @@ export const BUTTON_GROUP =
  */
 export const CARD_LINK =
   process.env.CARD_LINK === 'true' || DDS_FLAGS_ALL || false;
+
+/**
+ * This determines if the tableofcontents will be rendered or not
+ *
+ * @type {string | boolean}
+ */
+export const TABLE_OF_CONTENTS =
+  process.env.TABLE_OF_CONTENTS === 'true' || DDS_FLAGS_ALL || false;

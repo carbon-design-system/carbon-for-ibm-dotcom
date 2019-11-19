@@ -7,14 +7,16 @@
 
 import PropTypes from 'prop-types';
 import React from 'react';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { TableOfContents20 } from '@carbon/icons-react';
 import { settings } from 'carbon-components';
 import root from 'window-or-global';
 
+const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
- * MobileMenu Component
+ * Mobile Component
  *
  * @param {object} props props object
  * @param {object} props.menuItems menu items object
@@ -23,7 +25,7 @@ const { prefix } = settings;
  * @param {*} props.updateState function to update parent state.
  * @returns {*} JSX Object
  */
-const MobileMenu = ({ menuItems, selectedId, menuLabel, updateState }) => {
+const TOCMobile = ({ menuItems, selectedId, menuLabel, updateState }) => {
   /**
    * Handle onChange event of select
    *
@@ -56,18 +58,22 @@ const MobileMenu = ({ menuItems, selectedId, menuLabel, updateState }) => {
   };
 
   return (
-    <div className={`${prefix}--tableofcontents__mobile-menu__select__wrapper`}>
-      <select
-        className={`${prefix}--tableofcontents__mobile-menu__select`}
-        value={selectedId}
-        onBlur={handleOnBlur}
-        onChange={e => handleChange(e)}>
-        <option value={menuLabel}> {menuLabel}... </option>
-        {renderOptions(menuItems)}
-      </select>
-      <TableOfContents20 aria-label="menu icon">
-        <title>menu icon</title>
-      </TableOfContents20>
+    <div
+      className={`${prefix}--tableofcontents__mobile`}
+      data-autoid={`${stablePrefix}}--tableofcontents__mobile`}>
+      <div className={`${prefix}--tableofcontents__mobile__select__wrapper`}>
+        <select
+          className={`${prefix}--tableofcontents__mobile__select`}
+          value={selectedId}
+          onBlur={handleOnBlur}
+          onChange={e => handleChange(e)}>
+          <option value={menuLabel}> {menuLabel}... </option>
+          {renderOptions(menuItems)}
+        </select>
+        <TableOfContents20 aria-label="menu icon">
+          <title>menu icon</title>
+        </TableOfContents20>
+      </div>
     </div>
   );
 };
@@ -83,7 +89,8 @@ const renderOptions = options => {
     if (option) {
       return (
         <option
-          className={`${prefix}--tableofcontents__mobile-menu__select__option`}
+          className={`${prefix}--tableofcontents__mobile__select__option`}
+          data-autoid={`${stablePrefix}}--tableofcontents__mobile__select__option-${option.id}`}
           key={option.id}
           value={option.id}>
           {option.title}
@@ -93,11 +100,11 @@ const renderOptions = options => {
   });
 };
 
-MobileMenu.propTypes = {
+TOCMobile.propTypes = {
   menuItems: PropTypes.array,
   selectedId: PropTypes.string,
   menuLabel: PropTypes.string,
   updateState: PropTypes.func,
 };
 
-export default MobileMenu;
+export default TOCMobile;

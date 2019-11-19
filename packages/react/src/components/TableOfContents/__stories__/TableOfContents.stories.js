@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { TABLE_OF_CONTENTS } from '../../../internal/FeatureFlags';
 import { withKnobs, select, text } from '@storybook/addon-knobs';
-import '../../../../../styles/scss/patterns/tableofcontents/index.scss';
+import '../../../../../styles/scss/components/tableofcontents/index.scss';
 import TableOfContents from '../TableOfContents';
 import readme from '../README.md';
 

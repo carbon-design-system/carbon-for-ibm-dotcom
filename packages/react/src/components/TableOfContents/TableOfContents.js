@@ -7,14 +7,16 @@
 
 import PropTypes from 'prop-types';
 import React, { useState, useEffect } from 'react';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import {
+  featureFlag,
+  settings as ddsSettings,
+} from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
-import { featureFlag } from '@carbon/ibmdotcom-utilities';
 import root from 'window-or-global';
 import { TABLE_OF_CONTENTS } from '../../internal/FeatureFlags';
-import { Layout } from '@carbon/ibmdotcom-react';
-import DesktopMenu from '../TableOfContents/DesktopMenu';
-import MobileMenu from '../TableOfContents/MobileMenu';
+import Layout from '../Layout/Layout';
+import TOCDesktop from './TOCDesktop';
+import TOCMobile from './TOCMobile';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
@@ -131,16 +133,12 @@ const TableOfContents = ({ menuItems, children, menuLabel }) => {
     <section
       data-autoid={`${stablePrefix}--tableofcontents`}
       className={`${prefix}--tableofcontents`}>
-      <div className={`${prefix}--tableofcontents__mobile-menu`}>
-        <MobileMenu {...props} />
-      </div>
+      <TOCMobile {...props} />
       <Layout {...layoutProps}>
         <div
           className={`${prefix}--tableofcontents__sidebar`}
           data-sticky="true">
-          <div className={`${prefix}--tableofcontents__desktop-menu`}>
-            <DesktopMenu {...props} />
-          </div>
+          <TOCDesktop {...props} />
         </div>
         <div className={`${prefix}--tableofcontents__content`}>
           <div className={`${prefix}--tableofcontents__content-wrapper`}>

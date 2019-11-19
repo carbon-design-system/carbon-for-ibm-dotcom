@@ -8,8 +8,10 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
 
+const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
@@ -21,7 +23,7 @@ const { prefix } = settings;
  * @param {*} props.updateState function to update parent state.
  * @returns {*} JSX Object
  */
-const DesktopMenu = ({ menuItems, selectedId, updateState }) => {
+const TOCDesktopMenu = ({ menuItems, selectedId, updateState }) => {
   /**
    * Render menu items
    *
@@ -35,8 +37,9 @@ const DesktopMenu = ({ menuItems, selectedId, updateState }) => {
         return (
           <li
             key={item.id}
+            data-autoid={`${stablePrefix}}--tableofcontents__desktop__item-${item.id}`}
             className={classNames(
-              `${prefix}--tableofcontents__desktop-menu__item`,
+              `${prefix}--tableofcontents__desktop__item`,
               setActiveClass(activeId, item.id)
             )}>
             <a onClick={e => handleOnClick(e, item.id)} href={`#${item.id}`}>
@@ -78,18 +81,24 @@ const DesktopMenu = ({ menuItems, selectedId, updateState }) => {
     let active;
     active =
       activeId === menuId
-        ? `${prefix}--tableofcontents__desktop-menu__item--active`
+        ? `${prefix}--tableofcontents__desktop__item--active`
         : '';
     return active;
   };
 
-  return <ul>{renderMenuItems(menuItems, selectedId)}</ul>;
+  return (
+    <div
+      className={`${prefix}--tableofcontents__desktop`}
+      data-autoid={`${stablePrefix}}--tableofcontents__desktop`}>
+      <ul>{renderMenuItems(menuItems, selectedId)}</ul>
+    </div>
+  );
 };
 
-DesktopMenu.propTypes = {
+TOCDesktopMenu.propTypes = {
   menuItems: PropTypes.array,
   selectedId: PropTypes.string,
   updateState: PropTypes.func,
 };
 
-export default DesktopMenu;
+export default TOCDesktopMenu;
