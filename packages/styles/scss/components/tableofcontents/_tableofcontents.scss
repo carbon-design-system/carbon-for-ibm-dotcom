@@ -37,10 +37,17 @@
             motion(standard, productive),
           outline $duration--fast-01 motion(standard, productive);
         &__wrapper {
+          height: carbon-rem(48px);
           position: relative;
           display: flex;
           align-items: center;
           flex: 1 1 100%;
+        }
+        &__icon {
+          position: absolute;
+          right: 0;
+          pointer-events: none;
+          cursor: pointer;
         }
       }
     }

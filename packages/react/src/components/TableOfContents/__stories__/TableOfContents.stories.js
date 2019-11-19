@@ -52,6 +52,20 @@ if (DDS_TOC) {
             themes,
             themes['light (white)']
           )}`}>
+          <div style={{ padding: '2rem' }}>
+            <p>
+              Praesent fermentum sodales facilisis. Mauris a efficitur sem.
+              Aliquam vehicula sapien libero, a viverra felis scelerisque vel.
+              Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
+              posuere cubilia Curae;
+            </p>
+            <p>
+              Donec fringilla dui tellus, a pretium diam vehicula et. Etiam non
+              vulputate augue. Morbi laoreet diam dapibus sapien pellentesque
+              tristique. Morbi id nibh metus. Integer non scelerisque nisl.
+            </p>
+          </div>
+
           <TableOfContents menuItems={menuItems} menuLabel={menuLabel}>
             <a name="8" style={{ color: '#000' }}>
               <h3 style={{ paddingBottom: '1rem', paddingTop: '2rem' }}>
