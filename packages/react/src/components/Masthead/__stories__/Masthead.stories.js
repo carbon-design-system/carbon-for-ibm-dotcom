@@ -5,6 +5,7 @@ import Masthead from '../Masthead';
 import mastheadKnobs from './data/Masthead.stories.knobs.js';
 import readme from '../README.md';
 import '../../../../../styles/scss/components/masthead/index.scss';
+import { MASTHEAD_L1 } from '../../../internal/FeatureFlags';
 
 storiesOf('Masthead', module)
   .addDecorator(withKnobs)
@@ -28,9 +29,15 @@ storiesOf('Masthead', module)
       hasProfile: boolean('Has profile', true),
       hasSearch: boolean('Has search', true),
     };
+    const mastheadL1Props = MASTHEAD_L1 && {
+      title: text('Title', 'Stock Charts'),
+      eyebrowText: text('Eyebrow text', 'Eyebrow'),
+      eyebrowLink: text('Eyebrow link', '#'),
+    };
     return (
       <Masthead
         {...standardProps}
+        {...mastheadL1Props}
         placeHolderText={text('Search placeholder', 'Search all of IBM')}
       />
     );
@@ -50,9 +57,15 @@ storiesOf('Masthead', module)
       hasProfile: boolean('Has profile', true),
       hasSearch: boolean('Has search', true),
     };
+    const mastheadL1Props = MASTHEAD_L1 && {
+      title: text('Title', 'Stock Charts'),
+      eyebrowText: text('Eyebrow text', 'Eyebrow'),
+      eyebrowLink: text('Eyebrow link', '#'),
+    };
     return (
       <Masthead
         {...standardProps}
+        {...mastheadL1Props}
         searchOpenOnload={true}
         placeHolderText={text('Search placeholder', 'Search all of IBM')}
       />
