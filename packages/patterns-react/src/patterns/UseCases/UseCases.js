@@ -11,7 +11,7 @@ import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
 import classNames from 'classnames';
 import { featureFlag } from '@carbon/ibmdotcom-utilities';
-import { USECASES } from '../../internal/FeatureFlags';
+import { DDS_USECASES } from '../../internal/FeatureFlags';
 import UseCasesGroup from '../UseCases/UseCasesGroup';
 
 const { stablePrefix } = ddsSettings;
@@ -29,7 +29,7 @@ const { prefix } = settings;
  */
 const UseCases = ({ title, copy, border, usecaseGroup }) =>
   featureFlag(
-    USECASES,
+    DDS_USECASES,
     <section
       data-autoid={`${stablePrefix}--usecases`}
       className={classNames(`${prefix}--usecases`, _setBorder(border))}>

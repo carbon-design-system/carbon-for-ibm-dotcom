@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { USECASES } from '../../../internal/FeatureFlags';
+import { DDS_USECASES } from '../../../internal/FeatureFlags';
 import {
   withKnobs,
   text,
@@ -12,7 +12,7 @@ import '../../../../../styles/scss/patterns/usecases/index.scss';
 import UseCases from '../UseCases';
 import readme from '../README.md';
 
-if (USECASES) {
+if (DDS_USECASES) {
   storiesOf('Use Cases', module)
     .addDecorator(withKnobs)
     .addParameters({
