@@ -47,3 +47,11 @@ export const SIMPLELONGFORM =
  */
 export const USECASES =
   process.env.DDS_USECASES === 'true' || DDS_FLAGS_ALL || false;
+
+/**
+ * This determines if the usecases will be rendered or not
+ *
+ * @type {string | boolean}
+ */
+export const CARD_LINK =
+  process.env.CARD_LINK === 'true' || DDS_FLAGS_ALL || false;
