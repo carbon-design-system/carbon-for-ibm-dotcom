@@ -26,7 +26,7 @@ const { prefix } = settings;
  * @returns {*} JSX Object
  */
 const TOCMobile = ({ menuItems, selectedId, menuLabel, updateState }) => {
-  const [selectedOption, setSelectedOption] = useState(menuLabel);
+  const [selectedOption, setSelectedOption] = useState('menuLabel');
 
   /**
    * Observe element in view
@@ -38,7 +38,7 @@ const TOCMobile = ({ menuItems, selectedId, menuLabel, updateState }) => {
         if (entries[0].intersectionRatio === 0) {
           setSelectedOption(selectedId);
         } else if (entries[0].intersectionRatio === 1) {
-          setSelectedOption(menuLabel);
+          setSelectedOption('menuLabel');
         }
       },
       { threshold: [0, 1] }
