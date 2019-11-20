@@ -133,13 +133,14 @@ const TableOfContents = ({ menuItems, children, menuLabel }) => {
     <section
       data-autoid={`${stablePrefix}--tableofcontents`}
       className={`${prefix}--tableofcontents`}>
-      <div className={`${prefix}--tableofcontents__mobile-top`}></div>
-      <TOCMobile {...props} />
       <Layout {...layoutProps}>
         <div
+          style={{ position: 'sticky', top: '0' }}
           className={`${prefix}--tableofcontents__sidebar`}
           data-sticky="true">
+          <div className={`${prefix}--tableofcontents__mobile-top`}></div>
           <TOCDesktop {...props} />
+          <TOCMobile {...props} />
         </div>
         <div className={`${prefix}--tableofcontents__content`}>
           <div className={`${prefix}--tableofcontents__content-wrapper`}>
