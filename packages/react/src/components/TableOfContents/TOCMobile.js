@@ -70,7 +70,9 @@ const TOCMobile = ({ menuItems, selectedId, menuLabel, updateState }) => {
           <option value={menuLabel}> {menuLabel}... </option>
           {renderOptions(menuItems)}
         </select>
-        <TableOfContents20 aria-label="menu icon">
+        <TableOfContents20
+          className={`${prefix}--tableofcontents__mobile__select__icon`}
+          aria-label="menu icon">
           <title>menu icon</title>
         </TableOfContents20>
       </div>
