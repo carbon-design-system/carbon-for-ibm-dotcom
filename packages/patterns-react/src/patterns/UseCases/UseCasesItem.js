@@ -23,7 +23,7 @@ const { prefix } = settings;
  * @param {string} props.lists.copy UsecasesItem copy property
  * @param {object} props.lists.link UsecasesItem link object
  * @param {string} props.lists.link.href UsecasesItem href property of link object
- * @param {string} props.lists.link.text UsecasesItem text property of link object
+ * @param {string} props.lists.link.title UsecasesItem text property of link object
  * @param {string} props.lists.link.target UsecasesItem target property of link object
  * @returns {object} JSX Object
  */
@@ -35,12 +35,12 @@ const UsecasesItem = ({ lists: { title, copy, link } }) => {
       <h3 className={`${prefix}--usecases-item__title`}>{title}</h3>
       <div className={`${prefix}--usecases-item__content`}>{copy}</div>
       <div className={`${prefix}--usecases-item__link`}>
-        {link ? (
+        {link && (
           <LinkWithIcon href={link.href} target={link.target}>
-            <span>{link.text}</span>
+            <span>{link.title}</span>
             <ArrowRight20 />
           </LinkWithIcon>
-        ) : null}
+        )}
       </div>
     </div>
   );
@@ -52,7 +52,7 @@ UsecasesItem.propTypes = {
     copy: PropTypes.string,
     link: PropTypes.PropTypes.shape({
       href: PropTypes.string,
-      text: PropTypes.string,
+      title: PropTypes.string,
       target: PropTypes.string,
     }),
   }),

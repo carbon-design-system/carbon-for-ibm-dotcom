@@ -59,7 +59,7 @@ if (DDS_USECASES) {
             },
           ],
           link: {
-            href: 'www.example.com',
+            href: 'https://www.example.com',
             title: 'Vivamus interdum ligula',
             target: '_self',
           },
@@ -87,7 +87,7 @@ if (DDS_USECASES) {
             },
           ],
           link: {
-            href: 'www.example.com',
+            href: 'https://www.example.com',
             title: 'Lorem ipsum dolor sit',
             target: '_self',
           },
@@ -114,13 +114,13 @@ if (DDS_USECASES) {
                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
               link: {
                 href: 'https://www.example.com',
-                text: 'Learn more',
+                title: 'Learn more',
                 target: '_self',
               },
             },
           ],
           link: {
-            href: 'www.example.com',
+            href: 'https://www.example.com',
             title: 'Aliquam condimentum interdum',
             target: '_self',
           },
