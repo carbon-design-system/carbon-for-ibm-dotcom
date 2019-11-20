@@ -33,7 +33,7 @@ const TOCDesktopMenu = ({ menuItems, selectedId, updateState }) => {
    */
   const renderMenuItems = (items, activeId) => {
     return items.map(item => {
-      if (item) {
+      if (item && item.id !== 'menuLabel') {
         return (
           <li
             key={item.id}

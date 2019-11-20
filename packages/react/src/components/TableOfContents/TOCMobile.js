@@ -112,7 +112,7 @@ const TOCMobile = ({ menuItems, selectedId, menuLabel, updateState }) => {
 const renderOptions = (options, label) => {
   const labelObj = {
     title: `${label} ...`,
-    id: label,
+    id: 'menuLabel',
   };
   options.findIndex(x => x.id === labelObj.id) == -1
     ? options.unshift(labelObj)
