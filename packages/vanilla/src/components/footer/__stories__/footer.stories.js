@@ -17,7 +17,6 @@ storiesOf('footer', module)
       short: 'short',
     };
     setTimeout(() => {
-      console.log('DOMContentLoaded');
       const footerElement = document.querySelector('.bx--footer');
       // eslint-disable-next-line
       const footerInstance = footer.create(footerElement);
