@@ -5,7 +5,7 @@
 Import the package css into the top of your main CSS file.
 
 ```css
-@import '@carbon/ibmdotcom-styles/scss/patterns/tableofcontents/index';
+@import '@carbon/ibmdotcom-styles/scss/components/tableofcontents/index';
 ```
 
 #### Elements

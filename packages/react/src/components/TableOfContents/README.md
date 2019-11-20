@@ -68,7 +68,7 @@ DDS_TOC=true
 
 | Name        | Data Type | Default value | Description                      |
 | ----------- | --------- | ------------- | -------------------------------- |
-| `menuLabel` | String    | `Jump to ...` | Placeholder value for menu label |
+| `menuLabel` | String    | `Jump to`     | Placeholder value for menu label |
 
 ## Stable selectors
 
