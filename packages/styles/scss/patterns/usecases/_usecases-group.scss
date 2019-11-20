@@ -15,7 +15,7 @@
     }
 
     &__card {
-      padding-top: $carbon--spacing-09;
+      padding-top: $carbon--spacing-07;
       margin-left: -$carbon--layout-01;
       margin-right: -$carbon--layout-01;
       max-width: carbon--rem(320px);
@@ -50,6 +50,9 @@
     }
     @include carbon--breakpoint('lg') {
       padding-top: $carbon--layout-06;
+      &__card {
+        padding-top: $carbon--spacing-09;
+      }
     }
   }
 }
