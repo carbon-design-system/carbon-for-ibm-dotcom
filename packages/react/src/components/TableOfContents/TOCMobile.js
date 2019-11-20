@@ -6,7 +6,7 @@
  */
 
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { TableOfContents20 } from '@carbon/icons-react';
 import { settings } from 'carbon-components';
@@ -26,6 +26,29 @@ const { prefix } = settings;
  * @returns {*} JSX Object
  */
 const TOCMobile = ({ menuItems, selectedId, menuLabel, updateState }) => {
+  const [selectedOption, setSelectedOption] = useState(menuLabel);
+
+  /**
+   * Observe element in view
+   *
+   */
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      function(entries) {
+        if (entries[0].intersectionRatio === 0) {
+          setSelectedOption(selectedId);
+        } else if (entries[0].intersectionRatio === 1) {
+          setSelectedOption(menuLabel);
+        }
+      },
+      { threshold: [0, 1] }
+    );
+    let target = document.querySelector(
+      `.${prefix}--tableofcontents__mobile-top`
+    );
+    observer.observe(target);
+  }, [menuLabel, selectedId]);
+
   /**
    * Handle onChange event of select
    *
@@ -64,11 +87,10 @@ const TOCMobile = ({ menuItems, selectedId, menuLabel, updateState }) => {
       <div className={`${prefix}--tableofcontents__mobile__select__wrapper`}>
         <select
           className={`${prefix}--tableofcontents__mobile__select`}
-          value={selectedId}
           onBlur={handleOnBlur}
+          value={selectedOption}
           onChange={e => handleChange(e)}>
-          <option value={menuLabel}> {menuLabel}... </option>
-          {renderOptions(menuItems)}
+          {renderOptions(menuItems, menuLabel)}
         </select>
         <TableOfContents20
           className={`${prefix}--tableofcontents__mobile__select__icon`}
@@ -84,9 +106,17 @@ const TOCMobile = ({ menuItems, selectedId, menuLabel, updateState }) => {
  * Render options for select
  *
  * @param {Array} options menu item arrray
+ * @param {Array} label menu label
  * @returns {*} JSX Object
  */
-const renderOptions = options => {
+const renderOptions = (options, label) => {
+  const labelObj = {
+    title: `${label} ...`,
+    id: label,
+  };
+  options.findIndex(x => x.id === labelObj.id) == -1
+    ? options.unshift(labelObj)
+    : null;
   return options.map(option => {
     if (option) {
       return (

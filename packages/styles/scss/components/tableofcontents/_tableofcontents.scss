@@ -19,6 +19,9 @@
       border-bottom: 1px solid $ui-04;
       padding-right: $carbon--spacing-05;
       padding-left: $carbon--spacing-05;
+      &-top {
+        height: 1px;
+      }
       &:hover {
         background-color: $hover-ui;
       }

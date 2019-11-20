@@ -30,6 +30,7 @@ const { prefix } = settings;
  * @returns {*} JSX Object
  */
 const TableOfContents = ({ menuItems, children, menuLabel }) => {
+  console.log('menuItems', menuItems);
   const [selectedId, setSelectedId] = useState(menuItems[0].id);
   const [selectedTitle, setSelectedTitle] = useState(menuItems[0].title);
 
@@ -133,6 +134,7 @@ const TableOfContents = ({ menuItems, children, menuLabel }) => {
     <section
       data-autoid={`${stablePrefix}--tableofcontents`}
       className={`${prefix}--tableofcontents`}>
+      <div className={`${prefix}--tableofcontents__mobile-top`}></div>
       <TOCMobile {...props} />
       <Layout {...layoutProps}>
         <div
