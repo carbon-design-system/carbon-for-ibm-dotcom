@@ -77,12 +77,15 @@ const platformData = {
 
 ## Other Props
 
-| Name               | Data Type | Default value       | Description                        |
-| ------------------ | --------- | ------------------- | ---------------------------------- |
-| `hasProfile`       | Boolean   | `true`              | Includes IBM profile menu          |
-| `hasSearch`        | Boolean   | `true`              | Includes IBM search                |
-| `searchOpenOnload` | Boolean   | `false`             | Has the search open by default     |
-| `placeHolderText`  | String    | `Search all of IBM` | Placeholder value for search input |
+| Name               | Data Type | Default value       | Description                              |
+| ------------------ | --------- | ------------------- | ---------------------------------------- |
+| `hasProfile`       | Boolean   | `true`              | Includes IBM profile menu                |
+| `hasSearch`        | Boolean   | `true`              | Includes IBM search                      |
+| `searchOpenOnload` | Boolean   | `false`             | Has the search open by default           |
+| `placeHolderText`  | String    | `Search all of IBM` | Placeholder value for search input       |
+| `title`            | String    |                     | Title for the masthead L1                |
+| `eyebrowText`      | String    |                     | Text for the eyebrow link in masthead L1 |
+| `eyebrowLink`      | String    |                     | URL for the eyebrow link in masthead L1  |
 
 ## Stable selectors
 
