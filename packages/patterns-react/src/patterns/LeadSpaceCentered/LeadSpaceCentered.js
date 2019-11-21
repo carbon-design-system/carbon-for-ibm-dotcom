@@ -6,7 +6,7 @@
  */
 
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import classnames from 'classnames';
 import { settings } from 'carbon-components';
 import {
@@ -53,7 +53,28 @@ const overlayClassname = gradient =>
  * @returns {*} Lead space component
  */
 const LeadSpaceCentered = ({ title, copy, buttons, image, gradient }) => {
-  const background = image && { backgroundImage: `url(${image})` };
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const isMobile = windowWidth <= 671;
+
+  /**
+   *  Sets the window width
+   */
+  const handleWindowResize = () => {
+    setWindowWidth(window.innerWidth);
+  };
+
+  useEffect(() => {
+    window.addEventListener('resize', handleWindowResize);
+
+    return () => {
+      window.removeEventListener('resize', handleWindowResize);
+    };
+  });
+
+  const background =
+    image && !isMobile
+      ? { backgroundImage: `url(${image})` }
+      : { backgroundImage: 'none' };
 
   return featureFlag(
     LEADSPACE_CENTERED,
