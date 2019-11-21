@@ -898,50 +898,7 @@
   dependencies:
     "@carbon/import-once" "10.3.0"
     "@carbon/layout" "10.5.0"
-"@carbon/ibmdotcom-react@^1.1.1":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@carbon/ibmdotcom-react/-/ibmdotcom-react-1.1.1.tgz#4d7050e01983a1584b098ce45e185356b79d9169"
-  integrity sha512-oAPnGXYIu5wzQI+DcfVENfjCOBnmx1WcnEwhdBT/I8k7bkuMdNcDFubQXg/Hkcb0FkV+DzA5Mw00TXdTOmgQCA==
-  dependencies:
-    "@babel/runtime" "^7.5.5"
-    "@carbon/ibmdotcom-services" "1.1.1"
-    "@carbon/ibmdotcom-styles" "1.1.1"
-    "@carbon/ibmdotcom-utilities" "1.1.1"
-    autosuggest-highlight "^3.1.1"
-    classnames "2.2.6"
-    react-autosuggest "^9.4.3"
-    window-or-global "^1.0.1"
 
-"@carbon/ibmdotcom-services@1.1.1":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@carbon/ibmdotcom-services/-/ibmdotcom-services-1.1.1.tgz#c23337bbd8a837c7b6679243b23e905ae58b8184"
-  integrity sha512-YP1TKfL5cJQ/pH1P0qx8Pbfm23vUSqmZJ1n7wHL8nADeyCM88bjw7un4rC41np/l67pAk3TEeSkt1JyQqGw1qQ==
-  dependencies:
-    "@carbon/ibmdotcom-utilities" "1.1.1"
-    axios "^0.19.0"
-    jsonp "^0.2.1"
-    window-or-global "^1.0.1"
-
-"@carbon/ibmdotcom-styles@1.1.1":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@carbon/ibmdotcom-styles/-/ibmdotcom-styles-1.1.1.tgz#b392c862bc8aacdb8fea0b7479441fea22dc687a"
-  integrity sha512-gl82k2eqrFBQShF5qa4g3DGaiG+rY1HJX+v2oAG1tXEweFe0l1MhTDQn5ips3zn2IJoUcupxevSxGkUN88K9JA==
-  dependencies:
-    "@carbon/grid" "^10.6.0"
-    "@carbon/layout" "^10.5.0"
-    "@carbon/themes" "^10.4.0"
-    "@carbon/type" "^10.5.1"
-
-"@carbon/ibmdotcom-utilities@1.1.1":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@carbon/ibmdotcom-utilities/-/ibmdotcom-utilities-1.1.1.tgz#10f9788d2c416ac5c6eb052e6b4d790ea7269198"
-  integrity sha512-IpOfqExAXHDW9H9k25YcvWe5FbEdgMB4NQllRw5Zb1UFpBDSjg/zm611GDxWX3Id4AZVI5ywP2HP+Fc6WlaYgQ==
-  dependencies:
-    "@carbon/ibmdotcom-services" "1.1.1"
-    axios "^0.19.0"
-    js-cookie "^2.2.1"
-    window-or-global "^1.0.1"
-    
 "@carbon/icon-helpers@10.4.0":
   version "10.4.0"
   resolved "https://registry.yarnpkg.com/@carbon/icon-helpers/-/icon-helpers-10.4.0.tgz#771ba51efcaa9d2be03800f8e0f50c7aa779febf"
