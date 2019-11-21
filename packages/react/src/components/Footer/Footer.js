@@ -11,9 +11,8 @@ import {
   settings as ddsSettings,
   ipcinfoCookie,
 } from '@carbon/ibmdotcom-utilities';
-import { globalInit } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
-import { TranslationAPI } from '@carbon/ibmdotcom-services';
+import { globalInit, TranslationAPI } from '@carbon/ibmdotcom-services';
 import classNames from 'classnames';
 import FooterLogo from './FooterLogo';
 import FooterNav from './FooterNav';
