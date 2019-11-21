@@ -18,8 +18,12 @@ const { prefix } = settings;
 /**
  * MastHead L1 component
  *
- * @typedef {object} navigation Object containing navigation elements
- * @returns {*} Masthead component
+ * @param {object} props React props
+ * @param {boolean} props.isShort Flag on whether L1 is short or tall
+ * @param {string} props.title Title for the L1
+ * @param {string} props.eyebrowText Eyebrow text
+ * @param {string} props.eyebrowLink URL for the Eyebrow
+ * @returns {*} MastheadL1 JSX component
  */
 const MastheadL1 = ({ isShort, title, eyebrowText, eyebrowLink }) => {
   const className = cx({
