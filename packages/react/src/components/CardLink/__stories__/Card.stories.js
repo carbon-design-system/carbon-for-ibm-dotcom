@@ -6,8 +6,7 @@ import { ArrowRight20 } from '@carbon/icons-react';
 import readme from '../README.md';
 import { CARD_LINK } from '../../../internal/FeatureFlags';
 
-// import '../../../../../styles/scss/components/card-link/index.scss';
-import '@carbon/grid/scss/index.scss';
+import './index.scss';
 
 if (CARD_LINK) {
   storiesOf('Card', module)
