@@ -8,6 +8,7 @@
 @import '../../globals/imports';
 @import '../../globals/vars.scss';
 @import '../../globals/mixins.scss';
+@import '../card-link/index';
 
 @import '~carbon-components/scss/components/search/search';
 
@@ -23,6 +24,19 @@
   .#{$prefix}--locale-modal {
     padding-right: $spacing-05;
     margin-top: $spacing-07;
+
+    .#{$prefix}--link {
+      &,
+      &:visited,
+      &:active,
+      &:hover {
+        color: currentColor;
+      }
+
+      &:focus {
+        outline-color: $focus;
+      }
+    }
 
     &__locales {
       text-decoration: none;
