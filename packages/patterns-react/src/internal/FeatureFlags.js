@@ -39,3 +39,11 @@ export const LISTSECTION =
  */
 export const SIMPLELONGFORM =
   process.env.SIMPLELONGFORM === 'true' || DDS_FLAGS_ALL || false;
+
+/**
+ * This determines if the usecases will be rendered or not
+ *
+ * @type {string | boolean}
+ */
+export const DDS_USECASES =
+  process.env.DDS_USECASES === 'true' || DDS_FLAGS_ALL || false;

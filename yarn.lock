@@ -898,7 +898,6 @@
   dependencies:
     "@carbon/import-once" "10.3.0"
     "@carbon/layout" "10.5.0"
-
 "@carbon/ibmdotcom-react@^1.1.1":
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/@carbon/ibmdotcom-react/-/ibmdotcom-react-1.1.1.tgz#4d7050e01983a1584b098ce45e185356b79d9169"
@@ -942,7 +941,7 @@
     axios "^0.19.0"
     js-cookie "^2.2.1"
     window-or-global "^1.0.1"
-
+    
 "@carbon/icon-helpers@10.4.0":
   version "10.4.0"
   resolved "https://registry.yarnpkg.com/@carbon/icon-helpers/-/icon-helpers-10.4.0.tgz#771ba51efcaa9d2be03800f8e0f50c7aa779febf"
