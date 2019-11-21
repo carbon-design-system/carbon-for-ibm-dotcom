@@ -40,7 +40,9 @@ function _updateChild(type, children) {
       final.push(
         <div
           className={
-            _types[type] && _types[type][i] ? _types[type][i] : `${prefix}--col`
+            _types[type] && _types[type][i]
+              ? `${_types[type][i]} ${prefix}--layout--sticky`
+              : `${prefix}--col`
           }
           key={i}>
           {React.cloneElement(child, {
