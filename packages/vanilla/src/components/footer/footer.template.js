@@ -1,34 +1,24 @@
 import footerNav from './footerNav.template';
-import { Accordion } from 'carbon-components';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
 
+const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
- * renders accordion components for footer on smaller screen sizes
- *
- * @param {string} El type of footer in use
- * @returns {object} JSX object
- */
-function footerCreate(El) {
-  const accordionEl = El.querySelector('.bx--accordion');
-  if (accordionEl) {
-    // eslint-disable-next-line
-    const accordionInit = Accordion.create(accordionEl);
-  }
-}
-/**
- * renders logo and bottom section of footer
+ * renders ibm logo and legal nav
  *
  * @param {string} type type of footer in use
  * @returns {object} JSX object
  */
 const footerTemplate = ({ type }) => {
   return `
-  <footer data-autoid="dds--footer" class="bx--footer ${setFooterType(type)}">
-    <section class="bx--footer__main">
-      <div class="bx--footer__main-container">
-        <div data-autoid="dds--footer-logo" class="bx--footer-logo"><a data-autoid="dds--footer-logo__link" class="bx--footer-logo__link" href="https://www.ibm.com/"><svg class="bx--footer-logo__logo" viewBox="0 0 157 65" role="img"
+  <footer data-autoid="${stablePrefix}--footer" class="${prefix}--footer ${setFooterType(
+    type
+  )}">
+    <section class="${prefix}--footer__main">
+      <div class="${prefix}--footer__main-container">
+        <div data-autoid="${stablePrefix}--footer-logo" class="${prefix}--footer-logo"><a data-autoid="${stablePrefix}--footer-logo__link" class="${prefix}--footer-logo__link" href="https://www.ibm.com/"><svg class="${prefix}--footer-logo__logo" viewBox="0 0 157 65" role="img"
               aria-labelledby="footer-logo">
               <title id="footer-logo">IBM Logo</title>
               <path
@@ -38,14 +28,14 @@ const footerTemplate = ({ type }) => {
             ${optionalFooterNav(type)}
       </div>
     </section>
-    <aside data-autoid="dds--footer-legal-nav" class="bx--legal-nav__container">
-      <nav class="bx--legal-nav">
-        <ul class="bx--legal-nav__list">
-          <li class="bx--legal-nav__list-item"><a href="https://www.ibm.com/contact/us/en/?lnk=flg-cont-usen" class="bx--link" data-autoid="dds--footer-legal-nav__link">Contact IBM</a></li>
-          <li class="bx--legal-nav__list-item"><a href="https://www.ibm.com/privacy/us/en/?lnk=flg-priv-usen" class="bx--link" data-autoid="dds--footer-legal-nav__link">Privacy</a></li>
-          <li class="bx--legal-nav__list-item"><a href="https://www.ibm.com/us-en/legal?lnk=flg-tous-usen" class="bx--link" data-autoid="dds--footer-legal-nav__link">Terms of use</a></li>
-          <li class="bx--legal-nav__list-item"><a href="https://www.ibm.com/accessibility/us/en/?lnk=flg-acce-usen" class="bx--link" data-autoid="dds--footer-legal-nav__link">Accessibility</a></li>
-          <li class="bx--legal-nav__list-item" data-autoid="dds--privacy-cp"></li>
+    <aside data-autoid="${stablePrefix}--footer-legal-nav" class="${prefix}--legal-nav__container">
+      <nav class="${prefix}--legal-nav">
+        <ul class="${prefix}--legal-nav__list">
+          <li class="${prefix}--legal-nav__list-item"><a href="https://www.ibm.com/contact/us/en/?lnk=flg-cont-usen" class="${prefix}--link" data-autoid="${stablePrefix}--footer-legal-nav__link">Contact IBM</a></li>
+          <li class="${prefix}--legal-nav__list-item"><a href="https://www.ibm.com/privacy/us/en/?lnk=flg-priv-usen" class="${prefix}--link" data-autoid="${stablePrefix}--footer-legal-nav__link">Privacy</a></li>
+          <li class="${prefix}--legal-nav__list-item"><a href="https://www.ibm.com/us-en/legal?lnk=flg-tous-usen" class="${prefix}--link" data-autoid="${stablePrefix}--footer-legal-nav__link">Terms of use</a></li>
+          <li class="${prefix}--legal-nav__list-item"><a href="https://www.ibm.com/accessibility/us/en/?lnk=flg-acce-usen" class="${prefix}--link" data-autoid="${stablePrefix}--footer-legal-nav__link">Accessibility</a></li>
+          <li class="${prefix}--legal-nav__list-item" data-autoid="${stablePrefix}--privacy-cp"></li>
         </ul>
       </nav>
     </aside>
@@ -81,7 +71,4 @@ function setFooterType(type) {
   return typeClassName;
 }
 
-export default {
-  template: footerTemplate,
-  create: footerCreate,
-};
+export default footerTemplate;
