@@ -14,7 +14,7 @@ import {
   settings as ddsSettings,
 } from '@carbon/ibmdotcom-utilities';
 import { LEADSPACE_CENTERED } from '../../internal/FeatureFlags';
-import LeadSpaceButtons from '../LeadSpace/LeadSpaceButtons';
+import { ButtonGroup } from '@carbon/ibmdotcom-react';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
@@ -86,12 +86,7 @@ const LeadSpaceCentered = ({ title, copy, buttons, image, gradient }) => {
         <div className={`${prefix}--leadspace--centered__content`}>
           <h1 className={`${prefix}--leadspace--centered__title`}>{title}</h1>
           <p className={`${prefix}--leadspace--centered__desc`}>{copy}</p>
-          {buttons && buttons.length > 0 && (
-            <LeadSpaceButtons
-              classname={`${prefix}--leadspace--centered`}
-              buttons={buttons}
-            />
-          )}
+          {buttons && buttons.length > 0 && <ButtonGroup buttons={buttons} />}
         </div>
       </div>
       {image && (

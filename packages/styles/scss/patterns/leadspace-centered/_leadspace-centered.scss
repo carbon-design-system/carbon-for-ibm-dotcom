@@ -24,8 +24,7 @@
       @include carbon--make-container;
     }
 
-    &__ctas {
-      padding-top: $layout-03;
+    .#{$prefix}--buttongroup {
       padding-bottom: $layout-01;
     }
 
@@ -64,7 +63,7 @@
         padding-top: $layout-04;
       }
 
-      &__ctas {
+      .#{$prefix}--buttongroup {
         padding-bottom: 0;
       }
 

@@ -20,7 +20,7 @@ if (LEADSPACE_CENTERED) {
         sidebar: readme,
       },
     })
-    .add('Default with no image', () => {
+    .add('Centered with no image', () => {
       const copy = text(
         'copy',
         'Blockchain is a shared, immutable ledger for the process of recording transactions and tracking assets (tangible or intangible) in a business network.'
@@ -61,7 +61,7 @@ if (LEADSPACE_CENTERED) {
         </div>
       );
     })
-    .add('Default with image', () => {
+    .add('Centered with image', () => {
       const copy = text(
         'copy',
         'Blockchain is a shared, immutable ledger for the process of recording transactions and tracking assets (tangible or intangible) in a business network.'
