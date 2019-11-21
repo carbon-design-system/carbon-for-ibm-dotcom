@@ -23,10 +23,10 @@ if (LEADSPACE_CENTERED) {
     .add('Default with no image', () => {
       const copy = text(
         'copy',
-        'Use this area for a short line of copy to support the title'
+        'Blockchain is a shared, immutable ledger for the process of recording transactions and tracking assets (tangible or intangible) in a business network.'
       );
 
-      const title = text('title', 'Lead space title');
+      const title = text('title', 'What is artificial intelligence?');
 
       const buttons = [
         {
@@ -64,10 +64,10 @@ if (LEADSPACE_CENTERED) {
     .add('Default with image', () => {
       const copy = text(
         'copy',
-        'Use this area for a short line of copy to support the title'
+        'Blockchain is a shared, immutable ledger for the process of recording transactions and tracking assets (tangible or intangible) in a business network.'
       );
 
-      const title = text('title', 'Lead space title');
+      const title = text('title', 'What is artificial intelligence?');
 
       const image = 'https://picsum.photos/id/1076/1056/480';
 

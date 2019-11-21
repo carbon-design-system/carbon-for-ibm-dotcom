@@ -7,10 +7,7 @@
 
 @mixin leadspace-centered {
   .#{$prefix}--leadspace--centered {
-    &__image {
-      background-image: none;
-      background-color: $ui-background;
-    }
+    background-color: $ui-background;
 
     &--mobile__image {
       height: carbon--mini-units(20);
@@ -29,6 +26,7 @@
 
     &__ctas {
       padding-top: $layout-03;
+      padding-bottom: $layout-01;
     }
 
     &__title,
@@ -50,27 +48,51 @@
 
   @include carbon--breakpoint(md) {
     .#{$prefix}--leadspace--centered {
-      padding-bottom: carbon--mini-units(20);
       background: $ui-background;
+
+      &__overlay {
+        padding-bottom: carbon--mini-units(20);
+      }
 
       &__image {
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center top;
-        padding-bottom: carbon--mini-units(32);
-      }
-
-      &__content {
-        width: 50%;
-        margin: auto;
       }
 
       &__desc {
         padding-top: $layout-04;
       }
 
+      &__ctas {
+        padding-bottom: 0;
+      }
+
       &--mobile__image {
         display: none;
+      }
+
+      &__gradient {
+        background: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.8),
+          rgba(0, 0, 0, 0.6),
+          transparent 75%
+        );
+      }
+    }
+
+    .#{$prefix}--leadspace--centered__image
+      .#{$prefix}--leadspace--centered__overlay {
+      padding-bottom: carbon--mini-units(32);
+    }
+  }
+
+  @include carbon--breakpoint(lg) {
+    .#{$prefix}--leadspace--centered {
+      &__content {
+        width: 50%;
+        margin: auto;
       }
     }
   }

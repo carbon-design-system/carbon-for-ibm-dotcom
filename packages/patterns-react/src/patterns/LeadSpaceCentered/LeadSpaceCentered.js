@@ -38,7 +38,7 @@ const className = image =>
  */
 const overlayClassname = gradient =>
   classnames(`${prefix}--leadspace--centered__overlay`, {
-    [`${prefix}--leadspace--centered--gradient`]: gradient,
+    [`${prefix}--leadspace--centered__gradient`]: gradient,
   });
 
 /**
