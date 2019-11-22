@@ -5,9 +5,31 @@
 // LICENSE file in the root directory of this source tree.
 //
 
+@import '../../globals/imports';
+@import 'carbon-components/scss/components/button/button';
+
 @function aspectratio($height, $width) {
   $ratio: carbon--rem($height) / carbon--rem($width) * 100%;
   @return $ratio;
+}
+
+@mixin themed-items {
+  @include button;
+
+  background: $ui-background;
+
+  .#{$prefix}--leadspace__title,
+  .#{$prefix}--leadspace__desc {
+    color: $text-01;
+  }
+
+  .#{$prefix}--leadspace--gradient {
+    background-image: linear-gradient(
+      to right,
+      rgba($ui-background, 0.95),
+      transparent 75%
+    );
+  }
 }
 
 @mixin leadspace {
@@ -17,7 +39,6 @@
     position: relative;
     padding-top: aspectratio(370px, 320px);
     height: 0;
-    background: $ui-background;
 
     &__image {
       object-fit: cover;
@@ -84,6 +105,12 @@
       width: 100%;
       margin-top: $layout-01;
       min-width: carbon--mini-units($btn-min-width);
+    }
+  }
+
+  .#{$prefix}--leadspace--g100 {
+    @include carbon--theme($carbon--theme--g100) {
+      @include themed-items;
     }
   }
 
