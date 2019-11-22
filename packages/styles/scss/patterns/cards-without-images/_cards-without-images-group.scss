@@ -47,7 +47,6 @@
       }
       &__content {
         color: $text-02;
-        // flex: 0 0 auto;
         min-height: 50px;
         @include carbon--type-style('body-long-02');
 
@@ -78,6 +77,7 @@
     }
     @include carbon--breakpoint('md') {
       .bx--card-link {
+        flex: 1 1;
         @include carbon--make-col(4, 8);
       }
     }

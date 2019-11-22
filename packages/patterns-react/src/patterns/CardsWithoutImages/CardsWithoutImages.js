@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React from 'react';
+import React, { useLayoutEffect } from 'react';
 import PropTypes from 'prop-types';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
@@ -24,8 +24,52 @@ const { prefix } = settings;
  * @param {Array} props.cardsGroup cardsGroup array with title, groupCard and cards properties
  * @returns {object} JSX Object
  */
-const CardsWithoutImages = ({ cardsGroup }) =>
-  featureFlag(
+const CardsWithoutImages = ({ cardsGroup }) => {
+  useLayoutEffect(() => {
+    window.addEventListener(
+      'resize',
+      _matchHeight(`.${prefix}--cards-without-images-group__cards`)
+    );
+  });
+
+  /**
+   * Match heights of child elements
+   *
+   * @private
+   * @param {*} parentEl Parent element selector
+   */
+  const _matchHeight = parentEl => {
+    const parentEls = document.querySelectorAll(parentEl);
+    parentEls.forEach(parentEl => {
+      const childEls = parentEl.childNodes;
+      childEls.forEach(el => {
+        el.style.height = null;
+      });
+      const maxHeight = _getMaxHeight(childEls);
+      childEls.forEach(el => {
+        el.style.height = maxHeight + 'px';
+      });
+    });
+  };
+
+  /**
+   * Get Max height of given elements
+   *
+   * @private
+   * @param {*} els elements selector
+   * @returns {number} the max height between elements
+   */
+  const _getMaxHeight = els => {
+    return Array.prototype.map
+      .call(els, el => {
+        return el.innerHeight;
+      })
+      .reduce((pre, cur) => {
+        return Math.max(pre, cur);
+      }, -Infinity);
+  };
+
+  return featureFlag(
     DDS_CARDS_WITHOUT_IMAGES,
     <section
       data-autoid={`${stablePrefix}--cards-without-images`}
@@ -39,6 +83,7 @@ const CardsWithoutImages = ({ cardsGroup }) =>
       </div>
     </section>
   );
+};
 
 /**
  * Render Cards without images Group Component
