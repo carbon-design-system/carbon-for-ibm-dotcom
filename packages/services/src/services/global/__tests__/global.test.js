@@ -1,10 +1,13 @@
 import { globalInit } from '../';
-import { DDOAPI, AnalyticsAPI } from '@carbon/ibmdotcom-services';
+import { DDOAPI } from '../../DDO';
+import { AnalyticsAPI } from '../../Analytics';
 
-jest.mock('@carbon/ibmdotcom-services', () => ({
+jest.mock('../../DDO', () => ({
   DDOAPI: {
     setVersion: jest.fn(),
   },
+}));
+jest.mock('../../Analytics', () => ({
   AnalyticsAPI: {
     initAll: jest.fn(),
   },
