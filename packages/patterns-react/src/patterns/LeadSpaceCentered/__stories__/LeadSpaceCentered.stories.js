@@ -1,5 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import { ArrowRight20, ArrowDown20, Pdf20 } from '@carbon/icons-react';
 import {
   withKnobs,
   text,
@@ -32,12 +33,12 @@ if (LEADSPACE_CENTERED) {
         {
           link: '',
           copy: 'Primary action button',
-          renderIcon: 'ArrowDown',
+          renderIcon: ArrowDown20,
         },
         {
           link: '',
           copy: 'Secondary action button',
-          renderIcon: 'ArrowRight',
+          renderIcon: ArrowRight20,
         },
       ];
 
@@ -71,23 +72,31 @@ if (LEADSPACE_CENTERED) {
 
       const image = 'https://picsum.photos/id/1076/1056/480';
 
+      const iconMap = {
+        ArrowRight20,
+        ArrowDown20,
+        Pdf20,
+      };
+
       const icons = {
-        ArrowRight: 'ArrowRight',
-        ArrowDown: 'ArrowDown',
-        Pdf: 'Pdf',
-        none: 'none',
+        ArrowRight: 'ArrowRight20',
+        ArrowDown: 'ArrowDown20',
+        Pdf: 'Pdf20',
+        none: null,
       };
 
       const buttons = [
         {
           link: '',
           copy: 'Primary action button',
-          renderIcon: select('primary button icon', icons, icons.ArrowRight),
+          renderIcon:
+            iconMap[select('primary button icon', icons, icons.ArrowRight)],
         },
         {
           link: '',
           copy: 'Secondary',
-          renderIcon: select('secondary button icon', icons, icons.ArrowRight),
+          renderIcon:
+            iconMap[select('secondary button icon', icons, icons.ArrowRight)],
         },
       ];
 
