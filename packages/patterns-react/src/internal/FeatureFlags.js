@@ -55,4 +55,3 @@ export const DDS_CARDS_WITHOUT_IMAGES =
  */
 export const DDS_USECASES =
   process.env.DDS_USECASES === 'true' || DDS_FLAGS_ALL || false;
-
