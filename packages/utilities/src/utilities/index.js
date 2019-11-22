@@ -9,7 +9,6 @@ export * from './altlangs';
 export * from './escaperegexp';
 export * from './featureflag';
 export * from './geolocation';
-export * from './global';
 export * from './ipcinfoCookie';
 export * from './serialize';
 export * from './settings';
