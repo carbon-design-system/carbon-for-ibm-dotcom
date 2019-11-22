@@ -1,0 +1,44 @@
+//
+// Copyright IBM Corp. 2016, 2018
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@mixin cards-without-images {
+  .#{$prefix}--cards-without-images {
+    color: $text-01;
+    background: $ui-background;
+    &__container {
+      @include carbon--make-container;
+
+      padding-top: $carbon--spacing-07;
+      padding-bottom: $carbon--layout-06;
+    }
+    &__row {
+      @include carbon--make-row;
+    }
+    &__col {
+      @include carbon--make-col-ready;
+    }
+    @include carbon--breakpoint('md') {
+      &__title {
+        margin-top: $carbon--layout-05;
+        margin-bottom: $carbon--spacing-09;
+      }
+      &__col {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+    @include carbon--breakpoint('lg') {
+      &__container {
+        padding-top: $carbon--layout-04;
+        padding-bottom: $carbon--layout-07;
+      }
+    }
+  }
+}
+@include exports('cards-without-images') {
+  @include cards-without-images;
+}

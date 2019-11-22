@@ -1,0 +1,10 @@
+@import '../../globals/imports';
+@import './cards-without-images';
+@import './cards-without-images-group';
+
+.#{$prefix}--cards-without-images--g100 {
+  @include carbon--theme($carbon--theme--g100) {
+    @include cards-without-images;
+    @include cards-without-images-group;
+  }
+}
