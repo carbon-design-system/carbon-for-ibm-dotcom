@@ -135,7 +135,7 @@ if (DDS_CARDS_WITHOUT_IMAGES) {
 
       return (
         <div
-          className={`bx--cardswithoutimages--${select(
+          className={`bx--cards-without-images--${select(
             'theme',
             themes,
             themes['dark (g10)']

@@ -2,8 +2,8 @@
 @import './cards-without-images';
 @import './cards-without-images-group';
 
-.#{$prefix}--cards-without-images--g100 {
-  @include carbon--theme($carbon--theme--g100) {
+.#{$prefix}--cards-without-images--g10 {
+  @include carbon--theme($carbon--theme--g10) {
     @include cards-without-images;
     @include cards-without-images-group;
   }
