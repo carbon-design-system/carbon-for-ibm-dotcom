@@ -115,21 +115,15 @@ if (LEADSPACE) {
       const graident = boolean('gradient overlay', true);
 
       return (
-        <div
-          className={`bx--leadspace--${select(
-            'theme',
-            themes,
-            themes['dark (g100)']
-          )}`}>
-          <LeadSpace
-            title={title}
-            copy={copy}
-            gradient={graident}
-            buttons={buttons}
-            image={object('image', images)}
-            variation={select('variation', variations, variations.expressive)}
-          />
-        </div>
+        <LeadSpace
+          theme={select('theme', themes, themes['dark (g100)'])}
+          title={title}
+          copy={copy}
+          gradient={graident}
+          buttons={buttons}
+          image={object('image', images)}
+          variation={select('variation', variations, variations.expressive)}
+        />
       );
     });
 }
