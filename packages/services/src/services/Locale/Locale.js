@@ -21,8 +21,8 @@ const _proxy = process.env.CORS_PROXY || '';
  * @private
  */
 const _localeDefault = {
-  lc: 'us',
-  cc: 'en',
+  lc: 'en',
+  cc: 'us',
 };
 
 /**
@@ -68,7 +68,8 @@ class LocaleAPI {
     const lang = this.getLang();
     // grab locale from the html lang attribute
     if (lang) {
-      return await this.getList(lang);
+      await this.getList(lang);
+      return lang;
     }
     // grab the locale from the cookie
     else if (cookie && cookie.cc && cookie.lc) {
@@ -111,10 +112,14 @@ class LocaleAPI {
   static getLang() {
     if (root.document.documentElement.lang) {
       const lang = root.document.documentElement.lang.toLowerCase();
-      const codes = lang.split('-');
-      return { cc: codes[1], lc: codes[0] };
-      //    } else {
-      //      return _localeDefault;
+      if (lang.indexOf('-') === -1) {
+        return _localeDefault;
+      } else {
+        const codes = lang.split('-');
+        return { cc: codes[1], lc: codes[0] };
+      }
+    } else {
+      return _localeDefault;
     }
   }
 

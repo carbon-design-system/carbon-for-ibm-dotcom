@@ -63,7 +63,10 @@ storiesOf('Layout', module)
               'Sticky left column',
               ['true', 'false'],
               'true'
-            )}>
+            )}
+            style={{
+              backgroundColor: 'white',
+            }}>
             <h3>Column 1</h3>
 
             <ul className="bx--list--unordered">

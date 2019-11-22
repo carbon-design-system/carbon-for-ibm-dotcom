@@ -1,7 +1,7 @@
 {
   "name": "@carbon/ibmdotcom-patterns-react",
   "description": "IBM.com Library React Patterns",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "license": "Apache-2.0",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -47,9 +47,9 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.5.5",
-    "@carbon/ibmdotcom-react": "1.1.0",
-    "@carbon/ibmdotcom-styles": "1.1.0",
-    "@carbon/ibmdotcom-utilities": "1.1.0",
+    "@carbon/ibmdotcom-react": "^1.1.2",
+    "@carbon/ibmdotcom-styles": "^1.1.2",
+    "@carbon/ibmdotcom-utilities": "^1.1.2",
     "classnames": "2.2.6",
     "window-or-global": "^1.0.1"
   },

@@ -6,6 +6,7 @@
  */
 
 import React from 'react';
+import PropTypes from 'prop-types';
 import { settings } from 'carbon-components';
 import { HeaderNavigation, HeaderMenuItem } from 'carbon-components-react';
 import HeaderMenu from '../carbon-components-react/UIShell/HeaderMenu';
@@ -17,12 +18,17 @@ const { prefix } = settings;
 /**
  * MastHead L1 component
  *
- * @typedef {object} navigation Object containing navigation elements
- * @returns {*} Masthead component
+ * @param {object} props React props
+ * @param {boolean} props.isShort Flag on whether L1 is short or tall
+ * @param {string} props.title Title for the L1
+ * @param {string} props.eyebrowText Eyebrow text
+ * @param {string} props.eyebrowLink URL for the Eyebrow
+ * @returns {*} MastheadL1 JSX component
  */
-const MastheadL1 = () => {
+const MastheadL1 = ({ isShort, title, eyebrowText, eyebrowLink }) => {
   const className = cx({
     [`${prefix}--masthead__l1`]: true,
+    [`${prefix}--masthead__l1--short`]: isShort,
   });
 
   return (
@@ -30,11 +36,9 @@ const MastheadL1 = () => {
       <div className={`${prefix}--masthead__l1-name`}>
         <span className={`${prefix}--masthead__l1-name-eyebrow`}>
           <ArrowLeft16 />
-          <a href="#">Eyebrow</a>
+          <a href={eyebrowLink}>{eyebrowText}</a>
         </span>
-        <span className={`${prefix}--masthead__l1-name-title`}>
-          Stock Charts
-        </span>
+        <span className={`${prefix}--masthead__l1-name-title`}>{title}</span>
       </div>
       <HeaderNavigation className={`${prefix}--masthead__l1-nav`} aria-label="">
         <HeaderMenuItem href="#">Link 1</HeaderMenuItem>
@@ -48,6 +52,19 @@ const MastheadL1 = () => {
       </HeaderNavigation>
     </div>
   );
+};
+
+/**
+ * @property propTypes
+ * @description Defined property types for component
+ *
+ * @type {{isShort: boolean, title: string, eyebrowText: string, eyebrowLink: string}}
+ */
+MastheadL1.propTypes = {
+  isShort: PropTypes.bool,
+  title: PropTypes.string,
+  eyebrowText: PropTypes.string,
+  eyebrowLink: PropTypes.string,
 };
 
 export default MastheadL1;

@@ -7,11 +7,21 @@
 
 Here's a quick example to get you started.
 
+```scss
+// yourapplication.scss
+@import '@carbon/type/scss/font-face/mono';
+@import '@carbon/type/scss/font-face/sans';
+@include carbon--font-face-mono();
+@include carbon--font-face-sans();
+```
+
+> 💡 Only import font's once per usage
+
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Footer } from '@carbon/ibmdotcom-react';
-
+import 'yourapplication.scss';
 import '@carbon/ibmdotcom-styles/scss/components/footer/index.scss';
 
 function App() {
@@ -70,6 +80,23 @@ A cors proxy can be configured using the following
 [environment variable](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/docs/environment-variables.md):
 
 `CORS_PROXY=https://myproxy.com/`
+
+## Server Side Rendering
+
+To server side render the footer, the `Translation` service call needs to be
+made to retrieve navigation links. Make sure to pass in the `lc` and `cc` values
+as shown in the example below.
+
+```javascript
+import { TranslationAPI } from '@carbon/ibmdotcom-services';
+import { Footer } from '@carbon/ibmdotcom-react';
+
+server.get('/', async (req, res) => {
+  const response = await TranslationAPI.getTranslation({ lc: 'en', cc: 'us' });
+  const body = renderToString(<Footer navigation={response} />);
+  res.send(body);
+});
+```
 
 ## 🙌 Contributing
 

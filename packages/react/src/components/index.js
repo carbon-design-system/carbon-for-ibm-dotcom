@@ -13,5 +13,7 @@ export * from './Icon';
 export * from './Masthead';
 export * from './LinkWithIcon';
 export * from './CardLink';
+export * from './Layout';
 export * from './ExpressiveModal';
 export * from './carbon-components-react/UIShell';
+export * from './TableOfContents';
