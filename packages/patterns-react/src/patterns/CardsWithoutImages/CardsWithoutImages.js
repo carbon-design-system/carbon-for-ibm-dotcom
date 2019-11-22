@@ -7,6 +7,7 @@
 
 import React, { useLayoutEffect } from 'react';
 import PropTypes from 'prop-types';
+import root from 'window-or-global';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
 import classNames from 'classnames';
@@ -26,7 +27,7 @@ const { prefix } = settings;
  */
 const CardsWithoutImages = ({ cardsGroup }) => {
   useLayoutEffect(() => {
-    window.addEventListener(
+    root.addEventListener(
       'resize',
       _matchHeight(`.${prefix}--cards-without-images-group__cards`)
     );
@@ -61,12 +62,8 @@ const CardsWithoutImages = ({ cardsGroup }) => {
    */
   const _getMaxHeight = els => {
     return Array.prototype.map
-      .call(els, el => {
-        return el.innerHeight;
-      })
-      .reduce((pre, cur) => {
-        return Math.max(pre, cur);
-      }, -Infinity);
+      .call(els, el => el.scrollHeight)
+      .reduce((pre, cur) => Math.max(pre, cur), -Infinity);
   };
 
   return featureFlag(
