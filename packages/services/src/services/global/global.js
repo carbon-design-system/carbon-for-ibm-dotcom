@@ -1,5 +1,5 @@
-import { AnalyticsAPI } from '@carbon/ibmdotcom-services';
-import { DDOAPI } from '@carbon/ibmdotcom-services';
+import { AnalyticsAPI } from '../Analytics';
+import { DDOAPI } from '../DDO';
 
 /**
  * Flag to determine if the global init has been fired

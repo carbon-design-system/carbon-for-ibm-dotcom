@@ -10,7 +10,6 @@ import PropTypes from 'prop-types';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
 import root from 'window-or-global';
-import { globalInit } from '@carbon/ibmdotcom-utilities';
 import { User20, UserOnline20 } from '@carbon/icons-react';
 import { IbmLogo } from '../Icon';
 import {
@@ -20,7 +19,11 @@ import {
   HeaderGlobalBar,
   SkipToContent,
 } from 'carbon-components-react';
-import { ProfileAPI, TranslationAPI } from '@carbon/ibmdotcom-services';
+import {
+  globalInit,
+  ProfileAPI,
+  TranslationAPI,
+} from '@carbon/ibmdotcom-services';
 import MastheadL1 from './MastheadL1';
 import MastheadSearch from './MastheadSearch';
 import MastheadProfile from './MastheadProfile';
