@@ -3,6 +3,11 @@
 // Use e.g. `@import '~carbon-components/scss/globals/scss/styles.scss'` instead.
 // @import '~carbon-components/src/globals/scss/styles.scss'; // SEE THE NOTE ABOVE
 
+@import '@carbon/type/scss/font-face/mono';
+@import '@carbon/type/scss/font-face/sans';
+@include carbon--font-face-mono();
+@include carbon--font-face-sans();
+
 .storybook-center-container {
   padding: 3em;
   display: flex;

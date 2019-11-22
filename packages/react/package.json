@@ -1,7 +1,7 @@
 {
   "name": "@carbon/ibmdotcom-react",
   "description": "IBM.com Library React Components",
-  "version": "1.1.0",
+  "version": "1.1.2",
   "license": "Apache-2.0",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -48,9 +48,9 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.5.5",
-    "@carbon/ibmdotcom-services": "1.1.0",
-    "@carbon/ibmdotcom-styles": "1.1.0",
-    "@carbon/ibmdotcom-utilities": "1.1.0",
+    "@carbon/ibmdotcom-services": "1.2.0-alpha.1070",
+    "@carbon/ibmdotcom-styles": "1.1.2",
+    "@carbon/ibmdotcom-utilities": "1.2.0-alpha.1070",
     "autosuggest-highlight": "^3.1.1",
     "classnames": "2.2.6",
     "react-autosuggest": "^9.4.3",
@@ -110,7 +110,7 @@
     "promise": "^8.0.1",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
-    "react-dom": "^16.8.6",
+    "react-dom": "^16.9.0",
     "react-test-renderer": "^16.8.6",
     "requestanimationframe": "^0.0.23",
     "require-context.macro": "^1.0.4",
@@ -133,6 +133,7 @@
     "semantic-release-cli": "^5.1.1",
     "storybook-readme": "^5.0.3",
     "string-replace-loader": "^2.1.0",
+    "style-loader": "^1.0.0",
     "terser-webpack-plugin": "^1.1.0",
     "webpack": "^4.25.1",
     "whatwg-fetch": "^2.0.3"

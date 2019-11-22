@@ -10,7 +10,6 @@ import PropTypes from 'prop-types';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
 import root from 'window-or-global';
-import { globalInit } from '@carbon/ibmdotcom-utilities';
 import { User20, UserOnline20 } from '@carbon/icons-react';
 import { IbmLogo } from '../Icon';
 import {
@@ -20,7 +19,11 @@ import {
   HeaderGlobalBar,
   SkipToContent,
 } from 'carbon-components-react';
-import { ProfileAPI, TranslationAPI } from '@carbon/ibmdotcom-services';
+import {
+  globalInit,
+  ProfileAPI,
+  TranslationAPI,
+} from '@carbon/ibmdotcom-services';
 import MastheadL1 from './MastheadL1';
 import MastheadSearch from './MastheadSearch';
 import MastheadProfile from './MastheadProfile';
@@ -169,6 +172,7 @@ const Masthead = ({ navigation, hasProfile, hasSearch, ...mastheadProps }) => {
                 {hasSearch && (
                   <MastheadSearch
                     searchOpenOnload={mastheadProps.searchOpenOnload}
+                    placeHolderText={mastheadProps.placeHolderText}
                   />
                 )}
               </div>
@@ -201,7 +205,12 @@ const Masthead = ({ navigation, hasProfile, hasSearch, ...mastheadProps }) => {
           </div>
           {MASTHEAD_L1 && navigation && (
             <div ref={mastheadL1Ref}>
-              <MastheadL1 />
+              <MastheadL1
+                isShort={isMastheadSticky}
+                title={mastheadProps.title}
+                eyebrowText={mastheadProps.eyebrowText}
+                eyebrowLink={mastheadProps.eyebrowLink}
+              />
             </div>
           )}
         </div>
@@ -214,13 +223,13 @@ const Masthead = ({ navigation, hasProfile, hasSearch, ...mastheadProps }) => {
  * @property propTypes
  * @description Defined property types for component
  *
- * @type {{mastheadProp: object, navigation: object, hasProfile: boolean, hasSearch: boolean}}
+ * @type {{mastheadProps: object, navigation: object, hasProfile: boolean, hasSearch: boolean}}
  */
 Masthead.propTypes = {
   navigation: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   hasProfile: PropTypes.bool,
   hasSearch: PropTypes.bool,
-  mastheadProp: PropTypes.object,
+  mastheadProps: PropTypes.object,
 };
 
 /**

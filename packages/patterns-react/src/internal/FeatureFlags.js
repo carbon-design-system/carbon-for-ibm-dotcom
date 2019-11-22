@@ -33,7 +33,7 @@ export const LISTSECTION =
   process.env.LISTSECTION === 'true' || DDS_FLAGS_ALL || false;
 
 /**
- * This determines if the leadspace will be rendered or not
+ * This determines if the simplelongform will be rendered or not
  *
  * @type {string | boolean}
  */
@@ -47,3 +47,12 @@ export const SIMPLELONGFORM =
  */
 export const DDS_CARDS_WITHOUT_IMAGES =
   process.env.DDS_CARDS_WITHOUT_IMAGES === 'true' || DDS_FLAGS_ALL || false;
+
+/**
+ * This determines if the usecases will be rendered or not
+ *
+ * @type {string | boolean}
+ */
+export const DDS_USECASES =
+  process.env.DDS_USECASES === 'true' || DDS_FLAGS_ALL || false;
+
