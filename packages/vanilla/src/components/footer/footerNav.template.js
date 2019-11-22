@@ -7,9 +7,11 @@ const { prefix } = settings;
 /**
  * renders footer nav for tall
  *
- * @returns {object} JSX object
+ * @param {object} footerMenu Footer menu data
+ * @returns {string} footer nav html output
  */
-function footerNavTemplate() {
+function footerNavTemplate(footerMenu) {
+  console.log('footerMenu', footerMenu);
   return `
   <nav data-autoid="${stablePrefix}--footer-nav" class="${prefix}--footer-nav">
     <ul class="${prefix}--accordion ${prefix}--footer-nav__container">
