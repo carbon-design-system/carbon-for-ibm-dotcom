@@ -191,7 +191,8 @@ LocaleModal.propTypes = {
 LocaleModal.defaultProps = {
   headerLabel: 'United States — English',
   headerTitle: 'Select region',
-  availabilityText: 'This page is available in the',
+  availabilityText:
+    'This page is available in the following locations and languages',
   unavailabilityText:
     'This page is unavailable in your preferred location or language',
 };
