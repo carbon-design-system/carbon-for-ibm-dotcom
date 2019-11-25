@@ -1,0 +1,25 @@
+//
+// Copyright IBM Corp. 2016, 2018
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import '@carbon/import-once/scss/import-once';
+@import '../../globals/feature-flags';
+@import 'tokens';
+
+//-------------------------
+// Expressive Theme
+//-------------------------
+
+// This includes an overall expressive theme throughout the carbon design
+// system. In addition to the global changes in typography sizes, this also
+// addresses per-component container and icon spacing to account for the size
+// adjustments.
+
+@if dds-feature-flags-enabled('carbon-expressive') {
+  @include exports('carbon-expressive') {
+    @include carbon-expressive-tokens;
+  }
+}
