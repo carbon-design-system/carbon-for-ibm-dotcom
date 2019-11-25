@@ -5,3 +5,5 @@
 **/coverage/**
 **/storybook-static/**
 **/jsdocs/**
+**/carbon-stories/**
+**/carbon-tools/**
