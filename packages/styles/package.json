@@ -25,7 +25,9 @@
   "scripts": {
     "build": "gulp",
     "start": "gulp dev",
-    "ci-check": "yarn build"
+    "ci-check": "yarn build",
+    "build-storybook": "build-storybook",
+    "storybook": "start-storybook -p 9000"
   },
   "peerDependencies": {
     "carbon-components": "^10.6.0"
@@ -38,7 +40,22 @@
     "@carbon/type": "^10.5.1"
   },
   "devDependencies": {
-    "carbon-components": "^10.6.0",
+    "@babel/core": "^7.7.4",
+    "@babel/plugin-proposal-class-properties": "^7.7.4",
+    "@babel/plugin-syntax-dynamic-import": "^7.7.4",
+    "@babel/plugin-transform-runtime": "^7.7.4",
+    "@babel/preset-env": "^7.7.4",
+    "@babel/preset-react": "^7.7.4",
+    "@carbon/icons-react": "^10.6.1",
+    "@storybook/addon-actions": "5.1.4",
+    "@storybook/addon-info": "5.1.4",
+    "@storybook/addon-knobs": "5.1.4",
+    "@storybook/addon-storysource": "5.1.4",
+    "@storybook/react": "5.1.4",
+    "babel-loader": "^8.0.6",
+    "browserslist-config-carbon": "^10.4.0",
+    "carbon-components": "^10.7.4",
+    "carbon-components-react": "^7.7.4",
     "del": "^3.0.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^6.1.0",
@@ -46,7 +63,13 @@
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.5",
-    "require-dir": "^1.2.0"
+    "prop-types": "^15.7.2",
+    "react": "16.9.0",
+    "react-dom": "16.9.0",
+    "require-context.macro": "^1.2.2",
+    "require-dir": "^1.2.0",
+    "storybook-readme": "^5.0.8",
+    "style-loader": "^1.0.0"
   },
   "sideEffects": false,
   "bundleSizeThreshold": 120000,
