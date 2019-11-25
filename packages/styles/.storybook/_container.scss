@@ -1,6 +1,12 @@
 // IMPORTANT: This import path should _not_ be used outside our source tree
 // as `src` directory is _not_ meant to be shipped in our NPM package.
 // Use e.g. `@import '~carbon-components/scss/globals/scss/styles.scss'` instead.
+
+$dds-feature-flags: (
+  carbon-expressive: true,
+);
+
+@import '../scss/themes/expressive/index';
 @import '~carbon-components/src/globals/scss/styles.scss';
 
 @import '@carbon/type/scss/font-face/mono';

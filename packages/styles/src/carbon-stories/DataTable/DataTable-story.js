@@ -24,9 +24,9 @@ const props = () => ({
 
 storiesOf('DataTable', module)
   .addDecorator(withKnobs)
-  .add('default', {
+  /*.add('default', {
     info: {
-      /* eslint-disable no-useless-escape */
+      /!* eslint-disable no-useless-escape *!/
       text: `
           Data Tables are used to represent a collection of resources, displaying a
           subset of their fields in columns, or headers. The \`DataTable\` component
@@ -35,9 +35,9 @@ storiesOf('DataTable', module)
           You can find more detailed information surrounding usage of this component
           at the following url: ${readmeURL}
         `,
-      /* eslint-enable no-useless-escape */
+      /!* eslint-enable no-useless-escape *!/
     },
-  })
+  })*/
   .add(
     'with toolbar',
     withReadme(readme, () =>
