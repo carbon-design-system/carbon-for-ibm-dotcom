@@ -22,4 +22,6 @@
 @import '@carbon/grid/scss/mixins';
 @import 'carbon-components/scss/globals/scss/css--reset';
 
+@import '../themes/expressive/index';
+
 @include carbon--type-reset();
