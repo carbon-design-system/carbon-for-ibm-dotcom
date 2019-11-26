@@ -1,0 +1,61 @@
+//
+// Copyright IBM Corp. 2016, 2018
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import '../../components/link-with-icon/link-with-icon';
+
+@mixin contentarraywithpictograms-item {
+  .#{$prefix}--contentarraywithpictograms-item {
+    margin-top: $carbon--layout-05;
+    &__title {
+      @include carbon--type-style('heading-02');
+    }
+    &__content {
+      @include carbon--type-style('body-long-02');
+    }
+    &__link {
+      margin-top: $carbon--layout-01;
+      .bx--link-with-icon {
+        span {
+          @include carbon--type-style('body-short-02');
+        }
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+    .#{$prefix}--contentarraywithpictograms__col {
+      margin-left: 0;
+      flex: none;
+      @include carbon--breakpoint('sm') {
+        &:first-of-type {
+          max-width: 100%;
+          width: 100%;
+        }
+        .#{$prefix}--contentarraywithpictograms-item__pictogram {
+          margin-bottom: $carbon--layout-03;
+        }
+
+        max-width: 100%;
+      }
+      @include carbon--breakpoint('md') {
+        max-width: 80%;
+        &:first-of-type {
+          max-width: 20%;
+        }
+        .#{$prefix}--contentarraywithpictograms-item__pictogram {
+          margin-bottom: 0;
+        }
+        .#{$prefix}--contentarraywithpictograms-item__content {
+          width: 95%;
+        }
+      }
+    }
+  }
+}
+@include exports('contentarraywithpictograms-item') {
+  @include contentarraywithpictograms-item;
+}

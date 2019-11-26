@@ -39,3 +39,13 @@ export const LISTSECTION =
  */
 export const SIMPLELONGFORM =
   process.env.SIMPLELONGFORM === 'true' || DDS_FLAGS_ALL || false;
+
+/**
+ * This determines if the contentarraywithpictograms will be rendered or not
+ *
+ * @type {string | boolean}
+ */
+export const DDS_CONTENTARRAYWITHPICTOGRAMS =
+  process.env.DDS_CONTENTARRAYWITHPICTOGRAMS === 'true' ||
+  DDS_FLAGS_ALL ||
+  false;
