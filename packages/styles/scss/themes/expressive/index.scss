@@ -5,7 +5,7 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import '@carbon/import-once/scss/import-once';
+// @import '@carbon/import-once/scss/import-once';
 @import '../../globals/feature-flags';
 @import 'tokens';
 
@@ -19,7 +19,5 @@
 // adjustments.
 
 @if dds-feature-flags-enabled('carbon-expressive') {
-  @include exports('carbon-expressive') {
-    @include carbon-expressive-tokens;
-  }
+  @include carbon-expressive-tokens;
 }

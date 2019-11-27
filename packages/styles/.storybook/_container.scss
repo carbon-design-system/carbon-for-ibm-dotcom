@@ -6,14 +6,25 @@ $dds-feature-flags: (
   carbon-expressive: true,
 );
 
-@import '../scss/themes/expressive/index';
-@import '~carbon-components/src/globals/scss/styles.scss';
+$feature-flags: (
+  ui-shell: true,
+  grid-columns-16: true,
+  enable-css-custom-properties: true,
+);
 
-@import '@carbon/type/scss/font-face/mono';
-@import '@carbon/type/scss/font-face/sans';
+// Carbon Fonts
+@import '~@carbon/type/scss/font-face/mono';
+@import '~@carbon/type/scss/font-face/sans';
 @include carbon--font-face-mono();
 @include carbon--font-face-sans();
 
+// Carbon Components
+@import '~carbon-components/scss/globals/scss/styles';
+
+// Expressive Theme
+@import '../scss/themes/expressive/index';
+
+// Storybook Container
 .storybook-center-container {
   padding: 3em;
   display: flex;
