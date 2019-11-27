@@ -5,8 +5,8 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@mixin contentarraywithpictograms {
-  .#{$prefix}--contentarraywithpictograms {
+@mixin pictogramarray {
+  .#{$prefix}--pictogramarray {
     color: $text-01;
     background: $ui-background;
     &__container {
@@ -66,6 +66,6 @@
   }
 }
 
-@include exports('contentarraywithpictograms') {
-  @include contentarraywithpictograms;
+@include exports('pictogramarray') {
+  @include pictogramarray;
 }

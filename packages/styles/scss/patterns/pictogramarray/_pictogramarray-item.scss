@@ -7,8 +7,8 @@
 
 @import '../../components/link-with-icon/link-with-icon';
 
-@mixin contentarraywithpictograms-item {
-  .#{$prefix}--contentarraywithpictograms-item {
+@mixin pictogramarray-item {
+  .#{$prefix}--pictogramarray-item {
     margin-top: $carbon--layout-05;
     &__title {
       @include carbon--type-style('heading-02');
@@ -27,7 +27,7 @@
         }
       }
     }
-    .#{$prefix}--contentarraywithpictograms__col {
+    .#{$prefix}--pictogramarray__col {
       margin-left: 0;
       flex: none;
       @include carbon--breakpoint('sm') {
@@ -35,7 +35,7 @@
           max-width: 100%;
           width: 100%;
         }
-        .#{$prefix}--contentarraywithpictograms-item__pictogram {
+        .#{$prefix}--pictogramarray-item__pictogram {
           margin-bottom: $carbon--layout-03;
         }
 
@@ -46,16 +46,16 @@
         &:first-of-type {
           max-width: 20%;
         }
-        .#{$prefix}--contentarraywithpictograms-item__pictogram {
+        .#{$prefix}--pictogramarray-item__pictogram {
           margin-bottom: 0;
         }
-        .#{$prefix}--contentarraywithpictograms-item__content {
+        .#{$prefix}--pictogramarray-item__content {
           width: 95%;
         }
       }
     }
   }
 }
-@include exports('contentarraywithpictograms-item') {
-  @include contentarraywithpictograms-item;
+@include exports('pictogramarray-item') {
+  @include pictogramarray-item;
 }

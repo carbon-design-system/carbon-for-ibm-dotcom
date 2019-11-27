@@ -45,7 +45,5 @@ export const SIMPLELONGFORM =
  *
  * @type {string | boolean}
  */
-export const DDS_CONTENTARRAYWITHPICTOGRAMS =
-  process.env.DDS_CONTENTARRAYWITHPICTOGRAMS === 'true' ||
-  DDS_FLAGS_ALL ||
-  false;
+export const DDS_PICTOGRAMARRAY =
+  process.env.DDS_PICTOGRAMARRAY === 'true' || DDS_FLAGS_ALL || false;
