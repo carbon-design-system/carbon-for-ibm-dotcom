@@ -64,7 +64,8 @@ const styleLoaders = [
       data: `
         $feature-flags: (
           ui-shell: true,
-          grid-columns-16: true
+          grid-columns-16: true,
+          enable-css-custom-properties: true
         );
       `,
       sourceMap: useStyleSourceMap,
@@ -118,7 +119,7 @@ module.exports = ({ config, mode }) => {
   });
 
   config.module.rules.push({
-    test: /.stories\.jsx?$/,
+    test: /-story\.jsx?$/,
     loaders: [
       {
         loader: require.resolve('@storybook/addon-storysource/loader'),

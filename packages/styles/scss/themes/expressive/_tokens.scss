@@ -6,45 +6,35 @@
 //
 
 @import '@carbon/type/scss/styles';
+@import '@carbon/type/scss/font-family';
+@import '@carbon/type/scss/scale';
+@import '@carbon/layout/scss/convert';
+@import '@carbon/themes/scss/mixins';
 
 /// Global token theme
 /// @access private
 /// @group carbon-expressive
 
 @mixin carbon-expressive-tokens {
-  $body-short-01: map-merge(
-    $body-short-01,
-    (
-      font-size: carbon--type-scale(3),
-      line-height: carbon--rem(22px),
-      letter-spacing: 0,
-    )
-  );
+  :root {
+    // body-short-01
+    --#{$custom-property-prefix}-body-short-01-font-size: carbon--type-scale(3);
+    --#{$custom-property-prefix}-body-short-01-line-height: carbon--rem(22px);
+    --#{$custom-property-prefix}-body-short-01-letter-spacing: 0;
 
-  $body-long-01: map-merge(
-    $body-long-01,
-    (
-      font-size: carbon--type-scale(3),
-      line-height: carbon--rem(22px),
-      letter-spacing: 0,
-    )
-  );
+    // body-long-01
+    --#{$custom-property-prefix}-body-long-01-font-size: carbon--type-scale(3);
+    --#{$custom-property-prefix}-body-long-01-line-height: carbon--rem(22px);
+    --#{$custom-property-prefix}-body-long-01-letter-spacing: 0;
 
-  $label-01: map-merge(
-    $label-01,
-    (
-      font-size: carbon--type-scale(2),
-      line-height: carbon--rem(18px),
-      letter-spacing: 0.16px,
-    )
-  );
+    // label-01
+    --#{$custom-property-prefix}-label-01-font-size: carbon--type-scale(2);
+    --#{$custom-property-prefix}-label-01-line-height: carbon--rem(18px);
+    --#{$custom-property-prefix}-label-01-letter-spacing: 0.16px;
 
-  $caption-01: map-merge(
-    $caption-01,
-    (
-      font-size: carbon--type-scale(2),
-      line-height: carbon--rem(18px),
-      letter-spacing: 0.16px,
-    )
-  );
+    // caption-01
+    --#{$custom-property-prefix}-caption-01-font-size: carbon--type-scale(2);
+    --#{$custom-property-prefix}-caption-01-line-height: carbon--rem(18px);
+    --#{$custom-property-prefix}-caption-01-letter-spacing: 0.16px;
+  }
 }
