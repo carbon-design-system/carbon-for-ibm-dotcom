@@ -24,12 +24,17 @@ const { prefix } = settings;
  * renders the pattern classnames
  *
  * @param {string} variation variation of the pattern
+ * @param {string} theme theme of the pattern
  * @returns {string} classnames
  */
-const className = variation =>
-  classnames(`${prefix}--leadspace`, {
-    [`${prefix}--leadspace--productive`]: variation === 'productive',
-  });
+const className = (variation, theme) =>
+  classnames(
+    `${prefix}--leadspace`,
+    theme && `${prefix}--leadspace--${theme}`,
+    {
+      [`${prefix}--leadspace--productive`]: variation === 'productive',
+    }
+  );
 
 /**
  * renders the pattern classnames
@@ -70,6 +75,7 @@ const sortImages = images => {
  *
  * @param {object} props props object
  * @param {string} props.variation variation of the lead space (expressive (default) or productive)
+ * @param {string} props.theme theme of the pattern (g100 or white (default))
  * @param {string} props.title lead space title
  * @param {string} props.copy lead space short copy to support the title
  * @param {boolean} props.gradient determines whether to render gradient overlay
@@ -77,12 +83,20 @@ const sortImages = images => {
  * @param {Array} props.buttons array of buttons for lead space (max 2 buttons)
  * @returns {*} Lead space component
  */
-const LeadSpace = ({ variation, title, copy, buttons, image, gradient }) =>
+const LeadSpace = ({
+  variation,
+  theme,
+  title,
+  copy,
+  buttons,
+  image,
+  gradient,
+}) =>
   featureFlag(
     LEADSPACE,
     <section
       data-autoid={`${stablePrefix}--leadspace`}
-      className={className(variation)}>
+      className={className(variation, theme)}>
       <div className={`${prefix}--leadspace__container`}>
         <div className={overlayClassname(gradient)}>
           <div className={`${prefix}--leadspace__row`}>
@@ -120,6 +134,7 @@ LeadSpace.propTypes = {
     alt: PropTypes.string,
   }),
   title: PropTypes.string.isRequired,
+  theme: PropTypes.string,
   variation: PropTypes.string,
   gradient: PropTypes.bool,
 };
