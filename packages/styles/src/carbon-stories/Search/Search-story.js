@@ -67,21 +67,4 @@ storiesOf('Search', module)
           `,
       },
     }
-  )
-  .add(
-    'skeleton',
-    () => (
-      <div style={{ width: '200px' }}>
-        <SearchSkeleton />
-        &nbsp;
-        <SearchSkeleton small />
-      </div>
-    ),
-    {
-      info: {
-        text: `
-            Placeholder skeleton state to use when content is loading.
-          `,
-      },
-    }
   );

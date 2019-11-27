@@ -129,11 +129,4 @@ storiesOf('ProgressIndicator', module)
           `,
       },
     }
-  )
-  .add('skeleton', () => <ProgressIndicatorSkeleton />, {
-    info: {
-      text: `
-            Placeholder skeleton state to use when content is loading.
-        `,
-    },
-  });
+  );

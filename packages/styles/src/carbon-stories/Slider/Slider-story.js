@@ -46,25 +46,4 @@ storiesOf('Slider', module)
             Sliders provide a visual indication of adjustable content, where the user can move the handle along a horizontal track to increase or decrease the value.
           `,
     },
-  })
-  .add(
-    'skeleton',
-    () => (
-      <div
-        style={{ marginTop: '2rem' }}
-        aria-label="loading slider"
-        aria-live="assertive"
-        role="status"
-        tabindex="0" // eslint-disable-line jsx-a11y/no-noninteractive-tabindex
-      >
-        <SliderSkeleton />
-      </div>
-    ),
-    {
-      info: {
-        text: `
-            Placeholder skeleton state to use when content is loading.
-          `,
-      },
-    }
-  );
+  });

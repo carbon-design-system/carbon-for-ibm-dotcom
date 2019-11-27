@@ -145,26 +145,4 @@ storiesOf('TextInput', module)
       `,
       },
     }
-  )
-  .add(
-    'skeleton',
-    () => (
-      <div
-        aria-label="loading text input"
-        aria-live="assertive"
-        role="status"
-        tabindex="0" // eslint-disable-line jsx-a11y/no-noninteractive-tabindex
-      >
-        <TextInputSkeleton />
-        <br />
-        <TextInputSkeleton hideLabel />
-      </div>
-    ),
-    {
-      info: {
-        text: `
-            Placeholder skeleton state to use when content is loading.
-            `,
-      },
-    }
   );

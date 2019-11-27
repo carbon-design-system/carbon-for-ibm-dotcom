@@ -146,21 +146,4 @@ storiesOf('Dropdown', module)
           `,
       },
     }
-  )
-  .add(
-    'skeleton',
-    () => (
-      <div style={{ width: 300 }}>
-        <DropdownSkeleton />
-        &nbsp;
-        <DropdownSkeleton inline />
-      </div>
-    ),
-    {
-      info: {
-        text: `
-            Placeholder skeleton state to use when content is loading.
-          `,
-      },
-    }
   );

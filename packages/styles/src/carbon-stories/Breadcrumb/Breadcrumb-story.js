@@ -44,13 +44,6 @@ storiesOf('Breadcrumb', module)
       },
     }
   )
-  /*.add('skeleton', () => <BreadcrumbSkeleton />, {
-    info: {
-      text: `
-          Placeholder skeleton state to use when content is loading.
-          `,
-    },
-  })*/
   .add(
     'current page',
     () => (

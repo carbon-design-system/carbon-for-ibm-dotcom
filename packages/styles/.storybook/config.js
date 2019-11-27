@@ -1,9 +1,9 @@
 import React from 'react';
 import requireContext from 'require-context.macro';
 import { configure, addParameters, addDecorator } from '@storybook/react';
-import { addReadme } from 'storybook-readme';
+// import { addReadme } from 'storybook-readme';
 import { configureActions } from '@storybook/addon-actions';
-// import { withInfo } from '@storybook/addon-info';
+import { withInfo } from '@storybook/addon-info';
 import Container from './Container';
 
 addParameters({
@@ -13,14 +13,13 @@ addParameters({
   },
 });
 
-addDecorator(addReadme);
+// addDecorator(addReadme);
 
 configureActions({
   depth: 3,
   limit: 10,
 });
 
-/*
 addDecorator(
   withInfo({
     styles: {
@@ -31,7 +30,6 @@ addDecorator(
     maxPropStringLength: 200, // Displays the first 200 characters in the default prop string
   })
 );
-*/
 
 addDecorator(story => <Container story={story} />);
 

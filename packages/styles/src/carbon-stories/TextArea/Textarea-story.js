@@ -41,24 +41,4 @@ storiesOf('TextArea', module)
             anticipate the user to input more than 1 sentence.
           `,
     },
-  })
-  .add(
-    'skeleton',
-    () => (
-      <div
-        aria-label="loading text area"
-        aria-live="assertive"
-        role="status"
-        tabindex="0" // eslint-disable-line jsx-a11y/no-noninteractive-tabindex
-      >
-        <TextAreaSkeleton />
-      </div>
-    ),
-    {
-      info: {
-        text: `
-            Placeholder skeleton state to use when content is loading.
-          `,
-      },
-    }
-  );
+  });

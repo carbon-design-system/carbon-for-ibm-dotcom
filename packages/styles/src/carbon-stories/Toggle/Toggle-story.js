@@ -62,11 +62,4 @@ storiesOf('Toggle', module)
           `,
       },
     }
-  )
-  .add('skeleton', () => <ToggleSkeleton {...a11yProps()} />, {
-    info: {
-      text: `
-            Placeholder skeleton state to use when content is loading.
-          `,
-    },
-  });
+  );

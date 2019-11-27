@@ -169,20 +169,4 @@ $z-indexes: (
         `,
       },
     }
-  )
-  .add(
-    'skeleton',
-    () => (
-      <div style={{ width: '800px' }}>
-        <CodeSnippetSkeleton type="single" style={{ marginBottom: 8 }} />
-        <CodeSnippetSkeleton type="multi" />
-      </div>
-    ),
-    {
-      info: {
-        text: `
-          Placeholder skeleton state to use when content is loading.
-        `,
-      },
-    }
   );

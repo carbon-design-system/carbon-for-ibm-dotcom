@@ -119,20 +119,4 @@ storiesOf('StructuredList', module)
       `,
       },
     }
-  )
-  .add(
-    'skeleton',
-    () => (
-      <div style={{ width: '800px' }}>
-        <StructuredListSkeleton />
-        <StructuredListSkeleton border />
-      </div>
-    ),
-    {
-      info: {
-        text: `
-            Placeholder skeleton state to use when content is loading.
-          `,
-      },
-    }
   );

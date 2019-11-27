@@ -42,19 +42,4 @@ storiesOf('RadioButton', module)
             to true. To use the component in a controlled way, set the checked property instead.
           `,
     },
-  })
-  .add(
-    'skeleton',
-    () => (
-      <div>
-        <RadioButtonSkeleton />
-      </div>
-    ),
-    {
-      info: {
-        text: `
-            Placeholder skeleton state to use when content is loading.
-          `,
-      },
-    }
-  );
+  });

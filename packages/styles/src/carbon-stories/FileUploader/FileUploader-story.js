@@ -195,19 +195,4 @@ storiesOf('FileUploader', module)
         text: 'Example application with drag and drop file uploader',
       },
     }
-  )
-  .add(
-    'skeleton',
-    () => (
-      <div style={{ width: '500px' }}>
-        <FileUploaderSkeleton />
-      </div>
-    ),
-    {
-      info: {
-        text: `
-    Placeholder skeleton state to use when content is loading.
-    `,
-      },
-    }
   );
