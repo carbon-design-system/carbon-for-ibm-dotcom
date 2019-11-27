@@ -50,7 +50,7 @@ $search-transition-timing: 95ms;
     transition-timing-function: $search-transition;
     background: $ui-background;
     border: none;
-    max-width: 95rem;
+    max-width: rem(1584px);
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 1px;
@@ -76,6 +76,14 @@ $search-transition-timing: 95ms;
         &:focus {
           border-color: $focus;
           background-color: $ui-01;
+        }
+
+        @include carbon--breakpoint-up(max) {
+          padding: 0 $spacing-08;
+        }
+
+        @include carbon--breakpoint-down(xlg) {
+          padding: 0 $spacing-07;
         }
 
         @include carbon--breakpoint-down(lg) {

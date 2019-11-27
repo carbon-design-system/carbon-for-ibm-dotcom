@@ -7,6 +7,322 @@
   },
   "regionList": [
     {
+      "name": "Americas",
+      "key": "am",
+      "countryList": [
+        {
+          "name": "Anguilla",
+          "locale": [
+            [
+              "en-ai",
+              "English"
+            ]
+          ]
+        },
+        {
+          "name": "Antigua and Barbuda",
+          "locale": [
+            [
+              "en-ag",
+              "English"
+            ]
+          ]
+        },
+        {
+          "name": "Argentina",
+          "locale": [
+            [
+              "es-ar",
+              "Spanish"
+            ]
+          ]
+        },
+        {
+          "name": "Aruba",
+          "locale": [
+            [
+              "en-aw",
+              "English"
+            ]
+          ]
+        },
+        {
+          "name": "Bahamas",
+          "locale": [
+            [
+              "en-bs",
+              "English"
+            ]
+          ]
+        },
+        {
+          "name": "Barbados",
+          "locale": [
+            [
+              "en-bb",
+              "English"
+            ]
+          ]
+        },
+        {
+          "name": "Bermuda",
+          "locale": [
+            [
+              "en-bm",
+              "English"
+            ]
+          ]
+        },
+        {
+          "name": "Bolivia",
+          "locale": [
+            [
+              "es-bo",
+              "Spanish"
+            ]
+          ]
+        },
+        {
+          "name": "Brazil",
+          "locale": [
+            [
+              "pt-br",
+              "Portuguese"
+            ]
+          ]
+        },
+        {
+          "name": "Canada",
+          "locale": [
+            [
+              "en-ca",
+              "English"
+            ],
+            [
+              "fr-ca",
+              "French"
+            ]
+          ]
+        },
+        {
+          "name": "Cayman Islands",
+          "locale": [
+            [
+              "en-ky",
+              "English"
+            ]
+          ]
+        },
+        {
+          "name": "Chile",
+          "locale": [
+            [
+              "es-cl",
+              "Spanish"
+            ]
+          ]
+        },
+        {
+          "name": "Colombia",
+          "locale": [
+            [
+              "es-co",
+              "Spanish"
+            ]
+          ]
+        },
+        {
+          "name": "Costa Rica",
+          "locale": [
+            [
+              "es-cr",
+              "Spanish"
+            ]
+          ]
+        },
+        {
+          "name": "Curacao",
+          "locale": [
+            [
+              "en-cw",
+              "English"
+            ]
+          ]
+        },
+        {
+          "name": "Dominica",
+          "locale": [
+            [
+              "en-dm",
+              "English"
+            ]
+          ]
+        },
+        {
+          "name": "Ecuador",
+          "locale": [
+            [
+              "es-ec",
+              "Spanish"
+            ]
+          ]
+        },
+        {
+          "name": "Grenada",
+          "locale": [
+            [
+              "en-gd",
+              "English"
+            ]
+          ]
+        },
+        {
+          "name": "Guyana",
+          "locale": [
+            [
+              "en-gy",
+              "English"
+            ]
+          ]
+        },
+        {
+          "name": "Jamaica",
+          "locale": [
+            [
+              "en-jm",
+              "English"
+            ]
+          ]
+        },
+        {
+          "name": "Mexico",
+          "locale": [
+            [
+              "es-mx",
+              "Spanish"
+            ]
+          ]
+        },
+        {
+          "name": "Montserrat",
+          "locale": [
+            [
+              "en-ms",
+              "English"
+            ]
+          ]
+        },
+        {
+          "name": "Paraguay",
+          "locale": [
+            [
+              "es-py",
+              "Spanish"
+            ]
+          ]
+        },
+        {
+          "name": "Peru",
+          "locale": [
+            [
+              "es-pe",
+              "Spanish"
+            ]
+          ]
+        },
+        {
+          "name": "Saint Kitts and Nevis",
+          "locale": [
+            [
+              "en-kn",
+              "English"
+            ]
+          ]
+        },
+        {
+          "name": "Saint Lucia",
+          "locale": [
+            [
+              "en-lc",
+              "English"
+            ]
+          ]
+        },
+        {
+          "name": "Saint Vincent and the Grenadines",
+          "locale": [
+            [
+              "en-vc",
+              "English"
+            ]
+          ]
+        },
+        {
+          "name": "Suriname",
+          "locale": [
+            [
+              "en-sr",
+              "English"
+            ]
+          ]
+        },
+        {
+          "name": "Trinidad and Tobago",
+          "locale": [
+            [
+              "en-tt",
+              "English"
+            ]
+          ]
+        },
+        {
+          "name": "Turks and Caicos Islands",
+          "locale": [
+            [
+              "en-tc",
+              "English"
+            ]
+          ]
+        },
+        {
+          "name": "United States",
+          "locale": [
+            [
+              "en-us",
+              "English"
+            ]
+          ]
+        },
+        {
+          "name": "Uruguay",
+          "locale": [
+            [
+              "es-uy",
+              "Spanish"
+            ]
+          ]
+        },
+        {
+          "name": "Venezuela",
+          "locale": [
+            [
+              "es-ve",
+              "Spanish"
+            ]
+          ]
+        },
+        {
+          "name": "Virgin Islands, British",
+          "locale": [
+            [
+              "en-vg",
+              "English"
+            ]
+          ]
+        }
+      ]
+    },
+    {
       "name": "Asia Pacific",
       "key": "ap",
       "countryList": [
@@ -692,129 +1008,6 @@
       ]
     },
     {
-      "name": "Latin America",
-      "key": "la",
-      "countryList": [
-        {
-          "name": "Argentina",
-          "locale": [
-            [
-              "es-ar",
-              "Spanish"
-            ]
-          ]
-        },
-        {
-          "name": "Bolivia",
-          "locale": [
-            [
-              "es-bo",
-              "Spanish"
-            ]
-          ]
-        },
-        {
-          "name": "Brazil",
-          "locale": [
-            [
-              "pt-br",
-              "Portuguese"
-            ]
-          ]
-        },
-        {
-          "name": "Chile",
-          "locale": [
-            [
-              "es-cl",
-              "Spanish"
-            ]
-          ]
-        },
-        {
-          "name": "Colombia",
-          "locale": [
-            [
-              "es-co",
-              "Spanish"
-            ]
-          ]
-        },
-        {
-          "name": "Costa Rica",
-          "locale": [
-            [
-              "es-cr",
-              "Spanish"
-            ]
-          ]
-        },
-        {
-          "name": "Ecuador",
-          "locale": [
-            [
-              "es-ec",
-              "Spanish"
-            ]
-          ]
-        },
-        {
-          "name": "Guyana",
-          "locale": [
-            [
-              "en-gy",
-              "English"
-            ]
-          ]
-        },
-        {
-          "name": "Paraguay",
-          "locale": [
-            [
-              "es-py",
-              "Spanish"
-            ]
-          ]
-        },
-        {
-          "name": "Peru",
-          "locale": [
-            [
-              "es-pe",
-              "Spanish"
-            ]
-          ]
-        },
-        {
-          "name": "Suriname",
-          "locale": [
-            [
-              "en-sr",
-              "English"
-            ]
-          ]
-        },
-        {
-          "name": "Uruguay",
-          "locale": [
-            [
-              "es-uy",
-              "Spanish"
-            ]
-          ]
-        },
-        {
-          "name": "Venezuela",
-          "locale": [
-            [
-              "es-ve",
-              "Spanish"
-            ]
-          ]
-        }
-      ]
-    },
-    {
       "name": "Middle East and Africa",
       "key": "mea",
       "countryList": [
@@ -1263,205 +1456,6 @@
           "locale": [
             [
               "en-zw",
-              "English"
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "name": "North America",
-      "key": "na",
-      "countryList": [
-        {
-          "name": "Anguilla",
-          "locale": [
-            [
-              "en-ai",
-              "English"
-            ]
-          ]
-        },
-        {
-          "name": "Antigua and Barbuda",
-          "locale": [
-            [
-              "en-ag",
-              "English"
-            ]
-          ]
-        },
-        {
-          "name": "Aruba",
-          "locale": [
-            [
-              "en-aw",
-              "English"
-            ]
-          ]
-        },
-        {
-          "name": "Bahamas",
-          "locale": [
-            [
-              "en-bs",
-              "English"
-            ]
-          ]
-        },
-        {
-          "name": "Barbados",
-          "locale": [
-            [
-              "en-bb",
-              "English"
-            ]
-          ]
-        },
-        {
-          "name": "Bermuda",
-          "locale": [
-            [
-              "en-bm",
-              "English"
-            ]
-          ]
-        },
-        {
-          "name": "Canada",
-          "locale": [
-            [
-              "en-ca",
-              "English"
-            ],
-            [
-              "fr-ca",
-              "French"
-            ]
-          ]
-        },
-        {
-          "name": "Cayman Islands",
-          "locale": [
-            [
-              "en-ky",
-              "English"
-            ]
-          ]
-        },
-        {
-          "name": "Curacao",
-          "locale": [
-            [
-              "en-cw",
-              "English"
-            ]
-          ]
-        },
-        {
-          "name": "Dominica",
-          "locale": [
-            [
-              "en-dm",
-              "English"
-            ]
-          ]
-        },
-        {
-          "name": "Grenada",
-          "locale": [
-            [
-              "en-gd",
-              "English"
-            ]
-          ]
-        },
-        {
-          "name": "Jamaica",
-          "locale": [
-            [
-              "en-jm",
-              "English"
-            ]
-          ]
-        },
-        {
-          "name": "Mexico",
-          "locale": [
-            [
-              "es-mx",
-              "Spanish"
-            ]
-          ]
-        },
-        {
-          "name": "Montserrat",
-          "locale": [
-            [
-              "en-ms",
-              "English"
-            ]
-          ]
-        },
-        {
-          "name": "Saint Kitts and Nevis",
-          "locale": [
-            [
-              "en-kn",
-              "English"
-            ]
-          ]
-        },
-        {
-          "name": "Saint Lucia",
-          "locale": [
-            [
-              "en-lc",
-              "English"
-            ]
-          ]
-        },
-        {
-          "name": "Saint Vincent and the Grenadines",
-          "locale": [
-            [
-              "en-vc",
-              "English"
-            ]
-          ]
-        },
-        {
-          "name": "Trinidad and Tobago",
-          "locale": [
-            [
-              "en-tt",
-              "English"
-            ]
-          ]
-        },
-        {
-          "name": "Turks and Caicos Islands",
-          "locale": [
-            [
-              "en-tc",
-              "English"
-            ]
-          ]
-        },
-        {
-          "name": "United States",
-          "locale": [
-            [
-              "en-us",
-              "English"
-            ]
-          ]
-        },
-        {
-          "name": "Virgin Islands, British",
-          "locale": [
-            [
-              "en-vg",
               "English"
             ]
           ]
