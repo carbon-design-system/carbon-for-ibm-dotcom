@@ -899,20 +899,6 @@
     "@carbon/import-once" "10.3.0"
     "@carbon/layout" "10.5.0"
 
-"@carbon/ibmdotcom-react@^1.1.1":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@carbon/ibmdotcom-react/-/ibmdotcom-react-1.1.1.tgz#4d7050e01983a1584b098ce45e185356b79d9169"
-  integrity sha512-oAPnGXYIu5wzQI+DcfVENfjCOBnmx1WcnEwhdBT/I8k7bkuMdNcDFubQXg/Hkcb0FkV+DzA5Mw00TXdTOmgQCA==
-  dependencies:
-    "@babel/runtime" "^7.5.5"
-    "@carbon/ibmdotcom-services" "1.1.1"
-    "@carbon/ibmdotcom-styles" "1.1.1"
-    "@carbon/ibmdotcom-utilities" "1.1.1"
-    autosuggest-highlight "^3.1.1"
-    classnames "2.2.6"
-    react-autosuggest "^9.4.3"
-    window-or-global "^1.0.1"
-
 "@carbon/ibmdotcom-services@1.1.1":
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/@carbon/ibmdotcom-services/-/ibmdotcom-services-1.1.1.tgz#c23337bbd8a837c7b6679243b23e905ae58b8184"
@@ -964,6 +950,13 @@
   version "10.5.0"
   resolved "https://registry.yarnpkg.com/@carbon/layout/-/layout-10.5.0.tgz#02b79bb4713ea750622e432c9e8ada626cdb6555"
   integrity sha512-Ri4lJLDlSrZwvMUWvz4mowY47yegaN4nVhoimxx2252UwJK4Q5EIp8oXkFW6caonM01VU3AJmfUIowU/fdDLWg==
+
+"@carbon/pictograms-react@^10.7.0":
+  version "10.7.0"
+  resolved "https://registry.yarnpkg.com/@carbon/pictograms-react/-/pictograms-react-10.7.0.tgz#bb2f90fb23f6384eae3562afa0015da34bd2d2b1"
+  integrity sha512-bfFZLPeav3T9BWEM0ITC5/W7mhmpDMq/hccrCUjAMNODXP64anIF+5UPndGAXfrDgWIHuWZ3rE5E/A8d3u5+pA==
+  dependencies:
+    "@carbon/icon-helpers" "10.4.0"
 
 "@carbon/themes@^10.4.0":
   version "10.5.0"
