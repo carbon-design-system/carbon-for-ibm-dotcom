@@ -25,14 +25,9 @@ export default class Container extends Component {
     return (
       <React.StrictMode>
         <div
+          className="storybook-center-container"
           data-floating-menu-container=""
-          role="main"
-          style={{
-            padding: '3em',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-          }}>
+          role="main">
           {story()}
         </div>
         <input

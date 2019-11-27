@@ -18,23 +18,23 @@
 @mixin carbon-expressive-tokens {
   :root {
     // body-short-01
-    --#{$custom-property-prefix}-body-short-01-font-size: carbon--type-scale(3);
-    --#{$custom-property-prefix}-body-short-01-line-height: carbon--rem(22px);
+    --#{$custom-property-prefix}-body-short-01-font-size: 1rem; /* carbon--type-scale(3) */
+    --#{$custom-property-prefix}-body-short-01-line-height: 1.375rem; /* carbon--rem(22px) */
     --#{$custom-property-prefix}-body-short-01-letter-spacing: 0;
 
     // body-long-01
-    --#{$custom-property-prefix}-body-long-01-font-size: carbon--type-scale(3);
-    --#{$custom-property-prefix}-body-long-01-line-height: carbon--rem(22px);
+    --#{$custom-property-prefix}-body-long-01-font-size: 1rem; /* carbon--type-scale(3) */
+    --#{$custom-property-prefix}-body-long-01-line-height: 1.375rem; /* carbon--rem(22px) */
     --#{$custom-property-prefix}-body-long-01-letter-spacing: 0;
 
     // label-01
-    --#{$custom-property-prefix}-label-01-font-size: carbon--type-scale(2);
-    --#{$custom-property-prefix}-label-01-line-height: carbon--rem(18px);
+    --#{$custom-property-prefix}-label-01-font-size: 0.875rem; /* carbon--type-scale(2) */
+    --#{$custom-property-prefix}-label-01-line-height: 1.125rem; /* carbon--rem(18px) */
     --#{$custom-property-prefix}-label-01-letter-spacing: 0.16px;
 
     // caption-01
-    --#{$custom-property-prefix}-caption-01-font-size: carbon--type-scale(2);
-    --#{$custom-property-prefix}-caption-01-line-height: carbon--rem(18px);
+    --#{$custom-property-prefix}-caption-01-font-size: 0.875rem; /* carbon--type-scale(2) */
+    --#{$custom-property-prefix}-caption-01-line-height: 1.125rem; /* carbon--rem(18px) */
     --#{$custom-property-prefix}-caption-01-letter-spacing: 0.16px;
   }
 }

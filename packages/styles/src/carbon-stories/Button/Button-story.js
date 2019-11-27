@@ -200,22 +200,3 @@ storiesOf('Buttons', module)
       },
     }
   );
-/*.add(
-    'skeleton',
-    () => (
-      <div>
-        <ButtonSkeleton />
-        &nbsp;
-        <ButtonSkeleton href="#" />
-        &nbsp;
-        <ButtonSkeleton size="small" />
-      </div>
-    ),
-    {
-      info: {
-        text: `
-          Placeholder skeleton state to use when content is loading.
-        `,
-      },
-    }
-  );*/

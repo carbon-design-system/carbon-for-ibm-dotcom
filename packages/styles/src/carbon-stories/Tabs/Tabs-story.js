@@ -125,11 +125,4 @@ storiesOf('Tabs', module)
           `,
       },
     }
-  )
-  .add('skeleton', () => <TabsSkeleton />, {
-    info: {
-      text: `
-            Placeholder skeleton state to use when content is loading.
-          `,
-    },
-  });
+  );

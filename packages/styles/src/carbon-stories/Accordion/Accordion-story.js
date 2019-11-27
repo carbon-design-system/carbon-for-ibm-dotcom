@@ -75,21 +75,3 @@ storiesOf('Accordion', module)
       },
     }
   );
-/*.add(
-    'skeleton',
-    () => (
-      <div style={{ width: '500px' }}>
-        <AccordionSkeleton
-          open={boolean('Show first item opened (open)', true)}
-          count={number('Set number of items (count)', 4)}
-        />
-      </div>
-    ),
-    {
-      info: {
-        text: `
-          Accordions allow users to expand and collapse sections of content.
-        `,
-      },
-    }
-  );*/

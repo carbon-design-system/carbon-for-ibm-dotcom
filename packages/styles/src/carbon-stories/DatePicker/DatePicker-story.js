@@ -206,11 +206,4 @@ storiesOf('DatePicker', module)
           `,
       },
     }
-  )
-  .add('skeleton', () => <DatePickerSkeleton range />, {
-    info: {
-      text: `
-            Placeholder skeleton state to use when content is loading.
-            `,
-    },
-  });
+  );

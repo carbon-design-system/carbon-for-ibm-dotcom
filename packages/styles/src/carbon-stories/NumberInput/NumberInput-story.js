@@ -72,24 +72,4 @@ storiesOf('NumberInput', module)
           `,
       },
     }
-  )
-  .add(
-    'skeleton',
-    () => (
-      <div
-        aria-label="loading number input"
-        aria-live="assertive"
-        role="status"
-        tabindex="0" // eslint-disable-line jsx-a11y/no-noninteractive-tabindex
-      >
-        <NumberInputSkeleton />
-      </div>
-    ),
-    {
-      info: {
-        text: `
-            Placeholder skeleton state to use when content is loading.
-          `,
-      },
-    }
   );

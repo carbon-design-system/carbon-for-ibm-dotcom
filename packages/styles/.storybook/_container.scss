@@ -32,6 +32,14 @@ $feature-flags: (
   align-items: center;
 }
 
+.storybook-center-container > div {
+  width: 100%;
+}
+
+.storybook-readme-story {
+  width: 100%;
+}
+
 .bx--visually-hidden {
   display: none;
 }
