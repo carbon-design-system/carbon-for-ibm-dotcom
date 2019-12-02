@@ -29,8 +29,8 @@ export const LEADSPACE =
  *
  * @type {string | boolean}
  */
-export const LEADSPACE_CENTERED =
-  process.env.LEADSPACE_CENTERED === 'true' || DDS_FLAGS_ALL || false;
+export const DDS_LEADSPACE_CENTERED =
+  process.env.DDS_LEADSPACE_CENTERED === 'true' || DDS_FLAGS_ALL || false;
 
 /**
  * This determines if the listsection will be rendered or not

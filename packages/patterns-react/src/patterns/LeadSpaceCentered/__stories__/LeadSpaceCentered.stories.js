@@ -11,9 +11,9 @@ import {
 import '../../../../../styles/scss/patterns/leadspace-centered/index.scss';
 import LeadSpaceCentered from '../LeadSpaceCentered';
 import readme from '../README.md';
-import { LEADSPACE_CENTERED } from '../../../internal/FeatureFlags';
+import { DDS_LEADSPACE_CENTERED } from '../../../internal/FeatureFlags';
 
-if (LEADSPACE_CENTERED) {
+if (DDS_LEADSPACE_CENTERED) {
   storiesOf('LeadSpace - Centered', module)
     .addDecorator(withKnobs)
     .addParameters({

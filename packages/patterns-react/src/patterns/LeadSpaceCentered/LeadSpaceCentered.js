@@ -13,7 +13,7 @@ import {
   featureFlag,
   settings as ddsSettings,
 } from '@carbon/ibmdotcom-utilities';
-import { LEADSPACE_CENTERED } from '../../internal/FeatureFlags';
+import { DDS_LEADSPACE_CENTERED } from '../../internal/FeatureFlags';
 import { ButtonGroup } from '@carbon/ibmdotcom-react';
 
 const { stablePrefix } = ddsSettings;
@@ -77,7 +77,7 @@ const LeadSpaceCentered = ({ title, copy, buttons, image, gradient }) => {
       : { backgroundImage: 'none' };
 
   return featureFlag(
-    LEADSPACE_CENTERED,
+    DDS_LEADSPACE_CENTERED,
     <section
       style={background}
       data-autoid={`${stablePrefix}--leadspace--centered`}

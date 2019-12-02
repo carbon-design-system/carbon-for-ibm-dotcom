@@ -59,6 +59,11 @@
         background-position: center top;
       }
 
+      &__title,
+      &__desc {
+        max-width: carbon--mini-units(80);
+      }
+
       &__desc {
         padding-top: $layout-04;
       }
