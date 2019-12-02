@@ -86,7 +86,7 @@ const LeadSpaceCentered = ({
 
   const background =
     image && !isMobile
-      ? { backgroundImage: `url(${image})` }
+      ? { backgroundImage: `url(${image.url})` }
       : { backgroundImage: 'none' };
 
   return featureFlag(
@@ -104,7 +104,7 @@ const LeadSpaceCentered = ({
       </div>
       {image && (
         <div className={`${prefix}--leadspace--centered--mobile__image`}>
-          <img src={image} alt="" />
+          <img src={image.url} alt={image.alt} />
         </div>
       )}
     </section>
@@ -114,15 +114,13 @@ const LeadSpaceCentered = ({
 LeadSpaceCentered.propTypes = {
   buttons: PropTypes.array,
   copy: PropTypes.string,
+  gradient: PropTypes.bool,
   image: PropTypes.shape({
-    mobile: PropTypes.string,
-    tablet: PropTypes.string,
-    default: PropTypes.string,
+    url: PropTypes.string,
     alt: PropTypes.string,
   }),
-  title: PropTypes.string.isRequired,
   theme: PropTypes.string,
-  gradient: PropTypes.bool,
+  title: PropTypes.string.isRequired,
 };
 
 export default LeadSpaceCentered;

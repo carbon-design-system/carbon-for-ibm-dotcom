@@ -21,9 +21,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { LeadSpaceCentered } from '@carbon/ibmdotcom-patterns-react';
 import 'yourapplication.scss';
-import '@carbon/ibmdotcom-styles/scss/patterns/leadspace/index.scss';
 function App() {
-  return <LeadSpace />;
+  return <LeadSpaceCentered />;
 }
 ReactDOM.render(<App />, document.querySelector('#app'));
 ```
@@ -48,18 +47,26 @@ DDS_LEADSPACE_CENTERED=true
 
 ## Variations
 
-| Name                   | Description                             |
-| ---------------------- | --------------------------------------- |
-| `expressive`/`default` | Expressive style of the leadspace title |
-| `productive`           | Productive style of the leadspace title |
+| Name              | Description                              |
+| ----------------- | ---------------------------------------- |
+| `white`/`default` | White theme applied to pattern           |
+| `g100`            | Gray 100 (g100) theme applied to pattern |
+
+## Props
+
+| Name      | Required | Data Type | Default Value  | Description                |
+| --------- | -------- | --------- | -------------- | -------------------------- |
+| `buttons` | NO       | Array     | null           | CTAs for pattern (max two) |
+| `copy`    | NO       | String    | null           | Short copy/description     |
+| `image`   | NO       | Object    | null           | Background image           |
+| `theme`   | NO       | String    | null           | Carbon theme to be applied |
+| `title`   | YES      | String    | required field | Title/header of pattern    |
 
 ## Stable selectors
 
-| Name                    | Description                |
-| ----------------------- | -------------------------- |
-| `dds--leadspace`        | Pattern                    |
-| `dds--leadspace__image` | LeadSpace background image |
-| `dds--leadspace__cta`   | LeadSpace CTAs             |
+| Name                       | Description |
+| -------------------------- | ----------- |
+| `dds--leadspace--centered` | Pattern     |
 
 ## 🙌 Contributing
 
