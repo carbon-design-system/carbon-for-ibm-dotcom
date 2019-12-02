@@ -6,6 +6,7 @@
 //
 
 @import '../../globals/imports';
+@import '@carbon/ibmdotcom-styles/scss/components/buttongroup/buttongroup.scss';
 
 @mixin themed-items {
   background-color: $ui-background;
