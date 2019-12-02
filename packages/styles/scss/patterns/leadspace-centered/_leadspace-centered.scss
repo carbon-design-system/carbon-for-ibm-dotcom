@@ -5,10 +5,30 @@
 // LICENSE file in the root directory of this source tree.
 //
 
+@import '../../globals/imports';
+
+@mixin themed-items {
+  background-color: $ui-background;
+
+  .#{$prefix}--leadspace--centered__title,
+  .#{$prefix}--leadspace--centered__desc {
+    color: $text-01;
+  }
+
+  @include carbon--breakpoint(md) {
+    .#{$prefix}--leadspace--centered__gradient {
+      background: linear-gradient(
+        to bottom,
+        rgba($ui-background, 0.8),
+        rgba($ui-background, 0.6),
+        transparent 75%
+      );
+    }
+  }
+}
+
 @mixin leadspace-centered {
   .#{$prefix}--leadspace--centered {
-    background-color: $ui-background;
-
     &--mobile__image {
       height: carbon--mini-units(20);
       width: 100%;
@@ -30,7 +50,6 @@
 
     &__title,
     &__desc {
-      color: $text-01;
       width: 95%;
     }
 
@@ -43,12 +62,12 @@
       padding-top: $layout-03;
       @include carbon--type-style(expressive-heading-03, true);
     }
+
+    @include themed-items;
   }
 
   @include carbon--breakpoint(md) {
     .#{$prefix}--leadspace--centered {
-      background: $ui-background;
-
       &__overlay {
         padding-bottom: carbon--mini-units(20);
       }
@@ -75,15 +94,6 @@
       &--mobile__image {
         display: none;
       }
-
-      &__gradient {
-        background: linear-gradient(
-          to bottom,
-          rgba($ui-background, 0.8),
-          rgba($ui-background, 0.6),
-          transparent 75%
-        );
-      }
     }
 
     .#{$prefix}--leadspace--centered__image
@@ -98,6 +108,12 @@
         width: 50%;
         margin: auto;
       }
+    }
+  }
+
+  .#{$prefix}--leadspace--centered--g100 {
+    @include carbon--theme($carbon--theme--g100) {
+      @include themed-items;
     }
   }
 }

@@ -23,12 +23,17 @@ const { prefix } = settings;
  * renders the pattern classnames
  *
  * @param {string} image image url
+ * @param {string} theme theme of the pattern
  * @returns {string} classnames
  */
-const className = image =>
-  classnames(`${prefix}--leadspace--centered`, {
-    [`${prefix}--leadspace--centered__image`]: image,
-  });
+const className = (image, theme) =>
+  classnames(
+    `${prefix}--leadspace--centered`,
+    theme && `${prefix}--leadspace--centered--${theme}`,
+    {
+      [`${prefix}--leadspace--centered__image`]: image,
+    }
+  );
 
 /**
  * renders the pattern classnames
@@ -49,10 +54,18 @@ const overlayClassname = gradient =>
  * @param {string} props.copy lead space short copy to support the title
  * @param {boolean} props.gradient determines whether to render gradient overlay
  * @param {object} props.image image object with diff source for diff breakpoints
+ * @param {string} props.theme theme of the pattern
  * @param {Array} props.buttons array of buttons for lead space (max 2 buttons)
  * @returns {*} Lead space component
  */
-const LeadSpaceCentered = ({ title, copy, buttons, image, gradient }) => {
+const LeadSpaceCentered = ({
+  title,
+  copy,
+  buttons,
+  image,
+  gradient,
+  theme,
+}) => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const isMobile = windowWidth <= 671;
 
@@ -81,7 +94,7 @@ const LeadSpaceCentered = ({ title, copy, buttons, image, gradient }) => {
     <section
       style={background}
       data-autoid={`${stablePrefix}--leadspace--centered`}
-      className={className(image)}>
+      className={className(image, theme)}>
       <div className={overlayClassname(gradient)}>
         <div className={`${prefix}--leadspace--centered__content`}>
           <h1 className={`${prefix}--leadspace--centered__title`}>{title}</h1>
@@ -108,6 +121,7 @@ LeadSpaceCentered.propTypes = {
     alt: PropTypes.string,
   }),
   title: PropTypes.string.isRequired,
+  theme: PropTypes.string,
   gradient: PropTypes.bool,
 };
 

@@ -8,7 +8,7 @@ import {
   object,
   boolean,
 } from '@storybook/addon-knobs';
-import '../../../../../styles/scss/patterns/leadspace-centered/index.scss';
+import '../../../../../styles/scss/patterns/leadspace-centered/_leadspace-centered.scss';
 import LeadSpaceCentered from '../LeadSpaceCentered';
 import readme from '../README.md';
 import { DDS_LEADSPACE_CENTERED } from '../../../internal/FeatureFlags';
@@ -43,23 +43,17 @@ if (DDS_LEADSPACE_CENTERED) {
       ];
 
       const themes = {
-        'dark (g100)': 'g100',
+        g100: 'g100',
         'light (white)': '',
       };
 
       return (
-        <div
-          className={`bx--leadspace--${select(
-            'theme',
-            themes,
-            themes['dark (g100)']
-          )}`}>
-          <LeadSpaceCentered
-            title={title}
-            copy={copy}
-            buttons={object('buttons', buttons)}
-          />
-        </div>
+        <LeadSpaceCentered
+          title={title}
+          copy={copy}
+          theme={select('theme', themes, themes.g100)}
+          buttons={object('buttons', buttons)}
+        />
       );
     })
     .add('Centered with image', () => {
@@ -101,27 +95,21 @@ if (DDS_LEADSPACE_CENTERED) {
       ];
 
       const themes = {
-        'dark (g100)': 'g100',
+        g100: 'g100',
         'light (white)': '',
       };
 
       const graident = boolean('gradient overlay', true);
 
       return (
-        <div
-          className={`bx--leadspace--${select(
-            'theme',
-            themes,
-            themes['dark (g100)']
-          )}`}>
-          <LeadSpaceCentered
-            title={title}
-            copy={copy}
-            gradient={graident}
-            buttons={buttons}
-            image={object('image', image)}
-          />
-        </div>
+        <LeadSpaceCentered
+          title={title}
+          copy={copy}
+          gradient={graident}
+          buttons={buttons}
+          theme={select('theme', themes, themes.g100)}
+          image={object('image', image)}
+        />
       );
     });
 }

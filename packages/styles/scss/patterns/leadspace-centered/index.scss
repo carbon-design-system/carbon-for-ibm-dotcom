@@ -1,9 +1,0 @@
-@import '../../globals/imports';
-@import '@carbon/ibmdotcom-styles/scss/components/buttongroup/buttongroup.scss';
-@import './leadspace-centered';
-
-.#{$prefix}--leadspace--g100 {
-  @include carbon--theme($carbon--theme--g100) {
-    @include leadspace-centered;
-  }
-}
