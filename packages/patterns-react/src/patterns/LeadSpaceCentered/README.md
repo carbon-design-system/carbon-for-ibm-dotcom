@@ -54,13 +54,14 @@ DDS_LEADSPACE_CENTERED=true
 
 ## Props
 
-| Name      | Required | Data Type | Default Value  | Description                |
-| --------- | -------- | --------- | -------------- | -------------------------- |
-| `buttons` | NO       | Array     | null           | CTAs for pattern (max two) |
-| `copy`    | NO       | String    | null           | Short copy/description     |
-| `image`   | NO       | Object    | null           | Background image           |
-| `theme`   | NO       | String    | null           | Carbon theme to be applied |
-| `title`   | YES      | String    | required field | Title/header of pattern    |
+| Name       | Required | Data Type | Default Value  | Description                   |
+| ---------- | -------- | --------- | -------------- | ----------------------------- |
+| `buttons`  | NO       | Array     | null           | CTAs for pattern (max two)    |
+| `copy`     | NO       | String    | null           | Short copy/description        |
+| `image`    | NO       | Object    | null           | Background image              |
+| `gradient` | NO       | Boolean   | false          | Turns on/off gradient overlay |
+| `theme`    | NO       | String    | ''             | Carbon theme to be applied    |
+| `title`    | YES      | String    | required field | Title/header of pattern       |
 
 ## Stable selectors
 
