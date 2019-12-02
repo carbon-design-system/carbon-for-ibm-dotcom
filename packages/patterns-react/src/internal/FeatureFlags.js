@@ -39,3 +39,11 @@ export const LISTSECTION =
  */
 export const SIMPLELONGFORM =
   process.env.SIMPLELONGFORM === 'true' || DDS_FLAGS_ALL || false;
+
+/**
+ * This determines if the simplelongform will be rendered or not
+ *
+ * @type {string | boolean}
+ */
+export const DDS_CARDARRAY =
+  process.env.DDS_CARDARRAY === 'true' || DDS_FLAGS_ALL || false;
