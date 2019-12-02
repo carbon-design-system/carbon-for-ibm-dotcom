@@ -9,6 +9,12 @@
 @import '../../globals/feature-flags';
 @import 'tokens';
 
+// Carbon component theming
+@import 'components/accordion';
+@import 'components/date-picker';
+@import 'components/list-box';
+@import 'components/text-input';
+
 //-------------------------
 // Expressive Theme
 //-------------------------
@@ -20,4 +26,10 @@
 
 @if dds-feature-flags-enabled('carbon-expressive') {
   @include carbon-expressive-tokens;
+
+  // Component mixins
+  @include accordion-expressive;
+  @include date-picker-expressive;
+  @include list-box-expressive;
+  @include text-input-expressive;
 }
