@@ -2,7 +2,5 @@
 @import './cards-without-images';
 @import './cards-without-images-group';
 
-.#{$prefix}--cards-without-images--g10 {
-  @include cards-without-images;
-  @include cards-without-images-group;
-}
+@include cards-without-images;
+@include cards-without-images-group;

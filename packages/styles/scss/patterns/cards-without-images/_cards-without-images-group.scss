@@ -6,6 +6,34 @@
 //
 @import '../../components/link-with-icon/link-with-icon';
 
+@mixin themed-items {
+  .bx--card-link {
+    background-color: $ui-01;
+    outline: 1px solid $ui-background;
+    &__title {
+      color: $text-01;
+    }
+    &__content {
+      color: $text-02;
+    }
+    &__footer {
+      svg {
+        fill: $link-01;
+      }
+    }
+    &:last-child {
+      background-color: $ui-05;
+      .bx--card-link__title {
+        color: $ui-02;
+      }
+      .bx--card-link__footer {
+        svg {
+          fill: $inverse-support-04;
+        }
+      }
+    }
+  }
+}
 @mixin cards-without-images-group {
   .#{$prefix}--cards-without-images-group {
     padding-bottom: $carbon--layout-05;
@@ -26,9 +54,7 @@
 
       display: flex;
       padding: $carbon--spacing-05;
-      background-color: $ui-01;
       text-decoration: none;
-      outline: 1px solid $ui-background;
       outline-offset: -1px;
 
       > *:not(:last-child) {
@@ -46,7 +72,6 @@
         padding-bottom: $carbon--layout-05;
       }
       &__content {
-        color: $text-02;
         min-height: 50px;
         @include carbon--type-style('body-long-02');
 
@@ -59,20 +84,6 @@
         width: $carbon--layout-04;
         margin-left: carbon--rem(-14px);
         margin-bottom: carbon--rem(-14px);
-        svg {
-          fill: $link-01;
-        }
-      }
-      &:last-child {
-        background-color: $ui-05;
-        .bx--card-link__title {
-          color: $ui-02;
-        }
-        .bx--card-link__footer {
-          svg {
-            fill: $inverse-support-04;
-          }
-        }
       }
     }
     @include carbon--breakpoint('md') {
@@ -95,6 +106,12 @@
       .bx--card-link {
         @include carbon--make-col(4, 12);
       }
+    }
+    @include themed-items;
+  }
+  .#{$prefix}--cards-without-images-group#{$prefix}--cards-without-images-group--g10 {
+    @include carbon--theme($carbon--theme--g10) {
+      @include themed-items;
     }
   }
 }

@@ -87,7 +87,7 @@ const CardsWithoutImages = ({ theme, cardsGroup }) => {
       <div className={`${prefix}--cards-without-images__container`}>
         <div className={`${prefix}--cards-without-images__row`}>
           <div className={`${prefix}--cards-without-images__col`}>
-            {_renderCardsGroup(cardsGroup)}
+            {_renderCardsGroup(theme, cardsGroup)}
           </div>
         </div>
       </div>
@@ -99,10 +99,11 @@ const CardsWithoutImages = ({ theme, cardsGroup }) => {
  * Render Cards without images Group Component
  *
  * @private
+ * @param {string} theme theme name
  * @param {Array} cardsGroup cardsGroup array with title, groupCard and cards properties
  * @returns {object} JSX Object
  */
-const _renderCardsGroup = cardsGroup => {
+const _renderCardsGroup = (theme, cardsGroup) => {
   return cardsGroup.map(group => {
     return (
       <CardsWithoutImagesGroup
@@ -110,12 +111,14 @@ const _renderCardsGroup = cardsGroup => {
         title={group.title}
         groupCard={group.groupCard}
         cards={group.cards}
+        theme={theme}
       />
     );
   });
 };
 
 CardsWithoutImages.propTypes = {
+  theme: PropTypes.string,
   cardsGroup: PropTypes.array,
 };
 

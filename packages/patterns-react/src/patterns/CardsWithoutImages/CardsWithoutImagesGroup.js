@@ -9,6 +9,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
+import classNames from 'classnames';
 import { CardLink } from '@carbon/ibmdotcom-react';
 import { ArrowRight20 } from '@carbon/icons-react';
 
@@ -16,19 +17,33 @@ const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
+ * sets the class name based on theme type
+ *
+ * @param {string} theme theme type ( g10 | white/default )
+ * @returns {string} theme css class names
+ */
+const setTheme = theme => {
+  return theme && `${prefix}--cards-without-images-group--${theme}`;
+};
+
+/**
  * Card without images group Component
  *
  * @param {object} props props object
  * @param {string} props.title cards group title
+ * @param {string} props.theme theme name
  * @param {Array} props.groupCard cards group card
  * @param {Array} props.cards Array of object with title, href and target properties
  * @returns {object} JSX Object
  */
-const CardsWithoutImagesGroup = ({ title, groupCard, cards }) => {
+const CardsWithoutImagesGroup = ({ theme, title, groupCard, cards }) => {
   return (
     <div
       data-autoid={`${stablePrefix}--cards-without-images-group`}
-      className={`${prefix}--cards-without-images-group`}>
+      className={classNames(
+        `${prefix}--cards-without-images-group`,
+        setTheme(theme)
+      )}>
       <h2 className={`${prefix}--cards-without-images-group__title`}>
         {title}
       </h2>
@@ -72,6 +87,7 @@ const _renderList = cards => {
 };
 
 CardsWithoutImagesGroup.propTypes = {
+  theme: PropTypes.string,
   title: PropTypes.string,
   groupCard: PropTypes.shape({
     href: PropTypes.string,
