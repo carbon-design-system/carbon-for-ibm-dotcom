@@ -1,20 +1,19 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { DDS_PICTOGRAMARRAY } from '../../../internal/FeatureFlags';
+import { DDS_PICTOGRAM_ARRAY } from '../../../internal/FeatureFlags';
 import { withKnobs, text, object, select } from '@storybook/addon-knobs';
 import '../../../../../styles/scss/patterns/pictogramarray/index.scss';
 import PictogramArray from '../PictogramArray';
-import { Desktop, Touch, Pattern } from '@carbon/pictograms-react';
-// import readme from '../README.md';
+import readme from '../README.md';
 
-if (DDS_PICTOGRAMARRAY) {
+if (DDS_PICTOGRAM_ARRAY) {
   storiesOf('Content array with pictograms', module)
     .addDecorator(withKnobs)
-    // .addParameters({
-    //   readme: {
-    //     sidebar: readme,
-    //   },
-    // })
+    .addParameters({
+      readme: {
+        sidebar: readme,
+      },
+    })
     .add('Default', () => {
       const pictograms = {
         Desktop: 'Desktop',
@@ -26,20 +25,6 @@ if (DDS_PICTOGRAMARRAY) {
         'Pattern title (required)',
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
       );
-
-      const selectedPictogram = [
-        select(
-          'Element 1 pictogram (required)',
-          pictograms,
-          pictograms.Desktop
-        ),
-        select('Element 2 pictogram (required)', pictograms, pictograms.Touch),
-        select(
-          'Element 3 pictogram (required)',
-          pictograms,
-          pictograms.Pattern
-        ),
-      ];
 
       const contentGroup = [
         {
@@ -56,6 +41,11 @@ if (DDS_PICTOGRAMARRAY) {
             text: 'Learn more',
             target: '_self',
           }),
+          pictogram: select(
+            'Element 1 pictogram (required)',
+            pictograms,
+            pictograms.Desktop
+          ),
         },
         {
           title: text(
@@ -71,6 +61,11 @@ if (DDS_PICTOGRAMARRAY) {
             text: 'Learn more',
             target: '_self',
           }),
+          pictogram: select(
+            'Element 2 pictogram (required)',
+            pictograms,
+            pictograms.Touch
+          ),
         },
         {
           title: text(
@@ -86,23 +81,17 @@ if (DDS_PICTOGRAMARRAY) {
             text: 'Learn more',
             target: '_self',
           }),
+          pictogram: select(
+            'Element 3 pictogram (required)',
+            pictograms,
+            pictograms.Pattern
+          ),
         },
       ];
 
       return (
         <div>
-          <PictogramArray title={title} contentGroup={contentGroup}>
-            {selectedPictogram.map(elem => {
-              switch (elem) {
-                case 'Desktop':
-                  return <Desktop viewBox="8 8 32 32" height="80" width="80" />;
-                case 'Touch':
-                  return <Touch viewBox="8 8 32 32" height="80" width="80" />;
-                case 'Pattern':
-                  return <Pattern viewBox="8 8 32 32" height="80" width="80" />;
-              }
-            })}
-          </PictogramArray>
+          <PictogramArray title={title} contentGroup={contentGroup} />
         </div>
       );
     });

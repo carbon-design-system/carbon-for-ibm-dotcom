@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
 import { featureFlag } from '@carbon/ibmdotcom-utilities';
-import { DDS_PICTOGRAMARRAY } from '../../internal/FeatureFlags';
+import { DDS_PICTOGRAM_ARRAY } from '../../internal/FeatureFlags';
 import PictogramArrayItem from './PictogramArrayItem';
 
 const { stablePrefix } = ddsSettings;
@@ -22,12 +22,11 @@ const { prefix } = settings;
  * @param {object} props props object
  * @param {string} props.title List section title
  * @param {Array} props.contentGroup variation of the List section standard, standard with jump link and standard with card link
- * @param {*} props.children List of JSX child pictogram elements
  * @returns {*}  Content array with pictograms JSX Component
  */
-const PictogramArray = ({ title, contentGroup, children }) =>
+const PictogramArray = ({ title, contentGroup }) =>
   featureFlag(
-    DDS_PICTOGRAMARRAY,
+    DDS_PICTOGRAM_ARRAY,
     <section
       data-autoid={`${stablePrefix}--pictogramarray`}
       className={`${prefix}--pictogramarray`}>
@@ -35,7 +34,7 @@ const PictogramArray = ({ title, contentGroup, children }) =>
         <div className={`${prefix}--pictogramarray__row`}>
           <div className={`${prefix}--pictogramarray__col`}>
             <h2 className={`${prefix}--pictogramarray__title`}>{title}</h2>
-            {_renderArray(contentGroup, React.Children.toArray(children))}
+            {_renderArray(contentGroup)}
           </div>
           <div className={`${prefix}--pictogramarray__divider__col`}>
             <div className={`${prefix}--pictogramarray__divider`}></div>
@@ -50,18 +49,16 @@ const PictogramArray = ({ title, contentGroup, children }) =>
  *
  * @private
  * @param {Array} contentArray contentGroup object array
- * @param {Array} children Array of JSX pictogram elements
  * @returns {object} JSX Object
  */
-const _renderArray = (contentArray, children) =>
-  contentArray.map((contentItem, index) => (
+const _renderArray = contentArray =>
+  contentArray.map(contentItem => (
     <PictogramArrayItem
       title={contentItem.title}
       pictogram={contentItem.pictogram}
       copy={contentItem.copy}
-      link={contentItem.link}>
-      {children[index]}
-    </PictogramArrayItem>
+      link={contentItem.link}
+    />
   ));
 
 PictogramArray.propTypes = {
@@ -75,6 +72,7 @@ PictogramArray.propTypes = {
         text: PropTypes.string,
         target: PropTypes.string,
       }),
+      pictogram: PropTypes.string,
     })
   ),
 };
