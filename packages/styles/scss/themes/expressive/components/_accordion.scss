@@ -5,7 +5,7 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import 'carbon-components/scss/globals/scss/typography';
+@import '@carbon/layout/scss/convert';
 
 //-----------------------------
 // Accordion (expressive)
@@ -16,6 +16,12 @@
 /// @group accordion-expressive
 @mixin accordion-expressive {
   .#{$prefix}--accordion__heading {
-    padding: rem(10px) 0;
+    padding: carbon--rem(10px) 0;
+  }
+
+  .#{$prefix}--accordion__arrow {
+    width: carbon--rem(20px);
+    height: carbon--rem(20px);
+    // margin: $accordion-arrow-margin;
   }
 }

@@ -8,20 +8,14 @@
 @import '@carbon/layout/scss/convert';
 
 //-----------------------------
-// Date Picker (expressive)
+// Number Input (expressive)
 //-----------------------------
 
-/// Date picker styles (expressive)
+/// Number input styles (expressive)
 /// @access private
-/// @group date-picker-expressive
-@mixin date-picker-expressive {
-  .#{$prefix}--date-picker__input {
+/// @group number-input-expressive
+@mixin number-input-expressive {
+  .#{$prefix}--number input[type='number'] {
     height: carbon--rem(48px); /* $carbon--container-04 */
-  }
-
-  .#{$prefix}--date-picker.#{$prefix}--date-picker--simple {
-    .#{$prefix}--date-picker__input {
-      width: rem(125px);
-    }
   }
 }

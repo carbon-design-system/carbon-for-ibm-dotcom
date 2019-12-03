@@ -8,14 +8,14 @@
 @import '@carbon/layout/scss/convert';
 
 //-----------------------------
-// Text Input (expressive)
+// Button (expressive)
 //-----------------------------
 
-/// Text input styles (expressive)
+/// Button styles (expressive)
 /// @access private
-/// @group text-input-expressive
-@mixin text-input-expressive {
-  .#{$prefix}--text-input {
-    height: carbon--rem(48px); /* $carbon--container-04 */
+/// @group button-expressive
+@mixin button-expressive {
+  .#{$prefix}--btn--sm {
+    min-height: rem(40px);
   }
 }

@@ -24,7 +24,7 @@
 
     // body-long-01
     --#{$custom-property-prefix}-body-long-01-font-size: 1rem; /* carbon--type-scale(3) */
-    --#{$custom-property-prefix}-body-long-01-line-height: 1.375rem; /* carbon--rem(22px) */
+    --#{$custom-property-prefix}-body-long-01-line-height: 1.5rem; /* carbon--rem(24px) */
     --#{$custom-property-prefix}-body-long-01-letter-spacing: 0;
 
     // label-01
@@ -36,5 +36,30 @@
     --#{$custom-property-prefix}-caption-01-font-size: 0.875rem; /* carbon--type-scale(2) */
     --#{$custom-property-prefix}-caption-01-line-height: 1.125rem; /* carbon--rem(18px) */
     --#{$custom-property-prefix}-caption-01-letter-spacing: 0.16px;
+
+    // code-01
+    --#{$custom-property-prefix}-code-01-font-size: 0.875rem; /* carbon--type-scale(2) */
+    --#{$custom-property-prefix}-code-01-line-height: 1.25rem; /* carbon--rem(20px) */
+    --#{$custom-property-prefix}-code-01-letter-spacing: 0;
+
+    // code-02
+    --#{$custom-property-prefix}-code-02-font-size: 1rem; /* carbon--type-scale(3) */
+    --#{$custom-property-prefix}-code-02-line-height: 1.5rem; /* carbon--rem(24px) */
+    --#{$custom-property-prefix}-code-02-letter-spacing: 0;
+
+    // helper-text-01
+    --#{$custom-property-prefix}-helper-text-01-font-size: 0.875rem; /* carbon--type-scale(2) */
+    --#{$custom-property-prefix}-helper-text-01-line-height: 1.125rem; /* carbon--rem(18px) */
+    --#{$custom-property-prefix}-helper-text-01-letter-spacing: 0.16px;
+
+    // productive-heading-01
+    --#{$custom-property-prefix}-productive-heading-01-font-size: 1rem; /* carbon--type-scale(3) */
+    --#{$custom-property-prefix}-productive-heading-01-line-height: 1.25rem; /* carbon--rem(22px) */
+    --#{$custom-property-prefix}-productive-heading-01-letter-spacing: 0;
+
+    // expressive-heading-01
+    --#{$custom-property-prefix}-expressive-heading-01-font-size: 0.875rem; /* carbon--type-scale(2) */
+    --#{$custom-property-prefix}-expressive-heading-01-line-height: 1.25rem; /* carbon--rem(20px) */
+    --#{$custom-property-prefix}-expressive-heading-01-letter-spacing: 0.16px;
   }
 }

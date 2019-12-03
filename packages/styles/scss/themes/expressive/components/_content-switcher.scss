@@ -8,14 +8,14 @@
 @import '@carbon/layout/scss/convert';
 
 //-----------------------------
-// Text Input (expressive)
+// Content Switcher (expressive)
 //-----------------------------
 
-/// Text input styles (expressive)
+/// Content switcher styles (expressive)
 /// @access private
-/// @group text-input-expressive
-@mixin text-input-expressive {
-  .#{$prefix}--text-input {
-    height: carbon--rem(48px); /* $carbon--container-04 */
+/// @group content-switcher-expressive
+@mixin content-switcher-expressive {
+  .#{$prefix}--content-switcher {
+    height: carbon--rem(48px);
   }
 }
