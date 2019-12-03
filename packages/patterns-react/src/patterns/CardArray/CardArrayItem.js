@@ -10,7 +10,7 @@ import React from 'react';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
 import { Button } from 'carbon-components-react';
-import { ArrowRight20, ArrowDown20, Pdf20 } from '@carbon/icons-react';
+import { ArrowRight20 } from '@carbon/icons-react';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
@@ -37,30 +37,11 @@ const CardArrayItem = ({ title, copy, link }) => {
           href={link.href}
           target={link.target}
           kind="primary">
-          {_renderIcon(link.icon)}
+          <ArrowRight20 fill="white" />
         </Button>
       </div>
     </div>
   );
-};
-
-/**
- * Renders the right icon based on the icon variable
- *
- * @param {string} icon Icon name string
- * @returns {*} Icon JSX object
- */
-const _renderIcon = icon => {
-  switch (icon) {
-    case 'ArrowRight':
-      return <ArrowRight20 fill="white" />;
-    case 'ArrowDown':
-      return <ArrowDown20 fill="white" />;
-    case 'Pdf':
-      return <Pdf20 fill="white" />;
-    default:
-      return <ArrowRight20 fill="white" />;
-  }
 };
 
 CardArrayItem.propTypes = {
@@ -69,7 +50,6 @@ CardArrayItem.propTypes = {
   link: PropTypes.shape({
     href: PropTypes.string,
     target: PropTypes.string,
-    icon: PropTypes.string,
   }),
 };
 

@@ -45,5 +45,5 @@ export const SIMPLELONGFORM =
  *
  * @type {string | boolean}
  */
-export const DDS_CARDARRAY =
-  process.env.DDS_CARDARRAY === 'true' || DDS_FLAGS_ALL || false;
+export const DDS_CARD_ARRAY =
+  process.env.DDS_CARD_ARRAY === 'true' || DDS_FLAGS_ALL || false;

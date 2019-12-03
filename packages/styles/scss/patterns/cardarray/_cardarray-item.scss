@@ -22,11 +22,13 @@
     &__title {
       margin-bottom: $carbon--layout-03;
       width: 90%;
+      max-width: 640px;
       @include carbon--type-style('heading-02');
     }
     &__content {
       margin-bottom: $carbon--layout-03;
       width: 90%;
+      max-width: 640px;
       @include carbon--type-style('body-long-02');
     }
     &__link {

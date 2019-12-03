@@ -6,11 +6,11 @@
  */
 
 import PropTypes from 'prop-types';
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
 import { featureFlag } from '@carbon/ibmdotcom-utilities';
-import { DDS_CARDARRAY } from '../../internal/FeatureFlags';
+import { DDS_CARD_ARRAY } from '../../internal/FeatureFlags';
 import CardArrayItem from './CardArrayItem';
 
 const { stablePrefix } = ddsSettings;
@@ -25,11 +25,18 @@ const { prefix } = settings;
  * @returns {*} CardArray JSX component
  */
 const CardArray = ({ title, content }) => {
+  const containerRef = useRef();
+
   useEffect(() => {
+    setCardsHeight();
+  });
+
+  /**
+   * Set the cards to have the same height as the bigger one
+   */
+  const setCardsHeight = () => {
     let biggest = 0;
-    const cards = Array.prototype.slice.call(
-      document.querySelectorAll(`[data-autoid=${stablePrefix}--cardarray-item]`)
-    );
+    const cards = Array.prototype.slice.call(containerRef.current.children);
     cards.forEach(card => {
       if (card.offsetHeight > biggest) {
         biggest = card.offsetHeight;
@@ -38,10 +45,10 @@ const CardArray = ({ title, content }) => {
     cards.forEach(card => {
       card.style.height = biggest + 'px';
     });
-  });
+  };
 
   return featureFlag(
-    DDS_CARDARRAY,
+    DDS_CARD_ARRAY,
     <section
       className={`${prefix}--cardarray`}
       data-autoid={`${stablePrefix}--cardarray`}>
@@ -50,7 +57,10 @@ const CardArray = ({ title, content }) => {
           <div className={`${prefix}--cardarray__col`}>
             <h3 className={`${prefix}--cardarray__title`}>{title}</h3>
           </div>
-          <div className={`${prefix}--cardarray__col`}>
+          <div
+            data-autoid={`${stablePrefix}--cardarray-group`}
+            ref={containerRef}
+            className={`${prefix}--cardarray__col ${prefix}--cardarray-group`}>
             {_renderCardArrayItems(content)}
           </div>
           <div className={`${prefix}--cardarray__divider__col`}>
@@ -80,7 +90,6 @@ CardArray.propTypes = {
       title: PropTypes.string,
       copy: PropTypes.string,
       link: PropTypes.shape({
-        icon: PropTypes.string,
         target: PropTypes.string,
         href: PropTypes.string,
       }),
