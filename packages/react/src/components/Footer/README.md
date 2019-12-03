@@ -49,7 +49,14 @@ FOOTER_LOCALE_BUTTON=true
 > [.env.example](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/.env.example)
 > for more information
 
-## Types (optional)
+## Props
+
+| Name         | Required | Data Type | Default Value | Description                        |
+| ------------ | -------- | --------- | ------------- | ---------------------------------- |
+| `navgiation` | NO       | Object    | null          | Navigation data object for Footer  |
+| `type`       | NO       | String    | null          | Type of Footer. See below `Types`. |
+
+### Types (optional)
 
 | Name             | Description                                                                 |
 | ---------------- | --------------------------------------------------------------------------- |

@@ -32,14 +32,23 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 > 💡 Don't forget to import the horizontal rule styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
-## Styles (optional)
+## Props
+
+| Name       | Required | Data Type | Default Value     | Description                               |
+| ---------- | -------- | --------- | ----------------- | ----------------------------------------- |
+| `style`    | NO       | String    | 'solid'           | Style of the HR. See `Styles` below.      |
+| `size`     | NO       | String    | 'fluid'           | Length of the HR. See `Sizes` below.      |
+| `contrast` | NO       | String    | 'medium-contrast' | Contrast of the HR. See `Contrast` below. |
+| `weight`   | NO       | String    | 'thin'            | Weight of the HR. See `Weights` below.    |
+
+### Styles (optional)
 
 | Name              | Description                                                                    |
 | ----------------- | ------------------------------------------------------------------------------ |
 | `solid`/`default` | Default style variant of the horizontal rule                                   |
 | `dashed`          | Dashed/dotted style variant (style is applied in conjuction with `fluid` size) |
 
-## Sizes (optional)
+### Sizes (optional)
 
 | Name              | Description                                                         |
 | ----------------- | ------------------------------------------------------------------- |
@@ -48,7 +57,7 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 | `medium`          | Medium fixed-length variant with a max-width of 48px                |
 | `large`           | Longer fixed-length variant with a max-width of 64px                |
 
-## Contrast types (optional)
+### Contrast types (optional)
 
 | Name                        | Description                    |
 | --------------------------- | ------------------------------ |
@@ -56,7 +65,7 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 | `low-contrast`              | Lighter contrast color variant |
 | `high-contrast`             | Darker contrast color variant  |
 
-## Weights (optional)
+### Weights (optional)
 
 | Name             | Description                                                                          |
 | ---------------- | ------------------------------------------------------------------------------------ |

@@ -44,6 +44,15 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 > 💡 Don't forget to import the expressive modal styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
+## Props
+
+| Name        | Required | Data Type       | Default Value | Description                                         |
+| ----------- | -------- | --------------- | ------------- | --------------------------------------------------- |
+| `children`  | NO       | Node            | null          | Components/Elements to be rendered within the Modal |
+| `className` | NO       | String OR Array | null          | Custom classname(s) for the Modal                   |
+| `onClose`   | NO       | Function        | null          | Function to be triggered on close of Modal          |
+| `open`      | NO       | Boolean         | false         | Sets whether the Modal is open/close                |
+
 ## Stable selectors
 
 | Name                           | Description |
