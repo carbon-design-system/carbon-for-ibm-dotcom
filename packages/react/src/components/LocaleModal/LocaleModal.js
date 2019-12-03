@@ -13,7 +13,9 @@ import LocaleModalRegions from './LocaleModalRegions';
 import LocaleModalCountries from './LocaleModalCountries';
 import { ArrowLeft20, Globe20 } from '@carbon/icons-react';
 import { ComposedModal, ModalHeader, ModalBody } from 'carbon-components-react';
-import { LocaleAPI } from '@carbon/ibmdotcom-services';
+// import { LocaleAPI } from '@carbon/ibmdotcom-services';
+import { LocaleAPI } from '../../../../services/src/services/Locale';
+
 import cx from 'classnames';
 
 const { stablePrefix } = ddsSettings;
@@ -59,57 +61,32 @@ const LocaleModal = ({ isOpen, setIsOpen, ...localeModalProps }) => {
 
     list.regionList &&
       list.regionList.map((region, index) => {
-        let isAmericas = region.name.indexOf('America') > -1;
-
         filterList.push({
-          name: isAmericas ? 'Americas' : region.name,
-          key: isAmericas ? 'nala' : region.key,
+          name: region.name,
+          key: region.key,
           countries: [],
         });
 
         for (let [key, value] of Object.entries(pageLangs)) {
           region.countryList.map(country => {
-            if (country.locale[0][0].includes(key)) {
-              filterList[index].countries.push({
-                region: isAmericas ? 'nala' : region.key,
-                name: country.name,
-                locale: country.locale[0][0],
-                language: country.locale[0][1],
-                href: value,
-              });
-            }
+            country.locale.map(loc => {
+              if (loc[0].includes(key)) {
+                filterList[index].countries.push({
+                  region: region.key,
+                  name: country.name,
+                  locale: loc[0],
+                  language: loc[1],
+                  href: value,
+                });
+              }
+            });
           });
         }
+
+        filterList[index].countries.sort((a, b) => (a.name > b.name ? 1 : -1));
       });
 
-    /**
-     *  Sort lists and merge regions with same name (Americas)
-     *
-     * @param {object} list region list
-     *
-     * @returns {object} region list
-     */
-    const regions = filterList.reduce((acc, cur) => {
-      const occurs = acc.reduce((n, item, i) => {
-        return item.name === cur.name ? i : n;
-      }, -1);
-
-      if (occurs >= 0) {
-        acc[occurs].countries = acc[occurs].countries
-          .concat(cur.countries)
-          .sort(sort);
-      } else {
-        const obj = {
-          name: cur.name,
-          key: cur.key,
-          countries: cur.countries.sort(sort),
-        };
-        acc = acc.concat([obj]).sort(sort);
-      }
-      return acc;
-    }, []);
-
-    return regions;
+    return filterList;
   };
 
   return (
@@ -158,17 +135,6 @@ const LocaleModal = ({ isOpen, setIsOpen, ...localeModalProps }) => {
    */
   function close() {
     setIsOpen(false);
-  }
-
-  /**
-   * Sort region and countries alphabetically
-   *
-   * @param {string} a string to sort
-   * @param {string} b string to sort
-   * @private
-   */
-  function sort(a, b) {
-    return a.name > b.name ? 1 : -1;
   }
 };
 
