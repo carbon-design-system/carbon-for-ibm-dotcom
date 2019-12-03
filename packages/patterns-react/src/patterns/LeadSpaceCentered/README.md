@@ -21,6 +21,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { LeadSpaceCentered } from '@carbon/ibmdotcom-patterns-react';
 import 'yourapplication.scss';
+import '@carbon/ibmdotcom-styles/scss/patterns/leadspace-centered/_leadspace-centered.scss';
 function App() {
   return <LeadSpaceCentered />;
 }
