@@ -129,19 +129,15 @@ if (DDS_CARDS_WITHOUT_IMAGES) {
       ];
 
       const themes = {
-        'dark (g10)': 'g10',
+        g10: 'g10',
         'light (white)': '',
       };
 
       return (
-        <div
-          className={`bx--cards-without-images--${select(
-            'theme',
-            themes,
-            themes['dark (g10)']
-          )}`}>
-          <CardsWithoutImages cardsGroup={object('cardsGroup', cardsGroup)} />
-        </div>
+        <CardsWithoutImages
+          cardsGroup={object('cardsGroup', cardsGroup)}
+          theme={select('theme', themes, themes['g10'])}
+        />
       );
     });
 }
