@@ -4,16 +4,16 @@ import { DDS_CARD_ARRAY } from '../../../internal/FeatureFlags';
 import { withKnobs, text } from '@storybook/addon-knobs';
 import '../../../../../styles/scss/patterns/cardarray/index.scss';
 import CardArray from '../CardArray';
-// import readme from '../README.md';
+import readme from '../README.md';
 
 if (DDS_CARD_ARRAY) {
   storiesOf('Content Array with Cards', module)
     .addDecorator(withKnobs)
-    // .addParameters({
-    //   readme: {
-    //     sidebar: readme,
-    //   },
-    // })
+    .addParameters({
+      readme: {
+        sidebar: readme,
+      },
+    })
     .add('Default', () => {
       const title = text(
         'Pattern title(required):',
