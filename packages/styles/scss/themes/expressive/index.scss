@@ -17,6 +17,8 @@
 @import 'components/list-box';
 @import 'components/number-input';
 @import 'components/text-input';
+@import 'components/time-picker';
+@import 'components/select';
 
 //-------------------------
 // Expressive Theme
@@ -38,4 +40,6 @@
   @include list-box-expressive;
   @include number-input-expressive;
   @include text-input-expressive;
+  @include time-picker-expressive;
+  @include select-expressive;
 }
