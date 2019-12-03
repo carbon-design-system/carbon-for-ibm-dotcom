@@ -87,7 +87,7 @@ const renderLink = (type, data) => {
  * sets the class name based on link type
  *
  * @param {string} type link type ( iconLink | cardLink )
- * @returns {string} link type css class names
+ * @returns {string} theme css class name
  */
 const setLinkType = type => {
   let linkType;
