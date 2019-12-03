@@ -46,23 +46,12 @@ DDS_LEADSPACE_CENTERED=true
 > [.env.example](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/patterns-react/.env.example)
 > for more information
 
-## Variations
+## Theme (optional)
 
 | Name              | Description                              |
 | ----------------- | ---------------------------------------- |
 | `white`/`default` | White theme applied to pattern           |
 | `g100`            | Gray 100 (g100) theme applied to pattern |
-
-## Props
-
-| Name       | Required | Data Type | Default Value  | Description                   |
-| ---------- | -------- | --------- | -------------- | ----------------------------- |
-| `buttons`  | NO       | Array     | null           | CTAs for pattern (max two)    |
-| `copy`     | NO       | String    | null           | Short copy/description        |
-| `image`    | NO       | Object    | null           | Background image              |
-| `gradient` | NO       | Boolean   | false          | Turns on/off gradient overlay |
-| `theme`    | NO       | String    | ''             | Carbon theme to be applied    |
-| `title`    | YES      | String    | required field | Title/header of pattern       |
 
 ## Stable selectors
 
