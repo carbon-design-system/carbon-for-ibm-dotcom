@@ -6,7 +6,7 @@ import { ipcinfoCookie, geolocation } from '@carbon/ibmdotcom-utilities';
  * @constant {string | string} Host for the Locale API call
  * @private
  */
-const _host = process.env.TRANSLATION_HOST || 'https://www.ibm.com';
+const _host = process.env.TRANSLATION_HOST || 'https://1.www.s81c.com';
 
 /**
  * @constant {string | string} CORS proxy for lower environment calls
@@ -31,7 +31,7 @@ const _localeDefault = {
  * @type {string}
  * @private
  */
-const _endpoint = `${_proxy}${_host}/common/v18/js/data/countrylist`;
+const _endpoint = `${_proxy}${_host}/common/js/dynamicnav/www/countrylist/jsononly`;
 
 /**
  * Session Storage key for country list
