@@ -5,6 +5,7 @@ import { withKnobs, text, object, select } from '@storybook/addon-knobs';
 import '../../../../../styles/scss/patterns/pictogramarray/index.scss';
 import PictogramArray from '../PictogramArray';
 import readme from '../README.md';
+import { Desktop, Touch, Pattern } from '@carbon/pictograms-react';
 
 if (DDS_PICTOGRAM_ARRAY) {
   storiesOf('Content array with pictograms', module)
@@ -16,9 +17,9 @@ if (DDS_PICTOGRAM_ARRAY) {
     })
     .add('Default', () => {
       const pictograms = {
-        Desktop: 'Desktop',
-        Touch: 'Touch',
-        Pattern: 'Pattern',
+        Desktop: Desktop,
+        Touch: Touch,
+        Pattern: Pattern,
       };
 
       const title = text(

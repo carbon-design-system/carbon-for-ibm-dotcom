@@ -55,7 +55,7 @@ const _renderArray = contentArray =>
   contentArray.map(contentItem => (
     <PictogramArrayItem
       title={contentItem.title}
-      pictogram={contentItem.pictogram}
+      Pictogram={contentItem.pictogram}
       copy={contentItem.copy}
       link={contentItem.link}
     />
@@ -72,7 +72,7 @@ PictogramArray.propTypes = {
         text: PropTypes.string,
         target: PropTypes.string,
       }),
-      pictogram: PropTypes.string,
+      pictogram: PropTypes.object,
     })
   ),
 };

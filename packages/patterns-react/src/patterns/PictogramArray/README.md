@@ -20,6 +20,7 @@ Here's a quick example to get you started.
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { PictogramArray } from '@carbon/ibmdotcom-patterns-react';
+import { Desktop, Touch, Pattern } from '@carbon/pictograms-react';
 import 'yourapplication.scss';
 import '@carbon/ibmdotcom-styles/scss/patterns/pictogramarray/index.scss';
 
@@ -51,10 +52,10 @@ DDS_PICTOGRAM_ARRAY=true
 
 ## Props
 
-| Name           | Description                                                                        |
-| -------------- | ---------------------------------------------------------------------------------- |
-| `title`        | List section title `{title}`                                                       |
-| `contentGroup` | List section listGroup `{[ {title, copy, link: {href, text, target}, pictogram }]} |
+| Name           | Description                                                                                            |
+| -------------- | ------------------------------------------------------------------------------------------------------ |
+| `title`        | Content array with pictograms section title `{title}`                                                  |
+| `contentGroup` | Content array with pictograms contentGroup `{[ {title, copy, link: {href, text, target}, pictogram }]} |
 
 ## Stable selectors
 
