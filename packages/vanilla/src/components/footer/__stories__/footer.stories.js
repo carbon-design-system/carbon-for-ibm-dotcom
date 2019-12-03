@@ -1,11 +1,7 @@
 import { storiesOf } from '@storybook/html';
 import { withKnobs, select } from '@storybook/addon-knobs';
-import { settings } from 'carbon-components';
-import footerTemplate from '../footer.template';
 import Footer from '../footer';
 import '../../../../../styles/scss/components/footer/index.scss';
-
-const { prefix } = settings;
 
 storiesOf('footer', module)
   .addDecorator(withKnobs)
@@ -19,11 +15,23 @@ storiesOf('footer', module)
       tall: '',
       short: 'short',
     };
-    setTimeout(() => {
-      const footerElement = document.querySelector(`.${prefix}--footer`);
-      Footer.init(footerElement);
-    }, 3000);
-    return footerTemplate({
-      type: select('type', footerTypeOptions, footerTypeOptions.tall),
+    /**
+     * renders either short or the tall footer
+     * @returns {string} string
+     */
+    async function _getFooter() {
+      const template = await Footer.getFooterWithData(
+        select('type', footerTypeOptions, footerTypeOptions.tall)
+      );
+
+      return template;
+    }
+
+    const element = document.createElement('div');
+    element.textContent = 'Loading...';
+    _getFooter().then(html => {
+      element.innerHTML = html;
+      Footer.init(element);
     });
+    return element;
   });

@@ -11,7 +11,6 @@ const { prefix } = settings;
  * @returns {string} footer nav html output
  */
 function footerNavTemplate(footerMenu) {
-  console.log('footerMenu', footerMenu);
   return `
   <nav data-autoid="${stablePrefix}--footer-nav" class="${prefix}--footer-nav">
     <ul class="${prefix}--accordion ${prefix}--footer-nav__container">
@@ -29,11 +28,11 @@ function footerNavTemplate(footerMenu) {
  */
 function _renderNavSections(footerMenu) {
   let sections = '';
-
-  console.log(footerMenu);
-  /*footerMenu.map(item, () => {
-    sections = sections + _renderNavSection(item);
-  });*/
+  if (footerMenu && footerMenu.length > 0) {
+    footerMenu.forEach(item => {
+      sections = sections + _renderNavSection(item);
+    });
+  }
 
   return sections;
 }
@@ -46,18 +45,17 @@ function _renderNavSections(footerMenu) {
  * @private
  */
 function _renderNavSection(section) {
-  console.log('section', section);
   return `
     <li class="${prefix}--accordion__item ${prefix}--footer-nav-group" data-autoid="${stablePrefix}--footer-nav-group"><button aria-expanded="false" class="${prefix}--accordion__heading" title="Expand/Collapse" type="button"><svg focusable="false"
           preserveAspectRatio="xMidYMid meet" aria-label="Expand/Collapse" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" role="img" class="${prefix}--accordion__arrow" style="will-change: transform;">
           <path d="M11 8l-5 5-.7-.7L9.6 8 5.3 3.7 6 3z"></path>
         </svg>
-        <div class="${prefix}--accordion__title">Discover</div>
+        <div class="${prefix}--accordion__title">${section.title}</div>
       </button>
       <div class="${prefix}--accordion__content">
-        <h2 class="${prefix}--footer-nav-group__title">Discover</h2>
+        <h2 class="${prefix}--footer-nav-group__title">${section.title}</h2>
         <ul>
-          ${_renderNavItem()}
+          ${_renderNavItems(section.links)}
         </ul>
       </div>
     </li>
@@ -65,16 +63,34 @@ function _renderNavSection(section) {
 }
 
 /**
- * Renders a single nav item
+ * Renders the array of nav link items
  *
- * @param {object} item Navigation item
+ * @param {Array} links Navigation links Array
  * @returns {string} HTML nav item
  * @private
  */
-function _renderNavItem(item) {
-  console.log('item', item);
+function _renderNavItems(links) {
+  let navLinks = '';
+  if (links && links.length > 0) {
+    links.forEach(link => {
+      navLinks = navLinks + _renderNavItem(link);
+    });
+  }
+
+  return navLinks;
+}
+
+/**
+ * Renders a single nav item
+ *
+ * @param {Array} link Navigation links Array
+ * @returns {string} HTML nav item
+ * @private
+ */
+function _renderNavItem(link) {
   return `
-    <li class="${prefix}--footer-nav-group__item"><a href="https://www.ibm.com/products?lnk=fdi" class="${prefix}--link ${prefix}--footer-nav-group__link" data-autoid="${stablePrefix}--footer-nav-group__link">Marketplace</a></li>
+    <li class="${prefix}--footer-nav-group__item"><a href="${link.url}" class="${prefix}--link ${prefix}--footer-nav-group__link" data-autoid="${stablePrefix}--footer-nav-group__link">${link.title}</a></li>
   `;
 }
+
 export default footerNavTemplate;
