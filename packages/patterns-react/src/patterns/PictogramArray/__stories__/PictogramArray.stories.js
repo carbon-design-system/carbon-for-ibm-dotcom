@@ -17,9 +17,44 @@ if (DDS_PICTOGRAM_ARRAY) {
     })
     .add('Default', () => {
       const pictograms = {
-        Desktop: Desktop,
-        Touch: Touch,
-        Pattern: Pattern,
+        Desktop: 'Desktop',
+        Touch: 'Touch',
+        Pattern: 'Pattern',
+      };
+
+      const pictogram1 = select(
+        'Element 1 pictogram (required)',
+        pictograms,
+        pictograms.Desktop
+      );
+
+      const pictogram2 = select(
+        'Element 2 pictogram (required)',
+        pictograms,
+        pictograms.Touch
+      );
+
+      const pictogram3 = select(
+        'Element 3 pictogram (required)',
+        pictograms,
+        pictograms.Pattern
+      );
+
+      /**
+       * Returns the react component based on the value in the pictogram variables
+       *
+       * @param {string} sel string that defines the returning pictogram
+       * @returns {*} JSX pictogram component
+       */
+      const selectPictogram = sel => {
+        switch (sel) {
+          case 'Desktop':
+            return Desktop;
+          case 'Pattern':
+            return Pattern;
+          case 'Touch':
+            return Touch;
+        }
       };
 
       const title = text(
@@ -42,11 +77,7 @@ if (DDS_PICTOGRAM_ARRAY) {
             text: 'Learn more',
             target: '_self',
           }),
-          pictogram: select(
-            'Element 1 pictogram (required)',
-            pictograms,
-            pictograms.Desktop
-          ),
+          pictogram: selectPictogram(pictogram1),
         },
         {
           title: text(
@@ -62,11 +93,7 @@ if (DDS_PICTOGRAM_ARRAY) {
             text: 'Learn more',
             target: '_self',
           }),
-          pictogram: select(
-            'Element 2 pictogram (required)',
-            pictograms,
-            pictograms.Touch
-          ),
+          pictogram: selectPictogram(pictogram2),
         },
         {
           title: text(
@@ -82,11 +109,7 @@ if (DDS_PICTOGRAM_ARRAY) {
             text: 'Learn more',
             target: '_self',
           }),
-          pictogram: select(
-            'Element 3 pictogram (required)',
-            pictograms,
-            pictograms.Pattern
-          ),
+          pictogram: selectPictogram(pictogram3),
         },
       ];
 
