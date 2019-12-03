@@ -34,6 +34,10 @@
         color: currentColor;
       }
 
+      &:hover {
+        text-decoration: none;
+      }
+
       &:focus {
         outline-color: $focus;
       }
@@ -127,6 +131,11 @@
     }
 
     &__back {
+      .#{$prefix}--modal-close {
+        top: $spacing-05;
+        right: $spacing-05;
+      }
+
       .#{$prefix}--modal-header__label {
         &:hover {
           cursor: pointer;
@@ -177,6 +186,8 @@
   }
 
   .#{$prefix}--modal-header {
+    padding-left: $spacing-07;
+
     &__label {
       margin-bottom: $spacing-04;
       color: $text-01;
