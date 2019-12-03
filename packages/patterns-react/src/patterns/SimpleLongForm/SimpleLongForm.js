@@ -23,7 +23,8 @@ const { prefix } = settings;
  * Simple long form pattern
  *
  * @param {object} props props object
- * @param {object} props.theme simple long form theme (g100 | white/default)
+ * @param {string} props.theme simple long form theme (g100 | white/default)
+ * @param {string} props.title simple long form title
  * @param {string} props.copy simple long form  short copy to support the title
  * @param {string} props.linkType link type ( simple | jump | card )
  * @param {object} props.link link object which includes url, link text and target properties.
