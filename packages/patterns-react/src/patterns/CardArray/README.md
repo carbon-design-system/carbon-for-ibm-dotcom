@@ -23,9 +23,49 @@ import { CardArray } from '@carbon/ibmdotcom-patterns-react';
 import 'yourapplication.scss';
 import '@carbon/ibmdotcom-styles/scss/patterns/cardarray/index.scss';
 
+const title = 'Lorem ipsum dolor sit amet.';
+
+const content = [
+  {
+    title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+    copy:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    link: {
+      target: '_blank',
+      href: 'https://www.example.com',
+    },
+  },
+  {
+    title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+    copy:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    link: {
+      target: '_blank',
+      href: 'https://www.example.com',
+    },
+  },
+  {
+    title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+    copy:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    link: {
+      target: '_blank',
+      href: 'https://www.example.com',
+    },
+  },
+  {
+    title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+    copy:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    link: {
+      target: '_blank',
+      href: 'https://www.example.com',
+    },
+  },
+];
+
 function App() {
-  return;
-  <CardArray title={title} content={content} />;
+  return <CardArray title={title} content={content} />;
 }
 
 ReactDOM.render(<App />, document.querySelector('#app'));
