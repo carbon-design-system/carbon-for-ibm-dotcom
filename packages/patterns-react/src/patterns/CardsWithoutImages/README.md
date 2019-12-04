@@ -49,7 +49,38 @@ DDS_CARDS_WITHOUT_IMAGES=true
 > [.env.example](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/patterns-react/.env.example)
 > for more information
 
-## cardsGroup ( Array of Objects )
+## Props
+
+| Name         | Required | Data Type | Default Value | Description                                    |
+| ------------ | -------- | --------- | ------------- | ---------------------------------------------- |
+| `theme`      | NO       | String    | 'white'       | Color theme for pattern. See `Theme` below.    |
+| `cardsGroup` | YES      | Array     | null          | Array of card objects. See `Card Group` below. |
+
+### Card Group
+
+| Name        | Data Type | Description                                                                                 |
+| ----------- | --------- | ------------------------------------------------------------------------------------------- |
+| `title`     | String    | Cards without images title                                                                  |
+| `groupCard` | Object    | Href, text and target properties of the Top Level Card. See `Top Level Card Details` below. |
+| `cards`     | Array     | Array of objects with title, copy and link properties of each card. See `Card` below.       |
+
+### Top Level Card Details
+
+| Name     | Data Type | Description                                                                         |
+| -------- | --------- | ----------------------------------------------------------------------------------- |
+| `href`   | String    | Url of Top Level Card.                                                              |
+| `text`   | String    | Title of Top Level Card.                                                            |
+| `target` | String    | Determine whether link is internal or external (open within current tab or new tab) |
+
+### Card
+
+| Name    | Data Type | Description                                                                           |
+| ------- | --------- | ------------------------------------------------------------------------------------- |
+| `title` | String    | Url of Card.                                                                          |
+| `copy`  | String    | Title of Card                                                                         |
+| `link`  | Object    | Href, text and target properties of the card. Same as `Top Level Card Details` above. |
+
+### Theme (optional)
 
 | Name        | Description                                                  |
 | ----------- | ------------------------------------------------------------ |

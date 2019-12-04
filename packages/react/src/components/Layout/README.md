@@ -40,26 +40,26 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 ## Props
 
-| Name           | Required | Data Type | Default Value | Description                                               |
-| -------------- | -------- | --------- | ------------- | --------------------------------------------------------- |
-| `children`     | NO       | Node      | null          | Component/Element to render within Layout                 |
-| `marginBottom` | NO       | String    | null          | Bottom Margin value for Layout. See `marginBottom` below. |
-| `marginTop`    | NO       | String    | null          | Top Margin value for Layout. See `marginTop` below.       |
-| `type`         | YES      | String    | null          | Layout type. See `type` below.                            |
+| Name           | Required | Data Type | Default Value | Description                                                |
+| -------------- | -------- | --------- | ------------- | ---------------------------------------------------------- |
+| `children`     | NO       | Node      | null          | Component/Element to render within Layout                  |
+| `marginBottom` | NO       | String    | null          | Bottom Margin value for Layout. See `Margin Bottom` below. |
+| `marginTop`    | NO       | String    | null          | Top Margin value for Layout. See `Margin Top` below.       |
+| `type`         | YES      | String    | null          | Layout type. See `type` below.                             |
 
-## type
+## Type
 
 | Name  | Description             |
 | ----- | ----------------------- |
 | `1-3` | 1/4 - 3/4 column layout |
 
-## marginTop (optional)
+## Margin Top (optional)
 
 | Name                    | Description                            |
 | ----------------------- | -------------------------------------- |
 | `layout-01 - layout-07` | Layout token values for the top margin |
 
-## marginBottom (optional)
+## Margin Bottom (optional)
 
 | Name                    | Description                               |
 | ----------------------- | ----------------------------------------- |

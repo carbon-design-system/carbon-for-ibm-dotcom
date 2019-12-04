@@ -66,13 +66,13 @@ function App() {
 
 ## Props
 
-| Name            | Required | Data Type        | Default Value | Description                                |
-| --------------- | -------- | ---------------- | ------------- | ------------------------------------------ |
-| `children`      | YES      | Array OR Node    | n/a           | Component(s) to render within the UI shell |
-| `footerNav`     | NO       | Object           | null          | Navigation data for the Footer             |
-| `footerType`    | NO       | String           | null          | Type of Footer (short OR tall)             |
-| `mastheadProps` | NO       | Object           | null          | Additional Props for the Masthead          |
-| `navigation`    | NO       | String OR Object | null          | Navigation data for the Masthead           |
+| Name            | Required | Data Type        | Default Value | Description                                                                   |
+| --------------- | -------- | ---------------- | ------------- | ----------------------------------------------------------------------------- |
+| `children`      | YES      | Array OR Node    | n/a           | Component(s) to render within the UI shell                                    |
+| `footerNav`     | NO       | Object           | null          | Navigation data for the Footer                                                |
+| `footerType`    | NO       | String           | null          | Type of Footer (short OR tall). See `Footer` README.md for more details.      |
+| `mastheadProps` | NO       | Object           | null          | Additional Props for the Masthead. See `Masthead` README.md for more details. |
+| `navigation`    | NO       | String OR Object | null          | Navigation data for the Masthead                                              |
 
 ## Stable selectors
 
