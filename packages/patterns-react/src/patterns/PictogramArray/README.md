@@ -89,10 +89,27 @@ DDS_PICTOGRAM_ARRAY=true
 
 ## Props
 
-| Name           | Description                                                                                            |
-| -------------- | ------------------------------------------------------------------------------------------------------ |
-| `title`        | Content array with pictograms section title `{title}`                                                  |
-| `contentGroup` | Content array with pictograms contentGroup `{[ {title, copy, link: {href, text, target}, pictogram }]} |
+| Name           | Required | Data Type | Default Value | Description                                               |
+| -------------- | -------- | --------- | ------------- | --------------------------------------------------------- |
+| `title`        | YES      | String    | n/a           | Main title of Pictogram Array pattern                     |
+| `contentGroup` | NO       | Array     | null          | Array of content group objects. See `contentGroup` below. |
+
+### contentGroup
+
+| Name        | Data Type | Description                                                                       |
+| ----------- | --------- | --------------------------------------------------------------------------------- |
+| `title`     | String    | Title of content item.                                                            |
+| `copy`      | Object    | Copy of content item.                                                             |
+| `link`      | Object    | Object with the href, text, and target properities of the link. See `link` below. |
+| `pictogram` | Object    | Pictogram object to be rendered with content item.                                |
+
+### link
+
+| Name     | Data Type | Description                                                |
+| -------- | --------- | ---------------------------------------------------------- |
+| `href`   | String    | Url of link.                                               |
+| `text`   | String    | Link text.                                                 |
+| `target` | String    | Open within current tab or new tab ('\_self' or '\_blank') |
 
 ## Stable selectors
 
