@@ -5,19 +5,52 @@
 // LICENSE file in the root directory of this source tree.
 //
 
+@import '../../globals/imports';
+@import 'carbon-components/scss/components/button/button';
+
+$btn-min-width: 26;
+
 @function aspectratio($height, $width) {
   $ratio: carbon--rem($height) / carbon--rem($width) * 100%;
   @return $ratio;
 }
 
-@mixin leadspace {
-  $btn-min-width: 26;
+// items that change according to the theme applied
+@mixin themed-items {
+  @include button;
 
+  background: $ui-background;
+
+  .#{$prefix}--leadspace__title,
+  .#{$prefix}--leadspace__desc {
+    color: $text-01;
+  }
+
+  .#{$prefix}--leadspace--gradient {
+    background-color: rgba($ui-background, 0.75);
+
+    @include carbon--breakpoint(md) {
+      background-color: transparent;
+      background-image: linear-gradient(
+        to right,
+        rgba($ui-background, 0.95),
+        transparent 75%
+      );
+    }
+  }
+
+  .#{$prefix}--btn {
+    width: 100%;
+    margin-top: $layout-01;
+    min-width: carbon--mini-units($btn-min-width);
+  }
+}
+
+@mixin leadspace {
   .#{$prefix}--leadspace {
     position: relative;
     padding-top: aspectratio(370px, 320px);
     height: 0;
-    background: $ui-background;
 
     &__image {
       object-fit: cover;
@@ -47,14 +80,8 @@
       max-width: none;
     }
 
-    &--gradient {
-      background-color: rgba($ui-background, 0.75);
-    }
-
     .#{$prefix}--leadspace__title {
       @include carbon--type-style(display-01, true);
-
-      color: $text-01;
     }
 
     &__title,
@@ -70,8 +97,6 @@
     .#{$prefix}--leadspace__desc {
       @include carbon--type-style(expressive-heading-03, true);
       @include carbon--make-col(3, 4);
-
-      color: $text-01;
     }
 
     &__ctas {
@@ -80,10 +105,12 @@
       margin-top: $layout-01;
     }
 
-    .#{$prefix}--btn {
-      width: 100%;
-      margin-top: $layout-01;
-      min-width: carbon--mini-units($btn-min-width);
+    @include themed-items;
+  }
+
+  .#{$prefix}--leadspace--g100 {
+    @include carbon--theme($carbon--theme--g100) {
+      @include themed-items;
     }
   }
 
@@ -94,15 +121,6 @@
   @include carbon--breakpoint(md) {
     .#{$prefix}--leadspace {
       padding-top: aspectratio(400px, 672px);
-
-      &--gradient {
-        background-color: transparent;
-        background-image: linear-gradient(
-          to right,
-          rgba($ui-background, 0.95),
-          transparent 75%
-        );
-      }
 
       .#{$prefix}--leadspace__title {
         @include carbon--make-col(7, 8);
