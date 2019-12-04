@@ -24,6 +24,44 @@ import { Desktop, Touch, Pattern } from '@carbon/pictograms-react';
 import 'yourapplication.scss';
 import '@carbon/ibmdotcom-styles/scss/patterns/pictogramarray/index.scss';
 
+const title = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
+
+const contentGroup = [
+  {
+    title: 'Aliquam condimentum interdum',
+    copy:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
+    link: {
+      href: 'https://www.example.com',
+      text: 'Learn more',
+      target: '_blank',
+    },
+    pictogram: Desktop,
+  },
+  {
+    title: 'Aliquam condimentum interdum',
+    copy:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
+    link: {
+      href: 'https://www.example.com',
+      text: 'Learn more',
+      target: '_blank',
+    },
+    pictogram: Touch,
+  },
+  {
+    title: 'Aliquam condimentum interdum',
+    copy:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
+    link: {
+      href: 'https://www.example.com',
+      text: 'Learn more',
+      target: '_blank',
+    },
+    pictogram: Pattern,
+  },
+];
+
 function App() {
   return;
   <PictogramArray title={title} contentGroup={contentGroup} />;
