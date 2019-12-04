@@ -66,7 +66,6 @@
         text-decoration: none;
       }
       &__title {
-        color: $text-01;
         @include carbon--type-style('expressive-heading-03');
 
         padding-bottom: $carbon--layout-05;
