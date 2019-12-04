@@ -8,7 +8,7 @@ import {
   object,
   boolean,
 } from '@storybook/addon-knobs';
-import '../../../../../styles/scss/patterns/leadspace-centered/_leadspace-centered.scss';
+import './index.scss';
 import LeadSpaceCentered from '../LeadSpaceCentered';
 import readme from '../README.md';
 import { DDS_LEADSPACE_CENTERED } from '../../../internal/FeatureFlags';

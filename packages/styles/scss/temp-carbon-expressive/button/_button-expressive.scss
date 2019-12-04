@@ -12,8 +12,11 @@
 /// @access private
 /// @group expressive-overrides
 
-@mixin button-expressive() {
+@mixin temp-button-expressive() {
   $border: carbon--rem(3px);
+  $TEMP--button-type: 'body-long-02';
+  $TEMP--button-height: carbon--mini-units(6);
+  $TEMP--button-icon-size: temp--get-icon-size($TEMP--button-type);
 
   .#{$prefix}--btn:not(.#{$prefix}--btn--sm) {
     @include carbon--type-style($TEMP--button-type);
@@ -34,6 +37,10 @@
   }
 }
 
-@include exports('button-expressive') {
-  @include button-expressive;
+@include exports('temp-button-expressive') {
+  @if dds-feature-flag-enabled('carbon-expressive') {
+    @debug 'carbon-expressive enabled, bypassing "temp-button-expressive" override';
+  } @else {
+    @include temp-button-expressive;
+  }
 }

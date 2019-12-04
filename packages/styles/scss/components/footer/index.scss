@@ -12,6 +12,15 @@
 // /// @access private
 // /// @group footer
 
+$TEMP--breakpoint-down--md: map-get(
+    map-get($carbon--grid-breakpoints, 'md'),
+    'width'
+  ) - carbon--rem(1px);
+$TEMP--breakpoint-down--lg: map-get(
+    map-get($carbon--grid-breakpoints, 'lg'),
+    'width'
+  ) - carbon--rem(1px);
+
 @include carbon--theme($carbon--theme--g90) {
   @import 'locale-button';
   @import 'footer';

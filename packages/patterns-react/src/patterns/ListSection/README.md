@@ -12,20 +12,27 @@ Here's a quick example to get you started.
 @import '@carbon/type/scss/font-face/sans';
 @include carbon--font-face-mono();
 @include carbon--font-face-sans();
+
+@import '@carbon/ibmdotcom-styles/scss/patterns/listsection/index';
 ```
 
-> 💡 Only import font's once per usage
+> 💡 Only import fonts once per usage
 
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { ListSection } from '@carbon/ibmdotcom-patterns-react';
 import 'yourapplication.scss';
-import '@carbon/ibmdotcom-styles/scss/patterns/listsection/index.scss';
 
 function App() {
-  return;
-  <ListSection title={title} copy={copy} border="true" listGroup={listGroup} />;
+  return (
+    <ListSection
+      title={title}
+      copy={copy}
+      border={true}
+      listGroup={listGroup}
+    />
+  );
 }
 
 ReactDOM.render(<App />, document.querySelector('#app'));

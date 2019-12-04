@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { DDS_CARDS_WITHOUT_IMAGES } from '../../../internal/FeatureFlags';
 import { withKnobs, select, object } from '@storybook/addon-knobs';
-import '../../../../../styles/scss/patterns/cards-without-images/index.scss';
+import './index.scss';
 import CardsWithoutImages from '../CardsWithoutImages';
 import readme from '../README.md';
 

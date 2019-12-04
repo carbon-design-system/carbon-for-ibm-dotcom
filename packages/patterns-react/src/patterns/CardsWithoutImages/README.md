@@ -12,20 +12,20 @@ Here's a quick example to get you started.
 @import '@carbon/type/scss/font-face/sans';
 @include carbon--font-face-mono();
 @include carbon--font-face-sans();
+
+@import '@carbon/ibmdotcom-styles/scss/patterns/cards-without-images/index';
 ```
 
-> 💡 Only import font's once per usage
+> 💡 Only import fonts once per usage
 
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { CardsWithoutImages } from '@carbon/ibmdotcom-patterns-react';
 import 'yourapplication.scss';
-import '@carbon/ibmdotcom-styles/scss/patterns/cards-without-images/index.scss';
 
 function App() {
-  return;
-  <CardsWithoutImages cardsGroup={cardsGroup} />;
+  return <CardsWithoutImages cardsGroup={cardsGroup} />;
 }
 
 ReactDOM.render(<App />, document.querySelector('#app'));

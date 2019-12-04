@@ -7198,16 +7198,6 @@ carbon-components-react@^7.7.4:
     warning "^3.0.0"
     window-or-global "^1.0.1"
 
-carbon-components@^10.5.1:
-  version "10.5.1"
-  resolved "https://registry.yarnpkg.com/carbon-components/-/carbon-components-10.5.1.tgz#e779ec3bee84b72a648b3500b2bf4e84bc491144"
-  integrity sha512-1h/vRHZhTTj9VpWZOJUYR7Xd7avr7XynwaEj8Lp7MBt8KfXk8CVxJOY/uNhxz25cnrBajP2m+jid1daEBXiGbw==
-  dependencies:
-    carbon-icons "^7.0.7"
-    flatpickr "4.6.1"
-    lodash.debounce "^4.0.8"
-    warning "^3.0.0"
-
 carbon-components@^10.6.0:
   version "10.6.2"
   resolved "https://registry.yarnpkg.com/carbon-components/-/carbon-components-10.6.2.tgz#6bc6b0f3646af940933169fc38c2d1e8f35605e0"

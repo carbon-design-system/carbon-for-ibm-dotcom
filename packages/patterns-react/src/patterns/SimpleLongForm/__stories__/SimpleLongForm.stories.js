@@ -8,7 +8,7 @@ import {
   object,
   boolean,
 } from '@storybook/addon-knobs';
-import '../../../../../styles/scss/patterns/simplelongform/_simplelongform.scss';
+import './index.scss';
 import SimpleLongForm from '../SimpleLongForm';
 import readme from '../README.md';
 

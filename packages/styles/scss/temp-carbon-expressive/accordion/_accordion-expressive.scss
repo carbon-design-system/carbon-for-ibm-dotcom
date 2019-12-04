@@ -6,13 +6,18 @@
 //
 
 @import 'carbon-components/scss/components/accordion/accordion';
+@import '../../globals/feature-flags';
 @import '../temp-carbon-expressive';
 
 /// Temporary overrides for accordion's expressive moment
 /// @access private
 /// @group expressive-overrides
 
-@mixin accordion-expressive() {
+@mixin temp-accordion-expressive() {
+  $TEMP--accordion-type: 'body-long-02';
+  $TEMP--accordion-height: carbon--mini-units(6);
+  $TEMP--accordion-arrow-size: temp--get-icon-size($TEMP--accordion-type);
+
   .#{$prefix}--accordion {
     overflow: hidden;
 
@@ -38,6 +43,10 @@
   }
 }
 
-@include exports('accordion-expressive') {
-  @include accordion-expressive;
+@include exports('temp-accordion-expressive') {
+  @if dds-feature-flag-enabled('carbon-expressive') {
+    @debug 'carbon-expressive enabled, bypassing "temp-accordion-expressive" override';
+  } @else {
+    @include temp-accordion-expressive;
+  }
 }

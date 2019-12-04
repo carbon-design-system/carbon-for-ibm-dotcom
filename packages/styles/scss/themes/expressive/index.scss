@@ -5,6 +5,7 @@
 // LICENSE file in the root directory of this source tree.
 //
 
+@import '@carbon/import-once/scss/import-once';
 @import 'carbon-components/scss/globals/scss/vars';
 @import '../../globals/feature-flags';
 @import 'tokens';
@@ -29,17 +30,19 @@
 // addresses per-component container and icon spacing to account for the size
 // adjustments.
 
-@if dds-feature-flags-enabled('carbon-expressive') {
-  @include carbon-expressive-tokens;
+@include exports('carbon-expressive') {
+  @if dds-feature-flag-enabled('carbon-expressive') {
+    @include carbon-expressive-tokens;
 
-  // Component mixins
-  @include accordion-expressive;
-  @include button-expressive;
-  @include content-switcher-expressive;
-  @include date-picker-expressive;
-  @include list-box-expressive;
-  @include number-input-expressive;
-  @include text-input-expressive;
-  @include time-picker-expressive;
-  @include select-expressive;
+    // Component mixins
+    @include accordion-expressive;
+    @include button-expressive;
+    @include content-switcher-expressive;
+    @include date-picker-expressive;
+    @include list-box-expressive;
+    @include number-input-expressive;
+    @include text-input-expressive;
+    @include time-picker-expressive;
+    @include select-expressive;
+  }
 }

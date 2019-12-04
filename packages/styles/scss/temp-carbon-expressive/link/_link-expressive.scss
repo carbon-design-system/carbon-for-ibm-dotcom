@@ -12,13 +12,17 @@
 /// @access private
 /// @group expressive-overrides
 
-@mixin link-expressive() {
+@mixin temp-link-expressive() {
   .#{$prefix}--link {
     // need to remove once 16 variants come out
     @include carbon--type-style($TEMP--link-type);
   }
 }
 
-@include exports('link-expressive') {
-  @include link-expressive;
+@include exports('temp-link-expressive') {
+  @if dds-feature-flag-enabled('carbon-expressive') {
+    @debug 'carbon-expressive enabled, bypassing "temp-link-expressive" override';
+  } @else {
+    @include temp-link-expressive;
+  }
 }

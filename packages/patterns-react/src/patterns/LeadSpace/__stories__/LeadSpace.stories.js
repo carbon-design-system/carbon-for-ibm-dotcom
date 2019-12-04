@@ -7,7 +7,7 @@ import {
   object,
   boolean,
 } from '@storybook/addon-knobs';
-import '../../../../../styles/scss/patterns/leadspace/_leadspace.scss';
+import './index.scss';
 import LeadSpace from '../LeadSpace';
 import readme from '../README.md';
 import { LEADSPACE } from '../../../internal/FeatureFlags';
