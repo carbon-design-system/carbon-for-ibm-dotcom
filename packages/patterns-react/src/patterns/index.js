@@ -7,6 +7,7 @@
 
 export * from './CardsWithoutImages';
 export * from './LeadSpace';
+export * from './LeadSpaceCentered';
 export * from './ListSection';
 export * from './SimpleLongForm';
 export * from './UseCases';
