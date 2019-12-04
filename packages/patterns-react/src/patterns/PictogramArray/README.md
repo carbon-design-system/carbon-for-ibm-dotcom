@@ -63,8 +63,7 @@ const contentGroup = [
 ];
 
 function App() {
-  return;
-  <PictogramArray title={title} contentGroup={contentGroup} />;
+  return <PictogramArray title={title} contentGroup={contentGroup} />;
 }
 
 ReactDOM.render(<App />, document.querySelector('#app'));
