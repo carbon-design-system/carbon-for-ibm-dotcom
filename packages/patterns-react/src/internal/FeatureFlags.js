@@ -49,6 +49,14 @@ export const SIMPLELONGFORM =
   process.env.SIMPLELONGFORM === 'true' || DDS_FLAGS_ALL || false;
 
 /**
+ * This determines if the cards without images will be rendered or not
+ *
+ * @type {string | boolean}
+ */
+export const DDS_CARDS_WITHOUT_IMAGES =
+  process.env.DDS_CARDS_WITHOUT_IMAGES === 'true' || DDS_FLAGS_ALL || false;
+
+/**
  * This determines if the usecases will be rendered or not
  *
  * @type {string | boolean}
