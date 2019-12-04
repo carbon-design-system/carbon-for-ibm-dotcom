@@ -25,7 +25,7 @@ const { prefix } = settings;
  * @param {string} props.copy List section  short copy to support the title
  * @param {string} props.border List section border
  * @param {object} props.listGroup variation of the List section standard, standard with jump link and standard with card link
- * @returns {object} JSX Object
+ * @returns {*} JSX Object
  */
 const ListSection = ({ title, copy, border, listGroup }) =>
   featureFlag(
@@ -80,7 +80,7 @@ ListSection.propTypes = {
   title: PropTypes.string.isRequired,
   copy: PropTypes.string,
   border: PropTypes.bool,
-  listGroupItems: PropTypes.shape({
+  listGroup: PropTypes.shape({
     title: PropTypes.string,
     lists: PropTypes.array,
   }),
