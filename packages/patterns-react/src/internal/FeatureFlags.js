@@ -17,12 +17,20 @@
 export const DDS_FLAGS_ALL = process.env.DDS_FLAGS_ALL === 'true' || false;
 
 /**
- * This determines if the leadspace will be rendered or not
+ * This determines if the leadspace (left-aligned) will be rendered or not
  *
  * @type {string | boolean}
  */
 export const LEADSPACE =
   process.env.LEADSPACE === 'true' || DDS_FLAGS_ALL || false;
+
+/**
+ * This determines if the leadspace (centered) will be rendered or not
+ *
+ * @type {string | boolean}
+ */
+export const DDS_LEADSPACE_CENTERED =
+  process.env.DDS_LEADSPACE_CENTERED === 'true' || DDS_FLAGS_ALL || false;
 
 /**
  * This determines if the listsection will be rendered or not
@@ -39,6 +47,14 @@ export const LISTSECTION =
  */
 export const SIMPLELONGFORM =
   process.env.SIMPLELONGFORM === 'true' || DDS_FLAGS_ALL || false;
+
+/**
+ * This determines if the cards without images will be rendered or not
+ *
+ * @type {string | boolean}
+ */
+export const DDS_CARDS_WITHOUT_IMAGES =
+  process.env.DDS_CARDS_WITHOUT_IMAGES === 'true' || DDS_FLAGS_ALL || false;
 
 /**
  * This determines if the usecases will be rendered or not
