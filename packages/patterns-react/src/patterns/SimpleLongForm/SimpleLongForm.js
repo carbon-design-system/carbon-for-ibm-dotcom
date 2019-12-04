@@ -44,10 +44,14 @@ const SimpleLongForm = ({ theme, title, copy, border, linkType, link }) =>
       )}>
       <div className={`${prefix}--simplelongform__container`}>
         <div className={`${prefix}--simplelongform__row`}>
-          <div className={`${prefix}--simplelongform__col`}>
+          <div
+            data-autoid={`${stablePrefix}--simplelongform__col`}
+            className={`${prefix}--simplelongform__col`}>
             <h3 className={`${prefix}--simplelongform__title`}>{title}</h3>
             <div className={`${prefix}--simplelongform__content`}>{copy}</div>
-            <div className={`${prefix}--simplelongform__link`}>
+            <div
+              data-autoid={`${stablePrefix}--simplelongform__link`}
+              className={`${prefix}--simplelongform__link`}>
               {renderLink(linkType, link)}
             </div>
           </div>

@@ -99,11 +99,18 @@ const LeadSpaceCentered = ({
         <div className={`${prefix}--leadspace--centered__content`}>
           <h1 className={`${prefix}--leadspace--centered__title`}>{title}</h1>
           <p className={`${prefix}--leadspace--centered__desc`}>{copy}</p>
-          {buttons && buttons.length > 0 && <ButtonGroup buttons={buttons} />}
+          {buttons && buttons.length > 0 && (
+            <ButtonGroup
+              data-autoid={`${stablePrefix}--leadspace--centered__button-group`}
+              buttons={buttons}
+            />
+          )}
         </div>
       </div>
       {image && (
-        <div className={`${prefix}--leadspace--centered--mobile__image`}>
+        <div
+          data-autoid={`${stablePrefix}--leadspace--centered--mobile__image`}
+          className={`${prefix}--leadspace--centered--mobile__image`}>
           <img src={image.url} alt={image.alt} />
         </div>
       )}

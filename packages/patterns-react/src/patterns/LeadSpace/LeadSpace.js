@@ -97,7 +97,9 @@ const LeadSpace = ({
     <section
       data-autoid={`${stablePrefix}--leadspace`}
       className={className(variation, theme)}>
-      <div className={`${prefix}--leadspace__container`}>
+      <div
+        data-autoid={`${stablePrefix}--leadspace__container`}
+        className={`${prefix}--leadspace__container`}>
         <div className={overlayClassname(gradient)}>
           <div className={`${prefix}--leadspace__row`}>
             <h1 className={`${prefix}--leadspace__title`}>{title}</h1>
