@@ -91,10 +91,10 @@ DDS_CARD_ARRAY=true
 
 ## Props
 
-| Name      | Description                                                                               |
-| --------- | ----------------------------------------------------------------------------------------- |
-| `title`   | Content Array with Cards section title `{title}`                                          |
-| `content` | Content Array with Cards section content `{content: [title, copy, link: {href, target}]}` |
+| Name      | Description                                                                      |
+| --------- | -------------------------------------------------------------------------------- |
+| `title`   | Content Array with Cards section title `{title}`                                 |
+| `content` | Content Array with Cards section content `[{title, copy, link: {href, target}}]` |
 
 ## Stable selectors
 

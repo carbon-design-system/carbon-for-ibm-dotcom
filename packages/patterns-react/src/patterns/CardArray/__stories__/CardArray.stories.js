@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { DDS_CARD_ARRAY } from '../../../internal/FeatureFlags';
 import { withKnobs, text } from '@storybook/addon-knobs';
-import '../../../../../styles/scss/patterns/cardarray/index.scss';
+import './index.scss';
 import CardArray from '../CardArray';
 import readme from '../README.md';
 
