@@ -53,40 +53,39 @@ DDS_CARDS_WITHOUT_IMAGES=true
 
 | Name         | Required | Data Type | Default Value | Description                                    |
 | ------------ | -------- | --------- | ------------- | ---------------------------------------------- |
-| `theme`      | NO       | String    | 'white'       | Color theme for pattern. See `Theme` below.    |
-| `cardsGroup` | YES      | Array     | null          | Array of card objects. See `Card Group` below. |
+| `theme`      | NO       | String    | 'white'       | Color theme for pattern. See `theme` below.    |
+| `cardsGroup` | YES      | Array     | null          | Array of card objects. See `cardsGroup` below. |
 
-### Card Group
+### cardsGroup
 
-| Name        | Data Type | Description                                                                                 |
-| ----------- | --------- | ------------------------------------------------------------------------------------------- |
-| `title`     | String    | Cards without images title                                                                  |
-| `groupCard` | Object    | Href, text and target properties of the Top Level Card. See `Top Level Card Details` below. |
-| `cards`     | Array     | Array of objects with title, copy and link properties of each card. See `Card` below.       |
+| Name        | Data Type | Description                                                                            |
+| ----------- | --------- | -------------------------------------------------------------------------------------- |
+| `title`     | String    | Cards without images title                                                             |
+| `groupCard` | Object    | Href, text and target properties of the Top Level Card. See `groupCard` below.         |
+| `cards`     | Array     | Array of objects with title, copy and link properties of each card. See `cards` below. |
 
-### Top Level Card Details
+### groupCard (aka Top Level Card)
 
-| Name     | Data Type | Description                                                                         |
-| -------- | --------- | ----------------------------------------------------------------------------------- |
-| `href`   | String    | Url of Top Level Card.                                                              |
-| `text`   | String    | Title of Top Level Card.                                                            |
-| `target` | String    | Determine whether link is internal or external (open within current tab or new tab) |
+| Name     | Data Type | Description                                                |
+| -------- | --------- | ---------------------------------------------------------- |
+| `href`   | String    | Url of Top Level Card.                                     |
+| `text`   | String    | Copy of Top Level Card.                                    |
+| `target` | String    | Open within current tab or new tab ('\_self' or '\_blank') |
 
-### Card
+### cards
 
-| Name    | Data Type | Description                                                                           |
-| ------- | --------- | ------------------------------------------------------------------------------------- |
-| `title` | String    | Url of Card.                                                                          |
-| `copy`  | String    | Title of Card                                                                         |
-| `link`  | Object    | Href, text and target properties of the card. Same as `Top Level Card Details` above. |
+| Name    | Data Type | Description                                                              |
+| ------- | --------- | ------------------------------------------------------------------------ |
+| `title` | String    | Url of Card.                                                             |
+| `copy`  | String    | Title of Card                                                            |
+| `link`  | Object    | Href, text and target properties of the card. Same as `groupCard` above. |
 
-### Theme (optional)
+### theme (optional)
 
-| Name        | Description                                                  |
-| ----------- | ------------------------------------------------------------ |
-| `title`     | Cards without images title                                   |
-| `groupCard` | groupCard, array with href, text and target properties       |
-| `cards`     | Cards, array of objects with title, copy and link properties |
+| Name    | Description                |
+| ------- | -------------------------- |
+| `white` | Carbon white theme         |
+| `g10`   | Carbon Gray 10 (g10) theme |
 
 ## Stable selectors
 
