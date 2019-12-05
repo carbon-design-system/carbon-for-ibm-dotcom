@@ -21,18 +21,23 @@ const { prefix } = settings;
  * Use cases pattern
  *
  * @param {object} props props object
- * @param {string} props.title Use cases title
- * @param {string} props.copy Use cases  short copy to support the title
  * @param {string} props.border Use cases border
+ * @param {string} props.copy Use cases  short copy to support the title
+ * @param {string} props.theme Use cases color theme
+ * @param {string} props.title Use cases title
  * @param {Array} props.usecaseGroup usecaseGroup array with title, image and lists
  * @returns {object} JSX Object
  */
-const UseCases = ({ title, copy, border, usecaseGroup }) =>
+const UseCases = ({ border, copy, theme, title, usecaseGroup }) =>
   featureFlag(
     DDS_USECASES,
     <section
       data-autoid={`${stablePrefix}--usecases`}
-      className={classNames(`${prefix}--usecases`, _setBorder(border))}>
+      className={classNames(
+        `${prefix}--usecases`,
+        _setBorder(border),
+        _setTheme(theme)
+      )}>
       <div className={`${prefix}--usecases__container`}>
         <div className={`${prefix}--usecases__row`}>
           <div className={`${prefix}--usecases__col`}>
@@ -74,10 +79,22 @@ const _setBorder = border => {
   return withBorder;
 };
 
+/**
+ * sets the class name based on theme type
+ *
+ * @private
+ * @param {string} theme theme type ( g100 | white/default )
+ * @returns {string} theme css class names
+ */
+const _setTheme = theme => {
+  return theme && `${prefix}--usecases--${theme}`;
+};
+
 UseCases.propTypes = {
-  title: PropTypes.string.isRequired,
-  copy: PropTypes.string,
   border: PropTypes.bool,
+  copy: PropTypes.string,
+  theme: PropTypes.string,
+  title: PropTypes.string.isRequired,
   listGroup: PropTypes.array,
 };
 

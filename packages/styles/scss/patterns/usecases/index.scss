@@ -3,10 +3,6 @@
 @import './usecases-group';
 @import './usecases-item';
 
-.#{$prefix}--usecases--g100 {
-  @include carbon--theme($carbon--theme--g100) {
-    @include usecases;
-    @include usecases-group;
-    @include usecases-item;
-  }
-}
+@include usecases;
+@include usecases-group;
+@include usecases-item;
