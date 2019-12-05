@@ -44,7 +44,7 @@ if (DDS_LEADSPACE_CENTERED) {
 
       const themes = {
         g100: 'g100',
-        'light (white)': '',
+        white: '',
       };
 
       return (
@@ -99,7 +99,7 @@ if (DDS_LEADSPACE_CENTERED) {
 
       const themes = {
         g100: 'g100',
-        'light (white)': '',
+        white: '',
       };
 
       const graident = boolean('gradient overlay', true);

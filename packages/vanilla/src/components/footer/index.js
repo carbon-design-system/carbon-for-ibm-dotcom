@@ -5,5 +5,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-export * from './horizontalrule';
-export * from './footer';
+export { default as Footer } from './footer';
+export { default as footerTemplate } from './footer.template';
+export { default as footerNavTemplate } from './footerNav.template';

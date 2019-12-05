@@ -50,21 +50,21 @@ const overlayClassname = gradient =>
  * Lead space component
  *
  * @param {object} props props object
- * @param {string} props.title lead space title
+ * @param {Array} props.buttons array of buttons for lead space (max 2 buttons)
  * @param {string} props.copy lead space short copy to support the title
  * @param {boolean} props.gradient determines whether to render gradient overlay
  * @param {object} props.image image object with diff source for diff breakpoints
  * @param {string} props.theme theme of the pattern
- * @param {Array} props.buttons array of buttons for lead space (max 2 buttons)
+ * @param {string} props.title lead space title
  * @returns {*} Lead space component
  */
 const LeadSpaceCentered = ({
-  title,
-  copy,
   buttons,
-  image,
+  copy,
   gradient,
+  image,
   theme,
+  title,
 }) => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const isMobile = windowWidth <= 671;
