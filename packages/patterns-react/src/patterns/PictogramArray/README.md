@@ -12,6 +12,8 @@ Here's a quick example to get you started.
 @import '@carbon/type/scss/font-face/sans';
 @include carbon--font-face-mono();
 @include carbon--font-face-sans();
+
+@import '@carbon/ibmdotcom-styles/scss/patterns/pictogramarray/index.scss';
 ```
 
 > 💡 Only import font's once per usage
@@ -22,7 +24,6 @@ import ReactDOM from 'react-dom';
 import { PictogramArray } from '@carbon/ibmdotcom-patterns-react';
 import { Desktop, Touch, Pattern } from '@carbon/pictograms-react';
 import 'yourapplication.scss';
-import '@carbon/ibmdotcom-styles/scss/patterns/pictogramarray/index.scss';
 
 const title = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
 
