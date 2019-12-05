@@ -58,12 +58,35 @@ LISTSECTION=true
 
 ## Props
 
-| Name        | Description                                                                          |
-| ----------- | ------------------------------------------------------------------------------------ |
-| `title`     | List section title `{title}`                                                         |
-| `copy`      | List section content `{copy}`                                                        |
-| `border`    | List section border `true|false`                                                     |
-| `listGroup` | List section listGroup `{listGroup: [ {title, copy, link: {href, text, target} } ]}` |
+| Name        | Required | Data Type | Default Value | Description                                                  |
+| ----------- | -------- | --------- | ------------- | ------------------------------------------------------------ |
+| `title`     | YES      | String    | n/a           | Title of ListSection                                         |
+| `copy`      | NO       | String    | null          | Short copy of ListSection                                    |
+| `border`    | NO       | Boolean   | false         | Determines whether to render border.                         |
+| `listGroup` | NO       | Array     | null          | Array of listGroup objects to render. See `listGroup` below. |
+
+### listGroup
+
+| Name    | Data Type | Description                                         |
+| ------- | --------- | --------------------------------------------------- |
+| `title` | String    | Title of the List Group.                            |
+| `lists` | Array     | Array of list objects to render. See `lists` below. |
+
+### lists
+
+| Name    | Data Type | Description                                                                            |
+| ------- | --------- | -------------------------------------------------------------------------------------- |
+| `title` | String    | Title of List                                                                          |
+| `copy`  | String    | Short copy of List                                                                     |
+| `link`  | Object    | Object with the href, text, and target properities of the List link. See `link` below. |
+
+### link
+
+| Name     | Data Type | Description                                                |
+| -------- | --------- | ---------------------------------------------------------- |
+| `href`   | String    | Url of List link.                                          |
+| `text`   | String    | List link text.                                            |
+| `target` | String    | Open within current tab or new tab ('\_self' or '\_blank') |
 
 ## Stable selectors
 

@@ -119,7 +119,7 @@ const _renderCardsGroup = (theme, cardsGroup) => {
 
 CardsWithoutImages.propTypes = {
   theme: PropTypes.string,
-  cardsGroup: PropTypes.array,
+  cardsGroup: PropTypes.array.isRequired,
 };
 
 export default CardsWithoutImages;

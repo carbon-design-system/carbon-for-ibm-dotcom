@@ -130,7 +130,7 @@ if (DDS_CARDS_WITHOUT_IMAGES) {
 
       const themes = {
         g10: 'g10',
-        'light (white)': '',
+        white: '',
       };
 
       return (
