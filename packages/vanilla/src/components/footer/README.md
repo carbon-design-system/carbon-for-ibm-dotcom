@@ -13,6 +13,8 @@ Here's a quick example to get you started.
 @import '@carbon/type/scss/font-face/sans';
 @include carbon--font-face-mono();
 @include carbon--font-face-sans();
+
+import '@carbon/ibmdotcom-styles/scss/components/footer/index.scss';
 ```
 
 > 💡 Only import font's once per usage
@@ -20,7 +22,6 @@ Here's a quick example to get you started.
 ```javascript
 import { Footer } from '@carbon/ibmdotcom-react';
 import 'yourapplication.scss';
-import '@carbon/ibmdotcom-styles/scss/components/footer/index.scss';
 
 console.log(
   footer({
@@ -51,27 +52,20 @@ class Footer {
 }
 ```
 
-#### Feature Flags
+## Props
 
-To utilize the following features, set the following variable's to `true` within
-your `.env` file or your application build settings.
+| Name         | Required | Data Type | Default Value | Description                        |
+| ------------ | -------- | --------- | ------------- | ---------------------------------- |
+| `footerMenu` | NO       | Object    | null          | Navigation data object for Footer  |
+| `footerThin` | NO       | Object    | null          | Legal Nav data object for Footer   |
+| `type`       | NO       | String    | null          | Type of Footer. See below `types`. |
 
-```
-FOOTER_LOCALE_BUTTON=true
-```
+### types (optional)
 
-> See
-> [feature-flags.md](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/docs/feature-flags.md)
-> and
-> [.env.example](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/.env.example)
-> for more information
-
-## Types (optional)
-
-| Name             | Description                                                                 |
-| ---------------- | --------------------------------------------------------------------------- |
-| `tall`/`default` | Default footer variant includes additional navigation taking up more space. |
-| `short`          | Short footer variant reduces space by removing any additional navigation.   |
+| Name    | Description                                                                 |
+| ------- | --------------------------------------------------------------------------- |
+| `tall`  | Default footer variant includes additional navigation taking up more space. |
+| `short` | Short footer variant reduces space by removing any additional navigation.   |
 
 ## Stable selectors
 
@@ -88,21 +82,27 @@ FOOTER_LOCALE_BUTTON=true
 | `dds--legal-nav__link`        | Interactive |
 | `dds--locale-modal`           | Component   |
 
-## Server Side Rendering
+## Fetch Navigation Data
 
-To server side render the footer, the `Translation` service call needs to be
-made to retrieve navigation links. Make sure to pass in the `lc` and `cc` values
-as shown in the example below.
+In order to fetch navigation data you need to make the service call (by creating
+a static async function) and then apply the template literal (footerTemplate)
 
 ```javascript
-import { TranslationAPI } from '@carbon/ibmdotcom-services';
-import { Footer } from '@carbon/ibmdotcom-react';
+import { TranslationAPI, LocaleAPI } from '@carbon/ibmdotcom-services';
+import footerTemplate from './footer.template';
 
-server.get('/', async (req, res) => {
-  const response = await TranslationAPI.getTranslation({ lc: 'en', cc: 'us' });
-  const body = renderToString(<Footer navigation={response} />);
-  res.send(body);
-});
+static async getFooterWithData(type) {
+  const lang = LocaleAPI.getLang();
+  const response = await TranslationAPI.getTranslation(lang);
+
+  return footerTemplate({
+    type,
+    footerMenu: response.footerMenu,
+    footerThin: response.footerThin,
+  });
+}
+}
+
 ```
 
 ## 🙌 Contributing
