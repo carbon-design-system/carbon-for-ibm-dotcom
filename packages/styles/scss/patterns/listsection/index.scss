@@ -3,10 +3,6 @@
 @import './listsection-group';
 @import './listsection-item';
 
-.#{$prefix}--listsection--g100 {
-  @include carbon--theme($carbon--theme--g100) {
-    @include listsection;
-    @include listsection-group;
-    @include listsection-item;
-  }
-}
+@include listsection;
+@include listsection-group;
+@include listsection-item;
