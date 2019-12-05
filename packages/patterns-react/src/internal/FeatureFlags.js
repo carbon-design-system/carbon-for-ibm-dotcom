@@ -49,7 +49,14 @@ export const SIMPLELONGFORM =
   process.env.SIMPLELONGFORM === 'true' || DDS_FLAGS_ALL || false;
 
 /**
- * This determines if the cards without images will be rendered or not
+ * This determines if the contentarraywithpictograms will be rendered or not
+ *
+ * @type {string | boolean}
+ */
+export const DDS_PICTOGRAM_ARRAY =
+  process.env.DDS_PICTOGRAM_ARRAY === 'true' || DDS_FLAGS_ALL || false;
+
+/** This determines if the cards without images will be rendered or not
  *
  * @type {string | boolean}
  */
