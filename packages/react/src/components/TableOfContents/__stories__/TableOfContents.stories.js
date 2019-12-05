@@ -41,8 +41,8 @@ if (DDS_TOC) {
       ];
 
       const themes = {
-        'dark (g100)': 'g100',
-        'light (white)': '',
+        g100: 'g100',
+        white: '',
       };
 
       return (
@@ -50,7 +50,7 @@ if (DDS_TOC) {
           className={`bx--tableofcontents--${select(
             'theme',
             themes,
-            themes['light (white)']
+            themes.white
           )}`}>
           <div style={{ padding: '2rem' }}>
             <p>

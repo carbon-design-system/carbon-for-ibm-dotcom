@@ -64,6 +64,16 @@ function App() {
 > [Footer](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/components/Footer)
 > component documentation for their specific usage.
 
+## Props
+
+| Name            | Required | Data Type        | Default Value | Description                                                                   |
+| --------------- | -------- | ---------------- | ------------- | ----------------------------------------------------------------------------- |
+| `children`      | YES      | Array OR Node    | n/a           | Component(s) to render within the UI shell                                    |
+| `footerNav`     | NO       | Object           | null          | Navigation data for the Footer                                                |
+| `footerType`    | NO       | String           | null          | Type of Footer (short OR tall). See `Footer` README.md for more details.      |
+| `mastheadProps` | NO       | Object           | null          | Additional Props for the Masthead. See `Masthead` README.md for more details. |
+| `navigation`    | NO       | String OR Object | null          | Navigation data for the Masthead                                              |
+
 ## Stable selectors
 
 | Name                         | Description |

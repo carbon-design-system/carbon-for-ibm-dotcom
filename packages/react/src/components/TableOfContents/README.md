@@ -57,18 +57,20 @@ DDS_TOC=true
 > [.env.example](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/patterns-react/.env.example)
 > for more information
 
-## menuItems (Array of Objects)
+## Props
+
+| Name        | Required | Data Type | Default Value | Description                                                                      |
+| ----------- | -------- | --------- | ------------- | -------------------------------------------------------------------------------- |
+| `children`  | NO       | Array     | null          | Content to display next to the side nav.                                         |
+| `menuItems` | NO       | Array     | null          | Array of menu item objects to render within the side nav. See `menuItems` below. |
+| `menuLabel` | NO       | String    | `Jump to`     | Placeholder value for menu label                                                 |
+
+## menuItems
 
 | Properties Name | Data Type | Description     |
 | --------------- | --------- | --------------- |
-| title           | String    | menu title text |
-| id              | String    | menu id         |
-
-## Other Props
-
-| Name        | Data Type | Default value | Description                      |
-| ----------- | --------- | ------------- | -------------------------------- |
-| `menuLabel` | String    | `Jump to`     | Placeholder value for menu label |
+| title           | String    | Menu title text |
+| id              | String    | Menu id         |
 
 ## Stable selectors
 
