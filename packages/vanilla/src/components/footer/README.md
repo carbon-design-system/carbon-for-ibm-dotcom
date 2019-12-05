@@ -17,39 +17,61 @@ Here's a quick example to get you started.
 import '@carbon/ibmdotcom-styles/scss/components/footer/index.scss';
 ```
 
-> 💡 Only import font's once per usage
+> 💡 Only import font's once per usage 💡 Don't forget to import the footer
+> styles from
+> [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
+
+### Method 1: Fetch Navigation data and return Footer markup (recommended)
+
+This method will fetch the default navigation data, then inject into the footer
+template and return the final markup to use. While the approach below shows the
+client-side way of rendering, this can also be used for server-side rendering
+approaches. ​
 
 ```javascript
-import { Footer } from '@carbon/ibmdotcom-react';
-import 'yourapplication.scss';
-
-console.log(
-  footer({
-    type: '', // tall | short
-  })
-);
+import { Footer } from '@carbon/ibmdotcom-vanilla';
+​
+const content = Footer.getFooterWithData(); // fetches the default footer content, then returns the footer markup
+const elem = document.getElementById('yourFooterDiv');
+elem.innerHTML = content; // sets the footer content into the element
+Footer.init(elem); // initializes the footer
 ```
 
-> 💡 Don't forget to import the footer styles from
-> [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
+​
+
+### Method 2: Return footer markup with manual data injection
+
+This method will return the footer markup, where the configuration and
+navigation data is manually injected into the ES6 template literal itself. ​
+
+```javascript
+import { Footer, footerTemplate } from '@carbon/ibmdotcom-vanilla';
+​
+const content = footerTemplate({
+  type: 'tall',
+  footerMenu: { ...footer menu content ... }
+  footerThin: { ... footer thin content ... }
+}); // returns the markup
+const elem = document.getElementById('yourFooterDiv');
+elem.innerHTML = content; // sets the footer content into the element
+Footer.init(elem); // initializes the footer
+```
 
 ### Initialize
 
-> Init example below
+> The init function initializes the accordion view for mobile
 
 ```javascript
-import { Accordion } from 'carbon-components';
-import { globalInit } from '@carbon/ibmdotcom-services';
+import { Footer, footerTemplate } from '@carbon/ibmdotcom-vanilla';
 
-class Footer {
-  static init(El) {
-    globalInit();
-
-    if (El) {
-      Accordion.create(El);
-    }
-  }
-}
+const content = footerTemplate({
+  type: 'tall',
+  footerMenu: { ...footer menu content ... }
+  footerThin: { ... footer thin content ... }
+}); // returns the markup
+const elem = document.getElementById('yourFooterDiv');
+elem.innerHTML = content; // sets the footer content into the element
+Footer.init(elem); // initializes the footer
 ```
 
 ## Props
@@ -84,25 +106,16 @@ class Footer {
 
 ## Fetch Navigation Data
 
-In order to fetch navigation data you need to make the service call (by creating
-a static async function) and then apply the template literal (footerTemplate)
+Here is how to fetch the navigation data. Make the service call and then apply
+the template literal.
 
 ```javascript
-import { TranslationAPI, LocaleAPI } from '@carbon/ibmdotcom-services';
-import footerTemplate from './footer.template';
+import { Footer } from '@carbon/ibmdotcom-vanilla';
 
-static async getFooterWithData(type) {
-  const lang = LocaleAPI.getLang();
-  const response = await TranslationAPI.getTranslation(lang);
-
-  return footerTemplate({
-    type,
-    footerMenu: response.footerMenu,
-    footerThin: response.footerThin,
-  });
-}
-}
-
+const content = Footer.getFooterWithData(); // fetches the default footer content, then returns the footer markup
+const elem = document.getElementById('yourFooterDiv');
+elem.innerHTML = content; // sets the footer content into the element
+Footer.init(elem); // initializes the footer
 ```
 
 ## 🙌 Contributing
