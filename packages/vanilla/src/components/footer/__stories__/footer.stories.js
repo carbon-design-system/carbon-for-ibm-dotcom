@@ -2,14 +2,15 @@ import { storiesOf } from '@storybook/html';
 import { withKnobs, select } from '@storybook/addon-knobs';
 import Footer from '../footer';
 import '../../../../../styles/scss/components/footer/index.scss';
+import readme from '../README.md';
 
 storiesOf('footer', module)
   .addDecorator(withKnobs)
-  // .addParameters({
-  //   readme: {
-  //     sidebar: readme
-  //   },
-  // })
+  .addParameters({
+    readme: {
+      sidebar: readme,
+    },
+  })
   .add('Default', () => {
     const footerTypeOptions = {
       tall: '',

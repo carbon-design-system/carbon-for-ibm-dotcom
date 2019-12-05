@@ -70,7 +70,6 @@ function _renderLegalItems(footerThin) {
  * @private
  */
 function _optionalFooterNav(type, footerMenu) {
-  console.log('optionalFooterNav', type);
   if (type !== 'short') {
     return footerNav(footerMenu);
   }
