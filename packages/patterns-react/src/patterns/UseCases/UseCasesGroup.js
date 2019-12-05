@@ -33,7 +33,9 @@ const UseCasesGroup = ({ usecaseGroup: { title, image, lists, link } }) => {
       className={`${prefix}--usecases-group`}>
       <h2 className={`${prefix}--usecases-group__title`}>{title}</h2>
 
-      <div className={`${prefix}--usecases-group__img`}>
+      <div
+        data-autoid={`${stablePrefix}--usecases-group__img`}
+        className={`${prefix}--usecases-group__img`}>
         {_renderPicture(image)}
       </div>
       <div className={`${prefix}--usecases-group__list`}>
