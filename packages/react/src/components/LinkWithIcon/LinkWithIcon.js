@@ -34,7 +34,7 @@ const LinkWithIcon = ({ children, href, ...props }) => {
  * @property propTypes
  * @description Defined property types for component
  *
- * @type {{children: object, href: string}}
+ * @type {{children: array, href: string}}
  */
 LinkWithIcon.propTypes = {
   children: PropTypes.array,
@@ -43,7 +43,7 @@ LinkWithIcon.propTypes = {
 
 /**
  * @property defaultProps
- * @type {{children: {}, href: string}}
+ * @type {{children: [], href: string}}
  */
 LinkWithIcon.defaultProps = {
   children: [],

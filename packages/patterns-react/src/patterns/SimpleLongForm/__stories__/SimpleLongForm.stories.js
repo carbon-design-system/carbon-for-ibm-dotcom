@@ -8,7 +8,7 @@ import {
   object,
   boolean,
 } from '@storybook/addon-knobs';
-import '../../../../../styles/scss/patterns/simplelongform/index.scss';
+import '../../../../../styles/scss/patterns/simplelongform/_simplelongform.scss';
 import SimpleLongForm from '../SimpleLongForm';
 import readme from '../README.md';
 
@@ -44,7 +44,7 @@ if (SIMPLELONGFORM) {
       };
 
       const themes = {
-        'dark (g100)': 'g100',
+        g100: 'g100',
         'light (white)': '',
       };
 
@@ -57,20 +57,14 @@ if (SIMPLELONGFORM) {
       const withBorder = boolean('with border', true);
 
       return (
-        <div
-          className={`bx--simplelongform--${select(
-            'theme',
-            themes,
-            themes['dark (g100)']
-          )}`}>
-          <SimpleLongForm
-            title={title}
-            copy={copy}
-            link={object('link', link)}
-            border={withBorder}
-            linkType={select('link type', linkType, linkType.none)}
-          />
-        </div>
+        <SimpleLongForm
+          border={withBorder}
+          copy={copy}
+          link={object('link', link)}
+          linkType={select('link type', linkType, linkType.none)}
+          theme={select('theme', themes, themes.g100)}
+          title={title}
+        />
       );
     });
 }
