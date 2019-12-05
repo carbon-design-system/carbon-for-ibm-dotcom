@@ -39,14 +39,18 @@ const UseCasesGroup = ({ usecaseGroup: { title, image, lists, link } }) => {
       <div className={`${prefix}--usecases-group__list`}>
         {_renderList(lists)}
       </div>
-      <div className={`${prefix}--usecases-group__card`}>
-        <CardLink
-          title={link.title}
-          href={link.href}
-          target={link.target}
-          icon={<ArrowRight20 />}
-        />
-      </div>
+      {link && (
+        <div
+          data-autoid={`${stablePrefix}--usecases-group__card`}
+          className={`${prefix}--usecases-group__card`}>
+          <CardLink
+            title={link.title}
+            href={link.href}
+            target={link.target}
+            icon={<ArrowRight20 />}
+          />
+        </div>
+      )}
     </div>
   );
 };
