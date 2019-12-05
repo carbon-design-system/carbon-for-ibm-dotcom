@@ -37,8 +37,6 @@ elem.innerHTML = content; // sets the footer content into the element
 Footer.init(elem); // initializes the footer
 ```
 
-​
-
 ### Method 2: Return footer markup with manual data injection
 
 This method will return the footer markup, where the configuration and
@@ -47,23 +45,6 @@ navigation data is manually injected into the ES6 template literal itself. ​
 ```javascript
 import { Footer, footerTemplate } from '@carbon/ibmdotcom-vanilla';
 ​
-const content = footerTemplate({
-  type: 'tall',
-  footerMenu: { ...footer menu content ... }
-  footerThin: { ... footer thin content ... }
-}); // returns the markup
-const elem = document.getElementById('yourFooterDiv');
-elem.innerHTML = content; // sets the footer content into the element
-Footer.init(elem); // initializes the footer
-```
-
-### Initialize
-
-> The init function initializes the accordion view for mobile
-
-```javascript
-import { Footer, footerTemplate } from '@carbon/ibmdotcom-vanilla';
-
 const content = footerTemplate({
   type: 'tall',
   footerMenu: { ...footer menu content ... }
@@ -103,20 +84,6 @@ Footer.init(elem); // initializes the footer
 | `dds--legal-nav`              | Component   |
 | `dds--legal-nav__link`        | Interactive |
 | `dds--locale-modal`           | Component   |
-
-## Fetch Navigation Data
-
-Here is how to fetch the navigation data. Make the service call and then apply
-the template literal.
-
-```javascript
-import { Footer } from '@carbon/ibmdotcom-vanilla';
-
-const content = Footer.getFooterWithData(); // fetches the default footer content, then returns the footer markup
-const elem = document.getElementById('yourFooterDiv');
-elem.innerHTML = content; // sets the footer content into the element
-Footer.init(elem); // initializes the footer
-```
 
 ## 🙌 Contributing
 
