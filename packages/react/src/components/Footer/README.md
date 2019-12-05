@@ -49,12 +49,19 @@ FOOTER_LOCALE_BUTTON=true
 > [.env.example](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/.env.example)
 > for more information
 
-## Types (optional)
+## Props
 
-| Name             | Description                                                                 |
-| ---------------- | --------------------------------------------------------------------------- |
-| `tall`/`default` | Default footer variant includes additional navigation taking up more space. |
-| `short`          | Short footer variant reduces space by removing any additional navigation.   |
+| Name         | Required | Data Type | Default Value | Description                        |
+| ------------ | -------- | --------- | ------------- | ---------------------------------- |
+| `navigation` | NO       | Object    | null          | Navigation data object for Footer  |
+| `type`       | NO       | String    | null          | Type of Footer. See below `types`. |
+
+### types (optional)
+
+| Name    | Description                                                                 |
+| ------- | --------------------------------------------------------------------------- |
+| `tall`  | Default footer variant includes additional navigation taking up more space. |
+| `short` | Short footer variant reduces space by removing any additional navigation.   |
 
 ## Stable selectors
 

@@ -48,12 +48,25 @@ MASTHEAD_L1=true
 > [.env.example](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/.env.example)
 > for more information
 
-## navigation (String | Object | null)
+## Props
+
+| Name              | Required | Data Type        | Default Value       | Description                                                         |
+| ----------------- | -------- | ---------------- | ------------------- | ------------------------------------------------------------------- |
+| `navigation`      | NO       | String OR Object | null                | Navigation data object/string for Masthead. See `navigation` below. |
+| `hasProfile`      | NO       | Boolean          | true                | Determines whether to render IBM Profile Menu component.            |
+| `hasSearch`       | NO       | Boolean          | true                | Determines whether to render SearchBar component.                   |
+| `placeHolderText` | NO       | String           | `Search all of IBM` | Placeholder value for search input                                  |
+| `platform`        | NO       | Object           | null                | Platform name that appears on L0. See `platform` below.             |
+| `title`           | NO       | String           | null                | Title for the masthead L1                                           |
+| `eyebrowText`     | NO       | String           | null                | Text for the eyebrow link in masthead L1                            |
+| `eyebrowLink`     | NO       | String           | null                | URL for the eyebrow link in masthead L1                             |
+
+## navigation
 
 | Behavior           | Data Type | Description                                 | Example                             |
 | ------------------ | --------- | ------------------------------------------- | ----------------------------------- |
 | default navigation | String    | Default navigation data from IBM.com        | `<Masthead navigation="default" />` |
-| custom navigation  | Object    | Pass in custom navigation data as an object | `<Masthead navigation={myNavObj}/>` |  |
+| custom navigation  | Object    | Pass in custom navigation data as an object | `<Masthead navigation={myNavObj}/>` |
 | none               | null      | No navigation                               | `<Masthead />`                      |
 
 > 💡 `Custom` navigation data must follow the same structure and key names as
@@ -61,7 +74,7 @@ MASTHEAD_L1=true
 > [this](https://www.ibm.com/common/v18/js/data/jsononly/usen.json) for an
 > example.
 
-## platform (Object)
+## platform
 
 Includes platform name (only available with `default` and `custom navigation`).
 Object requires `name` and `url`.
@@ -74,18 +87,6 @@ const platformData = {
 
 <Masthead platform={platformData} navigation="default" />;
 ```
-
-## Other Props
-
-| Name               | Data Type | Default value       | Description                              |
-| ------------------ | --------- | ------------------- | ---------------------------------------- |
-| `hasProfile`       | Boolean   | `true`              | Includes IBM profile menu                |
-| `hasSearch`        | Boolean   | `true`              | Includes IBM search                      |
-| `searchOpenOnload` | Boolean   | `false`             | Has the search open by default           |
-| `placeHolderText`  | String    | `Search all of IBM` | Placeholder value for search input       |
-| `title`            | String    |                     | Title for the masthead L1                |
-| `eyebrowText`      | String    |                     | Text for the eyebrow link in masthead L1 |
-| `eyebrowLink`      | String    |                     | URL for the eyebrow link in masthead L1  |
 
 ## Stable selectors
 
