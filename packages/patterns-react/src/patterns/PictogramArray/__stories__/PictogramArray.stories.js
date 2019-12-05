@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { DDS_PICTOGRAM_ARRAY } from '../../../internal/FeatureFlags';
 import { withKnobs, text, object, select } from '@storybook/addon-knobs';
-import '../../../../../styles/scss/patterns/pictogramarray/index.scss';
+import './index.scss';
 import PictogramArray from '../PictogramArray';
 import readme from '../README.md';
 import { Desktop, Touch, Pattern } from '@carbon/pictograms-react';
