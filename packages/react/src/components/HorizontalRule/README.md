@@ -36,41 +36,41 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 | Name       | Required | Data Type | Default Value     | Description                               |
 | ---------- | -------- | --------- | ----------------- | ----------------------------------------- |
-| `style`    | NO       | String    | 'solid'           | Style of the HR. See `Styles` below.      |
-| `size`     | NO       | String    | 'fluid'           | Length of the HR. See `Sizes` below.      |
-| `contrast` | NO       | String    | 'medium-contrast' | Contrast of the HR. See `Contrast` below. |
-| `weight`   | NO       | String    | 'thin'            | Weight of the HR. See `Weights` below.    |
+| `style`    | NO       | String    | 'solid'           | Style of the HR. See `styles` below.      |
+| `size`     | NO       | String    | 'fluid'           | Length of the HR. See `sizes` below.      |
+| `contrast` | NO       | String    | 'medium-contrast' | Contrast of the HR. See `contrast` below. |
+| `weight`   | NO       | String    | 'thin'            | Weight of the HR. See `weights` below.    |
 
-### Styles (optional)
+### styles (optional)
 
-| Name              | Description                                                                    |
-| ----------------- | ------------------------------------------------------------------------------ |
-| `solid`/`default` | Default style variant of the horizontal rule                                   |
-| `dashed`          | Dashed/dotted style variant (style is applied in conjuction with `fluid` size) |
+| Name     | Description                                                                    |
+| -------- | ------------------------------------------------------------------------------ |
+| `solid`  | Default style variant of the horizontal rule                                   |
+| `dashed` | Dashed/dotted style variant (style is applied in conjuction with `fluid` size) |
 
-### Sizes (optional)
+### sizes (optional)
 
-| Name              | Description                                                         |
-| ----------------- | ------------------------------------------------------------------- |
-| `fluid`/`default` | Default size variant - horizontal rule takes full width of the grid |
-| `small`           | Shorter fixed-length variant with a max-width of 32px               |
-| `medium`          | Medium fixed-length variant with a max-width of 48px                |
-| `large`           | Longer fixed-length variant with a max-width of 64px                |
+| Name     | Description                                                         |
+| -------- | ------------------------------------------------------------------- |
+| `fluid`  | Default size variant - horizontal rule takes full width of the grid |
+| `small`  | Shorter fixed-length variant with a max-width of 32px               |
+| `medium` | Medium fixed-length variant with a max-width of 48px                |
+| `large`  | Longer fixed-length variant with a max-width of 64px                |
 
-### Contrast types (optional)
+### contrast types (optional)
 
-| Name                        | Description                    |
-| --------------------------- | ------------------------------ |
-| `medium-contrast`/`default` | Default contrast color variant |
-| `low-contrast`              | Lighter contrast color variant |
-| `high-contrast`             | Darker contrast color variant  |
+| Name              | Description                    |
+| ----------------- | ------------------------------ |
+| `medium-contrast` | Default contrast color variant |
+| `low-contrast`    | Lighter contrast color variant |
+| `high-contrast`   | Darker contrast color variant  |
 
-### Weights (optional)
+### weights (optional)
 
-| Name             | Description                                                                          |
-| ---------------- | ------------------------------------------------------------------------------------ |
-| `thin`/`default` | Default weight variant                                                               |
-| `thick`          | Slightly thicker weight variant (this only applied in conjunction with `fluid` size) |
+| Name    | Description                                                                          |
+| ------- | ------------------------------------------------------------------------------------ |
+| `thin`  | Default weight variant                                                               |
+| `thick` | Slightly thicker weight variant (this only applied in conjunction with `fluid` size) |
 
 ## Stable selectors
 

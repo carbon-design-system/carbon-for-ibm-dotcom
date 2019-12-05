@@ -117,11 +117,11 @@ BUTTON_GROUP=true
 
 ### Button Item
 
-| Name         | Data Type | Description             |
-| ------------ | --------- | ----------------------- |
-| `href`       | String    | URL for the button item |
-| `copy`       | String    | Button copy             |
-| `renderIcon` | Object    | Optional icon type      |
+| Name         | Data Type | Description                                                                                                                    |
+| ------------ | --------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| `href`       | String    | URL for the button item                                                                                                        |
+| `copy`       | String    | Button copy                                                                                                                    |
+| `renderIcon` | Object    | Provide an optional icon for the CTA from [Carbon's icon library](https://www.carbondesignsystem.com/guidelines/icons/library) |
 
 Visit the
 [Button documentation](http://react.carbondesignsystem.com/?path=/story/buttons--default)

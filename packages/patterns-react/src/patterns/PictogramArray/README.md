@@ -96,12 +96,12 @@ DDS_PICTOGRAM_ARRAY=true
 
 ### contentGroup
 
-| Name        | Data Type | Description                                                                       |
-| ----------- | --------- | --------------------------------------------------------------------------------- |
-| `title`     | String    | Title of content item.                                                            |
-| `copy`      | Object    | Copy of content item.                                                             |
-| `link`      | Object    | Object with the href, text, and target properities of the link. See `link` below. |
-| `pictogram` | Object    | Pictogram object to be rendered with content item.                                |
+| Name        | Data Type | Description                                                                                                                                            |
+| ----------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `title`     | String    | Title of content item.                                                                                                                                 |
+| `copy`      | Object    | Copy of content item.                                                                                                                                  |
+| `link`      | Object    | Object with the href, text, and target properities of the link. See `link` below.                                                                      |
+| `pictogram` | Object    | Pictogram object to be rendered with content item from [Carbon's Pictogram library](https://www.carbondesignsystem.com/guidelines/pictograms/library/) |
 
 ### link
 

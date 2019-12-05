@@ -50,23 +50,23 @@ LEADSPACE=true
 
 | Name        | Required | Data Type | Default Value | Description                                                                           |
 | ----------- | -------- | --------- | ------------- | ------------------------------------------------------------------------------------- |
-| `buttons`   | NO       | Array     | null          | Array of button objects to render (max 2). See `Buttons` below.                       |
+| `buttons`   | NO       | Array     | null          | Array of button objects to render (max 2). See `buttons` below.                       |
 | `copy`      | NO       | String    | null          | Short copy of LeadSpace.                                                              |
 | `gradient`  | NO       | Boolean   | false         | Determines whether to render overlay gradient.                                        |
-| `image`     | NO       | Object    | null          | Object with different ratio options for corresponding breakpoints. See `Image` below. |
-| `theme`     | NO       | String    | 'white'       | Color theme of LeadSpace. See `Themes` below.                                         |
+| `image`     | NO       | Object    | null          | Object with different ratio options for corresponding breakpoints. See `image` below. |
+| `theme`     | NO       | String    | 'white'       | Color theme of LeadSpace. See `themes` below.                                         |
 | `title`     | YES      | String    | n/a           | Title of LeadSpace.                                                                   |
-| `variation` | NO       | String    | 'expressive'  | Variation of LeadSpace title. See `Variations` below.                                 |
+| `variation` | NO       | String    | 'expressive'  | Variation of LeadSpace title. See `variations` below.                                 |
 
-### Buttons (optional)
+### buttons (optional)
 
-| Name         | Data Type | Description                       |
-| ------------ | --------- | --------------------------------- |
-| `link`       | String    | Url of the CTA                    |
-| `copy`       | String    | CTA's text                        |
-| `renderIcon` | String    | Type of icon to render within CTA |
+| Name         | Data Type | Description                                                                                                                    |
+| ------------ | --------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| `link`       | String    | Url of the CTA                                                                                                                 |
+| `copy`       | String    | CTA's text                                                                                                                     |
+| `renderIcon` | String    | Provide an optional icon for the CTA from [Carbon's icon library](https://www.carbondesignsystem.com/guidelines/icons/library) |
 
-### Image (optional)
+### image (optional)
 
 | Name      | Data Type | Description                                                 |
 | --------- | --------- | ----------------------------------------------------------- |
@@ -75,14 +75,14 @@ LEADSPACE=true
 | `default` | String    | Image with aspect ratio (1056 x 480) for desktop breakpoint |
 | `alt`     | String    | Alt description of the image                                |
 
-### Themes (optional)
+### themes (optional)
 
 | Name    | Data Type | Description           |
 | ------- | --------- | --------------------- |
 | `white` | String    | Carbon White theme    |
 | `g100`  | String    | Carbon Gray 100 theme |
 
-### Variations (optional)
+### variations (optional)
 
 | Name                   | Data Type | Description                             |
 | ---------------------- | --------- | --------------------------------------- |

@@ -53,15 +53,15 @@ FOOTER_LOCALE_BUTTON=true
 
 | Name         | Required | Data Type | Default Value | Description                        |
 | ------------ | -------- | --------- | ------------- | ---------------------------------- |
-| `navgiation` | NO       | Object    | null          | Navigation data object for Footer  |
-| `type`       | NO       | String    | null          | Type of Footer. See below `Types`. |
+| `navigation` | NO       | Object    | null          | Navigation data object for Footer  |
+| `type`       | NO       | String    | null          | Type of Footer. See below `types`. |
 
-### Types (optional)
+### types (optional)
 
-| Name             | Description                                                                 |
-| ---------------- | --------------------------------------------------------------------------- |
-| `tall`/`default` | Default footer variant includes additional navigation taking up more space. |
-| `short`          | Short footer variant reduces space by removing any additional navigation.   |
+| Name    | Description                                                                 |
+| ------- | --------------------------------------------------------------------------- |
+| `tall`  | Default footer variant includes additional navigation taking up more space. |
+| `short` | Short footer variant reduces space by removing any additional navigation.   |
 
 ## Stable selectors
 

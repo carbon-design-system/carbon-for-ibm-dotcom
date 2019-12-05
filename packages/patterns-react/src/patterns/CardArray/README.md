@@ -92,10 +92,25 @@ DDS_CARD_ARRAY=true
 
 ## Props
 
-| Name      | Description                                                                      |
-| --------- | -------------------------------------------------------------------------------- |
-| `title`   | Content Array with Cards section title `{title}`                                 |
-| `content` | Content Array with Cards section content `[{title, copy, link: {href, target}}]` |
+| Name      | Required | Data Type | Default Value | Description                                          |
+| --------- | -------- | --------- | ------------- | ---------------------------------------------------- |
+| `title`   | YES      | String    | n/a           | Main title of the pattern.                           |
+| `content` | NO       | Array     | null          | Array of content group objects. See `content` below. |
+
+### content
+
+| Name    | Data Type | Description                                                  |
+| ------- | --------- | ------------------------------------------------------------ |
+| `title` | String    | Title of the Content Card item.                              |
+| `copy`  | String    | Copy of the Content Card item.                               |
+| `link`  | Object    | Object containing target and href of link. See `link` below. |
+
+### link
+
+| Name     | Data Type | Description                                                 |
+| -------- | --------- | ----------------------------------------------------------- |
+| `target` | String    | Open within current tab or new tab ('\_self' or '\_blank'). |
+| `href`   | String    | Url of the Content Card item link.                          |
 
 ## Stable selectors
 
