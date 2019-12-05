@@ -21,13 +21,13 @@ const { prefix } = settings;
  * List Section pattern
  *
  * @param {object} props props object
- * @param {string} props.title List section title
+ * @param {boolean} props.border List section border
  * @param {string} props.copy List section  short copy to support the title
- * @param {string} props.border List section border
- * @param {object} props.listGroup variation of the List section standard, standard with jump link and standard with card link
- * @returns {*} JSX Object
+ * @param {Array} props.listGroup variation of the List section standard, standard with jump link and standard with card link
+ * @param {string} props.title List section title
+ * @returns {object} JSX Object
  */
-const ListSection = ({ title, copy, border, listGroup }) =>
+const ListSection = ({ border, copy, listGroup, title }) =>
   featureFlag(
     LISTSECTION,
     <section
@@ -52,11 +52,11 @@ const ListSection = ({ title, copy, border, listGroup }) =>
  * Render List Section Group Component
  *
  * @private
- * @param {object} listGroupItems listGroupItems Object
+ * @param {Array} listGroup listGroupItems Array
  * @returns {object} JSX Object
  */
-const _renderListGroup = listGroupItems => {
-  return listGroupItems.map(listGroupItem => {
+const _renderListGroup = listGroup => {
+  return listGroup.map(listGroupItem => {
     return (
       <ListSectionGroup key={listGroupItem.title} listGroup={listGroupItem} />
     );
@@ -77,13 +77,13 @@ const _setBorder = border => {
 };
 
 ListSection.propTypes = {
-  title: PropTypes.string.isRequired,
-  copy: PropTypes.string,
   border: PropTypes.bool,
+  copy: PropTypes.string,
   listGroup: PropTypes.shape({
     title: PropTypes.string,
     lists: PropTypes.array,
   }),
+  title: PropTypes.string.isRequired,
 };
 
 export default ListSection;

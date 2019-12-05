@@ -36,12 +36,12 @@ function App() {
 > 💡 And don't forget to import the LinkWithIcon styles from
 > [@carbon/ibmdotcom-styles](/packages/styles).
 
-## Data
+## Props
 
-| Name       | Description        |
-| ---------- | ------------------ |
-| `children` | Link text and icon |
-| `href`     | url                |
+| Name       | Required | Data Type | Default Value | Description                                   |
+| ---------- | -------- | --------- | ------------- | --------------------------------------------- |
+| `children` | NO       | Array     | null          | Array containing Link text and icon elements. |
+| `href`     | NO       | String    | null          | Url of link.                                  |
 
 > 💡 See the
 > [Carbon link](https://www.carbondesignsystem.com/components/link/code) for a

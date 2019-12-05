@@ -57,7 +57,7 @@ const UseCases = ({ border, copy, theme, title, usecaseGroup }) =>
  * Render Use case Group Component
  *
  * @private
- * @param {object} items use case group items Object
+ * @param {Array} items use case group items array
  * @returns {object} JSX Object
  */
 const _renderUsecaseGroup = items => {
@@ -95,7 +95,7 @@ UseCases.propTypes = {
   copy: PropTypes.string,
   theme: PropTypes.string,
   title: PropTypes.string.isRequired,
-  listGroup: PropTypes.array,
+  usecaseGroup: PropTypes.array,
 };
 
 export default UseCases;
