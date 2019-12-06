@@ -100,7 +100,7 @@ To utilize the following features, set the following variable's to `true` within
 your `.env` file or your application build settings.
 
 ```
-BUTTON_GROUP=true
+DDS_BUTTON_GROUP=true
 ```
 
 > See

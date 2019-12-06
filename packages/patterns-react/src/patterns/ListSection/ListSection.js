@@ -11,7 +11,7 @@ import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
 import classNames from 'classnames';
 import { featureFlag } from '@carbon/ibmdotcom-utilities';
-import { LISTSECTION } from '../../internal/FeatureFlags';
+import { DDS_LISTSECTION } from '../../internal/FeatureFlags';
 import ListSectionGroup from './ListSectionGroup';
 
 const { stablePrefix } = ddsSettings;
@@ -30,7 +30,7 @@ const { prefix } = settings;
  */
 const ListSection = ({ border, copy, listGroup, theme, title }) =>
   featureFlag(
-    LISTSECTION,
+    DDS_LISTSECTION,
     <section
       data-autoid={`${stablePrefix}--listsection`}
       className={classNames(
