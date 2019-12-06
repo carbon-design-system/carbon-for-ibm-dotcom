@@ -1,9 +1,7 @@
 import { storiesOf } from '@storybook/html';
 import { withKnobs } from '@storybook/addon-knobs';
-import masthead from '../masthead.template';
+import Masthead from '../masthead';
 import '../../../../../styles/scss/components/masthead/index.scss';
-
-import mastheadLinks from './data/mastheadLinks.js';
 import readme from '../README.md';
 
 storiesOf('Masthead', module)
@@ -14,20 +12,13 @@ storiesOf('Masthead', module)
     },
   })
   .add('Default', () => {
-    return masthead({
-      navigation: {
-        default: 'string',
-        custom: mastheadLinks,
-        none: null,
-      },
-      platform: {
-        none: null,
-        platform: {
-          name: 'IBM Cloud',
-          url: 'https://www.ibm.com/cloud',
-        },
-        hasProfile: true,
-        hasSearch: true,
-      },
+    const element = document.createElement('div');
+    element.textContent = 'Loading...';
+
+    Masthead.create(element).then(mastheadElement => {
+      console.log('Masthead create successfully:', mastheadElement);
     });
+    Masthead.init();
+
+    return element;
   });
