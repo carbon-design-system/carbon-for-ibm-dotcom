@@ -3,6 +3,7 @@ module.exports = {
   plugins: [
     'dev-expression',
     'macros',
+    'inline-react-svg',
     '@babel/plugin-syntax-dynamic-import',
     '@babel/plugin-syntax-import-meta',
     '@babel/plugin-proposal-class-properties',
