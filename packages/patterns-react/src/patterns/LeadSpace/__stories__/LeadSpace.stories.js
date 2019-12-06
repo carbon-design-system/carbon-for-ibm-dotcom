@@ -10,9 +10,9 @@ import {
 import './index.scss';
 import LeadSpace from '../LeadSpace';
 import readme from '../README.md';
-import { LEADSPACE } from '../../../internal/FeatureFlags';
+import { DDS_LEADSPACE } from '../../../internal/FeatureFlags';
 
-if (LEADSPACE) {
+if (DDS_LEADSPACE) {
   storiesOf('LeadSpace', module)
     .addDecorator(withKnobs)
     .addParameters({
