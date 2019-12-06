@@ -21,13 +21,13 @@ const { prefix } = settings;
  * Use cases pattern
  *
  * @param {object} props props object
- * @param {string} props.title Use cases title
+ * @param {boolean} props.border Use cases border
  * @param {string} props.copy Use cases  short copy to support the title
- * @param {string} props.border Use cases border
+ * @param {string} props.title Use cases title
  * @param {Array} props.usecaseGroup usecaseGroup array with title, image and lists
  * @returns {object} JSX Object
  */
-const UseCases = ({ title, copy, border, usecaseGroup }) =>
+const UseCases = ({ border, copy, title, usecaseGroup }) =>
   featureFlag(
     DDS_USECASES,
     <section
@@ -52,7 +52,7 @@ const UseCases = ({ title, copy, border, usecaseGroup }) =>
  * Render Use case Group Component
  *
  * @private
- * @param {object} items use case group items Object
+ * @param {Array} items use case group items array
  * @returns {object} JSX Object
  */
 const _renderUsecaseGroup = items => {
@@ -75,10 +75,10 @@ const _setBorder = border => {
 };
 
 UseCases.propTypes = {
-  title: PropTypes.string.isRequired,
-  copy: PropTypes.string,
   border: PropTypes.bool,
-  listGroup: PropTypes.array,
+  copy: PropTypes.string,
+  title: PropTypes.string.isRequired,
+  usecaseGroup: PropTypes.array,
 };
 
 export default UseCases;

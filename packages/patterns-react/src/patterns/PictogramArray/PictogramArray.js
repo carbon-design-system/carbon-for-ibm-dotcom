@@ -20,11 +20,11 @@ const { prefix } = settings;
  * Content Array with Pictograms
  *
  * @param {object} props props object
- * @param {string} props.title List section title
  * @param {Array} props.contentGroup variation of the List section standard, standard with jump link and standard with card link
+ * @param {string} props.title List section title
  * @returns {*}  Content array with pictograms JSX Component
  */
-const PictogramArray = ({ title, contentGroup }) =>
+const PictogramArray = ({ contentGroup, title }) =>
   featureFlag(
     DDS_PICTOGRAM_ARRAY,
     <section
@@ -62,7 +62,6 @@ const _renderArray = contentArray =>
   ));
 
 PictogramArray.propTypes = {
-  title: PropTypes.string.isRequired,
   contentGroup: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
@@ -75,6 +74,7 @@ PictogramArray.propTypes = {
       pictogram: PropTypes.object,
     })
   ),
+  title: PropTypes.string.isRequired,
 };
 
 export default PictogramArray;

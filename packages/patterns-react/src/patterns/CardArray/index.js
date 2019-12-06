@@ -5,5 +5,4 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-export * from './horizontalrule';
-export * from './footer';
+export { default as CardArray } from './CardArray';

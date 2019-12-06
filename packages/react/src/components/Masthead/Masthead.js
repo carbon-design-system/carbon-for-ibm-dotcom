@@ -38,8 +38,10 @@ const { prefix } = settings;
 /**
  * MastHead component
  *
- * @typedef {object} navigation Object containing navigation elements
- * @param {string} type Type of masthead
+ * @param {object} props React props object
+ * @param {object} props.navigation Object containing navigation elements
+ * @param {boolean} props.hasProfile Determines whether to render Profile component
+ * @param {boolean} props.hasSearch Determines whether to render Search Bar
  * @returns {*} Masthead component
  */
 const Masthead = ({ navigation, hasProfile, hasSearch, ...mastheadProps }) => {
