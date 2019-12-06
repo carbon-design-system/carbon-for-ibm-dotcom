@@ -106,7 +106,9 @@ const LeadSpace = ({
           </div>
           <div className={`${prefix}--leadspace__content`}>
             {copy && (
-              <div className={`${prefix}--leadspace__row`}>
+              <div
+                data-autoid={`${stablePrefix}--leadspace__row`}
+                className={`${prefix}--leadspace__row`}>
                 <p className={`${prefix}--leadspace__desc`}>{copy}</p>
               </div>
             )}

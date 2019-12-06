@@ -103,12 +103,7 @@ const LeadSpaceCentered = ({
             className={`${prefix}--leadspace--centered__desc`}>
             {copy}
           </p>
-          {buttons && buttons.length > 0 && (
-            <ButtonGroup
-              data-autoid={`${stablePrefix}--leadspace--centered__button-group`}
-              buttons={buttons}
-            />
-          )}
+          {buttons && buttons.length > 0 && <ButtonGroup buttons={buttons} />}
         </div>
       </div>
       {image && (
