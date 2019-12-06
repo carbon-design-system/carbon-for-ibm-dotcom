@@ -3,12 +3,12 @@ module.exports = {
   plugins: [
     'dev-expression',
     'macros',
-    'inline-react-svg',
     '@babel/plugin-syntax-dynamic-import',
     '@babel/plugin-syntax-import-meta',
     '@babel/plugin-proposal-class-properties',
     '@babel/plugin-proposal-export-namespace-from',
     '@babel/plugin-proposal-export-default-from',
+    'inline-react-svg',
     [
       '@babel/plugin-transform-runtime',
       {
