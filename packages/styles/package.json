@@ -9,7 +9,8 @@
   "bugs": "https://github.com/carbon-design-system/ibm-dotcom-library/issues",
   "files": [
     "dist/**/*",
-    "scss/**/*"
+    "scss/**/*",
+    "icons/**/*"
   ],
   "keywords": [
     "react",
