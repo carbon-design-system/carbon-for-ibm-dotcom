@@ -7,7 +7,7 @@ import {
   object,
   boolean,
 } from '@storybook/addon-knobs';
-import '../../../../../styles/scss/patterns/leadspace/index.scss';
+import '../../../../../styles/scss/patterns/leadspace/_leadspace.scss';
 import LeadSpace from '../LeadSpace';
 import readme from '../README.md';
 import { LEADSPACE } from '../../../internal/FeatureFlags';
@@ -47,24 +47,18 @@ if (LEADSPACE) {
       ];
 
       const themes = {
-        'dark (g100)': 'g100',
-        'light (white)': '',
+        g100: 'g100',
+        white: '',
       };
 
       return (
-        <div
-          className={`bx--leadspace--${select(
-            'theme',
-            themes,
-            themes['dark (g100)']
-          )}`}>
-          <LeadSpace
-            title={title}
-            copy={copy}
-            buttons={object('buttons', buttons)}
-            variation={select('variation', variations, variations.expressive)}
-          />
-        </div>
+        <LeadSpace
+          theme={select('theme', themes, themes['dark (g100)'])}
+          title={title}
+          copy={copy}
+          buttons={object('buttons', buttons)}
+          variation={select('variation', variations, variations.expressive)}
+        />
       );
     })
     .add('Default with image', () => {
@@ -108,28 +102,22 @@ if (LEADSPACE) {
       ];
 
       const themes = {
-        'dark (g100)': 'g100',
-        'light (white)': '',
+        g100: 'g100',
+        white: '',
       };
 
       const graident = boolean('gradient overlay', true);
 
       return (
-        <div
-          className={`bx--leadspace--${select(
-            'theme',
-            themes,
-            themes['dark (g100)']
-          )}`}>
-          <LeadSpace
-            title={title}
-            copy={copy}
-            gradient={graident}
-            buttons={buttons}
-            image={object('image', images)}
-            variation={select('variation', variations, variations.expressive)}
-          />
-        </div>
+        <LeadSpace
+          theme={select('theme', themes, themes['dark (g100)'])}
+          title={title}
+          copy={copy}
+          gradient={graident}
+          buttons={buttons}
+          image={object('image', images)}
+          variation={select('variation', variations, variations.expressive)}
+        />
       );
     });
 }

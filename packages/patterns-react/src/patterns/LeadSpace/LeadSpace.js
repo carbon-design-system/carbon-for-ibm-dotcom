@@ -24,12 +24,17 @@ const { prefix } = settings;
  * renders the pattern classnames
  *
  * @param {string} variation variation of the pattern
+ * @param {string} theme theme of the pattern
  * @returns {string} classnames
  */
-const className = variation =>
-  classnames(`${prefix}--leadspace`, {
-    [`${prefix}--leadspace--productive`]: variation === 'productive',
-  });
+const className = (variation, theme) =>
+  classnames(
+    `${prefix}--leadspace`,
+    theme && `${prefix}--leadspace--${theme}`,
+    {
+      [`${prefix}--leadspace--productive`]: variation === 'productive',
+    }
+  );
 
 /**
  * renders the pattern classnames
@@ -66,23 +71,32 @@ const sortImages = images => {
 };
 
 /**
- * Lead space component
+ * Lead space component (left-aligned)
  *
  * @param {object} props props object
- * @param {string} props.variation variation of the lead space (expressive (default) or productive)
- * @param {string} props.title lead space title
+ * @param {Array} props.buttons array of buttons for lead space (max 2 buttons)
  * @param {string} props.copy lead space short copy to support the title
  * @param {boolean} props.gradient determines whether to render gradient overlay
  * @param {object} props.image image object with diff source for diff breakpoints
- * @param {Array} props.buttons array of buttons for lead space (max 2 buttons)
+ * @param {string} props.theme theme of the pattern (g100 or white (default))
+ * @param {string} props.title lead space title
+ * @param {string} props.variation variation of the lead space (expressive (default) | productive)
  * @returns {*} Lead space component
  */
-const LeadSpace = ({ variation, title, copy, buttons, image, gradient }) =>
+const LeadSpace = ({
+  buttons,
+  copy,
+  gradient,
+  image,
+  theme,
+  title,
+  variation,
+}) =>
   featureFlag(
     LEADSPACE,
     <section
       data-autoid={`${stablePrefix}--leadspace`}
-      className={className(variation)}>
+      className={className(variation, theme)}>
       <div className={`${prefix}--leadspace__container`}>
         <div className={overlayClassname(gradient)}>
           <div className={`${prefix}--leadspace__row`}>
@@ -113,15 +127,16 @@ const LeadSpace = ({ variation, title, copy, buttons, image, gradient }) =>
 LeadSpace.propTypes = {
   buttons: PropTypes.array,
   copy: PropTypes.string,
+  gradient: PropTypes.bool,
   image: PropTypes.shape({
     mobile: PropTypes.string,
     tablet: PropTypes.string,
     default: PropTypes.string,
     alt: PropTypes.string,
   }),
+  theme: PropTypes.string,
   title: PropTypes.string.isRequired,
   variation: PropTypes.string,
-  gradient: PropTypes.bool,
 };
 
 export default LeadSpace;

@@ -7,3 +7,4 @@
 
 export * from './horizontalrule';
 export * from './masthead';
+export * from './footer';

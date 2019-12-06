@@ -15,7 +15,7 @@ describe('LocaleAPI', () => {
   const _cc = 'us';
   const _lc = 'es';
 
-  const endpoint = `${process.env.TRANSLATION_HOST}/common/v18/js/data/countrylist`;
+  const endpoint = `${process.env.TRANSLATION_HOST}/common/js/dynamicnav/www/countrylist/jsononly`;
   const fetchUrl = `${endpoint}/${_cc}${_lc}-utf8.json`;
 
   beforeEach(function() {

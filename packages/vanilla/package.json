@@ -40,6 +40,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.5.5",
+    "@carbon/ibmdotcom-services": "1.2.0-alpha.1070",
     "@carbon/ibmdotcom-styles": "1.1.2",
     "@carbon/ibmdotcom-utilities": "1.2.0-alpha.1070",
     "@carbon/icon-helpers": "^10.4.0",

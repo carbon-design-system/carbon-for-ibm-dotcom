@@ -55,12 +55,13 @@ CARD_LINK=true
 
 ## Props
 
-| Name                  | Description                                                                                                                      |
-| --------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| `title`_`(required)`_ | Concise yet descriptive string of text describing the linked resource.                                                           |
-| `href`_`(required)`_  | Valid URL for a the location of an internal or external resource.                                                                |
-| `icon`                | Provide an optional icon to the footer from [Carbon's icon library](https://www.carbondesignsystem.com/guidelines/icons/library) |
-| `content`             | Paragraph of text that further describing the resource with added detail.                                                        |
+| Name        | Required | Data Type | Default Value | Description                                                                                                                      |
+| ----------- | -------- | --------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| `content`   | NO       | String    | null          | Paragraph of text that further describing the resource with added detail.                                                        |
+| `className` | NO       | String    | null          | Classname to be assigned to the CardLink component                                                                               |
+| `href`      | YES      | String    | n/a           | Valid URL for a the location of an internal or external resource.                                                                |
+| `icon`      | NO       | Element   | null          | Provide an optional icon to the footer from [Carbon's icon library](https://www.carbondesignsystem.com/guidelines/icons/library) |
+| `title`     | YES      | String    | n/a           | Concise yet descriptive string of text describing the linked resource.                                                           |
 
 ## Stable selectors
 
