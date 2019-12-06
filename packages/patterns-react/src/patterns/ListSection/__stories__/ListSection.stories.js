@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { LISTSECTION } from '../../../internal/FeatureFlags';
+import { DDS_LISTSECTION } from '../../../internal/FeatureFlags';
 import {
   withKnobs,
   text,
@@ -12,7 +12,7 @@ import './index.scss';
 import ListSection from '../ListSection';
 import readme from '../README.md';
 
-if (LISTSECTION) {
+if (DDS_LISTSECTION) {
   storiesOf('List section', module)
     .addDecorator(withKnobs)
     .addParameters({
@@ -144,26 +144,20 @@ if (LISTSECTION) {
       ];
 
       const themes = {
-        'dark (g100)': 'g100',
-        'light (white)': '',
+        g100: 'g100',
+        white: '',
       };
 
       const withBorder = boolean('with border', true);
 
       return (
-        <div
-          className={`bx--listsection--${select(
-            'theme',
-            themes,
-            themes['light (white)']
-          )}`}>
-          <ListSection
-            title={title}
-            copy={copy}
-            border={withBorder}
-            listGroup={object('listGroup', listGroup)}
-          />
-        </div>
+        <ListSection
+          theme={select('theme', themes, themes.white)}
+          title={title}
+          copy={copy}
+          border={withBorder}
+          listGroup={object('listGroup', listGroup)}
+        />
       );
     });
 }

@@ -13,47 +13,54 @@ Here's a quick example to get you started.
 @import '@carbon/type/scss/font-face/sans';
 @include carbon--font-face-mono();
 @include carbon--font-face-sans();
-```
 
-> 💡 Only import font's once per usage
-
-```javascript
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Footer } from '@carbon/ibmdotcom-react';
-import 'yourapplication.scss';
 import '@carbon/ibmdotcom-styles/scss/components/footer/index.scss';
-
-function App() {
-  return <Footer />;
-}
-
-ReactDOM.render(<App />, document.querySelector('#app'));
 ```
 
-> 💡 Don't forget to import the footer styles from
+> 💡 Only import font's once per usage 💡 Don't forget to import the footer
+> styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
-#### Feature Flags
+### Method 1: Fetch Navigation data and return Footer markup (recommended)
 
-To utilize the following features, set the following variable's to `true` within
-your `.env` file or your application build settings.
+This method will fetch the default navigation data, then inject into the footer
+template and return the final markup to use. While the approach below shows the
+client-side way of rendering, this can also be used for server-side rendering
+approaches. ​
 
+```javascript
+import { Footer } from '@carbon/ibmdotcom-vanilla';
+​
+const content = Footer.getFooterWithData(); // fetches the default footer content, then returns the footer markup
+const elem = document.getElementById('yourFooterDiv');
+elem.innerHTML = content; // sets the footer content into the element
+Footer.init(elem); // initializes the footer
 ```
-DDS_FOOTER_LOCALE_BUTTON=true
-```
 
-> See
-> [feature-flags.md](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/docs/feature-flags.md)
-> and
-> [.env.example](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/.env.example)
-> for more information
+### Method 2: Return footer markup with manual data injection
+
+This method will return the footer markup, where the configuration and
+navigation data is manually injected into the ES6 template literal itself. ​
+
+```javascript
+import { Footer, footerTemplate } from '@carbon/ibmdotcom-vanilla';
+​
+const content = footerTemplate({
+  type: 'tall',
+  footerMenu: { ...footer menu content ... }
+  footerThin: { ... footer thin content ... }
+}); // returns the markup
+const elem = document.getElementById('yourFooterDiv');
+elem.innerHTML = content; // sets the footer content into the element
+Footer.init(elem); // initializes the footer
+```
 
 ## Props
 
 | Name         | Required | Data Type | Default Value | Description                        |
 | ------------ | -------- | --------- | ------------- | ---------------------------------- |
-| `navigation` | NO       | Object    | null          | Navigation data object for Footer  |
+| `footerMenu` | NO       | Object    | null          | Navigation data object for Footer  |
+| `footerThin` | NO       | Object    | null          | Legal Nav data object for Footer   |
 | `type`       | NO       | String    | null          | Type of Footer. See below `types`. |
 
 ### types (optional)
@@ -77,33 +84,6 @@ DDS_FOOTER_LOCALE_BUTTON=true
 | `dds--legal-nav`              | Component   |
 | `dds--legal-nav__link`        | Interactive |
 | `dds--locale-modal`           | Component   |
-
-## CORS Proxy
-
-This component makes cross-origin requests to `www.ibm.com`, which will require
-a cors proxy to be configured to make successful calls from a lower environment.
-
-A cors proxy can be configured using the following
-[environment variable](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/docs/environment-variables.md):
-
-`CORS_PROXY=https://myproxy.com/`
-
-## Server Side Rendering
-
-To server side render the footer, the `Translation` service call needs to be
-made to retrieve navigation links. Make sure to pass in the `lc` and `cc` values
-as shown in the example below.
-
-```javascript
-import { TranslationAPI } from '@carbon/ibmdotcom-services';
-import { Footer } from '@carbon/ibmdotcom-react';
-
-server.get('/', async (req, res) => {
-  const response = await TranslationAPI.getTranslation({ lc: 'en', cc: 'us' });
-  const body = renderToString(<Footer navigation={response} />);
-  res.send(body);
-});
-```
 
 ## 🙌 Contributing
 

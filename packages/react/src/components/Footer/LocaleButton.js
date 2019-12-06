@@ -1,4 +1,4 @@
-import { FOOTER_LOCALE_BUTTON } from '../../internal/FeatureFlags.js';
+import { DDS_FOOTER_LOCALE_BUTTON } from '../../internal/FeatureFlags.js';
 import { featureFlag } from '@carbon/ibmdotcom-utilities';
 
 import React, { useState, useEffect } from 'react';
@@ -56,7 +56,7 @@ const LocaleButton = ({ selectItem }) => {
   };
 
   return featureFlag(
-    FOOTER_LOCALE_BUTTON,
+    DDS_FOOTER_LOCALE_BUTTON,
     <div className={`${prefix}--locale-btn__container`}>
       <Button
         data-autoid={`${stablePrefix}--locale-btn`}

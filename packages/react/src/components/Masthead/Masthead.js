@@ -30,7 +30,7 @@ import MastheadProfile from './MastheadProfile';
 import MastheadLeftNav from './MastheadLeftNav';
 import MastheadTopNav from './MastheadTopNav';
 import cx from 'classnames';
-import { MASTHEAD_L1 } from '../../internal/FeatureFlags';
+import { DDS_MASTHEAD_L1 } from '../../internal/FeatureFlags';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
@@ -205,7 +205,7 @@ const Masthead = ({ navigation, hasProfile, hasSearch, ...mastheadProps }) => {
               )}
             </Header>
           </div>
-          {MASTHEAD_L1 && navigation && (
+          {DDS_MASTHEAD_L1 && navigation && (
             <div ref={mastheadL1Ref}>
               <MastheadL1
                 isShort={isMastheadSticky}
