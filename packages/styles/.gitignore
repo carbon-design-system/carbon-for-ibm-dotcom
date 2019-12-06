@@ -1,2 +1,3 @@
 # Ignore generated files and folders
 dist
+storybook-static

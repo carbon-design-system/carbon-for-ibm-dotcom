@@ -1,0 +1,45 @@
+// IMPORTANT: This import path should _not_ be used outside our source tree
+// as `src` directory is _not_ meant to be shipped in our NPM package.
+// Use e.g. `@import '~carbon-components/scss/globals/scss/styles.scss'` instead.
+
+$dds-feature-flags: (
+  carbon-expressive: true,
+);
+
+$feature-flags: (
+  ui-shell: true,
+  grid-columns-16: true,
+  enable-css-custom-properties: true,
+);
+
+// Carbon Fonts
+@import '~@carbon/type/scss/font-face/mono';
+@import '~@carbon/type/scss/font-face/sans';
+@include carbon--font-face-mono();
+@include carbon--font-face-sans();
+
+// Carbon Components
+@import '~carbon-components/scss/globals/scss/styles';
+
+// Expressive Theme
+@import '../scss/themes/expressive/index';
+
+// Storybook Container
+.storybook-center-container {
+  padding: 3em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.storybook-center-container > div {
+  width: 100%;
+}
+
+.storybook-readme-story {
+  width: 100%;
+}
+
+.bx--visually-hidden {
+  display: none;
+}

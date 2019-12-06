@@ -6,12 +6,20 @@
 //
 
 @import '../../globals/imports';
-@import '../../globals/vars';
-@import '../../globals/mixins';
+@import '../../temp-carbon-expressive/temp-carbon-expressive';
 
 // /// Include footer components with g90 theme
 // /// @access private
 // /// @group footer
+
+$TEMP--breakpoint-down--md: map-get(
+    map-get($carbon--grid-breakpoints, 'md'),
+    'width'
+  ) - carbon--rem(1px);
+$TEMP--breakpoint-down--lg: map-get(
+    map-get($carbon--grid-breakpoints, 'lg'),
+    'width'
+  ) - carbon--rem(1px);
 
 @include carbon--theme($carbon--theme--g90) {
   @import 'locale-button';
