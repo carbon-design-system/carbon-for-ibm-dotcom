@@ -25,7 +25,7 @@ import { LeadSpaceCentered } from '@carbon/ibmdotcom-patterns-react';
 import 'yourapplication.scss';
 
 function App() {
-  return <LeadSpaceCentered />;
+  return <LeadSpaceCentered title="title" />;
 }
 ReactDOM.render(<App />, document.querySelector('#app'));
 ```
