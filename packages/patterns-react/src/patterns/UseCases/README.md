@@ -93,11 +93,14 @@ USECASES=true
 
 ## Stable selectors
 
-| Name                  | Description |
-| --------------------- | ----------- |
-| `dds--usecases`       | Component   |
-| `dds--usecases-group` | Component   |
-| `dds--usecases-item`  | Component   |
+| Name                        | Description                       |
+| --------------------------- | --------------------------------- |
+| `dds--usecases`             | Pattern                           |
+| `dds--usecases-group`       | Use Cases Group component         |
+| `dds--usecases-group__img`  | Use Cases Group image element     |
+| `dds--usecases-group__card` | Use Cases Group card link element |
+| `dds--usecases-item`        | Use Cases Item component          |
+| `dds--usecases-item__link`  | Use Cases Item link element       |
 
 ## 🙌 Contributing
 

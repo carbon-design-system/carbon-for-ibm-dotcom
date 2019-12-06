@@ -91,11 +91,13 @@ LEADSPACE=true
 
 ## Stable selectors
 
-| Name                    | Description                |
-| ----------------------- | -------------------------- |
-| `dds--leadspace`        | Pattern                    |
-| `dds--leadspace__image` | LeadSpace background image |
-| `dds--leadspace__cta`   | LeadSpace CTAs             |
+| Name                          | Description                 |
+| ----------------------------- | --------------------------- |
+| `dds--leadspace`              | Pattern                     |
+| `dds--leadspace__desc`        | LeadSpace short description |
+| `dds--leadspace__image`       | LeadSpace background image  |
+| `dds--leadspace__ctas`        | LeadSpace CTAs              |
+| `dds--leadspace__ctas-${key}` | LeadSpace CTA               |
 
 ## 🙌 Contributing
 

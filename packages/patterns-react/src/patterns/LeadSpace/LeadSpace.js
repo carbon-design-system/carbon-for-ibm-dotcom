@@ -97,19 +97,21 @@ const LeadSpace = ({
     <section
       data-autoid={`${stablePrefix}--leadspace`}
       className={className(variation, theme)}>
-      <div
-        data-autoid={`${stablePrefix}--leadspace__container`}
-        className={`${prefix}--leadspace__container`}>
+      <div className={`${prefix}--leadspace__container`}>
         <div className={overlayClassname(gradient)}>
           <div className={`${prefix}--leadspace__row`}>
             <h1 className={`${prefix}--leadspace__title`}>{title}</h1>
           </div>
           <div className={`${prefix}--leadspace__content`}>
             {copy && (
-              <div
-                data-autoid={`${stablePrefix}--leadspace__row`}
-                className={`${prefix}--leadspace__row`}>
-                <p className={`${prefix}--leadspace__desc`}>{copy}</p>
+              <div className={`${prefix}--leadspace__row`}>
+                {copy && (
+                  <p
+                    data-autoid={`${stablePrefix}--leadspace__desc`}
+                    className={`${prefix}--leadspace__desc`}>
+                    {copy}
+                  </p>
+                )}
               </div>
             )}
             {buttons && buttons.length > 0 && (
