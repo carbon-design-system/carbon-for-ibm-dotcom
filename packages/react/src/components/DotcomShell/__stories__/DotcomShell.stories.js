@@ -6,7 +6,7 @@ import mastheadKnobs from '../../Masthead/__stories__/data/Masthead.stories.knob
 import readme from '../README.md';
 import '../../../../../styles/scss/components/dotcom-shell/_dotcom-shell.scss';
 import content from './data/content';
-import { MASTHEAD_L1 } from '../../../internal/FeatureFlags';
+import { DDS_MASTHEAD_L1 } from '../../../internal/FeatureFlags';
 
 const footer = {
   default: 'default',
@@ -21,7 +21,7 @@ storiesOf('Dotcom Shell', module)
     },
   })
   .add('Default', () => {
-    const mastheadL1Props = MASTHEAD_L1 && {
+    const mastheadL1Props = DDS_MASTHEAD_L1 && {
       title: text('Title', 'Stock Charts'),
       eyebrowText: text('Eyebrow text', 'Eyebrow'),
       eyebrowLink: text('Eyebrow link', '#'),
