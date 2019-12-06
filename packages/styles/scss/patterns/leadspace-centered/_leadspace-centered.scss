@@ -6,9 +6,11 @@
 //
 
 @import '../../globals/imports';
-@import '../../components/buttongroup/_buttongroup.scss';
+@import '../../components/buttongroup/buttongroup';
 
 @mixin themed-items {
+  @include buttongroup;
+
   background-color: $ui-background;
 
   .#{$prefix}--leadspace--centered__title,

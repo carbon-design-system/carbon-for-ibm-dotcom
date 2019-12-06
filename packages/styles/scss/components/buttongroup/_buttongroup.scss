@@ -6,8 +6,11 @@
 //
 
 @import '../../globals/imports';
+@import 'carbon-components/scss/components/button/button';
 
 @mixin buttongroup {
+  @include button;
+
   $btn-min-width: 26;
 
   .#{$prefix}--buttongroup {
