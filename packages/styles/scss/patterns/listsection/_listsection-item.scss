@@ -7,6 +7,21 @@
 
 @import '../../components/link-with-icon/link-with-icon';
 
+@mixin themed-items {
+  .#{$prefix}--listsection-item__link .bx--link-with-icon {
+    color: $link-01;
+
+    &:focus {
+      outline: 2px solid $focus;
+    }
+    svg {
+      path {
+        fill: $link-01;
+      }
+    }
+  }
+}
+
 @mixin listsection-item {
   .#{$prefix}--listsection-item {
     &__title {
@@ -20,22 +35,21 @@
     &__link {
       margin-top: $carbon--layout-01;
       .bx--link-with-icon {
-        color: $link-01;
         span {
           @include carbon--type-style('body-short-02');
         }
         &:hover {
           cursor: pointer;
         }
-        &:focus {
-          outline: 2px solid $focus;
-        }
-        svg {
-          path {
-            fill: $link-01;
-          }
-        }
       }
+    }
+
+    @include themed-items;
+  }
+
+  .#{$prefix}--listsection--g100 {
+    @include carbon--theme($carbon--theme--g100) {
+      @include themed-items;
     }
   }
 }
