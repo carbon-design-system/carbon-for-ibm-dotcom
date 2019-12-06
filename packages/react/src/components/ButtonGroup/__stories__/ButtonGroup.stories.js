@@ -5,11 +5,11 @@ import { ArrowRight20, ArrowDown20, Pdf20 } from '@carbon/icons-react';
 import '@carbon/grid/scss/grid.scss';
 import '../../../../../styles/scss/components/buttongroup/_buttongroup.scss';
 import readme from '../README.md';
-import { BUTTON_GROUP } from '../../../internal/FeatureFlags';
+import { DDS_BUTTON_GROUP } from '../../../internal/FeatureFlags';
 
 import ButtonGroup from '../ButtonGroup';
 
-if (BUTTON_GROUP) {
+if (DDS_BUTTON_GROUP) {
   storiesOf('ButtonGroup', module)
     .addDecorator(withKnobs)
     .addParameters({

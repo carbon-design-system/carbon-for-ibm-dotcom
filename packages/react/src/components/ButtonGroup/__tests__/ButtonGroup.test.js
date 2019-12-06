@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import ButtonGroup from '../ButtonGroup';
 
 jest.mock('../../../internal/FeatureFlags', () => ({
-  BUTTON_GROUP: true,
+  DDS_BUTTON_GROUP: true,
 }));
 
 describe('<ButtonGroup />', () => {

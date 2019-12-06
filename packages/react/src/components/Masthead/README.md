@@ -39,7 +39,7 @@ To utilize the following features, set the following variable's to `true` within
 your `.env` file or your application build settings.
 
 ```
-MASTHEAD_L1=true
+DDS_MASTHEAD_L1=true
 ```
 
 > See
