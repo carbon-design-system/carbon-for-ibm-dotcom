@@ -4,6 +4,14 @@ const TerserPlugin = require('terser-webpack-plugin');
 const rtlcss = require('rtlcss');
 
 /**
+ * Flag to enable the expressive theme
+ *
+ * @type {boolean}
+ */
+const useCarbonExpressive =
+  process.env.PATTERNS_STORYBOOK_CARBON_EXPRESSIVE === 'true';
+
+/**
  * Flag to switch to use the miniextract plugin
  *
  * @type {boolean}
@@ -62,6 +70,10 @@ const styleLoaders = [
       data: `
         $feature-flags: (
           ui-shell: true,
+          enable-css-custom-properties: true
+        );
+        $dds-feature-flags: (
+          carbon-expressive: ${useCarbonExpressive},
         );
       `,
       sourceMap: useStyleSourceMap,

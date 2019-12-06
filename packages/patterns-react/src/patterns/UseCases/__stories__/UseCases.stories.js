@@ -8,8 +8,8 @@ import {
   object,
   boolean,
 } from '@storybook/addon-knobs';
-import '../../../../../styles/scss/patterns/usecases/index.scss';
 import UseCases from '../UseCases';
+import './index.scss';
 import readme from '../README.md';
 
 if (DDS_USECASES) {

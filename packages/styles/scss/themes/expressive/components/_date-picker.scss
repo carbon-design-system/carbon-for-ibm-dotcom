@@ -1,0 +1,27 @@
+//
+// Copyright IBM Corp. 2016, 2018
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import '@carbon/layout/scss/convert';
+
+//-----------------------------
+// Date Picker (expressive)
+//-----------------------------
+
+/// Date picker styles (expressive)
+/// @access private
+/// @group date-picker-expressive
+@mixin date-picker-expressive {
+  .#{$prefix}--date-picker__input {
+    height: carbon--rem(48px); /* $carbon--container-04 */
+  }
+
+  .#{$prefix}--date-picker.#{$prefix}--date-picker--simple {
+    .#{$prefix}--date-picker__input {
+      width: rem(125px);
+    }
+  }
+}

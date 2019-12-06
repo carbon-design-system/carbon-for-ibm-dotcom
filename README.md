@@ -45,7 +45,7 @@ we support!
 
 ## Documentation
 
-- See our documentation site [here](https://carbonforibm-website.mybluemix.net)
+- See our documentation site [here](https://carbon-for-ibmdotcom.netlify.com)
   for full how-to docs and guidelines
 - [Contributing](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/.github/CONTRIBUTING.md):
   Guidelines for making contributions to this repo.

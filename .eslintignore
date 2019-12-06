@@ -36,6 +36,9 @@ packages/styles/es
 packages/styles/umd
 packages/styles/lib
 packages/styles/node_modules
+packages/styles/src/carbon-stories
+packages/styles/src/carbon-tools
+packages/styles/storybook-static
 
 # utilities
 packages/utilities/coverage

@@ -1,0 +1,65 @@
+//
+// Copyright IBM Corp. 2016, 2018
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import '@carbon/type/scss/styles';
+@import '@carbon/type/scss/font-family';
+@import '@carbon/type/scss/scale';
+@import '@carbon/layout/scss/convert';
+@import '@carbon/themes/scss/mixins';
+
+/// Global token theme
+/// @access private
+/// @group carbon-expressive
+
+@mixin carbon-expressive-tokens {
+  :root {
+    // body-short-01
+    --#{$custom-property-prefix}-body-short-01-font-size: 1rem; /* carbon--type-scale(3) */
+    --#{$custom-property-prefix}-body-short-01-line-height: 1.375rem; /* carbon--rem(22px) */
+    --#{$custom-property-prefix}-body-short-01-letter-spacing: 0;
+
+    // body-long-01
+    --#{$custom-property-prefix}-body-long-01-font-size: 1rem; /* carbon--type-scale(3) */
+    --#{$custom-property-prefix}-body-long-01-line-height: 1.5rem; /* carbon--rem(24px) */
+    --#{$custom-property-prefix}-body-long-01-letter-spacing: 0;
+
+    // label-01
+    --#{$custom-property-prefix}-label-01-font-size: 0.875rem; /* carbon--type-scale(2) */
+    --#{$custom-property-prefix}-label-01-line-height: 1.125rem; /* carbon--rem(18px) */
+    --#{$custom-property-prefix}-label-01-letter-spacing: 0.16px;
+
+    // caption-01
+    --#{$custom-property-prefix}-caption-01-font-size: 0.875rem; /* carbon--type-scale(2) */
+    --#{$custom-property-prefix}-caption-01-line-height: 1.125rem; /* carbon--rem(18px) */
+    --#{$custom-property-prefix}-caption-01-letter-spacing: 0.16px;
+
+    // code-01
+    --#{$custom-property-prefix}-code-01-font-size: 0.875rem; /* carbon--type-scale(2) */
+    --#{$custom-property-prefix}-code-01-line-height: 1.25rem; /* carbon--rem(20px) */
+    --#{$custom-property-prefix}-code-01-letter-spacing: 0;
+
+    // code-02
+    --#{$custom-property-prefix}-code-02-font-size: 1rem; /* carbon--type-scale(3) */
+    --#{$custom-property-prefix}-code-02-line-height: 1.5rem; /* carbon--rem(24px) */
+    --#{$custom-property-prefix}-code-02-letter-spacing: 0;
+
+    // helper-text-01
+    --#{$custom-property-prefix}-helper-text-01-font-size: 0.875rem; /* carbon--type-scale(2) */
+    --#{$custom-property-prefix}-helper-text-01-line-height: 1.125rem; /* carbon--rem(18px) */
+    --#{$custom-property-prefix}-helper-text-01-letter-spacing: 0.16px;
+
+    // productive-heading-01
+    --#{$custom-property-prefix}-productive-heading-01-font-size: 1rem; /* carbon--type-scale(3) */
+    --#{$custom-property-prefix}-productive-heading-01-line-height: 1.25rem; /* carbon--rem(22px) */
+    --#{$custom-property-prefix}-productive-heading-01-letter-spacing: 0;
+
+    // expressive-heading-01
+    --#{$custom-property-prefix}-expressive-heading-01-font-size: 0.875rem; /* carbon--type-scale(2) */
+    --#{$custom-property-prefix}-expressive-heading-01-line-height: 1.25rem; /* carbon--rem(20px) */
+    --#{$custom-property-prefix}-expressive-heading-01-letter-spacing: 0.16px;
+  }
+}

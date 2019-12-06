@@ -1,0 +1,27 @@
+//
+// Copyright IBM Corp. 2016, 2018
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import '@carbon/layout/scss/convert';
+
+//-----------------------------
+// Accordion (expressive)
+//-----------------------------
+
+/// Accordion styles (expressive)
+/// @access private
+/// @group accordion-expressive
+@mixin accordion-expressive {
+  .#{$prefix}--accordion__heading {
+    padding: carbon--rem(10px) 0;
+  }
+
+  .#{$prefix}--accordion__arrow {
+    width: carbon--rem(20px);
+    height: carbon--rem(20px);
+    // margin: $accordion-arrow-margin;
+  }
+}

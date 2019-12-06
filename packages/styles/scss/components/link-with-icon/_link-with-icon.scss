@@ -6,7 +6,7 @@
 //
 
 @import '../../globals/imports';
-@import '../link/link-expressive';
+@import '../../temp-carbon-expressive/link/link-expressive';
 
 @mixin link-with-icon {
   .#{$prefix}--link-with-icon {

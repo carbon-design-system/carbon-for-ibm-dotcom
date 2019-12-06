@@ -16,7 +16,7 @@ Here's a quick example to get you started.
 @import '@carbon/ibmdotcom-styles/scss/patterns/leadspace-centered/leadspace-centered';
 ```
 
-> 💡 Only import font's once per usage
+> 💡 Only import fonts once per usage
 
 ```javascript
 import React from 'react';
