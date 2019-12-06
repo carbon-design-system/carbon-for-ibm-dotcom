@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { LISTSECTION } from '../../../internal/FeatureFlags';
+import { DDS_LISTSECTION } from '../../../internal/FeatureFlags';
 import {
   withKnobs,
   text,
@@ -12,7 +12,7 @@ import '../../../../../styles/scss/patterns/listsection/index.scss';
 import ListSection from '../ListSection';
 import readme from '../README.md';
 
-if (LISTSECTION) {
+if (DDS_LISTSECTION) {
   storiesOf('List section', module)
     .addDecorator(withKnobs)
     .addParameters({

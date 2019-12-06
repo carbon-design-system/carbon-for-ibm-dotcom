@@ -11,7 +11,7 @@ import classNames from 'classnames';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
 import { featureFlag } from '@carbon/ibmdotcom-utilities';
-import { SIMPLELONGFORM } from '../../internal/FeatureFlags';
+import { DDS_SIMPLELONGFORM } from '../../internal/FeatureFlags';
 import { ArrowRight20 } from '@carbon/icons-react';
 import { CardLink } from '@carbon/ibmdotcom-react';
 import { LinkWithIcon } from '@carbon/ibmdotcom-react';
@@ -33,7 +33,7 @@ const { prefix } = settings;
  */
 const SimpleLongForm = ({ border, copy, linkType, link, theme, title }) =>
   featureFlag(
-    SIMPLELONGFORM,
+    DDS_SIMPLELONGFORM,
     <section
       data-autoid={`${stablePrefix}--simplelongform`}
       className={classNames(
