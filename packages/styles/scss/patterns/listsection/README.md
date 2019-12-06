@@ -12,9 +12,10 @@ Import the package css into the top of your main CSS file.
 
 Use these modifiers with `.bx--listsection` class.
 
-| Class                           | Description                                |
-| ------------------------------- | ------------------------------------------ |
-| `.bx--listsection--with-border` | The className for list section with border |
+| Class                           | Description                                                  |
+| ------------------------------- | ------------------------------------------------------------ |
+| `.bx--listsection--with-border` | The className for list section with border                   |
+| `.bx--listsection--g100`        | The className for use cases with Gray 100 (g100) color theme |
 
 #### Elements
 
