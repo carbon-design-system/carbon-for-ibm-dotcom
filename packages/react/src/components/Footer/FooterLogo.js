@@ -8,7 +8,7 @@
 import React from 'react';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
-import FooterLogo from '../../../../styles/icons/svg/IBM-8bar-logo--h65-white.svg';
+import FooterLogo from '@carbon/ibmdotcom-styles/icons/svg/IBM-8bar-logo--h65-white.svg';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
