@@ -22,9 +22,10 @@
     .#{$prefix}--leadspace--centered__gradient {
       background: linear-gradient(
         to bottom,
+        $ui-background,
         rgba($ui-background, 0.8),
         rgba($ui-background, 0.6),
-        transparent 75%
+        transparent 80%
       );
     }
   }
