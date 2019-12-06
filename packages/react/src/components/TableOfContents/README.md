@@ -12,9 +12,22 @@ import ReactDOM from 'react-dom';
 import { TableOfContents } from '@carbon/ibmdotcom-react';
 import '@carbon/ibmdotcom-styles/scss/components/tableofcontents/index.scss';
 
+const theme = ''; //Empty for light, g100 for dark
+
+const menuItems = [
+  {
+    title: 'Cras molestie condimentum',
+    id: '8',
+  },
+  {
+    title: 'Praesent fermentum sodales',
+    id: '7',
+  },
+];
+
 function App() {
   return (
-    <TableOfContents menuLabel={menuLabel} menuItems={menuItems}>
+    <TableOfContents theme={theme} menuItems={menuItems}>
       <a name="8"></a>
       <h3 style={{ paddingBottom: '1rem', paddingTop: '2rem' }}>
         Cras molestie condimentum
@@ -66,9 +79,9 @@ DDS_TOC=true
 
 ## Other Props
 
-| Name        | Data Type | Default value | Description                      |
-| ----------- | --------- | ------------- | -------------------------------- |
-| `menuLabel` | String    | `Jump to`     | Placeholder value for menu label |
+| Name    | Data Type | Default value                                  | Description |
+| ------- | --------- | ---------------------------------------------- | ----------- |
+| `theme` | String    | `` | Set the dark theme if the value is `g100` |
 
 ## Stable selectors
 

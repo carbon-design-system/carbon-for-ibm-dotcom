@@ -3,6 +3,6 @@
 
 .#{$prefix}--tableofcontents--g100 {
   @include carbon--theme($carbon--theme--g100) {
-    @include tableofcontents;
+    @include themed-items;
   }
 }
