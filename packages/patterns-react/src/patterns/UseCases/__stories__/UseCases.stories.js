@@ -128,26 +128,20 @@ if (DDS_USECASES) {
       ];
 
       const themes = {
-        'dark (g100)': 'g100',
-        'light (white)': '',
+        g100: 'g100',
+        white: '',
       };
 
       const withBorder = boolean('with border', true);
 
       return (
-        <div
-          className={`bx--usecases--${select(
-            'theme',
-            themes,
-            themes['light (white)']
-          )}`}>
-          <UseCases
-            title={title}
-            copy={copy}
-            border={withBorder}
-            usecaseGroup={object('usecaseGroup', usecaseGroup)}
-          />
-        </div>
+        <UseCases
+          border={withBorder}
+          copy={copy}
+          theme={select('theme', themes, themes.white)}
+          title={title}
+          usecaseGroup={object('usecaseGroup', usecaseGroup)}
+        />
       );
     });
 }

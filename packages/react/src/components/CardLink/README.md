@@ -44,7 +44,7 @@ To utilize the following features, set the following variable's to `true` within
 your `.env` file or your application build settings.
 
 ```
-CARD_LINK=true
+DDS_CARD_LINK=true
 ```
 
 > See

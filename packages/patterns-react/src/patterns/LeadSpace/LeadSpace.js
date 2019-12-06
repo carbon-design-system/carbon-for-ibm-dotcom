@@ -13,7 +13,7 @@ import {
   featureFlag,
   settings as ddsSettings,
 } from '@carbon/ibmdotcom-utilities';
-import { LEADSPACE } from '../../internal/FeatureFlags';
+import { DDS_LEADSPACE } from '../../internal/FeatureFlags';
 import LeadSpaceButtons from './LeadSpaceButtons';
 import LeadSpaceImage from './LeadSpaceImage';
 
@@ -93,7 +93,7 @@ const LeadSpace = ({
   variation,
 }) =>
   featureFlag(
-    LEADSPACE,
+    DDS_LEADSPACE,
     <section
       data-autoid={`${stablePrefix}--leadspace`}
       className={className(variation, theme)}>

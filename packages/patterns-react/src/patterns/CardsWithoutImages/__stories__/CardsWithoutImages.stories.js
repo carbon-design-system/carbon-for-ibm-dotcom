@@ -136,7 +136,7 @@ if (DDS_CARDS_WITHOUT_IMAGES) {
       return (
         <CardsWithoutImages
           cardsGroup={object('cardsGroup', cardsGroup)}
-          theme={select('theme', themes, themes['g10'])}
+          theme={select('theme', themes, themes.g10)}
         />
       );
     });
