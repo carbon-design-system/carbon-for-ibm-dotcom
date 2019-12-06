@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { DDS_TOC } from '../../../internal/FeatureFlags';
-import { withKnobs, select } from '@storybook/addon-knobs';
+import { withKnobs, select, text } from '@storybook/addon-knobs';
 import '../../../../../styles/scss/components/tableofcontents/index.scss';
 import TableOfContents from '../TableOfContents';
 import readme from '../README.md';
@@ -15,6 +15,8 @@ if (DDS_TOC) {
       },
     })
     .add('Default', () => {
+      const menuLabel = text('menu label', 'Jump to');
+
       const menuItems = [
         {
           title: 'Cras molestie condimentum',
@@ -45,8 +47,9 @@ if (DDS_TOC) {
 
       return (
         <TableOfContents
-          theme={select('theme', themes, themes['light (white)'])}
-          menuItems={menuItems}>
+          theme={select('theme', themes, themes.white)}
+          menuItems={menuItems}
+          menuLabel={menuLabel}>
           <a name="8" style={{ color: '#000' }}>
             <h3 style={{ paddingBottom: '1rem', paddingTop: '2rem' }}>
               Cras molestie condimentum

@@ -72,17 +72,26 @@ DDS_TOC=true
 
 ## Props
 
-| Name        | Required | Data Type | Default Value | Description                                                                      |
-| ----------- | -------- | --------- | ------------- | -------------------------------------------------------------------------------- |
-| `children`  | NO       | Array     | null          | Content to display next to the side nav.                                         |
-| `menuItems` | NO       | Array     | null          | Array of menu item objects to render within the side nav. See `menuItems` below. |
-| `menuLabel` | NO       | String    | `Jump to`     | Placeholder value for menu label                                                 |
+| Name        | Required | Data Type | Default Value                                | Description                                                                      |
+| ----------- | -------- | --------- | -------------------------------------------- | -------------------------------------------------------------------------------- |
+| `children`  | NO       | Array     | null                                         | Content to display next to the side nav.                                         |
+| `menuItems` | NO       | Array     | null                                         | Array of menu item objects to render within the side nav. See `menuItems` below. |
+| `menuLabel` | NO       | String    | `Jump to`                                    | Placeholder value for menu label                                                 |
+| `theme`     | NO       | String    | `` | Defines the color theme for the pattern |
 
 ## menuItems
 
-| Name    | Data Type | Default value                                  | Description |
-| ------- | --------- | ---------------------------------------------- | ----------- |
-| `theme` | String    | `` | Set the dark theme if the value is `g100` |
+| Properties Name | Data Type | Description     |
+| --------------- | --------- | --------------- |
+| title           | String    | Menu title text |
+| id              | String    | Menu id         |
+
+## Theme (optional)
+
+| Name            | Description                              |
+| --------------- | ---------------------------------------- |
+| white / default | White theme applied to pattern           |
+| g100            | Gray 100 (g100) theme applied to pattern |
 
 ## Stable selectors
 

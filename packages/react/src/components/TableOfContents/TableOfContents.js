@@ -27,11 +27,11 @@ const { prefix } = settings;
  *
  * @param {object} props props object
  * @param {object} props.menuItems menu items object
- * @param {string} props.theme selected theme string
+ * @param {string} props.menuLabel mobile menu label
  * @param {*} props.children children property of component
  * @returns {*} JSX Object
  */
-const TableOfContents = ({ menuItems, children, theme }) => {
+const TableOfContents = ({ menuItems, children, menuLabel, theme }) => {
   const [selectedId, setSelectedId] = useState(menuItems[0].id);
   const [selectedTitle, setSelectedTitle] = useState(menuItems[0].title);
 
@@ -112,13 +112,14 @@ const TableOfContents = ({ menuItems, children, theme }) => {
   };
 
   /**
-   * Add the dark theme class if it's selected
+   * sets the class name based on theme type
    *
-   * @param {string} selected selected theme string, g100 if dark empty if light
-   * @returns {string} get dark theme class if it's selected
+   * @private
+   * @param {string} theme theme type ( g100 | white/default )
+   * @returns {string} theme css class names
    */
-  const getSelectedTheme = selected => {
-    if (selected == 'g100') return `${prefix}--tableofcontents--g100`;
+  const _setTheme = theme => {
+    return theme && `${prefix}--tableofcontents--${theme}`;
   };
 
   const layoutProps = {
@@ -131,6 +132,7 @@ const TableOfContents = ({ menuItems, children, theme }) => {
     menuItems,
     selectedId,
     selectedTitle,
+    menuLabel,
     updateState,
   };
 
@@ -143,10 +145,7 @@ const TableOfContents = ({ menuItems, children, theme }) => {
     DDS_TOC,
     <section
       data-autoid={`${stablePrefix}--tableofcontents`}
-      className={classNames(
-        `${prefix}--tableofcontents`,
-        getSelectedTheme(theme)
-      )}>
+      className={classNames(`${prefix}--tableofcontents`, _setTheme(theme))}>
       <Layout {...layoutProps}>
         <div
           style={{ position: 'sticky', top: '0' }}
@@ -169,6 +168,7 @@ const TableOfContents = ({ menuItems, children, theme }) => {
 TableOfContents.propTypes = {
   menuItems: PropTypes.array,
   children: PropTypes.array,
+  menuLabel: PropTypes.string,
   theme: PropTypes.string,
 };
 
