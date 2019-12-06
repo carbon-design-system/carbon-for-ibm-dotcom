@@ -23,7 +23,7 @@ yarn add @carbon/ibmdotcom-styles
 Import the package css into the top of your main CSS file.
 
 ```css
-@import 'node_modules/@carbon/ibmdotcom-styles/src/scss/components/footer/footer';
+@import '@carbon/ibmdotcom-styles/scss/components/footer/footer';
 ```
 
 In Webpack, the full package can also be included to the root of your
@@ -33,9 +33,24 @@ application:
 import '@carbon/ibmdotcom-styles';
 ```
 
+## Expressive Theme
+
+In addition to styles for IBM.com Library components and patterns, this package
+includes the
+[expressive theme](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles/themes/README.md)
+for all Carbon components. To see a storybook output of the Carbon components
+with the expressive theme applied, run the following command:
+
+```bash
+$ yarn storybook
+```
+
+This can also be viewed in our
+[Netlify output](https://carbon-expressive.netlify.com).
+
 ## Documentation
 
-- See our documentation site [here](https://carbonforibm-website.mybluemix.net)
+- See our documentation site [here](https://carbon-for-ibmdotcom.netlify.com)
   for full how-to docs and guidelines
 - [Contributing](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/.github/CONTRIBUTING.md):
   Guidelines for making contributions to this repo.

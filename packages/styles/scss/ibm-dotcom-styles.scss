@@ -5,12 +5,11 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import 'globals/vars';
-@import 'globals/mixins';
+// Globals
+@import 'globals/feature-flags';
+@import 'globals/tokens';
 
 // Components
-@import 'components/accordion/accordion-expressive';
-@import 'components/button/button-expressive';
 @import 'components/buttongroup/buttongroup';
 @import 'components/card-link/index';
 @import 'components/dotcom-shell/dotcom-shell';
@@ -18,7 +17,6 @@
 @import 'components/footer/index';
 @import 'components/horizontalrule/horizontalrule';
 @import 'components/layout/layout';
-@import 'components/link/link-expressive';
 @import 'components/link-with-icon/link-with-icon';
 @import 'components/masthead/index';
 @import 'components/tableofcontents/tableofcontents';
@@ -31,3 +29,11 @@
 @import 'patterns/pictogramarray/pictogramarray';
 @import 'patterns/simplelongform/simplelongform';
 @import 'patterns/usecases/usecases';
+
+// Temporary Expressive
+@import 'temp-carbon-expressive/accordion/accordion-expressive';
+@import 'temp-carbon-expressive/button/button-expressive';
+@import 'temp-carbon-expressive/link/link-expressive';
+
+// Expressive Theme
+@import 'themes/expressive';

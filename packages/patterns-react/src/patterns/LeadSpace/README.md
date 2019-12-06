@@ -12,16 +12,18 @@ Here's a quick example to get you started.
 @import '@carbon/type/scss/font-face/sans';
 @include carbon--font-face-mono();
 @include carbon--font-face-sans();
+
+@import '@carbon/ibmdotcom-styles/scss/patterns/leadspace/index';
 ```
 
-> 💡 Only import font's once per usage
+> 💡 Only import fonts once per usage
 
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { LeadSpace } from '@carbon/ibmdotcom-patterns-react';
 import 'yourapplication.scss';
-import '@carbon/ibmdotcom-styles/scss/patterns/leadspace/index.scss';
+
 function App() {
   return <LeadSpace />;
 }
