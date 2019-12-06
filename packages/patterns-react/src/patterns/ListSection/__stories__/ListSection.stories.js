@@ -8,7 +8,7 @@ import {
   object,
   boolean,
 } from '@storybook/addon-knobs';
-import '../../../../../styles/scss/patterns/listsection/index.scss';
+import './index.scss';
 import ListSection from '../ListSection';
 import readme from '../README.md';
 
