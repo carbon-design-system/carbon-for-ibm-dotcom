@@ -53,7 +53,7 @@ if (LEADSPACE) {
 
       return (
         <LeadSpace
-          theme={select('theme', themes, themes['dark (g100)'])}
+          theme={select('theme', themes, themes.g100)}
           title={title}
           copy={copy}
           buttons={object('buttons', buttons)}
@@ -110,7 +110,7 @@ if (LEADSPACE) {
 
       return (
         <LeadSpace
-          theme={select('theme', themes, themes['dark (g100)'])}
+          theme={select('theme', themes, themes.g100)}
           title={title}
           copy={copy}
           gradient={graident}

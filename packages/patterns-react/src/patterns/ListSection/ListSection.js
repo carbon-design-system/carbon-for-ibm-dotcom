@@ -24,15 +24,20 @@ const { prefix } = settings;
  * @param {boolean} props.border List section border
  * @param {string} props.copy List section  short copy to support the title
  * @param {Array} props.listGroup variation of the List section standard, standard with jump link and standard with card link
+ * @param {string} props.theme List section color theme
  * @param {string} props.title List section title
  * @returns {object} JSX Object
  */
-const ListSection = ({ border, copy, listGroup, title }) =>
+const ListSection = ({ border, copy, listGroup, theme, title }) =>
   featureFlag(
     DDS_LISTSECTION,
     <section
       data-autoid={`${stablePrefix}--listsection`}
-      className={classNames(`${prefix}--listsection`, _setBorder(border))}>
+      className={classNames(
+        `${prefix}--listsection`,
+        _setBorder(border),
+        _setTheme(theme)
+      )}>
       <div className={`${prefix}--listsection__container`}>
         <div className={`${prefix}--listsection__row`}>
           <div className={`${prefix}--listsection__col`}>
@@ -76,6 +81,17 @@ const _setBorder = border => {
   return withBorder;
 };
 
+/**
+ * sets the class name based on theme type
+ *
+ * @private
+ * @param {string} theme theme type ( g100 | white/default )
+ * @returns {string} theme css class names
+ */
+const _setTheme = theme => {
+  return theme && `${prefix}--listsection--${theme}`;
+};
+
 ListSection.propTypes = {
   border: PropTypes.bool,
   copy: PropTypes.string,
@@ -83,6 +99,7 @@ ListSection.propTypes = {
     title: PropTypes.string,
     lists: PropTypes.array,
   }),
+  theme: PropTypes.string,
   title: PropTypes.string.isRequired,
 };
 
