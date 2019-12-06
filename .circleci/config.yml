@@ -1,4 +1,4 @@
-version: 2
+version: 2.18
 jobs:
   system:
     docker:
@@ -89,7 +89,6 @@ jobs:
             fi
 
 workflows:
-  version: 2
   main:
     jobs:
       - system
