@@ -14,7 +14,7 @@ import mocklist from '../__data__/locale-list.json';
 require('../../../internal/FeatureFlags.js');
 
 jest.mock('../../../internal/FeatureFlags.js', () => ({
-  FOOTER_LOCALE_BUTTON: true,
+  DDS_FOOTER_LOCALE_BUTTON: true,
 }));
 
 jest.mock('@carbon/ibmdotcom-services', () => ({

@@ -47,13 +47,13 @@ if (LEADSPACE) {
       ];
 
       const themes = {
-        'dark (g100)': 'g100',
-        'light (white)': '',
+        g100: 'g100',
+        white: '',
       };
 
       return (
         <LeadSpace
-          theme={select('theme', themes, themes['dark (g100)'])}
+          theme={select('theme', themes, themes.g100)}
           title={title}
           copy={copy}
           buttons={object('buttons', buttons)}
@@ -102,15 +102,15 @@ if (LEADSPACE) {
       ];
 
       const themes = {
-        'dark (g100)': 'g100',
-        'light (white)': '',
+        g100: 'g100',
+        white: '',
       };
 
       const graident = boolean('gradient overlay', true);
 
       return (
         <LeadSpace
-          theme={select('theme', themes, themes['dark (g100)'])}
+          theme={select('theme', themes, themes.g100)}
           title={title}
           copy={copy}
           gradient={graident}

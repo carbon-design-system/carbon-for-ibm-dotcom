@@ -100,7 +100,7 @@ To utilize the following features, set the following variable's to `true` within
 your `.env` file or your application build settings.
 
 ```
-BUTTON_GROUP=true
+DDS_BUTTON_GROUP=true
 ```
 
 > See
@@ -109,19 +109,19 @@ BUTTON_GROUP=true
 > [.env.example](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/patterns-react/.env.example)
 > for more information
 
-## Buttons
+## Props
 
-| Name      | Description                                                 |
-| --------- | ----------------------------------------------------------- |
-| `buttons` | Array of button objects to render. See `Button Item` below. |
+| Name      | Required | Data Type | Default Value | Description                                                 |
+| --------- | -------- | --------- | ------------- | ----------------------------------------------------------- |
+| `buttons` | NO       | Array     | null          | Array of button objects to render. See `Button Item` below. |
 
 ### Button Item
 
-| Name         | Description                           |
-| ------------ | ------------------------------------- |
-| `href`       | URL for the button item               |
-| `copy`       | Button copy                           |
-| `renderIcon` | Custom Icon to render with the button |
+| Name         | Data Type | Description                                                                                                                    |
+| ------------ | --------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| `href`       | String    | URL for the button item                                                                                                        |
+| `copy`       | String    | Button copy                                                                                                                    |
+| `renderIcon` | Object    | Provide an optional icon for the CTA from [Carbon's icon library](https://www.carbondesignsystem.com/guidelines/icons/library) |
 
 Visit the
 [Button documentation](http://react.carbondesignsystem.com/?path=/story/buttons--default)

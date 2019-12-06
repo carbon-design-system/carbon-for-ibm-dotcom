@@ -21,8 +21,8 @@ export const DDS_FLAGS_ALL = process.env.DDS_FLAGS_ALL === 'true' || false;
  *
  * @type {string | boolean}
  */
-export const LEADSPACE =
-  process.env.LEADSPACE === 'true' || DDS_FLAGS_ALL || false;
+export const DDS_LEADSPACE =
+  process.env.DDS_LEADSPACE === 'true' || DDS_FLAGS_ALL || false;
 
 /**
  * This determines if the leadspace (centered) will be rendered or not
@@ -37,19 +37,33 @@ export const DDS_LEADSPACE_CENTERED =
  *
  * @type {string | boolean}
  */
-export const LISTSECTION =
-  process.env.LISTSECTION === 'true' || DDS_FLAGS_ALL || false;
+export const DDS_LISTSECTION =
+  process.env.DDS_LISTSECTION === 'true' || DDS_FLAGS_ALL || false;
 
 /**
  * This determines if the simplelongform will be rendered or not
  *
  * @type {string | boolean}
  */
-export const SIMPLELONGFORM =
-  process.env.SIMPLELONGFORM === 'true' || DDS_FLAGS_ALL || false;
+export const DDS_SIMPLELONGFORM =
+  process.env.DDS_SIMPLELONGFORM === 'true' || DDS_FLAGS_ALL || false;
 
 /**
- * This determines if the cards without images will be rendered or not
+ * This determines if the simplelongform will be rendered or not
+ *
+ * @type {string | boolean}
+ */
+export const DDS_CARD_ARRAY =
+  process.env.DDS_CARD_ARRAY === 'true' || DDS_FLAGS_ALL || false;
+
+/** This determines if the contentarraywithpictograms will be rendered or not
+ *
+ * @type {string | boolean}
+ */
+export const DDS_PICTOGRAM_ARRAY =
+  process.env.DDS_PICTOGRAM_ARRAY === 'true' || DDS_FLAGS_ALL || false;
+
+/** This determines if the cards without images will be rendered or not
  *
  * @type {string | boolean}
  */

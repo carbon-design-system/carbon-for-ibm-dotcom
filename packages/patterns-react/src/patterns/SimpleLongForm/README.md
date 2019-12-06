@@ -47,7 +47,7 @@ To utilize the following features, set the following variable's to `true` within
 your `.env` file or your application build settings.
 
 ```
-SIMPLELONGFORM=true
+DDS_SIMPLELONGFORM=true
 ```
 
 > See
@@ -58,21 +58,37 @@ SIMPLELONGFORM=true
 
 ## Props
 
-| Name       | Description                                                                   |
-| ---------- | ----------------------------------------------------------------------------- |
-| `title`    | Simple long form title `{title}`                                              |
-| `copy`     | Simple long form content `{copy}`                                             |
-| `linkType` | Simple long form link type `{linkType: { none, simple, card, jump }}`         |
-| `border`   | Simple long form border value which show or hide border bottom `true | false` |
-| `link`     | Simple long form link object `{link: { href, text, target }}`                 |
+| Name       | Required | Data Type | Default Value | Description                                 |
+| ---------- | -------- | --------- | ------------- | ------------------------------------------- |
+| `border`   | NO       | Boolean   | false         | Determines whether to render bottom border. |
+| `copy`     | NO       | String    | null          | Short copy to support the title.            |
+| `linkType` | NO       | String    | null          | Type of Link. See `linkType` below.         |
+| `link`     | NO       | Object    | null          | Object with link details. See `link` below. |
+| `theme`    | NO       | String    | 'white'       | Color theme for pattern. See `theme` below. |
+| `title`    | YES      | String    | n/a           | Title of the Simple Long Form.              |
 
-## Link type
+### linkType
 
-| Name       | Description                     |
-| ---------- | ------------------------------- |
-| `none`     | Simple long form with no link   |
-| `iconLink` | Simple long form with icon link |
-| `cardLink` | Simple long form with card link |
+| Name       | Data Type | Description                         |
+| ---------- | --------- | ----------------------------------- |
+| `none`     | String    | Render no link.                     |
+| `cardLink` | String    | Render with CardLink component.     |
+| `iconLink` | String    | Render with LinkWithIcon component. |
+
+### link
+
+| Name     | Data Type | Description                                                |
+| -------- | --------- | ---------------------------------------------------------- |
+| `href`   | String    | Url of link.                                               |
+| `text`   | String    | Link text.                                                 |
+| `target` | String    | Open within current tab or new tab ('\_self' or '\_blank') |
+
+### theme (optional)
+
+| Name    | Data Type | Description                  |
+| ------- | --------- | ---------------------------- |
+| `white` | String    | Carbon White theme           |
+| `g100`  | String    | Carbon Gray 100 (g100) theme |
 
 ## Stable selectors
 

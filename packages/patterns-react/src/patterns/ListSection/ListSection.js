@@ -11,7 +11,7 @@ import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
 import classNames from 'classnames';
 import { featureFlag } from '@carbon/ibmdotcom-utilities';
-import { LISTSECTION } from '../../internal/FeatureFlags';
+import { DDS_LISTSECTION } from '../../internal/FeatureFlags';
 import ListSectionGroup from './ListSectionGroup';
 
 const { stablePrefix } = ddsSettings;
@@ -21,18 +21,23 @@ const { prefix } = settings;
  * List Section pattern
  *
  * @param {object} props props object
- * @param {string} props.title List section title
+ * @param {boolean} props.border List section border
  * @param {string} props.copy List section  short copy to support the title
- * @param {string} props.border List section border
- * @param {object} props.listGroup variation of the List section standard, standard with jump link and standard with card link
+ * @param {Array} props.listGroup variation of the List section standard, standard with jump link and standard with card link
+ * @param {string} props.theme List section color theme
+ * @param {string} props.title List section title
  * @returns {object} JSX Object
  */
-const ListSection = ({ title, copy, border, listGroup }) =>
+const ListSection = ({ border, copy, listGroup, theme, title }) =>
   featureFlag(
-    LISTSECTION,
+    DDS_LISTSECTION,
     <section
       data-autoid={`${stablePrefix}--listsection`}
-      className={classNames(`${prefix}--listsection`, _setBorder(border))}>
+      className={classNames(
+        `${prefix}--listsection`,
+        _setBorder(border),
+        _setTheme(theme)
+      )}>
       <div className={`${prefix}--listsection__container`}>
         <div className={`${prefix}--listsection__row`}>
           <div className={`${prefix}--listsection__col`}>
@@ -52,11 +57,11 @@ const ListSection = ({ title, copy, border, listGroup }) =>
  * Render List Section Group Component
  *
  * @private
- * @param {object} listGroupItems listGroupItems Object
+ * @param {Array} listGroup listGroupItems Array
  * @returns {object} JSX Object
  */
-const _renderListGroup = listGroupItems => {
-  return listGroupItems.map(listGroupItem => {
+const _renderListGroup = listGroup => {
+  return listGroup.map(listGroupItem => {
     return (
       <ListSectionGroup key={listGroupItem.title} listGroup={listGroupItem} />
     );
@@ -76,14 +81,26 @@ const _setBorder = border => {
   return withBorder;
 };
 
+/**
+ * sets the class name based on theme type
+ *
+ * @private
+ * @param {string} theme theme type ( g100 | white/default )
+ * @returns {string} theme css class names
+ */
+const _setTheme = theme => {
+  return theme && `${prefix}--listsection--${theme}`;
+};
+
 ListSection.propTypes = {
-  title: PropTypes.string.isRequired,
-  copy: PropTypes.string,
   border: PropTypes.bool,
-  listGroupItems: PropTypes.shape({
+  copy: PropTypes.string,
+  listGroup: PropTypes.shape({
     title: PropTypes.string,
     lists: PropTypes.array,
   }),
+  theme: PropTypes.string,
+  title: PropTypes.string.isRequired,
 };
 
 export default ListSection;

@@ -45,12 +45,51 @@ USECASES=true
 
 ## Props
 
-| Name           | Description                                                                                                                                   |
-| -------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| `title`        | Use Cases title `{title}`                                                                                                                     |
-| `copy`         | Use Cases content `{copy}`                                                                                                                    |
-| `border`       | Use Cases border `true|false`                                                                                                                 |
-| `usecaseGroup` | Use Cases usecaseGroup `{usecaseGroup: [ {title, image: {uri: {sm, md, ls}, alt }, list: [{ title, copy }], link: {href, title, target} } ]}` |
+| Name           | Required | Data Type | Default Value | Description                                                   |
+| -------------- | -------- | --------- | ------------- | ------------------------------------------------------------- |
+| `border`       | NO       | Boolean   | false         | Determines whether to render bottom border of pattern.        |
+| `copy`         | NO       | String    | null          | Short copy to suppport title.                                 |
+| `title`        | YES      | String    | n/a           | Main title of UseCase pattern                                 |
+| `usecaseGroup` | NO       | Array     | null          | Array of useCase objects to render. See `usecaseGroup` below. |
+
+### usecaseGroup
+
+| Name    | Data Type | Description                                                                                       |
+| ------- | --------- | ------------------------------------------------------------------------------------------------- |
+| `image` | Object    | Image of Use Case including different aspect ratios for different breakpoints. See `image` below. |
+| `lists` | Array     | Array of list objects to render within the use case. See `lists` below.                           |
+| `link`  | Object    | Object with the href, text, and target properities of the use case link. See `link` below.        |
+| `title` | String    | Title of Use Case.                                                                                |
+
+### image
+
+| Name  | Data Type | Description                                                                           |
+| ----- | --------- | ------------------------------------------------------------------------------------- |
+| `alt` | String    | Alt description of image.                                                             |
+| `uri` | Object    | Image object containing urls to the image for different breakpoints. See `uri` below. |
+
+### uri
+
+| Name | Data Type | Description                                               |
+| ---- | --------- | --------------------------------------------------------- |
+| `sm` | String    | Image with aspect ration (640 x 320) for `sm` breakpoint  |
+| `md` | String    | Image with aspect ration (768 x 384) for `md` breakpoint  |
+| `lg` | String    | Image with aspect ration (1024 x 512) for `lg` breakpoint |
+
+### lists
+
+| Name    | Data Type | Description                  |
+| ------- | --------- | ---------------------------- |
+| `copy`  | String    | Copy of Use Case list item.  |
+| `title` | String    | Title of Use Case list item. |
+
+### link
+
+| Name     | Data Type | Description                                                |
+| -------- | --------- | ---------------------------------------------------------- |
+| `href`   | String    | Url of use case link.                                      |
+| `text`   | String    | Use case link text.                                        |
+| `target` | String    | Open within current tab or new tab ('\_self' or '\_blank') |
 
 ## Stable selectors
 

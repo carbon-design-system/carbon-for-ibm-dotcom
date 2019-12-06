@@ -39,8 +39,8 @@ if (DDS_TOC) {
       ];
 
       const themes = {
-        'dark (g100)': 'g100',
-        'light (white)': '',
+        g100: 'g100',
+        white: '',
       };
 
       return (

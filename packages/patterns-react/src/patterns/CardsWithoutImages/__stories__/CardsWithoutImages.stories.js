@@ -130,13 +130,13 @@ if (DDS_CARDS_WITHOUT_IMAGES) {
 
       const themes = {
         g10: 'g10',
-        'light (white)': '',
+        white: '',
       };
 
       return (
         <CardsWithoutImages
           cardsGroup={object('cardsGroup', cardsGroup)}
-          theme={select('theme', themes, themes['g10'])}
+          theme={select('theme', themes, themes.g10)}
         />
       );
     });

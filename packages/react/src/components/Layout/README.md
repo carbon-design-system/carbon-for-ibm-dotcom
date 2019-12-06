@@ -38,6 +38,15 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 > 💡 Don't forget to import the layout styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
+## Props
+
+| Name           | Required | Data Type | Default Value | Description                                               |
+| -------------- | -------- | --------- | ------------- | --------------------------------------------------------- |
+| `children`     | NO       | Node      | null          | Component/Element to render within Layout                 |
+| `marginBottom` | NO       | String    | null          | Bottom Margin value for Layout. See `marginBottom` below. |
+| `marginTop`    | NO       | String    | null          | Top Margin value for Layout. See `marginTop` below.       |
+| `type`         | YES      | String    | null          | Layout type. See `type` below.                            |
+
 ## type
 
 | Name  | Description             |
