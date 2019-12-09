@@ -6,7 +6,7 @@
  * @private
  * @returns {object} JSX object
  *
- * return featureFlag(DDS_FOOTER_LOCALE_BUTTON, <div>hello world</div>);
+ * return featureFlag(DDS_FEATURE_NAME, <div>hello world</div>);
  *
  */
 function featureFlag(flag, jsx) {

@@ -25,14 +25,6 @@ export const DDS_MASTHEAD_L1 =
   process.env.DDS_MASTHEAD_L1 === 'true' || DDS_FLAGS_ALL || false;
 
 /**
- * This determines if the locale selector will be rendered or not
- *
- * @type {string | boolean}
- */
-export const DDS_FOOTER_LOCALE_BUTTON =
-  process.env.DDS_FOOTER_LOCALE_BUTTON === 'true' || DDS_FLAGS_ALL || false;
-
-/**
  * This flag turns on/off the ButtonGroup component
  *
  * @type {string | boolean}
