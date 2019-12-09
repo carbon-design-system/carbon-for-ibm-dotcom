@@ -13,8 +13,7 @@ import LocaleModalRegions from './LocaleModalRegions';
 import LocaleModalCountries from './LocaleModalCountries';
 import { ArrowLeft20, Globe20 } from '@carbon/icons-react';
 import { ComposedModal, ModalHeader, ModalBody } from 'carbon-components-react';
-// import { LocaleAPI } from '@carbon/ibmdotcom-services';
-import { LocaleAPI } from '../../../../services/src/services/Locale';
+import { LocaleAPI } from '@carbon/ibmdotcom-services';
 
 import cx from 'classnames';
 
