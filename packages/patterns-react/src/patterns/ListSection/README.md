@@ -90,11 +90,12 @@ DDS_LISTSECTION=true
 
 ## Stable selectors
 
-| Name                     | Description |
-| ------------------------ | ----------- |
-| `dds--listsection`       | Component   |
-| `dds--listsection-group` | Component   |
-| `dds--listsection-item`  | Component   |
+| Name                          | Description                    |
+| ----------------------------- | ------------------------------ |
+| `dds--listsection`            | Pattern                        |
+| `dds--listsection-group`      | List section group component   |
+| `dds--listsection-item`       | List section item component    |
+| `dds--listsection-item__link` | List section item link element |
 
 ## 🙌 Contributing
 
