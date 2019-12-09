@@ -6,7 +6,7 @@ import { ipcinfoCookie, geolocation } from '@carbon/ibmdotcom-utilities';
  * @constant {string | string} Host for the Locale API call
  * @private
  */
-const _host = process.env.TRANSLATION_HOST || 'https://www.ibm.com';
+const _host = process.env.TRANSLATION_HOST || 'https://1.www.s81c.com';
 
 /**
  * @constant {string | string} CORS proxy for lower environment calls
@@ -21,8 +21,8 @@ const _proxy = process.env.CORS_PROXY || '';
  * @private
  */
 const _localeDefault = {
-  lc: 'us',
-  cc: 'en',
+  lc: 'en',
+  cc: 'us',
 };
 
 /**
@@ -31,7 +31,7 @@ const _localeDefault = {
  * @type {string}
  * @private
  */
-const _endpoint = `${_proxy}${_host}/common/v18/js/data/countrylist`;
+const _endpoint = `${_proxy}${_host}/common/js/dynamicnav/www/countrylist/jsononly`;
 
 /**
  * Session Storage key for country list
@@ -68,7 +68,8 @@ class LocaleAPI {
     const lang = this.getLang();
     // grab locale from the html lang attribute
     if (lang) {
-      return await this.getList(lang);
+      await this.getList(lang);
+      return lang;
     }
     // grab the locale from the cookie
     else if (cookie && cookie.cc && cookie.lc) {
@@ -81,7 +82,6 @@ class LocaleAPI {
        * can return in either 'en-US' format or 'en' so will need to extract language only
        */
       const lang = root.navigator.language;
-
       const lc = lang.split('-')[0];
 
       if (cc && lc) {
@@ -111,10 +111,12 @@ class LocaleAPI {
   static getLang() {
     if (root.document.documentElement.lang) {
       const lang = root.document.documentElement.lang.toLowerCase();
-      const codes = lang.split('-');
-      return { cc: codes[1], lc: codes[0] };
-      //    } else {
-      //      return _localeDefault;
+      if (lang.indexOf('-') === -1) {
+        return _localeDefault;
+      } else {
+        const codes = lang.split('-');
+        return { cc: codes[1], lc: codes[0] };
+      }
     }
   }
 
@@ -143,7 +145,14 @@ class LocaleAPI {
     if (sessionList) {
       return sessionList;
     } else {
-      const url = `${_endpoint}/${cc}${lc}-utf8.json`;
+      let url;
+      try {
+        await axios.get(`${_endpoint}/${cc}${lc}-utf8.json`);
+        url = `${_endpoint}/${cc}${lc}-utf8.json`;
+      } catch (error) {
+        // use _localeDefault if 404
+        url = `${_endpoint}/${_localeDefault.cc}${_localeDefault.lc}-utf8.json`;
+      }
       /**
        * if the json file for the cc-lc combo does not exist,
        * browser will automatically redirect to the us-en country list
