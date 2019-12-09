@@ -117,6 +117,8 @@ class LocaleAPI {
         const codes = lang.split('-');
         return { cc: codes[1], lc: codes[0] };
       }
+    } else {
+      return _localeDefault;
     }
   }
 
