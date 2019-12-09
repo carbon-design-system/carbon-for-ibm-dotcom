@@ -7,7 +7,7 @@ import CardsWithoutImages from '../CardsWithoutImages';
 import readme from '../README.md';
 
 if (DDS_CARDS_WITHOUT_IMAGES) {
-  storiesOf('Cards without images', module)
+  storiesOf('Cards Without Images', module)
     .addDecorator(withKnobs)
     .addParameters({
       readme: {

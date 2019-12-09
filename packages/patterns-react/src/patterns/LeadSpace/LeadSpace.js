@@ -105,7 +105,13 @@ const LeadSpace = ({
           <div className={`${prefix}--leadspace__content`}>
             {copy && (
               <div className={`${prefix}--leadspace__row`}>
-                <p className={`${prefix}--leadspace__desc`}>{copy}</p>
+                {copy && (
+                  <p
+                    data-autoid={`${stablePrefix}--leadspace__desc`}
+                    className={`${prefix}--leadspace__desc`}>
+                    {copy}
+                  </p>
+                )}
               </div>
             )}
             {buttons && buttons.length > 0 && (

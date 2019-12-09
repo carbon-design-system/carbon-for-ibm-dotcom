@@ -22,29 +22,24 @@ const { prefix } = settings;
  * @param {string} props.lists.title List component title property
  * @param {string} props.lists.copy List component copy property
  * @param {object} props.lists.link List Component link object
- * @param {string} props.lists.link.href List Component href property of link object
- * @param {string} props.lists.link.text List Component text property of link object
- * @param {string} props.lists.link.target List Component target property of link object
  * @returns {object} JSX Object
  */
-const ListSectionItem = ({
-  lists: {
-    title,
-    copy,
-    link: { href, text, target },
-  },
-}) => {
+const ListSectionItem = ({ lists: { title, copy, link } }) => {
   return (
     <div
       data-autoid={`${stablePrefix}--listsection-item`}
       className={`${prefix}--listsection-item`}>
       <h3 className={`${prefix}--listsection-item__title`}>{title}</h3>
       <div className={`${prefix}--listsection-item__content`}>{copy}</div>
-      <div className={`${prefix}--listsection-item__link`}>
-        <LinkWithIcon href={href} target={target}>
-          <span>{text}</span>
-          <ArrowRight20 />
-        </LinkWithIcon>
+      <div
+        data-autoid={`${stablePrefix}--listsection-item__link`}
+        className={`${prefix}--listsection-item__link`}>
+        {link && (
+          <LinkWithIcon href={link.href} target={link.target}>
+            <span>{link.text}</span>
+            <ArrowRight20 />
+          </LinkWithIcon>
+        )}
       </div>
     </div>
   );

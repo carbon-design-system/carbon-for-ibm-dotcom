@@ -98,12 +98,18 @@ const LeadSpaceCentered = ({
       <div className={overlayClassname(gradient)}>
         <div className={`${prefix}--leadspace--centered__content`}>
           <h1 className={`${prefix}--leadspace--centered__title`}>{title}</h1>
-          <p className={`${prefix}--leadspace--centered__desc`}>{copy}</p>
+          <p
+            data-autoid={`${stablePrefix}--leadspace--centered__desc`}
+            className={`${prefix}--leadspace--centered__desc`}>
+            {copy}
+          </p>
           {buttons && buttons.length > 0 && <ButtonGroup buttons={buttons} />}
         </div>
       </div>
       {image && (
-        <div className={`${prefix}--leadspace--centered--mobile__image`}>
+        <div
+          data-autoid={`${stablePrefix}--leadspace--centered--mobile__image`}
+          className={`${prefix}--leadspace--centered--mobile__image`}>
           <img src={image.url} alt={image.alt} />
         </div>
       )}
