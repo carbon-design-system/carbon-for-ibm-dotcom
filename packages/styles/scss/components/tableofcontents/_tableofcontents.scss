@@ -4,26 +4,53 @@
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
 //
+
 @import '@carbon/grid/scss/grid.scss';
 @import '../layout/layout';
 
+// items that change according to the theme applied
+@mixin themed-items {
+  color: $text-01;
+  background: $ui-background;
+  .#{$prefix}--tableofcontents__content {
+    h2,
+    h3,
+    h4,
+    p {
+      color: $text-01;
+    }
+  }
+  .#{$prefix}--tableofcontents__mobile {
+    border-top: 1px solid $ui-04;
+    border-bottom: 1px solid $ui-04;
+    &:hover {
+      background-color: $hover-ui;
+    }
+  }
+  .#{$prefix}--tableofcontents__desktop__item {
+    a {
+      border-left: carbon--rem(4px) solid $ui-01;
+      color: $text-02;
+    }
+    &--active {
+      a {
+        color: $text-01;
+        border-left-color: $interactive-04;
+      }
+    }
+  }
+}
+
 @mixin tableofcontents {
   .#{$prefix}--tableofcontents {
-    color: $text-01;
-    background: $ui-background;
     &__mobile {
       margin-left: -$carbon--spacing-05;
       margin-right: -$carbon--spacing-05;
       background-color: $field-01;
-      border-top: 1px solid $ui-04;
-      border-bottom: 1px solid $ui-04;
       padding-right: $carbon--spacing-05;
       padding-left: $carbon--spacing-05;
       &-top {
         height: 1px;
-      }
-      &:hover {
-        background-color: $hover-ui;
       }
       &__select {
         border-radius: 0;
@@ -60,26 +87,18 @@
       padding-top: $carbon--spacing-07;
       &__item {
         a {
-          color: $text-02;
           text-decoration: none;
           display: inline-block;
           width: 100%;
           padding-top: carbon--rem(13px);
           padding-bottom: carbon--rem(13px);
           padding-left: carbon--rem(12px);
-          border-left: carbon--rem(4px) solid $ui-01;
           @include carbon--type-style('body-short-02');
 
           transition: all $duration--fast-01 motion(standard, productive);
         }
         a:hover {
           cursor: pointer;
-        }
-        &--active {
-          a {
-            color: $text-01;
-            border-left-color: $interactive-04;
-          }
         }
       }
     }
@@ -102,6 +121,14 @@
       &__desktop {
         display: block;
       }
+    }
+
+    @include themed-items;
+  }
+
+  .#{$prefix}--tableofcontents--g100 {
+    @include carbon--theme($carbon--theme--g100) {
+      @include themed-items;
     }
   }
 }
