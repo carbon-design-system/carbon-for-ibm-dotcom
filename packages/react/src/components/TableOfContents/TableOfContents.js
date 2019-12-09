@@ -17,6 +17,7 @@ import { DDS_TOC } from '../../internal/FeatureFlags';
 import Layout from '../Layout/Layout';
 import TOCDesktop from './TOCDesktop';
 import TOCMobile from './TOCMobile';
+import classNames from 'classnames';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
@@ -26,10 +27,11 @@ const { prefix } = settings;
  *
  * @param {object} props props object
  * @param {object} props.menuItems menu items object
+ * @param {string} props.menuLabel mobile menu label
  * @param {*} props.children children property of component
  * @returns {*} JSX Object
  */
-const TableOfContents = ({ menuItems, children, menuLabel }) => {
+const TableOfContents = ({ menuItems, children, menuLabel, theme }) => {
   const [selectedId, setSelectedId] = useState(menuItems[0].id);
   const [selectedTitle, setSelectedTitle] = useState(menuItems[0].title);
 
@@ -109,6 +111,17 @@ const TableOfContents = ({ menuItems, children, menuLabel }) => {
     setSelectedTitle(title);
   };
 
+  /**
+   * sets the class name based on theme type
+   *
+   * @private
+   * @param {string} theme theme type ( g100 | white/default )
+   * @returns {string} theme css class names
+   */
+  const _setTheme = theme => {
+    return theme && `${prefix}--tableofcontents--${theme}`;
+  };
+
   const layoutProps = {
     type: '1-3',
     marginTop: 'none',
@@ -132,7 +145,7 @@ const TableOfContents = ({ menuItems, children, menuLabel }) => {
     DDS_TOC,
     <section
       data-autoid={`${stablePrefix}--tableofcontents`}
-      className={`${prefix}--tableofcontents`}>
+      className={classNames(`${prefix}--tableofcontents`, _setTheme(theme))}>
       <Layout {...layoutProps}>
         <div
           style={{ position: 'sticky', top: '0' }}
@@ -156,6 +169,7 @@ TableOfContents.propTypes = {
   menuItems: PropTypes.array,
   children: PropTypes.array,
   menuLabel: PropTypes.string,
+  theme: PropTypes.string,
 };
 
 export default TableOfContents;
