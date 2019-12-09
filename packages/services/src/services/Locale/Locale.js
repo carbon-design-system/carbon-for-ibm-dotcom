@@ -82,7 +82,6 @@ class LocaleAPI {
        * can return in either 'en-US' format or 'en' so will need to extract language only
        */
       const lang = root.navigator.language;
-
       const lc = lang.split('-')[0];
 
       if (cc && lc) {
@@ -118,8 +117,6 @@ class LocaleAPI {
         const codes = lang.split('-');
         return { cc: codes[1], lc: codes[0] };
       }
-    } else {
-      return _localeDefault;
     }
   }
 
@@ -148,7 +145,14 @@ class LocaleAPI {
     if (sessionList) {
       return sessionList;
     } else {
-      const url = `${_endpoint}/${cc}${lc}-utf8.json`;
+      let url;
+      try {
+        await axios.get(`${_endpoint}/${cc}${lc}-utf8.json`);
+        url = `${_endpoint}/${cc}${lc}-utf8.json`;
+      } catch (error) {
+        // use _localeDefault if 404
+        url = `${_endpoint}/${_localeDefault.cc}${_localeDefault.lc}-utf8.json`;
+      }
       /**
        * if the json file for the cc-lc combo does not exist,
        * browser will automatically redirect to the us-en country list
