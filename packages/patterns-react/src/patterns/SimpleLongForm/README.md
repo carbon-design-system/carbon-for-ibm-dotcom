@@ -93,9 +93,10 @@ DDS_SIMPLELONGFORM=true
 
 ## Stable selectors
 
-| Name                  | Description |
-| --------------------- | ----------- |
-| `dds--simplelongform` | component   |
+| Name                        | Description                   |
+| --------------------------- | ----------------------------- |
+| `dds--simplelongform`       | Pattern                       |
+| `dds--simplelongform__link` | Simple Long Form link element |
 
 ## 🙌 Contributing
 

@@ -13,7 +13,7 @@ import ListSection from '../ListSection';
 import readme from '../README.md';
 
 if (DDS_LISTSECTION) {
-  storiesOf('List section', module)
+  storiesOf('List Section', module)
     .addDecorator(withKnobs)
     .addParameters({
       readme: {

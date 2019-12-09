@@ -85,9 +85,11 @@ DDS_LEADSPACE_CENTERED=true
 
 ## Stable selectors
 
-| Name                       | Description |
-| -------------------------- | ----------- |
-| `dds--leadspace--centered` | Pattern     |
+| Name                                      | Description                          |
+| ----------------------------------------- | ------------------------------------ |
+| `dds--leadspace--centered`                | Pattern                              |
+| `dds--leadspace--centered__desc`          | Leadspace centered short description |
+| `dds--leadspace--centered--mobile__image` | Leadspace centered mobile image      |
 
 ## 🙌 Contributing
 
