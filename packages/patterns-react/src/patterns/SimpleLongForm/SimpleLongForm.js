@@ -47,7 +47,9 @@ const SimpleLongForm = ({ border, copy, linkType, link, theme, title }) =>
           <div className={`${prefix}--simplelongform__col`}>
             <h3 className={`${prefix}--simplelongform__title`}>{title}</h3>
             <div className={`${prefix}--simplelongform__content`}>{copy}</div>
-            <div className={`${prefix}--simplelongform__link`}>
+            <div
+              data-autoid={`${stablePrefix}--simplelongform__link`}
+              className={`${prefix}--simplelongform__link`}>
               {renderLink(linkType, link)}
             </div>
           </div>

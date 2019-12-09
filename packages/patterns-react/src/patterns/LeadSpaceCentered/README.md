@@ -25,7 +25,7 @@ import { LeadSpaceCentered } from '@carbon/ibmdotcom-patterns-react';
 import 'yourapplication.scss';
 
 function App() {
-  return <LeadSpaceCentered />;
+  return <LeadSpaceCentered title="title" />;
 }
 ReactDOM.render(<App />, document.querySelector('#app'));
 ```
@@ -85,9 +85,11 @@ DDS_LEADSPACE_CENTERED=true
 
 ## Stable selectors
 
-| Name                       | Description |
-| -------------------------- | ----------- |
-| `dds--leadspace--centered` | Pattern     |
+| Name                                      | Description                          |
+| ----------------------------------------- | ------------------------------------ |
+| `dds--leadspace--centered`                | Pattern                              |
+| `dds--leadspace--centered__desc`          | Leadspace centered short description |
+| `dds--leadspace--centered--mobile__image` | Leadspace centered mobile image      |
 
 ## 🙌 Contributing
 

@@ -6,9 +6,11 @@
 //
 
 @import '../../globals/imports';
-@import '../../components/buttongroup/_buttongroup.scss';
+@import '../../components/buttongroup/buttongroup';
 
 @mixin themed-items {
+  @include buttongroup;
+
   background-color: $ui-background;
 
   .#{$prefix}--leadspace--centered__title,
@@ -20,9 +22,10 @@
     .#{$prefix}--leadspace--centered__gradient {
       background: linear-gradient(
         to bottom,
+        $ui-background,
         rgba($ui-background, 0.8),
         rgba($ui-background, 0.6),
-        transparent 75%
+        transparent 80%
       );
     }
   }

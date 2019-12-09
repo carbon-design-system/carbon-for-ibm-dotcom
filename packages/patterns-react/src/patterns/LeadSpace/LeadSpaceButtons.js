@@ -40,7 +40,6 @@ const ButtonGroup = ({ buttons }) => {
     const button2 = buttonsRef.current[1];
 
     if (button1.current.offsetWidth != button2.current.offsetWidth) {
-      console.log('triggered');
       button1.current.offsetWidth > button2.current.offsetWidth
         ? (button2.current.style.width = `${button1.current.offsetWidth}px`)
         : (button1.current.style.width = `${button2.current.offsetWidth}px`);
@@ -60,7 +59,9 @@ const ButtonGroup = ({ buttons }) => {
 
   return (
     <div className={`${prefix}--leadspace__row`}>
-      <div className={`${prefix}--leadspace__ctas`}>
+      <div
+        data-autoid={`${stablePrefix}--leadspace__ctas`}
+        className={`${prefix}--leadspace__ctas`}>
         {buttons.map((button, key) => {
           if (key > 1) return;
           const renderIcon = button.renderArrow

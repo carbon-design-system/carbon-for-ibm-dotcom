@@ -70,7 +70,7 @@ const styleLoaders = [
       data: `
         $feature-flags: (
           ui-shell: true,
-          enable-css-custom-properties: true
+          enable-css-custom-properties: ${useCarbonExpressive}
         );
         $dds-feature-flags: (
           carbon-expressive: ${useCarbonExpressive},
