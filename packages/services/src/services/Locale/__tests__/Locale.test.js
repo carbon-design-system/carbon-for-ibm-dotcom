@@ -15,7 +15,7 @@ describe('LocaleAPI', () => {
   const _cc = 'us';
   const _lc = 'es';
 
-  const endpoint = `${process.env.TRANSLATION_HOST}/common/v18/js/data/countrylist`;
+  const endpoint = `${process.env.TRANSLATION_HOST}/common/js/dynamicnav/www/countrylist/jsononly`;
   const fetchUrl = `${endpoint}/${_cc}${_lc}-utf8.json`;
 
   beforeEach(function() {
@@ -28,6 +28,43 @@ describe('LocaleAPI', () => {
 
   afterEach(() => {
     jest.clearAllMocks();
+  });
+
+  it('should fetch the lang from the html attribute', () => {
+    Object.defineProperty(window.document.documentElement, 'lang', {
+      value: 'fr-ca',
+      configurable: true,
+    });
+
+    const lang = LocaleAPI.getLang();
+
+    expect(lang).toEqual({
+      cc: 'ca',
+      lc: 'fr',
+    });
+  });
+
+  it('should default to en-us from the html attribute if cc and lc are not defined', () => {
+    Object.defineProperty(window.document.documentElement, 'lang', {
+      value: 'it',
+      configurable: true,
+    });
+
+    const lang = LocaleAPI.getLang();
+
+    expect(lang).toEqual({
+      cc: 'us',
+      lc: 'en',
+    });
+  });
+
+  it('should default to en-us if lang is not defined', () => {
+    const lang = LocaleAPI.getLang();
+
+    expect(lang).toEqual({
+      cc: 'us',
+      lc: 'en',
+    });
   });
 
   it('should fetch locale from cookie if availiable', async () => {
@@ -47,7 +84,7 @@ describe('LocaleAPI', () => {
     expect(locale).toEqual({ cc: 'us', lc: 'en' });
   });
 
-  it('should set the ipcInfo cookie once combo has been verified', async () => {
+  xit('should set the ipcInfo cookie once combo has been verified', async () => {
     await LocaleAPI.getLocale();
 
     expect(ipcinfoCookie.set).toHaveBeenCalledTimes(1);

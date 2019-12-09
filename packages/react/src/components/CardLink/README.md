@@ -8,10 +8,21 @@
 
 Here's a quick example to get you started.
 
+```scss
+// yourapplication.scss
+@import '@carbon/type/scss/font-face/mono';
+@import '@carbon/type/scss/font-face/sans';
+@include carbon--font-face-mono();
+@include carbon--font-face-sans();
+```
+
+> 💡 Only import font's once per usage
+
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { CardLink } from '@carbon/ibmdotcom-react';
+import 'yourapplication.scss';
 
 import '@carbon/ibmdotcom-styles/scss/components/card-link/index.scss';
 
@@ -33,7 +44,7 @@ To utilize the following features, set the following variable's to `true` within
 your `.env` file or your application build settings.
 
 ```
-CARD_LINK=true
+DDS_CARD_LINK=true
 ```
 
 > See
@@ -44,12 +55,13 @@ CARD_LINK=true
 
 ## Props
 
-| Name                  | Description                                                                                                                      |
-| --------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| `title`_`(required)`_ | Concise yet descriptive string of text describing the linked resource.                                                           |
-| `href`_`(required)`_  | Valid URL for a the location of an internal or external resource.                                                                |
-| `icon`                | Provide an optional icon to the footer from [Carbon's icon library](https://www.carbondesignsystem.com/guidelines/icons/library) |
-| `content`             | Paragraph of text that further describing the resource with added detail.                                                        |
+| Name        | Required | Data Type | Default Value | Description                                                                                                                      |
+| ----------- | -------- | --------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| `content`   | NO       | String    | null          | Paragraph of text that further describing the resource with added detail.                                                        |
+| `className` | NO       | String    | null          | Classname to be assigned to the CardLink component                                                                               |
+| `href`      | YES      | String    | n/a           | Valid URL for a the location of an internal or external resource.                                                                |
+| `icon`      | NO       | Element   | null          | Provide an optional icon to the footer from [Carbon's icon library](https://www.carbondesignsystem.com/guidelines/icons/library) |
+| `title`     | YES      | String    | n/a           | Concise yet descriptive string of text describing the linked resource.                                                           |
 
 ## Stable selectors
 

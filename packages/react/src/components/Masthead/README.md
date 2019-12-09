@@ -8,10 +8,21 @@
 
 Here's a quick example to get you started.
 
+```scss
+// yourapplication.scss
+@import '@carbon/type/scss/font-face/mono';
+@import '@carbon/type/scss/font-face/sans';
+@include carbon--font-face-mono();
+@include carbon--font-face-sans();
+```
+
+> 💡 Only import font's once per usage
+
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Masthead } from '@carbon/ibmdotcom-react';
+import 'yourapplication.scss';
 import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead.scss';
 function App() {
   return <Masthead />;
@@ -28,7 +39,7 @@ To utilize the following features, set the following variable's to `true` within
 your `.env` file or your application build settings.
 
 ```
-MASTHEAD_L1=true
+DDS_MASTHEAD_L1=true
 ```
 
 > See
@@ -37,53 +48,60 @@ MASTHEAD_L1=true
 > [.env.example](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/.env.example)
 > for more information
 
-## Navigation Types
+## Props
 
-| Name      | Description                           |
-| --------- | ------------------------------------- |
-| `default` | Default navigation data from IBM.com. |
-| `custom`  | Custom navigation data.               |
-| `none`    | No navigation.                        |
+| Name              | Required | Data Type        | Default Value       | Description                                                         |
+| ----------------- | -------- | ---------------- | ------------------- | ------------------------------------------------------------------- |
+| `navigation`      | NO       | String OR Object | null                | Navigation data object/string for Masthead. See `navigation` below. |
+| `hasProfile`      | NO       | Boolean          | true                | Determines whether to render IBM Profile Menu component.            |
+| `hasSearch`       | NO       | Boolean          | true                | Determines whether to render SearchBar component.                   |
+| `placeHolderText` | NO       | String           | `Search all of IBM` | Placeholder value for search input                                  |
+| `platform`        | NO       | Object           | null                | Platform name that appears on L0. See `platform` below.             |
+| `title`           | NO       | String           | null                | Title for the masthead L1                                           |
+| `eyebrowText`     | NO       | String           | null                | Text for the eyebrow link in masthead L1                            |
+| `eyebrowLink`     | NO       | String           | null                | URL for the eyebrow link in masthead L1                             |
+
+## navigation
+
+| Behavior           | Data Type | Description                                 | Example                             |
+| ------------------ | --------- | ------------------------------------------- | ----------------------------------- |
+| default navigation | String    | Default navigation data from IBM.com        | `<Masthead navigation="default" />` |
+| custom navigation  | Object    | Pass in custom navigation data as an object | `<Masthead navigation={myNavObj}/>` |
+| none               | null      | No navigation                               | `<Masthead />`                      |
 
 > 💡 `Custom` navigation data must follow the same structure and key names as
 > `default`. See
 > [this](https://www.ibm.com/common/v18/js/data/jsononly/usen.json) for an
 > example.
 
-## Options
+## platform
 
-| Name               | Description                                                          |
-| ------------------ | -------------------------------------------------------------------- |
-| `platform`         | Includes platform name (only available with `default` and `custom`). |
-| `hasProfile`       | Includes IBM profile menu.                                           |
-| `hasSearch`        | Includes IBM search.                                                 |
-| `searchOpenOnload` | Has the search open by default                                       |
+Includes platform name (only available with `default` and `custom navigation`).
+Object requires `name` and `url`.
 
 ```javascript
-const topNavProps = {
-  platform: {
-    name: 'IBM Cloud',
-    url: 'https://www.ibm.com/cloud',
-  },
+const platformData = {
+  name: 'IBM Cloud',
+  url: 'https://www.ibm.com/cloud',
 };
 
-<Masthead {...topNavProps} />;
+<Masthead platform={platformData} navigation="default" />;
 ```
 
 ## Stable selectors
 
-| Name                                        | Description |
-| ------------------------------------------- | ----------- |
-| `dds--masthead`                             | Component   |
-| `dds--masthead__hamburger`                  | Interactive |
-| `dds--masthead__logo`                       | Interactive |
-| `dds--masthead__platform-name`              | Interactive |
-| `dds--masthead__l0-nav`                     | Component   |
-| `dds--masthead__l0-nav--nav-${item}`        | Interactive |
-| `dds--masthead__l0-nav--subnav-${item}`     | Interactive |
-| `dds--masthead__l0-sidenav`                 | Component   |
-| `dds--masthead__l0-sidenav--nav-${item}`    | Interactive |
-| `dds--masthead__l0-sidenav--subnav-${item}` | Interactive |
+| Name                                                       | Description |
+| ---------------------------------------------------------- | ----------- |
+| `dds--masthead`                                            | Component   |
+| `dds--masthead__hamburger`                                 | Interactive |
+| `dds--masthead__logo`                                      | Interactive |
+| `dds--masthead__platform-name`                             | Interactive |
+| `dds--masthead__l0-nav`                                    | Component   |
+| `dds--masthead__l0-nav--nav-${item}`                       | Interactive |
+| `dds--masthead__l0-nav--subnav-col${item}-item${item}`     | Interactive |
+| `dds--masthead__l0-sidenav`                                | Component   |
+| `dds--masthead__l0-sidenav--nav-${item}`                   | Interactive |
+| `dds--masthead__l0-sidenav--subnav-col${item}-item${item}` | Interactive |
 
 ## CORS Proxy
 

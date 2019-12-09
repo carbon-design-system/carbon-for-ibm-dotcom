@@ -29,28 +29,15 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
    *
    * @returns {*} Top masthead navigation
    */
-
   const mastheadLinks = navigation.map((link, i) => {
-    if (link.hasMenu && link.hasMegapanel) {
+    if (link.hasMenu) {
       return (
         <HeaderMenu
           aria-label={link.title}
           menuLinkName={link.title}
           data-autoid={`${stablePrefix}--masthead__l0-nav--nav-${i}`}
           key={i}>
-          {link.menuSections[0].menuItems[i].megapanelContent &&
-            link.menuSections[0].menuItems[
-              i
-            ].megapanelContent.quickLinks.links.map((item, j) => {
-              return (
-                <HeaderMenuItem
-                  href={item.url}
-                  data-autoid={`${stablePrefix}--masthead__l0-nav--subnav-${j}`}
-                  key={j}>
-                  {item.title}
-                </HeaderMenuItem>
-              );
-            })}
+          {renderNav(link.menuSections)}
         </HeaderMenu>
       );
     } else {
@@ -83,6 +70,29 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
     </>
   );
 };
+
+/**
+ * Loops through and renders a list of links for the masthead nav
+ *
+ * @param {Array} sections A list of links to be rendered
+ * @returns {object} JSX object
+ */
+function renderNav(sections) {
+  const navItems = [];
+  sections.forEach((section, i) => {
+    section.menuItems.forEach((item, j) => {
+      navItems.push(
+        <HeaderMenuItem
+          href={item.url}
+          data-autoid={`${stablePrefix}--masthead__l0-nav--subnav-col${i}-item${j}`}
+          key={item.title}>
+          {item.title}
+        </HeaderMenuItem>
+      );
+    });
+  });
+  return navItems;
+}
 
 /**
  * @property propTypes

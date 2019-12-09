@@ -1,0 +1,48 @@
+//
+// Copyright IBM Corp. 2016, 2018
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import '@carbon/import-once/scss/import-once';
+@import 'carbon-components/scss/globals/scss/vars';
+@import '../../globals/feature-flags';
+@import 'tokens';
+
+// Carbon component theming
+@import 'components/accordion';
+@import 'components/button';
+@import 'components/content-switcher';
+@import 'components/date-picker';
+@import 'components/list-box';
+@import 'components/number-input';
+@import 'components/text-input';
+@import 'components/time-picker';
+@import 'components/select';
+
+//-------------------------
+// Expressive Theme
+//-------------------------
+
+// This includes an overall expressive theme throughout the carbon design
+// system. In addition to the global changes in typography sizes, this also
+// addresses per-component container and icon spacing to account for the size
+// adjustments.
+
+@include exports('carbon-expressive') {
+  @if dds-feature-flag-enabled('carbon-expressive') {
+    @include carbon-expressive-tokens;
+
+    // Component mixins
+    @include accordion-expressive;
+    @include button-expressive;
+    @include content-switcher-expressive;
+    @include date-picker-expressive;
+    @include list-box-expressive;
+    @include number-input-expressive;
+    @include text-input-expressive;
+    @include time-picker-expressive;
+    @include select-expressive;
+  }
+}

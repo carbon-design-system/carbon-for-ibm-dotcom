@@ -1,3 +1,9 @@
+import { settings } from 'carbon-components';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+
+const { stablePrefix } = ddsSettings;
+const { prefix } = settings;
+
 /**
  * Available size options
  *
@@ -48,8 +54,8 @@ const horizontalruleTemplate = ({ style, size, contrast, weight }) => {
   const hrWeight = weight === 'thick' ? 'bx--hr--thick' : '';
 
   return `<hr
-    data-autoid="dds--hr"
-    class="bx--hr ${hrStyle} ${hrSize} ${hrContrast} ${hrWeight}"
+    data-autoid="${stablePrefix}--hr"
+    class="${prefix}--hr ${hrStyle} ${hrSize} ${hrContrast} ${hrWeight}"
     />`;
 };
 

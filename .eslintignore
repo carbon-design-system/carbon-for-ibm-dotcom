@@ -11,6 +11,7 @@ packages/patterns-react/storybook-static
 # react
 packages/react/coverage
 packages/react/es
+packages/react/examples
 packages/react/umd
 packages/react/lib
 packages/react/node_modules
@@ -35,6 +36,9 @@ packages/styles/es
 packages/styles/umd
 packages/styles/lib
 packages/styles/node_modules
+packages/styles/src/carbon-stories
+packages/styles/src/carbon-tools
+packages/styles/storybook-static
 
 # utilities
 packages/utilities/coverage

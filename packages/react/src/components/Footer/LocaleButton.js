@@ -1,28 +1,30 @@
-import { FOOTER_LOCALE_BUTTON } from '../../internal/FeatureFlags.js';
-import { featureFlag } from '@carbon/ibmdotcom-utilities';
-
-import React, { useState } from 'react';
-import { Button } from 'carbon-components-react';
-import LocaleModal from '../LocaleModal/LocaleModal';
+import React, { useState, useEffect } from 'react';
+import {
+  Button,
+  ComposedModal,
+  ModalHeader,
+  ModalBody,
+  ComboBox,
+} from 'carbon-components-react';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
 import { Globe20 } from '@carbon/icons-react';
+import PropTypes from 'prop-types';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
- * EXPERIMENTAL: Renders the locale button
+ * Renders the locale button
  *
- * @private
- *
- * @returns {object} JSX object
+ * @param {object} props props object
+ * @param {Function} props.selectItem method to handle selected item
+ * @returns {*} {object} JSX object
  */
 const LocaleButton = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  return featureFlag(
-    FOOTER_LOCALE_BUTTON,
+  return (
     <div className={`${prefix}--locale-btn__container`}>
       <Button
         data-autoid={`${stablePrefix}--locale-btn`}
@@ -49,6 +51,23 @@ const LocaleButton = () => {
   function open() {
     setIsOpen(true);
   }
+};
+
+/**
+ * @property propTypes
+ * @description Defined property types for component
+ * @type {{selectItem: shim}}
+ */
+LocaleButton.propTypes = {
+  selectItem: PropTypes.func,
+};
+
+/**
+ * @property defaultProps
+ * @type {{selectItem: Function}}
+ */
+LocaleButton.defaultProps = {
+  selectItem: () => {},
 };
 
 export default LocaleButton;

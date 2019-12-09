@@ -3,6 +3,102 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.2](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.1.2-rc.0...@carbon/ibmdotcom-react@1.1.2) (2019-11-19)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [1.1.2-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.1.1...@carbon/ibmdotcom-react@1.1.2-rc.0) (2019-11-15)
+
+### Bug Fixes
+
+- **masthead:** fixes masthead link render from json; fixes
+  [#634](https://github.com/carbon-design-system/ibm-dotcom-library/issues/634)'
+  ([6ebbd80](https://github.com/carbon-design-system/ibm-dotcom-library/commit/6ebbd80))
+
+## 1.1.1 (2019-11-11)
+
+### Bug Fixes
+
+- **bug:** expose search placeholder prop; fixes
+  [#631](https://github.com/carbon-design-system/ibm-dotcom-library/issues/631)
+  ([79370ce](https://github.com/carbon-design-system/ibm-dotcom-library/commit/79370ce))
+- **layout:** added Layout in index export
+  ([a293156](https://github.com/carbon-design-system/ibm-dotcom-library/commit/a293156))
+- **storybook:** fixed storybook version dependencies
+  ([21efb79](https://github.com/carbon-design-system/ibm-dotcom-library/commit/21efb79))
+
+### Features
+
+- **altlang:** utility for fetching all alternative languages on page
+  ([#580](https://github.com/carbon-design-system/ibm-dotcom-library/issues/580))
+  ([c0ca382](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c0ca382))
+- **flags:** adding DDS_FLAGS_ALL environment flag
+  ([c4d2f1d](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c4d2f1d))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [1.1.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.1.1-rc.1...@carbon/ibmdotcom-react@1.1.1) (2019-11-11)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [1.1.1-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.1.1-rc.0...@carbon/ibmdotcom-react@1.1.1-rc.1) (2019-11-11)
+
+### Bug Fixes
+
+- **masthead:** ssr fix for missing document
+  ([aa9a003](https://github.com/carbon-design-system/ibm-dotcom-library/commit/aa9a003))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [1.1.1-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.1.0...@carbon/ibmdotcom-react@1.1.1-rc.0) (2019-11-07)
+
+### Bug Fixes
+
+- **footer:** add navigation prop to be passed into Dotcomshell
+  ([20117fb](https://github.com/carbon-design-system/ibm-dotcom-library/commit/20117fb))
+- **footer:** add to readme and be able to turn of custom navigation
+  ([67f5eab](https://github.com/carbon-design-system/ibm-dotcom-library/commit/67f5eab))
+- **footer:** pass params to the translationapi and small lint changes
+  ([a4ee671](https://github.com/carbon-design-system/ibm-dotcom-library/commit/a4ee671))
+- **lang:** dispatch correct action type
+  ([0f28637](https://github.com/carbon-design-system/ibm-dotcom-library/commit/0f28637))
+- **masthead:** skipping focusing hidden elements
+  ([363d300](https://github.com/carbon-design-system/ibm-dotcom-library/commit/363d300))
+- **react:** moved initial state inside component func
+  ([5c7c0fa](https://github.com/carbon-design-system/ibm-dotcom-library/commit/5c7c0fa))
+- **react:** open by default blur shouldnt close search
+  ([0eddcc2](https://github.com/carbon-design-system/ibm-dotcom-library/commit/0eddcc2))
+- **search-input:** set correct key in actions
+  ([18bdc78](https://github.com/carbon-design-system/ibm-dotcom-library/commit/18bdc78))
+- **storybook-knobs:** move knobs within the add scope
+  ([da711a1](https://github.com/carbon-design-system/ibm-dotcom-library/commit/da711a1))
+
+### Features
+
+- **masthead:** add focus on search button after close
+  ([03fd742](https://github.com/carbon-design-system/ibm-dotcom-library/commit/03fd742))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.1.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.1.0-rc.1...@carbon/ibmdotcom-react@1.1.0) (2019-11-04)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-react

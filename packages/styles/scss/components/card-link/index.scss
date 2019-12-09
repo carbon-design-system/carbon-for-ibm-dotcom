@@ -6,11 +6,10 @@
 //
 
 @import '../../globals/imports';
-@import '../../globals/vars';
-@import '../../globals/mixins.scss';
+@import '../../temp-carbon-expressive/temp-carbon-expressive';
 
-@import '~carbon-components/scss/components/link/link';
-@import '~carbon-components/scss/components/tile/tile';
+@import 'carbon-components/scss/components/link/link';
+@import 'carbon-components/scss/components/tile/tile';
 
 @mixin card-link {
   .#{$prefix}--card-link {

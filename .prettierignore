@@ -9,3 +9,6 @@ coverage
 storybook-static
 .github
 jsdocs
+examples
+carbon-stories
+carbon-tools

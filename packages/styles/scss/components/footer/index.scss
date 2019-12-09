@@ -6,18 +6,20 @@
 //
 
 @import '../../globals/imports';
-
-@import '~carbon-components/scss/components/combo-box/combo-box';
-@import '~carbon-components/scss/globals/scss/vendor/@carbon/grid/scss/mixins';
-@import '~carbon-components/scss/globals/scss/vendor/@carbon/type/scss/styles';
-@import '~carbon-components/scss/globals/scss/vendor/@carbon/type/scss/type';
-
-@import '../../globals/vars.scss';
-@import '../../globals/mixins.scss';
+@import '../../temp-carbon-expressive/temp-carbon-expressive';
 
 // /// Include footer components with g90 theme
 // /// @access private
 // /// @group footer
+
+$TEMP--breakpoint-down--md: map-get(
+    map-get($carbon--grid-breakpoints, 'md'),
+    'width'
+  ) - carbon--rem(1px);
+$TEMP--breakpoint-down--lg: map-get(
+    map-get($carbon--grid-breakpoints, 'lg'),
+    'width'
+  ) - carbon--rem(1px);
 
 @include carbon--theme($carbon--theme--g90) {
   @import 'locale-button';
@@ -28,4 +30,5 @@
   @import 'legal-nav';
 }
 
+@import 'carbon-components/scss/components/combo-box/combo-box';
 @import 'carbon-components/scss/components/modal/modal';

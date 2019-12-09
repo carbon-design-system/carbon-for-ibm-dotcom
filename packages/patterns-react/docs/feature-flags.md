@@ -44,7 +44,7 @@ For example:
 ```javascript
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FOOTER_LOCALE_BUTTON } from '../../internal/FeatureFlags.js';
+import { DDS_FOOTER_LOCALE_BUTTON } from '../../internal/FeatureFlags.js';
 import { featureFlag } from '@carbon/ibmdotcom-utilities';
 
 /**
@@ -64,7 +64,7 @@ feature flag:
 
 ```javascript
 import React from 'react';
-import { FOOTER_LOCALE_BUTTON } from '../../internal/FeatureFlags.js';
+import { DDS_FOOTER_LOCALE_BUTTON } from '../../internal/FeatureFlags.js';
 import { featureFlag } from '@carbon/ibmdotcom-utilities';
 import FeatureName from './FeatureName';
 

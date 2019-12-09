@@ -7,10 +7,21 @@
 
 Here's a quick example to get you started.
 
+```scss
+// yourapplication.scss
+@import '@carbon/type/scss/font-face/mono';
+@import '@carbon/type/scss/font-face/sans';
+@include carbon--font-face-mono();
+@include carbon--font-face-sans();
+```
+
+> 💡 Only import font's once per usage
+
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { HorizontalRule } from '@carbon/ibmdotcom-react';
+import 'yourapplication.scss';
 import '@carbon/ibmdotcom-styles/scss/components/horizontalrule/index.scss';
 function App() {
   return <HorizontalRule />;
@@ -21,36 +32,45 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 > 💡 Don't forget to import the horizontal rule styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
-## Styles (optional)
+## Props
 
-| Name              | Description                                                                    |
-| ----------------- | ------------------------------------------------------------------------------ |
-| `solid`/`default` | Default style variant of the horizontal rule                                   |
-| `dashed`          | Dashed/dotted style variant (style is applied in conjuction with `fluid` size) |
+| Name       | Required | Data Type | Default Value     | Description                               |
+| ---------- | -------- | --------- | ----------------- | ----------------------------------------- |
+| `style`    | NO       | String    | 'solid'           | Style of the HR. See `styles` below.      |
+| `size`     | NO       | String    | 'fluid'           | Length of the HR. See `sizes` below.      |
+| `contrast` | NO       | String    | 'medium-contrast' | Contrast of the HR. See `contrast` below. |
+| `weight`   | NO       | String    | 'thin'            | Weight of the HR. See `weights` below.    |
 
-## Sizes (optional)
+### styles (optional)
 
-| Name              | Description                                                         |
-| ----------------- | ------------------------------------------------------------------- |
-| `fluid`/`default` | Default size variant - horizontal rule takes full width of the grid |
-| `small`           | Shorter fixed-length variant with a max-width of 32px               |
-| `medium`          | Medium fixed-length variant with a max-width of 48px                |
-| `large`           | Longer fixed-length variant with a max-width of 64px                |
+| Name     | Description                                                                    |
+| -------- | ------------------------------------------------------------------------------ |
+| `solid`  | Default style variant of the horizontal rule                                   |
+| `dashed` | Dashed/dotted style variant (style is applied in conjuction with `fluid` size) |
 
-## Contrast types (optional)
+### sizes (optional)
 
-| Name                        | Description                    |
-| --------------------------- | ------------------------------ |
-| `medium-contrast`/`default` | Default contrast color variant |
-| `low-contrast`              | Lighter contrast color variant |
-| `high-contrast`             | Darker contrast color variant  |
+| Name     | Description                                                         |
+| -------- | ------------------------------------------------------------------- |
+| `fluid`  | Default size variant - horizontal rule takes full width of the grid |
+| `small`  | Shorter fixed-length variant with a max-width of 32px               |
+| `medium` | Medium fixed-length variant with a max-width of 48px                |
+| `large`  | Longer fixed-length variant with a max-width of 64px                |
 
-## Weights (optional)
+### contrast types (optional)
 
-| Name             | Description                                                                          |
-| ---------------- | ------------------------------------------------------------------------------------ |
-| `thin`/`default` | Default weight variant                                                               |
-| `thick`          | Slightly thicker weight variant (this only applied in conjunction with `fluid` size) |
+| Name              | Description                    |
+| ----------------- | ------------------------------ |
+| `medium-contrast` | Default contrast color variant |
+| `low-contrast`    | Lighter contrast color variant |
+| `high-contrast`   | Darker contrast color variant  |
+
+### weights (optional)
+
+| Name    | Description                                                                          |
+| ------- | ------------------------------------------------------------------------------------ |
+| `thin`  | Default weight variant                                                               |
+| `thick` | Slightly thicker weight variant (this only applied in conjunction with `fluid` size) |
 
 ## Stable selectors
 

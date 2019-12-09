@@ -5,7 +5,7 @@ import LeadSpace from '../LeadSpace';
 require('../../../internal/FeatureFlags');
 
 jest.mock('../../../internal/FeatureFlags.js', () => ({
-  LEADSPACE: true,
+  DDS_LEADSPACE: true,
 }));
 
 describe('<LeadSpace />', () => {

@@ -5,9 +5,8 @@
 // LICENSE file in the root directory of this source tree.
 //
 @import '../../globals/imports';
-// @import '../footer/index';
-// @import '../masthead/masthead';
-// @import '../masthead/masthead-l1';
+@import '../footer/index';
+@import '../masthead/index';
 
 @mixin dotcom-shell {
   .#{$prefix}--dotcom-shell {

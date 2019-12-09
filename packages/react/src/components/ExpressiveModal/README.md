@@ -12,10 +12,21 @@
 
 Here's a quick example to get you started.
 
+```scss
+// yourapplication.scss
+@import '@carbon/type/scss/font-face/mono';
+@import '@carbon/type/scss/font-face/sans';
+@include carbon--font-face-mono();
+@include carbon--font-face-sans();
+```
+
+> 💡 Only import font's once per usage
+
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { ExpressiveModal } from '@carbon/ibmdotcom-react';
+import 'yourapplication.scss';
 
 import '@carbon/ibmdotcom-styles/scss/components/expressive-modal/expressive-modal.scss';
 
@@ -32,6 +43,15 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 > 💡 Don't forget to import the expressive modal styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
+
+## Props
+
+| Name        | Required | Data Type       | Default Value | Description                                         |
+| ----------- | -------- | --------------- | ------------- | --------------------------------------------------- |
+| `children`  | NO       | Node            | null          | Components/Elements to be rendered within the Modal |
+| `className` | NO       | String OR Array | null          | Custom classname(s) for the Modal                   |
+| `onClose`   | NO       | Function        | null          | Function to be triggered on close of Modal          |
+| `open`      | NO       | Boolean         | false         | Sets whether the Modal is open/close                |
 
 ## Stable selectors
 

@@ -7,10 +7,21 @@
 
 Here's a quick example to get you started.
 
+```scss
+// yourapplication.scss
+@import '@carbon/type/scss/font-face/mono';
+@import '@carbon/type/scss/font-face/sans';
+@include carbon--font-face-mono();
+@include carbon--font-face-sans();
+```
+
+> 💡 Only import font's once per usage
+
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Layout } from '@carbon/ibmdotcom-react';
+import 'yourapplication.scss';
 import '@carbon/grid/scss/grid.scss';
 import '@carbon/ibmdotcom-styles/scss/components/layout/_layout.scss';
 function App() {
@@ -26,6 +37,15 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 > 💡 Don't forget to import the layout styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
+
+## Props
+
+| Name           | Required | Data Type | Default Value | Description                                               |
+| -------------- | -------- | --------- | ------------- | --------------------------------------------------------- |
+| `children`     | NO       | Node      | null          | Component/Element to render within Layout                 |
+| `marginBottom` | NO       | String    | null          | Bottom Margin value for Layout. See `marginBottom` below. |
+| `marginTop`    | NO       | String    | null          | Top Margin value for Layout. See `marginTop` below.       |
+| `type`         | YES      | String    | null          | Layout type. See `type` below.                            |
 
 ## type
 

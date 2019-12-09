@@ -13,7 +13,7 @@ import { ArrowRight20 } from '@carbon/icons-react';
 require('../../../internal/FeatureFlags.js');
 
 jest.mock('../../../internal/FeatureFlags.js', () => ({
-  CARD_LINK: true,
+  DDS_CARD_LINK: true,
 }));
 
 const content = {
