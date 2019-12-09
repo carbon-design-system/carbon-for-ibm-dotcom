@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/stylelint-config-ibmdotcom@1.1.1...@carbon/stylelint-config-ibmdotcom@1.2.0-rc.0) (2019-12-09)
+
+### Features
+
+- **expressive:** adding initial expressive theme via custom properties
+  ([5d6d2f6](https://github.com/carbon-design-system/ibm-dotcom-library/commit/5d6d2f6))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.1.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/stylelint-config-ibmdotcom@1.1.1-rc.0...@carbon/stylelint-config-ibmdotcom@1.1.1) (2019-11-19)
 
 **Note:** Version bump only for package @carbon/stylelint-config-ibmdotcom
