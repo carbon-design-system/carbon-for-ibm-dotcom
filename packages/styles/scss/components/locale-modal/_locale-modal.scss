@@ -113,11 +113,6 @@
     }
 
     &__back {
-      .#{$prefix}--modal-close {
-        top: $spacing-05;
-        right: $spacing-05;
-      }
-
       .#{$prefix}--modal-header__label {
         &:hover {
           cursor: pointer;
@@ -165,6 +160,11 @@
     .#{$prefix}--search-input {
       background-color: $ui-01;
     }
+  }
+
+  .#{$prefix}--modal-close {
+    top: $spacing-05;
+    right: $spacing-05;
   }
 
   .#{$prefix}--modal-header {
