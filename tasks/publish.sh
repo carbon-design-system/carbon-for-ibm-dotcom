@@ -6,6 +6,17 @@
 # LICENSE file in the root directory of this source tree.
 #
 
+# colors
+RED='\033[0;31m'
+NC='\033[0m'
+
+# Pre-tests
+pretest () {
+  echo -e "${RED}Running preflight checks...${NC}"
+  yarn ci-check && yarn lerna run ci-check && yarn lint && yarn lint:styles
+  echo -e "${RED}Tests have passed! Continuing with release...${NC}"
+}
+
 # Alpha release
 release_alpha () {
   ./node_modules/.bin/lerna publish --canary minor --dist-tag canary --no-push --no-git-tag-version --force-publish=*
@@ -60,7 +71,7 @@ root_path=$PWD
 
 # Check the git status first
 if [ -n "$(git status --porcelain)" ]; then
-  echo "Your git status is not clean. Aborting.";
+  echo -e "${RED}Your git status is not clean. Aborting.${NC}";
   exit 1;
 fi
 
@@ -81,7 +92,28 @@ do
           break
           ;;
         "No")
-          echo "Please log into npm first then re-run this script."
+          echo -e "${RED}Please log into npm first then re-run this script.${NC}"
+          exit 1
+          ;;
+        *) echo "invalid option $REPLY";;
+    esac
+done
+
+# Check if logged into Github
+echo "Did you add a Github auth token for pushing changes? (only necessary for release managers)"
+options_npm=(
+  "Yes"
+  "No"
+)
+select npm in "${options_npm[@]}"
+do
+    case "$npm" in
+        "Yes")
+          echo "Great!"
+          break
+          ;;
+        "No")
+          echo -e "${RED}Please log into npm first then re-run this script.${NC}"
           exit 1
           ;;
         *) echo "invalid option $REPLY";;
@@ -101,7 +133,8 @@ do
           break
           ;;
         "No")
-          echo "You are only permitted to run an alpha release. Running now..."
+          echo -e "${RED}You are only permitted to run an alpha release. Running now...${NC}"
+          pretest
           set -x
           release_alpha
           exit 1
@@ -127,49 +160,57 @@ select release in "${options_release[@]}"
 do
     case "$release" in
         "alpha release")
-          echo "Creating alpha release..."
+          pretest
+          echo -e "${RED}Creating alpha release...${NC}"
           set -x
           release_alpha
           exit 1
           ;;
         "rc.0 patch (first release candidate)")
-          echo "Creating patch rc.0 release..."
+          pretest
+          echo -e "${RED}Creating patch rc.0 release...${NC}"
           set -x
           release_rc0_patch
           exit 1
           ;;
         "rc.0 minor (first release candidate)")
-          echo "Creating minor rc.0 release..."
+          pretest
+          echo -e "${RED}Creating minor rc.0 release...${NC}"
           set -x
           release_rc0_minor
           exit 1
           ;;
         "rc.0 major (first release candidate)")
-          echo "Creating major rc.0 release..."
+          pretest
+          echo -e "${RED}Creating major rc.0 release...${NC}"
           set -x
           release_rc0_major
           exit 1
           ;;
         "rc.1+ (subsequent release candidates)")
-          echo "Creating rc.1+ release..."
+          pretest
+          echo -e "${RED}Creating rc.1+ release...${NC}"
           set -x
           release_rc1plus
           exit 1
           ;;
         "full release (patch)")
-          echo "Creating full patch release..."
+          pretest
+          echo -e "${RED}Creating full patch release...${NC}"
           set -x
           release_full_patch
           exit 1
           ;;
         "full release (minor)")
-          echo "Creating full minor release..."
+          pretest
+          echo -e "${RED}Creating full minor release...${NC}"
           set -x
           release_full_minor
           exit 1
           ;;
         "full release (major)")
-          echo "Creating full major release..."
+          pretest
+          echo -e "${RED}Creating full major release...${NC}"
           set -x
           release_full_major
           exit 1
