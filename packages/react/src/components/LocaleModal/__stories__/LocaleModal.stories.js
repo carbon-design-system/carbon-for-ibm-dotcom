@@ -7,7 +7,6 @@ import readme from '../README.md';
 import './index.scss';
 
 const localeModalProps = {
-  headerLabel: text('label', 'United States — English'),
   headerTitle: text('title', 'Select region'),
 };
 
