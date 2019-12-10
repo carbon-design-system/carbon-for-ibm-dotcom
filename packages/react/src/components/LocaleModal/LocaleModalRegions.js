@@ -52,13 +52,17 @@ const LocaleModalRegions = ({
          * go back to region selection
          *
          */
-        const localeBackBtn = document.querySelector(
-          `.${prefix}--locale-modal__back .${prefix}--modal-header__label`
+        const localeBackBtn = document.querySelectorAll(
+          `.${prefix}--locale-modal__back .${prefix}--modal-header__label,
+          .${prefix}--locale-modal__back .${prefix}--modal-close`
         );
 
-        localeBackBtn.addEventListener('click', () => {
-          setIsFiltering(false);
-          document.getElementById(`${prefix}--locale-modal__filter`).value = '';
+        [...localeBackBtn].forEach(btn => {
+          btn.addEventListener('click', () => {
+            setIsFiltering(false);
+            document.getElementById(`${prefix}--locale-modal__filter`).value =
+              '';
+          });
         });
       });
     });
