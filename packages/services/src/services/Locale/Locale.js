@@ -26,6 +26,14 @@ const _localeDefault = {
 };
 
 /**
+ * Default display name for lang combination
+ *
+ * @type {string}
+ * @private
+ */
+const _localeNameDefault = 'United States - English';
+
+/**
  * Locale API endpoint
  *
  * @type {string}
@@ -119,6 +127,30 @@ class LocaleAPI {
       }
     } else {
       return _localeDefault;
+    }
+  }
+
+  /**
+   * This fetches the language display name based on language/locale combo
+   *
+   * @returns {Promise<string>} Display name of locale/language
+   */
+  static async getLangDisplay() {
+    const lang = this.getLang();
+    const list = await this.getList(lang);
+    // combines the countryList arrays
+    let countries = [];
+    list.regionList.forEach(region => {
+      countries = countries.concat(region.countryList);
+    });
+    const location = countries.filter(country => {
+      return country.locale[0][0] === `${lang.lc}-${lang.cc}`;
+    });
+
+    if (location.length > 0) {
+      return `${location[0].name} - ${location[0].locale[0][1]}`;
+    } else {
+      return _localeNameDefault;
     }
   }
 
