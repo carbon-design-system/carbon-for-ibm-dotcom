@@ -10,12 +10,6 @@ import { shallow } from 'enzyme';
 import CardLink from '../CardLink';
 import { ArrowRight20 } from '@carbon/icons-react';
 
-require('../../../internal/FeatureFlags.js');
-
-jest.mock('../../../internal/FeatureFlags.js', () => ({
-  DDS_CARD_LINK: true,
-}));
-
 const content = {
   title: 'Lorem ipsum dolor sit amet',
   href: 'https://example.com',

@@ -25,23 +25,6 @@
     margin-top: $spacing-07;
     display: flex;
 
-    .#{$prefix}--link {
-      &,
-      &:visited,
-      &:active,
-      &:hover {
-        color: currentColor;
-      }
-
-      &:hover {
-        text-decoration: none;
-      }
-
-      &:focus {
-        outline-color: $focus;
-      }
-    }
-
     &__regions {
       width: 100%;
       align-self: flex-end;

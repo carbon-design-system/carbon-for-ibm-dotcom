@@ -40,6 +40,20 @@
         fill: currentColor;
       }
     }
+
+    &:visited,
+    &:active,
+    &:hover {
+      color: currentColor;
+    }
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    &:focus {
+      outline-color: $focus;
+    }
   }
 }
 
