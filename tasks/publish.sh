@@ -130,6 +130,7 @@ do
           ;;
         "No")
           echo "You are only permitted to run an alpha release. Running now..."
+          pretest()
           set -x
           release_alpha
           exit 1
