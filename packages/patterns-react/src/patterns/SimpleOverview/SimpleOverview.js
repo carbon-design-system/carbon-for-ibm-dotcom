@@ -78,9 +78,9 @@ const SimpleOverview = ({ label, heading, copy, link }) => {
 };
 
 SimpleOverview.propTypes = {
-  label: PropTypes.string,
-  heading: PropTypes.string,
-  copy: PropTypes.string,
+  label: PropTypes.string.isRequired,
+  heading: PropTypes.string.isRequired,
+  copy: PropTypes.string.isRequired,
   link: PropTypes.shape({
     href: PropTypes.string,
     target: PropTypes.string,
