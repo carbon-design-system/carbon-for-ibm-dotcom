@@ -28,6 +28,7 @@ describe('LocaleAPI', () => {
 
   afterEach(() => {
     jest.clearAllMocks();
+    sessionStorage.clear();
   });
 
   it('should fetch the lang from the html attribute', () => {
