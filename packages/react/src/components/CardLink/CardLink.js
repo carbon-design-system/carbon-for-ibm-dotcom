@@ -24,7 +24,15 @@ const { prefix } = settings;
  * @param {object} props react proptypes
  * @returns {object} JSX object
  */
-const CardLink = ({ title, href, content, icon, className, ...props }) => {
+const CardLink = ({
+  title,
+  href,
+  content,
+  icon,
+  source,
+  className,
+  ...props
+}) => {
   if (!title || !href) {
     return null;
   }
@@ -36,12 +44,33 @@ const CardLink = ({ title, href, content, icon, className, ...props }) => {
       className={classNames(`${prefix}--card-link`, className)}
       href={href}
       {...props}>
+      {renderImage(source)}
       <h3 className={`${prefix}--card-link__title`}>{title}</h3>
       {optionalContent(content)}
       {renderFooter(icon)}
     </ClickableTile>
   );
 };
+
+/**
+ * Render image
+ *
+ * @param {string} source passes as src
+ * @returns {object} JSX object
+ */
+function renderImage(source) {
+  if (!source) {
+    return null;
+  }
+
+  return (
+    <img
+      src={source}
+      className={`${prefix}--card-link__image`}
+      alt="cards with"
+    />
+  );
+}
 
 /**
  * Card Link optional content
@@ -76,6 +105,7 @@ CardLink.propTypes = {
   href: PropTypes.string.isRequired,
   icon: PropTypes.element,
   content: PropTypes.string,
+  source: PropTypes.string,
   className: PropTypes.string,
 };
 

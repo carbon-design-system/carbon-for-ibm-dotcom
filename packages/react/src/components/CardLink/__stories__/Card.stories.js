@@ -33,6 +33,7 @@ if (CARD_LINK) {
       const href = text('href (required)', 'https://example.com');
       const content = text('content', '');
       const target = text('target', '');
+      const source = text('target', '');
       const ratio = {
         none: null,
         '2:1': '2x1',
@@ -47,6 +48,7 @@ if (CARD_LINK) {
           title={title}
           href={href}
           content={content}
+          source={source}
           icon={<ArrowRight20 />}
           target={target}
         />
@@ -61,6 +63,7 @@ if (CARD_LINK) {
             title={title}
             href={href}
             content={content}
+            source={source}
             icon={<ArrowRight20 />}
             target={target}
             className="bx--aspect-ratio--object"
