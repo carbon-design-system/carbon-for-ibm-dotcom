@@ -9,9 +9,7 @@ const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
- * EXPERIMENTAL: Renders the locale button
- *
- * @private
+ * Renders the locale button
  *
  * @returns {object} JSX object
  */
