@@ -8,12 +8,11 @@ const { prefix } = settings;
  * Masthead IBM Logo
  *
  * @returns {string} ES6 template literal of the Masthead IBM Logo
- *
  */
 const mastheadIbmLogoTemplate = () => `
   <div
     data-autoid="${stablePrefix}--masthead-logo"
-    className="${prefix}--header__logo">
+    class="${prefix}--header__logo">
     <a
       data-autoid="${stablePrefix}--masthead-logo__link"
       href="https://www.ibm.com/">

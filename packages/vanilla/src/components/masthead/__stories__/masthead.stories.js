@@ -13,12 +13,7 @@ storiesOf('Masthead', module)
   })
   .add('Default', () => {
     const element = document.createElement('div');
-    element.textContent = 'Loading...';
-
-    Masthead.create(element).then(mastheadElement => {
-      console.log('Masthead create successfully:', mastheadElement);
-    });
+    Masthead.create(element);
     Masthead.init();
-
     return element;
   });

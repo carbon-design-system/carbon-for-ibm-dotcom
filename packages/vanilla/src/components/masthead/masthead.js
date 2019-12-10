@@ -1,20 +1,19 @@
 import { globalInit, TranslationAPI } from '@carbon/ibmdotcom-services';
-
 import mastheadTemplate from './masthead.template';
 
 /**
- * class to initialize the accordion component
+ * Class to initialize the accordion component
  */
 class Masthead {
   /**
-   * initialize global execution calls
-   *
+   * Initialize global execution calls
    */
   static init() {
     globalInit();
   }
 
   /**
+   * Gets the masthead markup and inhect into the passed element
    *
    * @param {*} el HTML element that will hold the masthead
    * @param {object} options Options passed into masthead template
@@ -22,7 +21,6 @@ class Masthead {
    * @param {object} options.hasProfile Inidicates if will have Profile
    * @param {object} options.hasSearch Inidicates if will have Search
    * @returns {string} ES6 template literal of the Masthead
-   *
    */
   static async create(el, options = {}) {
     const { navigation: customNavigation, hasProfile, hasSearch } = options;
@@ -42,6 +40,7 @@ class Masthead {
   }
 
   /**
+   * Gets masthead markup
    *
    * @param {object} props Property object
    * @param {Array|boolean} props.navigation Array with custom navigation or false boolean
@@ -52,12 +51,9 @@ class Masthead {
    * import { Masthead } from '@carbon/ibmdotcom';
    *
    * const element = getElementById('yourMastheadDiv');
-   * const options = {
-   *  hasProfile: true,
-   *  hasSearch: true
-   * };
    *
-   * Masthead.create(element, options);
+   * Masthead.create(element);
+   * Masthead.init();
    */
   static async getMasthead({
     navigation: customNavigation,
