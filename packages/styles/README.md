@@ -37,7 +37,7 @@ import '@carbon/ibmdotcom-styles';
 
 In addition to styles for IBM.com Library components and patterns, this package
 includes the
-[expressive theme](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles/themes/README.md)
+[expressive theme](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/styles/scss/themes/expressive)
 for all Carbon components. To see a storybook output of the Carbon components
 with the expressive theme applied, run the following command:
 

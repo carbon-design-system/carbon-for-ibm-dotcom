@@ -6,7 +6,7 @@ import footerMenu from '../__data__/footer-menu.json';
 import footerThin from '../__data__/footer-legal.json';
 import readme from '../README.md';
 
-import '../../../../../styles/scss/components/footer/index.scss';
+import './index.scss';
 
 storiesOf('Footer', module)
   .addDecorator(withKnobs)
