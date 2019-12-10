@@ -130,7 +130,7 @@ do
           ;;
         "No")
           echo "You are only permitted to run an alpha release. Running now..."
-          pretest()
+          pretest
           set -x
           release_alpha
           exit 1
@@ -156,56 +156,56 @@ select release in "${options_release[@]}"
 do
     case "$release" in
         "alpha release")
-          pretest()
+          pretest
           echo "Creating alpha release..."
           set -x
           release_alpha
           exit 1
           ;;
         "rc.0 patch (first release candidate)")
-          pretest()
+          pretest
           echo "Creating patch rc.0 release..."
           set -x
           release_rc0_patch
           exit 1
           ;;
         "rc.0 minor (first release candidate)")
-          pretest()
+          pretest
           echo "Creating minor rc.0 release..."
           set -x
           release_rc0_minor
           exit 1
           ;;
         "rc.0 major (first release candidate)")
-          pretest()
+          pretest
           echo "Creating major rc.0 release..."
           set -x
           release_rc0_major
           exit 1
           ;;
         "rc.1+ (subsequent release candidates)")
-          pretest()
+          pretest
           echo "Creating rc.1+ release..."
           set -x
           release_rc1plus
           exit 1
           ;;
         "full release (patch)")
-          pretest()
+          pretest
           echo "Creating full patch release..."
           set -x
           release_full_patch
           exit 1
           ;;
         "full release (minor)")
-          pretest()
+          pretest
           echo "Creating full minor release..."
           set -x
           release_full_minor
           exit 1
           ;;
         "full release (major)")
-          pretest()
+          pretest
           echo "Creating full major release..."
           set -x
           release_full_major
