@@ -36,6 +36,11 @@ describe('<CardLink />', () => {
     expect(cardLink.isEmptyRender()).toBeTruthy();
   });
 
+  it('returns null if no href provided', () => {
+    const cardLink = shallow(<CardLink title={content.title} />);
+    expect(cardLink.isEmptyRender()).toBeTruthy();
+  });
+
   it("renders cardlink's content if provided", () => {
     const cardLink = shallow(<CardLink {...content} content="Hello world!" />);
     expect(cardLink.find('.bx--card-link__content')).toHaveLength(1);

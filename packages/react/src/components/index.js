@@ -12,7 +12,6 @@ export * from './HorizontalRule';
 export * from './Icon';
 export * from './Masthead';
 export * from './LinkWithIcon';
-export * from './LocaleModal';
 export * from './CardLink';
 export * from './Layout';
 export * from './ExpressiveModal';

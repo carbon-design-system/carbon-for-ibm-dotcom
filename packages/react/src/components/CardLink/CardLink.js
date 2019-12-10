@@ -25,7 +25,7 @@ const { prefix } = settings;
  * @returns {object} JSX object
  */
 const CardLink = ({ title, href, content, icon, className, ...props }) => {
-  if (!title) {
+  if (!title || !href) {
     return null;
   }
 

@@ -3,29 +3,6 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [1.2.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-utilities@1.1.2...@carbon/ibmdotcom-utilities@1.2.0-rc.0) (2019-12-09)
-
-### Bug Fixes
-
-- **dependencies:** fix to circular dependencies btwn services/utilities
-  ([cff6e13](https://github.com/carbon-design-system/ibm-dotcom-library/commit/cff6e13))
-- **featureflag:** add dds prefix to react feature flags
-  ([8c91448](https://github.com/carbon-design-system/ibm-dotcom-library/commit/8c91448))
-- **utilities:** removed services as a dependency
-  ([8171f1b](https://github.com/carbon-design-system/ibm-dotcom-library/commit/8171f1b))
-
-### Features
-
-- **expressive:** updating README files
-  ([c38287b](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c38287b))
-- **footer:** removal of feature flag for the locale selector in footer
-  ([44e16b8](https://github.com/carbon-design-system/ibm-dotcom-library/commit/44e16b8))
-
-# Change Log
-
-All notable changes to this project will be documented in this file. See
-[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 ## [1.1.2](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-utilities@1.1.2-rc.0...@carbon/ibmdotcom-utilities@1.1.2) (2019-11-19)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-utilities

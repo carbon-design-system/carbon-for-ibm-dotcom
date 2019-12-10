@@ -9,7 +9,6 @@
 @import '../../temp-carbon-expressive/temp-carbon-expressive';
 
 @import 'carbon-components/scss/components/tile/tile';
-@import 'carbon-components/scss/components/link/link';
 
 @mixin card-link {
   .#{$prefix}--card-link {
@@ -17,7 +16,6 @@
     text-decoration: none;
     display: flex;
     flex-direction: column;
-    padding: $spacing-05;
 
     > *:not(:last-child) {
       margin-bottom: $spacing-07;
