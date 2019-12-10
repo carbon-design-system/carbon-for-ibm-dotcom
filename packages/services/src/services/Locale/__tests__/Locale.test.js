@@ -13,13 +13,13 @@ jest.mock('@carbon/ibmdotcom-utilities', () => ({
 
 describe('LocaleAPI', () => {
   const _cc = 'us';
-  const _lc = 'es';
+  const _lc = 'en';
 
   const endpoint = `${process.env.TRANSLATION_HOST}/common/js/dynamicnav/www/countrylist/jsononly`;
   const fetchUrl = `${endpoint}/${_cc}${_lc}-utf8.json`;
 
   beforeEach(function() {
-    mockAxios.get.mockImplementationOnce(() =>
+    mockAxios.get.mockImplementation(() =>
       Promise.resolve({
         data: response,
       })
@@ -65,6 +65,11 @@ describe('LocaleAPI', () => {
       cc: 'us',
       lc: 'en',
     });
+  });
+
+  it('should fetch the display name based on language/locale combination', async () => {
+    const data = await LocaleAPI.getLangDisplay();
+    expect(data).toEqual('United States - English');
   });
 
   it('should fetch locale from cookie if availiable', async () => {
