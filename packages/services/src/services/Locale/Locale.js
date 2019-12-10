@@ -197,9 +197,6 @@ class LocaleAPI {
             'Content-Type': 'application/json; charset=utf-8',
           },
         })
-        .then(response => {
-          return response;
-        })
         .then(response => response.data);
 
       sessionStorage.setItem(
