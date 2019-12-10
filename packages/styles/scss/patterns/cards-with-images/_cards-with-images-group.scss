@@ -11,6 +11,7 @@
     background-color: $ui-01;
     border-color: $ui-02;
     outline: 1px solid $ui-background;
+    padding: 0;
     &__title {
       padding: $carbon--spacing-05;
       color: $text-01;
@@ -31,6 +32,8 @@
     padding-bottom: $carbon--layout-05;
     &__title {
       @include type-style('expressive-heading-02');
+
+      padding-bottom: $layout-05;
     }
     &__cards {
       display: flex;

@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.1.2...@carbon/ibmdotcom-services@1.2.0-rc.0) (2019-12-09)
+
+### Bug Fixes
+
+- **dependencies:** fix to circular dependencies btwn services/utilities
+  ([cff6e13](https://github.com/carbon-design-system/ibm-dotcom-library/commit/cff6e13))
+- **locale:** fix locale detection based on location and browser lang
+  ([c160ead](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c160ead))
+- **locale:** update locale endpoint
+  ([08654bb](https://github.com/carbon-design-system/ibm-dotcom-library/commit/08654bb))
+- **services:** fix to globalInit unit tests
+  ([18ab7b5](https://github.com/carbon-design-system/ibm-dotcom-library/commit/18ab7b5))
+- **typeahead:** adjust shape of query for better reading
+  ([93ab1a7](https://github.com/carbon-design-system/ibm-dotcom-library/commit/93ab1a7))
+- **typeahead:** dynamically set lc/cc from getLang for search typeahead
+  ([b16e40d](https://github.com/carbon-design-system/ibm-dotcom-library/commit/b16e40d))
+- **typeahead:** return en-us from getLang if either are not defined
+  ([f7a696f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/f7a696f))
+
+### Features
+
+- **expressive:** updating README files
+  ([c38287b](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c38287b))
+- **locale:** bump alpha version to use new endpiont
+  ([d090174](https://github.com/carbon-design-system/ibm-dotcom-library/commit/d090174))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.1.2](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.1.2-rc.0...@carbon/ibmdotcom-services@1.1.2) (2019-11-19)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-services

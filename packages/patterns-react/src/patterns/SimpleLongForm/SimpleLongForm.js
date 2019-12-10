@@ -11,7 +11,7 @@ import classNames from 'classnames';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
 import { featureFlag } from '@carbon/ibmdotcom-utilities';
-import { SIMPLELONGFORM } from '../../internal/FeatureFlags';
+import { DDS_SIMPLELONGFORM } from '../../internal/FeatureFlags';
 import { ArrowRight20 } from '@carbon/icons-react';
 import { CardLink } from '@carbon/ibmdotcom-react';
 import { LinkWithIcon } from '@carbon/ibmdotcom-react';
@@ -23,17 +23,17 @@ const { prefix } = settings;
  * Simple long form pattern
  *
  * @param {object} props props object
- * @param {string} props.theme simple long form theme (g100 | white/default)
- * @param {string} props.title simple long form title
- * @param {string} props.copy simple long form  short copy to support the title
  * @param {boolean} props.border includes border or not ( true | false )
+ * @param {string} props.copy simple long form  short copy to support the title
  * @param {string} props.linkType link type ( simple | jump | card )
  * @param {object} props.link link object which includes url, link text and target properties.
+ * @param {string} props.theme simple long form theme (g100 | white/default)
+ * @param {string} props.title simple long form title
  * @returns {*} Simple long form pattern
  */
-const SimpleLongForm = ({ theme, title, copy, border, linkType, link }) =>
+const SimpleLongForm = ({ border, copy, linkType, link, theme, title }) =>
   featureFlag(
-    SIMPLELONGFORM,
+    DDS_SIMPLELONGFORM,
     <section
       data-autoid={`${stablePrefix}--simplelongform`}
       className={classNames(
@@ -47,7 +47,9 @@ const SimpleLongForm = ({ theme, title, copy, border, linkType, link }) =>
           <div className={`${prefix}--simplelongform__col`}>
             <h3 className={`${prefix}--simplelongform__title`}>{title}</h3>
             <div className={`${prefix}--simplelongform__content`}>{copy}</div>
-            <div className={`${prefix}--simplelongform__link`}>
+            <div
+              data-autoid={`${stablePrefix}--simplelongform__link`}
+              className={`${prefix}--simplelongform__link`}>
               {renderLink(linkType, link)}
             </div>
           </div>

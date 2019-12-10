@@ -13,7 +13,7 @@ import {
   featureFlag,
   settings as ddsSettings,
 } from '@carbon/ibmdotcom-utilities';
-import { LEADSPACE } from '../../internal/FeatureFlags';
+import { DDS_LEADSPACE } from '../../internal/FeatureFlags';
 import LeadSpaceButtons from './LeadSpaceButtons';
 import LeadSpaceImage from './LeadSpaceImage';
 
@@ -71,29 +71,29 @@ const sortImages = images => {
 };
 
 /**
- * Lead space component
+ * Lead space component (left-aligned)
  *
  * @param {object} props props object
- * @param {string} props.variation variation of the lead space (expressive (default) or productive)
- * @param {string} props.theme theme of the pattern (g100 or white (default))
- * @param {string} props.title lead space title
+ * @param {Array} props.buttons array of buttons for lead space (max 2 buttons)
  * @param {string} props.copy lead space short copy to support the title
  * @param {boolean} props.gradient determines whether to render gradient overlay
  * @param {object} props.image image object with diff source for diff breakpoints
- * @param {Array} props.buttons array of buttons for lead space (max 2 buttons)
+ * @param {string} props.theme theme of the pattern (g100 or white (default))
+ * @param {string} props.title lead space title
+ * @param {string} props.variation variation of the lead space (expressive (default) | productive)
  * @returns {*} Lead space component
  */
 const LeadSpace = ({
-  variation,
+  buttons,
+  copy,
+  gradient,
+  image,
   theme,
   title,
-  copy,
-  buttons,
-  image,
-  gradient,
+  variation,
 }) =>
   featureFlag(
-    LEADSPACE,
+    DDS_LEADSPACE,
     <section
       data-autoid={`${stablePrefix}--leadspace`}
       className={className(variation, theme)}>
@@ -105,7 +105,13 @@ const LeadSpace = ({
           <div className={`${prefix}--leadspace__content`}>
             {copy && (
               <div className={`${prefix}--leadspace__row`}>
-                <p className={`${prefix}--leadspace__desc`}>{copy}</p>
+                {copy && (
+                  <p
+                    data-autoid={`${stablePrefix}--leadspace__desc`}
+                    className={`${prefix}--leadspace__desc`}>
+                    {copy}
+                  </p>
+                )}
               </div>
             )}
             {buttons && buttons.length > 0 && (
@@ -127,16 +133,16 @@ const LeadSpace = ({
 LeadSpace.propTypes = {
   buttons: PropTypes.array,
   copy: PropTypes.string,
+  gradient: PropTypes.bool,
   image: PropTypes.shape({
     mobile: PropTypes.string,
     tablet: PropTypes.string,
     default: PropTypes.string,
     alt: PropTypes.string,
   }),
-  title: PropTypes.string.isRequired,
   theme: PropTypes.string,
+  title: PropTypes.string.isRequired,
   variation: PropTypes.string,
-  gradient: PropTypes.bool,
 };
 
 export default LeadSpace;

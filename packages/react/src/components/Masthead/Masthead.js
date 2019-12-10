@@ -30,7 +30,7 @@ import MastheadProfile from './MastheadProfile';
 import MastheadLeftNav from './MastheadLeftNav';
 import MastheadTopNav from './MastheadTopNav';
 import cx from 'classnames';
-import { MASTHEAD_L1 } from '../../internal/FeatureFlags';
+import { DDS_MASTHEAD_L1 } from '../../internal/FeatureFlags';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
@@ -38,8 +38,10 @@ const { prefix } = settings;
 /**
  * MastHead component
  *
- * @typedef {object} navigation Object containing navigation elements
- * @param {string} type Type of masthead
+ * @param {object} props React props object
+ * @param {object} props.navigation Object containing navigation elements
+ * @param {boolean} props.hasProfile Determines whether to render Profile component
+ * @param {boolean} props.hasSearch Determines whether to render Search Bar
  * @returns {*} Masthead component
  */
 const Masthead = ({ navigation, hasProfile, hasSearch, ...mastheadProps }) => {
@@ -203,7 +205,7 @@ const Masthead = ({ navigation, hasProfile, hasSearch, ...mastheadProps }) => {
               )}
             </Header>
           </div>
-          {MASTHEAD_L1 && navigation && (
+          {DDS_MASTHEAD_L1 && navigation && (
             <div ref={mastheadL1Ref}>
               <MastheadL1
                 isShort={isMastheadSticky}

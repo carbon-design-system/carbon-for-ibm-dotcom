@@ -7,6 +7,20 @@
 
 @import '../../components/link-with-icon/link-with-icon';
 
+@mixin themed-items {
+  .#{$prefix}--usecases-item__link .bx--link-with-icon {
+    color: $link-01;
+    &:focus {
+      outline: 2px solid $focus;
+    }
+    svg {
+      path {
+        fill: $link-01;
+      }
+    }
+  }
+}
+
 @mixin usecases-item {
   .#{$prefix}--usecases-item {
     &__title {
@@ -20,25 +34,24 @@
     &__link {
       .bx--link-with-icon {
         margin-top: $carbon--spacing-05;
-        color: $link-01;
         span {
           @include carbon--type-style('body-short-02');
         }
         &:hover {
           cursor: pointer;
         }
-        &:focus {
-          outline: 2px solid $focus;
-        }
-        svg {
-          path {
-            fill: $link-01;
-          }
-        }
       }
     }
     @include carbon--breakpoint('md') {
       max-width: carbon--rem(640px);
+    }
+
+    @include themed-items;
+  }
+
+  .#{$prefix}--usecases--g100 {
+    @include carbon--theme($carbon--theme--g100) {
+      @include themed-items;
     }
   }
 }

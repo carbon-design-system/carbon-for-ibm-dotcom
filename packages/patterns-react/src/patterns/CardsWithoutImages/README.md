@@ -12,20 +12,20 @@ Here's a quick example to get you started.
 @import '@carbon/type/scss/font-face/sans';
 @include carbon--font-face-mono();
 @include carbon--font-face-sans();
+
+@import '@carbon/ibmdotcom-styles/scss/patterns/cards-without-images/index';
 ```
 
-> 💡 Only import font's once per usage
+> 💡 Only import fonts once per usage
 
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { CardsWithoutImages } from '@carbon/ibmdotcom-patterns-react';
 import 'yourapplication.scss';
-import '@carbon/ibmdotcom-styles/scss/patterns/cards-without-images/index.scss';
 
 function App() {
-  return;
-  <CardsWithoutImages cardsGroup={cardsGroup} />;
+  return <CardsWithoutImages cardsGroup={cardsGroup} />;
 }
 
 ReactDOM.render(<App />, document.querySelector('#app'));
@@ -49,13 +49,43 @@ DDS_CARDS_WITHOUT_IMAGES=true
 > [.env.example](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/patterns-react/.env.example)
 > for more information
 
-## cardsGroup ( Array of Objects )
+## Props
 
-| Name        | Description                                                  |
-| ----------- | ------------------------------------------------------------ |
-| `title`     | Cards without images title                                   |
-| `groupCard` | groupCard, array with href, text and target properties       |
-| `cards`     | Cards, array of objects with title, copy and link properties |
+| Name         | Required | Data Type | Default Value | Description                                    |
+| ------------ | -------- | --------- | ------------- | ---------------------------------------------- |
+| `theme`      | NO       | String    | 'white'       | Color theme for pattern. See `theme` below.    |
+| `cardsGroup` | YES      | Array     | null          | Array of card objects. See `cardsGroup` below. |
+
+### cardsGroup
+
+| Name        | Data Type | Description                                                                            |
+| ----------- | --------- | -------------------------------------------------------------------------------------- |
+| `title`     | String    | Cards without images title                                                             |
+| `groupCard` | Object    | Href, text and target properties of the Top Level Card. See `groupCard` below.         |
+| `cards`     | Array     | Array of objects with title, copy and link properties of each card. See `cards` below. |
+
+### groupCard (aka Top Level Card)
+
+| Name     | Data Type | Description                                                |
+| -------- | --------- | ---------------------------------------------------------- |
+| `href`   | String    | Url of Top Level Card.                                     |
+| `text`   | String    | Copy of Top Level Card.                                    |
+| `target` | String    | Open within current tab or new tab ('\_self' or '\_blank') |
+
+### cards
+
+| Name    | Data Type | Description                                                              |
+| ------- | --------- | ------------------------------------------------------------------------ |
+| `title` | String    | Url of Card.                                                             |
+| `copy`  | String    | Title of Card                                                            |
+| `link`  | Object    | Href, text and target properties of the card. Same as `groupCard` above. |
+
+### theme (optional)
+
+| Name    | Description                |
+| ------- | -------------------------- |
+| `white` | Carbon white theme         |
+| `g10`   | Carbon Gray 10 (g10) theme |
 
 ## Stable selectors
 

@@ -5,6 +5,22 @@
 // LICENSE file in the root directory of this source tree.
 //
 
+@mixin themed-items {
+  .#{$prefix}--usecases-group__card .bx--card-link {
+    background-color: $ui-01;
+
+    &__title {
+      color: $interactive-02;
+    }
+    &:hover {
+      background-color: $hover-ui;
+    }
+    svg {
+      fill: $interactive-04;
+    }
+  }
+}
+
 @mixin usecases-group {
   .#{$prefix}--usecases-group {
     padding-top: $carbon--layout-05;
@@ -21,18 +37,12 @@
       max-width: carbon--rem(320px);
       .bx--card-link {
         padding: $carbon--layout-01;
-        background-color: $ui-01;
         &__title {
-          color: $interactive-02;
           @include carbon--type-style('body-short-02');
         }
         &:hover {
           cursor: pointer;
           text-decoration: none;
-          background-color: $hover-ui;
-        }
-        svg {
-          fill: $interactive-04;
         }
       }
     }
@@ -53,6 +63,14 @@
       &__card {
         padding-top: $carbon--spacing-09;
       }
+    }
+
+    @include themed-items;
+  }
+
+  .#{$prefix}--usecases--g100 {
+    @include carbon--theme($carbon--theme--g100) {
+      @include themed-items;
     }
   }
 }

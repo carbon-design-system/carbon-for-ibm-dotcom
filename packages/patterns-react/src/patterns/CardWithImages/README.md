@@ -51,11 +51,11 @@ DDS_CARDS_WITH_IMAGES=true
 
 ## cardsGroup ( Array of Objects )
 
-| Name        | Description                                                         |
-| ----------- | ------------------------------------------------------------------- |
-| `title`     | Cards with images title                                             |
-| `groupCard` | groupCard, array with href, text and target properties              |
-| `cards`     | Cards, array of objects with image, title, copy and link properties |
+| Name        | Description                                                                   |
+| ----------- | ----------------------------------------------------------------------------- |
+| `title`     | Cards with images title                                                       |
+| `groupCard` | groupCard, array with href, text and target properties                        |
+| `cards`     | Cards, array of objects with imgSrc, altText, title, copy and link properties |
 
 ## Stable selectors
 

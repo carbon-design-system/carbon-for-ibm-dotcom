@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { SIMPLELONGFORM } from '../../../internal/FeatureFlags';
+import { DDS_SIMPLELONGFORM } from '../../../internal/FeatureFlags';
 import {
   withKnobs,
   text,
@@ -8,11 +8,11 @@ import {
   object,
   boolean,
 } from '@storybook/addon-knobs';
-import '../../../../../styles/scss/patterns/simplelongform/_simplelongform.scss';
+import './index.scss';
 import SimpleLongForm from '../SimpleLongForm';
 import readme from '../README.md';
 
-if (SIMPLELONGFORM) {
+if (DDS_SIMPLELONGFORM) {
   storiesOf('Simple Long Form', module)
     .addDecorator(withKnobs)
     .addParameters({

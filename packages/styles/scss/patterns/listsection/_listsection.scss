@@ -5,10 +5,17 @@
 // LICENSE file in the root directory of this source tree.
 //
 
+@mixin themed-items {
+  color: $text-01;
+  background: $ui-background;
+
+  &.#{$prefix}--listsection--with-border .#{$prefix}--listsection__divider {
+    border-bottom: 1px solid $ui-04;
+  }
+}
+
 @mixin listsection {
   .#{$prefix}--listsection {
-    color: $text-01;
-    background: $ui-background;
     &__container {
       @include carbon--make-container;
     }
@@ -33,11 +40,6 @@
       margin-right: -$carbon--spacing-05;
       &__col {
         @include carbon--make-col-ready;
-      }
-    }
-    &--with-border {
-      .#{$prefix}--listsection__divider {
-        border-bottom: 1px solid $ui-04;
       }
     }
     @include carbon--breakpoint('md') {
@@ -72,6 +74,14 @@
       &__col {
         max-width: carbon--rem(640px);
       }
+    }
+
+    @include themed-items;
+  }
+
+  .#{$prefix}--listsection--g100 {
+    @include carbon--theme($carbon--theme--g100) {
+      @include themed-items;
     }
   }
 }

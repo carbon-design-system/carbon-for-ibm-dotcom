@@ -2,12 +2,12 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { DDS_CARDS_WITHOUT_IMAGES } from '../../../internal/FeatureFlags';
 import { withKnobs, select, object } from '@storybook/addon-knobs';
-import '../../../../../styles/scss/patterns/cards-without-images/index.scss';
+import './index.scss';
 import CardsWithoutImages from '../CardsWithoutImages';
 import readme from '../README.md';
 
 if (DDS_CARDS_WITHOUT_IMAGES) {
-  storiesOf('Cards without images', module)
+  storiesOf('Cards Without Images', module)
     .addDecorator(withKnobs)
     .addParameters({
       readme: {
@@ -130,13 +130,13 @@ if (DDS_CARDS_WITHOUT_IMAGES) {
 
       const themes = {
         g10: 'g10',
-        'light (white)': '',
+        white: '',
       };
 
       return (
         <CardsWithoutImages
           cardsGroup={object('cardsGroup', cardsGroup)}
-          theme={select('theme', themes, themes['g10'])}
+          theme={select('theme', themes, themes.g10)}
         />
       );
     });

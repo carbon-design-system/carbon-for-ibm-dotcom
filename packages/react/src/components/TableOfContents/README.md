@@ -12,9 +12,22 @@ import ReactDOM from 'react-dom';
 import { TableOfContents } from '@carbon/ibmdotcom-react';
 import '@carbon/ibmdotcom-styles/scss/components/tableofcontents/index.scss';
 
+const theme = ''; //Empty for light, g100 for dark
+
+const menuItems = [
+  {
+    title: 'Cras molestie condimentum',
+    id: '8',
+  },
+  {
+    title: 'Praesent fermentum sodales',
+    id: '7',
+  },
+];
+
 function App() {
   return (
-    <TableOfContents menuLabel={menuLabel} menuItems={menuItems}>
+    <TableOfContents theme={theme} menuItems={menuItems}>
       <a name="8"></a>
       <h3 style={{ paddingBottom: '1rem', paddingTop: '2rem' }}>
         Cras molestie condimentum
@@ -57,18 +70,28 @@ DDS_TOC=true
 > [.env.example](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/patterns-react/.env.example)
 > for more information
 
-## menuItems (Array of Objects)
+## Props
+
+| Name        | Required | Data Type | Default Value                                                     | Description                                                                      |
+| ----------- | -------- | --------- | ----------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `children`  | NO       | Array     | null                                                              | Content to display next to the side nav.                                         |
+| `menuItems` | NO       | Array     | null                                                              | Array of menu item objects to render within the side nav. See `menuItems` below. |
+| `menuLabel` | NO       | String    | `Jump to`                                                         | Placeholder value for menu label                                                 |
+| `theme`     | NO       | String    | `` | Defines the color theme for the pattern (See `Theme` bellow) |
+
+## menuItems
 
 | Properties Name | Data Type | Description     |
 | --------------- | --------- | --------------- |
-| title           | String    | menu title text |
-| id              | String    | menu id         |
+| title           | String    | Menu title text |
+| id              | String    | Menu id         |
 
-## Other Props
+## Theme (optional)
 
-| Name        | Data Type | Default value | Description                      |
-| ----------- | --------- | ------------- | -------------------------------- |
-| `menuLabel` | String    | `Jump to`     | Placeholder value for menu label |
+| Name            | Description                              |
+| --------------- | ---------------------------------------- |
+| white / default | White theme applied to pattern           |
+| g100            | Gray 100 (g100) theme applied to pattern |
 
 ## Stable selectors
 

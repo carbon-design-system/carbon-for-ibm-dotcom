@@ -74,7 +74,8 @@ const _renderList = cards => {
         className={`${prefix}--cards-with-images-group__cards__card`}
         data-autoid={`${stablePrefix}--cards-with-images-group__card-${card.title}`}
         key={card.title}
-        source={card.source}
+        imgSrc={card.imgSrc}
+        altText={card.altText}
         title={card.title}
         content={card.copy}
         href={card.link.href}

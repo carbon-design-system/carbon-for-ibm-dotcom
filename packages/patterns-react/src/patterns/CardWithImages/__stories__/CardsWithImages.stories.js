@@ -26,7 +26,8 @@ if (DDS_CARDS_WITH_IMAGES) {
 
           cards: [
             {
-              source: 'http://picsum.photos/id/1003/1056/480',
+              imgSrc: 'http://picsum.photos/id/1003/1056/480',
+              altText: 'cards with image',
               title: 'Topic',
               copy: 'Natural language processing.',
               link: {
@@ -36,7 +37,8 @@ if (DDS_CARDS_WITH_IMAGES) {
               },
             },
             {
-              source: 'https://picsum.photos/id/1018/1056/480',
+              imgSrc: 'https://picsum.photos/id/1018/1056/480',
+              altText: 'cards with image',
               title: 'Blog',
               copy: 'Natural language processing.',
               link: {
@@ -46,7 +48,8 @@ if (DDS_CARDS_WITH_IMAGES) {
               },
             },
             {
-              source: 'https://picsum.photos/id/1076/1056/480',
+              imgSrc: 'https://picsum.photos/id/1076/1056/480',
+              altText: 'cards with image',
               title: 'Topic',
               copy: 'Natural language processing.',
               link: {
@@ -56,7 +59,8 @@ if (DDS_CARDS_WITH_IMAGES) {
               },
             },
             {
-              source: 'https://picsum.photos/id/102/1056/480',
+              imgSrc: 'https://picsum.photos/id/102/1056/480',
+              altText: 'cards with image',
               title: 'Blog',
               copy:
                 'Serving society ethically in the age of Artificial Intelligence.',
@@ -67,7 +71,8 @@ if (DDS_CARDS_WITH_IMAGES) {
               },
             },
             {
-              source: 'https://picsum.photos/id/1032/1056/480',
+              imgSrc: 'https://picsum.photos/id/1032/1056/480',
+              altText: 'cards with image',
               title: 'Topic',
               copy:
                 'Serving society ethically in the age of Artificial Intelligence.',
@@ -83,13 +88,13 @@ if (DDS_CARDS_WITH_IMAGES) {
 
       const themes = {
         g10: 'g10',
-        'light (white)': '',
+        white: '',
       };
 
       return (
         <CardsWithImages
           cardsGroup={object('cardsGroup', cardsGroup)}
-          theme={select('theme', themes, themes['g10'])}
+          theme={select('theme', themes, themes.g10)}
         />
       );
     });

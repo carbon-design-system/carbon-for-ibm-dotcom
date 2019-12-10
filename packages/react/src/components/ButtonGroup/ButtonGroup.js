@@ -8,7 +8,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button } from 'carbon-components-react';
 import { settings } from 'carbon-components';
-import { BUTTON_GROUP } from '../../internal/FeatureFlags';
+import { DDS_BUTTON_GROUP } from '../../internal/FeatureFlags';
 import {
   featureFlag,
   settings as ddsSettings,
@@ -29,7 +29,7 @@ const { prefix } = settings;
  */
 const ButtonGroup = ({ buttons }) => {
   return featureFlag(
-    BUTTON_GROUP,
+    DDS_BUTTON_GROUP,
     <ol
       className={`${prefix}--buttongroup`}
       data-autoid={`${stablePrefix}--button-group`}>

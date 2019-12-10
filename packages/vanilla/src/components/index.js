@@ -6,3 +6,4 @@
  */
 
 export * from './horizontalrule';
+export * from './footer';

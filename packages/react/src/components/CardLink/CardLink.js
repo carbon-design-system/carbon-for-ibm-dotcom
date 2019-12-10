@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { CARD_LINK } from '../../internal/FeatureFlags.js';
+import { DDS_CARD_LINK } from '../../internal/FeatureFlags.js';
 import { featureFlag } from '@carbon/ibmdotcom-utilities';
 
 import React from 'react';
@@ -29,7 +29,8 @@ const CardLink = ({
   href,
   content,
   icon,
-  source,
+  imgSrc,
+  altText,
   className,
   ...props
 }) => {
@@ -38,13 +39,13 @@ const CardLink = ({
   }
 
   return featureFlag(
-    CARD_LINK,
+    DDS_CARD_LINK,
     <ClickableTile
       data-autoid={`${stablePrefix}--card-link`}
       className={classNames(`${prefix}--card-link`, className)}
       href={href}
       {...props}>
-      {renderImage(source)}
+      {renderImage(imgSrc, altText)}
       <h3 className={`${prefix}--card-link__title`}>{title}</h3>
       {optionalContent(content)}
       {renderFooter(icon)}
@@ -55,20 +56,13 @@ const CardLink = ({
 /**
  * Render image
  *
- * @param {string} source passes as src
+ * @param {string} imgSrc passes as src
+ * @param {string} altText passes as alt
  * @returns {object} JSX object
  */
-function renderImage(source) {
-  if (!source) {
-    return null;
-  }
-
-  return (
-    <img
-      src={source}
-      className={`${prefix}--card-link__image`}
-      alt="cards with"
-    />
+function renderImage(imgSrc, altText) {
+  return !imgSrc || !altText ? null : (
+    <img src={imgSrc} className={`${prefix}--card-link__image`} alt={altText} />
   );
 }
 
@@ -79,11 +73,9 @@ function renderImage(source) {
  * @returns {object} JSX object
  */
 function optionalContent(content) {
-  if (!content) {
-    return null;
-  }
-
-  return <p className={`${prefix}--card-link__content`}>{content}</p>;
+  return !content ? null : (
+    <p className={`${prefix}--card-link__content`}>{content}</p>
+  );
 }
 
 /**
@@ -93,11 +85,9 @@ function optionalContent(content) {
  * @returns {object} JSX object
  */
 function renderFooter(icon) {
-  if (!icon) {
-    return null;
-  }
-
-  return <footer className={`${prefix}--card-link__footer`}>{icon}</footer>;
+  return !icon ? null : (
+    <footer className={`${prefix}--card-link__footer`}>{icon}</footer>
+  );
 }
 
 CardLink.propTypes = {
@@ -105,7 +95,8 @@ CardLink.propTypes = {
   href: PropTypes.string.isRequired,
   icon: PropTypes.element,
   content: PropTypes.string,
-  source: PropTypes.string,
+  imgSrc: PropTypes.string,
+  altText: PropTypes.string,
   className: PropTypes.string,
 };
 

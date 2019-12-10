@@ -4,12 +4,11 @@ import { withKnobs, select, text } from '@storybook/addon-knobs';
 import { CardLink } from '../';
 import { ArrowRight20 } from '@carbon/icons-react';
 import readme from '../README.md';
-import { CARD_LINK } from '../../../internal/FeatureFlags';
+import { DDS_CARD_LINK } from '../../../internal/FeatureFlags';
 
-import '../../../../../styles/scss/components/card-link/index.scss';
-import '@carbon/grid/scss/index.scss';
+import './index.scss';
 
-if (CARD_LINK) {
+if (DDS_CARD_LINK) {
   storiesOf('Card', module)
     .addDecorator(withKnobs)
     .addDecorator(Story => {
@@ -33,7 +32,8 @@ if (CARD_LINK) {
       const href = text('href (required)', 'https://example.com');
       const content = text('content', '');
       const target = text('target', '');
-      const source = text('target', '');
+      const imgSrc = text('target', '');
+      const altText = text('target', '');
       const ratio = {
         none: null,
         '2:1': '2x1',
@@ -48,7 +48,8 @@ if (CARD_LINK) {
           title={title}
           href={href}
           content={content}
-          source={source}
+          imgSrc={imgSrc}
+          altText={altText}
           icon={<ArrowRight20 />}
           target={target}
         />
@@ -63,7 +64,8 @@ if (CARD_LINK) {
             title={title}
             href={href}
             content={content}
-            source={source}
+            imgSrc={imgSrc}
+            altText={altText}
             icon={<ArrowRight20 />}
             target={target}
             className="bx--aspect-ratio--object"

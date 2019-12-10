@@ -8,10 +8,11 @@ import {
   object,
   boolean,
 } from '@storybook/addon-knobs';
-import '../../../../../styles/scss/patterns/leadspace-centered/_leadspace-centered.scss';
 import LeadSpaceCentered from '../LeadSpaceCentered';
 import readme from '../README.md';
 import { DDS_LEADSPACE_CENTERED } from '../../../internal/FeatureFlags';
+
+import './index.scss';
 
 if (DDS_LEADSPACE_CENTERED) {
   storiesOf('LeadSpace - Centered', module)
@@ -44,7 +45,7 @@ if (DDS_LEADSPACE_CENTERED) {
 
       const themes = {
         g100: 'g100',
-        'light (white)': '',
+        white: '',
       };
 
       return (
@@ -99,7 +100,7 @@ if (DDS_LEADSPACE_CENTERED) {
 
       const themes = {
         g100: 'g100',
-        'light (white)': '',
+        white: '',
       };
 
       const graident = boolean('gradient overlay', true);

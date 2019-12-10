@@ -34,7 +34,9 @@ const UsecasesItem = ({ lists: { title, copy, link } }) => {
       className={`${prefix}--usecases-item`}>
       <h3 className={`${prefix}--usecases-item__title`}>{title}</h3>
       <div className={`${prefix}--usecases-item__content`}>{copy}</div>
-      <div className={`${prefix}--usecases-item__link`}>
+      <div
+        data-autoid={`${stablePrefix}--usecases-item__link`}
+        className={`${prefix}--usecases-item__link`}>
         {link && (
           <LinkWithIcon href={link.href} target={link.target}>
             <span>{link.title}</span>

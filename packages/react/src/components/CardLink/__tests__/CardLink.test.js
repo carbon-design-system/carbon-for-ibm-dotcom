@@ -13,7 +13,7 @@ import { ArrowRight20 } from '@carbon/icons-react';
 require('../../../internal/FeatureFlags.js');
 
 jest.mock('../../../internal/FeatureFlags.js', () => ({
-  CARD_LINK: true,
+  DDS_CARD_LINK: true,
 }));
 
 const content = {
@@ -33,11 +33,6 @@ describe('<CardLink />', () => {
 
   it('returns null if no title provided', () => {
     const cardLink = shallow(<CardLink href={content.href} />);
-    expect(cardLink.isEmptyRender()).toBeTruthy();
-  });
-
-  it('returns null if no href provided', () => {
-    const cardLink = shallow(<CardLink title={content.title} />);
     expect(cardLink.isEmptyRender()).toBeTruthy();
   });
 

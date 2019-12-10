@@ -50,21 +50,21 @@ const overlayClassname = gradient =>
  * Lead space component
  *
  * @param {object} props props object
- * @param {string} props.title lead space title
+ * @param {Array} props.buttons array of buttons for lead space (max 2 buttons)
  * @param {string} props.copy lead space short copy to support the title
  * @param {boolean} props.gradient determines whether to render gradient overlay
  * @param {object} props.image image object with diff source for diff breakpoints
  * @param {string} props.theme theme of the pattern
- * @param {Array} props.buttons array of buttons for lead space (max 2 buttons)
+ * @param {string} props.title lead space title
  * @returns {*} Lead space component
  */
 const LeadSpaceCentered = ({
-  title,
-  copy,
   buttons,
-  image,
+  copy,
   gradient,
+  image,
   theme,
+  title,
 }) => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const isMobile = windowWidth <= 671;
@@ -98,12 +98,18 @@ const LeadSpaceCentered = ({
       <div className={overlayClassname(gradient)}>
         <div className={`${prefix}--leadspace--centered__content`}>
           <h1 className={`${prefix}--leadspace--centered__title`}>{title}</h1>
-          <p className={`${prefix}--leadspace--centered__desc`}>{copy}</p>
+          <p
+            data-autoid={`${stablePrefix}--leadspace--centered__desc`}
+            className={`${prefix}--leadspace--centered__desc`}>
+            {copy}
+          </p>
           {buttons && buttons.length > 0 && <ButtonGroup buttons={buttons} />}
         </div>
       </div>
       {image && (
-        <div className={`${prefix}--leadspace--centered--mobile__image`}>
+        <div
+          data-autoid={`${stablePrefix}--leadspace--centered--mobile__image`}
+          className={`${prefix}--leadspace--centered--mobile__image`}>
           <img src={image.url} alt={image.alt} />
         </div>
       )}

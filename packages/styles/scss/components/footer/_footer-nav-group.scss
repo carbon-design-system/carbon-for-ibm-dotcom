@@ -10,6 +10,8 @@
 /// @group footer
 
 @mixin footer-nav-group {
+  $TEMP--footer-nav-group-type: 'heading-02';
+
   .#{$prefix}--footer-nav-group {
     margin-bottom: 0;
 

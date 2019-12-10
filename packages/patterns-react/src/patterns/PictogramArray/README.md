@@ -12,6 +12,8 @@ Here's a quick example to get you started.
 @import '@carbon/type/scss/font-face/sans';
 @include carbon--font-face-mono();
 @include carbon--font-face-sans();
+
+@import '@carbon/ibmdotcom-styles/scss/patterns/pictogramarray/index.scss';
 ```
 
 > 💡 Only import font's once per usage
@@ -22,7 +24,6 @@ import ReactDOM from 'react-dom';
 import { PictogramArray } from '@carbon/ibmdotcom-patterns-react';
 import { Desktop, Touch, Pattern } from '@carbon/pictograms-react';
 import 'yourapplication.scss';
-import '@carbon/ibmdotcom-styles/scss/patterns/pictogramarray/index.scss';
 
 const title = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
 
@@ -89,10 +90,27 @@ DDS_PICTOGRAM_ARRAY=true
 
 ## Props
 
-| Name           | Description                                                                                            |
-| -------------- | ------------------------------------------------------------------------------------------------------ |
-| `title`        | Content array with pictograms section title `{title}`                                                  |
-| `contentGroup` | Content array with pictograms contentGroup `{[ {title, copy, link: {href, text, target}, pictogram }]} |
+| Name           | Required | Data Type | Default Value | Description                                               |
+| -------------- | -------- | --------- | ------------- | --------------------------------------------------------- |
+| `title`        | YES      | String    | n/a           | Main title of Pictogram Array pattern                     |
+| `contentGroup` | NO       | Array     | null          | Array of content group objects. See `contentGroup` below. |
+
+### contentGroup
+
+| Name        | Data Type | Description                                                                                                                                            |
+| ----------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `title`     | String    | Title of content item.                                                                                                                                 |
+| `copy`      | Object    | Copy of content item.                                                                                                                                  |
+| `link`      | Object    | Object with the href, text, and target properities of the link. See `link` below.                                                                      |
+| `pictogram` | Object    | Pictogram object to be rendered with content item from [Carbon's Pictogram library](https://www.carbondesignsystem.com/guidelines/pictograms/library/) |
+
+### link
+
+| Name     | Data Type | Description                                                |
+| -------- | --------- | ---------------------------------------------------------- |
+| `href`   | String    | Url of link.                                               |
+| `text`   | String    | Link text.                                                 |
+| `target` | String    | Open within current tab or new tab ('\_self' or '\_blank') |
 
 ## Stable selectors
 
