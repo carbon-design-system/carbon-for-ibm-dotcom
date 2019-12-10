@@ -6,6 +6,13 @@
 # LICENSE file in the root directory of this source tree.
 #
 
+# Pre-tests
+pretest () {
+  echo "Running preflight checks..."
+  yarn ci-check && yarn lerna run ci-check && yarn lint && yarn lint:styles
+  echo "Tests have passed! Continuing with release..."
+}
+
 # Alpha release
 release_alpha () {
   ./node_modules/.bin/lerna publish --canary minor --dist-tag canary --no-push --no-git-tag-version --force-publish=*
@@ -88,6 +95,27 @@ do
     esac
 done
 
+# Check if logged into Github
+echo "Did you add a Github auth token for pushing changes? (only necessary for release managers)"
+options_npm=(
+  "Yes"
+  "No"
+)
+select npm in "${options_npm[@]}"
+do
+    case "$npm" in
+        "Yes")
+          echo "Great!"
+          break
+          ;;
+        "No")
+          echo "Please log into npm first then re-run this script."
+          exit 1
+          ;;
+        *) echo "invalid option $REPLY";;
+    esac
+done
+
 # Check if current user is the release manager
 echo "Are you the release manager for this cycle?"
 options_manager=(
@@ -127,48 +155,56 @@ select release in "${options_release[@]}"
 do
     case "$release" in
         "alpha release")
+          pretest()
           echo "Creating alpha release..."
           set -x
           release_alpha
           exit 1
           ;;
         "rc.0 patch (first release candidate)")
+          pretest()
           echo "Creating patch rc.0 release..."
           set -x
           release_rc0_patch
           exit 1
           ;;
         "rc.0 minor (first release candidate)")
+          pretest()
           echo "Creating minor rc.0 release..."
           set -x
           release_rc0_minor
           exit 1
           ;;
         "rc.0 major (first release candidate)")
+          pretest()
           echo "Creating major rc.0 release..."
           set -x
           release_rc0_major
           exit 1
           ;;
         "rc.1+ (subsequent release candidates)")
+          pretest()
           echo "Creating rc.1+ release..."
           set -x
           release_rc1plus
           exit 1
           ;;
         "full release (patch)")
+          pretest()
           echo "Creating full patch release..."
           set -x
           release_full_patch
           exit 1
           ;;
         "full release (minor)")
+          pretest()
           echo "Creating full minor release..."
           set -x
           release_full_minor
           exit 1
           ;;
         "full release (major)")
+          pretest()
           echo "Creating full major release..."
           set -x
           release_full_major
