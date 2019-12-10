@@ -1,0 +1,6 @@
+@import '../../globals/imports';
+@import './cards-with-images';
+@import './cards-with-images-group';
+
+@include cards-with-images;
+@include cards-with-images-group;

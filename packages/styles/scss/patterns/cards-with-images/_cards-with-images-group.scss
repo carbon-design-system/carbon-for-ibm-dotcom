@@ -1,0 +1,116 @@
+//
+// Copyright IBM Corp. 2016, 2018
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+@import '../../components/link-with-icon/link-with-icon';
+
+@mixin themed-items {
+  .bx--card-link {
+    background-color: $ui-01;
+    border-color: $ui-02;
+    outline: 1px solid $ui-background;
+    &__title {
+      padding: $carbon--spacing-05;
+      color: $text-01;
+    }
+    &__content {
+      padding: $carbon--spacing-05;
+      color: $text-01;
+    }
+    &__footer {
+      svg {
+        fill: $link-01;
+      }
+    }
+  }
+}
+@mixin cards-with-images-group {
+  .#{$prefix}--cards-with-images-group {
+    padding-bottom: $carbon--layout-05;
+    &__title {
+      @include type-style('expressive-heading-02');
+    }
+    &__cards {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .bx--card-link {
+      @include carbon--make-col(8, 8);
+
+      display: flex;
+      text-decoration: none;
+      outline-offset: -1px;
+
+      > *:not(:last-child) {
+        margin-bottom: 0;
+      }
+
+      &:hover {
+        cursor: pointer;
+        background: $hover-ui;
+        text-decoration: none;
+      }
+      &__title {
+        @include carbon--type-style('expressive-heading-03');
+      }
+      &__content {
+        min-height: 50px;
+        //@include carbon--type-style('expressive-heading-04');
+        @include carbon--type-style('body-long-02');
+
+        padding-bottom: $carbon--spacing-05;
+      }
+      &__footer {
+        padding: carbon--rem(14px);
+        display: flex;
+        align-items: center;
+        width: $carbon--layout-04;
+      }
+    }
+    @include carbon--breakpoint('md') {
+      .bx--card-link {
+        flex: 1 1;
+        @include carbon--make-col(4, 8);
+      }
+    }
+    @include carbon--breakpoint('lg') {
+      display: flex;
+      padding-bottom: $carbon--layout-06;
+      &__title {
+        @include carbon--make-col(4, 16);
+
+        padding-top: $carbon--spacing-05;
+      }
+      &__cards {
+        @include carbon--make-col(12, 16);
+      }
+      .bx--card-link {
+        @include carbon--make-col(4, 12);
+      }
+    }
+    @include carbon--breakpoint('max') {
+      display: flex;
+      padding-bottom: $carbon--layout-07;
+      &__title {
+        @include carbon--make-col(4, 16);
+      }
+      &__cards {
+        @include carbon--make-col(12, 16);
+      }
+      .bx--card-link {
+        @include carbon--make-col(4, 12);
+      }
+    }
+    @include themed-items;
+  }
+  .#{$prefix}--cards-with-images-group#{$prefix}--cards-with-images-group--g10 {
+    @include carbon--theme($carbon--theme--g10) {
+      @include themed-items;
+    }
+  }
+}
+@include exports('cards-with-images-group') {
+  @include cards-with-images-group;
+}

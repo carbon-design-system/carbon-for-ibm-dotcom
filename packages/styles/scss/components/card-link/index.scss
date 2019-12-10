@@ -22,6 +22,10 @@
       margin-bottom: $spacing-07;
     }
 
+    &__image {
+      height: 192px;
+    }
+
     &__title {
       @include carbon--type-style('expressive-heading-03');
     }
