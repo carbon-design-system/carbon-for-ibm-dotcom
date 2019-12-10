@@ -8,6 +8,14 @@ Import the package css into the top of your main CSS file.
 @import '@carbon/ibmdotcom-styles/scss/components/tableofcontents/index';
 ```
 
+#### Modifiers
+
+Use these modifiers with `.bx--tableofcontents` class.
+
+| Class                        | Description                           |
+| ---------------------------- | ------------------------------------- |
+| `.bx--tableofcontents--g100` | The className for dark theme variant. |
+
 #### Elements
 
 | Class                           | Description                                           |

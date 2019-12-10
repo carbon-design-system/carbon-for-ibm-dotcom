@@ -12,9 +12,22 @@ import ReactDOM from 'react-dom';
 import { TableOfContents } from '@carbon/ibmdotcom-react';
 import '@carbon/ibmdotcom-styles/scss/components/tableofcontents/index.scss';
 
+const theme = ''; //Empty for light, g100 for dark
+
+const menuItems = [
+  {
+    title: 'Cras molestie condimentum',
+    id: '8',
+  },
+  {
+    title: 'Praesent fermentum sodales',
+    id: '7',
+  },
+];
+
 function App() {
   return (
-    <TableOfContents menuLabel={menuLabel} menuItems={menuItems}>
+    <TableOfContents theme={theme} menuItems={menuItems}>
       <a name="8"></a>
       <h3 style={{ paddingBottom: '1rem', paddingTop: '2rem' }}>
         Cras molestie condimentum
@@ -59,11 +72,12 @@ DDS_TOC=true
 
 ## Props
 
-| Name        | Required | Data Type | Default Value | Description                                                                      |
-| ----------- | -------- | --------- | ------------- | -------------------------------------------------------------------------------- |
-| `children`  | NO       | Array     | null          | Content to display next to the side nav.                                         |
-| `menuItems` | NO       | Array     | null          | Array of menu item objects to render within the side nav. See `menuItems` below. |
-| `menuLabel` | NO       | String    | `Jump to`     | Placeholder value for menu label                                                 |
+| Name        | Required | Data Type | Default Value                                                     | Description                                                                      |
+| ----------- | -------- | --------- | ----------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `children`  | NO       | Array     | null                                                              | Content to display next to the side nav.                                         |
+| `menuItems` | NO       | Array     | null                                                              | Array of menu item objects to render within the side nav. See `menuItems` below. |
+| `menuLabel` | NO       | String    | `Jump to`                                                         | Placeholder value for menu label                                                 |
+| `theme`     | NO       | String    | `` | Defines the color theme for the pattern (See `Theme` bellow) |
 
 ## menuItems
 
@@ -71,6 +85,13 @@ DDS_TOC=true
 | --------------- | --------- | --------------- |
 | title           | String    | Menu title text |
 | id              | String    | Menu id         |
+
+## Theme (optional)
+
+| Name            | Description                              |
+| --------------- | ---------------------------------------- |
+| white / default | White theme applied to pattern           |
+| g100            | Gray 100 (g100) theme applied to pattern |
 
 ## Stable selectors
 
