@@ -34,6 +34,7 @@ addDecorator(
 addDecorator(story => <Container story={story} />);
 
 function loadStories() {
+  require('../src/carbon-stories/overview');
   const req = requireContext('../src/carbon-stories', true, /-story\.js$/);
   req.keys().forEach(filename => req(filename));
 }
