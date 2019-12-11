@@ -16,6 +16,7 @@ addDecorator(addReadme);
 addDecorator(story => <Container story={story} />);
 
 function loadStories() {
+  require('../src/patterns/overview');
   const req = requireContext('../src/patterns', true, /\.stories\.js$/);
   req.keys().forEach(filename => req(filename));
 }
