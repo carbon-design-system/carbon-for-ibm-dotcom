@@ -43,6 +43,9 @@ we support!
 | [`@carbon/ibmdotcom-styles`](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles)                 | Framework agnostic styles package for IBM.com components |
 | [`@carbon/ibmdotcom-utilities`](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/utilities)           | IBM.com ES6 Utility classes                              |
 
+If you are building pages for IBM.com,
+[see what is needed on the page](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/docs/building-for-ibm-dotcom.md).
+
 ## Documentation
 
 - See our documentation site [here](https://carbon-for-ibmdotcom.netlify.com)
