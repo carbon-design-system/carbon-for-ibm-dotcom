@@ -7,7 +7,7 @@ import { ExpressiveModal } from '../';
 import { ButtonGroup } from '../../ButtonGroup';
 import readme from '../README.md';
 
-import '../../../../../styles/scss/components/expressive-modal/_expressive-modal.scss';
+import './index.scss';
 
 /**
  * Dummy content for the modal story
