@@ -40,7 +40,6 @@ function dummyContent() {
     </div>
   );
 }
-
 storiesOf('Expressive Modal', module)
   .addDecorator(withKnobs)
   .addParameters({

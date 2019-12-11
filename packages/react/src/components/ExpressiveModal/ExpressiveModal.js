@@ -57,7 +57,7 @@ const ExpressiveModal = ({
   );
 
   /**
-   * sets the class name based on border type
+   * sets the class name based if model type is fullwidth
    *
    * @param {boolean} isFullwidth includes variant class name or not ( true | false )
    * @returns {string} fullwidth variant css class name
