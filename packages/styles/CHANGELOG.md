@@ -3,6 +3,191 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-styles@1.2.0-rc.0...@carbon/ibmdotcom-styles@1.2.0-rc.1) (2019-12-10)
+
+### Bug Fixes
+
+- **css:** fix CardLink css and remove from LocaleModal
+  ([3954aff](https://github.com/carbon-design-system/ibm-dotcom-library/commit/3954aff))
+- **expressive:** fixed expressive yarn build
+  ([5089e48](https://github.com/carbon-design-system/ibm-dotcom-library/commit/5089e48))
+- **footer:** fix footer css; update close functionality
+  ([ab60f03](https://github.com/carbon-design-system/ibm-dotcom-library/commit/ab60f03))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.2.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-styles@1.1.2...@carbon/ibmdotcom-styles@1.2.0-rc.0) (2019-12-09)
+
+### Bug Fixes
+
+- **component:** fixed dark theme class on parent element
+  ([c1f37ff](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c1f37ff))
+- **component:** readme updated
+  ([4c0409d](https://github.com/carbon-design-system/ibm-dotcom-library/commit/4c0409d))
+- **css:** fix card link css import
+  ([9b7bd20](https://github.com/carbon-design-system/ibm-dotcom-library/commit/9b7bd20))
+- **css:** fix masthead/logo responsive css; fixes
+  [#719](https://github.com/carbon-design-system/ibm-dotcom-library/issues/719)
+  ([d486d04](https://github.com/carbon-design-system/ibm-dotcom-library/commit/d486d04))
+- **css:** merge conflicts
+  ([26a25d7](https://github.com/carbon-design-system/ibm-dotcom-library/commit/26a25d7))
+- **css:** remove relative paths for icons
+  ([314d85f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/314d85f))
+- **css:** update locale modal outer margins to expressive
+  ([8954334](https://github.com/carbon-design-system/ibm-dotcom-library/commit/8954334))
+- **css:** update locale modal outer margins to expressive
+  ([6993eb1](https://github.com/carbon-design-system/ibm-dotcom-library/commit/6993eb1))
+- **css:** use local css for footer component
+  ([14193f8](https://github.com/carbon-design-system/ibm-dotcom-library/commit/14193f8))
+- **css:** use local css for footer component
+  ([3791c63](https://github.com/carbon-design-system/ibm-dotcom-library/commit/3791c63))
+- **expressive:** adding additional components sizes
+  ([138b4c8](https://github.com/carbon-design-system/ibm-dotcom-library/commit/138b4c8))
+- **expressive:** adding additional token sizes and components
+  ([90cc71d](https://github.com/carbon-design-system/ibm-dotcom-library/commit/90cc71d))
+- **expressive:** adding component level overrides (partial)
+  ([64ed733](https://github.com/carbon-design-system/ibm-dotcom-library/commit/64ed733))
+- **expressive:** fix to reference to temporary expressive code
+  ([dae9b69](https://github.com/carbon-design-system/ibm-dotcom-library/commit/dae9b69))
+- **expressive:** removed skeleton stories, adjustments to styles
+  ([2fd89a4](https://github.com/carbon-design-system/ibm-dotcom-library/commit/2fd89a4))
+- **fonts:** merged with master, updated css imports
+  ([93be6a0](https://github.com/carbon-design-system/ibm-dotcom-library/commit/93be6a0))
+- **fonts:** moving carbon font imports, adding instructions to readmes
+  ([2501e6b](https://github.com/carbon-design-system/ibm-dotcom-library/commit/2501e6b))
+- **footer:** move footer ibm logo to styles package
+  ([ba7709d](https://github.com/carbon-design-system/ibm-dotcom-library/commit/ba7709d))
+- **imports:** multiple import fixes for styles
+  ([bc5cc6e](https://github.com/carbon-design-system/ibm-dotcom-library/commit/bc5cc6e))
+- **imports:** updating global import of components for main scss
+  ([68d119f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/68d119f))
+- **leadspace:** add button gradient styling to theme
+  ([d6dffd1](https://github.com/carbon-design-system/ibm-dotcom-library/commit/d6dffd1))
+- **leadspace:** create mixin for themed items
+  ([64e81eb](https://github.com/carbon-design-system/ibm-dotcom-library/commit/64e81eb))
+- **leadspace:** leadspace background theme
+  ([7b4f89e](https://github.com/carbon-design-system/ibm-dotcom-library/commit/7b4f89e))
+- **leadspace-centered:** add button styling for correct theme color
+  ([9eae126](https://github.com/carbon-design-system/ibm-dotcom-library/commit/9eae126))
+- **leadspace-centered:** button group relative import
+  ([af5a547](https://github.com/carbon-design-system/ibm-dotcom-library/commit/af5a547))
+- **leadspace-centered:** gradient and button styling tweaks
+  ([473f7ed](https://github.com/carbon-design-system/ibm-dotcom-library/commit/473f7ed))
+- **leadspace-centered:** readme and global scss file
+  ([87c1ef2](https://github.com/carbon-design-system/ibm-dotcom-library/commit/87c1ef2))
+- **leadspace-centered:** use color token for gradient
+  ([dc594dd](https://github.com/carbon-design-system/ibm-dotcom-library/commit/dc594dd))
+- **listsection:** add theme modifier to pattern
+  ([d076d75](https://github.com/carbon-design-system/ibm-dotcom-library/commit/d076d75))
+- **listsection:** remove unnecessary includes
+  ([ec527d4](https://github.com/carbon-design-system/ibm-dotcom-library/commit/ec527d4))
+- **locale:** responsive css fixes
+  ([07a8147](https://github.com/carbon-design-system/ibm-dotcom-library/commit/07a8147))
+- **locale:** responsive css fixes
+  ([a43ad0e](https://github.com/carbon-design-system/ibm-dotcom-library/commit/a43ad0e))
+- **logo:** update masthead logo svg; fixes
+  [#411](https://github.com/carbon-design-system/ibm-dotcom-library/issues/411)
+  ([d36bbce](https://github.com/carbon-design-system/ibm-dotcom-library/commit/d36bbce))
+- **masthead:** share more css rules to masthead l1
+  ([fe6a282](https://github.com/carbon-design-system/ibm-dotcom-library/commit/fe6a282))
+- **masthead:** shrink masthead L1 when it becomes sticky
+  ([24deb67](https://github.com/carbon-design-system/ibm-dotcom-library/commit/24deb67))
+- **masthead:** use contextual selector for short l1
+  ([961501f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/961501f))
+- **pattern:** added scss readme
+  ([d2bfe31](https://github.com/carbon-design-system/ibm-dotcom-library/commit/d2bfe31))
+- **pattern:** merge master into branch
+  ([74cd3ce](https://github.com/carbon-design-system/ibm-dotcom-library/commit/74cd3ce))
+- **styles:** fix for styles package imports to relative
+  ([8019edc](https://github.com/carbon-design-system/ibm-dotcom-library/commit/8019edc))
+- **theme:** card without images theme modifier
+  ([bcbcab7](https://github.com/carbon-design-system/ibm-dotcom-library/commit/bcbcab7))
+- **theme:** refactored themed items
+  ([8f63fd5](https://github.com/carbon-design-system/ibm-dotcom-library/commit/8f63fd5))
+- **theme:** simple long form theme modifier
+  ([3067fd2](https://github.com/carbon-design-system/ibm-dotcom-library/commit/3067fd2))
+- adjusted select button posiiton
+  ([3063a84](https://github.com/carbon-design-system/ibm-dotcom-library/commit/3063a84))
+- **theme:** themed items adjustment
+  ([9dbf4de](https://github.com/carbon-design-system/ibm-dotcom-library/commit/9dbf4de))
+- **usecase:** remove unnecessary includes
+  ([9a25b28](https://github.com/carbon-design-system/ibm-dotcom-library/commit/9a25b28))
+- **usecase:** theme modifier class added to pattern
+  ([0dc4609](https://github.com/carbon-design-system/ibm-dotcom-library/commit/0dc4609))
+- added mobile menu label dynamically
+  ([43c6c77](https://github.com/carbon-design-system/ibm-dotcom-library/commit/43c6c77))
+- card alignment adjusted
+  ([accdab1](https://github.com/carbon-design-system/ibm-dotcom-library/commit/accdab1))
+- configured g10 theme
+  ([6607d70](https://github.com/carbon-design-system/ibm-dotcom-library/commit/6607d70))
+- make cards within parent elements equal height
+  ([860dff5](https://github.com/carbon-design-system/ibm-dotcom-library/commit/860dff5))
+- minor fix for readme
+  ([8bd660c](https://github.com/carbon-design-system/ibm-dotcom-library/commit/8bd660c))
+- minor readme fixes
+  ([3a9c59a](https://github.com/carbon-design-system/ibm-dotcom-library/commit/3a9c59a))
+- placed toc mobile into layout
+  ([cd9a512](https://github.com/carbon-design-system/ibm-dotcom-library/commit/cd9a512))
+
+### Features
+
+- **component:** add locale modal component
+  ([98e427a](https://github.com/carbon-design-system/ibm-dotcom-library/commit/98e427a))
+- **component:** add locale modal component
+  ([6c58d95](https://github.com/carbon-design-system/ibm-dotcom-library/commit/6c58d95))
+- **component:** add locale modal component
+  ([dc9a597](https://github.com/carbon-design-system/ibm-dotcom-library/commit/dc9a597))
+- **component:** add locale modal component
+  ([312dfc6](https://github.com/carbon-design-system/ibm-dotcom-library/commit/312dfc6))
+- **content-array-with-pictograms:** content array w/ pictograms pattern
+  ([201e14b](https://github.com/carbon-design-system/ibm-dotcom-library/commit/201e14b))
+- **expressive:** adding initial expressive theme via custom properties
+  ([5d6d2f6](https://github.com/carbon-design-system/ibm-dotcom-library/commit/5d6d2f6))
+- **expressive:** adding separate storybook focused on expressive theme
+  ([71cb9c1](https://github.com/carbon-design-system/ibm-dotcom-library/commit/71cb9c1))
+- **expressive:** initial feature flag functionality (wip)
+  ([8aafa6b](https://github.com/carbon-design-system/ibm-dotcom-library/commit/8aafa6b))
+- **expressive:** quarantine temporary expressive overrides
+  ([54979c8](https://github.com/carbon-design-system/ibm-dotcom-library/commit/54979c8))
+- **expressive:** turn off temporary overrides if flag is on
+  ([0784534](https://github.com/carbon-design-system/ibm-dotcom-library/commit/0784534))
+- **expressive:** updating README files
+  ([c38287b](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c38287b))
+- **leadspace-center:** theme option implement
+  ([dab91a7](https://github.com/carbon-design-system/ibm-dotcom-library/commit/dab91a7))
+- **leadspace-centered:** gradient overlay
+  ([8305536](https://github.com/carbon-design-system/ibm-dotcom-library/commit/8305536))
+- **leadspace-centered:** initial leadspace centered
+  ([8deabab](https://github.com/carbon-design-system/ibm-dotcom-library/commit/8deabab))
+- **leadspace-centered:** use button group component
+  ([26d576f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/26d576f))
+- **locale:** bump alpha version to use new endpiont
+  ([d090174](https://github.com/carbon-design-system/ibm-dotcom-library/commit/d090174))
+- **pattern:** card array first implementation
+  ([61332d0](https://github.com/carbon-design-system/ibm-dotcom-library/commit/61332d0))
+- **pattern:** card-array updates and added readme files
+  ([2d79030](https://github.com/carbon-design-system/ibm-dotcom-library/commit/2d79030))
+- **pattern:** created card without images pattern
+  ([23b55b9](https://github.com/carbon-design-system/ibm-dotcom-library/commit/23b55b9))
+- **pattern:** pictogram array creation
+  ([e79f860](https://github.com/carbon-design-system/ibm-dotcom-library/commit/e79f860))
+- **pattern:** pictogram-array pattern readme created
+  ([3b5d8db](https://github.com/carbon-design-system/ibm-dotcom-library/commit/3b5d8db))
+- **pattern:** sticky table of contents
+  ([435fdc3](https://github.com/carbon-design-system/ibm-dotcom-library/commit/435fdc3)),
+  closes
+  [#708](https://github.com/carbon-design-system/ibm-dotcom-library/issues/708)
+- **pattern:** use cases pattern
+  ([954beef](https://github.com/carbon-design-system/ibm-dotcom-library/commit/954beef))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.1.2](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-styles@1.1.2-rc.0...@carbon/ibmdotcom-styles@1.1.2) (2019-11-19)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-styles

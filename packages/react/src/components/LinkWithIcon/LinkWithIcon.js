@@ -30,6 +30,7 @@ const LinkWithIcon = ({ children, href, ...props }) => {
     </div>
   );
 };
+
 /**
  * @property propTypes
  * @description Defined property types for component
