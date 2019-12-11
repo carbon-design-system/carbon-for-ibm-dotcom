@@ -24,8 +24,7 @@ import 'yourapplication.scss';
 import '@carbon/ibmdotcom-styles/scss/patterns/cards-with-images/index.scss';
 
 function App() {
-  return;
-  <CardsWithImages cardsGroup={cardsGroup} />;
+  return <CardsWithImages cardsGroup={cardsGroup} />;
 }
 
 ReactDOM.render(<App />, document.querySelector('#app'));

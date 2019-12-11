@@ -12,3 +12,4 @@ export * from './geolocation';
 export * from './ipcinfoCookie';
 export * from './serialize';
 export * from './settings';
+export * from './matchHeight';

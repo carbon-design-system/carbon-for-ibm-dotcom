@@ -18,7 +18,7 @@ import root from 'window-or-global';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
 import classNames from 'classnames';
-import { featureFlag } from '@carbon/ibmdotcom-utilities';
+import { featureFlag, matchHeight } from '@carbon/ibmdotcom-utilities';
 import { DDS_CARDS_WITH_IMAGES } from '../../internal/FeatureFlags';
 import CardsWithImagesGroup from './CardsWithImagesGroup';
 
@@ -36,42 +36,9 @@ const CardsWithImages = ({ theme, cardsGroup }) => {
   useLayoutEffect(() => {
     root.addEventListener(
       'resize',
-      _matchHeight(`.${prefix}--cards-with-images-group__cards`)
+      matchHeight(`.${prefix}--cards-with-images-group__cards`)
     );
   });
-
-  /**
-   * Match heights of child elements
-   *
-   * @private
-   * @param {*} parentEl Parent element selector
-   */
-  const _matchHeight = parentEl => {
-    const parentEls = document.querySelectorAll(parentEl);
-    parentEls.forEach(parentEl => {
-      const childEls = parentEl.childNodes;
-      childEls.forEach(el => {
-        el.style.height = null;
-      });
-      const maxHeight = _getMaxHeight(childEls);
-      childEls.forEach(el => {
-        el.style.height = maxHeight + 'px';
-      });
-    });
-  };
-
-  /**
-   * Get Max height of given elements
-   *
-   * @private
-   * @param {*} els elements selector
-   * @returns {number} the max height between elements
-   */
-  const _getMaxHeight = els => {
-    return Array.prototype.map
-      .call(els, el => el.scrollHeight)
-      .reduce((pre, cur) => Math.max(pre, cur), -Infinity);
-  };
 
   /**
    * sets the class name based on theme type

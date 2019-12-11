@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { DDS_CARDS_WITH_IMAGES } from '../../../internal/FeatureFlags';
 import { withKnobs, select, object } from '@storybook/addon-knobs';
-import '../../../../../styles/scss/patterns/cards-with-images/index.scss';
+import './index.scss';
 import CardsWithImages from '../CardsWithImages';
 import readme from '../README.md';
 
@@ -20,7 +20,6 @@ if (DDS_CARDS_WITH_IMAGES) {
           title: 'Read more about it',
           groupCard: {
             href: 'https://www.example.com',
-            // text: 'Nunc convallis',
             target: '_self',
           },
 

@@ -74,6 +74,10 @@
     }
     @include carbon--breakpoint('md') {
       .bx--card-link {
+        &__image {
+          height: 240px;
+        }
+
         flex: 1 1;
         @include carbon--make-col(4, 8);
       }
@@ -91,6 +95,9 @@
       }
       .bx--card-link {
         @include carbon--make-col(4, 12);
+        &__image {
+          height: 192px;
+        }
       }
     }
     @include carbon--breakpoint('max') {

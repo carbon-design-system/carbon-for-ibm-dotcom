@@ -5,9 +5,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { DDS_CARD_LINK } from '../../internal/FeatureFlags.js';
-import { featureFlag } from '@carbon/ibmdotcom-utilities';
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -38,8 +35,7 @@ const CardLink = ({
     return null;
   }
 
-  return featureFlag(
-    DDS_CARD_LINK,
+  return (
     <ClickableTile
       data-autoid={`${stablePrefix}--card-link`}
       className={classNames(`${prefix}--card-link`, className)}
