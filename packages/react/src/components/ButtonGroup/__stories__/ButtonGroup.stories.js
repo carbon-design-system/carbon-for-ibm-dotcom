@@ -2,7 +2,6 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 import { ArrowRight20, ArrowDown20, Pdf20 } from '@carbon/icons-react';
-import '@carbon/grid/scss/grid.scss';
 import readme from '../README.md';
 import { DDS_BUTTON_GROUP } from '../../../internal/FeatureFlags';
 
