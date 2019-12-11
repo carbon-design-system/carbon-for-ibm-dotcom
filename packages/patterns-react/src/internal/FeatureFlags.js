@@ -85,3 +85,6 @@ export const DDS_USECASES =
  */
 export const DDS_CARDS_WITH_IMAGES =
   process.env.DDS_CARDS_WITH_IMAGES === 'true' || DDS_FLAGS_ALL || false;
+
+export const DDS_CARDS_SECTION =
+  process.env.DDS_CARDS_SECTION === 'true' || DDS_FLAGS_ALL || false;

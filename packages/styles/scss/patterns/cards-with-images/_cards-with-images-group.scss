@@ -60,7 +60,6 @@
       }
       &__content {
         min-height: 50px;
-        //@include carbon--type-style('expressive-heading-04');
         @include carbon--type-style('body-long-02');
 
         padding-bottom: $carbon--spacing-05;

@@ -1,6 +1,6 @@
-# Cards with images
+# CardSection
 
-> The Cards with images pattern is to be utilized within IBM.com.
+> The CardSection layout pattern is to be utilized within IBM.com.
 
 ## Getting started
 
@@ -13,6 +13,7 @@ Here's a quick example to get you started.
 @include carbon--font-face-mono();
 @include carbon--font-face-sans();
 @import '@carbon/ibmdotcom-styles/scss/patterns/cards-with-images/index.scss';
+@import '@carbon/ibmdotcom-styles/scss/patterns/cards-without-images/index.scss';
 ```
 
 > 💡 Only import font's once per usage
@@ -20,17 +21,18 @@ Here's a quick example to get you started.
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { CardsWithImages } from '@carbon/ibmdotcom-patterns-react';
+import { CardSection } from '@carbon/ibmdotcom-patterns-react';
 import 'yourapplication.scss';
 
 function App() {
-  return <CardsWithImages cardsGroup={cardsGroup} />;
+  return <CardSection cardsGroup={data[type]} type={type} />;
 }
 
 ReactDOM.render(<App />, document.querySelector('#app'));
 ```
 
-> 💡 Don't forget to import the cards-with-images styles from
+> 💡 Don't forget to import the cards-with-images and cards-without-images
+> styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
 #### Feature Flags
@@ -39,7 +41,7 @@ To utilize the following features, set the following variable's to `true` within
 your `.env` file or your application build settings.
 
 ```
-DDS_CARDS_WITH_IMAGES=true
+DDS_CARDS_SECTION=true
 ```
 
 > See
@@ -48,13 +50,14 @@ DDS_CARDS_WITH_IMAGES=true
 > [.env.example](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/patterns-react/.env.example)
 > for more information
 
-## cardsGroup ( Array of Objects )
+## cardSection ( Array of Objects )
 
-| Name        | Description                                                                   |
-| ----------- | ----------------------------------------------------------------------------- |
-| `title`     | Cards with images title                                                       |
-| `groupCard` | groupCard, array with href, text and target properties                        |
-| `cards`     | Cards, array of objects with imgSrc, altText, title, copy and link properties |
+| Name        | Description                                                                       |
+| ----------- | --------------------------------------------------------------------------------- |
+| `title`     | Cards with images title                                                           |
+| `groupCard` | groupCard, array with href, text and target properties                            |
+| `cards`     | Cards, array of objects with imgSrc, altText, title, copy and link properties     |
+| `type`      | type, property value help to identify the object type withImages or withoutImages |
 
 ## Stable selectors
 
