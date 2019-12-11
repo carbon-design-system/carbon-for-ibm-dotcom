@@ -62,4 +62,20 @@ storiesOf('Expressive Modal', module)
         </a>
       </>
     );
+  })
+  .add('Fullwidth', () => {
+    return (
+      <>
+        <ExpressiveModal
+          open={boolean('Toggle modal', true)}
+          fullwidth={true}
+          className="bx--modal--expressive">
+          <ModalBody>{dummyContent()}</ModalBody>
+        </ExpressiveModal>
+        <a href="JavaScript:Void(0);" style={{ opacity: 0 }}>
+          Testing trapped focus. For some reason it appears focusing out of the
+          iFrame messes this up.
+        </a>
+      </>
+    );
   });
