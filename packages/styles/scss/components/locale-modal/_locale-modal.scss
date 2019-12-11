@@ -25,23 +25,6 @@
     margin-top: $spacing-07;
     display: flex;
 
-    .#{$prefix}--link {
-      &,
-      &:visited,
-      &:active,
-      &:hover {
-        color: currentColor;
-      }
-
-      &:hover {
-        text-decoration: none;
-      }
-
-      &:focus {
-        outline-color: $focus;
-      }
-    }
-
     &__regions {
       width: 100%;
       align-self: flex-end;
@@ -130,11 +113,6 @@
     }
 
     &__back {
-      .#{$prefix}--modal-close {
-        top: $spacing-05;
-        right: $spacing-05;
-      }
-
       .#{$prefix}--modal-header__label {
         &:hover {
           cursor: pointer;
@@ -182,6 +160,11 @@
     .#{$prefix}--search-input {
       background-color: $ui-01;
     }
+  }
+
+  .#{$prefix}--modal-close {
+    top: $spacing-05;
+    right: $spacing-05;
   }
 
   .#{$prefix}--modal-header {

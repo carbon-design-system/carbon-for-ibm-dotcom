@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-styles@1.2.0-rc.0...@carbon/ibmdotcom-styles@1.2.0-rc.1) (2019-12-10)
+
+### Bug Fixes
+
+- **css:** fix CardLink css and remove from LocaleModal
+  ([3954aff](https://github.com/carbon-design-system/ibm-dotcom-library/commit/3954aff))
+- **expressive:** fixed expressive yarn build
+  ([5089e48](https://github.com/carbon-design-system/ibm-dotcom-library/commit/5089e48))
+- **footer:** fix footer css; update close functionality
+  ([ab60f03](https://github.com/carbon-design-system/ibm-dotcom-library/commit/ab60f03))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.2.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-styles@1.1.2...@carbon/ibmdotcom-styles@1.2.0-rc.0) (2019-12-09)
 
 ### Bug Fixes
