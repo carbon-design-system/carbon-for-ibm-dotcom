@@ -123,6 +123,13 @@
 
     &[aria-haspopup='true'] {
       height: carbon--mini-units(6);
+      &.bx--side-nav__submenu-platform {
+        border-bottom: 1px solid $ui-03;
+        text-decoration: none;
+        color: $text-01;
+
+        @include carbon--type-style(expressive-heading-02, true);
+      }
     }
 
     &-chevron {
