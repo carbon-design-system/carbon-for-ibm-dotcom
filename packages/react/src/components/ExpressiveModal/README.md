@@ -50,7 +50,7 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 | ----------- | -------- | --------------- | ------------- | --------------------------------------------------- |
 | `children`  | NO       | Node            | null          | Components/Elements to be rendered within the Modal |
 | `className` | NO       | String OR Array | null          | Custom classname(s) for the Modal                   |
-| `fullwidth` | NO       | Boolean         | flase         | Sets whether the Modal is fullwidth or not          |
+| `fullwidth` | NO       | Boolean         | false         | Sets whether the Modal is fullwidth or not          |
 | `onClose`   | NO       | Function        | null          | Function to be triggered on close of Modal          |
 | `open`      | NO       | Boolean         | false         | Sets whether the Modal is open/close                |
 
