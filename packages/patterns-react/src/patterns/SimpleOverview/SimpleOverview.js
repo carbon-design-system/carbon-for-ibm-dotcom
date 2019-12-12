@@ -60,14 +60,14 @@ const SimpleOverview = ({ label, heading, copy, link }) => {
               `${prefix}--simpleoverview__col`,
               `${prefix}--simpleoverview__label-container`
             )}>
-            <h4 className={`${prefix}--simpleoverview__label`}>{label}</h4>
+            <h3 className={`${prefix}--simpleoverview__label`}>{label}</h3>
           </div>
           <div
             className={classNames(
               `${prefix}--simpleoverview__col`,
               `${prefix}--simpleoverview__content-container`
             )}>
-            <h5 className={`${prefix}--simpleoverview__heading`}>{heading}</h5>
+            <h4 className={`${prefix}--simpleoverview__heading`}>{heading}</h4>
             <p className={`${prefix}--simpleoverview__content`}>{copy}</p>
             {_renderLink(link)}
           </div>
