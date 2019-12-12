@@ -74,7 +74,7 @@ jobs:
           name: Publish nightly packages
           command: |
             echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> .npmrc
-            yarn lerna publish --canary minor --dist-tag nightly --no-push --no-git-tag-version --force-publish=* --yes
+            yarn lerna publish --canary minor --dist-tag nightly --preid nightly --no-push --no-git-tag-version --force-publish=* --yes
 
   artifacts:
     docker:
