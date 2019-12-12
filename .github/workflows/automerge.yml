@@ -3,7 +3,7 @@ on:
   push:
     branches:
       - 'release/*'
-  
+
 jobs:
   automerge:
     runs-on: ubuntu-latest
