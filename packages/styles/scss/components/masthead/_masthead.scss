@@ -19,7 +19,7 @@ $search-transition-timing: 95ms;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 99999;
+    z-index: 1;
     transition-delay: 200ms;
     transition-timing-function: $search-transition;
     transition-duration: 300ms;
@@ -41,7 +41,6 @@ $search-transition-timing: 95ms;
       height: 1px;
       bottom: -1px;
       left: 0;
-      z-index: 9999;
       background-color: $ui-03;
     }
   }
