@@ -26,12 +26,12 @@ const { prefix } = settings;
  * @param {object} props props object
  * @param {boolean} props.isOpen Opens modal
  * @param {boolean} props.setIsOpen isOpen state of modal
- * @param {string} props.headerLabel modal header label
  * @param {string} props.headerTitle modal header title
  * @returns {*} LocaleModal component
  */
 const LocaleModal = ({ isOpen, setIsOpen, ...localeModalProps }) => {
   const [list, setList] = useState({});
+  const [langDisplay, setLangDisplay] = useState();
   const [isFiltering, setIsFiltering] = useState(false);
   const [currentRegion, setCurrentRegion] = useState();
 
@@ -43,6 +43,8 @@ const LocaleModal = ({ isOpen, setIsOpen, ...localeModalProps }) => {
     (async () => {
       const locale = await LocaleAPI.getLocale();
       const list = locale && (await LocaleAPI.getList(locale));
+      const getLangDisplay = await LocaleAPI.getLangDisplay();
+      setLangDisplay(getLangDisplay);
       setList(list);
     })();
   }, []);
@@ -101,11 +103,12 @@ const LocaleModal = ({ isOpen, setIsOpen, ...localeModalProps }) => {
             localeModalProps.headerTitle,
           ]}
           title={currentRegion}
-          className={`${prefix}--locale-modal__back`}></ModalHeader>
+          className={`${prefix}--locale-modal__back`}
+        />
       ) : (
         <ModalHeader
           label={[
-            localeModalProps.headerLabel,
+            langDisplay,
             <Globe20 className={`${prefix}--locale-modal__label-globe`} />,
           ]}
           title={localeModalProps.headerTitle}
@@ -154,7 +157,6 @@ LocaleModal.propTypes = {
  * @type {{availabilityText: string, unavailabilityText: string, placeHolderText: string, labelText: string}}
  */
 LocaleModal.defaultProps = {
-  headerLabel: 'United States — English',
   headerTitle: 'Select region',
   availabilityText:
     'This page is available in the following locations and languages',

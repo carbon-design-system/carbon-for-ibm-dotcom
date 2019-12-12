@@ -1,9 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, select } from '@storybook/addon-knobs';
-import '@carbon/grid/scss/grid.scss';
-import '../../../../../styles/scss/components/layout/_layout.scss';
 import readme from '../README.md';
+import './index.scss';
 
 import Layout from '../Layout';
 
