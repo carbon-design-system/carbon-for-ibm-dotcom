@@ -18,4 +18,11 @@
   .#{$prefix}--btn--sm {
     min-height: rem(40px);
   }
+
+  .#{$prefix}--btn {
+    &__icon {
+      width: auto;
+      height: auto;
+    }
+  }
 }
