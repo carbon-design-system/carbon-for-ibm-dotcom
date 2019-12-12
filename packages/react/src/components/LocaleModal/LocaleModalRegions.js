@@ -20,13 +20,15 @@ import { ArrowRight20, Error20 } from '@carbon/icons-react';
  * @param {object} props props object
  * @param {object} props.regionList object of regions
  * @param {string} props.setCurrentRegion state for region name
- *.@param {boolean} props.setIsFiltering true when search filter is visible
+ * @param {boolean} props.setIsFiltering true when search filter is visible
+ * @param {Function} props.setClearResults set flag to determine whether to reset the filtered results
  * @returns {*} LocaleModalRegions component
  */
 const LocaleModalRegions = ({
   regionList,
   setCurrentRegion,
   setIsFiltering,
+  setClearResults,
 }) => {
   useEffect(() => {
     const regionLink = document.querySelectorAll(`.${prefix}--card-link`);
@@ -60,6 +62,7 @@ const LocaleModalRegions = ({
         [...localeBackBtn].forEach(btn => {
           btn.addEventListener('click', () => {
             setIsFiltering(false);
+            setClearResults(true);
             document.getElementById(`${prefix}--locale-modal__filter`).value =
               '';
           });
@@ -104,7 +107,8 @@ const LocaleModalRegions = ({
 LocaleModalRegions.propTypes = {
   regionList: PropTypes.array,
   setCurrentRegion: PropTypes.string,
-  setIsFiltering: PropTypes.bool,
+  setIsFiltering: PropTypes.func,
+  setClearResults: PropTypes.func,
 };
 
 export default LocaleModalRegions;
