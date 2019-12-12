@@ -6,9 +6,7 @@
 //
 
 @import '../../globals/imports';
-@import 'carbon-components/scss/components/button/button';
-
-$btn-min-width: 26;
+@import '../../components/buttongroup/buttongroup';
 
 @function aspectratio($height, $width) {
   $ratio: carbon--rem($height) / carbon--rem($width) * 100%;
@@ -17,7 +15,7 @@ $btn-min-width: 26;
 
 // items that change according to the theme applied
 @mixin themed-items {
-  @include button;
+  @include buttongroup;
 
   background: $ui-background;
 
@@ -37,12 +35,6 @@ $btn-min-width: 26;
         transparent 75%
       );
     }
-  }
-
-  .#{$prefix}--btn {
-    width: 100%;
-    margin-top: $layout-01;
-    min-width: carbon--mini-units($btn-min-width);
   }
 }
 
@@ -99,10 +91,8 @@ $btn-min-width: 26;
       @include carbon--make-col(3, 4);
     }
 
-    &__ctas {
-      display: flex;
-      flex-direction: column-reverse;
-      margin-top: $layout-01;
+    .#{$prefix}--leadspace__ctas {
+      @include carbon--make-col(3, 4);
     }
 
     @include themed-items;
@@ -128,19 +118,9 @@ $btn-min-width: 26;
         flex-shrink: 1;
       }
 
-      .#{$prefix}--leadspace__desc {
+      .#{$prefix}--leadspace__desc,
+      .#{$prefix}--leadspace__ctas {
         @include carbon--make-col(4, 8);
-      }
-
-      &__ctas {
-        flex-flow: row-reverse wrap-reverse;
-        justify-content: flex-end;
-        @include carbon--make-col(6, 8);
-      }
-
-      .#{$prefix}--btn {
-        width: auto;
-        margin-right: $layout-03;
       }
     }
   }
@@ -153,7 +133,8 @@ $btn-min-width: 26;
         @include carbon--make-col(8, 16);
       }
 
-      .#{$prefix}--leadspace__desc {
+      .#{$prefix}--leadspace__desc,
+      .#{$prefix}--leadspace__ctas {
         @include carbon--make-col-ready;
         @include carbon--make-col(6, 16);
       }

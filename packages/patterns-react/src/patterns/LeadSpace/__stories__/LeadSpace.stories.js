@@ -11,6 +11,7 @@ import './index.scss';
 import LeadSpace from '../LeadSpace';
 import readme from '../README.md';
 import { DDS_LEADSPACE } from '../../../internal/FeatureFlags';
+import { ArrowRight20, ArrowDown20, Pdf20 } from '@carbon/icons-react';
 
 if (DDS_LEADSPACE) {
   storiesOf('LeadSpace', module)
@@ -33,16 +34,53 @@ if (DDS_LEADSPACE) {
         productive: 'productive',
       };
 
+      /**
+       * Return icon component based on the parameter
+       *
+       * @param {string} icon icon name parameter
+       * @returns {*} Icon JSX component or null
+       */
+      const selectIcon = icon => {
+        switch (icon) {
+          case 'ArrowRight':
+            return ArrowRight20;
+          case 'ArrowDown':
+            return ArrowDown20;
+          case 'Pdf':
+            return Pdf20;
+          default:
+            return null;
+        }
+      };
+
+      const availableIcons = {
+        ArrowRight: 'ArrowRight',
+        ArrowDown: 'ArrowDown',
+        Pdf: 'Pdf',
+        None: 'None',
+      };
+
+      const button1Icon = select(
+        'Button1 Icon',
+        availableIcons,
+        availableIcons.ArrowRight
+      );
+      const button2Icon = select(
+        'Button2 Icon',
+        availableIcons,
+        availableIcons.ArrowDown
+      );
+
       const buttons = [
         {
-          link: '',
-          copy: 'Primary action button',
-          renderIcon: 'ArrowDown',
+          link: text('Button2 link:', ''),
+          copy: text('Button2 label:', 'Primary action'),
+          renderIcon: selectIcon(button2Icon),
         },
         {
-          link: '',
-          copy: 'Secondary action button',
-          renderIcon: 'ArrowRight',
+          link: text('Button1 link:', ''),
+          copy: text('Button1 label:', 'Secondary action'),
+          renderIcon: selectIcon(button1Icon),
         },
       ];
 
@@ -81,23 +119,53 @@ if (DDS_LEADSPACE) {
         alt: 'lead space image',
       };
 
-      const icons = {
+      /**
+       * Return icon component based on the parameter
+       *
+       * @param {string} icon icon name parameter
+       * @returns {*} Icon JSX component or null
+       */
+      const selectIcon = icon => {
+        switch (icon) {
+          case 'ArrowRight':
+            return ArrowRight20;
+          case 'ArrowDown':
+            return ArrowDown20;
+          case 'Pdf':
+            return Pdf20;
+          default:
+            return null;
+        }
+      };
+
+      const availableIcons = {
         ArrowRight: 'ArrowRight',
         ArrowDown: 'ArrowDown',
         Pdf: 'Pdf',
-        none: 'none',
+        None: 'None',
       };
+
+      const button1Icon = select(
+        'Button1 Icon',
+        availableIcons,
+        availableIcons.ArrowRight
+      );
+      const button2Icon = select(
+        'Button2 Icon',
+        availableIcons,
+        availableIcons.ArrowDown
+      );
 
       const buttons = [
         {
-          link: '',
-          copy: 'Primary action button',
-          renderIcon: select('primary button icon', icons, icons.ArrowRight),
+          href: text('Button1 link:', ''),
+          copy: text('Button1 label:', 'Primary action'),
+          renderIcon: selectIcon(button1Icon),
         },
         {
-          link: '',
-          copy: 'Secondary',
-          renderIcon: select('secondary button icon', icons, icons.ArrowRight),
+          href: text('Button2 link:', ''),
+          copy: text('Button2 label:', 'Secondary action'),
+          renderIcon: selectIcon(button2Icon),
         },
       ];
 
@@ -106,14 +174,14 @@ if (DDS_LEADSPACE) {
         white: '',
       };
 
-      const graident = boolean('gradient overlay', true);
+      const gradient = boolean('gradient overlay', true);
 
       return (
         <LeadSpace
           theme={select('theme', themes, themes.g100)}
           title={title}
           copy={copy}
-          gradient={graident}
+          gradient={gradient}
           buttons={buttons}
           image={object('image', images)}
           variation={select('variation', variations, variations.expressive)}
