@@ -148,7 +148,7 @@ LocaleModalCountries.defaultProps = {
     'This page is available in the following locations and languages',
   unavailabilityText:
     'This page is unavailable in your preferred location or language',
-  placeHolderText: 'Search',
+  placeHolderText: 'Search by location or language',
   labelText: 'Search',
 };
 
