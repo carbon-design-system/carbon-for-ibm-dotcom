@@ -20,13 +20,21 @@ const { prefix } = settings;
  * Expressive Modal
  *
  * @param {object} props react proptypes
+ * @param {boolean} props.fullwidth sets whether the modal is fulldiwth or not
  * @param {boolean} props.open sets whether the modal is open/close
  * @param {Function} props.onClose do something on close in addition, return false to completely replace
  * @param {string|string[]} props.className allows custom classes to be added in addition
  * @param {*} props.children any type of content to be rendered inside modal
  * @returns {object} JSX object
  */
-const ExpressiveModal = ({ open, className, children, onClose, ...props }) => {
+const ExpressiveModal = ({
+  open,
+  className,
+  children,
+  fullwidth,
+  onClose,
+  ...props
+}) => {
   const [isOpen, setIsOpen] = useState(open);
   const [prevOpen, setPrevOpen] = useState(open);
 
@@ -37,12 +45,29 @@ const ExpressiveModal = ({ open, className, children, onClose, ...props }) => {
       onClose={onClose}
       open={isOpen}
       data-autoid={`${stablePrefix}--expressive-modal`}
-      className={classNames(`${prefix}--modal--expressive`, className)}
+      className={classNames(
+        `${prefix}--modal--expressive`,
+        className,
+        setVariant(fullwidth)
+      )}
       {...props}>
       <ExpressiveModalCloseBtn onClick={closeModal} />
       {children}
     </ComposedModal>
   );
+
+  /**
+   * sets the class name based if model type is fullwidth
+   *
+   * @param {boolean} isFullwidth includes variant class name or not ( true | false )
+   * @returns {string} fullwidth variant css class name
+   */
+  function setVariant(isFullwidth) {
+    let fullwidth;
+    fullwidth =
+      isFullwidth === true ? `${prefix}--modal--expressive--fullwidth` : '';
+    return fullwidth;
+  }
 
   /**
    * Close modal
@@ -65,6 +90,7 @@ const ExpressiveModal = ({ open, className, children, onClose, ...props }) => {
 };
 
 ExpressiveModal.propTypes = {
+  fullwidth: PropTypes.bool,
   open: PropTypes.bool,
   className: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
   children: PropTypes.node,

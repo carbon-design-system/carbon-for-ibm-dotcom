@@ -7,7 +7,7 @@ import { ExpressiveModal } from '../';
 import { ButtonGroup } from '../../ButtonGroup';
 import readme from '../README.md';
 
-import '../../../../../styles/scss/components/expressive-modal/_expressive-modal.scss';
+import './index.scss';
 
 /**
  * Dummy content for the modal story
@@ -40,7 +40,6 @@ function dummyContent() {
     </div>
   );
 }
-
 storiesOf('Expressive Modal', module)
   .addDecorator(withKnobs)
   .addParameters({
@@ -53,6 +52,22 @@ storiesOf('Expressive Modal', module)
       <>
         <ExpressiveModal
           open={boolean('Toggle modal', true)}
+          className="bx--modal--expressive">
+          <ModalBody>{dummyContent()}</ModalBody>
+        </ExpressiveModal>
+        <a href="JavaScript:Void(0);" style={{ opacity: 0 }}>
+          Testing trapped focus. For some reason it appears focusing out of the
+          iFrame messes this up.
+        </a>
+      </>
+    );
+  })
+  .add('Fullwidth', () => {
+    return (
+      <>
+        <ExpressiveModal
+          open={boolean('Toggle modal', true)}
+          fullwidth={true}
           className="bx--modal--expressive">
           <ModalBody>{dummyContent()}</ModalBody>
         </ExpressiveModal>

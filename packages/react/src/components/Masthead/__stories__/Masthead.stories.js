@@ -4,8 +4,9 @@ import { withKnobs, select, boolean, text } from '@storybook/addon-knobs';
 import Masthead from '../Masthead';
 import mastheadKnobs from './data/Masthead.stories.knobs.js';
 import readme from '../README.md';
-import '../../../../../styles/scss/components/masthead/index.scss';
 import { DDS_MASTHEAD_L1 } from '../../../internal/FeatureFlags';
+
+import './index.scss';
 
 storiesOf('Masthead', module)
   .addDecorator(withKnobs)

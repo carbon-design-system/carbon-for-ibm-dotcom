@@ -79,7 +79,7 @@ const LocaleModalRegions = ({
             return (
               <div
                 key={`${region.name}`}
-                className={`${prefix}--col-sm-2 ${prefix}--col-md-8 ${prefix}--col-lg-8 ${prefix}--col-xlg-8 ${prefix}--no-gutter`}>
+                className={`${prefix}--col-sm-4 ${prefix}--col-md-8 ${prefix}--col-lg-8 ${prefix}--col-xlg-8 ${prefix}--no-gutter`}>
                 <CardLink
                   data-autoid={`${stablePrefix}--locale-modal__geo-btn-${region.key}`}
                   data-region={region.key}
