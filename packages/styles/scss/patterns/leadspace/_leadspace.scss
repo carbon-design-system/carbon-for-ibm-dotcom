@@ -6,7 +6,7 @@
 //
 
 @import '../../globals/imports';
-@import '../../components/buttongroup/buttongroup';
+@import '@carbon/ibmdotcom-styles/scss/components/buttongroup/_buttongroup.scss';
 
 @function aspectratio($height, $width) {
   $ratio: carbon--rem($height) / carbon--rem($width) * 100%;
