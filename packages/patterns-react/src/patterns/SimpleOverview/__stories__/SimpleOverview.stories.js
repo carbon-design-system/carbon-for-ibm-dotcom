@@ -55,7 +55,7 @@ if (DDS_SIMPLE_OVERVIEW) {
             target: select('Link target:', targets, targets.blank),
           };
         } else {
-          false;
+          return false;
         }
       };
       return (
