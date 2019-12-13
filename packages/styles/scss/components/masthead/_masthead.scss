@@ -54,6 +54,7 @@ $search-transition-timing: 95ms;
     margin-right: auto;
     margin-bottom: 1px;
     position: relative;
+    z-index: 5999;
 
     &__logo {
       height: 100%;
@@ -202,7 +203,9 @@ $search-transition-timing: 95ms;
       border: 2px solid transparent;
       > {
         svg {
-          fill: $text-01;
+          position: relative;
+          fill: currentColor;
+          top: 2px;
         }
       }
 
@@ -245,6 +248,12 @@ $search-transition-timing: 95ms;
       &--active {
         border: 2px solid $interactive-01;
         background-color: $ui-01;
+
+        @include carbon--breakpoint-up(sm) {
+          position: absolute;
+          top: 0;
+          z-index: 6001;
+        }
       }
     }
 
