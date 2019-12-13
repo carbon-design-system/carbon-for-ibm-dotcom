@@ -49,5 +49,7 @@
 }
 
 @include exports('legal-nav') {
-  @include legal-nav;
+  @include carbon--theme($carbon--theme--g90) {
+    @include legal-nav;
+  }
 }
