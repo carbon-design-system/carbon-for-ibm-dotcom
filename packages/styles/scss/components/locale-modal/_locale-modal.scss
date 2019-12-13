@@ -27,7 +27,7 @@
 
     &__regions {
       width: 100%;
-      align-self: flex-end;
+      margin-top: auto;
       > .#{$prefix}--row {
         margin-left: 0;
         margin-right: 0;
