@@ -24,12 +24,16 @@ $feature-flags: (
 // Expressive Theme
 @import '../scss/themes/expressive/index';
 
-// Storybook Container
+// Storybook styles
 .storybook-center-container {
-  padding: 3em;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @include carbon--breakpoint(lg) {
+    padding: 3rem;
+  }
 }
 
 .storybook-center-container > div {
