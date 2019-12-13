@@ -34,53 +34,33 @@ if (DDS_LEADSPACE) {
         productive: 'productive',
       };
 
-      /**
-       * Return icon component based on the parameter
-       *
-       * @param {string} icon icon name parameter
-       * @returns {*} Icon JSX component or null
-       */
-      const selectIcon = icon => {
-        switch (icon) {
-          case 'ArrowRight':
-            return ArrowRight20;
-          case 'ArrowDown':
-            return ArrowDown20;
-          case 'Pdf':
-            return Pdf20;
-          default:
-            return null;
-        }
+      const iconMap = {
+        ArrowRight20,
+        ArrowDown20,
+        Pdf20,
       };
 
-      const availableIcons = {
-        ArrowRight: 'ArrowRight',
-        ArrowDown: 'ArrowDown',
-        Pdf: 'Pdf',
-        None: 'None',
+      const icons = {
+        ArrowRight: 'ArrowRight20',
+        ArrowDown: 'ArrowDown20',
+        Pdf: 'Pdf20',
+        none: null,
       };
-
-      const button1Icon = select(
-        'Button1 Icon',
-        availableIcons,
-        availableIcons.ArrowRight
-      );
-      const button2Icon = select(
-        'Button2 Icon',
-        availableIcons,
-        availableIcons.ArrowDown
-      );
 
       const buttons = [
         {
-          link: text('Button2 link:', ''),
-          copy: text('Button2 label:', 'Primary action'),
-          renderIcon: selectIcon(button2Icon),
+          link: '',
+          copy: 'Primary action button',
+          renderIcon:
+            iconMap[select('primary button icon', icons, icons.ArrowRight)],
+          href: 'https://www.example.com',
         },
         {
-          link: text('Button1 link:', ''),
-          copy: text('Button1 label:', 'Secondary action'),
-          renderIcon: selectIcon(button1Icon),
+          link: '',
+          copy: 'Secondary',
+          renderIcon:
+            iconMap[select('secondary button icon', icons, icons.ArrowRight)],
+          href: 'https://www.example.com',
         },
       ];
 
@@ -94,7 +74,7 @@ if (DDS_LEADSPACE) {
           theme={select('theme', themes, themes.g100)}
           title={title}
           copy={copy}
-          buttons={object('buttons', buttons)}
+          buttons={buttons}
           variation={select('variation', variations, variations.expressive)}
         />
       );
@@ -119,53 +99,33 @@ if (DDS_LEADSPACE) {
         alt: 'lead space image',
       };
 
-      /**
-       * Return icon component based on the parameter
-       *
-       * @param {string} icon icon name parameter
-       * @returns {*} Icon JSX component or null
-       */
-      const selectIcon = icon => {
-        switch (icon) {
-          case 'ArrowRight':
-            return ArrowRight20;
-          case 'ArrowDown':
-            return ArrowDown20;
-          case 'Pdf':
-            return Pdf20;
-          default:
-            return null;
-        }
+      const iconMap = {
+        ArrowRight20,
+        ArrowDown20,
+        Pdf20,
       };
 
-      const availableIcons = {
-        ArrowRight: 'ArrowRight',
-        ArrowDown: 'ArrowDown',
-        Pdf: 'Pdf',
-        None: 'None',
+      const icons = {
+        ArrowRight: 'ArrowRight20',
+        ArrowDown: 'ArrowDown20',
+        Pdf: 'Pdf20',
+        none: null,
       };
-
-      const button1Icon = select(
-        'Button1 Icon',
-        availableIcons,
-        availableIcons.ArrowRight
-      );
-      const button2Icon = select(
-        'Button2 Icon',
-        availableIcons,
-        availableIcons.ArrowDown
-      );
 
       const buttons = [
         {
-          href: text('Button1 link:', ''),
-          copy: text('Button1 label:', 'Primary action'),
-          renderIcon: selectIcon(button1Icon),
+          link: '',
+          copy: 'Primary action button',
+          renderIcon:
+            iconMap[select('primary button icon', icons, icons.ArrowRight)],
+          href: 'https://www.example.com',
         },
         {
-          href: text('Button2 link:', ''),
-          copy: text('Button2 label:', 'Secondary action'),
-          renderIcon: selectIcon(button2Icon),
+          link: '',
+          copy: 'Secondary',
+          renderIcon:
+            iconMap[select('secondary button icon', icons, icons.ArrowRight)],
+          href: 'https://www.example.com',
         },
       ];
 
