@@ -114,13 +114,7 @@ const LeadSpace = ({
                 )}
               </div>
             )}
-            {buttons && buttons.length > 0 && (
-              <div className={`${prefix}--leadspace__row`}>
-                <div className={`${prefix}--leadspace__ctas`}>
-                  <ButtonGroup buttons={buttons} />
-                </div>
-              </div>
-            )}
+            {buttons && buttons.length > 0 && <ButtonGroup buttons={buttons} />}
           </div>
         </div>
         {image && (

@@ -77,8 +77,7 @@
     }
 
     &__title,
-    &__desc,
-    &__ctas {
+    &__desc {
       @include carbon--make-col-ready;
     }
 
@@ -88,10 +87,6 @@
 
     .#{$prefix}--leadspace__desc {
       @include carbon--type-style(expressive-heading-03, true);
-      @include carbon--make-col(3, 4);
-    }
-
-    .#{$prefix}--leadspace__ctas {
       @include carbon--make-col(3, 4);
     }
 
@@ -118,9 +113,8 @@
         flex-shrink: 1;
       }
 
-      .#{$prefix}--leadspace__desc,
-      .#{$prefix}--leadspace__ctas {
-        @include carbon--make-col(4, 8);
+      .#{$prefix}--leadspace__desc {
+        @include carbon--make-col(5, 8);
       }
     }
   }
@@ -133,8 +127,7 @@
         @include carbon--make-col(8, 16);
       }
 
-      .#{$prefix}--leadspace__desc,
-      .#{$prefix}--leadspace__ctas {
+      .#{$prefix}--leadspace__desc {
         @include carbon--make-col-ready;
         @include carbon--make-col(6, 16);
       }

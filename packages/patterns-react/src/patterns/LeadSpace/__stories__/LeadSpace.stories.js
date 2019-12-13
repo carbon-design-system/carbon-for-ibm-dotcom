@@ -50,17 +50,17 @@ if (DDS_LEADSPACE) {
       const buttons = [
         {
           link: '',
-          copy: 'Primary action button',
+          copy: text('Primary button copy:', 'Primary action button'),
           renderIcon:
             iconMap[select('primary button icon', icons, icons.ArrowRight)],
-          href: 'https://www.example.com',
+          href: text('Primary button link:', 'https://www.example.com'),
         },
         {
           link: '',
-          copy: 'Secondary',
+          copy: text('Secondary button copy:', 'Secondary action button'),
           renderIcon:
             iconMap[select('secondary button icon', icons, icons.ArrowRight)],
-          href: 'https://www.example.com',
+          href: text('Secondary button link:', 'https://www.example.com'),
         },
       ];
 
@@ -115,17 +115,17 @@ if (DDS_LEADSPACE) {
       const buttons = [
         {
           link: '',
-          copy: 'Primary action button',
+          copy: text('Primary button copy:', 'Primary action button'),
           renderIcon:
             iconMap[select('primary button icon', icons, icons.ArrowRight)],
-          href: 'https://www.example.com',
+          href: text('Primary button link:', 'https://www.example.com'),
         },
         {
           link: '',
-          copy: 'Secondary',
+          copy: text('Secondary button copy:', 'Secondary action button'),
           renderIcon:
             iconMap[select('secondary button icon', icons, icons.ArrowRight)],
-          href: 'https://www.example.com',
+          href: text('Secondary button link:', 'https://www.example.com'),
         },
       ];
 
