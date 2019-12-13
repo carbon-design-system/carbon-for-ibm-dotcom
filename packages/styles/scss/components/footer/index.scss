@@ -21,14 +21,12 @@ $TEMP--breakpoint-down--lg: map-get(
     'width'
   ) - carbon--rem(1px);
 
-@include carbon--theme($carbon--theme--g90) {
-  @import 'locale-button';
-  @import 'footer';
-  @import 'footer-logo';
-  @import 'footer-nav';
-  @import 'footer-nav-group';
-  @import 'legal-nav';
-}
+@import 'locale-button';
+@import 'footer';
+@import 'footer-logo';
+@import 'footer-nav';
+@import 'footer-nav-group';
+@import 'legal-nav';
 
 @import 'carbon-components/scss/components/combo-box/combo-box';
 @import 'carbon-components/scss/components/modal/modal';
