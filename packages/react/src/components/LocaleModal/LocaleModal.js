@@ -33,6 +33,7 @@ const LocaleModal = ({ isOpen, setIsOpen, ...localeModalProps }) => {
   const [list, setList] = useState({});
   const [langDisplay, setLangDisplay] = useState();
   const [isFiltering, setIsFiltering] = useState(false);
+  const [clearResults, setClearResults] = useState(false);
   const [currentRegion, setCurrentRegion] = useState();
 
   const filterClass = cx({
@@ -47,7 +48,20 @@ const LocaleModal = ({ isOpen, setIsOpen, ...localeModalProps }) => {
       setLangDisplay(getLangDisplay);
       setList(list);
     })();
-  }, []);
+
+    // reset the country search results when clicking close icon or back to region button
+    if (clearResults) {
+      const localeItems = document.querySelectorAll(
+        `.${prefix}--locale-modal__locales`
+      );
+
+      const localeHidden = `${prefix}--locale-modal__locales-hidden`;
+
+      [...localeItems].map(item => {
+        item.classList.remove(localeHidden);
+      });
+    }
+  }, [clearResults]);
 
   /**
    *  New region/country list based lang attributes available on page
@@ -119,11 +133,13 @@ const LocaleModal = ({ isOpen, setIsOpen, ...localeModalProps }) => {
           regionList={sortList(list)}
           setCurrentRegion={setCurrentRegion}
           setIsFiltering={setIsFiltering}
+          setClearResults={setClearResults}
           {...localeModalProps}
         />
         <LocaleModalCountries
           regionList={sortList(list)}
           setIsFiltering={setIsFiltering}
+          setClearResults={setClearResults}
           {...localeModalProps}
         />
       </ModalBody>

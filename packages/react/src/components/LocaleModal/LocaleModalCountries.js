@@ -24,9 +24,14 @@ const { prefix } = settings;
  * @param {string} props.labelText label text for the Search icon
  * @param {object} props.regionList object of country and language codes
  *.@param {boolean} props.setIsFiltering true when search filter is visible
+ * @param {Function} props.setClearResults set flag to determine whether to reset the filtered results
  * @returns {*} LocaleModal component
  */
-const LocaleModalCountries = ({ regionList, ...localeModalProps }) => {
+const LocaleModalCountries = ({
+  regionList,
+  setClearResults,
+  ...localeModalProps
+}) => {
   useEffect(() => {
     const localeFilter = document.getElementById(
       `${prefix}--locale-modal__filter`
@@ -49,6 +54,7 @@ const LocaleModalCountries = ({ regionList, ...localeModalProps }) => {
      *
      */
     function filterLocale() {
+      setClearResults(false);
       const filterVal = localeFilter.value.toUpperCase();
 
       [...localeItems].map(item => {
@@ -83,9 +89,7 @@ const LocaleModalCountries = ({ regionList, ...localeModalProps }) => {
      *
      */
     closeBtn.addEventListener('click', () => {
-      [...localeItems].map(item => {
-        item.classList.remove(localeHidden);
-      });
+      setClearResults(true);
     });
   });
 
@@ -137,6 +141,7 @@ LocaleModalCountries.propTypes = {
   unavailabilityText: PropTypes.string,
   placeHolderText: PropTypes.string,
   labelText: PropTypes.string,
+  setClearResults: PropTypes.func,
 };
 
 /**
