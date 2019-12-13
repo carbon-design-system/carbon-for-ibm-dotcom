@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0-rc.2](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-styles@1.2.0-rc.1...@carbon/ibmdotcom-styles@1.2.0-rc.2) (2019-12-13)
+
+### Bug Fixes
+
+- **css:** locale region buttons now scroll when cut off; fixes
+  [#845](https://github.com/carbon-design-system/ibm-dotcom-library/issues/845)
+  ([5d94f15](https://github.com/carbon-design-system/ibm-dotcom-library/commit/5d94f15))
+- **footer:** style theme fixes for the footer
+  ([95f8d34](https://github.com/carbon-design-system/ibm-dotcom-library/commit/95f8d34))
+- **locale-selector:** various fixes to the locale modal
+  ([4e893ab](https://github.com/carbon-design-system/ibm-dotcom-library/commit/4e893ab))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.2.0-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-styles@1.2.0-rc.0...@carbon/ibmdotcom-styles@1.2.0-rc.1) (2019-12-10)
 
 ### Bug Fixes

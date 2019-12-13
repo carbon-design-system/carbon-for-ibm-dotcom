@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0-rc.2](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.2.0-rc.1...@carbon/ibmdotcom-react@1.2.0-rc.2) (2019-12-13)
+
+### Bug Fixes
+
+- **locale:** fix locale filter availability text; fixes
+  [#847](https://github.com/carbon-design-system/ibm-dotcom-library/issues/847)
+  ([815547f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/815547f))
+- **locale-selector:** reset country search results
+  ([2b081ab](https://github.com/carbon-design-system/ibm-dotcom-library/commit/2b081ab))
+- **locale-selector:** various fixes to the locale modal
+  ([4e893ab](https://github.com/carbon-design-system/ibm-dotcom-library/commit/4e893ab))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.2.0-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.2.0-rc.0...@carbon/ibmdotcom-react@1.2.0-rc.1) (2019-12-10)
 
 ### Bug Fixes
