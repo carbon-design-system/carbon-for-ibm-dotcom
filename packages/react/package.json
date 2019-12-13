@@ -137,7 +137,7 @@
     "whatwg-fetch": "^2.0.3"
   },
   "sideEffects": false,
-  "bundleSizeThreshold": 270000,
+  "bundleSizeThreshold": 300000,
   "release": {
     "branch": "master"
   },
