@@ -96,5 +96,7 @@
 }
 
 @include exports('footer-nav-group') {
-  @include footer-nav-group;
+  @include carbon--theme($carbon--theme--g90) {
+    @include footer-nav-group;
+  }
 }

@@ -70,5 +70,7 @@
 }
 
 @include exports('footer') {
-  @include footer;
+  @include carbon--theme($carbon--theme--g90) {
+    @include footer;
+  }
 }
