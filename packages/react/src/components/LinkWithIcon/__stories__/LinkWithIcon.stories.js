@@ -3,8 +3,8 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean } from '@storybook/addon-knobs';
 import { ArrowRight20 } from '@carbon/icons-react';
 import LinkWithIcon from '../LinkWithIcon';
-import '../../../../../styles/scss/components/link-with-icon/_link-with-icon.scss';
 import readme from '../README.md';
+import './index.scss';
 
 storiesOf('Link with Icon', module)
   .addDecorator(withKnobs)

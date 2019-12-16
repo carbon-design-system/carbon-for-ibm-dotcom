@@ -74,5 +74,7 @@
 }
 
 @include exports('local-button') {
-  @include local-button;
+  @include carbon--theme($carbon--theme--g90) {
+    @include local-button;
+  }
 }
