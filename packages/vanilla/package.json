@@ -34,15 +34,13 @@
     "start": "yarn storybook",
     "storybook": "start-storybook -p 9000"
   },
-  "peerDependencies": {
-    "carbon-components": "^10.6.0",
-    "carbon-icons": "^7.0.7"
-  },
   "dependencies": {
     "@babel/runtime": "^7.5.5",
     "@carbon/ibmdotcom-services": "1.2.0-rc.1",
     "@carbon/ibmdotcom-styles": "1.2.0-rc.2",
     "@carbon/ibmdotcom-utilities": "1.2.0-rc.0",
+    "carbon-components": "10.7.4",
+    "carbon-icons": "7.0.7",
     "window-or-global": "^1.0.1"
   },
   "devDependencies": {
@@ -75,8 +73,6 @@
     "babel-plugin-macros": "^2.6.1",
     "babel-plugin-transform-inline-environment-variables": "^0.4.0",
     "browserslist-config-carbon": "10.3.0",
-    "carbon-components": "^10.6.0",
-    "carbon-icons": "^7.0.7",
     "chalk": "^2.3.0",
     "cli-table": "^0.3.0",
     "core-js": "^3.1.3",

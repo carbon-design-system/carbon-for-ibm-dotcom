@@ -906,44 +906,34 @@
     "@carbon/import-once" "10.3.0"
     "@carbon/layout" "10.5.0"
 
-"@carbon/ibmdotcom-react@^1.1.1-rc.0":
-  version "1.1.1-rc.0"
-  resolved "https://registry.yarnpkg.com/@carbon/ibmdotcom-react/-/ibmdotcom-react-1.1.1-rc.0.tgz#74bf7a64d372cbac2c5e4639def3c4c855dcd66d"
-  integrity sha512-Ux9/Cw/g64o6D7fKi/FU3Ets3lPuKnAsiayn217KsCguWzp4xv/gTUVfIVJcUPBfh8miKoGJH4xMfSJMhj30Bw==
+"@carbon/ibmdotcom-react@^1.2.0-rc.1":
+  version "1.2.0-rc.1"
+  resolved "https://registry.yarnpkg.com/@carbon/ibmdotcom-react/-/ibmdotcom-react-1.2.0-rc.1.tgz#a78049776f581b92970e9241e156988725b86294"
+  integrity sha512-SFLEqT5b24yiu3T9B523+CJ9xVBn7en8rEfsiftvhLtuoNMnSjYjlJh56sgxokegWBesPbt0+wIyIVTZ/HMz0w==
   dependencies:
     "@babel/runtime" "^7.5.5"
-    "@carbon/ibmdotcom-services" "1.1.1-rc.0"
-    "@carbon/ibmdotcom-styles" "1.1.1-rc.0"
-    "@carbon/ibmdotcom-utilities" "1.1.1-rc.0"
+    "@carbon/ibmdotcom-services" "1.2.0-rc.1"
+    "@carbon/ibmdotcom-styles" "1.2.0-rc.1"
+    "@carbon/ibmdotcom-utilities" "1.2.0-rc.0"
     autosuggest-highlight "^3.1.1"
     classnames "2.2.6"
     react-autosuggest "^9.4.3"
     window-or-global "^1.0.1"
 
-"@carbon/ibmdotcom-services@1.1.1-rc.0":
-  version "1.1.1-rc.0"
-  resolved "https://registry.yarnpkg.com/@carbon/ibmdotcom-services/-/ibmdotcom-services-1.1.1-rc.0.tgz#f9a52b9785327dfa6149cc70903d1fd1b1eca866"
-  integrity sha512-6DhCYXLfTiPHadsqEMEkBEx+KLRwlWwE/np5+4D/GdGN3TRufzWVfUQfGprHlRXYWL+b0TNqaak2EM7Nd0P1yQ==
+"@carbon/ibmdotcom-services@1.2.0-rc.1":
+  version "1.2.0-rc.1"
+  resolved "https://registry.yarnpkg.com/@carbon/ibmdotcom-services/-/ibmdotcom-services-1.2.0-rc.1.tgz#142e5c77c4750e63a3602753dc25348764e7a6cf"
+  integrity sha512-Tuj3m9BMJrohKUOhZd8kKlk4ZcPMrMpzq3wfdbZS5LjJEwffOZdiCbaDt3spWYVmuFcYUfPYCy8rmUEpo04wrw==
   dependencies:
-    "@carbon/ibmdotcom-utilities" "1.1.1-rc.0"
+    "@carbon/ibmdotcom-utilities" "1.2.0-rc.0"
     axios "^0.19.0"
     jsonp "^0.2.1"
     window-or-global "^1.0.1"
 
-"@carbon/ibmdotcom-styles@1.1.1-rc.0":
-  version "1.1.1-rc.0"
-  resolved "https://registry.yarnpkg.com/@carbon/ibmdotcom-styles/-/ibmdotcom-styles-1.1.1-rc.0.tgz#ca8665dd6e1bb6f09dcc68e069d5b534f348664f"
-  integrity sha512-mPmgaZ2FLwbiMI7o8/wCjH1jx59LT/0irWfy6mkND4djqcUKvD2yDW3nvnDMQxJ/eX9BAS5WXQ2cqcSsqlaBJA==
-  dependencies:
-    "@carbon/grid" "^10.6.0"
-    "@carbon/layout" "^10.5.0"
-    "@carbon/themes" "^10.4.0"
-    "@carbon/type" "^10.5.1"
-
-"@carbon/ibmdotcom-styles@1.2.0-alpha.916":
-  version "1.2.0-alpha.916"
-  resolved "https://registry.yarnpkg.com/@carbon/ibmdotcom-styles/-/ibmdotcom-styles-1.2.0-alpha.916.tgz#9da2fbc152b48bf293e340f19ba967e1df3c4574"
-  integrity sha512-iFy3ynhHbT1psY0SLESSSUQfC0EfGX21hl8k/DPw6Jwv3cE5aObyoU6gpgi1+2Vm6gFBp62T9Npm9U0/kAJ/pA==
+"@carbon/ibmdotcom-styles@1.2.0-rc.1", "@carbon/ibmdotcom-styles@^1.2.0-rc.1":
+  version "1.2.0-rc.1"
+  resolved "https://registry.yarnpkg.com/@carbon/ibmdotcom-styles/-/ibmdotcom-styles-1.2.0-rc.1.tgz#44ad38bb8ba4909a7c544165298eaba5a849410a"
+  integrity sha512-8W9twmeFLfkC74Gr4GlcOCbFfEIeWctoF1laLD84KOwNrjR6cN0BGuN0zbXFo7zyhK0KljZoattMFTxuu1OduA==
   dependencies:
     "@carbon/grid" "^10.6.0"
     "@carbon/import-once" "^10.3.0"
@@ -951,27 +941,14 @@
     "@carbon/themes" "^10.4.0"
     "@carbon/type" "^10.5.1"
 
-"@carbon/ibmdotcom-utilities@1.1.1-rc.0":
-  version "1.1.1-rc.0"
-  resolved "https://registry.yarnpkg.com/@carbon/ibmdotcom-utilities/-/ibmdotcom-utilities-1.1.1-rc.0.tgz#8a10ea7c2b3475b756ad4ee6881d20049e961c8f"
-  integrity sha512-F2fetuVfIk5jXUgk77NbQAKY/dB4Ezf6GqGfoKNn6Jr6Zc5GaKqf+yPoHOhNM+cUC/fRIgb3A+5kUlluoxH/MQ==
+"@carbon/ibmdotcom-utilities@1.2.0-rc.0":
+  version "1.2.0-rc.0"
+  resolved "https://registry.yarnpkg.com/@carbon/ibmdotcom-utilities/-/ibmdotcom-utilities-1.2.0-rc.0.tgz#7db08653ae7ffd62271c92edea33149bdea49fb2"
+  integrity sha512-TefK8pK8H63SMW7xXJnE7EXenKY9yIY0zGmf26Fh0eNrJf2wnsDFsRGpIktsBu0BjpmnIJA+nhPwIU8v4NjOpA==
   dependencies:
-    "@carbon/ibmdotcom-services" "1.1.1-rc.0"
     axios "^0.19.0"
     js-cookie "^2.2.1"
     window-or-global "^1.0.1"
-
-"@carbon/icon-helpers@10.4.0":
-  version "10.4.0"
-  resolved "https://registry.yarnpkg.com/@carbon/icon-helpers/-/icon-helpers-10.4.0.tgz#771ba51efcaa9d2be03800f8e0f50c7aa779febf"
-  integrity sha512-52H97nT0Hv3mneNaDXBELt/shrO9AUZIpX5TuxRUcdva0xqLNnjhsLw0PTytjQRw3yNCLmDw8hOutzlReXCleQ==
-
-"@carbon/icons-react@10.6.0":
-  version "10.6.0"
-  resolved "https://registry.yarnpkg.com/@carbon/icons-react/-/icons-react-10.6.0.tgz#e137ddb552111c571ccb1a2ac861be07fe1fb339"
-  integrity sha512-WG8OdiCx7iWOE8x71xAWP5m/WvFV1+y7+h2WWWrweFjUWf+hNLB3oWem/cQxLB0YL/yHQiAAzyKb1Yb2ns7w8g==
-  dependencies:
-    "@carbon/icon-helpers" "10.4.0"
 
 "@carbon/import-once@10.3.0", "@carbon/import-once@^10.3.0":
   version "10.3.0"
@@ -2497,39 +2474,6 @@ capture-exit@^2.0.0:
   dependencies:
     rsvp "^4.8.4"
 
-carbon-components-react@^7.7.3:
-  version "7.7.3"
-  resolved "https://registry.yarnpkg.com/carbon-components-react/-/carbon-components-react-7.7.3.tgz#51cfcb7223e7a3f7069f8bcd9ef415917bb527eb"
-  integrity sha512-AR/fc1+lZzRRQXTFvXhP04jIIL9/mwAxfGmgfYeiotB98+SECGRGistvPlD/6rv+DtJYNvst0MUd94WbwdG4OQ==
-  dependencies:
-    "@carbon/icons-react" "10.6.0"
-    classnames "2.2.6"
-    downshift "^1.31.14"
-    flatpickr "4.6.1"
-    focus-trap-react "^6.0.0"
-    invariant "^2.2.3"
-    lodash.debounce "^4.0.8"
-    lodash.isequal "^4.5.0"
-    lodash.omit "^4.5.0"
-    react-is "^16.8.6"
-    warning "^3.0.0"
-    window-or-global "^1.0.1"
-
-carbon-components@^10.7.3:
-  version "10.7.3"
-  resolved "https://registry.yarnpkg.com/carbon-components/-/carbon-components-10.7.3.tgz#1a5ff661f1e25aaf30698e30fa0ea903beccfbe4"
-  integrity sha512-5/w4xGqGJ30C43Df/grOr4o87H61LUhKP0AqhH/JIA6174eL1OKZmSmKgSvmDa+8y9YPWplqEaOKSXT/11VFLg==
-  dependencies:
-    carbon-icons "^7.0.7"
-    flatpickr "4.6.1"
-    lodash.debounce "^4.0.8"
-    warning "^3.0.0"
-
-carbon-icons@^7.0.7:
-  version "7.0.7"
-  resolved "https://registry.yarnpkg.com/carbon-icons/-/carbon-icons-7.0.7.tgz#ebafe3e9fa25df973796a8eca06d8a7c501cc610"
-  integrity sha512-3vgkdXJRgCViCrH3fLUdyAXo0I8wmohO6QETv7vWFx6yc7s+SirWFBSFL38zUx4MHtR8iTxIlLEzkeU6FlFtXg==
-
 case-sensitive-paths-webpack-plugin@2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/case-sensitive-paths-webpack-plugin/-/case-sensitive-paths-webpack-plugin-2.2.0.tgz#3371ef6365ef9c25fa4b81c16ace0e9c7dc58c3e"
@@ -3567,11 +3511,6 @@ dotenv@6.2.0:
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-6.2.0.tgz#941c0410535d942c8becf28d3f357dbd9d476064"
   integrity sha512-HygQCKUBSFl8wKQZBSemMywRWcEDNidvNbjGVyZu3nbZ8qq9ubiPoGLMdRDpfSrpkkm9BXYFkpKxxFX38o/76w==
 
-downshift@^1.31.14:
-  version "1.31.16"
-  resolved "https://registry.yarnpkg.com/downshift/-/downshift-1.31.16.tgz#acd81631539502d4112d01bd573654419fd9f640"
-  integrity sha512-RskXmiGSoz0EHAyBrmTBGSLHg6+NYDGuLu2W3GpmuOe6hmZEWhCiQrq5g6DWzhnUaJD41xHbbfC6j1Fe86YqgA==
-
 duplexer@^0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/duplexer/-/duplexer-0.1.1.tgz#ace6ff808c1ce66b57d1ebf97977acb02334cfc1"
@@ -4289,11 +4228,6 @@ flat-cache@^2.0.1:
     rimraf "2.6.3"
     write "1.0.3"
 
-flatpickr@4.6.1:
-  version "4.6.1"
-  resolved "https://registry.yarnpkg.com/flatpickr/-/flatpickr-4.6.1.tgz#9eb498ab805dd27f5ae02e1ac6ac6c099ce45e94"
-  integrity sha512-3ULSxbXmcMIRzer/2jLNweoqHpwDvsjEawO2FUd9UFR8uPwLM+LruZcPDpuZStcEgbQKhuFOfXo4nYdGladSNw==
-
 flatted@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-2.0.1.tgz#69e57caa8f0eacbc281d2e2cb458d46fdb449e08"
@@ -4311,21 +4245,6 @@ flush-write-stream@^1.0.0:
   dependencies:
     inherits "^2.0.3"
     readable-stream "^2.3.6"
-
-focus-trap-react@^6.0.0:
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/focus-trap-react/-/focus-trap-react-6.0.0.tgz#3f5a9f68447dd374d22388fb4c50018be83e74a5"
-  integrity sha512-mvEYxmP75PMx0vOqoIAmJHO/qUEvdTAdz6gLlEZyxxODnuKQdnKea2RWTYxghAPrV+ibiIq2o/GTSgQycnAjcw==
-  dependencies:
-    focus-trap "^4.0.2"
-
-focus-trap@^4.0.2:
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/focus-trap/-/focus-trap-4.0.2.tgz#4ee2b96547c9ea0e4252a2d4b2cca68944194663"
-  integrity sha512-HtLjfAK7Hp2qbBtLS6wEznID1mPT+48ZnP2nkHzgjpL4kroYHg0CdqJ5cTXk+UO5znAxF5fRUkhdyfgrhh8Lzw==
-  dependencies:
-    tabbable "^3.1.2"
-    xtend "^4.0.1"
 
 follow-redirects@1.5.10:
   version "1.5.10"
@@ -5106,7 +5025,7 @@ internal-ip@^4.2.0:
     default-gateway "^4.2.0"
     ipaddr.js "^1.9.0"
 
-invariant@^2.2.2, invariant@^2.2.3, invariant@^2.2.4:
+invariant@^2.2.2, invariant@^2.2.4:
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/invariant/-/invariant-2.2.4.tgz#610f3c92c9359ce1db616e538008d23ff35158e6"
   integrity sha512-phJfQVBuaJM5raOpJjSfkiD6BpbCE4Ns//LaXl6wGYtUBY83nWS6Rf9tXm2e8VaK60JEjYldbPif/A2B1C2gNA==
@@ -6203,25 +6122,10 @@ lodash._reinterpolate@^3.0.0:
   resolved "https://registry.yarnpkg.com/lodash._reinterpolate/-/lodash._reinterpolate-3.0.0.tgz#0ccf2d89166af03b3663c796538b75ac6e114d9d"
   integrity sha1-DM8tiRZq8Ds2Y8eWU4t1rG4RTZ0=
 
-lodash.debounce@^4.0.8:
-  version "4.0.8"
-  resolved "https://registry.yarnpkg.com/lodash.debounce/-/lodash.debounce-4.0.8.tgz#82d79bff30a67c4005ffd5e2515300ad9ca4d7af"
-  integrity sha1-gteb/zCmfEAF/9XiUVMArZyk168=
-
-lodash.isequal@^4.5.0:
-  version "4.5.0"
-  resolved "https://registry.yarnpkg.com/lodash.isequal/-/lodash.isequal-4.5.0.tgz#415c4478f2bcc30120c22ce10ed3226f7d3e18e0"
-  integrity sha1-QVxEePK8wwEgwizhDtMib30+GOA=
-
 lodash.memoize@^4.1.2:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/lodash.memoize/-/lodash.memoize-4.1.2.tgz#bcc6c49a42a2840ed997f323eada5ecd182e0bfe"
   integrity sha1-vMbEmkKihA7Zl/Mj6tpezRguC/4=
-
-lodash.omit@^4.5.0:
-  version "4.5.0"
-  resolved "https://registry.yarnpkg.com/lodash.omit/-/lodash.omit-4.5.0.tgz#6eb19ae5a1ee1dd9df0b969e66ce0b7fa30b5e60"
-  integrity sha1-brGa5aHuHdnfC5aeZs4Lf6MLXmA=
 
 lodash.sortby@^4.7.0:
   version "4.7.0"
@@ -8416,11 +8320,6 @@ react-is@^16.8.1, react-is@^16.8.4:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.10.1.tgz#0612786bf19df406502d935494f0450b40b8294f"
   integrity sha512-BXUMf9sIOPXXZWqr7+c5SeOKJykyVr2u0UDzEf4LNGc6taGkQe1A9DFD07umCIXz45RLr9oAAwZbAJ0Pkknfaw==
 
-react-is@^16.8.6:
-  version "16.11.0"
-  resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.11.0.tgz#b85dfecd48ad1ce469ff558a882ca8e8313928fa"
-  integrity sha512-gbBVYR2p8mnriqAwWx9LbuUrShnAuSCNnuPGyc7GJrMVQtPDAh8iLpv7FRuMPFb56KkaVZIYSz1PrjI9q0QPCw==
-
 react-themeable@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/react-themeable/-/react-themeable-1.1.0.tgz#7d4466dd9b2b5fa75058727825e9f152ba379a0e"
@@ -9575,11 +9474,6 @@ symbol-tree@^3.2.2:
   resolved "https://registry.yarnpkg.com/symbol-tree/-/symbol-tree-3.2.4.tgz#430637d248ba77e078883951fb9aa0eed7c63fa2"
   integrity sha512-9QNk5KwDF+Bvz+PyObkmSYjI5ksVUYtjW7AU22r2NKcfLJcXp96hkDWU3+XndOsUb+AQ9QhfzfCT2O+CNWT5Tw==
 
-tabbable@^3.1.2:
-  version "3.1.2"
-  resolved "https://registry.yarnpkg.com/tabbable/-/tabbable-3.1.2.tgz#f2d16cccd01f400e38635c7181adfe0ad965a4a2"
-  integrity sha512-wjB6puVXTYO0BSFtCmWQubA/KIn7Xvajw0x0l6eJUudMG/EAiJvIUnyNX6xO4NpGrJ16lbD0eUseB9WxW0vlpQ==
-
 table@^5.2.3:
   version "5.4.6"
   resolved "https://registry.yarnpkg.com/table/-/table-5.4.6.tgz#1292d19500ce3f86053b05f0e8e7e4a3bb21079e"
@@ -10094,13 +9988,6 @@ walker@^1.0.7, walker@~1.0.5:
   dependencies:
     makeerror "1.0.x"
 
-warning@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/warning/-/warning-3.0.0.tgz#32e5377cb572de4ab04753bdf8821c01ed605b7c"
-  integrity sha1-MuU3fLVy3kqwR1O9+IIcAe1gW3w=
-  dependencies:
-    loose-envify "^1.0.0"
-
 watchpack@^1.6.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/watchpack/-/watchpack-1.6.0.tgz#4bc12c2ebe8aa277a71f1d3f14d685c7b446cd00"
@@ -10523,7 +10410,7 @@ xregexp@4.0.0:
   resolved "https://registry.yarnpkg.com/xregexp/-/xregexp-4.0.0.tgz#e698189de49dd2a18cc5687b05e17c8e43943020"
   integrity sha512-PHyM+sQouu7xspQQwELlGwwd05mXUFqwFYfqPO0cC7x4fxyHnnuetmQr6CjJiafIDoH4MogHb9dOoJzR/Y4rFg==
 
-xtend@^4.0.0, xtend@^4.0.1, xtend@~4.0.1:
+xtend@^4.0.0, xtend@~4.0.1:
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/xtend/-/xtend-4.0.2.tgz#bb72779f5fa465186b1f438f674fa347fdb5db54"
   integrity sha512-LKYU1iAXJXUgAXn9URjiu+MWhyUXHsvfp7mcuYm9dSUKK0/CjtrUwFAxD82/mCWbtLsGjFIad0wIsod4zrTAEQ==
