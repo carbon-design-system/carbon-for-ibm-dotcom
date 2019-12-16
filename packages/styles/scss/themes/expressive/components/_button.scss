@@ -15,9 +15,25 @@
 /// @access private
 /// @group button-expressive
 @mixin button-expressive {
-  .#{$prefix}--btn .#{$prefix}--btn__icon {
-    width: auto;
-    height: auto;
+  .#{$prefix}--btn {
+    padding: calc(0.875rem - 4px) 61px calc(0.875rem - 4px) 13px;
+
+    &.#{$prefix}--btn--ghost {
+      padding: calc(0.875rem - 4px) 13px;
+    }
+
+    &.#{$prefix}--btn--field {
+      padding: 6px 61px 6px 13px;
+    }
+
+    &.#{$prefix}--btn--field.#{$prefix}--btn--ghost {
+      padding: 6px 13px;
+    }
+
+    .#{$prefix}--btn__icon {
+      width: auto;
+      height: auto;
+    }
   }
 
   .#{$prefix}--btn--icon-only {
