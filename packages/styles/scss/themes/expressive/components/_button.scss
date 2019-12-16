@@ -22,17 +22,18 @@
       padding: calc(0.875rem - 4px) 13px;
     }
 
-    &.#{$prefix}--btn--field {
-      padding: 6px 61px 6px 13px;
-    }
-
-    &.#{$prefix}--btn--field.#{$prefix}--btn--ghost {
-      padding: 6px 13px;
-    }
-
     .#{$prefix}--btn__icon {
       width: auto;
       height: auto;
+    }
+  }
+
+  .#{$prefix}--btn--field,
+  .#{$prefix}--btn--sm {
+    padding: 6px 61px 6px 13px;
+
+    &.#{$prefix}--btn--ghost {
+      padding: 6px 13px;
     }
   }
 
