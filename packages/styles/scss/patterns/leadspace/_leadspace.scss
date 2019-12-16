@@ -8,6 +8,8 @@
 @import '../../globals/imports';
 @import '@carbon/ibmdotcom-styles/scss/components/buttongroup/_buttongroup.scss';
 
+$btn-min-width: 26;
+
 @function aspectratio($height, $width) {
   $ratio: carbon--rem($height) / carbon--rem($width) * 100%;
   @return $ratio;
@@ -91,6 +93,10 @@
     }
 
     @include themed-items;
+  }
+
+  .#{$prefix}--btn {
+    min-width: carbon--mini-units($btn-min-width);
   }
 
   .#{$prefix}--leadspace--g100 {
