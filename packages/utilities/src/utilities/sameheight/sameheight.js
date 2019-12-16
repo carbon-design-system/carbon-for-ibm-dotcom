@@ -6,53 +6,43 @@
  */
 
 /**
- * Utility that sets elements under a same parent to the sameheight.
- *
- * It uses the selector passed to the `sameheight` attribute, to identify
- * which items should be aligned
+ * Utility that sets an array of elements to the same height.
  *
  * @example
- * `HTML`
- *    <div sameheight=".adjustme">
- *      <elemA class="adjustme">
- *      <elemB class="adjustme">
- *    </div>
- *
- * `JS`
  * import {sameheight} from '@carbon/ibmdotcom-utilities';
  *
- * sameheight();
+ * sameheight(ElementArray);
+ *
+ * @param {Array} elemCollection Html objects array
  */
-function sameheight() {
+function sameheight(elemCollection) {
   /**
    * Internal function made for avoiding adding more eventlisteners
+   *
+   * @param {Array} elemArr array of elements to be alligned
    */
-  function setHeight() {
+  function setHeight(elemArr) {
     if (window.innerWidth > 671) {
-      const sameheightContainers = Array.prototype.slice.call(
-        document.querySelectorAll('[sameheight]')
-      );
-      sameheightContainers.forEach(container => {
-        const selectedElements = Array.prototype.slice.call(
-          container.querySelectorAll(container.attributes['sameheight'].value)
-        );
-        let targetHeight = 0;
-        selectedElements.forEach(elem => {
-          elem.offsetHeight > targetHeight
-            ? (targetHeight = elem.offsetHeight)
-            : false;
-        });
+      let targetHeight = 0;
+      elemArr.forEach(elem => {
+        elem.offsetHeight > targetHeight
+          ? (targetHeight = elem.offsetHeight)
+          : false;
+      });
 
-        selectedElements.forEach(elem => {
-          elem.offsetHeight == targetHeight
-            ? (elem.style.height = 'auto')
-            : (elem.style.height = targetHeight + 'px');
-        });
+      elemArr.forEach(elem => {
+        elem.offsetHeight == targetHeight
+          ? (elem.style.height = 'auto')
+          : (elem.style.height = targetHeight + 'px');
       });
     }
   }
-  setHeight();
-  window.addEventListener('resize', setHeight);
+
+  const elemArr = Array.prototype.slice.call(elemCollection);
+  setHeight(elemArr);
+  window.addEventListener('resize', function() {
+    setHeight(elemArr);
+  });
 }
 
 export default sameheight;
