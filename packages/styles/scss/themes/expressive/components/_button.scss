@@ -15,14 +15,26 @@
 /// @access private
 /// @group button-expressive
 @mixin button-expressive {
-  .#{$prefix}--btn--sm {
-    min-height: rem(40px);
+  .#{$prefix}--btn .#{$prefix}--btn__icon {
+    width: auto;
+    height: auto;
   }
 
-  .#{$prefix}--btn {
-    &__icon {
-      width: auto;
-      height: auto;
+  .#{$prefix}--btn--icon-only {
+    padding: calc(0.875rem - 3px);
+
+    &.#{$prefix}--btn--tertiary {
+      padding: calc(0.875rem - 1px);
+    }
+
+    &.#{$prefix}--btn--field,
+    &.#{$prefix}--btn--sm {
+      padding: rem(7px);
+    }
+
+    &.#{$prefix}--btn--field.#{$prefix}--btn--tertiary,
+    &.#{$prefix}--btn--sm.#{$prefix}--btn--tertiary {
+      padding: rem(9px);
     }
   }
 }
