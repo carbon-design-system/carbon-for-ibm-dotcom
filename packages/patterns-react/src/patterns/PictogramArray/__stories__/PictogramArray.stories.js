@@ -8,7 +8,7 @@ import readme from '../README.md';
 import { Desktop, Touch, Pattern } from '@carbon/pictograms-react';
 
 if (DDS_PICTOGRAM_ARRAY) {
-  storiesOf('Content array with pictograms', module)
+  storiesOf('PictogramArray', module)
     .addDecorator(withKnobs)
     .addParameters({
       readme: {

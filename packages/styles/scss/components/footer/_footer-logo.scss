@@ -56,5 +56,7 @@
 }
 
 @include exports('footer-logo') {
-  @include footer-logo;
+  @include carbon--theme($carbon--theme--g90) {
+    @include footer-logo;
+  }
 }

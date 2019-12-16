@@ -3,6 +3,51 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0-rc.2](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.2.0-rc.1...@carbon/ibmdotcom-react@1.2.0-rc.2) (2019-12-13)
+
+### Bug Fixes
+
+- **locale:** fix locale filter availability text; fixes
+  [#847](https://github.com/carbon-design-system/ibm-dotcom-library/issues/847)
+  ([815547f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/815547f))
+- **locale-selector:** reset country search results
+  ([2b081ab](https://github.com/carbon-design-system/ibm-dotcom-library/commit/2b081ab))
+- **locale-selector:** various fixes to the locale modal
+  ([4e893ab](https://github.com/carbon-design-system/ibm-dotcom-library/commit/4e893ab))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.2.0-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.2.0-rc.0...@carbon/ibmdotcom-react@1.2.0-rc.1) (2019-12-10)
+
+### Bug Fixes
+
+- **feature:** remove CardLink and FooterLocaleButton feature flag
+  ([b2434b4](https://github.com/carbon-design-system/ibm-dotcom-library/commit/b2434b4))
+- **flags:** remove feature flag in comments
+  ([1b098f0](https://github.com/carbon-design-system/ibm-dotcom-library/commit/1b098f0))
+- **footer:** fix footer css; update close functionality
+  ([ab60f03](https://github.com/carbon-design-system/ibm-dotcom-library/commit/ab60f03))
+- **locale:** add localized country/lang header
+  ([76a76dd](https://github.com/carbon-design-system/ibm-dotcom-library/commit/76a76dd))
+- **locale:** fix locale from footer; fixes
+  [#795](https://github.com/carbon-design-system/ibm-dotcom-library/issues/795)
+  ([55492c7](https://github.com/carbon-design-system/ibm-dotcom-library/commit/55492c7))
+
+### Features
+
+- **card:** remove featureFlag
+  ([e83777b](https://github.com/carbon-design-system/ibm-dotcom-library/commit/e83777b))
+
+# 1.2.0-rc.0 (2019-12-09)
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.2.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.1.2...@carbon/ibmdotcom-react@1.2.0-rc.0) (2019-12-09)
 
 ### Bug Fixes

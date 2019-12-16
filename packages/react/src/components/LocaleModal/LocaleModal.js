@@ -26,13 +26,14 @@ const { prefix } = settings;
  * @param {object} props props object
  * @param {boolean} props.isOpen Opens modal
  * @param {boolean} props.setIsOpen isOpen state of modal
- * @param {string} props.headerLabel modal header label
  * @param {string} props.headerTitle modal header title
  * @returns {*} LocaleModal component
  */
 const LocaleModal = ({ isOpen, setIsOpen, ...localeModalProps }) => {
   const [list, setList] = useState({});
+  const [langDisplay, setLangDisplay] = useState();
   const [isFiltering, setIsFiltering] = useState(false);
+  const [clearResults, setClearResults] = useState(false);
   const [currentRegion, setCurrentRegion] = useState();
 
   const filterClass = cx({
@@ -43,9 +44,24 @@ const LocaleModal = ({ isOpen, setIsOpen, ...localeModalProps }) => {
     (async () => {
       const locale = await LocaleAPI.getLocale();
       const list = locale && (await LocaleAPI.getList(locale));
+      const getLangDisplay = await LocaleAPI.getLangDisplay();
+      setLangDisplay(getLangDisplay);
       setList(list);
     })();
-  }, []);
+
+    // reset the country search results when clicking close icon or back to region button
+    if (clearResults) {
+      const localeItems = document.querySelectorAll(
+        `.${prefix}--locale-modal__locales`
+      );
+
+      const localeHidden = `${prefix}--locale-modal__locales-hidden`;
+
+      [...localeItems].map(item => {
+        item.classList.remove(localeHidden);
+      });
+    }
+  }, [clearResults]);
 
   /**
    *  New region/country list based lang attributes available on page
@@ -101,11 +117,12 @@ const LocaleModal = ({ isOpen, setIsOpen, ...localeModalProps }) => {
             localeModalProps.headerTitle,
           ]}
           title={currentRegion}
-          className={`${prefix}--locale-modal__back`}></ModalHeader>
+          className={`${prefix}--locale-modal__back`}
+        />
       ) : (
         <ModalHeader
           label={[
-            localeModalProps.headerLabel,
+            langDisplay,
             <Globe20 className={`${prefix}--locale-modal__label-globe`} />,
           ]}
           title={localeModalProps.headerTitle}
@@ -116,11 +133,13 @@ const LocaleModal = ({ isOpen, setIsOpen, ...localeModalProps }) => {
           regionList={sortList(list)}
           setCurrentRegion={setCurrentRegion}
           setIsFiltering={setIsFiltering}
+          setClearResults={setClearResults}
           {...localeModalProps}
         />
         <LocaleModalCountries
           regionList={sortList(list)}
           setIsFiltering={setIsFiltering}
+          setClearResults={setClearResults}
           {...localeModalProps}
         />
       </ModalBody>
@@ -154,7 +173,6 @@ LocaleModal.propTypes = {
  * @type {{availabilityText: string, unavailabilityText: string, placeHolderText: string, labelText: string}}
  */
 LocaleModal.defaultProps = {
-  headerLabel: 'United States — English',
   headerTitle: 'Select region',
   availabilityText:
     'This page is available in the following locations and languages',

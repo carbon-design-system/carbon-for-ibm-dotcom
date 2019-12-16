@@ -57,9 +57,20 @@
         color: $text-01;
       }
     }
+
+    .#{$prefix}--modal-content {
+      .#{$prefix}--link {
+        &,
+        &:visited {
+          color: $inverse-01;
+        }
+      }
+    }
   }
 }
 
 @include exports('footer') {
-  @include footer;
+  @include carbon--theme($carbon--theme--g90) {
+    @include footer;
+  }
 }
