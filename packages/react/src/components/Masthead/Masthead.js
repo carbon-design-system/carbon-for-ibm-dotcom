@@ -199,6 +199,7 @@ const Masthead = ({ navigation, hasProfile, hasSearch, ...mastheadProps }) => {
 
               {navigation && (
                 <MastheadLeftNav
+                  {...mastheadProps}
                   navigation={mastheadData}
                   isSideNavExpanded={isSideNavExpanded}
                 />
