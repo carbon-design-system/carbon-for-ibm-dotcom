@@ -48,9 +48,12 @@ jobs:
       - run:
           name: Publish canary packages
           command: |
-            echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> .npmrc
-            yarn lerna publish --canary minor --dist-tag canary --no-push --no-git-tag-version --yes
-
+            if [ -z "$NPM_TOKEN" ]; then
+              echo "No NPM_TOKEN is set!"
+            else
+              echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> .npmrc
+              yarn lerna publish --canary minor --dist-tag canary --no-push --no-git-tag-version --yes
+            fi
   release_nightly:
     docker:
       - image: circleci/node:10.15-browsers
@@ -73,9 +76,12 @@ jobs:
       - run:
           name: Publish nightly packages
           command: |
-            echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> .npmrc
-            yarn lerna publish --canary minor --dist-tag nightly --preid nightly --no-push --no-git-tag-version --force-publish=* --yes
-
+            if [ -z "$NPM_TOKEN" ]; then
+              echo "No NPM_TOKEN is set!"
+            else
+              echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> .npmrc
+              yarn lerna publish --canary minor --dist-tag nightly --preid nightly --no-push --no-git-tag-version --yes
+            fi
   artifacts:
     docker:
       - image: circleci/node:10.15-browsers
