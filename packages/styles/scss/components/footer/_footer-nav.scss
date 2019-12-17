@@ -6,6 +6,7 @@
 //
 
 @import '../../temp-carbon-expressive/accordion/accordion-expressive';
+@import 'carbon-components/scss/components/accordion/accordion';
 
 /// Footer nav styles
 /// @access private
@@ -54,6 +55,7 @@
 
 @include exports('footer-nav') {
   @include carbon--theme($carbon--theme--g90) {
+    @include accordion;
     @include footer-nav;
   }
 }
