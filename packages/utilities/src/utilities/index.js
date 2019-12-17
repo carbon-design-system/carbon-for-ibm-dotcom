@@ -11,4 +11,5 @@ export * from './featureflag';
 export * from './geolocation';
 export * from './ipcinfoCookie';
 export * from './serialize';
+export * from './markdownconverter';
 export * from './settings';
