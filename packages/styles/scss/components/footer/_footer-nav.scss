@@ -13,9 +13,8 @@
 /// @group footer
 
 @mixin footer-nav {
-  @include accordion;
-
   .#{$prefix}--footer-nav {
+    @include accordion;
     @include carbon--make-col-ready;
 
     padding: 0;

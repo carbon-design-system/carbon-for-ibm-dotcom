@@ -13,8 +13,6 @@
 /// @group footer
 
 @mixin local-button {
-  @include button;
-
   .#{$prefix}--modal-content {
     height: 500px;
   }
@@ -33,6 +31,7 @@
     }
 
     &__container {
+      @include button;
       @include carbon--make-col-ready;
       @include carbon--make-col(4, 4);
 
