@@ -6,7 +6,7 @@
  */
 
 export * from './CardArray';
-export * from './CardsWithImages';
+export * from './CardSection';
 export * from './CardsWithoutImages';
 export * from './LeadSpace';
 export * from './LeadSpaceCentered';

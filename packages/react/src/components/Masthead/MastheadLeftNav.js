@@ -29,7 +29,11 @@ const { prefix } = settings;
  * @param {boolean} isSideNavExpanded Is side nav expanded
  * @returns {*} Masthead left nav component
  */
-const MastheadLeftNav = ({ navigation, isSideNavExpanded }) => {
+const MastheadLeftNav = ({
+  navigation,
+  isSideNavExpanded,
+  ...leftNavProps
+}) => {
   /**
    * Left side navigation
    *
@@ -72,6 +76,15 @@ const MastheadLeftNav = ({ navigation, isSideNavExpanded }) => {
       expanded={isSideNavExpanded}
       isPersistent={false}>
       <nav data-autoid={`${stablePrefix}--masthead__l0-sidenav`}>
+        {leftNavProps.platform && (
+          <a
+            data-autoid={`${stablePrefix}--side-nav__submenu-platform`}
+            href={leftNavProps.platform.url}
+            aria-haspopup="true"
+            className={`${prefix}--side-nav__submenu ${prefix}--side-nav__submenu-platform`}>
+            {leftNavProps.platform.name}
+          </a>
+        )}
         <SideNavItems>
           <HeaderSideNavItems>{sideNav}</HeaderSideNavItems>
         </SideNavItems>

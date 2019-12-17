@@ -12,6 +12,7 @@ Import the package into the top of your main SCSS file.
 
 Use these modifiers with the `.bx--modal` class.
 
-| Class                    | Description                             |
-| ------------------------ | --------------------------------------- |
-| `.bx--modal--expressive` | Themes the modal for expressive moments |
+| Class                               | Description                                                   |
+| ----------------------------------- | ------------------------------------------------------------- |
+| `.bx--modal--expressive`            | Themes the modal for expressive moments                       |
+| `.bx--modal--expressive--fullwidth` | Themes the modal for expressive moments and fullwidth variant |

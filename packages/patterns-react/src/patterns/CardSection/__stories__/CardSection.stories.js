@@ -6,9 +6,9 @@ import CardsWithImages from '../CardsWithImages';
 import CardsWithoutImages from '../CardsWithoutImages';
 import CardSection from '../CardSection';
 import readme from '../README.md';
-import { DDS_CARDS_SECTION } from '../../../internal/FeatureFlags';
+import { DDS_CARD_SECTION } from '../../../internal/FeatureFlags';
 
-if (DDS_CARDS_SECTION) {
+if (DDS_CARD_SECTION) {
   storiesOf('CardSection', module)
     .addDecorator(withKnobs)
     .addParameters({
@@ -17,7 +17,7 @@ if (DDS_CARDS_SECTION) {
       },
     })
     .add('Default', () => {
-      const data = {
+      const cardsGroup = {
         imageCards: [
           {
             title: 'Read more about it',
@@ -32,8 +32,7 @@ if (DDS_CARDS_SECTION) {
                 imgSrc: 'http://picsum.photos/id/1003/1056/480',
                 altText: 'cards with image',
                 title: 'Topic',
-                copy:
-                  'Natural language processing Natural language processing.',
+                copy: 'Natural language processing.',
                 link: {
                   href: 'https://www.example.com',
                   text: 'Learn more',
@@ -219,7 +218,7 @@ if (DDS_CARDS_SECTION) {
 
       return (
         <CardSection
-          cardsGroup={data[type]}
+          cardsGroup={cardsGroup[type]}
           type={type}
           theme={select('theme', themes, themes.g10)}
         />
@@ -368,7 +367,7 @@ if (DDS_CARDS_SECTION) {
               imgSrc: 'http://picsum.photos/id/1003/1056/480',
               altText: 'cards with image',
               title: 'Topic',
-              copy: 'Natural language processing Natural language processing.',
+              copy: 'Natural language processing.',
               link: {
                 href: 'https://www.example.com',
                 text: 'Learn more',

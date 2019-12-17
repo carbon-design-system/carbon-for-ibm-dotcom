@@ -41,7 +41,7 @@ To utilize the following features, set the following variable's to `true` within
 your `.env` file or your application build settings.
 
 ```
-DDS_CARDS_SECTION=true
+DDS_CARD_SECTION=true
 ```
 
 > See

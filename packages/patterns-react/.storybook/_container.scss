@@ -9,12 +9,22 @@
 @include carbon--font-face-mono();
 @include carbon--font-face-sans();
 
+@import '@carbon/layout/scss/breakpoint';
+
 // Storybook styles
 .storybook-center-container {
-  padding: 3em;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @include carbon--breakpoint(lg) {
+    padding: 3rem;
+  }
+}
+
+.storybook-readme-story {
+  width: 100%;
 }
 
 .bx--visually-hidden {

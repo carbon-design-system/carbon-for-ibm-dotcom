@@ -12,7 +12,7 @@ import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
 import classNames from 'classnames';
 import { featureFlag, matchHeight } from '@carbon/ibmdotcom-utilities';
-import { DDS_CARDS_WITH_IMAGES } from '../../internal/FeatureFlags';
+import { DDS_CARD_SECTION } from '../../internal/FeatureFlags';
 import CardsWithImagesGroup from './CardsWithImagesGroup';
 
 const { stablePrefix } = ddsSettings;
@@ -44,7 +44,7 @@ const CardsWithImages = ({ theme, cardsGroup }) => {
   };
 
   return featureFlag(
-    DDS_CARDS_WITH_IMAGES,
+    DDS_CARD_SECTION,
     <section
       data-autoid={`${stablePrefix}--cards-with-images`}
       className={classNames(`${prefix}--cards-with-images`, setTheme(theme))}>

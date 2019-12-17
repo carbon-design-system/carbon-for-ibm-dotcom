@@ -79,12 +79,9 @@ export const DDS_USECASES =
   process.env.DDS_USECASES === 'true' || DDS_FLAGS_ALL || false;
 
 /**
- * This determines if the cards with images will be rendered or not
+ * This determines if the cardSection will be rendered or not
  *
  * @type {string | boolean}
  */
-export const DDS_CARDS_WITH_IMAGES =
-  process.env.DDS_CARDS_WITH_IMAGES === 'true' || DDS_FLAGS_ALL || false;
-
-export const DDS_CARDS_SECTION =
-  process.env.DDS_CARDS_SECTION === 'true' || DDS_FLAGS_ALL || false;
+export const DDS_CARD_SECTION =
+  process.env.DDS_CARD_SECTION === 'true' || DDS_FLAGS_ALL || false;
