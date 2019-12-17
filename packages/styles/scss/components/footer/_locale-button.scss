@@ -6,6 +6,7 @@
 //
 
 @import '../../temp-carbon-expressive/button/button-expressive';
+@import 'carbon-components/scss/components/button/button';
 
 /// Footer locale button
 /// @access private
@@ -75,6 +76,7 @@
 
 @include exports('local-button') {
   @include carbon--theme($carbon--theme--g90) {
+    @include button;
     @include local-button;
   }
 }
