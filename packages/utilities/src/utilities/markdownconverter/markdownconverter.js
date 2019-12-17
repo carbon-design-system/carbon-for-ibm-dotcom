@@ -1,4 +1,5 @@
 const _htmlTagRegex = /<.*?>/g;
+const _doubleSpaceRegex = /\s{2,}/g;
 const _italicRegex = /[_*](.*?)[_*]/g;
 const _boldRegex = /[_*]{2}(.*?)[_*]{2}/g;
 
@@ -8,6 +9,13 @@ const _boldRegex = /[_*]{2}(.*?)[_*]{2}/g;
  * @returns {string} String with html tags stripped out
  */
 const _removeHtmlTags = str => str.replace(_htmlTagRegex, '');
+
+/**
+ *
+ * @param {string} str String to be checked for double spaces
+ * @returns {string} String with html double spaces fixed
+ */
+const _fixDoubleSpaces = str => str.replace(_doubleSpaceRegex, ' ');
 
 /**
  * Utiltity function for converting markdown into html
@@ -38,7 +46,7 @@ function markdownConverter(str, { italic, bold } = {}) {
     converted = converted.replace(_boldRegex, '<strong>$1</strong>');
   }
 
-  return converted;
+  return _fixDoubleSpaces(converted);
 }
 
 export default markdownConverter;
