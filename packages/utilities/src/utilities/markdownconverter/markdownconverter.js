@@ -29,6 +29,7 @@ const _fixDoubleSpaces = str => str.replace(_doubleSpaceRegex, ' ');
  * import { markdownConverter } from '@carbon/ibmdotcom-utilities';
  *
  * markdownConverter('Lorem _ipsum_ __dolor__ *sit* **amet**.')
+ * // Lorem <em>ipsum</em> <strong>dolor</strong> <em>sit</em> <strong>amet</strong>.'
  */
 function markdownConverter(str, { italic, bold } = {}) {
   const isAllStyles = !italic && !bold;
