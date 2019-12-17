@@ -7,36 +7,51 @@
 @import '../../components/link-with-icon/link-with-icon';
 
 @mixin themed-items {
+  color: $text-01;
+  background: $ui-background;
   .bx--card-link {
     background-color: $ui-01;
-    border-color: $ui-02;
-    padding: 0;
+    outline: 1px solid $ui-background;
     &__title {
-      padding: $carbon--spacing-05;
       color: $text-01;
     }
     &__content {
-      padding: $carbon--spacing-05;
-      color: $text-01;
+      color: $text-02;
     }
     &__footer {
       svg {
         fill: $link-01;
       }
     }
+    &:last-child {
+      background-color: $ui-05;
+      .bx--card-link__title {
+        color: $ui-02;
+      }
+      .bx--card-link__footer {
+        svg {
+          fill: $inverse-support-04;
+        }
+      }
+    }
   }
 }
-@mixin cards-with-images-group {
-  .#{$prefix}--cards-with-images-group {
+@mixin card-section {
+  .#{$prefix}--card-section {
     padding-bottom: $carbon--layout-05;
+    &:last-child {
+      padding-bottom: 0;
+    }
     &__title {
       @include type-style('expressive-heading-02');
 
-      padding-bottom: $layout-05;
+      padding-bottom: $carbon--spacing-05;
     }
     &__cards {
       display: flex;
+      float: right;
       flex-wrap: wrap;
+      margin-top: carbon--rem(-115px);
     }
     .bx--card-link {
       @include carbon--make-col(8, 8);
@@ -56,6 +71,8 @@
       }
       &__title {
         @include carbon--type-style('expressive-heading-03');
+
+        padding-bottom: $carbon--layout-05;
       }
       &__content {
         min-height: 50px;
@@ -68,14 +85,33 @@
         display: flex;
         align-items: center;
         width: $carbon--layout-04;
+        margin-left: carbon--rem(-14px);
+        margin-bottom: carbon--rem(-14px);
       }
     }
-    @include carbon--breakpoint('md') {
-      .bx--card-link {
-        &__image {
-          height: 240px;
-        }
+    &__container {
+      @include carbon--make-container;
 
+      padding-top: $carbon--spacing-07;
+      padding-bottom: $carbon--layout-06;
+      margin-top: carbon--rem(-45px);
+    }
+    &__row {
+      @include carbon--make-row;
+    }
+    &__col {
+      @include carbon--make-col-ready;
+    }
+    @include carbon--breakpoint('md') {
+      &__title {
+        margin-top: $carbon--layout-05;
+        margin-bottom: $carbon--spacing-09;
+      }
+      &__col {
+        padding-left: 0;
+        padding-right: 0;
+      }
+      .bx--card-link {
         flex: 1 1;
         @include carbon--make-col(4, 8);
       }
@@ -93,32 +129,20 @@
       }
       .bx--card-link {
         @include carbon--make-col(4, 12);
-        &__image {
-          height: 192px;
-        }
       }
-    }
-    @include carbon--breakpoint('max') {
-      display: flex;
-      padding-bottom: $carbon--layout-07;
-      &__title {
-        @include carbon--make-col(4, 16);
-      }
-      &__cards {
-        @include carbon--make-col(12, 16);
-      }
-      .bx--card-link {
-        @include carbon--make-col(4, 12);
+      &__container {
+        padding-top: $carbon--layout-04;
+        padding-bottom: $carbon--layout-07;
       }
     }
     @include themed-items;
   }
-  .#{$prefix}--cards-with-images-group#{$prefix}--cards-with-images-group--g10 {
+  .#{$prefix}--card-section.#{$prefix}--card-section--g10 {
     @include carbon--theme($carbon--theme--g10) {
       @include themed-items;
     }
   }
 }
-@include exports('cards-with-images-group') {
-  @include cards-with-images-group;
+@include exports('card-section') {
+  @include card-section;
 }

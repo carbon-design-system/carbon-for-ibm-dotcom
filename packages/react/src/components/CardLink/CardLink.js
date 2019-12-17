@@ -42,9 +42,11 @@ const CardLink = ({
       href={href}
       {...props}>
       {renderImage(imgSrc, altText)}
-      <h3 className={`${prefix}--card-link__title`}>{title}</h3>
-      {optionalContent(content)}
-      {renderFooter(icon)}
+      <div className={`${prefix}--card-link__wrapper`}>
+        <h3 className={`${prefix}--card-link__title`}>{title}</h3>
+        {optionalContent(content)}
+        {renderFooter(icon)}
+      </div>
     </ClickableTile>
   );
 };

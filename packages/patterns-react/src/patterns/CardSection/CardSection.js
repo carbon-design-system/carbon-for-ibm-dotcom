@@ -1,43 +1,30 @@
-/**
- * Copyright IBM Corp. 2016, 2018
- *
- * This source code is licensed under the Apache-2.0 license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-/**
- * Copyright IBM Corp. 2016, 2018
- *
- * This source code is licensed under the Apache-2.0 license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
 import React, { useLayoutEffect } from 'react';
-import PropTypes from 'prop-types';
 import root from 'window-or-global';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
 import classNames from 'classnames';
 import { featureFlag, matchHeight } from '@carbon/ibmdotcom-utilities';
 import { DDS_CARD_SECTION } from '../../internal/FeatureFlags';
-import CardsWithImagesGroup from './CardsWithImagesGroup';
-import CardsWithoutImagesGroup from './CardsWithoutImagesGroup';
+import { CardLink } from '@carbon/ibmdotcom-react';
+import { ArrowRight20 } from '@carbon/icons-react';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
- * Cards with images pattern
+ * Card section Component
  *
  * @param {object} props props object
- * @param {Array} props.cardsGroup cardsGroup array with title, groupCard and cards properties
+ * @param {string} props.title cards group title
+ * @param {string} props.theme theme name
+ * @param {Array} props.cards Array of object with title, href and target properties
  * @returns {object} JSX Object
  */
-const CardSection = ({ theme, cardsGroup, cardType }) => {
+const CardSection = ({ title, cards, theme }) => {
   useLayoutEffect(() => {
     root.addEventListener(
       'resize',
-      matchHeight(`.${prefix}--cards-with-images-group__cards`)
+      matchHeight(`.${prefix}--cards-section__cards`)
     );
   });
 
@@ -48,56 +35,38 @@ const CardSection = ({ theme, cardsGroup, cardType }) => {
    * @returns {string} theme css class names
    */
   const setTheme = theme => {
-    return theme && `${prefix}--cards-with-images--${theme}`;
+    return theme && `${prefix}--card-section--${theme}`;
   };
 
   return featureFlag(
     DDS_CARD_SECTION,
     <section
-      data-autoid={`${stablePrefix}--cards-with-images`}
-      className={classNames(`${prefix}--cards-with-images`, setTheme(theme))}>
-      <div className={`${prefix}--cards-with-images__container`}>
-        <div className={`${prefix}--cards-with-images__row`}>
-          <div className={`${prefix}--cards-with-images__col`}>
-            {_renderCardsGroup(theme, cardsGroup, cardType)}
+      data-autoid={`${stablePrefix}--card-section`}
+      className={classNames(`${prefix}--card-section`, setTheme(theme))}>
+      <div className={`${prefix}--card-section__container`}>
+        <div className={`${prefix}--card-section__row`}>
+          <div className={`${prefix}--card-section__col`}>
+            <h2 className={`${prefix}--card-section__title`}>{title}</h2>
+            <div className={`${prefix}--card-section__cards`}>
+              {cards.map(card => {
+                return (
+                  <CardLink
+                    imgSrc={card.imgSrc}
+                    altText={card.altText}
+                    title={card.title}
+                    content={card.copy}
+                    href={card.link.href}
+                    target={card.link.target}
+                    icon={<ArrowRight20 />}
+                  />
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>
     </section>
   );
-};
-
-/**
- * Render Cards with images Group Component
- *
- * @private
- * @param {string} theme theme name
- * @param {Array} cardsGroup cardsGroup array with title, groupCard and cards properties
- * @returns {object} JSX Object
- */
-const _renderCardsGroup = (theme, cardsGroup) => {
-  return cardsGroup.map(group => {
-    let Component;
-    if (group.type === 'simpleCards') {
-      Component = CardsWithoutImagesGroup;
-    } else if (group.type === 'imageCards') {
-      Component = CardsWithImagesGroup;
-    }
-    return (
-      <Component
-        key={group.title}
-        title={group.title}
-        groupCard={group.groupCard}
-        cards={group.cards}
-        theme={theme}
-      />
-    );
-  });
-};
-
-CardSection.propTypes = {
-  theme: PropTypes.string,
-  cardsGroup: PropTypes.array,
 };
 
 export default CardSection;

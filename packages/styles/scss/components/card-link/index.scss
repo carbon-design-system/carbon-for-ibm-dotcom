@@ -17,10 +17,18 @@
     text-decoration: none;
     display: flex;
     flex-direction: column;
-    padding: $spacing-05;
 
     > *:not(:last-child) {
       margin-bottom: $spacing-07;
+    }
+
+    &__wrapper {
+      padding: $spacing-05;
+    }
+
+    &__image {
+      width: 100%;
+      height: 240px;
     }
 
     &__title {
