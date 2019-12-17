@@ -13,6 +13,8 @@
 /// @group footer
 
 @mixin local-button {
+  @include button;
+
   .#{$prefix}--modal-content {
     height: 500px;
   }
@@ -76,7 +78,6 @@
 
 @include exports('local-button') {
   @include carbon--theme($carbon--theme--g90) {
-    @include button;
     @include local-button;
   }
 }
