@@ -14,7 +14,7 @@ storiesOf('masthead', module)
   .add('Default', () => {
     const standardProps = {
       hasProfile: boolean('Has profile', true),
-      hasSearch: boolean('Has search', false),
+      hasSearch: boolean('Has search', true),
     };
 
     /**
@@ -23,7 +23,10 @@ storiesOf('masthead', module)
      * @returns {string} string
      */
     async function _getMasthead() {
-      const template = await Masthead.getMastheadWithData(standardProps);
+      const template = await Masthead.getMastheadWithData(
+        standardProps.hasProfile,
+        standardProps.hasSearch
+      );
 
       return template;
     }
