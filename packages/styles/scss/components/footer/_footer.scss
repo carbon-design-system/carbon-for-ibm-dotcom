@@ -13,6 +13,8 @@
 
 @mixin footer {
   .#{$prefix}--footer {
+    @include temp-link-expressive;
+
     color: $text-01;
     background-color: $ui-background;
     padding-top: carbon--mini-units(6);

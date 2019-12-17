@@ -15,6 +15,7 @@
 @mixin footer-nav {
   .#{$prefix}--footer-nav {
     @include accordion;
+    @include temp-accordion-expressive;
     @include carbon--make-col-ready;
 
     padding: 0;
