@@ -15,11 +15,16 @@
 /// @access private
 /// @group button-expressive
 @mixin button-expressive {
+  $button-padding: calc(0.875rem - 4px) rem(61px) calc(0.875rem - 4px) rem(13px);
+  $button-padding-field: rem(6px) rem(61px) rem(6px) rem(13px);
+  $button-padding-ghost: calc(0.875rem - 4px) rem(13px);
+  $button-padding-ghost-field: rem(6px) rem(13px);
+
   .#{$prefix}--btn {
-    padding: calc(0.875rem - 4px) 61px calc(0.875rem - 4px) 13px;
+    padding: $button-padding;
 
     &.#{$prefix}--btn--ghost {
-      padding: calc(0.875rem - 4px) 13px;
+      padding: $button-padding-ghost;
     }
 
     .#{$prefix}--btn__icon {
@@ -30,10 +35,10 @@
 
   .#{$prefix}--btn--field,
   .#{$prefix}--btn--sm {
-    padding: 6px 61px 6px 13px;
+    padding: $button-padding-field;
 
     &.#{$prefix}--btn--ghost {
-      padding: 6px 13px;
+      padding: $button-padding-ghost-field;
     }
   }
 
