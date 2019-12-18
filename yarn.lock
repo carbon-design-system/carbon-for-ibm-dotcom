@@ -7146,7 +7146,7 @@ carbon-components-react@7.7.4, carbon-components-react@^7.7.4:
     warning "^3.0.0"
     window-or-global "^1.0.1"
 
-carbon-components@10.7.4:
+carbon-components@10.7.4, carbon-components@^10.7.4:
   version "10.7.4"
   resolved "https://registry.yarnpkg.com/carbon-components/-/carbon-components-10.7.4.tgz#e8c734ee2dd736117f6dba160260760c4e795614"
   integrity sha512-eiAfSQQVa1BTv2y/hzgv7l4rpd/SksFBenxezXEXc6684duleBLj5Jz1wyMqLGVp5ZEjJuAIbAyf9zs89AT9ig==
