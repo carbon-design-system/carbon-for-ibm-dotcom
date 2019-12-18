@@ -13,7 +13,7 @@
  *
  * sameheight(ElementArray, 'md');
  *
- * if you want the utility to refresh the sizes as you resize the screen, consideer using a listener:
+ * if you want the utility to refresh the sizes as you resize the screen, consider using a listener:
  * window.addEventListener('resize', sameheight(ElementArray, 'md'));
  *
  * @param {Array} elemCollection Html objects array
