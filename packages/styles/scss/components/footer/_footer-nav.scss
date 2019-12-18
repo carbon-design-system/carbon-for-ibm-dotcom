@@ -6,6 +6,7 @@
 //
 
 @import '../../temp-carbon-expressive/accordion/accordion-expressive';
+@import 'carbon-components/scss/components/accordion/accordion';
 
 /// Footer nav styles
 /// @access private
@@ -13,6 +14,8 @@
 
 @mixin footer-nav {
   .#{$prefix}--footer-nav {
+    @include accordion;
+    @include temp-accordion-expressive;
     @include carbon--make-col-ready;
 
     padding: 0;
