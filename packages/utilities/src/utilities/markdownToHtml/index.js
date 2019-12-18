@@ -5,4 +5,4 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-export { default as markdownConverter } from './markdownconverter';
+export { default as markdownToHtml } from './markdownToHtml';

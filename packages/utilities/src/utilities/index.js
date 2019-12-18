@@ -10,6 +10,6 @@ export * from './escaperegexp';
 export * from './featureflag';
 export * from './geolocation';
 export * from './ipcinfoCookie';
+export * from './markdownToHtml';
 export * from './serialize';
-export * from './markdownconverter';
 export * from './settings';

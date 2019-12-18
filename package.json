@@ -43,6 +43,7 @@
     "axios": "^0.19.0",
     "babel-eslint": "^10.0.2",
     "browserslist-config-carbon": "^10.3.0",
+    "carbon-components": "^10.7.4",
     "cross-env": "^5.2.0",
     "doctoc": "^1.4.0",
     "enzyme-to-json": "^3.3.5",
