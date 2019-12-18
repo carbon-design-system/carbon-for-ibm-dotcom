@@ -30,21 +30,22 @@ import { ButtonGroup } from '@carbon/ibmdotcom-react';
 import 'yourapplication.scss';
 import '@carbon/ibmdotcom-styles/scss/components/buttongroup/_buttongroup.scss';
 function App() {
-  return;
-  <ButtonGroup
-    buttons={[
-      {
-        href: '',
-        copy: 'Primary action button',
-        renderIcon: ArrowDown20,
-      },
-      {
-        href: '',
-        copy: 'Secondary action button',
-        renderIcon: ArrowRight20,
-      },
-    ]}
-  />;
+  return (
+    <ButtonGroup
+      buttons={[
+        {
+          href: 'https://example.com',
+          copy: 'Primary action button',
+          renderIcon: ArrowDown20,
+        },
+        {
+          href: 'https://example.com',
+          copy: 'Secondary action button',
+          renderIcon: ArrowRight20,
+        },
+      ]}
+    />
+  );
 }
 ReactDOM.render(<App />, document.querySelector('#app'));
 ```
@@ -65,28 +66,28 @@ import '@carbon/grid/scss/grid.scss';
 import 'yourapplication.scss';
 import '@carbon/ibmdotcom-styles/scss/components/buttongroup/_buttongroup.scss';
 function App() {
-  return;
-  <div className="bx-grid">
-    <div className="row">
-      <div className="bx--col-lg-12 bx--col-md-8 bx--col-sm-16">
-        <ButtonGroup
-          buttons={[
-            {
-              href: '',
-              copy: 'Primary action button',
-              renderIcon: ArrowDown20,
-            },
-            {
-              href: '',
-              copy: 'Secondary action button',
-              renderIcon: ArrowRight20,
-            },
-          ]}
-        />
-        ;
+  return (
+    <div className="bx-grid">
+      <div className="row">
+        <div className="bx--col-lg-12 bx--col-md-8 bx--col-sm-16">
+          <ButtonGroup
+            buttons={[
+              {
+                href: 'https://example.com',
+                copy: 'Primary action button',
+                renderIcon: ArrowDown20,
+              },
+              {
+                href: 'https://example.com',
+                copy: 'Secondary action button',
+                renderIcon: ArrowRight20,
+              },
+            ]}
+          />
+        </div>
       </div>
     </div>
-  </div>;
+  );
 }
 ReactDOM.render(<App />, document.querySelector('#app'));
 ```
