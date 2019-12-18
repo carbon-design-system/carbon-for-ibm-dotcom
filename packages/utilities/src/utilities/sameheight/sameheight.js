@@ -22,7 +22,7 @@
  */
 function sameheight(elemCollection, minSize) {
   const elemArr = Array.prototype.slice.call(elemCollection);
-  let targetWidth;
+  let targetWidth = 0;
   if (minSize) {
     switch (minSize) {
       case 'md':
@@ -36,9 +36,6 @@ function sameheight(elemCollection, minSize) {
         break;
       case 'max':
         targetWidth = 1583;
-        break;
-      default:
-        targetWidth = 0;
         break;
     }
   }
