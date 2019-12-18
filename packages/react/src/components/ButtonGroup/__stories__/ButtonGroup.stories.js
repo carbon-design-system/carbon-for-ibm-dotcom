@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, text, select } from '@storybook/addon-knobs';
+import { withKnobs, text, select, number } from '@storybook/addon-knobs';
 import { ArrowRight20, ArrowDown20, Pdf20 } from '@carbon/icons-react';
 import readme from '../README.md';
 import { DDS_BUTTON_GROUP } from '../../../internal/FeatureFlags';
@@ -31,27 +31,19 @@ if (DDS_BUTTON_GROUP) {
         PDF: 'Pdf20',
       };
 
-      const primaryIcon =
-        iconMap[
-          select('Primary button icon', iconOptions, iconOptions['Arrow Right'])
-        ];
-      const secondaryIcon =
-        iconMap[
-          select('Secondary button icon', iconOptions, iconOptions['PDF'])
-        ];
+      const buttonCount = number('Number of buttons', 2);
+      const buttons = [];
 
-      const buttons = [
-        {
-          href: 'https://www.ibm.com',
-          copy: text('Primary button copy', 'Primary action button'),
-          renderIcon: primaryIcon || null,
-        },
-        {
-          href: 'https://www.ibm.com',
-          copy: text('Secondary button copy', 'Secondary action button'),
-          renderIcon: secondaryIcon || null,
-        },
-      ];
+      for (let i = 0; i < buttonCount; i++) {
+        buttons.push({
+          link: text(`Link ${i + 1}`, `https://example.com`),
+          copy: text(`Button ${i + 1}`, `Button ${i + 1}`),
+          renderIcon:
+            iconMap[
+              select(`Icon ${i + 1}`, iconOptions, iconOptions['Arrow Right'])
+            ],
+        });
+      }
 
       return (
         <div
