@@ -98,7 +98,9 @@ release_notes () {
 
 # Auto generate the change logs
 change_logs () {
-  endpoint_releases="https://api.github.com/repos/jeffchew/ibm-dotcom-library/releases"
+  repo="https://api.github.com/repos/jeffchew/ibm-dotcom-library/releases"
+  branch=$(git rev-parse --abbrev-ref HEAD)
+  token=$(git config --global github.token)
   return="
 
 "
@@ -106,6 +108,7 @@ change_logs () {
   patterns="$(git diff HEAD^^ --unified=0 packages/patterns-react/CHANGELOG.md | sed -e '1,5d' | sed -e :a -e '$d;N;2,5ba' -e 'P;D' | sed -e 's/^\+//' | sed -e 's/# \[/# Patterns \[/g')$return$return"
   vanilla="$(git diff HEAD^^ --unified=0 packages/vanilla/CHANGELOG.md | sed -e '1,5d' | sed -e :a -e '$d;N;2,5ba' -e 'P;D' | sed -e 's/^\+//' | sed -e 's/# \[/# Vanilla \[/g')$return$return"
   services="$(git diff HEAD^^ --unified=0 packages/services/CHANGELOG.md | sed -e '1,5d' | sed -e :a -e '$d;N;2,5ba' -e 'P;D' | sed -e 's/^\+//' | sed -e 's/# \[/# Services \[/g')$return$return"
+  styles="$(git diff HEAD^^ --unified=0 packages/styles/CHANGELOG.md | sed -e '1,5d' | sed -e :a -e '$d;N;2,5ba' -e 'P;D' | sed -e 's/^\+//' | sed -e 's/# \[/# Styles \[/g')$return$return"
   utilities="$(git diff HEAD^^ --unified=0 packages/utilities/CHANGELOG.md | sed -e '1,5d' | sed -e :a -e '$d;N;2,5ba' -e 'P;D' | sed -e 's/^\+//' | sed -e 's/# \[/# Utilities \[/g')$return$return"
 
   if [[ $react == *"Version bump only"* ]]; then
@@ -124,22 +127,23 @@ change_logs () {
     services=''
   fi
 
+  if [[ $styles == *"Version bump only"* ]]; then
+    styles=''
+  fi
+
   if [[ $utilities == *"Version bump only"* ]]; then
     utilities=''
   fi
 
-  body=$(cat <<EOF
-{
-  "tag_name": "$tagname",
-  "name": "$tagname",
-  "body": "$react$patterns$vanilla$services$utilities",
-  "prerelease": true
-}
-EOF
-)
-echo "$body"
-  curl -X POST -H "Content-Type: application/json" -d '$body' https://api.github.com/repos/jeffchew/ibm-dotcom-library/releases
-  echo -e "${GREEN}Release created: https://github.com/jeffchew/ibm-dotcom-library/releases/tag/$tagname${NC}"
+  body=$(printf '{"tag_name": "%s","target_commitish": "%s","name": "%s","body": "%s","draft": false,"prerelease": true}' "$tagname" "$branch" "$tagname" "$react$patterns$vanilla$services$styles$utilities" )
+
+echo $body
+  response=$(curl --data "$body" ${repo}?access_token=${token})
+  if [[ $response.message == "Success" ]]; then
+    echo -e "${GREEN}Release created: https://github.com/jeffchew/ibm-dotcom-library/releases/tag/$tagname${NC}"
+  fi
+    echo -e "${RED}Error creating the release! Check if the Github token is set correctly (e.g. 'git config --global github.token YOUR_TOKEN')${NC}"
+    echo $response
 }
 
 pinned_issue () {
