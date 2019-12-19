@@ -29,7 +29,7 @@ const _fixDoubleSpaces = str => str.replace(_doubleSpaceRegex, ' ');
  * <p>It's not a full markdown-to-html converter</p>
  * <p>It currently supports two syntaxes: <strong>Bold</strong> and <em>Italic</em></p>
  * <ul>
- * <li>Bold: Double asterisk (**) or double underscore (__).</li>
+ * <li>Bold: Double asterisk (**) or double underscore (__)</li>
  * <li>Bold examples: **Lorem ipsum** __dolor__</li>
  * <li>Italic: Single asterisk (*) or single underscore (_)</li>
  * <li>Italic examples: _Lorem ipsum_ *dolor*</li>
@@ -45,8 +45,8 @@ const _fixDoubleSpaces = str => str.replace(_doubleSpaceRegex, ' ');
  * @example
  * import { markdownToHtml } from '@carbon/ibmdotcom-utilities';
  *
- * markdownToHtml('Lorem _ipsum_ __dolor__ *sit* **amet**.')
- * // 'Lorem <em>ipsum</em> <strong>dolor</strong> <em>sit</em> <strong>amet</strong>.'
+ * markdownToHtml('Lorem *ipsum* dolor __sit__.')
+ * // 'Lorem <em class="bx--type-light">ipsum</em> dolor <strong class="bx--type-semibold">sit</strong>.'
  */
 function markdownToHtml(
   str,
