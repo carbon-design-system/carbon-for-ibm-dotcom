@@ -77,3 +77,11 @@ export const DDS_CARDS_WITHOUT_IMAGES =
  */
 export const DDS_USECASES =
   process.env.DDS_USECASES === 'true' || DDS_FLAGS_ALL || false;
+
+/**
+ * This determines if the simple overview will be rendered or not
+ *
+ * @type {string | boolean}
+ */
+export const DDS_SIMPLE_OVERVIEW =
+  process.env.DDS_SIMPLE_OVERVIEW === 'true' || DDS_FLAGS_ALL || false;
