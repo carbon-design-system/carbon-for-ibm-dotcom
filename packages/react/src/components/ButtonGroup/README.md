@@ -13,6 +13,7 @@ Here's a quick example to get you started.
 @import '@carbon/type/scss/font-face/sans';
 @include carbon--font-face-mono();
 @include carbon--font-face-sans();
+@import '@carbon/ibmdotcom-styles/scss/components/buttongroup/_buttongroup.scss';
 ```
 
 > 💡 Only import font's once per usage
@@ -28,23 +29,24 @@ import ReactDOM from 'react-dom';
 import { ArrowRight20, ArrowDown20 } from '@carbon/icons-react';
 import { ButtonGroup } from '@carbon/ibmdotcom-react';
 import 'yourapplication.scss';
-import '@carbon/ibmdotcom-styles/scss/components/buttongroup/_buttongroup.scss';
+
 function App() {
-  return;
-  <ButtonGroup
-    buttons={[
-      {
-        href: '',
-        copy: 'Primary action button',
-        renderIcon: ArrowDown20,
-      },
-      {
-        href: '',
-        copy: 'Secondary action button',
-        renderIcon: ArrowRight20,
-      },
-    ]}
-  />;
+  return (
+    <ButtonGroup
+      buttons={[
+        {
+          href: '',
+          copy: 'Primary action button',
+          renderIcon: ArrowDown20,
+        },
+        {
+          href: '',
+          copy: 'Secondary action button',
+          renderIcon: ArrowRight20,
+        },
+      ]}
+    />
+  );
 }
 ReactDOM.render(<App />, document.querySelector('#app'));
 ```
