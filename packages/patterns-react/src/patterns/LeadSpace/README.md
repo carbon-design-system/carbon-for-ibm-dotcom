@@ -62,11 +62,11 @@ DDS_LEADSPACE=true
 
 ### buttons (optional)
 
-| Name         | Data Type | Description                                                                                                                    |
-| ------------ | --------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| `link`       | String    | Url of the CTA                                                                                                                 |
-| `copy`       | String    | CTA's text                                                                                                                     |
-| `renderIcon` | String    | Provide an optional icon for the CTA from [Carbon's icon library](https://www.carbondesignsystem.com/guidelines/icons/library) |
+| Name         | Data Type | Description                                                                                                                                                                                       |
+| ------------ | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `link`       | String    | Url of the CTA                                                                                                                                                                                    |
+| `copy`       | String    | CTA's text                                                                                                                                                                                        |
+| `renderIcon` | Component | Provide an optional icon for the CTA from [Carbon's icon library](https://www.carbondesignsystem.com/guidelines/icons/library), it must be imported with from `'@carbon/icons-react'` before used |
 
 ### image (optional)
 
@@ -93,13 +93,12 @@ DDS_LEADSPACE=true
 
 ## Stable selectors
 
-| Name                          | Description                 |
-| ----------------------------- | --------------------------- |
-| `dds--leadspace`              | Pattern                     |
-| `dds--leadspace__desc`        | LeadSpace short description |
-| `dds--leadspace__image`       | LeadSpace background image  |
-| `dds--leadspace__ctas`        | LeadSpace CTAs              |
-| `dds--leadspace__ctas-${key}` | LeadSpace CTA               |
+| Name                    | Description                 |
+| ----------------------- | --------------------------- |
+| `dds--leadspace`        | Pattern                     |
+| `dds--leadspace__desc`  | LeadSpace short description |
+| `dds--leadspace__image` | LeadSpace background image  |
+| `dds--leadspace__ctas`  | LeadSpace CTAs wrapper      |
 
 ## 🙌 Contributing
 
