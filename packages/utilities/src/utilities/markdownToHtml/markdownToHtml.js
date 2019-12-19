@@ -40,6 +40,7 @@ const _fixDoubleSpaces = str => str.replace(_doubleSpaceRegex, ' ');
  * @param {object} [options={}] Object with options for the conversion
  * @param {boolean} [options.italic=false] Defines if should convert italic
  * @param {boolean} [options.bold=false] Defines if should convert bold
+ * @param {boolean} [options.allowHtml=false] Defines if should allow or remove html tags
  * @param {boolean} [options.useCarbonClasses=true] Defines if should use carbon typography classes
  * @returns {string} String converted to html
  * @example
@@ -50,10 +51,15 @@ const _fixDoubleSpaces = str => str.replace(_doubleSpaceRegex, ' ');
  */
 function markdownToHtml(
   str,
-  { italic = false, bold = false, useCarbonClasses = true } = {}
+  {
+    italic = false,
+    bold = false,
+    allowHtml = false,
+    useCarbonClasses = true,
+  } = {}
 ) {
   const isAllStyles = !italic && !bold;
-  let converted = _removeHtmlTags(str);
+  let converted = allowHtml ? str : _removeHtmlTags(str);
 
   if (italic || isAllStyles) {
     converted = converted.replace(_italicRegex, (match, p1) => {

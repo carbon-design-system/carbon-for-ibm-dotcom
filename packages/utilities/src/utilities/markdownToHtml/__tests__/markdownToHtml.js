@@ -25,9 +25,13 @@ describe('Markdown converter utility', () => {
     expect(output).toBe(expected);
   });
 
-  it('return the converted string without carbon classes', () => {
-    const output = markdownToHtml(str, { useCarbonClasses: false });
-    const expected = 'This is <em>italic</em> and <strong>bold</strong>.';
+  it('return the converted string without carbon classes and allowing html', () => {
+    const output = markdownToHtml(str, {
+      allowHtml: true,
+      useCarbonClasses: false,
+    });
+    const expected =
+      'This <p>is</p> <input value="something" /> <em>italic</em> and <strong>bold</strong>.';
     expect(output).toBe(expected);
   });
 });
