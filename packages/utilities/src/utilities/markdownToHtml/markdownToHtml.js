@@ -11,6 +11,7 @@ const _boldRegex = /[_*]{2}(.*?)[_*]{2}/g;
  *
  * @param {string} str String to be checked for html tags
  * @returns {string} String with html tags stripped out
+ * @private
  */
 const _removeHtmlTags = str => str.replace(_htmlTagRegex, '');
 
@@ -19,23 +20,27 @@ const _removeHtmlTags = str => str.replace(_htmlTagRegex, '');
  *
  * @param {string} str String to be checked for double spaces
  * @returns {string} String with html double spaces fixed
+ * @private
  */
 const _fixDoubleSpaces = str => str.replace(_doubleSpaceRegex, ' ');
 
 /**
  * Converts some markdown syntaxes into html
- * It's not a full markdown-to-html converter
- * It currently supports two syntaxes: Bold and Italic
- * Bold: Double asterisk (**) or double underscore (__).
- * Bold examples: **Lorem ipsum** __dolor__
- * Italic: Single asterisk (*) or single underscore (_)
- * Italic examples: _Lorem ipsum_ *dolor*
+ * <p>It's not a full markdown-to-html converter</p>
+ * <p>It currently supports two syntaxes: <strong>Bold</strong> and <em>Italic</em></p>
+ * <ul>
+ * <li>Bold: Double asterisk (**) or double underscore (__).</li>
+ * <li>Bold examples: **Lorem ipsum** __dolor__</li>
+ * <li>Italic: Single asterisk (*) or single underscore (_)</li>
+ * <li>Italic examples: _Lorem ipsum_ *dolor*</li>
+ * </ul>
+ *
  *
  * @param {string} str String to convert to html
- * @param {object} options Object with options for the conversion
- * @param {boolean} options.italic Defines if should convert italic
- * @param {boolean} options.bold Defines if should convert bold
- * @param {boolean} options.useCarbonClasses If true uses carbon typography classes
+ * @param {object} [options={}] Object with options for the conversion
+ * @param {boolean} [options.italic=false] Defines if should convert italic
+ * @param {boolean} [options.bold=false] Defines if should convert bold
+ * @param {boolean} [options.useCarbonClasses=true] Defines if should use carbon typography classes
  * @returns {string} String converted to html
  * @example
  * import { markdownToHtml } from '@carbon/ibmdotcom-utilities';
@@ -43,7 +48,10 @@ const _fixDoubleSpaces = str => str.replace(_doubleSpaceRegex, ' ');
  * markdownToHtml('Lorem _ipsum_ __dolor__ *sit* **amet**.')
  * // 'Lorem <em>ipsum</em> <strong>dolor</strong> <em>sit</em> <strong>amet</strong>.'
  */
-function markdownToHtml(str, { italic, bold, useCarbonClasses } = {}) {
+function markdownToHtml(
+  str,
+  { italic = false, bold = false, useCarbonClasses = true } = {}
+) {
   const isAllStyles = !italic && !bold;
   let converted = _removeHtmlTags(str);
 
