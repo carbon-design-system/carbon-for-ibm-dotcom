@@ -35,7 +35,7 @@ const _fixDoubleSpaces = str => str.replace(_doubleSpaceRegex, ' ');
  * @param {object} options Object with options for the conversion
  * @param {boolean} options.italic Defines if should convert italic
  * @param {boolean} options.bold Defines if should convert bold
- * @param {boolean} options.useCarbonClasses If true uses carbon type classes otherwise uses sematic html tags.
+ * @param {boolean} options.useCarbonClasses If true uses carbon typography classes
  * @returns {string} String converted to html
  * @example
  * import { markdownToHtml } from '@carbon/ibmdotcom-utilities';
@@ -53,14 +53,14 @@ function markdownToHtml(str, { italic, bold, useCarbonClasses } = {}) {
         return match;
       }
       return useCarbonClasses
-        ? `<span class="${prefix}--type-light">${p1}</span>`
+        ? `<em class="${prefix}--type-light">${p1}</em>`
         : `<em>${p1}</em>`;
     });
   }
   if (bold || isAllStyles) {
     converted = converted.replace(_boldRegex, (match, p1) => {
       return useCarbonClasses
-        ? `<span class="${prefix}--type-semibold">${p1}</span>`
+        ? `<strong class="${prefix}--type-semibold">${p1}</strong>`
         : `<strong>${p1}</strong>`;
     });
   }
