@@ -14,8 +14,8 @@ import {
   settings as ddsSettings,
 } from '@carbon/ibmdotcom-utilities';
 import { DDS_LEADSPACE } from '../../internal/FeatureFlags';
-import LeadSpaceButtons from './LeadSpaceButtons';
 import LeadSpaceImage from './LeadSpaceImage';
+import { ButtonGroup } from '@carbon/ibmdotcom-react';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
@@ -114,9 +114,7 @@ const LeadSpace = ({
                 )}
               </div>
             )}
-            {buttons && buttons.length > 0 && (
-              <LeadSpaceButtons buttons={buttons} />
-            )}
+            {buttons && buttons.length > 0 && <ButtonGroup buttons={buttons} />}
           </div>
         </div>
         {image && (
