@@ -1,12 +1,11 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, object, boolean } from '@storybook/addon-knobs';
-import '@carbon/grid/scss/grid.scss';
-import '../../../../../styles/scss/components/lightbox/_lightbox.scss';
-import readme from '../README.md';
 import { DDS_LIGHTBOX } from '../../../internal/FeatureFlags';
-
 import Lightbox from '../Lightbox';
+import readme from '../README.md';
+
+import './index.scss';
 
 if (DDS_LIGHTBOX) {
   storiesOf('Lightbox', module)

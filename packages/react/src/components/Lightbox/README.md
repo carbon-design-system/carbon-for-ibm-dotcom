@@ -12,6 +12,7 @@ Here's a quick example to get you started.
 @import '@carbon/type/scss/font-face/sans';
 @include carbon--font-face-mono();
 @include carbon--font-face-sans();
+@import '@carbon/ibmdotcom-styles/scss/components/lightbox/_lightbox.scss';
 ```
 
 > 💡 Only import font's once per usage
@@ -20,12 +21,11 @@ Here's a quick example to get you started.
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { LightBox } from '@carbon/ibmdotcom-react';
-import '@carbon/ibmdotcom-styles/scss/components/lightbox/_lightbox.scss';
 import 'yourapplication.scss';
 
 function App() {
-  return;
-  <LightBox
+  return (
+    <LightBox
     title='Curabitur malesuada varius mi eu posuere'
     copy='Lorem ipsum dolor sit amet, consectetur adipiscing Aenean et ultricies est.'
     image={
@@ -38,7 +38,8 @@ function App() {
       }
     open={true}
     onClose={() => alert('<<< model closed >>>')}
-  />;
+  />
+  );
 }
 ReactDOM.render(<App />, document.querySelector('#app'));
 ```
@@ -75,11 +76,18 @@ DDS_LIGHTBOX=true
 
 | Name  | Data Type | Description                 |
 | ----- | --------- | --------------------------- |
-| `uri` | object    | Urls for images             |
+| `uri` | Object    | Urls for images             |
 | `alt` | String    | Alternative text for images |
 
-> 💡 uri is valid if minimum one url is provided for sm, md or, lg in uri
-> object. 💡 See uri object structure above in `Getting started` section.
+### uri
+
+| Name     | Required | Data Type | Description                                            |
+| -------- | -------- | --------- | ------------------------------------------------------ |
+| `uri.sm` | NO       | String    | Url for image that uses for 0 to 320px breakpoint.     |
+| `uri.md` | NO       | String    | Url for image that uses for 320px to 672px breakpoint. |
+| `uri.lg` | YES      | String    | Url for image that uses for 672px and up breakpoint.   |
+
+> 💡 See uri object structure above in `Getting started` section.
 
 ## Stable selectors
 

@@ -44,7 +44,7 @@ const Lightbox = ({ title, copy, image, open, onClose }) => {
       : image.uri.sm;
   };
 
-  if (!title || !copy || !image) {
+  if (!image.uri.lg) {
     return null;
   }
   return featureFlag(
@@ -106,10 +106,14 @@ const Lightbox = ({ title, copy, image, open, onClose }) => {
 };
 
 Lightbox.PropTypes = {
-  title: PropTypes.string,
-  copy: PropTypes.string,
+  title: PropTypes.string.isRequired,
+  copy: PropTypes.string.isRequired,
   image: PropTypes.shape({
-    uri: PropTypes.shape,
+    uri: PropTypes.shape({
+      sm: PropTypes.string,
+      md: PropTypes.string,
+      lg: PropTypes.string.isRequired,
+    }),
     alt: PropTypes.string,
   }),
 };
