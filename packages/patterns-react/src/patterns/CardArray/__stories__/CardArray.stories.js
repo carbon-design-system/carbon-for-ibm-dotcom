@@ -7,7 +7,7 @@ import CardArray from '../CardArray';
 import readme from '../README.md';
 
 if (DDS_CARD_ARRAY) {
-  storiesOf('Content Array with Cards', module)
+  storiesOf('CardArray', module)
     .addDecorator(withKnobs)
     .addParameters({
       readme: {

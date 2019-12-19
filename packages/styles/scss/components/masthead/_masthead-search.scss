@@ -78,6 +78,10 @@
         width: 0.0625rem;
         background-color: #dcdcdc;
       }
+
+      @include carbon--breakpoint-down(lg) {
+        display: none;
+      }
     }
   }
 
