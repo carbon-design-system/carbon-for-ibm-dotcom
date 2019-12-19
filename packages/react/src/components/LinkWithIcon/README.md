@@ -12,6 +12,7 @@
 @import '@carbon/type/scss/font-face/sans';
 @include carbon--font-face-mono();
 @include carbon--font-face-sans();
+@import '@carbon/ibmdotcom-styles/scss/components/link-with-icon/_link-with-icon.scss';
 ```
 
 > 💡 Only import font's once per usage
@@ -21,7 +22,6 @@ import React from 'react';
 import { ArrowRight20 } from '@carbon/icons-react';
 import { LinkWithIcon } from '@carbon/ibmdotcom-react';
 import 'yourapplication.scss';
-import '@carbon/ibmdotcom-styles/scss/components/link-with-icon/_link-with-icon.scss';
 
 function App() {
   return (
