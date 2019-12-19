@@ -17,6 +17,13 @@
 
   .#{$prefix}--header__menu-trigger {
     margin-right: 0;
+
+    &.#{$prefix}--header__action--active {
+      + .#{$prefix}--header__logo {
+        z-index: 6001;
+        margin-left: $spacing-09;
+      }
+    }
   }
 
   .#{$prefix}--side-nav {
@@ -32,6 +39,32 @@
       .#{$prefix}--side-nav__item {
         border-bottom: 1px solid $ui-03;
       }
+    }
+
+    &__overlay {
+      top: 0;
+      @include carbon--breakpoint-down(md) {
+        background-color: $ui-background;
+      }
+    }
+
+    &:not(.#{$prefix}--side-nav--fixed):hover {
+      @include carbon--breakpoint-down(md) {
+        max-width: 100vw;
+        width: 100vw;
+      }
+    }
+
+    &--expanded {
+      @include carbon--breakpoint-down(md) {
+        max-width: 100vw;
+        width: 100vw;
+      }
+    }
+
+    .#{$prefix}--header__logo {
+      height: 3rem;
+      padding-left: $spacing-09;
     }
   }
 
@@ -123,6 +156,13 @@
 
     &[aria-haspopup='true'] {
       height: carbon--mini-units(6);
+      &.bx--side-nav__submenu-platform {
+        border-bottom: 1px solid $ui-03;
+        text-decoration: none;
+        color: $text-01;
+
+        @include carbon--type-style(expressive-heading-02, true);
+      }
     }
 
     &-chevron {
