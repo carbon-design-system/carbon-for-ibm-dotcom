@@ -8,15 +8,23 @@
 Run the following command using [npm](https://www.npmjs.com/):
 
 ```bash
-npm i @carbon/ibmdotcom-vanilla carbon-components carbon-icons
+npm i @carbon/ibmdotcom-vanilla
 ```
 
 If you prefer [Yarn](https://yarnpkg.com/en/), use the following command
 instead:
 
 ```bash
-yarn add @carbon/ibmdotcom-vanilla carbon-components carbon-icons
+yarn add @carbon/ibmdotcom-vanilla
 ```
+
+> NOTE: Carbon dependencies will be managed by the IBM.com Library starting in
+> `v1.3.0`. For earlier versions, Carbon dependencies will have to be installed
+> separately:
+>
+> ```bash
+> yarn add carbon-components carbon-icons
+> ```
 
 1. These components require the use of [Webpack](https://webpack.js.org/) in
    your project. See our

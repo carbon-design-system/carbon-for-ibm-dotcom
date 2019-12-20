@@ -14,6 +14,7 @@ Here's a quick example to get you started.
 @import '@carbon/type/scss/font-face/sans';
 @include carbon--font-face-mono();
 @include carbon--font-face-sans();
+@import '@carbon/ibmdotcom-styles/scss/components/card-link/index.scss';
 ```
 
 > 💡 Only import font's once per usage
@@ -23,8 +24,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { CardLink } from '@carbon/ibmdotcom-react';
 import 'yourapplication.scss';
-
-import '@carbon/ibmdotcom-styles/scss/components/card-link/index.scss';
 
 function App() {
   return (
@@ -37,21 +36,6 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 > 💡 Don't forget to import the card link styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
-
-#### Feature Flags
-
-To utilize the following features, set the following variable's to `true` within
-your `.env` file or your application build settings.
-
-```
-DDS_CARD_LINK=true
-```
-
-> See
-> [feature-flags.md](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/docs/feature-flags.md)
-> and
-> [.env.example](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/.env.example)
-> for more information
 
 ## Props
 

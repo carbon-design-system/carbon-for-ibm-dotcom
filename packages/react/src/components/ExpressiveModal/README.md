@@ -18,6 +18,7 @@ Here's a quick example to get you started.
 @import '@carbon/type/scss/font-face/sans';
 @include carbon--font-face-mono();
 @include carbon--font-face-sans();
+@import '@carbon/ibmdotcom-styles/scss/components/expressive-modal/expressive-modal.scss';
 ```
 
 > 💡 Only import font's once per usage
@@ -27,8 +28,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { ExpressiveModal } from '@carbon/ibmdotcom-react';
 import 'yourapplication.scss';
-
-import '@carbon/ibmdotcom-styles/scss/components/expressive-modal/expressive-modal.scss';
 
 function App() {
   return (
@@ -50,8 +49,16 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 | ----------- | -------- | --------------- | ------------- | --------------------------------------------------- |
 | `children`  | NO       | Node            | null          | Components/Elements to be rendered within the Modal |
 | `className` | NO       | String OR Array | null          | Custom classname(s) for the Modal                   |
+| `fullwidth` | NO       | Boolean         | false         | Sets whether the Modal is fullwidth or not          |
 | `onClose`   | NO       | Function        | null          | Function to be triggered on close of Modal          |
 | `open`      | NO       | Boolean         | false         | Sets whether the Modal is open/close                |
+
+## Stable selectors
+
+| Name                           | Description |
+| ------------------------------ | ----------- |
+| `dds--expressive-modal`        | Component   |
+| `dds--expressive-modal__close` | Interactive |
 
 ## Stable selectors
 

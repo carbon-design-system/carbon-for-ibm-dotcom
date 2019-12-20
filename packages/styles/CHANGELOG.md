@@ -3,6 +3,95 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.1-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-styles@1.2.0...@carbon/ibmdotcom-styles@1.2.1-rc.0) (2019-12-17)
+
+### Bug Fixes
+
+- **css:** fix responsive side nav for mobile views; fixes
+  [#781](https://github.com/carbon-design-system/ibm-dotcom-library/issues/781)
+  [#782](https://github.com/carbon-design-system/ibm-dotcom-library/issues/782)
+  ([8cc7699](https://github.com/carbon-design-system/ibm-dotcom-library/commit/8cc7699))
+- **css:** remove 1px space above TOC select; fixes
+  [#819](https://github.com/carbon-design-system/ibm-dotcom-library/issues/819)
+  ([b5dccd1](https://github.com/carbon-design-system/ibm-dotcom-library/commit/b5dccd1))
+- **footer:** add carbon accordion styles to theme mixin
+  ([8cdcc7f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/8cdcc7f))
+- **footer:** add carbon button style under theme mixin
+  ([fe1c9f7](https://github.com/carbon-design-system/ibm-dotcom-library/commit/fe1c9f7))
+- **footer:** fix locale button theming
+  ([0404026](https://github.com/carbon-design-system/ibm-dotcom-library/commit/0404026))
+- **footer:** include expressive styling
+  ([88fdfc9](https://github.com/carbon-design-system/ibm-dotcom-library/commit/88fdfc9))
+- **footer:** move button and accordion within classes
+  ([3e5b2e7](https://github.com/carbon-design-system/ibm-dotcom-library/commit/3e5b2e7))
+- **footer:** move styles within footer classes
+  ([bcc48ae](https://github.com/carbon-design-system/ibm-dotcom-library/commit/bcc48ae))
+- **footer:** moved carbon theme to mixin level
+  ([d3794f0](https://github.com/carbon-design-system/ibm-dotcom-library/commit/d3794f0))
+- **masthead:** add platform name to sidenav; fixes
+  [#782](https://github.com/carbon-design-system/ibm-dotcom-library/issues/782)
+  ([a669dc0](https://github.com/carbon-design-system/ibm-dotcom-library/commit/a669dc0))
+- **storybook:** fix to layout issues in storybook for mobile
+  ([f9b83cd](https://github.com/carbon-design-system/ibm-dotcom-library/commit/f9b83cd))
+- **storybook:** removing unused imports
+  ([22926dd](https://github.com/carbon-design-system/ibm-dotcom-library/commit/22926dd))
+
+### Features
+
+- **component:** implement fullwidth variant for expressive model
+  ([31a7cf0](https://github.com/carbon-design-system/ibm-dotcom-library/commit/31a7cf0))
+- **dependencies:** updates to carbon package dependencies
+  ([c436c55](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c436c55))
+- **storybook:** adding overview story for storybook
+  ([aeab973](https://github.com/carbon-design-system/ibm-dotcom-library/commit/aeab973))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.2.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-styles@1.2.0-rc.2...@carbon/ibmdotcom-styles@1.2.0) (2019-12-16)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.2.0-rc.2](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-styles@1.2.0-rc.1...@carbon/ibmdotcom-styles@1.2.0-rc.2) (2019-12-13)
+
+### Bug Fixes
+
+- **css:** locale region buttons now scroll when cut off; fixes
+  [#845](https://github.com/carbon-design-system/ibm-dotcom-library/issues/845)
+  ([5d94f15](https://github.com/carbon-design-system/ibm-dotcom-library/commit/5d94f15))
+- **footer:** style theme fixes for the footer
+  ([95f8d34](https://github.com/carbon-design-system/ibm-dotcom-library/commit/95f8d34))
+- **locale-selector:** various fixes to the locale modal
+  ([4e893ab](https://github.com/carbon-design-system/ibm-dotcom-library/commit/4e893ab))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.2.0-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-styles@1.2.0-rc.0...@carbon/ibmdotcom-styles@1.2.0-rc.1) (2019-12-10)
+
+### Bug Fixes
+
+- **css:** fix CardLink css and remove from LocaleModal
+  ([3954aff](https://github.com/carbon-design-system/ibm-dotcom-library/commit/3954aff))
+- **expressive:** fixed expressive yarn build
+  ([5089e48](https://github.com/carbon-design-system/ibm-dotcom-library/commit/5089e48))
+- **footer:** fix footer css; update close functionality
+  ([ab60f03](https://github.com/carbon-design-system/ibm-dotcom-library/commit/ab60f03))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.2.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-styles@1.1.2...@carbon/ibmdotcom-styles@1.2.0-rc.0) (2019-12-09)
 
 ### Bug Fixes

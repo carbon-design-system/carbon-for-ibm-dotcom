@@ -4,9 +4,10 @@ import { withKnobs, select, boolean, text } from '@storybook/addon-knobs';
 import DotcomShell from '../DotcomShell';
 import mastheadKnobs from '../../Masthead/__stories__/data/Masthead.stories.knobs.js';
 import readme from '../README.md';
-import '../../../../../styles/scss/components/dotcom-shell/_dotcom-shell.scss';
 import content from './data/content';
 import { DDS_MASTHEAD_L1 } from '../../../internal/FeatureFlags';
+
+import './index.scss';
 
 const footer = {
   default: 'default',

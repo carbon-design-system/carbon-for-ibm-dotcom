@@ -2,9 +2,10 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { DDS_TOC } from '../../../internal/FeatureFlags';
 import { withKnobs, select, text } from '@storybook/addon-knobs';
-import '../../../../../styles/scss/components/tableofcontents/index.scss';
 import TableOfContents from '../TableOfContents';
 import readme from '../README.md';
+
+import './index.scss';
 
 if (DDS_TOC) {
   storiesOf('Table of contents', module)
