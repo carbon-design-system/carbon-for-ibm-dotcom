@@ -18,6 +18,14 @@ instead:
 yarn add @carbon/ibmdotcom-vanilla
 ```
 
+> NOTE: Carbon dependencies will be managed by the IBM.com Library starting in
+> `v1.3.0`. For earlier versions, Carbon dependencies will have to be installed
+> separately:
+>
+> ```bash
+> yarn add carbon-components carbon-icons
+> ```
+
 1. These components require the use of [Webpack](https://webpack.js.org/) in
    your project. See our
    [`webpack.config.js`](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/vanilla/.storybook/webpack.config.js)
