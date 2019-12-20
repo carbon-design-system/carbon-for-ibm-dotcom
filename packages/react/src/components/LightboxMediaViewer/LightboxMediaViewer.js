@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import { ExpressiveModal } from '../ExpressiveModal';
 import { ModalBody } from 'carbon-components-react';
 import { settings } from 'carbon-components';
-import { DDS_LIGHTBOX } from '../../internal/FeatureFlags';
+import { DDS_LIGHTBOX_MEDIA_VIEWER } from '../../internal/FeatureFlags';
 import {
   featureFlag,
   settings as ddsSettings,
@@ -19,17 +19,17 @@ const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
- * Lightbox Component
+ * LightboxMediaViewer Component
  *
  * @param {object} props props object
- * @param {string} props.title LightBox media title
- * @param {string} props.copy Lightbox media short description
- * @param {string} props.image Lightbox responsive image object
+ * @param {string} props.title LightboxMediaViewer media title
+ * @param {string} props.copy LightboxMediaViewer media short description
+ * @param {string} props.image LightboxMediaViewer responsive image object
  * @param {boolean} props.open sets whether the modal is open/close
  * @param {Function} props.onClose do something on close in addition, return false to completely replace
  * @returns {*} JSX Object
  */
-const Lightbox = ({ title, copy, image, open, onClose }) => {
+const LightboxMediaViewer = ({ title, copy, image, open, onClose }) => {
   /**
    * Set default image
    *
@@ -48,17 +48,17 @@ const Lightbox = ({ title, copy, image, open, onClose }) => {
     return null;
   }
   return featureFlag(
-    DDS_LIGHTBOX,
+    DDS_LIGHTBOX_MEDIA_VIEWER,
     <section
-      data-autoid={`${stablePrefix}--lightbox`}
-      className={`${prefix}--lightbox`}>
+      data-autoid={`${stablePrefix}--lightbox-media-viewer`}
+      className={`${prefix}--lightbox-media-viewer`}>
       <ExpressiveModal open={open} fullwidth={true} onClose={onClose}>
         <ModalBody>
-          <div className={`${prefix}--lightbox__container`}>
-            <div className={`${prefix}--lightbox__row`}>
+          <div className={`${prefix}--lightbox-media-viewer__container`}>
+            <div className={`${prefix}--lightbox-media-viewer__row`}>
               <div
-                data-autoid={`${stablePrefix}--lightbox__image`}
-                className={`${prefix}--lightbox__image`}>
+                data-autoid={`${stablePrefix}--lightbox-media-viewer__image`}
+                className={`${prefix}--lightbox-media-viewer__image`}>
                 <picture>
                   {image.uri.lg && (
                     <source
@@ -81,18 +81,18 @@ const Lightbox = ({ title, copy, image, open, onClose }) => {
                   <img src={defaultImage(image)} alt={image.alt}></img>
                 </picture>
               </div>
-              <div className={`${prefix}--lightbox__content`}>
+              <div className={`${prefix}--lightbox-media-viewer__content`}>
                 {title && (
                   <div
-                    data-autoid={`${stablePrefix}--lightbox__content__title`}
-                    className={`${prefix}--lightbox__content__title`}>
+                    data-autoid={`${stablePrefix}--lightbox-media-viewer__content__title`}
+                    className={`${prefix}--lightbox-media-viewer__content__title`}>
                     {title}
                   </div>
                 )}
                 {copy && (
                   <div
-                    data-autoid={`${stablePrefix}--lightbox__content__desc`}
-                    className={`${prefix}--lightbox__content__desc`}>
+                    data-autoid={`${stablePrefix}--lightbox-media-viewer__content__desc`}
+                    className={`${prefix}--lightbox-media-viewer__content__desc`}>
                     {copy}
                   </div>
                 )}
@@ -105,7 +105,7 @@ const Lightbox = ({ title, copy, image, open, onClose }) => {
   );
 };
 
-Lightbox.PropTypes = {
+LightboxMediaViewer.PropTypes = {
   title: PropTypes.string.isRequired,
   copy: PropTypes.string.isRequired,
   image: PropTypes.shape({
@@ -117,4 +117,4 @@ Lightbox.PropTypes = {
     alt: PropTypes.string,
   }),
 };
-export default Lightbox;
+export default LightboxMediaViewer;

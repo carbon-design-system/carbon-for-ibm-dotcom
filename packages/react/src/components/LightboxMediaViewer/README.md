@@ -1,6 +1,6 @@
-# Lightbox
+# Lightbox Media Viewer
 
-> The Lightbox component is to be utilized within IBM.com.
+> The LightboxMediaViewer component is to be utilized within IBM.com.
 
 ## Getting started
 
@@ -12,7 +12,7 @@ Here's a quick example to get you started.
 @import '@carbon/type/scss/font-face/sans';
 @include carbon--font-face-mono();
 @include carbon--font-face-sans();
-@import '@carbon/ibmdotcom-styles/scss/components/lightbox/_lightbox.scss';
+@import '@carbon/ibmdotcom-styles/scss/components/lightbox-media-viewer/_lightbox-media-viewer.scss';
 ```
 
 > 💡 Only import font's once per usage
@@ -20,12 +20,12 @@ Here's a quick example to get you started.
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { LightBox } from '@carbon/ibmdotcom-react';
+import { LightboxMediaViewer } from '@carbon/ibmdotcom-react';
 import 'yourapplication.scss';
 
 function App() {
   return (
-    <LightBox
+    <LightboxMediaViewer
     title='Curabitur malesuada varius mi eu posuere'
     copy='Lorem ipsum dolor sit amet, consectetur adipiscing Aenean et ultricies est.'
     image={
@@ -44,7 +44,7 @@ function App() {
 ReactDOM.render(<App />, document.querySelector('#app'));
 ```
 
-> Don't forget to import the Lightbox styles from
+> Don't forget to import the LightboxMediaViewer styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
 #### Feature Flags
@@ -53,7 +53,7 @@ To utilize the following features, set the following variable's to `true` within
 your `.env` file or your application build settings.
 
 ```
-DDS_LIGHTBOX=true
+DDS_LightboxMediaViewer=true
 ```
 
 > See
@@ -64,13 +64,13 @@ DDS_LIGHTBOX=true
 
 ## Props
 
-| Name      | Required | Data Type | Default Value | Description                                             |
-| --------- | -------- | --------- | ------------- | ------------------------------------------------------- |
-| `title`   | NO       | String    | null          | Title text for lightbox image                           |
-| `copy`    | NO       | String    | null          | Short description text for lightbox image               |
-| `image`   | YES      | Object    | null          | Image object for lightbox. see `Image` below for detail |
-| `open`    | YES      | Boolean   | null          | sets `true | false` whether the lightbox is open/close  |
-| `onClose` | NO       | Function  | null          | Run the function to do something on close               |
+| Name      | Required | Data Type | Default Value | Description                                                        |
+| --------- | -------- | --------- | ------------- | ------------------------------------------------------------------ |
+| `title`   | NO       | String    | null          | Title text for LightboxMediaViewer image                           |
+| `copy`    | NO       | String    | null          | Short description text for LightboxMediaViewer image               |
+| `image`   | YES      | Object    | null          | Image object for LightboxMediaViewer. see `Image` below for detail |
+| `open`    | YES      | Boolean   | null          | sets `true | false` whether the LightboxMediaViewer is open/close  |
+| `onClose` | NO       | Function  | null          | Run the function to do something on close                          |
 
 ### Image
 
@@ -91,12 +91,12 @@ DDS_LIGHTBOX=true
 
 ## Stable selectors
 
-| Name                            | Description |
-| ------------------------------- | ----------- |
-| `dds--lightbox`                 | Component   |
-| `dds--lightbox__image`          | Interactive |
-| `dds--lightbox__content__title` | Interactive |
-| `dds--lightbox__content__desc`  | Interactive |
+| Name                                         | Description |
+| -------------------------------------------- | ----------- |
+| `dds--Lightbox-media-viewer`                 | Component   |
+| `dds--Lightbox-media-viewer__image`          | Interactive |
+| `dds--Lightbox-media-viewer__content__title` | Interactive |
+| `dds--Lightbox-media-viewer__content__desc`  | Interactive |
 
 ## 🙌 Contributing
 

@@ -5,4 +5,4 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-export { default as Lightbox } from './Lightbox';
+export { default as LightboxMediaViewer } from './LightboxMediaViewer';

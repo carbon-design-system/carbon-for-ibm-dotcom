@@ -1,14 +1,14 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, object, boolean } from '@storybook/addon-knobs';
-import { DDS_LIGHTBOX } from '../../../internal/FeatureFlags';
-import Lightbox from '../Lightbox';
+import { DDS_LIGHTBOX_MEDIA_VIEWER } from '../../../internal/FeatureFlags';
+import LightboxMediaViewer from '../LightboxMediaViewer';
 import readme from '../README.md';
 
 import './index.scss';
 
-if (DDS_LIGHTBOX) {
-  storiesOf('Lightbox', module)
+if (DDS_LIGHTBOX_MEDIA_VIEWER) {
+  storiesOf('LightboxMediaViewer', module)
     .addDecorator(withKnobs)
     .addParameters({
       readme: {
@@ -39,7 +39,7 @@ if (DDS_LIGHTBOX) {
         alt: 'Placeholder Image',
       };
       return (
-        <Lightbox
+        <LightboxMediaViewer
           title={title}
           copy={copy}
           image={object('image', image)}

@@ -8,8 +8,8 @@
 @import '../../globals/imports';
 @import '.././expressive-modal/expressive-modal';
 
-@mixin lightbox {
-  .#{$prefix}--lightbox {
+@mixin lightbox-media-viewer {
+  .#{$prefix}--lightbox-media-viewer {
     color: $text-01;
     &__container {
       @include carbon--make-container;
@@ -96,6 +96,6 @@
   }
 }
 
-@include exports('lightbox') {
-  @include lightbox;
+@include exports('lightbox-media-viewer') {
+  @include lightbox-media-viewer;
 }
