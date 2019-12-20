@@ -8,7 +8,7 @@
  */
 
 import * as keys from '../keys';
-import { matches, match } from '../match';
+import { match, matches } from '../match';
 
 describe('match', () => {
   let inputNode;

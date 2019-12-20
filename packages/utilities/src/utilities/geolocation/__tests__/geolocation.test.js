@@ -1,5 +1,5 @@
-import mockAxios from 'axios';
 import { geolocation } from '../';
+import mockAxios from 'axios';
 
 mockAxios.get.mockImplementationOnce(() =>
   Promise.resolve({
