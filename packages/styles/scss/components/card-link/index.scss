@@ -52,7 +52,7 @@
     }
 
     &:focus {
-      outline-color: $focus;
+      outline: 2px solid $focus;
     }
   }
 }
