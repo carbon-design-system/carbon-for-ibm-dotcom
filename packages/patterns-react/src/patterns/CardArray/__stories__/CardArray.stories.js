@@ -30,10 +30,7 @@ if (DDS_CARD_ARRAY) {
             'Card1 Body:',
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
           ),
-          link: {
-            target: text('Card1 link target:', '_blank'),
-            href: text('Card1 link href:', 'https://www.example.com'),
-          },
+          href: text('Card1 link href:', 'https://www.example.com'),
         },
         {
           title: text(
@@ -44,10 +41,7 @@ if (DDS_CARD_ARRAY) {
             'Card2 Body:',
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit'
           ),
-          link: {
-            target: text('Card2 link target:', '_blank'),
-            href: text('Card2 link href:', 'https://www.example.com'),
-          },
+          href: text('Card2 link href:', 'https://www.example.com'),
         },
         {
           title: text(
@@ -55,10 +49,7 @@ if (DDS_CARD_ARRAY) {
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit'
           ),
           copy: text('Card3 Body:', 'Lorem ipsum dolor sit amet'),
-          link: {
-            target: text('Card3 link target:', '_blank'),
-            href: text('Card3 link href:', 'https://www.example.com'),
-          },
+          href: text('Card3 link href:', 'https://www.example.com'),
         },
         {
           title: text(
@@ -69,10 +60,7 @@ if (DDS_CARD_ARRAY) {
             'Card4 Body:',
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt'
           ),
-          link: {
-            target: text('Card4 link target:', '_blank'),
-            href: text('Card1 link href:', 'https://www.example.com'),
-          },
+          href: text('Card4 link href:', 'https://www.example.com'),
         },
       ];
 

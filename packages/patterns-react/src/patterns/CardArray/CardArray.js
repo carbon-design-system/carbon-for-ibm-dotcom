@@ -12,6 +12,7 @@ import { settings } from 'carbon-components';
 import { featureFlag } from '@carbon/ibmdotcom-utilities';
 import { DDS_CARD_ARRAY } from '../../internal/FeatureFlags';
 import CardArrayItem from './CardArrayItem';
+import { sameheight } from '@carbon/ibmdotcom-utilities';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
@@ -28,24 +29,12 @@ const CardArray = ({ title, content }) => {
   const containerRef = useRef();
 
   useEffect(() => {
-    setCardsHeight();
+    sameheight(containerRef.current.children, 'md');
+    window.addEventListener(
+      'resize',
+      sameheight(containerRef.current.children, 'md')
+    );
   });
-
-  /**
-   * Set the cards to have the same height as the bigger one
-   */
-  const setCardsHeight = () => {
-    let biggest = 0;
-    const cards = Array.prototype.slice.call(containerRef.current.children);
-    cards.forEach(card => {
-      if (card.offsetHeight > biggest) {
-        biggest = card.offsetHeight;
-      }
-    });
-    cards.forEach(card => {
-      card.style.height = biggest + 'px';
-    });
-  };
 
   return featureFlag(
     DDS_CARD_ARRAY,
@@ -80,7 +69,7 @@ const CardArray = ({ title, content }) => {
  */
 const _renderCardArrayItems = contentArray =>
   contentArray.map(elem => (
-    <CardArrayItem title={elem.title} copy={elem.copy} link={elem.link} />
+    <CardArrayItem title={elem.title} copy={elem.copy} href={elem.href} />
   ));
 
 CardArray.propTypes = {
@@ -89,10 +78,7 @@ CardArray.propTypes = {
     PropTypes.shape({
       title: PropTypes.string,
       copy: PropTypes.string,
-      link: PropTypes.shape({
-        target: PropTypes.string,
-        href: PropTypes.string,
-      }),
+      href: PropTypes.string,
     })
   ),
 };
