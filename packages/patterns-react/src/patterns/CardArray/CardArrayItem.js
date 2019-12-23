@@ -11,6 +11,12 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
+<<<<<<< HEAD
+=======
+import { ArrowRight20 } from '@carbon/icons-react';
+import { CardLink } from '@carbon/ibmdotcom-react';
+import { markdownToHtml } from '@carbon/ibmdotcom-utilities';
+>>>>>>> feat(pattern): cardlink and sameheight utility usage added
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
@@ -24,33 +30,25 @@ const { prefix } = settings;
  * @param {object} props.link Card link object
  * @returns {*} JSX Card Array Item Object
  */
-const CardArrayItem = ({ title, copy, link }) => {
+const CardArrayItem = ({ title, copy, href }) => {
   return (
-    <div
+    <CardLink
       data-autoid={`${stablePrefix}--cardarray-item`}
-      className={`${prefix}--cardarray-item`}>
-      <h4 className={`${prefix}--cardarray-item__title`}>{title}</h4>
-      <p className={`${prefix}--cardarray-item__content`}>{copy}</p>
-      <div className={`${prefix}--cardarray-item__link`}>
-        <Button
-          className={`${prefix}--cardarray-item__link__button`}
-          href={link.href}
-          target={link.target}
-          kind="primary">
-          <ArrowRight20 fill="white" />
-        </Button>
-      </div>
-    </div>
+      className={`${prefix}--cardarray-item`}
+      title={title}
+      content={
+        <span dangerouslySetInnerHTML={{ __html: markdownToHtml(copy) }}></span>
+      }
+      icon={<ArrowRight20 />}
+      href={href}
+    />
   );
 };
 
 CardArrayItem.propTypes = {
   title: PropTypes.string,
   copy: PropTypes.string,
-  link: PropTypes.shape({
-    href: PropTypes.string,
-    target: PropTypes.string,
-  }),
+  href: PropTypes.string,
 };
 
 export default CardArrayItem;
