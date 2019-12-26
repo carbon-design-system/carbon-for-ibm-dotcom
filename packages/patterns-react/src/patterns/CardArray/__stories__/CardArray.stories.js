@@ -24,7 +24,7 @@ if (DDS_CARD_ARRAY) {
         {
           title: text(
             'Card1 Title:',
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit'
+            'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt'
           ),
           copy: text(
             'Card1 Body:',
