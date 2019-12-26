@@ -15,8 +15,14 @@ import { markdownToHtml, sameheight } from '@carbon/ibmdotcom-utilities';
 
 import { ArrowRight20 } from '@carbon/icons-react';
 import { DDS_CARD_ARRAY } from '../../internal/FeatureFlags';
+<<<<<<< HEAD
 import PropTypes from 'prop-types';
 import { settings } from 'carbon-components';
+=======
+import CardArrayItem from './CardArrayItem';
+import { sameheight } from '@carbon/ibmdotcom-utilities';
+import { ContentGroup } from '@carbon/ibmdotcom-react';
+>>>>>>> feat(component): content-group component created and added to card-array
 
 const { prefix } = settings;
 const { stablePrefix } = ddsSettings;
@@ -52,14 +58,18 @@ const CardArray = ({ title, content }) => {
   return featureFlag(
     DDS_CARD_ARRAY,
     <section data-autoid={`${stablePrefix}--cardarray`}>
+<<<<<<< HEAD
       <ContentGroup heading={{ copy: title }}>
+=======
+      <ContentGroup heading={{ copy: title, type: 'heading-4' }}>
+>>>>>>> feat(component): content-group component created and added to card-array
         <div
           className={`${prefix}--cardarray`}
           data-autoid={`${stablePrefix}--cardarray`}>
           <div
             data-autoid={`${stablePrefix}--cardarray-group`}
             ref={containerRef}
-            className={`${prefix}--cardarray__col ${prefix}--cardarray-group`}>
+            className={`${prefix}--cardarray__col ${prefix}--cardarray-group ${prefix}--grid--condensed`}>
             {_renderCardArrayItems(content)}
           </div>
         </div>

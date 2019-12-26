@@ -5,12 +5,21 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+<<<<<<< HEAD
 import { DDS_CONTENT_GROUP } from '../../internal/FeatureFlags';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { featureFlag } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
+=======
+import React from 'react';
+import PropTypes from 'prop-types';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import { settings } from 'carbon-components';
+import { featureFlag } from '@carbon/ibmdotcom-utilities';
+import { DDS_CONTENT_GROUP } from '../../internal/FeatureFlags';
+>>>>>>> feat(component): content-group component created and added to card-array
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
@@ -25,10 +34,14 @@ const { prefix } = settings;
  * @param {string} props.heading.copy Heading text
  * @returns {*} JSX ContentArrayGroup component
  */
+<<<<<<< HEAD
 const ContentGroup = ({
   children,
   heading = { type: 'heading-4', ...heading },
 }) => {
+=======
+const ContentGroup = ({ children, heading }) => {
+>>>>>>> feat(component): content-group component created and added to card-array
   return featureFlag(
     DDS_CONTENT_GROUP,
     <div
@@ -44,8 +57,13 @@ const ContentGroup = ({
           </h3>
         </div>
         <div
+<<<<<<< HEAD
           data-autoid={`${stablePrefix}--content-group__children`}
           className={`${prefix}--content-group__children`}>
+=======
+          data-autoid={`${stablePrefix}--content-group__content`}
+          className={`${prefix}--content-group__content`}>
+>>>>>>> feat(component): content-group component created and added to card-array
           {children}
         </div>
       </div>
