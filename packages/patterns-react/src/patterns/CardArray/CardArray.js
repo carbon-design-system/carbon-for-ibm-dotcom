@@ -12,6 +12,7 @@ import PropTypes from 'prop-types';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { featureFlag } from '@carbon/ibmdotcom-utilities';
 import { sameheight } from '@carbon/ibmdotcom-utilities';
+import { ContentGroup } from '@carbon/ibmdotcom-react';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
@@ -28,34 +29,38 @@ const CardArray = ({ title, content }) => {
   const containerRef = useRef();
 
   useEffect(() => {
-    sameheight(containerRef.current.children, 'md');
-    window.addEventListener(
-      'resize',
-      sameheight(containerRef.current.children, 'md')
-    );
+    setSameHeight();
+    window.addEventListener('resize', setSameHeight);
   });
+
+  /**
+   * Function that activates the sameheight utility
+   */
+  const setSameHeight = () => {
+    sameheight(
+      containerRef.current.getElementsByClassName(
+        `${prefix}--card-link__title`
+      ),
+      'md'
+    );
+    sameheight(containerRef.current.children, 'md');
+  };
 
   return featureFlag(
     DDS_CARD_ARRAY,
-    <section
-      className={`${prefix}--cardarray`}
-      data-autoid={`${stablePrefix}--cardarray`}>
-      <div className={`${prefix}--cardarray__container`}>
-        <div className={`${prefix}--cardarray__row`}>
-          <div className={`${prefix}--cardarray__col`}>
-            <h3 className={`${prefix}--cardarray__title`}>{title}</h3>
-          </div>
+    <section data-autoid={`${stablePrefix}--cardarray`}>
+      <ContentGroup heading={{ copy: title, type: 'heading-4' }}>
+        <div
+          className={`${prefix}--cardarray`}
+          data-autoid={`${stablePrefix}--cardarray`}>
           <div
             data-autoid={`${stablePrefix}--cardarray-group`}
             ref={containerRef}
-            className={`${prefix}--cardarray__col ${prefix}--cardarray-group`}>
+            className={`${prefix}--cardarray__col ${prefix}--cardarray-group ${prefix}--grid--condensed`}>
             {_renderCardArrayItems(content)}
           </div>
-          <div className={`${prefix}--cardarray__divider__col`}>
-            <div className={`${prefix}--cardarray__divider`}></div>
-          </div>
         </div>
-      </div>
+      </ContentGroup>
     </section>
   );
 };

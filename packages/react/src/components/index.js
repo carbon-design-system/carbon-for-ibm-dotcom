@@ -6,6 +6,7 @@
  */
 
 export * from './ButtonGroup';
+export * from './ContentGroup';
 export * from './DotcomShell';
 export * from './Footer';
 export * from './HorizontalRule';
