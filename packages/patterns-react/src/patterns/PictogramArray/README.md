@@ -75,24 +75,21 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 #### Markdown
 
-Some markdown syntaxes are accepted within the copy of the content item
+Italic is accepted in the copy of the content item using markdown sytanx: single
+`_` (underscore) or `*` (asterisk)
 
 Example:
 
 ```javascript
 {
-  copy: '_Lorem_ ipsum __dolor__ sit amet.',
+  copy: '_Lorem_ ipsum *dolor* sit amet.',
   ...
 }
 ```
 
 Renders:
 
-_Lorem_ ipsum **dolor** sit amet.
-
-> Check
-> [MarkdownToHtml utility](https://ibmdotcom-utilities.netlify.com/global.html#markdownToHtml)
-> for more information on accepted markdown syntaxes
+_Lorem_ ipsum _dolor_ sit amet.
 
 #### Feature Flags
 

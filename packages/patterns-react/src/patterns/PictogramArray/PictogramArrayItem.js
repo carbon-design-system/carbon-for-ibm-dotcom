@@ -25,7 +25,9 @@ const { prefix } = settings;
  * @returns {object} object with a __html key containing converted string
  */
 const convertMarkdown = string => ({
-  __html: markdownToHtml(string),
+  __html: markdownToHtml(string, {
+    italic: true,
+  }),
 });
 
 /**
