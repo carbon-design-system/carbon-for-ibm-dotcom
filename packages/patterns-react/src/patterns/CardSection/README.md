@@ -59,11 +59,11 @@ DDS_CARD_SECTION=true
 
 ### cardsGroup
 
-| Name        | Data Type | Description                                                                                            |
-| ----------- | --------- | ------------------------------------------------------------------------------------------------------ |
-| `title`     | String    | Cards without images title                                                                             |
-| `groupCard` | Object    | Href, text and target properties of the Top Level Card. See `groupCard` below.                         |
-| `cards`     | Array     | Array of objects with imgSrc, altText,title, copy and link properties of each card. See `cards` below. |
+| Name        | Data Type | Description                                                                                          |
+| ----------- | --------- | ---------------------------------------------------------------------------------------------------- |
+| `title`     | String    | Cards without images title.                                                                          |
+| `groupCard` | Object    | Href, text and target properties of the Top Level Card. See `groupCard` below.                       |
+| `cards`     | Array     | Array of objects with imgSrc, altText,title, copy and link properties of each card.See`cards` below. |
 
 ### groupCard (aka Top Level Card)
 

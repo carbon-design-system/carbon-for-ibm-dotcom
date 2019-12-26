@@ -11,7 +11,6 @@
   background: $ui-background;
   .bx--card-link {
     background-color: $ui-01;
-    outline: 1px solid $ui-background;
     &__title {
       color: $text-01;
     }
@@ -22,6 +21,11 @@
       svg {
         fill: $link-01;
       }
+    }
+    &:hover {
+      cursor: pointer;
+      background: $hover-ui;
+      text-decoration: none;
     }
     &:last-child {
       background-color: $ui-05;
@@ -51,7 +55,6 @@
       display: flex;
       float: right;
       flex-wrap: wrap;
-      margin-top: carbon--rem(-115px);
     }
     .bx--card-link {
       @include carbon--make-col(8, 8);
@@ -64,11 +67,6 @@
         margin-bottom: 0;
       }
 
-      &:hover {
-        cursor: pointer;
-        background: $hover-ui;
-        text-decoration: none;
-      }
       &__title {
         @include carbon--type-style('expressive-heading-03');
 
@@ -94,7 +92,7 @@
 
       padding-top: $carbon--spacing-07;
       padding-bottom: $carbon--layout-06;
-      margin-top: carbon--rem(-45px);
+      margin-top: carbon--rem(-75px);
     }
     &__row {
       @include carbon--make-row;
@@ -102,15 +100,24 @@
     &__col {
       @include carbon--make-col-ready;
     }
+
+    @include carbon--breakpoint('sm') {
+      &__cards {
+        @include carbon--make-col(16, 16);
+
+        margin-top: carbon--rem(-40px);
+      }
+      &__title {
+        margin-top: $carbon--layout-05;
+        margin-bottom: $carbon--spacing-09;
+      }
+    }
     @include carbon--breakpoint('md') {
       &__title {
         margin-top: $carbon--layout-05;
         margin-bottom: $carbon--spacing-09;
       }
-      &__col {
-        padding-left: 0;
-        padding-right: 0;
-      }
+
       .bx--card-link {
         flex: 1 1;
         @include carbon--make-col(4, 8);
@@ -123,6 +130,8 @@
         @include carbon--make-col(4, 16);
 
         padding-top: $carbon--spacing-05;
+        padding-bottom: 0;
+        margin-bottom: 0;
       }
       &__cards {
         @include carbon--make-col(12, 16);

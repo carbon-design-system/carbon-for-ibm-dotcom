@@ -130,37 +130,29 @@ if (DDS_CARD_SECTION) {
     })
 
     .add('default', () => {
-      const cardTypes = {
-        simpleCards: 'simpleCards',
-        imageCards: 'imageCards',
-      };
+      const cardTypes = Object.keys(cardsGroup);
       const themes = {
-        g10: 'g10',
         white: '',
+        g10: 'g10',
       };
+      const type = select('cardType', cardTypes, cardTypes[0]);
+      const theme = select('theme', themes, themes.g10);
 
-      const type = select('cardType', cardTypes, cardTypes.simpleCards);
-      const dataObject = [];
-      let title;
+      const cardsTitle =
+        type === 'simpleCards'
+          ? 'Aliquam condimentum interdum'
+          : 'Read more about it';
 
-      if (type === 'simpleCards') {
-        title = 'Aliquam condimentum interdum';
-        dataObject.push(cardsGroup.simpleCards);
-      }
-      if (type === 'imageCards') {
-        title = 'Read more about it';
-        dataObject.push(cardsGroup.imageCards);
-      }
-      //  console.log('DATA OBJECT:', dataObject[0]);
-      //  console.log('TYPE:', type);
-      //  console.log('CARDTYPE OBJECT:',cardsGroup.simpleCards)
+      const data = object(`Data (${type})`, cardsGroup[type]);
+
+      cardsGroup[type] = data;
 
       return (
         <CardSection
-          title={title}
-          cards={dataObject[0]}
-          Data={object('Data', dataObject[0])}
-          theme={select('theme', themes, themes.g10)}
+          title={cardsTitle}
+          cards={cardsGroup[type]}
+          data={data}
+          theme={theme}
         />
       );
     })

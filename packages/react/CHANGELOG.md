@@ -3,6 +3,51 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.2.1-rc.0...@carbon/ibmdotcom-react@1.2.1) (2019-12-20)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [1.2.1-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.2.0...@carbon/ibmdotcom-react@1.2.1-rc.0) (2019-12-17)
+
+### Bug Fixes
+
+- **component:** minor code indentation
+  ([ec00b2d](https://github.com/carbon-design-system/ibm-dotcom-library/commit/ec00b2d))
+- **component:** readme update
+  ([2025ca3](https://github.com/carbon-design-system/ibm-dotcom-library/commit/2025ca3))
+- **component:** readme update
+  ([d93508d](https://github.com/carbon-design-system/ibm-dotcom-library/commit/d93508d))
+- **css:** move buttongroup story grid.css into index.scss
+  ([f5b011f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/f5b011f))
+- **css:** move storybook css out of story file into local index.scss
+  ([4726410](https://github.com/carbon-design-system/ibm-dotcom-library/commit/4726410))
+- **masthead:** add platform name to sidenav; fixes
+  [#782](https://github.com/carbon-design-system/ibm-dotcom-library/issues/782)
+  ([a669dc0](https://github.com/carbon-design-system/ibm-dotcom-library/commit/a669dc0))
+- **rollup:** update to bundle thresholds
+  ([66c27d5](https://github.com/carbon-design-system/ibm-dotcom-library/commit/66c27d5))
+- **storybook:** fix to layout issues in storybook for mobile
+  ([f9b83cd](https://github.com/carbon-design-system/ibm-dotcom-library/commit/f9b83cd))
+
+### Features
+
+- **component:** implement fullwidth variant for expressive model
+  ([31a7cf0](https://github.com/carbon-design-system/ibm-dotcom-library/commit/31a7cf0))
+- **dependencies:** updates to carbon package dependencies
+  ([c436c55](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c436c55))
+- **storybook:** adding overview story for storybook
+  ([aeab973](https://github.com/carbon-design-system/ibm-dotcom-library/commit/aeab973))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.2.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.2.0-rc.2...@carbon/ibmdotcom-react@1.2.0) (2019-12-16)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-react

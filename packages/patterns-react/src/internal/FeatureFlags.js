@@ -63,13 +63,6 @@ export const DDS_CARD_ARRAY =
 export const DDS_PICTOGRAM_ARRAY =
   process.env.DDS_PICTOGRAM_ARRAY === 'true' || DDS_FLAGS_ALL || false;
 
-/** This determines if the cards without images will be rendered or not
- *
- * @type {string | boolean}
- */
-export const DDS_CARDS_WITHOUT_IMAGES =
-  process.env.DDS_CARDS_WITHOUT_IMAGES === 'true' || DDS_FLAGS_ALL || false;
-
 /**
  * This determines if the usecases will be rendered or not
  *
@@ -85,3 +78,11 @@ export const DDS_USECASES =
  */
 export const DDS_CARD_SECTION =
   process.env.DDS_CARD_SECTION === 'true' || DDS_FLAGS_ALL || false;
+
+/**
+ * This determines if the simple overview will be rendered or not
+ *
+ * @type {string | boolean}
+ */
+export const DDS_SIMPLE_OVERVIEW =
+  process.env.DDS_SIMPLE_OVERVIEW === 'true' || DDS_FLAGS_ALL || false;

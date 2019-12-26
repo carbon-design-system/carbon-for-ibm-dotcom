@@ -7,12 +7,22 @@
 
 Here's a quick example to get you started.
 
+```scss
+// yourapplication.scss
+@import '@carbon/type/scss/font-face/mono';
+@import '@carbon/type/scss/font-face/sans';
+@include carbon--font-face-mono();
+@include carbon--font-face-sans();
+@import '@carbon/ibmdotcom-styles/scss/components/local-modal/_locale-modal.scss';
+```
+
+> 💡 Only import font's once per usage
+
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { LocaleModal } from '@carbon/ibmdotcom-react';
-
-import '@carbon/ibmdotcom-styles/scss/components/local-modal/_locale-modal.scss';
+import 'yourapplication.scss';
 
 function App() {
   return <LocaleModal />;

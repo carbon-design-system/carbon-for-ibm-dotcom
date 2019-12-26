@@ -5,5 +5,4 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-export { default as LeadSpace } from './LeadSpace';
-export { default as LeadSpaceImage } from './LeadSpaceImage';
+export { default as markdownToHtml } from './markdownToHtml';
