@@ -73,6 +73,27 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 > 💡 Don't forget to import the leadspace styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
+#### Markdown
+
+Some markdown syntaxes are accepted within the copy of the content item
+
+Example:
+
+```javascript
+{
+  copy: '_Lorem_ ipsum __dolor__ sit amet.',
+  ...
+}
+```
+
+Renders:
+
+_Lorem_ ipsum **dolor** sit amet.
+
+> Check
+> [MarkdownToHtml utility](https://ibmdotcom-utilities.netlify.com/global.html#markdownToHtml)
+> for more information on accepted markdown syntaxes
+
 #### Feature Flags
 
 To utilize the following features, set the following variable's to `true` within

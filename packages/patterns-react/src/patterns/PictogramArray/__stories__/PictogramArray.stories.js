@@ -86,7 +86,7 @@ if (DDS_PICTOGRAM_ARRAY) {
           ),
           copy: text(
             'Element 2 Copy (required)',
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.'
+            '_Lorem ipsum_ dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.'
           ),
           link: object('Element 2 Link', {
             href: 'https://www.example.com',
@@ -102,7 +102,7 @@ if (DDS_PICTOGRAM_ARRAY) {
           ),
           copy: text(
             'Element 3 Copy (required)',
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.'
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. __Mauris iaculis__ eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.'
           ),
           link: object('Element 3 Link', {
             href: 'https://www.example.com',
