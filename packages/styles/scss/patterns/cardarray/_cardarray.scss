@@ -16,68 +16,16 @@
       @include carbon--make-row;
     }
     &__col {
-      @include carbon--make-col-ready;
-
       display: flex;
       flex-wrap: wrap;
       flex-grow: stretch;
     }
-    &__title {
-      @include carbon--type-style('expressive-heading-04');
-
-      margin-top: $carbon--spacing-07;
-      margin-bottom: $carbon--spacing-07;
-    }
     &__content {
       @include carbon--type-style('expressive-heading-03');
     }
-    &__divider {
-      margin-top: $carbon--layout-05;
-      margin-left: -$carbon--spacing-05;
-      margin-right: -$carbon--spacing-05;
-      &__col {
-        @include carbon--make-col-ready;
-      }
-    }
-    &--with-border {
-      .#{$prefix}--cardarray__divider {
-        border-bottom: 1px solid $ui-04;
-      }
-    }
-    @include carbon--breakpoint('sm') {
-      &__title {
-        margin-top: $carbon--spacing-07;
-        margin-bottom: $carbon--spacing-10;
-      }
-    }
-    @include carbon--breakpoint('md') {
-      &__title {
-        margin-top: $carbon--layout-05;
-        margin-bottom: $carbon--spacing-09;
-      }
-      &__divider {
-        margin-top: $carbon--layout-06;
-      }
-    }
-    @include carbon--breakpoint('lg') {
-      &__col {
-        padding-left: $carbon--layout-01;
-        padding-right: $carbon--layout-01;
-        @include carbon--make-col-offset(4, 16);
-        @include carbon--make-col(7, 16);
-      }
-      &__divider {
-        margin-top: $carbon--layout-07;
-        &__col {
-          @include carbon--make-col-offset(4, 16);
-          @include carbon--make-col(12, 16);
-        }
-      }
-    }
-    @include carbon--breakpoint('max') {
-      &__col {
-        max-width: carbon--rem(640px);
-      }
+
+    .#{$prefix}--link {
+      outline: 1px solid $ui-background;
     }
   }
 }
