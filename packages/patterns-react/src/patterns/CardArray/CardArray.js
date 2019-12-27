@@ -50,7 +50,7 @@ const CardArray = ({ title, content }) => {
   return featureFlag(
     DDS_CARD_ARRAY,
     <section data-autoid={`${stablePrefix}--cardarray`}>
-      <ContentGroup heading={{ copy: title, type: 'heading-4' }}>
+      <ContentGroup heading={{ copy: title }}>
         <div
           className={`${prefix}--cardarray`}
           data-autoid={`${stablePrefix}--cardarray`}>
