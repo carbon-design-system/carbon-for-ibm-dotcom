@@ -35,13 +35,19 @@ const { prefix } = settings;
  * @returns {*} JSX ContentArrayGroup component
  */
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> feat(readme): readme added for the content-group component
 const ContentGroup = ({
   children,
   heading = { type: 'heading-4', ...heading },
 }) => {
+<<<<<<< HEAD
 =======
 const ContentGroup = ({ children, heading }) => {
 >>>>>>> feat(component): content-group component created and added to card-array
+=======
+>>>>>>> feat(readme): readme added for the content-group component
   return featureFlag(
     DDS_CONTENT_GROUP,
     <div
@@ -58,12 +64,17 @@ const ContentGroup = ({ children, heading }) => {
         </div>
         <div
 <<<<<<< HEAD
+<<<<<<< HEAD
           data-autoid={`${stablePrefix}--content-group__children`}
           className={`${prefix}--content-group__children`}>
 =======
           data-autoid={`${stablePrefix}--content-group__content`}
           className={`${prefix}--content-group__content`}>
 >>>>>>> feat(component): content-group component created and added to card-array
+=======
+          data-autoid={`${stablePrefix}--content-group__children`}
+          className={`${prefix}--content-group__children`}>
+>>>>>>> feat(readme): readme added for the content-group component
           {children}
         </div>
       </div>
