@@ -59,10 +59,14 @@ const CardArray = ({ title, content }) => {
     DDS_CARD_ARRAY,
     <section data-autoid={`${stablePrefix}--cardarray`}>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <ContentGroup heading={{ copy: title }}>
 =======
       <ContentGroup heading={{ copy: title, type: 'heading-4' }}>
 >>>>>>> feat(component): content-group component created and added to card-array
+=======
+      <ContentGroup heading={{ copy: title }}>
+>>>>>>> feat(readme): readme added for the content-group component
         <div
           className={`${prefix}--cardarray`}
           data-autoid={`${stablePrefix}--cardarray`}>
