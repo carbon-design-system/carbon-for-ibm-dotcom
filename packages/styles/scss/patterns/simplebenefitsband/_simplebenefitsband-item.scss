@@ -1,0 +1,48 @@
+//
+// Copyright IBM Corp. 2016, 2018
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import '../../components/link-with-icon/link-with-icon';
+
+@mixin simplebenefitsband-item {
+  .#{$prefix}--simplebenefitsband__cards-item {
+    padding-bottom: $carbon--layout-03;
+    margin-left: $carbon--layout-01;
+    margin-right: $carbon--layout-01;
+    display: flex;
+    flex-direction: column;
+    flex: 100%;
+    &:nth-child(n + 4) {
+      padding-top: $carbon--layout-03;
+      border-top: 1px solid $ui-03;
+    }
+    @include carbon--breakpoint('lg') {
+      flex: 0 25%;
+    }
+    &__title {
+      width: 90%;
+      max-width: 640px;
+      margin-bottom: $carbon--layout-03;
+      @include carbon--type-style('expressive-heading-03');
+    }
+    &__devider {
+      border-color: $ui-03;
+      border-width: 1px 0 0;
+      border-style: solid;
+      margin-bottom: $carbon--layout-03;
+      width: 15%;
+    }
+    &__content {
+      margin-bottom: $carbon--layout-03;
+      width: 90%;
+      max-width: 640px;
+      @include carbon--type-style('body-long-02');
+    }
+  }
+}
+@include exports('simplebenefitsband-item') {
+  @include simplebenefitsband-item;
+}

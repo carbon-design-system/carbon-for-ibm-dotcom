@@ -1,0 +1,46 @@
+//
+// Copyright IBM Corp. 2016, 2018
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@mixin simplebenefitsband {
+  .#{$prefix}--simplebenefitsband {
+    color: $text-01;
+    background: $ui-background;
+
+    &__container {
+      @include carbon--make-container;
+
+      margin-top: $carbon--layout-05;
+    }
+    &__row {
+      @include carbon--make-row;
+    }
+    &__col {
+      @include carbon--make-col-ready;
+
+      padding-left: $carbon--layout-01;
+      padding-right: $carbon--layout-01;
+    }
+    &__title {
+      @include carbon--make-col(4, 16);
+      @include carbon--type-style('heading-02');
+
+      color: $text-01;
+    }
+    &__cards {
+      display: flex;
+      flex-wrap: wrap;
+      @include carbon--make-col(12, 16);
+      &-item {
+        @include carbon--make-col(4, 12);
+      }
+    }
+  }
+}
+
+@include exports('simplebenefitsband') {
+  @include simplebenefitsband;
+}
