@@ -4,16 +4,16 @@ import { DDS_CONTENT_GROUP } from '../../../internal/FeatureFlags';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 import './index.scss';
 import ContentGroup from '../ContentGroup';
-// import readme from '../README.md';
+import readme from '../README.md';
 
 if (DDS_CONTENT_GROUP) {
   storiesOf('ContentGroup', module)
     .addDecorator(withKnobs)
-    // .addParameters({
-    //   readme: {
-    //     sidebar: readme,
-    //   },
-    // })
+    .addParameters({
+      readme: {
+        sidebar: readme,
+      },
+    })
     .add('Default', () => {
       const copy = text(
         'Component title(required):',
