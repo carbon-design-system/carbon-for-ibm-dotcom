@@ -25,7 +25,10 @@ const { prefix } = settings;
  * @param {string} props.heading.copy Heading text
  * @returns {*} JSX ContentArrayGroup component
  */
-const ContentGroup = ({ children, heading }) => {
+const ContentGroup = ({
+  children,
+  heading = { type: 'heading-4', ...heading },
+}) => {
   return featureFlag(
     DDS_CONTENT_GROUP,
     <div
@@ -41,8 +44,8 @@ const ContentGroup = ({ children, heading }) => {
           </h3>
         </div>
         <div
-          data-autoid={`${stablePrefix}--content-group__content`}
-          className={`${prefix}--content-group__content`}>
+          data-autoid={`${stablePrefix}--content-group__children`}
+          className={`${prefix}--content-group__children`}>
           {children}
         </div>
       </div>
