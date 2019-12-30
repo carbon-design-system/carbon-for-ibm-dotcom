@@ -16,6 +16,15 @@ NC='\033[0m'
 # properly and that we do not need to validate that the output is correct
 set -e
 
+# Grab options passed into the script
+while getopts t: option
+do
+case "${option}"
+in
+t) TYPE=${OPTARG};;
+esac
+done
+
 options_yesno=(
   "Yes"
   "No"
@@ -47,11 +56,12 @@ tag_repo () {
 
 # Ask if creating the release
 create_release () {
-  if [[ $1 == 'rc' ]]
+  echo ${TYPE}
+  if [[ ${TYPE} == 'rc' ]]
   then
     echo -e "${GREEN}Creating from change logs...${NC}"
     change_logs
-  elif [[ $1 == 'full' ]]
+  elif [[ ${TYPE} == 'full' ]]
   then
     echo -e "${GREEN}Creating from pinned issue...${NC}"
     pinned_issue
