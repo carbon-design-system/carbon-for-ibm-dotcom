@@ -20,6 +20,7 @@
 @import 'components/number-input';
 @import 'components/tabs';
 @import 'components/text-input';
+@import 'components/tile';
 @import 'components/time-picker';
 @import 'components/select';
 
@@ -46,6 +47,7 @@
     @include number-input-expressive;
     @include tabs-expressive;
     @include text-input-expressive;
+    @include tile-expressive;
     @include time-picker-expressive;
     @include select-expressive;
   }
