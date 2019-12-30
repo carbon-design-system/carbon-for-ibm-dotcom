@@ -10,5 +10,7 @@ export * from './escaperegexp';
 export * from './featureflag';
 export * from './geolocation';
 export * from './ipcinfoCookie';
+export * from './markdownToHtml';
+export * from './sameheight';
 export * from './serialize';
 export * from './settings';

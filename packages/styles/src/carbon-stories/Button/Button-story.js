@@ -11,28 +11,29 @@ import { action } from '@storybook/addon-actions';
 import { withKnobs, boolean, select, text } from '@storybook/addon-knobs';
 import { settings } from 'carbon-components';
 import { iconAddSolid, iconSearch } from 'carbon-icons';
-import { Add16, Search16 } from '@carbon/icons-react';
+import { Add20, Search20 } from '@carbon/icons-react';
 import { Button, ButtonSkeleton } from 'carbon-components-react';
 
 const { prefix } = settings;
 
 const icons = {
   None: 'None',
-  'Add with filled circle (Add16 from `@carbon/icons-react`)': 'Add16',
-  'Search (Search16 from `@carbon/icons-react`)': 'Search16',
+  'Add with filled circle (Add20 from `@carbon/icons-react`)': 'Add20',
+  'Search (Search20 from `@carbon/icons-react`)': 'Search20',
 };
 
 const iconMap = {
   iconAddSolid,
   iconSearch,
-  Add16,
-  Search16,
+  Add20,
+  Search20,
 };
 
 const kinds = {
   'Primary button (primary)': 'primary',
   'Secondary button (secondary)': 'secondary',
   'Danger button (danger)': 'danger',
+  'Tertiary button (tertiary)': 'tertiary',
   'Ghost button (ghost)': 'ghost',
 };
 
@@ -61,7 +62,7 @@ const props = {
     };
   },
   iconOnly: () => {
-    const iconToUse = iconMap[select('Icon (icon)', icons, 'Add16')];
+    const iconToUse = iconMap[select('Icon (icon)', icons, 'Add20')];
     return {
       className: 'some-class',
       kind: select('Button kind (kind)', kinds, 'primary'),

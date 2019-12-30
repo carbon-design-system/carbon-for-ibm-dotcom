@@ -1,10 +1,9 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, select } from '@storybook/addon-knobs';
-import readme from '../README.md';
 import './index.scss';
-
+import { select, withKnobs } from '@storybook/addon-knobs';
 import Layout from '../Layout';
+import React from 'react';
+import readme from '../README.md';
+import { storiesOf } from '@storybook/react';
 
 storiesOf('Layout', module)
   .addDecorator(withKnobs)

@@ -5,12 +5,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { LocaleAPI } from '@carbon/ibmdotcom-services';
+import LocaleModal from '../LocaleModal';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { act } from 'react-dom/test-utils';
 import { altlangs } from '@carbon/ibmdotcom-utilities';
-import { LocaleAPI } from '@carbon/ibmdotcom-services';
-import LocaleModal from '../LocaleModal';
 
 const pageLangs = altlangs();
 

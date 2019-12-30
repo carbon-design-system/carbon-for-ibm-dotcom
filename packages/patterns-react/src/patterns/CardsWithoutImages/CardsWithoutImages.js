@@ -6,14 +6,14 @@
  */
 
 import React, { useLayoutEffect } from 'react';
-import PropTypes from 'prop-types';
-import root from 'window-or-global';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
-import { settings } from 'carbon-components';
-import classNames from 'classnames';
-import { featureFlag } from '@carbon/ibmdotcom-utilities';
-import { DDS_CARDS_WITHOUT_IMAGES } from '../../internal/FeatureFlags';
 import CardsWithoutImagesGroup from './CardsWithoutImagesGroup';
+import { DDS_CARDS_WITHOUT_IMAGES } from '../../internal/FeatureFlags';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import { featureFlag } from '@carbon/ibmdotcom-utilities';
+import root from 'window-or-global';
+import { settings } from 'carbon-components';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;

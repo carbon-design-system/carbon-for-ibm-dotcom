@@ -12,4 +12,5 @@ export * from './LeadSpaceCentered';
 export * from './ListSection';
 export * from './PictogramArray';
 export * from './SimpleLongForm';
+export * from './SimpleOverview';
 export * from './UseCases';

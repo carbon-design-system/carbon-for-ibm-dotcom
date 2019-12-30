@@ -5,13 +5,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React from 'react';
-import PropTypes from 'prop-types';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
-import { settings } from 'carbon-components';
-import UseCasesItem from '../UseCases/UseCasesItem';
 import { ArrowRight20 } from '@carbon/icons-react';
 import { CardLink } from '@carbon/ibmdotcom-react';
+import PropTypes from 'prop-types';
+import React from 'react';
+import UseCasesItem from '../UseCases/UseCasesItem';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import { settings } from 'carbon-components';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;

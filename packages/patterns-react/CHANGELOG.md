@@ -3,6 +3,45 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-patterns-react@1.2.1-rc.0...@carbon/ibmdotcom-patterns-react@1.2.1) (2019-12-20)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-patterns-react
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [1.2.1-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-patterns-react@1.2.0...@carbon/ibmdotcom-patterns-react@1.2.1-rc.0) (2019-12-17)
+
+### Bug Fixes
+
+- **rollup:** update to bundle thresholds
+  ([66c27d5](https://github.com/carbon-design-system/ibm-dotcom-library/commit/66c27d5))
+- **storybook:** fix to layout issues in storybook for mobile
+  ([f9b83cd](https://github.com/carbon-design-system/ibm-dotcom-library/commit/f9b83cd))
+
+### Features
+
+- **dependencies:** updates to carbon package dependencies
+  ([c436c55](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c436c55))
+- **storybook:** adding overview story for storybook
+  ([aeab973](https://github.com/carbon-design-system/ibm-dotcom-library/commit/aeab973))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.2.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-patterns-react@1.2.0-rc.2...@carbon/ibmdotcom-patterns-react@1.2.0) (2019-12-16)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-patterns-react
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.2.0-rc.2](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-patterns-react@1.2.0-rc.1...@carbon/ibmdotcom-patterns-react@1.2.0-rc.2) (2019-12-13)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-patterns-react

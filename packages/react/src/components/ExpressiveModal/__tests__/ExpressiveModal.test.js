@@ -5,11 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import ExpressiveModal from '../ExpressiveModal';
+import MockedComponent from './mocks/mock-component';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { act } from 'react-dom/test-utils';
-import MockedComponent from './mocks/mock-component';
-import ExpressiveModal from '../ExpressiveModal';
 
 describe('<ExpressiveModal />', () => {
   let container;

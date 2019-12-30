@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/eslint-config-ibmdotcom@1.2.1-rc.0...@carbon/eslint-config-ibmdotcom@1.2.1) (2019-12-20)
+
+**Note:** Version bump only for package @carbon/eslint-config-ibmdotcom
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [1.2.1-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/eslint-config-ibmdotcom@1.2.0...@carbon/eslint-config-ibmdotcom@1.2.1-rc.0) (2019-12-17)
+
+**Note:** Version bump only for package @carbon/eslint-config-ibmdotcom
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.2.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/eslint-config-ibmdotcom@1.2.0-rc.0...@carbon/eslint-config-ibmdotcom@1.2.0) (2019-12-16)
+
+**Note:** Version bump only for package @carbon/eslint-config-ibmdotcom
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.2.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/eslint-config-ibmdotcom@1.1.1...@carbon/eslint-config-ibmdotcom@1.2.0-rc.0) (2019-12-09)
 
 **Note:** Version bump only for package @carbon/eslint-config-ibmdotcom
