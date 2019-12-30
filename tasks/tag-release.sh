@@ -47,24 +47,18 @@ tag_repo () {
 
 # Ask if creating the release
 create_release () {
-  echo "Create the release in Github?"
-  select createconfirm in "${options_yesno[@]}"
-  do
-      case "$createconfirm" in
-          "Yes")
-            echo -e "${GREEN}Creating the $tagname release...${NC}"
-            release_notes
-            break
-            ;;
-          "No")
-            echo -e "${GREEN}Skipping the release creation...${NC}"
-            exit 1
-            ;;
-          *) echo "${RED}invalid option $REPLY${NC}";;
-      esac
-  done
+  if [[ $1 == 'rc' ]]
+  then
+    echo -e "${GREEN}Creating from change logs...${NC}"
+    change_logs
+  elif [[ $1 == 'full' ]]
+  then
+    echo -e "${GREEN}Creating from pinned issue...${NC}"
+    pinned_issue
+  else
+    release_notes
+  fi
 }
-
 
 # Ask if creating the release from changelogs or pinned issue
 release_notes () {
@@ -101,15 +95,15 @@ change_logs () {
   repo="https://api.github.com/repos/jeffchew/ibm-dotcom-library/releases"
   branch=$(git rev-parse --abbrev-ref HEAD)
   token=$(git config --global github.token)
-  return="
+  CR=$(printf '\n')
+  return="\n\n"
 
-"
-  react="$(git diff HEAD^^ --unified=0 packages/react/CHANGELOG.md | sed -e '1,5d' | sed -e :a -e '$d;N;2,5ba' -e 'P;D' | sed -e 's/^\+//' | sed -e 's/# \[/# React \[/g')$return$return"
-  patterns="$(git diff HEAD^^ --unified=0 packages/patterns-react/CHANGELOG.md | sed -e '1,5d' | sed -e :a -e '$d;N;2,5ba' -e 'P;D' | sed -e 's/^\+//' | sed -e 's/# \[/# Patterns \[/g')$return$return"
-  vanilla="$(git diff HEAD^^ --unified=0 packages/vanilla/CHANGELOG.md | sed -e '1,5d' | sed -e :a -e '$d;N;2,5ba' -e 'P;D' | sed -e 's/^\+//' | sed -e 's/# \[/# Vanilla \[/g')$return$return"
-  services="$(git diff HEAD^^ --unified=0 packages/services/CHANGELOG.md | sed -e '1,5d' | sed -e :a -e '$d;N;2,5ba' -e 'P;D' | sed -e 's/^\+//' | sed -e 's/# \[/# Services \[/g')$return$return"
-  styles="$(git diff HEAD^^ --unified=0 packages/styles/CHANGELOG.md | sed -e '1,5d' | sed -e :a -e '$d;N;2,5ba' -e 'P;D' | sed -e 's/^\+//' | sed -e 's/# \[/# Styles \[/g')$return$return"
-  utilities="$(git diff HEAD^^ --unified=0 packages/utilities/CHANGELOG.md | sed -e '1,5d' | sed -e :a -e '$d;N;2,5ba' -e 'P;D' | sed -e 's/^\+//' | sed -e 's/# \[/# Utilities \[/g')$return$return"
+  react="$(git diff HEAD~ --unified=0 packages/react/CHANGELOG.md | sed -e '1,5d' | sed -e :a -e '$d;N;2,5ba' -e 'P;D' | sed -e 's/^\+/\\n/' | sed -e 's/# \[/# React \[/g')$return$return"
+  patterns="$(git diff HEAD~ --unified=0 packages/patterns-react/CHANGELOG.md | sed -e '1,5d' | sed -e :a -e '$d;N;2,5ba' -e 'P;D' | sed -e 's/^\+/\\n/' | sed -e 's/# \[/# Patterns \[/g')$return$return"
+  vanilla="$(git diff HEAD~ --unified=0 packages/vanilla/CHANGELOG.md | sed -e '1,5d' | sed -e :a -e '$d;N;2,5ba' -e 'P;D' | sed -e 's/^\+/\\n/' | sed -e 's/# \[/# Vanilla \[/g')$return$return"
+  services="$(git diff HEAD~ --unified=0 packages/services/CHANGELOG.md | sed -e '1,5d' | sed -e :a -e '$d;N;2,5ba' -e 'P;D' | sed -e 's/^\+/\\n/' | sed -e 's/# \[/# Services \[/g')$return$return"
+  styles="$(git diff HEAD~ --unified=0 packages/styles/CHANGELOG.md | sed -e '1,5d' | sed -e :a -e '$d;N;2,5ba' -e 'P;D' | sed -e 's/^\+/\\n/' | sed -e 's/# \[/# Styles \[/g')$return$return"
+  utilities="$(git diff HEAD~ --unified=0 packages/utilities/CHANGELOG.md | sed -e '1,5d' | sed -e :a -e '$d;N;2,5ba' -e 'P;D' | sed -e 's/^\+/\\n/' | sed -e 's/# \[/# Utilities \[/g')$return$return"
 
   if [[ $react == *"Version bump only"* ]]; then
     react=''
@@ -135,19 +129,38 @@ change_logs () {
     utilities=''
   fi
 
-  body=$(printf '{"tag_name": "%s","target_commitish": "%s","name": "%s","body": "%s","draft": false,"prerelease": true}' "$tagname" "$branch" "$tagname" "$react$patterns$vanilla$services$styles$utilities" )
+  body=$(printf "%s\n" "$react$patterns$vanilla$services$styles$utilities") > TEMP_RELEASENOTES.md
+  url="$repo?access_token=$token"
 
-echo $body
-  response=$(curl --data "$body" ${repo}?access_token=${token})
-  if [[ $response.message == "Success" ]]; then
-    echo -e "${GREEN}Release created: https://github.com/jeffchew/ibm-dotcom-library/releases/tag/$tagname${NC}"
-  fi
+response=$(curl -i -X POST $url \
+-d @- << EOF
+{
+  "tag_name":"$tagname",
+  "name": "$tagname",
+  "target_commitish":"$branch",
+  "body": "$body",
+  "draft": false,
+  "prerelease": true
+}
+EOF
+)
+
+  if [[ -z ${response}.id ]]
+  then
     echo -e "${RED}Error creating the release! Check if the Github token is set correctly (e.g. 'git config --global github.token YOUR_TOKEN')${NC}"
-    echo $response
+    echo -e "${RED}Temporary release notes have been generated if creating the release manually (TEMP_RELEASENOTES.md)${NC}"
+    echo -e "${RED}Tag: https://github.com/jeffchew/ibm-dotcom-library/releases/tag/${tagname}${NC}"
+    echo ${response}
+  else
+    echo -e "${GREEN}Release created: https://github.com/jeffchew/ibm-dotcom-library/releases/tag/$tagname${NC}"
+    rm TEMP_RELEASENOTES.md
+  fi
+
 }
 
 pinned_issue () {
-  echo -e "${GREEN}Nothing here yet...${NC}"
+  echo -e "${GREEN}This task has not been created yet. Please create the release manually:${NC}"
+  echo -e "${GREEN}https://github.com/jeffchew/ibm-dotcom-library/releases/new?tag=$tagname${NC}"
 }
 
 # Ask for the release tag name

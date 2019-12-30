@@ -164,6 +164,7 @@ do
           pretest
           echo -e "${GREEN}Creating alpha release...${NC}"
           set -x
+          ./tag-release.sh rc
           release_alpha
           exit 1
           ;;
@@ -172,6 +173,7 @@ do
           echo -e "${GREEN}Creating patch rc.0 release...${NC}"
           set -x
           release_rc0_patch
+          ./tag-release.sh rc
           exit 1
           ;;
         "rc.0 minor (first release candidate)")
@@ -179,6 +181,7 @@ do
           echo -e "${GREEN}Creating minor rc.0 release...${NC}"
           set -x
           release_rc0_minor
+          ./tag-release.sh rc
           exit 1
           ;;
         "rc.0 major (first release candidate)")
@@ -186,6 +189,7 @@ do
           echo -e "${GREEN}Creating major rc.0 release...${NC}"
           set -x
           release_rc0_major
+          ./tag-release.sh rc
           exit 1
           ;;
         "rc.1+ (subsequent release candidates)")
@@ -193,6 +197,7 @@ do
           echo -e "${GREEN}Creating rc.1+ release...${NC}"
           set -x
           release_rc1plus
+          ./tag-release.sh rc
           exit 1
           ;;
         "full release (patch)")
@@ -200,6 +205,7 @@ do
           echo -e "${GREEN}Creating full patch release...${NC}"
           set -x
           release_full_patch
+          ./tag-release.sh full
           exit 1
           ;;
         "full release (minor)")
@@ -207,6 +213,7 @@ do
           echo -e "${GREEN}Creating full minor release...${NC}"
           set -x
           release_full_minor
+          ./tag-release.sh full
           exit 1
           ;;
         "full release (major)")
@@ -214,6 +221,7 @@ do
           echo -e "${GREEN}Creating full major release...${NC}"
           set -x
           release_full_major
+          ./tag-release.sh full
           exit 1
           ;;
         "cancel")
