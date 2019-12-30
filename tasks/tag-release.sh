@@ -102,7 +102,7 @@ release_notes () {
 
 # Auto generate the change logs
 change_logs () {
-  repo="https://api.github.com/repos/jeffchew/ibm-dotcom-library/releases"
+  repo="https://api.github.com/repos/carbon-design-system/ibm-dotcom-library/releases"
   branch=$(git rev-parse --abbrev-ref HEAD)
   token=$(git config --global github.token)
   CR=$(printf '\n')
@@ -159,10 +159,10 @@ EOF
   then
     echo -e "${RED}Error creating the release! Check if the Github token is set correctly (e.g. 'git config --global github.token YOUR_TOKEN')${NC}"
     echo -e "${RED}Temporary release notes have been generated if creating the release manually (TEMP_RELEASENOTES.md)${NC}"
-    echo -e "${RED}Tag: https://github.com/jeffchew/ibm-dotcom-library/releases/tag/${tagname}${NC}"
+    echo -e "${RED}Tag: https://github.com/carbon-design-system/ibm-dotcom-library/releases/tag/${tagname}${NC}"
     echo ${response}
   else
-    echo -e "${GREEN}Release created: https://github.com/jeffchew/ibm-dotcom-library/releases/tag/$tagname${NC}"
+    echo -e "${GREEN}Release created: https://github.com/carbon-design-system/ibm-dotcom-library/releases/tag/$tagname${NC}"
     rm TEMP_RELEASENOTES.md
   fi
 
@@ -170,7 +170,7 @@ EOF
 
 pinned_issue () {
   echo -e "${GREEN}This task has not been created yet. Please create the release manually:${NC}"
-  echo -e "${GREEN}https://github.com/jeffchew/ibm-dotcom-library/releases/new?tag=$tagname${NC}"
+  echo -e "${GREEN}https://github.com/carbon-design-system/ibm-dotcom-library/releases/new?tag=$tagname${NC}"
 }
 
 # Ask for the release tag name
