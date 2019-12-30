@@ -1,10 +1,10 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean } from '@storybook/addon-knobs';
+import './index.scss';
+import { boolean, withKnobs } from '@storybook/addon-knobs';
 import { ArrowRight20 } from '@carbon/icons-react';
 import LinkWithIcon from '../LinkWithIcon';
+import React from 'react';
 import readme from '../README.md';
-import './index.scss';
+import { storiesOf } from '@storybook/react';
 
 storiesOf('Link with Icon', module)
   .addDecorator(withKnobs)

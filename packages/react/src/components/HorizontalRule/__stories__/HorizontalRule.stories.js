@@ -1,10 +1,9 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, select, text } from '@storybook/addon-knobs';
-import readme from '../README.md';
 import './index.scss';
-
+import { select, text, withKnobs } from '@storybook/addon-knobs';
 import HorizontalRule from '../HorizontalRule';
+import React from 'react';
+import readme from '../README.md';
+import { storiesOf } from '@storybook/react';
 
 storiesOf('HorizontalRule', module)
   .addDecorator(withKnobs)

@@ -5,12 +5,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { ArrowRight20, Error20 } from '@carbon/icons-react';
 import React, { useEffect } from 'react';
+import { CardLink } from '../CardLink';
 import PropTypes from 'prop-types';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
-import { CardLink } from '../CardLink';
-import { ArrowRight20, Error20 } from '@carbon/icons-react';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;

@@ -35,7 +35,6 @@ const _fixDoubleSpaces = str => str.replace(_doubleSpaceRegex, ' ');
  * <li>Italic examples: _Lorem ipsum_ *dolor*</li>
  * </ul>
  *
- *
  * @param {string} str String to convert to html
  * @param {object} [options={}] Object with options for the conversion
  * @param {boolean} [options.italic=false] Defines if should convert italic

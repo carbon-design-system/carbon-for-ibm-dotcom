@@ -1,6 +1,6 @@
-import { globalInit } from '../';
-import { DDOAPI } from '../../DDO';
 import { AnalyticsAPI } from '../../Analytics';
+import { DDOAPI } from '../../DDO';
+import { globalInit } from '../';
 
 jest.mock('../../DDO', () => ({
   DDOAPI: {
