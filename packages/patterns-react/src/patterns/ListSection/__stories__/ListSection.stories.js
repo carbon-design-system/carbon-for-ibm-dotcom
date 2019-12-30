@@ -1,16 +1,16 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { DDS_LISTSECTION } from '../../../internal/FeatureFlags';
-import {
-  withKnobs,
-  text,
-  select,
-  object,
-  boolean,
-} from '@storybook/addon-knobs';
 import './index.scss';
+import {
+  boolean,
+  object,
+  select,
+  text,
+  withKnobs,
+} from '@storybook/addon-knobs';
+import { DDS_LISTSECTION } from '../../../internal/FeatureFlags';
 import ListSection from '../ListSection';
+import React from 'react';
 import readme from '../README.md';
+import { storiesOf } from '@storybook/react';
 
 if (DDS_LISTSECTION) {
   storiesOf('List Section', module)
@@ -28,9 +28,9 @@ if (DDS_LISTSECTION) {
 
       const copy = text(
         'copy (required)',
-        `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. 
-         Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales 
-         nulla quis, consequat libero. Here are 
+        `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+         Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
+         nulla quis, consequat libero. Here are
          some common categories:
         `
       );

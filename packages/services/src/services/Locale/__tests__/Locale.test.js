@@ -1,7 +1,7 @@
-import mockAxios from 'axios';
+import { geolocation, ipcinfoCookie } from '@carbon/ibmdotcom-utilities';
 import LocaleAPI from '../Locale';
+import mockAxios from 'axios';
 import response from './data/response.json';
-import { ipcinfoCookie, geolocation } from '@carbon/ibmdotcom-utilities';
 
 jest.mock('@carbon/ibmdotcom-utilities', () => ({
   ipcinfoCookie: {

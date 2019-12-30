@@ -5,15 +5,15 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React from 'react';
-import PropTypes from 'prop-types';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import {
-  HeaderNavigation,
   HeaderMenuItem,
   HeaderName,
+  HeaderNavigation,
 } from 'carbon-components-react';
 import HeaderMenu from '../carbon-components-react/UIShell/HeaderMenu';
+import PropTypes from 'prop-types';
+import React from 'react';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 
 const { stablePrefix } = ddsSettings;
 

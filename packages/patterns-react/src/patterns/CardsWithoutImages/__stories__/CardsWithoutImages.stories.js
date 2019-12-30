@@ -1,10 +1,10 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { DDS_CARDS_WITHOUT_IMAGES } from '../../../internal/FeatureFlags';
-import { withKnobs, select, object } from '@storybook/addon-knobs';
 import './index.scss';
+import { object, select, withKnobs } from '@storybook/addon-knobs';
 import CardsWithoutImages from '../CardsWithoutImages';
+import { DDS_CARDS_WITHOUT_IMAGES } from '../../../internal/FeatureFlags';
+import React from 'react';
 import readme from '../README.md';
+import { storiesOf } from '@storybook/react';
 
 if (DDS_CARDS_WITHOUT_IMAGES) {
   storiesOf('Cards Without Images', module)

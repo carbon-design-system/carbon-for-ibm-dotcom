@@ -1,6 +1,6 @@
-import root from 'window-or-global';
+import { geolocation, ipcinfoCookie } from '@carbon/ibmdotcom-utilities';
 import axios from 'axios';
-import { ipcinfoCookie, geolocation } from '@carbon/ibmdotcom-utilities';
+import root from 'window-or-global';
 
 /**
  * @constant {string | string} Host for the Locale API call

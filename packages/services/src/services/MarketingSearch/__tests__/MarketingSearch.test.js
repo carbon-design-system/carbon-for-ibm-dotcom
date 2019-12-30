@@ -1,5 +1,5 @@
-import mockAxios from 'axios';
 import MarketingSearchAPI from '../MarketingSearch';
+import mockAxios from 'axios';
 import responseSuccess from './data/response.json';
 
 const _lc = 'en'; // TODO: bake in tests where lc changes

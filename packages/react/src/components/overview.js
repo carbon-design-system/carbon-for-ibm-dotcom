@@ -1,7 +1,7 @@
+import README from '../../README.md';
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withDocs } from 'storybook-readme';
-import README from '../../README.md';
 
 storiesOf('Overview', module)
   .addDecorator(storyFn => (
