@@ -1,16 +1,17 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import {
-  withKnobs,
-  text,
-  select,
-  object,
-  boolean,
-} from '@storybook/addon-knobs';
 import './index.scss';
-import LeadSpace from '../LeadSpace';
-import readme from '../README.md';
+import { ArrowDown20, ArrowRight20, Pdf20 } from '@carbon/icons-react';
+import {
+  boolean,
+  object,
+  select,
+  text,
+  withKnobs,
+} from '@storybook/addon-knobs';
 import { DDS_LEADSPACE } from '../../../internal/FeatureFlags';
+import LeadSpace from '../LeadSpace';
+import React from 'react';
+import readme from '../README.md';
+import { storiesOf } from '@storybook/react';
 
 if (DDS_LEADSPACE) {
   storiesOf('LeadSpace', module)
@@ -33,16 +34,33 @@ if (DDS_LEADSPACE) {
         productive: 'productive',
       };
 
+      const iconMap = {
+        ArrowRight20,
+        ArrowDown20,
+        Pdf20,
+      };
+
+      const icons = {
+        ArrowRight: 'ArrowRight20',
+        ArrowDown: 'ArrowDown20',
+        Pdf: 'Pdf20',
+        none: null,
+      };
+
       const buttons = [
         {
           link: '',
-          copy: 'Primary action button',
-          renderIcon: 'ArrowDown',
+          copy: text('Primary button copy:', 'Primary action button'),
+          renderIcon:
+            iconMap[select('primary button icon', icons, icons.ArrowRight)],
+          href: text('Primary button link:', 'https://www.example.com'),
         },
         {
           link: '',
-          copy: 'Secondary action button',
-          renderIcon: 'ArrowRight',
+          copy: text('Secondary button copy:', 'Secondary action button'),
+          renderIcon:
+            iconMap[select('secondary button icon', icons, icons.ArrowRight)],
+          href: text('Secondary button link:', 'https://www.example.com'),
         },
       ];
 
@@ -56,7 +74,7 @@ if (DDS_LEADSPACE) {
           theme={select('theme', themes, themes.g100)}
           title={title}
           copy={copy}
-          buttons={object('buttons', buttons)}
+          buttons={buttons}
           variation={select('variation', variations, variations.expressive)}
         />
       );
@@ -81,23 +99,33 @@ if (DDS_LEADSPACE) {
         alt: 'lead space image',
       };
 
+      const iconMap = {
+        ArrowRight20,
+        ArrowDown20,
+        Pdf20,
+      };
+
       const icons = {
-        ArrowRight: 'ArrowRight',
-        ArrowDown: 'ArrowDown',
-        Pdf: 'Pdf',
-        none: 'none',
+        ArrowRight: 'ArrowRight20',
+        ArrowDown: 'ArrowDown20',
+        Pdf: 'Pdf20',
+        none: null,
       };
 
       const buttons = [
         {
           link: '',
-          copy: 'Primary action button',
-          renderIcon: select('primary button icon', icons, icons.ArrowRight),
+          copy: text('Primary button copy:', 'Primary action button'),
+          renderIcon:
+            iconMap[select('primary button icon', icons, icons.ArrowRight)],
+          href: text('Primary button link:', 'https://www.example.com'),
         },
         {
           link: '',
-          copy: 'Secondary',
-          renderIcon: select('secondary button icon', icons, icons.ArrowRight),
+          copy: text('Secondary button copy:', 'Secondary action button'),
+          renderIcon:
+            iconMap[select('secondary button icon', icons, icons.ArrowRight)],
+          href: text('Secondary button link:', 'https://www.example.com'),
         },
       ];
 
@@ -106,14 +134,14 @@ if (DDS_LEADSPACE) {
         white: '',
       };
 
-      const graident = boolean('gradient overlay', true);
+      const gradient = boolean('gradient overlay', true);
 
       return (
         <LeadSpace
           theme={select('theme', themes, themes.g100)}
           title={title}
           copy={copy}
-          gradient={graident}
+          gradient={gradient}
           buttons={buttons}
           image={object('image', images)}
           variation={select('variation', variations, variations.expressive)}

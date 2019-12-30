@@ -1,10 +1,10 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { DDS_CARD_ARRAY } from '../../../internal/FeatureFlags';
-import { withKnobs, text } from '@storybook/addon-knobs';
 import './index.scss';
+import { text, withKnobs } from '@storybook/addon-knobs';
 import CardArray from '../CardArray';
+import { DDS_CARD_ARRAY } from '../../../internal/FeatureFlags';
+import React from 'react';
 import readme from '../README.md';
+import { storiesOf } from '@storybook/react';
 
 if (DDS_CARD_ARRAY) {
   storiesOf('CardArray', module)

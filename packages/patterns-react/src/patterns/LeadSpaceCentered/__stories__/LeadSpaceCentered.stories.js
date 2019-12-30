@@ -1,18 +1,17 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { ArrowRight20, ArrowDown20, Pdf20 } from '@carbon/icons-react';
-import {
-  withKnobs,
-  text,
-  select,
-  object,
-  boolean,
-} from '@storybook/addon-knobs';
-import LeadSpaceCentered from '../LeadSpaceCentered';
-import readme from '../README.md';
-import { DDS_LEADSPACE_CENTERED } from '../../../internal/FeatureFlags';
-
 import './index.scss';
+import { ArrowDown20, ArrowRight20, Pdf20 } from '@carbon/icons-react';
+import {
+  boolean,
+  object,
+  select,
+  text,
+  withKnobs,
+} from '@storybook/addon-knobs';
+import { DDS_LEADSPACE_CENTERED } from '../../../internal/FeatureFlags';
+import LeadSpaceCentered from '../LeadSpaceCentered';
+import React from 'react';
+import readme from '../README.md';
+import { storiesOf } from '@storybook/react';
 
 if (DDS_LEADSPACE_CENTERED) {
   storiesOf('LeadSpace - Centered', module)

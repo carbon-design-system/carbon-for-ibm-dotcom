@@ -5,9 +5,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import LegalNav from '../LegalNav';
 import React from 'react';
 import { shallow } from 'enzyme';
-import LegalNav from '../LegalNav';
 
 const FOOTER_NAV_DATA = require('../__data__/footer-legal.json').data;
 

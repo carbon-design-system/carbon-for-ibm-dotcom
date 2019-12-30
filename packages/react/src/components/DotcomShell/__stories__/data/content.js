@@ -1,4 +1,6 @@
-import React from 'react';
+import 'carbon-components/scss/components/button/_button.scss';
+import 'carbon-components/scss/components/data-table/_data-table.scss';
+import 'carbon-components/scss/components/structured-list/_structured-list.scss';
 import {
   Button,
   DataTableSkeleton,
@@ -8,9 +10,7 @@ import {
   StructuredListRow,
   StructuredListWrapper,
 } from 'carbon-components-react';
-import 'carbon-components/scss/components/button/_button.scss';
-import 'carbon-components/scss/components/data-table/_data-table.scss';
-import 'carbon-components/scss/components/structured-list/_structured-list.scss';
+import React from 'react';
 
 const content = (
   <div className="bx--grid">
