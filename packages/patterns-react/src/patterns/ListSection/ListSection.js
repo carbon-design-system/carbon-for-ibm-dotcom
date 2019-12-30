@@ -5,14 +5,14 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React from 'react';
-import PropTypes from 'prop-types';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
-import { settings } from 'carbon-components';
-import classNames from 'classnames';
-import { featureFlag } from '@carbon/ibmdotcom-utilities';
 import { DDS_LISTSECTION } from '../../internal/FeatureFlags';
 import ListSectionGroup from './ListSectionGroup';
+import PropTypes from 'prop-types';
+import React from 'react';
+import classNames from 'classnames';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import { featureFlag } from '@carbon/ibmdotcom-utilities';
+import { settings } from 'carbon-components';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
