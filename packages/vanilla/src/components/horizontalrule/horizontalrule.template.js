@@ -1,5 +1,5 @@
-import { settings } from 'carbon-components';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import { settings } from 'carbon-components';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;

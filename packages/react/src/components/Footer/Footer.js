@@ -5,19 +5,19 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
+import React, { useEffect, useState } from 'react';
+import { TranslationAPI, globalInit } from '@carbon/ibmdotcom-services';
 import {
   settings as ddsSettings,
   ipcinfoCookie,
 } from '@carbon/ibmdotcom-utilities';
-import { settings } from 'carbon-components';
-import { globalInit, TranslationAPI } from '@carbon/ibmdotcom-services';
-import classNames from 'classnames';
 import FooterLogo from './FooterLogo';
 import FooterNav from './FooterNav';
 import LegalNav from './LegalNav';
 import LocaleButton from './LocaleButton';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import { settings } from 'carbon-components';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;

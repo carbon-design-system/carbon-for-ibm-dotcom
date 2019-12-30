@@ -1,16 +1,16 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { DDS_SIMPLELONGFORM } from '../../../internal/FeatureFlags';
-import {
-  withKnobs,
-  text,
-  select,
-  object,
-  boolean,
-} from '@storybook/addon-knobs';
 import './index.scss';
+import {
+  boolean,
+  object,
+  select,
+  text,
+  withKnobs,
+} from '@storybook/addon-knobs';
+import { DDS_SIMPLELONGFORM } from '../../../internal/FeatureFlags';
+import React from 'react';
 import SimpleLongForm from '../SimpleLongForm';
 import readme from '../README.md';
+import { storiesOf } from '@storybook/react';
 
 if (DDS_SIMPLELONGFORM) {
   storiesOf('Simple Long Form', module)
@@ -28,11 +28,11 @@ if (DDS_SIMPLELONGFORM) {
 
       const copy = text(
         'copy (required)',
-        ` 
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc pulvinar nisi id libero sagittis laoreet sed 
+        `
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc pulvinar nisi id libero sagittis laoreet sed
         ut purus. In eu est tellus. Vivamus quis nisi ut nunc facilisis tincidunt. Fusce sodales ante ac sollicitudin
         tristique. Maecenas sit amet metus id risus pulvinar placerat. Vestibulum mattis rutrum pulvinar. Suspendisse
-        sed eros non erat semper fermentum at sed massa. Maecenas id sem pellentesque, ultrices leo sit amet, 
+        sed eros non erat semper fermentum at sed massa. Maecenas id sem pellentesque, ultrices leo sit amet,
         tristique odio. Etiam fermentum neque et vehicula volutpat. Curabitur non eros urna. Cras eu dapibus enim.
       `
       );

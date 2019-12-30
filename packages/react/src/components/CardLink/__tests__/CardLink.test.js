@@ -5,10 +5,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { ArrowRight20 } from '@carbon/icons-react';
+import CardLink from '../CardLink';
 import React from 'react';
 import { shallow } from 'enzyme';
-import CardLink from '../CardLink';
-import { ArrowRight20 } from '@carbon/icons-react';
 
 const content = {
   title: 'Lorem ipsum dolor sit amet',

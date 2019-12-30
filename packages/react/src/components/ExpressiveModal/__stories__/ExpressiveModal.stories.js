@@ -1,13 +1,12 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean, text } from '@storybook/addon-knobs';
-import { ModalBody } from 'carbon-components-react';
-import { ArrowRight20 } from '@carbon/icons-react';
-import { ExpressiveModal } from '../';
-import { ButtonGroup } from '../../ButtonGroup';
-import readme from '../README.md';
-
 import './index.scss';
+import { boolean, text, withKnobs } from '@storybook/addon-knobs';
+import { ArrowRight20 } from '@carbon/icons-react';
+import { ButtonGroup } from '../../ButtonGroup';
+import { ExpressiveModal } from '../';
+import { ModalBody } from 'carbon-components-react';
+import React from 'react';
+import readme from '../README.md';
+import { storiesOf } from '@storybook/react';
 
 /**
  * Dummy content for the modal story
