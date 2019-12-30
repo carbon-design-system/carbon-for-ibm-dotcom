@@ -1,12 +1,11 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, select, object, boolean } from '@storybook/addon-knobs';
+import './index.scss';
+import { boolean, object, select, withKnobs } from '@storybook/addon-knobs';
 import { Footer } from '../';
+import React from 'react';
 import footerMenu from '../__data__/footer-menu.json';
 import footerThin from '../__data__/footer-legal.json';
 import readme from '../README.md';
-
-import './index.scss';
+import { storiesOf } from '@storybook/react';
 
 storiesOf('Footer', module)
   .addDecorator(withKnobs)

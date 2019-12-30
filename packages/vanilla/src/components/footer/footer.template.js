@@ -1,6 +1,6 @@
-import footerNav from './footerNav.template';
-import footerLegalItem from './footerLegalItem.template';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import footerLegalItem from './footerLegalItem.template';
+import footerNav from './footerNav.template';
 import { settings } from 'carbon-components';
 
 const { stablePrefix } = ddsSettings;

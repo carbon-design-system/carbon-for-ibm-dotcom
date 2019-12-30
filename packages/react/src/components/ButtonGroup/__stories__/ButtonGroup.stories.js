@@ -1,13 +1,11 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, text, select, number } from '@storybook/addon-knobs';
-import { ArrowRight20, ArrowDown20, Pdf20 } from '@carbon/icons-react';
-import readme from '../README.md';
-import { DDS_BUTTON_GROUP } from '../../../internal/FeatureFlags';
-
 import './index.scss';
-
+import { ArrowDown20, ArrowRight20, Pdf20 } from '@carbon/icons-react';
+import { number, select, text, withKnobs } from '@storybook/addon-knobs';
 import ButtonGroup from '../ButtonGroup';
+import { DDS_BUTTON_GROUP } from '../../../internal/FeatureFlags';
+import React from 'react';
+import readme from '../README.md';
+import { storiesOf } from '@storybook/react';
 
 if (DDS_BUTTON_GROUP) {
   storiesOf('ButtonGroup', module)

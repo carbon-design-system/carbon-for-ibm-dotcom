@@ -1,8 +1,8 @@
-import { storiesOf } from '@storybook/html';
-import { withKnobs, select } from '@storybook/addon-knobs';
-import Footer from '../footer';
 import '../../../../../styles/scss/components/footer/index.scss';
+import { select, withKnobs } from '@storybook/addon-knobs';
+import Footer from '../footer';
 import readme from '../README.md';
+import { storiesOf } from '@storybook/html';
 
 storiesOf('footer', module)
   .addDecorator(withKnobs)
@@ -18,6 +18,7 @@ storiesOf('footer', module)
     };
     /**
      * renders either short or the tall footer
+     *
      * @returns {string} string
      */
     async function _getFooter() {

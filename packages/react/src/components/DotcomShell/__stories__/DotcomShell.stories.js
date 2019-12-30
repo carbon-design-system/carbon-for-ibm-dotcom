@@ -1,13 +1,12 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, select, boolean, text } from '@storybook/addon-knobs';
+import './index.scss';
+import { boolean, select, text, withKnobs } from '@storybook/addon-knobs';
+import { DDS_MASTHEAD_L1 } from '../../../internal/FeatureFlags';
 import DotcomShell from '../DotcomShell';
+import React from 'react';
+import content from './data/content';
 import mastheadKnobs from '../../Masthead/__stories__/data/Masthead.stories.knobs.js';
 import readme from '../README.md';
-import content from './data/content';
-import { DDS_MASTHEAD_L1 } from '../../../internal/FeatureFlags';
-
-import './index.scss';
+import { storiesOf } from '@storybook/react';
 
 const footer = {
   default: 'default',

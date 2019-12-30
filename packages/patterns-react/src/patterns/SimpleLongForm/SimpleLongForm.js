@@ -5,16 +5,16 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { ArrowRight20 } from '@carbon/icons-react';
+import { CardLink } from '@carbon/ibmdotcom-react';
+import { DDS_SIMPLELONGFORM } from '../../internal/FeatureFlags';
+import { LinkWithIcon } from '@carbon/ibmdotcom-react';
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
-import { settings } from 'carbon-components';
 import { featureFlag } from '@carbon/ibmdotcom-utilities';
-import { DDS_SIMPLELONGFORM } from '../../internal/FeatureFlags';
-import { ArrowRight20 } from '@carbon/icons-react';
-import { CardLink } from '@carbon/ibmdotcom-react';
-import { LinkWithIcon } from '@carbon/ibmdotcom-react';
+import { settings } from 'carbon-components';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;

@@ -1,6 +1,6 @@
+import { LocaleAPI } from '../Locale';
 import axios from 'axios';
 import root from 'window-or-global';
-import { LocaleAPI } from '../Locale';
 
 /**
  * @constant {string | string} Host for the Translation API call

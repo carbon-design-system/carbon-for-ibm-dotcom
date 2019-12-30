@@ -5,13 +5,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import PropTypes from 'prop-types';
 import React, { useEffect, useRef } from 'react';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
-import { settings } from 'carbon-components';
-import { featureFlag } from '@carbon/ibmdotcom-utilities';
-import { DDS_CARD_ARRAY } from '../../internal/FeatureFlags';
 import CardArrayItem from './CardArrayItem';
+import { DDS_CARD_ARRAY } from '../../internal/FeatureFlags';
+import PropTypes from 'prop-types';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import { featureFlag } from '@carbon/ibmdotcom-utilities';
+import { settings } from 'carbon-components';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;

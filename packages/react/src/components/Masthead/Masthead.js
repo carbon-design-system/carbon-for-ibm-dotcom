@@ -5,32 +5,32 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, { useEffect, useState, useRef } from 'react';
-import PropTypes from 'prop-types';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
-import { settings } from 'carbon-components';
-import root from 'window-or-global';
-import { User20, UserOnline20 } from '@carbon/icons-react';
-import { IbmLogo } from '../Icon';
 import {
   Header,
   HeaderContainer,
-  HeaderMenuButton,
   HeaderGlobalBar,
+  HeaderMenuButton,
   SkipToContent,
 } from 'carbon-components-react';
 import {
-  globalInit,
   ProfileAPI,
   TranslationAPI,
+  globalInit,
 } from '@carbon/ibmdotcom-services';
-import MastheadL1 from './MastheadL1';
-import MastheadSearch from './MastheadSearch';
-import MastheadProfile from './MastheadProfile';
-import MastheadLeftNav from './MastheadLeftNav';
-import MastheadTopNav from './MastheadTopNav';
-import cx from 'classnames';
+import React, { useEffect, useRef, useState } from 'react';
+import { User20, UserOnline20 } from '@carbon/icons-react';
 import { DDS_MASTHEAD_L1 } from '../../internal/FeatureFlags';
+import { IbmLogo } from '../Icon';
+import MastheadL1 from './MastheadL1';
+import MastheadLeftNav from './MastheadLeftNav';
+import MastheadProfile from './MastheadProfile';
+import MastheadSearch from './MastheadSearch';
+import MastheadTopNav from './MastheadTopNav';
+import PropTypes from 'prop-types';
+import cx from 'classnames';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import root from 'window-or-global';
+import { settings } from 'carbon-components';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;

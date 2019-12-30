@@ -1,11 +1,11 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { DDS_PICTOGRAM_ARRAY } from '../../../internal/FeatureFlags';
-import { withKnobs, text, object, select } from '@storybook/addon-knobs';
 import './index.scss';
+import { Desktop, Pattern, Touch } from '@carbon/pictograms-react';
+import { object, select, text, withKnobs } from '@storybook/addon-knobs';
+import { DDS_PICTOGRAM_ARRAY } from '../../../internal/FeatureFlags';
 import PictogramArray from '../PictogramArray';
+import React from 'react';
 import readme from '../README.md';
-import { Desktop, Touch, Pattern } from '@carbon/pictograms-react';
+import { storiesOf } from '@storybook/react';
 
 if (DDS_PICTOGRAM_ARRAY) {
   storiesOf('PictogramArray', module)
