@@ -20,9 +20,9 @@
   }
 
   .#{$prefix}--accordion__arrow {
-    width: carbon-rem(20px);
-    height: carbon-rem(20px);
-    flex: 0 0 carbon-rem(20px);
+    width: carbon--rem(20px);
+    height: carbon--rem(20px);
+    flex: 0 0 carbon--rem(20px);
     // margin: $accordion-arrow-margin;
   }
 }
