@@ -1,0 +1,106 @@
+//
+// Copyright IBM Corp. 2016, 2018
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+@import '../../globals/imports';
+
+@mixin themed-items {
+  color: $text-01;
+  background: $ui-background;
+}
+
+@mixin logo-grid {
+  .#{$prefix}--logo-grid {
+    &__container {
+      @include carbon--make-container;
+    }
+    &__row {
+      @include carbon--make-row;
+    }
+    &__col {
+      @include carbon--make-col-ready;
+      @include carbon--make-col(8, 16);
+      @include carbon--make-col-offset(4, 16);
+    }
+    &__title {
+      @include carbon--type-style('expressive-heading-03');
+
+      margin-top: $carbon--spacing-07;
+      margin-bottom: $carbon--spacing-07;
+    }
+
+    &__wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      margin-left: carbon--rem(-15px);
+
+      &__col {
+        @include carbon--make-col-ready;
+        @include carbon--make-col-offset(1, 16);
+      }
+    }
+    &__logo {
+      display: flex;
+      margin: $carbon--spacing-03;
+    }
+
+    @include carbon--breakpoint('sm') {
+      &__col {
+        @include carbon--make-col(2, 4);
+
+        padding-left: $carbon--layout-01;
+        padding-right: $carbon--layout-01;
+      }
+      &__wrapper {
+        margin-left: carbon--rem(-7px);
+      }
+    }
+
+    @include carbon--breakpoint('md') {
+      &__title {
+        margin-top: $carbon--layout-05;
+        margin-bottom: $carbon--spacing-09;
+        margin-left: carbon--rem(-34px);
+      }
+      &__col {
+        @include carbon--make-col(4, 8);
+
+        padding-left: $carbon--layout-01;
+        padding-right: $carbon--layout-01;
+      }
+      &__wrapper {
+        margin-left: carbon--rem(-35px);
+      }
+    }
+    @include carbon--breakpoint('lg') {
+      &__col {
+        @include carbon--make-col-offset(4, 16);
+        @include carbon--make-col(7, 16);
+      }
+      &__wrapper {
+        margin-left: carbon--rem(12px);
+      }
+      &__title {
+        margin-left: carbon--rem(20px);
+      }
+    }
+    @include carbon--breakpoint('max') {
+      &__col {
+        max-width: carbon--rem(640px);
+      }
+    }
+
+    @include themed-items;
+  }
+
+  #{$prefix}--logo-grid.#{$prefix}--logo-grid--g10 {
+    @include carbon--theme($carbon--theme--g10) {
+      @include themed-items;
+    }
+  }
+}
+@include exports('logo-grid') {
+  @include logo-grid;
+}
