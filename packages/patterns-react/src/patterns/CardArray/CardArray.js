@@ -59,7 +59,7 @@ const CardArray = ({ title, content }) => {
           <div
             data-autoid={`${stablePrefix}--cardarray-group`}
             ref={containerRef}
-            className={`${prefix}--cardarray__col ${prefix}--cardarray-group`}>
+            className={`${prefix}--cardarray__col ${prefix}--cardarray-group ${prefix}--grid--condensed`}>
             {_renderCardArrayItems(content)}
           </div>
         </div>
