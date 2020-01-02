@@ -1,5 +1,5 @@
-import { settings } from 'carbon-components';
 import { markdownToHtml } from '../';
+import { settings } from 'carbon-components';
 
 const { prefix } = settings;
 
