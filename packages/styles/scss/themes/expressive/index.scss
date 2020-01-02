@@ -18,7 +18,6 @@
 @import 'components/date-picker';
 @import 'components/list-box';
 @import 'components/number-input';
-@import 'components/tabs';
 @import 'components/text-input';
 @import 'components/tile';
 @import 'components/time-picker';
@@ -45,7 +44,6 @@
     @include date-picker-expressive;
     @include list-box-expressive;
     @include number-input-expressive;
-    @include tabs-expressive;
     @include text-input-expressive;
     @include tile-expressive;
     @include time-picker-expressive;
