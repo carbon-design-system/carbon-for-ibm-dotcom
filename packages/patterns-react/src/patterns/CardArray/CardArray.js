@@ -5,18 +5,21 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { CardLink, ContentGroup } from '@carbon/ibmdotcom-react';
 import React, { useEffect, useRef } from 'react';
-import CardArrayItem from './CardArrayItem';
+import {
+  settings as ddsSettings,
+  featureFlag,
+} from '@carbon/ibmdotcom-utilities';
+import { markdownToHtml, sameheight } from '@carbon/ibmdotcom-utilities';
+
+import { ArrowRight20 } from '@carbon/icons-react';
 import { DDS_CARD_ARRAY } from '../../internal/FeatureFlags';
 import PropTypes from 'prop-types';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
-import { featureFlag } from '@carbon/ibmdotcom-utilities';
-import { sameheight } from '@carbon/ibmdotcom-utilities';
-import { ContentGroup } from '@carbon/ibmdotcom-react';
+import { settings } from 'carbon-components';
 
-const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
-
+const { stablePrefix } = ddsSettings;
 /**
  * Card Array Component
  *
@@ -56,7 +59,7 @@ const CardArray = ({ title, content }) => {
           <div
             data-autoid={`${stablePrefix}--cardarray-group`}
             ref={containerRef}
-            className={`${prefix}--cardarray__col ${prefix}--cardarray-group ${prefix}--grid--condensed`}>
+            className={`${prefix}--cardarray__col ${prefix}--cardarray-group`}>
             {_renderCardArrayItems(content)}
           </div>
         </div>
@@ -72,8 +75,21 @@ const CardArray = ({ title, content }) => {
  * @returns {*} CardArrayItem JSX objects
  */
 const _renderCardArrayItems = contentArray =>
-  contentArray.map(elem => (
-    <CardArrayItem title={elem.title} copy={elem.copy} href={elem.href} />
+  contentArray.map((elem, index) => (
+    <CardLink
+      data-autoid={`${stablePrefix}--cardarray-item`}
+      className={`${prefix}--cardarray-item`}
+      title={elem.title}
+      content={
+        <span
+          dangerouslySetInnerHTML={{
+            __html: markdownToHtml(elem.copy),
+          }}></span>
+      }
+      icon={<ArrowRight20 />}
+      href={elem.href}
+      key={index}
+    />
   ));
 
 CardArray.propTypes = {
