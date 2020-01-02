@@ -28,18 +28,23 @@ const SimpleBenefitsBandItem = ({ title, copy, link }) => (
   <div
     data-autoid={`${stablePrefix}--simplebenefitsband__cards-item`}
     className={`${prefix}--simplebenefitsband__cards-item`}>
-    <h3 className={`${prefix}--simplebenefitsband__cards-item__title`}>
-      {title}
-    </h3>
-    <div className={`${prefix}--simplebenefitsband__cards-item__devider`}></div>
-    <div className={`${prefix}--simplebenefitsband__cards-item__content`}>
-      {copy}
-    </div>
-    <div className={`${prefix}--simplebenefitsband__cards-item__link`}>
-      <LinkWithIcon href={link.href} target={link.target}>
-        <span>{link.text}</span>
-        <ArrowRight20 />
-      </LinkWithIcon>
+    <div className={`${prefix}--simplebenefitsband__cards-item-container`}>
+      <h3 className={`${prefix}--simplebenefitsband__cards-item__title`}>
+        {title}
+      </h3>
+      <div
+        className={`${prefix}--simplebenefitsband__cards-item__devider`}></div>
+      <div className={`${prefix}--simplebenefitsband__cards-item__content`}>
+        {copy}
+      </div>
+      {link && (
+        <div className={`${prefix}--simplebenefitsband__cards-item__link`}>
+          <LinkWithIcon href={link.href} target={link.target}>
+            <span>{link.text}</span>
+            <ArrowRight20 />
+          </LinkWithIcon>
+        </div>
+      )}
     </div>
   </div>
 );

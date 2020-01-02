@@ -10,39 +10,68 @@
 @mixin simplebenefitsband-item {
   .#{$prefix}--simplebenefitsband__cards-item {
     padding-bottom: $carbon--layout-03;
-    margin-left: $carbon--layout-01;
-    margin-right: $carbon--layout-01;
-    display: flex;
-    flex-direction: column;
-    flex: 100%;
-    &:nth-child(n + 4) {
+
+    &-container {
+      height: 100%;
       padding-top: $carbon--layout-03;
-      border-top: 1px solid $ui-03;
+
+      @include carbon--breakpoint-down(lg) {
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: $carbon--layout-01;
+        padding-right: $carbon--layout-01;
+      }
+      @include carbon--breakpoint(lg) {
+        padding-left: 0;
+        padding-right: 0;
+        margin-left: $carbon--layout-01;
+        margin-right: $carbon--layout-01;
+      }
     }
-    @include carbon--breakpoint('lg') {
-      flex: 0 25%;
-    }
+
     &__title {
-      width: 90%;
-      max-width: 640px;
       margin-bottom: $carbon--layout-03;
+      max-width: 82%;
       @include carbon--type-style('expressive-heading-03');
     }
+
     &__devider {
-      border-color: $ui-03;
+      border-color: $ui-04;
       border-width: 1px 0 0;
       border-style: solid;
+      width: $carbon--layout-03;
       margin-bottom: $carbon--layout-03;
-      width: 15%;
     }
+
     &__content {
       margin-bottom: $carbon--layout-03;
-      width: 90%;
-      max-width: 640px;
+      max-width: 82%;
       @include carbon--type-style('body-long-02');
+    }
+
+    @include carbon--breakpoint-down(lg) {
+      &:not(:first-child) {
+        .#{$prefix}--simplebenefitsband__cards-item-container {
+          border-top: 1px solid $text-03;
+        }
+      }
+    }
+
+    @include carbon--breakpoint(lg) {
+      &:not(:first-child) {
+        .#{$prefix}--simplebenefitsband__cards-item-container {
+          border-top: none;
+        }
+      }
+      &:nth-child(n + 4) {
+        .#{$prefix}--simplebenefitsband__cards-item-container {
+          border-top: 1px solid $text-03;
+        }
+      }
     }
   }
 }
+
 @include exports('simplebenefitsband-item') {
   @include simplebenefitsband-item;
 }

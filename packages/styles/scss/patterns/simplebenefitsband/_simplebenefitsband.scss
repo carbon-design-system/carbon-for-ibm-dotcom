@@ -5,38 +5,76 @@
 // LICENSE file in the root directory of this source tree.
 //
 
+@mixin themed-items {
+  color: $text-01;
+  background: $ui-background;
+}
+
 @mixin simplebenefitsband {
   .#{$prefix}--simplebenefitsband {
-    color: $text-01;
-    background: $ui-background;
+    padding-top: $carbon--layout-05;
+    padding-bottom: $carbon--layout-04;
 
     &__container {
       @include carbon--make-container;
-
-      margin-top: $carbon--layout-05;
     }
+
     &__row {
       @include carbon--make-row;
     }
-    &__col {
-      @include carbon--make-col-ready;
 
+    &__title {
+      margin-top: $carbon--layout-03;
+      margin-bottom: $carbon--layout-03;
       padding-left: $carbon--layout-01;
       padding-right: $carbon--layout-01;
-    }
-    &__title {
-      @include carbon--make-col(4, 16);
+      @include carbon--breakpoint(sm) {
+        @include carbon--make-col(4, 4);
+      }
+      @include carbon--breakpoint(md) {
+        @include carbon--make-col(4, 16);
+      }
       @include carbon--type-style('heading-02');
 
-      color: $text-01;
+      &-container {
+        height: 100%;
+        max-width: 82%;
+      }
     }
+
     &__cards {
       display: flex;
       flex-wrap: wrap;
-      @include carbon--make-col(12, 16);
-      &-item {
-        @include carbon--make-col(4, 12);
+      @include carbon--breakpoint(sm) {
+        @include carbon--make-col(4, 4);
       }
+      @include carbon--breakpoint(md) {
+        @include carbon--make-col(12, 16);
+      }
+      &-item {
+        @include carbon--breakpoint(md) {
+          @include carbon--make-col(4, 4);
+        }
+        @include carbon--breakpoint(lg) {
+          @include carbon--make-col(4, 12);
+        }
+      }
+    }
+  }
+
+  .#{$prefix}--simplebenefitsband--g100 {
+    @include carbon--theme($carbon--theme--g100) {
+      @include themed-items;
+    }
+  }
+  .#{$prefix}--simplebenefitsband--g90 {
+    @include carbon--theme($carbon--theme--g90) {
+      @include themed-items;
+    }
+  }
+  .#{$prefix}--simplebenefitsband--g10 {
+    @include carbon--theme($carbon--theme--g10) {
+      @include themed-items;
     }
   }
 }
