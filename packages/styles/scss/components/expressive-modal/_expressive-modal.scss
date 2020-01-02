@@ -43,15 +43,21 @@
       #{$modal}-container {
         padding: $carbon--spacing-09 $carbon--spacing-05 $carbon--spacing-05;
       }
+      #{$modal}-content {
+        padding-right: 0;
+        height: auto;
+        min-height: carbon--rem(500px);
+      }
       #{$modal}-close {
         top: 0;
         right: 0;
       }
       @include carbon--breakpoint('md') {
-        .bx--modal-container {
+        #{$modal}-container {
           width: calc(100% - #{$carbon--spacing-07});
           max-width: calc(100% - #{$carbon--spacing-07});
           max-height: calc(100% - #{$carbon--spacing-07});
+          padding-bottom: 0;
         }
       }
     }
