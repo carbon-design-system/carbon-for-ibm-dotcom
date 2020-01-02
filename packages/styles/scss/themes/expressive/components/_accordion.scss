@@ -16,12 +16,13 @@
 /// @group accordion-expressive
 @mixin accordion-expressive {
   .#{$prefix}--accordion__heading {
-    padding: carbon--rem(10px) 0;
+    padding: carbon--rem(12px) 0;
   }
 
   .#{$prefix}--accordion__arrow {
     width: carbon--rem(20px);
     height: carbon--rem(20px);
+    flex: 0 0 carbon--rem(20px);
     // margin: $accordion-arrow-margin;
   }
 }
