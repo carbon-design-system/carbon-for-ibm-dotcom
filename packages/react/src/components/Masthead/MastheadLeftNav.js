@@ -5,19 +5,19 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React from 'react';
-import PropTypes from 'prop-types';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
-import { settings } from 'carbon-components';
 import {
   HeaderSideNavItems,
   SideNav,
   SideNavItems,
-  SideNavMenuItem,
   SideNavLink,
+  SideNavMenuItem,
 } from 'carbon-components-react';
-import SideNavMenu from '../carbon-components-react/UIShell/SideNavMenu';
 import { ArrowLeft16 } from '@carbon/icons-react';
+import PropTypes from 'prop-types';
+import React from 'react';
+import SideNavMenu from '../carbon-components-react/UIShell/SideNavMenu';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import { settings } from 'carbon-components';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;

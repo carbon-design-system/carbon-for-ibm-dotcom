@@ -5,17 +5,17 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import {
+  settings as ddsSettings,
+  featureFlag,
+} from '@carbon/ibmdotcom-utilities';
+import { ButtonGroup } from '@carbon/ibmdotcom-react';
+import { DDS_LEADSPACE } from '../../internal/FeatureFlags';
+import LeadSpaceImage from './LeadSpaceImage';
 import PropTypes from 'prop-types';
 import React from 'react';
 import classnames from 'classnames';
 import { settings } from 'carbon-components';
-import {
-  featureFlag,
-  settings as ddsSettings,
-} from '@carbon/ibmdotcom-utilities';
-import { DDS_LEADSPACE } from '../../internal/FeatureFlags';
-import LeadSpaceImage from './LeadSpaceImage';
-import { ButtonGroup } from '@carbon/ibmdotcom-react';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;

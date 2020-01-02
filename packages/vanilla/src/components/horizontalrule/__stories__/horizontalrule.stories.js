@@ -1,10 +1,10 @@
-import { storiesOf } from '@storybook/html';
-import { withKnobs, select, text } from '@storybook/addon-knobs';
-import wrapper from './templates/wrapper.template';
-import horizontalrule from '../horizontalrule.template';
 import '../../../../../styles/scss/components/horizontalrule/_horizontalrule.scss';
 import '@carbon/grid/scss/grid.scss';
+import { select, text, withKnobs } from '@storybook/addon-knobs';
+import horizontalrule from '../horizontalrule.template';
 import readme from '../README.md';
+import { storiesOf } from '@storybook/html';
+import wrapper from './templates/wrapper.template';
 
 storiesOf('HorizontalRule', module)
   .addDecorator(withKnobs)

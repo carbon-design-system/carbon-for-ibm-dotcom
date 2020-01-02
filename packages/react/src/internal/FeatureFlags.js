@@ -38,3 +38,11 @@ export const DDS_BUTTON_GROUP =
  * @type {string | boolean}
  */
 export const DDS_TOC = process.env.DDS_TOC === 'true' || DDS_FLAGS_ALL || false;
+
+/**
+ * This determines if the LightboxMediaViewer component will be rendered or not
+ *
+ * @type {string | boolean}
+ */
+export const DDS_LIGHTBOX_MEDIA_VIEWER =
+  process.env.DDS_LIGHTBOX_MEDIA_VIEWER === 'true' || DDS_FLAGS_ALL || false;
