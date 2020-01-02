@@ -64,7 +64,7 @@
             motion(standard, productive),
           outline $duration--fast-01 motion(standard, productive);
         &__wrapper {
-          height: carbon-rem(48px);
+          height: carbon--rem(48px);
           position: relative;
           display: flex;
           align-items: center;
