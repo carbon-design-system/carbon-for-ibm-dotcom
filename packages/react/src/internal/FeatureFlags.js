@@ -21,12 +21,7 @@ export const DDS_FLAGS_ALL = process.env.DDS_FLAGS_ALL === 'true' || false;
  *
  * @type {string | boolean}
  */
-export const DDS_CONTENT_GROUP =
-<<<<<<< HEAD
-  process.env.DDS_CONTENT_GROUP === 'true' || DDS_FLAGS_ALL || false;
-=======
-  process.env.DDS_CONTENT_ARRAY_GROUP === 'true' || DDS_FLAGS_ALL || false;
->>>>>>> feat(component): content-group component created and added to card-array
+export const DDS_CONTENT_GROUP = process.env.DDS_CONTENT_GROUP === 'true' || DDS_FLAGS_ALL || false;
 
 /**
  * Feature flag to turn on the Masthead L1
