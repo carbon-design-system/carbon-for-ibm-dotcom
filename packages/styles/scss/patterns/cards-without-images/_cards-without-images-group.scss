@@ -5,6 +5,7 @@
 // LICENSE file in the root directory of this source tree.
 //
 @import '../../components/link-with-icon/link-with-icon';
+@import '../../globals/imports';
 
 @mixin themed-items {
   .bx--card-link {
