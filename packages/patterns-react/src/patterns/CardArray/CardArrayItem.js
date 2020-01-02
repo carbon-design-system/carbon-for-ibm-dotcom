@@ -5,12 +5,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { ArrowRight20 } from '@carbon/icons-react';
+import { Button } from 'carbon-components-react';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
-import { Button } from 'carbon-components-react';
-import { ArrowRight20 } from '@carbon/icons-react';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;

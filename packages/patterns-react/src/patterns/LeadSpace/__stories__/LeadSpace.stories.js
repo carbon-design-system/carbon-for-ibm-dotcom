@@ -1,17 +1,17 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import {
-  withKnobs,
-  text,
-  select,
-  object,
-  boolean,
-} from '@storybook/addon-knobs';
 import './index.scss';
-import LeadSpace from '../LeadSpace';
-import readme from '../README.md';
+import { ArrowDown20, ArrowRight20, Pdf20 } from '@carbon/icons-react';
+import {
+  boolean,
+  object,
+  select,
+  text,
+  withKnobs,
+} from '@storybook/addon-knobs';
 import { DDS_LEADSPACE } from '../../../internal/FeatureFlags';
-import { ArrowRight20, ArrowDown20, Pdf20 } from '@carbon/icons-react';
+import LeadSpace from '../LeadSpace';
+import React from 'react';
+import readme from '../README.md';
+import { storiesOf } from '@storybook/react';
 
 if (DDS_LEADSPACE) {
   storiesOf('LeadSpace', module)

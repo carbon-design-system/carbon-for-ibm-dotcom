@@ -5,13 +5,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { DDS_SIMPLE_OVERVIEW } from '../../../internal/FeatureFlags';
-import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 import './index.scss';
+import { boolean, select, text, withKnobs } from '@storybook/addon-knobs';
+import { DDS_SIMPLE_OVERVIEW } from '../../../internal/FeatureFlags';
+import React from 'react';
 import SimpleOverview from '../SimpleOverview';
 import readme from '../README.md';
+import { storiesOf } from '@storybook/react';
 
 if (DDS_SIMPLE_OVERVIEW) {
   storiesOf('Simple Overview', module)

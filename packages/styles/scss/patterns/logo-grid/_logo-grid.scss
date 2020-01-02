@@ -19,11 +19,6 @@
     &__row {
       @include carbon--make-row;
     }
-    &__col {
-      @include carbon--make-col-ready;
-      @include carbon--make-col(8, 16);
-      @include carbon--make-col-offset(4, 16);
-    }
     &__title {
       @include carbon--type-style('expressive-heading-03');
 
@@ -34,7 +29,6 @@
     &__wrapper {
       display: flex;
       flex-wrap: wrap;
-      margin-left: carbon--rem(-15px);
 
       &__col {
         @include carbon--make-col-ready;
@@ -44,17 +38,15 @@
     &__logo {
       display: flex;
       margin: $carbon--spacing-03;
+      margin-left: 0;
     }
 
     @include carbon--breakpoint('sm') {
       &__col {
-        @include carbon--make-col(2, 4);
+        @include carbon--make-col(4, 4);
 
         padding-left: $carbon--layout-01;
         padding-right: $carbon--layout-01;
-      }
-      &__wrapper {
-        margin-left: carbon--rem(-7px);
       }
     }
 
@@ -62,28 +54,18 @@
       &__title {
         margin-top: $carbon--layout-05;
         margin-bottom: $carbon--spacing-09;
-        margin-left: carbon--rem(-34px);
       }
       &__col {
-        @include carbon--make-col(4, 8);
+        @include carbon--make-col(7, 8);
 
         padding-left: $carbon--layout-01;
         padding-right: $carbon--layout-01;
-      }
-      &__wrapper {
-        margin-left: carbon--rem(-35px);
       }
     }
     @include carbon--breakpoint('lg') {
       &__col {
         @include carbon--make-col-offset(4, 16);
-        @include carbon--make-col(7, 16);
-      }
-      &__wrapper {
-        margin-left: carbon--rem(12px);
-      }
-      &__title {
-        margin-left: carbon--rem(20px);
+        @include carbon--make-col(8, 16);
       }
     }
     @include carbon--breakpoint('max') {

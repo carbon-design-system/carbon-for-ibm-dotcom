@@ -1,16 +1,16 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { DDS_USECASES } from '../../../internal/FeatureFlags';
-import {
-  withKnobs,
-  text,
-  select,
-  object,
-  boolean,
-} from '@storybook/addon-knobs';
-import UseCases from '../UseCases';
 import './index.scss';
+import {
+  boolean,
+  object,
+  select,
+  text,
+  withKnobs,
+} from '@storybook/addon-knobs';
+import { DDS_USECASES } from '../../../internal/FeatureFlags';
+import React from 'react';
+import UseCases from '../UseCases';
 import readme from '../README.md';
+import { storiesOf } from '@storybook/react';
 
 if (DDS_USECASES) {
   storiesOf('Use Cases', module)
@@ -28,9 +28,9 @@ if (DDS_USECASES) {
 
       const copy = text(
         'copy (required)',
-        `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. 
-         Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales 
-         nulla quis, consequat libero. Here are 
+        `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+         Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
+         nulla quis, consequat libero. Here are
          some common categories:
         `
       );
