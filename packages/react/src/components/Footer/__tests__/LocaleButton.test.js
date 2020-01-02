@@ -5,11 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React from 'react';
-import { shallow } from 'enzyme';
-import LocaleButton from '../LocaleButton';
 import { ComposedModal } from 'carbon-components-react';
+import LocaleButton from '../LocaleButton';
+import React from 'react';
 import mocklist from '../__data__/locale-list.json';
+import { shallow } from 'enzyme';
 
 jest.mock('@carbon/ibmdotcom-services', () => ({
   LocaleAPI: {

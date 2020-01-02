@@ -1,5 +1,5 @@
-import axios from 'axios';
 import { LocaleAPI } from '../Locale';
+import axios from 'axios';
 
 /**
  * @constant {string | string} Host for the API calls

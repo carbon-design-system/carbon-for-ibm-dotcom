@@ -5,12 +5,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import React, { useState, useEffect } from 'react';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { TableOfContents20 } from '@carbon/icons-react';
-import { settings } from 'carbon-components';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import root from 'window-or-global';
+import { settings } from 'carbon-components';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;

@@ -1,12 +1,11 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, select, boolean, text } from '@storybook/addon-knobs';
+import './index.scss';
+import { boolean, select, text, withKnobs } from '@storybook/addon-knobs';
+import { DDS_MASTHEAD_L1 } from '../../../internal/FeatureFlags';
 import Masthead from '../Masthead';
+import React from 'react';
 import mastheadKnobs from './data/Masthead.stories.knobs.js';
 import readme from '../README.md';
-import { DDS_MASTHEAD_L1 } from '../../../internal/FeatureFlags';
-
-import './index.scss';
+import { storiesOf } from '@storybook/react';
 
 storiesOf('Masthead', module)
   .addDecorator(withKnobs)

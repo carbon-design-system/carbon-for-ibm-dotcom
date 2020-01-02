@@ -5,18 +5,18 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, { useReducer, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
-import { LocaleAPI } from '@carbon/ibmdotcom-services';
-import { settings } from 'carbon-components';
+import React, { useEffect, useReducer } from 'react';
 import Autosuggest from 'react-autosuggest';
-import root from 'window-or-global';
-import { SearchTypeaheadAPI } from '@carbon/ibmdotcom-services';
-import { escapeRegExp } from '@carbon/ibmdotcom-utilities';
+import { LocaleAPI } from '@carbon/ibmdotcom-services';
 import MastheadSearchInput from './MastheadSearchInput';
 import MastheadSearchSuggestion from './MastheadSearchSuggestion';
+import PropTypes from 'prop-types';
+import { SearchTypeaheadAPI } from '@carbon/ibmdotcom-services';
 import cx from 'classnames';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import { escapeRegExp } from '@carbon/ibmdotcom-utilities';
+import root from 'window-or-global';
+import { settings } from 'carbon-components';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;

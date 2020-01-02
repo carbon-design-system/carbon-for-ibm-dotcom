@@ -26,6 +26,7 @@ const lazyInitHandles = [];
  * by searching for elements with `data-component-name` (e.g. `data-loading`) attribute
  * or upon DOM events (e.g. clicking) on such elements.
  * See each components' static `.init()` methods for details.
+ *
  * @private
  */
 const _init = () => {

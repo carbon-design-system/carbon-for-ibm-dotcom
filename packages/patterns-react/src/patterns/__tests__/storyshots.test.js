@@ -1,5 +1,5 @@
-import path from 'path';
 import initStoryshots from '@storybook/addon-storyshots';
+import path from 'path';
 
 /**
  * This will initialize storyshots for snapshot testing.
