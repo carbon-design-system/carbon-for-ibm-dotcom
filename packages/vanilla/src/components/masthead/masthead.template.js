@@ -1,4 +1,14 @@
+/**
+ * Copyright IBM Corp. 2016, 2018
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 import mastheadNav from './mastheadNav.template';
+import mastheadLeftnav from './mastheadLeftnav.template';
+import mastheadSearch from './mastheadSearch.template';
+import mastheadProfile from './mastheadProfile.template';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
 
@@ -28,9 +38,12 @@ const mastheadTemplate = ({ navigation, hasProfile, hasSearch }) => {
             </a>
           </div>
 
-          ${_mastheadNav(navigation)}
+          <div class="${prefix}--header__search">
+            ${_mastheadNav(navigation)}
+            ${_mastheadSearch(hasSearch)}
+          </div>
           ${_mastheadProfile(hasProfile)}
-          ${_mastheadSearch(hasSearch)}
+          ${_mastheadLeftnav(navigation)}
         </header>
       </div>
     </div>
@@ -49,28 +62,14 @@ function _mastheadNav(navigation) {
 }
 
 /**
- * renders masthead profile menu
+ * renders masthead left nav data
  *
- * @param {boolean} hasProfile Determines whether to render Profile component
+ * @param {object} navigation Nav items
  * @returns {object} JSX object
  * @private
  */
-function _mastheadProfile(hasProfile) {
-  if (hasProfile) {
-    return `
-      <div class="${prefix}--header__global">
-        <button data-autoid="${stablePrefix}--masthead__profile" aria-label="User Profile" class="${prefix}--header__action" type="button">
-          <div role="button" aria-haspopup="true" aria-expanded="false" class="${prefix}--overflow-menu" aria-label="Menu" tabindex="0" style="width: auto;">
-            <svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32" aria-hidden="true" style="will-change: transform;">
-              <path d="M16 4a5 5 0 1 1-5 5 5 5 0 0 1 5-5m0-2a7 7 0 1 0 7 7 7 7 0 0 0-7-7zm10 28h-2v-5a5 5 0 0 0-5-5h-6a5 5 0 0 0-5 5v5H6v-5a7 7 0 0 1 7-7h6a7 7 0 0 1 7 7z"></path>
-            </svg>
-          </div>
-        </button>
-      </div>
-    `;
-  } else {
-    return '';
-  }
+function _mastheadLeftnav(navigation) {
+  return mastheadLeftnav(navigation);
 }
 
 /**
@@ -81,31 +80,18 @@ function _mastheadProfile(hasProfile) {
  * @private
  */
 function _mastheadSearch(hasSearch) {
-  if (hasSearch) {
-    return `
-      <div data-autoid="${stablePrefix}--masthead__search" class="${prefix}--masthead__search">
-        <form action="https://www.ibm.com/search?lnk=mhsrch" method="get">
-          <input type="hidden" name="lang" value="en"><input type="hidden" name="cc" value="us"><input type="hidden" name="lnk" value="mhsrch">
-          <div role="combobox" aria-haspopup="listbox" aria-owns="react-autowhatever-1" aria-expanded="false" class="react-autosuggest__container">
-            <input type="text" autocomplete="off" aria-autocomplete="list" aria-controls="react-autowhatever-1" class="${prefix}--header__search--input" placeholder="Search all of IBM" data-autoid="${stablePrefix}--header__search--input" name="q" tabindex="-1" value="">
-            <button data-autoid="${stablePrefix}--header__search--search" aria-label="Search all of IBM" class="${prefix}--header__search--search ${prefix}--header__action" type="button">
-              <svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32" aria-hidden="true" style="will-change: transform;">
-                <path d="M30 28.59L22.45 21A11 11 0 1 0 21 22.45L28.59 30zM5 14a9 9 0 1 1 9 9 9 9 0 0 1-9-9z"></path>
-              </svg>
-            </button>
-            <button data-autoid="${stablePrefix}--header__search--close" aria-label="Close" class="${prefix}--header__search--close ${prefix}--header__action" type="button">
-              <svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32" aria-hidden="true" style="will-change: transform;">
-                <path d="M24 9.4L22.6 8 16 14.6 9.4 8 8 9.4l6.6 6.6L8 22.6 9.4 24l6.6-6.6 6.6 6.6 1.4-1.4-6.6-6.6L24 9.4z"></path>
-              </svg>
-            </button>
-            <div id="react-autowhatever-1" role="listbox" class="react-autosuggest__suggestions-container"></div>
-          </div>
-        </form>
-      </div>
-    `;
-  } else {
-    return '';
-  }
+  return hasSearch ? mastheadSearch() : '';
+}
+
+/**
+ * renders masthead profile menu
+ *
+ * @param {boolean} hasProfile Determines whether to render Profile component
+ * @returns {object} JSX object
+ * @private
+ */
+function _mastheadProfile(hasProfile) {
+  return hasProfile ? mastheadProfile() : '';
 }
 
 export default mastheadTemplate;
