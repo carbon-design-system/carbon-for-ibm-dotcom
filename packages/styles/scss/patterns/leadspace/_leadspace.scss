@@ -87,16 +87,16 @@ $btn-min-width: 26;
       @include carbon--make-row;
     }
 
+    .#{$prefix}--btn {
+      min-width: carbon--mini-units($btn-min-width);
+    }
+
     .#{$prefix}--leadspace__desc {
       @include carbon--type-style(expressive-heading-03, true);
       @include carbon--make-col(3, 4);
     }
 
     @include themed-items;
-  }
-
-  .#{$prefix}--btn {
-    min-width: carbon--mini-units($btn-min-width);
   }
 
   .#{$prefix}--leadspace--g100 {
