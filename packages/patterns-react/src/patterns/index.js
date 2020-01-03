@@ -7,6 +7,7 @@
 
 export * from './CardArray';
 export * from './CardsWithoutImages';
+export * from './FeaturedLink';
 export * from './LeadSpace';
 export * from './LeadSpaceCentered';
 export * from './ListSection';

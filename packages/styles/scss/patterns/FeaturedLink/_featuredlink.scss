@@ -1,0 +1,100 @@
+//
+// Copyright IBM Corp. 2016, 2018
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  &::before {
+    display: block;
+    content: '';
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+  > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+@mixin featuredlink {
+  .#{$prefix}--featuredlink {
+    color: $text-01;
+    background: $ui-background;
+    display: flex;
+
+    a {
+      text-decoration: none;
+    }
+
+    &__content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__container {
+      @include carbon--make-container;
+    }
+
+    &__row {
+      @include carbon--make-row;
+    }
+
+    &__col {
+      @include carbon--make-col-ready;
+    }
+
+    &__title {
+      @include carbon--type-style('expressive-heading-04');
+
+      margin-top: $carbon--spacing-07;
+      margin-bottom: $carbon--spacing-07;
+    }
+    @include carbon--breakpoint('sm') {
+      &__image-container {
+        margin-bottom: -2px;
+        @include aspect-ratio(2, 1);
+      }
+      &-item {
+        @include aspect-ratio(2, 1);
+      }
+      &__title {
+        margin-top: $carbon--spacing-07;
+        margin-bottom: $carbon--spacing-10;
+      }
+    }
+    @include carbon--breakpoint('md') {
+      &__content {
+        justify-content: center;
+        flex-direction: row;
+      }
+
+      &__image-container {
+        width: 50%;
+      }
+
+      &__title {
+        margin: $carbon--layout-03 0 $carbon--layout-05 0;
+        @include carbon--make-col(6, 8);
+      }
+    }
+    @include carbon--breakpoint('lg') {
+      &__col {
+        @include carbon--make-col(16, 16);
+      }
+      &__title {
+        @include carbon--make-col(10, 16);
+
+        margin-bottom: $carbon--layout-04;
+      }
+    }
+  }
+}
+@include exports('featuredlink') {
+  @include featuredlink;
+}
