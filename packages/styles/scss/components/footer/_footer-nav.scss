@@ -45,12 +45,12 @@
 
         display: block;
         column-count: 2;
-        column-gap: $spacing-07;
+        column-gap: $carbon--grid-gutter;
       }
 
       @include carbon--breakpoint('lg') {
         column-count: 3;
-        column-gap: $spacing-07;
+        column-gap: $carbon--grid-gutter;
       }
     }
   }
