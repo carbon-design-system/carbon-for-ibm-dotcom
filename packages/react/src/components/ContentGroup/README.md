@@ -23,12 +23,8 @@ import 'yourapplication.scss';
 
 function App() {
   const copy = 'Lorem ipsum dolor sit amet.';
-  const type = 'heading-4';
-  return (
-    <ContentGroup heading={{ copy, type }}>
-      //Content array pattern goes here
-    </ContentGroup>
-  );
+
+  return <ContentGroup heading={copy}>//Content array goes here</ContentGroup>;
 }
 
 ReactDOM.render(<App />, document.querySelector('#app'));
@@ -39,11 +35,9 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 ## Props
 
-| Name           | Required | Data Type | Default Value                   | Description                                     |
-| -------------- | -------- | --------- | ------------------------------- | ----------------------------------------------- |
-| `heading`      | YES      | Object    | {copy: null, type: 'heading-4'} | Heading prop object                             |
-| `heading.copy` | YES      | String    | null                            | Content Group section title                     |
-| `heading.type` | NO       | String    | 'heading-4'                     | Title heading type, can be changed to heading-5 |
+| Name      | Required | Data Type | Default Value | Description  |
+| --------- | -------- | --------- | ------------- | ------------ |
+| `heading` | NO       | String    | null          | Heading text |
 
 ## Stable selectors
 

@@ -15,24 +15,21 @@
 
 @mixin content-group {
   .#{$prefix}--content-group {
-    @include carbon--make-col-ready;
-
+    &__container {
+      @include carbon--make-container;
+    }
+    &__row {
+      @include carbon--make-row;
+    }
+    &__col {
+      @include carbon--make-col-ready;
+    }
     @include carbon--breakpoint(sm) {
       padding-top: $carbon--layout-03;
       padding-bottom: $carbon--layout-05;
 
       &__title {
         margin-bottom: $carbon--layout-05;
-      }
-
-      &__container {
-        @include carbon--make-col(4, 4);
-      }
-    }
-
-    @include carbon--breakpoint(md) {
-      &__container {
-        @include carbon--make-col(8, 8);
       }
     }
 
@@ -43,27 +40,17 @@
       &__title {
         margin-bottom: $carbon--layout-03;
       }
-
-      &__container {
-        @include carbon--make-col(8, 16);
-        @include carbon--make-col-offset(4, 16);
-      }
     }
 
     &__title {
+      @include carbon--type-style('expressive-heading-04');
+
       max-width: 90%;
     }
 
-    &__heading-4 {
-      @include carbon--type-style('expressive-heading-04');
-    }
-
-    &__heading-5 {
-      @include carbon--type-style('expressive-heading-05');
-    }
-
-    &__col {
-      @include carbon--make-col-ready;
+    &__children {
+      padding-left: 0;
+      padding-right: 0;
     }
   }
 }

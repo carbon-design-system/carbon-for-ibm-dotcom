@@ -1,7 +1,6 @@
 import './index.scss';
 
-import { select, text, withKnobs } from '@storybook/addon-knobs';
-
+import { text, withKnobs } from '@storybook/addon-knobs';
 import ContentGroup from '../ContentGroup';
 import { DDS_CONTENT_GROUP } from '../../../internal/FeatureFlags';
 import React from 'react';
@@ -22,17 +21,6 @@ if (DDS_CONTENT_GROUP) {
         'Lorem ipsum dolor sit amet.'
       );
 
-      const headingTypes = {
-        heading4: 'heading-4',
-        heading5: 'heading-5',
-      };
-
-      const type = select(
-        'Component heading type:',
-        headingTypes,
-        headingTypes.heading4
-      );
-
-      return <ContentGroup heading={{ copy, type }} />;
+      return <ContentGroup heading={copy} />;
     });
 }

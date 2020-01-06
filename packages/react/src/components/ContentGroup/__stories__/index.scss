@@ -1,1 +1,6 @@
 @import '../../../../../styles/scss/components/content-group/content-group';
+
+.#{$prefix}--content-group__children {
+  height: 300px;
+  background-color: #f4f4f4;
+}

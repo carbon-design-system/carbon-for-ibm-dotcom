@@ -15,14 +15,8 @@ import { markdownToHtml, sameheight } from '@carbon/ibmdotcom-utilities';
 
 import { ArrowRight20 } from '@carbon/icons-react';
 import { DDS_CARD_ARRAY } from '../../internal/FeatureFlags';
-<<<<<<< HEAD
 import PropTypes from 'prop-types';
 import { settings } from 'carbon-components';
-=======
-import CardArrayItem from './CardArrayItem';
-import { sameheight } from '@carbon/ibmdotcom-utilities';
-import { ContentGroup } from '@carbon/ibmdotcom-react';
->>>>>>> feat(component): content-group component created and added to card-array
 
 const { prefix } = settings;
 const { stablePrefix } = ddsSettings;
@@ -40,7 +34,7 @@ const CardArray = ({ title, content }) => {
   useEffect(() => {
     setSameHeight();
     window.addEventListener('resize', setSameHeight);
-  });
+  }, []);
 
   /**
    * Function that activates the sameheight utility
@@ -58,15 +52,7 @@ const CardArray = ({ title, content }) => {
   return featureFlag(
     DDS_CARD_ARRAY,
     <section data-autoid={`${stablePrefix}--cardarray`}>
-<<<<<<< HEAD
-<<<<<<< HEAD
       <ContentGroup heading={{ copy: title }}>
-=======
-      <ContentGroup heading={{ copy: title, type: 'heading-4' }}>
->>>>>>> feat(component): content-group component created and added to card-array
-=======
-      <ContentGroup heading={{ copy: title }}>
->>>>>>> feat(readme): readme added for the content-group component
         <div
           className={`${prefix}--cardarray`}
           data-autoid={`${stablePrefix}--cardarray`}>
