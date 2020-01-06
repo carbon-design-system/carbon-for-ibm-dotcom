@@ -7,9 +7,9 @@
   IBM.com Library
 </h1>
 
-> This library is an extension of the Carbon IBM Design System. It contains
-> unique components shared between the IBM.com user journeys to unify its look
-> and feel.
+> This library is an extension of the Carbon Design System. It contains unique
+> components shared between the IBM.com user journeys to unify its look and
+> feel.
 
 <p align="center">
   <a href="https://github.com/carbon-design-system/carbon/blob/master/LICENSE">
