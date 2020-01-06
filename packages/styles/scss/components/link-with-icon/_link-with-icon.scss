@@ -10,6 +10,10 @@
 
 @mixin link-with-icon {
   .#{$prefix}--link-with-icon {
+    &__container {
+      display: table;
+    }
+
     display: flex;
 
     span {
