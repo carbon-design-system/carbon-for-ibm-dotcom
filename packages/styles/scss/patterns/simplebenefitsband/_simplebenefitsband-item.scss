@@ -9,12 +9,9 @@
 
 @mixin simplebenefitsband-item {
   .#{$prefix}--simplebenefitsband__cards-item {
-    padding-bottom: $carbon--layout-03;
-
     &-container {
       height: 100%;
       padding-top: $carbon--layout-03;
-
       @include carbon--breakpoint-down(lg) {
         margin-left: 0;
         margin-right: 0;
@@ -31,7 +28,7 @@
 
     &__title {
       margin-bottom: $carbon--layout-03;
-      max-width: 82%;
+      max-width: 80%;
       @include carbon--type-style('expressive-heading-03');
     }
 
@@ -45,16 +42,8 @@
 
     &__content {
       margin-bottom: $carbon--layout-03;
-      max-width: 82%;
+      max-width: 80%;
       @include carbon--type-style('body-long-02');
-    }
-
-    @include carbon--breakpoint-down(lg) {
-      &:not(:first-child) {
-        .#{$prefix}--simplebenefitsband__cards-item-container {
-          border-top: 1px solid $text-03;
-        }
-      }
     }
 
     @include carbon--breakpoint(lg) {
@@ -64,10 +53,38 @@
         }
       }
       &:nth-child(n + 4) {
+        padding-bottom: 0;
         .#{$prefix}--simplebenefitsband__cards-item-container {
           border-top: 1px solid $text-03;
         }
       }
+      &:nth-child(-n + 3) {
+        .#{$prefix}--simplebenefitsband__cards-item-container {
+          padding-top: 0;
+        }
+      }
+      @include carbon--make-col(4, 12);
+    }
+
+    @include carbon--breakpoint-down(lg) {
+      padding-bottom: $carbon--layout-04;
+      &:not(:first-child) {
+        .#{$prefix}--simplebenefitsband__cards-item-container {
+          border-top: 1px solid $text-03;
+        }
+      }
+      &:first-child {
+        .#{$prefix}--simplebenefitsband__cards-item-container {
+          padding-top: 0;
+        }
+      }
+      &:last-child {
+        padding-bottom: 0;
+      }
+    }
+
+    @include carbon--breakpoint-down(md) {
+      padding-bottom: $carbon--layout-03;
     }
   }
 }

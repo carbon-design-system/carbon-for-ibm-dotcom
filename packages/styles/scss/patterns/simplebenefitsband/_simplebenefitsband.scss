@@ -13,7 +13,27 @@
 @mixin simplebenefitsband {
   .#{$prefix}--simplebenefitsband {
     padding-top: $carbon--layout-05;
-    padding-bottom: $carbon--layout-04;
+
+    @include carbon--breakpoint(sm) {
+      padding-bottom: $carbon--layout-05;
+    }
+
+    @include carbon--breakpoint(md) {
+      padding-bottom: $carbon--layout-06;
+    }
+
+    @include carbon--breakpoint(lg) {
+      padding-bottom: $carbon--layout-04;
+    }
+
+    &--multirow {
+      @include carbon--breakpoint(lg) {
+        padding-bottom: $carbon--layout-07;
+        .#{$prefix}--simplebenefitsband__cards-item {
+          padding-bottom: $carbon--layout-03;
+        }
+      }
+    }
 
     &__container {
       @include carbon--make-container;
@@ -24,21 +44,23 @@
     }
 
     &__title {
-      margin-top: $carbon--layout-03;
-      margin-bottom: $carbon--layout-03;
       padding-left: $carbon--layout-01;
       padding-right: $carbon--layout-01;
+      @include carbon--type-style('heading-02');
       @include carbon--breakpoint(sm) {
+        margin-bottom: $carbon--layout-05;
         @include carbon--make-col(4, 4);
       }
       @include carbon--breakpoint(md) {
+        margin-bottom: 0;
         @include carbon--make-col(4, 16);
       }
-      @include carbon--type-style('heading-02');
-
       &-container {
         height: 100%;
-        max-width: 82%;
+        max-width: 80%;
+        @include carbon--breakpoint-down(lg) {
+          max-width: none;
+        }
       }
     }
 
@@ -50,14 +72,6 @@
       }
       @include carbon--breakpoint(md) {
         @include carbon--make-col(12, 16);
-      }
-      &-item {
-        @include carbon--breakpoint(md) {
-          @include carbon--make-col(4, 4);
-        }
-        @include carbon--breakpoint(lg) {
-          @include carbon--make-col(4, 12);
-        }
       }
     }
   }

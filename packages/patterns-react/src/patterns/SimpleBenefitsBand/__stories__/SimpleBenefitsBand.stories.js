@@ -1,10 +1,10 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { DDS_SIMPLEBENEFITSBAND } from '../../../internal/FeatureFlags';
-import { withKnobs, text, object, select } from '@storybook/addon-knobs';
 import './index.scss';
+import { object, select, text, withKnobs } from '@storybook/addon-knobs';
+import { DDS_SIMPLEBENEFITSBAND } from '../../../internal/FeatureFlags';
+import React from 'react';
 import SimpleBenefitsBand from '../SimpleBenefitsBand';
 import readme from '../README.md';
+import { storiesOf } from '@storybook/react';
 
 if (DDS_SIMPLEBENEFITSBAND) {
   storiesOf('Simple Benefits Band', module)

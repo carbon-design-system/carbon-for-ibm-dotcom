@@ -6,14 +6,14 @@
  */
 
 import React, { useEffect } from 'react';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
-import { settings } from 'carbon-components';
-import { featureFlag } from '@carbon/ibmdotcom-utilities';
-import classNames from 'classnames';
-import PropTypes from 'prop-types';
 import { DDS_SIMPLEBENEFITSBAND } from '../../internal/FeatureFlags';
+import PropTypes from 'prop-types';
 import SimpleBenefitsBandItem from './SimpleBenefitsBandItem';
+import classNames from 'classnames';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import { featureFlag } from '@carbon/ibmdotcom-utilities';
 import root from 'window-or-global';
+import { settings } from 'carbon-components';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
@@ -54,11 +54,16 @@ const SimpleBenefitsBand = ({ contentGroup, theme, title }) => {
     });
   };
 
+  const simpleBenefitsBand = classNames({
+    [`${prefix}--simplebenefitsband`]: true,
+    [`${prefix}--simplebenefitsband--multirow`]: contentGroup.length > 3,
+  });
+
   return featureFlag(
     DDS_SIMPLEBENEFITSBAND,
     <section
       data-autoid={`${stablePrefix}--simplebenefitsband`}
-      className={classNames(`${prefix}--simplebenefitsband`, _setTheme(theme))}>
+      className={`${simpleBenefitsBand} ${_setTheme(theme)}`}>
       <div className={`${prefix}--simplebenefitsband__container`}>
         <div className={`${prefix}--simplebenefitsband__row`}>
           <h2 className={`${prefix}--simplebenefitsband__title`}>
