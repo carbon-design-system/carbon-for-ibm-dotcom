@@ -8,8 +8,8 @@
 @import '../../globals/imports';
 @import '../../temp-carbon-expressive/temp-carbon-expressive';
 
-@import 'carbon-components/scss/components/tile/tile';
 @import 'carbon-components/scss/components/link/link';
+@import 'carbon-components/scss/components/tile/tile';
 
 @mixin card-link {
   .#{$prefix}--card-link {
@@ -52,7 +52,7 @@
     }
 
     &:focus {
-      outline: 2px solid $focus;
+      outline-color: $focus;
     }
   }
 }
