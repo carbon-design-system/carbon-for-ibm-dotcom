@@ -20,6 +20,7 @@ import { settings } from 'carbon-components';
 
 const { prefix } = settings;
 const { stablePrefix } = ddsSettings;
+
 /**
  * Card Array Component
  *
@@ -51,17 +52,15 @@ const CardArray = ({ title, content }) => {
 
   return featureFlag(
     DDS_CARD_ARRAY,
-    <section data-autoid={`${stablePrefix}--cardarray`}>
-      <ContentGroup heading={{ copy: title }}>
+    <section
+      data-autoid={`${stablePrefix}--cardarray`}
+      className={`${prefix}--cardarray`}>
+      <ContentGroup heading={title}>
         <div
-          className={`${prefix}--cardarray`}
-          data-autoid={`${stablePrefix}--cardarray`}>
-          <div
-            data-autoid={`${stablePrefix}--cardarray-group`}
-            ref={containerRef}
-            className={`${prefix}--cardarray__col ${prefix}--cardarray-group ${prefix}--grid--condensed`}>
-            {_renderCardArrayItems(content)}
-          </div>
+          data-autoid={`${stablePrefix}--cardarray-group`}
+          ref={containerRef}
+          className={`${prefix}--cardarray__col ${prefix}--cardarray-group ${prefix}--grid--condensed`}>
+          {_renderCardArrayItems(content)}
         </div>
       </ContentGroup>
     </section>

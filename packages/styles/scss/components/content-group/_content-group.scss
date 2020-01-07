@@ -27,10 +27,16 @@
     @include carbon--breakpoint(sm) {
       padding-top: $carbon--layout-03;
       padding-bottom: $carbon--layout-05;
-
+      padding-left: $carbon--layout-01;
+      padding-right: $carbon--layout-01;
       &__title {
         margin-bottom: $carbon--layout-05;
       }
+    }
+
+    @include carbon--breakpoint(md) {
+      padding-left: 0;
+      padding-right: 0;
     }
 
     @include carbon--breakpoint(lg) {

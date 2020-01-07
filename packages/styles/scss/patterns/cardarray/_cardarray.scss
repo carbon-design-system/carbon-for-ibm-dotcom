@@ -9,12 +9,20 @@
   .#{$prefix}--cardarray {
     color: $text-01;
     background: $ui-background;
-    &__container {
-      @include carbon--make-container;
+
+    @include carbon--breakpoint('sm') {
+      .#{$prefix}--content-group__col {
+        @include carbon--make-col(4, 4);
+      }
     }
-    &__row {
-      @include carbon--make-row;
+
+    @include carbon--breakpoint('md') {
+      .#{$prefix}--content-group__col {
+        @include carbon--make-col-offset(2, 8);
+        @include carbon--make-col(5, 8);
+      }
     }
+
     &__col {
       display: flex;
       flex-wrap: wrap;
