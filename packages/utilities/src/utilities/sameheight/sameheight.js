@@ -20,7 +20,7 @@
  * @param {string} minSize Minimum size for the utility to be activated, empty for small,
  *  md for medium, lg for large, xlg for xlarge, max for maximum
  */
-function sameheight(elemCollection, minSize) {
+function sameHeight(elemCollection, minSize = false) {
   const elemArr = Array.prototype.slice.call(elemCollection);
   let targetWidth = 0;
   if (minSize) {
@@ -41,7 +41,11 @@ function sameheight(elemCollection, minSize) {
   }
 
   if (window.innerWidth > targetWidth) {
+    elemArr.forEach(elem => {
+      elem.style.height = 'auto';
+    });
     let targetHeight = 0;
+
     elemArr.forEach(elem => {
       elem.offsetHeight > targetHeight
         ? (targetHeight = elem.offsetHeight)
@@ -49,11 +53,14 @@ function sameheight(elemCollection, minSize) {
     });
 
     elemArr.forEach(elem => {
-      elem.offsetHeight == targetHeight
-        ? (elem.style.height = 'auto')
-        : (elem.style.height = targetHeight + 'px');
+      elem.offsetHeight == targetHeight;
+      elem.style.height = targetHeight + 'px';
+    });
+  } else {
+    elemArr.forEach(elem => {
+      elem.style.height = 'auto';
     });
   }
 }
 
-export default sameheight;
+export default sameHeight;
