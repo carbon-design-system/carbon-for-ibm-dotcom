@@ -23,7 +23,9 @@ const { prefix } = settings;
  */
 const LinkWithIcon = ({ children, href, ...props }) => {
   return (
-    <div data-autoid={`${stablePrefix}--link-with-icon`}>
+    <div
+      className={`${prefix}--link-with-icon__container`}
+      data-autoid={`${stablePrefix}--link-with-icon`}>
       <Link href={href} className={`${prefix}--link-with-icon`} {...props}>
         {children}
       </Link>
