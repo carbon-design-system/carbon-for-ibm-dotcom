@@ -124,13 +124,6 @@ storiesOf('TextInput', module)
   .add(
     'Fully controlled toggle password visibility',
     () => {
-      ControlledPasswordInputApp.__docgenInfo = {
-        ...TextInput.PasswordInput.__docgenInfo,
-        props: {
-          ...TextInput.PasswordInput.__docgenInfo.props,
-        },
-      };
-
       return (
         <ControlledPasswordInputApp
           {...props.TextInputProps()}

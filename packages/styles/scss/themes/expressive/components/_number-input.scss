@@ -18,4 +18,14 @@
   .#{$prefix}--number input[type='number'] {
     height: carbon--rem(48px); /* $carbon--container-04 */
   }
+
+  .#{$prefix}--number__control-btn.up-icon,
+  .#{$prefix}--number__control-btn.down-icon {
+    height: $spacing-06;
+
+    svg {
+      height: carbon--rem(5px);
+      width: carbon--rem(10px);
+    }
+  }
 }
