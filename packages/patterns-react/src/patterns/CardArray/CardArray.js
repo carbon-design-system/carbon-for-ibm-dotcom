@@ -20,7 +20,6 @@ import { settings } from 'carbon-components';
 
 const { prefix } = settings;
 const { stablePrefix } = ddsSettings;
-
 /**
  * Card Array Component
  *
