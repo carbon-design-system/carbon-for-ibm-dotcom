@@ -1,11 +1,11 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, text, object, boolean } from '@storybook/addon-knobs';
+import './index.scss';
+
+import { boolean, object, text, withKnobs } from '@storybook/addon-knobs';
 import { DDS_LIGHTBOX_MEDIA_VIEWER } from '../../../internal/FeatureFlags';
 import LightboxMediaViewer from '../LightboxMediaViewer';
+import React from 'react';
 import readme from '../README.md';
-
-import './index.scss';
+import { storiesOf } from '@storybook/react';
 
 if (DDS_LIGHTBOX_MEDIA_VIEWER) {
   storiesOf('LightboxMediaViewer', module)

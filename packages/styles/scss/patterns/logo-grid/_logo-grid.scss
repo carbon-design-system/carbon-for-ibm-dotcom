@@ -77,7 +77,7 @@
     @include themed-items;
   }
 
-  #{$prefix}--logo-grid.#{$prefix}--logo-grid--g10 {
+  .#{$prefix}--logo-grid--g10 {
     @include carbon--theme($carbon--theme--g10) {
       @include themed-items;
     }

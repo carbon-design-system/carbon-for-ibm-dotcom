@@ -1,54 +1,54 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { DDS_LOGO_GRID } from '../../../internal/FeatureFlags';
-import { withKnobs, select, text, object } from '@storybook/addon-knobs';
 import './index.scss';
+import { object, select, text, withKnobs } from '@storybook/addon-knobs';
+import { DDS_LOGO_GRID } from '../../../internal/FeatureFlags';
 import LogoGrid from '../LogoGrid';
+import React from 'react';
 import readme from '../README.md';
+import { storiesOf } from '@storybook/react';
 
 const logosGroup = [
   {
-    label: 'PHILIPS',
+    label: 'Company A',
     imgSrc: 'https://via.placeholder.com/140',
     altText: 'placeholder',
   },
   {
-    label: 'charles SCHWAB',
+    label: 'Company B',
     imgSrc: 'https://via.placeholder.com/140',
     altText: 'placeholder',
   },
   {
-    label: 'ANA',
+    label: 'Company C',
     imgSrc: 'https://via.placeholder.com/140',
     altText: 'placeholder',
   },
   {
-    label: 'UNI QLO',
+    label: 'Company D',
     imgSrc: 'https://via.placeholder.com/140',
     altText: 'placeholder',
   },
   {
-    label: 'Pwe',
+    label: 'Company E',
     imgSrc: 'https://via.placeholder.com/140',
     altText: 'placeholder',
   },
   {
-    label: 'NETFLIX',
+    label: 'Company F',
     imgSrc: 'https://via.placeholder.com/140',
     altText: 'placeholder',
   },
   {
-    label: 'WoolWorths',
+    label: 'Company G',
     imgSrc: 'https://via.placeholder.com/140',
     altText: 'placeholder',
   },
   {
-    label: 'Salesforce',
+    label: 'Company H',
     imgSrc: 'https://via.placeholder.com/140',
     altText: 'placeholder',
   },
   {
-    label: 'Spotify',
+    label: 'Company I',
     imgSrc: 'https://via.placeholder.com/140',
     altText: 'placeholder',
   },

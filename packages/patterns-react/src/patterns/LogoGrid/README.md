@@ -29,14 +29,14 @@ const title =
 
 const logosGroup = [
   {
-    title: 'PHILIPS',
+    title: 'Company A',
     imgSrc: 'https://via.placeholder.com/140',
-    altText: 'placehoder',
+    altText: 'placeholder',
   },
   {
-    title: 'charles SCHWAB',
+    title: 'Company B',
     imgSrc: 'https://via.placeholder.com/140',
-    altText: 'placehoder',
+    altText: 'placeholder',
   },
 ];
 
