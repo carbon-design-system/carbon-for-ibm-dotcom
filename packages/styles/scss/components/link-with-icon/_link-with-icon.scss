@@ -10,14 +10,21 @@
 
 @mixin link-with-icon {
   .#{$prefix}--link-with-icon {
-    display: inline-block;
+    &__container {
+      display: table;
+    }
+
+    display: flex;
+
     span {
       vertical-align: middle;
+      align-self: center;
     }
 
     svg {
       margin-left: $spacing-03;
       vertical-align: middle;
+      align-self: center;
       fill: currentColor;
     }
 
