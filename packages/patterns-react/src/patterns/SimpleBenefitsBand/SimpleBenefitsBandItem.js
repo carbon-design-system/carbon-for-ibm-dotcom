@@ -26,19 +26,19 @@ const { prefix } = settings;
  */
 const SimpleBenefitsBandItem = ({ title, copy, link }) => (
   <div
-    data-autoid={`${stablePrefix}--simplebenefitsband__cards-item`}
-    className={`${prefix}--simplebenefitsband__cards-item`}>
-    <div className={`${prefix}--simplebenefitsband__cards-item-container`}>
-      <h3 className={`${prefix}--simplebenefitsband__cards-item__title`}>
+    data-autoid={`${stablePrefix}--simplebenefitsband__content-item`}
+    className={`${prefix}--simplebenefitsband__content-item`}>
+    <div className={`${prefix}--simplebenefitsband__content-item-container`}>
+      <h3 className={`${prefix}--simplebenefitsband__content-item__title`}>
         {title}
       </h3>
       <div
-        className={`${prefix}--simplebenefitsband__cards-item__devider`}></div>
-      <div className={`${prefix}--simplebenefitsband__cards-item__content`}>
+        className={`${prefix}--simplebenefitsband__content-item__devider`}></div>
+      <div className={`${prefix}--simplebenefitsband__content-item__content`}>
         {copy}
       </div>
       {link && (
-        <div className={`${prefix}--simplebenefitsband__cards-item__link`}>
+        <div className={`${prefix}--simplebenefitsband__content-item__link`}>
           <LinkWithIcon href={link.href} target={link.target}>
             <span>{link.text}</span>
             <ArrowRight20 />

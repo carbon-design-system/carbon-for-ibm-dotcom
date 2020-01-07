@@ -23,12 +23,12 @@ const { prefix } = settings;
  *
  * @param {object} props props object
  * @param {string} props.title Section title
- * @param {Array} props.contentGroup Array of objects containing the cards data
+ * @param {Array} props.content Array of objects with content data
  * @returns {*} Simple benefits band item
  */
-const SimpleBenefitsBand = ({ contentGroup, theme, title }) => {
+const SimpleBenefitsBand = ({ content, theme, title }) => {
   useEffect(() => {
-    const selector = `.${prefix}--simplebenefitsband__cards-item__title`;
+    const selector = `.${prefix}--simplebenefitsband__content-item__title`;
     setSameHeight(selector);
     root.addEventListener('resize', () => setSameHeight(selector));
   });
@@ -56,7 +56,7 @@ const SimpleBenefitsBand = ({ contentGroup, theme, title }) => {
 
   const simpleBenefitsBand = classNames({
     [`${prefix}--simplebenefitsband`]: true,
-    [`${prefix}--simplebenefitsband--multirow`]: contentGroup.length > 3,
+    [`${prefix}--simplebenefitsband--multirow`]: content.length > 3,
   });
 
   return featureFlag(
@@ -72,9 +72,9 @@ const SimpleBenefitsBand = ({ contentGroup, theme, title }) => {
             </div>
           </h2>
           <div
-            data-autoid={`${stablePrefix}--simplebenefitsband__cards`}
-            className={`${prefix}--simplebenefitsband__cards`}>
-            {_renderArray(contentGroup)}
+            data-autoid={`${stablePrefix}--simplebenefitsband__content`}
+            className={`${prefix}--simplebenefitsband__content`}>
+            {_renderArray(content)}
           </div>
         </div>
       </div>
@@ -86,11 +86,11 @@ const SimpleBenefitsBand = ({ contentGroup, theme, title }) => {
  * Render the content in array list
  *
  * @private
- * @param {Array} contentArray contentGroup object array
+ * @param {Array} content content object array
  * @returns {object} JSX Object
  */
-const _renderArray = contentArray =>
-  contentArray.map((contentItem, contentItemIndex) => (
+const _renderArray = content =>
+  content.map((contentItem, contentItemIndex) => (
     <SimpleBenefitsBandItem
       key={contentItemIndex}
       title={contentItem.title}
@@ -111,7 +111,7 @@ const _setTheme = theme => {
 };
 
 SimpleBenefitsBand.propTypes = {
-  contentGroup: PropTypes.arrayOf(
+  content: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
       copy: PropTypes.string,

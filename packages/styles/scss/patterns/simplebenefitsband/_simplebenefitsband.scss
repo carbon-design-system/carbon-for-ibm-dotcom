@@ -29,7 +29,7 @@
     &--multirow {
       @include carbon--breakpoint(lg) {
         padding-bottom: $carbon--layout-07;
-        .#{$prefix}--simplebenefitsband__cards-item {
+        .#{$prefix}--simplebenefitsband__content-item {
           padding-bottom: $carbon--layout-03;
         }
       }
@@ -64,7 +64,7 @@
       }
     }
 
-    &__cards {
+    &__content {
       display: flex;
       flex-wrap: wrap;
       @include carbon--breakpoint(sm) {

@@ -19,7 +19,7 @@ if (DDS_SIMPLEBENEFITSBAND) {
         'Pattern title (required)',
         'Lorem ipsum dolor sit amet consectetur adipiscing elit'
       );
-      const contentGroup = [
+      const content = [
         {
           title: 'Aliquam condimentum interdum',
           copy:
@@ -81,8 +81,8 @@ if (DDS_SIMPLEBENEFITSBAND) {
 
       return (
         <SimpleBenefitsBand
-          contentGroup={object('Content group', contentGroup)}
-          theme={select('Theme', themes, themes.g10)}
+          content={object('Content group', content)}
+          theme={select('Theme', themes, themes.white)}
           title={title}
         />
       );
