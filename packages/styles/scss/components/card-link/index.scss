@@ -19,11 +19,11 @@
     flex-direction: column;
 
     > *:not(:last-child) {
-      margin-bottom: $spacing-07;
+      margin-bottom: $carbon--spacing-07;
     }
 
     &__wrapper {
-      padding: $spacing-05;
+      padding: $carbon--spacing-05;
     }
 
     &__image {

@@ -107,6 +107,7 @@ const LocaleModal = ({ isOpen, setIsOpen, ...localeModalProps }) => {
     <ComposedModal
       open={isOpen}
       onClose={close}
+      className={`${prefix}--locale-modal-container`}
       data-autoid={`${stablePrefix}--locale-modal`}>
       {isFiltering ? (
         <ModalHeader
