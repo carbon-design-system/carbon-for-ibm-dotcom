@@ -73,6 +73,24 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 > 💡 Don't forget to import the leadspace styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
+#### Markdown
+
+Italic is accepted in the copy of the content item using markdown sytanx: single
+`_` (underscore) or `*` (asterisk)
+
+Example:
+
+```javascript
+{
+  copy: '_Lorem_ ipsum *dolor* sit amet.',
+  ...
+}
+```
+
+Renders:
+
+_Lorem_ ipsum _dolor_ sit amet.
+
 #### Feature Flags
 
 To utilize the following features, set the following variable's to `true` within
