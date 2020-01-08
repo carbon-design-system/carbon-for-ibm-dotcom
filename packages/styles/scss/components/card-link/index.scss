@@ -17,10 +17,10 @@
     text-decoration: none;
     display: flex;
     flex-direction: column;
-    padding: $spacing-05;
+    padding: $carbon--spacing-05;
 
     > *:not(:last-child) {
-      margin-bottom: $spacing-07;
+      margin-bottom: $carbon--spacing-07;
     }
 
     &__title {

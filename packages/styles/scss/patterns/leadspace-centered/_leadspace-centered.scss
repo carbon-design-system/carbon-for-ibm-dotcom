@@ -49,7 +49,7 @@
     }
 
     .#{$prefix}--buttongroup {
-      padding-bottom: $layout-01;
+      padding-bottom: $carbon--layout-01;
     }
 
     &__title,
@@ -58,12 +58,12 @@
     }
 
     &__title {
-      padding-top: $layout-03;
+      padding-top: $carbon--layout-03;
       @include carbon--type-style(expressive-heading-05, true);
     }
 
     &__desc {
-      padding-top: $layout-03;
+      padding-top: $carbon--layout-03;
       @include carbon--type-style(expressive-heading-03, true);
     }
 
@@ -88,7 +88,7 @@
       }
 
       &__desc {
-        padding-top: $layout-04;
+        padding-top: $carbon--layout-04;
       }
 
       .#{$prefix}--buttongroup {
