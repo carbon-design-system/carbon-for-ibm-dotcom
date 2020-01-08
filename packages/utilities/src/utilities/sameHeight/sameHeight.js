@@ -28,19 +28,15 @@ function sameHeight(elemCollection, minSize = false) {
     ? parseFloat(breakpoints[minSize].width) * baseFontSize
     : 0;
   if (window.innerWidth > targetWidth) {
+    let targetHeight = 0;
     elemArr.forEach(elem => {
       elem.style.height = 'auto';
-    });
-    let targetHeight = 0;
-
-    elemArr.forEach(elem => {
       elem.offsetHeight > targetHeight
         ? (targetHeight = elem.offsetHeight)
         : false;
     });
 
     elemArr.forEach(elem => {
-      elem.offsetHeight == targetHeight;
       elem.style.height = targetHeight + 'px';
     });
   } else {
