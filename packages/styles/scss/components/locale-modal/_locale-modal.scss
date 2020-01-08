@@ -19,11 +19,19 @@
     background-color: $ui-background;
   }
 
+  .#{$prefix}--locale-modal-container .#{$prefix}--modal-container {
+    min-height: 80%;
+  }
+
   .#{$prefix}--locale-modal {
-    padding-right: $carbon--spacing-05;
+    padding-left: $carbon--spacing-05;
     margin-bottom: $carbon--spacing-05;
     margin-top: $carbon--spacing-07;
     display: flex;
+
+    &.#{$prefix}--modal-content {
+      padding-right: $carbon--spacing-05;
+    }
 
     &__regions {
       width: 100%;
@@ -169,6 +177,7 @@
 
   .#{$prefix}--modal-header {
     padding-left: $carbon--spacing-07;
+    padding-top: $carbon--spacing-05;
 
     &__label {
       margin-bottom: $carbon--spacing-04;
