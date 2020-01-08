@@ -5,14 +5,14 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { ArrowRight20 } from '@carbon/icons-react';
-import { LinkWithIcon } from '@carbon/ibmdotcom-react';
-import PropTypes from 'prop-types';
-import React from 'react';
 import {
   settings as ddsSettings,
   markdownToHtml,
 } from '@carbon/ibmdotcom-utilities';
+import { ArrowRight20 } from '@carbon/icons-react';
+import { LinkWithIcon } from '@carbon/ibmdotcom-react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { settings } from 'carbon-components';
 
 const { stablePrefix } = ddsSettings;
@@ -26,7 +26,7 @@ const { prefix } = settings;
  */
 const convertMarkdown = string => ({
   __html: markdownToHtml(string, {
-    italic: true,
+    bold: false,
   }),
 });
 
