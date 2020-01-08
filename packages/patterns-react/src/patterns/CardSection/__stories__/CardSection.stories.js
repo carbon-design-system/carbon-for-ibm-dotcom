@@ -1,12 +1,12 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, select, object } from '@storybook/addon-knobs';
-import './index.scss';
-import SimpleCards from '../SimpleCards';
-import ImageCards from '../ImageCards';
+import { object, select, withKnobs } from '@storybook/addon-knobs';
 import CardSection from '../CardSection';
-import readme from '../README.md';
 import { DDS_CARD_SECTION } from '../../../internal/FeatureFlags';
+import ImageCards from '../ImageCards';
+import './index.scss';
+import React from 'react';
+import readme from '../README.md';
+import SimpleCards from '../SimpleCards';
+import { storiesOf } from '@storybook/react';
 
 const cardsGroup = {
   simpleCards: [

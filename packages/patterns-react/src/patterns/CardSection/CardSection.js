@@ -1,13 +1,13 @@
 import React, { useEffect, useRef } from 'react';
+import { ArrowRight20 } from '@carbon/icons-react';
+import { CardLink } from '@carbon/ibmdotcom-react';
+import { DDS_CARD_SECTION } from '../../internal/FeatureFlags';
+import { featureFlag, sameheight } from '@carbon/ibmdotcom-utilities';
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import root from 'window-or-global';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
-import classNames from 'classnames';
-import { featureFlag, sameheight } from '@carbon/ibmdotcom-utilities';
-import { DDS_CARD_SECTION } from '../../internal/FeatureFlags';
-import { CardLink } from '@carbon/ibmdotcom-react';
-import { ArrowRight20 } from '@carbon/icons-react';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;

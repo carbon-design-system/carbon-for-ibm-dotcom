@@ -1,7 +1,6 @@
-import React from 'react';
 import CardSection from './CardSection';
 import PropTypes from 'prop-types';
-
+import React from 'react';
 /**
  * SimpleCards pattern it is Cards without images
  *
