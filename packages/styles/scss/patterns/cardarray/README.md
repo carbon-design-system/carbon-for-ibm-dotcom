@@ -29,4 +29,4 @@ Import the package css into the top of your main CSS file.
 | ---------------------- | ----------------------------------------------------------------- |
 | `.bx--cardarray`       | Highest level class name for the Content Array with cards pattern |
 | `.bx--cardarray-group` | Content Array with cards section group component class            |
-| `.bx--cardarray-item`  | lContent Array with cardsist section item component class         |
+| `.bx--cardarray-item`  | Content Array with cards section item component class             |
