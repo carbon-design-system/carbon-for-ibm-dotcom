@@ -5,9 +5,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { baseFontSize, breakpoints } from '@carbon/layout';
+
 /**
  * Utility that sets an array of elements to the same height.
- *
  *
  * @example
  * import {sameheight} from '@carbon/ibmdotcom-utilities';
@@ -23,24 +24,9 @@
  */
 function sameHeight(elemCollection, minSize = false) {
   const elemArr = Array.prototype.slice.call(elemCollection);
-  let targetWidth = 0;
-  if (minSize) {
-    switch (minSize) {
-      case 'md':
-        targetWidth = 671;
-        break;
-      case 'lg':
-        targetWidth = 1055;
-        break;
-      case 'xlg':
-        targetWidth = 1311;
-        break;
-      case 'max':
-        targetWidth = 1583;
-        break;
-    }
-  }
-
+  let targetWidth = minSize
+    ? parseFloat(breakpoints[minSize].width) * baseFontSize
+    : 0;
   if (window.innerWidth > targetWidth) {
     elemArr.forEach(elem => {
       elem.style.height = 'auto';
