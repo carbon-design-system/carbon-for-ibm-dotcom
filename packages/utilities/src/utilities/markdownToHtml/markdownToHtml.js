@@ -37,10 +37,10 @@ const _fixDoubleSpaces = str => str.replace(_doubleSpaceRegex, ' ');
  *
  * @param {string} str String to convert to html
  * @param {object} [options={}] Object with options for the conversion
- * @param {boolean} [options.italic=false] Defines if should convert italic
- * @param {boolean} [options.bold=false] Defines if should convert bold
- * @param {boolean} [options.allowHtml=false] Defines if should allow or remove html tags
+ * @param {boolean} [options.italic=true] Defines if should convert italic
+ * @param {boolean} [options.bold=true] Defines if should convert bold
  * @param {boolean} [options.useCarbonClasses=true] Defines if should use carbon typography classes
+ * @param {boolean} [options.allowHtml=false] Defines if should allow or remove html tags
  * @returns {string} String converted to html
  * @example
  * import { markdownToHtml } from '@carbon/ibmdotcom-utilities';
@@ -51,16 +51,15 @@ const _fixDoubleSpaces = str => str.replace(_doubleSpaceRegex, ' ');
 function markdownToHtml(
   str,
   {
-    italic = false,
-    bold = false,
-    allowHtml = false,
+    italic = true,
+    bold = true,
     useCarbonClasses = true,
+    allowHtml = false,
   } = {}
 ) {
-  const isAllStyles = !italic && !bold;
   let converted = allowHtml ? str : _removeHtmlTags(str);
 
-  if (italic || isAllStyles) {
+  if (italic) {
     converted = converted.replace(_italicRegex, (match, p1) => {
       if (!p1.length) {
         return match;
@@ -70,7 +69,8 @@ function markdownToHtml(
         : `<em>${p1}</em>`;
     });
   }
-  if (bold || isAllStyles) {
+
+  if (bold) {
     converted = converted.replace(_boldRegex, (match, p1) => {
       return useCarbonClasses
         ? `<strong class="${prefix}--type-semibold">${p1}</strong>`
