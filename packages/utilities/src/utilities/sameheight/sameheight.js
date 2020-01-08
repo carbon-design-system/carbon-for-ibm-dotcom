@@ -8,6 +8,7 @@
 /**
  * Utility that sets an array of elements to the same height.
  *
+ *
  * @example
  * import {sameheight} from '@carbon/ibmdotcom-utilities';
  *
