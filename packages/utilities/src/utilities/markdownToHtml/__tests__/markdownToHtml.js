@@ -14,13 +14,13 @@ describe('Markdown converter utility', () => {
   });
 
   it('return the converted string with italic', () => {
-    const output = markdownToHtml(str, { italic: true });
+    const output = markdownToHtml(str, { bold: false });
     const expected = `This is <em class="${prefix}--type-light">italic</em> and **bold**.`;
     expect(output).toBe(expected);
   });
 
   it('return the converted string with bold', () => {
-    const output = markdownToHtml(str, { bold: true });
+    const output = markdownToHtml(str, { italic: false });
     const expected = `This is _italic_ and <strong class="${prefix}--type-semibold">bold</strong>.`;
     expect(output).toBe(expected);
   });
