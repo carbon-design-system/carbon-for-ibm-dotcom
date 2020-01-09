@@ -16,6 +16,7 @@ import { baseFontSize, breakpoints } from '@carbon/layout';
  * sameheight(ElementArray, 'md');
  *
  * if you want the utility to refresh the sizes as you resize the screen, consider using a listener:
+ *
  * window.addEventListener('resize', function() {
  *   window.requestAnimationFrame(function() {
  *     sameheight(ElementArray, 'md');
