@@ -13,21 +13,25 @@ import { storiesOf } from '@storybook/react';
 storiesOf('ImageComponent', module)
   .addDecorator(withKnobs)
   .add('Default', () => {
-    const defaultImages = text(
-      'Default image:',
-      'https://picsum.photos/id/2/672/672'
-    );
+    // const defaultImages = text(
+    //   'Default image:',
+    //   'https://picsum.photos/id/2/672/672'
+    // );
     const imageObject = object('Images Object:', [
-      'https://picsum.photos/id/2/320/160',
-      'https://picsum.photos/id/2/400/400',
-      'https://picsum.photos/id/2/672/672',
+      { src: 'https://picsum.photos/id/2/320/160', minWidth: 320 },
+      { src: 'https://picsum.photos/id/2/400/400', minWidth: 400 },
+      { src: 'https://picsum.photos/id/2/672/672', minWidth: 672 },
     ]);
     const alt = text('alt', 'lead space image');
+    const defaultImage = text(
+      'default image:',
+      'https://picsum.photos/id/2/672/672'
+    );
 
     return (
       <ImageComponent
-        defaultImage={defaultImages}
         images={imageObject}
+        defaultImage={defaultImage}
         alt={alt}></ImageComponent>
     );
   });
