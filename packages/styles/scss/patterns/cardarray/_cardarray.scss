@@ -48,6 +48,13 @@
         }
       }
 
+      @include carbon--breakpoint(md) {
+        .#{$prefix}--cardarray__row {
+          padding-left: 0;
+          padding-right: 0;
+        }
+      }
+
       @include carbon--breakpoint(lg) {
         @include carbon--make-col(10, 16);
         @include carbon--make-col-offset(4, 16);
