@@ -65,8 +65,8 @@ $btn-min-width: 26;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding-top: $layout-03;
-      padding-bottom: $layout-03;
+      padding-top: $carbon--layout-03;
+      padding-bottom: $carbon--layout-03;
       position: absolute;
       top: 0;
       height: 100%;
@@ -155,8 +155,8 @@ $btn-min-width: 26;
       padding-top: aspectratio(640px, 1584px);
 
       &__overlay {
-        padding-top: $spacing-08;
-        padding-bottom: $spacing-08;
+        padding-top: $carbon--spacing-08;
+        padding-bottom: $carbon--spacing-08;
       }
     }
   }

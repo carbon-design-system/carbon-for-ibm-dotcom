@@ -22,14 +22,14 @@
     }
 
     svg {
-      margin-left: $spacing-03;
+      margin-left: $carbon--spacing-03;
       vertical-align: middle;
       align-self: center;
       fill: currentColor;
     }
 
     &:not(:first-of-type) {
-      margin-left: $spacing-07;
+      margin-left: $carbon--spacing-07;
     }
   }
 }

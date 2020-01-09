@@ -85,3 +85,11 @@ export const DDS_USECASES =
  */
 export const DDS_SIMPLE_OVERVIEW =
   process.env.DDS_SIMPLE_OVERVIEW === 'true' || DDS_FLAGS_ALL || false;
+
+/**
+ * This determines if the logo grid will be rendered or not
+ *
+ * @type {string | boolean}
+ */
+export const DDS_LOGO_GRID =
+  process.env.DDS_LOGO_GRID === 'true' || DDS_FLAGS_ALL || false;
