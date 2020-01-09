@@ -1612,12 +1612,10 @@
   resolved "https://registry.yarnpkg.com/@carbon/icon-helpers/-/icon-helpers-10.4.0.tgz#771ba51efcaa9d2be03800f8e0f50c7aa779febf"
   integrity sha512-52H97nT0Hv3mneNaDXBELt/shrO9AUZIpX5TuxRUcdva0xqLNnjhsLw0PTytjQRw3yNCLmDw8hOutzlReXCleQ==
 
-"@carbon/icons-react@10.6.0":
-  version "10.6.0"
-  resolved "https://registry.yarnpkg.com/@carbon/icons-react/-/icons-react-10.6.0.tgz#e137ddb552111c571ccb1a2ac861be07fe1fb339"
-  integrity sha512-WG8OdiCx7iWOE8x71xAWP5m/WvFV1+y7+h2WWWrweFjUWf+hNLB3oWem/cQxLB0YL/yHQiAAzyKb1Yb2ns7w8g==
-  dependencies:
-    "@carbon/icon-helpers" "10.4.0"
+"@carbon/icon-helpers@^10.5.0":
+  version "10.5.0"
+  resolved "https://registry.yarnpkg.com/@carbon/icon-helpers/-/icon-helpers-10.5.0.tgz#dca43b95ead0555d308a583983835804b869f810"
+  integrity sha512-ivKSCd3sl+Qm0PCLhGje7FAHnK8anX8Fml0rYgraIptU5JOASWrBKu14EUtGZwL9UP/tzszvufrzwO599cN9Qw==
 
 "@carbon/icons-react@^10.6.1":
   version "10.6.1"
@@ -1625,6 +1623,13 @@
   integrity sha512-VeCMLGekMIpLoutyCMk4U1zXUkmzIWZFZbDAGpFbT+OgZuCI1ba5YfiwUV16ldXaSZH7zWmwUQs72t6Kx4fofg==
   dependencies:
     "@carbon/icon-helpers" "10.4.0"
+
+"@carbon/icons-react@^10.8.0":
+  version "10.8.0"
+  resolved "https://registry.yarnpkg.com/@carbon/icons-react/-/icons-react-10.8.0.tgz#f554a6df18e12f3da74eb5cf86820d5b7cb358cc"
+  integrity sha512-I5/KtwutKL57SOEj7kk6clMiGOp0i7m3BytTeIah+b0UHs2tcEDGvJQTUGHPqhcZzFAw77BZPRnZ6qM4cEZHfA==
+  dependencies:
+    "@carbon/icon-helpers" "^10.5.0"
 
 "@carbon/import-once@10.3.0":
   version "10.3.0"
@@ -1635,6 +1640,11 @@
   version "10.5.0"
   resolved "https://registry.yarnpkg.com/@carbon/layout/-/layout-10.5.0.tgz#02b79bb4713ea750622e432c9e8ada626cdb6555"
   integrity sha512-Ri4lJLDlSrZwvMUWvz4mowY47yegaN4nVhoimxx2252UwJK4Q5EIp8oXkFW6caonM01VU3AJmfUIowU/fdDLWg==
+
+"@carbon/layout@10.7.0":
+  version "10.7.0"
+  resolved "https://registry.yarnpkg.com/@carbon/layout/-/layout-10.7.0.tgz#4146a68f35ff44d0ec891946523123bdf4094d30"
+  integrity sha512-PXpd9QCIatzGlQkXj7DWlTf7wgFMDCEMNTWj9Wrby93HdJ0veGJ7bLNzTCxe1CVtJmG8iDNj7DBv8J17YazYKQ==
 
 "@carbon/pictograms-react@^10.7.0":
   version "10.7.0"
@@ -7128,12 +7138,12 @@ capture-stack-trace@^1.0.0:
   resolved "https://registry.yarnpkg.com/capture-stack-trace/-/capture-stack-trace-1.0.1.tgz#a6c0bbe1f38f3aa0b92238ecb6ff42c344d4135d"
   integrity sha512-mYQLZnx5Qt1JgB1WEiMCf2647plpGeQ2NMR/5L0HNZzGQo4fuSPnK+wjfPnKZV0aiJDgzmWqqkV/g7JD+DW0qw==
 
-carbon-components-react@7.7.4, carbon-components-react@^7.7.4:
-  version "7.7.4"
-  resolved "https://registry.yarnpkg.com/carbon-components-react/-/carbon-components-react-7.7.4.tgz#3ef38e80d5b490adc4581a5db96523ef06b9bde8"
-  integrity sha512-+iSD+zmxc6XyUY9s6nkK7dKNXn99XlpyHOjGP0HF8FksUdN4KoV/IjwKSRd19HADmyOsUdoI5sLr85cuMxGnrw==
+carbon-components-react@7.9.0:
+  version "7.9.0"
+  resolved "https://registry.yarnpkg.com/carbon-components-react/-/carbon-components-react-7.9.0.tgz#c68b2549dac085f5bb945695da8b3e8fcb6ba658"
+  integrity sha512-4TQ36Iu4mG5cbxa133UCOaDd4AjnE9YowaJvjUmMOEUTTB81gq/ABYXLCDoPcuY1gLATHI+Mgd6PKv+A+O0u5A==
   dependencies:
-    "@carbon/icons-react" "10.6.0"
+    "@carbon/icons-react" "^10.8.0"
     classnames "2.2.6"
     downshift "^1.31.14"
     flatpickr "4.6.1"
@@ -7146,10 +7156,10 @@ carbon-components-react@7.7.4, carbon-components-react@^7.7.4:
     warning "^3.0.0"
     window-or-global "^1.0.1"
 
-carbon-components@10.7.4:
-  version "10.7.4"
-  resolved "https://registry.yarnpkg.com/carbon-components/-/carbon-components-10.7.4.tgz#e8c734ee2dd736117f6dba160260760c4e795614"
-  integrity sha512-eiAfSQQVa1BTv2y/hzgv7l4rpd/SksFBenxezXEXc6684duleBLj5Jz1wyMqLGVp5ZEjJuAIbAyf9zs89AT9ig==
+carbon-components@10.9.0, carbon-components@^10.7.4:
+  version "10.9.0"
+  resolved "https://registry.yarnpkg.com/carbon-components/-/carbon-components-10.9.0.tgz#b96f097582301b009232ebc54927327ee3608a84"
+  integrity sha512-r0fHHGV1nAGazL42ecsFSBHlrRlg/2d1XAvnlnRzOvZW8O+DFR4XxpAgf5ZWKFCiiysS5eDympZTqTflN/NewQ==
   dependencies:
     carbon-icons "^7.0.7"
     flatpickr "4.6.1"
@@ -7681,6 +7691,11 @@ commander@~2.19.0:
   version "2.19.0"
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.19.0.tgz#f6198aa84e5b83c46054b94ddedbfed5ee9ff12a"
   integrity sha512-6tvAOO+D6OENvRAh524Dh9jcfKTYDQAqvqezbCW82xj5X0pSrcpxtvRKHLG0yBY6SD7PSDrJaj+0AiOcKVd1Xg==
+
+commander@~2.20.3:
+  version "2.20.3"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-2.20.3.tgz#fd485e84c03eb4881c20722ba48035e8531aeb33"
+  integrity sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==
 
 comment-parser@^0.5.5:
   version "0.5.5"
@@ -11002,9 +11017,9 @@ gzip-size@5.1.1, gzip-size@^5.0.0:
     pify "^4.0.1"
 
 handlebars@^4.1.2:
-  version "4.1.2"
-  resolved "https://registry.yarnpkg.com/handlebars/-/handlebars-4.1.2.tgz#b6b37c1ced0306b221e094fc7aca3ec23b131b67"
-  integrity sha512-nvfrjqvt9xQ8Z/w0ijewdD/vvWDTOweBUm96NTr66Wfvo1mJenBLwcYmPs3TIBP5ruzYGD7Hx/DaM9RmhroGPw==
+  version "4.5.3"
+  resolved "https://registry.yarnpkg.com/handlebars/-/handlebars-4.5.3.tgz#5cf75bd8714f7605713511a56be7c349becb0482"
+  integrity sha512-3yPecJoJHK/4c6aZhSvxOyG4vJKDshV36VHp0iVCDVh7o9w2vwi3NSnL2MMPj3YdduqaBcu7cGbggJQM0br9xA==
   dependencies:
     neo-async "^2.6.0"
     optimist "^0.6.1"
@@ -20112,7 +20127,15 @@ uglify-js@3.4.x:
     commander "~2.19.0"
     source-map "~0.6.1"
 
-uglify-js@^3.1.4, uglify-js@^3.5.1:
+uglify-js@^3.1.4:
+  version "3.7.3"
+  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.7.3.tgz#f918fce9182f466d5140f24bb0ff35c2d32dcc6a"
+  integrity sha512-7tINm46/3puUA4hCkKYo4Xdts+JDaVC9ZPRcG8Xw9R4nhO/gZgUM3TENq8IF4Vatk8qCig4MzP/c8G4u2BkVQg==
+  dependencies:
+    commander "~2.20.3"
+    source-map "~0.6.1"
+
+uglify-js@^3.5.1:
   version "3.6.0"
   resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.6.0.tgz#704681345c53a8b2079fb6cec294b05ead242ff5"
   integrity sha512-W+jrUHJr3DXKhrsS7NUVxn3zqMOFn0hL/Ei6v0anCIMoKC93TjcflTagwIHLW7SfMFfiQuktQyFVCFHGUE0+yg==

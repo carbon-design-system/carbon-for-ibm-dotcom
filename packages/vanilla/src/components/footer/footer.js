@@ -1,9 +1,9 @@
-import { Accordion } from 'carbon-components';
 import {
-  globalInit,
-  TranslationAPI,
   LocaleAPI,
+  TranslationAPI,
+  globalInit,
 } from '@carbon/ibmdotcom-services';
+import { Accordion } from 'carbon-components';
 import footerTemplate from './footer.template';
 
 /**

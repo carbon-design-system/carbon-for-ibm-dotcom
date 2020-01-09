@@ -4,13 +4,12 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-
-import React from 'react';
+import { ClickableTile } from 'carbon-components-react';
 import PropTypes from 'prop-types';
+import React from 'react';
 import classNames from 'classnames';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
-import { ClickableTile } from 'carbon-components-react';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
@@ -21,8 +20,17 @@ const { prefix } = settings;
  * @param {object} props react proptypes
  * @returns {object} JSX object
  */
-const CardLink = ({ title, href, content, icon, className, ...props }) => {
-  if (!title) {
+const CardLink = ({
+  title,
+  href,
+  content,
+  icon,
+  imgSrc,
+  altText,
+  className,
+  ...props
+}) => {
+  if (!title || !href) {
     return null;
   }
 
@@ -32,12 +40,28 @@ const CardLink = ({ title, href, content, icon, className, ...props }) => {
       className={classNames(`${prefix}--card-link`, className)}
       href={href}
       {...props}>
-      <h3 className={`${prefix}--card-link__title`}>{title}</h3>
-      {optionalContent(content)}
-      {renderFooter(icon)}
+      {renderImage(imgSrc, altText)}
+      <div className={`${prefix}--card-link__wrapper`}>
+        <h3 className={`${prefix}--card-link__title`}>{title}</h3>
+        {optionalContent(content)}
+        {renderFooter(icon)}
+      </div>
     </ClickableTile>
   );
 };
+
+/**
+ * Render image
+ *
+ * @param {string} imgSrc passes as src
+ * @param {string} altText passes as alt
+ * @returns {object} JSX object
+ */
+function renderImage(imgSrc, altText) {
+  return !imgSrc || !altText ? null : (
+    <img src={imgSrc} className={`${prefix}--card-link__image`} alt={altText} />
+  );
+}
 
 /**
  * Card Link optional content
@@ -46,11 +70,9 @@ const CardLink = ({ title, href, content, icon, className, ...props }) => {
  * @returns {object} JSX object
  */
 function optionalContent(content) {
-  if (!content) {
-    return null;
-  }
-
-  return <p className={`${prefix}--card-link__content`}>{content}</p>;
+  return !content ? null : (
+    <p className={`${prefix}--card-link__content`}>{content}</p>
+  );
 }
 
 /**
@@ -60,11 +82,9 @@ function optionalContent(content) {
  * @returns {object} JSX object
  */
 function renderFooter(icon) {
-  if (!icon) {
-    return null;
-  }
-
-  return <footer className={`${prefix}--card-link__footer`}>{icon}</footer>;
+  return !icon ? null : (
+    <footer className={`${prefix}--card-link__footer`}>{icon}</footer>
+  );
 }
 
 CardLink.propTypes = {
@@ -72,6 +92,8 @@ CardLink.propTypes = {
   href: PropTypes.string.isRequired,
   icon: PropTypes.element,
   content: PropTypes.string,
+  imgSrc: PropTypes.string,
+  altText: PropTypes.string,
   className: PropTypes.string,
 };
 

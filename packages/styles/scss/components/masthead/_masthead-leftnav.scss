@@ -21,7 +21,7 @@
     &.#{$prefix}--header__action--active {
       + .#{$prefix}--header__logo {
         z-index: 6001;
-        margin-left: $spacing-09;
+        margin-left: $carbon--spacing-09;
       }
     }
   }
@@ -64,7 +64,7 @@
 
     .#{$prefix}--header__logo {
       height: 3rem;
-      padding-left: $spacing-09;
+      padding-left: $carbon--spacing-09;
     }
   }
 
@@ -103,7 +103,7 @@
         a {
           @include carbon--type-style(body-short-02, true);
 
-          padding-left: $spacing-05;
+          padding-left: $carbon--spacing-05;
           height: carbon--mini-units(6);
           border-bottom: 1px solid $ui-03;
 
@@ -116,7 +116,7 @@
           @include carbon--type-style(expressive-heading-03, true);
 
           color: $text-01;
-          padding: $spacing-05;
+          padding: $carbon--spacing-05;
           border-bottom: 1px solid $ui-03;
         }
 

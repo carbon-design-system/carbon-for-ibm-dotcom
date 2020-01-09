@@ -1,11 +1,11 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { DDS_PICTOGRAM_ARRAY } from '../../../internal/FeatureFlags';
-import { withKnobs, text, object, select } from '@storybook/addon-knobs';
 import './index.scss';
+import { Desktop, Pattern, Touch } from '@carbon/pictograms-react';
+import { object, select, text, withKnobs } from '@storybook/addon-knobs';
+import { DDS_PICTOGRAM_ARRAY } from '../../../internal/FeatureFlags';
 import PictogramArray from '../PictogramArray';
+import React from 'react';
 import readme from '../README.md';
-import { Desktop, Touch, Pattern } from '@carbon/pictograms-react';
+import { storiesOf } from '@storybook/react';
 
 if (DDS_PICTOGRAM_ARRAY) {
   storiesOf('PictogramArray', module)
@@ -86,7 +86,7 @@ if (DDS_PICTOGRAM_ARRAY) {
           ),
           copy: text(
             'Element 2 Copy (required)',
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.'
+            '_Lorem ipsum_ dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.'
           ),
           link: object('Element 2 Link', {
             href: 'https://www.example.com',

@@ -39,7 +39,7 @@ $search-transition-timing: 95ms;
           }
 
           line-height: inherit;
-          padding-bottom: $spacing-05;
+          padding-bottom: $carbon--spacing-05;
         }
       }
     }
@@ -55,7 +55,7 @@ $search-transition-timing: 95ms;
     min-width: rem(336px);
     background-color: $carbon--gray-90;
     color: $text-04;
-    padding: $spacing-05 $spacing-05 rem(12px);
+    padding: $carbon--spacing-05 $carbon--spacing-05 rem(12px);
     align-items: flex-start;
     flex-direction: column;
 
@@ -108,7 +108,7 @@ $search-transition-timing: 95ms;
 
     .#{$prefix}--masthead__l1-name-title {
       position: relative;
-      padding: 0 $spacing-05;
+      padding: 0 $carbon--spacing-05;
       margin-top: auto;
       @include type-style('productive-heading-02');
 
@@ -127,7 +127,7 @@ $search-transition-timing: 95ms;
 
       @include carbon--breakpoint-down(lg) {
         line-height: inherit;
-        padding-bottom: $spacing-05;
+        padding-bottom: $carbon--spacing-05;
       }
     }
   }

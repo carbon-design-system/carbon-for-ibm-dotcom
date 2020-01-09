@@ -1,5 +1,5 @@
-import root from 'window-or-global';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import root from 'window-or-global';
 
 /**
  * Returns boolean if the isDataLayerReady flag is true
