@@ -5,4 +5,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-export { default as CardsWithoutImages } from './CardsWithoutImages';
+export { default as CardSection } from './CardSection';
+export { default as ImageCards } from './ImageCards';
+export { default as SimpleCards } from './SimpleCards';
