@@ -49,9 +49,9 @@
       @include carbon--type-style(expressive-heading-02, true);
 
       color: $text-01;
-      padding-left: $spacing-05;
-      padding-right: $spacing-05;
-      margin-left: $spacing-05;
+      padding-left: $carbon--spacing-05;
+      padding-right: $carbon--spacing-05;
+      margin-left: $carbon--spacing-05;
       border: solid 2px transparent;
       transition: $button-transition;
       position: relative;
@@ -110,13 +110,13 @@
 
       @include carbon--breakpoint-down(md) {
         width: 100vw;
-        right: (-$spacing-09);
+        right: (-$carbon--spacing-09);
       }
 
       .#{$prefix}--header__search--input {
         display: flex;
         flex: 1;
-        padding: 0 $spacing-05;
+        padding: 0 $carbon--spacing-05;
         outline: 2px solid transparent;
         outline-offset: -2px;
         background-color: $ui-01;
@@ -132,7 +132,7 @@
       }
 
       .#{$prefix}--header__search--close {
-        width: $spacing-09;
+        width: $carbon--spacing-09;
         display: block;
       }
 
@@ -166,7 +166,7 @@
 
     &__suggestions-container {
       position: absolute;
-      top: $spacing-09;
+      top: $carbon--spacing-09;
       left: 0;
       width: 100%;
     }
@@ -177,14 +177,14 @@
     }
 
     &__suggestion {
-      height: $spacing-09;
+      height: $carbon--spacing-09;
       display: flex;
 
       .#{$prefix}--container-class {
         display: flex;
         border-bottom: 1px solid $ui-01;
         flex: 1;
-        padding: 0 $spacing-05;
+        padding: 0 $carbon--spacing-05;
         align-items: center;
 
         &:focus {
@@ -207,7 +207,7 @@
   }
 
   .#{$prefix}--header__search--input {
-    font-size: $spacing-05;
+    font-size: $carbon--spacing-05;
     line-height: 1.375rem;
     border: none;
     width: 0;
