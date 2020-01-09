@@ -5,9 +5,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import LinkWithIcon from '../LinkWithIcon';
 import React from 'react';
 import { shallow } from 'enzyme';
-import LinkWithIcon from '../LinkWithIcon';
 
 describe('LinkWithIcon', () => {
   it('renders as expected', () => {

@@ -16,7 +16,7 @@
   .#{$prefix}--buttongroup {
     display: flex;
     flex-direction: column-reverse;
-    margin-top: $layout-01;
+    margin-top: $carbon--layout-01;
 
     @include carbon--breakpoint(md) {
       flex-flow: row-reverse wrap-reverse;
@@ -31,12 +31,12 @@
   }
 
   .#{$prefix}--buttongroup-item {
-    margin-top: $layout-01;
+    margin-top: $carbon--layout-01;
     max-width: 22rem;
     min-width: 0;
 
     @include carbon--breakpoint(md) {
-      padding-right: $layout-03;
+      padding-right: $carbon--layout-03;
       flex: 1 1 0;
     }
   }

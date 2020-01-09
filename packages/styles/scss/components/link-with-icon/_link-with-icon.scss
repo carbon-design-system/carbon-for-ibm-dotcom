@@ -10,19 +10,26 @@
 
 @mixin link-with-icon {
   .#{$prefix}--link-with-icon {
-    display: inline-block;
+    &__container {
+      display: table;
+    }
+
+    display: flex;
+
     span {
       vertical-align: middle;
+      align-self: center;
     }
 
     svg {
-      margin-left: $spacing-03;
+      margin-left: $carbon--spacing-03;
       vertical-align: middle;
+      align-self: center;
       fill: currentColor;
     }
 
     &:not(:first-of-type) {
-      margin-left: $spacing-07;
+      margin-left: $carbon--spacing-07;
     }
   }
 }

@@ -5,9 +5,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import FooterNavGroup from '../FooterNavGroup';
 import React from 'react';
 import { shallow } from 'enzyme';
-import FooterNavGroup from '../FooterNavGroup';
 
 const FOOTER_NAV_DATA = require('../__data__/footer-menu.json').data;
 

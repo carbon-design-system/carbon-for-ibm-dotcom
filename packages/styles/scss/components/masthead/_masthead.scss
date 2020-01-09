@@ -63,7 +63,7 @@ $search-transition-timing: 95ms;
         display: flex;
         height: 100%;
         align-items: center;
-        padding: 0 $spacing-07;
+        padding: 0 $carbon--spacing-07;
         border: solid 2px transparent;
         transition: $button-transition;
         outline: none;
@@ -79,15 +79,15 @@ $search-transition-timing: 95ms;
         }
 
         @include carbon--breakpoint-up(max) {
-          padding: 0 $spacing-08;
+          padding: 0 $carbon--spacing-08;
         }
 
         @include carbon--breakpoint-down(xlg) {
-          padding: 0 $spacing-07;
+          padding: 0 $carbon--spacing-07;
         }
 
         @include carbon--breakpoint-down(lg) {
-          padding: 0 $spacing-05;
+          padding: 0 $carbon--spacing-05;
         }
       }
     }
@@ -298,7 +298,7 @@ $search-transition-timing: 95ms;
 
     &__search--search {
       outline: none;
-      width: $spacing-09;
+      width: $carbon--spacing-09;
     }
   }
 

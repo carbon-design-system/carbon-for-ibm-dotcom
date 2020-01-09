@@ -17,5 +17,8 @@
     "node-sass": "^4.13.0",
     "react": "16.11.0",
     "react-dom": "16.11.0"
+  },
+  "resolutions": {
+    "serialize-javascript": ">= 2.1.2"
   }
 }

@@ -5,11 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React from 'react';
+import { Link } from 'carbon-components-react';
 import PropTypes from 'prop-types';
+import React from 'react';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
-import { Link } from 'carbon-components-react';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
@@ -23,7 +23,9 @@ const { prefix } = settings;
  */
 const LinkWithIcon = ({ children, href, ...props }) => {
   return (
-    <div data-autoid={`${stablePrefix}--link-with-icon`}>
+    <div
+      className={`${prefix}--link-with-icon__container`}
+      data-autoid={`${stablePrefix}--link-with-icon`}>
       <Link href={href} className={`${prefix}--link-with-icon`} {...props}>
         {children}
       </Link>
@@ -35,7 +37,7 @@ const LinkWithIcon = ({ children, href, ...props }) => {
  * @property propTypes
  * @description Defined property types for component
  *
- * @type {{children: array, href: string}}
+ * @type {{children: Array, href: string}}
  */
 LinkWithIcon.propTypes = {
   children: PropTypes.array,
