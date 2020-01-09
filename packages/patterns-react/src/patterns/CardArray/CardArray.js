@@ -11,7 +11,7 @@ import {
   settings as ddsSettings,
   featureFlag,
 } from '@carbon/ibmdotcom-utilities';
-import { markdownToHtml, sameheight } from '@carbon/ibmdotcom-utilities';
+import { markdownToHtml, sameHeight } from '@carbon/ibmdotcom-utilities';
 
 import { ArrowRight20 } from '@carbon/icons-react';
 import { DDS_CARD_ARRAY } from '../../internal/FeatureFlags';
@@ -33,20 +33,29 @@ const CardArray = ({ title, content }) => {
 
   useEffect(() => {
     setSameHeight();
-    window.addEventListener('resize', setSameHeight);
+    window.addEventListener('resize', () => {
+      window.requestAnimationFrame(() => {
+        setSameHeight();
+      });
+    });
   }, []);
 
   /**
-   * Function that activates the sameheight utility
+   * Function that activates the sameHeight utility
    */
   const setSameHeight = () => {
-    sameheight(
+    sameHeight(
       containerRef.current.getElementsByClassName(
         `${prefix}--card-link__title`
       ),
       'md'
     );
-    sameheight(containerRef.current.children, 'md');
+    sameHeight(
+      containerRef.current.getElementsByClassName(
+        `${prefix}--cardarray-item__col`
+      ),
+      'md'
+    );
   };
 
   return featureFlag(
@@ -54,14 +63,18 @@ const CardArray = ({ title, content }) => {
     <section
       data-autoid={`${stablePrefix}--cardarray`}
       className={`${prefix}--cardarray`}>
-      <ContentGroup heading={title}>
-        <div
-          data-autoid={`${stablePrefix}--cardarray-group`}
-          ref={containerRef}
-          className={`${prefix}--cardarray__col ${prefix}--cardarray-group ${prefix}--grid--condensed`}>
-          {_renderCardArrayItems(content)}
-        </div>
-      </ContentGroup>
+      <div className={`${prefix}--cardarray__row`}>
+        <ContentGroup heading={title}>
+          <div
+            data-autoid={`${stablePrefix}--cardarray-group`}
+            ref={containerRef}
+            className={`${prefix}--cardarray-group ${prefix}--grid--condensed`}>
+            <div className={`${prefix}--cardarray__row`}>
+              {_renderCardArrayItems(content)}
+            </div>
+          </div>
+        </ContentGroup>
+      </div>
     </section>
   );
 };
@@ -74,20 +87,21 @@ const CardArray = ({ title, content }) => {
  */
 const _renderCardArrayItems = contentArray =>
   contentArray.map((elem, index) => (
-    <CardLink
-      data-autoid={`${stablePrefix}--cardarray-item`}
-      className={`${prefix}--cardarray-item`}
-      title={elem.title}
-      content={
-        <span
-          dangerouslySetInnerHTML={{
-            __html: markdownToHtml(elem.copy),
-          }}></span>
-      }
-      icon={<ArrowRight20 />}
-      href={elem.href}
-      key={index}
-    />
+    <div className={`${prefix}--cardarray-item__col`} key={index}>
+      <CardLink
+        data-autoid={`${stablePrefix}--cardarray-item`}
+        className={`${prefix}--cardarray-item`}
+        title={elem.title}
+        content={
+          <span
+            dangerouslySetInnerHTML={{
+              __html: markdownToHtml(elem.copy),
+            }}></span>
+        }
+        icon={<ArrowRight20 />}
+        href={elem.href}
+      />
+    </div>
   ));
 
 CardArray.propTypes = {

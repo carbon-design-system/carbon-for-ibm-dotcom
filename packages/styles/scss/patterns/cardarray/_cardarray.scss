@@ -5,35 +5,61 @@
 // LICENSE file in the root directory of this source tree.
 //
 
+@mixin themed-items {
+  color: $text-01;
+  background: $ui-background;
+}
+
 @mixin cardarray {
   .#{$prefix}--cardarray {
-    color: $text-01;
-    background: $ui-background;
+    @include carbon--make-container;
+    &-group {
+      @include carbon--make-container;
+    }
+    &__row {
+      @include carbon--make-row;
+    }
+    &__col,
+    &-item__col {
+      @include carbon--make-col-ready;
+    }
+    &-item__col {
+      margin-top: $carbon--grid-gutter--condensed / 2;
+      margin-bottom: $carbon--grid-gutter--condensed / 2;
 
-    @include carbon--breakpoint('sm') {
-      .#{$prefix}--content-group__col {
+      @include carbon--breakpoint(sm) {
         @include carbon--make-col(4, 4);
       }
-    }
 
-    @include carbon--breakpoint('md') {
-      .#{$prefix}--content-group__col {
-        @include carbon--make-col-offset(2, 8);
-        @include carbon--make-col(5, 8);
+      @include carbon--breakpoint(lg) {
+        @include carbon--make-col(8, 16);
       }
-    }
-    &__col {
-      display: flex;
-      flex-wrap: wrap;
-      flex-grow: stretch;
     }
     &__content {
       @include carbon--type-style('expressive-heading-03');
     }
 
-    .#{$prefix}--link {
-      outline: 2px solid $ui-background;
+    .#{$prefix}--content-group {
+      @include carbon--breakpoint(sm) {
+        @include carbon--make-col(4, 4);
+        .#{$prefix}--cardarray__row {
+          padding-left: $carbon--layout-01;
+          padding-right: $carbon--layout-01;
+        }
+      }
+
+      @include carbon--breakpoint(lg) {
+        @include carbon--make-col(10, 16);
+        @include carbon--make-col-offset(4, 16);
+      }
+
+      .#{$prefix}--cardarray-group {
+        padding-left: $carbon--layout-01;
+        padding-right: $carbon--layout-01;
+      }
     }
+
+    @include themed-items;
   }
 }
 @include exports('cardarray') {
