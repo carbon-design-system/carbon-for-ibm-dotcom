@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { featureFlag, sameheight } from '@carbon/ibmdotcom-utilities';
+import { featureFlag, sameHeight } from '@carbon/ibmdotcom-utilities';
 import { ArrowRight20 } from '@carbon/icons-react';
 import { CardLink } from '@carbon/ibmdotcom-react';
 import { DDS_CARD_SECTION } from '../../internal/FeatureFlags';
@@ -24,27 +24,28 @@ const { prefix } = settings;
 const CardSection = ({ title, cards, theme }) => {
   const containerRef = useRef();
   useEffect(() => {
-    root.addEventListener('resize', setCardHeight());
-  });
+    setCardHeight();
+    root.addEventListener('resize', () => {
+      root.requestAnimationFrame(() => {
+        setCardHeight();
+      });
+    });
+  }, []);
 
   /**
    * Set the cards to have the same height as the bigger one
    */
   const setCardHeight = () => {
-    sameheight(
-      containerRef.current.querySelectorAll(`.${prefix}--card-section__cards`),
+    sameHeight(
+      containerRef.current.getElementsByClassName(
+        `${prefix}--card-link__title`
+      ),
       'md'
     );
-    sameheight(
-      containerRef.current.querySelectorAll(`.${prefix}--card-link__title`),
-      'md'
-    );
-    sameheight(
-      containerRef.current.querySelectorAll(`.${prefix}--card-link__content`),
-      'md'
-    );
-    sameheight(
-      containerRef.current.querySelectorAll(`.${prefix}--card-link__footer`),
+    sameHeight(
+      containerRef.current.getElementsByClassName(
+        `${prefix}--card-link__content`
+      ),
       'md'
     );
   };
