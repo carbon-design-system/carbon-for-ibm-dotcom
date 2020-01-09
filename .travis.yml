@@ -153,8 +153,8 @@ jobs:
 stages:
   - name: deploy-preview-expressive
     if: type = pull_request
-#  - name: deploy-preview-patterns-react
-#    if: type = pull_request
+  - name: deploy-preview-patterns-react
+    if: type = pull_request
   - name: deploy-preview-patterns-react-experimental
     if: type = pull_request
   - name: deploy-preview-react
