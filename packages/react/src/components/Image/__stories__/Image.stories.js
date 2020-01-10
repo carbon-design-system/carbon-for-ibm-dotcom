@@ -13,10 +13,6 @@ import { storiesOf } from '@storybook/react';
 storiesOf('Image', module)
   .addDecorator(withKnobs)
   .add('Default', () => {
-    // const defaultImages = text(
-    //   'Default image:',
-    //   'https://picsum.photos/id/2/672/672'
-    // );
     const imageObject = object('Images Object:', [
       { src: 'https://picsum.photos/id/2/320/160', minWidth: 320 },
       { src: 'https://picsum.photos/id/2/400/400', minWidth: 400 },

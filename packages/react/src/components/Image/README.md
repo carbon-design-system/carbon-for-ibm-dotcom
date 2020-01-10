@@ -62,6 +62,7 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 | Name                         | Description |
 | ---------------------------- | ----------- |
+| `dds--imagecomponent`        | Interactive |
 | `dds--imagecomponent__image` | Interactive |
 
 ## 🙌 Contributing
