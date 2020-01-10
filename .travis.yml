@@ -20,6 +20,7 @@ jobs:
         - yarn build-storybook --loglevel verbose
         - "aws s3 cp storybook-static s3://${COS_BUCKET}/deploy-previews/${TRAVIS_PULL_REQUEST} --recursive --endpoint https://${PREVIEW_DOMAIN}"
       after_success:
+        - cd ../../
         - "node ./travis/deploy_preview_comment.js ${GITHUB_TOKEN} 'Carbon Expressive' ${COS_BUCKET} ${PREVIEW_DOMAIN} ${TRAVIS_PULL_REQUEST} ${TRAVIS_PULL_REQUEST_SHA} ${TRAVIS_REPO_SLUG}"
     - stage: deploy-preview-patterns-react
       env:
@@ -37,6 +38,7 @@ jobs:
         - yarn build-storybook --loglevel verbose
         - "aws s3 cp storybook-static s3://${COS_BUCKET}/deploy-previews/${TRAVIS_PULL_REQUEST} --recursive --endpoint https://${PREVIEW_DOMAIN}"
       after_success:
+        - cd ../../
         - "node ./travis/deploy_preview_comment.js ${GITHUB_TOKEN} 'Patterns React' ${COS_BUCKET} ${PREVIEW_DOMAIN} ${TRAVIS_PULL_REQUEST} ${TRAVIS_PULL_REQUEST_SHA} ${TRAVIS_REPO_SLUG}"
     - stage: deploy-preview-patterns-react-experimental
       env:
@@ -57,6 +59,7 @@ jobs:
         - yarn build-storybook --loglevel verbose
         - "aws s3 cp storybook-static s3://${COS_BUCKET}/deploy-previews/${TRAVIS_PULL_REQUEST} --recursive --endpoint https://${PREVIEW_DOMAIN}"
       after_success:
+        - cd ../../
         - "node ./travis/deploy_preview_comment.js ${GITHUB_TOKEN} 'Patterns React - Experimental' ${COS_BUCKET} ${PREVIEW_DOMAIN} ${TRAVIS_PULL_REQUEST} ${TRAVIS_PULL_REQUEST_SHA} ${TRAVIS_REPO_SLUG}"
     - stage: deploy-preview-react
       env:
@@ -76,6 +79,7 @@ jobs:
         - yarn build-storybook --loglevel verbose
         - "aws s3 cp storybook-static s3://${COS_BUCKET}/deploy-previews/${TRAVIS_PULL_REQUEST} --recursive --endpoint https://$PREVIEW_DOMAIN"
       after_success:
+        - cd ../../
         - "node ./travis/deploy_preview_comment.js ${GITHUB_TOKEN} 'React' ${COS_BUCKET} ${PREVIEW_DOMAIN} ${TRAVIS_PULL_REQUEST} ${TRAVIS_PULL_REQUEST_SHA} ${TRAVIS_REPO_SLUG}"
     - stage: deploy-preview-react-experimental
       env:
@@ -96,6 +100,7 @@ jobs:
         - yarn build-storybook --loglevel verbose
         - "aws s3 cp storybook-static s3://${COS_BUCKET}/deploy-previews/${TRAVIS_PULL_REQUEST} --recursive --endpoint https://$PREVIEW_DOMAIN"
       after_success:
+        - cd ../../
         - "node ./travis/deploy_preview_comment.js ${GITHUB_TOKEN} 'React - Experimental' ${COS_BUCKET} ${PREVIEW_DOMAIN} ${TRAVIS_PULL_REQUEST} ${TRAVIS_PULL_REQUEST_SHA} ${TRAVIS_REPO_SLUG}"
     - stage: deploy-preview-services
       env:
@@ -113,6 +118,7 @@ jobs:
         - yarn jsdoc
         - "aws s3 cp docs s3://${COS_BUCKET}/deploy-previews/${TRAVIS_PULL_REQUEST} --recursive --endpoint https://${PREVIEW_DOMAIN}"
       after_success:
+        - cd ../../
         - "node ./travis/deploy_preview_comment.js ${GITHUB_TOKEN} 'Services' ${COS_BUCKET} ${PREVIEW_DOMAIN} ${TRAVIS_PULL_REQUEST} ${TRAVIS_PULL_REQUEST_SHA} ${TRAVIS_REPO_SLUG}"
     - stage: deploy-preview-utilities
       env:
@@ -130,6 +136,7 @@ jobs:
         - yarn jsdoc
         - "aws s3 cp docs s3://${COS_BUCKET}/deploy-previews/${TRAVIS_PULL_REQUEST} --recursive --endpoint https://${PREVIEW_DOMAIN}"
       after_success:
+        - cd ../../
         - "node ./travis/deploy_preview_comment.js ${GITHUB_TOKEN} 'Utilities' ${COS_BUCKET} ${PREVIEW_DOMAIN} ${TRAVIS_PULL_REQUEST} ${TRAVIS_PULL_REQUEST_SHA} ${TRAVIS_REPO_SLUG}"
     - stage: deploy-preview-vanilla
       env:
@@ -149,6 +156,7 @@ jobs:
         - yarn build-storybook --loglevel verbose
         - "aws s3 cp storybook-static s3://${COS_BUCKET}/deploy-previews/${TRAVIS_PULL_REQUEST} --recursive --endpoint https://$PREVIEW_DOMAIN"
       after_success:
+        - cd ../../
         - "node ./travis/deploy_preview_comment.js ${GITHUB_TOKEN} 'Vanilla' ${COS_BUCKET} ${PREVIEW_DOMAIN} ${TRAVIS_PULL_REQUEST} ${TRAVIS_PULL_REQUEST_SHA} ${TRAVIS_REPO_SLUG}"
 stages:
   - name: deploy-preview-expressive
