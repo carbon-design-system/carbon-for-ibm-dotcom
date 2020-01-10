@@ -1,6 +1,6 @@
-# Cards without images
+# CardSection
 
-> The Cards without images pattern is to be utilized within IBM.com.
+> The CardSection pattern is to be utilized within IBM.com.
 
 ## Getting started
 
@@ -13,7 +13,7 @@ Here's a quick example to get you started.
 @include carbon--font-face-mono();
 @include carbon--font-face-sans();
 
-@import '@carbon/ibmdotcom-styles/scss/patterns/cards-without-images/index';
+@import '@carbon/ibmdotcom-styles/scss/patterns/card-section/index';
 ```
 
 > 💡 Only import fonts once per usage
@@ -21,17 +21,17 @@ Here's a quick example to get you started.
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { CardsWithoutImages } from '@carbon/ibmdotcom-patterns-react';
+import { CardSection } from '@carbon/ibmdotcom-patterns-react';
 import 'yourapplication.scss';
 
 function App() {
-  return <CardsWithoutImages cardsGroup={cardsGroup} />;
+  return <CardSection cards={cards} />;
 }
 
 ReactDOM.render(<App />, document.querySelector('#app'));
 ```
 
-> 💡 Don't forget to import the cards-without-images styles from
+> 💡 Don't forget to import the card-section styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
 #### Feature Flags
@@ -40,7 +40,7 @@ To utilize the following features, set the following variable's to `true` within
 your `.env` file or your application build settings.
 
 ```
-DDS_CARDS_WITHOUT_IMAGES=true
+DDS_CARD_SECTION=true
 ```
 
 > See
@@ -51,18 +51,19 @@ DDS_CARDS_WITHOUT_IMAGES=true
 
 ## Props
 
-| Name         | Required | Data Type | Default Value | Description                                    |
-| ------------ | -------- | --------- | ------------- | ---------------------------------------------- |
-| `theme`      | NO       | String    | 'white'       | Color theme for pattern. See `theme` below.    |
-| `cardsGroup` | YES      | Array     | null          | Array of card objects. See `cardsGroup` below. |
+| Name    | Required | Data Type | Default Value | Description                                 |
+| ------- | -------- | --------- | ------------- | ------------------------------------------- |
+| `title` | YES      | String    | null          | Cards with or without images title.         |
+| `theme` | NO       | String    | 'white'       | Color theme for pattern. See `theme` below. |
+| `cards` | YES      | Array     | null          | Array of card objects. See `cards` below.   |
 
 ### cardsGroup
 
-| Name        | Data Type | Description                                                                            |
-| ----------- | --------- | -------------------------------------------------------------------------------------- |
-| `title`     | String    | Cards without images title                                                             |
-| `groupCard` | Object    | Href, text and target properties of the Top Level Card. See `groupCard` below.         |
-| `cards`     | Array     | Array of objects with title, copy and link properties of each card. See `cards` below. |
+| Name        | Data Type | Description                                                                                          |
+| ----------- | --------- | ---------------------------------------------------------------------------------------------------- |
+| `title`     | String    | Cards without images title.                                                                          |
+| `groupCard` | Object    | Href, text and target properties of the Top Level Card. See `groupCard` below.                       |
+| `cards`     | Array     | Array of objects with imgSrc, altText,title, copy and link properties of each card.See`cards` below. |
 
 ### groupCard (aka Top Level Card)
 
@@ -87,13 +88,19 @@ DDS_CARDS_WITHOUT_IMAGES=true
 | `white` | Carbon white theme         |
 | `g10`   | Carbon Gray 10 (g10) theme |
 
+### cardType
+
+| Name          | Description                                                                         |
+| ------------- | ----------------------------------------------------------------------------------- |
+| `simpleCards` | Array of objects with title, copy and link properties of each card.                 |
+| `imageCards`  | Array of objects with imgSrc, altText,title, copy and link properties of each card. |
+
 ## Stable selectors
 
-| Name                                                  | Description |
-| ----------------------------------------------------- | ----------- |
-| `dds--cards-without-images`                           | Component   |
-| `dds--cards-without-images-group`                     | Component   |
-| `dds--cards-without-images-group__card-${card.title}` | Component   |
+| Name                                    | Description |
+| --------------------------------------- | ----------- |
+| `dds--card-section`                     | Component   |
+| `dds--card-section__card-${card.title}` | Component   |
 
 ## 🙌 Contributing
 
