@@ -56,7 +56,6 @@ const CardArray = ({ title, content }) => {
       ),
       'md'
     );
-    console.log('height set');
   };
 
   return featureFlag(
