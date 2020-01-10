@@ -13,12 +13,17 @@
 // Carbon component theming
 @import 'components/accordion';
 @import 'components/button';
+@import 'components/checkbox';
+@import 'components/combo-box';
 @import 'components/content-switcher';
 @import 'components/date-picker';
 @import 'components/list-box';
 @import 'components/number-input';
+@import 'components/tabs';
 @import 'components/text-input';
+@import 'components/tile';
 @import 'components/time-picker';
+@import 'components/search';
 @import 'components/select';
 
 //-------------------------
@@ -37,12 +42,17 @@
     // Component mixins
     @include accordion-expressive;
     @include button-expressive;
+    @include checkbox-expressive;
+    @include combo-box-expressive;
     @include content-switcher-expressive;
     @include date-picker-expressive;
     @include list-box-expressive;
     @include number-input-expressive;
+    @include tabs-expressive;
     @include text-input-expressive;
+    @include tile-expressive;
     @include time-picker-expressive;
+    @include search-expressive;
     @include select-expressive;
   }
 }

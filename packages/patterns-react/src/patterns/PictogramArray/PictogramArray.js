@@ -5,13 +5,14 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React from 'react';
-import PropTypes from 'prop-types';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
-import { settings } from 'carbon-components';
-import { featureFlag } from '@carbon/ibmdotcom-utilities';
+import { ContentGroup } from '@carbon/ibmdotcom-react';
 import { DDS_PICTOGRAM_ARRAY } from '../../internal/FeatureFlags';
 import PictogramArrayItem from './PictogramArrayItem';
+import PropTypes from 'prop-types';
+import React from 'react';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import { featureFlag } from '@carbon/ibmdotcom-utilities';
+import { settings } from 'carbon-components';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
@@ -33,11 +34,11 @@ const PictogramArray = ({ contentGroup, title }) =>
       <div className={`${prefix}--pictogramarray__container`}>
         <div className={`${prefix}--pictogramarray__row`}>
           <div className={`${prefix}--pictogramarray__col`}>
-            <h2 className={`${prefix}--pictogramarray__title`}>{title}</h2>
-            {_renderArray(contentGroup)}
-          </div>
-          <div className={`${prefix}--pictogramarray__divider__col`}>
-            <div className={`${prefix}--pictogramarray__divider`}></div>
+            <ContentGroup heading={title}>
+              <div className={`${prefix}--pictogramarray-item__container`}>
+                {_renderArray(contentGroup)}
+              </div>
+            </ContentGroup>
           </div>
         </div>
       </div>

@@ -5,17 +5,21 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import PropTypes from 'prop-types';
+import { CardLink, ContentGroup } from '@carbon/ibmdotcom-react';
 import React, { useEffect, useRef } from 'react';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
-import { settings } from 'carbon-components';
-import { featureFlag } from '@carbon/ibmdotcom-utilities';
+import {
+  settings as ddsSettings,
+  featureFlag,
+} from '@carbon/ibmdotcom-utilities';
+import { markdownToHtml, sameHeight } from '@carbon/ibmdotcom-utilities';
+
+import { ArrowRight20 } from '@carbon/icons-react';
 import { DDS_CARD_ARRAY } from '../../internal/FeatureFlags';
-import CardArrayItem from './CardArrayItem';
+import PropTypes from 'prop-types';
+import { settings } from 'carbon-components';
 
-const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
-
+const { stablePrefix } = ddsSettings;
 /**
  * Card Array Component
  *
@@ -28,45 +32,48 @@ const CardArray = ({ title, content }) => {
   const containerRef = useRef();
 
   useEffect(() => {
-    setCardsHeight();
-  });
+    setSameHeight();
+    window.addEventListener('resize', () => {
+      window.requestAnimationFrame(() => {
+        setSameHeight();
+      });
+    });
+  }, []);
 
   /**
-   * Set the cards to have the same height as the bigger one
+   * Function that activates the sameHeight utility
    */
-  const setCardsHeight = () => {
-    let biggest = 0;
-    const cards = Array.prototype.slice.call(containerRef.current.children);
-    cards.forEach(card => {
-      if (card.offsetHeight > biggest) {
-        biggest = card.offsetHeight;
-      }
-    });
-    cards.forEach(card => {
-      card.style.height = biggest + 'px';
-    });
+  const setSameHeight = () => {
+    sameHeight(
+      containerRef.current.getElementsByClassName(
+        `${prefix}--card-link__title`
+      ),
+      'md'
+    );
+    sameHeight(
+      containerRef.current.getElementsByClassName(
+        `${prefix}--card-link__content`
+      ),
+      'md'
+    );
   };
 
   return featureFlag(
     DDS_CARD_ARRAY,
     <section
-      className={`${prefix}--cardarray`}
-      data-autoid={`${stablePrefix}--cardarray`}>
-      <div className={`${prefix}--cardarray__container`}>
-        <div className={`${prefix}--cardarray__row`}>
-          <div className={`${prefix}--cardarray__col`}>
-            <h3 className={`${prefix}--cardarray__title`}>{title}</h3>
-          </div>
+      data-autoid={`${stablePrefix}--cardarray`}
+      className={`${prefix}--cardarray`}>
+      <div className={`${prefix}--cardarray__row`}>
+        <ContentGroup heading={title}>
           <div
             data-autoid={`${stablePrefix}--cardarray-group`}
             ref={containerRef}
-            className={`${prefix}--cardarray__col ${prefix}--cardarray-group`}>
-            {_renderCardArrayItems(content)}
+            className={`${prefix}--cardarray-group ${prefix}--grid--condensed`}>
+            <div className={`${prefix}--cardarray__row`}>
+              {_renderCardArrayItems(content)}
+            </div>
           </div>
-          <div className={`${prefix}--cardarray__divider__col`}>
-            <div className={`${prefix}--cardarray__divider`}></div>
-          </div>
-        </div>
+        </ContentGroup>
       </div>
     </section>
   );
@@ -79,8 +86,22 @@ const CardArray = ({ title, content }) => {
  * @returns {*} CardArrayItem JSX objects
  */
 const _renderCardArrayItems = contentArray =>
-  contentArray.map(elem => (
-    <CardArrayItem title={elem.title} copy={elem.copy} link={elem.link} />
+  contentArray.map((elem, index) => (
+    <div className={`${prefix}--cardarray-item__col`} key={index}>
+      <CardLink
+        data-autoid={`${stablePrefix}--cardarray-item`}
+        className={`${prefix}--cardarray-item`}
+        title={elem.title}
+        content={
+          <span
+            dangerouslySetInnerHTML={{
+              __html: markdownToHtml(elem.copy),
+            }}></span>
+        }
+        icon={<ArrowRight20 />}
+        href={elem.href}
+      />
+    </div>
   ));
 
 CardArray.propTypes = {
@@ -89,10 +110,7 @@ CardArray.propTypes = {
     PropTypes.shape({
       title: PropTypes.string,
       copy: PropTypes.string,
-      link: PropTypes.shape({
-        target: PropTypes.string,
-        href: PropTypes.string,
-      }),
+      href: PropTypes.string,
     })
   ),
 };

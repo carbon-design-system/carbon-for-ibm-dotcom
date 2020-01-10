@@ -5,15 +5,31 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React from 'react';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
-import { settings } from 'carbon-components';
-import PropTypes from 'prop-types';
+import {
+  settings as ddsSettings,
+  markdownToHtml,
+} from '@carbon/ibmdotcom-utilities';
 import { ArrowRight20 } from '@carbon/icons-react';
 import { LinkWithIcon } from '@carbon/ibmdotcom-react';
+import PropTypes from 'prop-types';
+import React from 'react';
+import classNames from 'classnames';
+import { settings } from 'carbon-components';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
+
+/**
+ * Converts markdown to html and returns object to be used in `dangerouslySetInnerHTML`
+ *
+ * @param {string} string string to be converted to html
+ * @returns {object} object with a __html key containing converted string
+ */
+const convertMarkdown = string => ({
+  __html: markdownToHtml(string, {
+    bold: false,
+  }),
+});
 
 /**
  * Content with pictogram component
@@ -32,24 +48,33 @@ const PictogramArrayItem = ({ title, copy, link, Pictogram }) => (
   <div
     data-autoid={`${stablePrefix}--pictogramarray-item`}
     className={`${prefix}--pictogramarray-item`}>
-    <div className={`${prefix}--pictogramarray__row`}>
-      <div className={`${prefix}--pictogramarray__col`}>
-        <Pictogram
-          className={`${prefix}--pictogramarray-item__pictogram`}
-          viewBox="8 8 32 32"
-          height="80"
-          width="80"
-        />
-      </div>
-      <div className={`${prefix}--pictogramarray__col`}>
-        <h3 className={`${prefix}--pictogramarray-item__title`}>{title}</h3>
-        <div className={`${prefix}--pictogramarray-item__content`}>{copy}</div>
-        <div className={`${prefix}--pictogramarray-item__link`}>
-          <LinkWithIcon href={link.href} target={link.target}>
-            <span>{link.text}</span>
-            <ArrowRight20 />
-          </LinkWithIcon>
-        </div>
+    <div
+      className={classNames(
+        `${prefix}--pictogramarray-item__col`,
+        `${prefix}--pictogramarray-item__pictogram-container`
+      )}>
+      <Pictogram
+        className={`${prefix}--pictogramarray-item__pictogram`}
+        viewBox="8 8 32 32"
+        height="80"
+        width="80"
+      />
+    </div>
+    <div
+      className={classNames(
+        `${prefix}--pictogramarray-item__col`,
+        `${prefix}--pictogramarray-item__content-container`
+      )}>
+      <h3 className={`${prefix}--pictogramarray-item__title`}>{title}</h3>
+      <div
+        className={`${prefix}--pictogramarray-item__content`}
+        dangerouslySetInnerHTML={convertMarkdown(copy)}
+      />
+      <div className={`${prefix}--pictogramarray-item__link`}>
+        <LinkWithIcon href={link.href} target={link.target}>
+          <span>{link.text}</span>
+          <ArrowRight20 />
+        </LinkWithIcon>
       </div>
     </div>
   </div>

@@ -6,11 +6,22 @@
 
 Here's a quick example to get you started.
 
+```scss
+// yourapplication.scss
+@import '@carbon/type/scss/font-face/mono';
+@import '@carbon/type/scss/font-face/sans';
+@include carbon--font-face-mono();
+@include carbon--font-face-sans();
+@import '@carbon/ibmdotcom-styles/scss/components/tableofcontents/index.scss';
+```
+
+> 💡 Only import font's once per usage
+
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { TableOfContents } from '@carbon/ibmdotcom-react';
-import '@carbon/ibmdotcom-styles/scss/components/tableofcontents/index.scss';
+import 'yourapplication.scss';
 
 const theme = ''; //Empty for light, g100 for dark
 

@@ -9,11 +9,25 @@
 
 @mixin pictogramarray-item {
   .#{$prefix}--pictogramarray-item {
-    margin-top: $carbon--layout-05;
+    @include carbon--breakpoint(md) {
+      display: flex;
+    }
+    &:first-child {
+      @include carbon--breakpoint(lg) {
+        padding-top: $carbon--layout-03;
+      }
+    }
+    &:not(:first-child) {
+      margin-top: $carbon--layout-05;
+    }
     &__title {
+      width: 95%;
+      max-width: 640px;
       @include carbon--type-style('heading-02');
     }
     &__content {
+      width: 95%;
+      max-width: 640px;
       @include carbon--type-style('body-long-02');
     }
     &__link {
@@ -27,31 +41,19 @@
         }
       }
     }
-    .#{$prefix}--pictogramarray__col {
-      margin-left: 0;
-      flex: none;
-      @include carbon--breakpoint('sm') {
-        &:first-of-type {
-          max-width: 100%;
-          width: 100%;
-        }
-        .#{$prefix}--pictogramarray-item__pictogram {
-          margin-bottom: $carbon--layout-03;
-        }
-
-        max-width: 100%;
+    &__pictogram-container {
+      padding-bottom: $carbon--layout-03;
+      @include carbon--breakpoint(md) {
+        padding-bottom: 0;
+        @include carbon--make-col(2, 8);
       }
-      @include carbon--breakpoint('md') {
-        max-width: 80%;
-        &:first-of-type {
-          max-width: 20%;
-        }
-        .#{$prefix}--pictogramarray-item__pictogram {
-          margin-bottom: 0;
-        }
-        .#{$prefix}--pictogramarray-item__content {
-          width: 95%;
-        }
+    }
+    &__content-container {
+      padding-left: 0;
+      @include carbon--breakpoint(md) {
+        padding-left: $carbon--spacing-03;
+        padding-right: 0;
+        @include carbon--make-col(6, 8);
       }
     }
   }

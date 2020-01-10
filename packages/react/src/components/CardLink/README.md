@@ -14,6 +14,7 @@ Here's a quick example to get you started.
 @import '@carbon/type/scss/font-face/sans';
 @include carbon--font-face-mono();
 @include carbon--font-face-sans();
+@import '@carbon/ibmdotcom-styles/scss/components/card-link/index.scss';
 ```
 
 > 💡 Only import font's once per usage
@@ -23,8 +24,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { CardLink } from '@carbon/ibmdotcom-react';
 import 'yourapplication.scss';
-
-import '@carbon/ibmdotcom-styles/scss/components/card-link/index.scss';
 
 function App() {
   return (
@@ -47,6 +46,8 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 | `href`      | YES      | String    | n/a           | Valid URL for a the location of an internal or external resource.                                                                |
 | `icon`      | NO       | Element   | null          | Provide an optional icon to the footer from [Carbon's icon library](https://www.carbondesignsystem.com/guidelines/icons/library) |
 | `title`     | YES      | String    | n/a           | Concise yet descriptive string of text describing the linked resource.                                                           |
+| `imgSrc`    | NO       | String    | null          | Image source to be passed as a property to the to the CardLink component                                                         |
+| `altText`   | NO       | String    | null          | Image alternate text to be passed as a property to the to the CardLink component                                                 |
 
 ## Stable selectors
 

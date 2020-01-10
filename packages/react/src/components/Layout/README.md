@@ -13,6 +13,7 @@ Here's a quick example to get you started.
 @import '@carbon/type/scss/font-face/sans';
 @include carbon--font-face-mono();
 @include carbon--font-face-sans();
+@import '@carbon/ibmdotcom-styles/scss/components/layout/_layout.scss';
 ```
 
 > 💡 Only import font's once per usage
@@ -23,7 +24,7 @@ import ReactDOM from 'react-dom';
 import { Layout } from '@carbon/ibmdotcom-react';
 import 'yourapplication.scss';
 import '@carbon/grid/scss/grid.scss';
-import '@carbon/ibmdotcom-styles/scss/components/layout/_layout.scss';
+
 function App() {
   return (
     <Layout>

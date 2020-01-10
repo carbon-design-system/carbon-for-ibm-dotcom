@@ -1,0 +1,39 @@
+//
+// Copyright IBM Corp. 2016, 2018
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import '@carbon/layout/scss/convert';
+
+//-----------------------------
+// Tile (expressive)
+//-----------------------------
+
+/// Tile styles (expressive)
+/// @access private
+/// @group tile-expressive
+@mixin tile-expressive {
+  .#{$prefix}--tile--is-selected {
+    outline-offset: -2px;
+  }
+
+  .#{$prefix}--tile__checkmark {
+    height: carbon--rem(20px);
+
+    svg {
+      height: carbon--rem(20px);
+      width: carbon--rem(20px);
+    }
+  }
+
+  .#{$prefix}--tile__chevron {
+    height: carbon--rem(20px);
+
+    svg {
+      height: carbon--rem(20px);
+      width: carbon--rem(20px);
+    }
+  }
+}

@@ -1,10 +1,9 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, text } from '@storybook/addon-knobs';
-import LocaleModal from '../LocaleModal';
-import readme from '../README.md';
-
 import './index.scss';
+import { text, withKnobs } from '@storybook/addon-knobs';
+import LocaleModal from '../LocaleModal';
+import React from 'react';
+import readme from '../README.md';
+import { storiesOf } from '@storybook/react';
 
 const localeModalProps = {
   headerTitle: text('title', 'Select region'),

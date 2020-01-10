@@ -5,19 +5,19 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import PropTypes from 'prop-types';
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
-  featureFlag,
   settings as ddsSettings,
+  featureFlag,
 } from '@carbon/ibmdotcom-utilities';
-import { settings } from 'carbon-components';
-import root from 'window-or-global';
 import { DDS_TOC } from '../../internal/FeatureFlags';
 import Layout from '../Layout/Layout';
+import PropTypes from 'prop-types';
 import TOCDesktop from './TOCDesktop';
 import TOCMobile from './TOCMobile';
 import classNames from 'classnames';
+import root from 'window-or-global';
+import { settings } from 'carbon-components';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
