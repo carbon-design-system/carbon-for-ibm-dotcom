@@ -13,10 +13,6 @@
 /// @group footer
 
 @mixin local-button {
-  .#{$prefix}--modal-content {
-    height: 500px;
-  }
-
   .#{$prefix}--locale-btn__container {
     @include button;
     @include temp-button-expressive;

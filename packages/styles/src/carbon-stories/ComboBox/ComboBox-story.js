@@ -86,12 +86,12 @@ const ControlledComboBoxApp = props => {
     </>
   );
 };
-ControlledComboBoxApp.__docgenInfo = {
-  ...ComboBox.__docgenInfo,
-  props: {
-    ...ComboBox.__docgenInfo.props,
-  },
-};
+// ControlledComboBoxApp.__docgenInfo = {
+//   ...ComboBox.__docgenInfo,
+//   props: {
+//     ...ComboBox.__docgenInfo.props,
+//   },
+// };
 
 storiesOf('ComboBox', module)
   .addDecorator(withKnobs)

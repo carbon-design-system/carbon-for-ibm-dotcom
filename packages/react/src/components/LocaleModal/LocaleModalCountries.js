@@ -137,7 +137,7 @@ const LocaleModalCountries = ({
 /**
  * @property propTypes
  * @description Defined property types for component
- * @type {{regionList: array, availabilityText: string, unavailabilityText: string, placeHolderText: string, labelText: string,}}
+ * @type {{regionList: Array, availabilityText: string, unavailabilityText: string, placeHolderText: string, labelText: string}}
  */
 LocaleModalCountries.propTypes = {
   regionList: PropTypes.array,

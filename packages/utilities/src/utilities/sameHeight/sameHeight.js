@@ -5,6 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { baseFontSize, breakpoints } from '@carbon/layout';
+
 /**
  * Utility that sets an array of elements to the same height.
  *
@@ -14,46 +16,39 @@
  * sameheight(ElementArray, 'md');
  *
  * if you want the utility to refresh the sizes as you resize the screen, consider using a listener:
- * window.addEventListener('resize', sameheight(ElementArray, 'md'));
+ *
+ * window.addEventListener('resize', function() {
+ *   window.requestAnimationFrame(function() {
+ *     sameheight(ElementArray, 'md');
+ *   });
+ * }, true);
  *
  * @param {Array} elemCollection Html objects array
  * @param {string} minSize Minimum size for the utility to be activated, empty for small,
  *  md for medium, lg for large, xlg for xlarge, max for maximum
  */
-function sameheight(elemCollection, minSize) {
+function sameHeight(elemCollection, minSize = false) {
   const elemArr = Array.prototype.slice.call(elemCollection);
-  let targetWidth = 0;
-  if (minSize) {
-    switch (minSize) {
-      case 'md':
-        targetWidth = 671;
-        break;
-      case 'lg':
-        targetWidth = 1055;
-        break;
-      case 'xlg':
-        targetWidth = 1311;
-        break;
-      case 'max':
-        targetWidth = 1583;
-        break;
-    }
-  }
-
+  let targetWidth = minSize
+    ? parseFloat(breakpoints[minSize].width) * baseFontSize
+    : 0;
   if (window.innerWidth > targetWidth) {
     let targetHeight = 0;
     elemArr.forEach(elem => {
+      elem.style.height = 'auto';
       elem.offsetHeight > targetHeight
         ? (targetHeight = elem.offsetHeight)
         : false;
     });
 
     elemArr.forEach(elem => {
-      elem.offsetHeight == targetHeight
-        ? (elem.style.height = 'auto')
-        : (elem.style.height = targetHeight + 'px');
+      elem.style.height = targetHeight + 'px';
+    });
+  } else {
+    elemArr.forEach(elem => {
+      elem.style.height = 'auto';
     });
   }
 }
 
-export default sameheight;
+export default sameHeight;
