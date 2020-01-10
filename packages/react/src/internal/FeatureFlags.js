@@ -17,11 +17,12 @@
 export const DDS_FLAGS_ALL = process.env.DDS_FLAGS_ALL === 'true' || false;
 
 /**
- * This determines if the tableofcontents will be rendered or not
+ * This determines if the ContentGroup component will be rendered or not
  *
  * @type {string | boolean}
  */
-export const DDS_CONTENT_GROUP = process.env.DDS_CONTENT_GROUP === 'true' || DDS_FLAGS_ALL || false;
+export const DDS_CONTENT_GROUP =
+  process.env.DDS_CONTENT_GROUP === 'true' || DDS_FLAGS_ALL || false;
 
 /**
  * Feature flag to turn on the Masthead L1
