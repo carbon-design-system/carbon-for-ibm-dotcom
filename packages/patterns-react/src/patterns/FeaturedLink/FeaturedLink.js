@@ -7,7 +7,7 @@
 
 import { DDS_FEATURED_LINK } from '../../internal/FeatureFlags';
 import FeaturedLinkItem from './FeaturedLinkItem';
-import { ImageComponent } from '@carbon/ibmdotcom-react';
+import { Image } from '@carbon/ibmdotcom-react';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
@@ -61,7 +61,7 @@ const FeaturedLink = ({ title, content, image }) => {
               <div className={`${prefix}--featuredlink__content`}>
                 {image && (
                   <div className={`${prefix}--featuredlink__image-container`}>
-                    <ImageComponent
+                    <Image
                       images={sortImages(image)}
                       defaultImage={image.default}
                       alt={image.alt}
