@@ -8,8 +8,8 @@
 @import '../../globals/imports';
 @import '../../temp-carbon-expressive/temp-carbon-expressive';
 
-@import 'carbon-components/scss/components/link/link';
 @import 'carbon-components/scss/components/tile/tile';
+@import 'carbon-components/scss/components/link/link';
 
 @mixin card-link {
   .#{$prefix}--card-link {
@@ -17,10 +17,19 @@
     text-decoration: none;
     display: flex;
     flex-direction: column;
-    padding: $carbon--spacing-05;
 
     > *:not(:last-child) {
       margin-bottom: $carbon--spacing-07;
+    }
+
+    &__wrapper {
+      padding: $carbon--spacing-05;
+    }
+
+    &__image {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
     }
 
     &__title {
