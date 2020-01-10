@@ -10,8 +10,8 @@
   background: $ui-background;
 }
 
-@mixin simplebenefitsband {
-  .#{$prefix}--simplebenefitsband {
+@mixin simplebenefits {
+  .#{$prefix}--simplebenefits {
     padding-top: $carbon--layout-05;
 
     @include carbon--breakpoint(sm) {
@@ -29,7 +29,7 @@
     &--multirow {
       @include carbon--breakpoint(lg) {
         padding-bottom: $carbon--layout-07;
-        .#{$prefix}--simplebenefitsband__content-item {
+        .#{$prefix}--simplebenefits__content-item {
           padding-bottom: $carbon--layout-03;
         }
       }
@@ -76,23 +76,23 @@
     }
   }
 
-  .#{$prefix}--simplebenefitsband--g100 {
+  .#{$prefix}--simplebenefits--g100 {
     @include carbon--theme($carbon--theme--g100) {
       @include themed-items;
     }
   }
-  .#{$prefix}--simplebenefitsband--g90 {
+  .#{$prefix}--simplebenefits--g90 {
     @include carbon--theme($carbon--theme--g90) {
       @include themed-items;
     }
   }
-  .#{$prefix}--simplebenefitsband--g10 {
+  .#{$prefix}--simplebenefits--g10 {
     @include carbon--theme($carbon--theme--g10) {
       @include themed-items;
     }
   }
 }
 
-@include exports('simplebenefitsband') {
-  @include simplebenefitsband;
+@include exports('simplebenefits') {
+  @include simplebenefits;
 }

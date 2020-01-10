@@ -7,8 +7,8 @@
 
 @import '../../components/link-with-icon/link-with-icon';
 
-@mixin simplebenefitsband-item {
-  .#{$prefix}--simplebenefitsband__content-item {
+@mixin simplebenefits-item {
+  .#{$prefix}--simplebenefits__content-item {
     &-container {
       height: 100%;
       padding-top: $carbon--layout-03;
@@ -41,25 +41,25 @@
     }
 
     &__content {
-      margin-bottom: $carbon--layout-03;
+      margin-bottom: $carbon--layout-02;
       max-width: 80%;
       @include carbon--type-style('body-long-02');
     }
 
     @include carbon--breakpoint(lg) {
       &:not(:first-child) {
-        .#{$prefix}--simplebenefitsband__content-item-container {
+        .#{$prefix}--simplebenefits__content-item-container {
           border-top: none;
         }
       }
       &:nth-child(n + 4) {
         padding-bottom: 0;
-        .#{$prefix}--simplebenefitsband__content-item-container {
+        .#{$prefix}--simplebenefits__content-item-container {
           border-top: 1px solid $text-03;
         }
       }
       &:nth-child(-n + 3) {
-        .#{$prefix}--simplebenefitsband__content-item-container {
+        .#{$prefix}--simplebenefits__content-item-container {
           padding-top: 0;
         }
       }
@@ -69,12 +69,12 @@
     @include carbon--breakpoint-down(lg) {
       padding-bottom: $carbon--layout-04;
       &:not(:first-child) {
-        .#{$prefix}--simplebenefitsband__content-item-container {
+        .#{$prefix}--simplebenefits__content-item-container {
           border-top: 1px solid $text-03;
         }
       }
       &:first-child {
-        .#{$prefix}--simplebenefitsband__content-item-container {
+        .#{$prefix}--simplebenefits__content-item-container {
           padding-top: 0;
         }
       }
@@ -89,6 +89,6 @@
   }
 }
 
-@include exports('simplebenefitsband-item') {
-  @include simplebenefitsband-item;
+@include exports('simplebenefits-item') {
+  @include simplebenefits-item;
 }

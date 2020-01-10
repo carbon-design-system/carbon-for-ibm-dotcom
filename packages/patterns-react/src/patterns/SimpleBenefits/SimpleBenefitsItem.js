@@ -16,29 +16,28 @@ const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
- * Simple benefits band item
+ * Simple benefits item
  *
  * @param {object} props props object
  * @param {string} props.title simple long form title
  * @param {string} props.copy simple long form copy
  * @param {object} props.link link object which includes url, link text and target properties
- * @returns {*} Simple benefits band item
+ * @returns {*} Simple benefits  item
  */
-const SimpleBenefitsBandItem = ({ title, copy, link }) => (
+const SimpleBenefitsItem = ({ title, copy, link }) => (
   <div
-    data-autoid={`${stablePrefix}--simplebenefitsband__content-item`}
-    className={`${prefix}--simplebenefitsband__content-item`}>
-    <div className={`${prefix}--simplebenefitsband__content-item-container`}>
-      <h3 className={`${prefix}--simplebenefitsband__content-item__title`}>
+    data-autoid={`${stablePrefix}--simplebenefits__content-item`}
+    className={`${prefix}--simplebenefits__content-item`}>
+    <div className={`${prefix}--simplebenefits__content-item-container`}>
+      <h3 className={`${prefix}--simplebenefits__content-item__title`}>
         {title}
       </h3>
-      <div
-        className={`${prefix}--simplebenefitsband__content-item__devider`}></div>
-      <div className={`${prefix}--simplebenefitsband__content-item__content`}>
+      <div className={`${prefix}--simplebenefits__content-item__devider`}></div>
+      <div className={`${prefix}--simplebenefits__content-item__content`}>
         {copy}
       </div>
       {link && (
-        <div className={`${prefix}--simplebenefitsband__content-item__link`}>
+        <div className={`${prefix}--simplebenefits__content-item__link`}>
           <LinkWithIcon href={link.href} target={link.target}>
             <span>{link.text}</span>
             <ArrowRight20 />
@@ -49,7 +48,7 @@ const SimpleBenefitsBandItem = ({ title, copy, link }) => (
   </div>
 );
 
-SimpleBenefitsBandItem.propTypes = {
+SimpleBenefitsItem.propTypes = {
   title: PropTypes.string,
   copy: PropTypes.string,
   link: PropTypes.shape({
@@ -59,4 +58,4 @@ SimpleBenefitsBandItem.propTypes = {
   }),
 };
 
-export default SimpleBenefitsBandItem;
+export default SimpleBenefitsItem;

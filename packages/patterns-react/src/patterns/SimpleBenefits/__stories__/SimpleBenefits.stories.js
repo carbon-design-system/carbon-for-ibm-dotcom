@@ -1,13 +1,13 @@
 import './index.scss';
 import { object, select, text, withKnobs } from '@storybook/addon-knobs';
-import { DDS_SIMPLEBENEFITSBAND } from '../../../internal/FeatureFlags';
+import { DDS_SIMPLEBENEFITS } from '../../../internal/FeatureFlags';
 import React from 'react';
-import SimpleBenefitsBand from '../SimpleBenefitsBand';
+import SimpleBenefits from '../SimpleBenefits';
 import readme from '../README.md';
 import { storiesOf } from '@storybook/react';
 
-if (DDS_SIMPLEBENEFITSBAND) {
-  storiesOf('Simple Benefits Band', module)
+if (DDS_SIMPLEBENEFITS) {
+  storiesOf('Simple Benefits', module)
     .addDecorator(withKnobs)
     .addParameters({
       readme: {
@@ -80,7 +80,7 @@ if (DDS_SIMPLEBENEFITSBAND) {
       };
 
       return (
-        <SimpleBenefitsBand
+        <SimpleBenefits
           content={object('Content group', content)}
           theme={select('Theme', themes, themes.white)}
           title={title}

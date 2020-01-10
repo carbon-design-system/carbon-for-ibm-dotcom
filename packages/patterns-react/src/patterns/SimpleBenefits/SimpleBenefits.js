@@ -6,9 +6,9 @@
  */
 
 import React, { useEffect } from 'react';
-import { DDS_SIMPLEBENEFITSBAND } from '../../internal/FeatureFlags';
+import { DDS_SIMPLEBENEFITS } from '../../internal/FeatureFlags';
 import PropTypes from 'prop-types';
-import SimpleBenefitsBandItem from './SimpleBenefitsBandItem';
+import SimpleBenefitsItem from './SimpleBenefitsItem';
 import classNames from 'classnames';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { featureFlag } from '@carbon/ibmdotcom-utilities';
@@ -19,16 +19,16 @@ const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
- * Simple benefits band pattern
+ * Simple benefits pattern
  *
  * @param {object} props props object
  * @param {string} props.title Section title
  * @param {Array} props.content Array of objects with content data
- * @returns {*} Simple benefits band item
+ * @returns {*} Simple benefits item
  */
-const SimpleBenefitsBand = ({ content, theme, title }) => {
+const SimpleBenefits = ({ content, theme, title }) => {
   useEffect(() => {
-    const selector = `.${prefix}--simplebenefitsband__content-item__title`;
+    const selector = `.${prefix}--simplebenefits__content-item__title`;
     setSameHeight(selector);
     root.addEventListener('resize', () => setSameHeight(selector));
   });
@@ -54,26 +54,26 @@ const SimpleBenefitsBand = ({ content, theme, title }) => {
     });
   };
 
-  const simpleBenefitsBand = classNames({
-    [`${prefix}--simplebenefitsband`]: true,
-    [`${prefix}--simplebenefitsband--multirow`]: content.length > 3,
+  const simpleBenefits = classNames({
+    [`${prefix}--simplebenefits`]: true,
+    [`${prefix}--simplebenefits--multirow`]: content.length > 3,
   });
 
   return featureFlag(
-    DDS_SIMPLEBENEFITSBAND,
+    DDS_SIMPLEBENEFITS,
     <section
-      data-autoid={`${stablePrefix}--simplebenefitsband`}
-      className={`${simpleBenefitsBand} ${_setTheme(theme)}`}>
-      <div className={`${prefix}--simplebenefitsband__container`}>
-        <div className={`${prefix}--simplebenefitsband__row`}>
-          <h2 className={`${prefix}--simplebenefitsband__title`}>
-            <div className={`${prefix}--simplebenefitsband__title-container`}>
+      data-autoid={`${stablePrefix}--simplebenefits`}
+      className={`${simpleBenefits} ${_setTheme(theme)}`}>
+      <div className={`${prefix}--simplebenefits__container`}>
+        <div className={`${prefix}--simplebenefits__row`}>
+          <h2 className={`${prefix}--simplebenefits__title`}>
+            <div className={`${prefix}--simplebenefits__title-container`}>
               {title}
             </div>
           </h2>
           <div
-            data-autoid={`${stablePrefix}--simplebenefitsband__content`}
-            className={`${prefix}--simplebenefitsband__content`}>
+            data-autoid={`${stablePrefix}--simplebenefits__content`}
+            className={`${prefix}--simplebenefits__content`}>
             {_renderArray(content)}
           </div>
         </div>
@@ -91,7 +91,7 @@ const SimpleBenefitsBand = ({ content, theme, title }) => {
  */
 const _renderArray = content =>
   content.map((contentItem, contentItemIndex) => (
-    <SimpleBenefitsBandItem
+    <SimpleBenefitsItem
       key={contentItemIndex}
       title={contentItem.title}
       copy={contentItem.copy}
@@ -107,10 +107,10 @@ const _renderArray = content =>
  * @returns {string} theme css class names
  */
 const _setTheme = theme => {
-  return theme && `${prefix}--simplebenefitsband--${theme}`;
+  return theme && `${prefix}--simplebenefits--${theme}`;
 };
 
-SimpleBenefitsBand.propTypes = {
+SimpleBenefits.propTypes = {
   content: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
@@ -125,4 +125,4 @@ SimpleBenefitsBand.propTypes = {
   title: PropTypes.string.isRequired,
 };
 
-export default SimpleBenefitsBand;
+export default SimpleBenefits;

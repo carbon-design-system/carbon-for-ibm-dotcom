@@ -1,6 +1,6 @@
-# Simple Benefits Band
+# Simple Benefits
 
-> The Simple Benefits Band pattern is to be utilized within IBM.com.
+> The Simple Benefits pattern is to be utilized within IBM.com.
 
 ## Getting started
 
@@ -13,7 +13,7 @@ Here's a quick example to get you started.
 @include carbon--font-face-mono();
 @include carbon--font-face-sans();
 
-@import '@carbon/ibmdotcom-styles/scss/patterns/simplebenefitsband/index.scss';
+@import '@carbon/ibmdotcom-styles/scss/patterns/simplebenefits/index.scss';
 ```
 
 > 💡 Only import font's once per usage
@@ -21,7 +21,7 @@ Here's a quick example to get you started.
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { SimpleBenefitsBand } from '@carbon/ibmdotcom-patterns-react';
+import { SimpleBenefits } from '@carbon/ibmdotcom-patterns-react';
 import 'yourapplication.scss';
 
 const title = 'Lorem ipsum dolor sit amet.';
@@ -80,7 +80,7 @@ const content = [
 ];
 
 function App() {
-  return <SimpleBenefitsBand content={content} title={title} />;
+  return <SimpleBenefits content={content} title={title} />;
 }
 
 ReactDOM.render(<App />, document.querySelector('#app'));
@@ -95,7 +95,7 @@ To utilize the following features, set the following variable's to `true` within
 your `.env` file or your application build settings.
 
 ```
-DDS_SIMPLEBENEFITSBAND=true
+DDS_SIMPLEBENEFITS=true
 ```
 
 > See
@@ -129,11 +129,11 @@ DDS_SIMPLEBENEFITSBAND=true
 
 ## Stable selectors
 
-| Name                                    | Description |
-| --------------------------------------- | ----------- |
-| `dds--simplebenefitsband`               | Component   |
-| `dds--simplebenefitsband__content`      | Component   |
-| `dds--simplebenefitsband__content-item` | Component   |
+| Name                                | Description |
+| ----------------------------------- | ----------- |
+| `dds--simplebenefits`               | Component   |
+| `dds--simplebenefits__content`      | Component   |
+| `dds--simplebenefits__content-item` | Component   |
 
 ## 🙌 Contributing
 
