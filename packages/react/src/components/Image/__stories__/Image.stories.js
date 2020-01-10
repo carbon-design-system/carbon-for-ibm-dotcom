@@ -6,11 +6,11 @@
  */
 import './index.scss';
 import { object, text, withKnobs } from '@storybook/addon-knobs';
-import ImageComponent from '../ImageComponent';
+import Image from '../Image';
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-storiesOf('ImageComponent', module)
+storiesOf('Image', module)
   .addDecorator(withKnobs)
   .add('Default', () => {
     // const defaultImages = text(
@@ -29,9 +29,6 @@ storiesOf('ImageComponent', module)
     );
 
     return (
-      <ImageComponent
-        images={imageObject}
-        defaultImage={defaultImage}
-        alt={alt}></ImageComponent>
+      <Image images={imageObject} defaultImage={defaultImage} alt={alt}></Image>
     );
   });
