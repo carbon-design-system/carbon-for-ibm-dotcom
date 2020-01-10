@@ -9,22 +9,9 @@
 
 @mixin cardarray-item {
   .#{$prefix}--cardarray-item {
-    height: 100%;
-    padding-top: $carbon--layout-01;
-    background: $carbon--gray-10;
-    &__title {
-      padding-left: $carbon--layout-01;
+    p {
       margin-bottom: $carbon--layout-03;
-      width: 90%;
-      max-width: 640px;
-      @include carbon--type-style('heading-02');
-    }
-    &__content {
-      padding-left: $carbon--layout-01;
-      margin-bottom: $carbon--layout-03;
-      width: 90%;
-      max-width: 640px;
-      @include carbon--type-style('body-long-02');
+      margin-top: $carbon--layout-03;
     }
   }
 }

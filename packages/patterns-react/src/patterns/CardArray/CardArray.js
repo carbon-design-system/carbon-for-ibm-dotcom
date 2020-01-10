@@ -52,10 +52,11 @@ const CardArray = ({ title, content }) => {
     );
     sameHeight(
       containerRef.current.getElementsByClassName(
-        `${prefix}--cardarray-item__col`
+        `${prefix}--card-link__content`
       ),
       'md'
     );
+    console.log('height set');
   };
 
   return featureFlag(
