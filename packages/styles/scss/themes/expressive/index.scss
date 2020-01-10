@@ -22,6 +22,7 @@
 @import 'components/text-input';
 @import 'components/tile';
 @import 'components/time-picker';
+@import 'components/search';
 @import 'components/select';
 
 //-------------------------
@@ -49,6 +50,7 @@
     @include text-input-expressive;
     @include tile-expressive;
     @include time-picker-expressive;
+    @include search-expressive;
     @include select-expressive;
   }
 }

@@ -18,4 +18,12 @@
   .#{$prefix}--select-input {
     height: rem(48px);
   }
+  .#{$prefix}--select__invalid-icon {
+    height: rem(20px);
+    width: rem(20px);
+  }
+  .#{$prefix}--select__arrow {
+    height: rem(20px);
+    width: rem(20px);
+  }
 }
