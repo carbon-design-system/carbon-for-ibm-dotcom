@@ -8,7 +8,7 @@ jobs:
       env:
         - COS_BUCKET=carbon-expressive
       before_install:
-        - "node ./travis/check_label.js ${TRAVIS_PULL_REQUEST} ${TRAVIS_REPO_SLUG} 'package: styles' || travis_terminate 0"
+        - "node ./.travis/check_label.js ${TRAVIS_PULL_REQUEST} ${TRAVIS_REPO_SLUG} 'package: styles' || travis_terminate 0"
         - pip install awscli --user
         - export PATH=$PATH:$HOME/.local/bin
         - "aws configure set aws_access_key_id ${COS_ACCESS_KEY_ID}"
@@ -21,12 +21,12 @@ jobs:
         - "aws s3 cp storybook-static s3://${COS_BUCKET}/deploy-previews/${TRAVIS_PULL_REQUEST} --recursive --endpoint https://${PREVIEW_DOMAIN}"
       after_success:
         - cd ../../
-        - "node ./travis/deploy_preview_comment.js ${GITHUB_TOKEN} 'Carbon Expressive' ${COS_BUCKET} ${PREVIEW_DOMAIN} ${TRAVIS_PULL_REQUEST} ${TRAVIS_PULL_REQUEST_SHA} ${TRAVIS_REPO_SLUG}"
+        - "node ./.travis/deploy_preview_comment.js ${GITHUB_TOKEN} 'Carbon Expressive' ${COS_BUCKET} ${PREVIEW_DOMAIN} ${TRAVIS_PULL_REQUEST} ${TRAVIS_PULL_REQUEST_SHA} ${TRAVIS_REPO_SLUG}"
     - stage: deploy-preview-patterns-react
       env:
         - COS_BUCKET=ibmdotcom-patterns-react
       before_install:
-        - "node ./travis/check_label.js ${TRAVIS_PULL_REQUEST} ${TRAVIS_REPO_SLUG} 'package: patterns' || travis_terminate 0"
+        - "node ./.travis/check_label.js ${TRAVIS_PULL_REQUEST} ${TRAVIS_REPO_SLUG} 'package: patterns' || travis_terminate 0"
         - pip install awscli --user
         - export PATH=$PATH:$HOME/.local/bin
         - "aws configure set aws_access_key_id ${COS_ACCESS_KEY_ID}"
@@ -39,12 +39,12 @@ jobs:
         - "aws s3 cp storybook-static s3://${COS_BUCKET}/deploy-previews/${TRAVIS_PULL_REQUEST} --recursive --endpoint https://${PREVIEW_DOMAIN}"
       after_success:
         - cd ../../
-        - "node ./travis/deploy_preview_comment.js ${GITHUB_TOKEN} 'Patterns React' ${COS_BUCKET} ${PREVIEW_DOMAIN} ${TRAVIS_PULL_REQUEST} ${TRAVIS_PULL_REQUEST_SHA} ${TRAVIS_REPO_SLUG}"
+        - "node ./.travis/deploy_preview_comment.js ${GITHUB_TOKEN} 'Patterns React' ${COS_BUCKET} ${PREVIEW_DOMAIN} ${TRAVIS_PULL_REQUEST} ${TRAVIS_PULL_REQUEST_SHA} ${TRAVIS_REPO_SLUG}"
     - stage: deploy-preview-patterns-react-experimental
       env:
         - COS_BUCKET=ibmdotcom-patterns-react-experimental
       before_install:
-        - "node ./travis/check_label.js ${TRAVIS_PULL_REQUEST} ${TRAVIS_REPO_SLUG} 'package: patterns' || travis_terminate 0"
+        - "node ./.travis/check_label.js ${TRAVIS_PULL_REQUEST} ${TRAVIS_REPO_SLUG} 'package: patterns' || travis_terminate 0"
         - pip install awscli --user
         - export PATH=$PATH:$HOME/.local/bin
         - "aws configure set aws_access_key_id ${COS_ACCESS_KEY_ID}"
@@ -60,12 +60,12 @@ jobs:
         - "aws s3 cp storybook-static s3://${COS_BUCKET}/deploy-previews/${TRAVIS_PULL_REQUEST} --recursive --endpoint https://${PREVIEW_DOMAIN}"
       after_success:
         - cd ../../
-        - "node ./travis/deploy_preview_comment.js ${GITHUB_TOKEN} 'Patterns React - Experimental' ${COS_BUCKET} ${PREVIEW_DOMAIN} ${TRAVIS_PULL_REQUEST} ${TRAVIS_PULL_REQUEST_SHA} ${TRAVIS_REPO_SLUG}"
+        - "node ./.travis/deploy_preview_comment.js ${GITHUB_TOKEN} 'Patterns React - Experimental' ${COS_BUCKET} ${PREVIEW_DOMAIN} ${TRAVIS_PULL_REQUEST} ${TRAVIS_PULL_REQUEST_SHA} ${TRAVIS_REPO_SLUG}"
     - stage: deploy-preview-react
       env:
         - COS_BUCKET=ibmdotcom-react
       before_install:
-        - "node ./travis/check_label.js ${TRAVIS_PULL_REQUEST} ${TRAVIS_REPO_SLUG} 'package: react' || travis_terminate 0"
+        - "node ./.travis/check_label.js ${TRAVIS_PULL_REQUEST} ${TRAVIS_REPO_SLUG} 'package: react' || travis_terminate 0"
         - pip install awscli --user
         - export PATH=$PATH:$HOME/.local/bin
         - "aws configure set aws_access_key_id ${COS_ACCESS_KEY_ID}"
@@ -80,12 +80,12 @@ jobs:
         - "aws s3 cp storybook-static s3://${COS_BUCKET}/deploy-previews/${TRAVIS_PULL_REQUEST} --recursive --endpoint https://$PREVIEW_DOMAIN"
       after_success:
         - cd ../../
-        - "node ./travis/deploy_preview_comment.js ${GITHUB_TOKEN} 'React' ${COS_BUCKET} ${PREVIEW_DOMAIN} ${TRAVIS_PULL_REQUEST} ${TRAVIS_PULL_REQUEST_SHA} ${TRAVIS_REPO_SLUG}"
+        - "node ./.travis/deploy_preview_comment.js ${GITHUB_TOKEN} 'React' ${COS_BUCKET} ${PREVIEW_DOMAIN} ${TRAVIS_PULL_REQUEST} ${TRAVIS_PULL_REQUEST_SHA} ${TRAVIS_REPO_SLUG}"
     - stage: deploy-preview-react-experimental
       env:
         - COS_BUCKET=ibmdotcom-react-experimental
       before_install:
-        - "node ./travis/check_label.js ${TRAVIS_PULL_REQUEST} ${TRAVIS_REPO_SLUG} 'package: react' || travis_terminate 0"
+        - "node ./.travis/check_label.js ${TRAVIS_PULL_REQUEST} ${TRAVIS_REPO_SLUG} 'package: react' || travis_terminate 0"
         - pip install awscli --user
         - export PATH=$PATH:$HOME/.local/bin
         - "aws configure set aws_access_key_id ${COS_ACCESS_KEY_ID}"
@@ -101,12 +101,12 @@ jobs:
         - "aws s3 cp storybook-static s3://${COS_BUCKET}/deploy-previews/${TRAVIS_PULL_REQUEST} --recursive --endpoint https://$PREVIEW_DOMAIN"
       after_success:
         - cd ../../
-        - "node ./travis/deploy_preview_comment.js ${GITHUB_TOKEN} 'React - Experimental' ${COS_BUCKET} ${PREVIEW_DOMAIN} ${TRAVIS_PULL_REQUEST} ${TRAVIS_PULL_REQUEST_SHA} ${TRAVIS_REPO_SLUG}"
+        - "node ./.travis/deploy_preview_comment.js ${GITHUB_TOKEN} 'React - Experimental' ${COS_BUCKET} ${PREVIEW_DOMAIN} ${TRAVIS_PULL_REQUEST} ${TRAVIS_PULL_REQUEST_SHA} ${TRAVIS_REPO_SLUG}"
     - stage: deploy-preview-services
       env:
         - COS_BUCKET=ibmdotcom-services
       before_install:
-        - "node ./travis/check_label.js ${TRAVIS_PULL_REQUEST} ${TRAVIS_REPO_SLUG} 'package: services' || travis_terminate 0"
+        - "node ./.travis/check_label.js ${TRAVIS_PULL_REQUEST} ${TRAVIS_REPO_SLUG} 'package: services' || travis_terminate 0"
         - pip install awscli --user
         - export PATH=$PATH:$HOME/.local/bin
         - "aws configure set aws_access_key_id ${COS_ACCESS_KEY_ID}"
@@ -119,12 +119,12 @@ jobs:
         - "aws s3 cp docs s3://${COS_BUCKET}/deploy-previews/${TRAVIS_PULL_REQUEST} --recursive --endpoint https://${PREVIEW_DOMAIN}"
       after_success:
         - cd ../../
-        - "node ./travis/deploy_preview_comment.js ${GITHUB_TOKEN} 'Services' ${COS_BUCKET} ${PREVIEW_DOMAIN} ${TRAVIS_PULL_REQUEST} ${TRAVIS_PULL_REQUEST_SHA} ${TRAVIS_REPO_SLUG}"
+        - "node ./.travis/deploy_preview_comment.js ${GITHUB_TOKEN} 'Services' ${COS_BUCKET} ${PREVIEW_DOMAIN} ${TRAVIS_PULL_REQUEST} ${TRAVIS_PULL_REQUEST_SHA} ${TRAVIS_REPO_SLUG}"
     - stage: deploy-preview-utilities
       env:
         - COS_BUCKET=ibmdotcom-utilities
       before_install:
-        - "node ./travis/check_label.js ${TRAVIS_PULL_REQUEST} ${TRAVIS_REPO_SLUG} 'package: utilities' || travis_terminate 0"
+        - "node ./.travis/check_label.js ${TRAVIS_PULL_REQUEST} ${TRAVIS_REPO_SLUG} 'package: utilities' || travis_terminate 0"
         - pip install awscli --user
         - export PATH=$PATH:$HOME/.local/bin
         - "aws configure set aws_access_key_id ${COS_ACCESS_KEY_ID}"
@@ -137,12 +137,12 @@ jobs:
         - "aws s3 cp docs s3://${COS_BUCKET}/deploy-previews/${TRAVIS_PULL_REQUEST} --recursive --endpoint https://${PREVIEW_DOMAIN}"
       after_success:
         - cd ../../
-        - "node ./travis/deploy_preview_comment.js ${GITHUB_TOKEN} 'Utilities' ${COS_BUCKET} ${PREVIEW_DOMAIN} ${TRAVIS_PULL_REQUEST} ${TRAVIS_PULL_REQUEST_SHA} ${TRAVIS_REPO_SLUG}"
+        - "node ./.travis/deploy_preview_comment.js ${GITHUB_TOKEN} 'Utilities' ${COS_BUCKET} ${PREVIEW_DOMAIN} ${TRAVIS_PULL_REQUEST} ${TRAVIS_PULL_REQUEST_SHA} ${TRAVIS_REPO_SLUG}"
     - stage: deploy-preview-vanilla
       env:
         - COS_BUCKET=ibmdotcom-vanilla
       before_install:
-        - "node ./travis/check_label.js ${TRAVIS_PULL_REQUEST} ${TRAVIS_REPO_SLUG} 'package: vanilla' || travis_terminate 0"
+        - "node ./.travis/check_label.js ${TRAVIS_PULL_REQUEST} ${TRAVIS_REPO_SLUG} 'package: vanilla' || travis_terminate 0"
         - pip install awscli --user
         - export PATH=$PATH:$HOME/.local/bin
         - "aws configure set aws_access_key_id ${COS_ACCESS_KEY_ID}"
@@ -157,7 +157,7 @@ jobs:
         - "aws s3 cp storybook-static s3://${COS_BUCKET}/deploy-previews/${TRAVIS_PULL_REQUEST} --recursive --endpoint https://$PREVIEW_DOMAIN"
       after_success:
         - cd ../../
-        - "node ./travis/deploy_preview_comment.js ${GITHUB_TOKEN} 'Vanilla' ${COS_BUCKET} ${PREVIEW_DOMAIN} ${TRAVIS_PULL_REQUEST} ${TRAVIS_PULL_REQUEST_SHA} ${TRAVIS_REPO_SLUG}"
+        - "node ./.travis/deploy_preview_comment.js ${GITHUB_TOKEN} 'Vanilla' ${COS_BUCKET} ${PREVIEW_DOMAIN} ${TRAVIS_PULL_REQUEST} ${TRAVIS_PULL_REQUEST_SHA} ${TRAVIS_REPO_SLUG}"
 stages:
   - name: deploy-preview-expressive
     if: type = pull_request
