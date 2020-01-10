@@ -58,6 +58,13 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 | `src`      | String    | Url of Image.      |
 | `minWidth` | int       | min Width of image |
 
+## Stable selectors
+
+| Name                         | Description |
+| ---------------------------- | ----------- |
+| `dds--imagecomponent`        | Interactive |
+| `dds--imagecomponent__image` | Interactive |
+
 ## 🙌 Contributing
 
 We're always looking for contributors to help us fix bugs, build new features,
