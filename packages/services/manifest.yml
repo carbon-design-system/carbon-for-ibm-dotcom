@@ -1,0 +1,10 @@
+---
+applications:
+  - name: ibmdotcom-services
+    path: ./public
+    memory: 64M
+    buildpack: https://github.com/cloudfoundry/staticfile-buildpack.git
+    routes:
+      - route: ibmdotcom-services.mybluemix.net
+      - route: ibmdotcom-services-temp.mybluemix.net
+
