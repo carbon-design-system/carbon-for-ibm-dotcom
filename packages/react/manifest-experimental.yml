@@ -1,7 +1,7 @@
 ---
 applications:
   - name: ibmdotcom-react-experimental
-    path: ./public
+    path: ./storybook-static
     memory: 64M
     buildpack: https://github.com/cloudfoundry/staticfile-buildpack.git
     routes:
