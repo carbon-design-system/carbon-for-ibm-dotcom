@@ -11,6 +11,7 @@ export * from './LeadSpace';
 export * from './LeadSpaceCentered';
 export * from './ListSection';
 export * from './PictogramArray';
+export * from './SimpleBenefits';
 export * from './SimpleLongForm';
 export * from './SimpleOverview';
 export * from './UseCases';
