@@ -6,7 +6,6 @@
 //
 
 @import '../../globals/imports';
-@import './cardarray';
-@import './cardarray-item';
-@import '../../components/content-group/content-group';
-@import '@carbon/grid/scss/grid';
+@import './featuredlink';
+@import './featuredlink-item';
+@import '../../components/imagecomponent/_imagecomponent';

@@ -6,7 +6,14 @@
 //
 
 @import '../../globals/imports';
-@import './cardarray';
-@import './cardarray-item';
-@import '../../components/content-group/content-group';
-@import '@carbon/grid/scss/grid';
+
+@mixin image-component {
+  .#{$prefix}--imagecomponent__image {
+    height: auto;
+    width: 100%;
+  }
+}
+
+@include exports('image-component') {
+  @include image-component;
+}
