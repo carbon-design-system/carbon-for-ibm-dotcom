@@ -66,6 +66,15 @@ DDS_FEATURED_LINK=true
 | `content` | NO       | Array     | null          | Array of content group objects. See `content` below. |
 | `image`   | NO       | object    | n/a           | An object. See `image` below.                        |
 
+### image
+
+| Name      | Required | Data Type | Description                                |
+| --------- | -------- | --------- | ------------------------------------------ |
+| `mobile`  | NO       | String    | Device in which needs to pass image        |
+| `tablet`  | NO       | String    | Device in which needs to pass image        |
+| `default` | YES      | String    | Max width of the device                    |
+| `alt`     | NO       | String    | Alternate text for featured link component |
+
 ### content
 
 | Name    | Data Type | Description                                                  |
