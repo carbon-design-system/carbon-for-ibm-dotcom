@@ -6,6 +6,7 @@
  */
 
 export * from './ButtonGroup';
+export * from './ContentGroup';
 export * from './DotcomShell';
 export * from './Footer';
 export * from './HorizontalRule';
@@ -18,3 +19,4 @@ export * from './Layout';
 export * from './ExpressiveModal';
 export * from './carbon-components-react/UIShell';
 export * from './TableOfContents';
+export * from './Image';

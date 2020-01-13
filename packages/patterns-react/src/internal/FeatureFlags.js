@@ -41,6 +41,14 @@ export const DDS_LISTSECTION =
   process.env.DDS_LISTSECTION === 'true' || DDS_FLAGS_ALL || false;
 
 /**
+ * This determines if the simplebenefits will be rendered or not
+ *
+ * @type {string | boolean}
+ */
+export const DDS_SIMPLEBENEFITS =
+  process.env.DDS_SIMPLEBENEFITS === 'true' || DDS_FLAGS_ALL || false;
+
+/**
  * This determines if the simplelongform will be rendered or not
  *
  * @type {string | boolean}
