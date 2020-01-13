@@ -95,6 +95,7 @@ FeaturedLink.propTypes = {
       }),
     })
   ),
+  image: PropTypes.object,
 };
 
 export default FeaturedLink;

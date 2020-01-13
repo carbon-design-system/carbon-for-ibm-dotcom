@@ -38,7 +38,7 @@ if (DDS_FEATURED_LINK) {
         mobile: 'https://picsum.photos/id/2/320/160',
         tablet: 'https://picsum.photos/id/2/400/400',
         default: 'https://picsum.photos/id/2/672/672',
-        alt: 'lead space image',
+        alt: 'featured link image',
       };
 
       return (
