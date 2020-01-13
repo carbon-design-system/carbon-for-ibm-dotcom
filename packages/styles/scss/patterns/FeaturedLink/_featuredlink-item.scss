@@ -7,7 +7,7 @@
 
 @import '../../components/link-with-icon/link-with-icon';
 
-@mixin aspect-ratio($width, $height) {
+@mixin featuredlink-aspect-ratio($width, $height) {
   position: relative;
   &::before {
     display: block;
@@ -33,11 +33,11 @@
     flex-direction: column;
 
     @include carbon--breakpoint('sm') {
-      @include aspect-ratio(2, 1);
+      @include featuredlink-aspect-ratio(2, 1);
     }
 
     @include carbon--breakpoint('md') {
-      @include aspect-ratio(1, 1);
+      @include featuredlink-aspect-ratio(1, 1);
 
       width: 50%;
     }
