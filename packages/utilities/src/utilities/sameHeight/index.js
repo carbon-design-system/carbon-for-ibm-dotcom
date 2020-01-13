@@ -5,4 +5,4 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-export { default as CardsWithoutImages } from './CardsWithoutImages';
+export { default as sameHeight } from './sameHeight';

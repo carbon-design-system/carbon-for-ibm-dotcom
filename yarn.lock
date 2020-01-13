@@ -1599,7 +1599,7 @@
   resolved "https://registry.yarnpkg.com/@carbon/colors/-/colors-10.7.0.tgz#44984250aacfc8f1c281879949ac8298110e67fe"
   integrity sha512-1qhMy+EweaCjI/xNiNsFOltyb9wXwAOaxXHedo9RLzaoMZFhAApBkslK/+naR5sdW12wFjrvBxpkOZAWTKbuiw==
 
-"@carbon/grid@10.8.0", "@carbon/grid@^10.8.0":
+"@carbon/grid@^10.8.0":
   version "10.8.0"
   resolved "https://registry.yarnpkg.com/@carbon/grid/-/grid-10.8.0.tgz#fac7eb7c1a13b1c658380884cefe971559387933"
   integrity sha512-CYxryUflAgI98z9iwvUTys58krPKJUmmJYOSb+gs6q9mIktmBGzgfoljfL2fjI1FfElhn7uiMvZ8I+ahk2jOuA==

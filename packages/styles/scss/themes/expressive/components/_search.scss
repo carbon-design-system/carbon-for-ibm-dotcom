@@ -1,0 +1,30 @@
+//
+// Copyright IBM Corp. 2016, 2018
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import '@carbon/layout/scss/convert';
+
+//-----------------------------
+// Search (expressive)
+//-----------------------------
+
+/// Search styles (expressive)
+/// @access private
+/// @group search-expressive
+@mixin search-expressive {
+  .#{$prefix}--search svg {
+    height: carbon--rem(20px);
+    width: carbon--rem(20px);
+  }
+
+  .#{$prefix}--search--lg .#{$prefix}--search-input {
+    height: $carbon--spacing-09;
+  }
+
+  .#{$prefix}--search--sm .#{$prefix}--search-input {
+    height: $carbon--spacing-08;
+  }
+}
