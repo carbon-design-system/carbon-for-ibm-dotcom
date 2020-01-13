@@ -46,3 +46,11 @@ export const DDS_TOC = process.env.DDS_TOC === 'true' || DDS_FLAGS_ALL || false;
  */
 export const DDS_LIGHTBOX_MEDIA_VIEWER =
   process.env.DDS_LIGHTBOX_MEDIA_VIEWER === 'true' || DDS_FLAGS_ALL || false;
+
+/**
+ * This determines the image component will be rendered or not
+ *
+ * @type {string | boolean}
+ */
+export const DDS_IMAGE_COMPONENT =
+  process.env.DDS_IMAGE_COMPONENT === 'true' || DDS_FLAGS_ALL || false;
