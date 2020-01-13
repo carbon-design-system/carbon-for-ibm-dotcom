@@ -7,3 +7,5 @@
 
 export * from './horizontalrule';
 export * from './footer';
+export * from './masthead';
+export * from './carbon-components/ui-shell/header-submenu';

@@ -17,17 +17,16 @@ const { prefix } = settings;
  */
 function mastheadLeftnavTemplate(navigation) {
   return `
-    <div class="bx--side-nav__overlay"></div>
-    <nav class="bx--side-nav__navigation bx--side-nav bx--side-nav--ux bx--side-nav--hidden" aria-label="Side navigation">
+    <div class="${prefix}--side-nav__overlay"></div>
+    <nav id="${prefix}--side-nav" class="${prefix}--side-nav__navigation ${prefix}--side-nav ${prefix}--side-nav--ux ${prefix}--side-nav--hidden" aria-label="Side navigation">
       <nav data-autoid="dds--masthead__l0-sidenav">
-        <ul class="bx--side-nav__items">
-          <div class="bx--side-nav__header-navigation">
+        <ul class="${prefix}--side-nav__items">
+          <div class="${prefix}--side-nav__header-navigation">
             ${_renderNav(navigation)}
           </div>
-      </div>
-    </ul>
-  </nav>
-</nav>
+        </ul>
+      </nav>
+    </nav>
   `;
 }
 

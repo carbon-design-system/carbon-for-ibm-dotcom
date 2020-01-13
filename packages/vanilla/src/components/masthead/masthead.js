@@ -5,13 +5,18 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { HeaderSubmenu } from 'carbon-components';
+import { OverflowMenu, SideNav } from 'carbon-components';
+import MastheadSubmenu from './masthead-submenu';
 import {
   globalInit,
-  TranslationAPI,
   LocaleAPI,
+  ProfileAPI,
+  TranslationAPI,
 } from '@carbon/ibmdotcom-services';
 import mastheadTemplate from './masthead.template';
+import { settings } from 'carbon-components';
+
+const { prefix } = settings;
 
 /**
  * class to initialize the masthead components
@@ -20,14 +25,22 @@ class Masthead {
   /**
    * Initializes the masthead components
    *
-   * @param {string} El type of footer in use
+   * @param {string} El type of masthead in use
    */
-  static init(El) {
+  static init() {
     globalInit();
 
-    if (El) {
-      HeaderSubmenu.create(El);
-    }
+    const overflowMenu = document.getElementById('data-floating-menu-container');
+    OverflowMenu.create(overflowMenu);
+
+    const headerSubMenu = document.querySelectorAll(`.${prefix}--header__submenu`);
+    [...headerSubMenu].forEach((menu) => {
+      MastheadSubmenu.create(menu);
+    });
+
+    const mastheadSidenav = document.getElementById(`${prefix}--side-nav`);
+    // console.log('sidenav', mastheadSidenav);
+    SideNav.create(mastheadSidenav);
   }
 
   /**
@@ -39,6 +52,8 @@ class Masthead {
    * @returns {Promise} Returned HTML content
    */
   static async getMastheadWithData(hasProfile, hasSearch) {
+    const status = ProfileAPI.getUserStatus();
+    console.log('status', status);
     const lang = LocaleAPI.getLang();
     const response = await TranslationAPI.getTranslation(lang);
 

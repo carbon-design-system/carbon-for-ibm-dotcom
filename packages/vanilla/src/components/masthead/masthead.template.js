@@ -24,7 +24,8 @@ const { prefix } = settings;
  * @param {object} props.navigation Object containing navigation elements
  * @returns {object} JSX object
  */
-const mastheadTemplate = ({ navigation, hasProfile, hasSearch }) => {
+const mastheadTemplate = ({ navigation, hasProfile, hasSearch, profileData }) => {
+  const profile = hasProfile ? _mastheadProfile(profileData) : null;
   return `
     <div class="${prefix}--masthead">
       <div class="${prefix}--masthead__l0">
@@ -91,7 +92,7 @@ function _mastheadSearch(hasSearch) {
  * @private
  */
 function _mastheadProfile(hasProfile) {
-  return hasProfile ? mastheadProfile() : '';
+  return mastheadProfile(hasProfile);
 }
 
 export default mastheadTemplate;

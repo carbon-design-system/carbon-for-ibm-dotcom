@@ -42,7 +42,7 @@ storiesOf('masthead', module)
     element.textContent = 'Loading...';
     _getMasthead().then(html => {
       element.innerHTML = html;
-      Masthead.init(element);
+      Masthead.init();
     });
     return element;
   });
