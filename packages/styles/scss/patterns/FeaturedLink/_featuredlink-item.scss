@@ -1,0 +1,76 @@
+//
+// Copyright IBM Corp. 2016, 2018
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import '../../components/link-with-icon/link-with-icon';
+
+@mixin featuredlink-aspect-ratio($width, $height) {
+  position: relative;
+  &::before {
+    display: block;
+    content: '';
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+  > * {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+@mixin featuredlink-item {
+  .#{$prefix}--featuredlink-item {
+    padding-top: $carbon--layout-01;
+    padding-left: $carbon--layout-01;
+    background: $ui-05;
+    display: flex;
+    flex-direction: column;
+
+    @include carbon--breakpoint('sm') {
+      @include featuredlink-aspect-ratio(2, 1);
+    }
+
+    @include carbon--breakpoint('md') {
+      @include featuredlink-aspect-ratio(1, 1);
+
+      width: 50%;
+    }
+
+    @include carbon--breakpoint-down('lg') {
+      flex: 0 50%;
+    }
+
+    &__title {
+      margin-bottom: $carbon--layout-03;
+      width: 90%;
+      max-width: 640px;
+      color: $text-04;
+      @include carbon--type-style('heading-02');
+    }
+    &__content {
+      margin-bottom: $carbon--layout-03;
+      width: 90%;
+      max-width: 640px;
+      @include carbon--type-style('heading-02');
+    }
+    &__link {
+      display: flex;
+      justify-content: flex-end;
+      flex-grow: 1;
+      &__button.bx--btn {
+        min-width: 0;
+        padding-right: $carbon--spacing-05;
+        align-self: flex-end;
+      }
+    }
+  }
+}
+@include exports('featuredlink-item') {
+  @include featuredlink-item;
+}
