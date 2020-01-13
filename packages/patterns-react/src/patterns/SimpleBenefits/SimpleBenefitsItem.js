@@ -32,7 +32,7 @@ const SimpleBenefitsItem = ({ title, copy, link }) => (
       <h3 className={`${prefix}--simplebenefits__content-item__title`}>
         {title}
       </h3>
-      <div className={`${prefix}--simplebenefits__content-item__devider`}></div>
+      <div className={`${prefix}--simplebenefits__content-item__divider`}></div>
       <div className={`${prefix}--simplebenefits__content-item__content`}>
         {copy}
       </div>

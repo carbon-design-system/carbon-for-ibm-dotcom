@@ -18,7 +18,7 @@ Import the package css into the top of your main CSS file.
 | `.bx--simplebenefits__title`                  | Band title element                                    |
 | `.bx--simplebenefits__content-item-container` | Container within content item component               |
 | `.bx--simplebenefits__content-item__title`    | Band item title element                               |
-| `.bx--simplebenefits__content-item__devider`  | Band item inner devider element                       |
+| `.bx--simplebenefits__content-item__divider`  | Band item inner divider element                       |
 | `.bx--simplebenefits__content-item__content`  | Band item copy content element                        |
 
 #### Blocks
