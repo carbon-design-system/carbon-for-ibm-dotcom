@@ -1,6 +1,15 @@
 'use strict';
 
 const https = require('https');
+const program = require('commander');
+
+program
+  .option('-t, --token <github token>', 'Github Token')
+  .option('-n, --name <package name>', 'Package Name')
+  .option('-b, --bucket <bucket name>', 'S3 Bucket Name')
+  .option('-d, --domain <preview domain>', 'S3 Preview Domain')
+  .option('-i, --id <pull request id>', 'Pull Request ID')
+  .option('-s, --sha <pull request sha>', 'Pull Request SHA');
 
 /**
  * Bot user to check for in comments
@@ -15,40 +24,46 @@ const botUser = 'ibmdotcom-bot';
 const repoSlug = 'carbon-design-system/ibm-dotcom-library';
 
 /**
- * Github Token ($GITHUB_TOKEN)
- * @type {string}
+ * Stores the arguments
+ * @type {commander.Command}
  */
-const githubToken = process.argv[2];
+const args = program.parse(process.argv);
 
 /**
- * Name of package
+ * Github Token (-t)
  * @type {string}
  */
-const packageName = process.argv[3];
+const githubToken = args.token;
 
 /**
- * S3 bucket name ($COS_BUCKET)
+ * Name of package (-n)
  * @type {string}
  */
-const bucket = process.argv[4];
+const packageName = args.name;
 
 /**
- * S3 domain
+ * S3 bucket name (-b)
  * @type {string}
  */
-const previewDomain = process.argv[5];
+const bucket = args.bucket;
 
 /**
- * Pull Request ID
+ * S3 domain (-d)
  * @type {string}
  */
-const pullRequestId = process.argv[6];
+const previewDomain = args.domain;
 
 /**
- * Pull Request SHA
+ * Pull Request ID (-i)
  * @type {string}
  */
-const sha = process.argv[7];
+const pullRequestId = args.id;
+
+/**
+ * Pull Request SHA (-s)
+ * @type {string}
+ */
+const sha = args.sha;
 
 /**
  * Github API Comment URL
