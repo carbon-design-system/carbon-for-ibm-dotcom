@@ -6,7 +6,6 @@
 //
 @import '../../components/link-with-icon/link-with-icon';
 @import '../../globals/imports';
-
 @mixin themed-items {
   color: $text-01;
   background: $ui-background;
@@ -24,110 +23,68 @@
       }
     }
     &:hover {
-      cursor: pointer;
       background: $hover-ui;
-      text-decoration: none;
-    }
-    &:last-child {
-      background-color: $ui-05;
-      .bx--card-link__title {
-        color: $ui-02;
-      }
-      .bx--card-link__footer {
-        svg {
-          fill: $inverse-support-04;
-        }
-      }
     }
   }
 }
 @mixin card-section {
   .#{$prefix}--card-section {
-    padding-bottom: $carbon--layout-05;
-    &:last-child {
-      padding-bottom: 0;
-    }
     &__title {
       @include type-style('expressive-heading-02');
 
       padding-bottom: $carbon--spacing-05;
     }
     &__cards {
-      display: flex;
-      float: right;
-      flex-wrap: wrap;
+      &__container {
+        @include carbon--make-container;
+      }
+      &__row {
+        @include carbon--make-row;
+      }
+      &__col {
+        @include carbon--make-col-ready;
+
+        @include carbon--breakpoint('md') {
+          @include carbon--make-col(4, 8);
+        }
+        @include carbon--breakpoint('lg') {
+          @include carbon--make-col(1, 3);
+        }
+
+        margin-top: $carbon--grid-gutter--condensed / 2;
+        margin-bottom: $carbon--grid-gutter--condensed / 2;
+      }
     }
     .bx--card-link {
-      @include carbon--make-col(8, 8);
-
-      display: flex;
-      text-decoration: none;
-      outline-offset: -1px;
-
-      > *:not(:last-child) {
-        margin-bottom: 0;
+      &__title {
+        padding-bottom: $carbon--layout-05;
       }
-      &__footer {
-        padding: carbon--rem(14px);
-        display: flex;
-        align-items: center;
-        width: $carbon--layout-04;
-        margin-left: carbon--rem(-14px);
-        margin-bottom: carbon--rem(-14px);
+      &__content {
+        padding-bottom: $carbon--spacing-05;
       }
-    }
-    &__container {
-      @include carbon--make-container;
-
-      padding-top: $carbon--spacing-07;
-      padding-bottom: $carbon--layout-06;
-      margin-top: carbon--rem(-75px);
     }
     &__row {
       @include carbon--make-row;
     }
-    &__col {
+    &__col--left {
       @include carbon--make-col-ready;
-    }
 
-    @include carbon--breakpoint('sm') {
-      &__cards {
-        @include carbon--make-col(16, 16);
-
-        margin-top: carbon--rem(-40px);
-      }
-      &__title {
-        margin-top: $carbon--layout-05;
-        margin-bottom: $carbon--spacing-09;
-      }
-    }
-    @include carbon--breakpoint('md') {
-      &__title {
-        margin-top: $carbon--layout-05;
-        margin-bottom: $carbon--spacing-09;
-      }
-
-      .bx--card-link {
-        flex: 1 1;
-        @include carbon--make-col(4, 8);
-      }
-    }
-    @include carbon--breakpoint('lg') {
-      display: flex;
-      padding-bottom: $carbon--layout-06;
-      &__title {
+      @include carbon--breakpoint('lg') {
         @include carbon--make-col(4, 16);
-
-        padding-top: $carbon--spacing-05;
-        padding-bottom: 0;
-        margin-bottom: 0;
       }
-      &__cards {
+    }
+    &__col--right {
+      @include carbon--make-col-ready;
+
+      @include carbon--breakpoint('lg') {
         @include carbon--make-col(12, 16);
       }
-      .bx--card-link {
-        @include carbon--make-col(4, 12);
-      }
+    }
+    &__container {
+      padding: $carbon--layout-02;
+    }
+
+    @include carbon--breakpoint('lg') {
       &__container {
         padding-top: $carbon--layout-04;
         padding-bottom: $carbon--layout-07;
