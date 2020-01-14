@@ -25,16 +25,19 @@ class Masthead {
   /**
    * Initializes the masthead components
    *
-   * @param {string} El type of masthead in use
    */
   static init() {
     globalInit();
 
-    const overflowMenu = document.getElementById('data-floating-menu-container');
+    const overflowMenu = document.getElementById(
+      'data-floating-menu-container'
+    );
     OverflowMenu.create(overflowMenu);
 
-    const headerSubMenu = document.querySelectorAll(`.${prefix}--header__submenu`);
-    [...headerSubMenu].forEach((menu) => {
+    const headerSubMenu = document.querySelectorAll(
+      `.${prefix}--header__submenu`
+    );
+    [...headerSubMenu].forEach(menu => {
       MastheadSubmenu.create(menu);
     });
 
@@ -52,8 +55,11 @@ class Masthead {
    * @returns {Promise} Returned HTML content
    */
   static async getMastheadWithData(hasProfile, hasSearch) {
-    const status = ProfileAPI.getUserStatus();
-    console.log('status', status);
+    let isAuthenticated;
+    if (hasProfile) {
+      const status = await ProfileAPI.getUserStatus();
+      isAuthenticated = status.user === 'Authenticated' ? true : false;
+    }
     const lang = LocaleAPI.getLang();
     const response = await TranslationAPI.getTranslation(lang);
 
@@ -61,7 +67,11 @@ class Masthead {
       hasProfile,
       hasSearch,
       navigation: response.mastheadNav.links,
-      profileData: response.profileMenu,
+      ...(hasProfile && {
+        profileData: isAuthenticated
+          ? response.profileMenu.signedin
+          : response.profileMenu.signedout,
+      }),
     });
   }
 }

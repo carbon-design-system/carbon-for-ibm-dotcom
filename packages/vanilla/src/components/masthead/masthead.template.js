@@ -22,10 +22,15 @@ const { prefix } = settings;
  * @param {boolean} props.hasProfile Determines whether to render Profile component
  * @param {boolean} props.hasSearch Determines whether to render Search Bar
  * @param {object} props.navigation Object containing navigation elements
+ * @param {object} props.profileData Object containing profile menu elements
  * @returns {object} JSX object
  */
-const mastheadTemplate = ({ navigation, hasProfile, hasSearch, profileData }) => {
-  const profile = hasProfile ? _mastheadProfile(profileData) : null;
+const mastheadTemplate = ({
+  navigation,
+  hasSearch,
+  profileData,
+}) => {
+  const profile = profileData ? _mastheadProfile(profileData) : '';
   return `
     <div class="${prefix}--masthead">
       <div class="${prefix}--masthead__l0">
@@ -43,7 +48,7 @@ const mastheadTemplate = ({ navigation, hasProfile, hasSearch, profileData }) =>
             ${_mastheadNav(navigation)}
             ${_mastheadSearch(hasSearch)}
           </div>
-          ${_mastheadProfile(hasProfile)}
+          ${profile}
           ${_mastheadLeftnav(navigation)}
         </header>
       </div>
@@ -87,12 +92,12 @@ function _mastheadSearch(hasSearch) {
 /**
  * renders masthead profile menu
  *
- * @param {boolean} hasProfile Determines whether to render Profile component
+ * @param {object} profileData Profile menu items
  * @returns {object} JSX object
  * @private
  */
-function _mastheadProfile(hasProfile) {
-  return mastheadProfile(hasProfile);
+function _mastheadProfile(profileData) {
+  return mastheadProfile(profileData);
 }
 
 export default mastheadTemplate;

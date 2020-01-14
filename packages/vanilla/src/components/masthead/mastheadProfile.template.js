@@ -14,10 +14,10 @@ const { prefix } = settings;
 /**
  * renders masthead profile menu
  *
+ * @param {object} profileData Profile menu items
  * @returns {string} masthead profile menu html output
  */
-function mastheadProfileTemplate(profile) {
-  console.log('profile', profile);
+function mastheadProfileTemplate(profileData) {
   return `
     <button data-floating-menu-container id="data-floating-menu-container" data-autoid="${stablePrefix}--masthead__profile" aria-label="User Profile" class="${prefix}--header__action" type="button">
       <div role="button" aria-haspopup="true" aria-expanded="false" class="${prefix}--overflow-menu" aria-label="Menu" tabindex="0" style="width: auto;">
@@ -26,18 +26,44 @@ function mastheadProfileTemplate(profile) {
         </svg>
       </div>
       <ul class="${prefix}--overflow-menu-options ${prefix}--overflow-menu--flip" tabindex="-1" role="menu" aria-label="Menu" data-floating-menu-direction="bottom">
-        <li class="${prefix}--overflow-menu-options__option" role="menuitem">
-          <a href="https://myibm.ibm.com/?lnk=mmi" class="${prefix}--overflow-menu-options__btn" tabindex="-1" index="0">
-            <div class="${prefix}--overflow-menu-options__option-content">My IBM</div>
-          </a>
-        </li>
-        <li class="${prefix}--overflow-menu-options__option ${prefix}--overflow-menu--divider" role="menuitem">
-          <a href="https://idaas.iam.ibm.com/idaas/oidc/endpoint/default/authorize?response_type=token&amp;client_id=v18loginprod&amp;state={{window.location}}&amp;redirect_uri=https://myibm.ibm.com/OIDCHandler.html&amp;scope=openid&amp;nonce=8675309" class="${prefix}--overflow-menu-options__btn" tabindex="-1" index="1">
-            <div class="${prefix}--overflow-menu-options__option-content">Log in</div>
-          </a>
-        </li>
+        ${_renderProfileNav(profileData)}
       </ul>
     </button>
+  `;
+}
+
+/**
+ * Renders the array of nav link items
+ *
+ * @param {Array} links Profile links Array
+ * @returns {string} HTML nav item
+ * @private
+ */
+function _renderProfileNav(links) {
+  let profileLinks = '';
+  if (links && links.length > 0) {
+    links.forEach(link => {
+      profileLinks = profileLinks + _renderProfileLink(link);
+    });
+  }
+
+  return profileLinks;
+}
+
+/**
+ * Renders a single nav item
+ *
+ * @param {Array} link Profile links Array
+ * @returns {string} HTML nav item
+ * @private
+ */
+function _renderProfileLink(link) {
+  return `
+    <li class="${prefix}--overflow-menu-options__option" role="menuitem">
+      <a href="${link.url}" class="${prefix}--overflow-menu-options__btn" tabindex="-1" index="0">
+        <div class="${prefix}--overflow-menu-options__option-content">${link.title}</div>
+      </a>
+    </li>
   `;
 }
 
