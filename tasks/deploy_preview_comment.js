@@ -93,10 +93,6 @@ const prComment = results => {
     },
   };
 
-  /**
-   * API Request
-   * @type {http.ClientRequest}
-   */
   const req = https.request(options);
 
   req.on('error', error => {
