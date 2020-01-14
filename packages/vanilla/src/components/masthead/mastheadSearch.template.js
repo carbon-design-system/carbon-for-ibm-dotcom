@@ -5,6 +5,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { getAttributes, toString } from '@carbon/icon-helpers';
+import close from '@carbon/icons/es/close/20';
+import search from '@carbon/icons/es/search/20';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
 
@@ -17,6 +20,16 @@ const { prefix } = settings;
  * @returns {string} masthead search html output
  */
 function mastheadSearchTemplate() {
+  const closeIcon = toString({
+    ...close,
+    attr: getAttributes(close.attrs),
+  });
+
+  const searchIcon = toString({
+    ...search,
+    attr: getAttributes(search.attrs),
+  });
+
   return `
     <div data-autoid="${stablePrefix}--masthead__search" class="${prefix}--masthead__search">
       <form action="https://www.ibm.com/search?lnk=mhsrch" method="get">
@@ -24,14 +37,10 @@ function mastheadSearchTemplate() {
         <div role="combobox" aria-haspopup="listbox" aria-owns="react-autowhatever-1" aria-expanded="false" class="react-autosuggest__container">
           <input type="text" autocomplete="off" aria-autocomplete="list" aria-controls="react-autowhatever-1" class="${prefix}--header__search--input" placeholder="Search all of IBM" data-autoid="${stablePrefix}--header__search--input" name="q" tabindex="-1" value="">
           <button data-autoid="${stablePrefix}--header__search--search" aria-label="Search all of IBM" class="${prefix}--header__search--search ${prefix}--header__action" type="button">
-            <svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32" aria-hidden="true" style="will-change: transform;">
-              <path d="M30 28.59L22.45 21A11 11 0 1 0 21 22.45L28.59 30zM5 14a9 9 0 1 1 9 9 9 9 0 0 1-9-9z"></path>
-            </svg>
+            ${searchIcon}
           </button>
           <button data-autoid="${stablePrefix}--header__search--close" aria-label="Close" class="${prefix}--header__search--close ${prefix}--header__action" type="button">
-            <svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32" aria-hidden="true" style="will-change: transform;">
-              <path d="M24 9.4L22.6 8 16 14.6 9.4 8 8 9.4l6.6 6.6L8 22.6 9.4 24l6.6-6.6 6.6 6.6 1.4-1.4-6.6-6.6L24 9.4z"></path>
-            </svg>
+            ${closeIcon}
           </button>
           <div id="react-autowhatever-1" role="listbox" class="react-autosuggest__suggestions-container"></div>
         </div>

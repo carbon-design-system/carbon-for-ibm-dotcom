@@ -5,6 +5,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { getAttributes, toString } from '@carbon/icon-helpers';
+import user from '@carbon/icons/es/user/20';
+import userOnline from '@carbon/icons/es/user--online/20';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
 
@@ -21,15 +24,29 @@ function mastheadProfileTemplate(profileData) {
   return `
     <button data-floating-menu-container id="data-floating-menu-container" data-autoid="${stablePrefix}--masthead__profile" aria-label="User Profile" class="${prefix}--header__action" type="button">
       <div role="button" aria-haspopup="true" aria-expanded="false" class="${prefix}--overflow-menu" aria-label="Menu" tabindex="0" style="width: auto;">
-        <svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32" aria-hidden="true" style="will-change: transform;">
-          <path d="M16 4a5 5 0 1 1-5 5 5 5 0 0 1 5-5m0-2a7 7 0 1 0 7 7 7 7 0 0 0-7-7zm10 28h-2v-5a5 5 0 0 0-5-5h-6a5 5 0 0 0-5 5v5H6v-5a7 7 0 0 1 7-7h6a7 7 0 0 1 7 7z"></path>
-        </svg>
+        ${_renderUserIcon(profileData.isAuthenticated)}
       </div>
       <ul class="${prefix}--overflow-menu-options ${prefix}--overflow-menu--flip" tabindex="-1" role="menu" aria-label="Menu" data-floating-menu-direction="bottom">
-        ${_renderProfileNav(profileData)}
+        ${_renderProfileNav(profileData.menu)}
       </ul>
     </button>
   `;
+}
+
+/**
+ * Renders the profile user icon
+ *
+ * @param {boolean} isAuthenticated is user authenticated
+ * @returns {string} HTML nav item
+ * @private
+ */
+function _renderUserIcon(isAuthenticated) {
+  const userIcon = toString({
+    ...(isAuthenticated ? userOnline : user),
+    attr: getAttributes(user.attrs),
+  });
+
+  return userIcon;
 }
 
 /**

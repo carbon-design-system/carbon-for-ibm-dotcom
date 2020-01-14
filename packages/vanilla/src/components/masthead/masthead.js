@@ -64,13 +64,15 @@ class Masthead {
     const response = await TranslationAPI.getTranslation(lang);
 
     return mastheadTemplate({
-      hasProfile,
       hasSearch,
       navigation: response.mastheadNav.links,
       ...(hasProfile && {
-        profileData: isAuthenticated
-          ? response.profileMenu.signedin
-          : response.profileMenu.signedout,
+        profileData: {
+          isAuthenticated: isAuthenticated,
+          menu: isAuthenticated
+            ? response.profileMenu.signedin
+            : response.profileMenu.signedout,
+        },
       }),
     });
   }
