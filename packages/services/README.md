@@ -24,11 +24,11 @@ project.
 
 ### List of Available Services
 
-View available services [here](https://ibmdotcom-services.netlify.com/).
+View available services [here](https://ibmdotcom-services.mybluemix.net/).
 
 ## Documentation
 
-- See our documentation site [here](https://carbon-for-ibmdotcom.netlify.com)
+- See our documentation site [here](https://ibm-dotcom-library.mybluemix.net)
   for full how-to docs and guidelines
 - [Contributing](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/.github/CONTRIBUTING.md):
   Guidelines for making contributions to this repo.
