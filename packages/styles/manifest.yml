@@ -1,0 +1,10 @@
+---
+applications:
+  - name: carbon-expressive
+    path: ./storybook-static
+    memory: 64M
+    buildpack: https://github.com/cloudfoundry/staticfile-buildpack.git
+    routes:
+      - route: carbon-expressive.mybluemix.net
+      - route: carbon-expressive-temp.mybluemix.net
+
