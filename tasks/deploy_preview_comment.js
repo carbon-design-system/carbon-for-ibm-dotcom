@@ -124,6 +124,7 @@ const getComments = () => {
 
     res.on('end', () => {
       response = JSON.parse(response);
+      console.log('response', response);
 
       const results = response.filter(comment => {
         return (
