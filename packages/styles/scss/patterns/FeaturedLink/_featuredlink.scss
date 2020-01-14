@@ -92,6 +92,9 @@
 
         margin-bottom: $carbon--layout-04;
       }
+      &__content {
+        width: carbon--rem(640px);
+      }
     }
   }
 }
