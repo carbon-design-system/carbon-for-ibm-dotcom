@@ -43,8 +43,8 @@ yarn add @carbon/ibmdotcom-react
 
 ### List of Available Components
 
-View available React Components [here](https://ibmdotcom-react.netlify.com). You
-can see usage information in several ways:
+View available React Components [here](https://ibmdotcom-react.mybluemix.net).
+You can see usage information in several ways:
 
 1. Clicking the blue **Show Info** icon in the top right corner of the selected
    component. You can see the list of available React props
@@ -62,7 +62,7 @@ can see usage information in several ways:
 
 ## Documentation
 
-- See our documentation site [here](https://carbon-for-ibmdotcom.netlify.com)
+- See our documentation site [here](https://ibm-dotcom-library.mybluemix.net)
   for full how-to docs and guidelines
 - [Contributing](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/.github/CONTRIBUTING.md):
   Guidelines for making contributions to this repo.

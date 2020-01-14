@@ -1,0 +1,10 @@
+---
+applications:
+  - name: ibmdotcom-react-staging
+    path: ./storybook-static
+    memory: 64M
+    buildpack: https://github.com/cloudfoundry/staticfile-buildpack.git
+    routes:
+      - route: ibmdotcom-react-staging.mybluemix.net
+      - route: ibmdotcom-react-staging-temp.mybluemix.net
+

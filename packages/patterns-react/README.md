@@ -44,7 +44,7 @@ yarn add @carbon/ibmdotcom-patterns-react
 ### List of Available Components
 
 View available React Patterns
-[here](https://ibmdotcom-patterns-react.netlify.com/). You can see usage
+[here](https://ibmdotcom-patterns-react.mybluemix.net/). You can see usage
 information in several ways:
 
 1. Clicking the blue **Show Info** icon in the top right corner of the selected
@@ -63,7 +63,7 @@ information in several ways:
 
 ## Documentation
 
-- See our documentation site [here](https://carbon-for-ibmdotcom.netlify.com)
+- See our documentation site [here](https://ibm-dotcom-library.mybluemix.net)
   for full how-to docs and guidelines
 - [Contributing](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/.github/CONTRIBUTING.md):
   Guidelines for making contributions to this repo.
