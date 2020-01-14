@@ -24,7 +24,7 @@ project.
 
 ### List of Available Services
 
-View available services [here](https://ibmdotcom-services.netlify.com/).
+View available services [here](https://ibmdotcom-services.mybluemix.net/).
 
 ## Documentation
 
