@@ -63,7 +63,7 @@
       display: flex;
       justify-content: flex-end;
       flex-grow: 1;
-      &__button.bx--btn {
+      &__button.#{$prefix}--btn {
         min-width: 0;
         padding-right: $carbon--spacing-05;
         align-self: flex-end;
