@@ -5,6 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { ContentGroup } from '@carbon/ibmdotcom-react';
 import ListSectonItem from './ListSectionItem';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -24,14 +25,22 @@ const { prefix } = settings;
  */
 const ListSectionGroup = ({ listGroup: { title, lists } }) => {
   return (
-    <div
+    <>
+      {/* <div
       data-autoid={`${stablePrefix}--listsection-group`}
       className={`${prefix}--listsection-group`}>
       <h2 className={`${prefix}--listsection-group__title`}>{title}</h2>
       <div className={`${prefix}--listsection-group__list`}>
         {_renderList(lists)}
       </div>
-    </div>
+    </div> */}
+      <ContentGroup
+        className={`${prefix}--listsection-group`}
+        data-autoid={`${stablePrefix}--listsection-group`}
+        heading={title}>
+        {_renderList(lists)}
+      </ContentGroup>
+    </>
   );
 };
 
