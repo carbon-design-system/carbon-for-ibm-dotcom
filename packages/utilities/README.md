@@ -24,7 +24,7 @@ project.
 
 ### List of Available Utilities
 
-View available utilities [here](https://ibmdotcom-utilities.netlify.com/).
+View available utilities [here](https://ibmdotcom-utilities.mybluemix.net/).
 
 ## Documentation
 
