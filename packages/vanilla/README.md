@@ -42,8 +42,9 @@ yarn add @carbon/ibmdotcom-vanilla
 
 ### List of Available Components
 
-View available Vanilla Components [here](https://ibmdotcom-vanilla.netlify.com).
-You can see usage information in several ways:
+View available Vanilla Components
+[here](https://ibmdotcom-vanilla.mybluemix.net). You can see usage information
+in several ways:
 
 1. Clicking the blue **Show Info** icon in the top right corner of the selected
    component. You can see the list of available props
@@ -61,8 +62,8 @@ You can see usage information in several ways:
 
 ## Documentation
 
-- See our documentation site [here](https://carbon-for-ibm.netlify.com) for full
-  how-to docs and guidelines
+- See our documentation site [here](https://carbon-for-ibm.mybluemix.net) for
+  full how-to docs and guidelines
 - [Contributing](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/.github/CONTRIBUTING.md):
   Guidelines for making contributions to this repo.
 

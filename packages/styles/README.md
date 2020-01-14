@@ -46,7 +46,7 @@ $ yarn storybook
 ```
 
 This can also be viewed in our
-[Netlify output](https://carbon-expressive.netlify.com).
+[Netlify output](https://carbon-expressive.mybluemix.net).
 
 ## Documentation
 
