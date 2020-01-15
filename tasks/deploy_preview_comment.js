@@ -152,7 +152,8 @@ const getComments = () => {
 
       const results = response.filter(comment => {
         return (
-          comment.user.login === botUser && comment.body.indexOf(bucket) !== -1
+          comment.user.login === botUser &&
+          comment.body.indexOf(`\`${packageName}\``) !== -1
         );
       });
 
