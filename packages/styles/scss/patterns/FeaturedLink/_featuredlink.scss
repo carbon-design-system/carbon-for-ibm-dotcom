@@ -4,6 +4,8 @@
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
 //
+@import '../../components/card-link/index.scss';
+@import '../../globals/utils/aspect-ratio';
 
 @mixin featuredlink-aspect-ratio($width, $height) {
   position: relative;
@@ -32,6 +34,18 @@
       text-decoration: none;
     }
 
+    .#{$prefix}--card-link {
+      flex-direction: row;
+
+      .#{$prefix}--card-link__image {
+        width: 50%;
+        height: 25%;
+        margin-bottom: 0px;
+        padding-top: 25%;
+      }
+      
+    }
+
     &__content {
       display: flex;
       flex-direction: column;
@@ -58,10 +72,10 @@
     @include carbon--breakpoint('sm') {
       &__image-container {
         margin-bottom: -2px;
-        @include featuredlink-aspect-ratio(2, 1);
+        // @include featuredlink-aspect-ratio(2, 1);
       }
       &-item {
-        @include featuredlink-aspect-ratio(2, 1);
+        // @include featuredlink-aspect-ratio(2, 1);
       }
       &__title {
         margin-top: $carbon--spacing-07;

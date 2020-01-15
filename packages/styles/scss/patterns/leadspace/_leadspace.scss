@@ -6,14 +6,10 @@
 //
 
 @import '../../globals/imports';
+@import '../../globals/utils/aspect-ratio';
 @import '@carbon/ibmdotcom-styles/scss/components/buttongroup/_buttongroup.scss';
 
 $btn-min-width: 26;
-
-@function aspectratio($height, $width) {
-  $ratio: carbon--rem($height) / carbon--rem($width) * 100%;
-  @return $ratio;
-}
 
 // items that change according to the theme applied
 @mixin themed-items {

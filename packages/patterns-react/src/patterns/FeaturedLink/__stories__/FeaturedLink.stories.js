@@ -26,26 +26,24 @@ if (DDS_FEATURED_LINK) {
         'How is artificial intelligence used today in your industry?'
       );
 
-      const content = {
-        title: text('Card1 Title:', 'Explore AI use cases in all industries'),
-        link: {
-          target: text('Card1 link target:', '_blank'),
-          href: text('Card1 link href:', 'https://www.ibm.com'),
-        },
-      };
-
-      const images = {
-        mobile: 'https://picsum.photos/id/2/320/160',
-        tablet: 'https://picsum.photos/id/2/400/400',
-        default: 'https://picsum.photos/id/2/672/672',
+      const cardtitle = text(
+        'Card Title:',
+        'Explore AI use cases in all industries'
+      );
+      const cardhref = text('Card href:', 'https://www.example.com');
+      const images = object('card image', {
+        defaultImage: 'https://picsum.photos/id/2/672/672',
         alt: 'featured link image',
-      };
+      });
 
       return (
         <FeaturedLink
           title={title}
-          content={content}
-          image={object('image', images)}
+          card={{
+            title: cardtitle,
+            image: images,
+            href: cardhref,
+          }}
         />
       );
     });

@@ -45,11 +45,10 @@ const { prefix } = settings;
  *
  * @param {object} props props object
  * @param {string} props.title FeaturedLink section title
- * @param {Array} props.content FeaturedLink section content object array
+ * @param {Array} props.card FeaturedLink section card object
  * @returns {*} FeaturedLink JSX component
  */
-const FeaturedLink = ({ title, content, image }) => {
-  console.log(image.default);
+const FeaturedLink = ({ title, card }) => {
   return featureFlag(
     DDS_FEATURED_LINK,
     <section
@@ -78,13 +77,9 @@ const FeaturedLink = ({ title, content, image }) => {
               </div>
             </a> */}
             <CardLink
-              imgSrc={image.default}
-              title={content.title}
-              content={content.copy}
-              href={content.link}
-              target={content.link}
+              className={`${prefix}--featuredlink__card`}
+              {...card}
               icon={<ArrowRight20 />}
-              altText={image.alt}
             />
           </div>
         </div>
@@ -95,17 +90,7 @@ const FeaturedLink = ({ title, content, image }) => {
 
 FeaturedLink.propTypes = {
   title: PropTypes.string.isRequired,
-  content: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string,
-      copy: PropTypes.string,
-      link: PropTypes.shape({
-        icon: PropTypes.string,
-        target: PropTypes.string,
-        href: PropTypes.string,
-      }),
-    })
-  ),
+  content: PropTypes.string,
   image: PropTypes.object,
 };
 

@@ -1,0 +1,12 @@
+// Aspect Ratio
+// function to reuse the aspect ratio
+// @param $height
+//   height of the element
+// @param $width
+//   width of the element
+//
+// @return percentage of height vs width
+@function aspectratio($height, $width) {
+  $ratio: carbon--rem($height) / carbon--rem($width) * 100%;
+  @return $ratio;
+}
