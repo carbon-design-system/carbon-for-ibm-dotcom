@@ -29,6 +29,8 @@ const repoSlug = 'carbon-design-system/ibm-dotcom-library';
  */
 const args = program.parse(process.argv);
 
+console.log('args', args);
+
 /**
  * Github Token (-t)
  * @type {string}
@@ -98,6 +100,9 @@ const prComment = results => {
     method = 'PATCH';
   }
 
+  console.log('path', path);
+  console.log('method', method);
+
   const options = {
     hostname: 'api.github.com',
     path,
@@ -139,7 +144,6 @@ const getComments = () => {
 
     res.on('end', () => {
       response = JSON.parse(response);
-      console.log('response', response);
 
       const results = response.filter(comment => {
         return (
