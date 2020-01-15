@@ -37,14 +37,20 @@ if (DDS_FEATURED_LINK) {
       });
 
       return (
-        <FeaturedLink
-          heading={heading}
-          card={{
-            title: cardheading,
-            image: images,
-            href: cardhref,
-          }}
-        />
+        <div className="bx--grid ">
+          <div className="bx--row">
+            <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
+              <FeaturedLink
+                heading={heading}
+                card={{
+                  title: cardheading,
+                  image: images,
+                  href: cardhref,
+                }}
+              />
+            </div>
+          </div>
+        </div>
       );
     });
 }

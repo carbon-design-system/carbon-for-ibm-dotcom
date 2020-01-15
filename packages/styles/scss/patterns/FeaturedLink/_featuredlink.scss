@@ -28,6 +28,7 @@
       @include carbon--breakpoint('md') {
         flex-direction: row;
       }
+      &__wrapper,
       .#{$prefix}--image {
         width: 100%;
         height: aspect-ratio(2, 1);
