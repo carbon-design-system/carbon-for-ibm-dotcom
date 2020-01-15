@@ -48,7 +48,7 @@ const PictogramArrayItem = ({ title, copy, link, Pictogram }) => (
     data-autoid={`${stablePrefix}--pictogramarray-item`}
     className={`${prefix}--pictogramarray-item`}>
     <div className={`${prefix}--pictogramarray__row`}>
-      <div className={`${prefix}--pictogramarray__col`}>
+      <div className={`${prefix}--pictogramarray-item__pic-col`}>
         <Pictogram
           className={`${prefix}--pictogramarray-item__pictogram`}
           viewBox="8 8 32 32"
@@ -56,7 +56,7 @@ const PictogramArrayItem = ({ title, copy, link, Pictogram }) => (
           width="80"
         />
       </div>
-      <div className={`${prefix}--pictogramarray__col`}>
+      <div className={`${prefix}--pictogramarray-item__content-col`}>
         <h3 className={`${prefix}--pictogramarray-item__title`}>{title}</h3>
         <div
           className={`${prefix}--pictogramarray-item__content`}
