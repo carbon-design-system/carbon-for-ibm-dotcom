@@ -96,7 +96,6 @@ DDS_FEATURED_LINK=true
 | ------------------------- | ----------- |
 | `dds--featuredlink`       | Component   |
 | `dds--featuredlink-group` | Component   |
-| `dds--featuredlink-item`  | Component   |
 
 ## 🙌 Contributing
 

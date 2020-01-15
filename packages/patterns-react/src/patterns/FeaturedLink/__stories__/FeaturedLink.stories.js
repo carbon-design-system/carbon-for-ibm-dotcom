@@ -21,13 +21,13 @@ if (DDS_FEATURED_LINK) {
       },
     })
     .add('Default', () => {
-      const title = text(
-        'Pattern title(required):',
+      const heading = text(
+        'Pattern heading(required):',
         'How is artificial intelligence used today in your industry?'
       );
 
-      const cardtitle = text(
-        'Card Title:',
+      const cardheading = text(
+        'Card Heading:',
         'Explore AI use cases in all industries'
       );
       const cardhref = text('Card href:', 'https://www.example.com');
@@ -38,9 +38,9 @@ if (DDS_FEATURED_LINK) {
 
       return (
         <FeaturedLink
-          title={title}
+          heading={heading}
           card={{
-            title: cardtitle,
+            title: cardheading,
             image: images,
             href: cardhref,
           }}
