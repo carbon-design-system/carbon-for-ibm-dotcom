@@ -9,6 +9,8 @@
   .#{$prefix}--pictogramarray {
     color: $text-01;
     background: $ui-background;
+    margin-bottom: $carbon--layout-05;
+
     &__container {
       @include carbon--make-container;
     }
@@ -22,45 +24,25 @@
       margin-top: $carbon--spacing-07;
       @include carbon--type-style('expressive-heading-04');
     }
-    &__divider {
-      margin-top: $carbon--layout-05;
-      margin-left: -$carbon--spacing-05;
-      margin-right: -$carbon--spacing-05;
-      &__col {
-        @include carbon--make-col-ready;
-      }
-    }
+
     @include carbon--breakpoint('md') {
       &__title {
         margin-top: $carbon--layout-05;
         margin-bottom: $carbon--spacing-09;
+        width: 95%;
+        max-width: rem(640px);
       }
       &__col {
-        @include carbon--make-col(7, 8);
-
-        padding-left: $carbon--layout-01;
-        padding-right: $carbon--layout-01;
-      }
-      &__divider {
-        margin-top: $carbon--layout-06;
+        @include carbon--make-col(8, 8);
       }
     }
+
     @include carbon--breakpoint('lg') {
+      margin-bottom: $carbon--layout-07;
+
       &__col {
         @include carbon--make-col-offset(4, 16);
-        @include carbon--make-col(7, 16);
-      }
-      &__divider {
-        margin-top: $carbon--layout-07;
-        &__col {
-          @include carbon--make-col-offset(4, 16);
-          @include carbon--make-col(12, 16);
-        }
-      }
-    }
-    @include carbon--breakpoint('max') {
-      &__col {
-        max-width: carbon--rem(640px);
+        @include carbon--make-col(8, 16);
       }
     }
   }

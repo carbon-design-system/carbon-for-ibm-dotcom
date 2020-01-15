@@ -36,9 +36,6 @@ const PictogramArray = ({ contentGroup, title }) =>
             <h2 className={`${prefix}--pictogramarray__title`}>{title}</h2>
             {_renderArray(contentGroup)}
           </div>
-          <div className={`${prefix}--pictogramarray__divider__col`}>
-            <div className={`${prefix}--pictogramarray__divider`}></div>
-          </div>
         </div>
       </div>
     </section>
