@@ -7,13 +7,12 @@
 
 @import '../../globals/imports';
 
-@mixin image-component {
-  .#{$prefix}--imagecomponent__image {
-    height: auto;
+@mixin image {
+  .#{$prefix}--image__img {
     width: 100%;
   }
 }
 
-@include exports('image-component') {
-  @include image-component;
+@include exports('image') {
+  @include image;
 }

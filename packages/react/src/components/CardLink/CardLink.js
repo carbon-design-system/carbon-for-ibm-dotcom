@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 import { ClickableTile } from 'carbon-components-react';
-import { Image } from 'carbon-components';
+import Image from '../Image/Image';
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';

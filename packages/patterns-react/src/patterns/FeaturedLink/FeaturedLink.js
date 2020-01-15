@@ -58,24 +58,6 @@ const FeaturedLink = ({ title, card }) => {
         <div className={`${prefix}--featuredlink__row`}>
           <div className={`${prefix}--featuredlink__col`}>
             <h3 className={`${prefix}--featuredlink__title`}>{title}</h3>
-            {/* <a href={content.link.href} target={content.link.target}>
-              <div className={`${prefix}--featuredlink__content`}>
-                {image && (
-                  <div className={`${prefix}--featuredlink__image-container`}>
-                    <Image
-                      images={sortImages(image)}
-                      defaultImage={image.default}
-                      alt={image.alt}
-                    />
-                  </div>
-                )}
-                <FeaturedLinkItem
-                  title={content.title}
-                  copy={content.copy}
-                  link={content.link}
-                />
-              </div>
-            </a> */}
             <CardLink
               className={`${prefix}--featuredlink__card`}
               {...card}

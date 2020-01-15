@@ -37,13 +37,10 @@
     .#{$prefix}--card-link {
       flex-direction: row;
 
-      .#{$prefix}--card-link__image {
+      .#{$prefix}--image {
         width: 50%;
-        height: 25%;
-        margin-bottom: 0px;
-        padding-top: 25%;
+        margin-bottom: 0;
       }
-      
     }
 
     &__content {
