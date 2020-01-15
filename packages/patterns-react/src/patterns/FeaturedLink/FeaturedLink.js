@@ -4,10 +4,11 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-
+import { ArrowRight20 } from '@carbon/icons-react';
+import { CardLink } from '@carbon/ibmdotcom-react';
 import { DDS_FEATURED_LINK } from '../../internal/FeatureFlags';
-import FeaturedLinkItem from './FeaturedLinkItem';
-import { Image } from '@carbon/ibmdotcom-react';
+// import FeaturedLinkItem from './FeaturedLinkItem';
+// import { Image } from '@carbon/ibmdotcom-react';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
@@ -22,22 +23,22 @@ const { prefix } = settings;
  * @param {object} images props object
  * @returns {*} FeaturedLink JSX component
  */
-const sortImages = images => {
-  return [
-    {
-      minWidth: 1056,
-      url: images.default,
-    },
-    {
-      minWidth: 672,
-      url: images.tablet,
-    },
-    {
-      minWidth: 320,
-      url: images.mobile,
-    },
-  ];
-};
+// const sortImages = images => {
+//   return [
+//     {
+//       minWidth: 1056,
+//       url: images.default,
+//     },
+//     {
+//       minWidth: 672,
+//       url: images.tablet,
+//     },
+//     {
+//       minWidth: 320,
+//       url: images.mobile,
+//     },
+//   ];
+// };
 
 /**
  * Featured Link Component
@@ -48,6 +49,7 @@ const sortImages = images => {
  * @returns {*} FeaturedLink JSX component
  */
 const FeaturedLink = ({ title, content, image }) => {
+  console.log(image.default);
   return featureFlag(
     DDS_FEATURED_LINK,
     <section
@@ -57,7 +59,7 @@ const FeaturedLink = ({ title, content, image }) => {
         <div className={`${prefix}--featuredlink__row`}>
           <div className={`${prefix}--featuredlink__col`}>
             <h3 className={`${prefix}--featuredlink__title`}>{title}</h3>
-            <a href={content.link.href} target={content.link.target}>
+            {/* <a href={content.link.href} target={content.link.target}>
               <div className={`${prefix}--featuredlink__content`}>
                 {image && (
                   <div className={`${prefix}--featuredlink__image-container`}>
@@ -74,7 +76,16 @@ const FeaturedLink = ({ title, content, image }) => {
                   link={content.link}
                 />
               </div>
-            </a>
+            </a> */}
+            <CardLink
+              imgSrc={image.default}
+              title={content.title}
+              content={content.copy}
+              href={content.link}
+              target={content.link}
+              icon={<ArrowRight20 />}
+              altText={image.alt}
+            />
           </div>
         </div>
       </div>
