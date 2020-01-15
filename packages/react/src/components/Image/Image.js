@@ -45,6 +45,10 @@ const sortSources = sources => {
  * @returns {*} picture element
  */
 const Image = ({ images, defaultImage, alt }) => {
+  if (!defaultImage || !alt) {
+    return null;
+  }
+
   const sortedImages = images ? sortSources(images) : [];
 
   return (

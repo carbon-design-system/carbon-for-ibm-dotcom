@@ -29,7 +29,6 @@
         flex-direction: row;
       }
       .#{$prefix}--image {
-        margin-bottom: 0;
         width: 100%;
         height: aspect-ratio(2, 1);
         @include carbon--breakpoint('md') {
@@ -38,8 +37,6 @@
         }
       }
     }
-    // @include carbon--breakpoint('lg') {
-    // }
   }
 }
 @include exports('featuredlink') {

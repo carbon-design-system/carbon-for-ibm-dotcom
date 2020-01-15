@@ -127,6 +127,18 @@ if (DDS_USECASES) {
         },
       ];
 
+      const featuredLink = object('FeaturedLink object', {
+        heading: 'Card heading',
+        card: {
+          title: 'Featured Link title',
+          href: 'https://ibm.com',
+          image: {
+            defaultImage: 'https://picsum.photos/id/2/672/672',
+            alt: 'featured link image',
+          },
+        },
+      });
+
       const themes = {
         g100: 'g100',
         white: '',
@@ -141,6 +153,7 @@ if (DDS_USECASES) {
           theme={select('theme', themes, themes.white)}
           title={title}
           usecaseGroup={object('usecaseGroup', usecaseGroup)}
+          featuredLink={featuredLink}
         />
       );
     });
