@@ -5,8 +5,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { ContentGroup } from '@carbon/ibmdotcom-react';
 import { DDS_LISTSECTION } from '../../internal/FeatureFlags';
-import ListSectionGroup from './ListSectionGroup';
+import ListSectonItem from './ListSectionItem';
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
@@ -46,7 +47,7 @@ const ListSection = ({ border, copy, listGroup, theme, title }) =>
             {_renderListGroup(listGroup)}
           </div>
           <div className={`${prefix}--listsection__divider__col`}>
-            <div className={`${prefix}--listsection__divider`}></div>
+            <div className={`${prefix}--listsection__divider`} />
           </div>
         </div>
       </div>
@@ -63,8 +64,26 @@ const ListSection = ({ border, copy, listGroup, theme, title }) =>
 const _renderListGroup = listGroup => {
   return listGroup.map(listGroupItem => {
     return (
-      <ListSectionGroup key={listGroupItem.title} listGroup={listGroupItem} />
+      <ContentGroup
+        className={`${prefix}--listsection-group`}
+        data-autoid={`${stablePrefix}--listsection-group`}
+        heading={listGroupItem.title}>
+        {_renderList(listGroupItem.lists)}
+      </ContentGroup>
     );
+  });
+};
+
+/**
+ * Render List Component
+ *
+ * @private
+ * @param {object} listItems listItems Object
+ * @returns {object} JSX Object
+ */
+const _renderList = listItems => {
+  return listItems.map(listItem => {
+    return <ListSectonItem key={listItem.title} lists={listItem} />;
   });
 };
 

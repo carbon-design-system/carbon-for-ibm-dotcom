@@ -6,16 +6,14 @@
 //
 
 @mixin listsection-group {
-  .#{$prefix}--listsection-group {
-    &__title {
-      @include type-style('expressive-heading-04');
+  .#{$prefix}--content-group__title {
+    padding-left: 0;
+  }
 
-      margin-top: $carbon--layout-05;
-    }
-    @include carbon--breakpoint('lg') {
-      &__title {
-        margin-top: $carbon--layout-06;
-      }
+  .#{$prefix}--content-group {
+    padding-bottom: $carbon--layout-03;
+    &:last-of-type {
+      padding-bottom: 0;
     }
   }
 }
