@@ -1,4 +1,4 @@
-# Featued Link Cards
+# Featured Link Cards
 
 > The Featured Link Cards pattern is to be utilized within IBM.com.
 
