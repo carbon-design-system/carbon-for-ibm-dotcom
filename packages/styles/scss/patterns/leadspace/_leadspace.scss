@@ -39,7 +39,7 @@ $btn-min-width: 26;
 @mixin leadspace {
   .#{$prefix}--leadspace {
     position: relative;
-    padding-top: aspectratio(370px, 320px);
+    padding-top: aspect-ratio(320px, 370px);
     height: 0;
 
     &__image {
@@ -107,7 +107,7 @@ $btn-min-width: 26;
 
   @include carbon--breakpoint(md) {
     .#{$prefix}--leadspace {
-      padding-top: aspectratio(400px, 672px);
+      padding-top: aspect-ratio(672px, 400px);
 
       .#{$prefix}--leadspace__title {
         @include carbon--make-col(7, 8);
@@ -123,7 +123,7 @@ $btn-min-width: 26;
 
   @include carbon--breakpoint(lg) {
     .#{$prefix}--leadspace {
-      padding-top: aspectratio(480px, 1056px);
+      padding-top: aspect-ratio(1056px, 480px);
 
       .#{$prefix}--leadspace__title {
         @include carbon--make-col(8, 16);
@@ -142,13 +142,13 @@ $btn-min-width: 26;
 
   @include carbon--breakpoint(xlg) {
     .#{$prefix}--leadspace {
-      padding-top: aspectratio(560px, 1312px);
+      padding-top: aspect-ratio(1312px, 560px);
     }
   }
 
   @include carbon--breakpoint(max) {
     .#{$prefix}--leadspace {
-      padding-top: aspectratio(640px, 1584px);
+      padding-top: aspect-ratio(1584px, 640px);
 
       &__overlay {
         padding-top: $carbon--spacing-08;

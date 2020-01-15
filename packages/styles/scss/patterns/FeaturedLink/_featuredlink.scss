@@ -7,39 +7,37 @@
 @import '../../components/card-link/index.scss';
 @import '../../globals/utils/aspect-ratio';
 
-@mixin featuredlink-aspect-ratio($width, $height) {
-  position: relative;
-  &::before {
-    display: block;
-    content: '';
-    width: 100%;
-    padding-top: ($height / $width) * 100%;
-  }
-  > * {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-  }
-}
-
 @mixin featuredlink {
   .#{$prefix}--featuredlink {
     color: $text-01;
     background: $ui-background;
 
-    .#{$prefix}--card-link {
-      flex-direction: row;
-
-      .#{$prefix}--image {
-        width: 50%;
-        margin-bottom: 0;
+    .bx--content-group__children {
+      padding-top: aspect-ratio(1, 1);
+      position: relative;
+      @include carbon--breakpoint('md') {
+        padding-top: aspect-ratio(2, 1);
       }
     }
-
-    // @include carbon--breakpoint('md') {
-    // }
+    .#{$prefix}--card-link {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      @include carbon--breakpoint('md') {
+        flex-direction: row;
+      }
+      .#{$prefix}--image {
+        margin-bottom: 0;
+        width: 100%;
+        height: aspect-ratio(2, 1);
+        @include carbon--breakpoint('md') {
+          width: 50%;
+          height: aspect-ratio(1, 1);
+        }
+      }
+    }
     // @include carbon--breakpoint('lg') {
     // }
   }

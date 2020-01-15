@@ -6,7 +6,7 @@
 //   width of the element
 //
 // @return percentage of height vs width
-@function aspectratio($height, $width) {
-  $ratio: carbon--rem($height) / carbon--rem($width) * 100%;
+@function aspect-ratio($width, $height) {
+  $ratio: $height / $width * 100%;
   @return $ratio;
 }
