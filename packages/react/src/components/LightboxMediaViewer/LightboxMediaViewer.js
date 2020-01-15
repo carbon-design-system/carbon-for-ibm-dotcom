@@ -11,6 +11,7 @@ import {
 } from '@carbon/ibmdotcom-utilities';
 import { DDS_LIGHTBOX_MEDIA_VIEWER } from '../../internal/FeatureFlags';
 import { ExpressiveModal } from '../ExpressiveModal';
+import { Image } from '../Image';
 import { ModalBody } from 'carbon-components-react';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -22,65 +23,27 @@ const { prefix } = settings;
 /**
  * LightboxMediaViewer Component
  *
- * @param {object} props props object
- * @param {string} props.title LightboxMediaViewer media title
- * @param {string} props.copy LightboxMediaViewer media short description
- * @param {string} props.image LightboxMediaViewer responsive image object
- * @param {boolean} props.open sets whether the modal is open/close
- * @param {Function} props.onClose do something on close in addition, return false to completely replace
+ * @param {object} modalProps props object
+ * @param {string} modalProps.title LightboxMediaViewer media title
+ * @param {string} modalProps.copy LightboxMediaViewer media short description
+ * @param {string} modalProps.image LightboxMediaViewer responsive image object
+ * @param {boolean} modalProps.open sets whether the modal is open/close
  * @returns {*} JSX Object
  */
-const LightboxMediaViewer = ({ title, copy, image, open, onClose }) => {
-  /**
-   * Set default image
-   *
-   * @param {*} image responsive image object
-   * @returns {string} default image url
-   */
-  const defaultImage = image => {
-    return image.uri.md
-      ? image.uri.md
-      : image.uri.lg
-      ? image.uri.lg
-      : image.uri.sm;
-  };
-
-  if (!image.uri.lg) {
-    return null;
-  }
+const LightboxMediaViewer = ({ title, image, copy, ...modalProps }) => {
   return featureFlag(
     DDS_LIGHTBOX_MEDIA_VIEWER,
     <section
       data-autoid={`${stablePrefix}--lightbox-media-viewer`}
       className={`${prefix}--lightbox-media-viewer`}>
-      <ExpressiveModal open={open} fullwidth={true} onClose={onClose}>
+      <ExpressiveModal fullwidth={true} {...modalProps}>
         <ModalBody>
           <div className={`${prefix}--lightbox-media-viewer__container`}>
             <div className={`${prefix}--lightbox-media-viewer__row`}>
               <div
                 data-autoid={`${stablePrefix}--lightbox-media-viewer__image`}
                 className={`${prefix}--lightbox-media-viewer__image`}>
-                <picture>
-                  {image.uri.lg && (
-                    <source
-                      media="(min-width: 672px)"
-                      srcSet={`${image.uri.lg}`}
-                    />
-                  )}
-                  {image.uri.md && (
-                    <source
-                      media="(min-width: 320px)"
-                      srcSet={`${image.uri.md}`}
-                    />
-                  )}
-                  {image.uri.sm && (
-                    <source
-                      media="(max-width: 320px)"
-                      srcSet={`${image.uri.sm}`}
-                    />
-                  )}
-                  <img src={defaultImage(image)} alt={image.alt}></img>
-                </picture>
+                <Image {...image} />
               </div>
               <div className={`${prefix}--lightbox-media-viewer__content`}>
                 {title && (
@@ -106,15 +69,11 @@ const LightboxMediaViewer = ({ title, copy, image, open, onClose }) => {
   );
 };
 
-LightboxMediaViewer.PropTypes = {
+LightboxMediaViewer.propTypes = {
   title: PropTypes.string.isRequired,
   copy: PropTypes.string.isRequired,
   image: PropTypes.shape({
-    uri: PropTypes.shape({
-      sm: PropTypes.string,
-      md: PropTypes.string,
-      lg: PropTypes.string.isRequired,
-    }),
+    defaultImage: PropTypes.string,
     alt: PropTypes.string,
   }),
 };

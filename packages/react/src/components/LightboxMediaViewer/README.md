@@ -28,16 +28,11 @@ function App() {
     <LightboxMediaViewer
     title='Curabitur malesuada varius mi eu posuere'
     copy='Lorem ipsum dolor sit amet, consectetur adipiscing Aenean et ultricies est.'
-    image={
-        uri: {
-          sm: 'https://via.placeholder.com/640x320',
-          md: 'https://via.placeholder.com/768x384',
-          lg: 'https://via.placeholder.com/1024x512',
-        },
-        alt: 'Placeholder Image',
-      }
+    image = {
+      defaultImage: 'https://via.placeholder.com/1024x512',
+      alt: 'Placeholder Image',
+    }
     open={true}
-    onClose={() => alert('<<< model closed >>>')}
   />
   );
 }
@@ -64,28 +59,19 @@ DDS_LightboxMediaViewer=true
 
 ## Props
 
-| Name      | Required | Data Type | Default Value | Description                                                        |
-| --------- | -------- | --------- | ------------- | ------------------------------------------------------------------ |
-| `title`   | NO       | String    | null          | Title text for LightboxMediaViewer image                           |
-| `copy`    | NO       | String    | null          | Short description text for LightboxMediaViewer image               |
-| `image`   | YES      | Object    | null          | Image object for LightboxMediaViewer. see `Image` below for detail |
-| `open`    | YES      | Boolean   | null          | sets `true | false` whether the LightboxMediaViewer is open/close  |
-| `onClose` | NO       | Function  | null          | Run the function to do something on close                          |
+| Name    | Required | Data Type | Default Value | Description                                                        |
+| ------- | -------- | --------- | ------------- | ------------------------------------------------------------------ |
+| `title` | NO       | String    | null          | Title text for LightboxMediaViewer image                           |
+| `copy`  | NO       | String    | null          | Short description text for LightboxMediaViewer image               |
+| `image` | YES      | Object    | null          | Image object for LightboxMediaViewer. see `Image` below for detail |
+| `open`  | YES      | Boolean   | null          | sets `true | false` whether the LightboxMediaViewer is open/close  |
 
 ### Image
 
-| Name  | Data Type | Description                 |
-| ----- | --------- | --------------------------- |
-| `uri` | Object    | Urls for images             |
-| `alt` | String    | Alternative text for images |
-
-### uri
-
-| Name     | Required | Data Type | Description                                            |
-| -------- | -------- | --------- | ------------------------------------------------------ |
-| `uri.sm` | NO       | String    | Url for image that uses for 0 to 320px breakpoint.     |
-| `uri.md` | NO       | String    | Url for image that uses for 320px to 672px breakpoint. |
-| `uri.lg` | YES      | String    | Url for image that uses for 672px and up breakpoint.   |
+| Name           | Data Type | Description                 |
+| -------------- | --------- | --------------------------- |
+| `defaultImage` | String    | Source for images           |
+| `alt`          | String    | Alternative text for images |
 
 > 💡 See uri object structure above in `Getting started` section.
 
