@@ -108,7 +108,17 @@ const prComment = results => {
     },
   };
 
-  const req = https.request(options);
+  const req = https.request(options, res => {
+    let response = '';
+
+    res.on('data', chunk => {
+      response += chunk;
+    });
+
+    res.on('end', () => {
+      console.log(response);
+    });
+  });
 
   req.on('error', error => {
     console.error(error);
