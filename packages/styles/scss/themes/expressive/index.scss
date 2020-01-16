@@ -17,6 +17,7 @@
 @import 'components/combo-box';
 @import 'components/content-switcher';
 @import 'components/date-picker';
+@import 'components/inline-notifications';
 @import 'components/list-box';
 @import 'components/number-input';
 @import 'components/tabs';
@@ -48,6 +49,7 @@
     @include combo-box-expressive;
     @include content-switcher-expressive;
     @include date-picker-expressive;
+    @include inline-notifications-expressive;
     @include list-box-expressive;
     @include number-input-expressive;
     @include tabs-expressive;

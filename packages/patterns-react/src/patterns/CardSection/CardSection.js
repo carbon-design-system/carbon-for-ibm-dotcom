@@ -76,8 +76,7 @@ const CardSection = ({ title, cards, theme }) => {
                 return (
                   <CardLink
                     key={index}
-                    imgSrc={card.imgSrc}
-                    altText={card.altText}
+                    image={card.image}
                     title={card.title}
                     content={card.copy}
                     href={card.link.href}
@@ -99,8 +98,7 @@ CardSection.propTypes = {
   title: PropTypes.string,
   cards: PropTypes.arrayOf(
     PropTypes.shape({
-      imgSrc: PropTypes.string,
-      altText: PropTypes.string,
+      image: PropTypes.object,
       title: PropTypes.string,
       copy: PropTypes.string,
       link: PropTypes.shape({

@@ -63,8 +63,10 @@ const cardsGroup = {
   ],
   imageCards: [
     {
-      imgSrc: 'http://picsum.photos/id/1003/1056/480',
-      altText: 'cards with image',
+      image: {
+        defaultImage: 'http://picsum.photos/id/1003/1056/480',
+        alt: 'cards with image',
+      },
       title: 'Topic',
       copy: 'Natural language processing.',
       link: {
@@ -74,8 +76,10 @@ const cardsGroup = {
       },
     },
     {
-      imgSrc: 'https://picsum.photos/id/1018/1056/480',
-      altText: 'cards with image',
+      image: {
+        defaultImage: 'http://picsum.photos/id/1003/1056/480',
+        alt: 'cards with image',
+      },
       title: 'Blog',
       copy: 'Natural language processing.',
       link: {
@@ -85,8 +89,10 @@ const cardsGroup = {
       },
     },
     {
-      imgSrc: 'https://picsum.photos/id/1076/1056/480',
-      altText: 'cards with image',
+      image: {
+        defaultImage: 'http://picsum.photos/id/1003/1056/480',
+        alt: 'cards with image',
+      },
       title: 'Topic',
       copy: 'Natural language processing.',
       link: {
@@ -96,8 +102,10 @@ const cardsGroup = {
       },
     },
     {
-      imgSrc: 'https://picsum.photos/id/102/1056/480',
-      altText: 'cards with image',
+      image: {
+        defaultImage: 'http://picsum.photos/id/1003/1056/480',
+        alt: 'cards with image',
+      },
       title: 'Blog',
       copy: 'Serving society ethically in the age of Artificial Intelligence.',
       link: {
@@ -107,8 +115,10 @@ const cardsGroup = {
       },
     },
     {
-      imgSrc: 'https://picsum.photos/id/1032/1056/480',
-      altText: 'cards with image',
+      image: {
+        defaultImage: 'http://picsum.photos/id/1003/1056/480',
+        alt: 'cards with image',
+      },
       title: 'Topic',
       copy: 'Serving society ethically in the age of Artificial Intelligence.',
       link: {
