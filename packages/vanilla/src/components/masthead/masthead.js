@@ -11,8 +11,11 @@ import {
   globalInit,
   LocaleAPI,
   ProfileAPI,
+  SearchTypeaheadAPI,
   TranslationAPI,
 } from '@carbon/ibmdotcom-services';
+import autoComplete from '@tarekraafat/autocomplete.js/dist/js/autoComplete';
+import root from 'window-or-global';
 import mastheadTemplate from './masthead.template';
 import { settings } from 'carbon-components';
 
@@ -42,8 +45,53 @@ class Masthead {
     });
 
     const mastheadSidenav = document.getElementById(`${prefix}--side-nav`);
-    // console.log('sidenav', mastheadSidenav);
     SideNav.create(mastheadSidenav);
+
+    new autoComplete({
+      data: {
+        src: async () => {
+          const data = [];
+          const query = document.getElementById('autoComplete').value;
+          const source = await SearchTypeaheadAPI.getResults(query);
+          source.forEach(item => {
+            data.push({ name: item[0] });
+          });
+          return data;
+        },
+        key: ['name'],
+        cache: false,
+      },
+      resultsList: {
+        render: true,
+        destination: document.getElementById('react-autowhatever-1'),
+        position: 'afterbegin',
+        element: 'ul',
+        container: source => {
+          source.classList.add('react-autosuggest__suggestions-list');
+          source.setAttribute('role', 'listbox');
+        },
+      },
+      resultItem: {
+        content: (data, source) => {
+          source.classList.add('react-autosuggest__suggestion');
+          source.innerHTML = data.match;
+        },
+        element: 'li',
+        container: source => {
+          source.classList.add('foo');
+        },
+      },
+      threshold: 3,
+      highlight: true,
+      sort: (a, b) => {
+        if (a.match < b.match) return -1;
+        if (a.match > b.match) return 1;
+        return 0;
+      },
+      onSelection: () => {
+
+      },
+    });
   }
 
   /**
