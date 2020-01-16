@@ -1,0 +1,22 @@
+//
+// Copyright IBM Corp. 2016, 2018
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import '@carbon/layout/scss/convert';
+
+//-----------------------------
+// Structured List (expressive)
+//-----------------------------
+
+/// Structured List styles (expressive)
+/// @access private
+/// @group structured-list-expressive
+@mixin structured-list-expressive {
+  .#{$prefix}--structured-list-svg {
+    height: rem(20px);
+    width: rem(20px);
+  }
+}

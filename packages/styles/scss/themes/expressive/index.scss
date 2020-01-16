@@ -26,6 +26,7 @@
 @import 'components/tooltip';
 @import 'components/search';
 @import 'components/select';
+@import 'components/structured-list';
 
 //-------------------------
 // Expressive Theme
@@ -56,5 +57,6 @@
     @include tooltip-expressive;
     @include search-expressive;
     @include select-expressive;
+    @include structured-list-expressive;
   }
 }
