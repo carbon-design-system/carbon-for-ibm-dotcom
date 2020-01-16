@@ -45,13 +45,17 @@ const sortSources = sources => {
  * @returns {*} picture element
  */
 const Image = ({ images, defaultImage, alt }) => {
-  const sortedImages = sortSources(images);
+  if (!defaultImage || !alt) {
+    return null;
+  }
+
+  const sortedImages = images ? sortSources(images) : [];
 
   return (
     <picture
       alt={alt}
-      className={`${prefix}--imagecomponent__image`}
-      data-autoid={`${stablePrefix}--imagecomponent`}>
+      className={`${prefix}--image`}
+      data-autoid={`${stablePrefix}--image`}>
       {sortedImages.map((imgSrc, key) => {
         return (
           <source
@@ -61,11 +65,7 @@ const Image = ({ images, defaultImage, alt }) => {
           />
         );
       })}
-      <img
-        className={`${prefix}--imagecomponent__image`}
-        src={defaultImage}
-        alt={alt}
-      />
+      <img className={`${prefix}--image__img`} src={defaultImage} alt={alt} />
     </picture>
   );
 };

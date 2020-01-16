@@ -67,18 +67,6 @@
       > *:not(:last-child) {
         margin-bottom: 0;
       }
-
-      &__title {
-        @include carbon--type-style('expressive-heading-03');
-
-        padding-bottom: $carbon--layout-05;
-      }
-      &__content {
-        min-height: 50px;
-        @include carbon--type-style('body-long-02');
-
-        padding-bottom: $carbon--spacing-05;
-      }
       &__footer {
         padding: carbon--rem(14px);
         display: flex;

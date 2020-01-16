@@ -5,6 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 import { ClickableTile } from 'carbon-components-react';
+import Image from '../Image/Image';
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
@@ -25,8 +26,7 @@ const CardLink = ({
   href,
   content,
   icon,
-  imgSrc,
-  altText,
+  image,
   className,
   ...props
 }) => {
@@ -40,7 +40,7 @@ const CardLink = ({
       className={classNames(`${prefix}--card-link`, className)}
       href={href}
       {...props}>
-      {renderImage(imgSrc, altText)}
+      <Image {...image} />
       <div className={`${prefix}--card-link__wrapper`}>
         <h3 className={`${prefix}--card-link__title`}>{title}</h3>
         {optionalContent(content)}
@@ -49,19 +49,6 @@ const CardLink = ({
     </ClickableTile>
   );
 };
-
-/**
- * Render image
- *
- * @param {string} imgSrc passes as src
- * @param {string} altText passes as alt
- * @returns {object} JSX object
- */
-function renderImage(imgSrc, altText) {
-  return !imgSrc || !altText ? null : (
-    <img src={imgSrc} className={`${prefix}--card-link__image`} alt={altText} />
-  );
-}
 
 /**
  * Card Link optional content
@@ -92,8 +79,7 @@ CardLink.propTypes = {
   href: PropTypes.string.isRequired,
   icon: PropTypes.element,
   content: PropTypes.string,
-  imgSrc: PropTypes.string,
-  altText: PropTypes.string,
+  image: PropTypes.object,
   className: PropTypes.string,
 };
 
