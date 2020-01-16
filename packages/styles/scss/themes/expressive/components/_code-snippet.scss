@@ -1,0 +1,43 @@
+//
+// Copyright IBM Corp. 2016, 2018
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import '@carbon/layout/scss/convert';
+
+//-----------------------------
+// Code snippet (expressive)
+//-----------------------------
+
+/// Code snippet styles (expressive)
+/// @access private
+/// @group code-snippet-expressive
+@mixin code-snippet-expressive {
+  // Single Line Snippet
+  .#{$prefix}--snippet--single {
+    height: $carbon--spacing-09;
+  }
+  .#{$prefix}--snippet--single .#{$prefix}--snippet-container {
+    height: $carbon--spacing-09;
+    padding: 0;
+  }
+  .#{$prefix}--snippet-button {
+    height: 3rem;
+    width: 3rem;
+  }
+  //Single Line Snippet Copy Button
+  .#{$prefix}--snippet__icon {
+    height: rem(20px);
+    width: rem(20px);
+  }
+  // Multi Line Snippet Copy Button
+  .#{$prefix}--snippet--multi .#{$prefix}--snippet-button {
+    height: $carbon--spacing-08;
+    width: $carbon--spacing-08;
+  }
+  .#{$prefix}--btn--ghost {
+    border-width: 1px;
+  }
+}
