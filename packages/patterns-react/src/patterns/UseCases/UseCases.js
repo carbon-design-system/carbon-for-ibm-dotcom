@@ -6,6 +6,7 @@
  */
 
 import { DDS_USECASES } from '../../internal/FeatureFlags';
+import FeaturedLink from '../FeaturedLink/FeaturedLink';
 import PropTypes from 'prop-types';
 import React from 'react';
 import UseCasesGroup from '../UseCases/UseCasesGroup';
@@ -26,9 +27,10 @@ const { prefix } = settings;
  * @param {string} props.theme Use cases color theme
  * @param {string} props.title Use cases title
  * @param {Array} props.usecaseGroup usecaseGroup array with title, image and lists
+ * @param {object} props.featuredLink featuredLink object
  * @returns {object} JSX Object
  */
-const UseCases = ({ border, copy, theme, title, usecaseGroup }) =>
+const UseCases = ({ border, copy, theme, title, usecaseGroup, featuredLink }) =>
   featureFlag(
     DDS_USECASES,
     <section
@@ -44,6 +46,7 @@ const UseCases = ({ border, copy, theme, title, usecaseGroup }) =>
             <h1 className={`${prefix}--usecases__title`}> {title}</h1>
             <div className={`${prefix}--usecases__content`}>{copy}</div>
             {_renderUsecaseGroup(usecaseGroup)}
+            <FeaturedLink {...featuredLink} />
           </div>
           <div className={`${prefix}--usecases__divider__col`}>
             <div className={`${prefix}--usecases__divider`}></div>
@@ -96,6 +99,7 @@ UseCases.propTypes = {
   theme: PropTypes.string,
   title: PropTypes.string.isRequired,
   usecaseGroup: PropTypes.array,
+  featuredLink: PropTypes.object,
 };
 
 export default UseCases;
