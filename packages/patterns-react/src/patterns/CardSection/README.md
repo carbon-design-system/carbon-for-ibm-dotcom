@@ -80,6 +80,7 @@ DDS_CARD_SECTION=true
 | `title` | String    | Url of Card.                                                             |
 | `copy`  | String    | Title of Card                                                            |
 | `link`  | Object    | Href, text and target properties of the card. Same as `groupCard` above. |
+| `image` | Object    | src, and alt text properties of the card.                                |
 
 ### theme (optional)
 
@@ -90,10 +91,10 @@ DDS_CARD_SECTION=true
 
 ### cardType
 
-| Name          | Description                                                                         |
-| ------------- | ----------------------------------------------------------------------------------- |
-| `simpleCards` | Array of objects with title, copy and link properties of each card.                 |
-| `imageCards`  | Array of objects with imgSrc, altText,title, copy and link properties of each card. |
+| Name          | Description                                                                       |
+| ------------- | --------------------------------------------------------------------------------- |
+| `simpleCards` | Array of objects with title, copy and link properties of each card.               |
+| `imageCards`  | Array of objects with image object, title, copy and link properties of each card. |
 
 ## Stable selectors
 
