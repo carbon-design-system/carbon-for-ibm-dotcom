@@ -67,22 +67,23 @@ const CardSection = ({ title, cards, theme }) => {
       className={classNames(`${prefix}--card-section`, setTheme(theme))}>
       <div className={`${prefix}--card-section__container`}>
         <div className={`${prefix}--card-section__row`}>
-          <div className={`${prefix}--card-section__col`}>
-            <h2 className={`${prefix}--card-section__title`}>{title}</h2>
+          <h2 className={`${prefix}--card-section__title`}>{title}</h2>
+          <div className={`${prefix}--card-section__cards`} ref={containerRef}>
             <div
-              className={`${prefix}--card-section__cards`}
-              ref={containerRef}>
+              className={`${prefix}--card-section__cards__row ${prefix}--row--condensed`}>
               {cards.map((card, index) => {
                 return (
-                  <CardLink
-                    key={index}
-                    image={card.image}
-                    title={card.title}
-                    content={card.copy}
-                    href={card.link.href}
-                    target={card.link.target}
-                    icon={<ArrowRight20 />}
-                  />
+                  <div className={`${prefix}--card-section__cards__col`}>
+                    <CardLink
+                      key={index}
+                      image={card.image}
+                      title={card.title}
+                      content={card.copy}
+                      href={card.link.href}
+                      target={card.link.target}
+                      icon={<ArrowRight20 />}
+                    />
+                  </div>
                 );
               })}
             </div>
