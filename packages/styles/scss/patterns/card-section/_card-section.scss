@@ -31,12 +31,27 @@
   .#{$prefix}--card-section {
     &__title {
       @include type-style('expressive-heading-02');
+      @include carbon--make-col-ready;
 
-      padding-bottom: $carbon--spacing-05;
+      @include carbon--breakpoint('lg') {
+        @include carbon--make-col(4, 16);
+
+        margin-top: $carbon--layout-01;
+      }
+
+      margin-bottom: $carbon--layout-05;
+    }
+    &__container {
+      @include carbon--make-container;
+    }
+    &__row {
+      @include carbon--make-row;
     }
     &__cards {
-      &__container {
-        @include carbon--make-container;
+      @include carbon--make-col-ready;
+
+      @include carbon--breakpoint('lg') {
+        @include carbon--make-col(12, 16);
       }
       &__row {
         @include carbon--make-row;
@@ -55,40 +70,16 @@
         margin-bottom: $carbon--grid-gutter--condensed / 2;
       }
     }
-    .bx--card-link {
-      &__title {
-        padding-bottom: $carbon--layout-05;
-      }
-      &__content {
-        padding-bottom: $carbon--spacing-05;
-      }
-    }
-    &__row {
-      @include carbon--make-row;
-    }
-    &__col--left {
-      @include carbon--make-col-ready;
 
-      @include carbon--breakpoint('lg') {
-        @include carbon--make-col(4, 16);
-      }
-    }
-    &__col--right {
-      @include carbon--make-col-ready;
+    padding-top: $carbon--layout-03;
+    padding-bottom: $carbon--layout-05;
 
-      @include carbon--breakpoint('lg') {
-        @include carbon--make-col(12, 16);
-      }
+    @include carbon--breakpoint('md') {
+      padding-bottom: $carbon--layout-06;
     }
-    &__container {
-      padding: $carbon--layout-02;
-    }
-
     @include carbon--breakpoint('lg') {
-      &__container {
-        padding-top: $carbon--layout-04;
-        padding-bottom: $carbon--layout-07;
-      }
+      padding-top: $carbon--layout-04;
+      padding-bottom: $carbon--layout-07;
     }
     @include themed-items;
   }

@@ -67,36 +67,25 @@ const CardSection = ({ title, cards, theme }) => {
       className={classNames(`${prefix}--card-section`, setTheme(theme))}>
       <div className={`${prefix}--card-section__container`}>
         <div className={`${prefix}--card-section__row`}>
-          <div className={`${prefix}--card-section__col--left`}>
-            <h2 className={`${prefix}--card-section__title`}>{title}</h2>
-          </div>
-          <div className={`${prefix}--card-section__col--right`}>
+          <h2 className={`${prefix}--card-section__title`}>{title}</h2>
+          <div className={`${prefix}--card-section__cards`} ref={containerRef}>
             <div
-              className={classNames(
-                `${prefix}--card-section__cards`,
-                `${prefix}--grid--condensed`
-              )}
-              ref={containerRef}>
-              <div className={`${prefix}--card-section__cards__container`}>
-                <div className={`${prefix}--card-section__cards__row`}>
-                  {cards.map((card, index) => {
-                    return (
-                      <div className={`${prefix}--card-section__cards__col`}>
-                        <CardLink
-                          key={index}
-                          imgSrc={card.imgSrc}
-                          altText={card.altText}
-                          title={card.title}
-                          content={card.copy}
-                          href={card.link.href}
-                          target={card.link.target}
-                          icon={<ArrowRight20 />}
-                        />
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
+              className={`${prefix}--card-section__cards__row ${prefix}--row--condensed`}>
+              {cards.map((card, index) => {
+                return (
+                  <div className={`${prefix}--card-section__cards__col`}>
+                    <CardLink
+                      key={index}
+                      image={card.image}
+                      title={card.title}
+                      content={card.copy}
+                      href={card.link.href}
+                      target={card.link.target}
+                      icon={<ArrowRight20 />}
+                    />
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>

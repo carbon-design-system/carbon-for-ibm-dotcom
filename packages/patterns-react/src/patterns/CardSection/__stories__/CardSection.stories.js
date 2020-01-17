@@ -64,7 +64,7 @@ const cardsGroup = {
   imageCards: [
     {
       image: {
-        defaultImage: 'http://picsum.photos/id/1003/1056/480',
+        defaultImage: 'https://picsum.photos/id/1003/1056/480',
         alt: 'cards with image',
       },
       title: 'Topic',
@@ -77,7 +77,7 @@ const cardsGroup = {
     },
     {
       image: {
-        defaultImage: 'http://picsum.photos/id/1003/1056/480',
+        defaultImage: 'https://picsum.photos/id/1018/1056/480',
         alt: 'cards with image',
       },
       title: 'Blog',
@@ -90,7 +90,7 @@ const cardsGroup = {
     },
     {
       image: {
-        defaultImage: 'http://picsum.photos/id/1003/1056/480',
+        defaultImage: 'https://picsum.photos/id/1076/1056/480',
         alt: 'cards with image',
       },
       title: 'Topic',
@@ -103,7 +103,7 @@ const cardsGroup = {
     },
     {
       image: {
-        defaultImage: 'http://picsum.photos/id/1003/1056/480',
+        defaultImage: 'https://picsum.photos/id/102/1056/480',
         alt: 'cards with image',
       },
       title: 'Blog',
@@ -116,7 +116,7 @@ const cardsGroup = {
     },
     {
       image: {
-        defaultImage: 'http://picsum.photos/id/1003/1056/480',
+        defaultImage: 'https://picsum.photos/id/1032/1056/480',
         alt: 'cards with image',
       },
       title: 'Topic',
