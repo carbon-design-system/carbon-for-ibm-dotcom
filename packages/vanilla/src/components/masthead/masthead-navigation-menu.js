@@ -72,7 +72,7 @@ class MastheadNavigationMenu extends NavigationMenu {
 
   /**
    * toggle the state of the nav menu on click
-   * 
+   *
    * @param {Event} event The event triggering this method
    */
   _handleClick = event => {
@@ -101,12 +101,12 @@ class MastheadNavigationMenu extends NavigationMenu {
   /**
    * The component options.
    * If `options` is specified in the constructor,
-   * 
+   *
    * {@linkcode NavigationMenuPanel.create .create()}, or
    * {@linkcode NavigationMenuPanel.init .init()},
    * properties in this object are overriden for the instance being create and
    * how {@linkcode NavigationMenuPanel.init .init()} works.
-   * 
+   *
    * @member NavigationMenuPanel.options
    * @type {object}
    * @property {string} selectorInit The CSS class to find popup navs.
@@ -117,7 +117,7 @@ class MastheadNavigationMenu extends NavigationMenu {
     return {
       selectorInit: '[data-navigation-menu]',
       attribInitTarget: 'data-navigation-menu-target',
-    }
+    };
   }
 }
 

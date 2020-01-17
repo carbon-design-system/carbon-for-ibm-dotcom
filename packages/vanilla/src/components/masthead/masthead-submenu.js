@@ -18,7 +18,7 @@ const { prefix } = settings;
  */
 class MastheadSubmenu extends HeaderSubmenu {
   /**
-   * 
+   *
    * @param {Event} event The event triggering this method
    * @returns {actions | null}
    */

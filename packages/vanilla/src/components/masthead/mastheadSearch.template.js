@@ -43,7 +43,7 @@ function mastheadSearchTemplate(searchProps) {
   });
 
   const searchOpenOnload = cx({
-    [`${prefix}--masthead__search--active`]: searchProps.searchOpenOnload
+    [`${prefix}--masthead__search--active`]: searchProps.searchOpenOnload,
   });
 
   return `

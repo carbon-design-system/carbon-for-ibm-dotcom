@@ -29,7 +29,6 @@ const { prefix } = settings;
  * @returns {object} JSX object
  */
 const mastheadTemplate = ({ navigation, searchProps, profileData }) => {
-  const profile = profileData ? _mastheadProfile(profileData) : '';
   const menuIcon = toString({
     ...menu,
     attr: getAttributes(menu.attrs),
@@ -57,9 +56,9 @@ const mastheadTemplate = ({ navigation, searchProps, profileData }) => {
 
           <div class="${prefix}--header__search">
             ${_mastheadNav(navigation)}
-            ${_mastheadSearch(searchProps)}
+            ${searchProps ? _mastheadSearch(searchProps) : ''}
           </div>
-          ${profile}
+          ${profileData ? _mastheadProfile(profileData) : ''}
           ${_mastheadLeftnav(navigation)}
         </header>
       </div>
@@ -112,7 +111,7 @@ function _renderSidenavButton() {
  * @private
  */
 function _mastheadSearch(searchProps) {
-  return searchProps.hasSearch ? mastheadSearch(searchProps) : '';
+  return mastheadSearch(searchProps);
 }
 
 /**
