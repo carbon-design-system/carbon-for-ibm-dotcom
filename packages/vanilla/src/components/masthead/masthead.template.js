@@ -28,15 +28,25 @@ const { prefix } = settings;
  * @param {object} props.profileData Object containing profile menu elements
  * @returns {object} JSX object
  */
-const mastheadTemplate = ({ navigation, hasSearch, profileData }) => {
+const mastheadTemplate = ({ navigation, searchProps, profileData }) => {
   const profile = profileData ? _mastheadProfile(profileData) : '';
+  const menuIcon = toString({
+    ...menu,
+    attr: getAttributes(menu.attrs),
+  });
+  const closeIcon = toString({
+    ...close,
+    attr: getAttributes(close.attrs),
+  });
   return `
     <div class="${prefix}--masthead">
       <div class="${prefix}--masthead__l0">
         <header aria-label="IBM" data-autoid="${stablePrefix}--masthead" class="${prefix}--header" role="banner">
           <a class="${prefix}--skip-to-content" href="#main-content" tabindex="0">Skip to main content</a>
-          <button data-autoid="${stablePrefix}--masthead__hamburger" aria-label="Open menu" class="${prefix}--header__action ${prefix}--header__menu-trigger ${prefix}--header__menu-toggle ${prefix}--header__menu-toggle__hidden" title="Open menu" type="button">          
-            ${_renderSidenavButton()}
+          <button id="data-navigation-menu-panel" class="${prefix}--header__menu-trigger ${prefix}--header__action" aria-label="Open menu" title="Open menu" data-navigation-menu-panel-label-expand="Open menu" data-navigation-menu-panel-label-collapse="Close menu" data-navigation-menu-target="#${prefix}--side-nav">
+          <button id="data-navigation-menu-panel" data-autoid="${stablePrefix}--masthead__hamburger" aria-label="Open menu" class="${prefix}--header__action ${prefix}--header__menu-trigger ${prefix}--header__menu-toggle ${prefix}--header__menu-toggle__hidden" title="Open menu" type="button" data-navigation-menu-target="#${prefix}--side-nav">
+            ${menuIcon}
+            ${closeIcon}
           </button>
           <div data-autoid="${stablePrefix}--masthead-logo" class="${prefix}--header__logo">
             <a data-autoid="${stablePrefix}--masthead-logo__link" href="https://www.ibm.com/">
@@ -47,7 +57,7 @@ const mastheadTemplate = ({ navigation, hasSearch, profileData }) => {
 
           <div class="${prefix}--header__search">
             ${_mastheadNav(navigation)}
-            ${_mastheadSearch(hasSearch)}
+            ${_mastheadSearch(searchProps)}
           </div>
           ${profile}
           ${_mastheadLeftnav(navigation)}
@@ -101,8 +111,8 @@ function _renderSidenavButton() {
  * @returns {object} JSX object
  * @private
  */
-function _mastheadSearch(hasSearch) {
-  return hasSearch ? mastheadSearch() : '';
+function _mastheadSearch(searchProps) {
+  return searchProps.hasSearch ? mastheadSearch(searchProps) : '';
 }
 
 /**

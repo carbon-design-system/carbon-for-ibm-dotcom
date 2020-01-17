@@ -22,7 +22,7 @@ const { prefix } = settings;
  */
 function mastheadProfileTemplate(profileData) {
   return `
-    <button data-floating-menu-container id="data-floating-menu-container" data-autoid="${stablePrefix}--masthead__profile" aria-label="User Profile" class="${prefix}--header__action" type="button">
+    <button id="data-floating-menu-container" data-autoid="${stablePrefix}--masthead__profile" aria-label="User Profile" class="${prefix}--header__action" type="button">
       <div role="button" aria-haspopup="true" aria-expanded="false" class="${prefix}--overflow-menu" aria-label="Menu" tabindex="0" style="width: auto;">
         ${_renderUserIcon(profileData.isAuthenticated)}
       </div>

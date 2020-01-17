@@ -11,6 +11,12 @@ import Masthead from '../masthead';
 import '../../../../../styles/scss/components/masthead/index.scss';
 import readme from '../README.md';
 
+const searchProps = {
+  hasSearch: true,
+  placeHolderText: 'Search all of IBM',
+  searchOpenOnload: true,
+};
+
 storiesOf('masthead', module)
   .addDecorator(withKnobs)
   .addParameters({
@@ -21,7 +27,7 @@ storiesOf('masthead', module)
   .add('Default', () => {
     const standardProps = {
       hasProfile: boolean('Has profile', true),
-      hasSearch: boolean('Has search', true),
+      searchProps: boolean('Has search', searchProps.hasSearch),
     };
 
     /**
@@ -32,7 +38,7 @@ storiesOf('masthead', module)
     async function _getMasthead() {
       const template = await Masthead.getMastheadWithData(
         standardProps.hasProfile,
-        standardProps.hasSearch
+        searchProps
       );
 
       return template;
