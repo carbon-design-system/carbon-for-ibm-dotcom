@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-vanilla@0.2.1...@carbon/ibmdotcom-vanilla@0.3.0-rc.0) (2020-01-20)
+
+### Bug Fixes
+
+- **cloud:** fixing output folder targets
+  ([c87b470](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c87b470))
+- **dependencies:** update carbon dependencies
+  ([2833349](https://github.com/carbon-design-system/ibm-dotcom-library/commit/2833349))
+
+### Features
+
+- **cloud:** adding cloud foundry manifest files
+  ([af82de3](https://github.com/carbon-design-system/ibm-dotcom-library/commit/af82de3))
+- **cloud:** adding manifest files for staging environments
+  ([1d89cf7](https://github.com/carbon-design-system/ibm-dotcom-library/commit/1d89cf7))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [0.2.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-vanilla@0.2.1-rc.0...@carbon/ibmdotcom-vanilla@0.2.1) (2019-12-20)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-vanilla
