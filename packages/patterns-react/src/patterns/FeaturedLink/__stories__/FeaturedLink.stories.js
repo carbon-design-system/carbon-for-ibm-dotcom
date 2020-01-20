@@ -13,7 +13,7 @@ import readme from '../README.md';
 import { storiesOf } from '@storybook/react';
 
 if (DDS_FEATURED_LINK) {
-  storiesOf('Featured Links', module)
+  storiesOf('Featured Link', module)
     .addDecorator(withKnobs)
     .addParameters({
       readme: {
