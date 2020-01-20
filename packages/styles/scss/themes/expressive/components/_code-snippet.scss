@@ -23,21 +23,11 @@
     height: $carbon--spacing-09;
     padding: 0;
   }
-  .#{$prefix}--snippet-button {
-    height: 3rem;
-    width: 3rem;
+  button.#{$prefix}--btn.#{$prefix}--snippet-btn--expand {
+    padding: 0.375rem 0.8125rem;
   }
-  //Single Line Snippet Copy Button
-  .#{$prefix}--snippet__icon {
-    height: rem(20px);
-    width: rem(20px);
-  }
-  // Multi Line Snippet Copy Button
   .#{$prefix}--snippet--multi .#{$prefix}--snippet-button {
-    height: $carbon--spacing-08;
-    width: $carbon--spacing-08;
-  }
-  .#{$prefix}--btn--ghost {
-    border-width: 1px;
+    height: $carbon--spacing-09;
+    width: $carbon--spacing-09;
   }
 }
