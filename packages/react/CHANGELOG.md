@@ -3,6 +3,95 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.2.1...@carbon/ibmdotcom-react@1.3.0-rc.0) (2020-01-20)
+
+### Bug Fixes
+
+- **branch:** gathered components and pattern from another branch
+  ([99a12ad](https://github.com/carbon-design-system/ibm-dotcom-library/commit/99a12ad))
+- **branch:** gathered components and pattern from another branch
+  ([c4651e1](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c4651e1))
+- **button-group:** fix typos in readme examples
+  ([526fe29](https://github.com/carbon-design-system/ibm-dotcom-library/commit/526fe29))
+- **button-group:** implement add/remove buttons
+  ([500b779](https://github.com/carbon-design-system/ibm-dotcom-library/commit/500b779))
+- **cloud:** fixing output folder targets
+  ([c87b470](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c87b470))
+- **component:** readme & uri object structure update
+  ([afbd414](https://github.com/carbon-design-system/ibm-dotcom-library/commit/afbd414))
+- **components:** move component.scss into application.scss
+  ([5b29ace](https://github.com/carbon-design-system/ibm-dotcom-library/commit/5b29ace))
+- **dependency-upgrade:** fix modale from recent dependency updates
+  ([9eaec26](https://github.com/carbon-design-system/ibm-dotcom-library/commit/9eaec26))
+- **expressive:** bump carbon dependencies, include prefix for tokens
+  ([9798562](https://github.com/carbon-design-system/ibm-dotcom-library/commit/9798562))
+- **feature-flag:** fixed content-group feature-flag variable
+  ([a196180](https://github.com/carbon-design-system/ibm-dotcom-library/commit/a196180))
+- **feature-flag:** fixed content-group feature-flag variable
+  ([86a4446](https://github.com/carbon-design-system/ibm-dotcom-library/commit/86a4446))
+- **feature-flags:** removed duplicates
+  ([175b80f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/175b80f))
+- **image:** properly linking the Image README to storybook
+  ([fdc703e](https://github.com/carbon-design-system/ibm-dotcom-library/commit/fdc703e))
+- **lint:** fixed alphabertic imports on lightbox
+  ([b13b467](https://github.com/carbon-design-system/ibm-dotcom-library/commit/b13b467))
+- **lint:** fixed lint issues for another components
+  ([bed7f89](https://github.com/carbon-design-system/ibm-dotcom-library/commit/bed7f89))
+- **lint:** fixed prettier issues on react feature-flags
+  ([10ce3f1](https://github.com/carbon-design-system/ibm-dotcom-library/commit/10ce3f1))
+- **lint:** imports sorted alphabetically
+  ([4f0029d](https://github.com/carbon-design-system/ibm-dotcom-library/commit/4f0029d))
+- **scss:** added display table to the parent div
+  ([3efadec](https://github.com/carbon-design-system/ibm-dotcom-library/commit/3efadec))
+
+### Features
+
+- **cloud:** adding cloud foundry manifest files
+  ([af82de3](https://github.com/carbon-design-system/ibm-dotcom-library/commit/af82de3))
+- **cloud:** adding manifest files for staging environments
+  ([f6ef759](https://github.com/carbon-design-system/ibm-dotcom-library/commit/f6ef759))
+- **component:** changed content-group component structure and scss
+  ([5cee9b3](https://github.com/carbon-design-system/ibm-dotcom-library/commit/5cee9b3))
+- **component:** content-group component created and added to card-array
+  ([8cb4bae](https://github.com/carbon-design-system/ibm-dotcom-library/commit/8cb4bae))
+- **component:** content-group component created and added to card-array
+  ([e1e8c1f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/e1e8c1f))
+- **component:** fix
+  ([6dbe69f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/6dbe69f))
+- **component:** image component
+  ([9b3b6ee](https://github.com/carbon-design-system/ibm-dotcom-library/commit/9b3b6ee))
+- **component:** image read me
+  ([6732830](https://github.com/carbon-design-system/ibm-dotcom-library/commit/6732830))
+- **component:** implement Lightbox component
+  ([dee25e2](https://github.com/carbon-design-system/ibm-dotcom-library/commit/dee25e2))
+- **component:** rename image
+  ([42d1381](https://github.com/carbon-design-system/ibm-dotcom-library/commit/42d1381))
+- **component:** update stable selectors
+  ([c4f3408](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c4f3408))
+- **expressive:** adding manifest files for expressive package deploys
+  ([f2fcd14](https://github.com/carbon-design-system/ibm-dotcom-library/commit/f2fcd14))
+- **pattern:** add use cases
+  ([40b1e44](https://github.com/carbon-design-system/ibm-dotcom-library/commit/40b1e44))
+- **pattern:** changed card link changes
+  ([6e9bb3a](https://github.com/carbon-design-system/ibm-dotcom-library/commit/6e9bb3a))
+- **pattern:** created an alpha version of CardSection pattern layout
+  ([742783b](https://github.com/carbon-design-system/ibm-dotcom-library/commit/742783b))
+- **pattern:** resolved merge conflicts
+  ([c876bcd](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c876bcd))
+- **pattern:** resolved merge conflicts
+  ([ae92b5b](https://github.com/carbon-design-system/ibm-dotcom-library/commit/ae92b5b))
+- **patterns:** updated card link and image css
+  ([c1accc4](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c1accc4))
+- **readme:** readme added for the content-group component
+  ([8ce8ea9](https://github.com/carbon-design-system/ibm-dotcom-library/commit/8ce8ea9))
+- **readme:** readme added for the content-group component
+  ([4442da4](https://github.com/carbon-design-system/ibm-dotcom-library/commit/4442da4))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.2.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.2.1-rc.0...@carbon/ibmdotcom-react@1.2.1) (2019-12-20)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-react
