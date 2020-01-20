@@ -70,11 +70,8 @@ const LightboxMediaViewer = ({ title, image, copy, ...modalProps }) => {
 };
 
 LightboxMediaViewer.propTypes = {
-  title: PropTypes.string.isRequired,
-  copy: PropTypes.string.isRequired,
-  image: PropTypes.shape({
-    defaultImage: PropTypes.string,
-    alt: PropTypes.string,
-  }),
+  title: PropTypes.string,
+  copy: PropTypes.string,
+  image: PropTypes.object.isRequired,
 };
 export default LightboxMediaViewer;
