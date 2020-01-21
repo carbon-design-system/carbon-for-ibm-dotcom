@@ -3,59 +3,12 @@ import { object, select, text, withKnobs } from '@storybook/addon-knobs';
 import { DDS_LOGO_GRID } from '../../../internal/FeatureFlags';
 import LogoGrid from '../LogoGrid';
 import React from 'react';
+import logos from './data/logos.json';
 import readme from '../README.md';
 import { storiesOf } from '@storybook/react';
 
-const logosGroup = [
-  {
-    label: 'Company A',
-    imgSrc: 'https://via.placeholder.com/140',
-    altText: 'placeholder',
-  },
-  {
-    label: 'Company B',
-    imgSrc: 'https://via.placeholder.com/140',
-    altText: 'placeholder',
-  },
-  {
-    label: 'Company C',
-    imgSrc: 'https://via.placeholder.com/140',
-    altText: 'placeholder',
-  },
-  {
-    label: 'Company D',
-    imgSrc: 'https://via.placeholder.com/140',
-    altText: 'placeholder',
-  },
-  {
-    label: 'Company E',
-    imgSrc: 'https://via.placeholder.com/140',
-    altText: 'placeholder',
-  },
-  {
-    label: 'Company F',
-    imgSrc: 'https://via.placeholder.com/140',
-    altText: 'placeholder',
-  },
-  {
-    label: 'Company G',
-    imgSrc: 'https://via.placeholder.com/140',
-    altText: 'placeholder',
-  },
-  {
-    label: 'Company H',
-    imgSrc: 'https://via.placeholder.com/140',
-    altText: 'placeholder',
-  },
-  {
-    label: 'Company I',
-    imgSrc: 'https://via.placeholder.com/140',
-    altText: 'placeholder',
-  },
-];
-
 if (DDS_LOGO_GRID) {
-  storiesOf('LogoGrid', module)
+  storiesOf('Blocks|LogoGrid', module)
     .addDecorator(withKnobs)
     .addParameters({
       readme: {
@@ -74,7 +27,7 @@ if (DDS_LOGO_GRID) {
       return (
         <LogoGrid
           title={title}
-          logosGroup={object('Data', logosGroup)}
+          logosGroup={object('Data', logos)}
           theme={select('theme', themes, themes.g10)}
         />
       );

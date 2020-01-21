@@ -14,7 +14,7 @@ import readme from '../README.md';
 import { storiesOf } from '@storybook/react';
 
 if (DDS_LEADSPACE_CENTERED) {
-  storiesOf('LeadSpace - Centered', module)
+  storiesOf('Sections|LeadSpace - Centered', module)
     .addDecorator(withKnobs)
     .addParameters({
       readme: {

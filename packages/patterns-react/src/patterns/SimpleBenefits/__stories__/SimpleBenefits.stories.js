@@ -7,7 +7,7 @@ import readme from '../README.md';
 import { storiesOf } from '@storybook/react';
 
 if (DDS_SIMPLEBENEFITS) {
-  storiesOf('Simple Benefits', module)
+  storiesOf('Sections|Simple Benefits', module)
     .addDecorator(withKnobs)
     .addParameters({
       readme: {
