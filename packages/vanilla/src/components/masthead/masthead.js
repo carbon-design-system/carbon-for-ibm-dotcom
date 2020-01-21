@@ -47,20 +47,20 @@ const _redirectUrl =
 class Masthead {
   /**
    * Initializes the masthead components
+   * 
+   * @param {object} props Masthead props
    *
    */
   static setProps(props) {
     defaultProps = Object.assign(defaultProps, props);
   }
 
+  /**
+   * Initializes the masthead
+   *
+   */
   static init() {
     globalInit();
-
-    /**
-     * Class properties
-     *
-     */
-
     /**
      * Initialize profile menu
      *
@@ -182,10 +182,12 @@ class Masthead {
     }
   }
 
-  static resetSearch() {
-
-  }
-
+  /**
+   * Redirect search query to IBM search
+   * 
+   * @param {string} value User-inputted search value
+   * @returns {string} string
+   */
   static getRedirect(value) {
     return `${_redirectUrl}&q=${encodeURIComponent(value)}&lang=${
       defaultProps.search.locale.lc
@@ -196,6 +198,7 @@ class Masthead {
    * This fetches the translation data, then returns the footer template
    * with the injected navigation data
    *
+   * @param {boolean} hasNavigation Determines whether to render Navigation components
    * @param {boolean} hasProfile Determines whether to render Profile component
    * @param {object} searchProps Masthead search properties
    * @returns {Promise} Returned HTML content
