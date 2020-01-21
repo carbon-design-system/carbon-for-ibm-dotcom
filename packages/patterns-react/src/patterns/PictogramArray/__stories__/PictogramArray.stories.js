@@ -8,7 +8,7 @@ import readme from '../README.md';
 import { storiesOf } from '@storybook/react';
 
 if (DDS_PICTOGRAM_ARRAY) {
-  storiesOf('PictogramArray', module)
+  storiesOf('Blocks|PictogramArray', module)
     .addDecorator(withKnobs)
     .addParameters({
       readme: {

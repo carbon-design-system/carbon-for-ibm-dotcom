@@ -13,7 +13,7 @@ import readme from '../README.md';
 import { storiesOf } from '@storybook/react';
 
 if (DDS_USECASES) {
-  storiesOf('Use Cases', module)
+  storiesOf('Blocks|Use Cases', module)
     .addDecorator(withKnobs)
     .addParameters({
       readme: {

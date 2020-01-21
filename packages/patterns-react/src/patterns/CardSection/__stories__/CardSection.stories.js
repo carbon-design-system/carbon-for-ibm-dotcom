@@ -5,133 +5,12 @@ import { DDS_CARD_SECTION } from '../../../internal/FeatureFlags';
 import ImageCards from '../ImageCards';
 import React from 'react';
 import SimpleCards from '../SimpleCards';
+import cards from './data/cards.json';
 import readme from '../README.md';
 import { storiesOf } from '@storybook/react';
 
-const cardsGroup = {
-  simpleCards: [
-    {
-      title: 'Nunc convallis lobortis',
-      copy:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
-      link: {
-        href: 'https://www.example.com',
-        text: 'Learn more',
-        target: '_self',
-      },
-    },
-    {
-      title: 'Fusce gravida eu arcu',
-      copy:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
-      link: {
-        href: 'https://www.example.com',
-        text: 'Learn more',
-        target: '_self',
-      },
-    },
-    {
-      title: 'Interdum et malesuada',
-      copy:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
-      link: {
-        href: 'https://www.example.com',
-        text: 'Learn more',
-        target: '_self',
-      },
-    },
-    {
-      title: 'Nunc convallis loborti',
-      copy:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
-      link: {
-        href: 'https://www.example.com',
-        text: 'Learn more',
-        target: '_self',
-      },
-    },
-    {
-      title: 'Nunc convallis lbortis',
-      copy:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
-      link: {
-        href: 'https://www.example.com',
-        text: 'Learn more',
-        target: '_self',
-      },
-    },
-  ],
-  imageCards: [
-    {
-      image: {
-        defaultImage: 'https://picsum.photos/id/1003/1056/480',
-        alt: 'cards with image',
-      },
-      title: 'Topic',
-      copy: 'Natural language processing.',
-      link: {
-        href: 'https://www.example.com',
-        text: 'Learn more',
-        target: '_self',
-      },
-    },
-    {
-      image: {
-        defaultImage: 'https://picsum.photos/id/1018/1056/480',
-        alt: 'cards with image',
-      },
-      title: 'Blog',
-      copy: 'Natural language processing.',
-      link: {
-        href: 'https://www.example.com',
-        text: 'Learn more',
-        target: '_self',
-      },
-    },
-    {
-      image: {
-        defaultImage: 'https://picsum.photos/id/1076/1056/480',
-        alt: 'cards with image',
-      },
-      title: 'Topic',
-      copy: 'Natural language processing.',
-      link: {
-        href: 'https://www.example.com',
-        text: 'Learn more',
-        target: '_self',
-      },
-    },
-    {
-      image: {
-        defaultImage: 'https://picsum.photos/id/102/1056/480',
-        alt: 'cards with image',
-      },
-      title: 'Blog',
-      copy: 'Serving society ethically in the age of Artificial Intelligence.',
-      link: {
-        href: 'https://www.example.com',
-        text: 'Learn more',
-        target: '_self',
-      },
-    },
-    {
-      image: {
-        defaultImage: 'https://picsum.photos/id/1032/1056/480',
-        alt: 'cards with image',
-      },
-      title: 'Topic',
-      copy: 'Serving society ethically in the age of Artificial Intelligence.',
-      link: {
-        href: 'https://www.example.com',
-        text: 'Learn more',
-        target: '_self',
-      },
-    },
-  ],
-};
-
 if (DDS_CARD_SECTION) {
-  storiesOf('CardSection', module)
+  storiesOf('Sub-Patterns|CardSection', module)
     .addDecorator(withKnobs)
     .addParameters({
       readme: {
@@ -140,7 +19,7 @@ if (DDS_CARD_SECTION) {
     })
 
     .add('default', () => {
-      const cardTypes = Object.keys(cardsGroup);
+      const cardTypes = Object.keys(cards);
       const themes = {
         white: '',
         g10: 'g10',
@@ -153,21 +32,28 @@ if (DDS_CARD_SECTION) {
           ? 'Aliquam condimentum interdum'
           : 'Read more about it';
 
-      const data = object(`Data (${type})`, cardsGroup[type]);
+      const data = object(`Data (${type})`, cards[type]);
 
-      cardsGroup[type] = data;
+      cards[type] = data;
 
       return (
         <CardSection
           title={cardsTitle}
-          cards={cardsGroup[type]}
+          cards={cards[type]}
           data={data}
           theme={theme}
         />
       );
-    })
+    });
 
-    .add('SimpleCards', () => {
+  storiesOf('Sections|CardSectionSimple', module)
+    .addDecorator(withKnobs)
+    .addParameters({
+      readme: {
+        sidebar: readme,
+      },
+    })
+    .add('defauilt', () => {
       const themes = {
         g10: 'g10',
         white: '',
@@ -176,13 +62,20 @@ if (DDS_CARD_SECTION) {
       return (
         <SimpleCards
           title="Aliquam condimentum interdum"
-          cards={object('Data', cardsGroup.simpleCards)}
+          cards={object('Data', cards.simpleCards)}
           theme={select('theme', themes, themes.g10)}
         />
       );
-    })
+    });
 
-    .add('ImageCards', () => {
+  storiesOf('Sections|CardSectionImages', module)
+    .addDecorator(withKnobs)
+    .addParameters({
+      readme: {
+        sidebar: readme,
+      },
+    })
+    .add('default', () => {
       const themes = {
         g10: 'g10',
         white: '',
@@ -191,7 +84,7 @@ if (DDS_CARD_SECTION) {
       return (
         <ImageCards
           title="Read more about it"
-          cards={object('Data', cardsGroup.imageCards)}
+          cards={object('Data', cards.imageCards)}
           theme={select('theme', themes, themes.g10)}
         />
       );

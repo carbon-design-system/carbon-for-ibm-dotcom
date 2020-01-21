@@ -14,7 +14,7 @@ import readme from '../README.md';
 import { storiesOf } from '@storybook/react';
 
 if (DDS_LEADSPACE) {
-  storiesOf('LeadSpace', module)
+  storiesOf('Sections|LeadSpace', module)
     .addDecorator(withKnobs)
     .addParameters({
       readme: {

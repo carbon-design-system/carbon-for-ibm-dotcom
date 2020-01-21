@@ -7,7 +7,7 @@ import readme from '../README.md';
 import { storiesOf } from '@storybook/react';
 
 if (DDS_CARD_ARRAY) {
-  storiesOf('CardArray', module)
+  storiesOf('Blocks|CardArray', module)
     .addDecorator(withKnobs)
     .addParameters({
       readme: {

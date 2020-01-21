@@ -13,7 +13,7 @@ import readme from '../README.md';
 import { storiesOf } from '@storybook/react';
 
 if (DDS_SIMPLELONGFORM) {
-  storiesOf('Simple Long Form', module)
+  storiesOf('Blocks|Simple Long Form', module)
     .addDecorator(withKnobs)
     .addParameters({
       readme: {
