@@ -147,8 +147,7 @@ do
           pretest
           set -x
           release_alpha
-          sh ./tasks/tag-release.sh -t rc
-          exit 1
+          exit 0
           ;;
         *) echo "${RED}invalid option $REPLY${NC}";;
     esac
@@ -175,64 +174,63 @@ do
           echo -e "${GREEN}Creating alpha release...${NC}"
           set -x
           release_alpha
-          sh ./tasks/tag-release.sh -t rc
-          exit 1
+          exit 0
           ;;
         "rc.0 patch (first release candidate)")
           pretest
           echo -e "${GREEN}Creating patch rc.0 release...${NC}"
           set -x
           release_rc0_patch
-          sh ./tasks/tag-release.sh -t rc
-          exit 1
+          echo -e "${GREEN}Publish complete, run './tasks/tag-release.sh' to tag and create the Github release.${NC}"
+          exit 0
           ;;
         "rc.0 minor (first release candidate)")
           pretest
           echo -e "${GREEN}Creating minor rc.0 release...${NC}"
           set -x
           release_rc0_minor
-          sh ./tasks/tag-release.sh -t rc
-          exit 1
+          echo -e "${GREEN}Publish complete, run './tasks/tag-release.sh' to tag and create the Github release.${NC}"
+          exit 0
           ;;
         "rc.0 major (first release candidate)")
           pretest
           echo -e "${GREEN}Creating major rc.0 release...${NC}"
           set -x
           release_rc0_major
-          sh ./tasks/tag-release.sh -t rc
-          exit 1
+          echo -e "${GREEN}Publish complete, run './tasks/tag-release.sh' to tag and create the Github release.${NC}"
+          exit 0
           ;;
         "rc.1+ (subsequent release candidates)")
           pretest
           echo -e "${GREEN}Creating rc.1+ release...${NC}"
           set -x
           release_rc1plus
-          sh ./tasks/tag-release.sh -t rc
-          exit 1
+          echo -e "${GREEN}Publish complete, run './tasks/tag-release.sh' to tag and create the Github release.${NC}"
+          exit 0
           ;;
         "full release (patch)")
           pretest
           echo -e "${GREEN}Creating full patch release...${NC}"
           set -x
           release_full_patch
-          sh ./tasks/tag-release.sh -t full
-          exit 1
+          echo -e "${GREEN}Publish complete, run './tasks/tag-release.sh' to tag and create the Github release.${NC}"
+          exit 0
           ;;
         "full release (minor)")
           pretest
           echo -e "${GREEN}Creating full minor release...${NC}"
           set -x
           release_full_minor
-          sh ./tasks/tag-release.sh -t full
-          exit 1
+          echo -e "${GREEN}Publish complete, run './tasks/tag-release.sh' to tag and create the Github release.${NC}"
+          exit 0
           ;;
         "full release (major)")
           pretest
           echo -e "${GREEN}Creating full major release...${NC}"
           set -x
           release_full_major
-          sh ./tasks/tag-release.sh -t full
-          exit 1
+          echo -e "${GREEN}Publish complete, run './tasks/tag-release.sh' to tag and create the Github release.${NC}"
+          exit 0
           ;;
         "cancel")
           exit 1
