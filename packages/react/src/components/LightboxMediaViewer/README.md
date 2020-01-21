@@ -59,12 +59,12 @@ DDS_LightboxMediaViewer=true
 
 ## Props
 
-| Name    | Required | Data Type | Default Value | Description                                                                    |
-| ------- | -------- | --------- | ------------- | ------------------------------------------------------------------------------ |
-| `title` | NO       | String    | null          | Title text for LightboxMediaViewer image                                       |
-| `copy`  | NO       | String    | null          | Short description text for LightboxMediaViewer image                           |
-| `image` | YES      | Object    | null          | Image object for LightboxMediaViewer. See `../Image/README.md` file for detail |
-| `open`  | YES      | Boolean   | null          | sets `true | false` whether the LightboxMediaViewer is open/close              |
+| Name    | Required | Data Type | Default Value | Description                                                    |
+| ------- | -------- | --------- | ------------- | -------------------------------------------------------------- |
+| `title` | NO       | String    | null          | Title text for LightboxMediaViewer image                       |
+| `copy`  | NO       | String    | null          | Short description text for LightboxMediaViewer image           |
+| `image` | YES      | Object    | null          | See `../Image/README.md` file for more detail                  |
+| `open`  | YES      | Boolean   | null          | sets `true | false` whether the LightboxMediaViewer open/close |
 
 > 💡 See uri object structure above in `Getting started` section.
 
