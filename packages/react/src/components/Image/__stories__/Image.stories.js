@@ -11,7 +11,7 @@ import React from 'react';
 import readme from '../README.md';
 import { storiesOf } from '@storybook/react';
 
-storiesOf('Image', module)
+storiesOf('Components|Image', module)
   .addDecorator(withKnobs)
   .addParameters({
     readme: {

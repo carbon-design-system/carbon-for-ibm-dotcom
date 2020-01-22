@@ -13,7 +13,7 @@ const footer = {
   short: 'short',
 };
 
-storiesOf('Dotcom Shell', module)
+storiesOf('Components|Dotcom Shell', module)
   .addDecorator(withKnobs)
   .addParameters({
     readme: {
