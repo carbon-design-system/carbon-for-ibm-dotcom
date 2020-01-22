@@ -5,7 +5,7 @@ import React from 'react';
 import readme from '../README.md';
 import { storiesOf } from '@storybook/react';
 
-storiesOf('HorizontalRule', module)
+storiesOf('Components|HorizontalRule', module)
   .addDecorator(withKnobs)
   .addParameters({
     readme: {

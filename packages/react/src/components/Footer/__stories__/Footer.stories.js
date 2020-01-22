@@ -7,7 +7,7 @@ import footerThin from '../__data__/footer-legal.json';
 import readme from '../README.md';
 import { storiesOf } from '@storybook/react';
 
-storiesOf('Footer', module)
+storiesOf('Components|Footer', module)
   .addDecorator(withKnobs)
   .addParameters({
     readme: {

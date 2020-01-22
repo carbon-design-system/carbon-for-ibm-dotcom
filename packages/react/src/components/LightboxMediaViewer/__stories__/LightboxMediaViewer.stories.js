@@ -8,7 +8,7 @@ import readme from '../README.md';
 import { storiesOf } from '@storybook/react';
 
 if (DDS_LIGHTBOX_MEDIA_VIEWER) {
-  storiesOf('LightboxMediaViewer', module)
+  storiesOf('Components|LightboxMediaViewer', module)
     .addDecorator(withKnobs)
     .addParameters({
       readme: {
