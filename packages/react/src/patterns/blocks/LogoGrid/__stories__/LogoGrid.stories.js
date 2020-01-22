@@ -8,7 +8,7 @@ import readme from '../README.md';
 import { storiesOf } from '@storybook/react';
 
 if (DDS_LOGO_GRID) {
-  storiesOf('Patterns (Blocks)|Blocks|LogoGrid', module)
+  storiesOf('Patterns (Blocks)|LogoGrid', module)
     .addDecorator(withKnobs)
     .addParameters({
       readme: {
