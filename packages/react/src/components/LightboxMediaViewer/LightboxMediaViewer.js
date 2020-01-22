@@ -40,11 +40,7 @@ const LightboxMediaViewer = ({ title, image, copy, ...modalProps }) => {
         <ModalBody>
           <div className={`${prefix}--lightbox-media-viewer__container`}>
             <div className={`${prefix}--lightbox-media-viewer__row`}>
-              <div
-                data-autoid={`${stablePrefix}--lightbox-media-viewer__image`}
-                className={`${prefix}--lightbox-media-viewer__image`}>
-                <Image {...image} />
-              </div>
+              <Image {...image} />
               <div className={`${prefix}--lightbox-media-viewer__content`}>
                 {title && (
                   <div

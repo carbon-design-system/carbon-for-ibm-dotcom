@@ -19,13 +19,6 @@
     &__row {
       @include carbon--make-row;
     }
-    &__image {
-      img {
-        max-width: 100%;
-        height: auto;
-        object-fit: cover;
-      }
-    }
     &__content {
       @include carbon--type-style('body-long-02');
 
