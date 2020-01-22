@@ -16,7 +16,7 @@ addDecorator(addReadme);
 addDecorator(story => <Container story={story} />);
 
 function loadStories() {
-  require('../src/overview');
+  require('../src/components/overview');
 
   const components = requireContext(
     '../src/components',
