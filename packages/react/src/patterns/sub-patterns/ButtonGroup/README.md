@@ -27,7 +27,7 @@ on text size.
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { ArrowRight20, ArrowDown20 } from '@carbon/icons-react';
-import { ButtonGroup } from '@carbon/ibmdotcom-patterns-react';
+import { ButtonGroup } from '@carbon/ibmdotcom-react';
 import 'yourapplication.scss';
 
 function App() {

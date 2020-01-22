@@ -21,7 +21,7 @@ Here's a quick example to get you started.
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { SimpleOverview } from '@carbon/ibmdotcom-patterns-react';
+import { SimpleOverview } from '@carbon/ibmdotcom-react';
 import 'yourapplication.scss';
 
 const label = 'Lorem ipsum dolor sit amet, consectetur';

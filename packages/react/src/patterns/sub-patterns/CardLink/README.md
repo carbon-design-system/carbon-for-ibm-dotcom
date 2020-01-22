@@ -22,7 +22,7 @@ Here's a quick example to get you started.
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { CardLink } from '@carbon/ibmdotcom-patterns-react';
+import { CardLink } from '@carbon/ibmdotcom-react';
 import 'yourapplication.scss';
 
 function App() {
