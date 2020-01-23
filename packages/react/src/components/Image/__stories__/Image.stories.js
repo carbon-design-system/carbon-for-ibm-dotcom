@@ -8,10 +8,16 @@ import './index.scss';
 import { object, text, withKnobs } from '@storybook/addon-knobs';
 import Image from '../Image';
 import React from 'react';
+import readme from '../README.md';
 import { storiesOf } from '@storybook/react';
 
-storiesOf('Image', module)
+storiesOf('Components|Image', module)
   .addDecorator(withKnobs)
+  .addParameters({
+    readme: {
+      sidebar: readme,
+    },
+  })
   .add('Default', () => {
     const imageObject = object('Images Object:', [
       { src: 'https://picsum.photos/id/2/320/160', minWidth: 320 },

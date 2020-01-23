@@ -10,31 +10,37 @@
 @import 'globals/tokens';
 
 // Components
-@import 'components/buttongroup/buttongroup';
-@import 'components/card-link/index';
-@import 'components/content-group/content-group';
 @import 'components/dotcom-shell/dotcom-shell';
 @import 'components/expressive-modal/expressive-modal';
 @import 'components/footer/index';
 @import 'components/horizontalrule/horizontalrule';
-@import 'components/layout/layout';
+@import 'components/image/image';
 @import 'components/lightbox-media-viewer/lightbox-media-viewer';
 @import 'components/link-with-icon/link-with-icon';
 @import 'components/masthead/index';
-@import 'components/tableofcontents/tableofcontents';
 
-// Patterns
-@import 'patterns/cardarray/cardarray';
-@import 'patterns/card-section/card-section';
-@import 'patterns/leadspace/leadspace';
-@import 'patterns/leadspace-centered/leadspace-centered';
-@import 'patterns/listsection/listsection';
-@import 'patterns/logo-grid/logo-grid';
-@import 'patterns/pictogramarray/pictogramarray';
-@import 'patterns/simplebenefits/simplebenefits';
-@import 'patterns/simplelongform/simplelongform';
-@import 'patterns/simpleoverview/simpleoverview';
-@import 'patterns/usecases/usecases';
+// Patterns - Sections
+@import 'patterns/sections/card-section/card-section';
+@import 'patterns/sections/leadspace/leadspace';
+@import 'patterns/sections/leadspace-centered/leadspace-centered';
+@import 'patterns/sections/simplebenefits/simplebenefits';
+@import 'patterns/sections/simpleoverview/simpleoverview';
+
+// Patterns - Blocks
+@import 'patterns/blocks/cardarray/cardarray';
+@import 'patterns/blocks/FeaturedLink/featuredlink';
+@import 'patterns/blocks/listsection/listsection';
+@import 'patterns/blocks/logo-grid/logo-grid';
+@import 'patterns/blocks/pictogramarray/pictogramarray';
+@import 'patterns/blocks/simplelongform/simplelongform';
+@import 'patterns/blocks/usecases/usecases';
+
+// Patterns - Sub-Patterns
+@import 'patterns/sub-patterns/buttongroup/buttongroup';
+@import 'patterns/sub-patterns/card-link/index';
+@import 'patterns/sub-patterns/content-group/content-group';
+@import 'patterns/sub-patterns/layout/layout';
+@import 'patterns/sub-patterns/tableofcontents/tableofcontents';
 
 // Temporary Expressive
 @import 'temp-carbon-expressive/accordion/accordion-expressive';

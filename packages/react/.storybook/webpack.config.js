@@ -106,7 +106,7 @@ module.exports = ({ config, mode }) => {
     ...config.optimization,
     minimizer: [
       new TerserPlugin({
-        sourceMap: true,
+        sourceMap: useStyleSourceMap,
         terserOptions: {
           mangle: false,
         },
