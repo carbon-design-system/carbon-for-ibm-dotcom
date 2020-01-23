@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import './index.scss';
-import { select, text, withKnobs } from '@storybook/addon-knobs';
+import { object, select, text, withKnobs } from '@storybook/addon-knobs';
 import { DDS_TOC } from '../../../../internal/FeatureFlags';
 import React from 'react';
 import readme from '../README.md';
@@ -18,7 +18,7 @@ if (DDS_TOC) {
     .add('Default', () => {
       const menuLabel = text('menu label', 'Jump to');
 
-      const menuItems = [
+      const menuItems = object('Menu Items:',[
         {
           title: 'Cras molestie condimentum',
           id: '8',
@@ -39,7 +39,7 @@ if (DDS_TOC) {
           title: 'Integer non scelerisque',
           id: '14',
         },
-      ];
+      ]);
 
       const themes = {
         g100: 'g100',
