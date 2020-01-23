@@ -54,12 +54,10 @@ const Footer = ({ type, navigation, langCode }) => {
   }, [navigation]);
 
   useEffect(() => {
-    if (langCode) {
-      (async () => {
-        const response = await LocaleAPI.getLangDisplay(langCode);
-        setDisplayLang(response);
-      })();
-    }
+    (async () => {
+      const response = await LocaleAPI.getLangDisplay(langCode);
+      setDisplayLang(response);
+    })();
   }, [langCode]);
 
   if (navigation) {
