@@ -133,10 +133,14 @@ class LocaleAPI {
   /**
    * This fetches the language display name based on language/locale combo
    *
+   * @param {object} params params object
+   * @param {string} params.cc country code
+   * @param {string} params.lc language code
+   *
    * @returns {Promise<string>} Display name of locale/language
    */
-  static async getLangDisplay() {
-    const lang = this.getLang();
+  static async getLangDisplay({ cc, lc }) {
+    const lang = cc && lc ? { cc, lc } : this.getLang();
     const list = await this.getList(lang);
     // combines the countryList arrays
     let countries = [];
