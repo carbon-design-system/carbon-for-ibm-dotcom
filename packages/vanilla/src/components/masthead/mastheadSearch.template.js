@@ -34,12 +34,12 @@ const _redirectUrl =
 function mastheadSearchTemplate(searchProps) {
   const closeIcon = toString({
     ...close,
-    attr: getAttributes(close.attrs),
+    attrs: getAttributes(close.attrs),
   });
 
   const searchIcon = toString({
     ...search,
-    attr: getAttributes(search.attrs),
+    attrs: getAttributes(search.attrs),
   });
 
   const searchOpenOnload = cx({

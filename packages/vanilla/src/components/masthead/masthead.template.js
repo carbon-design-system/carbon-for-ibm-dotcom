@@ -9,15 +9,16 @@ import { getAttributes, toString } from '@carbon/icon-helpers';
 import close from '@carbon/icons/es/close/20';
 import menu from '@carbon/icons/es/menu/20';
 import mastheadNav from './mastheadNav.template';
+import mastheadPlatform from './mastheadPlatform.template';
 import mastheadLeftnav from './mastheadLeftnav.template';
 import mastheadSearch from './mastheadSearch.template';
 import mastheadProfile from './mastheadProfile.template';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
+import cx from 'classnames';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
-
 /**
  * renders ibm logo and masthead container
  *
@@ -28,26 +29,43 @@ const { prefix } = settings;
  * @param {object} props.profileData Object containing profile menu elements
  * @returns {object} JSX object
  */
-const mastheadTemplate = ({ navigation, searchProps, profileData }) => {
+const mastheadTemplate = ({
+  navigation,
+  platform,
+  searchProps,
+  profileData,
+}) => {
   const menuIcon = toString({
     ...menu,
-    attr: getAttributes(menu.attrs),
+    attrs: {
+      ...menu.attrs,
+      class: `${prefix}--side-nav__open`,
+    },
   });
   const closeIcon = toString({
     ...close,
-    attr: getAttributes(close.attrs),
+    attrs: {
+      ...close.attrs,
+      class: `${prefix}--side-nav__close`,
+    },
   });
+
+  const hasPlatform = cx({
+    [`${prefix}--masthead__platform`]: platform,
+  });
+
   return `
     <div class="${prefix}--masthead">
       <div class="${prefix}--masthead__l0">
         <header aria-label="IBM" data-autoid="${stablePrefix}--masthead" class="${prefix}--header" role="banner">
           <a class="${prefix}--skip-to-content" href="#main-content" tabindex="0">Skip to main content</a>
-          ${navigation ?
-            `<button id="data-navigation-menu-panel" data-autoid="${stablePrefix}--masthead__hamburger" aria-label="Open menu" class="${prefix}--header__action ${prefix}--header__menu-trigger ${prefix}--header__menu-toggle ${prefix}--header__menu-toggle__hidden" title="Open menu" type="button" data-navigation-menu-target="#${prefix}--side-nav">
+          ${
+            navigation
+              ? `<button id="data-navigation-menu-panel" data-autoid="${stablePrefix}--masthead__hamburger" aria-label="Open menu" class="${prefix}--header__action ${prefix}--header__menu-trigger ${prefix}--header__menu-toggle ${prefix}--header__menu-toggle__hidden" title="Open menu" type="button" data-navigation-menu-target="#${prefix}--side-nav">
               ${menuIcon}
               ${closeIcon}
             </button>`
-            : ''
+              : ''
           }
           <div data-autoid="${stablePrefix}--masthead-logo" class="${prefix}--header__logo">
             <a data-autoid="${stablePrefix}--masthead-logo__link" href="https://www.ibm.com/">
@@ -56,7 +74,8 @@ const mastheadTemplate = ({ navigation, searchProps, profileData }) => {
             </a>
           </div>
 
-          <div class="${prefix}--header__search">
+          <div class="${prefix}--header__search ${hasPlatform}">
+            ${platform ? _mastheadPlatform(platform) : ''}
             ${navigation ? _mastheadNav(navigation) : ''}
             ${searchProps ? _mastheadSearch(searchProps) : ''}
           </div>
@@ -80,6 +99,17 @@ function _mastheadNav(navigation) {
 }
 
 /**
+ * renders masthead platform
+ *
+ * @param {object} platform Platform data
+ * @returns {object} JSX object
+ * @private
+ */
+function _mastheadPlatform(platform) {
+  return mastheadPlatform(platform);
+}
+
+/**
  * renders masthead left nav data
  *
  * @param {object} navigation Nav items
@@ -91,7 +121,7 @@ function _mastheadLeftnav(navigation) {
 }
 
 /**
- * renders masthead left nav hamberger
+ * renders masthead left nav hamburger
  *
  * @returns {object} JSX object
  * @private
@@ -108,7 +138,7 @@ function _renderSidenavButton() {
 /**
  * renders masthead search
  *
- * @param {boolean} hasSearch Determines whether to render Search Bar
+ * @param {boolean} searchProps Determines whether to render Search Bar
  * @returns {object} JSX object
  * @private
  */

@@ -7,14 +7,9 @@
 
 import { HeaderSubmenu } from 'carbon-components';
 import eventMatches from 'carbon-components/src/globals/js/misc/event-matches';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
-import { settings } from 'carbon-components';
-
-const { stablePrefix } = ddsSettings;
-const { prefix } = settings;
 
 /**
- * class to initialize Header submenu Component
+ * class to initialize Header submenu component
  */
 class MastheadSubmenu extends HeaderSubmenu {
   /**
@@ -41,7 +36,6 @@ class MastheadSubmenu extends HeaderSubmenu {
         return isOfSelf ? null : this.constructor.actions.CLOSE_SUBMENU;
       }
       case 'click':
-        console.log('clicky');
         return this.constructor.actions.TOGGLE_SUBMENU_WITH_FOCUS;
       default:
         return null;

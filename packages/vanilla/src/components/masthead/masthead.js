@@ -5,9 +5,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { NavigationMenu, OverflowMenu, SideNav } from 'carbon-components';
+import { OverflowMenu } from 'carbon-components';
 import MastheadSubmenu from './masthead-submenu';
-import MastheadNavigationMenu from './masthead-navigation-menu';
+import MastheadSideNav from './masthead-sidenav';
 import {
   globalInit,
   LocaleAPI,
@@ -19,7 +19,6 @@ import autoComplete from '@tarekraafat/autocomplete.js/dist/js/autoComplete';
 import root from 'window-or-global';
 import mastheadTemplate from './masthead.template';
 import { settings } from 'carbon-components';
-import cx from 'classnames';
 
 const { prefix } = settings;
 
@@ -47,9 +46,8 @@ const _redirectUrl =
 class Masthead {
   /**
    * Initializes the masthead components
-   * 
-   * @param {object} props Masthead props
    *
+   * @param {object} props Masthead props
    */
   static setProps(props) {
     defaultProps = Object.assign(defaultProps, props);
@@ -70,23 +68,41 @@ class Masthead {
       : null;
     OverflowMenu.create(overflowMenu);
 
-    /**
-     * Initialize top nav submenus
-     *
-     */
-    const headerSubMenu = document.querySelectorAll(
-      `.${prefix}--header__submenu`
-    );
-    [...headerSubMenu].forEach(menu => {
-      MastheadSubmenu.create(menu);
-    });
+    const headerNav = document.querySelector(this.options.mastheadNav);
+    if (headerNav) {
+      /**
+       * Initialize top nav submenus
+       *
+       */
+      const headerSubMenu = document.querySelectorAll(
+        this.options.mastheadNavSubmenu
+      );
+      [...headerSubMenu].forEach(menu => {
+        MastheadSubmenu.create(menu);
+      });
 
-    /**
-     * Initialize left nav submenus
-     *
-     */
-    const mastheadSidenav = document.getElementById(`${prefix}--side-nav`);
-    SideNav.create(mastheadSidenav);
+      /**
+       * Initialize left nav submenus
+       *
+       */
+      const mastheadSideNav = document.getElementById(this.options.sideNav);
+      MastheadSideNav.create(mastheadSideNav);
+
+      const mastheadHamburger = document.querySelector(
+        this.options.mastheadHamburger
+      );
+      const mastheadSideNavOverlay = document.querySelector(
+        this.options.sideNavOverlay
+      );
+
+      mastheadHamburger.addEventListener('click', () => {
+        mastheadHamburger.classList.toggle(this.options.sideNavToggleActive);
+        mastheadSideNav.classList.toggle(this.options.sideNavExpanded);
+        mastheadSideNavOverlay.classList.toggle(
+          this.options.sideNavOverlayActive
+        );
+      });
+    }
 
     /**
      * Initialize search events
@@ -138,16 +154,13 @@ class Masthead {
           if (a.match > b.match) return 1;
           return 0;
         },
-        onSelection: (feedback) => {
+        onSelection: feedback => {
           root.parent.location.href = this.getRedirect(
             feedback.selection.value.name
           );
         },
       });
 
-      const mastheadSearchList = document.getElementById(
-        this.options.mastheadSearchList
-      );
       const mastheadSearchInput = document.querySelector(
         this.options.mastheadSearchInput
       );
@@ -158,16 +171,16 @@ class Masthead {
         this.options.mastheadSearchButtonClose
       );
 
-      mastheadSearchButtonClose.addEventListener('click', evt => {
-        mastheadSearch.classList.remove(this.options.mastheadSearchIsActive);
-        while (
-          mastheadSearchList.firstChild &&
-          mastheadSearchList.removeChild(mastheadSearchList.firstChild)
-        );
+      /**
+       * Close search button closes input and resets value
+       *
+       */
+      mastheadSearchButtonClose.addEventListener('click', () => {
         mastheadSearchInput.value = '';
+        this.resetSearch(mastheadSearch);
       });
 
-      mastheadSearchButton.addEventListener('click', evt => {
+      mastheadSearchButton.addEventListener('click', () => {
         if (
           mastheadSearch.classList.contains(this.options.mastheadSearchIsActive)
         ) {
@@ -179,12 +192,35 @@ class Masthead {
           mastheadSearchInput.focus();
         }
       });
+
+      mastheadSearchInput.addEventListener('blur', evt => {
+        evt.target.value = '';
+        this.resetSearch(mastheadSearch);
+      });
     }
   }
 
   /**
+   * Close and reset search and clears input
+   *
+   * @param {string} el Search container
+   */
+  static resetSearch(el) {
+    const mastheadSearchList = document.getElementById(
+      this.options.mastheadSearchList
+    );
+
+    el.classList.remove(this.options.mastheadSearchIsActive);
+
+    while (
+      mastheadSearchList.firstChild &&
+      mastheadSearchList.removeChild(mastheadSearchList.firstChild)
+    );
+  }
+
+  /**
    * Redirect search query to IBM search
-   * 
+   *
    * @param {string} value User-inputted search value
    * @returns {string} string
    */
@@ -198,12 +234,20 @@ class Masthead {
    * This fetches the translation data, then returns the footer template
    * with the injected navigation data
    *
+   * @param {object} navigation Masthead nav data
+   * @param {object} platform Masthead platform data
    * @param {boolean} hasNavigation Determines whether to render Navigation components
    * @param {boolean} hasProfile Determines whether to render Profile component
    * @param {object} searchProps Masthead search properties
    * @returns {Promise} Returned HTML content
    */
-  static async getMastheadWithData(hasNavigation, hasProfile, searchProps) {
+  static async getMastheadWithData(
+    navigation,
+    platform,
+    hasNavigation,
+    hasProfile,
+    searchProps
+  ) {
     let isAuthenticated;
     let mastheadProps = {};
 
@@ -224,7 +268,13 @@ class Masthead {
 
     return mastheadTemplate({
       ...(hasNavigation && {
-        navigation: response.mastheadNav.links,
+        navigation:
+          typeof navigation == 'object'
+            ? navigation
+            : response.mastheadNav.links,
+      }),
+      ...(platform && {
+        platform: platform,
       }),
       ...(hasProfile && {
         profileData: {
@@ -232,7 +282,7 @@ class Masthead {
           menu: isAuthenticated
             ? response.profileMenu.signedin
             : response.profileMenu.signedout,
-          },
+        },
       }),
       ...(searchProps.hasSearch && {
         searchProps,
@@ -240,14 +290,28 @@ class Masthead {
     });
   }
 
+  /**
+   * The component options.
+   *
+   * @member Masthead.options
+   * @type {object}
+   */
   static get options() {
     return {
+      mastheadNav: `.${prefix}--header__nav`,
+      mastheadNavSubmenu: `.${prefix}--header__submenu`,
+      mastheadHamburger: `.${prefix}--header__menu-trigger`,
       mastheadSearch: `.${prefix}--masthead__search`,
       mastheadSearchList: 'autoComplete_list',
       mastheadSearchInput: `.${prefix}--header__search--input`,
       mastheadSearchIsActive: `${prefix}--masthead__search--active`,
       mastheadSearchButton: `.react-autosuggest__container .${prefix}--header__search--search`,
       mastheadSearchButtonClose: `.react-autosuggest__container .${prefix}--header__search--close`,
+      sideNav: `${prefix}--side-nav`,
+      sideNavExpanded: `${prefix}--side-nav--expanded`,
+      sideNavToggleActive: `${prefix}--header__action--active`,
+      sideNavOverlay: `.${prefix}--side-nav__overlay`,
+      sideNavOverlayActive: `${prefix}--side-nav__overlay-active`,
     };
   }
 }
