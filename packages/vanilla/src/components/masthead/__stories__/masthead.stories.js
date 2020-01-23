@@ -21,23 +21,11 @@ storiesOf('masthead', module)
   })
   .add('Default', () => {
     const standardProps = {
-      navigation: select(
-        'Navigation',
-        mastheadKnobs.navigation,
-        mastheadKnobs.navigation.default
-      ),
-      hasNavigation: boolean('Has navigation', true),
-      hasProfile: boolean('Has profile', true),
       searchProps: {
         hasSearch: boolean('Has search', true),
         placeHolderText: text('Search placeholder', 'Search all of IBM'),
-        searchOpenOnload: false,
+        searchOpenOnload: boolean('Search open on load', false),
       },
-      platform: select(
-        'Platform name',
-        mastheadKnobs.platform,
-        mastheadKnobs.platform.none
-      ),
     };
 
     /**
@@ -47,10 +35,18 @@ storiesOf('masthead', module)
      */
     async function _getMasthead() {
       const template = await Masthead.getMastheadWithData(
-        standardProps.navigation,
-        standardProps.platform,
-        standardProps.hasNavigation,
-        standardProps.hasProfile,
+        select(
+          'Navigation',
+          mastheadKnobs.navigation,
+          mastheadKnobs.navigation.default
+        ),
+        select(
+          'Platform name',
+          mastheadKnobs.platform,
+          mastheadKnobs.platform.none
+        ),
+        boolean('Has navigation', true),
+        boolean('Has profile', true),
         standardProps.searchProps
       );
 
