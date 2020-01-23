@@ -4,9 +4,12 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-
+import {
+  LocaleAPI,
+  TranslationAPI,
+  globalInit,
+} from '@carbon/ibmdotcom-services';
 import React, { useEffect, useState } from 'react';
-import { TranslationAPI, globalInit } from '@carbon/ibmdotcom-services';
 import {
   settings as ddsSettings,
   ipcinfoCookie,
@@ -27,11 +30,13 @@ const { prefix } = settings;
  *
  * @param {object} props react proptypes
  * @param {object} props.navigation footer navigation object
+ * @param {object} props.langCode langCode object { cc, lc }
  * @returns {object} JSX object
  */
-const Footer = ({ type, navigation }) => {
+const Footer = ({ type, navigation, langCode }) => {
   let [footerMenuData, setFooterMenuData] = useState([]);
   let [footerLegalData, setFooterLegalData] = useState([]);
+  let [displayLang, setDisplayLang] = useState('');
 
   useEffect(() => {
     // initialize global execution calls
@@ -47,6 +52,15 @@ const Footer = ({ type, navigation }) => {
       })();
     }
   }, [navigation]);
+
+  useEffect(() => {
+    if (langCode) {
+      (async () => {
+        const response = await LocaleAPI.getLangDisplay(langCode);
+        setDisplayLang(response);
+      })();
+    }
+  }, [langCode]);
 
   if (navigation) {
     footerMenuData = navigation.footerMenu;
@@ -77,7 +91,7 @@ const Footer = ({ type, navigation }) => {
         <div className={`${prefix}--footer__main-container`}>
           <FooterLogo />
           {optionalFooterNav(type, footerMenuData)}
-          <LocaleButton selectItem={selectItem} />
+          <LocaleButton displayLang={displayLang} selectItem={selectItem} />
         </div>
       </section>
       <LegalNav links={footerLegalData} />
@@ -117,6 +131,7 @@ function setFooterType(type) {
 Footer.propTypes = {
   navigation: PropTypes.object,
   type: PropTypes.string,
+  langCode: PropTypes.object,
 };
 
 export default Footer;
