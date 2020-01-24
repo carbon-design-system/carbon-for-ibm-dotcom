@@ -18,7 +18,7 @@ if (DDS_TOC) {
     .add('Default', () => {
       const menuLabel = text('menu label', 'Jump to');
 
-      const menuItems = object('Menu Items:',[
+      const menuItems = [
         {
           title: 'Cras molestie condimentum',
           id: '8',
@@ -39,7 +39,8 @@ if (DDS_TOC) {
           title: 'Integer non scelerisque',
           id: '14',
         },
-      ]);
+      ];
+      // const defaultValue = menuItems[1].id;
 
       const themes = {
         g100: 'g100',
@@ -49,9 +50,9 @@ if (DDS_TOC) {
       return (
         <TableOfContents
           theme={select('theme', themes, themes.white)}
-          menuItems={menuItems}
+          menuItems={object('menuItems',menuItems)}
           menuLabel={menuLabel}>
-          <a name="8" style={{ color: '#000' }}>
+          <a data-title='Cras molestie condimentum' name="8" style={{ color: '#000' }}>
             <h3 style={{ paddingBottom: '1rem', paddingTop: '2rem' }}>
               Cras molestie condimentum
             </h3>
@@ -70,7 +71,7 @@ if (DDS_TOC) {
             sapien pellentesque tristique. Morbi id nibh metus. Integer non
             scelerisque nisl.
           </p>
-          <a name="7" style={{ color: '#000' }}>
+          <a data-title='Praesent fermentum sodales'  name="7" style={{ color: '#000' }}>
             <h3 style={{ paddingBottom: '1rem', paddingTop: '2rem' }}>
               Praesent fermentum sodales
             </h3>
@@ -89,7 +90,7 @@ if (DDS_TOC) {
             sapien pellentesque tristique. Morbi id nibh metus. Integer non
             scelerisque nisl.
           </p>
-          <a name="2" style={{ color: '#000' }}>
+          <a data-title='Nulla tristique lacinia'  name="2" style={{ color: '#000' }}>
             <h3 style={{ paddingBottom: '1rem', paddingTop: '2rem' }}>
               Nulla tristique lacinia
             </h3>
@@ -108,7 +109,7 @@ if (DDS_TOC) {
             sapien pellentesque tristique. Morbi id nibh metus. Integer non
             scelerisque nisl.
           </p>
-          <a name="3" style={{ color: '#000' }}>
+          <a data-title='Morbi id nibh metus' name="3" style={{ color: '#000' }}>
             <h3 style={{ paddingBottom: '1rem', paddingTop: '2rem' }}>
               Morbi id nibh metus
             </h3>
@@ -127,7 +128,7 @@ if (DDS_TOC) {
             sapien pellentesque tristique. Morbi id nibh metus. Integer non
             scelerisque nisl.
           </p>
-          <a name="14" style={{ color: '#000' }}>
+          <a data-title='Integer non scelerisque' name="14" style={{ color: '#000' }}>
             <h3 style={{ paddingBottom: '1rem', paddingTop: '2rem' }}>
               Integer non scelerisque
             </h3>

@@ -32,10 +32,14 @@ const { prefix } = settings;
  * @returns {*} JSX Object
  */
 const TableOfContents = ({ menuItems, children, menuLabel, theme }) => {
-  const [selectedId, setSelectedId] = useState(menuItems[0].id);
+  const [selectedId, setSelectedId] = useState(menuItems[0]);
   const [selectedTitle, setSelectedTitle] = useState(menuItems[0].title);
-
+  const [autoMenuItems, setmenuItems] = useState([]);
   useEffect(() => {
+    if (!menuItems){
+      console.log('coming inside **********');
+      setmenuItems(_find_menu_items(children));
+    }
     scrollStop(setSelectedItem);
   });
 
@@ -136,6 +140,18 @@ const TableOfContents = ({ menuItems, children, menuLabel, theme }) => {
     updateState,
   };
 
+  const _find_menu_items = (children) => { 
+    const values =  children.filter(element => element.props['data-title'] && element.props.name);
+    console.log(values,'values');
+    console.log(children,'children');
+    return values.map(value => (
+      {
+        'title':value.props['data-title'],
+        'id':value.props.name
+      }
+    ));
+  }
+
   /**
    * Render TableOfContents pattern
    *
@@ -152,11 +168,12 @@ const TableOfContents = ({ menuItems, children, menuLabel, theme }) => {
           className={`${prefix}--tableofcontents__sidebar`}
           data-sticky="true">
           <div className={`${prefix}--tableofcontents__mobile-top`}></div>
-          <TOCDesktop {...props} />
-          <TOCMobile {...props} />
+          <TOCDesktop autoMenuItems={autoMenuItems} {...props} />
+          <TOCMobile autoMenuItem={autoMenuItems} {...props} />
         </div>
         <div className={`${prefix}--tableofcontents__content`}>
           <div className={`${prefix}--tableofcontents__content-wrapper`}>
+            {/* {console.log(children)} */}
             {children}
           </div>
         </div>

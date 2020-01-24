@@ -23,7 +23,7 @@ const { prefix } = settings;
  * @param {*} props.updateState function to update parent state.
  * @returns {*} JSX Object
  */
-const TOCDesktopMenu = ({ menuItems, selectedId, updateState }) => {
+const TOCDesktopMenu = ({ autoMenuItems ,menuItems, selectedId, updateState }) => {
   /**
    * Render menu items
    *
@@ -31,18 +31,19 @@ const TOCDesktopMenu = ({ menuItems, selectedId, updateState }) => {
    * @param {string} activeId selected item id
    * @returns {*} JSX Object
    */
-  const renderMenuItems = (items, activeId) => {
+  const renderMenuItems = (autoMenuItems ,items, activeId) => {
+    // console.log("Auto Menu Itesm",autoMenuItems);
     return items.map(item => {
       if (item && item.id !== 'menuLabel') {
         return (
           <li
             key={item.id}
-            data-autoid={`${stablePrefix}}--tableofcontents__desktop__item-${item.id}`}
+            data-autoid={`${stablePrefix}--tableofcontents__desktop__item-${item.id}`}
             className={classNames(
               `${prefix}--tableofcontents__desktop__item`,
               setActiveClass(activeId, item.id)
             )}>
-            <a onClick={e => handleOnClick(e, item.id)} href={`#${item.id}`}>
+            <a onClick={e => handleOnClick(e, item.id)} href={`#${item.id}` }>
               {item.title}
             </a>
           </li>
@@ -89,7 +90,7 @@ const TOCDesktopMenu = ({ menuItems, selectedId, updateState }) => {
   return (
     <div
       className={`${prefix}--tableofcontents__desktop`}
-      data-autoid={`${stablePrefix}}--tableofcontents__desktop`}>
+      data-autoid={`${stablePrefix}--tableofcontents__desktop`}>
       <ul>{renderMenuItems(menuItems, selectedId)}</ul>
     </div>
   );
