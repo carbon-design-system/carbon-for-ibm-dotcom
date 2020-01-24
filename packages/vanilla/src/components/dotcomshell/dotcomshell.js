@@ -35,7 +35,7 @@ class DotcomShell {
       mastheadProps.platform,
       mastheadProps.hasNavigation,
       mastheadProps.hasProfile,
-      mastheadProps.searchProps,
+      mastheadProps.searchProps
     );
 
     return template;
@@ -57,16 +57,14 @@ class DotcomShell {
    * This creates the DotcomShell with masthead, footer, and content
    *
    * @param {string} content User content
-   * @param {...object} dotcomShellProps Object containing all masthead and footer data
    * @returns {Promise} Returned HTML content
    */
-  static async getDotcomShellWithData({content, ...dotcomShellProps}) {
+  static async getDotcomShellWithData({ content, ...dotcomShellProps }) {
     const masthead = await this._getMasthead(dotcomShellProps.masthead);
     const footer = await this._getFooter(dotcomShellProps.footer);
 
     return dotcomshellTemplate(masthead, content, footer);
   }
-
 }
 
 export default DotcomShell;
