@@ -21,6 +21,7 @@
 @import 'components/list-box';
 @import 'components/loading';
 @import 'components/number-input';
+@import 'components/overflow-menu';
 @import 'components/tabs';
 @import 'components/text-input';
 @import 'components/tile';
@@ -54,6 +55,7 @@
     @include list-box-expressive;
     @include loading-expressive;
     @include number-input-expressive;
+    @include overflow-menu-expressive;
     @include tabs-expressive;
     @include text-input-expressive;
     @include tile-expressive;
