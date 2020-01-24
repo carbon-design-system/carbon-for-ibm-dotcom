@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.3.0-rc.0...@carbon/ibmdotcom-react@1.3.0-rc.1) (2020-01-24)
+
+### Bug Fixes
+
+- **footer:** pass display language to the locale button
+  ([4b4ad03](https://github.com/carbon-design-system/ibm-dotcom-library/commit/4b4ad03))
+- **footer:** render modal when locale button is clicked
+  ([c23fdef](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c23fdef))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.3.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.2.1...@carbon/ibmdotcom-react@1.3.0-rc.0) (2020-01-20)
 
 ### Bug Fixes
