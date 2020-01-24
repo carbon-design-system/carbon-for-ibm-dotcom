@@ -13,11 +13,14 @@ const { prefix } = settings;
 /**
  * Dotcomshell template literal
  *
+ * @param {string} masthead Masthead html
  * @param {string} children Dotcomshell content
+ * @param {string} footer Footer html
  * @returns {string} returns DotcomShell component
  */
-const dotcomshellTemplate = children => {
+const dotcomshellTemplate = (masthead, children, footer) => {
   return `
+    ${masthead}
     <div
       data-autoid="${stablePrefix}--dotcom-shell"
       className="${prefix}--dotcom-shell">
@@ -27,6 +30,7 @@ const dotcomshellTemplate = children => {
         ${children}
       </div>
     </div>
+    ${footer}
   `;
 };
 

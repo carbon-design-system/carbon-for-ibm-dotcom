@@ -42,6 +42,7 @@ const _redirectUrl =
 
 /**
  * class to initialize the masthead components
+ *
  */
 class Masthead {
   /**
@@ -250,7 +251,6 @@ class Masthead {
   ) {
     let isAuthenticated;
     let mastheadProps = {};
-
     if (hasProfile) {
       const status = await ProfileAPI.getUserStatus();
       isAuthenticated = status.user === 'Authenticated';

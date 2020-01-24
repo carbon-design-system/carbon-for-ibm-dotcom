@@ -5,4 +5,5 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-export { default as DotcomShell } from './dotcomshell.template.js';
+export { default as DotcomShell } from './dotcomshell';
+export { default as dotcomshellTemplate } from './dotcomshell.template';

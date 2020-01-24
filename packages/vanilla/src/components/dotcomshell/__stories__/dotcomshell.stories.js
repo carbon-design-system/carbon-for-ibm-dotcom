@@ -7,12 +7,12 @@
 
 import { storiesOf } from '@storybook/html';
 import { withKnobs, boolean, select, text } from '@storybook/addon-knobs';
-// import dotcomshell from '../dotcomshell.template';
-import { Masthead } from '../../masthead';
-import { Footer } from '../../footer';
 import mastheadKnobs from '../../masthead/__stories__/data/Masthead.stories.knobs.js';
+import DotcomShell from '../dotcomshell';
 import content from './data/content';
-import wrapper from './templates/wrapper.template';
+
+import './index.scss';
+
 // import readme from '../README.md';
 
 storiesOf('Dotcom Shell', module)
@@ -24,67 +24,52 @@ storiesOf('Dotcom Shell', module)
       short: 'short',
     };
 
-    const dotcomshellProps = {
-      searchProps: {
-        hasSearch: boolean('Has search', true),
-        placeHolderText: text('Search placeholder', 'Search all of IBM'),
-        searchOpenOnoad: false,
-      },
-    };
-    /**
-     * renders either short or the tall footer
-     *
-     * @returns {string} string
-     */
-    async function _getFooter() {
-      const template = await Footer.getFooterWithData(
-        select('type', footerTypeOptions, footerTypeOptions.tall)
-      );
-
-      return template;
-    }
-
-    const footer = document.createElement('div');
-    footer.textContent = 'Loading...';
-    _getFooter().then(html => {
-      footer.innerHTML = html;
-      Footer.init(footer);
-    });
-
-    /**
-     * renders the masthead
-     *
-     * @returns {string} string
-     */
-    async function _getMasthead() {
-      const template = await Masthead.getMastheadWithData(
-        select(
+    const dotcomShellProps = {
+      masthead: {
+        navigation: select(
           'Navigation',
           mastheadKnobs.navigation,
           mastheadKnobs.navigation.default
         ),
-        select(
+        platform: select(
           'Platform name',
           mastheadKnobs.platform,
           mastheadKnobs.platform.none
         ),
-        boolean('Has navigation', true),
-        boolean('Has profile', true),
-        dotcomshellProps.searchProps
-      );
+        hasNavigation: boolean('Has navigation', true),
+        hasProfile: boolean('Has profile', true),
+        searchProps: {
+          hasSearch: boolean('Has search', true),
+          placeHolderText: text('Search placeholder', 'Search all of IBM'),
+          searchOpenOnoad: false,
+        },
+      },
+      footer: {
+        footerType: select(
+          'Type',
+          footerTypeOptions,
+          footerTypeOptions.tall
+        )
+      }
+    };
+
+    /**
+     * renders the dotcom shell
+     *
+     * @returns {string} string
+     */
+    async function _getDotcomShell() {
+      const template = await DotcomShell.getDotcomShellWithData({content, ...dotcomShellProps});
 
       return template;
     }
 
-    const masthead = document.createElement('div');
-    masthead.textContent = 'Loading...';
-    _getMasthead().then(html => {
-      masthead.innerHTML = html;
-      Masthead.init();
+    const dotcomshellContainer = document.createElement('div');
+    dotcomshellContainer.textContent = 'Loading...';
+    _getDotcomShell().then(html => {
+      dotcomshellContainer.insertAdjacentHTML('afterbegin', html);
+      DotcomShell.init(dotcomshellContainer);
     });
 
-    return wrapper({
-      masthead,
-      content,
-    });
+    return dotcomshellContainer;
   });
