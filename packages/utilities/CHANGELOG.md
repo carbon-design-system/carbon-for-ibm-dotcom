@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-utilities@1.3.0-rc.0...@carbon/ibmdotcom-utilities@1.3.0-rc.1) (2020-01-24)
+
+### Bug Fixes
+
+- **footer:** add check for root document for ssr
+  ([35d57fb](https://github.com/carbon-design-system/ibm-dotcom-library/commit/35d57fb))
+- **version:** update version to current release
+  ([759c238](https://github.com/carbon-design-system/ibm-dotcom-library/commit/759c238))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.3.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-utilities@1.2.1...@carbon/ibmdotcom-utilities@1.3.0-rc.0) (2020-01-20)
 
 ### Bug Fixes
