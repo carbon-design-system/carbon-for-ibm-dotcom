@@ -6,10 +6,10 @@
  */
 
 import { getAttributes, toString } from '@carbon/icon-helpers';
-import user from '@carbon/icons/es/user/20';
-import userOnline from '@carbon/icons/es/user--online/20';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
+import user from '@carbon/icons/es/user/20';
+import userOnline from '@carbon/icons/es/user--online/20';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;

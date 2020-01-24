@@ -5,12 +5,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { storiesOf } from '@storybook/html';
-import { withKnobs, boolean, select, text } from '@storybook/addon-knobs';
+import '../../../../../styles/scss/components/masthead/index.scss';
+import { boolean, select, text, withKnobs } from '@storybook/addon-knobs';
 import Masthead from '../masthead';
 import mastheadKnobs from './data/Masthead.stories.knobs.js';
-import '../../../../../styles/scss/components/masthead/index.scss';
 import readme from '../README.md';
+import { storiesOf } from '@storybook/html';
 
 storiesOf('masthead', module)
   .addDecorator(withKnobs)

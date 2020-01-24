@@ -4,9 +4,9 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import dotcomshellTemplate from './dotcomshell.template';
-import { Masthead } from '../masthead';
 import { Footer } from '../footer';
+import { Masthead } from '../masthead';
+import dotcomshellTemplate from './dotcomshell.template';
 
 /**
  * class to initialize Dotcomshell component
@@ -61,7 +61,7 @@ class DotcomShell {
    */
   static async getDotcomShellWithData({ content, ...dotcomShellProps }) {
     const masthead = await this._getMasthead(dotcomShellProps.masthead);
-    const footer = await this._getFooter(dotcomShellProps.footer);
+    const footer = await this._getFooter(dotcomShellProps.footer.footerType);
 
     return dotcomshellTemplate(masthead, content, footer);
   }

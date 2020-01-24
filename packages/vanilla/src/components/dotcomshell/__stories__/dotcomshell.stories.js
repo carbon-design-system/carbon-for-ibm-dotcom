@@ -5,19 +5,21 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { storiesOf } from '@storybook/html';
-import { withKnobs, boolean, select, text } from '@storybook/addon-knobs';
-import mastheadKnobs from '../../masthead/__stories__/data/Masthead.stories.knobs.js';
+import '../../../../../styles/scss/components/dotcom-shell/_dotcom-shell.scss';
+import { boolean, select, text, withKnobs } from '@storybook/addon-knobs';
 import DotcomShell from '../dotcomshell';
 import content from './data/content';
-
-import './index.scss';
-
-// import readme from '../README.md';
+import mastheadKnobs from '../../masthead/__stories__/data/Masthead.stories.knobs.js';
+import readme from '../README.md';
+import { storiesOf } from '@storybook/html';
 
 storiesOf('Dotcom Shell', module)
   .addDecorator(withKnobs)
-  .addParameters({})
+  .addParameters({
+    readme: {
+      sidebar: readme,
+    },
+  })
   .add('Default', () => {
     const footerTypeOptions = {
       default: 'default',
@@ -46,11 +48,11 @@ storiesOf('Dotcom Shell', module)
       },
       footer: {
         footerType: select(
-          'Type',
+          'Footer',
           footerTypeOptions,
-          footerTypeOptions.tall
-        )
-      }
+          footerTypeOptions.default
+        ),
+      },
     };
 
     /**
@@ -59,7 +61,10 @@ storiesOf('Dotcom Shell', module)
      * @returns {string} string
      */
     async function _getDotcomShell() {
-      const template = await DotcomShell.getDotcomShellWithData({content, ...dotcomShellProps});
+      const template = await DotcomShell.getDotcomShellWithData({
+        content,
+        ...dotcomShellProps,
+      });
 
       return template;
     }
@@ -67,7 +72,7 @@ storiesOf('Dotcom Shell', module)
     const dotcomshellContainer = document.createElement('div');
     dotcomshellContainer.textContent = 'Loading...';
     _getDotcomShell().then(html => {
-      dotcomshellContainer.insertAdjacentHTML('afterbegin', html);
+      dotcomshellContainer.innerHTML = html;
       DotcomShell.init(dotcomshellContainer);
     });
 

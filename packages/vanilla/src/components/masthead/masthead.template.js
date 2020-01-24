@@ -7,15 +7,15 @@
 
 import { getAttributes, toString } from '@carbon/icon-helpers';
 import close from '@carbon/icons/es/close/20';
-import menu from '@carbon/icons/es/menu/20';
+import cx from 'classnames';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import mastheadLeftnav from './mastheadLeftnav.template';
 import mastheadNav from './mastheadNav.template';
 import mastheadPlatform from './mastheadPlatform.template';
-import mastheadLeftnav from './mastheadLeftnav.template';
-import mastheadSearch from './mastheadSearch.template';
 import mastheadProfile from './mastheadProfile.template';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import mastheadSearch from './mastheadSearch.template';
+import menu from '@carbon/icons/es/menu/20';
 import { settings } from 'carbon-components';
-import cx from 'classnames';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;

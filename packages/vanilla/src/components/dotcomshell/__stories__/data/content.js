@@ -1,3 +1,7 @@
+import 'carbon-components/scss/components/button/_button.scss';
+import 'carbon-components/scss/components/data-table/_data-table.scss';
+import 'carbon-components/scss/components/structured-list/_structured-list.scss';
+
 const content = `<div class="bx--grid">
   <div class="bx--row">
     <div class="bx--col-lg-8">

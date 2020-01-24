@@ -4,8 +4,8 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import { settings } from 'carbon-components';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import { settings } from 'carbon-components';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
@@ -23,10 +23,10 @@ const dotcomshellTemplate = (masthead, children, footer) => {
     ${masthead}
     <div
       data-autoid="${stablePrefix}--dotcom-shell"
-      className="${prefix}--dotcom-shell">
+      class="${prefix}--dotcom-shell">
       <div
         data-autoid="${stablePrefix}--dotcom-shell__content"
-        className="${prefix}--dotcom-shell__content">
+        class="${prefix}--dotcom-shell__content">
         ${children}
       </div>
     </div>

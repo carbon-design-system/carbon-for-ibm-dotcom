@@ -6,8 +6,8 @@
  */
 
 import { getAttributes, toString } from '@carbon/icon-helpers';
-import chevronDown from '@carbon/icons/es/chevron--down/20';
 import arrowLeft from '@carbon/icons/es/arrow--left/20';
+import chevronDown from '@carbon/icons/es/chevron--down/20';
 import { settings } from 'carbon-components';
 const { prefix } = settings;
 

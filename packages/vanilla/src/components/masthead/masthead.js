@@ -5,19 +5,19 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { OverflowMenu } from 'carbon-components';
-import MastheadSubmenu from './masthead-submenu';
-import MastheadSideNav from './masthead-sidenav';
 import {
-  globalInit,
   LocaleAPI,
   ProfileAPI,
   SearchTypeaheadAPI,
   TranslationAPI,
+  globalInit,
 } from '@carbon/ibmdotcom-services';
+import MastheadSideNav from './masthead-sidenav';
+import MastheadSubmenu from './masthead-submenu';
+import { OverflowMenu } from 'carbon-components';
 import autoComplete from '@tarekraafat/autocomplete.js/dist/js/autoComplete';
-import root from 'window-or-global';
 import mastheadTemplate from './masthead.template';
+import root from 'window-or-global';
 import { settings } from 'carbon-components';
 
 const { prefix } = settings;

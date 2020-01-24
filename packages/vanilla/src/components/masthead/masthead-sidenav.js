@@ -6,8 +6,8 @@
  */
 
 import { SideNav } from 'carbon-components';
-import on from 'carbon-components/src/globals/js/misc/on';
 import eventMatches from 'carbon-components/src/globals/js/misc/event-matches';
+import on from 'carbon-components/src/globals/js/misc/on';
 import { settings } from 'carbon-components';
 
 const { prefix } = settings;

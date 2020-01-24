@@ -7,10 +7,10 @@
 
 import { getAttributes, toString } from '@carbon/icon-helpers';
 import close from '@carbon/icons/es/close/20';
-import search from '@carbon/icons/es/search/20';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
-import { settings } from 'carbon-components';
 import cx from 'classnames';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import search from '@carbon/icons/es/search/20';
+import { settings } from 'carbon-components';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
