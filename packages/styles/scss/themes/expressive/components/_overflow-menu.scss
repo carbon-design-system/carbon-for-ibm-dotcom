@@ -23,6 +23,11 @@
       height: rem(48px);
     }
 
+    &-options--open[data-floating-menu-direction='bottom']::after,
+    &-options--open[data-floating-menu-direction='top']::after {
+      width: rem(40px);
+    }
+
     &__icon {
       height: rem(20px);
       width: rem(20px);
