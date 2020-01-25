@@ -24,7 +24,49 @@ storiesOf('masthead', module)
       searchProps: {
         hasSearch: boolean('Has search', true),
         placeHolderText: text('Search placeholder', 'Search all of IBM'),
-        searchOpenOnload: boolean('Search open on load', false),
+        searchOpenOnload: false,
+      },
+    };
+
+    /**
+     * renders the masthead
+     *
+     * @returns {string} string
+     */
+    async function _getMasthead() {
+      const template = await Masthead.getMastheadWithData(
+        select(
+          'Navigation',
+          mastheadKnobs.navigation,
+          mastheadKnobs.navigation.default
+        ),
+        select(
+          'Platform name',
+          mastheadKnobs.platform,
+          mastheadKnobs.platform.none
+        ),
+        boolean('Has navigation', true),
+        boolean('Has profile', true),
+        standardProps.searchProps
+      );
+
+      return template;
+    }
+
+    const element = document.createElement('div');
+    element.textContent = 'Loading...';
+    _getMasthead().then(html => {
+      element.innerHTML = html;
+      Masthead.init();
+    });
+    return element;
+  })
+  .add('Search open by default', () => {
+    const standardProps = {
+      searchProps: {
+        hasSearch: boolean('Has search', true),
+        placeHolderText: text('Search placeholder', 'Search all of IBM'),
+        searchOpenOnload: true,
       },
     };
 
