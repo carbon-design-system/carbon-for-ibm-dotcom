@@ -1654,7 +1654,7 @@
   resolved "https://registry.yarnpkg.com/@carbon/layout/-/layout-10.7.0.tgz#4146a68f35ff44d0ec891946523123bdf4094d30"
   integrity sha512-PXpd9QCIatzGlQkXj7DWlTf7wgFMDCEMNTWj9Wrby93HdJ0veGJ7bLNzTCxe1CVtJmG8iDNj7DBv8J17YazYKQ==
 
-"@carbon/pictograms-react@^10.8.0", "@carbon/pictograms-react@^10.8.1":
+"@carbon/pictograms-react@^10.8.0":
   version "10.8.1"
   resolved "https://registry.yarnpkg.com/@carbon/pictograms-react/-/pictograms-react-10.8.1.tgz#ba6e68dad453f511c355a8c51689bceddbdf021a"
   integrity sha512-sZ9IkGSAE7lPLzjxgAhLNnb236kUpis3kMW86s1FNCQDzxk7WXJBLHNjvUis2CN2hyslxadV08YwEWWYwvmaZg==
