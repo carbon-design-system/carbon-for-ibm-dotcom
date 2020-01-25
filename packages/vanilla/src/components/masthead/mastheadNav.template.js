@@ -5,8 +5,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import chevronDown from '@carbon/icons/es/chevron--down/16';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
+import { toString } from '@carbon/icon-helpers';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
@@ -37,11 +39,11 @@ function mastheadNavTemplate(navigation) {
 function _renderNav(links) {
   let navLinks = '';
   if (links && links.length > 0) {
-    links.forEach(link => {
+    links.forEach((link, index) => {
       if (link.hasMenu) {
-        navLinks = navLinks + _renderSubnavItem(link);
+        navLinks = navLinks + _renderSubnav(link, index);
       } else {
-        navLinks = navLinks + _renderNavItem(link);
+        navLinks = navLinks + _renderNavItem(link, index);
       }
     });
   }
@@ -53,14 +55,24 @@ function _renderNav(links) {
  * Renders a subnav nav item
  *
  * @param {Array} sections Navigation links Array
+ * @param {number} index Navigation submenu index
  * @returns {string} HTML nav item
  * @private
  */
-function _renderSubnavItem(sections) {
+function _renderSubnav(sections, index) {
+  const chevronDownIcon = toString({
+    ...chevronDown,
+    attrs: {
+      ...chevronDown.attrs,
+      class: `${prefix}--header__menu-arrow`,
+    },
+  });
+
   let subNavLinks = '';
+  const col = index;
   sections.menuSections.forEach(section => {
-    section.menuItems.forEach(item => {
-      subNavLinks = subNavLinks + _renderNavItem(item);
+    section.menuItems.forEach((item, index) => {
+      subNavLinks = subNavLinks + _renderSubNavItem(item, col, index);
     });
   });
 
@@ -68,9 +80,7 @@ function _renderSubnavItem(sections) {
     <li class="${prefix}--header__submenu">
       <a aria-haspopup="menu" aria-expanded="false" class="${prefix}--header__menu-item ${prefix}--header__menu-title" href="javascript:void(0)" role="menuitem" tabindex="0" aria-label="${sections.title}">
         ${sections.title}
-        <svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true" class="${prefix}--header__menu-arrow" style="will-change: transform;">
-          <path d="M5 6L0 1 .7.3 5 4.6 9.3.3l.7.7z"></path>
-        </svg>
+        ${chevronDownIcon}
       </a>
       <ul aria-label="${sections.title}" class="${prefix}--header__menu" role="menu">
         ${subNavLinks}
@@ -83,12 +93,28 @@ function _renderSubnavItem(sections) {
  * Renders a single nav item
  *
  * @param {Array} link Navigation links Array
+ * @param {number} col Navigation submenu index
+ * @param {number} index Navigation submenu item index
  * @returns {string} HTML nav item
  * @private
  */
-function _renderNavItem(link) {
+function _renderSubNavItem(link, col, index) {
   return `
-    <li><a href="${link.url}" data-autoid="${stablePrefix}--masthead__l0-nav--nav-2" class="${prefix}--header__menu-item" role="menuitem" tabindex="0"><span class="${prefix}--text-truncate--end">${link.title}</span></a></li>
+    <li role="none"><a href="${link.url}" data-autoid="${stablePrefix}--masthead__l0-nav--subnav-col${col}-item${index}" class="${prefix}--header__menu-item" role="menuitem" tabindex="0"><span class="${prefix}--text-truncate--end">${link.title}</span></a></li>
+  `;
+}
+
+/**
+ * Renders a single nav item
+ *
+ * @param {Array} link Navigation links Array
+ * @param {number} index Navigation item index
+ * @returns {string} HTML nav item
+ * @private
+ */
+function _renderNavItem(link, index) {
+  return `
+    <li><a href="${link.url}" data-autoid="${stablePrefix}--masthead__l0-nav--nav-${index}" class="${prefix}--header__menu-item" role="menuitem" tabindex="0"><span class="${prefix}--text-truncate--end">${link.title}</span></a></li>
   `;
 }
 
