@@ -11,6 +11,8 @@
 @import '@carbon/type/scss/font-face/sans';
 @include carbon--font-face-mono();
 @include carbon--font-face-sans();
+
+import '@carbon/ibmdotcom-styles/scss/components/dotcom-shell/_dotcom-shell.scss';
 ```
 
 > 💡 Only import font's once per usage
@@ -18,8 +20,6 @@
 ### Content
 
 ```javascript
-import 'yourapplication.scss';
-
 const content = `
   <p>Your content here (probably include something nicer than this! 😄)</p>
 `;
@@ -31,7 +31,6 @@ export default content;
 
 ```javascript
 import { DotcomShell } from '@carbon/ibmdotcom-vanilla';
-import '@carbon/ibmdotcom-styles/scss/components/dotcom-shell/_dotcom-shell.scss';
 import content from 'content';
 
 const dotcomShellProps = {
