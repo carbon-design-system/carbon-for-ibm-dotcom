@@ -93,6 +93,20 @@ function _renderSubnav(sections, index) {
  * Renders a single nav item
  *
  * @param {Array} link Navigation links Array
+ * @param {number} index Navigation item index
+ * @returns {string} HTML nav item
+ * @private
+ */
+function _renderNavItem(link, index) {
+  return `
+    <li><a href="${link.url}" data-autoid="${stablePrefix}--masthead__l0-nav--nav-${index}" class="${prefix}--header__menu-item" role="menuitem" tabindex="0"><span class="${prefix}--text-truncate--end">${link.title}</span></a></li>
+  `;
+}
+
+/**
+ * Renders a single subnav item
+ *
+ * @param {Array} link Navigation links Array
  * @param {number} col Navigation submenu index
  * @param {number} index Navigation submenu item index
  * @returns {string} HTML nav item
@@ -101,20 +115,6 @@ function _renderSubnav(sections, index) {
 function _renderSubNavItem(link, col, index) {
   return `
     <li role="none"><a href="${link.url}" data-autoid="${stablePrefix}--masthead__l0-nav--subnav-col${col}-item${index}" class="${prefix}--header__menu-item" role="menuitem" tabindex="0"><span class="${prefix}--text-truncate--end">${link.title}</span></a></li>
-  `;
-}
-
-/**
- * Renders a single nav item
- *
- * @param {Array} link Navigation links Array
- * @param {number} index Navigation item index
- * @returns {string} HTML nav item
- * @private
- */
-function _renderNavItem(link, index) {
-  return `
-    <li><a href="${link.url}" data-autoid="${stablePrefix}--masthead__l0-nav--nav-${index}" class="${prefix}--header__menu-item" role="menuitem" tabindex="0"><span class="${prefix}--text-truncate--end">${link.title}</span></a></li>
   `;
 }
 

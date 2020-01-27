@@ -42,11 +42,11 @@ function mastheadLeftnavTemplate(navigation) {
 function _renderNav(links) {
   let navLinks = '';
   if (links && links.length > 0) {
-    links.forEach(link => {
+    links.forEach((link, index) => {
       if (link.hasMenu) {
-        navLinks = navLinks + _renderSubnavMenu(link);
+        navLinks = navLinks + _renderSubnavMenu(link, index);
       } else {
-        navLinks = navLinks + _renderNavItem(link);
+        navLinks = navLinks + _renderNavItem(link, index);
       }
     });
   }
@@ -58,10 +58,11 @@ function _renderNav(links) {
  * Renders a subnav nav menu
  *
  * @param {Array} sections Navigation links Array
+ * @param {number} index Navigation submenu index
  * @returns {string} HTML nav item
  * @private
  */
-function _renderSubnavMenu(sections) {
+function _renderSubnavMenu(sections, index) {
   const chevronDownIcon = toString({
     ...chevronDown,
     attrs: getAttributes(chevronDown.attrs),
@@ -73,15 +74,16 @@ function _renderSubnavMenu(sections) {
   });
 
   let subNavLinks = '';
+  const col = index;
   sections.menuSections.forEach(section => {
-    section.menuItems.forEach(item => {
-      subNavLinks = subNavLinks + _renderSubNavItem(item);
+    section.menuItems.forEach((item, index) => {
+      subNavLinks = subNavLinks + _renderSubNavItem(item, col, index);
     });
   });
 
   return `
     <li class="${prefix}--side-nav__item">
-      <button aria-haspopup="true" aria-expanded="false" class="${prefix}--side-nav__submenu" type="button">
+      <button aria-haspopup="true" aria-expanded="false" data-autoid="dds--masthead__l0-sidenav--nav-${index}" class="${prefix}--side-nav__submenu" type="button">
         <span class="${prefix}--side-nav__submenu-title">${sections.title}</span>
         <div class="${prefix}--side-nav__icon ${prefix}--side-nav__icon--small ${prefix}--side-nav__submenu-chevron">
           ${chevronDownIcon}
@@ -89,7 +91,7 @@ function _renderSubnavMenu(sections) {
       </button>
       <ul class="${prefix}--side-nav__menu" role="menu">
         <li class="${prefix}--side-nav__menu-item ${prefix}--masthead__side-nav--submemu-back" role="none">
-          <a href="javascript:void(0);" data-autoid="dds--masthead__l0-sidenav--subnav-back-1" class="${prefix}--side-nav__link" role="menuitem">
+          <a href="javascript:void(0);" data-autoid="dds--masthead__l0-sidenav--subnav-back-${col}" class="${prefix}--side-nav__link" role="menuitem">
             <span class="${prefix}--side-nav__link-text">
               ${arrowLeftIcon}
               Back
@@ -107,25 +109,28 @@ function _renderSubnavMenu(sections) {
  * Renders a single nav item
  *
  * @param {Array} link Navigation links Array
+ * @param {number} index Navigation item index
  * @returns {string} HTML nav item
  * @private
  */
-function _renderNavItem(link) {
+function _renderNavItem(link, index) {
   return `
-    <li class="${prefix}--side-nav__item"><a href="${link.url}" data-autoid="dds--masthead__l0-sidenav--nav-2" class="${prefix}--side-nav__link"><span class="${prefix}--side-nav__link-text">${link.title}</span></a></li>
+    <li class="${prefix}--side-nav__item"><a href="${link.url}" data-autoid="dds--masthead__l0-sidenav--nav-${index}" class="${prefix}--side-nav__link"><span class="${prefix}--side-nav__link-text">${link.title}</span></a></li>
   `;
 }
 
 /**
- * Renders a single nav item
+ * Renders a single subnav item
  *
  * @param {Array} link Navigation links Array
+ * @param {number} col Navigation submenu index
+ * @param {number} index Navigation item index
  * @returns {string} HTML nav item
  * @private
  */
-function _renderSubNavItem(link) {
+function _renderSubNavItem(link, col, index) {
   return `
-    <li class="${prefix}--side-nav__menu-item" role="none"><a href="${link.url}" data-autoid="dds--masthead__l0-sidenav--subnav-col0-item1" class="${prefix}--side-nav__link" role="menuitem"><span class="${prefix}--side-nav__link-text">${link.title}</span></a></li>
+    <li class="${prefix}--side-nav__menu-item" role="none"><a href="${link.url}" data-autoid="dds--masthead__l0-sidenav--subnav-col${col}-item${index}" class="${prefix}--side-nav__link" role="menuitem"><span class="${prefix}--side-nav__link-text">${link.title}</span></a></li>
   `;
 }
 
