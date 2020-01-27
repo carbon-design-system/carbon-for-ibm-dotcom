@@ -5,19 +5,19 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, { useEffect, useState } from 'react';
 import {
   settings as ddsSettings,
   featureFlag,
 } from '@carbon/ibmdotcom-utilities';
+import React, { useEffect, useState } from 'react';
+import classNames from 'classnames';
 import { DDS_TOC } from '../../../internal/FeatureFlags';
 import Layout from '../Layout/Layout';
 import PropTypes from 'prop-types';
-import TOCDesktop from './TOCDesktop';
-import TOCMobile from './TOCMobile';
-import classNames from 'classnames';
 import root from 'window-or-global';
 import { settings } from 'carbon-components';
+import TOCDesktop from './TOCDesktop';
+import TOCMobile from './TOCMobile';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
@@ -72,7 +72,7 @@ const TableOfContents = ({ menuItems, children, menuLabel, theme }) => {
     const id = elems[0] || menuItems[0].id;
     const filteredItems = menuItems.filter(menu => {
       if (id !== 'undefined') {
-        return menu.id == id;
+        return menu.id === id;
       }
     });
     const title = filteredItems[0].title;

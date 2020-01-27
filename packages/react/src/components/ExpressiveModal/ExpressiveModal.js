@@ -6,11 +6,11 @@
  */
 
 import React, { useEffect, useState } from 'react';
+import classNames from 'classnames';
 import { ComposedModal } from 'carbon-components-react';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import ExpressiveModalCloseBtn from './ExpressiveModalCloseBtn';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
 
 const { stablePrefix } = ddsSettings;
