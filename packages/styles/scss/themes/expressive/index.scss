@@ -13,8 +13,10 @@
 // Carbon component theming
 @import 'components/accordion';
 @import 'components/button';
+@import 'components/code-snippet';
 @import 'components/combo-box';
 @import 'components/content-switcher';
+@import 'components/copy-button';
 @import 'components/date-picker';
 @import 'components/inline-loading';
 @import 'components/inline-notifications';
@@ -47,8 +49,10 @@
     // Component mixins
     @include accordion-expressive;
     @include button-expressive;
+    @include code-snippet-expressive;
     @include combo-box-expressive;
     @include content-switcher-expressive;
+    @include copy-button-expressive;
     @include date-picker-expressive;
     @include inline-loading-expressive;
     @include inline-notifications-expressive;
