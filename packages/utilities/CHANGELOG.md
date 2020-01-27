@@ -3,6 +3,77 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-utilities@1.2.1...@carbon/ibmdotcom-utilities@1.3.0-rc.0) (2020-01-20)
+
+### Bug Fixes
+
+- **cloud:** fixing output folder targets
+  ([c87b470](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c87b470))
+- **jsdoc:** updated jsdocs adding the requestanimationframe
+  ([fe3e667](https://github.com/carbon-design-system/ibm-dotcom-library/commit/fe3e667))
+- **jsdocs:** js-docs updated
+  ([73c1f09](https://github.com/carbon-design-system/ibm-dotcom-library/commit/73c1f09))
+- **lint:** fixed lint issues for another components
+  ([bed7f89](https://github.com/carbon-design-system/ibm-dotcom-library/commit/bed7f89))
+- **lint:** imports sorted alphabetically
+  ([1e57bef](https://github.com/carbon-design-system/ibm-dotcom-library/commit/1e57bef))
+- **markdown-utility:** make converter be opt-out
+  ([2fc67bd](https://github.com/carbon-design-system/ibm-dotcom-library/commit/2fc67bd))
+- **markdown-utility:** update tests
+  ([bbe1439](https://github.com/carbon-design-system/ibm-dotcom-library/commit/bbe1439))
+- **utility:** abstracted one loop from the same-height function
+  ([616f68b](https://github.com/carbon-design-system/ibm-dotcom-library/commit/616f68b))
+- **utility:** changed same-height utility name to camel case
+  ([0ae32c9](https://github.com/carbon-design-system/ibm-dotcom-library/commit/0ae32c9))
+- **utility:** changed same-height utility name to camel case
+  ([793e29e](https://github.com/carbon-design-system/ibm-dotcom-library/commit/793e29e))
+- **utility:** changed same-height utility name to camel case
+  ([c64bdb8](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c64bdb8))
+- **utility:** changed same-height utility name to camel case
+  ([1fe45e8](https://github.com/carbon-design-system/ibm-dotcom-library/commit/1fe45e8))
+- **utility:** changed utility folder name
+  ([555a12b](https://github.com/carbon-design-system/ibm-dotcom-library/commit/555a12b))
+- **utility:** documentation fixed
+  ([5882210](https://github.com/carbon-design-system/ibm-dotcom-library/commit/5882210))
+- **utility:** update on samheight function
+  ([751b893](https://github.com/carbon-design-system/ibm-dotcom-library/commit/751b893))
+
+### Features
+
+- **cloud:** adding cloud foundry manifest files
+  ([af82de3](https://github.com/carbon-design-system/ibm-dotcom-library/commit/af82de3))
+- **markdown-converter:** add carbon classes option + fixes
+  ([a8e4d31](https://github.com/carbon-design-system/ibm-dotcom-library/commit/a8e4d31))
+- **markdown-converter:** add expected output in example
+  ([ad9a846](https://github.com/carbon-design-system/ibm-dotcom-library/commit/ad9a846))
+- **markdown-converter:** add tag to allow html
+  ([68077a2](https://github.com/carbon-design-system/ibm-dotcom-library/commit/68077a2))
+- **markdown-converter:** add tests and double space checking
+  ([68006c0](https://github.com/carbon-design-system/ibm-dotcom-library/commit/68006c0))
+- **markdown-converter:** correct dependency
+  ([9420e4e](https://github.com/carbon-design-system/ibm-dotcom-library/commit/9420e4e))
+- **markdown-converter:** implement markdown converter utility
+  ([f7ca1e5](https://github.com/carbon-design-system/ibm-dotcom-library/commit/f7ca1e5))
+- **markdown-converter:** js docs and defaults corrections
+  ([9dea0f5](https://github.com/carbon-design-system/ibm-dotcom-library/commit/9dea0f5))
+- **markdown-converter:** just removing extra line
+  ([6fa749e](https://github.com/carbon-design-system/ibm-dotcom-library/commit/6fa749e))
+- **markdown-converter:** update js docs example
+  ([1e5cf47](https://github.com/carbon-design-system/ibm-dotcom-library/commit/1e5cf47))
+- **markdown-converter:** use semantic html with classes
+  ([02419a3](https://github.com/carbon-design-system/ibm-dotcom-library/commit/02419a3))
+- **utility:** added minSize parameter, documentation updated
+  ([93d7830](https://github.com/carbon-design-system/ibm-dotcom-library/commit/93d7830))
+- **utility:** changed sameheight to work as a function an array param
+  ([9c4ab16](https://github.com/carbon-design-system/ibm-dotcom-library/commit/9c4ab16))
+- **utility:** first version of the sameheight utility
+  ([a7681dc](https://github.com/carbon-design-system/ibm-dotcom-library/commit/a7681dc))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.2.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-utilities@1.2.1-rc.0...@carbon/ibmdotcom-utilities@1.2.1) (2019-12-20)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-utilities
