@@ -88,6 +88,7 @@ function _loadScript() {
     _scriptLoading = false;
   };
 }
+
 /**
  *
  * VideoPlayerAPI class with methods of checking script state and
