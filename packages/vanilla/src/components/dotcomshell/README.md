@@ -48,20 +48,14 @@ const dotcomShellProps = {
   }
 };
 
-async function _getDotcomShell() {
+async function _loadDotcomShell() {
   const template = await DotcomShell.getDotcomShellWithData({content, ...dotcomShellProps});
-
-  return template;
+  const yourapp = document.getElementById('yourapp');
+  yourapp.innerHTML = template;
+  DotcomShell.init(yourapp);
 }
 
-const dotcomshellContainer = document.createElement('div');
-dotcomshellContainer.textContent = 'Loading...';
-_getDotcomShell().then(html => {
-  dotcomshellContainer.innerHTML = html;
-  DotcomShell.init(dotcomshellContainer);
-});
-
-return dotcomshellContainer;
+_loadDotcomShell();
 ```
 
 > 💡 And don't forget to import the DotcomShell styles from
