@@ -125,7 +125,6 @@ function _renderNavItem(link) {
  */
 function _renderSubNavItem(link) {
   return `
-
     <li class="${prefix}--side-nav__menu-item" role="none"><a href="${link.url}" data-autoid="dds--masthead__l0-sidenav--subnav-col0-item1" class="${prefix}--side-nav__link" role="menuitem"><span class="${prefix}--side-nav__link-text">${link.title}</span></a></li>
   `;
 }
