@@ -5,7 +5,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { getAttributes, toString } from '@carbon/icon-helpers';
 import close from '@carbon/icons/es/close/20';
 import cx from 'classnames';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
@@ -16,6 +15,7 @@ import mastheadProfile from './mastheadProfile.template';
 import mastheadSearch from './mastheadSearch.template';
 import menu from '@carbon/icons/es/menu/20';
 import { settings } from 'carbon-components';
+import { toString } from '@carbon/icon-helpers';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
@@ -118,21 +118,6 @@ function _mastheadPlatform(platform) {
  */
 function _mastheadLeftnav(navigation) {
   return mastheadLeftnav(navigation);
-}
-
-/**
- * renders masthead left nav hamburger
- *
- * @returns {object} JSX object
- * @private
- */
-function _renderSidenavButton() {
-  const menuIcon = toString({
-    ...menu,
-    attr: getAttributes(menu.attrs),
-  });
-
-  return menuIcon;
 }
 
 /**

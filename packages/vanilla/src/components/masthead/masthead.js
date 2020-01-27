@@ -16,10 +16,12 @@ import MastheadSideNav from './masthead-sidenav';
 import MastheadSubmenu from './masthead-submenu';
 import { OverflowMenu } from 'carbon-components';
 import autoComplete from '@tarekraafat/autocomplete.js/dist/js/autoComplete';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import mastheadTemplate from './masthead.template';
 import root from 'window-or-global';
 import { settings } from 'carbon-components';
 
+const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
@@ -142,7 +144,7 @@ class Masthead {
         resultItem: {
           content: (data, source) => {
             source.classList.add('react-autosuggest__suggestion');
-            const inner = `<div class="bx--container-class" data-autoid="dds--masthead__searchresults--suggestion">${data.match}</div>`;
+            const inner = `<div class="${prefix}--container-class" data-autoid="${stablePrefix}--masthead__searchresults--suggestion">${data.match}</div>`;
             source.insertAdjacentHTML('beforeend', inner);
           },
           element: 'li',
@@ -232,7 +234,7 @@ class Masthead {
   }
 
   /**
-   * This fetches the translation data, then returns the footer template
+   * This fetches the translation data, then returns the masthead template
    * with the injected navigation data
    *
    * @param {object} navigation Masthead nav data
