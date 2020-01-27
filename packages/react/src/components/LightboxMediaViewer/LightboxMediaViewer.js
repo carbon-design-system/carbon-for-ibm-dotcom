@@ -5,7 +5,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, { useEffect } from 'react';
 import {
   settings as ddsSettings,
   featureFlag,
@@ -15,7 +14,7 @@ import { ExpressiveModal } from '../ExpressiveModal';
 import { Image } from '../Image';
 import { ModalBody } from 'carbon-components-react';
 import PropTypes from 'prop-types';
-import { VideoPlayerAPI } from '@carbon/ibmdotcom-services';
+import React from 'react';
 import { settings } from 'carbon-components';
 
 const { stablePrefix } = ddsSettings;
@@ -32,15 +31,6 @@ const { prefix } = settings;
  * @returns {*} JSX Object
  */
 const LightboxMediaViewer = ({ title, image, copy, ...modalProps }) => {
-  useEffect(() => {
-    (async () => {
-      const embedData = await VideoPlayerAPI.embedVideo(
-        '0_uka1msg4',
-        document.getElementById('kaltura_player')
-      );
-      console.log(embedData);
-    })();
-  });
   return featureFlag(
     DDS_LIGHTBOX_MEDIA_VIEWER,
     <section
@@ -50,11 +40,7 @@ const LightboxMediaViewer = ({ title, image, copy, ...modalProps }) => {
         <ModalBody>
           <div className={`${prefix}--lightbox-media-viewer__container`}>
             <div className={`${prefix}--lightbox-media-viewer__row`}>
-              <div
-                data-autoid={`${stablePrefix}--lightbox-media-viewer__image`}
-                className={`${prefix}--lightbox-media-viewer__image`}>
-                <Image {...image} />
-              </div>
+              <Image {...image} />
               <div className={`${prefix}--lightbox-media-viewer__content`}>
                 {title && (
                   <div
@@ -70,11 +56,6 @@ const LightboxMediaViewer = ({ title, image, copy, ...modalProps }) => {
                     {copy}
                   </div>
                 )}
-              </div>
-              <div
-                id="kaltura_player"
-                className={`${prefix}--lighbox-media-viewer__content__videoPlayer`}>
-                <a href="http://www.example.com">watch</a>
               </div>
             </div>
           </div>

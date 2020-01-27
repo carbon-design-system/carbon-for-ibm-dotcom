@@ -19,12 +19,6 @@
     &__row {
       @include carbon--make-row;
     }
-    &__image {
-      img {
-        max-width: 100%;
-        height: auto;
-      }
-    }
     &__content {
       @include carbon--type-style('body-long-02');
 
@@ -39,10 +33,6 @@
 
         color: $text-02;
       }
-    }
-    &__videoPlayer {
-      width: '400px';
-      height: '400px';
     }
     @include carbon--breakpoint('md') {
       .#{$prefix}--model-container {

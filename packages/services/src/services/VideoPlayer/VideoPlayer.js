@@ -1,6 +1,16 @@
+/**
+ * These id's for production use of IBM.com
+ * @type {number} _partnerId The ID of your Kaltura account (aka partnerId)
+ * @type {number} _uiConfId The ID of the Kaltura player to use
+ * @private
+ */
 const _partnerId = process.env.KALTURA_PARTNER_ID || 243342;
 const _uiConfId = process.env.KALTURA_UICONF_ID || 12905712;
 
+/**
+ * @type {string} _embedUrl The API URL to call
+ * @private
+ */
 const _embedUrl = `https://cdnapisec.kaltura.com/p/${_partnerId}/sp/${_partnerId}00/embedIframeJs/uiconf_id/${_uiConfId}/partner_id/${_partnerId}`;
 
 /**
@@ -9,6 +19,7 @@ const _embedUrl = `https://cdnapisec.kaltura.com/p/${_partnerId}/sp/${_partnerId
  * @type {number}
  * @private
  */
+
 const _timeoutRetries = 50;
 /**
  *
@@ -21,11 +32,14 @@ let _attempt = 0;
 /**
  *
  * Tracks the script either in loaded state or loading state
- * @type {boolean}
+ * @type {boolean} _scriptLoaded to track the script loaded or not
+ * * @type {boolean} _scriptLoading to track the script loading or not
  * @private
  */
 let _scriptLoaded = false;
 let _scriptLoading = false;
+
+let kWidget;
 
 /**
  *
@@ -101,13 +115,9 @@ class VideoPlayerAPI {
    * @returns {object}  object
    */
   static async embedVideo(videoId, targetId) {
-    let kWidget;
     return await this.checkScript().then(() => {
-      if (typeof kWidget == 'undefined') {
-        return;
-      }
       kWidget.embed({
-        targetId: 'kaltura_player',
+        targetId: targetId,
         wid: '_' + _partnerId,
         uiconf_id: _uiConfId,
         entry_id: videoId,
@@ -116,14 +126,63 @@ class VideoPlayerAPI {
         },
         // Ready callback is issued for this player:
         readyCallback: function(playerId) {
-          console.log('kWidget player ready: ' + playerId, targetId);
           var kdp = document.getElementById(playerId);
           kdp.kBind('Play', function() {
-            console.log('do Play called on  ' + playerId);
+            return playerId;
           });
+          var events = [
+            'layoutBuildDone',
+            'playerReady',
+            'mediaLoaded',
+            'mediaError',
+            'playerStateChange',
+            'firstPlay',
+            'playerPlayed',
+            'playerPaused',
+            'preSeek',
+            'seek',
+            'seeked',
+            'playerUpdatePlayhead',
+            'openFullScreen',
+            'closeFullScreen',
+            'volumeChanged',
+            'mute',
+            'unmute',
+            'bufferChange',
+            'cuePointReached',
+            'playerPlayEnd',
+            'onChangeMedia',
+            'onChangeMediaDone',
+          ];
+          for (var i = 0; i < events.length; i++) {
+            (function(i) {
+              kdp.kBind(events[i], function(event) {
+                return JSON.stringify(event);
+              });
+            })(i);
+          }
         },
       });
     });
+  }
+
+  /**
+   * Gets the api data
+   *
+   * @param {string} videoId  The videoId we're embedding the placeholder for.
+   * @returns {object}  object
+   */
+  static async api(videoId) {
+    return await new kWidget.api({ wid: _partnerId }).doRequest(
+      {
+        service: 'media',
+        action: 'get',
+        entryId: videoId,
+      },
+      function(jsonObj) {
+        return jsonObj;
+      }
+    );
   }
 }
 
