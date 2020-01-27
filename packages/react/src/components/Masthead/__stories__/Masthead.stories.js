@@ -7,7 +7,7 @@ import mastheadKnobs from './data/Masthead.stories.knobs.js';
 import readme from '../README.md';
 import { storiesOf } from '@storybook/react';
 
-storiesOf('Masthead', module)
+storiesOf('Components|Masthead', module)
   .addDecorator(withKnobs)
   .addParameters({
     readme: {

@@ -1612,6 +1612,11 @@
   resolved "https://registry.yarnpkg.com/@carbon/icon-helpers/-/icon-helpers-10.5.0.tgz#dca43b95ead0555d308a583983835804b869f810"
   integrity sha512-ivKSCd3sl+Qm0PCLhGje7FAHnK8anX8Fml0rYgraIptU5JOASWrBKu14EUtGZwL9UP/tzszvufrzwO599cN9Qw==
 
+"@carbon/icon-helpers@^10.5.1":
+  version "10.5.1"
+  resolved "https://registry.yarnpkg.com/@carbon/icon-helpers/-/icon-helpers-10.5.1.tgz#a13426cf137eb6080cfe46405a567bd470b597a3"
+  integrity sha512-CPNDoDQYjCGg51WfI7w2Iwgz0S+svh0E3hWh3aybnDMhUPlikz8QFiWNpD55NSXAYe1C21CtRla6Rgxa1EkmNg==
+
 "@carbon/icons-react@^10.8.0":
   version "10.8.0"
   resolved "https://registry.yarnpkg.com/@carbon/icons-react/-/icons-react-10.8.0.tgz#f554a6df18e12f3da74eb5cf86820d5b7cb358cc"
@@ -1634,12 +1639,12 @@
   resolved "https://registry.yarnpkg.com/@carbon/layout/-/layout-10.7.0.tgz#4146a68f35ff44d0ec891946523123bdf4094d30"
   integrity sha512-PXpd9QCIatzGlQkXj7DWlTf7wgFMDCEMNTWj9Wrby93HdJ0veGJ7bLNzTCxe1CVtJmG8iDNj7DBv8J17YazYKQ==
 
-"@carbon/pictograms-react@^10.8.0":
-  version "10.8.0"
-  resolved "https://registry.yarnpkg.com/@carbon/pictograms-react/-/pictograms-react-10.8.0.tgz#0c6d44e114c1a3628fb2b96ea1af85f26f1a24d8"
-  integrity sha512-kQXAvv8j7eMNGaA/vUzvri4X4rzaVL/vMhi1uQPt6JK2/8ne2IrAMRXAJV6fa75404rnS7HG9uFDr/BcVLTmsA==
+"@carbon/pictograms-react@^10.8.1":
+  version "10.8.1"
+  resolved "https://registry.yarnpkg.com/@carbon/pictograms-react/-/pictograms-react-10.8.1.tgz#ba6e68dad453f511c355a8c51689bceddbdf021a"
+  integrity sha512-sZ9IkGSAE7lPLzjxgAhLNnb236kUpis3kMW86s1FNCQDzxk7WXJBLHNjvUis2CN2hyslxadV08YwEWWYwvmaZg==
   dependencies:
-    "@carbon/icon-helpers" "^10.5.0"
+    "@carbon/icon-helpers" "^10.5.1"
 
 "@carbon/themes@10.9.0":
   version "10.9.0"
@@ -16904,7 +16909,7 @@ react-docgen@^4.1.0:
     node-dir "^0.1.10"
     recast "^0.17.3"
 
-react-dom@16.9.0, react-dom@^16.8.3, react-dom@^16.8.6:
+react-dom@16.9.0, react-dom@^16.8.3:
   version "16.9.0"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.9.0.tgz#5e65527a5e26f22ae3701131bcccaee9fb0d3962"
   integrity sha512-YFT2rxO9hM70ewk9jq0y6sQk8cL02xm4+IzYBz75CQGlClQQ1Bxq0nhHF6OtSbit+AIahujJgb/CPRibFkMNJQ==

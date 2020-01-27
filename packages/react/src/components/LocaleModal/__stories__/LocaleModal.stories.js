@@ -9,7 +9,7 @@ const localeModalProps = {
   headerTitle: text('title', 'Select region'),
 };
 
-storiesOf('Locale Modal', module)
+storiesOf('Components|Locale Modal', module)
   .addDecorator(withKnobs)
   .addParameters({
     readme: {
