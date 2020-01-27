@@ -1627,12 +1627,24 @@
   resolved "https://registry.yarnpkg.com/@carbon/icon-helpers/-/icon-helpers-10.5.1.tgz#a13426cf137eb6080cfe46405a567bd470b597a3"
   integrity sha512-CPNDoDQYjCGg51WfI7w2Iwgz0S+svh0E3hWh3aybnDMhUPlikz8QFiWNpD55NSXAYe1C21CtRla6Rgxa1EkmNg==
 
+"@carbon/icon-helpers@^10.5.2-rc.0":
+  version "10.5.2-rc.0"
+  resolved "https://registry.yarnpkg.com/@carbon/icon-helpers/-/icon-helpers-10.5.2-rc.0.tgz#4ab0d2b1b6cbfb8e9d2146caeb91b01d3f1693df"
+  integrity sha512-bhSF95dMNupskk/SQVg6KbQUJ1o2JqIsTI/IEW19guDgMYwP6is2pEQweRO+L3jWRXNLUvyrlnhsBpFTQnVzBQ==
+
 "@carbon/icons-react@^10.8.0":
   version "10.8.0"
   resolved "https://registry.yarnpkg.com/@carbon/icons-react/-/icons-react-10.8.0.tgz#f554a6df18e12f3da74eb5cf86820d5b7cb358cc"
   integrity sha512-I5/KtwutKL57SOEj7kk6clMiGOp0i7m3BytTeIah+b0UHs2tcEDGvJQTUGHPqhcZzFAw77BZPRnZ6qM4cEZHfA==
   dependencies:
     "@carbon/icon-helpers" "^10.5.0"
+
+"@carbon/icons-react@^10.8.2-rc.0":
+  version "10.8.2-rc.0"
+  resolved "https://registry.yarnpkg.com/@carbon/icons-react/-/icons-react-10.8.2-rc.0.tgz#abd666cc0a5c1e50e46bd29d8842c71f041a59be"
+  integrity sha512-A/xG9eAwjoZzDC03GRggFTlb7fIYU/b/2WO5H7n6JGG/mZ2z4h1+9dvH4GiWGGO0QemueGU8KCqTDHM8Wn1hmQ==
+  dependencies:
+    "@carbon/icon-helpers" "^10.5.2-rc.0"
 
 "@carbon/import-once@10.3.0":
   version "10.3.0"
@@ -7169,10 +7181,38 @@ carbon-components-react@7.9.0:
     warning "^3.0.0"
     window-or-global "^1.0.1"
 
+carbon-components-react@7.9.3-rc.0:
+  version "7.9.3-rc.0"
+  resolved "https://registry.yarnpkg.com/carbon-components-react/-/carbon-components-react-7.9.3-rc.0.tgz#638265f81fa8bf588c4fdd6b8f5513e5fbd18cf2"
+  integrity sha512-UaIil3KfzmluDjyl/J3IrSmBphrjuFpQARHeviBo4j+wngddHJLZ5ShsNhIu55Z+o4i3MF1hngzLX7boUj94EA==
+  dependencies:
+    "@carbon/icons-react" "^10.8.2-rc.0"
+    classnames "2.2.6"
+    downshift "^1.31.14"
+    flatpickr "4.6.1"
+    focus-trap-react "^6.0.0"
+    invariant "^2.2.3"
+    lodash.debounce "^4.0.8"
+    lodash.isequal "^4.5.0"
+    lodash.omit "^4.5.0"
+    react-is "^16.8.6"
+    warning "^3.0.0"
+    window-or-global "^1.0.1"
+
 carbon-components@10.9.0, carbon-components@^10.7.4:
   version "10.9.0"
   resolved "https://registry.yarnpkg.com/carbon-components/-/carbon-components-10.9.0.tgz#b96f097582301b009232ebc54927327ee3608a84"
   integrity sha512-r0fHHGV1nAGazL42ecsFSBHlrRlg/2d1XAvnlnRzOvZW8O+DFR4XxpAgf5ZWKFCiiysS5eDympZTqTflN/NewQ==
+  dependencies:
+    carbon-icons "^7.0.7"
+    flatpickr "4.6.1"
+    lodash.debounce "^4.0.8"
+    warning "^3.0.0"
+
+carbon-components@10.9.3-rc.0:
+  version "10.9.3-rc.0"
+  resolved "https://registry.yarnpkg.com/carbon-components/-/carbon-components-10.9.3-rc.0.tgz#9e68cf33e1b7078dae510976f77291ff3f4e6649"
+  integrity sha512-igE41DIwzY7uvWhyu7eW1HndJ/GzIN7Y1LnWWdhmOHVCJOYspXAqZI8cA87D88a16q6vKbKsH38JKpOrv7N8lg==
   dependencies:
     carbon-icons "^7.0.7"
     flatpickr "4.6.1"
