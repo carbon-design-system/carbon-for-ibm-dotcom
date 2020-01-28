@@ -32,7 +32,7 @@ const TOCDesktopMenu = ({ autoMenuItems ,menuItems, selectedId, updateState }) =
    * @returns {*} JSX Object
    */
   const renderMenuItems = (autoMenuItems ,items, activeId) => {
-    // console.log("Auto Menu Itesm",autoMenuItems);
+    console.log("Auto Menu Itesm",autoMenuItems);
     return items.map(item => {
       if (item && item.id !== 'menuLabel') {
         return (
@@ -91,7 +91,7 @@ const TOCDesktopMenu = ({ autoMenuItems ,menuItems, selectedId, updateState }) =
     <div
       className={`${prefix}--tableofcontents__desktop`}
       data-autoid={`${stablePrefix}--tableofcontents__desktop`}>
-      <ul>{renderMenuItems(menuItems, selectedId)}</ul>
+      <ul>{renderMenuItems(autoMenuItems, menuItems, selectedId)}</ul>
     </div>
   );
 };

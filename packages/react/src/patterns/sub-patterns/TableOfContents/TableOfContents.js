@@ -35,9 +35,10 @@ const TableOfContents = ({ menuItems, children, menuLabel, theme }) => {
   const [selectedId, setSelectedId] = useState(menuItems[0]);
   const [selectedTitle, setSelectedTitle] = useState(menuItems[0].title);
   const [autoMenuItems, setmenuItems] = useState([]);
+  const [count, setCount] = useState(0);
   useEffect(() => {
+    document.title = `You clicked ${count} times`;
     if (!menuItems){
-      console.log('coming inside **********');
       setmenuItems(_find_menu_items(children));
     }
     scrollStop(setSelectedItem);
@@ -163,6 +164,10 @@ const TableOfContents = ({ menuItems, children, menuLabel, theme }) => {
       data-autoid={`${stablePrefix}--tableofcontents`}
       className={classNames(`${prefix}--tableofcontents`, _setTheme(theme))}>
       <Layout {...layoutProps}>
+        <p>You clicked {count} times</p>
+        <button onClick={() => setCount(count + 1)}>
+          Click me
+        </button>
         <div
           style={{ position: 'sticky', top: '0' }}
           className={`${prefix}--tableofcontents__sidebar`}

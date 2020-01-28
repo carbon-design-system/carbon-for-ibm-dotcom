@@ -40,7 +40,6 @@ if (DDS_TOC) {
           id: '14',
         },
       ];
-      // const defaultValue = menuItems[1].id;
 
       const themes = {
         g100: 'g100',
