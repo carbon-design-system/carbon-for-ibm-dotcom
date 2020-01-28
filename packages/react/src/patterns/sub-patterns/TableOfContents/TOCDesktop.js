@@ -24,6 +24,8 @@ const { prefix } = settings;
  * @returns {*} JSX Object
  */
 const TOCDesktopMenu = ({ menuItems, selectedId, updateState }) => {
+  console.log(menuItems,'jdyfsv');
+  
   /**
    * Render menu items
    *

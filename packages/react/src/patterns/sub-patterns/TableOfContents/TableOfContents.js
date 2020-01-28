@@ -32,12 +32,10 @@ const { prefix } = settings;
  * @returns {*} JSX Object
  */
 const TableOfContents = ({ menuItems, children, menuLabel, theme }) => {
-  const [selectedId, setSelectedId] = useState(menuItems[0]);
+  const [selectedId, setSelectedId] = useState(menuItems[0].id);
   const [selectedTitle, setSelectedTitle] = useState(menuItems[0].title);
   const [autoMenuItems, setmenuItems] = useState({});
-  const [count, setCount] = useState(0);
   useEffect(() => {
-    document.title = `You clicked ${count} times`;
     if (!menuItems){
       setmenuItems(_find_menu_items(children));
     }
@@ -141,8 +139,11 @@ const TableOfContents = ({ menuItems, children, menuLabel, theme }) => {
     updateState,
   };
 
+  
   const _find_menu_items = (children) => { 
-    const values =  children.filter(element => element.props['data-title'] && element.props.name);
+    const values =  [...children].filter(child.addEventListener('click', () => {
+      child => child.props['data-title'] && child.props.name
+    }))
     return values.map(value => (
       {
         'title':value.props['data-title'],
@@ -162,10 +163,6 @@ const TableOfContents = ({ menuItems, children, menuLabel, theme }) => {
       data-autoid={`${stablePrefix}--tableofcontents`}
       className={classNames(`${prefix}--tableofcontents`, _setTheme(theme))}>
       <Layout {...layoutProps}>
-        <p>You clicked {count} times</p>
-        <button onClick={() => setCount(count + 1)}>
-          Click me
-        </button>
         <div
           style={{ position: 'sticky', top: '0' }}
           className={`${prefix}--tableofcontents__sidebar`}
@@ -176,7 +173,6 @@ const TableOfContents = ({ menuItems, children, menuLabel, theme }) => {
         </div>
         <div className={`${prefix}--tableofcontents__content`}>
           <div className={`${prefix}--tableofcontents__content-wrapper`}>
-            {/* {console.log(children)} */}
             {children}
           </div>
         </div>
