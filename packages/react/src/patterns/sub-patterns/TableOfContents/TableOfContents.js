@@ -34,7 +34,7 @@ const { prefix } = settings;
 const TableOfContents = ({ menuItems, children, menuLabel, theme }) => {
   const [selectedId, setSelectedId] = useState(menuItems[0]);
   const [selectedTitle, setSelectedTitle] = useState(menuItems[0].title);
-  const [autoMenuItems, setmenuItems] = useState([]);
+  const [autoMenuItems, setmenuItems] = useState({});
   const [count, setCount] = useState(0);
   useEffect(() => {
     document.title = `You clicked ${count} times`;
@@ -143,8 +143,6 @@ const TableOfContents = ({ menuItems, children, menuLabel, theme }) => {
 
   const _find_menu_items = (children) => { 
     const values =  children.filter(element => element.props['data-title'] && element.props.name);
-    console.log(values,'values');
-    console.log(children,'children');
     return values.map(value => (
       {
         'title':value.props['data-title'],

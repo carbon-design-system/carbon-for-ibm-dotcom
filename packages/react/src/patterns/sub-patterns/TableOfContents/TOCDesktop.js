@@ -23,7 +23,7 @@ const { prefix } = settings;
  * @param {*} props.updateState function to update parent state.
  * @returns {*} JSX Object
  */
-const TOCDesktopMenu = ({ autoMenuItems ,menuItems, selectedId, updateState }) => {
+const TOCDesktopMenu = ({ menuItems, selectedId, updateState }) => {
   /**
    * Render menu items
    *
@@ -31,8 +31,7 @@ const TOCDesktopMenu = ({ autoMenuItems ,menuItems, selectedId, updateState }) =
    * @param {string} activeId selected item id
    * @returns {*} JSX Object
    */
-  const renderMenuItems = (autoMenuItems ,items, activeId) => {
-    console.log("Auto Menu Itesm",autoMenuItems);
+  const renderMenuItems = (items, activeId) => {
     return items.map(item => {
       if (item && item.id !== 'menuLabel') {
         return (
@@ -91,7 +90,7 @@ const TOCDesktopMenu = ({ autoMenuItems ,menuItems, selectedId, updateState }) =
     <div
       className={`${prefix}--tableofcontents__desktop`}
       data-autoid={`${stablePrefix}--tableofcontents__desktop`}>
-      <ul>{renderMenuItems(autoMenuItems, menuItems, selectedId)}</ul>
+      <ul>{renderMenuItems( menuItems, selectedId)}</ul>
     </div>
   );
 };
