@@ -24,14 +24,14 @@ if (DDS_CONTENT_ITEM) {
 
       const image = {
         images: object('Image assets:', [
-          { src: 'https://picsum.photos/id/2/320/160', minWidth: 320 },
-          { src: 'https://picsum.photos/id/2/400/400', minWidth: 400 },
-          { src: 'https://picsum.photos/id/2/672/672', minWidth: 672 },
+          { src: 'https://picsum.photos/id/2/288/144', minWidth: 'sm' },
+          { src: 'https://picsum.photos/id/2/448/224', minWidth: 'md' },
+          { src: 'https://picsum.photos/id/2/352/176', minWidth: 'lg' },
         ]),
-        alt: text('alt', 'lead space image'),
+        alt: text('alt', 'content item image'),
         defaultImage: text(
           'default image:',
-          'https://picsum.photos/id/2/672/672'
+          'https://picsum.photos/id/2/352/176'
         ),
       };
       return <ContentItem heading={heading} copy={copy} image={image} />;

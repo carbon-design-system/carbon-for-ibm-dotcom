@@ -9,14 +9,28 @@
 
 @mixin content-item {
   .#{$prefix}--content-item {
+    display: flex;
+    flex-direction: column;
+
     &__heading {
+      margin-top: $carbon--spacing-07;
       @include carbon--type-style('heading-02');
     }
+
     &__image {
       margin: $carbon--spacing-05 0 $carbon--spacing-07;
+      width: 100%;
+      max-width: rem(544px);
     }
+
     &__copy {
       @include carbon--type-style('body-long-02');
+    }
+  }
+
+  @include carbon--breakpoint('md') {
+    .#{$prefix}--content-item__image {
+      width: 75%;
     }
   }
 }
