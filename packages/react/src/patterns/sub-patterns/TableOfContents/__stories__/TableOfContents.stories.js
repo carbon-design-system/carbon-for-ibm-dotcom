@@ -1,10 +1,11 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import './index.scss';
 import { select, text, withKnobs } from '@storybook/addon-knobs';
 import { DDS_TOC } from '../../../../internal/FeatureFlags';
 import React from 'react';
-import TableOfContents from '../TableOfContents';
 import readme from '../README.md';
 import { storiesOf } from '@storybook/react';
+import TableOfContents from '../TableOfContents';
 
 if (DDS_TOC) {
   storiesOf('Patterns (Sub-Patterns)|Table of Contents', module)

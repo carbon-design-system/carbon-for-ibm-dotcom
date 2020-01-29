@@ -2,8 +2,8 @@ import './index.scss';
 import { object, select, text, withKnobs } from '@storybook/addon-knobs';
 import { DDS_SIMPLEBENEFITS } from '../../../../internal/FeatureFlags';
 import React from 'react';
-import SimpleBenefits from '../SimpleBenefits';
 import readme from '../README.md';
+import SimpleBenefits from '../SimpleBenefits';
 import { storiesOf } from '@storybook/react';
 
 if (DDS_SIMPLEBENEFITS) {

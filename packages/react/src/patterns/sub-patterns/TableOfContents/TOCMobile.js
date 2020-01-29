@@ -6,11 +6,11 @@
  */
 
 import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
-import { TableOfContents20 } from '@carbon/icons-react';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import PropTypes from 'prop-types';
 import root from 'window-or-global';
 import { settings } from 'carbon-components';
+import { TableOfContents20 } from '@carbon/icons-react';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
@@ -74,7 +74,7 @@ const TOCMobile = ({ menuItems, selectedId, menuLabel, updateState }) => {
   /**
    * Handle OnBlur event
    *
-   * @returns null
+   * @returns {null} Returns null for blur events
    */
   const handleOnBlur = () => {
     return null;

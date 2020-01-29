@@ -9,10 +9,10 @@ import { ArrowRight20 } from '@carbon/icons-react';
 import { CardLink } from '../../sub-patterns/CardLink';
 import { ContentGroup } from '../../sub-patterns/ContentGroup';
 import { DDS_FEATURED_LINK } from '../../../internal/FeatureFlags';
-import PropTypes from 'prop-types';
-import React from 'react';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { featureFlag } from '@carbon/ibmdotcom-utilities';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { settings } from 'carbon-components';
 
 const { stablePrefix } = ddsSettings;

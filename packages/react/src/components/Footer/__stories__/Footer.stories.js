@@ -1,9 +1,9 @@
 import './index.scss';
 import { boolean, object, select, withKnobs } from '@storybook/addon-knobs';
 import { Footer } from '../';
-import React from 'react';
 import footerMenu from '../__data__/footer-menu.json';
 import footerThin from '../__data__/footer-legal.json';
+import React from 'react';
 import readme from '../README.md';
 import { storiesOf } from '@storybook/react';
 

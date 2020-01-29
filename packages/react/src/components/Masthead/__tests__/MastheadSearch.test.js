@@ -5,11 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import MastheadSearch from '../MastheadSearch';
+import { mount } from 'enzyme';
 import React from 'react';
 import { SearchTypeaheadAPI } from '@carbon/ibmdotcom-services';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
-import { mount } from 'enzyme';
 
 const { stablePrefix } = ddsSettings;
 
