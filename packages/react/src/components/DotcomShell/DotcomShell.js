@@ -23,10 +23,11 @@ const { prefix } = settings;
  * @returns {*} DotcomShell component
  */
 const DotcomShell = ({
-  navigation,
+  children,
   footerNav,
   footerType,
-  children,
+  langCode,
+  navigation,
   ...mastheadProps
 }) => {
   return (
@@ -41,7 +42,7 @@ const DotcomShell = ({
           {children}
         </div>
       </div>
-      <Footer navigation={footerNav} type={footerType} />
+      <Footer navigation={footerNav} langCode={langCode} type={footerType} />
     </>
   );
 };
@@ -57,6 +58,7 @@ DotcomShell.propTypes = {
   navigation: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   footerNav: PropTypes.object,
   footerType: PropTypes.string,
+  langCode: PropTypes.object,
   mastheadProps: PropTypes.object,
 };
 
