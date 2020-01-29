@@ -143,6 +143,14 @@ export const DDS_CONTENT_GROUP =
   process.env.DDS_CONTENT_GROUP === 'true' || DDS_FLAGS_ALL || false;
 
 /**
+ * This determines if the ContentItem component will be rendered or not
+ *
+ * @type {string | boolean}
+ */
+export const DDS_CONTENT_ITEM =
+  process.env.DDS_CONTENT_ITEM === 'true' || DDS_FLAGS_ALL || false;
+
+/**
  * This flag turns on/off the ButtonGroup component
  *
  * @type {string | boolean}
