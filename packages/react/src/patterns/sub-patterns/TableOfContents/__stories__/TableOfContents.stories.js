@@ -6,8 +6,15 @@ import React from 'react';
 import readme from '../README.md';
 import { storiesOf } from '@storybook/react';
 import TableOfContents from '../TableOfContents';
+import content from './data/content';
 
 if (DDS_TOC) {
+  const _menuLabel = text('menu label', 'Jump to');
+
+  const _themes = {
+    g100: 'g100',
+    white: '',
+  };
   storiesOf('Patterns (Sub-Patterns)|Table of Contents', module)
     .addDecorator(withKnobs)
     .addParameters({
@@ -15,8 +22,7 @@ if (DDS_TOC) {
         sidebar: readme,
       },
     })
-    .add('Default', () => {
-      const menuLabel = text('menu label', 'Jump to');
+    .add('Manually define Menu Items', () => {
 
       const menuItems = [
         {
@@ -41,111 +47,21 @@ if (DDS_TOC) {
         },
       ];
 
-      const themes = {
-        g100: 'g100',
-        white: '',
-      };
-
       return (
         <TableOfContents
-          theme={select('theme', themes, themes.white)}
+          theme={select('theme', _themes, _themes.white)}
           menuItems={object('menuItems',menuItems)}
-          menuLabel={menuLabel}>
-          <a data-title='Cras molestie condimentum' name="8" style={{ color: '#000' }}>
-            <h3 style={{ paddingBottom: '1rem', paddingTop: '2rem' }}>
-              Cras molestie condimentum
-            </h3>
-          </a>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
-            molestie condimentum consectetur. Nulla tristique lacinia elit, at
-            elementum dui gravida non. Mauris et nisl semper, elementum quam
-            non, lacinia purus. Vivamus aliquam vitae sapien volutpat efficitur.
-            Curabitur sagittis neque facilisis magna posuere consectetur.
-            Praesent fermentum sodales facilisis. Mauris a efficitur sem.
-            Aliquam vehicula sapien libero, a viverra felis scelerisque vel.
-            Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-            posuere cubilia Curae; Donec fringilla dui tellus, a pretium diam
-            vehicula et. Etiam non vulputate augue. Morbi laoreet diam dapibus
-            sapien pellentesque tristique. Morbi id nibh metus. Integer non
-            scelerisque nisl.
-          </p>
-          <a data-title='Praesent fermentum sodales'  name="7" style={{ color: '#000' }}>
-            <h3 style={{ paddingBottom: '1rem', paddingTop: '2rem' }}>
-              Praesent fermentum sodales
-            </h3>
-          </a>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
-            molestie condimentum consectetur. Nulla tristique lacinia elit, at
-            elementum dui gravida non. Mauris et nisl semper, elementum quam
-            non, lacinia purus. Vivamus aliquam vitae sapien volutpat efficitur.
-            Curabitur sagittis neque facilisis magna posuere consectetur.
-            Praesent fermentum sodales facilisis. Mauris a efficitur sem.
-            Aliquam vehicula sapien libero, a viverra felis scelerisque vel.
-            Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-            posuere cubilia Curae; Donec fringilla dui tellus, a pretium diam
-            vehicula et. Etiam non vulputate augue. Morbi laoreet diam dapibus
-            sapien pellentesque tristique. Morbi id nibh metus. Integer non
-            scelerisque nisl.
-          </p>
-          <a data-title='Nulla tristique lacinia'  name="2" style={{ color: '#000' }}>
-            <h3 style={{ paddingBottom: '1rem', paddingTop: '2rem' }}>
-              Nulla tristique lacinia
-            </h3>
-          </a>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
-            molestie condimentum consectetur. Nulla tristique lacinia elit, at
-            elementum dui gravida non. Mauris et nisl semper, elementum quam
-            non, lacinia purus. Vivamus aliquam vitae sapien volutpat efficitur.
-            Curabitur sagittis neque facilisis magna posuere consectetur.
-            Praesent fermentum sodales facilisis. Mauris a efficitur sem.
-            Aliquam vehicula sapien libero, a viverra felis scelerisque vel.
-            Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-            posuere cubilia Curae; Donec fringilla dui tellus, a pretium diam
-            vehicula et. Etiam non vulputate augue. Morbi laoreet diam dapibus
-            sapien pellentesque tristique. Morbi id nibh metus. Integer non
-            scelerisque nisl.
-          </p>
-          <a data-title='Morbi id nibh metus' name="3" style={{ color: '#000' }}>
-            <h3 style={{ paddingBottom: '1rem', paddingTop: '2rem' }}>
-              Morbi id nibh metus
-            </h3>
-          </a>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
-            molestie condimentum consectetur. Nulla tristique lacinia elit, at
-            elementum dui gravida non. Mauris et nisl semper, elementum quam
-            non, lacinia purus. Vivamus aliquam vitae sapien volutpat efficitur.
-            Curabitur sagittis neque facilisis magna posuere consectetur.
-            Praesent fermentum sodales facilisis. Mauris a efficitur sem.
-            Aliquam vehicula sapien libero, a viverra felis scelerisque vel.
-            Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-            posuere cubilia Curae; Donec fringilla dui tellus, a pretium diam
-            vehicula et. Etiam non vulputate augue. Morbi laoreet diam dapibus
-            sapien pellentesque tristique. Morbi id nibh metus. Integer non
-            scelerisque nisl.
-          </p>
-          <a data-title='Integer non scelerisque' name="14" style={{ color: '#000' }}>
-            <h3 style={{ paddingBottom: '1rem', paddingTop: '2rem' }}>
-              Integer non scelerisque
-            </h3>
-          </a>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
-            molestie condimentum consectetur. Nulla tristique lacinia elit, at
-            elementum dui gravida non. Mauris et nisl semper, elementum quam
-            non, lacinia purus. Vivamus aliquam vitae sapien volutpat efficitur.
-            Curabitur sagittis neque facilisis magna posuere consectetur.
-            Praesent fermentum sodales facilisis. Mauris a efficitur sem.
-            Aliquam vehicula sapien libero, a viverra felis scelerisque vel.
-            Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-            posuere cubilia Curae; Donec fringilla dui tellus, a pretium diam
-            vehicula et. Etiam non vulputate augue. Morbi laoreet diam dapibus
-            sapien pellentesque tristique. Morbi id nibh metus. Integer non
-            scelerisque nisl.
-          </p>
+          menuLabel={_menuLabel}>
+          {content}
+        </TableOfContents>
+      );
+    })
+    .add('Dynamic Items', () => {
+      return (
+        <TableOfContents
+          theme={select('theme', _themes, _themes.white)}
+          menuLabel={_menuLabel}>
+          {content}
         </TableOfContents>
       );
     });

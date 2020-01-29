@@ -7,11 +7,9 @@
 
 import {
   settings as ddsSettings,
-  featureFlag,
 } from '@carbon/ibmdotcom-utilities';
 import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
-import { DDS_TOC } from '../../../internal/FeatureFlags';
 import Layout from '../Layout/Layout';
 import PropTypes from 'prop-types';
 import root from 'window-or-global';
@@ -32,12 +30,16 @@ const { prefix } = settings;
  * @returns {*} JSX Object
  */
 const TableOfContents = ({ menuItems, children, menuLabel, theme }) => {
-  const [selectedId, setSelectedId] = useState(menuItems[0].id);
-  const [selectedTitle, setSelectedTitle] = useState(menuItems[0].title);
-  const [autoMenuItems, setmenuItems] = useState({});
+  console.log(menuItems,'dfdf');
+  const [selectedId, setSelectedId] = useState('7');
+  const [selectedTitle, setSelectedTitle] = useState('Lorem Ipsum');
+  const [autoMenuItems, setmenuItems] = useState([]);
   useEffect(() => {
-    if (!menuItems){
-      setmenuItems(_find_menu_items(children));
+    console.log('inside useeffect');
+    if (!menuItems || menuItems=== undefined || menuItems === null){
+      console.log('inside if');
+      setmenuItems(_find_menu_items());
+      console.log(autoMenuItems,'uhdfshkdwkbdsbjkh');
     }
     scrollStop(setSelectedItem);
   });
@@ -70,18 +72,20 @@ const TableOfContents = ({ menuItems, children, menuLabel, theme }) => {
    * Set selected id & title
    *
    */
-  const setSelectedItem = () => {
-    const elems = getElemsInView();
-    const id = elems[0] || menuItems[0].id;
-    const filteredItems = menuItems.filter(menu => {
-      if (id !== 'undefined') {
-        return menu.id === id;
-      }
-    });
-    const title = filteredItems[0].title;
-    setSelectedId(id);
-    setSelectedTitle(title);
-  };
+  if (menuItems) {
+    var setSelectedItem = () => {
+      const elems = getElemsInView();
+      const id = elems[0] || menuItems[0].id;
+      const filteredItems = menuItems.filter(menu => {
+        if (id !== 'undefined') {
+          return menu.id == id;
+        }
+      });
+      const title = filteredItems[0].title;
+      setSelectedId(id);
+      setSelectedTitle(title);
+    };
+  }
 
   /**
    * Detect scroll stop event and run callback function
@@ -140,16 +144,13 @@ const TableOfContents = ({ menuItems, children, menuLabel, theme }) => {
   };
 
   
-  const _find_menu_items = (children) => { 
-    const values =  [...children].filter(child.addEventListener('click', () => {
-      child => child.props['data-title'] && child.props.name
-    }))
-    return values.map(value => (
-      {
-        'title':value.props['data-title'],
-        'id':value.props.name
-      }
-    ));
+  const _find_menu_items = () => { 
+    const eles = document.querySelectorAll('a[name]');
+    eles.forEach(element => {
+        menuItems.push({id:element.getAttribute('name'),title:element.getAttribute('data-title')});
+        console.log(element.getAttribute('data-title'),'hello element');
+    });
+    return menuItems;
   }
 
   /**
@@ -157,8 +158,7 @@ const TableOfContents = ({ menuItems, children, menuLabel, theme }) => {
    *
    * @returns {*} JSX Object
    */
-  return featureFlag(
-    DDS_TOC,
+  return (
     <section
       data-autoid={`${stablePrefix}--tableofcontents`}
       className={classNames(`${prefix}--tableofcontents`, _setTheme(theme))}>
@@ -169,7 +169,7 @@ const TableOfContents = ({ menuItems, children, menuLabel, theme }) => {
           data-sticky="true">
           <div className={`${prefix}--tableofcontents__mobile-top`}></div>
           <TOCDesktop autoMenuItems={autoMenuItems} {...props} />
-          <TOCMobile autoMenuItem={autoMenuItems} {...props} />
+          <TOCMobile autoMenuItems={autoMenuItems} {...props} />
         </div>
         <div className={`${prefix}--tableofcontents__content`}>
           <div className={`${prefix}--tableofcontents__content-wrapper`}>
@@ -178,7 +178,7 @@ const TableOfContents = ({ menuItems, children, menuLabel, theme }) => {
         </div>
       </Layout>
     </section>
-  );
+  )
 };
 
 TableOfContents.propTypes = {
