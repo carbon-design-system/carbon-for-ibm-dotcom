@@ -5,12 +5,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, { useEffect, useRef } from 'react';
 import {
   settings as ddsSettings,
   featureFlag,
 } from '@carbon/ibmdotcom-utilities';
 import { markdownToHtml, sameHeight } from '@carbon/ibmdotcom-utilities';
+import React, { useEffect, useRef } from 'react';
 
 import { ArrowRight20 } from '@carbon/icons-react';
 import { CardLink } from '../../sub-patterns/CardLink';

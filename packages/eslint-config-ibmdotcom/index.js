@@ -26,7 +26,13 @@ module.exports = {
         varsIgnorePattern: '^_',
       },
     ],
-    'sort-imports': 2,
+    'sort-imports': [
+      'error',
+      {
+        ignoreCase: true,
+        ignoreMemberSort: true,
+      },
+    ],
     'react/jsx-uses-vars': 1,
     'react/jsx-uses-react': 1,
 

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Button } from 'carbon-components-react';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { Globe20 } from '@carbon/icons-react';
 import LocaleModal from '../LocaleModal/LocaleModal';
 import PropTypes from 'prop-types';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
 
 const { stablePrefix } = ddsSettings;

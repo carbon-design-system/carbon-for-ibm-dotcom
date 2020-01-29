@@ -6,13 +6,13 @@
  */
 
 import { ArrowRight20 } from '@carbon/icons-react';
+import classNames from 'classnames';
 import { DDS_SIMPLE_OVERVIEW } from '../../../internal/FeatureFlags';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import { featureFlag } from '@carbon/ibmdotcom-utilities';
 import { LinkWithIcon } from '../../../components/LinkWithIcon';
 import PropTypes from 'prop-types';
 import React from 'react';
-import classNames from 'classnames';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
-import { featureFlag } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
 
 const { stablePrefix } = ddsSettings;
