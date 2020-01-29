@@ -1,6 +1,6 @@
 import LeadSpaceCentered from '../LeadSpaceCentered';
-import React from 'react';
 import { mount } from 'enzyme';
+import React from 'react';
 
 require('../../../../internal/FeatureFlags');
 
