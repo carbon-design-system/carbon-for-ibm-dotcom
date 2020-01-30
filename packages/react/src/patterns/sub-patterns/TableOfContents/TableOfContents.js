@@ -30,16 +30,12 @@ const { prefix } = settings;
  * @returns {*} JSX Object
  */
 const TableOfContents = ({ menuItems, children, menuLabel, theme }) => {
-  console.log(menuItems,'dfdf');
   const [selectedId, setSelectedId] = useState('7');
   const [selectedTitle, setSelectedTitle] = useState('Lorem Ipsum');
   const [autoMenuItems, setmenuItems] = useState([]);
   useEffect(() => {
-    console.log('inside useeffect');
     if (!menuItems || menuItems=== undefined || menuItems === null){
-      console.log('inside if');
       setmenuItems(_find_menu_items());
-      console.log(autoMenuItems,'uhdfshkdwkbdsbjkh');
     }
     scrollStop(setSelectedItem);
   });
@@ -148,7 +144,6 @@ const TableOfContents = ({ menuItems, children, menuLabel, theme }) => {
     const eles = document.querySelectorAll('a[name]');
     eles.forEach(element => {
         menuItems.push({id:element.getAttribute('name'),title:element.getAttribute('data-title')});
-        console.log(element.getAttribute('data-title'),'hello element');
     });
     return menuItems;
   }
