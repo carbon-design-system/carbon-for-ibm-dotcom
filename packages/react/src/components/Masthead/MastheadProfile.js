@@ -5,16 +5,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import {
-  HeaderGlobalAction,
-  OverflowMenu,
-  OverflowMenuItem,
-} from 'carbon-components-react';
+import { OverflowMenu, OverflowMenuItem } from 'carbon-components-react';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import { settings } from 'carbon-components';
 
-const { stablePrefix } = ddsSettings;
+const { prefix } = settings;
 
 /**
  * MastHead Profile component
@@ -45,12 +41,11 @@ const MastheadProfile = ({
   });
 
   return (
-    <HeaderGlobalAction
-      aria-label="User Profile"
-      data-autoid={`${stablePrefix}--masthead__profile`}
-      onClick={() => {}}>
-      <OverflowMenu {...overflowMenuProps}>{profileNav}</OverflowMenu>
-    </HeaderGlobalAction>
+    <OverflowMenu
+      className={`${prefix}--header__action`}
+      {...overflowMenuProps}>
+      {profileNav}
+    </OverflowMenu>
   );
 };
 

@@ -183,8 +183,10 @@ const Masthead = ({ navigation, hasProfile, hasSearch, ...mastheadProps }) => {
                 <HeaderGlobalBar>
                   <MastheadProfile
                     overflowMenuProps={{
+                      ariaLabel: 'User Profile',
+                      'data-autoid': `${stablePrefix}--masthead__profile`,
                       flipped: true,
-                      style: { width: 'auto' },
+                      style: { width: '3rem' },
                       renderIcon: () =>
                         isAuthenticated ? <UserOnline20 /> : <User20 />,
                     }}
