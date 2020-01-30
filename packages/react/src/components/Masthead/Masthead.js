@@ -19,7 +19,9 @@ import {
 } from '@carbon/ibmdotcom-services';
 import React, { useEffect, useRef, useState } from 'react';
 import { User20, UserOnline20 } from '@carbon/icons-react';
+import cx from 'classnames';
 import { DDS_MASTHEAD_L1 } from '../../internal/FeatureFlags';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { IbmLogo } from '../Icon';
 import MastheadL1 from './MastheadL1';
 import MastheadLeftNav from './MastheadLeftNav';
@@ -27,8 +29,6 @@ import MastheadProfile from './MastheadProfile';
 import MastheadSearch from './MastheadSearch';
 import MastheadTopNav from './MastheadTopNav';
 import PropTypes from 'prop-types';
-import cx from 'classnames';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import root from 'window-or-global';
 import { settings } from 'carbon-components';
 

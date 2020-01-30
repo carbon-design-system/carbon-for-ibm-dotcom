@@ -6,11 +6,11 @@
  */
 
 import { DDS_PICTOGRAM_ARRAY } from '../../../internal/FeatureFlags';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import { featureFlag } from '@carbon/ibmdotcom-utilities';
 import PictogramArrayItem from './PictogramArrayItem';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
-import { featureFlag } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
 
 const { stablePrefix } = ddsSettings;

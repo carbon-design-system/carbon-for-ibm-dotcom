@@ -1,6 +1,6 @@
-import SearchTypeaheadAPI from '../SearchTypeahead';
 import mockAxios from 'axios';
 import responseSuccess from './data/response.json';
+import SearchTypeaheadAPI from '../SearchTypeahead';
 
 const _lc = 'en'; // TODO: bake in tests where lc changes
 const _cc = 'us'; // TODO: bake in tests where cc changes

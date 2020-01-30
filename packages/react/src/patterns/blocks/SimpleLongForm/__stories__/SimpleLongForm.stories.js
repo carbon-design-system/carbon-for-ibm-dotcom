@@ -8,8 +8,8 @@ import {
 } from '@storybook/addon-knobs';
 import { DDS_SIMPLELONGFORM } from '../../../../internal/FeatureFlags';
 import React from 'react';
-import SimpleLongForm from '../SimpleLongForm';
 import readme from '../README.md';
+import SimpleLongForm from '../SimpleLongForm';
 import { storiesOf } from '@storybook/react';
 
 if (DDS_SIMPLELONGFORM) {

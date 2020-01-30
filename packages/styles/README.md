@@ -45,8 +45,7 @@ with the expressive theme applied, run the following command:
 $ yarn storybook
 ```
 
-This can also be viewed in our
-[Netlify output](https://carbon-expressive.mybluemix.net).
+This can also be viewed [here](https://carbon-expressive.mybluemix.net).
 
 ## Documentation
 

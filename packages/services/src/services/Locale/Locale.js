@@ -43,6 +43,7 @@ const _endpoint = `${_proxy}${_host}/common/js/dynamicnav/www/countrylist/jsonon
 
 /**
  * Session Storage key for country list
+ *
  * @type {string}
  * @private
  */
@@ -133,10 +134,12 @@ class LocaleAPI {
   /**
    * This fetches the language display name based on language/locale combo
    *
+   * @param {object} langCode lang code with cc and lc
+   *
    * @returns {Promise<string>} Display name of locale/language
    */
-  static async getLangDisplay() {
-    const lang = this.getLang();
+  static async getLangDisplay(langCode) {
+    const lang = langCode ? langCode : this.getLang();
     const list = await this.getList(lang);
     // combines the countryList arrays
     let countries = [];
