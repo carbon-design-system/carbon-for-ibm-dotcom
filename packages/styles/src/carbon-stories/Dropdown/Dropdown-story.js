@@ -38,10 +38,17 @@ const types = {
   'Inline (inline)': 'inline',
 };
 
+const sizes = {
+  'Extra large size (xl)': 'xl',
+  'Regular size (lg)': '',
+  'Small size (sm)': 'sm',
+};
+
 const props = () => ({
   id: text('Dropdown ID (id)', 'carbon-dropdown-example'),
   type: select('Dropdown type (type)', types, 'default'),
   label: text('Label (label)', 'Dropdown menu options'),
+  size: select('Field size (size)', sizes, '') || undefined,
   ariaLabel: text('Aria Label (ariaLabel)', 'Dropdown'),
   disabled: boolean('Disabled (disabled)', false),
   light: boolean('Light variant (light)', false),
