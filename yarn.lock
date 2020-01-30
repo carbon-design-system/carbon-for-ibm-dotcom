@@ -960,8 +960,13 @@
   integrity sha512-ETONJsiTHxGIuPk7G8aDm0tzJQjOsaobni32e0b/rSQLgOOsLalgf56Y47ascgWutKiTWg9lE0PK7G9SQHYthg==
   dependencies:
     "@carbon/icon-helpers" "^10.5.1"
+    
+"@carbon/icons@^10.8.0":
+  version "10.8.0"
+  resolved "https://registry.yarnpkg.com/@carbon/icons/-/icons-10.8.0.tgz#7dda60e15f14d1e5075e2d6faf56cd5f6bc763f7"
+  integrity sha512-WcFCzNsdOLnEWOs3kH2O4/aNp6x7DrNK+GENWwJDEnwzbc85/TgO2zuN9ThxBL/FcC/PhNVwbSXIbi056PNb2A==
 
-"@carbon/import-once@10.3.0", "@carbon/import-once@^10.3.0":
+"@carbon/import-once@10.3.0":
   version "10.3.0"
   resolved "https://registry.yarnpkg.com/@carbon/import-once/-/import-once-10.3.0.tgz#58617da4efb6d7a11352d8e6b7209da1d39f364d"
   integrity sha512-PFk3FhMe3psihYtCg3JsyPHismqglnbUqIpz1DCG5Gn/kt0HdVKhGvHdEq7E305rGoBUCKzMn/4xoY9v9mcmlg==
@@ -3047,6 +3052,11 @@
   integrity sha512-XIB2XbzHTN6ieIjfIMV9hlVcfPU26s2vafYWQcZHWXHOxiaRZYEDKEwdl129Zyg50+foYV2jCgtrqSA6qNuNSA==
   dependencies:
     defer-to-connect "^1.0.1"
+
+"@tarekraafat/autocomplete.js@^7.2.0":
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/@tarekraafat/autocomplete.js/-/autocomplete.js-7.2.0.tgz#d6ac9fe78db92d864ec096639e577f7e4b323829"
+  integrity sha512-p1aEcKC/WHpVBuFyRhXq/ie+mgO4QqCNEsdVIPUBgmNqmxV4dVfqYEpk///9vvKyranUUvrlVu4e2tdzAaXKIg==
 
 "@textlint/ast-node-types@^4.0.3":
   version "4.2.5"
@@ -17038,6 +17048,14 @@ scheduler@^0.15.0:
   version "0.15.0"
   resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.15.0.tgz#6bfcf80ff850b280fed4aeecc6513bc0b4f17f8e"
   integrity sha512-xAefmSfN6jqAa7Kuq7LIJY0bwAPG3xlCj0HMEBQk1lxYiDKZscY2xJ5U/61ZTrYbmNQbXa+gc7czPkVo11tnCg==
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+
+scheduler@^0.18.0:
+  version "0.18.0"
+  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.18.0.tgz#5901ad6659bc1d8f3fdaf36eb7a67b0d6746b1c4"
+  integrity sha512-agTSHR1Nbfi6ulI0kYNK0203joW2Y5W4po4l+v03tOoiJKpTBbxpNhWDvqc/4IcOw+KLmSiQLTasZ4cab2/UWQ==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
