@@ -33,11 +33,11 @@ const TOCDesktopMenu = ({ menuItems, selectedId, updateState }) => {
    * @returns {*} JSX Object
    */
   const renderMenuItems = (items, activeId) => {
-    return items.map(item => {
+    return items.map((item, index) => {
       if (item && item.id !== 'menuLabel') {
         return (
           <li
-            key={item.id}
+            key={index}
             data-autoid={`${stablePrefix}--tableofcontents__desktop__item-${item.id}`}
             className={classNames(
               `${prefix}--tableofcontents__desktop__item`,

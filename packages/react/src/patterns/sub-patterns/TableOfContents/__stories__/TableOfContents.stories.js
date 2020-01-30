@@ -57,10 +57,17 @@ if (DDS_TOC) {
       );
     })
     .add('Dynamic Items', () => {
+      const menuItems = content.props.children.map((elem) => {
+        return {
+          title: elem.props['data-title'],
+          id: elem.props['name']
+        }
+      })
       return (
         <TableOfContents
           theme={select('theme', _themes, _themes.white)}
-          menuLabel={_menuLabel}>
+          menuLabel={_menuLabel}
+          menuItems={menuItems}>
           {content}
         </TableOfContents>
       );

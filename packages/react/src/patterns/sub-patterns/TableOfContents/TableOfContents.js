@@ -178,7 +178,7 @@ const TableOfContents = ({ menuItems, children, menuLabel, theme }) => {
 
 TableOfContents.propTypes = {
   menuItems: PropTypes.array,
-  children: PropTypes.array,
+  children: PropTypes.object,
   menuLabel: PropTypes.string,
   theme: PropTypes.string,
 };
