@@ -39,6 +39,7 @@
     "@carbon/ibmdotcom-services": "1.3.0",
     "@carbon/ibmdotcom-styles": "1.3.0",
     "@carbon/ibmdotcom-utilities": "1.3.0",
+    "@tarekraafat/autocomplete.js": "^7.2.0",
     "window-or-global": "^1.0.1"
   },
   "devDependencies": {

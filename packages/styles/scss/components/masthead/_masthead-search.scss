@@ -179,6 +179,9 @@
     &__suggestion {
       height: $carbon--spacing-09;
       display: flex;
+      span {
+        font-weight: 600;
+      }
 
       .#{$prefix}--container-class {
         display: flex;
