@@ -1,6 +1,6 @@
-# Cta
+# CTA
 
-> The Cta component will be used to select different cta types pages.
+> The CTA component will be used to select different cta types pages.
 
 ## Getting started
 

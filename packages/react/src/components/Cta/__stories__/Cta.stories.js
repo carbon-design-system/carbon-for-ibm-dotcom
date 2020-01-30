@@ -17,10 +17,15 @@ storiesOf('Components|CTA', module)
     const types = ['local', 'jump', 'external'];
     const styles = ['text', 'card', 'feature', 'button'];
     const style = select('style', styles, styles[0]);
+
+    const target = {
+      external: '_blank',
+      jump: '_self',
+    };
     const urlBy = {
       jump: '#example',
       local: 'https://ibm.com',
-      external: 'https://example.com',
+      external: 'https://www.example.com',
     };
 
     switch (style) {
@@ -30,6 +35,7 @@ storiesOf('Components|CTA', module)
           type: type,
           href: urlBy[type],
           copy: copy[0],
+          target: target[type],
         };
         break;
       case 'card':
@@ -37,6 +43,7 @@ storiesOf('Components|CTA', module)
         cta = {
           type: type,
           href: urlBy[type],
+          target: target[type],
           title: copy[0],
         };
         break;
@@ -47,6 +54,7 @@ storiesOf('Components|CTA', module)
           card: {
             type: type,
             href: urlBy[type],
+            target: target[type],
             title: copy[1],
             image: {
               defaultImage: 'https://picsum.photos/id/672/672',
@@ -65,11 +73,13 @@ storiesOf('Components|CTA', module)
             {
               type: type[0],
               href: urlBy[type[0]],
+              target: target[type],
               copy: copy[0],
             },
             {
               type: type[1],
               href: urlBy[type[1]],
+              target: target[type],
               copy: copy[1],
             },
           ],
@@ -81,7 +91,7 @@ storiesOf('Components|CTA', module)
       <div className="bx--grid ">
         <div className="bx--row">
           <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
-            <CTA style={style} {...cta} type={type} />
+            <CTA style={style} {...cta} />
           </div>
         </div>
         {type === 'jump' || type[0] === 'jump' || type[1] === 'jump' ? (
@@ -94,10 +104,7 @@ storiesOf('Components|CTA', module)
                 for (let i = 0; i < 10; i++) {
                   if (i === 2) {
                     content.push(
-                      <h4
-                        id="example"
-                        name="example"
-                        style={{ marginBottom: '32px' }}>
+                      <h4 id="example" style={{ marginBottom: '32px' }}>
                         Example
                       </h4>
                     );

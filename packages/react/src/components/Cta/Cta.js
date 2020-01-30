@@ -32,12 +32,11 @@ const CTA = ({ style, type, ...cta }) =>
       //icon={iconSelector(type)}
     />
   ) : (
-    <LinkWithIcon href={cta.href}>
+    <LinkWithIcon href={cta.href} target={cta.target}>
       {cta.copy}
       {iconSelector(type)}
     </LinkWithIcon>
   );
-
 /**
  * TEMPORARY sets icon based on link type
  *
