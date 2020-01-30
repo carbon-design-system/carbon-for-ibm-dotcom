@@ -1,7 +1,7 @@
 import './index.scss';
 import { boolean, text, withKnobs } from '@storybook/addon-knobs';
 import { ArrowRight20 } from '@carbon/icons-react';
-import { ButtonGroup } from '../../ButtonGroup';
+import { ButtonGroup } from '../../../patterns/sub-patterns/ButtonGroup';
 import { ExpressiveModal } from '../';
 import { ModalBody } from 'carbon-components-react';
 import React from 'react';
@@ -39,7 +39,7 @@ function dummyContent() {
     </div>
   );
 }
-storiesOf('Expressive Modal', module)
+storiesOf('Components|Expressive Modal', module)
   .addDecorator(withKnobs)
   .addParameters({
     readme: {

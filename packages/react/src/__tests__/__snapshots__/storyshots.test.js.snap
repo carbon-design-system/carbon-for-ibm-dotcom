@@ -1,0 +1,2931 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Components|Dotcom Shell Default 1`] = `
+Array [
+  <div
+    data-floating-menu-container=""
+    role="main"
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+      }
+    }
+  >
+    <div
+      className="storybook-readme-story"
+    >
+      <div
+        style={Object {}}
+      >
+        <div>
+          <div
+            className="bx--masthead "
+          >
+            <div
+              className="bx--masthead__l0"
+            >
+              <header
+                aria-label="IBM"
+                className="bx--header"
+                data-autoid="dds--masthead"
+                role="banner"
+              >
+                <a
+                  className="bx--skip-to-content"
+                  href="#main-content"
+                  tabIndex="0"
+                >
+                  Skip to main content
+                </a>
+                <button
+                  aria-label="Open menu"
+                  className="bx--header__action bx--header__menu-trigger bx--header__menu-toggle bx--header__menu-toggle__hidden"
+                  data-autoid="dds--masthead__hamburger"
+                  onClick={[Function]}
+                  title="Open menu"
+                  type="button"
+                >
+                  <svg
+                    aria-hidden={true}
+                    focusable="false"
+                    height={20}
+                    preserveAspectRatio="xMidYMid meet"
+                    style={
+                      Object {
+                        "willChange": "transform",
+                      }
+                    }
+                    viewBox="0 0 20 20"
+                    width={20}
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M2 14.8H18V16H2zM2 11.2H18V12.399999999999999H2zM2 7.6H18V8.799999999999999H2zM2 4H18V5.2H2z"
+                    />
+                  </svg>
+                </button>
+                <div
+                  className="bx--header__logo"
+                  data-autoid="dds--masthead-logo"
+                >
+                  <a
+                    data-autoid="dds--masthead-logo__link"
+                    href="https://www.ibm.com/"
+                  >
+                    <svg
+                      height="23"
+                      viewBox="0 0 58 23"
+                      width="58"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M58 21.467V23h-7.632v-1.533H58zm-18.316 0V23h-7.631v-1.533h7.631zm5.955 0L45.025 23l-.606-1.533h1.22zm-17.097 0A6.285 6.285 0 0 1 24.391 23H12.21v-1.533zm-17.858 0V23H0v-1.533h10.684zm29-3.067v1.533h-7.631V18.4h7.631zm7.148 0l-.594 1.533H43.82l-.598-1.533h3.609zm-16.764 0a5.719 5.719 0 0 1-.64 1.533H12.21V18.4zm-19.384 0v1.533H0V18.4h10.684zM58 18.4v1.533h-7.632V18.4H58zm-3.053-3.067v1.534h-4.579v-1.534h4.58zm-15.263 0v1.534h-4.579v-1.534h4.58zm8.345 0l-.6 1.534h-4.806l-.604-1.534h6.01zm-18.174 0c.137.49.213 1.003.213 1.534h-5.647v-1.534zm-10.013 0v1.534h-4.579v-1.534h4.58zm-12.21 0v1.534h-4.58v-1.534h4.58zm47.315-3.066V13.8h-4.579v-1.533h4.58zm-15.263 0V13.8h-4.579v-1.533h4.58zm9.541 0l-.597 1.533h-7.22l-.591-1.533h8.408zm-21.248 0c.527.432.98.951 1.328 1.533H15.263v-1.533zm-20.345 0V13.8h-4.58v-1.533h4.58zM44.599 9.2l.427 1.24.428-1.24h9.493v1.533h-4.579V9.324l-.519 1.41h-9.661l-.504-1.41v1.41h-4.579V9.2H44.6zm-36.967 0v1.533h-4.58V9.2h4.58zm21.673 0a5.95 5.95 0 0 1-1.328 1.533H15.263V9.2zm25.642-3.067v1.534h-8.964l.54-1.534h8.424zm-11.413 0l.54 1.534h-8.969V6.133h8.43zm-13.466 0c0 .531-.076 1.045-.213 1.534H24.42V6.133zm-10.226 0v1.534h-4.579V6.133h4.58zm-12.21 0v1.534h-4.58V6.133h4.58zm34.845-3.066l.53 1.533H32.054V3.067h10.424zm15.523 0V4.6H47.04l.55-1.533H58zm-28.573 0c.284.473.504.988.641 1.533H12.211V3.067zm-18.743 0V4.6H0V3.067h10.684zM41.406 0l.54 1.533h-9.893V0h9.353zM58 0v1.533h-9.881L48.647 0H58zM24.39 0c1.601 0 3.057.581 4.152 1.533H12.211V0zM10.685 0v1.533H0V0h10.684z"
+                        fill="#161616"
+                        fillRule="evenodd"
+                      />
+                    </svg>
+                  </a>
+                </div>
+                <div
+                  className="bx--header__search "
+                >
+                  <nav
+                    aria-label="IBM"
+                    className="bx--header__nav"
+                    data-autoid="dds--masthead__l0-nav"
+                  >
+                    <ul
+                      aria-label="IBM"
+                      className="bx--header__menu-bar"
+                      role="menubar"
+                    />
+                  </nav>
+                  <div
+                    className="bx--masthead__search"
+                    data-autoid="dds--masthead__search"
+                    onBlur={[Function]}
+                  >
+                    <form
+                      action="https://www.ibm.com/search?lnk=mhsrch"
+                      method="get"
+                    >
+                      <input
+                        name="lang"
+                        type="hidden"
+                        value="en"
+                      />
+                      <input
+                        name="cc"
+                        type="hidden"
+                        value="us"
+                      />
+                      <input
+                        name="lnk"
+                        type="hidden"
+                        value="mhsrch"
+                      />
+                      <div
+                        aria-expanded={false}
+                        aria-haspopup="listbox"
+                        aria-owns="react-autowhatever-1"
+                        className="react-autosuggest__container"
+                        role="combobox"
+                      >
+                        <input
+                          aria-activedescendant={null}
+                          aria-autocomplete="list"
+                          aria-controls="react-autowhatever-1"
+                          autoComplete="off"
+                          className="bx--header__search--input"
+                          data-autoid="dds--header__search--input"
+                          name="q"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          onFocus={[Function]}
+                          onKeyDown={[Function]}
+                          placeholder="Search all of IBM"
+                          tabIndex="-1"
+                          type="text"
+                          value=""
+                        />
+                        <button
+                          aria-label="Search all of IBM"
+                          className="bx--header__search--search bx--header__action"
+                          data-autoid="dds--header__search--search"
+                          onClick={[Function]}
+                          type="button"
+                        >
+                          <svg
+                            aria-hidden={true}
+                            focusable="false"
+                            height={20}
+                            preserveAspectRatio="xMidYMid meet"
+                            style={
+                              Object {
+                                "willChange": "transform",
+                              }
+                            }
+                            viewBox="0 0 32 32"
+                            width={20}
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M30,28.59,22.45,21A11,11,0,1,0,21,22.45L28.59,30ZM5,14a9,9,0,1,1,9,9A9,9,0,0,1,5,14Z"
+                            />
+                          </svg>
+                        </button>
+                        <button
+                          aria-label="Close"
+                          className="bx--header__search--close bx--header__action"
+                          data-autoid="dds--header__search--close"
+                          onClick={[Function]}
+                          type="button"
+                        >
+                          <svg
+                            aria-hidden={true}
+                            focusable="false"
+                            height={20}
+                            preserveAspectRatio="xMidYMid meet"
+                            style={
+                              Object {
+                                "willChange": "transform",
+                              }
+                            }
+                            viewBox="0 0 32 32"
+                            width={20}
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M24 9.4L22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16 24 9.4z"
+                            />
+                          </svg>
+                        </button>
+                        <div
+                          className="react-autosuggest__suggestions-container"
+                          id="react-autowhatever-1"
+                          role="listbox"
+                        />
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                <div
+                  className="bx--header__global"
+                >
+                  <button
+                    aria-label="User Profile"
+                    className="bx--header__action"
+                    data-autoid="dds--masthead__profile"
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    <button
+                      aria-expanded={false}
+                      aria-haspopup={true}
+                      aria-label="Menu"
+                      className="bx--overflow-menu"
+                      onClick={[Function]}
+                      onClose={[Function]}
+                      onKeyDown={[Function]}
+                      open={false}
+                      style={
+                        Object {
+                          "width": "auto",
+                        }
+                      }
+                      tabIndex={0}
+                    >
+                      <svg
+                        aria-hidden={true}
+                        focusable="false"
+                        height={20}
+                        preserveAspectRatio="xMidYMid meet"
+                        style={
+                          Object {
+                            "willChange": "transform",
+                          }
+                        }
+                        viewBox="0 0 32 32"
+                        width={20}
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M16 4a5 5 0 1 1-5 5 5 5 0 0 1 5-5m0-2a7 7 0 1 0 7 7A7 7 0 0 0 16 2zM26 30H24V25a5 5 0 0 0-5-5H13a5 5 0 0 0-5 5v5H6V25a7 7 0 0 1 7-7h6a7 7 0 0 1 7 7z"
+                        />
+                      </svg>
+                    </button>
+                  </button>
+                </div>
+                <div
+                  className="bx--side-nav__overlay"
+                />
+                <nav
+                  aria-label="Side navigation"
+                  className="bx--side-nav__navigation bx--side-nav bx--side-nav--ux bx--side-nav--hidden"
+                  onBlur={[Function]}
+                  onFocus={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                >
+                  <nav
+                    data-autoid="dds--masthead__l0-sidenav"
+                  >
+                    <ul
+                      className="bx--side-nav__items"
+                    >
+                      <div
+                        className="bx--side-nav__header-navigation"
+                      />
+                    </ul>
+                  </nav>
+                </nav>
+              </header>
+            </div>
+          </div>
+          <div
+            className="bx--dotcom-shell"
+            data-autoid="dds--dotcom-shell"
+          >
+            <div
+              className="bx--dotcom-shell__content"
+              data-autoid="dds--dotcom-shell__content"
+            >
+              <div
+                className="bx--grid"
+              >
+                <div
+                  className="bx--row"
+                >
+                  <div
+                    className="bx--col-lg-8"
+                  >
+                    <h1>
+                      Some random content
+                    </h1>
+                    <p
+                      style={
+                        Object {
+                          "paddingBottom": "1rem",
+                        }
+                      }
+                    >
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                  </div>
+                </div>
+                <div
+                  className="bx--row"
+                >
+                  <div
+                    className="bx--col-lg-10"
+                    style={
+                      Object {
+                        "paddingTop": "4rem",
+                      }
+                    }
+                  >
+                    <h1>
+                      Carbon structured list
+                    </h1>
+                    <section
+                      aria-label="Structured list section"
+                      className="bx--structured-list"
+                    >
+                      <div
+                        className="bx--structured-list-thead"
+                      >
+                        <div
+                          className="bx--structured-list-row bx--structured-list-row--header-row"
+                        >
+                          <div
+                            className="bx--structured-list-th"
+                          >
+                            ColumnA
+                          </div>
+                          <div
+                            className="bx--structured-list-th"
+                          >
+                            ColumnB
+                          </div>
+                          <div
+                            className="bx--structured-list-th"
+                          >
+                            ColumnC
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        className="bx--structured-list-tbody"
+                        onKeyDown={[Function]}
+                      >
+                        <div
+                          className="bx--structured-list-row"
+                        >
+                          <div
+                            className="bx--structured-list-td bx--structured-list-content--nowrap"
+                          >
+                            Row 1
+                          </div>
+                          <div
+                            className="bx--structured-list-td"
+                          >
+                            Row 1
+                          </div>
+                          <div
+                            className="bx--structured-list-td"
+                          >
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum augue. Aenean posuere sem vel euismod dignissim. Nulla ut cursus dolor. Pellentesque vulputate nisl a porttitor interdum.
+                          </div>
+                        </div>
+                        <div
+                          className="bx--structured-list-row"
+                        >
+                          <div
+                            className="bx--structured-list-td bx--structured-list-content--nowrap"
+                          >
+                            Row 2
+                          </div>
+                          <div
+                            className="bx--structured-list-td"
+                          >
+                            Row 2
+                          </div>
+                          <div
+                            className="bx--structured-list-td"
+                          >
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui magna, finibus id tortor sed, aliquet bibendum augue. Aenean posuere sem vel euismod dignissim. Nulla ut cursus dolor. Pellentesque vulputate nisl a porttitor interdum.
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </div>
+                <div
+                  className="bx--row"
+                >
+                  <div
+                    className="bx--col-lg-5"
+                    style={
+                      Object {
+                        "paddingTop": "0rem",
+                      }
+                    }
+                  >
+                    <h1>
+                      Some info about this data table
+                    </h1>
+                    <p
+                      style={
+                        Object {
+                          "paddingBottom": "2rem",
+                        }
+                      }
+                    >
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    </p>
+                  </div>
+                  <div
+                    className="bx--col-lg-7"
+                    style={
+                      Object {
+                        "paddingTop": "0rem",
+                      }
+                    }
+                  >
+                    <table
+                      className="bx--skeleton bx--data-table"
+                    >
+                      <thead>
+                        <tr>
+                          <th>
+                            Name
+                          </th>
+                          <th>
+                            Protocol
+                          </th>
+                          <th>
+                            Port
+                          </th>
+                          <th>
+                            Rule
+                          </th>
+                          <th>
+                            Attached Groups
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+                            <span />
+                          </td>
+                          <td>
+                            <span />
+                          </td>
+                          <td>
+                            <span />
+                          </td>
+                          <td>
+                            <span />
+                          </td>
+                          <td>
+                            <span />
+                          </td>
+                        </tr>
+                        <tr>
+                          <td />
+                          <td />
+                          <td />
+                          <td />
+                          <td />
+                        </tr>
+                        <tr>
+                          <td />
+                          <td />
+                          <td />
+                          <td />
+                          <td />
+                        </tr>
+                        <tr>
+                          <td />
+                          <td />
+                          <td />
+                          <td />
+                          <td />
+                        </tr>
+                        <tr>
+                          <td />
+                          <td />
+                          <td />
+                          <td />
+                          <td />
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div
+                  className="bx--row"
+                  style={
+                    Object {
+                      "backgroundColor": "#f3f3f3",
+                      "marginTop": "5rem",
+                      "paddingBottom": "2rem",
+                      "paddingRight": "2rem",
+                      "paddingTop": "2rem",
+                    }
+                  }
+                >
+                  <div
+                    className="bx--col-md-2"
+                    style={
+                      Object {
+                        "paddingBottom": "2rem",
+                        "paddingTop": "2rem",
+                      }
+                    }
+                  >
+                    <h5>
+                      Content card
+                    </h5>
+                    <p
+                      style={
+                        Object {
+                          "paddingBottom": "2rem",
+                          "paddingTop": "2rem",
+                        }
+                      }
+                    >
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    </p>
+                  </div>
+                  <div
+                    className="bx--col-md-2"
+                    style={
+                      Object {
+                        "paddingBottom": "2rem",
+                        "paddingTop": "2rem",
+                      }
+                    }
+                  >
+                    <div
+                      style={
+                        Object {
+                          "backgroundColor": "#fff",
+                          "padding": "2rem",
+                        }
+                      }
+                    >
+                      <h5>
+                        Content card
+                      </h5>
+                      <p
+                        style={
+                          Object {
+                            "paddingBottom": "2rem",
+                            "paddingTop": "2rem",
+                          }
+                        }
+                      >
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                      </p>
+                      <p
+                        style={
+                          Object {
+                            "paddingBottom": "2rem",
+                          }
+                        }
+                      >
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                      </p>
+                      <button
+                        className="bx--btn bx--btn--primary"
+                        disabled={false}
+                        tabIndex={0}
+                        type="button"
+                      >
+                        Click me
+                      </button>
+                    </div>
+                  </div>
+                  <div
+                    className="bx--col-md-2"
+                    style={
+                      Object {
+                        "paddingBottom": "2rem",
+                        "paddingTop": "2rem",
+                      }
+                    }
+                  >
+                    <div
+                      style={
+                        Object {
+                          "backgroundColor": "#fff",
+                          "padding": "2rem",
+                        }
+                      }
+                    >
+                      <h5>
+                        Content card
+                      </h5>
+                      <p
+                        style={
+                          Object {
+                            "paddingBottom": "2rem",
+                            "paddingTop": "2rem",
+                          }
+                        }
+                      >
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                      </p>
+                      <p
+                        style={
+                          Object {
+                            "paddingBottom": "2rem",
+                          }
+                        }
+                      >
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                      </p>
+                      <button
+                        className="bx--btn bx--btn--primary"
+                        disabled={false}
+                        tabIndex={0}
+                        type="button"
+                      >
+                        Click me
+                      </button>
+                    </div>
+                  </div>
+                  <div
+                    className="bx--col-md-2"
+                    style={
+                      Object {
+                        "paddingBottom": "2rem",
+                        "paddingTop": "2rem",
+                      }
+                    }
+                  >
+                    <div
+                      style={
+                        Object {
+                          "backgroundColor": "#fff",
+                          "padding": "2rem",
+                        }
+                      }
+                    >
+                      <h5>
+                        Content card
+                      </h5>
+                      <p
+                        style={
+                          Object {
+                            "paddingBottom": "2rem",
+                            "paddingTop": "2rem",
+                          }
+                        }
+                      >
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                      </p>
+                      <p
+                        style={
+                          Object {
+                            "paddingBottom": "2rem",
+                          }
+                        }
+                      >
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                      </p>
+                      <button
+                        className="bx--btn bx--btn--primary"
+                        disabled={false}
+                        tabIndex={0}
+                        type="button"
+                      >
+                        Click me
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <footer
+            className="bx--footer"
+            data-autoid="dds--footer"
+          >
+            <section
+              className="bx--footer__main"
+            >
+              <div
+                className="bx--footer__main-container"
+              >
+                <div
+                  className="bx--footer-logo"
+                  data-autoid="dds--footer-logo"
+                >
+                  <a
+                    className="bx--footer-logo__link"
+                    data-autoid="dds--footer-logo__link"
+                    href="https://www.ibm.com/"
+                  >
+                    <svg
+                      className="bx--footer-logo__logo"
+                      viewBox="0 0 157 65"
+                    >
+                      <title>
+                        IBM Logo
+                      </title>
+                      <path
+                        d="M30.444 60.208v4.03H0v-4.03h30.444zm78.291-.001v4.03H86.983v-4.03h21.752zm47.858 0v4.03H134.84v-4.03h21.753zm-33.416 0l-1.398 4.03-1.38-4.03h2.778zm-88.384 0h42.775c-2.797 2.426-6.39 3.925-10.327 4.025l-.423.006H34.793v-4.03h42.775zm-4.35-8.46v4.03H0v-4.03h30.444zm52.402 0c-.332 1.248-.8 2.44-1.389 3.555l-.259.474H34.793v-4.029h48.052zm73.748-.005v4.031H134.84v-4.03h21.753zm-47.858 0v4.031H86.983v-4.03h21.752zm17.375 0l-1.398 4.031h-5.85l-1.395-4.03h8.643zM21.745 43.285v4.03H8.698v-4.03h13.047zm61.195 0a17.32 17.32 0 0 1 .476 3.51l.008.52H68.796v-4.03H82.94zm-26.401 0v4.03H43.491v-4.03H56.54zm72.502-.007l-1.396 4.03H115.93l-1.397-4.03h14.507zm18.85 0v4.03h-13.05v-4.03h13.05zm-39.156 0v4.03H95.684v-4.03h13.051zm-86.99-8.454v4.03H8.698v-4.03h13.047zm56.117 0a16.945 16.945 0 0 1 2.926 3.582l.264.447h-37.56v-4.03h34.37zm30.873-.01v4.03H95.684v-4.03h13.051zm39.157 0v4.03H134.84v-4.03h13.052zm-15.919 0l-1.396 4.03h-17.579l-1.396-4.03h20.371zm-50.778-8.452a16.963 16.963 0 0 1-2.82 3.674l-.37.355H43.49v-4.029h37.704zm-59.45 0v4.03H8.698v-4.03h13.047zm126.147-.013v4.031H134.84v-3.839l-1.33 3.839h-11.456l1.373-4.03h24.465zm-27.743 0l1.372 4.031h-11.456l-1.33-3.839v3.84H95.684v-4.032h24.465zm-98.404-8.448v4.03H8.698V17.9h13.047zm61.68 0c0 1.215-.134 2.399-.375 3.542l-.11.487H68.796V17.9h14.628zM56.538 17.9v4.03H43.491V17.9H56.54zm91.352-.015v4.03h-22.954l1.37-4.03h21.584zm-30.624 0l1.372 4.03H95.684v-4.03h21.583zM30.444 9.437v4.03H0v-4.03h30.444zm50.753 0a17.048 17.048 0 0 1 1.498 3.499l.15.531H34.794v-4.03h46.403zm75.396-.018v4.03h-28.776l1.373-4.03h27.403zm-42.207 0l1.372 4.031H86.982V9.42h27.404zM30.444.978v4.03H0V.977h30.444zm36.374 0c3.96 0 7.594 1.415 10.448 3.772l.303.257H34.794V.977h32.024zm89.775-.022v4.031h-25.894l1.372-4.03h24.522zm-45.098 0l1.372 4.03H86.982V.955h24.513z"
+                      />
+                    </svg>
+                  </a>
+                </div>
+                <div
+                  className="bx--locale-btn__container"
+                >
+                  <button
+                    className="bx--locale-btn bx--btn bx--btn--secondary"
+                    data-autoid="dds--locale-btn"
+                    disabled={false}
+                    onClick={[Function]}
+                    tabIndex={0}
+                    type="button"
+                  >
+                    United States — English
+                    <svg
+                      aria-hidden={true}
+                      className="bx--btn__icon"
+                      focusable="false"
+                      height={20}
+                      preserveAspectRatio="xMidYMid meet"
+                      style={
+                        Object {
+                          "willChange": "transform",
+                        }
+                      }
+                      viewBox="0 0 32 32"
+                      width={20}
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M14,4a7,7,0,1,1-7,7,7,7,0,0,1,7-7m0-2a9,9,0,1,0,9,9A9,9,0,0,0,14,2Z"
+                      />
+                      <path
+                        d="M28,11a13.92,13.92,0,0,0-4.11-9.89L22.48,2.52a12,12,0,0,1-16.92,17l0,0L4.11,20.89A13.92,13.92,0,0,0,14,25v3H10v2H20V28H16V24.84A14,14,0,0,0,28,11Z"
+                      />
+                    </svg>
+                  </button>
+                  <div
+                    className="bx--modal bx--locale-modal-container"
+                    data-autoid="dds--locale-modal"
+                    onBlur={[Function]}
+                    onClick={[Function]}
+                    onClose={[Function]}
+                    onKeyDown={[Function]}
+                    open={false}
+                    role="presentation"
+                    tabIndex={-1}
+                  >
+                    <div
+                      className="bx--modal-container"
+                    >
+                      <div
+                        className="bx--modal-header"
+                      >
+                        <p
+                          className="bx--modal-header__label bx--type-delta"
+                        >
+                          <svg
+                            aria-hidden={true}
+                            className="bx--locale-modal__label-globe"
+                            focusable="false"
+                            height={20}
+                            preserveAspectRatio="xMidYMid meet"
+                            style={
+                              Object {
+                                "willChange": "transform",
+                              }
+                            }
+                            viewBox="0 0 32 32"
+                            width={20}
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M14,4a7,7,0,1,1-7,7,7,7,0,0,1,7-7m0-2a9,9,0,1,0,9,9A9,9,0,0,0,14,2Z"
+                            />
+                            <path
+                              d="M28,11a13.92,13.92,0,0,0-4.11-9.89L22.48,2.52a12,12,0,0,1-16.92,17l0,0L4.11,20.89A13.92,13.92,0,0,0,14,25v3H10v2H20V28H16V24.84A14,14,0,0,0,28,11Z"
+                            />
+                          </svg>
+                        </p>
+                        <p
+                          className="bx--modal-header__heading bx--type-beta"
+                        >
+                          Select region
+                        </p>
+                        <button
+                          aria-label="Close"
+                          className="bx--modal-close"
+                          onClick={[Function]}
+                          title="Close"
+                          type="button"
+                        >
+                          <svg
+                            aria-hidden={true}
+                            className="bx--modal-close__icon"
+                            focusable="false"
+                            height={20}
+                            preserveAspectRatio="xMidYMid meet"
+                            style={
+                              Object {
+                                "willChange": "transform",
+                              }
+                            }
+                            viewBox="0 0 32 32"
+                            width={20}
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M24 9.4L22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16 24 9.4z"
+                            />
+                          </svg>
+                        </button>
+                      </div>
+                      <div
+                        className="bx--modal-content bx--locale-modal "
+                      >
+                        <div
+                          className="bx--grid bx--no-gutter bx--locale-modal__regions"
+                        >
+                          <div
+                            className="bx--row"
+                          />
+                        </div>
+                        <div
+                          className="bx--locale-modal__filter"
+                        >
+                          <div
+                            className="bx--locale-modal__search"
+                          >
+                            <div
+                              className="bx--search bx--search--xl"
+                            >
+                              <svg
+                                aria-hidden={true}
+                                className="bx--search-magnifier"
+                                focusable="false"
+                                height={16}
+                                preserveAspectRatio="xMidYMid meet"
+                                style={
+                                  Object {
+                                    "willChange": "transform",
+                                  }
+                                }
+                                viewBox="0 0 16 16"
+                                width={16}
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M15,14.3L10.7,10c1.9-2.3,1.6-5.8-0.7-7.7S4.2,0.7,2.3,3S0.7,8.8,3,10.7c2,1.7,5,1.7,7,0l4.3,4.3L15,14.3z M2,6.5	C2,4,4,2,6.5,2S11,4,11,6.5S9,11,6.5,11S2,9,2,6.5z"
+                                />
+                              </svg>
+                              <label
+                                className="bx--label"
+                                htmlFor="bx--locale-modal__filter"
+                              >
+                                Search
+                              </label>
+                              <input
+                                className="bx--search-input"
+                                data-autoid="dds--locale-modal__filter"
+                                id="bx--locale-modal__filter"
+                                onChange={[Function]}
+                                placeholder="Search by location or language"
+                                role="searchbox"
+                                type="text"
+                              />
+                              <button
+                                aria-label="Clear search input"
+                                className="bx--search-close bx--search-close--hidden"
+                                onClick={[Function]}
+                                type="button"
+                              >
+                                <svg
+                                  aria-hidden={true}
+                                  focusable="false"
+                                  height={20}
+                                  preserveAspectRatio="xMidYMid meet"
+                                  style={
+                                    Object {
+                                      "willChange": "transform",
+                                    }
+                                  }
+                                  viewBox="0 0 32 32"
+                                  width={20}
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M24 9.4L22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16 24 9.4z"
+                                  />
+                                </svg>
+                              </button>
+                            </div>
+                            <p
+                              className="bx--locale-modal__search-text"
+                            >
+                              This page is available in the following locations and languages
+                            </p>
+                          </div>
+                          <div
+                            className="bx--locale-modal__list"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </footer>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <input
+    aria-label="input-text-offleft"
+    className="bx--visually-hidden"
+    type="text"
+  />,
+]
+`;
+
+exports[`Storyshots Components|Footer Default 1`] = `
+Array [
+  <div
+    data-floating-menu-container=""
+    role="main"
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+      }
+    }
+  >
+    <div
+      className="storybook-readme-story"
+    >
+      <div
+        style={Object {}}
+      >
+        <div>
+          <footer
+            className="bx--footer"
+            data-autoid="dds--footer"
+          >
+            <section
+              className="bx--footer__main"
+            >
+              <div
+                className="bx--footer__main-container"
+              >
+                <div
+                  className="bx--footer-logo"
+                  data-autoid="dds--footer-logo"
+                >
+                  <a
+                    className="bx--footer-logo__link"
+                    data-autoid="dds--footer-logo__link"
+                    href="https://www.ibm.com/"
+                  >
+                    <svg
+                      className="bx--footer-logo__logo"
+                      viewBox="0 0 157 65"
+                    >
+                      <title>
+                        IBM Logo
+                      </title>
+                      <path
+                        d="M30.444 60.208v4.03H0v-4.03h30.444zm78.291-.001v4.03H86.983v-4.03h21.752zm47.858 0v4.03H134.84v-4.03h21.753zm-33.416 0l-1.398 4.03-1.38-4.03h2.778zm-88.384 0h42.775c-2.797 2.426-6.39 3.925-10.327 4.025l-.423.006H34.793v-4.03h42.775zm-4.35-8.46v4.03H0v-4.03h30.444zm52.402 0c-.332 1.248-.8 2.44-1.389 3.555l-.259.474H34.793v-4.029h48.052zm73.748-.005v4.031H134.84v-4.03h21.753zm-47.858 0v4.031H86.983v-4.03h21.752zm17.375 0l-1.398 4.031h-5.85l-1.395-4.03h8.643zM21.745 43.285v4.03H8.698v-4.03h13.047zm61.195 0a17.32 17.32 0 0 1 .476 3.51l.008.52H68.796v-4.03H82.94zm-26.401 0v4.03H43.491v-4.03H56.54zm72.502-.007l-1.396 4.03H115.93l-1.397-4.03h14.507zm18.85 0v4.03h-13.05v-4.03h13.05zm-39.156 0v4.03H95.684v-4.03h13.051zm-86.99-8.454v4.03H8.698v-4.03h13.047zm56.117 0a16.945 16.945 0 0 1 2.926 3.582l.264.447h-37.56v-4.03h34.37zm30.873-.01v4.03H95.684v-4.03h13.051zm39.157 0v4.03H134.84v-4.03h13.052zm-15.919 0l-1.396 4.03h-17.579l-1.396-4.03h20.371zm-50.778-8.452a16.963 16.963 0 0 1-2.82 3.674l-.37.355H43.49v-4.029h37.704zm-59.45 0v4.03H8.698v-4.03h13.047zm126.147-.013v4.031H134.84v-3.839l-1.33 3.839h-11.456l1.373-4.03h24.465zm-27.743 0l1.372 4.031h-11.456l-1.33-3.839v3.84H95.684v-4.032h24.465zm-98.404-8.448v4.03H8.698V17.9h13.047zm61.68 0c0 1.215-.134 2.399-.375 3.542l-.11.487H68.796V17.9h14.628zM56.538 17.9v4.03H43.491V17.9H56.54zm91.352-.015v4.03h-22.954l1.37-4.03h21.584zm-30.624 0l1.372 4.03H95.684v-4.03h21.583zM30.444 9.437v4.03H0v-4.03h30.444zm50.753 0a17.048 17.048 0 0 1 1.498 3.499l.15.531H34.794v-4.03h46.403zm75.396-.018v4.03h-28.776l1.373-4.03h27.403zm-42.207 0l1.372 4.031H86.982V9.42h27.404zM30.444.978v4.03H0V.977h30.444zm36.374 0c3.96 0 7.594 1.415 10.448 3.772l.303.257H34.794V.977h32.024zm89.775-.022v4.031h-25.894l1.372-4.03h24.522zm-45.098 0l1.372 4.03H86.982V.955h24.513z"
+                      />
+                    </svg>
+                  </a>
+                </div>
+                <nav
+                  className="bx--footer-nav"
+                  data-autoid="dds--footer-nav"
+                >
+                  <ul
+                    className="bx--accordion bx--footer-nav__container bx--accordion--end"
+                  >
+                    <li
+                      className="bx--accordion__item bx--footer-nav-group"
+                      data-autoid="dds--footer-nav-group"
+                      onAnimationEnd={[Function]}
+                    >
+                      <button
+                        aria-expanded={false}
+                        className="bx--accordion__heading"
+                        onClick={[Function]}
+                        onKeyDown={[Function]}
+                        title="Expand/Collapse"
+                        type="button"
+                      >
+                        <svg
+                          aria-label="Expand/Collapse"
+                          className="bx--accordion__arrow"
+                          focusable="false"
+                          height={16}
+                          preserveAspectRatio="xMidYMid meet"
+                          role="img"
+                          style={
+                            Object {
+                              "willChange": "transform",
+                            }
+                          }
+                          viewBox="0 0 16 16"
+                          width={16}
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M11 8L6 13 5.3 12.3 9.6 8 5.3 3.7 6 3z"
+                          />
+                        </svg>
+                        <div
+                          className="bx--accordion__title"
+                        >
+                          Discover
+                        </div>
+                      </button>
+                      <div
+                        className="bx--accordion__content"
+                      >
+                        <h2
+                          className="bx--footer-nav-group__title"
+                        >
+                          Discover
+                        </h2>
+                        <ul>
+                          <li
+                            className="bx--footer-nav-group__item"
+                          >
+                            <a
+                              className="bx--link bx--footer-nav-group__link"
+                              data-autoid="dds--footer-nav-group__link"
+                              href="https://www.ibm.com/products?lnk=fdi"
+                            >
+                              Marketplace
+                            </a>
+                          </li>
+                          <li
+                            className="bx--footer-nav-group__item"
+                          >
+                            <a
+                              className="bx--link bx--footer-nav-group__link"
+                              data-autoid="dds--footer-nav-group__link"
+                              href="https://www.redbooks.ibm.com/?lnk=fdi"
+                            >
+                              Redbooks
+                            </a>
+                          </li>
+                          <li
+                            className="bx--footer-nav-group__item"
+                          >
+                            <a
+                              className="bx--link bx--footer-nav-group__link"
+                              data-autoid="dds--footer-nav-group__link"
+                              href="https://www.ibm.com/services?lnk=fdi"
+                            >
+                              Services
+                            </a>
+                          </li>
+                          <li
+                            className="bx--footer-nav-group__item"
+                          >
+                            <a
+                              className="bx--link bx--footer-nav-group__link"
+                              data-autoid="dds--footer-nav-group__link"
+                              href="https://www.ibm.com/industries?lnk=fdi"
+                            >
+                              Industries
+                            </a>
+                          </li>
+                          <li
+                            className="bx--footer-nav-group__item"
+                          >
+                            <a
+                              className="bx--link bx--footer-nav-group__link"
+                              data-autoid="dds--footer-nav-group__link"
+                              href="https://research.ibm.com/?lnk=fdi"
+                            >
+                              IBM Research
+                            </a>
+                          </li>
+                          <li
+                            className="bx--footer-nav-group__item"
+                          >
+                            <a
+                              className="bx--link bx--footer-nav-group__link"
+                              data-autoid="dds--footer-nav-group__link"
+                              href="https://www.ibm.com/case-studies?lnk=fdi"
+                            >
+                              Case studies
+                            </a>
+                          </li>
+                          <li
+                            className="bx--footer-nav-group__item"
+                          >
+                            <a
+                              className="bx--link bx--footer-nav-group__link"
+                              data-autoid="dds--footer-nav-group__link"
+                              href="https://www.ibm.com/demos/?lnk=fdi"
+                            >
+                              Demos
+                            </a>
+                          </li>
+                          <li
+                            className="bx--footer-nav-group__item"
+                          >
+                            <a
+                              className="bx--link bx--footer-nav-group__link"
+                              data-autoid="dds--footer-nav-group__link"
+                              href="https://www.ibm.com/financing?ref=ibmfooter&amp;lnk=fdi"
+                            >
+                              Financing
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li
+                      className="bx--accordion__item bx--footer-nav-group"
+                      data-autoid="dds--footer-nav-group"
+                      onAnimationEnd={[Function]}
+                    >
+                      <button
+                        aria-expanded={false}
+                        className="bx--accordion__heading"
+                        onClick={[Function]}
+                        onKeyDown={[Function]}
+                        title="Expand/Collapse"
+                        type="button"
+                      >
+                        <svg
+                          aria-label="Expand/Collapse"
+                          className="bx--accordion__arrow"
+                          focusable="false"
+                          height={16}
+                          preserveAspectRatio="xMidYMid meet"
+                          role="img"
+                          style={
+                            Object {
+                              "willChange": "transform",
+                            }
+                          }
+                          viewBox="0 0 16 16"
+                          width={16}
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M11 8L6 13 5.3 12.3 9.6 8 5.3 3.7 6 3z"
+                          />
+                        </svg>
+                        <div
+                          className="bx--accordion__title"
+                        >
+                          Information for...
+                        </div>
+                      </button>
+                      <div
+                        className="bx--accordion__content"
+                      >
+                        <h2
+                          className="bx--footer-nav-group__title"
+                        >
+                          Information for...
+                        </h2>
+                        <ul>
+                          <li
+                            className="bx--footer-nav-group__item"
+                          >
+                            <a
+                              className="bx--link bx--footer-nav-group__link"
+                              data-autoid="dds--footer-nav-group__link"
+                              href="https://www.ibm.com/developerworks/?lnk=fif"
+                            >
+                              Developers
+                            </a>
+                          </li>
+                          <li
+                            className="bx--footer-nav-group__item"
+                          >
+                            <a
+                              className="bx--link bx--footer-nav-group__link"
+                              data-autoid="dds--footer-nav-group__link"
+                              href="https://www-356.ibm.com/partnerworld/wps/servlet/ContentHandler/partnerworld-home?lnk=fif"
+                            >
+                              Business Partners
+                            </a>
+                          </li>
+                          <li
+                            className="bx--footer-nav-group__item"
+                          >
+                            <a
+                              className="bx--link bx--footer-nav-group__link"
+                              data-autoid="dds--footer-nav-group__link"
+                              href="https://www.ibm.com/industries/sled-contracts?lnk=fif"
+                            >
+                              Federal and state contracts
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li
+                      className="bx--accordion__item bx--footer-nav-group"
+                      data-autoid="dds--footer-nav-group"
+                      onAnimationEnd={[Function]}
+                    >
+                      <button
+                        aria-expanded={false}
+                        className="bx--accordion__heading"
+                        onClick={[Function]}
+                        onKeyDown={[Function]}
+                        title="Expand/Collapse"
+                        type="button"
+                      >
+                        <svg
+                          aria-label="Expand/Collapse"
+                          className="bx--accordion__arrow"
+                          focusable="false"
+                          height={16}
+                          preserveAspectRatio="xMidYMid meet"
+                          role="img"
+                          style={
+                            Object {
+                              "willChange": "transform",
+                            }
+                          }
+                          viewBox="0 0 16 16"
+                          width={16}
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M11 8L6 13 5.3 12.3 9.6 8 5.3 3.7 6 3z"
+                          />
+                        </svg>
+                        <div
+                          className="bx--accordion__title"
+                        >
+                          Connect with us
+                        </div>
+                      </button>
+                      <div
+                        className="bx--accordion__content"
+                      >
+                        <h2
+                          className="bx--footer-nav-group__title"
+                        >
+                          Connect with us
+                        </h2>
+                        <ul>
+                          <li
+                            className="bx--footer-nav-group__item"
+                          >
+                            <a
+                              className="bx--link bx--footer-nav-group__link"
+                              data-autoid="dds--footer-nav-group__link"
+                              href="https://support.ibm.com?lnk=fcw"
+                            >
+                              Support
+                            </a>
+                          </li>
+                          <li
+                            className="bx--footer-nav-group__item"
+                          >
+                            <a
+                              className="bx--link bx--footer-nav-group__link"
+                              data-autoid="dds--footer-nav-group__link"
+                              href="https://www.ibm.com/partnerworld/wps/bplocator/search.jsp?lnk=fcw"
+                            >
+                              Find a Business Partner
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li
+                      className="bx--accordion__item bx--footer-nav-group"
+                      data-autoid="dds--footer-nav-group"
+                      onAnimationEnd={[Function]}
+                    >
+                      <button
+                        aria-expanded={false}
+                        className="bx--accordion__heading"
+                        onClick={[Function]}
+                        onKeyDown={[Function]}
+                        title="Expand/Collapse"
+                        type="button"
+                      >
+                        <svg
+                          aria-label="Expand/Collapse"
+                          className="bx--accordion__arrow"
+                          focusable="false"
+                          height={16}
+                          preserveAspectRatio="xMidYMid meet"
+                          role="img"
+                          style={
+                            Object {
+                              "willChange": "transform",
+                            }
+                          }
+                          viewBox="0 0 16 16"
+                          width={16}
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M11 8L6 13 5.3 12.3 9.6 8 5.3 3.7 6 3z"
+                          />
+                        </svg>
+                        <div
+                          className="bx--accordion__title"
+                        >
+                          About IBM
+                        </div>
+                      </button>
+                      <div
+                        className="bx--accordion__content"
+                      >
+                        <h2
+                          className="bx--footer-nav-group__title"
+                        >
+                          About IBM
+                        </h2>
+                        <ul>
+                          <li
+                            className="bx--footer-nav-group__item"
+                          >
+                            <a
+                              className="bx--link bx--footer-nav-group__link"
+                              data-autoid="dds--footer-nav-group__link"
+                              href="https://www.ibm.com/employment/?lnk=fab"
+                            >
+                              Careers
+                            </a>
+                          </li>
+                          <li
+                            className="bx--footer-nav-group__item"
+                          >
+                            <a
+                              className="bx--link bx--footer-nav-group__link"
+                              data-autoid="dds--footer-nav-group__link"
+                              href="https://www.ibm.com/events?lnk=fab"
+                            >
+                              Events
+                            </a>
+                          </li>
+                          <li
+                            className="bx--footer-nav-group__item"
+                          >
+                            <a
+                              className="bx--link bx--footer-nav-group__link"
+                              data-autoid="dds--footer-nav-group__link"
+                              href="https://newsroom.ibm.com/?lnk=fab"
+                            >
+                              Latest news
+                            </a>
+                          </li>
+                          <li
+                            className="bx--footer-nav-group__item"
+                          >
+                            <a
+                              className="bx--link bx--footer-nav-group__link"
+                              data-autoid="dds--footer-nav-group__link"
+                              href="https://www.ibm.com/investor/?lnk=fab"
+                            >
+                              Investor relations
+                            </a>
+                          </li>
+                          <li
+                            className="bx--footer-nav-group__item"
+                          >
+                            <a
+                              className="bx--link bx--footer-nav-group__link"
+                              data-autoid="dds--footer-nav-group__link"
+                              href="https://www.ibm.com/employment/us/diverse/?lnk=fab"
+                            >
+                              Diversity and inclusion
+                            </a>
+                          </li>
+                          <li
+                            className="bx--footer-nav-group__item"
+                          >
+                            <a
+                              className="bx--link bx--footer-nav-group__link"
+                              data-autoid="dds--footer-nav-group__link"
+                              href="https://www.ibm.org/?lnk=fab"
+                            >
+                              Corporate responsibility
+                            </a>
+                          </li>
+                          <li
+                            className="bx--footer-nav-group__item"
+                          >
+                            <a
+                              className="bx--link bx--footer-nav-group__link"
+                              data-autoid="dds--footer-nav-group__link"
+                              href="https://www.ibm.com/ibm/us/en/?lnk=fab"
+                            >
+                              About IBM
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li
+                      className="bx--accordion__item bx--footer-nav-group"
+                      data-autoid="dds--footer-nav-group"
+                      onAnimationEnd={[Function]}
+                    >
+                      <button
+                        aria-expanded={false}
+                        className="bx--accordion__heading"
+                        onClick={[Function]}
+                        onKeyDown={[Function]}
+                        title="Expand/Collapse"
+                        type="button"
+                      >
+                        <svg
+                          aria-label="Expand/Collapse"
+                          className="bx--accordion__arrow"
+                          focusable="false"
+                          height={16}
+                          preserveAspectRatio="xMidYMid meet"
+                          role="img"
+                          style={
+                            Object {
+                              "willChange": "transform",
+                            }
+                          }
+                          viewBox="0 0 16 16"
+                          width={16}
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M11 8L6 13 5.3 12.3 9.6 8 5.3 3.7 6 3z"
+                          />
+                        </svg>
+                        <div
+                          className="bx--accordion__title"
+                        >
+                          Social
+                        </div>
+                      </button>
+                      <div
+                        className="bx--accordion__content"
+                      >
+                        <h2
+                          className="bx--footer-nav-group__title"
+                        >
+                          Social
+                        </h2>
+                        <ul>
+                          <li
+                            className="bx--footer-nav-group__item"
+                          >
+                            <a
+                              className="bx--link bx--footer-nav-group__link"
+                              data-autoid="dds--footer-nav-group__link"
+                              href="https://www.twitter.com/ibm"
+                            >
+                              Twitter
+                            </a>
+                          </li>
+                          <li
+                            className="bx--footer-nav-group__item"
+                          >
+                            <a
+                              className="bx--link bx--footer-nav-group__link"
+                              data-autoid="dds--footer-nav-group__link"
+                              href="https://www.linkedin.com/company/ibm"
+                            >
+                              LinkedIn
+                            </a>
+                          </li>
+                          <li
+                            className="bx--footer-nav-group__item"
+                          >
+                            <a
+                              className="bx--link bx--footer-nav-group__link"
+                              data-autoid="dds--footer-nav-group__link"
+                              href="https://www.facebook.com/ibm"
+                            >
+                              Facebook
+                            </a>
+                          </li>
+                          <li
+                            className="bx--footer-nav-group__item"
+                          >
+                            <a
+                              className="bx--link bx--footer-nav-group__link"
+                              data-autoid="dds--footer-nav-group__link"
+                              href="https://www.youtube.com/ibm"
+                            >
+                              YouTube
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                  </ul>
+                </nav>
+                <div
+                  className="bx--locale-btn__container"
+                >
+                  <button
+                    className="bx--locale-btn bx--btn bx--btn--secondary"
+                    data-autoid="dds--locale-btn"
+                    disabled={false}
+                    onClick={[Function]}
+                    tabIndex={0}
+                    type="button"
+                  >
+                    United States — English
+                    <svg
+                      aria-hidden={true}
+                      className="bx--btn__icon"
+                      focusable="false"
+                      height={20}
+                      preserveAspectRatio="xMidYMid meet"
+                      style={
+                        Object {
+                          "willChange": "transform",
+                        }
+                      }
+                      viewBox="0 0 32 32"
+                      width={20}
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M14,4a7,7,0,1,1-7,7,7,7,0,0,1,7-7m0-2a9,9,0,1,0,9,9A9,9,0,0,0,14,2Z"
+                      />
+                      <path
+                        d="M28,11a13.92,13.92,0,0,0-4.11-9.89L22.48,2.52a12,12,0,0,1-16.92,17l0,0L4.11,20.89A13.92,13.92,0,0,0,14,25v3H10v2H20V28H16V24.84A14,14,0,0,0,28,11Z"
+                      />
+                    </svg>
+                  </button>
+                  <div
+                    className="bx--modal bx--locale-modal-container"
+                    data-autoid="dds--locale-modal"
+                    onBlur={[Function]}
+                    onClick={[Function]}
+                    onClose={[Function]}
+                    onKeyDown={[Function]}
+                    open={false}
+                    role="presentation"
+                    tabIndex={-1}
+                  >
+                    <div
+                      className="bx--modal-container"
+                    >
+                      <div
+                        className="bx--modal-header"
+                      >
+                        <p
+                          className="bx--modal-header__label bx--type-delta"
+                        >
+                          <svg
+                            aria-hidden={true}
+                            className="bx--locale-modal__label-globe"
+                            focusable="false"
+                            height={20}
+                            preserveAspectRatio="xMidYMid meet"
+                            style={
+                              Object {
+                                "willChange": "transform",
+                              }
+                            }
+                            viewBox="0 0 32 32"
+                            width={20}
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M14,4a7,7,0,1,1-7,7,7,7,0,0,1,7-7m0-2a9,9,0,1,0,9,9A9,9,0,0,0,14,2Z"
+                            />
+                            <path
+                              d="M28,11a13.92,13.92,0,0,0-4.11-9.89L22.48,2.52a12,12,0,0,1-16.92,17l0,0L4.11,20.89A13.92,13.92,0,0,0,14,25v3H10v2H20V28H16V24.84A14,14,0,0,0,28,11Z"
+                            />
+                          </svg>
+                        </p>
+                        <p
+                          className="bx--modal-header__heading bx--type-beta"
+                        >
+                          Select region
+                        </p>
+                        <button
+                          aria-label="Close"
+                          className="bx--modal-close"
+                          onClick={[Function]}
+                          title="Close"
+                          type="button"
+                        >
+                          <svg
+                            aria-hidden={true}
+                            className="bx--modal-close__icon"
+                            focusable="false"
+                            height={20}
+                            preserveAspectRatio="xMidYMid meet"
+                            style={
+                              Object {
+                                "willChange": "transform",
+                              }
+                            }
+                            viewBox="0 0 32 32"
+                            width={20}
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M24 9.4L22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16 24 9.4z"
+                            />
+                          </svg>
+                        </button>
+                      </div>
+                      <div
+                        className="bx--modal-content bx--locale-modal "
+                      >
+                        <div
+                          className="bx--grid bx--no-gutter bx--locale-modal__regions"
+                        >
+                          <div
+                            className="bx--row"
+                          />
+                        </div>
+                        <div
+                          className="bx--locale-modal__filter"
+                        >
+                          <div
+                            className="bx--locale-modal__search"
+                          >
+                            <div
+                              className="bx--search bx--search--xl"
+                            >
+                              <svg
+                                aria-hidden={true}
+                                className="bx--search-magnifier"
+                                focusable="false"
+                                height={16}
+                                preserveAspectRatio="xMidYMid meet"
+                                style={
+                                  Object {
+                                    "willChange": "transform",
+                                  }
+                                }
+                                viewBox="0 0 16 16"
+                                width={16}
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M15,14.3L10.7,10c1.9-2.3,1.6-5.8-0.7-7.7S4.2,0.7,2.3,3S0.7,8.8,3,10.7c2,1.7,5,1.7,7,0l4.3,4.3L15,14.3z M2,6.5	C2,4,4,2,6.5,2S11,4,11,6.5S9,11,6.5,11S2,9,2,6.5z"
+                                />
+                              </svg>
+                              <label
+                                className="bx--label"
+                                htmlFor="bx--locale-modal__filter"
+                              >
+                                Search
+                              </label>
+                              <input
+                                className="bx--search-input"
+                                data-autoid="dds--locale-modal__filter"
+                                id="bx--locale-modal__filter"
+                                onChange={[Function]}
+                                placeholder="Search by location or language"
+                                role="searchbox"
+                                type="text"
+                              />
+                              <button
+                                aria-label="Clear search input"
+                                className="bx--search-close bx--search-close--hidden"
+                                onClick={[Function]}
+                                type="button"
+                              >
+                                <svg
+                                  aria-hidden={true}
+                                  focusable="false"
+                                  height={20}
+                                  preserveAspectRatio="xMidYMid meet"
+                                  style={
+                                    Object {
+                                      "willChange": "transform",
+                                    }
+                                  }
+                                  viewBox="0 0 32 32"
+                                  width={20}
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M24 9.4L22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16 24 9.4z"
+                                  />
+                                </svg>
+                              </button>
+                            </div>
+                            <p
+                              className="bx--locale-modal__search-text"
+                            >
+                              This page is available in the following locations and languages
+                            </p>
+                          </div>
+                          <div
+                            className="bx--locale-modal__list"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <aside
+              className="bx--legal-nav__container"
+              data-autoid="dds--footer-legal-nav"
+            >
+              <nav
+                className="bx--legal-nav"
+              >
+                <ul
+                  className="bx--legal-nav__list"
+                >
+                  <li
+                    className="bx--legal-nav__list-item"
+                  >
+                    <a
+                      className="bx--link"
+                      data-autoid="dds--footer-legal-nav__link"
+                      href="https://www.ibm.com/contact/us/en/?lnk=flg-cont-usen"
+                    >
+                      Contact IBM
+                    </a>
+                  </li>
+                  <li
+                    className="bx--legal-nav__list-item"
+                  >
+                    <a
+                      className="bx--link"
+                      data-autoid="dds--footer-legal-nav__link"
+                      href="https://www.ibm.com/privacy/us/en/?lnk=flg-priv-usen"
+                    >
+                      Privacy
+                    </a>
+                  </li>
+                  <li
+                    className="bx--legal-nav__list-item"
+                  >
+                    <a
+                      className="bx--link"
+                      data-autoid="dds--footer-legal-nav__link"
+                      href="https://www.ibm.com/us-en/legal?lnk=flg-tous-usen"
+                    >
+                      Terms of use
+                    </a>
+                  </li>
+                  <li
+                    className="bx--legal-nav__list-item"
+                  >
+                    <a
+                      className="bx--link"
+                      data-autoid="dds--footer-legal-nav__link"
+                      href="https://www.ibm.com/accessibility/us/en/?lnk=flg-acce-usen"
+                    >
+                      Accessibility
+                    </a>
+                  </li>
+                  <li
+                    className="bx--legal-nav__list-item"
+                    data-autoid="dds--privacy-cp"
+                  />
+                </ul>
+              </nav>
+            </aside>
+          </footer>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <input
+    aria-label="input-text-offleft"
+    className="bx--visually-hidden"
+    type="text"
+  />,
+]
+`;
+
+exports[`Storyshots Components|HorizontalRule Default 1`] = `
+Array [
+  <div
+    data-floating-menu-container=""
+    role="main"
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+      }
+    }
+  >
+    <div
+      className="storybook-readme-story"
+    >
+      <div
+        style={Object {}}
+      >
+        <div>
+          <div>
+            <h1>
+              <b>
+                Grid with no Gutter
+              </b>
+            </h1>
+            <div
+              className="bx--grid"
+              style={
+                Object {
+                  "marginBottom": "50px",
+                }
+              }
+            >
+              <div
+                className="bx--row bx--no-gutter"
+              >
+                <div
+                  className="bx--col"
+                >
+                  <hr
+                    className="bx--hr"
+                    data-autoid="dds--hr"
+                  />
+                </div>
+              </div>
+            </div>
+            <h1>
+              <b>
+                Grid with Gutter
+              </b>
+            </h1>
+            <div
+              className="bx--grid bx--grid--full-width"
+            >
+              <div
+                className="bx--row"
+              >
+                <div
+                  className="bx--col"
+                >
+                  <h4>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  </h4>
+                  <hr
+                    className="bx--hr"
+                    data-autoid="dds--hr"
+                  />
+                  <h4>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  </h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <input
+    aria-label="input-text-offleft"
+    className="bx--visually-hidden"
+    type="text"
+  />,
+]
+`;
+
+exports[`Storyshots Components|Image Default 1`] = `
+Array [
+  <div
+    data-floating-menu-container=""
+    role="main"
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+      }
+    }
+  >
+    <div
+      className="storybook-readme-story"
+    >
+      <div
+        style={Object {}}
+      >
+        <div>
+          <picture
+            alt="lead space image"
+            className="bx--image"
+            data-autoid="dds--image"
+          >
+            <source
+              media="(min-width: 672px )"
+              srcSet="https://picsum.photos/id/2/672/672"
+            />
+            <source
+              media="(min-width: 400px )"
+              srcSet="https://picsum.photos/id/2/400/400"
+            />
+            <source
+              media="(min-width: 320px )"
+              srcSet="https://picsum.photos/id/2/320/160"
+            />
+            <img
+              alt="lead space image"
+              className="bx--image__img"
+              src="https://picsum.photos/id/2/672/672"
+            />
+          </picture>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <input
+    aria-label="input-text-offleft"
+    className="bx--visually-hidden"
+    type="text"
+  />,
+]
+`;
+
+exports[`Storyshots Components|Link with Icon Default 1`] = `
+Array [
+  <div
+    data-floating-menu-container=""
+    role="main"
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+      }
+    }
+  >
+    <div
+      className="storybook-readme-story"
+    >
+      <div
+        style={Object {}}
+      >
+        <div>
+          <div
+            style={
+              Object {
+                "alignItems": "center",
+                "display": "flex",
+                "flexDirection": "column",
+                "padding": "2rem",
+              }
+            }
+          >
+            <div
+              className="bx--link-with-icon__container"
+              data-autoid="dds--link-with-icon"
+            >
+              <a
+                className="bx--link bx--link-with-icon"
+                href="https://www.ibm.com"
+              >
+                <span>
+                  Link text
+                </span>
+                <svg
+                  aria-hidden={true}
+                  focusable="false"
+                  height={20}
+                  preserveAspectRatio="xMidYMid meet"
+                  style={
+                    Object {
+                      "willChange": "transform",
+                    }
+                  }
+                  viewBox="0 0 20 20"
+                  width={20}
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <input
+    aria-label="input-text-offleft"
+    className="bx--visually-hidden"
+    type="text"
+  />,
+]
+`;
+
+exports[`Storyshots Components|Masthead Default 1`] = `
+Array [
+  <div
+    data-floating-menu-container=""
+    role="main"
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+      }
+    }
+  >
+    <div
+      className="storybook-readme-story"
+    >
+      <div
+        style={Object {}}
+      >
+        <div>
+          <div
+            className="bx--masthead "
+          >
+            <div
+              className="bx--masthead__l0"
+            >
+              <header
+                aria-label="IBM"
+                className="bx--header"
+                data-autoid="dds--masthead"
+                role="banner"
+              >
+                <a
+                  className="bx--skip-to-content"
+                  href="#main-content"
+                  tabIndex="0"
+                >
+                  Skip to main content
+                </a>
+                <button
+                  aria-label="Open menu"
+                  className="bx--header__action bx--header__menu-trigger bx--header__menu-toggle bx--header__menu-toggle__hidden"
+                  data-autoid="dds--masthead__hamburger"
+                  onClick={[Function]}
+                  title="Open menu"
+                  type="button"
+                >
+                  <svg
+                    aria-hidden={true}
+                    focusable="false"
+                    height={20}
+                    preserveAspectRatio="xMidYMid meet"
+                    style={
+                      Object {
+                        "willChange": "transform",
+                      }
+                    }
+                    viewBox="0 0 20 20"
+                    width={20}
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M2 14.8H18V16H2zM2 11.2H18V12.399999999999999H2zM2 7.6H18V8.799999999999999H2zM2 4H18V5.2H2z"
+                    />
+                  </svg>
+                </button>
+                <div
+                  className="bx--header__logo"
+                  data-autoid="dds--masthead-logo"
+                >
+                  <a
+                    data-autoid="dds--masthead-logo__link"
+                    href="https://www.ibm.com/"
+                  >
+                    <svg
+                      height="23"
+                      viewBox="0 0 58 23"
+                      width="58"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M58 21.467V23h-7.632v-1.533H58zm-18.316 0V23h-7.631v-1.533h7.631zm5.955 0L45.025 23l-.606-1.533h1.22zm-17.097 0A6.285 6.285 0 0 1 24.391 23H12.21v-1.533zm-17.858 0V23H0v-1.533h10.684zm29-3.067v1.533h-7.631V18.4h7.631zm7.148 0l-.594 1.533H43.82l-.598-1.533h3.609zm-16.764 0a5.719 5.719 0 0 1-.64 1.533H12.21V18.4zm-19.384 0v1.533H0V18.4h10.684zM58 18.4v1.533h-7.632V18.4H58zm-3.053-3.067v1.534h-4.579v-1.534h4.58zm-15.263 0v1.534h-4.579v-1.534h4.58zm8.345 0l-.6 1.534h-4.806l-.604-1.534h6.01zm-18.174 0c.137.49.213 1.003.213 1.534h-5.647v-1.534zm-10.013 0v1.534h-4.579v-1.534h4.58zm-12.21 0v1.534h-4.58v-1.534h4.58zm47.315-3.066V13.8h-4.579v-1.533h4.58zm-15.263 0V13.8h-4.579v-1.533h4.58zm9.541 0l-.597 1.533h-7.22l-.591-1.533h8.408zm-21.248 0c.527.432.98.951 1.328 1.533H15.263v-1.533zm-20.345 0V13.8h-4.58v-1.533h4.58zM44.599 9.2l.427 1.24.428-1.24h9.493v1.533h-4.579V9.324l-.519 1.41h-9.661l-.504-1.41v1.41h-4.579V9.2H44.6zm-36.967 0v1.533h-4.58V9.2h4.58zm21.673 0a5.95 5.95 0 0 1-1.328 1.533H15.263V9.2zm25.642-3.067v1.534h-8.964l.54-1.534h8.424zm-11.413 0l.54 1.534h-8.969V6.133h8.43zm-13.466 0c0 .531-.076 1.045-.213 1.534H24.42V6.133zm-10.226 0v1.534h-4.579V6.133h4.58zm-12.21 0v1.534h-4.58V6.133h4.58zm34.845-3.066l.53 1.533H32.054V3.067h10.424zm15.523 0V4.6H47.04l.55-1.533H58zm-28.573 0c.284.473.504.988.641 1.533H12.211V3.067zm-18.743 0V4.6H0V3.067h10.684zM41.406 0l.54 1.533h-9.893V0h9.353zM58 0v1.533h-9.881L48.647 0H58zM24.39 0c1.601 0 3.057.581 4.152 1.533H12.211V0zM10.685 0v1.533H0V0h10.684z"
+                        fill="#161616"
+                        fillRule="evenodd"
+                      />
+                    </svg>
+                  </a>
+                </div>
+                <div
+                  className="bx--header__search "
+                >
+                  <nav
+                    aria-label="IBM"
+                    className="bx--header__nav"
+                    data-autoid="dds--masthead__l0-nav"
+                  >
+                    <ul
+                      aria-label="IBM"
+                      className="bx--header__menu-bar"
+                      role="menubar"
+                    />
+                  </nav>
+                  <div
+                    className="bx--masthead__search"
+                    data-autoid="dds--masthead__search"
+                    onBlur={[Function]}
+                  >
+                    <form
+                      action="https://www.ibm.com/search?lnk=mhsrch"
+                      method="get"
+                    >
+                      <input
+                        name="lang"
+                        type="hidden"
+                        value="en"
+                      />
+                      <input
+                        name="cc"
+                        type="hidden"
+                        value="us"
+                      />
+                      <input
+                        name="lnk"
+                        type="hidden"
+                        value="mhsrch"
+                      />
+                      <div
+                        aria-expanded={false}
+                        aria-haspopup="listbox"
+                        aria-owns="react-autowhatever-1"
+                        className="react-autosuggest__container"
+                        role="combobox"
+                      >
+                        <input
+                          aria-activedescendant={null}
+                          aria-autocomplete="list"
+                          aria-controls="react-autowhatever-1"
+                          autoComplete="off"
+                          className="bx--header__search--input"
+                          data-autoid="dds--header__search--input"
+                          name="q"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          onFocus={[Function]}
+                          onKeyDown={[Function]}
+                          placeholder="Search all of IBM"
+                          tabIndex="-1"
+                          type="text"
+                          value=""
+                        />
+                        <button
+                          aria-label="Search all of IBM"
+                          className="bx--header__search--search bx--header__action"
+                          data-autoid="dds--header__search--search"
+                          onClick={[Function]}
+                          type="button"
+                        >
+                          <svg
+                            aria-hidden={true}
+                            focusable="false"
+                            height={20}
+                            preserveAspectRatio="xMidYMid meet"
+                            style={
+                              Object {
+                                "willChange": "transform",
+                              }
+                            }
+                            viewBox="0 0 32 32"
+                            width={20}
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M30,28.59,22.45,21A11,11,0,1,0,21,22.45L28.59,30ZM5,14a9,9,0,1,1,9,9A9,9,0,0,1,5,14Z"
+                            />
+                          </svg>
+                        </button>
+                        <button
+                          aria-label="Close"
+                          className="bx--header__search--close bx--header__action"
+                          data-autoid="dds--header__search--close"
+                          onClick={[Function]}
+                          type="button"
+                        >
+                          <svg
+                            aria-hidden={true}
+                            focusable="false"
+                            height={20}
+                            preserveAspectRatio="xMidYMid meet"
+                            style={
+                              Object {
+                                "willChange": "transform",
+                              }
+                            }
+                            viewBox="0 0 32 32"
+                            width={20}
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M24 9.4L22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16 24 9.4z"
+                            />
+                          </svg>
+                        </button>
+                        <div
+                          className="react-autosuggest__suggestions-container"
+                          id="react-autowhatever-1"
+                          role="listbox"
+                        />
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                <div
+                  className="bx--header__global"
+                >
+                  <button
+                    aria-label="User Profile"
+                    className="bx--header__action"
+                    data-autoid="dds--masthead__profile"
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    <button
+                      aria-expanded={false}
+                      aria-haspopup={true}
+                      aria-label="Menu"
+                      className="bx--overflow-menu"
+                      onClick={[Function]}
+                      onClose={[Function]}
+                      onKeyDown={[Function]}
+                      open={false}
+                      style={
+                        Object {
+                          "width": "auto",
+                        }
+                      }
+                      tabIndex={0}
+                    >
+                      <svg
+                        aria-hidden={true}
+                        focusable="false"
+                        height={20}
+                        preserveAspectRatio="xMidYMid meet"
+                        style={
+                          Object {
+                            "willChange": "transform",
+                          }
+                        }
+                        viewBox="0 0 32 32"
+                        width={20}
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M16 4a5 5 0 1 1-5 5 5 5 0 0 1 5-5m0-2a7 7 0 1 0 7 7A7 7 0 0 0 16 2zM26 30H24V25a5 5 0 0 0-5-5H13a5 5 0 0 0-5 5v5H6V25a7 7 0 0 1 7-7h6a7 7 0 0 1 7 7z"
+                        />
+                      </svg>
+                    </button>
+                  </button>
+                </div>
+                <div
+                  className="bx--side-nav__overlay"
+                />
+                <nav
+                  aria-label="Side navigation"
+                  className="bx--side-nav__navigation bx--side-nav bx--side-nav--ux bx--side-nav--hidden"
+                  onBlur={[Function]}
+                  onFocus={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                >
+                  <nav
+                    data-autoid="dds--masthead__l0-sidenav"
+                  >
+                    <ul
+                      className="bx--side-nav__items"
+                    >
+                      <div
+                        className="bx--side-nav__header-navigation"
+                      />
+                    </ul>
+                  </nav>
+                </nav>
+              </header>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <input
+    aria-label="input-text-offleft"
+    className="bx--visually-hidden"
+    type="text"
+  />,
+]
+`;
+
+exports[`Storyshots Components|Masthead Search open by default 1`] = `
+Array [
+  <div
+    data-floating-menu-container=""
+    role="main"
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+      }
+    }
+  >
+    <div
+      className="storybook-readme-story"
+    >
+      <div
+        style={Object {}}
+      >
+        <div>
+          <div
+            className="bx--masthead "
+          >
+            <div
+              className="bx--masthead__l0"
+            >
+              <header
+                aria-label="IBM"
+                className="bx--header"
+                data-autoid="dds--masthead"
+                role="banner"
+              >
+                <a
+                  className="bx--skip-to-content"
+                  href="#main-content"
+                  tabIndex="0"
+                >
+                  Skip to main content
+                </a>
+                <button
+                  aria-label="Open menu"
+                  className="bx--header__action bx--header__menu-trigger bx--header__menu-toggle bx--header__menu-toggle__hidden"
+                  data-autoid="dds--masthead__hamburger"
+                  onClick={[Function]}
+                  title="Open menu"
+                  type="button"
+                >
+                  <svg
+                    aria-hidden={true}
+                    focusable="false"
+                    height={20}
+                    preserveAspectRatio="xMidYMid meet"
+                    style={
+                      Object {
+                        "willChange": "transform",
+                      }
+                    }
+                    viewBox="0 0 20 20"
+                    width={20}
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M2 14.8H18V16H2zM2 11.2H18V12.399999999999999H2zM2 7.6H18V8.799999999999999H2zM2 4H18V5.2H2z"
+                    />
+                  </svg>
+                </button>
+                <div
+                  className="bx--header__logo"
+                  data-autoid="dds--masthead-logo"
+                >
+                  <a
+                    data-autoid="dds--masthead-logo__link"
+                    href="https://www.ibm.com/"
+                  >
+                    <svg
+                      height="23"
+                      viewBox="0 0 58 23"
+                      width="58"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M58 21.467V23h-7.632v-1.533H58zm-18.316 0V23h-7.631v-1.533h7.631zm5.955 0L45.025 23l-.606-1.533h1.22zm-17.097 0A6.285 6.285 0 0 1 24.391 23H12.21v-1.533zm-17.858 0V23H0v-1.533h10.684zm29-3.067v1.533h-7.631V18.4h7.631zm7.148 0l-.594 1.533H43.82l-.598-1.533h3.609zm-16.764 0a5.719 5.719 0 0 1-.64 1.533H12.21V18.4zm-19.384 0v1.533H0V18.4h10.684zM58 18.4v1.533h-7.632V18.4H58zm-3.053-3.067v1.534h-4.579v-1.534h4.58zm-15.263 0v1.534h-4.579v-1.534h4.58zm8.345 0l-.6 1.534h-4.806l-.604-1.534h6.01zm-18.174 0c.137.49.213 1.003.213 1.534h-5.647v-1.534zm-10.013 0v1.534h-4.579v-1.534h4.58zm-12.21 0v1.534h-4.58v-1.534h4.58zm47.315-3.066V13.8h-4.579v-1.533h4.58zm-15.263 0V13.8h-4.579v-1.533h4.58zm9.541 0l-.597 1.533h-7.22l-.591-1.533h8.408zm-21.248 0c.527.432.98.951 1.328 1.533H15.263v-1.533zm-20.345 0V13.8h-4.58v-1.533h4.58zM44.599 9.2l.427 1.24.428-1.24h9.493v1.533h-4.579V9.324l-.519 1.41h-9.661l-.504-1.41v1.41h-4.579V9.2H44.6zm-36.967 0v1.533h-4.58V9.2h4.58zm21.673 0a5.95 5.95 0 0 1-1.328 1.533H15.263V9.2zm25.642-3.067v1.534h-8.964l.54-1.534h8.424zm-11.413 0l.54 1.534h-8.969V6.133h8.43zm-13.466 0c0 .531-.076 1.045-.213 1.534H24.42V6.133zm-10.226 0v1.534h-4.579V6.133h4.58zm-12.21 0v1.534h-4.58V6.133h4.58zm34.845-3.066l.53 1.533H32.054V3.067h10.424zm15.523 0V4.6H47.04l.55-1.533H58zm-28.573 0c.284.473.504.988.641 1.533H12.211V3.067zm-18.743 0V4.6H0V3.067h10.684zM41.406 0l.54 1.533h-9.893V0h9.353zM58 0v1.533h-9.881L48.647 0H58zM24.39 0c1.601 0 3.057.581 4.152 1.533H12.211V0zM10.685 0v1.533H0V0h10.684z"
+                        fill="#161616"
+                        fillRule="evenodd"
+                      />
+                    </svg>
+                  </a>
+                </div>
+                <div
+                  className="bx--header__search "
+                >
+                  <nav
+                    aria-label="IBM"
+                    className="bx--header__nav"
+                    data-autoid="dds--masthead__l0-nav"
+                  >
+                    <ul
+                      aria-label="IBM"
+                      className="bx--header__menu-bar"
+                      role="menubar"
+                    />
+                  </nav>
+                  <div
+                    className="bx--masthead__search bx--masthead__search--active"
+                    data-autoid="dds--masthead__search"
+                    onBlur={[Function]}
+                  >
+                    <form
+                      action="https://www.ibm.com/search?lnk=mhsrch"
+                      method="get"
+                    >
+                      <input
+                        name="lang"
+                        type="hidden"
+                        value="en"
+                      />
+                      <input
+                        name="cc"
+                        type="hidden"
+                        value="us"
+                      />
+                      <input
+                        name="lnk"
+                        type="hidden"
+                        value="mhsrch"
+                      />
+                      <div
+                        aria-expanded={false}
+                        aria-haspopup="listbox"
+                        aria-owns="react-autowhatever-1"
+                        className="react-autosuggest__container"
+                        role="combobox"
+                      >
+                        <input
+                          aria-activedescendant={null}
+                          aria-autocomplete="list"
+                          aria-controls="react-autowhatever-1"
+                          autoComplete="off"
+                          className="bx--header__search--input"
+                          data-autoid="dds--header__search--input"
+                          name="q"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          onFocus={[Function]}
+                          onKeyDown={[Function]}
+                          placeholder="Search all of IBM"
+                          tabIndex={null}
+                          type="text"
+                          value=""
+                        />
+                        <button
+                          aria-label="Search all of IBM"
+                          className="bx--header__search--search bx--header__action"
+                          data-autoid="dds--header__search--search"
+                          onClick={[Function]}
+                          type="button"
+                        >
+                          <svg
+                            aria-hidden={true}
+                            focusable="false"
+                            height={20}
+                            preserveAspectRatio="xMidYMid meet"
+                            style={
+                              Object {
+                                "willChange": "transform",
+                              }
+                            }
+                            viewBox="0 0 32 32"
+                            width={20}
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M30,28.59,22.45,21A11,11,0,1,0,21,22.45L28.59,30ZM5,14a9,9,0,1,1,9,9A9,9,0,0,1,5,14Z"
+                            />
+                          </svg>
+                        </button>
+                        <button
+                          aria-label="Close"
+                          className="bx--header__search--close bx--header__action"
+                          data-autoid="dds--header__search--close"
+                          onClick={[Function]}
+                          type="button"
+                        >
+                          <svg
+                            aria-hidden={true}
+                            focusable="false"
+                            height={20}
+                            preserveAspectRatio="xMidYMid meet"
+                            style={
+                              Object {
+                                "willChange": "transform",
+                              }
+                            }
+                            viewBox="0 0 32 32"
+                            width={20}
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M24 9.4L22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16 24 9.4z"
+                            />
+                          </svg>
+                        </button>
+                        <div
+                          className="react-autosuggest__suggestions-container"
+                          id="react-autowhatever-1"
+                          role="listbox"
+                        />
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                <div
+                  className="bx--header__global"
+                >
+                  <button
+                    aria-label="User Profile"
+                    className="bx--header__action"
+                    data-autoid="dds--masthead__profile"
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    <button
+                      aria-expanded={false}
+                      aria-haspopup={true}
+                      aria-label="Menu"
+                      className="bx--overflow-menu"
+                      onClick={[Function]}
+                      onClose={[Function]}
+                      onKeyDown={[Function]}
+                      open={false}
+                      style={
+                        Object {
+                          "width": "auto",
+                        }
+                      }
+                      tabIndex={0}
+                    >
+                      <svg
+                        aria-hidden={true}
+                        focusable="false"
+                        height={20}
+                        preserveAspectRatio="xMidYMid meet"
+                        style={
+                          Object {
+                            "willChange": "transform",
+                          }
+                        }
+                        viewBox="0 0 32 32"
+                        width={20}
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M16 4a5 5 0 1 1-5 5 5 5 0 0 1 5-5m0-2a7 7 0 1 0 7 7A7 7 0 0 0 16 2zM26 30H24V25a5 5 0 0 0-5-5H13a5 5 0 0 0-5 5v5H6V25a7 7 0 0 1 7-7h6a7 7 0 0 1 7 7z"
+                        />
+                      </svg>
+                    </button>
+                  </button>
+                </div>
+                <div
+                  className="bx--side-nav__overlay"
+                />
+                <nav
+                  aria-label="Side navigation"
+                  className="bx--side-nav__navigation bx--side-nav bx--side-nav--ux bx--side-nav--hidden"
+                  onBlur={[Function]}
+                  onFocus={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                >
+                  <nav
+                    data-autoid="dds--masthead__l0-sidenav"
+                  >
+                    <ul
+                      className="bx--side-nav__items"
+                    >
+                      <div
+                        className="bx--side-nav__header-navigation"
+                      />
+                    </ul>
+                  </nav>
+                </nav>
+              </header>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <input
+    aria-label="input-text-offleft"
+    className="bx--visually-hidden"
+    type="text"
+  />,
+]
+`;
+
+exports[`Storyshots Overview|Get Started Read Me 1`] = `
+Array [
+  <div
+    data-floating-menu-container=""
+    role="main"
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+      }
+    }
+  >
+    <div
+      className="storybook-readme-story"
+    >
+      <div
+        className="storybook-center-container"
+      >
+        <div
+          className="storybook-readme-story"
+        >
+          <div>
+            <div
+              className="markdown-body"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "<p>README.md</p>
+",
+                }
+              }
+            />
+          </div>
+          <div
+            style={Object {}}
+          >
+            <div>
+              <div />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <input
+    aria-label="input-text-offleft"
+    className="bx--visually-hidden"
+    type="text"
+  />,
+]
+`;
+
+exports[`Storyshots Patterns (Sub-Patterns)|Card Link 1`] = `
+Array [
+  <div
+    data-floating-menu-container=""
+    role="main"
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+      }
+    }
+  >
+    <div
+      className="storybook-readme-story"
+    >
+      <div
+        style={Object {}}
+      >
+        <div>
+          <div
+            className="bx--grid"
+          >
+            <div
+              className="bx--row"
+            >
+              <div
+                className="bx--col-sm-2 bx--col-md-3 bx--col-lg-6 bx--col-xlg-4 bx--no-gutter"
+              >
+                <a
+                  className="bx--link bx--tile bx--tile--clickable bx--card-link"
+                  data-autoid="dds--card-link"
+                  href="https://example.com"
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  target=""
+                >
+                  <div
+                    className="bx--card-link__wrapper"
+                  >
+                    <h3
+                      className="bx--card-link__title"
+                    >
+                      Lorem ipsum dolor sit amet
+                    </h3>
+                    <footer
+                      className="bx--card-link__footer"
+                    >
+                      <svg
+                        aria-hidden={true}
+                        focusable="false"
+                        height={20}
+                        preserveAspectRatio="xMidYMid meet"
+                        style={
+                          Object {
+                            "willChange": "transform",
+                          }
+                        }
+                        viewBox="0 0 20 20"
+                        width={20}
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                        />
+                      </svg>
+                    </footer>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <input
+    aria-label="input-text-offleft"
+    className="bx--visually-hidden"
+    type="text"
+  />,
+]
+`;
+
+exports[`Storyshots Patterns (Sub-Patterns)|Layout Default 1`] = `
+Array [
+  <div
+    data-floating-menu-container=""
+    role="main"
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+      }
+    }
+  >
+    <div
+      className="storybook-readme-story"
+    >
+      <div
+        style={Object {}}
+      >
+        <div>
+          <p
+            style={
+              Object {
+                "paddingBottom": "1rem",
+              }
+            }
+          >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ac turpis egestas maecenas pharetra convallis posuere. Ultrices dui sapien eget mi proin sed libero enim. Elementum facilisis leo vel fringilla. Sed tempus urna et pharetra pharetra massa massa ultricies mi. Nascetur ridiculus mus mauris vitae ultricies leo integer. Eget mauris pharetra et ultrices. Urna neque viverra justo nec ultrices dui sapien. Augue eget arcu dictum varius duis. Eget mauris pharetra et ultrices neque ornare aenean.
+          </p>
+          <p
+            style={
+              Object {
+                "paddingBottom": "1rem",
+              }
+            }
+          >
+            Layout component begins below.
+          </p>
+          <section
+            className="bx--grid bx--layout--top-layout-03 bx--layout--bottom-layout-06"
+            data-autoid="dds--layout"
+          >
+            <div
+              className="bx--row"
+            >
+              <div
+                className="bx--col-lg-4 bx--layout--sticky"
+              >
+                <div
+                  className="bx--layout--sticky"
+                  data-sticky="true"
+                  style={
+                    Object {
+                      "backgroundColor": "white",
+                    }
+                  }
+                >
+                  <h3>
+                    Column 1
+                  </h3>
+                  <ul
+                    className="bx--list--unordered"
+                  >
+                    <li
+                      className="bx--list__item"
+                    >
+                      Item 1
+                    </li>
+                    <li
+                      className="bx--list__item"
+                    >
+                      Item 2
+                    </li>
+                    <li
+                      className="bx--list__item"
+                    >
+                      Item 3
+                    </li>
+                    <li
+                      className="bx--list__item"
+                    >
+                      Item 4
+                    </li>
+                    <li
+                      className="bx--list__item"
+                    >
+                      Item 5
+                    </li>
+                    <li
+                      className="bx--list__item"
+                    >
+                      Item 6
+                    </li>
+                    <li
+                      className="bx--list__item"
+                    >
+                      Item 7
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div
+                className="bx--col-lg-12"
+              >
+                <h3>
+                  Column 2
+                </h3>
+                <p
+                  style={
+                    Object {
+                      "paddingBottom": "1rem",
+                    }
+                  }
+                >
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ac turpis egestas maecenas pharetra convallis posuere. Ultrices dui sapien eget mi proin sed libero enim. Elementum facilisis leo vel fringilla. Sed tempus urna et pharetra pharetra massa massa ultricies mi. Nascetur ridiculus mus mauris vitae ultricies leo integer. Eget mauris pharetra et ultrices. Urna neque viverra justo nec ultrices dui sapien. Augue eget arcu dictum varius duis. Eget mauris pharetra et ultrices neque ornare aenean.
+                </p>
+                <p
+                  style={
+                    Object {
+                      "paddingBottom": "1rem",
+                    }
+                  }
+                >
+                  A pellentesque sit amet porttitor. Sed euismod nisi porta lorem. Pellentesque dignissim enim sit amet venenatis urna cursus eget nunc. Eu lobortis elementum nibh tellus molestie nunc non blandit massa. Risus at ultrices mi tempus imperdiet nulla malesuada pellentesque elit. Est ultricies integer quis auctor elit sed. Quis risus sed vulputate odio ut. Varius sit amet mattis vulputate. Enim ut tellus elementum sagittis vitae et leo. Posuere ac ut consequat semper viverra nam libero. Habitant morbi tristique senectus et netus et malesuada fames. Enim neque volutpat ac tincidunt vitae semper quis lectus nulla.
+                </p>
+                <p
+                  style={
+                    Object {
+                      "paddingBottom": "1rem",
+                    }
+                  }
+                >
+                  Eu facilisis sed odio morbi quis commodo. Non tellus orci ac auctor augue mauris augue. Accumsan tortor posuere ac ut. Orci sagittis eu volutpat odio facilisis. Vestibulum mattis ullamcorper velit sed ullamcorper morbi. Vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt. Id leo in vitae turpis massa sed elementum. Euismod elementum nisi quis eleifend quam adipiscing vitae proin sagittis. Duis ultricies lacus sed turpis tincidunt id aliquet. Nibh mauris cursus mattis molestie a iaculis at erat pellentesque. Tempus iaculis urna id volutpat lacus. Rhoncus aenean vel elit scelerisque mauris.
+                </p>
+                <p
+                  style={
+                    Object {
+                      "paddingBottom": "1rem",
+                    }
+                  }
+                >
+                  Hac habitasse platea dictumst quisque sagittis. Faucibus nisl tincidunt eget nullam non nisi est sit. Volutpat ac tincidunt vitae semper quis lectus. Nisi lacus sed viverra tellus in hac. Rhoncus dolor purus non enim. Suspendisse sed nisi lacus sed viverra. Faucibus vitae aliquet nec ullamcorper sit amet risus nullam eget. Augue interdum velit euismod in pellentesque massa. Fermentum iaculis eu non diam phasellus vestibulum lorem sed. Volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque.
+                </p>
+                <p
+                  style={
+                    Object {
+                      "paddingBottom": "1rem",
+                    }
+                  }
+                >
+                  Mi in nulla posuere sollicitudin aliquam ultrices sagittis. Elit pellentesque habitant morbi tristique senectus. Nunc non blandit massa enim nec dui nunc mattis enim. In egestas erat imperdiet sed euismod nisi porta lorem mollis. Donec pretium vulputate sapien nec sagittis aliquam malesuada bibendum arcu. Auctor urna nunc id cursus metus aliquam eleifend mi. Velit aliquet sagittis id consectetur. Arcu cursus vitae congue mauris. Gravida rutrum quisque non tellus orci ac. At erat pellentesque adipiscing commodo elit at. Amet tellus cras adipiscing enim eu turpis egestas. Purus gravida quis blandit turpis cursus in hac habitasse. Interdum velit laoreet id donec ultrices tincidunt arcu non sodales. Interdum posuere lorem ipsum dolor sit. Quam quisque id diam vel quam elementum pulvinar etiam non. Massa enim nec dui nunc mattis enim. Ac tortor vitae purus faucibus ornare suspendisse sed. Non pulvinar neque laoreet suspendisse.
+                </p>
+              </div>
+            </div>
+          </section>
+          <p
+            style={
+              Object {
+                "paddingBottom": "1rem",
+              }
+            }
+          >
+            Layout ends above.
+          </p>
+          <p
+            style={
+              Object {
+                "paddingBottom": "1rem",
+              }
+            }
+          >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ac turpis egestas maecenas pharetra convallis posuere. Ultrices dui sapien eget mi proin sed libero enim. Elementum facilisis leo vel fringilla. Sed tempus urna et pharetra pharetra massa massa ultricies mi. Nascetur ridiculus mus mauris vitae ultricies leo integer. Eget mauris pharetra et ultrices. Urna neque viverra justo nec ultrices dui sapien. Augue eget arcu dictum varius duis. Eget mauris pharetra et ultrices neque ornare aenean.
+          </p>
+          <p
+            style={
+              Object {
+                "paddingBottom": "1rem",
+              }
+            }
+          >
+            A pellentesque sit amet porttitor. Sed euismod nisi porta lorem. Pellentesque dignissim enim sit amet venenatis urna cursus eget nunc. Eu lobortis elementum nibh tellus molestie nunc non blandit massa. Risus at ultrices mi tempus imperdiet nulla malesuada pellentesque elit. Est ultricies integer quis auctor elit sed. Quis risus sed vulputate odio ut. Varius sit amet mattis vulputate. Enim ut tellus elementum sagittis vitae et leo. Posuere ac ut consequat semper viverra nam libero. Habitant morbi tristique senectus et netus et malesuada fames. Enim neque volutpat ac tincidunt vitae semper quis lectus nulla.
+          </p>
+          <p
+            style={
+              Object {
+                "paddingBottom": "1rem",
+              }
+            }
+          >
+            Eu facilisis sed odio morbi quis commodo. Non tellus orci ac auctor augue mauris augue. Accumsan tortor posuere ac ut. Orci sagittis eu volutpat odio facilisis. Vestibulum mattis ullamcorper velit sed ullamcorper morbi. Vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt. Id leo in vitae turpis massa sed elementum. Euismod elementum nisi quis eleifend quam adipiscing vitae proin sagittis. Duis ultricies lacus sed turpis tincidunt id aliquet. Nibh mauris cursus mattis molestie a iaculis at erat pellentesque. Tempus iaculis urna id volutpat lacus. Rhoncus aenean vel elit scelerisque mauris.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <input
+    aria-label="input-text-offleft"
+    className="bx--visually-hidden"
+    type="text"
+  />,
+]
+`;

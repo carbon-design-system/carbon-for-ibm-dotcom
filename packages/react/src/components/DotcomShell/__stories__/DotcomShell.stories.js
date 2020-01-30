@@ -1,10 +1,10 @@
 import './index.scss';
 import { boolean, select, text, withKnobs } from '@storybook/addon-knobs';
+import content from './data/content';
 import { DDS_MASTHEAD_L1 } from '../../../internal/FeatureFlags';
 import DotcomShell from '../DotcomShell';
-import React from 'react';
-import content from './data/content';
 import mastheadKnobs from '../../Masthead/__stories__/data/Masthead.stories.knobs.js';
+import React from 'react';
 import readme from '../README.md';
 import { storiesOf } from '@storybook/react';
 
@@ -13,7 +13,7 @@ const footer = {
   short: 'short',
 };
 
-storiesOf('Dotcom Shell', module)
+storiesOf('Components|Dotcom Shell', module)
   .addDecorator(withKnobs)
   .addParameters({
     readme: {

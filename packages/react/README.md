@@ -1,6 +1,6 @@
 # @carbon/ibmdotcom-react
 
-> A collection of IBM.com components implemented using
+> A collection of IBM.com components and patterns implemented using
 > [React](https://reactjs.org/) and
 > [Carbon](https://www.carbondesignsystem.com/).
 
@@ -43,8 +43,9 @@ yarn add @carbon/ibmdotcom-react
 
 ### List of Available Components
 
-View available React Components [here](https://ibmdotcom-react.mybluemix.net).
-You can see usage information in several ways:
+View available React Components and patterns
+[here](https://ibmdotcom-react.mybluemix.net). You can see usage information in
+several ways:
 
 1. Clicking the blue **Show Info** icon in the top right corner of the selected
    component. You can see the list of available React props
