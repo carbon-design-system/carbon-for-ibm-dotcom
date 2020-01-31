@@ -8,9 +8,9 @@ import {
 } from '@storybook/addon-knobs';
 import { DDS_USECASES } from '../../../../internal/FeatureFlags';
 import React from 'react';
-import UseCases from '../UseCases';
 import readme from '../README.md';
 import { storiesOf } from '@storybook/react';
+import UseCases from '../UseCases';
 
 if (DDS_USECASES) {
   storiesOf('Patterns (Blocks)|Use Cases', module)

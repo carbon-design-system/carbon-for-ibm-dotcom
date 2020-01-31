@@ -6,10 +6,10 @@
  */
 
 import { ArrowRight20 } from '@carbon/icons-react';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { LinkWithIcon } from '../../../components/LinkWithIcon';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
 
 const { stablePrefix } = ddsSettings;

@@ -6,9 +6,9 @@
  */
 
 import React, { useEffect } from 'react';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
 import { Search } from 'carbon-components-react';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
 
 const { stablePrefix } = ddsSettings;

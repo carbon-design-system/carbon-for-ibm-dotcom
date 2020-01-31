@@ -1,5 +1,5 @@
-import { LocaleAPI } from '../Locale';
 import axios from 'axios';
+import { LocaleAPI } from '../Locale';
 import root from 'window-or-global';
 
 /**

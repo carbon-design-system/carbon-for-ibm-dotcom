@@ -5,21 +5,21 @@
  * LICENSE file in the root directory of this source tree.
  */
 import {
-  LocaleAPI,
-  TranslationAPI,
-  globalInit,
-} from '@carbon/ibmdotcom-services';
-import React, { useEffect, useState } from 'react';
-import {
   settings as ddsSettings,
   ipcinfoCookie,
 } from '@carbon/ibmdotcom-utilities';
+import {
+  globalInit,
+  LocaleAPI,
+  TranslationAPI,
+} from '@carbon/ibmdotcom-services';
+import React, { useEffect, useState } from 'react';
+import classNames from 'classnames';
 import FooterLogo from './FooterLogo';
 import FooterNav from './FooterNav';
 import LegalNav from './LegalNav';
 import LocaleButton from './LocaleButton';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import { settings } from 'carbon-components';
 
 const { stablePrefix } = ddsSettings;
