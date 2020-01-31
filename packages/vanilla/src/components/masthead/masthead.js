@@ -12,12 +12,12 @@ import {
   TranslationAPI,
   globalInit,
 } from '@carbon/ibmdotcom-services';
-import MastheadSideNav from './masthead-sidenav';
-import MastheadSubmenu from './masthead-submenu';
-import { OverflowMenu } from 'carbon-components';
 import autoComplete from '@tarekraafat/autocomplete.js/dist/js/autoComplete';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import MastheadSideNav from './masthead-sidenav';
+import MastheadSubmenu from './masthead-submenu';
 import mastheadTemplate from './masthead.template';
+import { OverflowMenu } from 'carbon-components';
 import root from 'window-or-global';
 import { settings } from 'carbon-components';
 

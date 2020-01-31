@@ -5,8 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { HeaderSubmenu } from 'carbon-components';
 import eventMatches from 'carbon-components/src/globals/js/misc/event-matches';
+import { HeaderSubmenu } from 'carbon-components';
 
 /**
  * class to initialize Header submenu component
