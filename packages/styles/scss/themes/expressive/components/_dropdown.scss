@@ -1,0 +1,22 @@
+//
+// Copyright IBM Corp. 2016, 2018
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import '@carbon/layout/scss/convert';
+
+//-----------------------------
+// Date Picker (expressive)
+//-----------------------------
+
+/// Date picker styles (expressive)
+/// @access private
+/// @group dropdown-expressive
+@mixin dropdown-expressive {
+  .#{$prefix}--dropdown.#{$prefix}--list-box--sm,
+  .#{$prefix}--dropdown.#{$prefix}--list-box--sm .#{$prefix}--list-box__field {
+    height: 2.5rem;
+  }
+}

@@ -18,6 +18,7 @@
 @import 'components/content-switcher';
 @import 'components/copy-button';
 @import 'components/date-picker';
+@import 'components/dropdown';
 @import 'components/inline-loading';
 @import 'components/inline-notifications';
 @import 'components/list-box';
@@ -54,6 +55,7 @@
     @include content-switcher-expressive;
     @include copy-button-expressive;
     @include date-picker-expressive;
+    @include dropdown-expressive;
     @include inline-loading-expressive;
     @include inline-notifications-expressive;
     @include list-box-expressive;
