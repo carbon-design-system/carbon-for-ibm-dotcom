@@ -42,6 +42,9 @@ describe('<ContentGroupCards />', () => {
       <ContentGroupCards heading="Lorem ipsum dolor sit amet." items={items} />
     );
     expect(
+      contentgroupcards.find('[data-autoid="dds--contentgroupcards"]')
+    ).toHaveLength(1);
+    expect(
       contentgroupcards.find('[data-autoid="dds--contentgroupcards-item"]')
     ).toHaveLength(4);
   });
