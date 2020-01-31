@@ -18,9 +18,9 @@ storiesOf('Patterns (Blocks)|ContentGroupCards', module)
       'Lorem ipsum dolor sit amet.'
     );
 
-    const content = [
+    const items = [
       {
-        title: text(
+        heading: text(
           'Card1 Title:',
           'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt'
         ),
@@ -28,10 +28,12 @@ storiesOf('Patterns (Blocks)|ContentGroupCards', module)
           'Card1 Body:',
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
         ),
-        href: text('Card1 link href:', 'https://www.example.com'),
+        cta: {
+          href: text('Card1 link href:', 'https://www.example.com'),
+        },
       },
       {
-        title: text(
+        heading: text(
           'Card2 Title:',
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit'
         ),
@@ -39,18 +41,22 @@ storiesOf('Patterns (Blocks)|ContentGroupCards', module)
           'Card2 Body:',
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit'
         ),
-        href: text('Card2 link href:', 'https://www.example.com'),
+        cta: {
+          href: text('Card1 link href:', 'https://www.example.com'),
+        },
       },
       {
-        title: text(
+        heading: text(
           'Card3 Title:',
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit'
         ),
         copy: text('Card3 Body:', 'Lorem ipsum dolor sit amet'),
-        href: text('Card3 link href:', 'https://www.example.com'),
+        cta: {
+          href: text('Card1 link href:', 'https://www.example.com'),
+        },
       },
       {
-        title: text(
+        heading: text(
           'Card4 Title:',
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit'
         ),
@@ -58,9 +64,11 @@ storiesOf('Patterns (Blocks)|ContentGroupCards', module)
           'Card4 Body:',
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt'
         ),
-        href: text('Card4 link href:', 'https://www.example.com'),
+        cta: {
+          href: text('Card1 link href:', 'https://www.example.com'),
+        },
       },
     ];
 
-    return <ContentGroupCards heading={heading} content={content} />;
+    return <ContentGroupCards heading={heading} items={items} />;
   });

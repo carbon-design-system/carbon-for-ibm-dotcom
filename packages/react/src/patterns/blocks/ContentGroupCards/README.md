@@ -26,40 +26,36 @@ import 'yourapplication.scss';
 
 const heading = 'Lorem ipsum dolor sit amet.';
 
-const content = [
+const items = [
   {
-    title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+    heading: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
     copy:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    link: {
-      target: '_blank',
+    cta: {
       href: 'https://www.example.com',
     },
   },
   {
-    title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+    heading: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
     copy:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    link: {
-      target: '_blank',
+    cta: {
       href: 'https://www.example.com',
     },
   },
   {
-    title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+    heading: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
     copy:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    link: {
-      target: '_blank',
+    cta: {
       href: 'https://www.example.com',
     },
   },
   {
-    title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+    heading: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
     copy:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    link: {
-      target: '_blank',
+    cta: {
       href: 'https://www.example.com',
     },
   },
@@ -79,23 +75,22 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 | Name      | Required | Data Type | Default Value | Description                                          |
 | --------- | -------- | --------- | ------------- | ---------------------------------------------------- |
-| `heading` | YES      | String    | n/a           | Main title of the pattern.                           |
-| `content` | NO       | Array     | null          | Array of content group objects. See `content` below. |
+| `heading` | YES      | String    | n/a           | Main heading of the pattern.                         |
+| `items`   | NO       | Array     | null          | Array of content group objects. See `content` below. |
 
 ### content
 
-| Name    | Data Type | Description                                                  |
-| ------- | --------- | ------------------------------------------------------------ |
-| `title` | String    | Title of the Content Card item.                              |
-| `copy`  | String    | Copy of the Content Card item.                               |
-| `link`  | Object    | Object containing target and href of link. See `link` below. |
+| Name      | Data Type | Description                                                |
+| --------- | --------- | ---------------------------------------------------------- |
+| `heading` | String    | Title of the Content Card item.                            |
+| `copy`    | String    | Copy of the Content Card item.                             |
+| `cta`     | Object    | Object containing target and href of cta. See `cta` below. |
 
-### link
+### cta
 
-| Name     | Data Type | Description                                                 |
-| -------- | --------- | ----------------------------------------------------------- |
-| `target` | String    | Open within current tab or new tab ('\_self' or '\_blank'). |
-| `href`   | String    | Url of the Content Card item link.                          |
+| Name   | Data Type | Description                       |
+| ------ | --------- | --------------------------------- |
+| `href` | String    | Url of the Content Card item cta. |
 
 ## Stable selectors
 
