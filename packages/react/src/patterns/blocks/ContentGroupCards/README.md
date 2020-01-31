@@ -72,7 +72,7 @@ function App() {
 ReactDOM.render(<App />, document.querySelector('#app'));
 ```
 
-> 💡 Don't forget to import the cardarray styles from
+> 💡 Don't forget to import the ContentGroupCards styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
 ## Props
