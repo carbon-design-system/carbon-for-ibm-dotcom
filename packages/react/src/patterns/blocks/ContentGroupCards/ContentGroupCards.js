@@ -24,7 +24,7 @@ const { stablePrefix } = ddsSettings;
  * @param {Array} props.content CardArray section content object array
  * @returns {*} CardArray JSX component
  */
-const ContentGroupCards = ({ heading, content }) => {
+const ContentGroupCards = ({ heading, items }) => {
   const containerRef = useRef();
 
   useEffect(() => {
@@ -65,7 +65,7 @@ const ContentGroupCards = ({ heading, content }) => {
             ref={containerRef}
             className={`${prefix}--contentgroupcards-group ${prefix}--grid--condensed`}>
             <div className={`${prefix}--contentgroupcards__row`}>
-              {_renderCardArrayItems(content)}
+              {_renderCardArrayItems(items)}
             </div>
           </div>
         </ContentGroup>
@@ -77,16 +77,16 @@ const ContentGroupCards = ({ heading, content }) => {
 /**
  * Renders the cards based on the ContentArray entries
  *
- * @param {Array} contentArray Content object array
+ * @param {Array} itemsArray Content object array
  * @returns {*} CardArrayItem JSX objects
  */
-const _renderCardArrayItems = contentArray =>
-  contentArray.map((elem, index) => (
+const _renderCardArrayItems = itemsArray =>
+  itemsArray.map((elem, index) => (
     <div className={`${prefix}--contentgroupcards-item__col`} key={index}>
       <CardLink
         data-autoid={`${stablePrefix}--contentgroupcards-item`}
         className={`${prefix}--contentgroupcards-item`}
-        title={elem.title}
+        title={elem.heading}
         content={
           <span
             dangerouslySetInnerHTML={{
@@ -94,14 +94,14 @@ const _renderCardArrayItems = contentArray =>
             }}></span>
         }
         icon={<ArrowRight20 />}
-        href={elem.href}
+        href={elem.cta.href}
       />
     </div>
   ));
 
 ContentGroupCards.propTypes = {
   heading: PropTypes.string.isRequired,
-  content: PropTypes.arrayOf(
+  items: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
       copy: PropTypes.string,
