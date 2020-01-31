@@ -15,7 +15,8 @@
       "**/carbon-components",
       "**/@carbon/ibmdotcom-services",
       "**/@carbon/ibmdotcom-styles",
-      "**/@carbon/ibmdotcom-utilities"
+      "**/@carbon/ibmdotcom-utilities",
+      "**/@carbon/ibmdotcom-vanilla"
     ]
   },
   "scripts": {
