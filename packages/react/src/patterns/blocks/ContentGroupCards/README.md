@@ -13,7 +13,7 @@ Here's a quick example to get you started.
 @include carbon--font-face-mono();
 @include carbon--font-face-sans();
 
-@import '@carbon/ibmdotcom-styles/scss/patterns/blocks/contentgroupcards/index.scss';
+@import '@carbon/ibmdotcom-styles/scss/patterns/blocks/content-group-cards/index.scss';
 ```
 
 > 💡 Only import font's once per usage
@@ -82,8 +82,8 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 | Name      | Data Type | Description                                                |
 | --------- | --------- | ---------------------------------------------------------- |
-| `heading` | String    | Title of the Content Card item.                            |
-| `copy`    | String    | Copy of the Content Card item.                             |
+| `heading` | String    | Title for the Card.                                        |
+| `copy`    | String    | Copy for the Card.                                         |
 | `cta`     | Object    | Object containing target and href of cta. See `cta` below. |
 
 ### cta
@@ -94,11 +94,11 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 ## Stable selectors
 
-| Name                           | Description |
-| ------------------------------ | ----------- |
-| `dds--contentgroupcards`       | Component   |
-| `dds--contentgroupcards-group` | Component   |
-| `dds--contentgroupcards-item`  | Component   |
+| Name                             | Description |
+| -------------------------------- | ----------- |
+| `dds--content-group-cards`       | Component   |
+| `dds--content-group-cards-group` | Component   |
+| `dds--content-group-cards-item`  | Component   |
 
 ## 🙌 Contributing
 

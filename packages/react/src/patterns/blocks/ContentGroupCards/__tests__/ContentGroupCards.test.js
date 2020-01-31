@@ -42,10 +42,10 @@ describe('<ContentGroupCards />', () => {
       <ContentGroupCards heading="Lorem ipsum dolor sit amet." items={items} />
     );
     expect(
-      contentgroupcards.find('[data-autoid="dds--contentgroupcards"]')
+      contentgroupcards.find('[data-autoid="dds--content-group-cards"]')
     ).toHaveLength(1);
     expect(
-      contentgroupcards.find('[data-autoid="dds--contentgroupcards-item"]')
+      contentgroupcards.find('[data-autoid="dds--content-group-cards-item"]')
     ).toHaveLength(4);
   });
 });

@@ -10,8 +10,8 @@
   background: $ui-background;
 }
 
-@mixin contentgroupcards {
-  .#{$prefix}--contentgroupcards {
+@mixin content-group-cards {
+  .#{$prefix}--content-group-cards {
     @include carbon--make-container;
     &-group {
       @include carbon--make-container;
@@ -42,14 +42,14 @@
     .#{$prefix}--content-group {
       @include carbon--breakpoint(sm) {
         @include carbon--make-col(4, 4);
-        .#{$prefix}--contentgroupcards__row {
+        .#{$prefix}--content-group-cards__row {
           padding-left: $carbon--layout-01;
           padding-right: $carbon--layout-01;
         }
       }
 
       @include carbon--breakpoint(md) {
-        .#{$prefix}--contentgroupcards__row {
+        .#{$prefix}--content-group-cards__row {
           padding-left: 0;
           padding-right: 0;
         }
@@ -60,7 +60,7 @@
         @include carbon--make-col-offset(4, 16);
       }
 
-      .#{$prefix}--contentgroupcards-group {
+      .#{$prefix}--content-group-cards-group {
         padding-left: $carbon--layout-01;
         padding-right: $carbon--layout-01;
       }
@@ -69,6 +69,6 @@
     @include themed-items;
   }
 }
-@include exports('contentgroupcards') {
-  @include contentgroupcards;
+@include exports('content-group-cards') {
+  @include content-group-cards;
 }

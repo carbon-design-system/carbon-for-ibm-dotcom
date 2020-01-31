@@ -56,15 +56,15 @@ const ContentGroupCards = ({ heading, items }) => {
 
   return (
     <section
-      data-autoid={`${stablePrefix}--contentgroupcards`}
-      className={`${prefix}--contentgroupcards`}>
-      <div className={`${prefix}--contentgroupcards__row`}>
+      data-autoid={`${stablePrefix}--content-group-cards`}
+      className={`${prefix}--content-group-cards`}>
+      <div className={`${prefix}--content-group-cards__row`}>
         <ContentGroup heading={heading}>
           <div
-            data-autoid={`${stablePrefix}--contentgroupcards-group`}
+            data-autoid={`${stablePrefix}--content-group-cards-group`}
             ref={containerRef}
-            className={`${prefix}--contentgroupcards-group ${prefix}--grid--condensed`}>
-            <div className={`${prefix}--contentgroupcards__row`}>
+            className={`${prefix}--content-group-cards-group ${prefix}--grid--condensed`}>
+            <div className={`${prefix}--content-group-cards__row`}>
               {_renderCardArrayItems(items)}
             </div>
           </div>
@@ -83,11 +83,11 @@ const ContentGroupCards = ({ heading, items }) => {
 const _renderCardArrayItems = itemsArray =>
   itemsArray.map((elem, index) => (
     <div
-      data-autoid={`${stablePrefix}--contentgroupcards-item`}
-      className={`${prefix}--contentgroupcards-item__col`}
+      data-autoid={`${stablePrefix}--content-group-cards-item`}
+      className={`${prefix}--content-group-cards-item__col`}
       key={index}>
       <CardLink
-        className={`${prefix}--contentgroupcards-item`}
+        className={`${prefix}--content-group-cards-item`}
         title={elem.heading}
         content={
           <span
