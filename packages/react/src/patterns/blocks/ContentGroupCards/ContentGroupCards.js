@@ -82,9 +82,11 @@ const ContentGroupCards = ({ heading, items }) => {
  */
 const _renderCardArrayItems = itemsArray =>
   itemsArray.map((elem, index) => (
-    <div className={`${prefix}--contentgroupcards-item__col`} key={index}>
+    <div
+      data-autoid={`${stablePrefix}--contentgroupcards-item`}
+      className={`${prefix}--contentgroupcards-item__col`}
+      key={index}>
       <CardLink
-        data-autoid={`${stablePrefix}--contentgroupcards-item`}
         className={`${prefix}--contentgroupcards-item`}
         title={elem.heading}
         content={

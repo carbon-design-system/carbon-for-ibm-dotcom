@@ -2647,6 +2647,302 @@ Array [
 ]
 `;
 
+exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
+Array [
+  <div
+    data-floating-menu-container=""
+    role="main"
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+      }
+    }
+  >
+    <div
+      className="storybook-readme-story"
+    >
+      <div
+        style={Object {}}
+      >
+        <div>
+          <section
+            className="bx--contentgroupcards"
+            data-autoid="dds--contentgroupcards"
+          >
+            <div
+              className="bx--contentgroupcards__row"
+            >
+              <div
+                className="bx--content-group"
+                data-autoid="dds--content-group"
+              >
+                <div
+                  className="bx--content-group__container"
+                >
+                  <div
+                    className="bx--content-group__row"
+                  >
+                    <div
+                      className="bx--content-group__col"
+                    >
+                      <h3
+                        className="bx--content-group__title"
+                        data-autoid="dds--content-group__title"
+                      >
+                        Lorem ipsum dolor sit amet.
+                      </h3>
+                    </div>
+                  </div>
+                  <div
+                    className="bx--content-group__row"
+                  >
+                    <div
+                      className="bx--content-group__col bx--content-group__children"
+                      data-autoid="dds--content-group__children"
+                    >
+                      <div
+                        className="bx--contentgroupcards-group bx--grid--condensed"
+                        data-autoid="dds--contentgroupcards-group"
+                      >
+                        <div
+                          className="bx--contentgroupcards__row"
+                        >
+                          <div
+                            className="bx--contentgroupcards-item__col"
+                          >
+                            <a
+                              className="bx--link bx--tile bx--tile--clickable bx--card-link bx--contentgroupcards-item"
+                              data-autoid="dds--contentgroupcards-item"
+                              href="https://www.example.com"
+                              onClick={[Function]}
+                              onKeyDown={[Function]}
+                            >
+                              <div
+                                className="bx--card-link__wrapper"
+                              >
+                                <h3
+                                  className="bx--card-link__title"
+                                >
+                                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+                                </h3>
+                                <p
+                                  className="bx--card-link__content"
+                                >
+                                  <span
+                                    dangerouslySetInnerHTML={
+                                      Object {
+                                        "__html": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                                      }
+                                    }
+                                  />
+                                </p>
+                                <footer
+                                  className="bx--card-link__footer"
+                                >
+                                  <svg
+                                    aria-hidden={true}
+                                    focusable="false"
+                                    height={20}
+                                    preserveAspectRatio="xMidYMid meet"
+                                    style={
+                                      Object {
+                                        "willChange": "transform",
+                                      }
+                                    }
+                                    viewBox="0 0 20 20"
+                                    width={20}
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                    />
+                                  </svg>
+                                </footer>
+                              </div>
+                            </a>
+                          </div>
+                          <div
+                            className="bx--contentgroupcards-item__col"
+                          >
+                            <a
+                              className="bx--link bx--tile bx--tile--clickable bx--card-link bx--contentgroupcards-item"
+                              data-autoid="dds--contentgroupcards-item"
+                              href="https://www.example.com"
+                              onClick={[Function]}
+                              onKeyDown={[Function]}
+                            >
+                              <div
+                                className="bx--card-link__wrapper"
+                              >
+                                <h3
+                                  className="bx--card-link__title"
+                                >
+                                  Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                                </h3>
+                                <p
+                                  className="bx--card-link__content"
+                                >
+                                  <span
+                                    dangerouslySetInnerHTML={
+                                      Object {
+                                        "__html": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+                                      }
+                                    }
+                                  />
+                                </p>
+                                <footer
+                                  className="bx--card-link__footer"
+                                >
+                                  <svg
+                                    aria-hidden={true}
+                                    focusable="false"
+                                    height={20}
+                                    preserveAspectRatio="xMidYMid meet"
+                                    style={
+                                      Object {
+                                        "willChange": "transform",
+                                      }
+                                    }
+                                    viewBox="0 0 20 20"
+                                    width={20}
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                    />
+                                  </svg>
+                                </footer>
+                              </div>
+                            </a>
+                          </div>
+                          <div
+                            className="bx--contentgroupcards-item__col"
+                          >
+                            <a
+                              className="bx--link bx--tile bx--tile--clickable bx--card-link bx--contentgroupcards-item"
+                              data-autoid="dds--contentgroupcards-item"
+                              href="https://www.example.com"
+                              onClick={[Function]}
+                              onKeyDown={[Function]}
+                            >
+                              <div
+                                className="bx--card-link__wrapper"
+                              >
+                                <h3
+                                  className="bx--card-link__title"
+                                >
+                                  Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                                </h3>
+                                <p
+                                  className="bx--card-link__content"
+                                >
+                                  <span
+                                    dangerouslySetInnerHTML={
+                                      Object {
+                                        "__html": "Lorem ipsum dolor sit amet",
+                                      }
+                                    }
+                                  />
+                                </p>
+                                <footer
+                                  className="bx--card-link__footer"
+                                >
+                                  <svg
+                                    aria-hidden={true}
+                                    focusable="false"
+                                    height={20}
+                                    preserveAspectRatio="xMidYMid meet"
+                                    style={
+                                      Object {
+                                        "willChange": "transform",
+                                      }
+                                    }
+                                    viewBox="0 0 20 20"
+                                    width={20}
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                    />
+                                  </svg>
+                                </footer>
+                              </div>
+                            </a>
+                          </div>
+                          <div
+                            className="bx--contentgroupcards-item__col"
+                          >
+                            <a
+                              className="bx--link bx--tile bx--tile--clickable bx--card-link bx--contentgroupcards-item"
+                              data-autoid="dds--contentgroupcards-item"
+                              href="https://www.example.com"
+                              onClick={[Function]}
+                              onKeyDown={[Function]}
+                            >
+                              <div
+                                className="bx--card-link__wrapper"
+                              >
+                                <h3
+                                  className="bx--card-link__title"
+                                >
+                                  Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                                </h3>
+                                <p
+                                  className="bx--card-link__content"
+                                >
+                                  <span
+                                    dangerouslySetInnerHTML={
+                                      Object {
+                                        "__html": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
+                                      }
+                                    }
+                                  />
+                                </p>
+                                <footer
+                                  className="bx--card-link__footer"
+                                >
+                                  <svg
+                                    aria-hidden={true}
+                                    focusable="false"
+                                    height={20}
+                                    preserveAspectRatio="xMidYMid meet"
+                                    style={
+                                      Object {
+                                        "willChange": "transform",
+                                      }
+                                    }
+                                    viewBox="0 0 20 20"
+                                    width={20}
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                    />
+                                  </svg>
+                                </footer>
+                              </div>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <input
+    aria-label="input-text-offleft"
+    className="bx--visually-hidden"
+    type="text"
+  />,
+]
+`;
+
 exports[`Storyshots Patterns (Sub-Patterns)|Card Link 1`] = `
 Array [
   <div
@@ -2714,6 +3010,67 @@ Array [
                     </footer>
                   </div>
                 </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <input
+    aria-label="input-text-offleft"
+    className="bx--visually-hidden"
+    type="text"
+  />,
+]
+`;
+
+exports[`Storyshots Patterns (Sub-Patterns)|ContentGroup Default 1`] = `
+Array [
+  <div
+    data-floating-menu-container=""
+    role="main"
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+      }
+    }
+  >
+    <div
+      className="storybook-readme-story"
+    >
+      <div
+        style={Object {}}
+      >
+        <div>
+          <div
+            className="bx--content-group"
+            data-autoid="dds--content-group"
+          >
+            <div
+              className="bx--content-group__container"
+            >
+              <div
+                className="bx--content-group__row"
+              >
+                <div
+                  className="bx--content-group__col"
+                >
+                  <h3
+                    className="bx--content-group__title"
+                    data-autoid="dds--content-group__title"
+                  >
+                    Lorem ipsum dolor sit amet.
+                  </h3>
+                </div>
+              </div>
+              <div
+                className="bx--content-group__row"
+              >
+                <div
+                  className="bx--content-group__col bx--content-group__children"
+                  data-autoid="dds--content-group__children"
+                />
               </div>
             </div>
           </div>
