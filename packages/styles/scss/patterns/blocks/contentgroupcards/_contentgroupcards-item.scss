@@ -7,14 +7,14 @@
 
 @import '../../../components/link-with-icon/link-with-icon';
 
-@mixin cardarray-item {
-  .#{$prefix}--cardarray-item {
+@mixin contentgroupcards-item {
+  .#{$prefix}--contentgroupcards-item {
     p {
       margin-bottom: $carbon--layout-03;
       margin-top: $carbon--layout-03;
     }
   }
 }
-@include exports('cardarray-item') {
-  @include cardarray-item;
+@include exports('contentgroupcards-item') {
+  @include contentgroupcards-item;
 }
