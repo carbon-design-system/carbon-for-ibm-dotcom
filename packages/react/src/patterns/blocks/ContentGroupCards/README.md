@@ -1,6 +1,6 @@
-# Content Array with Cards
+# Content Group Cards
 
-> The Content Array with Cards pattern is to be utilized within IBM.com.
+> The Content Group Cards pattern is to be utilized within IBM.com.
 
 ## Getting started
 
@@ -13,7 +13,7 @@ Here's a quick example to get you started.
 @include carbon--font-face-mono();
 @include carbon--font-face-sans();
 
-@import '@carbon/ibmdotcom-styles/scss/patterns/blocks/cardarray/index.scss';
+@import '@carbon/ibmdotcom-styles/scss/patterns/blocks/contentgroupcards/index.scss';
 ```
 
 > 💡 Only import font's once per usage
@@ -21,10 +21,10 @@ Here's a quick example to get you started.
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { CardArray } from '@carbon/ibmdotcom-react';
+import { ContentGroupCards } from '@carbon/ibmdotcom-react';
 import 'yourapplication.scss';
 
-const title = 'Lorem ipsum dolor sit amet.';
+const heading = 'Lorem ipsum dolor sit amet.';
 
 const content = [
   {
@@ -66,7 +66,7 @@ const content = [
 ];
 
 function App() {
-  return <CardArray title={title} content={content} />;
+  return <ContentGroupCards heading={heading} content={content} />;
 }
 
 ReactDOM.render(<App />, document.querySelector('#app'));
@@ -75,26 +75,11 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 > 💡 Don't forget to import the cardarray styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
-#### Feature Flags
-
-To utilize the following features, set the following variable's to `true` within
-your `.env` file or your application build settings.
-
-```
-DDS_CARD_ARRAY=true
-```
-
-> See
-> [feature-flags.md](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/patterns-react/docs/feature-flags.md)
-> and
-> [.env.example](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/patterns-react/.env.example)
-> for more information
-
 ## Props
 
 | Name      | Required | Data Type | Default Value | Description                                          |
 | --------- | -------- | --------- | ------------- | ---------------------------------------------------- |
-| `title`   | YES      | String    | n/a           | Main title of the pattern.                           |
+| `heading` | YES      | String    | n/a           | Main title of the pattern.                           |
 | `content` | NO       | Array     | null          | Array of content group objects. See `content` below. |
 
 ### content
@@ -114,11 +99,11 @@ DDS_CARD_ARRAY=true
 
 ## Stable selectors
 
-| Name                   | Description |
-| ---------------------- | ----------- |
-| `dds--cardarray`       | Component   |
-| `dds--cardarray-group` | Component   |
-| `dds--cardarray-item`  | Component   |
+| Name                           | Description |
+| ------------------------------ | ----------- |
+| `dds--contentgroupcards`       | Component   |
+| `dds--contentgroupcards-group` | Component   |
+| `dds--contentgroupcards-item`  | Component   |
 
 ## 🙌 Contributing
 
