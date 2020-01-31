@@ -5,15 +5,15 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import {
-  settings as ddsSettings,
-} from '@carbon/ibmdotcom-utilities';
 import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+
 import Layout from '../Layout/Layout';
 import PropTypes from 'prop-types';
 import root from 'window-or-global';
 import { settings } from 'carbon-components';
+
 import TOCDesktop from './TOCDesktop';
 import TOCMobile from './TOCMobile';
 
@@ -30,15 +30,50 @@ const { prefix } = settings;
  * @returns {*} JSX Object
  */
 const TableOfContents = ({ menuItems, children, menuLabel, theme }) => {
-  const [selectedId, setSelectedId] = useState('7');
-  const [selectedTitle, setSelectedTitle] = useState('Lorem Ipsum');
+  const [selectedId, setSelectedId] = useState(menuItems[0].id);
+  const [selectedTitle, setSelectedTitle] = useState(menuItems[0].name);
   const [autoMenuItems, setmenuItems] = useState([]);
   useEffect(() => {
-    if (!menuItems || menuItems=== undefined || menuItems === null){
+    /**
+     * Set selected id & title
+     *
+     */
+    if (menuItems) {
+      var setSelectedItem = () => {
+        const elems = getElemsInView();
+        const id = elems[0] || menuItems[0].id;
+        const filteredItems = menuItems.filter(menu => {
+          if (id !== 'undefined') {
+            return menu.id == id;
+          }
+        });
+        const title = filteredItems[0].title;
+        setSelectedId(id);
+        setSelectedTitle(title);
+      };
+    }
+    /**
+     * loops into the array of elements and returns the values
+     *
+     * @private
+     * @returns {Array} returns elemenrt name and data title
+     */
+    const _find_menu_items = () => {
+      const eles = document.querySelectorAll('a[name]');
+      eles.forEach(element => {
+        menuItems.push({
+          id: element.getAttribute('name'),
+          title: element.getAttribute('data-title'),
+        });
+      });
+      return menuItems;
+    };
+
+    if (!menuItems || menuItems === undefined || menuItems === null) {
       setmenuItems(_find_menu_items());
     }
     scrollStop(setSelectedItem);
-  });
+  }, [menuItems]);
 
   /**
    * Check whether provided anchor tags are in visible viewport
@@ -63,25 +98,6 @@ const TableOfContents = ({ menuItems, children, menuLabel, theme }) => {
     });
     return elesInView;
   };
-
-  /**
-   * Set selected id & title
-   *
-   */
-  if (menuItems) {
-    var setSelectedItem = () => {
-      const elems = getElemsInView();
-      const id = elems[0] || menuItems[0].id;
-      const filteredItems = menuItems.filter(menu => {
-        if (id !== 'undefined') {
-          return menu.id == id;
-        }
-      });
-      const title = filteredItems[0].title;
-      setSelectedId(id);
-      setSelectedTitle(title);
-    };
-  }
 
   /**
    * Detect scroll stop event and run callback function
@@ -139,15 +155,6 @@ const TableOfContents = ({ menuItems, children, menuLabel, theme }) => {
     updateState,
   };
 
-  
-  const _find_menu_items = () => { 
-    const eles = document.querySelectorAll('a[name]');
-    eles.forEach(element => {
-        menuItems.push({id:element.getAttribute('name'),title:element.getAttribute('data-title')});
-    });
-    return menuItems;
-  }
-
   /**
    * Render TableOfContents pattern
    *
@@ -173,7 +180,7 @@ const TableOfContents = ({ menuItems, children, menuLabel, theme }) => {
         </div>
       </Layout>
     </section>
-  )
+  );
 };
 
 TableOfContents.propTypes = {

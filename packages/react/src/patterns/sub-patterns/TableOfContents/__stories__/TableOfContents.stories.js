@@ -1,12 +1,17 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
+/**
+ * Copyright IBM Corp. 2016, 2018
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
 import './index.scss';
 import { object, select, text, withKnobs } from '@storybook/addon-knobs';
+import content from './data/content';
 import { DDS_TOC } from '../../../../internal/FeatureFlags';
 import React from 'react';
 import readme from '../README.md';
 import { storiesOf } from '@storybook/react';
 import TableOfContents from '../TableOfContents';
-import content from './data/content';
 
 if (DDS_TOC) {
   const _menuLabel = text('menu label', 'Jump to');
@@ -23,7 +28,6 @@ if (DDS_TOC) {
       },
     })
     .add('Manually define Menu Items', () => {
-
       const menuItems = [
         {
           title: 'Cras molestie condimentum',
@@ -50,19 +54,22 @@ if (DDS_TOC) {
       return (
         <TableOfContents
           theme={select('theme', _themes, _themes.white)}
-          menuItems={object('menuItems',menuItems)}
+          menuItems={object('menuItems', menuItems)}
           menuLabel={_menuLabel}>
           {content}
         </TableOfContents>
       );
     })
     .add('Dynamic Items', () => {
-      const menuItems = content.props.children.map((elem) => {
-        return {
-          title: elem.props['data-title'],
-          id: elem.props['name']
+      let menuItems = [];
+      content.props.children.forEach(element => {
+        if (element.props['data-title']) {
+          menuItems.push({
+            title: element.props['data-title'],
+            id: element.props['name'],
+          });
         }
-      })
+      });
       return (
         <TableOfContents
           theme={select('theme', _themes, _themes.white)}
