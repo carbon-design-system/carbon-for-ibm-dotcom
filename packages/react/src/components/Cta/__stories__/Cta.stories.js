@@ -18,10 +18,6 @@ storiesOf('Components|CTA', module)
     const styles = ['text', 'card', 'feature', 'button'];
     const style = select('style', styles, styles[0]);
 
-    const target = {
-      external: '_blank',
-      jump: '_self',
-    };
     const urlBy = {
       jump: '#example',
       local: 'https://ibm.com',
@@ -35,7 +31,7 @@ storiesOf('Components|CTA', module)
           type: type,
           href: urlBy[type],
           copy: copy[0],
-          target: target[type],
+          id: 'example',
         };
         break;
       case 'card':
@@ -43,7 +39,6 @@ storiesOf('Components|CTA', module)
         cta = {
           type: type,
           href: urlBy[type],
-          target: target[type],
           title: copy[0],
         };
         break;
@@ -54,7 +49,6 @@ storiesOf('Components|CTA', module)
           card: {
             type: type,
             href: urlBy[type],
-            target: target[type],
             title: copy[1],
             image: {
               defaultImage: 'https://picsum.photos/id/672/672',
@@ -73,13 +67,11 @@ storiesOf('Components|CTA', module)
             {
               type: type[0],
               href: urlBy[type[0]],
-              target: target[type],
               copy: copy[0],
             },
             {
               type: type[1],
               href: urlBy[type[1]],
-              target: target[type],
               copy: copy[1],
             },
           ],
@@ -102,7 +94,7 @@ storiesOf('Components|CTA', module)
               {(() => {
                 let content = [];
                 for (let i = 0; i < 10; i++) {
-                  if (i === 2) {
+                  if (i === 9) {
                     content.push(
                       <h4 id="example" style={{ marginBottom: '32px' }}>
                         Example

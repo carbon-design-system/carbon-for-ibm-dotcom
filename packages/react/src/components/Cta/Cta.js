@@ -31,12 +31,35 @@ const CTA = ({ style, type, ...cta }) =>
       {...cta}
       //icon={iconSelector(type)}
     />
+  ) : type === 'jump' ? (
+    <LinkWithIcon
+      href={cta.href}
+      onClick={e => {
+        handleOnClick(e, cta.id);
+      }}>
+      {cta.copy}
+      {iconSelector(type)}
+    </LinkWithIcon>
   ) : (
-    <LinkWithIcon href={cta.href} target={cta.target}>
+    <LinkWithIcon href={cta.href}>
       {cta.copy}
       {iconSelector(type)}
     </LinkWithIcon>
   );
+
+/**
+ * Handle OnClick
+ *
+ * @param {*} e event object
+ * @param {*} id element id
+ */
+const handleOnClick = (e, id) => {
+  e.preventDefault();
+  document.querySelector(`[id="${id}"]`).scrollIntoView({
+    behavior: 'smooth',
+    block: 'start',
+  });
+};
 /**
  * TEMPORARY sets icon based on link type
  *
