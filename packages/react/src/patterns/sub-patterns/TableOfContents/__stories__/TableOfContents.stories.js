@@ -6,7 +6,7 @@
  */
 import './index.scss';
 import { object, select, text, withKnobs } from '@storybook/addon-knobs';
-import content from './data/content';
+import dataContent from './data/dataContent';
 import { DDS_TOC } from '../../../../internal/FeatureFlags';
 import React from 'react';
 import readme from '../README.md';
@@ -56,13 +56,13 @@ if (DDS_TOC) {
           theme={select('theme', _themes, _themes.white)}
           menuItems={object('menuItems', menuItems)}
           menuLabel={_menuLabel}>
-          {content}
+          {dataContent}
         </TableOfContents>
       );
     })
     .add('Dynamic Items', () => {
       let menuItems = [];
-      content.props.children.forEach(element => {
+      dataContent.props.children.forEach(element => {
         if (element.props['data-title']) {
           menuItems.push({
             title: element.props['data-title'],
@@ -75,7 +75,7 @@ if (DDS_TOC) {
           theme={select('theme', _themes, _themes.white)}
           menuLabel={_menuLabel}
           menuItems={menuItems}>
-          {content}
+          {dataContent}
         </TableOfContents>
       );
     });
