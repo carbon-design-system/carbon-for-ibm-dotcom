@@ -32,5 +32,13 @@ storiesOf('Patterns (Sub-Patterns)|ContentItem', module)
         'https://picsum.photos/id/2/352/176'
       ),
     };
-    return <ContentItem heading={heading} copy={copy} image={image} />;
+    return (
+      <div class="bx--grid">
+        <div class="bx--row">
+          <div class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
+            <ContentItem heading={heading} copy={copy} image={image} />
+          </div>
+        </div>
+      </div>
+    );
   });
