@@ -60,7 +60,7 @@ const TOCDesktop = ({ menuItems, selectedId, updateState }) => {
   const handleOnClick = (e, id) => {
     e.preventDefault();
     const filteredItems = menuItems.filter(menu => {
-      return menu.id == id;
+      return menu.id === id;
     });
     const title = filteredItems[0].title;
     updateState(id, title);

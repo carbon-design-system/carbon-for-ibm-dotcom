@@ -32,31 +32,14 @@ const { prefix } = settings;
 const TableOfContents = ({ menuItems, children, menuLabel, theme }) => {
   const [selectedId, setSelectedId] = useState(menuItems[0].id);
   const [selectedTitle, setSelectedTitle] = useState(menuItems[0].name);
-  const useMenuItems = menuItems ? [...menuItems] : findMenuItems();
+
   useEffect(() => {
+    let useMenuItems = menuItems ? [...menuItems] : _findMenuItems();
+    if (!useMenuItems) {
+      _findMenuItems();
+    }
     scrollStop(setSelectedItem);
   });
-
-  if (!useMenuItems) {
-    findMenuItems();
-  }
-
-  /**
-   * loops into the array of elements and returns the values
-   *
-   * @private
-   * @returns {Array} returns elemenrt name and data title
-   */
-  const findMenuItems = () => {
-    const eles = document.querySelectorAll('a[name]');
-    eles.forEach(element => {
-      useMenuItems.push({
-        id: element.getAttribute('name'),
-        title: element.getAttribute('data-title'),
-      });
-    });
-    return useMenuItems;
-  };
 
   /**
    * Set selected id & title
@@ -67,7 +50,7 @@ const TableOfContents = ({ menuItems, children, menuLabel, theme }) => {
     const id = elems[0] || menuItems[0].id;
     const filteredItems = menuItems.filter(menu => {
       if (id !== 'undefined') {
-        return menu.id == id;
+        return menu.id === id;
       }
     });
     const title = filteredItems[0].title;
@@ -181,6 +164,24 @@ const TableOfContents = ({ menuItems, children, menuLabel, theme }) => {
       </Layout>
     </section>
   );
+};
+
+/**
+ * loops into the array of elements and returns the values
+ *
+ * @private
+ * @returns {Array} returns elemenrt name and data title
+ */
+const _findMenuItems = () => {
+  const eles = document.querySelectorAll('a[name]');
+  const menuItems = [];
+  eles.forEach(element => {
+    menuItems.push({
+      id: element.getAttribute('name'),
+      title: element.getAttribute('data-title'),
+    });
+  });
+  return menuItems;
 };
 
 TableOfContents.propTypes = {
