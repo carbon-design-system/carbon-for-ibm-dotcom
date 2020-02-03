@@ -31,12 +31,18 @@ let _attempt = 0;
 
 /**
  *
- * Tracks the script either in loaded state or loading state
+ * Tracks the script status
  * @type {boolean} _scriptLoaded to track the script loaded or not
- * * @type {boolean} _scriptLoading to track the script loading or not
  * @private
  */
 let _scriptLoaded = false;
+
+/**
+ *
+ * Tracks the script status
+ * * @type {boolean} _scriptLoading to track the script loading or not
+ * @private
+ */
 let _scriptLoading = false;
 
 let kWidget;
@@ -174,16 +180,18 @@ class VideoPlayerAPI {
    * @returns {object}  object
    */
   static async api(videoId) {
-    return await new kWidget.api({ wid: _partnerId }).doRequest(
-      {
-        service: 'media',
-        action: 'get',
-        entryId: videoId,
-      },
-      function(jsonObj) {
-        return jsonObj;
-      }
-    );
+    return await this.checkScript().then(() => {
+      new kWidget.api({ wid: _partnerId }).doRequest(
+        {
+          service: 'media',
+          action: 'get',
+          entryId: videoId,
+        },
+        function(jsonObj) {
+          return jsonObj;
+        }
+      );
+    });
   }
 }
 
