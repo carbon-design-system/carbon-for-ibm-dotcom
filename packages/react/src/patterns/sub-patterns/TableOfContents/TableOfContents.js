@@ -32,48 +32,46 @@ const { prefix } = settings;
 const TableOfContents = ({ menuItems, children, menuLabel, theme }) => {
   const [selectedId, setSelectedId] = useState(menuItems[0].id);
   const [selectedTitle, setSelectedTitle] = useState(menuItems[0].name);
-  const [setmenuItems] = useState([]);
   useEffect(() => {
-    /**
-     * Set selected id & title
-     *
-     */
-    if (menuItems) {
-      var setSelectedItem = () => {
-        const elems = getElemsInView();
-        const id = elems[0] || menuItems[0].id;
-        const filteredItems = menuItems.filter(menu => {
-          if (id !== 'undefined') {
-            return menu.id == id;
-          }
-        });
-        const title = filteredItems[0].title;
-        setSelectedId(id);
-        setSelectedTitle(title);
-      };
-    }
-    /**
-     * loops into the array of elements and returns the values
-     *
-     * @private
-     * @returns {Array} returns elemenrt name and data title
-     */
-    const findMenuItems = () => {
-      const eles = document.querySelectorAll('a[name]');
-      eles.forEach(element => {
-        menuItems.push({
-          id: element.getAttribute('name'),
-          title: element.getAttribute('data-title'),
-        });
-      });
-      return menuItems;
-    };
-
     if (!menuItems || menuItems === undefined || menuItems === null) {
-      setmenuItems(findMenuItems());
+      findMenuItems();
     }
     scrollStop(setSelectedItem);
-  }, [menuItems, setmenuItems]);
+  });
+
+  /**
+   * loops into the array of elements and returns the values
+   *
+   * @private
+   * @returns {Array} returns elemenrt name and data title
+   */
+  const findMenuItems = () => {
+    const eles = document.querySelectorAll('a[name]');
+    eles.forEach(element => {
+      menuItems.push({
+        id: element.getAttribute('name'),
+        title: element.getAttribute('data-title'),
+      });
+    });
+    return menuItems;
+  };
+
+  /**
+   * Set selected id & title
+   *
+   */
+  const setSelectedItem = () => {
+    const elems = getElemsInView();
+    const id = elems[0] || menuItems[0].id;
+    const filteredItems = menuItems.filter(menu => {
+      if (id !== 'undefined') {
+        return menu.id == id;
+      }
+    });
+    const title = filteredItems[0].title;
+    setSelectedId(id);
+    setSelectedTitle(title);
+  };
 
   /**
    * Check whether provided anchor tags are in visible viewport
