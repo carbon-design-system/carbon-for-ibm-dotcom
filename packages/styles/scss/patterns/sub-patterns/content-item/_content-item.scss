@@ -7,13 +7,6 @@
 
 @import '../../../globals/imports';
 
-@mixin themed-items {
-  .#{$prefix}--content-item__heading,
-  .#{$prefix}--content-item__copy {
-    color: $text-01;
-  }
-}
-
 @mixin content-item {
   .#{$prefix}--content-item {
     display: flex;
@@ -21,6 +14,7 @@
 
     &__heading {
       margin-top: $carbon--spacing-07;
+      color: $text-01;
       @include carbon--type-style('heading-02', true);
     }
 
@@ -31,10 +25,9 @@
     }
 
     &__copy {
+      color: $text-01;
       @include carbon--type-style('body-long-02', true);
     }
-
-    @include themed-items;
   }
 
   @include carbon--breakpoint('md') {
