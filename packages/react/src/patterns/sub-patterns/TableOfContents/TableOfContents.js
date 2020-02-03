@@ -32,7 +32,7 @@ const { prefix } = settings;
 const TableOfContents = ({ menuItems, children, menuLabel, theme }) => {
   const [selectedId, setSelectedId] = useState(menuItems[0].id);
   const [selectedTitle, setSelectedTitle] = useState(menuItems[0].name);
-  const [autoMenuItems, setmenuItems] = useState([]);
+  const [setmenuItems] = useState([]);
   useEffect(() => {
     /**
      * Set selected id & title
@@ -58,7 +58,7 @@ const TableOfContents = ({ menuItems, children, menuLabel, theme }) => {
      * @private
      * @returns {Array} returns elemenrt name and data title
      */
-    const _find_menu_items = () => {
+    const findMenuItems = () => {
       const eles = document.querySelectorAll('a[name]');
       eles.forEach(element => {
         menuItems.push({
@@ -70,10 +70,10 @@ const TableOfContents = ({ menuItems, children, menuLabel, theme }) => {
     };
 
     if (!menuItems || menuItems === undefined || menuItems === null) {
-      setmenuItems(_find_menu_items());
+      setmenuItems(findMenuItems());
     }
     scrollStop(setSelectedItem);
-  }, [menuItems]);
+  }, [menuItems, setmenuItems]);
 
   /**
    * Check whether provided anchor tags are in visible viewport
@@ -170,8 +170,8 @@ const TableOfContents = ({ menuItems, children, menuLabel, theme }) => {
           className={`${prefix}--tableofcontents__sidebar`}
           data-sticky="true">
           <div className={`${prefix}--tableofcontents__mobile-top`}></div>
-          <TOCDesktop autoMenuItems={autoMenuItems} {...props} />
-          <TOCMobile autoMenuItems={autoMenuItems} {...props} />
+          <TOCDesktop {...props} />
+          <TOCMobile {...props} />
         </div>
         <div className={`${prefix}--tableofcontents__content`}>
           <div className={`${prefix}--tableofcontents__content-wrapper`}>
