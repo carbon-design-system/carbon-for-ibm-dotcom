@@ -23,8 +23,7 @@ const { prefix } = settings;
  * @param {*} props.updateState function to update parent state.
  * @returns {*} JSX Object
  */
-const TOCDesktopMenu = ({ menuItems, selectedId, updateState }) => {
-  
+const TOCDesktop = ({ menuItems, selectedId, updateState }) => {
   /**
    * Render menu items
    *
@@ -43,7 +42,7 @@ const TOCDesktopMenu = ({ menuItems, selectedId, updateState }) => {
               `${prefix}--tableofcontents__desktop__item`,
               setActiveClass(activeId, item.id)
             )}>
-            <a onClick={e => handleOnClick(e, item.id)} href={`#${item.id}` }>
+            <a onClick={e => handleOnClick(e, item.id)} href={`#${item.id}`}>
               {item.title}
             </a>
           </li>
@@ -91,15 +90,15 @@ const TOCDesktopMenu = ({ menuItems, selectedId, updateState }) => {
     <div
       className={`${prefix}--tableofcontents__desktop`}
       data-autoid={`${stablePrefix}--tableofcontents__desktop`}>
-      <ul>{renderMenuItems( menuItems, selectedId)}</ul>
+      <ul>{renderMenuItems(menuItems, selectedId)}</ul>
     </div>
   );
 };
 
-TOCDesktopMenu.propTypes = {
+TOCDesktop.propTypes = {
   menuItems: PropTypes.array,
   selectedId: PropTypes.string,
   updateState: PropTypes.func,
 };
 
-export default TOCDesktopMenu;
+export default TOCDesktop;
