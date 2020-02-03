@@ -2,7 +2,13 @@ module.exports = {
   collectCoverage: true,
   collectCoverageFrom: [
     'src/components/**/*.js',
+    'src/patterns/blocks/**/*.js',
+    'src/patterns/sections/**/*.js',
+    'src/patterns/sub-patterns/**/*.js',
     '!src/components/**/*.stories.js',
+    '!src/patterns/blocks/**/*.js',
+    '!src/patterns/sections/**/*.js',
+    '!src/patterns/sub-patterns/**/*.js',
   ],
   coverageDirectory: 'coverage',
   coverageReporters: ['text', 'html'],
