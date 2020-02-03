@@ -22,63 +22,53 @@ import React from 'react';
  * @returns {*} CTA Component
  */
 const CTA = ({ style, type, ...cta }) => {
-  if (style === 'card') {
-    if (type === 'jump') {
+  switch (style) {
+    case 'card':
       return (
         <CardLink
           {...cta}
           icon={iconSelector(type)}
-          onClick={e => {
-            handleOnClick(e, cta.id);
-          }}
+          onClick={
+            type === 'jump'
+              ? e => {
+                  smoothScrolling(e, cta.id);
+                }
+              : null
+          }
         />
       );
-    }
-    return <CardLink {...cta} icon={iconSelector(type)} />;
-  }
-  if (style === 'button') {
-    if (type === 'jump') {
+    case 'button':
       return (
         <ButtonGroup
           buttons={renderButtons(cta)}
-          onClick={e => {
-            handleOnClick(e, cta.id);
-          }}
+          onClick={
+            type === 'jump'
+              ? e => {
+                  smoothScrolling(e, cta.id);
+                }
+              : null
+          }
         />
       );
-    }
-    return <ButtonGroup buttons={renderButtons(cta)} />;
-  }
-  if (style === 'feature') {
-    return <FeaturedLink {...cta} />;
-  }
-  if (style === 'text') {
-    if (type === 'jump') {
+    case 'feature':
+      return <FeaturedLink {...cta} />;
+    default:
       return (
         <LinkWithIcon
           href={cta.href}
-          onClick={e => {
-            handleOnClick(e, cta.id);
-          }}>
+          target={type === 'external' ? '_blank' : null}
+          onClick={
+            type === 'jump'
+              ? e => {
+                  smoothScrolling(e, cta.id);
+                }
+              : null
+          }>
           {cta.copy}
           {iconSelector(type)}
         </LinkWithIcon>
       );
-    } else if (type === 'external') {
-      return (
-        <LinkWithIcon href={cta.href} target="_blank">
-          {cta.copy}
-          {iconSelector(type)}
-        </LinkWithIcon>
-      );
-    }
   }
-  return (
-    <LinkWithIcon href={cta.href}>
-      {cta.copy}
-      {iconSelector(type)}
-    </LinkWithIcon>
-  );
 };
 
 /**
@@ -87,7 +77,7 @@ const CTA = ({ style, type, ...cta }) => {
  * @param {*} e event object
  * @param {*} id element id
  */
-const handleOnClick = (e, id) => {
+const smoothScrolling = (e, id) => {
   e.preventDefault();
   document.querySelector(`[id="${id}"]`).scrollIntoView({
     behavior: 'smooth',
