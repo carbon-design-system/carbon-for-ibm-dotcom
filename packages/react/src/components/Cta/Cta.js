@@ -21,31 +21,65 @@ import React from 'react';
  * @param {object} props.cta cta object which includes href,text, copy, card and image, button  properties.
  * @returns {*} CTA Component
  */
-const CTA = ({ style, type, ...cta }) =>
-  style === 'card' ? (
-    <CardLink {...cta} icon={iconSelector(type)} />
-  ) : style === 'button' ? (
-    <ButtonGroup buttons={renderButtons(cta)} />
-  ) : style === 'feature' ? (
-    <FeaturedLink
-      {...cta}
-      //icon={iconSelector(type)}
-    />
-  ) : type === 'jump' ? (
-    <LinkWithIcon
-      href={cta.href}
-      onClick={e => {
-        handleOnClick(e, cta.id);
-      }}>
-      {cta.copy}
-      {iconSelector(type)}
-    </LinkWithIcon>
-  ) : (
+const CTA = ({ style, type, ...cta }) => {
+  if (style === 'card') {
+    if (type === 'jump') {
+      return (
+        <CardLink
+          {...cta}
+          icon={iconSelector(type)}
+          onClick={e => {
+            handleOnClick(e, cta.id);
+          }}
+        />
+      );
+    }
+    return <CardLink {...cta} icon={iconSelector(type)} />;
+  }
+  if (style === 'button') {
+    if (type === 'jump') {
+      return (
+        <ButtonGroup
+          buttons={renderButtons(cta)}
+          onClick={e => {
+            handleOnClick(e, cta.id);
+          }}
+        />
+      );
+    }
+    return <ButtonGroup buttons={renderButtons(cta)} />;
+  }
+  if (style === 'feature') {
+    return <FeaturedLink {...cta} />;
+  }
+  if (style === 'text') {
+    if (type === 'jump') {
+      return (
+        <LinkWithIcon
+          href={cta.href}
+          onClick={e => {
+            handleOnClick(e, cta.id);
+          }}>
+          {cta.copy}
+          {iconSelector(type)}
+        </LinkWithIcon>
+      );
+    } else if (type === 'external') {
+      return (
+        <LinkWithIcon href={cta.href} target="_blank">
+          {cta.copy}
+          {iconSelector(type)}
+        </LinkWithIcon>
+      );
+    }
+  }
+  return (
     <LinkWithIcon href={cta.href}>
       {cta.copy}
       {iconSelector(type)}
     </LinkWithIcon>
   );
+};
 
 /**
  * Handle OnClick
