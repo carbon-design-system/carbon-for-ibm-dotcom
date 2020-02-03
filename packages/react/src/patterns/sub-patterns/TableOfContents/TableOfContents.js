@@ -14,7 +14,7 @@ import PropTypes from 'prop-types';
 import root from 'window-or-global';
 import { settings } from 'carbon-components';
 
-import TOCDesktop from './TocDesktop';
+import TOCDesktop from './TableofContentsDesktop';
 import TOCMobile from './TOCMobile';
 
 const { stablePrefix } = ddsSettings;
