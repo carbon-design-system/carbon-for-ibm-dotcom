@@ -32,12 +32,14 @@ const { prefix } = settings;
 const TableOfContents = ({ menuItems, children, menuLabel, theme }) => {
   const [selectedId, setSelectedId] = useState(menuItems[0].id);
   const [selectedTitle, setSelectedTitle] = useState(menuItems[0].name);
+  const useMenuItems = menuItems ? [...menuItems] : findMenuItems();
   useEffect(() => {
-    if (!menuItems || menuItems === undefined || menuItems === null) {
-      findMenuItems();
-    }
     scrollStop(setSelectedItem);
   });
+
+  if (!useMenuItems) {
+    findMenuItems();
+  }
 
   /**
    * loops into the array of elements and returns the values
@@ -48,12 +50,12 @@ const TableOfContents = ({ menuItems, children, menuLabel, theme }) => {
   const findMenuItems = () => {
     const eles = document.querySelectorAll('a[name]');
     eles.forEach(element => {
-      menuItems.push({
+      useMenuItems.push({
         id: element.getAttribute('name'),
         title: element.getAttribute('data-title'),
       });
     });
-    return menuItems;
+    return useMenuItems;
   };
 
   /**
