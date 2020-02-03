@@ -28,11 +28,16 @@ const ContentItem = ({ copy, heading, image }) => (
     className={`${prefix}--content-item`}
     data-autoid={`${stablePrefix}--content-item`}>
     {heading && (
-      <h4 className={`${prefix}--content-item__heading`}>{heading}</h4>
+      <h4
+        data-autoid={`${stablePrefix}--content-item__heading`}
+        className={`${prefix}--content-item__heading`}>
+        {heading}
+      </h4>
     )}
     {image && <Image classname={`${prefix}--content-item__image`} {...image} />}
     {copy && (
       <span
+        data-autoid={`${stablePrefix}--content-item__copy`}
         className={`${prefix}--content-item__copy`}
         dangerouslySetInnerHTML={{
           __html: markdownToHtml(copy),
