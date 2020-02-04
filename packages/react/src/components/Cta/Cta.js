@@ -11,6 +11,7 @@ import { FeaturedLink } from '../../patterns/blocks/FeaturedLink';
 import { LinkWithIcon } from '../LinkWithIcon';
 import PropTypes from 'prop-types';
 import React from 'react';
+import { smoothScrolling } from '@carbon/ibmdotcom-utilities';
 
 /**
  * CTA component
@@ -28,26 +29,14 @@ const CTA = ({ style, type, ...cta }) => {
         <CardLink
           {...cta}
           icon={iconSelector(type)}
-          onClick={
-            type === 'jump'
-              ? e => {
-                  smoothScrolling(e, cta.id);
-                }
-              : null
-          }
+          onClick={type === 'jump' ? smoothScrolling : null}
         />
       );
     case 'button':
       return (
         <ButtonGroup
           buttons={renderButtons(cta)}
-          onClick={
-            type === 'jump'
-              ? e => {
-                  smoothScrolling(e, cta.id);
-                }
-              : null
-          }
+          onClick={type === 'jump' ? smoothScrolling : null}
         />
       );
     case 'feature':
@@ -57,13 +46,7 @@ const CTA = ({ style, type, ...cta }) => {
         <LinkWithIcon
           href={cta.href}
           target={type === 'external' ? '_blank' : null}
-          onClick={
-            type === 'jump'
-              ? e => {
-                  smoothScrolling(e, cta.id);
-                }
-              : null
-          }>
+          onClick={type === 'jump' ? smoothScrolling : null}>
           {cta.copy}
           {iconSelector(type)}
         </LinkWithIcon>
@@ -71,19 +54,6 @@ const CTA = ({ style, type, ...cta }) => {
   }
 };
 
-/**
- * Handle OnClick
- *
- * @param {*} e event object
- * @param {*} id element id
- */
-const smoothScrolling = (e, id) => {
-  e.preventDefault();
-  document.querySelector(`[id="${id}"]`).scrollIntoView({
-    behavior: 'smooth',
-    block: 'start',
-  });
-};
 /**
  * TEMPORARY sets icon based on link type
  *

@@ -31,7 +31,6 @@ storiesOf('Components|CTA', module)
           type: type,
           href: urlBy[type],
           copy: copy[0],
-          id: 'example',
         };
         break;
       case 'card':
