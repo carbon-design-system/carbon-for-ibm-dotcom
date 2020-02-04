@@ -10,10 +10,10 @@ import {
   HeaderName,
   HeaderNavigation,
 } from 'carbon-components-react';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import HeaderMenu from '../carbon-components-react/UIShell/HeaderMenu';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 
 const { stablePrefix } = ddsSettings;
 

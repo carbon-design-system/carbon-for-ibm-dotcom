@@ -6,10 +6,10 @@
  */
 
 import { Accordion } from 'carbon-components-react';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import FooterNavGroup from './FooterNavGroup';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
 
 const { stablePrefix } = ddsSettings;

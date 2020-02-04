@@ -7,11 +7,11 @@
 
 import { ArrowRight20 } from '@carbon/icons-react';
 import { CardLink } from '../../sub-patterns/CardLink';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
 import React from 'react';
-import UseCasesItem from './UseCasesItem';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
+import UseCasesItem from './UseCasesItem';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;

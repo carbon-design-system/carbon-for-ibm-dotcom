@@ -1,12 +1,12 @@
 import './index.scss';
 import { object, select, withKnobs } from '@storybook/addon-knobs';
+import cards from './data/cards.json';
 import CardSection from '../CardSection';
 import { DDS_CARD_SECTION } from '../../../../internal/FeatureFlags';
 import ImageCards from '../ImageCards';
 import React from 'react';
-import SimpleCards from '../SimpleCards';
-import cards from './data/cards.json';
 import readme from '../README.md';
+import SimpleCards from '../SimpleCards';
 import { storiesOf } from '@storybook/react';
 
 if (DDS_CARD_SECTION) {
