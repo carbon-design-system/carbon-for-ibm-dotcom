@@ -5,6 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 import { baseFontSize, breakpoints } from '@carbon/layout';
+import classnames from 'classnames';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -39,12 +40,13 @@ const sortSources = sources => {
  * renders background image
  *
  * @param {object} props props object
+ * @param {object} props.classname classname
  * @param {object} props.images array of images used for diff breakpoints
  * @param {string} props.defaultImage default image (usually image for largest breakpoint)
  * @param {string} props.alt alt of the image
  * @returns {*} picture element
  */
-const Image = ({ images, defaultImage, alt }) => {
+const Image = ({ classname, images, defaultImage, alt }) => {
   if (!defaultImage || !alt) {
     return null;
   }
@@ -65,12 +67,17 @@ const Image = ({ images, defaultImage, alt }) => {
           />
         );
       })}
-      <img className={`${prefix}--image__img`} src={defaultImage} alt={alt} />
+      <img
+        className={classnames(`${prefix}--image__img`, classname)}
+        src={defaultImage}
+        alt={alt}
+      />
     </picture>
   );
 };
 
 Image.propTypes = {
+  classname: PropTypes.string,
   images: PropTypes.arrayOf(
     PropTypes.shape({
       src: PropTypes.string,
