@@ -40,7 +40,7 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 | Name    | Required | Data Type | Default Value | Description                                                          |
 | ------- | -------- | --------- | ------------- | -------------------------------------------------------------------- |
 | `style` | YES      | String    | text          | Describes style type, for more information See `Style type's` below. |
-| `type`  | YES      | String    | local         | Describes which type (`local`                                        | `jump` | `external`) icon. |
+| `type`  | YES      | String    | local         | Describes which type `local`,`jump`,`external` icon.                 |
 
 ## Style type's
 

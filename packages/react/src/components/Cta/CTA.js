@@ -57,6 +57,7 @@ const CTA = ({ style, type, ...cta }) => {
 
 /**
  * jump to target element  onClick
+ *
  * @param {*} e event object
  * @param {*} type cta type ( external | jump | local)
  * * @returns {*} behaviour object
@@ -65,6 +66,7 @@ const jump = (e, type) => (type === 'jump' ? smoothScroll(e) : null);
 
 /**
  * sets target
+ *
  * @param {string} type cta type ( external | jump | local)
  * @returns {string} target value
  */
