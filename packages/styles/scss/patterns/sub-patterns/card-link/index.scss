@@ -54,6 +54,10 @@
 
     &:hover {
       text-decoration: none;
+
+      .#{$prefix}--image__img {
+        filter: brightness(80%);
+      }
     }
 
     &:focus {
