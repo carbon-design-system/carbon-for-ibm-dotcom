@@ -36,12 +36,12 @@ const ContentItem = ({ copy, heading, image }) => (
     )}
     {image && <Image classname={`${prefix}--content-item__image`} {...image} />}
     {copy && (
-      <span
+      <div
         data-autoid={`${stablePrefix}--content-item__copy`}
         className={`${prefix}--content-item__copy`}
         dangerouslySetInnerHTML={{
           __html: markdownToHtml(copy),
-        }}></span>
+        }}></div>
     )}
   </div>
 );
