@@ -29,6 +29,7 @@ export default class IbmdotcomLibrary extends App {
         <DotcomShell navigation="default" langCode={langCode}>
           <Component {...pageProps} />
         </DotcomShell>
+        <script src="//1.www.s81c.com/common/stats/ibm-common.js"></script>
       </Container>
     );
   }

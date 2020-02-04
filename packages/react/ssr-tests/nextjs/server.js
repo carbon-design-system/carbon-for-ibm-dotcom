@@ -4,7 +4,7 @@ const path = require('path');
 const url = require('url');
 
 const dev = process.env.NODE_ENV !== 'production';
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 9000;
 
 const nextApp = next({ dir: '.', dev });
 const nextHandler = nextApp.getRequestHandler();
