@@ -11,7 +11,7 @@ import { FeaturedLink } from '../../patterns/blocks/FeaturedLink';
 import { LinkWithIcon } from '../LinkWithIcon';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { smoothScrolling } from '@carbon/ibmdotcom-utilities';
+import { smoothScroll } from '@carbon/ibmdotcom-utilities';
 /**
  * CTA component
  *
@@ -28,14 +28,16 @@ const CTA = ({ style, type, ...cta }) => {
         <CardLink
           {...cta}
           icon={iconSelector(type)}
-          onClick={type === 'jump' ? smoothScrolling : null}
+          target={external(type)}
+          onClick={e => jump(e, type)}
         />
       );
     case 'button':
       return (
         <ButtonGroup
           buttons={renderButtons(cta)}
-          onClick={type === 'jump' ? smoothScrolling : null}
+          target={external(type)}
+          onClick={e => jump(e, type)}
         />
       );
     case 'feature':
@@ -44,22 +46,39 @@ const CTA = ({ style, type, ...cta }) => {
       return (
         <LinkWithIcon
           href={cta.href}
-          target={type === 'external' ? '_blank' : null}
-          onClick={type === 'jump' ? smoothScrolling : null}>
+          target={external(type)}
+          onClick={e => jump(e, type)}>
           {cta.copy}
           {iconSelector(type)}
         </LinkWithIcon>
       );
   }
 };
+
+/**
+ * jump to target element  onClick
+ * @param {*} e event object
+ * @param {*} type cta type ( external | jump | local)
+ * * @returns {*} behaviour object
+ */
+const jump = (e, type) => (type === 'jump' ? smoothScroll(e) : null);
+
+/**
+ * sets target
+ * @param {string} type cta type ( external | jump | local)
+ * @returns {string} target value
+ */
+const external = type => (type === 'external' ? '_blank' : null);
+
 /**
  * TEMPORARY sets icon based on link type
  *
  * @param {string} type cta type ( external | jump | local)
- * @returns {*} cta type component
+ * @returns {*} type of icon component
  */
 const TEMP_iconSelector = type =>
   type === 'external' ? Launch20 : type === 'jump' ? ArrowDown20 : ArrowRight20;
+
 /**
  * sets icon based on link type
  *
@@ -74,6 +93,7 @@ const iconSelector = type =>
   ) : (
     <ArrowRight20 />
   );
+
 /**
  * sets button
  *
@@ -85,8 +105,8 @@ const renderButtons = ({ buttons }) =>
     button.renderIcon = TEMP_iconSelector(button.type);
     return button;
   });
+
 CTA.propTypes = {
-  cta: PropTypes.object,
   style: PropTypes.string,
   type: PropTypes.string,
 };

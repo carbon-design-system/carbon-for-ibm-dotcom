@@ -3,7 +3,7 @@
  *
  * @param {*} e event object
  */
-const smoothScrolling = e => {
+const smoothScroll = e => {
   e.preventDefault();
   const id = e.currentTarget.getAttribute('href');
   document.querySelector(id).scrollIntoView({
@@ -11,4 +11,4 @@ const smoothScrolling = e => {
     block: 'start',
   });
 };
-export default smoothScrolling;
+export default smoothScroll;

@@ -20,10 +20,13 @@ Here's a quick example to get you started.
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { CTA } from '@carbon/ibmdotcom-react';
 import 'yourapplication.scss';
 
 function App() {
-  return <CTA style={style} type={type} {...cta} />;
+  return (
+    <CTA style="text" type="local" copy="IBM Homepage" href="www.ibm.com" />
+  );
 }
 
 ReactDOM.render(<App />, document.querySelector('#app'));
@@ -34,11 +37,19 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 ## Props
 
-| Name    | Required | Data Type | Default Value | Description                                    |
-| ------- | -------- | --------- | ------------- | ---------------------------------------------- |
-| `style` | NO       | String    | text          | Deafult style is text (LinkWithIcon component) |
-| `cta`   | NO       | Object    | null          | Contains type, href,copy title, heading, image |
-| `type`  | NO       | String    | local         | Contains type, href,copy title, heading, image |
+| Name    | Required | Data Type | Default Value | Description                                                          |
+| ------- | -------- | --------- | ------------- | -------------------------------------------------------------------- |
+| `style` | YES      | String    | text          | Describes style type, for more information See `Style type's` below. |
+| `type`  | YES      | String    | local         | Describes which type (`local`                                        | `jump` | `external`) icon. |
+
+## Style type's
+
+| Style Type | Component Name | Description                                                               |
+| ---------- | -------------- | ------------------------------------------------------------------------- |
+| `text`     | LinkWithIcon   | See the documentation of LinkWithIcon component and use thier props here. |
+| `button`   | ButtonGroup    | See the documentation of ButtonGroup component and use thier props here.  |
+| `card`     | Card           | See the documentation of Card component and use thier props here.         |
+| `feature`  | FeatureCard    | See the documentaion of FeatureCard component and user their props here.  |
 
 ## 🙌 Contributing
 
