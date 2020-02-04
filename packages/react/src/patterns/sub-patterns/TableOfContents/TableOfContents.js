@@ -14,11 +14,29 @@ import PropTypes from 'prop-types';
 import root from 'window-or-global';
 import { settings } from 'carbon-components';
 
-import TOCDesktop from './TableofContentsDesktop';
+import TOCDesktop from './TOCDesktop';
 import TOCMobile from './TOCMobile';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
+
+/**
+ * loops into the array of elements and returns the values
+ *
+ * @private
+ * @returns {Array} returns elemenrt name and data title
+ */
+const _findMenuItems = () => {
+  const eles = document.querySelectorAll('a[name]');
+  const menuItems = [];
+  eles.forEach(element => {
+    menuItems.push({
+      id: element.getAttribute('name'),
+      title: element.getAttribute('data-title'),
+    });
+  });
+  return menuItems;
+};
 
 /**
  * Table of Contents pattern
@@ -34,10 +52,6 @@ const TableOfContents = ({ menuItems, children, menuLabel, theme }) => {
   const [selectedTitle, setSelectedTitle] = useState(menuItems[0].name);
 
   useEffect(() => {
-    let useMenuItems = menuItems ? [...menuItems] : _findMenuItems();
-    if (!useMenuItems) {
-      _findMenuItems();
-    }
     scrollStop(setSelectedItem);
   });
 
@@ -164,24 +178,6 @@ const TableOfContents = ({ menuItems, children, menuLabel, theme }) => {
       </Layout>
     </section>
   );
-};
-
-/**
- * loops into the array of elements and returns the values
- *
- * @private
- * @returns {Array} returns elemenrt name and data title
- */
-const _findMenuItems = () => {
-  const eles = document.querySelectorAll('a[name]');
-  const menuItems = [];
-  eles.forEach(element => {
-    menuItems.push({
-      id: element.getAttribute('name'),
-      title: element.getAttribute('data-title'),
-    });
-  });
-  return menuItems;
 };
 
 TableOfContents.propTypes = {
