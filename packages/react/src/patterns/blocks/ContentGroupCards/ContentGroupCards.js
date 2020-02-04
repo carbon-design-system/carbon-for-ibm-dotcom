@@ -65,7 +65,7 @@ const ContentGroupCards = ({ heading, items }) => {
             ref={containerRef}
             className={`${prefix}--content-group-cards-group ${prefix}--grid--condensed`}>
             <div className={`${prefix}--content-group-cards__row`}>
-              {_renderCardArrayItems(items)}
+              {_renderCards(items)}
             </div>
           </div>
         </ContentGroup>
@@ -77,11 +77,11 @@ const ContentGroupCards = ({ heading, items }) => {
 /**
  * Renders the cards based on the ContentArray entries
  *
- * @param {Array} itemsArray Content object array
+ * @param {Array} items Content object array
  * @returns {*} CardArrayItem JSX objects
  */
-const _renderCardArrayItems = itemsArray =>
-  itemsArray.map((elem, index) => (
+const _renderCards = items =>
+  items.map((elem, index) => (
     <div
       data-autoid={`${stablePrefix}--content-group-cards-item`}
       className={`${prefix}--content-group-cards-item__col`}
