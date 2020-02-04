@@ -1,5 +1,5 @@
 import { select, withKnobs } from '@storybook/addon-knobs';
-import CTA from '../Cta';
+import CTA from '../CTA';
 import React from 'react';
 import readme from '../README.md';
 import { storiesOf } from '@storybook/react';
