@@ -26,8 +26,7 @@
   .#{$prefix}--file__selected-file:last-child {
     height: rem(40px);
   }
-  .#{$prefix}--btn--tertiary {
-    height: rem(40px);
+  .#{$prefix}--file__state-container .#{$prefix}--btn--tertiary {
     width: rem(142px);
   }
 }
