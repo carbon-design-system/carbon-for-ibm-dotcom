@@ -1,0 +1,48 @@
+//
+// Copyright IBM Corp. 2016, 2018
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import '../../../globals/imports';
+
+@mixin content-item {
+  .#{$prefix}--content-item {
+    display: flex;
+    flex-direction: column;
+
+    &__heading {
+      margin-top: $carbon--spacing-07;
+      color: $text-01;
+      @include carbon--type-style('heading-02', true);
+    }
+
+    &__image {
+      margin: $carbon--spacing-05 0 $carbon--spacing-07;
+      width: 100%;
+      max-width: rem(544px);
+    }
+
+    &__copy {
+      color: $text-01;
+      @include carbon--type-style('body-long-02', true);
+    }
+  }
+
+  @include carbon--breakpoint('md') {
+    .#{$prefix}--content-item__image {
+      width: 75%;
+    }
+
+    .#{$prefix}--content-item__heading,
+    .#{$prefix}--content-item__copy {
+      width: 95%;
+      max-width: rem(640px);
+    }
+  }
+}
+
+@include exports('content-item') {
+  @include content-item;
+}
