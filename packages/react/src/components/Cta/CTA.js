@@ -12,7 +12,6 @@ import { LinkWithIcon } from '../LinkWithIcon';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { smoothScrolling } from '@carbon/ibmdotcom-utilities';
-
 /**
  * CTA component
  *
@@ -53,7 +52,6 @@ const CTA = ({ style, type, ...cta }) => {
       );
   }
 };
-
 /**
  * TEMPORARY sets icon based on link type
  *
@@ -62,7 +60,6 @@ const CTA = ({ style, type, ...cta }) => {
  */
 const TEMP_iconSelector = type =>
   type === 'external' ? Launch20 : type === 'jump' ? ArrowDown20 : ArrowRight20;
-
 /**
  * sets icon based on link type
  *
@@ -77,7 +74,6 @@ const iconSelector = type =>
   ) : (
     <ArrowRight20 />
   );
-
 /**
  * sets button
  *
@@ -89,11 +85,9 @@ const renderButtons = ({ buttons }) =>
     button.renderIcon = TEMP_iconSelector(button.type);
     return button;
   });
-
 CTA.propTypes = {
   cta: PropTypes.object,
   style: PropTypes.string,
   type: PropTypes.string,
 };
-
 export default CTA;
