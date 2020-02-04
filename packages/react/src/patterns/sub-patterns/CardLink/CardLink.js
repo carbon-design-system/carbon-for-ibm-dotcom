@@ -64,7 +64,7 @@ function optionalContent(content) {
     <div
       className={`${prefix}--card-link__content`}
       dangerouslySetInnerHTML={{
-        __html: markdownToHtml(content, { italic: true, allowHtml: true }),
+        __html: markdownToHtml(content, { bold: false, allowHtml: true }),
       }}></div>
   );
 }
