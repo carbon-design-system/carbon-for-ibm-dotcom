@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-export * from './CardArray';
+export * from './ContentGroupCards';
 export * from './FeaturedLink';
 export * from './ListSection';
 export * from './LogoGrid';
