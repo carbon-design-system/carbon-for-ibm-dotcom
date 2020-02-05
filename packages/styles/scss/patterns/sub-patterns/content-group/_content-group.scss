@@ -41,9 +41,8 @@
     }
 
     &__children {
-      height: 300px;
-      background-color: #f4f4f4;
-      margin-bottom: $carbon--layout-03;
+      padding-left: 0;
+      padding-right: 0;
     }
   }
 }
