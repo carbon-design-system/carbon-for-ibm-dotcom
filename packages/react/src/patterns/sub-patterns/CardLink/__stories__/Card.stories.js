@@ -27,6 +27,7 @@ storiesOf('Patterns (Sub-Patterns)|Card', module)
   .add('Link', () => {
     const title = text('title (required)', 'Lorem ipsum dolor sit amet');
     const href = text('href (required)', 'https://example.com');
+    const type = text('type', 'link');
     const content = text('content', '');
     const target = text('target', '');
     const ratio = {
@@ -45,6 +46,7 @@ storiesOf('Patterns (Sub-Patterns)|Card', module)
         content={content}
         icon={<ArrowRight20 />}
         target={target}
+        type={type}
       />
     ) : (
       <div
@@ -59,6 +61,7 @@ storiesOf('Patterns (Sub-Patterns)|Card', module)
           content={content}
           icon={<ArrowRight20 />}
           target={target}
+          type={type}
           className="bx--aspect-ratio--object"
         />
       </div>

@@ -4,8 +4,8 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
+import { ClickableTile, Tile } from 'carbon-components-react';
 import classNames from 'classnames';
-import { ClickableTile } from 'carbon-components-react';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { Image } from '../../../components/Image';
 import PropTypes from 'prop-types';
@@ -28,13 +28,14 @@ const CardLink = ({
   icon,
   image,
   className,
+  type,
   ...props
 }) => {
   if (!title || !href) {
     return null;
   }
 
-  return (
+  return type === 'link' ? (
     <ClickableTile
       data-autoid={`${stablePrefix}--card-link`}
       className={classNames(`${prefix}--card-link`, className)}
@@ -47,6 +48,17 @@ const CardLink = ({
         {renderFooter(icon)}
       </div>
     </ClickableTile>
+  ) : (
+    <Tile
+      data-autoid={`${stablePrefix}--card-link`}
+      className={classNames(`${prefix}--card-link`, className)}>
+      <Image {...image} />
+      <div className={`${prefix}--card-link__wrapper`}>
+        <h3 className={`${prefix}--card-link__title`}>{title}</h3>
+        {optionalContent(content)}
+        {renderFooter(icon)}
+      </div>
+    </Tile>
   );
 };
 
@@ -81,6 +93,7 @@ CardLink.propTypes = {
   content: PropTypes.string,
   image: PropTypes.object,
   className: PropTypes.string,
+  type: PropTypes.string,
 };
 
 export default CardLink;

@@ -50,6 +50,7 @@ const UseCasesGroup = ({ usecaseGroup: { title, image, lists, link } }) => {
             href={link.href}
             target={link.target}
             icon={<ArrowRight20 />}
+            type="link"
           />
         </div>
       )}

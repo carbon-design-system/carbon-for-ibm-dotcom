@@ -59,6 +59,10 @@
     &:focus {
       outline-color: $focus;
     }
+
+    &.#{$prefix}--tile {
+      padding: 0;
+    }
   }
 }
 

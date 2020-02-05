@@ -93,6 +93,7 @@ const _renderCardArrayItems = contentArray =>
         data-autoid={`${stablePrefix}--cardarray-item`}
         className={`${prefix}--cardarray-item`}
         title={elem.title}
+        type="link"
         content={
           <span
             dangerouslySetInnerHTML={{

@@ -89,6 +89,7 @@ const LocaleModalRegions = ({
                   data-region={region.key}
                   key={region.key}
                   title={region.name}
+                  type="link"
                   href={hasCountries ? 'javascript:void(0);' : null}
                   icon={hasCountries ? <ArrowRight20 /> : <Error20 />}
                 />
