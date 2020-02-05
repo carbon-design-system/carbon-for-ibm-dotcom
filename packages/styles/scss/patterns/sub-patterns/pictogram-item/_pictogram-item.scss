@@ -6,7 +6,7 @@
 //
 
 @import '@carbon/grid/scss/grid.scss';
-@import '../layout/layout';
+@import '../../../globals/imports';
 
 @mixin pictogram-item {
   .#{$prefix}--pictogram-item {

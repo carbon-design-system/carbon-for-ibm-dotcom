@@ -46,13 +46,16 @@ const PictogramItem = ({ heading, copy, Pictogram, cta }) => (
     <div className={`${prefix}--pictogram-item__row`}>
       <div className={`${prefix}--pictogram-item__pic-col`}>
         <Pictogram
+          data-autoid={`${stablePrefix}--pictogram-item_pictogram`}
           className={`${prefix}--pictogram-item__pictogram`}
           viewBox="8 8 32 32"
           height="80"
           width="80"
         />
       </div>
-      <div className={`${prefix}--pictogram-item__content-col`}>
+      <div
+        data-autoid={`${stablePrefix}--pictogram-item_content`}
+        className={`${prefix}--pictogram-item__content-col`}>
         <ContentItem heading={heading} copy={copy} cta={cta} />
       </div>
     </div>
@@ -63,7 +66,7 @@ PictogramItem.propTypes = {
   heading: PropTypes.string,
   copy: PropTypes.string,
   cta: PropTypes.object,
-  Pictogram: PropTypes.object,
+  Pictogram: PropTypes.object.isRequired,
 };
 
 export default PictogramItem;
