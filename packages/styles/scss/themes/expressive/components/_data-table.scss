@@ -32,4 +32,15 @@
     height: rem(20px);
     width: rem(20px);
   }
+  .bx--toolbar-search-container-expandable .bx--search .bx--search-magnifier {
+    height: var(--cds-layout-04, 3.25rem);
+    width: var(--cds-layout-04, 3.25rem);
+  }
+  .bx--btn .bx--btn__icon {
+    height: rem(20px);
+    width: rem(20px);
+  }
+  th.bx--table-expand + th.bx--table-column-checkbox {
+    padding-left: 0.75rem;
+  }
 }
