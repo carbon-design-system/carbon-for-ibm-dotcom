@@ -20,8 +20,8 @@ const { prefix } = settings;
  * CTA component
  *
  * @param {object} props props object
- * @param {string} props.style style ( text | card | button | feature ).
- * @param {string} props.type type ( jump | local | external ).
+ * @param {string} props.style cta style ( text | card | button | feature ).
+ * @param {string} props.type cta type ( jump | local | external ).
  * @returns {*} CTA Component
  */
 const CTA = ({ style, type, ...cta }) => {
