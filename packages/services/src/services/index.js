@@ -13,3 +13,4 @@ export * from './MarketingSearch';
 export * from './Profile';
 export * from './SearchTypeahead';
 export * from './Translation';
+export * from './VideoPlayer';
