@@ -50,19 +50,12 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 ## Props
 
-| Name        | Required | Data Type | Default Value | Description                                                          |
-| ----------- | -------- | --------- | ------------- | -------------------------------------------------------------------- |
-| `heading`   | YES      | String    | null          | Heading text                                                         |
-| `copy`      | YES      | String    | null          | Copy text                                                            |
-| `Pictogram` | YES      | Component | null          | Pictogram component imported from `@carbon/pictograms-react` package |
-| `cta`       | NO       | Object    | null          | Object with cta data, see `cta` bellow                               |
-
-### cta
-
-| Name   | Data Type | Description   |
-| ------ | --------- | ------------- |
-| `href` | String    | CTA href      |
-| `copy` | String    | CTA copy text |
+| Name        | Required | Data Type | Default Value | Description                                                                                                                                                |
+| ----------- | -------- | --------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `heading`   | YES      | String    | null          | Heading text                                                                                                                                               |
+| `copy`      | YES      | String    | null          | Copy text                                                                                                                                                  |
+| `Pictogram` | YES      | Component | null          | Pictogram component imported from `@carbon/pictograms-react` package                                                                                       |
+| `cta`       | NO       | Object    | null          | Object with cta data, check [CTA](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/patterns/blocks/CTA/README.md) |
 
 ## Stable selectors
 
