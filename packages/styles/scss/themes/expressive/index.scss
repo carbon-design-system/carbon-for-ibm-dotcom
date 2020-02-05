@@ -13,14 +13,18 @@
 // Carbon component theming
 @import 'components/accordion';
 @import 'components/button';
+@import 'components/code-snippet';
 @import 'components/combo-box';
 @import 'components/content-switcher';
+@import 'components/copy-button';
 @import 'components/date-picker';
+@import 'components/dropdown';
 @import 'components/inline-loading';
 @import 'components/inline-notifications';
 @import 'components/list-box';
 @import 'components/loading';
 @import 'components/number-input';
+@import 'components/overflow-menu';
 @import 'components/tabs';
 @import 'components/text-input';
 @import 'components/tile';
@@ -46,14 +50,18 @@
     // Component mixins
     @include accordion-expressive;
     @include button-expressive;
+    @include code-snippet-expressive;
     @include combo-box-expressive;
     @include content-switcher-expressive;
+    @include copy-button-expressive;
     @include date-picker-expressive;
+    @include dropdown-expressive;
     @include inline-loading-expressive;
     @include inline-notifications-expressive;
     @include list-box-expressive;
     @include loading-expressive;
     @include number-input-expressive;
+    @include overflow-menu-expressive;
     @include tabs-expressive;
     @include text-input-expressive;
     @include tile-expressive;

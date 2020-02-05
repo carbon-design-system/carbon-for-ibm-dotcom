@@ -13,11 +13,11 @@ import {
   SideNavMenuItem,
 } from 'carbon-components-react';
 import { ArrowLeft16 } from '@carbon/icons-react';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
 import React from 'react';
-import SideNavMenu from '../carbon-components-react/UIShell/SideNavMenu';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
+import SideNavMenu from '../carbon-components-react/UIShell/SideNavMenu';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;

@@ -1,9 +1,9 @@
-import PropTypes from 'prop-types';
-import React from 'react';
 import classNames from 'classnames';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import match from 'autosuggest-highlight/match';
 import parse from 'autosuggest-highlight/parse';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { settings } from 'carbon-components';
 
 const { stablePrefix } = ddsSettings;

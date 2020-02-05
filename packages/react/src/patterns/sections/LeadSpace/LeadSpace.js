@@ -10,11 +10,11 @@ import {
   featureFlag,
 } from '@carbon/ibmdotcom-utilities';
 import { ButtonGroup } from '../../sub-patterns/ButtonGroup';
+import classnames from 'classnames';
 import { DDS_LEADSPACE } from '../../../internal/FeatureFlags';
 import LeadSpaceImage from './LeadSpaceImage';
 import PropTypes from 'prop-types';
 import React from 'react';
-import classnames from 'classnames';
 import { settings } from 'carbon-components';
 
 const { stablePrefix } = ddsSettings;

@@ -1,0 +1,27 @@
+{
+  "name": "ibm-dotcom-library-nextjs-test",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "node server.js",
+    "update": "yarn upgrade @carbon/ibmdotcom-react@canary && yarn upgrade @carbon/ibmdotcom-styles@canary"
+  },
+  "dependencies": {
+    "@carbon/ibmdotcom-react": "^1.4.0-alpha.2090",
+    "@carbon/ibmdotcom-styles": "^1.4.0-alpha.2090",
+    "@zeit/next-css": "^1.0.1",
+    "@zeit/next-sass": "^1.0.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "next": "9.1.3",
+    "node-sass": "^4.13.0",
+    "react": "16.11.0",
+    "react-dom": "16.11.0",
+    "webpack": "^4.41.5"
+  },
+  "resolutions": {
+    "serialize-javascript": ">= 2.1.2"
+  }
+}

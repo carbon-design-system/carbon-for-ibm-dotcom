@@ -16,12 +16,15 @@ import root from 'window-or-global';
  *
  */
 function altlangs() {
-  const links = root.document.querySelectorAll('link[rel="alternate"]');
-  const langs = {};
+  let links = [];
+  let langs = {};
+  if (root.document) {
+    links = root.document.querySelectorAll('link[rel="alternate"]');
 
-  links.forEach(link => {
-    langs[link.getAttribute('hreflang')] = link.getAttribute('href');
-  });
+    links.forEach(link => {
+      langs[link.getAttribute('hreflang')] = link.getAttribute('href');
+    });
+  }
 
   return langs;
 }

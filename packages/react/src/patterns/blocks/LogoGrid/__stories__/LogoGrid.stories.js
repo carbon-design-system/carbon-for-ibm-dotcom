@@ -2,8 +2,8 @@ import './index.scss';
 import { object, select, text, withKnobs } from '@storybook/addon-knobs';
 import { DDS_LOGO_GRID } from '../../../../internal/FeatureFlags';
 import LogoGrid from '../LogoGrid';
-import React from 'react';
 import logos from './data/logos.json';
+import React from 'react';
 import readme from '../README.md';
 import { storiesOf } from '@storybook/react';
 
