@@ -51,7 +51,7 @@ storiesOf('Components|CTA', module)
             title: copy[1],
             image: {
               defaultImage: 'https://picsum.photos/id/672/672',
-              alt: '...',
+              alt: 'featured card image',
             },
           },
         };

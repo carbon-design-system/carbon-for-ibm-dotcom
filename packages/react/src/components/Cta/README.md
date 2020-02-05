@@ -37,19 +37,33 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 ## Props
 
-| Name    | Required | Data Type | Default Value | Description                                                          |
-| ------- | -------- | --------- | ------------- | -------------------------------------------------------------------- |
-| `style` | YES      | String    | text          | Describes style type, for more information See `Style type's` below. |
-| `type`  | YES      | String    | local         | Describes which type `local`,`jump`,`external` icon.                 |
+| Name    | Required | Data Type | Default Value | Description                                                    |
+| ------- | -------- | --------- | ------------- | -------------------------------------------------------------- |
+| `style` | YES      | String    | text          | Describes style type, for more information see `Styles` below. |
+| `type`  | YES      | String    | local         | Describes icon type, for more information see `Types` below.   |
 
-## Style type's
+## Styles
 
-| Style Type | Component Name | Description                                                               |
-| ---------- | -------------- | ------------------------------------------------------------------------- |
-| `text`     | LinkWithIcon   | See the documentation of LinkWithIcon component and use thier props here. |
-| `button`   | ButtonGroup    | See the documentation of ButtonGroup component and use thier props here.  |
-| `card`     | Card           | See the documentation of Card component and use thier props here.         |
-| `feature`  | FeatureCard    | See the documentaion of FeatureCard component and user their props here.  |
+| Style     | Component Name | Description                                                                                                                                                      |
+| --------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `text`    | LinkWithIcon   | Use their props here. For more details [see here](https://ibmdotcom-react-experimental.mybluemix.net/?path=/story/components-link-with-icon--default)!👀         |
+| `button`  | ButtonGroup    | Use their props here. For more details [see here](https://ibmdotcom-react-experimental.mybluemix.net/?path=/story/patterns-sub-patterns-buttongroup--default)!👀 |
+| `card`    | Card           | Use their props here. For more details [see here](https://ibmdotcom-react-experimental.mybluemix.net/?path=/story/patterns-sub-patterns-card--link)!👀           |
+| `feature` | FeatureCard    | Use their props here. For more details [see here](https://ibmdotcom-react-experimental.mybluemix.net/?path=/story/patterns-sub-patterns-card--link)!👀           |
+
+## Types
+
+| Type       | SVG element Name | Description                                                                                      |
+| ---------- | ---------------- | ------------------------------------------------------------------------------------------------ |
+| `local`    | ArrowRight20     | Describes right arrow onClick which loads in self page. For more details click `Icons` below.    |
+| `jump`     | ArrowDown20      | Describes down arrow onClick which scrollToView of target. For more details click `Icons` below. |
+| `external` | Launch20         | Describes launch arrow onClick which loads in new tab. For more details click `Icons` below.     |
+
+## Icons
+
+- [Icons library](https://www.carbondesignsystem.com/guidelines/icons/library/)!👀
+- [@carbon/icons-react](https://github.com/carbon-design-system/carbon/tree/master/packages/icons-react)!👀
+- [carbon-icons](https://www.npmjs.com/package/carbon-icons)!👀
 
 ## 🙌 Contributing
 

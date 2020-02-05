@@ -11,7 +11,11 @@ import { FeaturedLink } from '../../patterns/blocks/FeaturedLink';
 import { LinkWithIcon } from '../LinkWithIcon';
 import PropTypes from 'prop-types';
 import React from 'react';
+import { settings } from 'carbon-components';
 import { smoothScroll } from '@carbon/ibmdotcom-utilities';
+
+const { prefix } = settings;
+
 /**
  * CTA component
  *
@@ -26,7 +30,9 @@ const CTA = ({ style, type, ...cta }) => {
     case 'card':
       return (
         <CardLink
-          {...cta}
+          className={`${prefix}--card-link--CTA`}
+          title={cta.title}
+          href={cta.href}
           icon={iconSelector(type)}
           target={external(type)}
           onClick={e => jump(e, type)}
@@ -59,8 +65,8 @@ const CTA = ({ style, type, ...cta }) => {
  * jump to target element  onClick
  *
  * @param {*} e event object
- * @param {*} type cta type ( external | jump | local)
- * * @returns {*} behaviour object
+ * @param {string} type cta type ( external | jump | local)
+ * @returns {*} behaviour object
  */
 const jump = (e, type) => (type === 'jump' ? smoothScroll(e) : null);
 
@@ -105,6 +111,7 @@ const iconSelector = type =>
 const renderButtons = ({ buttons }) =>
   buttons.map(button => {
     button.renderIcon = TEMP_iconSelector(button.type);
+    //buttons.renderIcon = button.type === 'external' ? Launch20 : button.type === 'jump' ? ArrowDown20 : ArrowRight20;
     return button;
   });
 

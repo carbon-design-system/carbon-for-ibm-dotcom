@@ -22,9 +22,17 @@ import { ContentGroup } from '@carbon/ibmdotcom-react';
 import 'yourapplication.scss';
 
 function App() {
-  const copy = 'Lorem ipsum dolor sit amet.';
+  const heading = 'Lorem ipsum dolor sit amet.';
+  const cta = {
+    title: 'Lorem ipsum dolor sit amet',
+    href: 'https://ibm.com',
+  };
 
-  return <ContentGroup heading={copy}>//Content array goes here</ContentGroup>;
+  return (
+    <ContentGroup heading={heading} {...cta}>
+      //Content array goes here
+    </ContentGroup>
+  );
 }
 
 ReactDOM.render(<App />, document.querySelector('#app'));
@@ -35,9 +43,16 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 ## Props
 
-| Name      | Required | Data Type | Default Value | Description  |
-| --------- | -------- | --------- | ------------- | ------------ |
-| `heading` | NO       | String    | null          | Heading text |
+| Name      | Required | Data Type | Default Value | Description                                |
+| --------- | -------- | --------- | ------------- | ------------------------------------------ |
+| `heading` | NO       | String    | null          | Heading text                               |
+| `cta`     | NO       | CTA       | Card          | CTA type for more details see `CTA` below. |
+
+## CTA
+
+| Name  | Default CTA Style | Default CTA Type | Description                                                             |
+| ----- | ----------------- | ---------------- | ----------------------------------------------------------------------- |
+| `CTA` | Card              | local            | Allowed Card style and local type for more details see CTA README file. |
 
 ## Stable selectors
 
