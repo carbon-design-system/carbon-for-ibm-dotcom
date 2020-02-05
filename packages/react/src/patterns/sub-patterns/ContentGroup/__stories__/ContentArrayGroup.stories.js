@@ -18,5 +18,6 @@ storiesOf('Patterns (Sub-Patterns)|ContentGroup', module)
       'Component title(required):',
       'Lorem ipsum dolor sit amet.'
     );
+
     return <ContentGroup heading={copy} />;
   });
