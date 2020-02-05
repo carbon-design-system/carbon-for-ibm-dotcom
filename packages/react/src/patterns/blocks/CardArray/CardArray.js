@@ -5,11 +5,16 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import {
+  settings as ddsSettings,
+  featureFlag,
+} from '@carbon/ibmdotcom-utilities';
 import React, { useEffect, useRef } from 'react';
+
 import { ArrowRight20 } from '@carbon/icons-react';
 import { CardLink } from '../../sub-patterns/CardLink';
 import { ContentGroup } from '../../sub-patterns/ContentGroup';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import { DDS_CARD_ARRAY } from '../../../internal/FeatureFlags';
 import PropTypes from 'prop-types';
 import { sameHeight } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
@@ -24,7 +29,7 @@ const { stablePrefix } = ddsSettings;
  * @param {Array} props.content CardArray section content object array
  * @returns {*} CardArray JSX component
  */
-const ContentGroupCards = ({ heading, items }) => {
+const CardArray = ({ title, content }) => {
   const containerRef = useRef();
 
   useEffect(() => {
@@ -54,18 +59,19 @@ const ContentGroupCards = ({ heading, items }) => {
     );
   };
 
-  return (
+  return featureFlag(
+    DDS_CARD_ARRAY,
     <section
-      data-autoid={`${stablePrefix}--content-group-cards`}
-      className={`${prefix}--content-group-cards`}>
-      <div className={`${prefix}--content-group-cards__row`}>
-        <ContentGroup heading={heading}>
+      data-autoid={`${stablePrefix}--cardarray`}
+      className={`${prefix}--cardarray`}>
+      <div className={`${prefix}--cardarray__row`}>
+        <ContentGroup heading={title}>
           <div
-            data-autoid={`${stablePrefix}--content-group-cards-group`}
+            data-autoid={`${stablePrefix}--cardarray-group`}
             ref={containerRef}
-            className={`${prefix}--content-group-cards-group ${prefix}--grid--condensed`}>
-            <div className={`${prefix}--content-group-cards__row`}>
-              {_renderCards(items)}
+            className={`${prefix}--cardarray-group ${prefix}--grid--condensed`}>
+            <div className={`${prefix}--cardarray__row`}>
+              {_renderCardArrayItems(content)}
             </div>
           </div>
         </ContentGroup>
@@ -77,28 +83,26 @@ const ContentGroupCards = ({ heading, items }) => {
 /**
  * Renders the cards based on the ContentArray entries
  *
- * @param {Array} items Content object array
+ * @param {Array} contentArray Content object array
  * @returns {*} CardArrayItem JSX objects
  */
-const _renderCards = items =>
-  items.map((elem, index) => (
-    <div
-      data-autoid={`${stablePrefix}--content-group-cards-item`}
-      className={`${prefix}--content-group-cards-item__col`}
-      key={index}>
+const _renderCardArrayItems = contentArray =>
+  contentArray.map((elem, index) => (
+    <div className={`${prefix}--cardarray-item__col`} key={index}>
       <CardLink
-        className={`${prefix}--content-group-cards-item`}
-        title={elem.heading}
+        data-autoid={`${stablePrefix}--cardarray-item`}
+        className={`${prefix}--cardarray-item`}
+        title={elem.title}
         content={elem.copy}
         icon={<ArrowRight20 />}
-        href={elem.cta.href}
+        href={elem.href}
       />
     </div>
   ));
 
-ContentGroupCards.propTypes = {
-  heading: PropTypes.string.isRequired,
-  items: PropTypes.arrayOf(
+CardArray.propTypes = {
+  title: PropTypes.string.isRequired,
+  content: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
       copy: PropTypes.string,
@@ -107,4 +111,4 @@ ContentGroupCards.propTypes = {
   ),
 };
 
-export default ContentGroupCards;
+export default CardArray;
