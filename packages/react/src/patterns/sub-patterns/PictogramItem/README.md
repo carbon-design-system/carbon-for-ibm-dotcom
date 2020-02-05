@@ -61,7 +61,6 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 | Name   | Data Type | Description   |
 | ------ | --------- | ------------- |
-| `type` | String    | CTA Type      |
 | `href` | String    | CTA href      |
 | `copy` | String    | CTA copy text |
 

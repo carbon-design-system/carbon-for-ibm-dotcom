@@ -22,6 +22,10 @@
       @include carbon--make-col-ready();
       @include carbon--make-col(6, 16);
     }
+    &__pictogram {
+      height: 80px;
+      width: 80px;
+    }
   }
 }
 

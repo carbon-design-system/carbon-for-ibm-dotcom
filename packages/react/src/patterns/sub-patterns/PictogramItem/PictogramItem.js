@@ -6,29 +6,12 @@
  */
 
 import ContentItem from '../ContentItem/ContentItem';
-import {
-  settings as ddsSettings,
-  // markdownToHtml,
-} from '@carbon/ibmdotcom-utilities';
-//   import { ArrowRight20 } from '@carbon/icons-react';
-//   import { LinkWithIcon } from '../../../components/LinkWithIcon';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { settings } from 'carbon-components';
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
-
-/**
- * Converts markdown to html and returns object to be used in `dangerouslySetInnerHTML`
- *
- * @param {string} string string to be converted to html
- * @returns {object} object with a __html key containing converted string
- */
-//   const convertMarkdown = string => ({
-//     __html: markdownToHtml(string, {
-//       bold: false,
-//     }),
-//   });
 
 /**
  * Content with pictogram component
@@ -49,22 +32,24 @@ const PictogramItem = ({ heading, copy, Pictogram, cta }) => (
           data-autoid={`${stablePrefix}--pictogram-item_pictogram`}
           className={`${prefix}--pictogram-item__pictogram`}
           viewBox="8 8 32 32"
-          height="80"
-          width="80"
         />
       </div>
       <div
         data-autoid={`${stablePrefix}--pictogram-item_content`}
         className={`${prefix}--pictogram-item__content-col`}>
-        <ContentItem heading={heading} copy={copy} cta={cta} />
+        <ContentItem
+          heading={heading}
+          copy={copy}
+          cta={{ type: 'text', ...cta }}
+        />
       </div>
     </div>
   </div>
 );
 
 PictogramItem.propTypes = {
-  heading: PropTypes.string,
-  copy: PropTypes.string,
+  heading: PropTypes.string.isRequired,
+  copy: PropTypes.string.isRequired,
   cta: PropTypes.object,
   Pictogram: PropTypes.object.isRequired,
 };
