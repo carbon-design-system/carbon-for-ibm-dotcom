@@ -82,7 +82,7 @@ storiesOf('Components|CTA', module)
       <div className="bx--grid ">
         <div className="bx--row">
           <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
-            <CTA style={style} {...cta} />
+            <CTA style={style} type={type} {...cta} />
           </div>
         </div>
         {type === 'jump' || type[0] === 'jump' || type[1] === 'jump' ? (

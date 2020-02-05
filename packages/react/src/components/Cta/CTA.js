@@ -21,8 +21,7 @@ const { prefix } = settings;
  *
  * @param {object} props props object
  * @param {string} props.style style ( text | card | button | feature ).
- * @param {object} props.type tyle ( jump | local | external ).
- * @param {object} props.cta cta object which includes href,text, copy, card and image, button  properties.
+ * @param {string} props.type type ( jump | local | external ).
  * @returns {*} CTA Component
  */
 const CTA = ({ style, type, ...cta }) => {
@@ -47,7 +46,13 @@ const CTA = ({ style, type, ...cta }) => {
         />
       );
     case 'feature':
-      return <FeaturedLink {...cta} />;
+      return (
+        <FeaturedLink
+          {...cta}
+          target={external(type)}
+          onClick={e => jump(e, type)}
+        />
+      );
     default:
       return (
         <LinkWithIcon
@@ -111,7 +116,6 @@ const iconSelector = type =>
 const renderButtons = ({ buttons }) =>
   buttons.map(button => {
     button.renderIcon = TEMP_iconSelector(button.type);
-    //buttons.renderIcon = button.type === 'external' ? Launch20 : button.type === 'jump' ? ArrowDown20 : ArrowRight20;
     return button;
   });
 
