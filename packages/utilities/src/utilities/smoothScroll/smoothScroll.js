@@ -9,9 +9,9 @@
  * Utility handles smoothScroll to the target element after OnClick
  *
  * @example
- * import {smoothScroll} from '@carbon/ibmdotcom-utilities';
+ * import { smoothScroll } from '@carbon/ibmdotcom-utilities';
  *
- * smoothScroll(e);
+ * <a href="#anchorlinkname" onClick={smoothScroll(e)}>lorem ipsum</a>
  *
  * You can use this for jump to target element by providing event object.
  * it will scroll into view of target by selecting attribute and assigning to id.
