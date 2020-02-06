@@ -28,7 +28,7 @@ const CardLink = ({
   title,
   href,
   content,
-  icon,
+  icon: Icon,
   image,
   className,
   ...props
@@ -47,7 +47,7 @@ const CardLink = ({
       <div className={`${prefix}--card-link__wrapper`}>
         <h3 className={`${prefix}--card-link__title`}>{title}</h3>
         {optionalContent(content)}
-        {renderFooter(icon)}
+        {renderFooter(Icon)}
       </div>
     </ClickableTile>
   );
@@ -72,19 +72,21 @@ function optionalContent(content) {
 /**
  * Render footer with icon
  *
- * @param {object} icon passes in react icon
+ * @param {object} Icon passes in react icon
  * @returns {object} JSX object
  */
-function renderFooter(icon) {
-  return !icon ? null : (
-    <footer className={`${prefix}--card-link__footer`}>{icon}</footer>
+function renderFooter(Icon) {
+  return !Icon ? null : (
+    <footer className={`${prefix}--card-link__footer`}>
+      <Icon />
+    </footer>
   );
 }
 
 CardLink.propTypes = {
   title: PropTypes.string.isRequired,
   href: PropTypes.string.isRequired,
-  icon: PropTypes.element,
+  icon: PropTypes.object,
   content: PropTypes.string,
   image: PropTypes.object,
   className: PropTypes.string,

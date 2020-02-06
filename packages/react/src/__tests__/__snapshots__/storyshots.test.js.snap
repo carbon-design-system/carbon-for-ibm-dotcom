@@ -2754,6 +2754,91 @@ Array [
 ]
 `;
 
+exports[`Storyshots Patterns (Sub-Patterns)|ContentItem Default 1`] = `
+Array [
+  <div
+    data-floating-menu-container=""
+    role="main"
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+      }
+    }
+  >
+    <div
+      className="storybook-readme-story"
+    >
+      <div
+        style={Object {}}
+      >
+        <div>
+          <div
+            class="bx--grid"
+          >
+            <div
+              class="bx--row"
+            >
+              <div
+                class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
+              >
+                <div
+                  className="bx--content-item"
+                  data-autoid="dds--content-item"
+                >
+                  <h4
+                    className="bx--content-item__heading"
+                    data-autoid="dds--content-item__heading"
+                  >
+                    Lorem ipsum dolor sit amet.
+                  </h4>
+                  <picture
+                    alt="content item image"
+                    className="bx--image"
+                    data-autoid="dds--image"
+                  >
+                    <source
+                      media="(min-width: 1056px )"
+                      srcSet="https://picsum.photos/id/2/352/176"
+                    />
+                    <source
+                      media="(min-width: 672px )"
+                      srcSet="https://picsum.photos/id/2/448/224"
+                    />
+                    <source
+                      media="(min-width: 320px )"
+                      srcSet="https://picsum.photos/id/2/288/144"
+                    />
+                    <img
+                      alt="content item image"
+                      className="bx--image__img bx--content-item__image"
+                      src="https://picsum.photos/id/2/352/176"
+                    />
+                  </picture>
+                  <div
+                    className="bx--content-item__copy"
+                    dangerouslySetInnerHTML={
+                      Object {
+                        "__html": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.",
+                      }
+                    }
+                    data-autoid="dds--content-item__copy"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <input
+    aria-label="input-text-offleft"
+    className="bx--visually-hidden"
+    type="text"
+  />,
+]
+`;
+
 exports[`Storyshots Patterns (Sub-Patterns)|Layout Default 1`] = `
 Array [
   <div
