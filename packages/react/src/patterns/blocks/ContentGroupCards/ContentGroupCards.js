@@ -5,13 +5,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { markdownToHtml, sameHeight } from '@carbon/ibmdotcom-utilities';
 import React, { useEffect, useRef } from 'react';
 import { ArrowRight20 } from '@carbon/icons-react';
 import { CardLink } from '../../sub-patterns/CardLink';
 import { ContentGroup } from '../../sub-patterns/ContentGroup';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
+import { sameHeight } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
 
 const { prefix } = settings;
@@ -89,12 +89,7 @@ const _renderCards = items =>
       <CardLink
         className={`${prefix}--content-group-cards-item`}
         title={elem.heading}
-        content={
-          <span
-            dangerouslySetInnerHTML={{
-              __html: markdownToHtml(elem.copy),
-            }}></span>
-        }
+        content={elem.copy}
         icon={<ArrowRight20 />}
         href={elem.cta.href}
       />
