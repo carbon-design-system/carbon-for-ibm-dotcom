@@ -1,0 +1,536 @@
+[
+  {
+    "lc": "en",
+    "cc": "us"
+  },
+  {
+    "lc": "en",
+    "cc": "af"
+  },
+  {
+    "lc": "fr",
+    "cc": "dz"
+  },
+  {
+    "lc": "pt",
+    "cc": "ao"
+  },
+  {
+    "lc": "en",
+    "cc": "ai"
+  },
+  {
+    "lc": "en",
+    "cc": "ag"
+  },
+  {
+    "lc": "es",
+    "cc": "ar"
+  },
+  {
+    "lc": "en",
+    "cc": "aw"
+  },
+  {
+    "lc": "en",
+    "cc": "au"
+  },
+  {
+    "lc": "de",
+    "cc": "at"
+  },
+  {
+    "lc": "en",
+    "cc": "bs"
+  },
+  {
+    "lc": "en",
+    "cc": "bh"
+  },
+  {
+    "lc": "en",
+    "cc": "bd"
+  },
+  {
+    "lc": "en",
+    "cc": "bb"
+  },
+  {
+    "lc": "en",
+    "cc": "be"
+  },
+  {
+    "lc": "en",
+    "cc": "bm"
+  },
+  {
+    "lc": "es",
+    "cc": "bo"
+  },
+  {
+    "lc": "en",
+    "cc": "bw"
+  },
+  {
+    "lc": "pt",
+    "cc": "br"
+  },
+  {
+    "lc": "en",
+    "cc": "vg"
+  },
+  {
+    "lc": "en",
+    "cc": "bn"
+  },
+  {
+    "lc": "en",
+    "cc": "bg"
+  },
+  {
+    "lc": "fr",
+    "cc": "bf"
+  },
+  {
+    "lc": "en",
+    "cc": "kh"
+  },
+  {
+    "lc": "fr",
+    "cc": "cm"
+  },
+  {
+    "lc": "en",
+    "cc": "ca"
+  },
+  {
+    "lc": "fr",
+    "cc": "ca"
+  },
+  {
+    "lc": "en",
+    "cc": "ky"
+  },
+  {
+    "lc": "fr",
+    "cc": "td"
+  },
+  {
+    "lc": "es",
+    "cc": "cl"
+  },
+  {
+    "lc": "zh",
+    "cc": "cn"
+  },
+  {
+    "lc": "es",
+    "cc": "co"
+  },
+  {
+    "lc": "fr",
+    "cc": "cd"
+  },
+  {
+    "lc": "fr",
+    "cc": "cg"
+  },
+  {
+    "lc": "es",
+    "cc": "cr"
+  },
+  {
+    "lc": "en",
+    "cc": "hr"
+  },
+  {
+    "lc": "en",
+    "cc": "cw"
+  },
+  {
+    "lc": "en",
+    "cc": "cy"
+  },
+  {
+    "lc": "en",
+    "cc": "cz"
+  },
+  {
+    "lc": "en",
+    "cc": "dm"
+  },
+  {
+    "lc": "en",
+    "cc": "dk"
+  },
+  {
+    "lc": "es",
+    "cc": "ec"
+  },
+  {
+    "lc": "en",
+    "cc": "eg"
+  },
+  {
+    "lc": "en",
+    "cc": "ee"
+  },
+  {
+    "lc": "en",
+    "cc": "et"
+  },
+  {
+    "lc": "en",
+    "cc": "fi"
+  },
+  {
+    "lc": "fr",
+    "cc": "fr"
+  },
+  {
+    "lc": "fr",
+    "cc": "ga"
+  },
+  {
+    "lc": "de",
+    "cc": "de"
+  },
+  {
+    "lc": "en",
+    "cc": "gh"
+  },
+  {
+    "lc": "en",
+    "cc": "gr"
+  },
+  {
+    "lc": "en",
+    "cc": "gd"
+  },
+  {
+    "lc": "en",
+    "cc": "gy"
+  },
+  {
+    "lc": "en",
+    "cc": "hk"
+  },
+  {
+    "lc": "en",
+    "cc": "hu"
+  },
+  {
+    "lc": "en",
+    "cc": "in"
+  },
+  {
+    "lc": "en",
+    "cc": "id"
+  },
+  {
+    "lc": "en",
+    "cc": "iq"
+  },
+  {
+    "lc": "en",
+    "cc": "ie"
+  },
+  {
+    "lc": "en",
+    "cc": "il"
+  },
+  {
+    "lc": "it",
+    "cc": "it"
+  },
+  {
+    "lc": "fr",
+    "cc": "ci"
+  },
+  {
+    "lc": "en",
+    "cc": "jm"
+  },
+  {
+    "lc": "ja",
+    "cc": "jp"
+  },
+  {
+    "lc": "en",
+    "cc": "jo"
+  },
+  {
+    "lc": "en",
+    "cc": "kz"
+  },
+  {
+    "lc": "en",
+    "cc": "ke"
+  },
+  {
+    "lc": "ko",
+    "cc": "kr"
+  },
+  {
+    "lc": "en",
+    "cc": "kw"
+  },
+  {
+    "lc": "en",
+    "cc": "lv"
+  },
+  {
+    "lc": "en",
+    "cc": "lb"
+  },
+  {
+    "lc": "en",
+    "cc": "ly"
+  },
+  {
+    "lc": "en",
+    "cc": "lt"
+  },
+  {
+    "lc": "en",
+    "cc": "mw"
+  },
+  {
+    "lc": "en",
+    "cc": "my"
+  },
+  {
+    "lc": "fr",
+    "cc": "mu"
+  },
+  {
+    "lc": "es",
+    "cc": "mx"
+  },
+  {
+    "lc": "en",
+    "cc": "ms"
+  },
+  {
+    "lc": "fr",
+    "cc": "ma"
+  },
+  {
+    "lc": "pt",
+    "cc": "mz"
+  },
+  {
+    "lc": "en",
+    "cc": "na"
+  },
+  {
+    "lc": "en",
+    "cc": "np"
+  },
+  {
+    "lc": "en",
+    "cc": "nl"
+  },
+  {
+    "lc": "en",
+    "cc": "nz"
+  },
+  {
+    "lc": "fr",
+    "cc": "ne"
+  },
+  {
+    "lc": "en",
+    "cc": "ng"
+  },
+  {
+    "lc": "en",
+    "cc": "no"
+  },
+  {
+    "lc": "en",
+    "cc": "om"
+  },
+  {
+    "lc": "en",
+    "cc": "pk"
+  },
+  {
+    "lc": "es",
+    "cc": "py"
+  },
+  {
+    "lc": "es",
+    "cc": "pe"
+  },
+  {
+    "lc": "en",
+    "cc": "ph"
+  },
+  {
+    "lc": "pl",
+    "cc": "pl"
+  },
+  {
+    "lc": "en",
+    "cc": "pt"
+  },
+  {
+    "lc": "en",
+    "cc": "qa"
+  },
+  {
+    "lc": "en",
+    "cc": "ro"
+  },
+  {
+    "lc": "ru",
+    "cc": "ru"
+  },
+  {
+    "lc": "en",
+    "cc": "kn"
+  },
+  {
+    "lc": "en",
+    "cc": "lc"
+  },
+  {
+    "lc": "en",
+    "cc": "vc"
+  },
+  {
+    "lc": "en",
+    "cc": "sa"
+  },
+  {
+    "lc": "fr",
+    "cc": "sn"
+  },
+  {
+    "lc": "en",
+    "cc": "rs"
+  },
+  {
+    "lc": "fr",
+    "cc": "sc"
+  },
+  {
+    "lc": "en",
+    "cc": "sl"
+  },
+  {
+    "lc": "en",
+    "cc": "sg"
+  },
+  {
+    "lc": "en",
+    "cc": "sk"
+  },
+  {
+    "lc": "en",
+    "cc": "si"
+  },
+  {
+    "lc": "en",
+    "cc": "za"
+  },
+  {
+    "lc": "es",
+    "cc": "es"
+  },
+  {
+    "lc": "en",
+    "cc": "lk"
+  },
+  {
+    "lc": "en",
+    "cc": "sr"
+  },
+  {
+    "lc": "en",
+    "cc": "se"
+  },
+  {
+    "lc": "fr",
+    "cc": "ch"
+  },
+  {
+    "lc": "de",
+    "cc": "ch"
+  },
+  {
+    "lc": "zh",
+    "cc": "tw"
+  },
+  {
+    "lc": "en",
+    "cc": "tz"
+  },
+  {
+    "lc": "en",
+    "cc": "th"
+  },
+  {
+    "lc": "en",
+    "cc": "tt"
+  },
+  {
+    "lc": "fr",
+    "cc": "tn"
+  },
+  {
+    "lc": "tr",
+    "cc": "tr"
+  },
+  {
+    "lc": "en",
+    "cc": "ye"
+  },
+  {
+    "lc": "en",
+    "cc": "tc"
+  },
+  {
+    "lc": "en",
+    "cc": "ua"
+  },
+  {
+    "lc": "en",
+    "cc": "ug"
+  },
+  {
+    "lc": "en",
+    "cc": "ae"
+  },
+  {
+    "lc": "en",
+    "cc": "gb"
+  },
+  {
+    "lc": "es",
+    "cc": "uy"
+  },
+  {
+    "lc": "en",
+    "cc": "uz"
+  },
+  {
+    "lc": "es",
+    "cc": "ve"
+  },
+  {
+    "lc": "en",
+    "cc": "vn"
+  },
+  {
+    "lc": "en",
+    "cc": "zm"
+  },
+  {
+    "lc": "en",
+    "cc": "zw"
+  }
+]
+
+
