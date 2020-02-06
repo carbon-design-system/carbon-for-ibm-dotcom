@@ -4,16 +4,16 @@ import { Desktop, Pattern, Touch } from '@carbon/pictograms-react';
 import { text, withKnobs, select } from '@storybook/addon-knobs';
 import PictogramItem from '../PictogramItem';
 import React from 'react';
-// import readme from '../README.md';
+import readme from '../README.md';
 import { storiesOf } from '@storybook/react';
 
 storiesOf('Patterns (Sub-Patterns)|PictogramItem', module)
   .addDecorator(withKnobs)
-  //   .addParameters({
-  //     readme: {
-  //       sidebar: readme,
-  //     },
-  //   })
+  .addParameters({
+    readme: {
+      sidebar: readme,
+    },
+  })
   .add('Default', () => {
     const heading = text('Heading (required)', 'Lorem ipsum dolor sit');
 
