@@ -36,7 +36,11 @@ const PictogramItem = ({ heading, copy, Pictogram, cta }) => (
       <div
         data-autoid={`${stablePrefix}--pictogram-item_content`}
         className={`${prefix}--pictogram-item__content-col`}>
-        <ContentItem heading={heading} copy={copy} cta={cta} />
+        <ContentItem
+          heading={heading}
+          copy={copy}
+          cta={{ type: 'text', ...cta }}
+        />
       </div>
     </div>
   </div>
