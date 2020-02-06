@@ -182,25 +182,28 @@ class LocaleAPI {
     if (sessionList) {
       return sessionList;
     } else {
-      let url;
-      try {
-        await axios.get(`${_endpoint}/${cc}${lc}-utf8.json`);
-        url = `${_endpoint}/${cc}${lc}-utf8.json`;
-      } catch (error) {
-        // use _localeDefault if 404
-        url = `${_endpoint}/${_localeDefault.cc}${_localeDefault.lc}-utf8.json`;
-      }
+      const axiosList = axios.create({
+        headers: {
+          'Content-Type': 'application/json; charset=utf-8',
+        },
+      });
+
+      const defaultUrl = `${_endpoint}/${_localeDefault.cc}${_localeDefault.lc}-utf8.json`;
+      const url = `${_endpoint}/${cc}${lc}-utf8.json`;
+
       /**
        * if the json file for the cc-lc combo does not exist,
-       * browser will automatically redirect to the us-en country list
+       * browser will automatically use the us-en country list
        */
-      const list = await axios
-        .get(url, {
-          headers: {
-            'Content-Type': 'application/json; charset=utf-8',
-          },
-        })
-        .then(response => response.data);
+      const [defaultList, translatedList] = await Promise.all([
+        axiosList.get(defaultUrl).catch(() => null),
+        axiosList.get(url).catch(() => null),
+      ]);
+
+      const list =
+        translatedList !== null && translatedList.data
+          ? translatedList.data
+          : defaultList.data;
 
       sessionStorage.setItem(
         `${_sessionListKey}-${cc}-${lc}`,
