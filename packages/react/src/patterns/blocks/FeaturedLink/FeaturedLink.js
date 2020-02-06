@@ -36,7 +36,7 @@ const FeaturedLink = ({ heading, card }) => {
         <CardLink
           className={`${prefix}--featuredlink__card`}
           {...card}
-          icon={<ArrowRight20 />}
+          icon={ArrowRight20}
           type="link"
         />
       </ContentGroup>

@@ -36,7 +36,7 @@ describe('<CardLink />', () => {
   });
 
   it("renders cardlink's footer if icon is provided", () => {
-    const cardLink = shallow(<CardLink {...content} icon={<ArrowRight20 />} />);
+    const cardLink = shallow(<CardLink {...content} icon={ArrowRight20} />);
     expect(cardLink.find('.bx--card-link__footer')).toHaveLength(1);
     expect(cardLink.find(ArrowRight20)).toHaveLength(1);
   });

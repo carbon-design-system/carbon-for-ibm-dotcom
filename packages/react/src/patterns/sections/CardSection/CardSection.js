@@ -81,7 +81,7 @@ const CardSection = ({ title, cards, theme }) => {
                       content={card.copy}
                       href={card.link.href}
                       target={card.link.target}
-                      icon={<ArrowRight20 />}
+                      icon={ArrowRight20}
                       type="link"
                     />
                   </div>
