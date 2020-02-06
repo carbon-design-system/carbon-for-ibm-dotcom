@@ -21,7 +21,7 @@ export default class MyDocument extends Document {
     const initialProps = await Document.getInitialProps(ctx);
     const { query } = ctx;
     const useLang =
-      query && query.lc ? `${query.cc}-${query.lc}` : _defaultLang;
+      query && query.lc ? `${query.lc}-${query.cc}` : _defaultLang;
 
     return { ...initialProps, useLang };
   }

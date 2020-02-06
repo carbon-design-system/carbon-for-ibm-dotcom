@@ -1,8 +1,8 @@
 import 'carbon-components/css/carbon-components.min.css';
 import '@carbon/ibmdotcom-styles/scss/ibm-dotcom-styles.scss';
 
-import App, { Container } from 'next/app';
 import Altlang from '../components/altlang';
+import App from 'next/app';
 import { DotcomShell } from '@carbon/ibmdotcom-react';
 import Head from 'next/head';
 import React from 'react';
@@ -26,10 +26,9 @@ export default class IbmdotcomLibrary extends App {
    *
    * @param {object} props page props
    * @param {object} props.ctx app context
-   * @param {object} props.query Query params object
    * @returns {Promise<{pageProps}>} Returns the pageProps
    */
-  static async getInitialProps({ ctx, query }) {
+  static async getInitialProps({ ctx }) {
     let host;
 
     if (ctx.req) {
@@ -39,9 +38,14 @@ export default class IbmdotcomLibrary extends App {
     }
 
     const useLang =
-      query && query.lc ? { lc: query.lc, cc: query.cc } : _defaultLang;
+      ctx.query && ctx.query.lc
+        ? {
+            lc: ctx.query.lc,
+            cc: ctx.query.cc,
+          }
+        : _defaultLang;
 
-    return { useLang, host };
+    return { useLang, host, query: ctx.query };
   }
 
   /**
@@ -52,7 +56,7 @@ export default class IbmdotcomLibrary extends App {
   render() {
     const { Component, useLang, host, pageProps } = this.props;
     return (
-      <Container>
+      <>
         <Head>
           <Altlang host={host} />
         </Head>
@@ -60,7 +64,7 @@ export default class IbmdotcomLibrary extends App {
           <Component {...pageProps} />
         </DotcomShell>
         <script src="//1.www.s81c.com/common/stats/ibm-common.js"></script>
-      </Container>
+      </>
     );
   }
 }
