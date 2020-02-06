@@ -25,7 +25,6 @@ const { prefix } = settings;
  * @returns {*} CTA Component
  */
 const CTA = ({ style, type, ...cta }) => {
-  const Icon = iconSelector(type);
   switch (style) {
     case 'card':
       return (
@@ -54,7 +53,8 @@ const CTA = ({ style, type, ...cta }) => {
           onClick={e => jump(e, type)}
         />
       );
-    default:
+    default: {
+      const Icon = iconSelector(type);
       return (
         <LinkWithIcon
           href={cta.href}
@@ -64,6 +64,7 @@ const CTA = ({ style, type, ...cta }) => {
           <Icon />
         </LinkWithIcon>
       );
+    }
   }
 };
 
