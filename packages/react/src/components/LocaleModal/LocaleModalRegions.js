@@ -90,7 +90,7 @@ const LocaleModalRegions = ({
                   key={region.key}
                   title={region.name}
                   href={hasCountries ? 'javascript:void(0);' : null}
-                  icon={hasCountries ? <ArrowRight20 /> : <Error20 />}
+                  icon={hasCountries ? ArrowRight20 : Error20}
                 />
               </div>
             );

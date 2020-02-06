@@ -5,22 +5,38 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import {
-  settings as ddsSettings,
-  featureFlag,
-} from '@carbon/ibmdotcom-utilities';
 import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
-import { DDS_TOC } from '../../../internal/FeatureFlags';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+
 import Layout from '../Layout/Layout';
 import PropTypes from 'prop-types';
 import root from 'window-or-global';
 import { settings } from 'carbon-components';
+
 import TOCDesktop from './TOCDesktop';
 import TOCMobile from './TOCMobile';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
+
+/**
+ * loops into the array of elements and returns the values
+ *
+ * @private
+ * @returns {Array} returns elemenrt name and data title
+ */
+const _findMenuItems = () => {
+  const eles = document.querySelectorAll('a[name]');
+  const menuItems = [];
+  eles.forEach(element => {
+    menuItems.push({
+      id: element.getAttribute('name'),
+      title: element.getAttribute('data-title'),
+    });
+  });
+  return menuItems;
+};
 
 /**
  * Table of Contents pattern
@@ -33,11 +49,28 @@ const { prefix } = settings;
  */
 const TableOfContents = ({ menuItems, children, menuLabel, theme }) => {
   const [selectedId, setSelectedId] = useState(menuItems[0].id);
-  const [selectedTitle, setSelectedTitle] = useState(menuItems[0].title);
+  const [selectedTitle, setSelectedTitle] = useState(menuItems[0].name);
 
   useEffect(() => {
     scrollStop(setSelectedItem);
   });
+
+  /**
+   * Set selected id & title
+   *
+   */
+  const setSelectedItem = () => {
+    const elems = getElemsInView();
+    const id = elems[0] || menuItems[0].id;
+    const filteredItems = menuItems.filter(menu => {
+      if (id !== 'undefined') {
+        return menu.id === id;
+      }
+    });
+    const title = filteredItems[0].title;
+    setSelectedId(id);
+    setSelectedTitle(title);
+  };
 
   /**
    * Check whether provided anchor tags are in visible viewport
@@ -61,23 +94,6 @@ const TableOfContents = ({ menuItems, children, menuLabel, theme }) => {
       }
     });
     return elesInView;
-  };
-
-  /**
-   * Set selected id & title
-   *
-   */
-  const setSelectedItem = () => {
-    const elems = getElemsInView();
-    const id = elems[0] || menuItems[0].id;
-    const filteredItems = menuItems.filter(menu => {
-      if (id !== 'undefined') {
-        return menu.id === id;
-      }
-    });
-    const title = filteredItems[0].title;
-    setSelectedId(id);
-    setSelectedTitle(title);
   };
 
   /**
@@ -141,8 +157,7 @@ const TableOfContents = ({ menuItems, children, menuLabel, theme }) => {
    *
    * @returns {*} JSX Object
    */
-  return featureFlag(
-    DDS_TOC,
+  return (
     <section
       data-autoid={`${stablePrefix}--tableofcontents`}
       className={classNames(`${prefix}--tableofcontents`, _setTheme(theme))}>
@@ -167,7 +182,7 @@ const TableOfContents = ({ menuItems, children, menuLabel, theme }) => {
 
 TableOfContents.propTypes = {
   menuItems: PropTypes.array,
-  children: PropTypes.array,
+  children: PropTypes.object,
   menuLabel: PropTypes.string,
   theme: PropTypes.string,
 };
