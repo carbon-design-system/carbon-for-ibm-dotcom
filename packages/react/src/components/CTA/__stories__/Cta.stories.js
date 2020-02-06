@@ -93,7 +93,7 @@ storiesOf('Components|CTA', module)
               {(() => {
                 let content = [];
                 for (let i = 0; i < 10; i++) {
-                  if (i === 9) {
+                  if (i === 4) {
                     content.push(
                       <h4 id="example" style={{ marginBottom: '32px' }}>
                         Example
