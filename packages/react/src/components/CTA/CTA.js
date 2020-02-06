@@ -4,6 +4,7 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
+
 import { ArrowDown20, ArrowRight20, Launch20 } from '@carbon/icons-react';
 import { ButtonGroup } from '../../patterns/sub-patterns/ButtonGroup';
 import { CardLink } from '../../patterns/sub-patterns/CardLink';
@@ -32,34 +33,34 @@ const CTA = ({ style, type, ...cta }) => {
           className={`${prefix}--card-link--CTA`}
           title={cta.title}
           href={cta.href}
-          icon={iconSelector(type)}
-          target={external(type)}
-          onClick={e => jump(e, type)}
+          icon={_iconSelector(type)}
+          target={_external(type)}
+          onClick={e => _jump(e, type)}
         />
       );
     case 'button':
       return (
         <ButtonGroup
-          buttons={renderButtons(cta)}
-          target={external(type)}
-          onClick={e => jump(e, type)}
+          buttons={_renderButtons(cta)}
+          target={_external(type)}
+          onClick={e => _jump(e, type)}
         />
       );
     case 'feature':
       return (
         <FeaturedLink
           {...cta}
-          target={external(type)}
-          onClick={e => jump(e, type)}
+          target={_external(type)}
+          onClick={e => _jump(e, type)}
         />
       );
     default: {
-      const Icon = iconSelector(type);
+      const Icon = _iconSelector(type);
       return (
         <LinkWithIcon
           href={cta.href}
-          target={external(type)}
-          onClick={e => jump(e, type)}>
+          target={_external(type)}
+          onClick={e => _jump(e, type)}>
           {cta.copy}
           <Icon />
         </LinkWithIcon>
@@ -73,36 +74,40 @@ const CTA = ({ style, type, ...cta }) => {
  *
  * @param {*} e event object
  * @param {string} type cta type ( external | jump | local)
+ * @private
  * @returns {*} behaviour object
  */
-const jump = (e, type) => (type === 'jump' ? smoothScroll(e) : null);
+const _jump = (e, type) => (type === 'jump' ? smoothScroll(e) : null);
 
 /**
  * sets target
  *
  * @param {string} type cta type ( external | jump | local)
+ * @private
  * @returns {string} target value
  */
-const external = type => (type === 'external' ? '_blank' : null);
+const _external = type => (type === 'external' ? '_blank' : null);
 
 /**
  * sets icon based on link type
  *
  * @param {string} type cta type ( external | jump | local)
+ * @private
  * @returns {*} cta type component
  */
-const iconSelector = type =>
+const _iconSelector = type =>
   type === 'external' ? Launch20 : type === 'jump' ? ArrowDown20 : ArrowRight20;
 
 /**
  * sets button
  *
  * @param {object} cta object with buttons array
+ * @private
  * @returns {*} object
  */
-const renderButtons = ({ buttons }) =>
+const _renderButtons = ({ buttons }) =>
   buttons.map(button => {
-    button.renderIcon = iconSelector(button.type);
+    button.renderIcon = _iconSelector(button.type);
     return button;
   });
 
