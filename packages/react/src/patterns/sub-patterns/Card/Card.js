@@ -36,24 +36,24 @@ const CardLink = ({
 }) => {
   return type === 'link' ? (
     <ClickableTile
-      data-autoid={`${stablePrefix}--card-link`}
-      className={classNames(`${prefix}--card-link`, className)}
+      data-autoid={`${stablePrefix}--card`}
+      className={classNames(`${prefix}--card`, className)}
       href={href}
       {...props}>
-      <Image {...image} classname={`${prefix}--card-link__img`} />
-      <div className={`${prefix}--card-link__wrapper`}>
-        <h3 className={`${prefix}--card-link__title`}>{title}</h3>
+      <Image {...image} classname={`${prefix}--card__img`} />
+      <div className={`${prefix}--card__wrapper`}>
+        <h3 className={`${prefix}--card__title`}>{title}</h3>
         {optionalContent(content)}
         {renderFooter(Icon)}
       </div>
     </ClickableTile>
   ) : (
     <Tile
-      data-autoid={`${stablePrefix}--card-link`}
-      className={classNames(`${prefix}--card-link`, className)}>
+      data-autoid={`${stablePrefix}--card`}
+      className={classNames(`${prefix}--card`, className)}>
       <Image {...image} />
-      <div className={`${prefix}--card-link__wrapper`}>
-        <h3 className={`${prefix}--card-link__title`}>{title}</h3>
+      <div className={`${prefix}--card__wrapper`}>
+        <h3 className={`${prefix}--card__title`}>{title}</h3>
         {optionalContent(content)}
         {renderFooter(Icon)}
       </div>
@@ -70,7 +70,7 @@ const CardLink = ({
 function optionalContent(content) {
   return !content ? null : (
     <div
-      className={`${prefix}--card-link__content`}
+      className={`${prefix}--card__content`}
       dangerouslySetInnerHTML={{
         __html: markdownToHtml(content, { bold: false }),
       }}></div>
@@ -85,7 +85,7 @@ function optionalContent(content) {
  */
 function renderFooter(Icon) {
   return !Icon ? null : (
-    <footer className={`${prefix}--card-link__footer`}>
+    <footer className={`${prefix}--card__footer`}>
       <Icon />
     </footer>
   );

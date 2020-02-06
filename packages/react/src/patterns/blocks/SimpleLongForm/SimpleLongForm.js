@@ -6,7 +6,7 @@
  */
 
 import { ArrowRight20 } from '@carbon/icons-react';
-import { CardLink } from '../../sub-patterns/CardLink';
+import { Card } from '../../sub-patterns/Card';
 import classNames from 'classnames';
 import { DDS_SIMPLELONGFORM } from '../../../internal/FeatureFlags';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
@@ -72,12 +72,11 @@ const renderLink = (type, data) => {
   return type === 'jump' ? (
     <JumpLink link={data} />
   ) : type === 'cardLink' ? (
-    <CardLink
+    <Card
       title={data.text}
       href={data.href}
       target={data.target}
       icon={ArrowRight20}
-      type="link"
     />
   ) : type === 'iconLink' ? (
     <LinkWithIcon href={data.href} target={data.target}>

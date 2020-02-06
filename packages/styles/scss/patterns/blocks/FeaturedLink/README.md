@@ -13,9 +13,9 @@ Import the package css into the top of your main CSS file.
 | Class                          | Description                                         |
 | ------------------------------ | --------------------------------------------------- |
 | `.bx--content-group__children` | Element containing all featured link group children |
-| `.bx--card-link`               | Featured Link card link item                        |
-| `.bx--card-link__wrapper`      | Card Link wrapper for the Image element             |
-| `.bx--card-link .bx--image`    | Image element                                       |
+| `.bx--card`                    | Featured Link card link item                        |
+| `.bx--card__wrapper`           | Card Link wrapper for the Image element             |
+| `.bx--card .bx--image`         | Image element                                       |
 
 #### Blocks
 

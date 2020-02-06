@@ -1,7 +1,7 @@
 import './index.scss';
 import { select, text, withKnobs } from '@storybook/addon-knobs';
 import { ArrowRight20 } from '@carbon/icons-react';
-import { CardLink } from '../';
+import { Card } from '../';
 import React from 'react';
 import readme from '../README.md';
 import { storiesOf } from '@storybook/react';
@@ -40,7 +40,7 @@ storiesOf('Patterns (Sub-Patterns)|Card', module)
     };
 
     return !select('Ratio', ratio, ratio['none']) ? (
-      <CardLink
+      <Card
         title={title}
         href={href}
         content={content}
@@ -55,7 +55,7 @@ storiesOf('Patterns (Sub-Patterns)|Card', module)
           ratio,
           ratio['none']
         )}`}>
-        <CardLink
+        <Card
           title={title}
           href={href}
           content={content}
@@ -83,7 +83,7 @@ storiesOf('Patterns (Sub-Patterns)|Card', module)
     };
 
     return !select('Ratio', ratio, ratio['none']) ? (
-      <CardLink
+      <Card
         title={title}
         href={href}
         content={content}
@@ -98,7 +98,7 @@ storiesOf('Patterns (Sub-Patterns)|Card', module)
           ratio,
           ratio['none']
         )}`}>
-        <CardLink
+        <Card
           title={title}
           href={href}
           content={content}

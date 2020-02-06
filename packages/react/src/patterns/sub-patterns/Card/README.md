@@ -14,7 +14,7 @@ Here's a quick example to get you started.
 @import '@carbon/type/scss/font-face/sans';
 @include carbon--font-face-mono();
 @include carbon--font-face-sans();
-@import '@carbon/ibmdotcom-styles/scss/patterns/sub-patterns/card-link/index.scss';
+@import '@carbon/ibmdotcom-styles/scss/patterns/sub-patterns/card/index.scss';
 ```
 
 > 💡 Only import font's once per usage
@@ -52,9 +52,9 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 ## Stable selectors
 
-| Name             | Description |
-| ---------------- | ----------- |
-| `dds--card-link` | Interactive |
+| Name        | Description |
+| ----------- | ----------- |
+| `dds--card` | Interactive |
 
 ## 🙌 Contributing
 

@@ -6,7 +6,7 @@
  */
 
 import { ArrowRight20 } from '@carbon/icons-react';
-import { CardLink } from '../../sub-patterns/CardLink';
+import { Card } from '../../sub-patterns/Card';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -45,7 +45,7 @@ const UseCasesGroup = ({ usecaseGroup: { title, image, lists, link } }) => {
         <div
           data-autoid={`${stablePrefix}--usecases-group__card`}
           className={`${prefix}--usecases-group__card`}>
-          <CardLink
+          <Card
             title={link.title}
             href={link.href}
             target={link.target}

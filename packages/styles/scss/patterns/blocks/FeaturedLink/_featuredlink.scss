@@ -4,7 +4,7 @@
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
 //
-@import '../../sub-patterns/card-link/index';
+@import '../../sub-patterns/card/index';
 @import '../../../globals/utils/aspect-ratio';
 
 @mixin featuredlink {
@@ -19,7 +19,7 @@
         padding-top: aspect-ratio(2, 1);
       }
     }
-    .#{$prefix}--card-link {
+    .#{$prefix}--card {
       position: absolute;
       top: 0;
       left: 0;

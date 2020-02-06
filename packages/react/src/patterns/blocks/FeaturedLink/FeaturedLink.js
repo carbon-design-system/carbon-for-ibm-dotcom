@@ -6,7 +6,7 @@
  */
 
 import { ArrowRight20 } from '@carbon/icons-react';
-import { CardLink } from '../../sub-patterns/CardLink';
+import { Card } from '../../sub-patterns/Card';
 import { ContentGroup } from '../../sub-patterns/ContentGroup';
 import { DDS_FEATURED_LINK } from '../../../internal/FeatureFlags';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
@@ -33,7 +33,7 @@ const FeaturedLink = ({ heading, card }) => {
       className={`${prefix}--featuredlink`}
       data-autoid={`${stablePrefix}--featuredlink`}>
       <ContentGroup heading={heading}>
-        <CardLink
+        <Card
           className={`${prefix}--featuredlink__card`}
           {...card}
           icon={ArrowRight20}
