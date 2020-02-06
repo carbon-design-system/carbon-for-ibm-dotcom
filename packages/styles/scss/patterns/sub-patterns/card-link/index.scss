@@ -18,7 +18,6 @@
     text-decoration: none;
     display: flex;
     flex-direction: column;
-    transition: $duration--moderate-01 motion(standard, productive);
 
     &__wrapper {
       height: 100%;
@@ -54,10 +53,14 @@
       color: currentColor;
     }
 
+    &__img {
+      transition: $duration--moderate-01 motion(standard, productive);
+    }
+
     &:hover {
       text-decoration: none;
 
-      .#{$prefix}--image__img {
+      .#{$prefix}--card-link__img {
         filter: brightness(80%);
       }
     }

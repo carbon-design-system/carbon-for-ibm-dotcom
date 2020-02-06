@@ -21,4 +21,5 @@ Import the package css into the top of your main CSS file.
 | `.bx--card-link__title`   | Title element within the CardLink component |
 | `.bx--card-link__content` | Paragraph of text styling for CardLink      |
 | `.bx--card-link__footer`  | Footer aligned bottom with icon             |
-| `.bx--card-link__image`   | Footer aligned bottom with icon             |
+| `.bx--card-link__img`     | Footer aligned bottom with icon             |
+| `.bx--card-link__wrapper` | Wrapper container for all CardLink content  |
