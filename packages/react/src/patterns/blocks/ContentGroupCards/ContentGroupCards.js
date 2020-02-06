@@ -90,7 +90,7 @@ const _renderCards = items =>
         className={`${prefix}--content-group-cards-item`}
         title={elem.heading}
         content={elem.copy}
-        icon={<ArrowRight20 />}
+        icon={ArrowRight20}
         href={elem.cta.href}
       />
     </div>
