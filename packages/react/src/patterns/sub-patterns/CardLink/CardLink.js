@@ -43,7 +43,7 @@ const CardLink = ({
       className={classNames(`${prefix}--card-link`, className)}
       href={href}
       {...props}>
-      <Image {...image} />
+      <Image {...image} classname={`${prefix}--card-link__img`} />
       <div className={`${prefix}--card-link__wrapper`}>
         <h3 className={`${prefix}--card-link__title`}>{title}</h3>
         {optionalContent(content)}
