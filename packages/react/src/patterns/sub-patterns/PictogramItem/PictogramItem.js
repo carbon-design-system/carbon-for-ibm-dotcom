@@ -31,7 +31,6 @@ const PictogramItem = ({ heading, copy, Pictogram, cta }) => (
         <Pictogram
           data-autoid={`${stablePrefix}--pictogram-item_pictogram`}
           className={`${prefix}--pictogram-item__pictogram`}
-          viewBox="8 8 32 32"
         />
       </div>
       <div
