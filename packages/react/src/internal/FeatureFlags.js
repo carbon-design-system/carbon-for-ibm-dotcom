@@ -80,14 +80,6 @@ export const DDS_SIMPLEBENEFITS =
 export const DDS_SIMPLELONGFORM =
   process.env.DDS_SIMPLELONGFORM === 'true' || DDS_FLAGS_ALL || false;
 
-/**
- * This determines if the simplelongform will be rendered or not
- *
- * @type {string | boolean}
- */
-export const DDS_CARD_ARRAY =
-  process.env.DDS_CARD_ARRAY === 'true' || DDS_FLAGS_ALL || false;
-
 /** This determines if the contentarraywithpictograms will be rendered or not
  *
  * @type {string | boolean}
@@ -135,24 +127,9 @@ export const DDS_FEATURED_LINK =
   process.env.DDS_FEATURED_LINK === 'true' || DDS_FLAGS_ALL || false;
 
 /**
- * This determines if the ContentGroup component will be rendered or not
- *
- * @type {string | boolean}
- */
-export const DDS_CONTENT_GROUP =
-  process.env.DDS_CONTENT_GROUP === 'true' || DDS_FLAGS_ALL || false;
-
-/**
  * This flag turns on/off the ButtonGroup component
  *
  * @type {string | boolean}
  */
 export const DDS_BUTTON_GROUP =
   process.env.DDS_BUTTON_GROUP === 'true' || DDS_FLAGS_ALL || false;
-
-/**
- * This determines if the tableofcontents will be rendered or not
- *
- * @type {string | boolean}
- */
-export const DDS_TOC = process.env.DDS_TOC === 'true' || DDS_FLAGS_ALL || false;

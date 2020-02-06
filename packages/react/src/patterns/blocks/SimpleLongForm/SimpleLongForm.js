@@ -76,7 +76,7 @@ const renderLink = (type, data) => {
       title={data.text}
       href={data.href}
       target={data.target}
-      icon={<ArrowRight20 />}
+      icon={ArrowRight20}
     />
   ) : type === 'iconLink' ? (
     <LinkWithIcon href={data.href} target={data.target}>
