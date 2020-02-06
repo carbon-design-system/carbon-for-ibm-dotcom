@@ -54,7 +54,7 @@ export default class IbmdotcomLibrary extends App {
     return (
       <Container>
         <Head>
-          <Altlang host={host} lang={useLang} />
+          <Altlang host={host} />
         </Head>
         <DotcomShell navigation="default" langCode={useLang}>
           <Component {...pageProps} />
