@@ -25,6 +25,7 @@ const { prefix } = settings;
  * @returns {*} CTA Component
  */
 const CTA = ({ style, type, ...cta }) => {
+  const Icon = iconSelector(type);
   switch (style) {
     case 'card':
       return (
@@ -60,7 +61,7 @@ const CTA = ({ style, type, ...cta }) => {
           target={external(type)}
           onClick={e => jump(e, type)}>
           {cta.copy}
-          {iconSelector(type)}
+          <Icon />
         </LinkWithIcon>
       );
   }
@@ -84,28 +85,13 @@ const jump = (e, type) => (type === 'jump' ? smoothScroll(e) : null);
 const external = type => (type === 'external' ? '_blank' : null);
 
 /**
- * TEMPORARY sets icon based on link type
- *
- * @param {string} type cta type ( external | jump | local)
- * @returns {*} type of icon component
- */
-const TEMP_iconSelector = type =>
-  type === 'external' ? Launch20 : type === 'jump' ? ArrowDown20 : ArrowRight20;
-
-/**
  * sets icon based on link type
  *
  * @param {string} type cta type ( external | jump | local)
  * @returns {*} cta type component
  */
 const iconSelector = type =>
-  type === 'external' ? (
-    <Launch20 />
-  ) : type === 'jump' ? (
-    <ArrowDown20 />
-  ) : (
-    <ArrowRight20 />
-  );
+  type === 'external' ? Launch20 : type === 'jump' ? ArrowDown20 : ArrowRight20;
 
 /**
  * sets button
@@ -115,7 +101,7 @@ const iconSelector = type =>
  */
 const renderButtons = ({ buttons }) =>
   buttons.map(button => {
-    button.renderIcon = TEMP_iconSelector(button.type);
+    button.renderIcon = iconSelector(button.type);
     return button;
   });
 
