@@ -24,7 +24,50 @@ storiesOf('Patterns (Sub-Patterns)|Card', module)
       sidebar: readme,
     },
   })
-  .add('Link', () => {
+  .add('Static', () => {
+    const title = text('title (required)', 'Lorem ipsum dolor sit amet');
+    const href = text('href (required)', 'https://example.com');
+    const type = text('type', '');
+    const content = text('content', '');
+    const target = text('target', '');
+    const ratio = {
+      none: null,
+      '2:1': '2x1',
+      '16:9': '16x9',
+      '3:2 (not available in Carbon)': '3x2',
+      '4:3': '4x3',
+      '1:1': '1x1',
+    };
+
+    return !select('Ratio', ratio, ratio['none']) ? (
+      <CardLink
+        title={title}
+        href={href}
+        content={content}
+        icon={ArrowRight20}
+        target={target}
+        type={type}
+      />
+    ) : (
+      <div
+        className={`bx--aspect-ratio bx--aspect-ratio--${select(
+          'Ratio',
+          ratio,
+          ratio['none']
+        )}`}>
+        <CardLink
+          title={title}
+          href={href}
+          content={content}
+          icon={ArrowRight20}
+          target={target}
+          type={type}
+          className="bx--aspect-ratio--object"
+        />
+      </div>
+    );
+  })
+  .add('Link/Clickable', () => {
     const title = text('title (required)', 'Lorem ipsum dolor sit amet');
     const href = text('href (required)', 'https://example.com');
     const type = text('type', 'link');

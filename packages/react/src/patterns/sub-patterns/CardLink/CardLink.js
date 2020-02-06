@@ -34,10 +34,6 @@ const CardLink = ({
   type,
   ...props
 }) => {
-  if (!title || !href) {
-    return null;
-  }
-
   return type === 'link' ? (
     <ClickableTile
       data-autoid={`${stablePrefix}--card-link`}
