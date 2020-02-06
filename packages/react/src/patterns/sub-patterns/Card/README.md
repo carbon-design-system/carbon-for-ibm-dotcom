@@ -22,13 +22,11 @@ Here's a quick example to get you started.
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { CardLink } from '@carbon/ibmdotcom-react';
+import { Card } from '@carbon/ibmdotcom-react';
 import 'yourapplication.scss';
 
 function App() {
-  return (
-    <CardLink title="Lorem ipsum dolor sit amet" href="https://example.com" />
-  );
+  return <Card title="Lorem ipsum dolor sit amet" href="https://example.com" />;
 }
 
 ReactDOM.render(<App />, document.querySelector('#app'));
@@ -42,13 +40,13 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 | Name        | Required | Data Type | Default Value | Description                                                                                                                      |
 | ----------- | -------- | --------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------- |
 | `content`   | NO       | String    | null          | Paragraph of text that further describing the resource with added detail.                                                        |
-| `className` | NO       | String    | null          | Classname to be assigned to the CardLink component                                                                               |
+| `className` | NO       | String    | null          | Classname to be assigned to the Card component                                                                                   |
 | `href`      | YES      | String    | n/a           | Valid URL for a the location of an internal or external resource.                                                                |
 | `icon`      | NO       | Object    | null          | Provide an optional icon to the footer from [Carbon's icon library](https://www.carbondesignsystem.com/guidelines/icons/library) |
 | `title`     | YES      | String    | n/a           | Concise yet descriptive string of text describing the linked resource.                                                           |
 | `type`      | NO       | String    | n/a           | Determines whether card is clickable or static.                                                                                  |
-| `imgSrc`    | NO       | String    | null          | Image source to be passed as a property to the to the CardLink component                                                         |
-| `altText`   | NO       | String    | null          | Image alternate text to be passed as a property to the to the CardLink component                                                 |
+| `imgSrc`    | NO       | String    | null          | Image source to be passed as a property to the to the Card component                                                             |
+| `altText`   | NO       | String    | null          | Image alternate text to be passed as a property to the to the Card component                                                     |
 
 ## Stable selectors
 

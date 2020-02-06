@@ -10,16 +10,16 @@ Import the package css into the top of your main CSS file.
 
 #### Blocks
 
-| Class       | Description                                         |
-| ----------- | --------------------------------------------------- |
-| `.bx--card` | Highest level class name for the CardLink component |
+| Class       | Description                                     |
+| ----------- | ----------------------------------------------- |
+| `.bx--card` | Highest level class name for the Card component |
 
 #### Elements
 
-| Class                | Description                                   |
-| -------------------- | --------------------------------------------- |
-| `.bx--card__title`   | Title element within the CardLink component   |
-| `.bx--card__content` | Paragraph of text styling for CardLink        |
-| `.bx--card__footer`  | Footer aligned bottom with icon               |
-| `.bx--card__img`     | Image component within the CardLink component |
-| `.bx--card__wrapper` | Wrapper container for all CardLink content    |
+| Class                | Description                               |
+| -------------------- | ----------------------------------------- |
+| `.bx--card__title`   | Title element within the Card component   |
+| `.bx--card__content` | Paragraph of text styling for Card        |
+| `.bx--card__footer`  | Footer aligned bottom with icon           |
+| `.bx--card__img`     | Image component within the Card component |
+| `.bx--card__wrapper` | Wrapper container for all Card content    |

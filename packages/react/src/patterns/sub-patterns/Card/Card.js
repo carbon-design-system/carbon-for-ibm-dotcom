@@ -24,7 +24,7 @@ const { prefix } = settings;
  * @param {object} props react proptypes
  * @returns {object} JSX object
  */
-const CardLink = ({
+const Card = ({
   title,
   href,
   content,
@@ -91,7 +91,7 @@ function renderFooter(Icon) {
   );
 }
 
-CardLink.propTypes = {
+Card.propTypes = {
   title: PropTypes.string.isRequired,
   href: PropTypes.string.isRequired,
   icon: PropTypes.object,
@@ -101,4 +101,4 @@ CardLink.propTypes = {
   type: PropTypes.string,
 };
 
-export default CardLink;
+export default Card;
