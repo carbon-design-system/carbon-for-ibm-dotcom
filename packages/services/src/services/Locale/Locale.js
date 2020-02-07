@@ -6,13 +6,14 @@ import root from 'window-or-global';
  * @constant {string | string} Host for the Locale API call
  * @private
  */
-const _host = process.env.TRANSLATION_HOST || 'https://1.www.s81c.com';
+const _host =
+  (process && process.env.TRANSLATION_HOST) || 'https://1.www.s81c.com';
 
 /**
  * @constant {string | string} CORS proxy for lower environment calls
  * @private
  */
-const _proxy = process.env.CORS_PROXY || '';
+const _proxy = (process && process.env.CORS_PROXY) || '';
 
 /**
  * Sets the default location if nothing is returned
