@@ -1624,6 +1624,11 @@
   dependencies:
     "@carbon/icon-helpers" "^10.5.0"
 
+"@carbon/icons@^10.8.2":
+  version "10.8.2"
+  resolved "https://registry.yarnpkg.com/@carbon/icons/-/icons-10.8.2.tgz#76d66f5c075bf1e0e1d44929fb18819c74488866"
+  integrity sha512-91fMYCIbu06dTRRu3TPtqgcS51NOKNkAWd0iTce1qa3S5iRt0idcGqL2zdj75vzxw3wlIjVxqS01wyx+gdpqYw==
+
 "@carbon/import-once@10.3.0":
   version "10.3.0"
   resolved "https://registry.yarnpkg.com/@carbon/import-once/-/import-once-10.3.0.tgz#58617da4efb6d7a11352d8e6b7209da1d39f364d"
