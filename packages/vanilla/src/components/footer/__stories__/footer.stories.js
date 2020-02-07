@@ -4,7 +4,7 @@ import Footer from '../footer';
 import readme from '../README.md';
 import { storiesOf } from '@storybook/html';
 
-storiesOf('footer', module)
+storiesOf('Components|footer', module)
   .addDecorator(withKnobs)
   .addParameters({
     readme: {
