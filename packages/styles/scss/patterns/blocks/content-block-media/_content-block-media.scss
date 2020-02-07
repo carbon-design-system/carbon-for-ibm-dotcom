@@ -33,9 +33,7 @@
       padding-top: $carbon--spacing-07;
       padding-bottom: $carbon--spacing-07;
     }
-    &__content {
-      @include carbon--type-style('expressive-heading-03');
-    }
+
     &__divider {
       border-bottom: 1px solid transparent;
       margin-top: $carbon--layout-05;
