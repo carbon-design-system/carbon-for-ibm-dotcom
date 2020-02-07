@@ -23,7 +23,7 @@
 
 @mixin content-block-media-group {
   .#{$prefix}--content-block-media-group {
-    padding-top: $carbon--layout-05;
+    padding-bottom: $carbon--layout-06;
     &__title {
       @include type-style('expressive-heading-04');
 
@@ -53,19 +53,19 @@
         height: auto;
       }
     }
-    // @include carbon--breakpoint('md') {
-    //   &__title {
-    //     max-width: carbon--rem(640px);
-    //   }
-    // }
-    @include carbon--breakpoint('lg') {
-      padding-top: $carbon--layout-06;
+
+    @include carbon--breakpoint-down(md) {
+      padding-bottom: $carbon--layout-05;
       &__card {
         padding-top: $carbon--spacing-09;
       }
     }
 
     @include themed-items;
+
+    &:last-of-type {
+      padding-bottom: 0;
+    }
   }
 
   .#{$prefix}--content-block-media--g100 {
