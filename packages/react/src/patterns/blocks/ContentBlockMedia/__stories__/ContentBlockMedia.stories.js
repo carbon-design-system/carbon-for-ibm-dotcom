@@ -3,8 +3,8 @@ import {
   boolean,
   object,
   select,
-  text,
   withKnobs,
+  text,
 } from '@storybook/addon-knobs';
 import ContentBlockMedia from '../ContentBlockMedia';
 import React from 'react';
@@ -22,19 +22,31 @@ storiesOf('Patterns (Blocks)|ContentBlockMedia', module)
     },
   })
   .add('Default', () => {
-    const heading = text(
-      'heading (required)',
-      'Curabitur malesuada varius mi eu posuere'
-    );
+    const copy = {
+      'single paragraph': `Lorem    ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+      Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
+      nulla quis, consequat libero. Here are
+      some common categories:`,
+      'multiple paragraphs': `   Lorem    ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+      Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
+      nulla quis, consequat libero. Here are
+      some common categories:
 
-    const copy = text(
-      'copy (required)',
-      `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.
-        Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
-        nulla quis, consequat libero. Here are
-        some common categories:
-      `
-    );
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+      `,
+      'multiple paragraphs (styled)': `   __Lorem__    ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+      Mauris iaculis eget dolor nec hendrerit. __Phasellus__ at elit sollicitudin, sodales
+      nulla quis, *consequat* libero. Here are
+      some common categories:
+
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+      `,
+      none: null,
+    };
 
     const mediaGroup = [
       {
@@ -140,6 +152,11 @@ storiesOf('Patterns (Blocks)|ContentBlockMedia', module)
       },
     });
 
+    const cta = {
+      cta: featuredLink,
+      none: null,
+    };
+
     const themes = {
       g100: 'g100',
       white: '',
@@ -151,11 +168,14 @@ storiesOf('Patterns (Blocks)|ContentBlockMedia', module)
       <div className={`${prefix}--grid`}>
         <ContentBlockMedia
           border={withBorder}
-          copy={copy}
+          copy={select('Copy (optional)', copy, copy['single paragraph'])}
           theme={select('theme', themes, themes.white)}
-          heading={heading}
+          heading={text(
+            'Heading (required)',
+            'Curabitur malesuada varius mi eu posuere'
+          )}
           mediaGroup={object('mediaGroup', mediaGroup)}
-          featuredLink={featuredLink}
+          featuredLink={select('Featured Link (optional)', cta, cta.cta)}
         />
       </div>
     );

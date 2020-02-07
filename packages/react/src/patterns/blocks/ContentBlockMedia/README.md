@@ -1,6 +1,7 @@
-# Use Cases
+# Content Block With Media
 
-> The Use Cases pattern is to be utilized within IBM.com.
+> The "Content Block - With Media" is a decorator of `ContentBlock`, which
+> includes a number of `Content Group - Simple`, and ends with a `Feature Card`.
 
 ## Getting started
 
@@ -13,7 +14,7 @@ Here's a quick example to get you started.
 @include carbon--font-face-mono();
 @include carbon--font-face-sans();
 
-@import '@carbon/ibmdotcom-styles/scss/patterns/blocks/usecases/index';
+@import '@carbon/ibmdotcom-styles/scss/patterns/blocks/content-block-media/index';
 ```
 
 > 💡 Only import fonts once per usage
@@ -21,13 +22,13 @@ Here's a quick example to get you started.
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { UseCases } from '@carbon/ibmdotcom-react';
+import { ContentBlockMedia } from '@carbon/ibmdotcom-react';
 import 'yourapplication.scss';
 
 function App() {
-  const title = 'Lorem Ipsum';
+  const heading = 'Lorem Ipsum';
   const copy = 'Lorem Ipsum';
-  const usecaseGroup = [
+  const mediaGroup = [
     {
       title: 'Aliquam condimentum interdum',
       image: {
@@ -58,12 +59,22 @@ function App() {
     },
   ];
 
+  const featureLink = {
+    title: 'Featured Link title',
+    href: 'https://ibm.com',
+    image: {
+      defaultImage: 'https://picsum.photos/id/2/672/672',
+      alt: 'featured link image',
+    },
+  },
+
   return (
-    <UseCases
-      title={title}
-      copy={copy}
+    <ContentBlockWithMedia
       border={true}
-      usecaseGroup={usecaseGroup}
+      copy={copy}
+      heading={heading}
+      mediaGroup={usecaseGroup}
+      featureLink={featureLink}
     />
   );
 }
@@ -74,31 +85,17 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 > 💡 Don't forget to import the usecases styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
-#### Feature Flags
-
-To utilize the following features, set the following variable's to `true` within
-your `.env` file or your application build settings.
-
-```
-USECASES=true
-```
-
-> See
-> [feature-flags.md](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/patterns-react/docs/feature-flags.md)
-> and
-> [.env.example](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/patterns-react/.env.example)
-> for more information
-
 ## Props
 
-| Name           | Required | Data Type | Default Value | Description                                                   |
-| -------------- | -------- | --------- | ------------- | ------------------------------------------------------------- |
-| `border`       | NO       | Boolean   | false         | Determines whether to render bottom border of pattern.        |
-| `copy`         | NO       | String    | null          | Short copy to suppport title.                                 |
-| `title`        | YES      | String    | n/a           | Main title of UseCase pattern                                 |
-| `usecaseGroup` | NO       | Array     | null          | Array of useCase objects to render. See `usecaseGroup` below. |
+| Name         | Required | Data Type | Default Value | Description                                                      |
+| ------------ | -------- | --------- | ------------- | ---------------------------------------------------------------- |
+| `border`     | no       | Boolean   | false         | Determines whether to render bottom border of pattern.           |
+| `copy`       | no       | String    | null          | Short copy to suppport title.                                    |
+| `heading`    | yes      | String    | n/a           | Describes the block that it is a part of.                        |
+| `title`      | yes      | String    | n/a           | Main title of UseCase pattern.                                   |
+| `mediaGroup` | no       | Array     | null          | Array of mediaGroup objects to render. See `usecaseGroup` below. |
 
-### usecaseGroup
+### mediaGroup
 
 | Name    | Data Type | Description                                                                                       |
 | ------- | --------- | ------------------------------------------------------------------------------------------------- |
