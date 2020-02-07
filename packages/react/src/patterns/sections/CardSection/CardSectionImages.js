@@ -3,19 +3,19 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 /**
- * ImageCards pattern it is Cards with images
+ * CardSectionImages pattern it is Cards with images
  *
  * @param {object} props props object
  * @param {Array} props.cards cards array with title, and cards properties
  * @returns {object} JSX Object
  */
-const ImageCards = props => {
+const CardSectionImages = props => {
   return <CardSection {...props} />;
 };
 
-ImageCards.propTypes = {
+CardSectionImages.propTypes = {
   theme: PropTypes.string,
-  title: PropTypes.string,
+  heading: PropTypes.string,
   cards: PropTypes.arrayOf(
     PropTypes.shape({
       image: PropTypes.object,
@@ -30,4 +30,4 @@ ImageCards.propTypes = {
   ),
 };
 
-export default ImageCards;
+export default CardSectionImages;

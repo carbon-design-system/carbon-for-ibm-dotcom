@@ -21,7 +21,7 @@ const { prefix } = settings;
  * @param {Array} props.cards Array of object with title, href and target properties
  * @returns {object} JSX Object
  */
-const CardSection = ({ title, cards, theme }) => {
+const CardSection = ({ heading, cards, theme }) => {
   const containerRef = useRef();
   useEffect(() => {
     setCardHeight();
@@ -63,7 +63,7 @@ const CardSection = ({ title, cards, theme }) => {
       className={classNames(`${prefix}--card-section`, setTheme(theme))}>
       <div className={`${prefix}--card-section__container`}>
         <div className={`${prefix}--card-section__row`}>
-          <h2 className={`${prefix}--card-section__title`}>{title}</h2>
+          <h2 className={`${prefix}--card-section__title`}>{heading}</h2>
           <div className={`${prefix}--card-section__cards`} ref={containerRef}>
             <div
               className={`${prefix}--card-section__cards__row ${prefix}--row--condensed`}>
@@ -93,7 +93,7 @@ const CardSection = ({ title, cards, theme }) => {
 
 CardSection.propTypes = {
   theme: PropTypes.string,
-  title: PropTypes.string,
+  heading: PropTypes.string,
   cards: PropTypes.arrayOf(
     PropTypes.shape({
       image: PropTypes.object,

@@ -15,7 +15,7 @@ const SimpleCards = props => {
 
 SimpleCards.propTypes = {
   theme: PropTypes.string,
-  title: PropTypes.string,
+  heading: PropTypes.string,
   cards: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,

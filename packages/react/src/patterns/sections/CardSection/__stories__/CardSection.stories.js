@@ -2,8 +2,8 @@ import './index.scss';
 import { object, select, withKnobs } from '@storybook/addon-knobs';
 import cards from './data/cards.json';
 import CardSection from '../CardSection';
+import CardSectionImages from '../CardSectionImages';
 import { DDS_CARD_SECTION } from '../../../../internal/FeatureFlags';
-import ImageCards from '../ImageCards';
 import React from 'react';
 import readme from '../README.md';
 import SimpleCards from '../SimpleCards';
@@ -54,7 +54,7 @@ if (DDS_CARD_SECTION) {
 
       return (
         <SimpleCards
-          title="Aliquam condimentum interdum"
+          heading="Aliquam condimentum interdum"
           cards={object('Data', cards.simpleCards)}
           theme={select('theme', themes, themes.g10)}
         />
@@ -68,8 +68,8 @@ if (DDS_CARD_SECTION) {
       };
 
       return (
-        <ImageCards
-          title="Read more about it"
+        <CardSectionImages
+          heading="Read more about it"
           cards={object('Data', cards.imageCards)}
           theme={select('theme', themes, themes.g10)}
         />
