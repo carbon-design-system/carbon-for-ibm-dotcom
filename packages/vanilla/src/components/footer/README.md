@@ -57,11 +57,11 @@ Footer.init(elem); // initializes the footer
 
 ## Props
 
-| Name         | Required | Data Type | Default Value | Description                        |
-| ------------ | -------- | --------- | ------------- | ---------------------------------- |
-| `footerMenu` | NO       | Object    | null          | Navigation data object for Footer  |
-| `footerThin` | NO       | Object    | null          | Legal Nav data object for Footer   |
-| `type`       | NO       | String    | null          | Type of Footer. See below `types`. |
+| Name         | Required | Data Type | Default Value | Description                                                                                                                                                                              |
+| ------------ | -------- | --------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `footerMenu` | NO       | Object    | null          | Navigation data object for Footer. [Example data](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/src/components/Footer/__data__/footer-menu.json) |
+| `footerThin` | NO       | Object    | null          | Legal Nav data object for Footer. [Example data](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/src/components/Footer/__data__/footer-thin.json)  |
+| `type`       | NO       | String    | null          | Type of Footer. See below `types`.                                                                                                                                                       |
 
 ### types (optional)
 
