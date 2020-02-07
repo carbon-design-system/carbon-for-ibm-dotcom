@@ -42,11 +42,11 @@ const ContentBlockMedia = ({
   return (
     <ContentBlock
       heading={heading}
+      copy={copy}
       data-autoid={`${stablePrefix}--content-block-media`}
       customClassName={`${prefix}--content-block-media ${prefix}--col-lg-8 ${setBorder} ${setTheme}`}>
-      <div className={`${prefix}--content-block-media__content`}>{copy}</div>
       {_rendermediaGroup(mediaGroup)}
-      <FeaturedLink {...featuredLink} />
+      {featuredLink && <FeaturedLink {...featuredLink} />}
     </ContentBlock>
   );
 };
