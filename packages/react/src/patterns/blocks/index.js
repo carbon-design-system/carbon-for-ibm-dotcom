@@ -12,4 +12,3 @@ export * from './ListSection';
 export * from './LogoGrid';
 export * from './PictogramArray';
 export * from './SimpleLongForm';
-export * from './UseCases';
