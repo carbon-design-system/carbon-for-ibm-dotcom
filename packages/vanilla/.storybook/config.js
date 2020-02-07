@@ -13,7 +13,7 @@ addParameters({
 addDecorator(addReadme);
 
 function loadStories() {
-  require('../src/components/overview');
+  require('../src/overview/overview');
 
   const components = requireContext(
     '../src/components',
