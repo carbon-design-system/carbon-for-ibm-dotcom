@@ -1,0 +1,32 @@
+//
+// Copyright IBM Corp. 2016, 2018
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import '@carbon/layout/scss/convert';
+
+//-----------------------------
+// File Uploader (expressive)
+//-----------------------------
+
+/// File uploader styles (expressive)
+/// @access private
+/// @group file-uploader-expressive
+@mixin file-uploader-expressive {
+  .#{$prefix}--file__state-container .#{$prefix}--file-close {
+    height: rem(20px);
+    width: rem(20px);
+  }
+  .#{$prefix}--file__state-container .#{$prefix}--file-complete {
+    height: rem(20px);
+    width: rem(20px);
+  }
+  .#{$prefix}--file__selected-file:last-child {
+    height: rem(40px);
+  }
+  .#{$prefix}--file__state-container .#{$prefix}--btn--tertiary {
+    width: rem(142px);
+  }
+}
