@@ -5,13 +5,14 @@ import axios from 'axios';
  * @constant {string | string} Host for the API calls
  * @private
  */
-const _host = process.env.SEARCH_TYPEAHEAD_HOST || 'https://www-api.ibm.com';
+const _host =
+  (process && process.env.SEARCH_TYPEAHEAD_HOST) || 'https://www-api.ibm.com';
 
 /**
  * @constant {string | string} API version
  * @private
  */
-const _version = process.env.SEARCH_TYPEAHEAD_VERSION || 'v1';
+const _version = (process && process.env.SEARCH_TYPEAHEAD_VERSION) || 'v1';
 
 /**
  * SearchTypeahead endpoint
