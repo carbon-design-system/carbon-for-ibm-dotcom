@@ -76,6 +76,17 @@
       }
     }
 
+    .#{$prefix}--content-group__title {
+      padding-left: 0;
+    }
+
+    .#{$prefix}--content-group {
+      padding-bottom: $carbon--layout-03;
+      &:last-of-type {
+        padding-bottom: 0;
+      }
+    }
+
     @include themed-items;
   }
 

@@ -19,5 +19,9 @@ storiesOf('Patterns (Sub-Patterns)|ContentGroup', module)
       'Lorem ipsum dolor sit amet.'
     );
 
-    return <ContentGroup heading={copy} />;
+    return (
+      <div className="content-group-story">
+        <ContentGroup heading={copy} />
+      </div>
+    );
   });
