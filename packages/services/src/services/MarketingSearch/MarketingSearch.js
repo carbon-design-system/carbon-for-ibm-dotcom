@@ -4,13 +4,14 @@ import axios from 'axios';
  * @constant {string | string} Host for the API calls
  * @private
  */
-const _host = process.env.MARKETING_SEARCH_HOST || 'https://www.ibm.com';
+const _host =
+  (process && process.env.MARKETING_SEARCH_HOST) || 'https://www.ibm.com';
 
 /**
  * @constant {string | string} API version
  * @private
  */
-const _version = process.env.MARKETING_SEARCH_VERSION || 'v3';
+const _version = (process && process.env.MARKETING_SEARCH_VERSION) || 'v3';
 
 /**
  * MarketingSearch endpoint
