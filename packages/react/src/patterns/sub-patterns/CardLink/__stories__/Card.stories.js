@@ -43,7 +43,7 @@ storiesOf('Patterns (Sub-Patterns)|Card', module)
         title={title}
         href={href}
         content={content}
-        icon={<ArrowRight20 />}
+        icon={ArrowRight20}
         target={target}
       />
     ) : (
@@ -57,7 +57,7 @@ storiesOf('Patterns (Sub-Patterns)|Card', module)
           title={title}
           href={href}
           content={content}
-          icon={<ArrowRight20 />}
+          icon={ArrowRight20}
           target={target}
           className="bx--aspect-ratio--object"
         />

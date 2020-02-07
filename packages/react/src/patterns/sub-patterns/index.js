@@ -11,4 +11,5 @@ export * from './ContentBlock';
 export * from './ContentItem';
 export * from './ContentGroup';
 export * from './Layout';
+export * from './PictogramItem';
 export * from './TableOfContents';

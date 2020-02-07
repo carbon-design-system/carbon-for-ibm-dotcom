@@ -49,7 +49,7 @@ const ContentBlockMediaGroup = ({
             title={link.title}
             href={link.href}
             target={link.target}
-            icon={<ArrowRight20 />}
+            icon={ArrowRight20}
           />
         </div>
       )}
