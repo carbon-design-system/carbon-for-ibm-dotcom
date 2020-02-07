@@ -35,7 +35,7 @@ const CTA = ({ style, type, ...cta }) => {
           href={cta.href}
           icon={_iconSelector(type)}
           target={_external(type)}
-          onMouseDown={e => _jump(e, type)}
+          handleClick={e => _jump(e, type)}
         />
       );
     case 'button':
@@ -53,7 +53,7 @@ const CTA = ({ style, type, ...cta }) => {
         <LinkWithIcon
           href={cta.href}
           target={_external(type)}
-          onMouseDown={e => _jump(e, type)}>
+          onClick={e => _jump(e, type)}>
           {cta.copy}
           <Icon />
         </LinkWithIcon>
@@ -101,7 +101,7 @@ const _iconSelector = type =>
 const _renderButtons = ({ buttons }) =>
   buttons.map(button => {
     button.renderIcon = _iconSelector(button.type);
-    button.onMouseDown = e => _jump(e, button.type);
+    button.onClick = e => _jump(e, button.type);
     button.target = _external(button.type);
     return button;
   });
@@ -115,7 +115,7 @@ const _renderButtons = ({ buttons }) =>
  */
 const _renderFeatureCard = featureCard => {
   featureCard.icon = _iconSelector(featureCard.type);
-  featureCard.onMouseDown = e => _jump(e, featureCard.type);
+  featureCard.handleClick = e => _jump(e, featureCard.type);
   featureCard.target = _external(featureCard.type);
   return featureCard;
 };
