@@ -27,6 +27,7 @@
         margin-bottom: $carbon--layout-03;
       }
     }
+
     &__title {
       padding-left: $carbon--layout-01;
       padding-right: $carbon--layout-01;
@@ -34,6 +35,7 @@
 
       @include carbon--type-style('expressive-heading-04', true);
     }
+
     &__children {
       height: 300px;
       background-color: #f4f4f4;
