@@ -63,6 +63,14 @@ DDS_FOOTER_LOCALE_BUTTON=true
 | `tall`  | Default footer variant includes additional navigation taking up more space. |
 | `short` | Short footer variant reduces space by removing any additional navigation.   |
 
+### navigation data
+
+If setting the navigation data manually, examples can be seen here based on
+type:
+
+- [Tall](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/src/components/Footer/__data__/footer-menu.json)
+- [Short](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/src/components/Footer/__data__/footer-thin.json)
+
 ## Stable selectors
 
 | Name                          | Description |
