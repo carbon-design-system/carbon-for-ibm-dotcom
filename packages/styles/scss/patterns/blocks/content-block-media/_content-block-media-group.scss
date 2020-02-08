@@ -6,7 +6,7 @@
 //
 
 @mixin themed-items {
-  .#{$prefix}--content-block-media-group__card .bx--card-link {
+  .#{$prefix}--content-block-media--group__card .bx--card-link {
     background-color: $ui-01;
 
     &__title {
@@ -21,8 +21,8 @@
   }
 }
 
-@mixin content-block-media-group {
-  .#{$prefix}--content-block-media-group {
+@mixin content-block-media--group {
+  .#{$prefix}--content-block-media--group {
     padding-bottom: $carbon--layout-06;
     &__title {
       @include type-style('expressive-heading-04');
@@ -74,6 +74,6 @@
     }
   }
 }
-@include exports('content-block-media-group') {
-  @include content-block-media-group;
+@include exports('content-block-media--group') {
+  @include content-block-media--group;
 }

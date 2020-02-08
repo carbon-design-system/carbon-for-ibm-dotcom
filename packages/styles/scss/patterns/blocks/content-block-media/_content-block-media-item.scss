@@ -8,7 +8,7 @@
 @import '../../../components/link-with-icon/link-with-icon';
 
 @mixin themed-items {
-  .#{$prefix}--content-block-media-item__link .bx--link-with-icon {
+  .#{$prefix}--content-block-media--item__link .bx--link-with-icon {
     color: $link-01;
     &:focus {
       outline: 2px solid $focus;
@@ -21,8 +21,8 @@
   }
 }
 
-@mixin content-block-media-item {
-  .#{$prefix}--content-block-media-item {
+@mixin content-block-media--item {
+  .#{$prefix}--content-block-media--item {
     &__title {
       @include carbon--type-style('heading-02');
 
@@ -55,6 +55,6 @@
     }
   }
 }
-@include exports('content-block-media-item') {
-  @include content-block-media-item;
+@include exports('content-block-media--item') {
+  @include content-block-media--item;
 }

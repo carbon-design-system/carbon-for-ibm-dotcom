@@ -27,24 +27,28 @@ const { prefix } = settings;
  * @returns {object} JSX Object
  */
 const ContentBlockMediaGroup = ({
-  mediaGroup: { title, image, lists, link },
+  contentGroup: { title, image, lists, link },
 }) => {
   return (
-    <div className={`${prefix}--content-block-media-group`}>
-      <h2 className={`${prefix}--content-block-media-group__title`}>{title}</h2>
+    <div
+      className={`${prefix}--content-block-media--group`}
+      data-autoid={`${stablePrefix}--content-block-media--group`}>
+      <h2 className={`${prefix}--content-block-media--group__title`}>
+        {title}
+      </h2>
 
       <div
-        data-autoid={`${stablePrefix}--content-block-media-group__img`}
-        className={`${prefix}--content-block-media-group__img`}>
+        data-autoid={`${stablePrefix}--content-block-media--group__img`}
+        className={`${prefix}--content-block-media--group__img`}>
         {_renderPicture(image)}
       </div>
-      <div className={`${prefix}--content-block-media-group__list`}>
+      <div className={`${prefix}--content-block-media--group__list`}>
         {_renderList(lists)}
       </div>
       {link && (
         <div
-          data-autoid={`${stablePrefix}--content-block-media-group__card`}
-          className={`${prefix}--content-block-media-group__card`}>
+          data-autoid={`${stablePrefix}--content-block-media--group__card`}
+          className={`${prefix}--content-block-media--group__card`}>
           <CardLink
             title={link.title}
             href={link.href}
@@ -93,7 +97,7 @@ const _renderList = items => {
 };
 
 ContentBlockMediaGroup.propTypes = {
-  mediaGroup: PropTypes.shape({
+  contentGroup: PropTypes.shape({
     title: PropTypes.string,
     image: PropTypes.shape({
       url: PropTypes.object,

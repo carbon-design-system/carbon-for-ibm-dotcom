@@ -30,15 +30,15 @@ const { prefix } = settings;
 const ContentBlockMediaItem = ({ lists: { title, copy, link } }) => {
   return (
     <div
-      data-autoid={`${stablePrefix}--content-block-media-item`}
-      className={`${prefix}--content-block-media-item`}>
-      <h3 className={`${prefix}--content-block-media-item__title`}>{title}</h3>
-      <div className={`${prefix}--content-block-media-item__content`}>
+      data-autoid={`${stablePrefix}--content-block-media--item`}
+      className={`${prefix}--content-block-media--item`}>
+      <h3 className={`${prefix}--content-block-media--item__title`}>{title}</h3>
+      <div className={`${prefix}--content-block-media--item__content`}>
         {copy}
       </div>
       <div
-        data-autoid={`${stablePrefix}--content-block-media-item__link`}
-        className={`${prefix}--content-block-media-item__link`}>
+        data-autoid={`${stablePrefix}--content-block-media--item__link`}
+        className={`${prefix}--content-block-media--item__link`}>
         {link && (
           <LinkWithIcon href={link.href} target={link.target}>
             <span>{link.title}</span>
