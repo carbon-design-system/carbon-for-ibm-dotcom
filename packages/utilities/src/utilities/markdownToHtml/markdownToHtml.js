@@ -21,7 +21,7 @@ const _removeHtmlTags = str => str.replace(_htmlTagRegex, '');
  * and removing single new lines.
  *
  * @param {string} str String to be checked
- * @returns {string} String with mutliple spaces and single new lines removed
+ * @returns {string} String with multiple spaces and single new lines removed
  * @private
  */
 const _cleanString = str => str.replace(_cleanStringRegex, ' ');
