@@ -7,8 +7,8 @@
 
 import { ContentBlock } from '../../sub-patterns/ContentBlock';
 import ContentBlockMediaGroup from './ContentBlockMediaGroup';
+import { CTA } from '../../../components/CTA';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
-import FeaturedLink from '../FeaturedLink/FeaturedLink';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { settings } from 'carbon-components';
@@ -25,7 +25,7 @@ const { prefix } = settings;
  * @param {string} props.theme Use cases color theme
  * @param {string} props.heading Use cases heading
  * @param {Array} props.mediaGroup mediaGroup array with heading, image and lists
- * @param {object} props.featuredLink featuredLink object
+ * @param {object} props.cta cta object
  * @returns {object} JSX Object
  */
 const ContentBlockMedia = ({
@@ -34,7 +34,7 @@ const ContentBlockMedia = ({
   theme,
   heading,
   mediaGroup,
-  featuredLink,
+  cta,
 }) => {
   const setBorder = _setBorder(border);
   const setTheme = _setTheme(theme);
@@ -46,7 +46,7 @@ const ContentBlockMedia = ({
       data-autoid={`${stablePrefix}--content-block-media`}
       customClassName={`${prefix}--content-block-media ${prefix}--col-lg-8 ${setBorder} ${setTheme}`}>
       {_rendermediaGroup(mediaGroup)}
-      {featuredLink && <FeaturedLink {...featuredLink} />}
+      {cta && <CTA style="feature" {...cta} />}
     </ContentBlock>
   );
 };
@@ -94,8 +94,8 @@ ContentBlockMedia.propTypes = {
   copy: PropTypes.string,
   theme: PropTypes.string,
   heading: PropTypes.string.isRequired,
-  mediaGroup: PropTypes.array,
-  featuredLink: PropTypes.object,
+  mediaGroup: PropTypes.array.isRequired,
+  cta: PropTypes.object,
 };
 
 export default ContentBlockMedia;

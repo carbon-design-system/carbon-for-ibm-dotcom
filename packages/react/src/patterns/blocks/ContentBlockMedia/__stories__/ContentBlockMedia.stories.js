@@ -140,20 +140,21 @@ storiesOf('Patterns (Blocks)|ContentBlockMedia', module)
       },
     ];
 
-    const featuredLink = object('FeaturedLink object', {
-      heading: 'Card heading',
+    const ctaProps = {
+      heading: 'Lorem ipsum dolor sit amet',
       card: {
-        title: 'Featured Link title',
+        type: 'local',
         href: 'https://ibm.com',
+        title: 'Consectetur adipisicing elit',
         image: {
-          defaultImage: 'https://picsum.photos/id/2/672/672',
-          alt: 'featured link image',
+          defaultImage: 'https://picsum.photos/id/672/672',
+          alt: 'featured card image',
         },
       },
-    });
+    };
 
     const cta = {
-      cta: featuredLink,
+      cta: ctaProps,
       none: null,
     };
 
@@ -175,7 +176,7 @@ storiesOf('Patterns (Blocks)|ContentBlockMedia', module)
             'Curabitur malesuada varius mi eu posuere'
           )}
           mediaGroup={object('mediaGroup', mediaGroup)}
-          featuredLink={select('Featured Link (optional)', cta, cta.cta)}
+          cta={select('CTA (optional)', cta, cta.cta)}
         />
       </div>
     );
