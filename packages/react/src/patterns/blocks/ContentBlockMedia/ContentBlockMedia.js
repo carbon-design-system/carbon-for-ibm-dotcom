@@ -19,16 +19,14 @@ const { prefix } = settings;
  * Use cases pattern
  *
  * @param {object} props props object
- * @param {string} props.border Use cases border
  * @param {string} props.copy Use cases short copy to support the heading
- * @param {string} props.theme Use cases color theme
  * @param {string} props.heading Use cases heading
  * @param {Array} props.contentGroup contentGroup array with heading, image and lists
  * @param {object} props.cta cta object
  * @returns {object} JSX Object
  */
 const ContentBlockMedia = ({ copy, heading, contentGroup, cta }) => {
-  cta.style = 'feature';
+  if (cta) cta.style = 'feature';
 
   return (
     <ContentBlock
@@ -50,7 +48,6 @@ const ContentBlockMedia = ({ copy, heading, contentGroup, cta }) => {
  * @returns {object} JSX Object
  */
 const _renderContentGroup = items => {
-  console.log('items', items);
   return items.map(item => {
     return <ContentBlockMediaGroup key={item.title} contentGroup={item} />;
   });
