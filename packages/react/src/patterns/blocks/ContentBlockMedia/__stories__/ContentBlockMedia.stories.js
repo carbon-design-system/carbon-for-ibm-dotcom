@@ -1,11 +1,5 @@
 import './index.scss';
-import {
-  boolean,
-  object,
-  select,
-  withKnobs,
-  text,
-} from '@storybook/addon-knobs';
+import { object, select, withKnobs, text } from '@storybook/addon-knobs';
 import ContentBlockMedia from '../ContentBlockMedia';
 import React from 'react';
 import readme from '../README.md';
@@ -48,7 +42,7 @@ storiesOf('Patterns (Blocks)|ContentBlockMedia', module)
       none: null,
     };
 
-    const mediaGroup = [
+    const contentGroup = [
       {
         title: 'Aliquam condimentum interdum',
         image: {
@@ -141,9 +135,9 @@ storiesOf('Patterns (Blocks)|ContentBlockMedia', module)
     ];
 
     const ctaProps = {
+      type: 'local',
       heading: 'Lorem ipsum dolor sit amet',
       card: {
-        type: 'local',
         href: 'https://ibm.com',
         title: 'Consectetur adipisicing elit',
         image: {
@@ -158,25 +152,16 @@ storiesOf('Patterns (Blocks)|ContentBlockMedia', module)
       none: null,
     };
 
-    const themes = {
-      g100: 'g100',
-      white: '',
-    };
-
-    const withBorder = boolean('with border', true);
-
     return (
       <div className={`${prefix}--grid`}>
         <ContentBlockMedia
-          border={withBorder}
           copy={select('Copy (optional)', copy, copy['single paragraph'])}
-          theme={select('theme', themes, themes.white)}
           heading={text(
             'Heading (required)',
             'Curabitur malesuada varius mi eu posuere'
           )}
-          mediaGroup={object('mediaGroup', mediaGroup)}
-          cta={select('CTA (optional)', cta, cta.cta)}
+          contentGroup={object('contentGroup', contentGroup)}
+          cta={select('Feature Link (optional)', cta, cta.cta)}
         />
       </div>
     );
