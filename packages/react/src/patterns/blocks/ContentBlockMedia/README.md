@@ -28,7 +28,7 @@ import 'yourapplication.scss';
 function App() {
   const heading = 'Lorem Ipsum';
   const copy = 'Lorem Ipsum';
-  const mediaGroup = [
+  const contentGroup = [
     {
       title: 'Aliquam condimentum interdum',
       image: {
@@ -59,22 +59,25 @@ function App() {
     },
   ];
 
-  const featureLink = {
-    title: 'Featured Link title',
-    href: 'https://ibm.com',
-    image: {
-      defaultImage: 'https://picsum.photos/id/2/672/672',
-      alt: 'featured link image',
-    },
+  const cta = {
+    type: 'local'|'jump'|'external'
+    heading: 'Feature Link heading',
+    card: {
+      href: 'https://ibm.com',
+      title: 'Consectetur adipisicing elit',
+      image: {
+        defaultImage: 'https://picsum.photos/id/2/672/672',
+        alt: 'featured link image',
+      },
+    }
   },
 
   return (
     <ContentBlockWithMedia
-      border={true}
       copy={copy}
       heading={heading}
-      mediaGroup={usecaseGroup}
-      featureLink={featureLink}
+      contentGroup={contentGroup}
+      cta={cta}
     />
   );
 }
@@ -82,36 +85,36 @@ function App() {
 ReactDOM.render(<App />, document.querySelector('#app'));
 ```
 
-> 💡 Don't forget to import the usecases styles from
+> 💡 Don't forget to import the ContentBlockWithMedia styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
 ## Props
 
-| Name         | Required | Data Type | Default Value | Description                                                      |
-| ------------ | -------- | --------- | ------------- | ---------------------------------------------------------------- |
-| `border`     | no       | Boolean   | false         | Determines whether to render bottom border of pattern.           |
-| `copy`       | no       | String    | null          | Short copy to suppport title.                                    |
-| `heading`    | yes      | String    | n/a           | Describes the block that it is a part of.                        |
-| `title`      | yes      | String    | n/a           | Main title of UseCase pattern.                                   |
-| `mediaGroup` | no       | Array     | null          | Array of mediaGroup objects to render. See `usecaseGroup` below. |
+| Name           | Required | Data Type | Default Value | Description                                                        |
+| -------------- | -------- | --------- | ------------- | ------------------------------------------------------------------ |
+| `copy`         | no       | String    | null          | Short copy to suppport title.                                      |
+| `heading`      | yes      | String    | n/a           | Main title of ContentBlockWithMedia pattern.                       |
+| `contentGroup` | yes      | Array     | n/a           | Array of contentGroup objects to render. See `contentGroup` below. |
+| `cta`          | no       | Object    | null          | Object for optional CTA. Must be `Feature Link`. See `cta` below.  |
 
-### mediaGroup
+### contentGroup
 
-| Name    | Data Type | Description                                                                                       |
-| ------- | --------- | ------------------------------------------------------------------------------------------------- |
-| `image` | Object    | Image of Use Case including different aspect ratios for different breakpoints. See `image` below. |
-| `lists` | Array     | Array of list objects to render within the use case. See `lists` below.                           |
-| `link`  | Object    | Object with the href, text, and target properities of the use case link. See `link` below.        |
-| `title` | String    | Title of Use Case.                                                                                |
+| Name      | Data Type | Description                                                                                         |
+| --------- | --------- | --------------------------------------------------------------------------------------------------- |
+| `heading` | String    | Describes the block that it is a part of.                                                           |
+| `image`   | Object    | Content group image including different aspect ratios for different breakpoints. See `image` below. |
+| `lists`   | Array     | Array of list objects to render within the content group. See `lists` below.                        |
+| `link`    | Object    | Object with the href, text, and target properties of the content group link. See `link` below.      |
+| `title`   | String    | Content group title.                                                                                |
 
-### image
+#### image
 
 | Name  | Data Type | Description                                                                           |
 | ----- | --------- | ------------------------------------------------------------------------------------- |
 | `alt` | String    | Alt description of image.                                                             |
 | `uri` | Object    | Image object containing urls to the image for different breakpoints. See `uri` below. |
 
-### uri
+#### uri
 
 | Name | Data Type | Description                                               |
 | ---- | --------- | --------------------------------------------------------- |
@@ -119,31 +122,41 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 | `md` | String    | Image with aspect ration (768 x 384) for `md` breakpoint  |
 | `lg` | String    | Image with aspect ration (1024 x 512) for `lg` breakpoint |
 
-### lists
+#### lists
 
-| Name    | Data Type | Description                  |
-| ------- | --------- | ---------------------------- |
-| `copy`  | String    | Copy of Use Case list item.  |
-| `title` | String    | Title of Use Case list item. |
+| Name    | Data Type | Description                    |
+| ------- | --------- | ------------------------------ |
+| `copy`  | String    | Content group list item copy.  |
+| `title` | String    | Content gropu list item title. |
 
-### link
+#### link
 
 | Name     | Data Type | Description                                                |
 | -------- | --------- | ---------------------------------------------------------- |
-| `href`   | String    | Url of use case link.                                      |
-| `text`   | String    | Use case link text.                                        |
+| `href`   | String    | Content group link.                                        |
+| `text`   | String    | Content group link text.                                   |
 | `target` | String    | Open within current tab or new tab ('\_self' or '\_blank') |
+
+### CTA
+
+| Name         | Data Type | Description                                        |
+| ------------ | --------- | -------------------------------------------------- |
+| `heading`    | String    | Describes the CTA.                                 |
+| `card.href`  | String    | Feature link url.                                  |
+| `card.title` | String    | Feature link text.                                 |
+| `card.image` | String    | Feature link `defaultImage` and `alt`.             |
+| `type`       | String    | Link behavior options `local`, `jump`, `external`. |
 
 ## Stable selectors
 
-| Name                        | Description                       |
-| --------------------------- | --------------------------------- |
-| `dds--usecases`             | Pattern                           |
-| `dds--usecases-group`       | Use Cases Group component         |
-| `dds--usecases-group__img`  | Use Cases Group image element     |
-| `dds--usecases-group__card` | Use Cases Group card link element |
-| `dds--usecases-item`        | Use Cases Item component          |
-| `dds--usecases-item__link`  | Use Cases Item link element       |
+| Name                                          | Description                     |
+| --------------------------------------------- | ------------------------------- |
+| `dds--content-block-media`                    | Pattern                         |
+| `dds--content-block-media--group`             | Pattern                         |
+| `dds--content-block-media--group__img`        | Content group image element     |
+| `dds--content-block-media--group__card`       | Content group card link element |
+| `dds--content-block-media--group--item`       | Content group item component    |
+| `dds--content-block-media--group--item__link` | Content group item link element |
 
 ## 🙌 Contributing
 

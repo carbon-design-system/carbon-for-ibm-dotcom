@@ -9,6 +9,7 @@ import {
   settings as ddsSettings,
   markdownToHtml,
 } from '@carbon/ibmdotcom-utilities';
+import { CTA } from '../../../components/CTA';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -22,9 +23,9 @@ const { prefix } = settings;
  *
  * @param {object} props props object
  * @param {string} props.heading  Heading objects
- * @param {copy} props.copy Heading copy copy
+ * @param {copy} props.copy Heading copy
  * @param {*} props.children JSX Components
- * @param {*} props.cta JSX Components
+ * @param {*} props.cta CTA props object
  * @returns {*} JSX ContentArrayBlock component
  */
 const ContentBlock = ({ heading, copy, children, cta, customClassName }) => {
@@ -52,7 +53,7 @@ const ContentBlock = ({ heading, copy, children, cta, customClassName }) => {
         <div
           data-autoid={`${stablePrefix}--content-block__cta`}
           className={cx(`${prefix}--content-block__cta`)}>
-          {cta}
+          {cta && <CTA style={cta.style} type={cta.type} {...cta} />}
         </div>
       )}
     </div>
@@ -63,7 +64,7 @@ ContentBlock.propTypes = {
   heading: PropTypes.string,
   copy: PropTypes.string,
   children: PropTypes.element,
-  cta: PropTypes.element,
+  cta: PropTypes.object,
   customClassName: PropTypes.string,
 };
 
