@@ -59,11 +59,11 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 ## Stable selectors
 
-| Name                            | Description                                        |
-| ------------------------------- | -------------------------------------------------- |
-| `dds--pictogram-item`           | Pictogram item wrapper element.                    |
-| `dds--pictogram-item_content`   | Pictogram item wrapper for Content Item component. |
-| `dds--pictogram-item_pictogram` | Pictogram item SVG.                                |
+| Name                             | Description                                        |
+| -------------------------------- | -------------------------------------------------- |
+| `dds--pictogram-item`            | Pictogram item wrapper element.                    |
+| `dds--pictogram-item__content`   | Pictogram item wrapper for Content Item component. |
+| `dds--pictogram-item__pictogram` | Pictogram item SVG.                                |
 
 ## 🙌 Contributing
 
