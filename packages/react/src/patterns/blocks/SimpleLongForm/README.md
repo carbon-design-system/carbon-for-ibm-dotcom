@@ -73,7 +73,7 @@ DDS_SIMPLELONGFORM=true
 | Name       | Data Type | Description                         |
 | ---------- | --------- | ----------------------------------- |
 | `none`     | String    | Render no link.                     |
-| `cardLink` | String    | Render with CardLink component.     |
+| `card`     | String    | Render with Card component.         |
 | `iconLink` | String    | Render with LinkWithIcon component. |
 
 ### link

@@ -71,7 +71,7 @@ const SimpleLongForm = ({ border, copy, linkType, link, theme, title }) =>
 const renderLink = (type, data) => {
   return type === 'jump' ? (
     <JumpLink link={data} />
-  ) : type === 'cardLink' ? (
+  ) : type === 'card' ? (
     <Card
       title={data.text}
       href={data.href}
@@ -89,7 +89,7 @@ const renderLink = (type, data) => {
 /**
  * sets the class name based on link type
  *
- * @param {string} type link type ( iconLink | cardLink )
+ * @param {string} type link type ( iconLink | card)
  * @returns {string} link type css class names
  */
 const setLinkType = type => {
@@ -98,8 +98,8 @@ const setLinkType = type => {
     case 'iconLink':
       linkType = `${prefix}--simplelongform--icon-link`;
       break;
-    case 'cardLink':
-      linkType = `${prefix}--simplelongform--card-link`;
+    case 'card':
+      linkType = `${prefix}--simplelongform--card`;
       break;
     default:
   }

@@ -47,7 +47,7 @@
       }
     }
     &--CTA {
-      .#{$prefix}--card-link__title {
+      .#{$prefix}--card__title {
         @include carbon--type-style('expressive-heading-02');
       }
     }
