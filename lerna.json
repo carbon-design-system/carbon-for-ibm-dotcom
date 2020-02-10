@@ -12,7 +12,8 @@
     "**/docs/**",
     "**/e2e/**",
     "**/examples/**",
-    "**/*.md"
+    "**/*.md",
+    "**/ssr-tests/**"
   ],
   "command": {
     "version": {
