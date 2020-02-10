@@ -147,11 +147,23 @@ class LocaleAPI {
     list.regionList.forEach(region => {
       countries = countries.concat(region.countryList);
     });
+
+    // get match for countries with multiple languages
     const location = countries.filter(country => {
-      return country.locale[0][0] === `${lang.lc}-${lang.cc}`;
+      let htmlLang = country.locale.findIndex(
+        loc => loc[0] === `${lang.lc}-${lang.cc}`
+      );
+
+      if (htmlLang !== -1) {
+        let localeMatch = country.locale.filter(l =>
+          l.includes(`${lang.lc}-${lang.cc}`)
+        );
+        country.locale.splice(0, country.locale.length, ...localeMatch);
+        return country;
+      }
     });
 
-    if (location.length > 0) {
+    if (location.length) {
       return `${location[0].name} - ${location[0].locale[0][1]}`;
     } else {
       return _localeNameDefault;
