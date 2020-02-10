@@ -5,19 +5,19 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { act } from 'react-dom/test-utils';
 import Footer from '../Footer';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { TranslationAPI } from '@carbon/ibmdotcom-services';
-import { act } from 'react-dom/test-utils';
 import { shallow } from 'enzyme';
+import { TranslationAPI } from '@carbon/ibmdotcom-services';
 
-const FOOTER_MENU_MOCK_DATA = require('../__data__/footer-menu.json').data;
-const LEGAL_NAV_MOCK_DATA = require('../__data__/footer-legal.json').data;
+const FOOTER_MENU_MOCK_DATA = require('../__data__/footer-menu.json');
+const FOOTER_THIN_MOCK_DATA = require('../__data__/footer-thin.json');
 
 const MOCK_DATA = {
   footerMenu: FOOTER_MENU_MOCK_DATA,
-  footerThin: LEGAL_NAV_MOCK_DATA,
+  footerThin: FOOTER_THIN_MOCK_DATA,
 };
 
 jest.mock('@carbon/ibmdotcom-services', () => ({

@@ -5,11 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import classNames from 'classnames';
 import { Close20 } from '@carbon/icons-react';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
 import React from 'react';
-import classNames from 'classnames';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
 
 const { stablePrefix } = ddsSettings;

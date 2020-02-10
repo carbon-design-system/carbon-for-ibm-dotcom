@@ -5,18 +5,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-export * from './ButtonGroup';
-export * from './ContentGroup';
 export * from './DotcomShell';
+export * from './ExpressiveModal';
 export * from './Footer';
 export * from './HorizontalRule';
 export * from './Icon';
-export * from './Masthead';
+export * from './Image';
 export * from './LinkWithIcon';
 export * from './LocaleModal';
-export * from './CardLink';
-export * from './Layout';
-export * from './ExpressiveModal';
+export * from './Masthead';
 export * from './carbon-components-react/UIShell';
-export * from './TableOfContents';
-export * from './Image';

@@ -5,5 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+export * from './dotcomshell';
 export * from './horizontalrule';
 export * from './footer';
+export * from './masthead';

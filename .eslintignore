@@ -1,13 +1,5 @@
 node_modules
 
-# patterns-react
-packages/patterns-react/coverage
-packages/patterns-react/es
-packages/patterns-react/umd
-packages/patterns-react/lib
-packages/patterns-react/node_modules
-packages/patterns-react/storybook-static
-
 # react
 packages/react/coverage
 packages/react/es

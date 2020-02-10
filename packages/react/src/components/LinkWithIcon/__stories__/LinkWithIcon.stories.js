@@ -6,7 +6,7 @@ import React from 'react';
 import readme from '../README.md';
 import { storiesOf } from '@storybook/react';
 
-storiesOf('Link with Icon', module)
+storiesOf('Components|Link with Icon', module)
   .addDecorator(withKnobs)
   .addParameters({
     readme: {

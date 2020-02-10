@@ -7,9 +7,9 @@
 
 import { ArrowRight20, Error20 } from '@carbon/icons-react';
 import React, { useEffect } from 'react';
-import { CardLink } from '../CardLink';
-import PropTypes from 'prop-types';
+import { CardLink } from '../../patterns/sub-patterns/CardLink';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import PropTypes from 'prop-types';
 import { settings } from 'carbon-components';
 
 const { stablePrefix } = ddsSettings;
@@ -90,7 +90,7 @@ const LocaleModalRegions = ({
                   key={region.key}
                   title={region.name}
                   href={hasCountries ? 'javascript:void(0);' : null}
-                  icon={hasCountries ? <ArrowRight20 /> : <Error20 />}
+                  icon={hasCountries ? ArrowRight20 : Error20}
                 />
               </div>
             );
