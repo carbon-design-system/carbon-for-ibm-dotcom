@@ -5,6 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import classNames from 'classnames';
 import { ContentGroup } from '../../sub-patterns/ContentGroup';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { PictogramItem } from '../../sub-patterns/PictogramItem';
@@ -19,19 +20,16 @@ const { prefix } = settings;
  * Content Array with Pictograms
  *
  * @param {object} props props object
+ * @param {object} props.className class Name prop
  * @param {Array} props.items Pictogram item content array
  * @param {string} props.heading Content Group Pictograms title
  * @returns {*}  Content array with pictograms JSX Component
  */
-const ContentGroupPictograms = ({ heading, items }) => (
+const ContentGroupPictograms = ({ heading, items, className }) => (
   <div
     data-autoid={`${stablePrefix}--content-group-pictograms`}
-    className={`${prefix}--content-group-pictograms`}>
-    <div className={`${prefix}--content-group-pictograms__row`}>
-      <div className={`${prefix}--content-group-pictograms__col`}>
-        <ContentGroup heading={heading}>{_renderItems(items)}</ContentGroup>
-      </div>
-    </div>
+    className={classNames(className, `${prefix}--content-group-pictograms`)}>
+    <ContentGroup heading={heading}>{_renderItems(items)}</ContentGroup>
   </div>
 );
 
@@ -54,6 +52,7 @@ const _renderItems = items =>
 ContentGroupPictograms.propTypes = {
   heading: PropTypes.string.isRequired,
   items: PropTypes.arrayOf(PropTypes.instanceOf(PictogramItem)),
+  className: PropTypes.string,
 };
 
 export default ContentGroupPictograms;

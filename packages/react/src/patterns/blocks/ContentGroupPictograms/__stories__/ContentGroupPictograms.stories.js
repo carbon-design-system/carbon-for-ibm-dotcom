@@ -1,6 +1,7 @@
 import './index.scss';
 import { Desktop, Pattern, Touch } from '@carbon/pictograms-react';
 import { object, select, text, withKnobs } from '@storybook/addon-knobs';
+import classNames from 'classnames';
 import ContentGroupPictograms from '../ContentGroupPictograms';
 import React from 'react';
 import readme from '../README.md';
@@ -112,8 +113,18 @@ storiesOf('Patterns (Blocks)|Content Group Pictograms', module)
     ];
 
     return (
-      <div>
-        <ContentGroupPictograms heading={heading} items={items} />
+      <div className="">
+        <div className="bx--row">
+          <ContentGroupPictograms
+            className={classNames(
+              `bx--col-sm-4`,
+              `bx--col-md-4`,
+              `bx--offset-lg-4`
+            )}
+            heading={heading}
+            items={items}
+          />
+        </div>
       </div>
     );
   });
