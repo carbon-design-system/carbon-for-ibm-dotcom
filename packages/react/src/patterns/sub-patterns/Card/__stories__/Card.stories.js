@@ -26,9 +26,13 @@ storiesOf('Patterns (Sub-Patterns)|Card', module)
   })
   .add('Static', () => {
     const title = text('title (required)', 'Lorem ipsum dolor sit amet');
-    const href = text('href (required)', 'https://example.com');
-    const type = text('type', '');
-    const content = text('content', '');
+    const type = text('type', 'static');
+    const copy = text('copy', '');
+    const cta = {
+      icon: ArrowRight20,
+      type: 'local',
+      href: text('href (required)', 'https://example.com'),
+    };
     const target = text('target', '');
     const ratio = {
       none: null,
@@ -40,14 +44,7 @@ storiesOf('Patterns (Sub-Patterns)|Card', module)
     };
 
     return !select('Ratio', ratio, ratio['none']) ? (
-      <Card
-        title={title}
-        href={href}
-        content={content}
-        icon={ArrowRight20}
-        target={target}
-        type={type}
-      />
+      <Card title={title} copy={copy} cta={cta} target={target} type={type} />
     ) : (
       <div
         className={`bx--aspect-ratio bx--aspect-ratio--${select(
@@ -57,9 +54,8 @@ storiesOf('Patterns (Sub-Patterns)|Card', module)
         )}`}>
         <Card
           title={title}
-          href={href}
-          content={content}
-          icon={ArrowRight20}
+          copy={copy}
+          cta={cta}
           target={target}
           type={type}
           className="bx--aspect-ratio--object"
@@ -69,9 +65,13 @@ storiesOf('Patterns (Sub-Patterns)|Card', module)
   })
   .add('Link/Clickable', () => {
     const title = text('title (required)', 'Lorem ipsum dolor sit amet');
-    const href = text('href (required)', 'https://example.com');
     const type = text('type', 'link');
-    const content = text('content', '');
+    const copy = text('copy', '');
+    const cta = {
+      icon: ArrowRight20,
+      type: 'local',
+      href: text('href (required)', 'https://example.com'),
+    };
     const target = text('target', '');
     const ratio = {
       none: null,
@@ -85,8 +85,8 @@ storiesOf('Patterns (Sub-Patterns)|Card', module)
     return !select('Ratio', ratio, ratio['none']) ? (
       <Card
         title={title}
-        href={href}
-        content={content}
+        copy={copy}
+        cta={cta}
         icon={ArrowRight20}
         target={target}
         type={type}
@@ -100,9 +100,8 @@ storiesOf('Patterns (Sub-Patterns)|Card', module)
         )}`}>
         <Card
           title={title}
-          href={href}
-          content={content}
-          icon={ArrowRight20}
+          copy={copy}
+          cta={cta}
           target={target}
           type={type}
           className="bx--aspect-ratio--object"

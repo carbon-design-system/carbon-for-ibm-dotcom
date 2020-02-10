@@ -10,6 +10,7 @@ import {
   markdownToHtml,
 } from '@carbon/ibmdotcom-utilities';
 import classNames from 'classnames';
+import { CTA } from '../../../components/CTA';
 import { Image } from '../../../components/Image';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -24,55 +25,46 @@ const { prefix } = settings;
  * @param {object} props react proptypes
  * @returns {object} JSX object
  */
-const Card = ({
-  title,
-  href,
-  content,
-  icon: Icon,
-  image,
-  className,
-  type,
-  ...props
-}) => {
-  return type === 'link' ? (
-    <ClickableTile
+const Card = ({ title, copy, cta, image, className, type, ...props }) => {
+  const CardTile = type === 'link' ? ClickableTile : Tile;
+  return (
+    <CardTile
       data-autoid={`${stablePrefix}--card`}
-      className={classNames(`${prefix}--card`, className)}
-      href={href}
+      className={renderClassnames(className)}
+      href={cta.href}
       {...props}>
       <Image {...image} classname={`${prefix}--card__img`} />
       <div className={`${prefix}--card__wrapper`}>
         <h3 className={`${prefix}--card__title`}>{title}</h3>
-        {optionalContent(content)}
-        {renderFooter(Icon)}
+        {optionalContent(copy)}
+        {renderFooter(cta, type)}
       </div>
-    </ClickableTile>
-  ) : (
-    <Tile
-      data-autoid={`${stablePrefix}--card`}
-      className={classNames(`${prefix}--card`, className)}>
-      <Image {...image} />
-      <div className={`${prefix}--card__wrapper`}>
-        <h3 className={`${prefix}--card__title`}>{title}</h3>
-        {optionalContent(content)}
-        {renderFooter(Icon)}
-      </div>
-    </Tile>
+    </CardTile>
   );
 };
 
 /**
+ * renders the pattern classnames
+ *
+ * @private
+ * @param {string} custonClassname classname from parent
+ * @returns {string} classnames
+ */
+const renderClassnames = custonClassname =>
+  classNames(`${prefix}--card`, custonClassname);
+
+/**
  * Card Link optional content
  *
- * @param {string} content paragraph of text
+ * @param {string} copy paragraph of text
  * @returns {object} JSX object
  */
-function optionalContent(content) {
-  return !content ? null : (
+function optionalContent(copy) {
+  return !copy ? null : (
     <div
       className={`${prefix}--card__content`}
       dangerouslySetInnerHTML={{
-        __html: markdownToHtml(content, { bold: false }),
+        __html: markdownToHtml(copy, { bold: false }),
       }}></div>
   );
 }
@@ -80,10 +72,16 @@ function optionalContent(content) {
 /**
  * Render footer with icon
  *
- * @param {object} Icon passes in react icon
+ * @param {object} cta cta object
+ * @param {string} type type of card (clickable/static)
  * @returns {object} JSX object
  */
-function renderFooter(Icon) {
+function renderFooter(cta, type) {
+  if (type !== 'link') {
+    return <CTA style="text" type={cta.type} href={cta.href} copy={cta.copy} />;
+  }
+
+  const Icon = cta.icon;
   return !Icon ? null : (
     <footer className={`${prefix}--card__footer`}>
       <Icon />
@@ -93,9 +91,14 @@ function renderFooter(Icon) {
 
 Card.propTypes = {
   title: PropTypes.string.isRequired,
-  href: PropTypes.string.isRequired,
   icon: PropTypes.object,
-  content: PropTypes.string,
+  copy: PropTypes.string,
+  cta: PropTypes.shape({
+    href: PropTypes.string.isRequired,
+    type: PropTypes.string,
+    icon: PropTypes.element,
+    copy: PropTypes.string,
+  }),
   image: PropTypes.object,
   className: PropTypes.string,
   type: PropTypes.string,
