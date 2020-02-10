@@ -96,12 +96,7 @@ module.exports = {
         'packages/utilities/src/*.js',
       ],
       rules: {
-        'tree-shaking/no-side-effects-in-initialization': [
-          2,
-          {
-            compatibility: 'rollup',
-          },
-        ],
+        'tree-shaking/no-side-effects-in-initialization': 2,
       },
     },
   ],

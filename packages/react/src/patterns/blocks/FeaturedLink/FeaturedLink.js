@@ -8,9 +8,7 @@
 import { ArrowRight20 } from '@carbon/icons-react';
 import { CardLink } from '../../sub-patterns/CardLink';
 import { ContentGroup } from '../../sub-patterns/ContentGroup';
-import { DDS_FEATURED_LINK } from '../../../internal/FeatureFlags';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
-import { featureFlag } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { settings } from 'carbon-components';
@@ -27,8 +25,7 @@ const { prefix } = settings;
  * @returns {*} FeaturedLink JSX component
  */
 const FeaturedLink = ({ heading, card }) => {
-  return featureFlag(
-    DDS_FEATURED_LINK,
+  return (
     <section
       className={`${prefix}--featuredlink`}
       data-autoid={`${stablePrefix}--featuredlink`}>
