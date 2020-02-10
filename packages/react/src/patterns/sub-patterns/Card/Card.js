@@ -30,7 +30,7 @@ const Card = ({ title, copy, cta, image, className, type, ...props }) => {
   return (
     <CardTile
       data-autoid={`${stablePrefix}--card`}
-      className={renderClassnames(className)}
+      className={classNames(`${prefix}--card`, className)}
       href={cta.href}
       {...props}>
       <Image {...image} classname={`${prefix}--card__img`} />
@@ -42,16 +42,6 @@ const Card = ({ title, copy, cta, image, className, type, ...props }) => {
     </CardTile>
   );
 };
-
-/**
- * renders the pattern classnames
- *
- * @private
- * @param {string} custonClassname classname from parent
- * @returns {string} classnames
- */
-const renderClassnames = custonClassname =>
-  classNames(`${prefix}--card`, custonClassname);
 
 /**
  * Card Link optional content
@@ -79,14 +69,14 @@ function optionalContent(copy) {
 function renderFooter(cta, type) {
   if (type !== 'link') {
     return <CTA style="text" type={cta.type} href={cta.href} copy={cta.copy} />;
+  } else {
+    const Icon = cta.icon;
+    return !Icon ? null : (
+      <footer className={`${prefix}--card__footer`}>
+        <Icon />
+      </footer>
+    );
   }
-
-  const Icon = cta.icon;
-  return !Icon ? null : (
-    <footer className={`${prefix}--card__footer`}>
-      <Icon />
-    </footer>
-  );
 }
 
 Card.propTypes = {
