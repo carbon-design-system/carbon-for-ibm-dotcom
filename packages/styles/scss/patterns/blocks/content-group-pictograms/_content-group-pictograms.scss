@@ -7,17 +7,14 @@
 
 @mixin content-group-pictograms {
   .#{$prefix}--content-group-pictograms {
-    @include carbon--make-container;
-
     &__row {
       @include carbon--make-row;
     }
 
     &__col {
       @include carbon--make-col-ready;
-      @include carbon--breakpoint('sm') {
-        @include carbon--make-col(4, 4);
-      }
+      @include carbon--make-col(4, 4);
+
       @include carbon--breakpoint('md') {
         @include carbon--make-col(8, 8);
       }

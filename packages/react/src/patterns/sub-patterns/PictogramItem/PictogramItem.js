@@ -5,6 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import classNames from 'classnames';
 import ContentItem from '../ContentItem/ContentItem';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
@@ -19,13 +20,12 @@ const { prefix } = settings;
  * @param {object} props props object {title, copy, pictogram, link}
  * @param {string} props.heading Content with pictogram component title property
  * @param {string} props.copy Content with pictogram component copy property
+ * @param {string} props.className Pictogram Array className prop
  * @param {*} props.Pictogram Content with pictogram component Pictogram component
  * @returns {*} Content array with pictograms item JSX Component
  */
-const PictogramItem = ({ heading, copy, Pictogram, cta }) => (
-  <div
-    data-autoid={`${stablePrefix}--pictogram-item`}
-    className={`${prefix}--pictogram-item`}>
+const PictogramItem = ({ heading, copy, Pictogram, cta, className }) => (
+  <div className={classNames(className, `${prefix}--pictogram-item`)}>
     <div className={`${prefix}--pictogram-item__row`}>
       <div className={`${prefix}--pictogram-item__wrapper`}>
         <Pictogram
@@ -51,6 +51,7 @@ PictogramItem.propTypes = {
   copy: PropTypes.string.isRequired,
   cta: PropTypes.object,
   Pictogram: PropTypes.object.isRequired,
+  className: PropTypes.string,
 };
 
 export default PictogramItem;

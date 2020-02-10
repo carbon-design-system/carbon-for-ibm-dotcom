@@ -19,8 +19,8 @@ const { prefix } = settings;
  * Content Array with Pictograms
  *
  * @param {object} props props object
- * @param {Array} props.contentGroup variation of the List section standard, standard with jump link and standard with card link
- * @param {string} props.title List section title
+ * @param {Array} props.items Pictogram item content array
+ * @param {string} props.heading Content Group Pictograms title
  * @returns {*}  Content array with pictograms JSX Component
  */
 const ContentGroupPictograms = ({ heading, items }) => (
@@ -43,28 +43,17 @@ const ContentGroupPictograms = ({ heading, items }) => (
  */
 const _renderItems = items =>
   items.map((item, index) => (
-    <div
+    <PictogramItem
       className={`${prefix}--content-group-pictograms__item`}
       data-autoid={`${prefix}--content-group-pictograms__item`}
-      key={index}>
-      <PictogramItem {...item} />
-    </div>
+      {...item}
+      key={index}
+    />
   ));
 
 ContentGroupPictograms.propTypes = {
   heading: PropTypes.string.isRequired,
-  items: PropTypes.arrayOf(
-    PropTypes.shape({
-      heading: PropTypes.string.isRequired,
-      copy: PropTypes.string.isRequired,
-      cta: PropTypes.shape({
-        type: PropTypes.string,
-        href: PropTypes.string,
-        copy: PropTypes.string,
-      }),
-      Pictogram: PropTypes.element,
-    })
-  ),
+  items: PropTypes.arrayOf(PropTypes.instanceOf(PictogramItem)),
 };
 
 export default ContentGroupPictograms;
