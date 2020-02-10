@@ -5,16 +5,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import {
-  settings as ddsSettings,
-  featureFlag,
-} from '@carbon/ibmdotcom-utilities';
 import { ButtonGroup } from '../../sub-patterns/ButtonGroup';
-import { DDS_LEADSPACE } from '../../../internal/FeatureFlags';
 import LeadSpaceImage from './LeadSpaceImage';
 import PropTypes from 'prop-types';
 import React from 'react';
 import classnames from 'classnames';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
 
 const { stablePrefix } = ddsSettings;
@@ -25,16 +21,32 @@ const { prefix } = settings;
  *
  * @param {string} variation variation of the pattern
  * @param {string} theme theme of the pattern
+ * @param {string} type switches between centered or default
  * @returns {string} classnames
  */
-const className = (variation, theme) =>
+const className = (variation, theme, type) =>
   classnames(
     `${prefix}--leadspace`,
     theme && `${prefix}--leadspace--${theme}`,
     {
       [`${prefix}--leadspace--productive`]: variation === 'productive',
+    },
+    {
+      [`${prefix}--leadspace--centered${theme && '--g100'}`]:
+        type === 'centered',
     }
   );
+
+/**
+ * @param {string} type returns centered or default
+ * @param {string} element returns element name
+ * @returns {string} classnames
+ */
+function centeredClassname(type, element) {
+  if (type === 'centered') {
+    return `${prefix}--leadspace--centered__${element}`;
+  } else return `${prefix}--leadspace__${element}`;
+}
 
 /**
  * renders the pattern classnames
@@ -90,43 +102,42 @@ const LeadSpace = ({
   image,
   theme,
   title,
+  type,
   variation,
-}) =>
-  featureFlag(
-    DDS_LEADSPACE,
-    <section
-      data-autoid={`${stablePrefix}--leadspace`}
-      className={className(variation, theme)}>
-      <div className={`${prefix}--leadspace__container`}>
-        <div className={overlayClassname(gradient)}>
-          <div className={`${prefix}--leadspace__row`}>
-            <h1 className={`${prefix}--leadspace__title`}>{title}</h1>
-          </div>
-          <div className={`${prefix}--leadspace__content`}>
-            {copy && (
-              <div className={`${prefix}--leadspace__row`}>
-                {copy && (
-                  <p
-                    data-autoid={`${stablePrefix}--leadspace__desc`}
-                    className={`${prefix}--leadspace__desc`}>
-                    {copy}
-                  </p>
-                )}
-              </div>
-            )}
-            {buttons && buttons.length > 0 && <ButtonGroup buttons={buttons} />}
-          </div>
+}) => (
+  <section
+    data-autoid={`${stablePrefix}--leadspace`}
+    className={className(variation, theme, type)}>
+    <div className={`${prefix}--leadspace__container`}>
+      <div className={overlayClassname(gradient)}>
+        <div className={`${prefix}--leadspace__row`}>
+          <h1 className={centeredClassname(type, 'title')}>{title}</h1>
         </div>
-        {image && (
-          <LeadSpaceImage
-            images={sortImages(image)}
-            defaultImage={image.default}
-            alt={image.alt}
-          />
-        )}
+        <div className={centeredClassname(type, 'content')}>
+          {copy && (
+            <div className={`${prefix}--leadspace__row`}>
+              {copy && (
+                <p
+                  data-autoid={`${stablePrefix}--leadspace__desc`}
+                  className={centeredClassname(type, 'desc')}>
+                  {copy}
+                </p>
+              )}
+            </div>
+          )}
+          {buttons && buttons.length > 0 && <ButtonGroup buttons={buttons} />}
+        </div>
       </div>
-    </section>
-  );
+      {image && (
+        <LeadSpaceImage
+          images={sortImages(image)}
+          defaultImage={image.default}
+          alt={image.alt}
+        />
+      )}
+    </div>
+  </section>
+);
 
 LeadSpace.propTypes = {
   buttons: PropTypes.array,
@@ -140,6 +151,7 @@ LeadSpace.propTypes = {
   }),
   theme: PropTypes.string,
   title: PropTypes.string.isRequired,
+  type: PropTypes.string,
   variation: PropTypes.string,
 };
 

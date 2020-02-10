@@ -34,6 +34,11 @@ if (DDS_LEADSPACE) {
         productive: 'productive',
       };
 
+      const type = {
+        left: '',
+        centered: 'centered',
+      };
+
       const iconMap = {
         ArrowRight20,
         ArrowDown20,
@@ -71,6 +76,7 @@ if (DDS_LEADSPACE) {
 
       return (
         <LeadSpace
+          type={select('type', type, type.left)}
           theme={select('theme', themes, themes.g100)}
           title={title}
           copy={copy}
@@ -86,6 +92,11 @@ if (DDS_LEADSPACE) {
       );
 
       const title = text('title', 'Lead space title');
+
+      const type = {
+        left: '',
+        centered: 'centered',
+      };
 
       const variations = {
         expressive: '',
@@ -138,6 +149,7 @@ if (DDS_LEADSPACE) {
 
       return (
         <LeadSpace
+          type={select('type', type, type.left)}
           theme={select('theme', themes, themes.g100)}
           title={title}
           copy={copy}
