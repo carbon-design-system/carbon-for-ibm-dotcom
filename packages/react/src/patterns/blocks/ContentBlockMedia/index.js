@@ -5,4 +5,4 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-export { default as UseCases } from './UseCases';
+export { default as ContentBlockMedia } from './ContentBlockMedia';

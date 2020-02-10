@@ -16,27 +16,29 @@ const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
- * UsecasesItem
+ * ContentBlockMediaItem
  *
  * @param {object} props props object { lists:{ title, copy, link: { text, href, target}} }
- * @param {string} props.lists.title UsecasesItem title property
- * @param {string} props.lists.copy UsecasesItem copy property
- * @param {object} props.lists.link UsecasesItem link object
- * @param {string} props.lists.link.href UsecasesItem href property of link object
- * @param {string} props.lists.link.title UsecasesItem text property of link object
- * @param {string} props.lists.link.target UsecasesItem target property of link object
+ * @param {string} props.lists.title ContentBlockMediaItem title property
+ * @param {string} props.lists.copy ContentBlockMediaItem copy property
+ * @param {object} props.lists.link ContentBlockMediaItem link object
+ * @param {string} props.lists.link.href ContentBlockMediaItem href property of link object
+ * @param {string} props.lists.link.title ContentBlockMediaItem text property of link object
+ * @param {string} props.lists.link.target ContentBlockMediaItem target property of link object
  * @returns {object} JSX Object
  */
-const UsecasesItem = ({ lists: { title, copy, link } }) => {
+const ContentBlockMediaItem = ({ lists: { title, copy, link } }) => {
   return (
     <div
-      data-autoid={`${stablePrefix}--usecases-item`}
-      className={`${prefix}--usecases-item`}>
-      <h3 className={`${prefix}--usecases-item__title`}>{title}</h3>
-      <div className={`${prefix}--usecases-item__content`}>{copy}</div>
+      data-autoid={`${stablePrefix}--content-block-media--item`}
+      className={`${prefix}--content-block-media--item`}>
+      <h3 className={`${prefix}--content-block-media--item__title`}>{title}</h3>
+      <div className={`${prefix}--content-block-media--item__content`}>
+        {copy}
+      </div>
       <div
-        data-autoid={`${stablePrefix}--usecases-item__link`}
-        className={`${prefix}--usecases-item__link`}>
+        data-autoid={`${stablePrefix}--content-block-media--item__link`}
+        className={`${prefix}--content-block-media--item__link`}>
         {link && (
           <LinkWithIcon href={link.href} target={link.target}>
             <span>{link.title}</span>
@@ -48,7 +50,7 @@ const UsecasesItem = ({ lists: { title, copy, link } }) => {
   );
 };
 
-UsecasesItem.propTypes = {
+ContentBlockMediaItem.propTypes = {
   lists: PropTypes.shape({
     title: PropTypes.string,
     copy: PropTypes.string,
@@ -60,4 +62,4 @@ UsecasesItem.propTypes = {
   }),
 };
 
-export default UsecasesItem;
+export default ContentBlockMediaItem;

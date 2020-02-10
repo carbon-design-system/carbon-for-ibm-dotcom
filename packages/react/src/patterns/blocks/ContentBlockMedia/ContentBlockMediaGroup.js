@@ -7,17 +7,17 @@
 
 import { ArrowRight20 } from '@carbon/icons-react';
 import { CardLink } from '../../sub-patterns/CardLink';
+import ContentBlockMediaItem from './ContentBlockMediaItem';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { settings } from 'carbon-components';
-import UseCasesItem from './UseCasesItem';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
- * UseCasesGroup Component
+ * ContentBlockMediaGroup Component
  *
  * @param {object} props props object
  * @param {string} props.title use case group title
@@ -26,25 +26,29 @@ const { prefix } = settings;
  * @param {Array} props.link use case link object
  * @returns {object} JSX Object
  */
-const UseCasesGroup = ({ usecaseGroup: { title, image, lists, link } }) => {
+const ContentBlockMediaGroup = ({
+  contentGroup: { title, image, lists, link },
+}) => {
   return (
     <div
-      data-autoid={`${stablePrefix}--usecases-group`}
-      className={`${prefix}--usecases-group`}>
-      <h2 className={`${prefix}--usecases-group__title`}>{title}</h2>
+      className={`${prefix}--content-block-media--group`}
+      data-autoid={`${stablePrefix}--content-block-media--group`}>
+      <h2 className={`${prefix}--content-block-media--group__title`}>
+        {title}
+      </h2>
 
       <div
-        data-autoid={`${stablePrefix}--usecases-group__img`}
-        className={`${prefix}--usecases-group__img`}>
+        data-autoid={`${stablePrefix}--content-block-media--group__img`}
+        className={`${prefix}--content-block-media--group__img`}>
         {_renderPicture(image)}
       </div>
-      <div className={`${prefix}--usecases-group__list`}>
+      <div className={`${prefix}--content-block-media--group__list`}>
         {_renderList(lists)}
       </div>
       {link && (
         <div
-          data-autoid={`${stablePrefix}--usecases-group__card`}
-          className={`${prefix}--usecases-group__card`}>
+          data-autoid={`${stablePrefix}--content-block-media--group__card`}
+          className={`${prefix}--content-block-media--group__card`}>
           <CardLink
             title={link.title}
             href={link.href}
@@ -80,7 +84,7 @@ const _renderPicture = img => {
 };
 
 /**
- * Render UsecaseItems Component
+ * Render ContentBlockMediaItem Component
  *
  * @private
  * @param {object} items usecase items data
@@ -88,12 +92,12 @@ const _renderPicture = img => {
  */
 const _renderList = items => {
   return items.map(item => {
-    return <UseCasesItem key={item.title} lists={item} />;
+    return <ContentBlockMediaItem key={item.title} lists={item} />;
   });
 };
 
-UseCasesGroup.propTypes = {
-  usecaseGroup: PropTypes.shape({
+ContentBlockMediaGroup.propTypes = {
+  contentGroup: PropTypes.shape({
     title: PropTypes.string,
     image: PropTypes.shape({
       url: PropTypes.object,
@@ -104,4 +108,4 @@ UseCasesGroup.propTypes = {
   }),
 };
 
-export default UseCasesGroup;
+export default ContentBlockMediaGroup;
