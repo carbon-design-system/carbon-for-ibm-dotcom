@@ -44,7 +44,7 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 | `content`   | NO       | String    | null          | Paragraph of text that further describing the resource with added detail.                                                        |
 | `className` | NO       | String    | null          | Classname to be assigned to the CardLink component                                                                               |
 | `href`      | YES      | String    | n/a           | Valid URL for a the location of an internal or external resource.                                                                |
-| `icon`      | NO       | Element   | null          | Provide an optional icon to the footer from [Carbon's icon library](https://www.carbondesignsystem.com/guidelines/icons/library) |
+| `icon`      | NO       | Object    | null          | Provide an optional icon to the footer from [Carbon's icon library](https://www.carbondesignsystem.com/guidelines/icons/library) |
 | `title`     | YES      | String    | n/a           | Concise yet descriptive string of text describing the linked resource.                                                           |
 | `imgSrc`    | NO       | String    | null          | Image source to be passed as a property to the to the CardLink component                                                         |
 | `altText`   | NO       | String    | null          | Image alternate text to be passed as a property to the to the CardLink component                                                 |
