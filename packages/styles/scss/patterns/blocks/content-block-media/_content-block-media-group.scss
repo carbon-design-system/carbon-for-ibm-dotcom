@@ -6,7 +6,7 @@
 //
 
 @mixin themed-items {
-  .#{$prefix}--usecases-group__card .#{$prefix}--card {
+  .#{$prefix}--content-block-media--group__card .bx--card-link {
     background-color: $ui-01;
 
     &__title {
@@ -21,21 +21,21 @@
   }
 }
 
-@mixin usecases-group {
-  .#{$prefix}--usecases-group {
-    padding-top: $carbon--layout-05;
-    // &__title {
-    // @include type-style('expressive-heading-04');
+@mixin content-block-media--group {
+  .#{$prefix}--content-block-media--group {
+    padding-bottom: $carbon--layout-06;
+    &__title {
+      @include type-style('expressive-heading-04');
 
-    // padding-bottom: $carbon--spacing-07;
-    // }
+      padding-bottom: $carbon--spacing-07;
+    }
 
     &__card {
       padding-top: $carbon--spacing-07;
       margin-left: -$carbon--layout-01;
       margin-right: -$carbon--layout-01;
       max-width: carbon--rem(320px);
-      .#{$prefix}--card {
+      .bx--card-link {
         padding: $carbon--layout-01;
         &__title {
           @include carbon--type-style('body-short-02');
@@ -53,27 +53,27 @@
         height: auto;
       }
     }
-    // @include carbon--breakpoint('md') {
-    //   &__title {
-    //     max-width: carbon--rem(640px);
-    //   }
-    // }
-    @include carbon--breakpoint('lg') {
-      padding-top: $carbon--layout-06;
+
+    @include carbon--breakpoint-down(md) {
+      padding-bottom: $carbon--layout-05;
       &__card {
         padding-top: $carbon--spacing-09;
       }
     }
 
     @include themed-items;
+
+    &:last-of-type {
+      padding-bottom: 0;
+    }
   }
 
-  .#{$prefix}--usecases--g100 {
+  .#{$prefix}--content-block-media--g100 {
     @include carbon--theme($carbon--theme--g100) {
       @include themed-items;
     }
   }
 }
-@include exports('usecases-group') {
-  @include usecases-group;
+@include exports('content-block-media--group') {
+  @include content-block-media--group;
 }
