@@ -19,7 +19,7 @@ yarn add @carbon/ibmdotcom-vanilla
 ```
 
 > NOTE: Carbon dependencies will be managed by the IBM.com Library starting in
-> `v1.3.0`. For earlier versions, Carbon dependencies will have to be installed
+> `v0.3.0`. For earlier versions, Carbon dependencies will have to be installed
 > separately:
 >
 > ```bash

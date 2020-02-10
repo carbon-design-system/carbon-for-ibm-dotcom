@@ -9,7 +9,7 @@ import LegalNav from '../LegalNav';
 import React from 'react';
 import { shallow } from 'enzyme';
 
-const FOOTER_NAV_DATA = require('../__data__/footer-legal.json').data;
+const FOOTER_NAV_DATA = require('../__data__/footer-thin.json');
 
 describe('<LegalNav />', () => {
   let MOCK_DATA;
