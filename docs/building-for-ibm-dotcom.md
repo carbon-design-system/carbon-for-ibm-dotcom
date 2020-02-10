@@ -46,6 +46,20 @@ For English used in the United Kingdom, specify:
 the country identifier should be written in uppercase following usual 
 conventions.
 
+### Configuring available languages
+
+The available languages are set by the following tags within `<head>`:
+
+```html
+<link rel="alternate" hreflang="[language code]-[country code]" href="[redirect link]">
+```
+
+For example:
+
+```html
+<link rel="alternate" hreflang="en-us" href="https://www.ibm.com/us-en/">
+```
+
 ## Digital data object
 
 The Digital Data Object (DDO) is a critical part of any page. It is a flexible, 
