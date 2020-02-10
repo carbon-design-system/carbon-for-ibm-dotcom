@@ -7,4 +7,7 @@ storiesOf('Overview|Get Started', module)
   .addDecorator(storyFn => (
     <div className="storybook-center-container">{storyFn()}</div>
   ))
-  .add('Read Me', withDocs(README, () => <div />));
+  .add(
+    'Read Me',
+    withDocs(README, () => <div />)
+  );
