@@ -58,6 +58,10 @@ For example:
 
 ```html
 <link rel="alternate" hreflang="en-us" href="https://www.ibm.com/us-en/">
+<link rel="alternate" hreflang="en-af" href="https://www.ibm.com/af-en">
+<link rel="alternate" hreflang="fr-dz" href="https://www.ibm.com/dz-fr">
+...
+
 ```
 
 ## Digital data object

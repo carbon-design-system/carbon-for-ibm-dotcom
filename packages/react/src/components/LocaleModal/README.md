@@ -46,6 +46,9 @@ See
 [Building for IBM.com](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/docs/building-for-ibm-dotcom.md#page-language)
 for more details.
 
+See how to
+[Configure Available Languages](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/docs/building-for-ibm-dotcom.md#page-language#configuring-available-languages).
+
 ## Options
 
 | Name                 | Description                                       |
