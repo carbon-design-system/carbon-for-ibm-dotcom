@@ -1,3 +1,4 @@
+
 {
   "name": "@carbon/ibmdotcom-react",
   "description": "IBM.com Library React Components and Patterns",
@@ -40,8 +41,8 @@
     "test-ssr": "yarn build && node ssr-tests/*.js"
   },
   "peerDependencies": {
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react": "16.9.0",
+    "react-dom": "16.9.0"
   },
   "dependencies": {
     "@babel/runtime": "^7.5.5",
@@ -108,8 +109,8 @@
     "postcss-loader": "^3.0.0",
     "promise": "^8.0.1",
     "prop-types": "^15.7.2",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
+    "react": "16.9.0",
+    "react-dom": "16.9.0",
     "react-test-renderer": "^16.8.6",
     "requestanimationframe": "^0.0.23",
     "require-context.macro": "^1.0.4",
