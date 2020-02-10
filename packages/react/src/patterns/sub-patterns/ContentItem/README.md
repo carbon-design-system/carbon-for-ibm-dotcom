@@ -38,6 +38,7 @@ function App() {
   const cta = {
     type: 'jump',
     copy: 'Click here',
+    href: 'www.ibm.com',
   };
 
   return <ContentItem heading={heading} copy={copy} image={image} cta={cta} />;
@@ -60,10 +61,15 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 ### cta (optional)
 
-| Name   | Data Type | Description                            |
-| ------ | --------- | -------------------------------------- |
-| `type` | String    | Type of CTA (jump, local, or external) |
-| `copy` | String    | Text of the CTA component              |
+| Name    | Data Type | Description                                               |
+| ------- | --------- | --------------------------------------------------------- |
+| `type`  | String    | Type of CTA (jump, local, or external)                    |
+| `copy`  | String    | Text of the CTA component                                 |
+| `style` | String    | 'text' style of the CTA is hardcoded into this subpattern |
+
+Visit the
+[CTA documentation](https://ibmdotcom-react.mybluemix.net/?path=/story/components-cta--default)
+for more details on the CTA options.
 
 ### image (optional)
 

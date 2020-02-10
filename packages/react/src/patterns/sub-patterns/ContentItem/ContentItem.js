@@ -45,7 +45,9 @@ const ContentItem = ({ cta, copy, heading, image }) => (
           __html: markdownToHtml(copy, { bold: false }),
         }}></div>
     )}
-    {cta && <CTA style="text" type={cta.type} copy={cta.copy} />}
+    {cta && (
+      <CTA style="text" type={cta.type} copy={cta.copy} href={cta.href} />
+    )}
   </div>
 );
 
@@ -53,6 +55,7 @@ ContentItem.propTypes = {
   cta: PropTypes.shape({
     type: PropTypes.string,
     copy: PropTypes.string,
+    href: PropTypes.string,
   }),
   copy: PropTypes.string,
   heading: PropTypes.string,

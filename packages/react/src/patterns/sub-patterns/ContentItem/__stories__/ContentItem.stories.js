@@ -29,6 +29,7 @@ storiesOf('Patterns (Sub-Patterns)|ContentItem', module)
     const cta = {
       copy: text('cta.copy', 'Lorem ipsum dolor sit amet'),
       type: select('cta.type', types, types.local),
+      href: text('cta.href', 'https://example.com'),
     };
 
     const image = {
