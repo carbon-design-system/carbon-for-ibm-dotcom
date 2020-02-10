@@ -1,5 +1,5 @@
 {
-  "lerna": "3.13.4",
+  "lerna": "3.20.2",
   "version": "independent",
   "npmClient": "yarn",
   "npmClientArgs": [
@@ -17,6 +17,8 @@
   ],
   "command": {
     "version": {
+      "conventionalCommits": true,
+      "exact": true,
       "message": "chore(release): publish"
     }
   }
