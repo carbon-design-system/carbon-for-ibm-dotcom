@@ -104,6 +104,7 @@
     "rollup-plugin-visualizer": "^2.5.4",
     "rtlcss": "^2.4.0",
     "sass-loader": "^7.1.0",
+    "showdown": "^1.9.1",
     "storybook-readme": "^5.0.3",
     "string-replace-loader": "^2.1.0",
     "terser-webpack-plugin": "^1.1.0",

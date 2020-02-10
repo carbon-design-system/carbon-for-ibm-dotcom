@@ -12,12 +12,12 @@ import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
 import { TranslationAPI } from '@carbon/ibmdotcom-services';
 
-const FOOTER_MENU_MOCK_DATA = require('../__data__/footer-menu.json').data;
-const LEGAL_NAV_MOCK_DATA = require('../__data__/footer-legal.json').data;
+const FOOTER_MENU_MOCK_DATA = require('../__data__/footer-menu.json');
+const FOOTER_THIN_MOCK_DATA = require('../__data__/footer-thin.json');
 
 const MOCK_DATA = {
   footerMenu: FOOTER_MENU_MOCK_DATA,
-  footerThin: LEGAL_NAV_MOCK_DATA,
+  footerThin: FOOTER_THIN_MOCK_DATA,
 };
 
 jest.mock('@carbon/ibmdotcom-services', () => ({
