@@ -8,9 +8,7 @@
 import { ArrowRight20 } from '@carbon/icons-react';
 import { Card } from '../../sub-patterns/Card';
 import classNames from 'classnames';
-import { DDS_SIMPLELONGFORM } from '../../../internal/FeatureFlags';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
-import { featureFlag } from '@carbon/ibmdotcom-utilities';
 import { LinkWithIcon } from '../../../components/LinkWithIcon';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -31,35 +29,39 @@ const { prefix } = settings;
  * @param {string} props.title simple long form title
  * @returns {*} Simple long form pattern
  */
-const SimpleLongForm = ({ border, copy, linkType, link, theme, title }) =>
-  featureFlag(
-    DDS_SIMPLELONGFORM,
+const ContentBlockSimple = ({ border, copy, linkType, link, theme, title }) => {
+  return (
     <section
-      data-autoid={`${stablePrefix}--simplelongform`}
+      data-autoid={`${stablePrefix}--content-block-simple`}
       className={classNames(
-        `${prefix}--simplelongform`,
+        `${prefix}--content-block-simple`,
         setLinkType(linkType),
         setBorder(border),
         setTheme(theme)
       )}>
-      <div className={`${prefix}--simplelongform__container`}>
-        <div className={`${prefix}--simplelongform__row`}>
-          <div className={`${prefix}--simplelongform__col`}>
-            <h3 className={`${prefix}--simplelongform__title`}>{title}</h3>
-            <div className={`${prefix}--simplelongform__content`}>{copy}</div>
+      <div className={`${prefix}--content-block-simple__container`}>
+        <div className={`${prefix}--content-block-simple__row`}>
+          <div className={`${prefix}--content-block-simple__col`}>
+            <h3 className={`${prefix}--content-block-simple__title`}>
+              {title}
+            </h3>
+            <div className={`${prefix}--content-block-simple__content`}>
+              {copy}
+            </div>
             <div
-              data-autoid={`${stablePrefix}--simplelongform__link`}
-              className={`${prefix}--simplelongform__link`}>
+              data-autoid={`${stablePrefix}--content-block-simple__link`}
+              className={`${prefix}--content-block-simple__link`}>
               {renderLink(linkType, link)}
             </div>
           </div>
-          <div className={`${prefix}--simplelongform__divider__col`}>
-            <div className={`${prefix}--simplelongform__divider`}></div>
+          <div className={`${prefix}--content-block-simple__divider__col`}>
+            <div className={`${prefix}--content-block-simple__divider`}></div>
           </div>
         </div>
       </div>
     </section>
   );
+};
 
 /**
  * renderLink based on link type
@@ -96,10 +98,10 @@ const setLinkType = type => {
   let linkType;
   switch (type) {
     case 'iconLink':
-      linkType = `${prefix}--simplelongform--icon-link`;
+      linkType = `${prefix}--content-block-simple--icon-link`;
       break;
     case 'card':
-      linkType = `${prefix}--simplelongform--card`;
+      linkType = `${prefix}--content-block-simple--card`;
       break;
     default:
   }
@@ -113,7 +115,7 @@ const setLinkType = type => {
  * @returns {string} theme css class names
  */
 const setTheme = theme => {
-  return theme && `${prefix}--simplelongform--${theme}`;
+  return theme && `${prefix}--content-block-simple--${theme}`;
 };
 
 /**
@@ -124,11 +126,12 @@ const setTheme = theme => {
  */
 const setBorder = border => {
   let withBorder;
-  withBorder = border === true ? `${prefix}--simplelongform--with-border` : '';
+  withBorder =
+    border === true ? `${prefix}--content-block-simple--with-border` : '';
   return withBorder;
 };
 
-SimpleLongForm.propTypes = {
+ContentBlockSimple.propTypes = {
   border: PropTypes.bool,
   copy: PropTypes.string,
   link: PropTypes.shape({
@@ -141,4 +144,4 @@ SimpleLongForm.propTypes = {
   title: PropTypes.string.isRequired,
 };
 
-export default SimpleLongForm;
+export default ContentBlockSimple;
