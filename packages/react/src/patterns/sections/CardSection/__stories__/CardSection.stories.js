@@ -53,7 +53,7 @@ if (DDS_CARD_SECTION) {
       };
       return (
         <SimpleCards
-          heading="Aliquam condimentum interdum"
+          title="Aliquam condimentum interdum"
           cards={object('Data', cards.simpleCards)}
           theme={select('theme', themes, themes.g10)}
         />

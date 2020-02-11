@@ -2,7 +2,7 @@
   "simpleCards": [
     {
       "title": "Nunc convallis lobortis",
-      "heading": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
+      "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
       "link": {
         "href": "https://www.example.com",
         "text": "Learn more",
@@ -11,7 +11,7 @@
     },
     {
       "title": "Fusce gravida eu arcu",
-      "heading": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
+      "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
       "link": {
         "href": "https://www.example.com",
         "text": "Learn more",
@@ -20,7 +20,7 @@
     },
     {
       "title": "Interdum et malesuada",
-      "heading": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
+      "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
       "link": {
         "href": "https://www.example.com",
         "text": "Learn more",
@@ -29,7 +29,7 @@
     },
     {
       "title": "Nunc convallis loborti",
-      "heading": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
+      "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
       "link": {
         "href": "https://www.example.com",
         "text": "Learn more",
@@ -38,7 +38,7 @@
     },
     {
       "title": "Nunc convallis lbortis",
-      "heading": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
+      "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
       "link": {
         "href": "https://www.example.com",
         "text": "Learn more",
