@@ -27,9 +27,7 @@
       margin-top: $carbon--grid-gutter--condensed / 2;
       margin-bottom: $carbon--grid-gutter--condensed / 2;
 
-      @include carbon--breakpoint(sm) {
-        @include carbon--make-col(4, 4);
-      }
+      @include carbon--make-col(4, 4);
 
       @include carbon--breakpoint(lg) {
         @include carbon--make-col(8, 16);
@@ -40,12 +38,10 @@
     }
 
     .#{$prefix}--content-group {
-      @include carbon--breakpoint(sm) {
-        @include carbon--make-col(4, 4);
-        .#{$prefix}--content-group-cards__row {
-          padding-left: $carbon--layout-01;
-          padding-right: $carbon--layout-01;
-        }
+      @include carbon--make-col(4, 4);
+      .#{$prefix}--content-group-cards__row {
+        padding-left: $carbon--layout-01;
+        padding-right: $carbon--layout-01;
       }
 
       @include carbon--breakpoint(md) {
@@ -64,6 +60,10 @@
         padding-left: $carbon--layout-01;
         padding-right: $carbon--layout-01;
       }
+    }
+
+    .#{$prefix}--card-link__wrapper {
+      width: 90%;
     }
 
     @include themed-items;
