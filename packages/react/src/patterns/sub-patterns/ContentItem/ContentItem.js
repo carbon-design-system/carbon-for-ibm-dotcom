@@ -46,27 +46,22 @@ const ContentItem = ({ cta, copy, heading, image }) => (
         }}></div>
     )}
     {cta && (
-      <CTA style="text" type={cta.type} copy={cta.copy} href={cta.href} />
+      <CTA
+        style="text"
+        type={cta.type}
+        copy={cta.copy}
+        href={cta.href}
+        customClassname={`${prefix}--content-item__cta`}
+      />
     )}
   </div>
 );
 
 ContentItem.propTypes = {
-  cta: PropTypes.shape({
-    type: PropTypes.string,
-    copy: PropTypes.string,
-    href: PropTypes.string,
-  }),
+  cta: PropTypes.instanceOf(CTA),
   copy: PropTypes.string,
   heading: PropTypes.string,
-  image: PropTypes.shape({
-    images: PropTypes.shape({
-      src: PropTypes.string,
-      minWidth: PropTypes.string,
-    }),
-    alt: PropTypes.string,
-    defaultImage: PropTypes.string,
-  }),
+  image: PropTypes.instanceOf(Image),
 };
 
 export default ContentItem;

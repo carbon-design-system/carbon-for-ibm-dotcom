@@ -23,9 +23,22 @@ const { prefix } = settings;
  * @param {object} props props object
  * @param {string} props.style cta style ( text | card | button | feature ).
  * @param {string} props.type cta type ( jump | local | external ).
+ * @param {string} props.customClassname custom classname from parent
+ * @returns {*} CTA component
+ */
+const CTA = ({ style, type, customClassname, ...cta }) => (
+  <div className={customClassname}>{renderCTA({ style, type, ...cta })}</div>
+);
+
+/**
+ * renders CTA component
+ *
+ * @param {object} props props object
+ * @param {string} props.style cta style ( text | card | button | feature ).
+ * @param {string} props.type cta type ( jump | local | external ).
  * @returns {*} CTA Component
  */
-const CTA = ({ style, type, ...cta }) => {
+const renderCTA = ({ style, type, ...cta }) => {
   switch (style) {
     case 'card':
       return (
@@ -123,5 +136,6 @@ const _renderFeatureCard = featureCard => {
 CTA.propTypes = {
   style: PropTypes.string,
   type: PropTypes.string,
+  customClassname: PropTypes.string,
 };
 export default CTA;
