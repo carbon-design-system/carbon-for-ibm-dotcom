@@ -20,7 +20,7 @@ const { prefix } = settings;
  * @param {object} props props object {title, copy, pictogram, link}
  * @param {string} props.heading Content with pictogram component title property
  * @param {string} props.copy Content with pictogram component copy property
- * @param {string} props.className Pictogram Array className prop
+ * @param {string} props.className Pictogram Item className prop
  * @param {*} props.Pictogram Content with pictogram component Pictogram component
  * @returns {*} Content array with pictograms item JSX Component
  */
