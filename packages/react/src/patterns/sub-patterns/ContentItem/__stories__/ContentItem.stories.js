@@ -1,6 +1,6 @@
 import './index.scss';
 
-import { object, text, withKnobs } from '@storybook/addon-knobs';
+import { object, text, withKnobs, select } from '@storybook/addon-knobs';
 import ContentItem from '../ContentItem';
 import React from 'react';
 import readme from '../README.md';
@@ -20,6 +20,18 @@ storiesOf('Patterns (Sub-Patterns)|ContentItem', module)
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.'
     );
 
+    const types = {
+      jump: 'jump',
+      local: 'local',
+      external: 'external',
+    };
+
+    const cta = {
+      copy: text('cta.copy', 'Lorem ipsum dolor sit amet'),
+      type: select('cta.type', types, types.local),
+      href: text('cta.href', 'https://example.com'),
+    };
+
     const image = {
       images: object('Image assets:', [
         { src: 'https://picsum.photos/id/2/288/144', minWidth: 'sm' },
@@ -36,7 +48,12 @@ storiesOf('Patterns (Sub-Patterns)|ContentItem', module)
       <div class="bx--grid">
         <div class="bx--row">
           <div class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
-            <ContentItem heading={heading} copy={copy} image={image} />
+            <ContentItem
+              heading={heading}
+              copy={copy}
+              image={image}
+              cta={cta}
+            />
           </div>
         </div>
       </div>
