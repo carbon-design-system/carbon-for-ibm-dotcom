@@ -5,11 +5,7 @@ import React from 'react';
 import readme from '../README.md';
 import { storiesOf } from '@storybook/react';
 
-const localeModalProps = {
-  headerTitle: text('title', 'Select region'),
-};
-
-storiesOf('Locale Modal', module)
+storiesOf('Components|Locale Modal', module)
   .addDecorator(withKnobs)
   .addParameters({
     readme: {
@@ -17,5 +13,9 @@ storiesOf('Locale Modal', module)
     },
   })
   .add('Default', () => {
+    const localeModalProps = {
+      headerTitle: text('title', 'Select region'),
+    };
+
     return <LocaleModal isOpen={true} {...localeModalProps} />;
   });

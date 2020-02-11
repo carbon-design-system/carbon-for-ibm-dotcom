@@ -1,0 +1,85 @@
+//
+// Copyright IBM Corp. 2016, 2018
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import '../../../globals/imports';
+@import '../../../temp-carbon-expressive/temp-carbon-expressive';
+@import '@carbon/motion/scss/motion.scss';
+
+@import 'carbon-components/scss/components/tile/tile';
+@import 'carbon-components/scss/components/link/link';
+
+@mixin card {
+  .#{$prefix}--card {
+    color: $text-01;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+
+    &__wrapper {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      padding: $carbon--spacing-05;
+    }
+
+    &__title {
+      @include carbon--type-style('expressive-heading-03');
+
+      margin-bottom: $carbon--layout-05;
+    }
+
+    &__content {
+      @include carbon--type-style('body-short-02');
+
+      margin-bottom: $carbon--layout-01;
+      color: $text-02;
+    }
+
+    &__footer {
+      margin-top: auto;
+
+      svg {
+        fill: currentColor;
+      }
+    }
+    &--CTA {
+      .#{$prefix}--card__title {
+        @include carbon--type-style('expressive-heading-02');
+      }
+    }
+
+    &:visited,
+    &:active,
+    &:hover {
+      color: currentColor;
+    }
+
+    &__img {
+      transition: $duration--moderate-01 motion(standard, productive);
+    }
+
+    &:hover {
+      text-decoration: none;
+
+      .#{$prefix}--card__img {
+        filter: brightness(80%);
+      }
+    }
+
+    &:focus {
+      outline-color: $focus;
+    }
+
+    &.#{$prefix}--tile {
+      padding: 0;
+    }
+  }
+}
+
+@include exports('card') {
+  @include card;
+}

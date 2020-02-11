@@ -6,7 +6,7 @@ import readme from '../README.md';
 import { storiesOf } from '@storybook/html';
 import wrapper from './templates/wrapper.template';
 
-storiesOf('HorizontalRule', module)
+storiesOf('Components|Horizontal Rule', module)
   .addDecorator(withKnobs)
   .addParameters({
     readme: {

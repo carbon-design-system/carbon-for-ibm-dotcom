@@ -2,12 +2,12 @@ import './index.scss';
 import { boolean, select, text, withKnobs } from '@storybook/addon-knobs';
 import { DDS_MASTHEAD_L1 } from '../../../internal/FeatureFlags';
 import Masthead from '../Masthead';
-import React from 'react';
 import mastheadKnobs from './data/Masthead.stories.knobs.js';
+import React from 'react';
 import readme from '../README.md';
 import { storiesOf } from '@storybook/react';
 
-storiesOf('Masthead', module)
+storiesOf('Components|Masthead', module)
   .addDecorator(withKnobs)
   .addParameters({
     readme: {

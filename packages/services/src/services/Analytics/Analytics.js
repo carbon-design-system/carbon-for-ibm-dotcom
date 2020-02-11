@@ -9,6 +9,7 @@ const _scrollTracker =
 
 /**
  * Current NODE_ENV
+ *
  * @type {string | string}
  * @private
  */

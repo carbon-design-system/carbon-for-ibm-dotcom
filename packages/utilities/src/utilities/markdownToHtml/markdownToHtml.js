@@ -2,9 +2,10 @@ import { settings } from 'carbon-components';
 const { prefix } = settings;
 
 const _htmlTagRegex = /<.*?>/g;
-const _doubleSpaceRegex = /\s{2,}/g;
+const _cleanStringRegex = /\n|\s{2,}/g;
 const _italicRegex = /[_*](.*?)[_*]/g;
 const _boldRegex = /[_*]{2}(.*?)[_*]{2}/g;
+const _paraRegex = /\n\n/g;
 
 /**
  * Removes any html tags from a string and keeps inner text if any
@@ -16,24 +17,26 @@ const _boldRegex = /[_*]{2}(.*?)[_*]{2}/g;
 const _removeHtmlTags = str => str.replace(_htmlTagRegex, '');
 
 /**
- * Checks for double spaces between words in a string and replaces for single spaces
+ * Cleans string by replacing multiple spaces with a single space
+ * and removing single new lines.
  *
- * @param {string} str String to be checked for double spaces
- * @returns {string} String with html double spaces fixed
+ * @param {string} str String to be checked
+ * @returns {string} String with multiple spaces and single new lines removed
  * @private
  */
-const _fixDoubleSpaces = str => str.replace(_doubleSpaceRegex, ' ');
+const _cleanString = str => str.replace(_cleanStringRegex, ' ');
 
 /**
  * Converts some markdown syntaxes into html
- * <p>It's not a full markdown-to-html converter</p>
- * <p>It currently supports two syntaxes: <strong>Bold</strong> and <em>Italic</em></p>
- * <ul>
- * <li>Bold: Double asterisk (**) or double underscore (__)</li>
- * <li>Bold examples: **Lorem ipsum** __dolor__</li>
- * <li>Italic: Single asterisk (*) or single underscore (_)</li>
- * <li>Italic examples: _Lorem ipsum_ *dolor*</li>
- * </ul>
+ * It's not a full markdown-to-html converter
+ * It currently supports three syntaxes: <strong>Bold</strong>, <em>Italic</em>, and <p>Paragraph</p>
+ *
+ * Bold: Double asterisk (**) or double underscore (__)
+ * Bold examples: **Lorem ipsum** __dolor__
+ * Italic: Single asterisk (*) or single underscore (_)
+ * Italic examples: _Lorem ipsum_ *dolor*
+ * Paragraph: Double new line per paragraph
+ * Paragraph examples: This is paragraph one.\n\nThis is paragraph two.
  *
  * @param {string} str String to convert to html
  * @param {object} [options={}] Object with options for the conversion
@@ -57,28 +60,37 @@ function markdownToHtml(
     allowHtml = false,
   } = {}
 ) {
+  let paraList = '';
   let converted = allowHtml ? str : _removeHtmlTags(str);
+  const paras = converted.split(_paraRegex);
 
-  if (italic) {
-    converted = converted.replace(_italicRegex, (match, p1) => {
-      if (!p1.length) {
-        return match;
-      }
-      return useCarbonClasses
-        ? `<em class="${prefix}--type-light">${p1}</em>`
-        : `<em>${p1}</em>`;
-    });
-  }
+  paras.map(para => {
+    if (italic) {
+      para = _cleanString(para).replace(_italicRegex, (match, p1) => {
+        if (!p1.length) {
+          return match;
+        }
+        return useCarbonClasses
+          ? `<em class="${prefix}--type-light">${p1}</em>`
+          : `<em>${p1}</em>`;
+      });
+    }
 
-  if (bold) {
-    converted = converted.replace(_boldRegex, (match, p1) => {
-      return useCarbonClasses
-        ? `<strong class="${prefix}--type-semibold">${p1}</strong>`
-        : `<strong>${p1}</strong>`;
-    });
-  }
+    if (bold) {
+      para = _cleanString(para).replace(_boldRegex, (match, p1) => {
+        if (!p1.length) {
+          return match;
+        }
+        return useCarbonClasses
+          ? `<strong class="${prefix}--type-semibold">${p1}</strong>`
+          : `<strong>${p1}</strong>`;
+      });
+    }
 
-  return _fixDoubleSpaces(converted);
+    paraList += `<p>${para}</p>`;
+  });
+
+  return paraList;
 }
 
 export default markdownToHtml;

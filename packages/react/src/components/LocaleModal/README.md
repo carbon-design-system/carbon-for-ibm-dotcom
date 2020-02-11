@@ -34,6 +34,21 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 > 💡 Don't forget to import the footer styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
+## Setting the current page language
+
+The current page language is based on the `lang` attribute in `<html>`:
+
+```html
+<html lang="[language code]-[country code]"></html>
+```
+
+See
+[Building for IBM.com](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/docs/building-for-ibm-dotcom.md#page-language)
+for more details.
+
+See how to
+[Configure Available Languages](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/docs/building-for-ibm-dotcom.md#page-language#configuring-available-languages).
+
 ## Options
 
 | Name                 | Description                                       |

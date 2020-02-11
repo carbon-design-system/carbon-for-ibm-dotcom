@@ -1,0 +1,47 @@
+[
+  {
+    "label": "Company A",
+    "imgSrc": "https://via.placeholder.com/140",
+    "altText": "placeholder"
+  },
+  {
+    "label": "Company B",
+    "imgSrc": "https://via.placeholder.com/140",
+    "altText": "placeholder"
+  },
+  {
+    "label": "Company C",
+    "imgSrc": "https://via.placeholder.com/140",
+    "altText": "placeholder"
+  },
+  {
+    "label": "Company D",
+    "imgSrc": "https://via.placeholder.com/140",
+    "altText": "placeholder"
+  },
+  {
+    "label": "Company E",
+    "imgSrc": "https://via.placeholder.com/140",
+    "altText": "placeholder"
+  },
+  {
+    "label": "Company F",
+    "imgSrc": "https://via.placeholder.com/140",
+    "altText": "placeholder"
+  },
+  {
+    "label": "Company G",
+    "imgSrc": "https://via.placeholder.com/140",
+    "altText": "placeholder"
+  },
+  {
+    "label": "Company H",
+    "imgSrc": "https://via.placeholder.com/140",
+    "altText": "placeholder"
+  },
+  {
+    "label": "Company I",
+    "imgSrc": "https://via.placeholder.com/140",
+    "altText": "placeholder"
+  }
+]

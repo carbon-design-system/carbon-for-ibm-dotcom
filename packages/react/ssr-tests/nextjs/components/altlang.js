@@ -1,4 +1,3 @@
-/* eslint-disable sort-imports */
 import altlangs from './data/altlang.json';
 import PropTypes from 'prop-types';
 import React from 'react';

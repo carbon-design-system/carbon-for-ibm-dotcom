@@ -1607,10 +1607,25 @@
     "@carbon/import-once" "10.3.0"
     "@carbon/layout" "^10.7.0"
 
+"@carbon/ibmdotcom-utilities@1.4.0-alpha.2353":
+  version "1.4.0-alpha.2353"
+  resolved "https://registry.yarnpkg.com/@carbon/ibmdotcom-utilities/-/ibmdotcom-utilities-1.4.0-alpha.2353.tgz#0ea0df067bf2b1fb49b59676ce9baa78fe54a643"
+  integrity sha512-7zvaVYeJVxbG1yzKZTnnbBqwd/E3oUd4Jc7qimyDBQ2vybDUv7v4jIeeBLO4oc7LndvniOuTGrMnXpHXLrpgNg==
+  dependencies:
+    axios "^0.19.0"
+    carbon-components "^10.7.4"
+    js-cookie "^2.2.1"
+    window-or-global "^1.0.1"
+
 "@carbon/icon-helpers@^10.5.0":
   version "10.5.0"
   resolved "https://registry.yarnpkg.com/@carbon/icon-helpers/-/icon-helpers-10.5.0.tgz#dca43b95ead0555d308a583983835804b869f810"
   integrity sha512-ivKSCd3sl+Qm0PCLhGje7FAHnK8anX8Fml0rYgraIptU5JOASWrBKu14EUtGZwL9UP/tzszvufrzwO599cN9Qw==
+
+"@carbon/icon-helpers@^10.5.1":
+  version "10.5.1"
+  resolved "https://registry.yarnpkg.com/@carbon/icon-helpers/-/icon-helpers-10.5.1.tgz#a13426cf137eb6080cfe46405a567bd470b597a3"
+  integrity sha512-CPNDoDQYjCGg51WfI7w2Iwgz0S+svh0E3hWh3aybnDMhUPlikz8QFiWNpD55NSXAYe1C21CtRla6Rgxa1EkmNg==
 
 "@carbon/icons-react@^10.8.0":
   version "10.8.0"
@@ -1618,6 +1633,11 @@
   integrity sha512-I5/KtwutKL57SOEj7kk6clMiGOp0i7m3BytTeIah+b0UHs2tcEDGvJQTUGHPqhcZzFAw77BZPRnZ6qM4cEZHfA==
   dependencies:
     "@carbon/icon-helpers" "^10.5.0"
+
+"@carbon/icons@^10.8.2":
+  version "10.8.2"
+  resolved "https://registry.yarnpkg.com/@carbon/icons/-/icons-10.8.2.tgz#76d66f5c075bf1e0e1d44929fb18819c74488866"
+  integrity sha512-91fMYCIbu06dTRRu3TPtqgcS51NOKNkAWd0iTce1qa3S5iRt0idcGqL2zdj75vzxw3wlIjVxqS01wyx+gdpqYw==
 
 "@carbon/import-once@10.3.0":
   version "10.3.0"
@@ -1634,12 +1654,17 @@
   resolved "https://registry.yarnpkg.com/@carbon/layout/-/layout-10.7.0.tgz#4146a68f35ff44d0ec891946523123bdf4094d30"
   integrity sha512-PXpd9QCIatzGlQkXj7DWlTf7wgFMDCEMNTWj9Wrby93HdJ0veGJ7bLNzTCxe1CVtJmG8iDNj7DBv8J17YazYKQ==
 
-"@carbon/pictograms-react@^10.8.0":
-  version "10.8.0"
-  resolved "https://registry.yarnpkg.com/@carbon/pictograms-react/-/pictograms-react-10.8.0.tgz#0c6d44e114c1a3628fb2b96ea1af85f26f1a24d8"
-  integrity sha512-kQXAvv8j7eMNGaA/vUzvri4X4rzaVL/vMhi1uQPt6JK2/8ne2IrAMRXAJV6fa75404rnS7HG9uFDr/BcVLTmsA==
+"@carbon/motion@^10.5.2":
+  version "10.5.2"
+  resolved "https://registry.yarnpkg.com/@carbon/motion/-/motion-10.5.2.tgz#f290ea0cc1ad66c885b5525ab7fa2933f5253dba"
+  integrity sha512-NMoGcOFAEZrN2Set4sOb62eBk+iG3VGmYP1hTl2M6lTh8rloHTgbIgy8JeKOBS7TFr7acmyLK7hmNBGnkZXtxA==
+
+"@carbon/pictograms-react@^10.8.1":
+  version "10.8.1"
+  resolved "https://registry.yarnpkg.com/@carbon/pictograms-react/-/pictograms-react-10.8.1.tgz#ba6e68dad453f511c355a8c51689bceddbdf021a"
+  integrity sha512-sZ9IkGSAE7lPLzjxgAhLNnb236kUpis3kMW86s1FNCQDzxk7WXJBLHNjvUis2CN2hyslxadV08YwEWWYwvmaZg==
   dependencies:
-    "@carbon/icon-helpers" "^10.5.0"
+    "@carbon/icon-helpers" "^10.5.1"
 
 "@carbon/themes@10.9.0":
   version "10.9.0"
@@ -3279,27 +3304,6 @@
     react-lifecycles-compat "^3.0.4"
     util-deprecate "^1.0.2"
 
-"@storybook/addon-info@5.1.4":
-  version "5.1.4"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-info/-/addon-info-5.1.4.tgz#ccefc3a230627acd9eae1bbc5ac686f9d46abfb0"
-  integrity sha512-Vc80+VVibfiohrJJ6idKRJjDCbed9mUjzq/+sLehIAci5M9jykd+J7ycMGMK8VIjFSBSfOXKLN2onTuYII73pw==
-  dependencies:
-    "@storybook/addons" "5.1.4"
-    "@storybook/client-logger" "5.1.4"
-    "@storybook/components" "5.1.4"
-    "@storybook/theming" "5.1.4"
-    core-js "^3.0.1"
-    global "^4.3.2"
-    marksy "^7.0.0"
-    nested-object-assign "^1.0.3"
-    prop-types "^15.7.2"
-    react "^16.8.3"
-    react-addons-create-fragment "^15.6.2"
-    react-element-to-jsx-string "^14.0.2"
-    react-is "^16.8.3"
-    react-lifecycles-compat "^3.0.4"
-    util-deprecate "^1.0.2"
-
 "@storybook/addon-info@^5.1.3":
   version "5.1.11"
   resolved "https://registry.yarnpkg.com/@storybook/addon-info/-/addon-info-5.1.11.tgz#82cc8e36b20eaac469a171299e64754ebae189c8"
@@ -4509,6 +4513,11 @@
   integrity sha512-XIB2XbzHTN6ieIjfIMV9hlVcfPU26s2vafYWQcZHWXHOxiaRZYEDKEwdl129Zyg50+foYV2jCgtrqSA6qNuNSA==
   dependencies:
     defer-to-connect "^1.0.1"
+
+"@tarekraafat/autocomplete.js@^7.2.0":
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/@tarekraafat/autocomplete.js/-/autocomplete.js-7.2.0.tgz#d6ac9fe78db92d864ec096639e577f7e4b323829"
+  integrity sha512-p1aEcKC/WHpVBuFyRhXq/ie+mgO4QqCNEsdVIPUBgmNqmxV4dVfqYEpk///9vvKyranUUvrlVu4e2tdzAaXKIg==
 
 "@textlint/ast-node-types@^4.0.3":
   version "4.2.4"
@@ -16917,7 +16926,7 @@ react-docgen@^4.1.0:
     node-dir "^0.1.10"
     recast "^0.17.3"
 
-react-dom@16.9.0, react-dom@^16.8.3, react-dom@^16.8.6:
+react-dom@16.9.0, react-dom@^16.8.3:
   version "16.9.0"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.9.0.tgz#5e65527a5e26f22ae3701131bcccaee9fb0d3962"
   integrity sha512-YFT2rxO9hM70ewk9jq0y6sQk8cL02xm4+IzYBz75CQGlClQQ1Bxq0nhHF6OtSbit+AIahujJgb/CPRibFkMNJQ==
@@ -16927,7 +16936,7 @@ react-dom@16.9.0, react-dom@^16.8.3, react-dom@^16.8.6:
     prop-types "^15.6.2"
     scheduler "^0.15.0"
 
-react-dom@^16.8.4, react-dom@^16.9.0:
+react-dom@^16.8.4:
   version "16.11.0"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.11.0.tgz#7e7c4a5a85a569d565c2462f5d345da2dd849af5"
   integrity sha512-nrRyIUE1e7j8PaXSPtyRKtz+2y9ubW/ghNgqKFHHAHaeP0fpF5uXR+sq8IMRHC+ZUxw7W9NyCDTBtwWxvkb0iA==
@@ -17147,7 +17156,7 @@ react-transition-group@^2.2.1:
     prop-types "^15.6.2"
     react-lifecycles-compat "^3.0.4"
 
-react@16.9.0, react@^16.8.3, react@^16.8.6, react@^16.9.0:
+react@16.9.0, react@^16.8.3:
   version "16.9.0"
   resolved "https://registry.yarnpkg.com/react/-/react-16.9.0.tgz#40ba2f9af13bc1a38d75dbf2f4359a5185c4f7aa"
   integrity sha512-+7LQnFBwkiw+BobzOF6N//BdoNw0ouwmSJTEm9cglOOmsg/TMiFHZLe2sEoN5M7LgJTj9oHH0gxklfnQe66S1w==
@@ -18622,6 +18631,13 @@ shields-lightweight@^0.1.0:
   integrity sha1-qZj8mDtClhXiPUqBhJJUJIF5V6o=
   dependencies:
     dot "^1.0.3"
+
+showdown@^1.9.1:
+  version "1.9.1"
+  resolved "https://registry.yarnpkg.com/showdown/-/showdown-1.9.1.tgz#134e148e75cd4623e09c21b0511977d79b5ad0ef"
+  integrity sha512-9cGuS382HcvExtf5AHk7Cb4pAeQQ+h0eTr33V1mu+crYWV4KvWAw6el92bDrqGEk5d46Ai/fhbEUwqJ/mTCNEA==
+  dependencies:
+    yargs "^14.2"
 
 signal-exit@^3.0.0, signal-exit@^3.0.2:
   version "3.0.2"
@@ -21278,7 +21294,7 @@ yargs@^14.0.0:
     y18n "^4.0.0"
     yargs-parser "^13.1.1"
 
-yargs@^14.2.2:
+yargs@^14.2, yargs@^14.2.2:
   version "14.2.2"
   resolved "https://registry.yarnpkg.com/yargs/-/yargs-14.2.2.tgz#2769564379009ff8597cdd38fba09da9b493c4b5"
   integrity sha512-/4ld+4VV5RnrynMhPZJ/ZpOCGSCeghMykZ3BhdFBDa9Wy/RH6uEGNWDJog+aUlq+9OM1CFTgtYRW5Is1Po9NOA==

@@ -7,8 +7,8 @@
 
 import { ComposedModal } from 'carbon-components-react';
 import LocaleButton from '../LocaleButton';
-import React from 'react';
 import mocklist from '../__data__/locale-list.json';
+import React from 'react';
 import { shallow } from 'enzyme';
 
 jest.mock('@carbon/ibmdotcom-services', () => ({
