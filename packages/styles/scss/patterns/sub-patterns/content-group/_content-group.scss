@@ -29,7 +29,6 @@
     }
 
     &__title {
-      padding-left: $carbon--layout-01;
       padding-right: $carbon--layout-01;
       max-width: 90%;
 
@@ -37,9 +36,19 @@
     }
 
     &__children {
-      height: 300px;
-      background-color: #f4f4f4;
       margin-bottom: $carbon--layout-03;
+    }
+
+    &__CTA {
+      @include carbon--breakpoint('sm') {
+        @include carbon--make-col(1, 2);
+      }
+      @include carbon--breakpoint('md') {
+        @include carbon--make-col(2, 4);
+      }
+      @include carbon--breakpoint('lg') {
+        @include carbon--make-col(4, 8);
+      }
     }
   }
 }

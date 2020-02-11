@@ -29,8 +29,8 @@ function App() {
   };
 
   return (
-    <ContentGroup heading={heading} {...cta}>
-      //Content array goes here
+    <ContentGroup heading={heading} cta={cta}>
+      //Children goes here
     </ContentGroup>
   );
 }
@@ -43,16 +43,17 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 ## Props
 
-| Name      | Required | Data Type | Default Value | Description                                |
-| --------- | -------- | --------- | ------------- | ------------------------------------------ |
-| `heading` | NO       | String    | null          | Heading text                               |
-| `cta`     | NO       | CTA       | Card          | CTA type for more details see `CTA` below. |
+| Name       | Required | Data Type | Default Value | Description                                |
+| ---------- | -------- | --------- | ------------- | ------------------------------------------ |
+| `heading`  | NO       | String    | null          | Heading text                               |
+| `children` | NO       | Object    | null          | Container for other components.            |
+| `cta`      | NO       | CTA       | Card          | CTA type for more details see `CTA` below. |
 
 ## CTA
 
-| Name  | Default CTA Style | Default CTA Type | Description                                                             |
-| ----- | ----------------- | ---------------- | ----------------------------------------------------------------------- |
-| `CTA` | Card              | local            | Allowed style is Card and type is local for mor details [see here](https://ibmdotcom-react-experimental.mybluemix.net/?path=/story/components-cta--default)!👀 |
+| Name  | Style | Type  | Description                                                                                                                                                     |
+| ----- | ----- | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `CTA` | Card  | local | Allowed style is Card and type is local for more details [see here](https://ibmdotcom-react-experimental.mybluemix.net/?path=/story/components-cta--default)!👀 |
 
 ## Stable selectors
 
