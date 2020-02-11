@@ -49,7 +49,7 @@ if (DDS_SIMPLELONGFORM) {
       };
 
       const linkType = {
-        cardLink: 'cardLink',
+        card: 'card',
         iconLink: 'iconLink',
         none: 'none',
       };
