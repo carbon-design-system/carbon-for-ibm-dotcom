@@ -74,7 +74,7 @@ const CardSection = ({ heading, cards, theme }) => {
                       key={index}
                       image={card.image}
                       title={card.eyebrow ? card.eyebrow : card.title}
-                      content={card.heading}
+                      copy={card.heading}
                       href={card.link.href}
                       target={card.link.target}
                       icon={ArrowRight20}

@@ -94,7 +94,7 @@ DDS_CARD_SECTION=true
 
 | Name                | Description                                                                            |
 | ------------------- | -------------------------------------------------------------------------------------- |
-| `simpleCards`       | Array of objects with title, copy and link properties of each card.                    |
+| `CardSectionSimple` | Array of objects with title, copy and link properties of each card.                    |
 | `CardSectionImages` | Array of objects with image object, eyebrow, heading and link properties of each card. |
 
 ## Stable selectors
