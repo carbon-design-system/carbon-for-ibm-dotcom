@@ -19,13 +19,13 @@
     color: $link-01;
   }
 
-  &.#{$prefix}--simplelongform--with-border {
-    .#{$prefix}--simplelongform__divider {
+  &.#{$prefix}--content-block-simple--with-border {
+    .#{$prefix}--content-block-simple__divider {
       border-bottom: 1px solid $ui-04;
     }
   }
 
-  .#{$prefix}--simplelongform__link {
+  .#{$prefix}--content-block-simple__link {
     margin-top: $carbon--layout-03;
     max-width: carbon--mini-units(40);
 
@@ -72,8 +72,8 @@
   }
 }
 
-@mixin simplelongform {
-  .#{$prefix}--simplelongform {
+@mixin content-block-simple {
+  .#{$prefix}--content-block-simple {
     &__container {
       @include carbon--make-container;
     }
@@ -145,13 +145,13 @@
     @include themed-items;
   }
 
-  .#{$prefix}--simplelongform.#{$prefix}--simplelongform--g100 {
+  .#{$prefix}--content-block-simple.#{$prefix}--content-block-simple--g100 {
     @include carbon--theme($carbon--theme--g100) {
       @include themed-items;
     }
   }
 }
 
-@include exports('simplelongform') {
-  @include simplelongform;
+@include exports('content-block-simple') {
+  @include content-block-simple;
 }
