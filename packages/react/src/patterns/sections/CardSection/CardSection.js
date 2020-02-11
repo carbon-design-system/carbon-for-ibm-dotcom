@@ -16,7 +16,7 @@ const { prefix } = settings;
  * Card section Component
  *
  * @param {object} props props object
- * @param {string} props.title cards group title
+ * @param {string} props.heading cards group title
  * @param {string} props.theme theme name
  * @param {Array} props.cards Array of object with title, href and target properties
  * @returns {object} JSX Object
