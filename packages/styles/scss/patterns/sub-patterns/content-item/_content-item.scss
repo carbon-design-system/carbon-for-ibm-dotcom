@@ -28,6 +28,10 @@
       color: $text-01;
       @include carbon--type-style('body-long-02', true);
     }
+
+    &__cta {
+      margin-top: $carbon--spacing-05;
+    }
   }
 
   @include carbon--breakpoint('md') {

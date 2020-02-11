@@ -7,7 +7,7 @@
 
 import { ArrowDown20, ArrowRight20, Launch20 } from '@carbon/icons-react';
 import { ButtonGroup } from '../../patterns/sub-patterns/ButtonGroup';
-import { CardLink } from '../../patterns/sub-patterns/CardLink';
+import { Card } from '../../patterns/sub-patterns/Card';
 import { FeaturedLink } from '../../patterns/blocks/FeaturedLink';
 import { LinkWithIcon } from '../LinkWithIcon';
 import PropTypes from 'prop-types';
@@ -23,14 +23,27 @@ const { prefix } = settings;
  * @param {object} props props object
  * @param {string} props.style cta style ( text | card | button | feature ).
  * @param {string} props.type cta type ( jump | local | external ).
+ * @param {string} props.customClassname custom classname from parent
+ * @returns {*} CTA component
+ */
+const CTA = ({ style, type, customClassname, ...cta }) => (
+  <div className={customClassname}>{renderCTA({ style, type, ...cta })}</div>
+);
+
+/**
+ * renders CTA component
+ *
+ * @param {object} props props object
+ * @param {string} props.style cta style ( text | card | button | feature ).
+ * @param {string} props.type cta type ( jump | local | external ).
  * @returns {*} CTA Component
  */
-const CTA = ({ style, type, ...cta }) => {
+const renderCTA = ({ style, type, ...cta }) => {
   switch (style) {
     case 'card':
       return (
-        <CardLink
-          className={`${prefix}--card-link--CTA`}
+        <Card
+          className={`${prefix}--card--CTA`}
           title={cta.title}
           href={cta.href}
           icon={_iconSelector(type)}
@@ -123,5 +136,6 @@ const _renderFeatureCard = featureCard => {
 CTA.propTypes = {
   style: PropTypes.string,
   type: PropTypes.string,
+  customClassname: PropTypes.string,
 };
 export default CTA;

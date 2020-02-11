@@ -35,7 +35,13 @@ function App() {
     defaultImage: 'https://picsum.photos/id/2/352/176',
   };
 
-  return <ContentItem heading={heading} copy={copy} image={image} />;
+  const cta = {
+    type: 'jump',
+    copy: 'Click here',
+    href: 'www.ibm.com',
+  };
+
+  return <ContentItem heading={heading} copy={copy} image={image} cta={cta} />;
 }
 
 ReactDOM.render(<App />, document.querySelector('#app'));
@@ -50,7 +56,20 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 | --------- | -------- | --------- | ------------- | -------------------------------- |
 | `heading` | NO       | String    | null          | Heading text                     |
 | `copy`    | NO       | String    | null          | Copy text                        |
+| `cta`     | NO       | object    | null          | CTA object. See `cta` below.     |
 | `image`   | NO       | object    | null          | Image object. See `image` below. |
+
+### cta (optional)
+
+| Name    | Data Type | Description                                               |
+| ------- | --------- | --------------------------------------------------------- |
+| `type`  | String    | Type of CTA (jump, local, or external)                    |
+| `copy`  | String    | Text of the CTA component                                 |
+| `style` | String    | 'text' style of the CTA is hardcoded into this subpattern |
+
+Visit the
+[CTA documentation](https://ibmdotcom-react.mybluemix.net/?path=/story/components-cta--default)
+for more details on the CTA options.
 
 ### image (optional)
 

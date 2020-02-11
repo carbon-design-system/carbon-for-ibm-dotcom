@@ -12,8 +12,8 @@
 @import 'carbon-components/scss/components/tile/tile';
 @import 'carbon-components/scss/components/link/link';
 
-@mixin card-link {
-  .#{$prefix}--card-link {
+@mixin card {
+  .#{$prefix}--card {
     color: $text-01;
     text-decoration: none;
     display: flex;
@@ -47,7 +47,7 @@
       }
     }
     &--CTA {
-      .#{$prefix}--card-link__title {
+      .#{$prefix}--card__title {
         @include carbon--type-style('expressive-heading-02');
       }
     }
@@ -65,7 +65,7 @@
     &:hover {
       text-decoration: none;
 
-      .#{$prefix}--card-link__img {
+      .#{$prefix}--card__img {
         filter: brightness(80%);
       }
     }
@@ -73,9 +73,13 @@
     &:focus {
       outline-color: $focus;
     }
+
+    &.#{$prefix}--tile {
+      padding: 0;
+    }
   }
 }
 
-@include exports('card-link') {
-  @include card-link;
+@include exports('card') {
+  @include card;
 }

@@ -7,7 +7,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import { ArrowRight20 } from '@carbon/icons-react';
-import { CardLink } from '../../sub-patterns/CardLink';
+import { Card } from '../../sub-patterns/Card';
 import { ContentGroup } from '../../sub-patterns/ContentGroup';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
@@ -41,15 +41,11 @@ const ContentGroupCards = ({ heading, items }) => {
    */
   const setSameHeight = () => {
     sameHeight(
-      containerRef.current.getElementsByClassName(
-        `${prefix}--card-link__title`
-      ),
+      containerRef.current.getElementsByClassName(`${prefix}--card__title`),
       'md'
     );
     sameHeight(
-      containerRef.current.getElementsByClassName(
-        `${prefix}--card-link__content`
-      ),
+      containerRef.current.getElementsByClassName(`${prefix}--card__content`),
       'md'
     );
   };
@@ -86,12 +82,13 @@ const _renderCards = items =>
       data-autoid={`${stablePrefix}--content-group-cards-item`}
       className={`${prefix}--content-group-cards-item__col`}
       key={index}>
-      <CardLink
+      <Card
         className={`${prefix}--content-group-cards-item`}
         title={elem.heading}
         content={elem.copy}
         icon={ArrowRight20}
         href={elem.cta.href}
+        type="link"
       />
     </div>
   ));
