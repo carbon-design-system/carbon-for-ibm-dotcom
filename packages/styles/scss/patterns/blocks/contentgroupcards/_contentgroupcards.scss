@@ -62,7 +62,8 @@
       }
     }
 
-    .#{$prefix}--card-link__wrapper {
+    .#{$prefix}--card-link__title,
+    .#{$prefix}--card-link__content {
       width: 90%;
     }
 
