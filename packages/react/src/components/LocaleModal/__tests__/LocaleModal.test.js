@@ -48,7 +48,7 @@ describe('<LocaleModal />', () => {
 
     expect(LocaleAPI.getLocale).toHaveBeenCalledTimes(1);
     expect(LocaleAPI.getList).toHaveBeenCalledTimes(1);
-    expect(localeModal.querySelectorAll('.bx--card-link')).toHaveLength(4);
+    expect(localeModal.querySelectorAll('.bx--card')).toHaveLength(4);
     expect(
       localeModal.querySelectorAll('.bx--locale-modal__filter')
     ).toHaveLength(1);

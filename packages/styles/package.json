@@ -1,7 +1,7 @@
 {
   "name": "@carbon/ibmdotcom-styles",
   "description": "IBM.com Library Styles",
-  "version": "1.3.0",
+  "version": "1.3.1-rc.0",
   "license": "Apache-2.0",
   "main": "dist/ibm-dotcom-styles.min.css",
   "module": "src/scss",
@@ -48,7 +48,6 @@
     "@babel/preset-react": "^7.7.4",
     "@carbon/icons-react": "^10.8.0",
     "@storybook/addon-actions": "5.1.4",
-    "@storybook/addon-info": "5.1.4",
     "@storybook/addon-knobs": "5.1.4",
     "@storybook/addon-storysource": "5.1.4",
     "@storybook/react": "5.1.4",

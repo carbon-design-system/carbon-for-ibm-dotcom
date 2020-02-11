@@ -5,12 +5,12 @@
 // LICENSE file in the root directory of this source tree.
 //
 @import '../../../globals/imports';
-@import '../../sub-patterns/card-link/index';
+@import '../../sub-patterns/card/index';
 @import '../../../components/link-with-icon/link-with-icon';
 
 @mixin themed-items {
   @include tile;
-  @include card-link;
+  @include card;
 
   color: $text-01;
   background: $ui-background;
@@ -49,7 +49,7 @@
       }
     }
 
-    .bx--card-link {
+    .#{$prefix}--card {
       margin-left: -$carbon--layout-01;
       margin-right: -$carbon--layout-01;
       padding: 0;

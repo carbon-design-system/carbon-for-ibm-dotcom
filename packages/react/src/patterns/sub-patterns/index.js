@@ -6,7 +6,8 @@
  */
 
 export * from './ButtonGroup';
-export * from './CardLink';
+export * from './Card';
+export * from './ContentBlock';
 export * from './ContentItem';
 export * from './ContentGroup';
 export * from './Layout';
