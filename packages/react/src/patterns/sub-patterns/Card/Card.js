@@ -25,19 +25,19 @@ const { prefix } = settings;
  * @param {object} props react proptypes
  * @returns {object} JSX object
  */
-const Card = ({ title, copy, cta, image, className, type, ...props }) => {
+const Card = ({ title, copy, href, cta, image, className, type, ...props }) => {
   const CardTile = type === 'link' ? ClickableTile : Tile;
   return (
     <CardTile
       data-autoid={`${stablePrefix}--card`}
       className={classNames(`${prefix}--card`, className)}
-      href={cta.href}
+      href={href}
       {...props}>
       <Image {...image} classname={`${prefix}--card__img`} />
       <div className={`${prefix}--card__wrapper`}>
         <h3 className={`${prefix}--card__title`}>{title}</h3>
         {optionalContent(copy)}
-        {renderFooter(cta, type)}
+        {renderFooter(cta, type, href)}
       </div>
     </CardTile>
   );
@@ -64,27 +64,27 @@ function optionalContent(copy) {
  *
  * @param {object} cta cta object
  * @param {string} type type of card (clickable/static)
+ * @param {string} href url for card
  * @returns {object} JSX object
  */
-function renderFooter(cta, type) {
-  if (type !== 'link') {
-    return <CTA style="text" type={cta.type} href={cta.href} copy={cta.copy} />;
-  } else {
-    const Icon = cta.icon;
-    return !Icon ? null : (
-      <footer className={`${prefix}--card__footer`}>
-        <Icon />
-      </footer>
-    );
-  }
+function renderFooter(cta, type, href) {
+  return (
+    <footer className={`${prefix}--card__footer`}>
+      {type !== 'link' ? (
+        <CTA style="text" type={cta.type} href={href} copy={cta.copy} />
+      ) : (
+        cta.icon && <cta.icon />
+      )}
+    </footer>
+  );
 }
 
 Card.propTypes = {
   title: PropTypes.string.isRequired,
   icon: PropTypes.object,
   copy: PropTypes.string,
+  href: PropTypes.string.isRequired,
   cta: PropTypes.shape({
-    href: PropTypes.string.isRequired,
     type: PropTypes.string,
     icon: PropTypes.element,
     copy: PropTypes.string,
