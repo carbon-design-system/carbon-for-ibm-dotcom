@@ -25,7 +25,17 @@ const { prefix } = settings;
  * @param {object} props react proptypes
  * @returns {object} JSX object
  */
-const Card = ({ title, copy, href, cta, image, className, type, ...props }) => {
+const Card = ({
+  title,
+  copy,
+  href,
+  cta,
+  image,
+  className,
+  type,
+  icon: Icon,
+  ...props
+}) => {
   const CardTile = type === 'link' ? ClickableTile : Tile;
   return (
     <CardTile
@@ -37,7 +47,7 @@ const Card = ({ title, copy, href, cta, image, className, type, ...props }) => {
       <div className={`${prefix}--card__wrapper`}>
         <h3 className={`${prefix}--card__title`}>{title}</h3>
         {optionalContent(copy)}
-        {renderFooter(cta, type, href)}
+        {renderFooter(cta, type, href, Icon)}
       </div>
     </CardTile>
   );
@@ -65,15 +75,16 @@ function optionalContent(copy) {
  * @param {object} cta cta object
  * @param {string} type type of card (clickable/static)
  * @param {string} href url for card
+ * @param {object} Icon cta icon for card
  * @returns {object} JSX object
  */
-function renderFooter(cta, type, href) {
+function renderFooter(cta, type, href, Icon) {
   return (
     <footer className={`${prefix}--card__footer`}>
       {type !== 'link' ? (
         <CTA style="text" type={cta.type} href={href} copy={cta.copy} />
       ) : (
-        cta.icon && <cta.icon />
+        Icon && <Icon />
       )}
     </footer>
   );
@@ -86,7 +97,6 @@ Card.propTypes = {
   href: PropTypes.string.isRequired,
   cta: PropTypes.shape({
     type: PropTypes.string,
-    icon: PropTypes.element,
     copy: PropTypes.string,
   }),
   image: PropTypes.object,
