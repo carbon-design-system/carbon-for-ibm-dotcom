@@ -29,7 +29,6 @@ storiesOf('Patterns (Sub-Patterns)|Card', module)
     const type = text('type', 'static');
     const copy = text('copy', '');
     const cta = {
-      icon: ArrowRight20,
       type: 'local',
       copy: text('cta.copy', ''),
     };
@@ -50,6 +49,7 @@ storiesOf('Patterns (Sub-Patterns)|Card', module)
         copy={copy}
         href={href}
         cta={cta}
+        icon={ArrowRight20}
         target={target}
         type={type}
       />
@@ -65,6 +65,7 @@ storiesOf('Patterns (Sub-Patterns)|Card', module)
           copy={copy}
           cta={cta}
           href={href}
+          icon={ArrowRight20}
           target={target}
           type={type}
           className="bx--aspect-ratio--object"
@@ -77,7 +78,6 @@ storiesOf('Patterns (Sub-Patterns)|Card', module)
     const type = text('type', 'link');
     const copy = text('copy', '');
     const cta = {
-      icon: ArrowRight20,
       type: 'local',
       copy: text('cta.copy', ''),
     };
@@ -98,6 +98,7 @@ storiesOf('Patterns (Sub-Patterns)|Card', module)
         copy={copy}
         href={href}
         cta={cta}
+        icon={ArrowRight20}
         target={target}
         type={type}
       />
@@ -112,6 +113,7 @@ storiesOf('Patterns (Sub-Patterns)|Card', module)
           title={title}
           copy={copy}
           cta={cta}
+          icon={ArrowRight20}
           href={href}
           target={target}
           type={type}
