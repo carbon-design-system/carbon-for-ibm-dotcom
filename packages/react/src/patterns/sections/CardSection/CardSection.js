@@ -63,7 +63,7 @@ const CardSection = ({ heading, cards, theme }) => {
       className={classNames(`${prefix}--card-section`, setTheme(theme))}>
       <div className={`${prefix}--card-section__container`}>
         <div className={`${prefix}--card-section__row`}>
-          <h2 className={`${prefix}--card-section__title`}>{heading}</h2>
+          <h2 className={`${prefix}--card-section__heading`}>{heading}</h2>
           <div className={`${prefix}--card-section__cards`} ref={containerRef}>
             <div
               className={`${prefix}--card-section__cards__row ${prefix}--row--condensed`}>
@@ -73,8 +73,8 @@ const CardSection = ({ heading, cards, theme }) => {
                     <Card
                       key={index}
                       image={card.image}
-                      title={card.title}
-                      content={card.copy}
+                      title={card.eyebrow ? card.eyebrow : card.title}
+                      content={card.heading}
                       href={card.link.href}
                       target={card.link.target}
                       icon={ArrowRight20}
@@ -93,12 +93,12 @@ const CardSection = ({ heading, cards, theme }) => {
 
 CardSection.propTypes = {
   theme: PropTypes.string,
-  heading: PropTypes.string,
+  heading: PropTypes.string.isRequired,
   cards: PropTypes.arrayOf(
     PropTypes.shape({
-      image: PropTypes.object,
-      title: PropTypes.string,
-      copy: PropTypes.string,
+      image: PropTypes.object.isRequired,
+      eyebrow: PropTypes.string.isRequired,
+      heading: PropTypes.string.isRequired,
       link: PropTypes.shape({
         href: PropTypes.string,
         text: PropTypes.string,

@@ -51,19 +51,19 @@ DDS_CARD_SECTION=true
 
 ## Props
 
-| Name    | Required | Data Type | Default Value | Description                                 |
-| ------- | -------- | --------- | ------------- | ------------------------------------------- |
-| `title` | YES      | String    | null          | Cards with or without images title.         |
-| `theme` | NO       | String    | 'white'       | Color theme for pattern. See `theme` below. |
-| `cards` | YES      | Array     | null          | Array of card objects. See `cards` below.   |
+| Name      | Required | Data Type | Default Value | Description                                 |
+| --------- | -------- | --------- | ------------- | ------------------------------------------- |
+| `heading` | YES      | String    | null          | Cards with or without images heading.       |
+| `theme`   | NO       | String    | 'white'       | Color theme for pattern. See `theme` below. |
+| `cards`   | YES      | Array     | null          | Array of card objects. See `cards` below.   |
 
 ### cardsGroup
 
-| Name        | Data Type | Description                                                                                          |
-| ----------- | --------- | ---------------------------------------------------------------------------------------------------- |
-| `title`     | String    | Cards without images title.                                                                          |
-| `groupCard` | Object    | Href, text and target properties of the Top Level Card. See `groupCard` below.                       |
-| `cards`     | Array     | Array of objects with imgSrc, altText,title, copy and link properties of each card.See`cards` below. |
+| Name        | Data Type | Description                                                                                     |
+| ----------- | --------- | ----------------------------------------------------------------------------------------------- |
+| `heading`   | String    | Cards without images and with images                                                            |
+| `groupCard` | Object    | Href, text and target properties of Top level card. See `groupcard` below.                      |
+| `cards`     | Array     | Array of objects with and without image, heading, eyebrow,link of each card. See `cards` below. |
 
 ### groupCard (aka Top Level Card)
 
@@ -75,12 +75,13 @@ DDS_CARD_SECTION=true
 
 ### cards
 
-| Name    | Data Type | Description                                                              |
-| ------- | --------- | ------------------------------------------------------------------------ |
-| `title` | String    | Url of Card.                                                             |
-| `copy`  | String    | Title of Card                                                            |
-| `link`  | Object    | Href, text and target properties of the card. Same as `groupCard` above. |
-| `image` | Object    | src, and alt text properties of the card.                                |
+| Name      | Data Type | Description                                                              |
+| --------- | --------- | ------------------------------------------------------------------------ |
+| `eybrow`  | String    | Eyebrow of CardSectionImages.                                            |
+| `title`   | String    | Title of CardSectionSimple.                                              |
+| `heading` | String    | Heading of Card                                                          |
+| `link`    | Object    | Href, text and target properties of the card. Same as `groupCard` above. |
+| `image`   | Object    | defaultImage, and alt text properties of the card.                       |
 
 ### theme (optional)
 
@@ -91,17 +92,17 @@ DDS_CARD_SECTION=true
 
 ### cardType
 
-| Name          | Description                                                                       |
-| ------------- | --------------------------------------------------------------------------------- |
-| `simpleCards` | Array of objects with title, copy and link properties of each card.               |
-| `imageCards`  | Array of objects with image object, title, copy and link properties of each card. |
+| Name                | Description                                                                            |
+| ------------------- | -------------------------------------------------------------------------------------- |
+| `simpleCards`       | Array of objects with title, copy and link properties of each card.                    |
+| `CardSectionImages` | Array of objects with image object, eyebrow, heading and link properties of each card. |
 
 ## Stable selectors
 
-| Name                                    | Description |
-| --------------------------------------- | ----------- |
-| `dds--card-section`                     | Component   |
-| `dds--card-section__card-${card.title}` | Component   |
+| Name                                      | Description |
+| ----------------------------------------- | ----------- |
+| `dds--card-section`                       | Component   |
+| `dds--card-section__card-${card.heading}` | Component   |
 
 ## 🙌 Contributing
 

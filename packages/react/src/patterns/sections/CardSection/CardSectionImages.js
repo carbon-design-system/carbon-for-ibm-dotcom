@@ -10,17 +10,20 @@ import React from 'react';
  * @returns {object} JSX Object
  */
 const CardSectionImages = props => {
-  return <CardSection {...props} />;
+  const cardsWithImages = props.cards.filter(
+    card => card.image && card.eyebrow
+  );
+  return <CardSection {...(cardsWithImages && { ...props })} />;
 };
 
 CardSectionImages.propTypes = {
   theme: PropTypes.string,
-  heading: PropTypes.string,
+  heading: PropTypes.string.isRequired,
   cards: PropTypes.arrayOf(
     PropTypes.shape({
-      image: PropTypes.object,
-      title: PropTypes.string,
-      copy: PropTypes.string,
+      image: PropTypes.object.isRequired,
+      eyebrow: PropTypes.string.isRequired,
+      heading: PropTypes.string.isRequired,
       link: PropTypes.shape({
         href: PropTypes.string,
         text: PropTypes.string,

@@ -51,7 +51,6 @@ if (DDS_CARD_SECTION) {
         g10: 'g10',
         white: '',
       };
-
       return (
         <SimpleCards
           heading="Aliquam condimentum interdum"
@@ -66,7 +65,6 @@ if (DDS_CARD_SECTION) {
         g10: 'g10',
         white: '',
       };
-
       return (
         <CardSectionImages
           heading="Read more about it"
