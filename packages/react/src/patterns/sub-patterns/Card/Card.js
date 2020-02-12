@@ -27,10 +27,12 @@ const { prefix } = settings;
  */
 const Card = ({
   title,
+  eyebrow,
   copy,
   href,
   cta,
   image,
+  inverse,
   className,
   type,
   icon: Icon,
@@ -40,11 +42,16 @@ const Card = ({
   return (
     <CardTile
       data-autoid={`${stablePrefix}--card`}
-      className={classNames(`${prefix}--card`, className)}
+      className={classNames(
+        `${prefix}--card`,
+        { [`${prefix}--card--inverse`]: inverse },
+        className
+      )}
       href={href}
       {...props}>
       <Image {...image} classname={`${prefix}--card__img`} />
       <div className={`${prefix}--card__wrapper`}>
+        <p className={`${prefix}--card__eyebrow`}>{eyebrow}</p>
         <h3 className={`${prefix}--card__title`}>{title}</h3>
         {optionalContent(copy)}
         {renderFooter(cta, type, href, Icon)}
@@ -82,9 +89,15 @@ function renderFooter(cta, type, href, Icon) {
   return (
     <footer className={`${prefix}--card__footer`}>
       {type !== 'link' ? (
-        <CTA style="text" type={cta.type} href={href} copy={cta.copy} />
+        <CTA
+          style="text"
+          type={cta.type}
+          href={href}
+          copy={cta.copy}
+          customClassname={`${prefix}--card__cta`}
+        />
       ) : (
-        Icon && <Icon />
+        Icon && <Icon className={`${prefix}--card__cta`} />
       )}
     </footer>
   );
@@ -92,6 +105,7 @@ function renderFooter(cta, type, href, Icon) {
 
 Card.propTypes = {
   title: PropTypes.string.isRequired,
+  eyebrow: PropTypes.string,
   icon: PropTypes.object,
   copy: PropTypes.string,
   href: PropTypes.string.isRequired,
@@ -100,6 +114,7 @@ Card.propTypes = {
     copy: PropTypes.string,
   }),
   image: PropTypes.object,
+  inverse: PropTypes.bool,
   className: PropTypes.string,
   type: PropTypes.string,
 };

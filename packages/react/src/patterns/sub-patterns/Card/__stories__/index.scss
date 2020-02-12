@@ -5,5 +5,27 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import '../../../../../../styles/scss/patterns/sub-patterns/card/index';
+@import '../../../../../../styles/scss/patterns/sub-patterns/card';
 @import '@carbon/grid/scss/index.scss';
+
+.#{$prefix}--card--white {
+  @include carbon--theme($carbon--theme--white) {
+    @include card;
+  }
+}
+.#{$prefix}--card--g10 {
+  @include carbon--theme($carbon--theme--g10) {
+    @include card;
+  }
+}
+.#{$prefix}--card--g90 {
+  @include carbon--theme($carbon--theme--g90) {
+    @include card;
+  }
+}
+
+.#{$prefix}--card--g100 {
+  @include carbon--theme($carbon--theme--g100) {
+    @include card;
+  }
+}

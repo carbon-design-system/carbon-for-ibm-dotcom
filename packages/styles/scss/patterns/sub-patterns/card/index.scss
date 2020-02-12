@@ -14,7 +14,7 @@
 
 @mixin card {
   .#{$prefix}--card {
-    color: $text-01;
+    background-color: $ui-01;
     text-decoration: none;
     display: flex;
     flex-direction: column;
@@ -27,16 +27,28 @@
     }
 
     &__title {
-      @include carbon--type-style('expressive-heading-03');
-
       margin-bottom: $carbon--layout-05;
+      @include carbon--type-style('expressive-heading-03');
+    }
+
+    &__title,
+    &__content {
+      color: $text-01;
     }
 
     &__content {
-      @include carbon--type-style('body-short-02');
-
       margin-bottom: $carbon--layout-01;
-      color: $text-02;
+      @include carbon--type-style('body-short-02');
+    }
+
+    &__eyebrow {
+      color: $text-03;
+      margin-bottom: $carbon--spacing-03;
+      @include carbon--type-style('body-short-01');
+    }
+
+    &__cta {
+      color: $interactive-04;
     }
 
     &__footer {
@@ -64,6 +76,7 @@
 
     &:hover {
       text-decoration: none;
+      background-color: $hover-ui;
 
       .#{$prefix}--card__img {
         filter: brightness(80%);
@@ -76,6 +89,19 @@
 
     &.#{$prefix}--tile {
       padding: 0;
+    }
+  }
+
+  .#{$prefix}--card--inverse {
+    background-color: $inverse-02;
+
+    .#{$prefix}--card__title,
+    .#{$prefix}--card__content {
+      color: $inverse-01;
+    }
+
+    .#{$prefix}--card__cta {
+      color: $interactive-01;
     }
   }
 }
