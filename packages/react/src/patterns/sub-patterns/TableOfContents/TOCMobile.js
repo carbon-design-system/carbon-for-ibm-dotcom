@@ -61,14 +61,12 @@ const TOCMobile = ({ menuItems, selectedId, menuLabel, updateState }) => {
     });
     const title = filteredItems[0].title;
     updateState(id, title);
-    document.querySelector(`a[name="${id}"]`).scrollIntoView(true);
-    const scrolledY = root.scrollY;
-    if (scrolledY) {
-      root.scroll({
-        top: scrolledY - 48,
-        behavior: 'smooth',
-      });
-    }
+
+    const target = document
+      .querySelector(`a[name="${id}"]`)
+      .getBoundingClientRect().y;
+
+    root.scrollTo(0, target + root.pageYOffset - 30);
   };
 
   /**
