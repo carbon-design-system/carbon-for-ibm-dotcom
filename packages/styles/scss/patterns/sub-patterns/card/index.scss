@@ -42,7 +42,7 @@
     }
 
     &__eyebrow {
-      color: $text-03;
+      color: $text-02;
       margin-bottom: $carbon--spacing-03;
       @include carbon--type-style('body-short-01');
     }
@@ -100,8 +100,16 @@
       color: $inverse-01;
     }
 
+    .#{$prefix}--card__eyebrow {
+      color: $text-03;
+    }
+
+    &:hover {
+      background-color: $inverse-hover-ui;
+    }
+
     .#{$prefix}--card__cta {
-      color: $interactive-01;
+      color: $inverse-link;
     }
   }
 }
