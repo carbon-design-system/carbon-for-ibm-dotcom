@@ -22,7 +22,7 @@ const { prefix } = settings;
  * @param {string} props.heading  Heading objects
  * @returns {*} JSX ContentArrayGroup component
  */
-const ContentSection = ({ children, heading }) => {
+const ContentSection = ({ heading, children }) => {
   return (
     <div
       className={`${prefix}--content-section`}

@@ -3,7 +3,10 @@ import { text, withKnobs } from '@storybook/addon-knobs';
 import ContentSection from '../ContentSection';
 import React from 'react';
 import readme from '../README.md';
+import { settings } from 'carbon-components';
 import { storiesOf } from '@storybook/react';
+
+const { prefix } = settings;
 
 storiesOf('Patterns (Sub-Patterns)|ContentSection', module)
   .addDecorator(withKnobs)
@@ -18,5 +21,10 @@ storiesOf('Patterns (Sub-Patterns)|ContentSection', module)
       'Lorem ipsum dolor sit amet.'
     );
 
-    return <ContentSection heading={copy} />;
+    //return <ContentSection heading={copy} />;
+    return (
+      <div className={`${prefix}--grid`}>
+        <ContentSection heading={copy}></ContentSection>
+      </div>
+    );
   });

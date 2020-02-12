@@ -16,7 +16,7 @@
 @mixin content-section {
   .#{$prefix}--content-section {
     @include carbon--breakpoint(sm) {
-      padding-top: $carbon--layout-03;
+      //padding-top: $carbon--layout-01;
       padding-bottom: $carbon--layout-05;
       &__title {
         margin-bottom: $carbon--layout-05;
@@ -33,9 +33,7 @@
     }
 
     &__title {
-      padding-left: $carbon--layout-01;
       padding-right: $carbon--layout-01;
-      max-width: 90%;
 
       @include carbon--type-style('expressive-heading-04', true);
     }
@@ -43,6 +41,13 @@
     &__children {
       padding-left: 0;
       padding-right: 0;
+      max-width: carbon--rem(640px);
+
+      @include carbon--breakpoint('lg') {
+        @include carbon--make-container;
+
+        @include carbon--make-col(4, 8);
+      }
     }
   }
 }
