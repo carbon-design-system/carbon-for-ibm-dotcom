@@ -5,10 +5,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import React, { useEffect, useState } from 'react';
 import { ButtonGroup } from '../../sub-patterns/ButtonGroup';
 import LeadSpaceImage from './LeadSpaceImage';
 import PropTypes from 'prop-types';
-import React from 'react';
 import classnames from 'classnames';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
@@ -22,18 +22,22 @@ const { prefix } = settings;
  * @param {string} variation variation of the pattern
  * @param {string} theme theme of the pattern
  * @param {string} type switches between centered or default
+ * @param {object} image object
  * @returns {string} classnames
  */
-const className = (variation, theme, type) =>
+const className = (variation, theme, type, image) =>
   classnames(
     `${prefix}--leadspace`,
     theme && `${prefix}--leadspace--${theme}`,
     {
-      [`${prefix}--leadspace--productive`]: variation === 'productive',
+      [`${prefix}--leadspace--productive`]: type === 'small',
     },
     {
       [`${prefix}--leadspace--centered${theme && '--g100'}`]:
         type === 'centered',
+    },
+    {
+      [`${prefix}--leadspace--centered__image`]: image && type === 'centered',
     }
   );
 
@@ -46,6 +50,31 @@ function centeredClassname(type, element) {
   if (type === 'centered') {
     return `${prefix}--leadspace--centered__${element}`;
   } else return `${prefix}--leadspace__${element}`;
+}
+
+/**
+ *
+ * @param {string} type type
+ * @param {object} image image
+ * @returns {object} returns either image component or the centered image div
+ */
+function imageClassname(type, image) {
+  if (type === 'centered') {
+    return (
+      <div
+        data-autoid={`${stablePrefix}--leadspace--centered--mobile__image`}
+        className={`${prefix}--leadspace--centered--mobile__image`}>
+        <img src={image.default} alt={image.alt} />
+      </div>
+    );
+  } else
+    return (
+      <LeadSpaceImage
+        images={sortImages(image)}
+        defaultImage={image.default}
+        alt={image.alt}
+      />
+    );
 }
 
 /**
@@ -104,40 +133,70 @@ const LeadSpace = ({
   title,
   type,
   variation,
-}) => (
-  <section
-    data-autoid={`${stablePrefix}--leadspace`}
-    className={className(variation, theme, type)}>
-    <div className={`${prefix}--leadspace__container`}>
-      <div className={overlayClassname(gradient)}>
-        <div className={`${prefix}--leadspace__row`}>
-          <h1 className={centeredClassname(type, 'title')}>{title}</h1>
-        </div>
-        <div className={centeredClassname(type, 'content')}>
-          {copy && (
+}) => {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const isMobile = windowWidth <= 671;
+
+  /**
+   *  Sets the window width
+   */
+  const handleWindowResize = () => {
+    setWindowWidth(window.innerWidth);
+  };
+
+  useEffect(() => {
+    window.addEventListener('resize', handleWindowResize);
+
+    return () => {
+      window.removeEventListener('resize', handleWindowResize);
+    };
+  });
+
+  const background =
+    type === 'centered' && image && !isMobile
+      ? { backgroundImage: `url(${image.default})` }
+      : { backgroundImage: 'none' };
+
+  return (
+    <section
+      style={background}
+      data-autoid={`${stablePrefix}--leadspace`}
+      className={className(variation, theme, type, image)}>
+      <div className={`${prefix}--leadspace__container`}>
+        <div className={overlayClassname(gradient)}>
+          <div
+            className={
+              type !== 'centered'
+                ? `${prefix}--leadspace--content__container`
+                : `${prefix}--leadspace--centered--content__container`
+            }>
             <div className={`${prefix}--leadspace__row`}>
+              <h1 className={centeredClassname(type, 'title')}>{title}</h1>
+            </div>
+            <div className={centeredClassname(type, 'content')}>
               {copy && (
-                <p
-                  data-autoid={`${stablePrefix}--leadspace__desc`}
-                  className={centeredClassname(type, 'desc')}>
-                  {copy}
-                </p>
+                <div className={`${prefix}--leadspace__row`}>
+                  {copy && (
+                    <p
+                      data-autoid={`${stablePrefix}--leadspace__desc`}
+                      className={centeredClassname(type, 'desc')}>
+                      {copy}
+                    </p>
+                  )}
+                </div>
+              )}
+              {buttons && buttons.length > 0 && (
+                <ButtonGroup buttons={buttons} />
               )}
             </div>
-          )}
-          {buttons && buttons.length > 0 && <ButtonGroup buttons={buttons} />}
+          </div>
         </div>
+
+        {image && imageClassname(type, image)}
       </div>
-      {image && (
-        <LeadSpaceImage
-          images={sortImages(image)}
-          defaultImage={image.default}
-          alt={image.alt}
-        />
-      )}
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 LeadSpace.propTypes = {
   buttons: PropTypes.array,
@@ -147,6 +206,7 @@ LeadSpace.propTypes = {
     mobile: PropTypes.string,
     tablet: PropTypes.string,
     default: PropTypes.string,
+    url: PropTypes.string,
     alt: PropTypes.string,
   }),
   theme: PropTypes.string,

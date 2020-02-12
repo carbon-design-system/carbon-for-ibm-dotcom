@@ -55,6 +55,13 @@ $btn-min-width: 26;
     padding-top: aspect-ratio(320px, 370px);
     height: 0;
 
+    &--content__container {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
     &__image {
       object-fit: cover;
       width: 100%;
@@ -173,9 +180,17 @@ $btn-min-width: 26;
 
 @mixin leadspace-centered {
   .#{$prefix}--leadspace--centered {
+    &--content__container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
     &--mobile__image {
       height: carbon--mini-units(20);
       width: 100%;
+      position: absolute;
+      bottom: 0;
 
       img {
         object-fit: cover;
@@ -189,7 +204,7 @@ $btn-min-width: 26;
     }
 
     .#{$prefix}--buttongroup {
-      padding-bottom: $carbon--layout-01;
+      padding-left: $carbon--layout-01;
     }
 
     &__title,

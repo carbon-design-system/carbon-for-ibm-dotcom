@@ -29,13 +29,9 @@ if (DDS_LEADSPACE) {
 
       const title = text('title', 'Lead space title');
 
-      const variations = {
-        expressive: '',
-        productive: 'productive',
-      };
-
       const type = {
         left: '',
+        small: 'small',
         centered: 'centered',
       };
 
@@ -76,12 +72,11 @@ if (DDS_LEADSPACE) {
 
       return (
         <LeadSpace
-          type={select('type', type, type.left)}
+          type={select('type', type, type.small)}
           theme={select('theme', themes, themes.g100)}
           title={title}
           copy={copy}
           buttons={buttons}
-          variation={select('variation', variations, variations.expressive)}
         />
       );
     })
@@ -95,12 +90,8 @@ if (DDS_LEADSPACE) {
 
       const type = {
         left: '',
+        small: 'small',
         centered: 'centered',
-      };
-
-      const variations = {
-        expressive: '',
-        productive: 'productive',
       };
 
       const images = {
@@ -149,14 +140,13 @@ if (DDS_LEADSPACE) {
 
       return (
         <LeadSpace
-          type={select('type', type, type.left)}
+          type={select('type', type, type.small)}
           theme={select('theme', themes, themes.g100)}
           title={title}
           copy={copy}
           gradient={gradient}
           buttons={buttons}
           image={object('image', images)}
-          variation={select('variation', variations, variations.expressive)}
         />
       );
     });
