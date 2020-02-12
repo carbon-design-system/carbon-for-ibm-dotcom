@@ -69,7 +69,7 @@ ContentGroupSimple.propTypes = {
   heading: PropTypes.string.isRequired,
   mediaType: PropTypes.string,
   mediaData: PropTypes.object,
-  items: PropTypes.arrayOf(PropTypes.object),
+  items: PropTypes.arrayOf(PropTypes.object).isRequired,
   cta: PropTypes.object,
 };
 

@@ -1,6 +1,7 @@
 # Content Group - Simple
 
-> The Content Group - Simple pattern is to be utilized within IBM.com.
+> The Content Group – Simple pattern includes a heading, Content Items, an
+> optional CTA Component, and an optional media (image or video).
 
 ## Getting started
 
