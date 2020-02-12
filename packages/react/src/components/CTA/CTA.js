@@ -46,6 +46,7 @@ const renderCTA = ({ style, type, ...cta }) => {
           className={`${prefix}--card--CTA`}
           title={cta.title}
           href={cta.href}
+          type="link"
           icon={_iconSelector(type)}
           target={_external(type)}
           handleClick={e => _jump(e, type)}
@@ -130,6 +131,7 @@ const _renderFeatureCard = featureCard => {
   featureCard.icon = _iconSelector(featureCard.type);
   featureCard.handleClick = e => _jump(e, featureCard.type);
   featureCard.target = _external(featureCard.type);
+  featureCard.type = 'link';
   return featureCard;
 };
 
