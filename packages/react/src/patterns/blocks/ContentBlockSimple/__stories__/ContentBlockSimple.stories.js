@@ -24,16 +24,30 @@ storiesOf('Patterns (Blocks)|ContentBlockSimple', module)
       'Maecenas Tincidunt Eget Sapien a Pretium'
     );
 
-    const copy = text(
-      'copy (required)',
-      `
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc pulvinar nisi id libero sagittis laoreet sed
-      ut purus. In eu est tellus. Vivamus quis nisi ut nunc facilisis tincidunt. Fusce sodales ante ac sollicitudin
-      tristique. Maecenas sit amet metus id risus pulvinar placerat. Vestibulum mattis rutrum pulvinar. Suspendisse
-      sed eros non erat semper fermentum at sed massa. Maecenas id sem pellentesque, ultrices leo sit amet,
-      tristique odio. Etiam fermentum neque et vehicula volutpat. Curabitur non eros urna. Cras eu dapibus enim.
-    `
-    );
+    const copy = {
+      'single paragraph': `Lorem    ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+      Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
+      nulla quis, consequat libero. Here are
+      some common categories:`,
+      'multiple paragraphs': `   Lorem    ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+      Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
+      nulla quis, consequat libero. Here are
+      some common categories:
+
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+      `,
+      'multiple paragraphs (styled)': `   __Lorem__    ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+      Mauris iaculis eget dolor nec hendrerit. __Phasellus__ at elit sollicitudin, sodales
+      nulla quis, *consequat* libero. Here are
+      some common categories:
+
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+      `,
+    };
 
     const link = {
       href: 'https://www.ibm.com',
@@ -54,14 +68,40 @@ storiesOf('Patterns (Blocks)|ContentBlockSimple', module)
 
     const withBorder = boolean('with border', true);
 
+    const ctaStyles = {
+      text: 'text',
+      card: 'card',
+    };
+
+    const ctaProps = {
+      style: select('CTA type', ctaStyles, ctaStyles.text),
+      type: 'local',
+      heading: 'Lorem ipsum dolor sit amet',
+      copy: 'Lorem ipsum dolor sit amet',
+      card: {
+        href: 'https://ibm.com',
+        title: 'Consectetur adipisicing elit',
+        image: {
+          defaultImage: 'https://picsum.photos/id/672/672',
+          alt: 'featured card image',
+        },
+      },
+    };
+
+    const cta = {
+      cta: ctaProps,
+      none: null,
+    };
+
     return (
       <ContentBlockSimple
         border={withBorder}
-        copy={copy}
+        copy={select('Copy (required)', copy, copy['single paragraph'])}
         link={object('link', link)}
         linkType={select('link type', linkType, linkType.none)}
         theme={select('theme', themes, themes.g100)}
         title={title}
+        cta={select('Feature Link (optional)', cta, cta.cta)}
       />
     );
   });
