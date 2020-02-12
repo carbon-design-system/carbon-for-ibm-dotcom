@@ -41,6 +41,8 @@
     }
 
     &__CTA {
+      max-width: 320px;
+
       @include carbon--breakpoint('md') {
         @include carbon--make-col(4, 8);
       }
