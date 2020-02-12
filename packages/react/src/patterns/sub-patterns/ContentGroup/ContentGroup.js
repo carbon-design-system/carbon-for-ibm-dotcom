@@ -56,7 +56,7 @@ ContentGroup.propTypes = {
   heading: PropTypes.string,
   children: PropTypes.object,
   customClassName: PropTypes.string,
-  cta: PropTypes.instanceOf(CTA),
+  cta: PropTypes.object,
 };
 
 export default ContentGroup;
