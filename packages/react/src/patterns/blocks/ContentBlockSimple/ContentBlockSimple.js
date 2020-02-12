@@ -8,6 +8,7 @@
 import { ArrowRight20 } from '@carbon/icons-react';
 import { Card } from '../../sub-patterns/Card';
 import classNames from 'classnames';
+import { ContentBlock } from '../../sub-patterns/ContentBlock';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { LinkWithIcon } from '../../../components/LinkWithIcon';
 import PropTypes from 'prop-types';
@@ -18,48 +19,64 @@ const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
- * Simple long form pattern
+ * Content Block - Simple pattern
  *
  * @param {object} props props object
  * @param {boolean} props.border includes border or not ( true | false )
- * @param {string} props.copy simple long form  short copy to support the title
+ * @param {string} props.copy Content block simple  short copy to support the title
  * @param {string} props.linkType link type ( simple | jump | card )
  * @param {object} props.link link object which includes url, link text and target properties.
- * @param {string} props.theme simple long form theme (g100 | white/default)
- * @param {string} props.title simple long form title
- * @returns {*} Simple long form pattern
+ * @param {string} props.theme Content block simple theme (g100 | white/default)
+ * @param {string} props.title Content block simple title
+ * @param {object} props.cta cta object
+ * @returns {*} Content block simple pattern
  */
-const ContentBlockSimple = ({ border, copy, linkType, link, theme, title }) => {
+const ContentBlockSimple = ({
+  border,
+  copy,
+  linkType,
+  link,
+  theme,
+  title,
+  cta,
+}) => {
   return (
-    <section
+    <ContentBlock
+      heading={title}
+      copy={copy}
+      cta={cta}
       data-autoid={`${stablePrefix}--content-block-simple`}
-      className={classNames(
-        `${prefix}--content-block-simple`,
-        setLinkType(linkType),
-        setBorder(border),
-        setTheme(theme)
-      )}>
-      <div className={`${prefix}--content-block-simple__container`}>
-        <div className={`${prefix}--content-block-simple__row`}>
-          <div className={`${prefix}--content-block-simple__col`}>
-            <h3 className={`${prefix}--content-block-simple__title`}>
-              {title}
-            </h3>
-            <div className={`${prefix}--content-block-simple__content`}>
-              {copy}
+      customClassName={`${prefix}--content-block-simple ${prefix}--col-lg-8`}>
+      <section
+        data-autoid={`${stablePrefix}--content-block-simple`}
+        className={classNames(
+          `${prefix}--content-block-simple`,
+          setLinkType(linkType),
+          setBorder(border),
+          setTheme(theme)
+        )}>
+        <div className={`${prefix}--content-block-simple__container`}>
+          <div className={`${prefix}--content-block-simple__row`}>
+            <div className={`${prefix}--content-block-simple__col`}>
+              <h3 className={`${prefix}--content-block-simple__title`}>
+                {title}
+              </h3>
+              <div className={`${prefix}--content-block-simple__content`}>
+                {copy}
+              </div>
+              <div
+                data-autoid={`${stablePrefix}--content-block-simple__link`}
+                className={`${prefix}--content-block-simple__link`}>
+                {renderLink(linkType, link)}
+              </div>
             </div>
-            <div
-              data-autoid={`${stablePrefix}--content-block-simple__link`}
-              className={`${prefix}--content-block-simple__link`}>
-              {renderLink(linkType, link)}
+            <div className={`${prefix}--content-block-simple__divider__col`}>
+              <div className={`${prefix}--content-block-simple__divider`}></div>
             </div>
-          </div>
-          <div className={`${prefix}--content-block-simple__divider__col`}>
-            <div className={`${prefix}--content-block-simple__divider`}></div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </ContentBlock>
   );
 };
 
@@ -133,7 +150,7 @@ const setBorder = border => {
 
 ContentBlockSimple.propTypes = {
   border: PropTypes.bool,
-  copy: PropTypes.string,
+  copy: PropTypes.string.isRequired,
   link: PropTypes.shape({
     href: PropTypes.string,
     text: PropTypes.string,
@@ -142,6 +159,7 @@ ContentBlockSimple.propTypes = {
   linkType: PropTypes.string,
   theme: PropTypes.string,
   title: PropTypes.string.isRequired,
+  cta: PropTypes.object,
 };
 
 export default ContentBlockSimple;
