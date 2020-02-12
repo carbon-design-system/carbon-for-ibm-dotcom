@@ -43,11 +43,12 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 ## Props
 
-| Name       | Required | Data Type | Default Value | Description                                |
-| ---------- | -------- | --------- | ------------- | ------------------------------------------ |
-| `heading`  | NO       | String    | null          | Heading text                               |
-| `children` | NO       | Object    | null          | Container for other components.            |
-| `cta`      | NO       | CTA       | Card          | CTA type for more details see `CTA` below. |
+| Name        | Required | Data Type | Default Value | Description                                 |
+| ----------- | -------- | --------- | ------------- | ------------------------------------------- |
+| `heading`   | NO       | String    | null          | Heading text                                |
+| `children`  | NO       | Object    | null          | Container for other components.             |
+| `cta`       | NO       | CTA       | Card          | CTA type for more details see `CTA` below.  |
+| `className` | NO       | String    | null          | class to be applied to the containing node. |
 
 ## CTA
 

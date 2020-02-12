@@ -21,35 +21,46 @@ const { prefix } = settings;
  * @param {object} props props object
  * @param {*} props.children JSX Components
  * @param {string} props.heading  Heading objects
+ * @param {string} props.className optional class to be applied to the containing node
  * @param {*} props.cta CTA component props object
  * @returns {*} JSX ContentArrayGroup component
  */
-const ContentGroup = ({ children, heading, cta }) => (
-  <div
-    className={`${prefix}--content-group`}
-    data-autoid={`${stablePrefix}--content-group`}>
-    <h3
-      data-autoid={`${stablePrefix}--content-group__title`}
-      className={`${prefix}--content-group__title`}>
-      {heading}
-    </h3>
-    <div
-      data-autoid={`${stablePrefix}--content-group__children`}
-      className={classNames(
-        `${prefix}--content-group__col`,
-        `${prefix}--content-group__children`
-      )}>
-      {children}
+const ContentGroup = ({
+  children,
+  heading,
+  className: customClassName,
+  cta,
+}) => {
+  const className = classNames(`${prefix}--content-group`, {
+    [customClassName]: !!customClassName,
+  });
+
+  return (
+    <div className={className} data-autoid={`${stablePrefix}--content-group`}>
+      <h3
+        data-autoid={`${stablePrefix}--content-group__title`}
+        className={`${prefix}--content-group__title`}>
+        {heading}
+      </h3>
+      <div
+        data-autoid={`${stablePrefix}--content-group__children`}
+        className={classNames(
+          `${prefix}--content-group__col`,
+          `${prefix}--content-group__children`
+        )}>
+        {children}
+      </div>
+      <div className={`${prefix}--content-group__CTA`}>
+        <CTA style="card" type="local" {...cta} />
+      </div>
     </div>
-    <div className={`${prefix}--content-group__CTA`}>
-      <CTA style="card" type="local" {...cta} />
-    </div>
-  </div>
-);
+  );
+};
 
 ContentGroup.propTypes = {
   heading: PropTypes.string,
   children: PropTypes.object,
+  className: PropTypes.string,
   cta: PropTypes.object,
 };
 
