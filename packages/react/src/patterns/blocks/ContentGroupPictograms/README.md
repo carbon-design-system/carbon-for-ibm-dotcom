@@ -32,7 +32,7 @@ const items = [
     heading: 'Aliquam condimentum interdum',
     copy: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
     cta: {
-      type: 'text',
+      type: 'local',
       href: 'https://www.example.com',
       copy: 'Lorem ipsum dolor',
     }
@@ -42,7 +42,7 @@ const items = [
     heading: 'Aliquam condimentum interdum',
     copy: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
     cta: {
-      type: 'text',
+      type: 'local',
       href: 'https://www.example.com',
       copy: 'Lorem ipsum dolor',
     }
@@ -52,7 +52,7 @@ const items = [
     heading: 'Aliquam condimentum interdum',
     copy: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
     cta: {
-      type: 'text',
+      type: 'local',
       href: 'https://www.example.com',
       copy: 'Lorem ipsum dolor',
     }
@@ -67,7 +67,7 @@ function App() {
 ReactDOM.render(<App />, document.querySelector('#app'));
 ```
 
-> 💡 Don't forget to import the pictogramarray styles from
+> 💡 Don't forget to import the Content Group Pictograms styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
 #### Markdown

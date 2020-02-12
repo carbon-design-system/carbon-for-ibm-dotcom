@@ -72,11 +72,15 @@ storiesOf('Patterns (Blocks)|Content Group Pictograms', module)
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.'
         ),
         cta: object('Element 1 Link', {
-          type: 'text',
+          type: 'local',
           href: 'https://www.example.com',
           copy: 'Lorem ipsum dolor',
         }),
-        Pictogram: selectPictogram(pictogram1),
+        Pictogram: {
+          src: selectPictogram(pictogram1),
+          ariaLabel: text('Aria-label 1:', 'Desktop'),
+          ariaHidden: '',
+        },
       },
       {
         heading: text(
@@ -88,11 +92,15 @@ storiesOf('Patterns (Blocks)|Content Group Pictograms', module)
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.'
         ),
         cta: object('Element 2 Link', {
-          type: 'text',
+          type: 'local',
           href: 'https://www.example.com',
           copy: 'Lorem ipsum dolor',
         }),
-        Pictogram: selectPictogram(pictogram2),
+        Pictogram: {
+          src: selectPictogram(pictogram2),
+          ariaLabel: text('Aria-label 2:', 'Touch'),
+          ariaHidden: '',
+        },
       },
       {
         heading: text(
@@ -104,11 +112,15 @@ storiesOf('Patterns (Blocks)|Content Group Pictograms', module)
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.'
         ),
         cta: object('Element 3 Link', {
-          type: 'text',
+          type: 'local',
           href: 'https://www.example.com',
           copy: 'Lorem ipsum dolor',
         }),
-        Pictogram: selectPictogram(pictogram3),
+        Pictogram: {
+          src: selectPictogram(pictogram3),
+          ariaLabel: text('Aria-label 3:', 'Pattern'),
+          ariaHidden: '',
+        },
       },
     ];
 

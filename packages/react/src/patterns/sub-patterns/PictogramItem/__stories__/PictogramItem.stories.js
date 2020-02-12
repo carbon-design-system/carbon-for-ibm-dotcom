@@ -35,10 +35,11 @@ storiesOf('Patterns (Sub-Patterns)|PictogramItem', module)
     );
 
     const cta = {
-      type: 'text',
+      type: 'local',
       href: 'https://www.example.com',
       copy: 'Lorem ipsum dolor',
     };
+
     /**
      * Returns the react component based on the value in the pictogram variables
      *
@@ -55,12 +56,25 @@ storiesOf('Patterns (Sub-Patterns)|PictogramItem', module)
           return Touch;
       }
     };
+
+    const selected = {
+      src: selectPictogram(pictogram),
+      ariaLabel: text('Aria-label:', ''),
+      ariaHidden: text('Aria-hidden:', ''),
+    };
+
     return (
-      <PictogramItem
-        heading={heading}
-        copy={copy}
-        Pictogram={selectPictogram(pictogram)}
-        cta={cta}
-      />
+      <div className="bx--grid">
+        <div className="bx--row">
+          <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
+            <PictogramItem
+              heading={heading}
+              copy={copy}
+              Pictogram={selected}
+              cta={cta}
+            />
+          </div>
+        </div>
+      </div>
     );
   });

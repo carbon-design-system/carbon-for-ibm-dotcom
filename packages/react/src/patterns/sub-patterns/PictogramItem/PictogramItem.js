@@ -28,9 +28,11 @@ const PictogramItem = ({ heading, copy, Pictogram, cta, className }) => (
   <div className={classNames(className, `${prefix}--pictogram-item`)}>
     <div className={`${prefix}--pictogram-item__row`}>
       <div className={`${prefix}--pictogram-item__wrapper`}>
-        <Pictogram
+        <Pictogram.src
           data-autoid={`${stablePrefix}--pictogram-item__pictogram`}
           className={`${prefix}--pictogram-item__pictogram`}
+          aria-label={Pictogram.ariaLabel}
+          aria-hidden={Pictogram.ariaHidden}
         />
       </div>
       <div
@@ -39,7 +41,7 @@ const PictogramItem = ({ heading, copy, Pictogram, cta, className }) => (
         <ContentItem
           heading={heading}
           copy={copy}
-          cta={{ type: 'text', ...cta }}
+          cta={{ style: 'text', ...cta }}
         />
       </div>
     </div>
@@ -50,7 +52,11 @@ PictogramItem.propTypes = {
   heading: PropTypes.string.isRequired,
   copy: PropTypes.string.isRequired,
   cta: PropTypes.object,
-  Pictogram: PropTypes.object.isRequired,
+  Pictogram: PropTypes.shape({
+    src: PropTypes.object.isRequired,
+    ariaLabel: PropTypes.string,
+    ariaHidden: PropTypes.string,
+  }),
   className: PropTypes.string,
 };
 
