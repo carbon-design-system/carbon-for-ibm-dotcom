@@ -31,8 +31,7 @@ const PictogramItem = ({ heading, copy, Pictogram, cta, className }) => (
         <Pictogram.src
           data-autoid={`${stablePrefix}--pictogram-item__pictogram`}
           className={`${prefix}--pictogram-item__pictogram`}
-          aria-label={Pictogram.ariaLabel}
-          aria-hidden={Pictogram.ariaHidden}
+          {...Pictogram}
         />
       </div>
       <div
