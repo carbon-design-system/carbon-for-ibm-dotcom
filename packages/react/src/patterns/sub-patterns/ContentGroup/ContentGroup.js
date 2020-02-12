@@ -20,20 +20,13 @@ const { prefix } = settings;
  *
  * @param {object} props props object
  * @param {*} props.children JSX Components
- * @param {string} props.heading  Heading objects
+ * @param {string} props.heading  Heading string
  * @param {string} props.className optional class to be applied to the containing node
  * @param {*} props.cta CTA component props object
- * @returns {*} JSX ContentArrayGroup component
+ * @returns {*} JSX ContentGroup component
  */
-const ContentGroup = ({
-  children,
-  heading,
-  className: customClassName,
-  cta,
-}) => {
-  const className = classNames(`${prefix}--content-group`, {
-    [customClassName]: !!customClassName,
-  });
+const ContentGroup = ({ children, heading, customClassName, cta }) => {
+  const className = classNames(`${prefix}--content-group`, customClassName);
 
   return (
     <div className={className} data-autoid={`${stablePrefix}--content-group`}>
@@ -60,8 +53,8 @@ const ContentGroup = ({
 ContentGroup.propTypes = {
   heading: PropTypes.string,
   children: PropTypes.object,
-  className: PropTypes.string,
-  cta: PropTypes.object,
+  customClassName: PropTypes.string,
+  cta: PropTypes.instanceOf(CTA),
 };
 
 export default ContentGroup;

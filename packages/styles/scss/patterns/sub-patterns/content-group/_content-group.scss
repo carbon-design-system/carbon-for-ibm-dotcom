@@ -21,6 +21,7 @@
       }
     }
     @include carbon--breakpoint(lg) {
+      padding-left: $carbon--layout-03;
       padding-top: $carbon--layout-05;
       padding-bottom: $carbon--layout-07;
       &__title {
@@ -40,18 +41,12 @@
     }
 
     &__CTA {
-      @include carbon--breakpoint('sm') {
-        @include carbon--make-col(1, 2);
-      }
       @include carbon--breakpoint('md') {
-        @include carbon--make-col(2, 4);
-      }
-      @include carbon--breakpoint('lg') {
         @include carbon--make-col(4, 8);
       }
-
-      margin-bottom: $carbon--layout-03;
     }
+
+    margin-bottom: $carbon--layout-03;
   }
 }
 @include exports('content-group') {
