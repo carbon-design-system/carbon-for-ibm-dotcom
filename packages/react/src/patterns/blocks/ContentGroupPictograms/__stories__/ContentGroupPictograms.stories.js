@@ -78,7 +78,7 @@ storiesOf('Patterns (Blocks)|ContentGroupPictograms', module)
         }),
         pictogram: {
           src: selectPictogram(pictogram1),
-          ariaLabel: text('Aria-label 1:', 'Desktop'),
+          'aria-label': text('Aria-label 1:', 'Desktop'),
         },
       },
       {
@@ -97,7 +97,7 @@ storiesOf('Patterns (Blocks)|ContentGroupPictograms', module)
         }),
         pictogram: {
           src: selectPictogram(pictogram2),
-          ariaLabel: text('Aria-label 2:', 'Touch'),
+          'aria-label': text('Aria-label 2:', 'Touch'),
         },
       },
       {
@@ -116,7 +116,7 @@ storiesOf('Patterns (Blocks)|ContentGroupPictograms', module)
         }),
         pictogram: {
           src: selectPictogram(pictogram3),
-          ariaLabel: text('Aria-label 3:', 'Pattern'),
+          'aria-label': text('Aria-label 3:', 'Pattern'),
         },
       },
     ];

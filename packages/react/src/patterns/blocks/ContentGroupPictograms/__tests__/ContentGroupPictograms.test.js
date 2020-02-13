@@ -17,7 +17,7 @@ describe('<ContentGroupPictograms />', () => {
         },
         pictogram: {
           url: Desktop,
-          ariaLabel: 'Desktop Pictogram',
+          'aria-label': 'Desktop Pictogram',
         },
       },
       {
@@ -31,7 +31,7 @@ describe('<ContentGroupPictograms />', () => {
         },
         pictogram: {
           url: Desktop,
-          ariaLabel: 'Desktop Pictogram',
+          'aria-label': 'Desktop Pictogram',
         },
       },
       {
@@ -45,7 +45,7 @@ describe('<ContentGroupPictograms />', () => {
         },
         pictogram: {
           url: Desktop,
-          ariaLabel: 'Desktop Pictogram',
+          'aria-label': 'Desktop Pictogram',
         },
       },
     ];

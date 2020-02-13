@@ -69,9 +69,15 @@ Component | null | Pictogram component imported from `@carbon/pictograms-react`
 
 ## Accessibility
 
-In order to make the component acessible to screen readers, aria-label and
-aria-hidden are available for you to use, adding `ariaLabel` or `ariaHidden`
-values as a string inside the `pictogram`object.
+In order to make the component acessible to screen readers, you can provide aria
+attributes inside the pictogram object.
+
+```javascript
+const pictogram = {
+  src: Desktop,
+  'aria-label': 'Description for the screen reader',
+};
+```
 
 ## Stable selectors
 

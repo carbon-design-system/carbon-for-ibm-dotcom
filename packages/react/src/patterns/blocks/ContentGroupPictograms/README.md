@@ -39,7 +39,7 @@ const items = [
     },
     pictogram: {
       url: Desktop,
-      ariaLabel: 'Desktop Pictogram',
+      'aria-label': 'Desktop Pictogram',
     },
   },
   {
@@ -53,7 +53,7 @@ const items = [
     },
     pictogram: {
       url: Touch,
-      ariaLabel: 'Touch Pictogram',
+      'aria-label': 'Touch Pictogram',
     },
   },
   {
@@ -67,7 +67,7 @@ const items = [
     },
     pictogram: {
       url: Pattern,
-      ariaLabel: 'Pattern Pictogram',
+      'aria-label': 'Pattern Pictogram',
     },
   },
 ];

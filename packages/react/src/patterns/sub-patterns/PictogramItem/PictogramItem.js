@@ -23,8 +23,6 @@ const { prefix } = settings;
  * @param {string} props.className Pictogram Item className prop
  * @param {object} props.pictogram pictogram data object
  * @param {object} props.pictogram.src Pictogram component from the carbon library
- * @param {object} props.pictogram.ariaLabel Aria-label for pictogram
- * @param {object} props.pictogram.ariaHidden Aria-hidden for pictogram
  * @returns {*} Content array with pictograms item JSX Component
  */
 const PictogramItem = ({
@@ -62,8 +60,6 @@ PictogramItem.propTypes = {
   cta: PropTypes.object,
   pictogram: PropTypes.shape({
     src: PropTypes.object.isRequired,
-    ariaLabel: PropTypes.string,
-    ariaHidden: PropTypes.string,
   }),
   className: PropTypes.string,
 };
