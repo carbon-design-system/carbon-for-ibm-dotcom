@@ -65,6 +65,7 @@
     .#{$prefix}--card-link__title,
     .#{$prefix}--card-link__content {
       width: 90%;
+      max-width: 640px;
     }
 
     @include themed-items;
