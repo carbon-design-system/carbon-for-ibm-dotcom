@@ -125,7 +125,7 @@ storiesOf('Patterns (Blocks)|Content Group Pictograms', module)
     ];
 
     return (
-      <div className="">
+      <div className="bx--grid">
         <div className="bx--row">
           <ContentGroupPictograms
             className={classNames(
