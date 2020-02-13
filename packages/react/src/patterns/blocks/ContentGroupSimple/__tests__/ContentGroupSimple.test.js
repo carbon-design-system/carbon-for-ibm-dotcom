@@ -42,7 +42,7 @@ describe('<ContentGroupSimple />', () => {
     ];
 
     const cta = {
-      copy: 'Lorem ipsum dolor',
+      title: 'Lorem ipsum dolor',
       href: 'https://www.example.com',
     };
 
