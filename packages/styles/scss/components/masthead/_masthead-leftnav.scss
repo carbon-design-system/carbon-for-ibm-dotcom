@@ -18,10 +18,22 @@
   .#{$prefix}--header__menu-trigger {
     margin-right: 0;
 
+    .#{$prefix}--side-nav__close {
+      display: none;
+    }
+
     &.#{$prefix}--header__action--active {
       + .#{$prefix}--header__logo {
         z-index: 6001;
         margin-left: $carbon--spacing-09;
+      }
+
+      .#{$prefix}--side-nav__close {
+        display: inline;
+      }
+
+      .#{$prefix}--side-nav__open {
+        display: none;
       }
     }
   }

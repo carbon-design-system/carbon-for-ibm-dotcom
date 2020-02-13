@@ -5,15 +5,15 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import classNames from 'classnames';
 import { DDS_USECASES } from '../../../internal/FeatureFlags';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import FeaturedLink from '../FeaturedLink/FeaturedLink';
+import { featureFlag } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
 import React from 'react';
-import UseCasesGroup from './UseCasesGroup';
-import classNames from 'classnames';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
-import { featureFlag } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
+import UseCasesGroup from './UseCasesGroup';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;

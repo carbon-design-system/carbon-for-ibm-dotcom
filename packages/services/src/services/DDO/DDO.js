@@ -17,6 +17,7 @@ function _checkFlag() {
 
 /**
  * Number of times to retry the datalayer ready loop before failing
+ *
  * @type {number}
  * @private
  */
@@ -24,6 +25,7 @@ const _timeoutRetries = 50;
 
 /**
  * Tracks the number of attempts for the datalayer ready loop
+ *
  * @type {number}
  * @private
  */

@@ -1,10 +1,10 @@
 import React, { useCallback, useEffect, useRef } from 'react';
 import { Close20 } from '@carbon/icons-react';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { HeaderGlobalAction } from 'carbon-components-react';
 import PropTypes from 'prop-types';
-import { Search20 } from '@carbon/icons-react';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import root from 'window-or-global';
+import { Search20 } from '@carbon/icons-react';
 import { settings } from 'carbon-components';
 
 const { stablePrefix } = ddsSettings;

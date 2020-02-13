@@ -5,12 +5,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { DDS_CONTENT_GROUP } from '../../../internal/FeatureFlags';
-import PropTypes from 'prop-types';
-import React from 'react';
 import classNames from 'classnames';
+import { DDS_CONTENT_GROUP } from '../../../internal/FeatureFlags';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { featureFlag } from '@carbon/ibmdotcom-utilities';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { settings } from 'carbon-components';
 
 const { stablePrefix } = ddsSettings;

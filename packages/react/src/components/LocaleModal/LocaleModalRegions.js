@@ -8,8 +8,8 @@
 import { ArrowRight20, Error20 } from '@carbon/icons-react';
 import React, { useEffect } from 'react';
 import { CardLink } from '../../patterns/sub-patterns/CardLink';
-import PropTypes from 'prop-types';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import PropTypes from 'prop-types';
 import { settings } from 'carbon-components';
 
 const { stablePrefix } = ddsSettings;

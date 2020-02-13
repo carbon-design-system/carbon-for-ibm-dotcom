@@ -8,6 +8,7 @@ const _scrollTracker = process.env.SCROLL_TRACKING === 'true' || false;
 
 /**
  * Current NODE_ENV
+ *
  * @type {string | string}
  * @private
  */
