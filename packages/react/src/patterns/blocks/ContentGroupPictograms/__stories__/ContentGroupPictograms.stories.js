@@ -7,7 +7,7 @@ import React from 'react';
 import readme from '../README.md';
 import { storiesOf } from '@storybook/react';
 
-storiesOf('Patterns (Blocks)|Content Group Pictograms', module)
+storiesOf('Patterns (Blocks)|ContentGroupPictograms', module)
   .addDecorator(withKnobs)
   .addParameters({
     readme: {
@@ -64,14 +64,14 @@ storiesOf('Patterns (Blocks)|Content Group Pictograms', module)
     const items = [
       {
         heading: text(
-          'Element 1 Title (required)',
+          'Item 1 Heading (required)',
           'Aliquam condimentum interdum'
         ),
         copy: text(
-          'Element 1 Copy (required)',
+          'Item 1 Copy (required)',
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.'
         ),
-        cta: object('Element 1 Link', {
+        cta: object('Item 1 Link', {
           type: 'local',
           href: 'https://www.example.com',
           copy: 'Lorem ipsum dolor',
@@ -79,19 +79,18 @@ storiesOf('Patterns (Blocks)|Content Group Pictograms', module)
         pictogram: {
           src: selectPictogram(pictogram1),
           ariaLabel: text('Aria-label 1:', 'Desktop'),
-          ariaHidden: '',
         },
       },
       {
         heading: text(
-          'Element 2 Title (required)',
+          'Item 2 Heading (required)',
           'Aliquam condimentum interdum'
         ),
         copy: text(
-          'Element 2 Copy (required)',
+          'Item 2 Copy (required)',
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.'
         ),
-        cta: object('Element 2 Link', {
+        cta: object('Item 2 Link', {
           type: 'local',
           href: 'https://www.example.com',
           copy: 'Lorem ipsum dolor',
@@ -99,19 +98,18 @@ storiesOf('Patterns (Blocks)|Content Group Pictograms', module)
         pictogram: {
           src: selectPictogram(pictogram2),
           ariaLabel: text('Aria-label 2:', 'Touch'),
-          ariaHidden: '',
         },
       },
       {
         heading: text(
-          'Element 3 Title (required)',
+          'Item 3 Heading (required)',
           'Aliquam condimentum interdum'
         ),
         copy: text(
-          'Element 3 Copy (required)',
+          'Item 3 Copy (required)',
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.'
         ),
-        cta: object('Element 3 Link', {
+        cta: object('Item 3 Link', {
           type: 'local',
           href: 'https://www.example.com',
           copy: 'Lorem ipsum dolor',
@@ -119,7 +117,6 @@ storiesOf('Patterns (Blocks)|Content Group Pictograms', module)
         pictogram: {
           src: selectPictogram(pictogram3),
           ariaLabel: text('Aria-label 3:', 'Pattern'),
-          ariaHidden: '',
         },
       },
     ];
@@ -130,7 +127,7 @@ storiesOf('Patterns (Blocks)|Content Group Pictograms', module)
           <ContentGroupPictograms
             className={classNames(
               `bx--col-sm-4`,
-              `bx--col-md-4`,
+              `bx--col-lg-8`,
               `bx--offset-lg-4`
             )}
             heading={heading}

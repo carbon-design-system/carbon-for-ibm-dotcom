@@ -59,8 +59,7 @@ storiesOf('Patterns (Sub-Patterns)|PictogramItem', module)
 
     const selected = {
       src: selectPictogram(pictogram),
-      ariaLabel: text('Aria-label:', ''),
-      ariaHidden: text('Aria-hidden:', ''),
+      ariaLabel: text('Aria-label:', 'Pictogram description'),
     };
 
     return (

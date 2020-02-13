@@ -11,44 +11,42 @@ describe('<ContentGroupPictograms />', () => {
         copy:
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
         cta: {
-          type: 'text',
+          type: 'local',
           href: 'https://www.example.com',
           copy: 'Lorem ipsum dolor',
         },
-        Pictogram: Desktop,
+        pictogram: {
+          url: Desktop,
+          ariaLabel: 'Desktop Pictogram',
+        },
       },
       {
         heading: 'Aliquam condimentum interdum',
         copy:
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
         cta: {
-          type: 'text',
+          type: 'local',
           href: 'https://www.example.com',
           copy: 'Lorem ipsum dolor',
         },
-        Pictogram: Desktop,
+        pictogram: {
+          url: Desktop,
+          ariaLabel: 'Desktop Pictogram',
+        },
       },
       {
         heading: 'Aliquam condimentum interdum',
         copy:
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
         cta: {
-          type: 'text',
+          type: 'local',
           href: 'https://www.example.com',
           copy: 'Lorem ipsum dolor',
         },
-        Pictogram: Desktop,
-      },
-      {
-        heading: 'Aliquam condimentum interdum',
-        copy:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
-        cta: {
-          type: 'text',
-          href: 'https://www.example.com',
-          copy: 'Lorem ipsum dolor',
+        pictogram: {
+          url: Desktop,
+          ariaLabel: 'Desktop Pictogram',
         },
-        Pictogram: Desktop,
       },
     ];
     const contentgrouppictograms = mount(
