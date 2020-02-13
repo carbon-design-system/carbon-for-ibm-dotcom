@@ -6,13 +6,11 @@
 //
 
 @import '../../../globals/imports';
-
 @mixin themed-items {
   .#{$prefix}--content-group__title {
     color: $text-01;
   }
 }
-
 @mixin content-group {
   .#{$prefix}--content-group {
     @include carbon--breakpoint(sm) {
@@ -22,31 +20,37 @@
         margin-bottom: $carbon--layout-05;
       }
     }
-
     @include carbon--breakpoint(lg) {
+      padding-left: $carbon--layout-03;
       padding-top: $carbon--layout-05;
       padding-bottom: $carbon--layout-07;
-
       &__title {
         margin-bottom: $carbon--layout-03;
       }
     }
 
     &__title {
-      padding-left: $carbon--layout-01;
       padding-right: $carbon--layout-01;
       max-width: 90%;
 
-      @include carbon--type-style('expressive-heading-04');
+      @include carbon--type-style('expressive-heading-04', true);
     }
 
     &__children {
-      padding-left: 0;
-      padding-right: 0;
+      margin-bottom: $carbon--layout-03;
     }
+
+    &__CTA {
+      max-width: 320px;
+
+      @include carbon--breakpoint('md') {
+        @include carbon--make-col(4, 8);
+      }
+    }
+
+    margin-bottom: $carbon--layout-03;
   }
 }
-
 @include exports('content-group') {
   @include content-group;
 }

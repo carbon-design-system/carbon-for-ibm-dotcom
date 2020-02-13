@@ -1,0 +1,34 @@
+//
+// Copyright IBM Corp. 2016, 2018
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import '@carbon/grid/scss/grid.scss';
+@import '../../../globals/imports';
+
+@mixin pictogram-item {
+  .#{$prefix}--pictogram-item {
+    &__row {
+      @include carbon--make-row();
+    }
+    &__pic-col {
+      margin-top: $carbon--spacing-07;
+      @include carbon--make-col-ready();
+      @include carbon--make-col(2, 16);
+    }
+    &__content-col {
+      @include carbon--make-col-ready();
+      @include carbon--make-col(6, 16);
+    }
+    &__pictogram {
+      height: 80px;
+      width: 80px;
+    }
+  }
+}
+
+@include exports('pictogram-item') {
+  @include pictogram-item;
+}
