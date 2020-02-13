@@ -34,8 +34,7 @@ function App() {
 
   const pictogram = {
     url: Desktop,
-    ariaLabel: '',
-    ariaHidden: '',
+    ariaLabel: 'Desktop pictogram',
   };
 
   return (
@@ -60,15 +59,19 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 | ----------- | -------- | --------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `heading`   | YES      | String    | null          | Heading text                                                                                                                                            |
 | `copy`      | YES      | String    | null          | Copy text                                                                                                                                               |
-| `Pictogram` | YES      | Object    | null          | See `Pictogram` bellow. package                                                                                                                         |
+| `pictogram` | YES      | Object    | null          | See `Pictogram` bellow. package                                                                                                                         |
 | `cta`       | NO       | Object    | null          | Object with CTA data, check [CTA](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/components/CTA/README.md)👀 |
 
-## Pictogram
+## pictogram
 
 | Name | Required | Data Type | Default Value | Description | | `src` | YES |
 Component | null | Pictogram component imported from `@carbon/pictograms-react`
-| | `ariaLabel` | NO | string | null | Aria-label for the Pictogram | |
-`ariaHidden` | NO | string | null | Aria-hidden for the Pictogram |
+
+## Accessibility
+
+In order to make the component acessible to screen readers, aria-label and
+aria-hidden are available for you to use, adding `ariaLabel` or `ariaHidden`
+values as a string inside the `pictogram`object.
 
 ## Stable selectors
 
