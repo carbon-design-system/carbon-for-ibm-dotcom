@@ -76,7 +76,7 @@ storiesOf('Patterns (Blocks)|Content Group Pictograms', module)
           href: 'https://www.example.com',
           copy: 'Lorem ipsum dolor',
         }),
-        Pictogram: {
+        pictogram: {
           src: selectPictogram(pictogram1),
           ariaLabel: text('Aria-label 1:', 'Desktop'),
           ariaHidden: '',
@@ -96,7 +96,7 @@ storiesOf('Patterns (Blocks)|Content Group Pictograms', module)
           href: 'https://www.example.com',
           copy: 'Lorem ipsum dolor',
         }),
-        Pictogram: {
+        pictogram: {
           src: selectPictogram(pictogram2),
           ariaLabel: text('Aria-label 2:', 'Touch'),
           ariaHidden: '',
@@ -116,7 +116,7 @@ storiesOf('Patterns (Blocks)|Content Group Pictograms', module)
           href: 'https://www.example.com',
           copy: 'Lorem ipsum dolor',
         }),
-        Pictogram: {
+        pictogram: {
           src: selectPictogram(pictogram3),
           ariaLabel: text('Aria-label 3:', 'Pattern'),
           ariaHidden: '',

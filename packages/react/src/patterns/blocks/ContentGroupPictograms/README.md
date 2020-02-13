@@ -36,7 +36,7 @@ const items = [
       href: 'https://www.example.com',
       copy: 'Lorem ipsum dolor',
     }
-    Pictogram: {
+    pictogram: {
       url: Desktop,
       ariaLabel: '',
       ariaHidden: '',
@@ -50,7 +50,7 @@ const items = [
       href: 'https://www.example.com',
       copy: 'Lorem ipsum dolor',
     }
-    Pictogram: {
+    pictogram: {
       url: Touch,
       ariaLabel: '',
       ariaHidden: '',
@@ -64,7 +64,7 @@ const items = [
       href: 'https://www.example.com',
       copy: 'Lorem ipsum dolor',
     }
-    Pictogram: {
+    pictogram: {
       url: Pattern,
       ariaLabel: '',
       ariaHidden: '',

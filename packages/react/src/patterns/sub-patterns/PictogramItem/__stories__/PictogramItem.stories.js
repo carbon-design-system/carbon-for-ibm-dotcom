@@ -70,7 +70,7 @@ storiesOf('Patterns (Sub-Patterns)|PictogramItem', module)
             <PictogramItem
               heading={heading}
               copy={copy}
-              Pictogram={selected}
+              pictogram={selected}
               cta={cta}
             />
           </div>
