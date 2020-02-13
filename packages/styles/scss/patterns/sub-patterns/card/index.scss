@@ -108,7 +108,9 @@
       background-color: $inverse-hover-ui;
     }
 
-    .#{$prefix}--card__cta {
+    .#{$prefix}--card__cta,
+    .#{$prefix}--card__cta a:visited,
+    .#{$prefix}--card__cta a:active {
       color: $inverse-link;
     }
   }
