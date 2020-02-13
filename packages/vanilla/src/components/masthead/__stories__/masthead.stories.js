@@ -12,7 +12,7 @@ import mastheadKnobs from './data/Masthead.stories.knobs.js';
 import readme from '../README.md';
 import { storiesOf } from '@storybook/html';
 
-storiesOf('masthead', module)
+storiesOf('Components|Masthead', module)
   .addDecorator(withKnobs)
   .addParameters({
     readme: {

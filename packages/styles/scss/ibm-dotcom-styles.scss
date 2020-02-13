@@ -17,6 +17,7 @@
 @import 'components/image/image';
 @import 'components/lightbox-media-viewer/lightbox-media-viewer';
 @import 'components/link-with-icon/link-with-icon';
+@import 'components/locale-modal/locale-modal';
 @import 'components/masthead/index';
 
 // Patterns - Sections
@@ -27,7 +28,7 @@
 @import 'patterns/sections/simpleoverview/simpleoverview';
 
 // Patterns - Blocks
-@import 'patterns/blocks/cardarray/cardarray';
+@import 'patterns/blocks/contentgroupcards/contentgroupcards';
 @import 'patterns/blocks/FeaturedLink/featuredlink';
 @import 'patterns/blocks/listsection/listsection';
 @import 'patterns/blocks/logo-grid/logo-grid';
@@ -37,7 +38,7 @@
 
 // Patterns - Sub-Patterns
 @import 'patterns/sub-patterns/buttongroup/buttongroup';
-@import 'patterns/sub-patterns/card-link/index';
+@import 'patterns/sub-patterns/card/index';
 @import 'patterns/sub-patterns/content-group/content-group';
 @import 'patterns/sub-patterns/layout/layout';
 @import 'patterns/sub-patterns/tableofcontents/tableofcontents';

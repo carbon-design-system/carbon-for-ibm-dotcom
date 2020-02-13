@@ -7,13 +7,13 @@
 
 import '../../../../../styles/scss/components/dotcom-shell/_dotcom-shell.scss';
 import { boolean, select, text, withKnobs } from '@storybook/addon-knobs';
-import DotcomShell from '../dotcomshell';
 import content from './data/content';
+import DotcomShell from '../dotcomshell';
 import mastheadKnobs from '../../masthead/__stories__/data/Masthead.stories.knobs.js';
 import readme from '../README.md';
 import { storiesOf } from '@storybook/html';
 
-storiesOf('Dotcom Shell', module)
+storiesOf('Components|Dotcom Shell', module)
   .addDecorator(withKnobs)
   .addParameters({
     readme: {
