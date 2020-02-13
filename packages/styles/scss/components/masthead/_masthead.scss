@@ -333,6 +333,9 @@ $search-transition-timing: 95ms;
   .#{$prefix}--overflow-menu.#{$prefix}--overflow-menu--open {
     box-shadow: none;
   }
+  .#{$prefix}--header__action.#{$prefix}--overflow-menu {
+    height: $spacing-09;
+  }
 }
 
 @include exports('masthead') {
