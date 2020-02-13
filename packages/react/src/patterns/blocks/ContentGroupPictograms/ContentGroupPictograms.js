@@ -17,13 +17,13 @@ const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
- * Content Array with Pictograms
+ * Content group — with pictograms
  *
  * @param {object} props props object
  * @param {object} props.className class Name prop
  * @param {Array} props.items Pictogram item content array
- * @param {string} props.heading Content Group Pictograms title
- * @returns {*}  Content array with pictograms JSX Component
+ * @param {string} props.heading Content group — with pictograms title
+ * @returns {*}  Content group — with pictograms JSX Component
  */
 const ContentGroupPictograms = ({ heading, items, className }) => (
   <div
@@ -36,7 +36,7 @@ const ContentGroupPictograms = ({ heading, items, className }) => (
 /**
  * Renders the array of items
  *
- * @param {object} items Item object for PictogramItem
+ * @param {Array} items Array of items for PictogramItem
  * @returns {*} PictogramItem JSX components
  */
 const _renderItems = items =>
@@ -51,7 +51,7 @@ const _renderItems = items =>
 
 ContentGroupPictograms.propTypes = {
   heading: PropTypes.string.isRequired,
-  items: PropTypes.arrayOf(PropTypes.instanceOf(PictogramItem)),
+  items: PropTypes.arrayOf(PropTypes.instanceOf(PictogramItem)).isRequired,
   className: PropTypes.string,
 };
 

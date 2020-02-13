@@ -36,7 +36,11 @@ const items = [
       href: 'https://www.example.com',
       copy: 'Lorem ipsum dolor',
     }
-    Pictogram: Desktop
+    Pictogram: {
+      url: Desktop,
+      ariaLabel: '',
+      ariaHidden: '',
+    }
   },
   {
     heading: 'Aliquam condimentum interdum',
@@ -46,7 +50,11 @@ const items = [
       href: 'https://www.example.com',
       copy: 'Lorem ipsum dolor',
     }
-    Pictogram: Touch
+    Pictogram: {
+      url: Touch,
+      ariaLabel: '',
+      ariaHidden: '',
+    }
   },
   {
     heading: 'Aliquam condimentum interdum',
@@ -56,7 +64,11 @@ const items = [
       href: 'https://www.example.com',
       copy: 'Lorem ipsum dolor',
     }
-    Pictogram: Pattern
+    Pictogram: {
+      url: Pattern,
+      ariaLabel: '',
+      ariaHidden: '',
+    }
   }
 ];
 
