@@ -21,7 +21,6 @@
       }
     }
     @include carbon--breakpoint(lg) {
-      padding-left: $carbon--layout-03;
       padding-top: $carbon--layout-05;
       padding-bottom: $carbon--layout-07;
       &__title {
