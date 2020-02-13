@@ -14,16 +14,16 @@
 @mixin content-group {
   .#{$prefix}--content-group {
     @include carbon--breakpoint(sm) {
-      padding-top: $carbon--layout-03;
-      padding-bottom: $carbon--layout-05;
+      // padding-top: $carbon--layout-03;
+      // padding-bottom: $carbon--layout-05;
       &__title {
         margin-bottom: $carbon--layout-05;
       }
     }
     @include carbon--breakpoint(lg) {
-      padding-left: $carbon--layout-03;
-      padding-top: $carbon--layout-05;
-      padding-bottom: $carbon--layout-07;
+      // padding-left: $carbon--layout-03;
+      // padding-top: $carbon--layout-05;
+      // padding-bottom: $carbon--layout-07;
       &__title {
         margin-bottom: $carbon--layout-03;
       }

@@ -7,6 +7,8 @@ import {
   withKnobs,
 } from '@storybook/addon-knobs';
 import ContentBlockSimple from '../ContentBlockSimple';
+import ContentGroupSimple from '../../ContentGroupSimple';
+import ContentGroupSimpleKnobs from '../../ContentGroupSimple/__stories__/data/ContentGroupSimple.knobs';
 import React from 'react';
 import readme from '../README.md';
 import { storiesOf } from '@storybook/react';
@@ -19,6 +21,12 @@ storiesOf('Patterns (Blocks)|ContentBlockSimple', module)
     },
   })
   .add('Default', () => {
+    const heading = text('Heading', ContentGroupSimpleKnobs.heading);
+    const mediaData = object('Media Data:', ContentGroupSimpleKnobs.mediaData);
+    const types = ContentGroupSimpleKnobs.types;
+    const mediaType = select('Media type:', types, types.image);
+    const items = object('Content Items:', ContentGroupSimpleKnobs.items);
+    const contentGroupSimpleCta = object('CTA Data:', ContentGroupSimpleKnobs.cta);
     const title = text(
       'title (required)',
       'Maecenas Tincidunt Eget Sapien a Pretium'
@@ -69,7 +77,7 @@ storiesOf('Patterns (Blocks)|ContentBlockSimple', module)
     const withBorder = boolean('with border', true);
 
     const ctaStyles = {
-      text: 'text',
+      text: 'card',
       card: 'card',
     };
 
@@ -77,7 +85,7 @@ storiesOf('Patterns (Blocks)|ContentBlockSimple', module)
       style: select('CTA type', ctaStyles, ctaStyles.text),
       type: 'local',
       heading: 'Lorem ipsum dolor sit amet',
-      copy: 'Lorem ipsum dolor sit amet',
+      copy: 'Lorem ipsum dolor sit ametttt',
       card: {
         href: 'https://ibm.com',
         title: 'Consectetur adipisicing elit',
@@ -93,15 +101,31 @@ storiesOf('Patterns (Blocks)|ContentBlockSimple', module)
       none: null,
     };
 
+    const contentItem = [
+      {
+        mediaType: {mediaType},
+        mediaData: {mediaData},
+        heading: {heading},
+        items: {items},
+        cta: {contentGroupSimpleCta}
+      },
+      {
+        mediaType: {mediaType},
+        mediaData: {mediaData},
+        heading: {heading},
+        items: {items},
+        cta: {contentGroupSimpleCta}
+      },
+    ];
+
     return (
       <ContentBlockSimple
-        border={withBorder}
         copy={select('Copy (required)', copy, copy['single paragraph'])}
-        link={object('link', link)}
-        linkType={select('link type', linkType, linkType.none)}
-        theme={select('theme', themes, themes.g100)}
         title={title}
-        cta={select('Feature Link (optional)', cta, cta.cta)}
+        cta={select('Feature Link (optional)', ctaProps, ctaProps)}
+        children={contentItem}
       />
+
+
     );
   });

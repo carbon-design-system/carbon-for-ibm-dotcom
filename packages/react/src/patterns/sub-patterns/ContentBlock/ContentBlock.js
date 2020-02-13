@@ -30,7 +30,7 @@ const { prefix } = settings;
  */
 const ContentBlock = ({ heading, copy, children, cta, customClassName }) => {
   const className = cx(`${prefix}--content-block`, customClassName);
-
+  console.log('ctacta', cta);
   return (
     <div data-autoid={`${stablePrefix}--content-block`} className={className}>
       {heading && (
