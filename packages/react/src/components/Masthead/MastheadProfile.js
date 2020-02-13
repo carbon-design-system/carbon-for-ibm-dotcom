@@ -36,6 +36,7 @@ const MastheadProfile = ({
         href={item.url}
         hasDivider={i > 0}
         key={i}
+        primaryFocus
       />
     );
   });
