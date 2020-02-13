@@ -47,7 +47,8 @@
       @include carbon--type-style('body-short-01');
     }
 
-    &__cta {
+    &__cta,
+    &__cta a:visited {
       color: $interactive-04;
     }
 
@@ -109,8 +110,7 @@
     }
 
     .#{$prefix}--card__cta,
-    .#{$prefix}--card__cta a:visited,
-    .#{$prefix}--card__cta a:active {
+    .#{$prefix}--card__cta a:visited {
       color: $inverse-link;
     }
   }
