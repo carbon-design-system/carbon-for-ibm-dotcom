@@ -6,7 +6,7 @@
  */
 
 import { ArrowRight20 } from '@carbon/icons-react';
-import { CardLink } from '../../sub-patterns/CardLink';
+import { Card } from '../../sub-patterns/Card';
 import ContentBlockMediaItem from './ContentBlockMediaItem';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
@@ -49,11 +49,12 @@ const ContentBlockMediaGroup = ({
         <div
           data-autoid={`${stablePrefix}--content-block-media--group__card`}
           className={`${prefix}--content-block-media--group__card`}>
-          <CardLink
+          <Card
             title={link.title}
             href={link.href}
             target={link.target}
             icon={ArrowRight20}
+            type="link"
           />
         </div>
       )}

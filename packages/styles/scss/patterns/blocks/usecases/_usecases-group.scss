@@ -6,7 +6,7 @@
 //
 
 @mixin themed-items {
-  .#{$prefix}--usecases-group__card .bx--card-link {
+  .#{$prefix}--usecases-group__card .#{$prefix}--card {
     background-color: $ui-01;
 
     &__title {
@@ -35,7 +35,7 @@
       margin-left: -$carbon--layout-01;
       margin-right: -$carbon--layout-01;
       max-width: carbon--rem(320px);
-      .bx--card-link {
+      .#{$prefix}--card {
         padding: $carbon--layout-01;
         &__title {
           @include carbon--type-style('body-short-02');

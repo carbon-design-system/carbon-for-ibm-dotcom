@@ -6,7 +6,7 @@
  */
 
 import { ArrowRight20 } from '@carbon/icons-react';
-import { CardLink } from '../../sub-patterns/CardLink';
+import { Card } from '../../sub-patterns/Card';
 import classNames from 'classnames';
 import { DDS_SIMPLELONGFORM } from '../../../internal/FeatureFlags';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
@@ -71,8 +71,8 @@ const SimpleLongForm = ({ border, copy, linkType, link, theme, title }) =>
 const renderLink = (type, data) => {
   return type === 'jump' ? (
     <JumpLink link={data} />
-  ) : type === 'cardLink' ? (
-    <CardLink
+  ) : type === 'card' ? (
+    <Card
       title={data.text}
       href={data.href}
       target={data.target}
@@ -89,7 +89,7 @@ const renderLink = (type, data) => {
 /**
  * sets the class name based on link type
  *
- * @param {string} type link type ( iconLink | cardLink )
+ * @param {string} type link type ( iconLink | card)
  * @returns {string} link type css class names
  */
 const setLinkType = type => {
@@ -98,8 +98,8 @@ const setLinkType = type => {
     case 'iconLink':
       linkType = `${prefix}--simplelongform--icon-link`;
       break;
-    case 'cardLink':
-      linkType = `${prefix}--simplelongform--card-link`;
+    case 'card':
+      linkType = `${prefix}--simplelongform--card`;
       break;
     default:
   }
