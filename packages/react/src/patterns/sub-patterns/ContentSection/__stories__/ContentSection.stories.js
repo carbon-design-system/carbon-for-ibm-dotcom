@@ -1,5 +1,5 @@
 import './index.scss';
-import { text, withKnobs } from '@storybook/addon-knobs';
+import { select, text, withKnobs } from '@storybook/addon-knobs';
 import ContentSection from '../ContentSection';
 import React from 'react';
 import readme from '../README.md';
@@ -16,15 +16,21 @@ storiesOf('Patterns (Sub-Patterns)|ContentSection', module)
     },
   })
   .add('Default', () => {
-    const copy = text(
+    const heading = text(
       'Component title(required):',
-      'Lorem ipsum dolor sit amet.'
+      'Lorem ipsum dolor sit amet'
     );
+    const themes = {
+      g10: 'g10',
+      white: '',
+    };
 
-    //return <ContentSection heading={copy} />;
     return (
       <div className={`${prefix}--grid`}>
-        <ContentSection heading={copy}></ContentSection>
+        <ContentSection
+          heading={heading}
+          theme={select('theme', themes, themes.white)}
+        />
       </div>
     );
   });

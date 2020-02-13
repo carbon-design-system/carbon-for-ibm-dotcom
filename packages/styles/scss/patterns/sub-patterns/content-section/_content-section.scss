@@ -8,46 +8,53 @@
 @import '../../../globals/imports';
 
 @mixin themed-items {
-  .#{$prefix}--content-group__title {
-    color: $text-01;
-  }
+  color: $text-01;
+  background: $ui-background;
 }
 
 @mixin content-section {
   .#{$prefix}--content-section {
-    @include carbon--breakpoint(sm) {
-      //padding-top: $carbon--layout-01;
-      padding-bottom: $carbon--layout-05;
-      &__title {
-        margin-bottom: $carbon--layout-05;
+    @include carbon--make-row;
+
+    &__heading {
+      margin-bottom: $carbon--layout-03;
+      @include carbon--type-style('expressive-heading-04', true);
+
+      &__col {
+        @include carbon--make-col-ready;
+        @include carbon--make-col(4, 4);
+
+        @include carbon--breakpoint(lg) {
+          @include carbon--make-col(4, 16);
+        }
+      }
+    }
+    &__children {
+      &__col {
+        @include carbon--make-col-ready;
+        @include carbon--make-col(4, 4);
+
+        @include carbon--breakpoint(lg) {
+          @include carbon--make-col(12, 16);
+        }
       }
     }
 
-    @include carbon--breakpoint(lg) {
+    padding-top: $carbon--layout-05;
+    padding-bottom: $carbon--layout-05;
+
+    @include carbon--breakpoint('md') {
+      padding-bottom: $carbon--layout-06;
+    }
+    @include carbon--breakpoint('lg') {
       padding-top: $carbon--layout-05;
       padding-bottom: $carbon--layout-07;
-
-      &__title {
-        margin-bottom: $carbon--layout-03;
-      }
     }
+  }
 
-    &__title {
-      padding-right: $carbon--layout-01;
-
-      @include carbon--type-style('expressive-heading-04', true);
-    }
-
-    &__children {
-      padding-left: 0;
-      padding-right: 0;
-      max-width: carbon--rem(640px);
-
-      @include carbon--breakpoint('lg') {
-        @include carbon--make-container;
-
-        @include carbon--make-col(4, 8);
-      }
+  .#{$prefix}--content-section--g10 {
+    @include carbon--theme($carbon--theme--g10) {
+      @include themed-items;
     }
   }
 }

@@ -18,34 +18,42 @@ const { prefix } = settings;
  * ContentArrayGroup Component, for use with content arrays
  *
  * @param {object} props props object
- * @param {*} props.children JSX Components
  * @param {string} props.heading  Heading objects
- * @returns {*} JSX ContentArrayGroup component
+ * @param {string} props.theme theme name
+ * @param {*} props.children JSX Components
+ * @returns {*} JSX ContentSection component
  */
-const ContentSection = ({ heading, children }) => {
+const ContentSection = ({ heading, theme, children }) => {
+  /**
+   * sets the class name based on theme type
+   *
+   * @param {string} theme theme type ( g10 | white/default )
+   * @returns {string} theme css class names
+   */
+  const setTheme = theme => {
+    return theme && `${prefix}--content-section--${theme}`;
+  };
   return (
     <div
-      className={`${prefix}--content-section`}
+      className={classNames(`${prefix}--content-section`, setTheme(theme))}
       data-autoid={`${stablePrefix}--content-section`}>
-      <h3
-        data-autoid={`${stablePrefix}--content-section__title`}
-        className={`${prefix}--content-section__title`}>
-        {heading}
-      </h3>
-      <div
-        data-autoid={`${stablePrefix}--content-section__children`}
-        className={classNames(
-          `${prefix}--content-section__col`,
-          `${prefix}--content-section__children`
-        )}>
-        {children}
+      <div className={`${prefix}--content-section__heading__col`}>
+        <h3
+          data-autoid={`${stablePrefix}--content-section__heading`}
+          className={`${prefix}--content-section__heading`}>
+          {heading}
+        </h3>
+      </div>
+      <div className={`${prefix}--content-section__children__col`}>
+        <div className={`${prefix}--content-section__children`}>{children}</div>
       </div>
     </div>
   );
 };
 
 ContentSection.propTypes = {
-  heading: PropTypes.string,
+  heading: PropTypes.string.isRequired,
+  theme: PropTypes.string,
   children: PropTypes.element,
 };
 
