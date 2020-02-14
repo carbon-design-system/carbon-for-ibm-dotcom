@@ -5,7 +5,7 @@ import React from 'react';
 import readme from '../README.md';
 import { storiesOf } from '@storybook/react';
 
-storiesOf('Patterns (Sections)|CardSection - Images', module)
+storiesOf('Patterns (Sections)|CardSection - with images', module)
   .addDecorator(withKnobs)
   .addParameters({
     readme: {
