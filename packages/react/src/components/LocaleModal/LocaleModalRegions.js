@@ -7,9 +7,9 @@
 
 import { ArrowRight20, Error20 } from '@carbon/icons-react';
 import React, { useEffect } from 'react';
-import { CardLink } from '../../patterns/sub-patterns/CardLink';
-import PropTypes from 'prop-types';
+import { Card } from '../../patterns/sub-patterns/Card';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import PropTypes from 'prop-types';
 import { settings } from 'carbon-components';
 
 const { stablePrefix } = ddsSettings;
@@ -32,7 +32,7 @@ const LocaleModalRegions = ({
   setClearResults,
 }) => {
   useEffect(() => {
-    const regionLink = document.querySelectorAll(`.${prefix}--card-link`);
+    const regionLink = document.querySelectorAll(`.${prefix}--card`);
     const localeItems = document.querySelectorAll(
       `.${prefix}--locale-modal__locales`
     );
@@ -84,13 +84,14 @@ const LocaleModalRegions = ({
               <div
                 key={`${region.name}`}
                 className={`${prefix}--col-sm-4 ${prefix}--col-md-8 ${prefix}--col-lg-8 ${prefix}--col-xlg-8 ${prefix}--no-gutter`}>
-                <CardLink
+                <Card
                   data-autoid={`${stablePrefix}--locale-modal__geo-btn-${region.key}`}
                   data-region={region.key}
                   key={region.key}
                   title={region.name}
+                  type="link"
                   href={hasCountries ? 'javascript:void(0);' : null}
-                  icon={hasCountries ? <ArrowRight20 /> : <Error20 />}
+                  icon={hasCountries ? ArrowRight20 : Error20}
                 />
               </div>
             );

@@ -5,12 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { DDS_CONTENT_GROUP } from '../../../internal/FeatureFlags';
+import classNames from 'classnames';
+import { CTA } from '../../../components/CTA';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
 import React from 'react';
-import classNames from 'classnames';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
-import { featureFlag } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
 
 const { stablePrefix } = ddsSettings;
@@ -21,43 +20,43 @@ const { prefix } = settings;
  *
  * @param {object} props props object
  * @param {*} props.children JSX Components
- * @param {string} props.heading  Heading objects
- * @returns {*} JSX ContentArrayGroup component
+ * @param {string} props.heading  Heading string
+ * @param {string} props.className optional class to be applied to the containing node
+ * @param {*} props.cta CTA component props object
+ * @returns {*} JSX ContentGroup component
  */
-const ContentGroup = ({ children, heading }) => {
-  return featureFlag(
-    DDS_CONTENT_GROUP,
-    <div
-      className={`${prefix}--content-group`}
-      data-autoid={`${stablePrefix}--content-group`}>
-      <div className={`${prefix}--content-group__container`}>
-        <div className={`${prefix}--content-group__row`}>
-          <div className={`${prefix}--content-group__col`}>
-            <h3
-              data-autoid={`${stablePrefix}--content-group__title`}
-              className={`${prefix}--content-group__title`}>
-              {heading}
-            </h3>
-          </div>
-        </div>
-        <div className={`${prefix}--content-group__row`}>
-          <div
-            data-autoid={`${stablePrefix}--content-group__children`}
-            className={classNames(
-              `${prefix}--content-group__col`,
-              `${prefix}--content-group__children`
-            )}>
-            {children}
-          </div>
-        </div>
+const ContentGroup = ({ children, heading, customClassName, cta }) => {
+  const className = classNames(`${prefix}--content-group`, customClassName);
+
+  return (
+    <div className={className} data-autoid={`${stablePrefix}--content-group`}>
+      <h3
+        data-autoid={`${stablePrefix}--content-group__title`}
+        className={`${prefix}--content-group__title`}>
+        {heading}
+      </h3>
+      <div
+        data-autoid={`${stablePrefix}--content-group__children`}
+        className={classNames(
+          `${prefix}--content-group__col`,
+          `${prefix}--content-group__children`
+        )}>
+        {children}
       </div>
+      {cta && (
+        <div className={`${prefix}--content-group__CTA`}>
+          <CTA style="card" type="local" {...cta} />
+        </div>
+      )}
     </div>
   );
 };
 
 ContentGroup.propTypes = {
   heading: PropTypes.string,
-  children: PropTypes.element,
+  children: PropTypes.object,
+  customClassName: PropTypes.string,
+  cta: PropTypes.object,
 };
 
 export default ContentGroup;

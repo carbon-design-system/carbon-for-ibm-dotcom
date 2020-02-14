@@ -36,7 +36,9 @@
   .#{$prefix}--btn--field,
   .#{$prefix}--btn--sm {
     padding: $button-padding-field;
-
+    &.#{$prefix}--btn--tertiary {
+      height: rem(40px);
+    }
     &.#{$prefix}--btn--ghost {
       padding: $button-padding-ghost-field;
     }

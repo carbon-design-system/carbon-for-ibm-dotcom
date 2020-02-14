@@ -31,10 +31,10 @@ const exec = (command, extraEnv) =>
 const ignoreGlobs = ['**/__tests__/*', '**/*.test.js'].join(',');
 
 try {
-  exec(`${babelPath} src -q -d es --ignore "${ignoreGlobs}"`, {
+  exec(`${babelPath} src --quiet -d es --ignore "${ignoreGlobs}"`, {
     BABEL_ENV: 'es',
   });
-  exec(`${babelPath} src -q -d lib --ignore "${ignoreGlobs}"`, {
+  exec(`${babelPath} src --quiet -d lib --ignore "${ignoreGlobs}"`, {
     BABEL_ENV: 'cjs',
   });
   exec(

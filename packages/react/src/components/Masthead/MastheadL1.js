@@ -7,10 +7,10 @@
 
 import { HeaderMenuItem, HeaderNavigation } from 'carbon-components-react';
 import { ArrowLeft16 } from '@carbon/icons-react';
+import cx from 'classnames';
 import HeaderMenu from '../carbon-components-react/UIShell/HeaderMenu';
 import PropTypes from 'prop-types';
 import React from 'react';
-import cx from 'classnames';
 import { settings } from 'carbon-components';
 
 const { prefix } = settings;

@@ -9,7 +9,7 @@
 @mixin themed-items {
   color: $text-01;
   background: $ui-background;
-  .bx--card-link {
+  .#{$prefix}--card {
     background-color: $ui-01;
     &__title {
       color: $text-01;

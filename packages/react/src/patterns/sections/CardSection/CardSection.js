@@ -1,11 +1,11 @@
-import React, { useEffect, useRef } from 'react';
 import { featureFlag, sameHeight } from '@carbon/ibmdotcom-utilities';
+import React, { useEffect, useRef } from 'react';
 import { ArrowRight20 } from '@carbon/icons-react';
-import { CardLink } from '../../sub-patterns/CardLink';
-import { DDS_CARD_SECTION } from '../../../internal/FeatureFlags';
-import PropTypes from 'prop-types';
+import { Card } from '../../sub-patterns/Card';
 import classNames from 'classnames';
+import { DDS_CARD_SECTION } from '../../../internal/FeatureFlags';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import PropTypes from 'prop-types';
 import root from 'window-or-global';
 import { settings } from 'carbon-components';
 
@@ -37,15 +37,11 @@ const CardSection = ({ title, cards, theme }) => {
    */
   const setCardHeight = () => {
     sameHeight(
-      containerRef.current.getElementsByClassName(
-        `${prefix}--card-link__title`
-      ),
+      containerRef.current.getElementsByClassName(`${prefix}--card__title`),
       'md'
     );
     sameHeight(
-      containerRef.current.getElementsByClassName(
-        `${prefix}--card-link__content`
-      ),
+      containerRef.current.getElementsByClassName(`${prefix}--card__content`),
       'md'
     );
   };
@@ -74,14 +70,15 @@ const CardSection = ({ title, cards, theme }) => {
               {cards.map((card, index) => {
                 return (
                   <div className={`${prefix}--card-section__cards__col`}>
-                    <CardLink
+                    <Card
                       key={index}
                       image={card.image}
                       title={card.title}
                       content={card.copy}
                       href={card.link.href}
                       target={card.link.target}
-                      icon={<ArrowRight20 />}
+                      icon={ArrowRight20}
+                      type="link"
                     />
                   </div>
                 );

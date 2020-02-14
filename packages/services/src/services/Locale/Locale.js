@@ -6,13 +6,14 @@ import root from 'window-or-global';
  * @constant {string | string} Host for the Locale API call
  * @private
  */
-const _host = process.env.TRANSLATION_HOST || 'https://1.www.s81c.com';
+const _host =
+  (process && process.env.TRANSLATION_HOST) || 'https://1.www.s81c.com';
 
 /**
  * @constant {string | string} CORS proxy for lower environment calls
  * @private
  */
-const _proxy = process.env.CORS_PROXY || '';
+const _proxy = (process && process.env.CORS_PROXY) || '';
 
 /**
  * Sets the default location if nothing is returned
@@ -43,6 +44,7 @@ const _endpoint = `${_proxy}${_host}/common/js/dynamicnav/www/countrylist/jsonon
 
 /**
  * Session Storage key for country list
+ *
  * @type {string}
  * @private
  */
@@ -133,21 +135,35 @@ class LocaleAPI {
   /**
    * This fetches the language display name based on language/locale combo
    *
+   * @param {object} langCode lang code with cc and lc
+   *
    * @returns {Promise<string>} Display name of locale/language
    */
-  static async getLangDisplay() {
-    const lang = this.getLang();
+  static async getLangDisplay(langCode) {
+    const lang = langCode ? langCode : this.getLang();
     const list = await this.getList(lang);
     // combines the countryList arrays
     let countries = [];
     list.regionList.forEach(region => {
       countries = countries.concat(region.countryList);
     });
+
+    // get match for countries with multiple languages
     const location = countries.filter(country => {
-      return country.locale[0][0] === `${lang.lc}-${lang.cc}`;
+      let htmlLang = country.locale.findIndex(
+        loc => loc[0] === `${lang.lc}-${lang.cc}`
+      );
+
+      if (htmlLang !== -1) {
+        let localeMatch = country.locale.filter(l =>
+          l.includes(`${lang.lc}-${lang.cc}`)
+        );
+        country.locale.splice(0, country.locale.length, ...localeMatch);
+        return country;
+      }
     });
 
-    if (location.length > 0) {
+    if (location.length) {
       return `${location[0].name} - ${location[0].locale[0][1]}`;
     } else {
       return _localeNameDefault;
@@ -179,25 +195,28 @@ class LocaleAPI {
     if (sessionList) {
       return sessionList;
     } else {
-      let url;
-      try {
-        await axios.get(`${_endpoint}/${cc}${lc}-utf8.json`);
-        url = `${_endpoint}/${cc}${lc}-utf8.json`;
-      } catch (error) {
-        // use _localeDefault if 404
-        url = `${_endpoint}/${_localeDefault.cc}${_localeDefault.lc}-utf8.json`;
-      }
+      const axiosConfig = {
+        headers: {
+          'Content-Type': 'application/json; charset=utf-8',
+        },
+      };
+
+      const defaultUrl = `${_endpoint}/${_localeDefault.cc}${_localeDefault.lc}-utf8.json`;
+      const url = `${_endpoint}/${cc}${lc}-utf8.json`;
+
       /**
        * if the json file for the cc-lc combo does not exist,
-       * browser will automatically redirect to the us-en country list
+       * browser will automatically use the us-en country list
        */
-      const list = await axios
-        .get(url, {
-          headers: {
-            'Content-Type': 'application/json; charset=utf-8',
-          },
-        })
-        .then(response => response.data);
+      const [defaultList, translatedList] = await Promise.all([
+        axios.get(defaultUrl, axiosConfig).catch(() => null),
+        axios.get(url, axiosConfig).catch(() => null),
+      ]);
+
+      const list =
+        translatedList !== null && translatedList.data
+          ? translatedList.data
+          : defaultList.data;
 
       sessionStorage.setItem(
         `${_sessionListKey}-${cc}-${lc}`,

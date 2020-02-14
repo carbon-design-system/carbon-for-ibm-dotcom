@@ -15,7 +15,7 @@ Use these modifiers with `.bx--simplelongform` class.
 | Class                              | Description                                           |
 | ---------------------------------- | ----------------------------------------------------- |
 | `.bx--simplelongform--icon-link`   | The className for simple long form with icon link     |
-| `.bx--simplelongform--card-link`   | The className for simple long form with card link     |
+| `.bx--simplelongform--card`        | The className for simple long form with card link     |
 | `.bx--simplelongform--with-border` | The className for simple long form with border bottom |
 
 #### Elements

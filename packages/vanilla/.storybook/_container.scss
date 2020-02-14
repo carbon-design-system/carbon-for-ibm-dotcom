@@ -1,0 +1,32 @@
+// IMPORTANT: This import path should _not_ be used outside our source tree
+// as `src` directory is _not_ meant to be shipped in our NPM package.
+// Use e.g. `@import '~carbon-components/scss/globals/scss/styles.scss'` instead.
+// @import '~carbon-components/src/globals/scss/styles.scss'; // SEE THE NOTE ABOVE
+
+// Carbon fonts
+@import '@carbon/type/scss/font-face/mono';
+@import '@carbon/type/scss/font-face/sans';
+@include carbon--font-face-mono();
+@include carbon--font-face-sans();
+
+@import '@carbon/layout/scss/breakpoint';
+
+// Storybook styles
+.storybook-center-container {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include carbon--breakpoint(lg) {
+    padding: 3rem;
+  }
+}
+
+.storybook-readme-story {
+  width: 100%;
+}
+
+.bx--visually-hidden {
+  display: none;
+}
