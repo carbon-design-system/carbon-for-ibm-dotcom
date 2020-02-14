@@ -34,11 +34,6 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 > 💡 Don't forget to import the card-section styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
-#### Feature Flags
-
-To utilize the following features, set the following variable's to `true` within
-your `.env` file or your application build settings.
-
 ## Props
 
 | Name      | Required | Data Type | Default Value | Description                                                                                                                                                             |
@@ -49,10 +44,11 @@ your `.env` file or your application build settings.
 
 ### theme (optional)
 
-| Name    | Description                |
-| ------- | -------------------------- |
-| `white` | Carbon white theme         |
-| `g10`   | Carbon Gray 10 (g10) theme |
+| Name    | Data Type | Description                  |
+| ------- | --------- | ---------------------------- |
+| `white` | String    | Carbon White theme           |
+| `g10`   | String    | Carbon Gray 10 (g10) theme   |
+| `g100`  | String    | Carbon Gray 100 (g100) theme |
 
 ## Stable selectors
 
@@ -65,10 +61,12 @@ your `.env` file or your application build settings.
 We're always looking for contributors to help us fix bugs, build new features,
 or help us improve the project documentation. If you're interested, definitely
 check out our
+
 [Contributing Guide](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/.github/CONTRIBUTING.md)!
 👀
 
 ## 📝 License
 
 Licensed under the
+
 [Apache 2.0 License](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/LICENSE).

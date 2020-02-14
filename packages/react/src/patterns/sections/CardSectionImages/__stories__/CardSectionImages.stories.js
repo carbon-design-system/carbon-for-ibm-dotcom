@@ -22,7 +22,7 @@ storiesOf('Patterns (Sections)|CardSection - Images', module)
     return (
       <CardSectionImages
         heading="Read more about it"
-        cards={object('Data', cards.imageCards)}
+        cards={object('Data', cards.CardSectionImages)}
         theme={select('theme', themes, themes.g10)}
       />
     );

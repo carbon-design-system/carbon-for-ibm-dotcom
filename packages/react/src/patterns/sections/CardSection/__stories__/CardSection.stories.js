@@ -26,7 +26,7 @@ storiesOf('Patterns (Sections)|CardSection', module)
     const theme = select('theme', themes, themes.g10);
 
     const cardsTitle =
-      type === 'simpleCards'
+      type === 'CardSectionSimple'
         ? 'Aliquam condimentum interdum'
         : 'Read more about it';
 
@@ -53,7 +53,7 @@ storiesOf('Patterns (Sections)|CardSection', module)
     return (
       <SimpleCards
         heading="Aliquam condimentum interdum"
-        cards={object('Data', cards.simpleCards)}
+        cards={object('Data', cards.CardSectionSimple)}
         theme={select('theme', themes, themes.g10)}
       />
     );
