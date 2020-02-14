@@ -1,47 +1,42 @@
 {
   "simpleCards": [
     {
-      "title": "Nunc convallis lobortis",
+      "heading": "Nunc convallis lobortis",
       "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
-      "link": {
+      "cta": {
         "href": "https://www.example.com",
-        "text": "Learn more",
         "target": "_self"
       }
     },
     {
-      "title": "Fusce gravida eu arcu",
+      "heading": "Fusce gravida eu arcu",
       "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
-      "link": {
+      "cta": {
         "href": "https://www.example.com",
-        "text": "Learn more",
         "target": "_self"
       }
     },
     {
-      "title": "Interdum et malesuada",
+      "heading": "Interdum et malesuada",
       "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
-      "link": {
+      "cta": {
         "href": "https://www.example.com",
-        "text": "Learn more",
         "target": "_self"
       }
     },
     {
-      "title": "Nunc convallis loborti",
+      "heading": "Nunc convallis loborti",
       "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
-      "link": {
+      "cta": {
         "href": "https://www.example.com",
-        "text": "Learn more",
         "target": "_self"
       }
     },
     {
-      "title": "Nunc convallis lbortis",
+      "heading": "Nunc convallis lbortis",
       "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
-      "link": {
+      "cta": {
         "href": "https://www.example.com",
-        "text": "Learn more",
         "target": "_self"
       }
     }
@@ -54,9 +49,8 @@
       },
       "eyebrow": "Topic",
       "heading": "Natural language processing.",
-      "link": {
+      "cta": {
         "href": "https://www.example.com",
-        "text": "Learn more",
         "target": "_self"
       }
     },
@@ -67,9 +61,8 @@
       },
       "eyebrow": "Blog",
       "heading": "Natural language processing.",
-      "link": {
+      "cta": {
         "href": "https://www.example.com",
-        "text": "Learn more",
         "target": "_self"
       }
     },
@@ -80,9 +73,8 @@
       },
       "eyebrow": "Topic",
       "heading": "Natural language processing.",
-      "link": {
+      "cta": {
         "href": "https://www.example.com",
-        "text": "Learn more",
         "target": "_self"
       }
     },
@@ -93,9 +85,8 @@
       },
       "eyebrow": "Blog",
       "heading": "Serving society ethically in the age of Artificial Intelligence.",
-      "link": {
+      "cta": {
         "href": "https://www.example.com",
-        "text": "Learn more",
         "target": "_self"
       }
     },
@@ -106,9 +97,8 @@
       },
       "eyebrow": "Topic",
       "heading": "Serving society ethically in the age of Artificial Intelligence.",
-      "link": {
+      "cta": {
         "href": "https://www.example.com",
-        "text": "Learn more",
         "target": "_self"
       }
     }

@@ -1,4 +1,4 @@
-# CardSection
+# CardSectionImages
 
 > The CardSection pattern is to be utilized within IBM.com.
 
@@ -21,11 +21,11 @@ Here's a quick example to get you started.
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { CardSection } from '@carbon/ibmdotcom-react';
+import { CardSectionImages } from '@carbon/ibmdotcom-react';
 import 'yourapplication.scss';
 
 function App() {
-  return <CardSection cards={cards} />;
+  return <CardSectionImages cards={cards} heading="Read more about it" />;
 }
 
 ReactDOM.render(<App />, document.querySelector('#app'));
@@ -41,11 +41,10 @@ your `.env` file or your application build settings.
 
 ## Props
 
-| Name      | Required | Data Type | Default Value | Description                                                                                                                                                             |
-| --------- | -------- | --------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `heading` | YES      | String    | null          | Cards with or without images heading.                                                                                                                                   |
-| `theme`   | NO       | String    | 'white'       | Color theme for pattern. See `theme` below.                                                                                                                             |
-| `cards`   | YES      | Array     | null          | Array of card objects. See See [Card](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/patterns/sub-patterns/Card/README.md)👀 |
+| Name      | Required | Data Type | Default Value | Description                                                                                                                                                                   |
+| --------- | -------- | --------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `heading` | YES      | String    | null          | Cards with or without images heading.                                                                                                                                         |
+| `cards`   | YES      | Array     | null          | Array of card objects. See [CardSection](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/patterns/sections/CardSection/README.md)👀 |
 
 ### theme (optional)
 
@@ -54,11 +53,11 @@ your `.env` file or your application build settings.
 | `white` | Carbon white theme         |
 | `g10`   | Carbon Gray 10 (g10) theme |
 
-## Stable selectors
+### cardType
 
-| Name                | Description |
-| ------------------- | ----------- |
-| `dds--card-section` | Component   |
+| Name                | Description                                                                            |
+| ------------------- | -------------------------------------------------------------------------------------- |
+| `CardSectionImages` | Array of objects with image object, eyebrow, heading and link properties of each card. |
 
 ## 🙌 Contributing
 
