@@ -1,4 +1,4 @@
-import CardSection from './CardSection';
+import { CardSection } from '../CardSection';
 import PropTypes from 'prop-types';
 import React from 'react';
 /**
@@ -8,24 +8,22 @@ import React from 'react';
  * @param {Array} props.cards cards array with title, and cards properties
  * @returns {object} JSX Object
  */
-const CardSectionSimple = props => {
-  const cardWithoutImages = props.cards.filter(
-    card => !card.image && !card.eyebrow
+const CardSectionSimple = ({ cards, ...otherProps }) => {
+  const cardsWithoutImages = cards.filter(
+    ({ image, eyebrow, heading, copy, cta: { href } }) =>
+      !image && !eyebrow && heading && copy && href
   );
-  return <CardSection {...(cardWithoutImages && { ...props })} />;
+  return <CardSection {...otherProps} cards={cardsWithoutImages} />;
 };
+
 CardSectionSimple.propTypes = {
   theme: PropTypes.string,
   heading: PropTypes.string.isRequired,
   cards: PropTypes.arrayOf(
-    PropTypes.shape({
+    PropTypes.exact({
       title: PropTypes.string.isRequired,
       heading: PropTypes.string.isRequired,
-      link: PropTypes.shape({
-        href: PropTypes.string,
-        text: PropTypes.string,
-        target: PropTypes.string,
-      }),
+      cta: PropTypes.object,
     })
   ),
 };
