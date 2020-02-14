@@ -80,9 +80,7 @@ const TOCDesktop = ({ menuItems, selectedId, updateState }) => {
     const element = document.querySelector(elem);
     element.setAttribute('tabindex', '0');
     element.focus();
-    element.addEventListener('focusout', () =>
-      element.removeAttribute('tabindex')
-    );
+    element.removeAttribute('tabindex');
   }
 
   /**
