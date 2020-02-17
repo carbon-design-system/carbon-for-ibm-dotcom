@@ -64,11 +64,11 @@ const TOCDesktop = ({ menuItems, selectedId, updateState }) => {
     });
     const title = filteredItems[0].title;
     updateState(id, title);
+    triggerFocus(`a[name="${id}"]`);
     document.querySelector(`a[name="${id}"]`).scrollIntoView({
       behavior: 'smooth',
       block: 'start',
     });
-    triggerFocus(`a[name="${id}"]`);
   };
 
   /**
@@ -79,7 +79,7 @@ const TOCDesktop = ({ menuItems, selectedId, updateState }) => {
   function triggerFocus(elem) {
     const element = document.querySelector(elem);
     element.setAttribute('tabindex', '0');
-    element.focus();
+    element.focus({ preventScroll: true });
     element.removeAttribute('tabindex');
   }
 
