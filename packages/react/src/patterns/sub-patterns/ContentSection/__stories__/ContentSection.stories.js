@@ -29,11 +29,12 @@ storiesOf('Patterns (Sub-Patterns)|ContentSection', module)
     };
 
     return (
-      <div className={`${prefix}--grid ${prefix}--content-section-story`}>
+      <div className={`${prefix}--content-section-story`}>
         <ContentSection
           heading={heading}
           theme={select('theme', themes, themes.white)}
           children={children}
+          customClassName={`${prefix}--col-lg-sm-8`}
         />
       </div>
     );

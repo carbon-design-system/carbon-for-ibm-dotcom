@@ -41,13 +41,16 @@ const ContentSection = ({ heading, theme, children, customClassName }) => {
     <section
       className={classNames(className, _setTheme(theme))}
       data-autoid={`${stablePrefix}--content-section`}>
-      <div className={`${prefix}--content-section__heading__col`}>
-        <h2 className={`${prefix}--content-section__heading`}>{heading}</h2>
+      <div className={`${prefix}--content-section__grid`}>
+        <div className={`${prefix}--content-section__row`}>
+          <div className={`${prefix}--content-section__left`}>
+            <h2 className={`${prefix}--content-section__heading`}>{heading}</h2>
+          </div>
+          <div className={`${prefix}--content-section__children`}>
+            {children}
+          </div>
+        </div>
       </div>
-      <div className={`${prefix}--content-section__children__col`}>
-        <div className={`${prefix}--content-section__children`}>{children}</div>
-      </div>
-      {/* <div className={`${prefix}--content-section__children`}>{children}</div> */}
     </section>
   );
 };

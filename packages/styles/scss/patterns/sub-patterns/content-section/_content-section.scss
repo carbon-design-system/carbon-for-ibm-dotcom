@@ -14,35 +14,42 @@
 
 @mixin content-section {
   .#{$prefix}--content-section {
-    @include carbon--make-container;
-    @include carbon--make-row;
-
+    &__grid {
+      @include carbon--make-container;
+    }
+    &__row {
+      @include carbon--make-row;
+    }
+    &__left,
+    &__children {
+      @include carbon--make-col-ready;
+    }
+    &__left {
+      @include carbon--breakpoint(lg) {
+        @include carbon--make-col(4, 16);
+      }
+    }
     &__heading {
       margin-bottom: $carbon--layout-05;
       @include type-style('expressive-heading-02');
-
-      &__col {
-        @include carbon--make-col-ready;
-        @include carbon--make-col(4, 4);
-
-        @include carbon--breakpoint(lg) {
-          @include carbon--make-col(4, 16);
-        }
-      }
     }
     &__children {
-      &__col {
-        @include carbon--make-col-ready;
-        @include carbon--make-col(4, 4);
-
-        @include carbon--breakpoint(lg) {
-          @include carbon--make-col(12, 16);
-        }
+      @include carbon--breakpoint(lg) {
+        @include carbon--make-col(12, 16);
       }
     }
 
     padding-top: $carbon--layout-01;
     padding-bottom: $carbon--layout-05;
+
+    @include carbon--breakpoint('lg') {
+      &__heading {
+        padding-top: $carbon--layout-03;
+      }
+
+      padding-top: $carbon--layout-03;
+      padding-bottom: $carbon--layout-07;
+    }
 
     @include carbon--breakpoint('sm') {
       &__heading {
@@ -51,14 +58,6 @@
     }
     @include carbon--breakpoint('md') {
       padding-bottom: $carbon--layout-06;
-    }
-    @include carbon--breakpoint('lg') {
-      &__heading {
-        padding-top: $carbon--layout-03;
-      }
-
-      padding-top: $carbon--layout-03;
-      padding-bottom: $carbon--layout-07;
     }
   }
 
