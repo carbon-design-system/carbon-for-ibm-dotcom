@@ -13,7 +13,7 @@ import React from 'react';
  * CardSectionImages pattern it is Cards with images
  *
  * @param {object} props props object
- * @param {string} props.otherProps props heading
+ * @param {string} props.otherProps props
  * @param {Array} props.cards array of card
  * @returns {object} JSX Object
  */

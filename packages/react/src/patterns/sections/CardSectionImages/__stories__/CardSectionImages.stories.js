@@ -1,11 +1,11 @@
 import { object, select, withKnobs } from '@storybook/addon-knobs';
-import cards from './data/cards.json';
+import cards from '../../CardSection/__stories__/data/cards.json';
 import CardSectionImages from '../CardSectionImages';
 import React from 'react';
 import readme from '../README.md';
 import { storiesOf } from '@storybook/react';
 
-storiesOf('Patterns (Sections)|CardSection - with images', module)
+storiesOf('Patterns (Sections)|CardSectionImages', module)
   .addDecorator(withKnobs)
   .addParameters({
     readme: {
