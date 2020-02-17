@@ -39,6 +39,14 @@
       @include carbon--type-style('expressive-heading-03');
     }
 
+    @include carbon--breakpoint(lg) {
+      padding-bottom: $carbon--layout-07;
+    }
+
+    @include carbon--breakpoint(sm) {
+      padding-bottom: $carbon--layout-05;
+    }
+
     .#{$prefix}--content-group {
       @include carbon--breakpoint(sm) {
         @include carbon--make-col(4, 4);
@@ -47,7 +55,6 @@
           padding-right: $carbon--layout-01;
         }
       }
-
       @include carbon--breakpoint(md) {
         .#{$prefix}--content-group-cards__row {
           padding-left: 0;
@@ -65,7 +72,6 @@
         padding-right: $carbon--layout-01;
       }
     }
-
     @include themed-items;
   }
 }
