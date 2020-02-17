@@ -21,33 +21,34 @@ const { prefix } = settings;
  * @param {string} props.heading  Heading objects
  * @param {string} props.theme theme name
  * @param {*} props.children JSX Components
+ * @param {string} props.className optional class to be applied to the containing node
  * @returns {*} JSX ContentSection component
  */
-const ContentSection = ({ heading, theme, children }) => {
+const ContentSection = ({ heading, theme, children, customClassName }) => {
+  const className = classNames(`${prefix}--content-section`, customClassName);
   /**
    * sets the class name based on theme type
    *
-   * @param {string} theme theme type ( g10 | white/default )
+   * @private
+   * @param {string} theme theme type
    * @returns {string} theme css class names
    */
-  const setTheme = theme => {
+  const _setTheme = theme => {
     return theme && `${prefix}--content-section--${theme}`;
   };
+
   return (
-    <div
-      className={classNames(`${prefix}--content-section`, setTheme(theme))}
+    <section
+      className={classNames(className, _setTheme(theme))}
       data-autoid={`${stablePrefix}--content-section`}>
       <div className={`${prefix}--content-section__heading__col`}>
-        <h3
-          data-autoid={`${stablePrefix}--content-section__heading`}
-          className={`${prefix}--content-section__heading`}>
-          {heading}
-        </h3>
+        <h2 className={`${prefix}--content-section__heading`}>{heading}</h2>
       </div>
       <div className={`${prefix}--content-section__children__col`}>
         <div className={`${prefix}--content-section__children`}>{children}</div>
       </div>
-    </div>
+      {/* <div className={`${prefix}--content-section__children`}>{children}</div> */}
+    </section>
   );
 };
 
@@ -55,6 +56,7 @@ ContentSection.propTypes = {
   heading: PropTypes.string.isRequired,
   theme: PropTypes.string,
   children: PropTypes.element,
+  customClassName: PropTypes.string,
 };
 
 export default ContentSection;

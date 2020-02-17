@@ -17,19 +17,23 @@ storiesOf('Patterns (Sub-Patterns)|ContentSection', module)
   })
   .add('Default', () => {
     const heading = text(
-      'Component title(required):',
+      'Component heading(required):',
       'Lorem ipsum dolor sit amet'
     );
+    const children = text('Grey box represents:', '');
     const themes = {
       g10: 'g10',
+      g90: 'g90',
+      g100: 'g100',
       white: '',
     };
 
     return (
-      <div className={`${prefix}--grid`}>
+      <div className={`${prefix}--grid ${prefix}--content-section-story`}>
         <ContentSection
           heading={heading}
           theme={select('theme', themes, themes.white)}
+          children={children}
         />
       </div>
     );

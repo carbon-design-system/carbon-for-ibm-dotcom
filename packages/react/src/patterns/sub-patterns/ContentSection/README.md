@@ -41,7 +41,7 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 | Name       | Required | Data Type | Default Value | Description                     |
 | ---------- | -------- | --------- | ------------- | ------------------------------- |
-| `heading`  | NO       | String    | null          | Heading text                    |
+| `heading`  | YES      | String    | null          | Heading text                    |
 | `children` | NO       | Object    | null          | Container for other components. |
 
 ## Stable selectors

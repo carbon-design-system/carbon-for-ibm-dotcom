@@ -14,11 +14,12 @@
 
 @mixin content-section {
   .#{$prefix}--content-section {
+    @include carbon--make-container;
     @include carbon--make-row;
 
     &__heading {
-      margin-bottom: $carbon--layout-03;
-      @include carbon--type-style('expressive-heading-04', true);
+      margin-bottom: $carbon--layout-05;
+      @include type-style('expressive-heading-02');
 
       &__col {
         @include carbon--make-col-ready;
@@ -40,20 +41,39 @@
       }
     }
 
-    padding-top: $carbon--layout-05;
+    padding-top: $carbon--layout-01;
     padding-bottom: $carbon--layout-05;
 
+    @include carbon--breakpoint('sm') {
+      &__heading {
+        padding-top: $carbon--layout-01;
+      }
+    }
     @include carbon--breakpoint('md') {
       padding-bottom: $carbon--layout-06;
     }
     @include carbon--breakpoint('lg') {
-      padding-top: $carbon--layout-05;
+      &__heading {
+        padding-top: $carbon--layout-03;
+      }
+
+      padding-top: $carbon--layout-03;
       padding-bottom: $carbon--layout-07;
     }
   }
 
   .#{$prefix}--content-section--g10 {
     @include carbon--theme($carbon--theme--g10) {
+      @include themed-items;
+    }
+  }
+  .#{$prefix}--content-section--g90 {
+    @include carbon--theme($carbon--theme--g90) {
+      @include themed-items;
+    }
+  }
+  .#{$prefix}--content-section--g100 {
+    @include carbon--theme($carbon--theme--g100) {
       @include themed-items;
     }
   }
