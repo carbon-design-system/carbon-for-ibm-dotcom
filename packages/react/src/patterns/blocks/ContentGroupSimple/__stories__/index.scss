@@ -1,0 +1,6 @@
+@import '../../../../../../styles/scss/patterns/blocks/content-group-simple';
+
+.#{$prefix}--content-group-simple .#{$prefix}--content-group__children {
+  height: auto;
+  background: none;
+}

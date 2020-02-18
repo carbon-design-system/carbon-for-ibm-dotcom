@@ -5,4 +5,4 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-export { default as PictogramArray } from './PictogramArray';
+export { default as ContentGroupSimple } from './ContentGroupSimple';

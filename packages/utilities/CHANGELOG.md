@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-utilities@1.3.1...@carbon/ibmdotcom-utilities@1.4.0-rc.0) (2020-02-14)
+
+### Bug Fixes
+
+- **copy:** fix typo
+  ([531ffa4](https://github.com/carbon-design-system/ibm-dotcom-library/commit/531ffa4))
+- **rollup:** remove unsupported property in build script
+  ([9e23b90](https://github.com/carbon-design-system/ibm-dotcom-library/commit/9e23b90))
+- **storybook:** fixes IE11 loading issues in Storybook; fixes
+  [#840](https://github.com/carbon-design-system/ibm-dotcom-library/issues/840)
+  ([53d2fa3](https://github.com/carbon-design-system/ibm-dotcom-library/commit/53d2fa3))
+
+### Features
+
+- **component:** changed the event from onClick to onMouseDown event
+  ([76e32fd](https://github.com/carbon-design-system/ibm-dotcom-library/commit/76e32fd))
+- **component:** created utility for smoothScrolling
+  ([7d4e186](https://github.com/carbon-design-system/ibm-dotcom-library/commit/7d4e186))
+- **component:** refactored the CTA and updated the README
+  ([9a48125](https://github.com/carbon-design-system/ibm-dotcom-library/commit/9a48125))
+- **component:** revert the change back to onClick event
+  ([c7882d5](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c7882d5))
+- **component:** updated the document of util and added private to const
+  ([09af5d8](https://github.com/carbon-design-system/ibm-dotcom-library/commit/09af5d8))
+- **component:** updated the smoothScroll documentation
+  ([c321538](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c321538))
+- **utils:** add parsing for <p /> in markdown; fixes
+  [#1256](https://github.com/carbon-design-system/ibm-dotcom-library/issues/1256)
+  ([35777ad](https://github.com/carbon-design-system/ibm-dotcom-library/commit/35777ad))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.3.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-utilities@1.3.1-rc.1...@carbon/ibmdotcom-utilities@1.3.1) (2020-02-11)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-utilities

@@ -27,9 +27,14 @@ function App() {
   const copy = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
 
   const cta = {
-    type: 'text',
+    type: 'local',
     href: 'https://www.example.com',
     copy: 'Lorem ipsum dolor',
+  };
+
+  const pictogram = {
+    url: Desktop,
+    ariaLabel: 'Desktop pictogram',
   };
 
   return (
@@ -37,7 +42,7 @@ function App() {
       heading={heading}
       copy={copy}
       cta={cta}
-      Pictogram={Desktop}
+      Pictogram={pictogram}
     />
   );
 }
@@ -54,16 +59,33 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 | ----------- | -------- | --------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `heading`   | YES      | String    | null          | Heading text                                                                                                                                            |
 | `copy`      | YES      | String    | null          | Copy text                                                                                                                                               |
-| `Pictogram` | YES      | Component | null          | Pictogram component imported from `@carbon/pictograms-react` package                                                                                    |
+| `pictogram` | YES      | Object    | null          | See `Pictogram` bellow. package                                                                                                                         |
 | `cta`       | NO       | Object    | null          | Object with CTA data, check [CTA](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/components/CTA/README.md)👀 |
+
+## pictogram
+
+| Name | Required | Data Type | Default Value | Description | | `src` | YES |
+Component | null | Pictogram component imported from `@carbon/pictograms-react`
+
+## Accessibility
+
+In order to make the component acessible to screen readers, you can provide aria
+attributes inside the pictogram object.
+
+```javascript
+const pictogram = {
+  src: Desktop,
+  'aria-label': 'Description for the screen reader',
+};
+```
 
 ## Stable selectors
 
-| Name                            | Description                                        |
-| ------------------------------- | -------------------------------------------------- |
-| `dds--pictogram-item`           | Pictogram item wrapper element.                    |
-| `dds--pictogram-item_content`   | Pictogram item wrapper for Content Item component. |
-| `dds--pictogram-item_pictogram` | Pictogram item SVG.                                |
+| Name                             | Description                                        |
+| -------------------------------- | -------------------------------------------------- |
+| `dds--pictogram-item`            | Pictogram item wrapper element.                    |
+| `dds--pictogram-item__content`   | Pictogram item wrapper for Content Item component. |
+| `dds--pictogram-item__pictogram` | Pictogram item SVG.                                |
 
 ## 🙌 Contributing
 

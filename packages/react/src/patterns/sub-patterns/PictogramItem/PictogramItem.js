@@ -5,6 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import classNames from 'classnames';
 import ContentItem from '../ContentItem/ContentItem';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
@@ -19,27 +20,34 @@ const { prefix } = settings;
  * @param {object} props props object {title, copy, pictogram, link}
  * @param {string} props.heading Content with pictogram component title property
  * @param {string} props.copy Content with pictogram component copy property
- * @param {*} props.Pictogram Content with pictogram component Pictogram component
+ * @param {string} props.className Pictogram Item className prop
+ * @param {object} props.pictogram pictogram data object
+ * @param {object} props.pictogram.src Pictogram component from the carbon library
  * @returns {*} Content array with pictograms item JSX Component
  */
-const PictogramItem = ({ heading, copy, Pictogram, cta }) => (
-  <div
-    data-autoid={`${stablePrefix}--pictogram-item`}
-    className={`${prefix}--pictogram-item`}>
+const PictogramItem = ({
+  heading,
+  copy,
+  pictogram: { src: Pictogram, ...pictogramProps },
+  cta,
+  className,
+}) => (
+  <div className={classNames(className, `${prefix}--pictogram-item`)}>
     <div className={`${prefix}--pictogram-item__row`}>
-      <div className={`${prefix}--pictogram-item__pic-col`}>
+      <div className={`${prefix}--pictogram-item__wrapper`}>
         <Pictogram
-          data-autoid={`${stablePrefix}--pictogram-item_pictogram`}
+          data-autoid={`${stablePrefix}--pictogram-item__pictogram`}
           className={`${prefix}--pictogram-item__pictogram`}
+          {...pictogramProps}
         />
       </div>
       <div
-        data-autoid={`${stablePrefix}--pictogram-item_content`}
-        className={`${prefix}--pictogram-item__content-col`}>
+        data-autoid={`${stablePrefix}--pictogram-item__content`}
+        className={`${prefix}--pictogram-item__content`}>
         <ContentItem
           heading={heading}
           copy={copy}
-          cta={{ type: 'text', ...cta }}
+          cta={{ style: 'text', ...cta }}
         />
       </div>
     </div>
@@ -50,7 +58,10 @@ PictogramItem.propTypes = {
   heading: PropTypes.string.isRequired,
   copy: PropTypes.string.isRequired,
   cta: PropTypes.object,
-  Pictogram: PropTypes.object.isRequired,
+  pictogram: PropTypes.shape({
+    src: PropTypes.object.isRequired,
+  }),
+  className: PropTypes.string,
 };
 
 export default PictogramItem;
