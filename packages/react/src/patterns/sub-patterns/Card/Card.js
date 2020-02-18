@@ -51,8 +51,8 @@ const Card = ({
       {...props}>
       <Image {...image} classname={`${prefix}--card__img`} />
       <div className={`${prefix}--card__wrapper`}>
-        <p className={`${prefix}--card__eyebrow`}>{eyebrow}</p>
-        <h3 className={`${prefix}--card__title`}>{title}</h3>
+        {eyebrow && <p className={`${prefix}--card__eyebrow`}>{eyebrow}</p>}
+        {title && <h3 className={`${prefix}--card__title`}>{title}</h3>}
         {optionalContent(copy)}
         {renderFooter(cta, type, href, Icon)}
       </div>
@@ -104,7 +104,7 @@ function renderFooter(cta, type, href, Icon) {
 }
 
 Card.propTypes = {
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   eyebrow: PropTypes.string,
   icon: PropTypes.object,
   copy: PropTypes.string,

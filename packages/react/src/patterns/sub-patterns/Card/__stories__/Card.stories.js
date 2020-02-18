@@ -32,7 +32,7 @@ storiesOf('Patterns (Sub-Patterns)|Card', module)
       type: 'local',
       copy: text('cta.copy', ''),
     };
-    const inverse = boolean('inverse', true);
+    const inverse = boolean('inverse', false);
     const eyebrow = text('eyebrow', 'eyebrow text');
     const href = text('href (required)', 'https://example.com');
     const target = text('target', '');
@@ -46,7 +46,7 @@ storiesOf('Patterns (Sub-Patterns)|Card', module)
     };
 
     const themes = {
-      white: 'white',
+      white: '',
       g10: 'g10',
       g90: 'g90',
       g100: 'g100',
@@ -98,7 +98,7 @@ storiesOf('Patterns (Sub-Patterns)|Card', module)
       type: 'local',
       copy: text('cta.copy', ''),
     };
-    const inverse = boolean('inverse', true);
+    const inverse = boolean('inverse', false);
     const eyebrow = text('eyebrow', 'eyebrow text');
     const href = text('href (required)', 'https://example.com');
     const target = text('target', '');
@@ -112,7 +112,7 @@ storiesOf('Patterns (Sub-Patterns)|Card', module)
     };
 
     const themes = {
-      white: 'white',
+      white: '',
       g10: 'g10',
       g90: 'g90',
       g100: 'g100',
