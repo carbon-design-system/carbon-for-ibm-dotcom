@@ -4,7 +4,10 @@ import ContentBlockSimple from '../ContentBlockSimple';
 import ContentGroupSimpleKnobs from '../../ContentGroupSimple/__stories__/data/ContentGroupSimple.knobs';
 import React from 'react';
 import readme from '../README.md';
+import { settings } from 'carbon-components';
 import { storiesOf } from '@storybook/react';
+
+const { prefix } = settings;
 
 storiesOf('Patterns (Blocks)|ContentBlockSimple', module)
   .addDecorator(withKnobs)
@@ -14,19 +17,10 @@ storiesOf('Patterns (Blocks)|ContentBlockSimple', module)
     },
   })
   .add('Default', () => {
-    const heading = text('Heading', ContentGroupSimpleKnobs.heading);
     const mediaData = object('Media Data:', ContentGroupSimpleKnobs.mediaData);
     const types = ContentGroupSimpleKnobs.types;
     const mediaType = select('Media type:', types, types.image);
     const items = object('Content Items:', ContentGroupSimpleKnobs.items);
-    const contentGroupSimpleCta = object(
-      'CTA Data:',
-      ContentGroupSimpleKnobs.cta
-    );
-    const title = text(
-      'title (required)',
-      'Maecenas Tincidunt Eget Sapien a Pretium'
-    );
 
     const copy = {
       'single paragraph': `Lorem    ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.
@@ -56,46 +50,36 @@ storiesOf('Patterns (Blocks)|ContentBlockSimple', module)
     const ctaStyles = {
       text: 'text',
       card: 'card',
+      none: null,
+    };
+
+    const ctaTypes = {
+      external: 'external',
+      jump: 'jump',
+      local: 'local',
     };
 
     const ctaProps = {
-      style: select('CTA type', ctaStyles, ctaStyles.text),
-      type: 'local',
-      heading: 'Lorem ipsum dolor sit amet',
+      style: select('CTA style', ctaStyles, ctaStyles.text),
+      type: select('CTA types', ctaTypes, ctaTypes.local),
+      title: 'Lorem ipsum dolor sit amet',
+      href: 'https://www.ibm.com',
       copy: 'Lorem ipsum dolor sit ametttt',
-      card: {
-        href: 'https://ibm.com',
-        title: 'Consectetur adipisicing elit',
-        image: {
-          defaultImage: 'https://picsum.photos/id/672/672',
-          alt: 'featured card image',
-        },
-      },
     };
 
-    const contentItem = [
-      {
-        mediaType: { mediaType },
-        mediaData: { mediaData },
-        heading: { heading },
-        items: { items },
-        cta: { contentGroupSimpleCta },
-      },
-      {
-        mediaType: { mediaType },
-        mediaData: { mediaData },
-        heading: { heading },
-        items: { items },
-        cta: { contentGroupSimpleCta },
-      },
-    ];
-
     return (
-      <ContentBlockSimple
-        copy={select('Copy (required)', copy, copy['single paragraph'])}
-        title={title}
-        cta={select('Feature Link (optional)', ctaProps, ctaProps)}
-        children={contentItem}
-      />
+      <div className={`${prefix}--grid`}>
+        <ContentBlockSimple
+          copy={select('Copy (required)', copy, copy['single paragraph'])}
+          heading={text(
+            'Heading (required)',
+            'Curabitur malesuada varius mi eu posuere'
+          )}
+          items={items}
+          mediaData={mediaData}
+          mediaType={mediaType}
+          cta={ctaProps}
+        />
+      </div>
     );
   });
