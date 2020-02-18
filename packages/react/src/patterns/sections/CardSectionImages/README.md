@@ -43,10 +43,12 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 ### theme (optional)
 
-| Name    | Description                |
-| ------- | -------------------------- |
-| `white` | Carbon white theme         |
-| `g10`   | Carbon Gray 10 (g10) theme |
+| Name    | Data Type | Description                  |
+| ------- | --------- | ---------------------------- |
+| `white` | String    | Carbon White theme           |
+| `g10`   | String    | Carbon Gray 10 (g10) theme   |
+| `g90`   | String    | Carbon Gray 90 (g90) theme   |
+| `g100`  | String    | Carbon Gray 100 (g100) theme |
 
 ### cardType
 

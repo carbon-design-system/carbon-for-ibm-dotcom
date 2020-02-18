@@ -48,6 +48,7 @@ storiesOf('Patterns (Sections)|CardSection', module)
     const themes = {
       white: '',
       g10: 'g10',
+      g90: 'g90',
       g100: 'g100',
     };
     return (

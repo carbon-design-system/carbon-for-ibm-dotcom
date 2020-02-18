@@ -36,11 +36,11 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 ## Props
 
-| Name      | Required | Data Type | Default Value | Description                                                                                                                                                             |
-| --------- | -------- | --------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `heading` | YES      | String    | null          | Cards with or without images heading.                                                                                                                                   |
-| `theme`   | NO       | String    | 'white'       | Color theme for pattern. See `theme` below.                                                                                                                             |
-| `cards`   | YES      | Array     | null          | Array of card objects. See See [Card](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/patterns/sub-patterns/Card/README.md)👀 |
+| Name      | Required | Data Type | Default Value | Description                                                                                                                                                          |
+| --------- | -------- | --------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `heading` | YES      | String    | null          | Cards with or without images heading.                                                                                                                                |
+| `theme`   | NO       | String    | 'white'       | Color theme for pattern. See `theme` below.                                                                                                                          |
+| `cards`   | YES      | Array     | null          | Array of card objects. See [Card](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/patterns/sub-patterns/Card/README.md) 👀 |
 
 ### theme (optional)
 
@@ -48,6 +48,7 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 | ------- | --------- | ---------------------------- |
 | `white` | String    | Carbon White theme           |
 | `g10`   | String    | Carbon Gray 10 (g10) theme   |
+| `g90`   | String    | Carbon Gray 90 (g90) theme   |
 | `g100`  | String    | Carbon Gray 100 (g100) theme |
 
 ## Stable selectors

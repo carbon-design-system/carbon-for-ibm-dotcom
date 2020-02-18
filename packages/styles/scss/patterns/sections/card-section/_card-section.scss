@@ -88,6 +88,16 @@
       @include themed-items;
     }
   }
+  .#{$prefix}--card-section.#{$prefix}--card-section--g90 {
+    @include carbon--theme($carbon--theme--g90) {
+      @include themed-items;
+    }
+  }
+  .#{$prefix}--card-section.#{$prefix}--card-section--g100 {
+    @include carbon--theme($carbon--theme--g100) {
+      @include themed-items;
+    }
+  }
 }
 @include exports('card-section') {
   @include card-section;
