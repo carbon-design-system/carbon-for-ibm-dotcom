@@ -23,9 +23,55 @@ import ReactDOM from 'react-dom';
 import { CardSectionSimple } from '@carbon/ibmdotcom-react';
 import 'yourapplication.scss';
 
+const CardSectionSimple = [
+  {
+    heading: 'Nunc convallis lobortis',
+    copy:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
+    cta: {
+      href: 'https://www.example.com',
+    },
+  },
+  {
+    heading: 'Fusce gravida eu arcu',
+    copy:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
+    cta: {
+      href: 'https://www.example.com',
+    },
+  },
+  {
+    heading: 'Interdum et malesuada',
+    copy:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
+    cta: {
+      href: 'https://www.example.com',
+    },
+  },
+  {
+    heading: 'Nunc convallis loborti',
+    copy:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
+    cta: {
+      href: 'https://www.example.com',
+    },
+  },
+  {
+    heading: 'Nunc convallis lbortis',
+    copy:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
+    cta: {
+      href: 'https://www.example.com',
+    },
+  },
+];
+
 function App() {
   return (
-    <CardSectionSimple cards={cards} heading="Aliquam condimentum interdum" />
+    <CardSectionSimple
+      cards={CardSectionSimple}
+      heading="Aliquam condimentum interdum"
+    />
   );
 }
 
@@ -42,12 +88,19 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 | `heading` | YES      | String    | null          | Cards with or without images heading.                                                                                                                                         |
 | `cards`   | YES      | Array     | null          | Array of card objects. See [CardSection](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/patterns/sections/CardSection/README.md)👀 |
 
+> 💡 Card accepts the folloing information for this `CardSectionSimple` pattern.
+
+- Copy
+- Heading
+- cta.href
+
 ### theme (optional)
 
 | Name    | Data Type | Description                  |
 | ------- | --------- | ---------------------------- |
 | `white` | String    | Carbon White theme           |
 | `g10`   | String    | Carbon Gray 10 (g10) theme   |
+| `g90`   | String    | Carbon Gray 90 (g90) theme   |
 | `g100`  | String    | Carbon Gray 100 (g100) theme |
 
 ### cardType
