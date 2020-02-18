@@ -1,13 +1,6 @@
 import './index.scss';
-import {
-  boolean,
-  object,
-  select,
-  text,
-  withKnobs,
-} from '@storybook/addon-knobs';
+import { object, select, text, withKnobs } from '@storybook/addon-knobs';
 import ContentBlockSimple from '../ContentBlockSimple';
-import ContentGroupSimple from '../../ContentGroupSimple';
 import ContentGroupSimpleKnobs from '../../ContentGroupSimple/__stories__/data/ContentGroupSimple.knobs';
 import React from 'react';
 import readme from '../README.md';
@@ -26,7 +19,10 @@ storiesOf('Patterns (Blocks)|ContentBlockSimple', module)
     const types = ContentGroupSimpleKnobs.types;
     const mediaType = select('Media type:', types, types.image);
     const items = object('Content Items:', ContentGroupSimpleKnobs.items);
-    const contentGroupSimpleCta = object('CTA Data:', ContentGroupSimpleKnobs.cta);
+    const contentGroupSimpleCta = object(
+      'CTA Data:',
+      ContentGroupSimpleKnobs.cta
+    );
     const title = text(
       'title (required)',
       'Maecenas Tincidunt Eget Sapien a Pretium'
@@ -57,27 +53,8 @@ storiesOf('Patterns (Blocks)|ContentBlockSimple', module)
       `,
     };
 
-    const link = {
-      href: 'https://www.ibm.com',
-      text: 'Nunc Pulvinar Nisi',
-      target: '_blank',
-    };
-
-    const themes = {
-      g100: 'g100',
-      'light (white)': '',
-    };
-
-    const linkType = {
-      card: 'card',
-      iconLink: 'iconLink',
-      none: 'none',
-    };
-
-    const withBorder = boolean('with border', true);
-
     const ctaStyles = {
-      text: 'card',
+      text: 'text',
       card: 'card',
     };
 
@@ -96,25 +73,20 @@ storiesOf('Patterns (Blocks)|ContentBlockSimple', module)
       },
     };
 
-    const cta = {
-      cta: ctaProps,
-      none: null,
-    };
-
     const contentItem = [
       {
-        mediaType: {mediaType},
-        mediaData: {mediaData},
-        heading: {heading},
-        items: {items},
-        cta: {contentGroupSimpleCta}
+        mediaType: { mediaType },
+        mediaData: { mediaData },
+        heading: { heading },
+        items: { items },
+        cta: { contentGroupSimpleCta },
       },
       {
-        mediaType: {mediaType},
-        mediaData: {mediaData},
-        heading: {heading},
-        items: {items},
-        cta: {contentGroupSimpleCta}
+        mediaType: { mediaType },
+        mediaData: { mediaData },
+        heading: { heading },
+        items: { items },
+        cta: { contentGroupSimpleCta },
       },
     ];
 
@@ -125,7 +97,5 @@ storiesOf('Patterns (Blocks)|ContentBlockSimple', module)
         cta={select('Feature Link (optional)', ctaProps, ctaProps)}
         children={contentItem}
       />
-
-
     );
   });
