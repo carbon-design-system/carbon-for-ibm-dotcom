@@ -27,7 +27,7 @@
     }
 
     &__title {
-      margin-bottom: $carbon--layout-05;
+      margin-bottom: $carbon--spacing-05;
       @include carbon--type-style('expressive-heading-03');
     }
 
@@ -37,7 +37,7 @@
     }
 
     &__content {
-      margin-bottom: $carbon--layout-01;
+      margin-bottom: $carbon--spacing-01;
       @include carbon--type-style('body-short-02');
     }
 
@@ -75,9 +75,12 @@
       transition: $duration--moderate-01 motion(standard, productive);
     }
 
+    &--link:hover {
+      background-color: $hover-ui;
+    }
+
     &:hover {
       text-decoration: none;
-      background-color: $hover-ui;
 
       .#{$prefix}--card__img {
         filter: brightness(80%);
@@ -105,7 +108,7 @@
       color: $text-03;
     }
 
-    &:hover {
+    &.#{$prefix}--card--link:hover {
       background-color: $inverse-hover-ui;
     }
 

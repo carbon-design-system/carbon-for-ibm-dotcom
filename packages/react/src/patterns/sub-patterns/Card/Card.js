@@ -44,7 +44,10 @@ const Card = ({
       data-autoid={`${stablePrefix}--card`}
       className={classNames(
         `${prefix}--card`,
-        { [`${prefix}--card--inverse`]: inverse },
+        {
+          [`${prefix}--card--inverse`]: inverse,
+          [`${prefix}--card--link`]: type === 'link',
+        },
         className
       )}
       href={href}

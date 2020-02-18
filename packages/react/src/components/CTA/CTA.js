@@ -68,7 +68,7 @@ const renderCTA = ({ style, type, ...cta }) => {
           href={cta.href}
           target={_external(type)}
           onClick={e => _jump(e, type)}>
-          {cta.copy}
+          {cta.copy && <span>{cta.copy}</span>}
           <Icon />
         </LinkWithIcon>
       );
