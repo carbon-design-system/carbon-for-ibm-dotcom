@@ -39,12 +39,10 @@
       @include carbon--type-style('expressive-heading-03');
     }
 
+    padding-bottom: $carbon--layout-05;
+
     @include carbon--breakpoint(lg) {
       padding-bottom: $carbon--layout-07;
-    }
-
-    @include carbon--breakpoint(sm) {
-      padding-bottom: $carbon--layout-05;
     }
 
     .#{$prefix}--content-group {
