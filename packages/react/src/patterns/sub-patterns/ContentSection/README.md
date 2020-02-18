@@ -46,11 +46,9 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 ## Stable selectors
 
-| Name                             | Description                   |
-| -------------------------------- | ----------------------------- |
-| `dds--content-section`           | Content group wrapper element |
-| `dds--content-section__heading`  | Content group title element   |
-| `dds--content-section__children` | Wrapper for children elements |
+| Name                   | Description                   |
+| ---------------------- | ----------------------------- |
+| `dds--content-section` | Content group wrapper element |
 
 ## 🙌 Contributing
 
