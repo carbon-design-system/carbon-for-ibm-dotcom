@@ -24,8 +24,68 @@ import ReactDOM from 'react-dom';
 import { CardSectionImages } from '@carbon/ibmdotcom-react';
 import 'yourapplication.scss';
 
+const CardSectionImages = [
+  {
+    image: {
+      defaultImage: 'https://picsum.photos/id/1003/1056/480',
+      alt: 'cards with image',
+    },
+    eyebrow: 'Topic',
+    heading: 'Natural language processing.',
+    cta: {
+      href: 'https://www.example.com',
+    },
+  },
+  {
+    image: {
+      defaultImage: 'https://picsum.photos/id/1018/1056/480',
+      alt: 'cards with image',
+    },
+    eyebrow: 'Blog',
+    heading: 'Natural language processing.',
+    cta: {
+      href: 'https://www.example.com',
+    },
+  },
+  {
+    image: {
+      defaultImage: 'https://picsum.photos/id/1076/1056/480',
+      alt: 'cards with image',
+    },
+    eyebrow: 'Topic',
+    heading: 'Natural language processing.',
+    cta: {
+      href: 'https://www.example.com',
+    },
+  },
+  {
+    image: {
+      defaultImage: 'https://picsum.photos/id/102/1056/480',
+      alt: 'cards with image',
+    },
+    eyebrow: 'Blog',
+    heading: 'Serving society ethically in the age of Artificial Intelligence.',
+    cta: {
+      href: 'https://www.example.com',
+    },
+  },
+  {
+    image: {
+      defaultImage: 'https://picsum.photos/id/1032/1056/480',
+      alt: 'cards with image',
+    },
+    eyebrow: 'Topic',
+    heading: 'Serving society ethically in the age of Artificial Intelligence.',
+    cta: {
+      href: 'https://www.example.com',
+    },
+  },
+];
+
 function App() {
-  return <CardSectionImages cards={cards} heading="Read more about it" />;
+  return (
+    <CardSectionImages cards={CardSectionImages} heading="Read more about it" />
+  );
 }
 
 ReactDOM.render(<App />, document.querySelector('#app'));
@@ -40,6 +100,13 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 | --------- | -------- | --------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `heading` | YES      | String    | null          | Cards with or without images heading.                                                                                                                                         |
 | `cards`   | YES      | Array     | null          | Array of card objects. See [CardSection](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/patterns/sections/CardSection/README.md)👀 |
+
+> 💡 Card accepts the folloing information for this `CardSectionImages` pattern.
+
+- Image
+- Eyebrow
+- Heading
+- cta.href
 
 ### theme (optional)
 
