@@ -11,6 +11,7 @@ export * from './Footer';
 export * from './HorizontalRule';
 export * from './Icon';
 export * from './Image';
+export * from './ImageWithCaption';
 export * from './LinkWithIcon';
 export * from './LocaleModal';
 export * from './Masthead';

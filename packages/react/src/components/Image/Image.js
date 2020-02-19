@@ -42,16 +42,16 @@ const sortSources = sources => {
  * @param {object} props props object
  * @param {object} props.classname classname
  * @param {object} props.images array of images used for diff breakpoints
- * @param {string} props.defaultImage default image (usually image for largest breakpoint)
+ * @param {string} props.defaultSrc default image (usually image for largest breakpoint)
  * @param {string} props.alt alt of the image
  * @returns {*} picture element
  */
-const Image = ({ classname, images, defaultImage, alt }) => {
-  if (!defaultImage || !alt) {
+const Image = ({ classname, sources, defaultSrc, alt }) => {
+  if (!defaultSrc || !alt) {
     return null;
   }
 
-  const sortedImages = images ? sortSources(images) : [];
+  const sortedImages = sources ? sortSources(sources) : [];
 
   return (
     <picture
@@ -69,7 +69,7 @@ const Image = ({ classname, images, defaultImage, alt }) => {
       })}
       <img
         className={classnames(`${prefix}--image__img`, classname)}
-        src={defaultImage}
+        src={defaultSrc}
         alt={alt}
       />
     </picture>
@@ -78,14 +78,14 @@ const Image = ({ classname, images, defaultImage, alt }) => {
 
 Image.propTypes = {
   classname: PropTypes.string,
-  images: PropTypes.arrayOf(
+  sources: PropTypes.arrayOf(
     PropTypes.shape({
       src: PropTypes.string,
       minWidth: PropTypes.any,
     })
   ),
-  defaultImage: PropTypes.string,
-  alt: PropTypes.string,
+  defaultSrc: PropTypes.string.isRequired,
+  alt: PropTypes.string.isRequired,
 };
 
 export default Image;
