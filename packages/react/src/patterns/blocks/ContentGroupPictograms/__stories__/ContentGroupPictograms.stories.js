@@ -89,7 +89,7 @@ storiesOf('Patterns (Blocks)|ContentGroupPictograms', module)
           'Item 1 Copy (required)',
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.'
         ),
-        cta: toggleCta(boolean('Item 1 Cta')),
+        cta: toggleCta(boolean('Item 1 Cta', false)),
         pictogram: {
           src: selectPictogram(pictogram1),
           'aria-label': text('Aria-label 1:', 'Desktop'),
@@ -104,7 +104,7 @@ storiesOf('Patterns (Blocks)|ContentGroupPictograms', module)
           'Item 2 Copy (required)',
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.'
         ),
-        cta: toggleCta(boolean('Item 2 Cta')),
+        cta: toggleCta(boolean('Item 2 Cta', false)),
         pictogram: {
           src: selectPictogram(pictogram2),
           'aria-label': text('Aria-label 2:', 'Touch'),
@@ -119,7 +119,7 @@ storiesOf('Patterns (Blocks)|ContentGroupPictograms', module)
           'Item 3 Copy (required)',
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.'
         ),
-        cta: toggleCta(boolean('Item 3 Cta')),
+        cta: toggleCta(boolean('Item 3 Cta', false)),
         pictogram: {
           src: selectPictogram(pictogram3),
           'aria-label': text('Aria-label 3:', 'Pattern'),
