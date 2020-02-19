@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/eslint-config-ibmdotcom@1.3.0...@carbon/eslint-config-ibmdotcom@1.4.0-rc.0) (2020-02-14)
+
+### Bug Fixes
+
+- **eslint:** adjust config for sort-imports in eslint
+  ([3a4a3dc](https://github.com/carbon-design-system/ibm-dotcom-library/commit/3a4a3dc))
+- **storybook:** fixes IE11 loading issues in Storybook; fixes
+  [#840](https://github.com/carbon-design-system/ibm-dotcom-library/issues/840)
+  ([53d2fa3](https://github.com/carbon-design-system/ibm-dotcom-library/commit/53d2fa3))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.3.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/eslint-config-ibmdotcom@1.3.0-rc.0...@carbon/eslint-config-ibmdotcom@1.3.0) (2020-01-27)
 
 **Note:** Version bump only for package @carbon/eslint-config-ibmdotcom
