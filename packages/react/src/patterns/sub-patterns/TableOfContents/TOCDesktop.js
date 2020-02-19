@@ -79,7 +79,7 @@ const TOCDesktop = ({ menuItems, selectedId, updateState }) => {
   function triggerFocus(elem) {
     const element = document.querySelector(elem);
     element.setAttribute('tabindex', '0');
-    element.focus();
+    element.focus({ preventScroll: true });
     element.removeAttribute('tabindex');
   }
 
