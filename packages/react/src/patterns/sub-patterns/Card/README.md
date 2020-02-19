@@ -41,7 +41,7 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 | ----------- | -------- | --------- | ------------- | ---------------------------------------------------------------------------- |
 | `copy`      | NO       | String    | null          | Paragraph of text that further describing the resource with added detail.    |
 | `className` | NO       | String    | null          | Classname to be assigned to the Card component                               |
-| `title`     | YES      | String    | n/a           | Concise yet descriptive string of text describing the linked resource.       |
+| `title`     | NO       | String    | n/a           | Concise yet descriptive string of text describing the linked resource.       |
 | `type`      | NO       | String    | n/a           | Determines whether card is clickable or static.                              |
 | `imgSrc`    | NO       | String    | null          | Image source to be passed as a property to the to the Card component         |
 | `altText`   | NO       | String    | null          | Image alternate text to be passed as a property to the to the Card component |

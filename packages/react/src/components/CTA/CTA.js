@@ -23,11 +23,11 @@ const { prefix } = settings;
  * @param {object} props props object
  * @param {string} props.style cta style ( text | card | button | feature ).
  * @param {string} props.type cta type ( jump | local | external ).
- * @param {string} props.customClassname custom classname from parent
+ * @param {string} props.customClassName custom classname from parent
  * @returns {*} CTA component
  */
-const CTA = ({ style, type, customClassname, ...cta }) => (
-  <div className={customClassname}>{renderCTA({ style, type, ...cta })}</div>
+const CTA = ({ style, type, customClassName, ...cta }) => (
+  <div className={customClassName}>{renderCTA({ style, type, ...cta })}</div>
 );
 
 /**
@@ -68,7 +68,7 @@ const renderCTA = ({ style, type, ...cta }) => {
           href={cta.href}
           target={_external(type)}
           onClick={e => _jump(e, type)}>
-          {cta.copy}
+          {cta.copy && <span>{cta.copy}</span>}
           <Icon />
         </LinkWithIcon>
       );
@@ -138,6 +138,6 @@ const _renderFeatureCard = featureCard => {
 CTA.propTypes = {
   style: PropTypes.string,
   type: PropTypes.string,
-  customClassname: PropTypes.string,
+  customClassName: PropTypes.string,
 };
 export default CTA;
