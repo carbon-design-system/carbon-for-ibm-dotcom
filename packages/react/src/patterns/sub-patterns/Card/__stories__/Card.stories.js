@@ -57,6 +57,7 @@ storiesOf('Patterns (Sub-Patterns)|Card', module)
       <div
         className="bx--grid"
         style={{
+          padding: '2rem',
           backgroundColor: theme === 'g10' || theme === '' ? 'black' : 'white',
         }}>
         <div className="bx--row">
