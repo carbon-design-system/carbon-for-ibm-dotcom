@@ -89,6 +89,8 @@ const _renderCards = items =>
         icon={ArrowRight20}
         href={elem.cta.href}
         type="link"
+        role="region"
+        aria-labelledby={`region${index}`}
       />
     </div>
   ));
