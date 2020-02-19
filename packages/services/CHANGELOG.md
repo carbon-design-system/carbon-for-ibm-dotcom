@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.3.1...@carbon/ibmdotcom-services@1.4.0-rc.0) (2020-02-14)
+
+### Bug Fixes
+
+- **eslint:** adjust config for sort-imports in eslint
+  ([3a4a3dc](https://github.com/carbon-design-system/ibm-dotcom-library/commit/3a4a3dc))
+- **storybook:** fixes IE11 loading issues in Storybook; fixes
+  [#840](https://github.com/carbon-design-system/ibm-dotcom-library/issues/840)
+  ([53d2fa3](https://github.com/carbon-design-system/ibm-dotcom-library/commit/53d2fa3))
+
+### Features
+
+- **services:** added api method and updated the jsdoc
+  ([4c15c42](https://github.com/carbon-design-system/ibm-dotcom-library/commit/4c15c42))
+- **services:** created a videoplayer service to load script and embed
+  ([6b7cdf2](https://github.com/carbon-design-system/ibm-dotcom-library/commit/6b7cdf2))
+- **services:** kwidget.api warpped inside the checkScript
+  ([849364d](https://github.com/carbon-design-system/ibm-dotcom-library/commit/849364d))
+- **services:** removed tests for now
+  ([12d98ce](https://github.com/carbon-design-system/ibm-dotcom-library/commit/12d98ce))
+- **services:** updated the changes
+  ([a5407d9](https://github.com/carbon-design-system/ibm-dotcom-library/commit/a5407d9))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.3.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.3.1-rc.1...@carbon/ibmdotcom-services@1.3.1) (2020-02-11)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-services
