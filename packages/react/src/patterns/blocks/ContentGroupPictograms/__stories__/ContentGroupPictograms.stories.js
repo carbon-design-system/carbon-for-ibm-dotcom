@@ -1,6 +1,6 @@
 import './index.scss';
 import { Desktop, Pattern, Touch } from '@carbon/pictograms-react';
-import { object, select, text, withKnobs } from '@storybook/addon-knobs';
+import { select, text, withKnobs, boolean } from '@storybook/addon-knobs';
 import classNames from 'classnames';
 import ContentGroupPictograms from '../ContentGroupPictograms';
 import React from 'react';
@@ -61,6 +61,24 @@ storiesOf('Patterns (Blocks)|ContentGroupPictograms', module)
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
     );
 
+    /**
+     * Toggles CTA data based on item value
+     *
+     * @param {boolean} item defines if cta will be rendered
+     * @returns {*} if true returns cta data, if false, returns null
+     */
+    const toggleCta = item => {
+      if (item) {
+        return {
+          type: 'local',
+          href: 'https://www.example.com',
+          copy: 'Lorem ipsum dolor',
+        };
+      } else {
+        return null;
+      }
+    };
+
     const items = [
       {
         heading: text(
@@ -71,11 +89,7 @@ storiesOf('Patterns (Blocks)|ContentGroupPictograms', module)
           'Item 1 Copy (required)',
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.'
         ),
-        cta: object('Item 1 Link', {
-          type: 'local',
-          href: 'https://www.example.com',
-          copy: 'Lorem ipsum dolor',
-        }),
+        cta: toggleCta(boolean('Item 1 Cta')),
         pictogram: {
           src: selectPictogram(pictogram1),
           'aria-label': text('Aria-label 1:', 'Desktop'),
@@ -90,11 +104,7 @@ storiesOf('Patterns (Blocks)|ContentGroupPictograms', module)
           'Item 2 Copy (required)',
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.'
         ),
-        cta: object('Item 2 Link', {
-          type: 'local',
-          href: 'https://www.example.com',
-          copy: 'Lorem ipsum dolor',
-        }),
+        cta: toggleCta(boolean('Item 2 Cta')),
         pictogram: {
           src: selectPictogram(pictogram2),
           'aria-label': text('Aria-label 2:', 'Touch'),
@@ -109,11 +119,7 @@ storiesOf('Patterns (Blocks)|ContentGroupPictograms', module)
           'Item 3 Copy (required)',
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.'
         ),
-        cta: object('Item 3 Link', {
-          type: 'local',
-          href: 'https://www.example.com',
-          copy: 'Lorem ipsum dolor',
-        }),
+        cta: toggleCta(boolean('Item 3 Cta')),
         pictogram: {
           src: selectPictogram(pictogram3),
           'aria-label': text('Aria-label 3:', 'Pattern'),
