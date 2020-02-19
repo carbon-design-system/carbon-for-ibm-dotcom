@@ -6,7 +6,8 @@
  */
 
 import { ContentBlock } from '../../sub-patterns/ContentBlock';
-import { ContentGroupSimple } from '../ContentGroupSimple';
+import { ContentGroup } from '../../sub-patterns/ContentGroup';
+import { ContentItem } from '../../sub-patterns/ContentItem';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -27,35 +28,60 @@ const { prefix } = settings;
  * @param {object} props.contentGroup chilren content element
  * @returns {*} Content block simple pattern
  */
-const ContentBlockSimple = ({
-  copy,
-  heading,
-  cta,
-  ctaStyle,
-  ctaType,
-  contentGroup,
-}) => {
+const ContentBlockSegmented = ({ copy, heading, items }) => {
   return (
     <ContentBlock
       heading={heading}
       copy={copy}
-      cta={cta}
-      ctaStyle={ctaStyle}
-      ctaType={ctaType}
-      data-autoid={`${stablePrefix}--content-block-simple`}
-      customClassName={`${prefix}--content-block-simple ${prefix}--col-lg-8`}>
-      <ContentGroupSimple
-        mediaType={contentGroup.mediaType.mediaType}
-        mediaData={contentGroup.mediaData.mediaData}
-        heading={contentGroup.heading.heading}
-        items={contentGroup.items.items}
-        cta={contentGroup.cta}
-      />
+      data-autoid={`${stablePrefix}--content-block-segmented`}
+      customClassName={`${prefix}--content-block-segmented ${prefix}--col-lg-8`}>
+      {_renderGroup(items)}
     </ContentBlock>
   );
 };
 
-ContentBlockSimple.propTypes = {
+/**
+ *
+ * @param {string} mediaType Media type, video or image
+ * @param {object} mediaData Data for renderimg the media
+ * @returns {*} JSX Component with the media
+ */
+const _renderMedia = (mediaType, mediaData) => {
+  if (mediaData) {
+    if (mediaType === 'image') {
+      return (
+        <div data-autoid={`${stablePrefix}--content-group-simple__media`}>
+          <Image {...mediaData} />
+        </div>
+      );
+    }
+  }
+};
+
+/**
+ *
+ * @param {object} items content data
+ * @returns {*} JSX Component with the media
+ */
+const _renderGroup = items => {
+  console.log('items', items);
+  items.map((item, index) => (
+    <ContentGroup cta={item.cta} heading={item.heading}>
+      {item.mediaData && _renderMedia(item.mediaType, item.mediaData)}
+      <ContentItem {...item.content} key={index} />
+    </ContentGroup>
+  ));
+};
+
+/**
+ *
+ * @param {Array} items Array of data for ContentItems to be rendered
+ * @returns {*} Array of ContentItem Components
+ */
+const _renderContent = items =>
+  items.map((item, index) => <ContentItem {...item} key={index} />);
+
+ContentBlockSegmented.propTypes = {
   copy: PropTypes.string.isRequired,
   heading: PropTypes.string.isRequired,
   cta: PropTypes.object,
@@ -64,4 +90,4 @@ ContentBlockSimple.propTypes = {
   contentGroup: PropTypes.object,
 };
 
-export default ContentBlockSimple;
+export default ContentBlockSegmented;
