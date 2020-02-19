@@ -66,7 +66,7 @@ const _renderMedia = (mediaType, mediaData) => {
   if (mediaData) {
     if (mediaType === 'image') {
       return (
-        <div data-autoid={`${stablePrefix}--content-group-simple__media`}>
+        <div data-autoid={`${stablePrefix}--content-block-simple__media`}>
           <Image {...mediaData} />
         </div>
       );
