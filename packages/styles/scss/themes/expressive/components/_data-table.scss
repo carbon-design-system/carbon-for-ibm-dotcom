@@ -1,0 +1,35 @@
+//
+// Copyright IBM Corp. 2016, 2018
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import '@carbon/layout/scss/convert';
+
+//-----------------------------
+// Data Table (expressive)
+//-----------------------------
+
+/// Data table styles (expressive)
+/// @access private
+/// @group data-table-expressive
+@mixin data-table-expressive {
+  .bx--data-table--compact td {
+    height: rem(32px);
+  }
+  .bx--data-table--short td {
+    height: rem(40px);
+  }
+  .bx--data-table--tall td {
+    height: rem(70px);
+  }
+  .bx--table-expand__svg {
+    height: rem(20px);
+    width: rem(20px);
+  }
+  .bx--btn__icon {
+    height: rem(20px);
+    width: rem(20px);
+  }
+}
