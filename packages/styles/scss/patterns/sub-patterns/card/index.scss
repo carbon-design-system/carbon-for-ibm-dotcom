@@ -75,8 +75,12 @@
       transition: $duration--moderate-01 motion(standard, productive);
     }
 
-    &--link:hover {
-      background-color: $hover-ui;
+    &--link {
+      height: 100%;
+
+      &:hover {
+        background-color: $hover-ui;
+      }
     }
 
     &:hover {
