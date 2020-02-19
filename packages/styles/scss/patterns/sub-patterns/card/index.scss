@@ -9,12 +9,12 @@
 @import '../../../temp-carbon-expressive/temp-carbon-expressive';
 @import '@carbon/motion/scss/motion.scss';
 
-@import 'carbon-components/scss/components/tile/tile';
 @import 'carbon-components/scss/components/link/link';
+@import 'carbon-components/scss/components/tile/tile';
 
 @mixin card {
   .#{$prefix}--card {
-    color: $text-01;
+    background-color: $ui-01;
     text-decoration: none;
     display: flex;
     flex-direction: column;
@@ -27,16 +27,29 @@
     }
 
     &__title {
+      margin-bottom: $carbon--spacing-05;
       @include carbon--type-style('expressive-heading-03');
+    }
 
-      margin-bottom: $carbon--layout-05;
+    &__title,
+    &__content {
+      color: $text-01;
     }
 
     &__content {
+      margin-bottom: $carbon--spacing-01;
       @include carbon--type-style('body-short-02');
+    }
 
-      margin-bottom: $carbon--layout-01;
+    &__eyebrow {
       color: $text-02;
+      margin-bottom: $carbon--spacing-03;
+      @include carbon--type-style('body-short-01');
+    }
+
+    &__cta,
+    &__cta a:visited {
+      color: $interactive-04;
     }
 
     &__footer {
@@ -62,6 +75,10 @@
       transition: $duration--moderate-01 motion(standard, productive);
     }
 
+    &--link:hover {
+      background-color: $hover-ui;
+    }
+
     &:hover {
       text-decoration: none;
 
@@ -76,6 +93,28 @@
 
     &.#{$prefix}--tile {
       padding: 0;
+    }
+  }
+
+  .#{$prefix}--card--inverse {
+    background-color: $inverse-02;
+
+    .#{$prefix}--card__title,
+    .#{$prefix}--card__content {
+      color: $inverse-01;
+    }
+
+    .#{$prefix}--card__eyebrow {
+      color: $text-03;
+    }
+
+    &.#{$prefix}--card--link:hover {
+      background-color: $inverse-hover-ui;
+    }
+
+    .#{$prefix}--card__cta,
+    .#{$prefix}--card__cta a:visited {
+      color: $inverse-link;
     }
   }
 }
