@@ -24,7 +24,7 @@ storiesOf('Patterns (Sub-Patterns)|ContentGroup', module)
     };
 
     return (
-      <div className="bx--grid ">
+      <div className="bx--grid bx--content-group-story">
         <div className="bx--row">
           <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
             <ContentGroup heading={heading} cta={renderCTA && cta} />
