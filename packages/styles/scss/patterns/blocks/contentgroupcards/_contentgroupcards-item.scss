@@ -5,13 +5,12 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import '../../../components/link-with-icon/link-with-icon';
-
 @mixin content-group-cards-item {
   .#{$prefix}--content-group-cards-item {
+    h3,
     p {
-      margin-bottom: $carbon--layout-03;
-      margin-top: $carbon--layout-03;
+      width: 90%;
+      max-width: carbon--mini-units(80);
     }
   }
 }
