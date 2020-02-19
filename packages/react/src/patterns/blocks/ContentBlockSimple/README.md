@@ -1,6 +1,7 @@
-# Simple Long Form
+# Content Block - Simple
 
-> The Simple Long Form pattern is to be utilized within IBM.com.
+> The Content Block - Simple pattern is a decorator of `ContentBlock`, and
+> includes a single `ContentItem`, optional media (image), and ends with a CTA.
 
 ## Getting started
 
@@ -13,7 +14,7 @@ Here's a quick example to get you started.
 @include carbon--font-face-mono();
 @include carbon--font-face-sans();
 
-@import '@carbon/ibmdotcom-styles/scss/patterns/blocks/simplelongform/simplelongform';
+@import '@carbon/ibmdotcom-styles/scss/patterns/blocks/content-block-simple/content-block-simple';
 ```
 
 > 💡 Only import fonts once per usage
@@ -26,12 +27,13 @@ import 'yourapplication.scss';
 
 function App() {
   return (
-    <SimpleLongForm
-      title={title}
+    <ContentBlockSimple
+      heading={heading}
       copy={copy}
-      linkType={linkType}
-      border={true}
-      link={link}
+      items={items}
+      mediaData={mediaData}
+      mediaType={mediaType}
+      cta={cta}
     />
   );
 }
@@ -42,61 +44,50 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 > 💡 Don't forget to import the simplelongform styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
-#### Feature Flags
-
-To utilize the following features, set the following variable's to `true` within
-your `.env` file or your application build settings.
-
-```
-DDS_SIMPLELONGFORM=true
-```
-
-> See
-> [feature-flags.md](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/patterns-react/docs/feature-flags.md)
-> and
-> [.env.example](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/patterns-react/.env.example)
-> for more information
-
 ## Props
 
-| Name       | Required | Data Type | Default Value | Description                                 |
-| ---------- | -------- | --------- | ------------- | ------------------------------------------- |
-| `border`   | NO       | Boolean   | false         | Determines whether to render bottom border. |
-| `copy`     | NO       | String    | null          | Short copy to support the title.            |
-| `linkType` | NO       | String    | null          | Type of Link. See `linkType` below.         |
-| `link`     | NO       | Object    | null          | Object with link details. See `link` below. |
-| `theme`    | NO       | String    | 'white'       | Color theme for pattern. See `theme` below. |
-| `title`    | YES      | String    | n/a           | Title of the Simple Long Form.              |
+| Name        | Required | Data Type | Default Value | Description                                                              |
+| ----------- | -------- | --------- | ------------- | ------------------------------------------------------------------------ |
+| `heading`   | YES      | String    | n/a           | Title of the content block.                                              |
+| `copy`      | YES      | String    | n/a           | Introduction copy briefly describing the section.                        |
+| `items`     | YES      | Array     | n/a           | Array of content items for use as content body.                          |
+| `mediaData` | NO       | Array     | n/a           | Array of image sizes for use with content items.                         |
+| `mediaType` | NO       | String    | 'image'       | Type of media. Currently only supports `image`.                          |
+| `cta`       | NO       | Object    | n/a           | CTA used at the end of content body. `Text` and `Card` styles supported. |
 
-### linkType
+### items
 
-| Name       | Data Type | Description                         |
-| ---------- | --------- | ----------------------------------- |
-| `none`     | String    | Render no link.                     |
-| `card`     | String    | Render with Card component.         |
-| `iconLink` | String    | Render with LinkWithIcon component. |
+| Name      | Data Type | Description          |
+| --------- | --------- | -------------------- |
+| `heading` | String    | Item section heading |
+| `copy`    | String    | Item section copy    |
 
-### link
+### mediaData
 
-| Name     | Data Type | Description                                                |
-| -------- | --------- | ---------------------------------------------------------- |
-| `href`   | String    | Url of link.                                               |
-| `text`   | String    | Link text.                                                 |
-| `target` | String    | Open within current tab or new tab ('\_self' or '\_blank') |
+| Name           | Data Type | Description                                            |
+| -------------- | --------- | ------------------------------------------------------ |
+| `src`          | String    | Url of image.                                          |
+| `minWidth`     | String    | Minimum width of image. Supports multiple breakpoints. |
+| `alt`          | String    | Image alt text.                                        |
+| `defaultImage` | String    | Default image to use.                                  |
 
-### theme (optional)
+### CTA
 
-| Name    | Data Type | Description                  |
-| ------- | --------- | ---------------------------- |
-| `white` | String    | Carbon White theme           |
-| `g100`  | String    | Carbon Gray 100 (g100) theme |
+| Name    | Data Type | Description                                                  |
+| ------- | --------- | ------------------------------------------------------------ |
+| `style` | String    | CTA style. Supports `text` and `card`.                       |
+| `type`  | String    | CTA link behavior. Supports `external`, `jump`, and `local`. |
+| `title` | String    | CTA title.                                                   |
+| `href`  | String    | CTA url.                                                     |
+| `copy`  | String    | CTA copy.                                                    |
 
 ## Stable selectors
 
-| Name                        | Description                   |
-| --------------------------- | ----------------------------- |
-| `dds--simplelongform`       | Pattern                       |
-| `dds--simplelongform__link` | Simple Long Form link element |
+| Name                                 | Description     |
+| ------------------------------------ | --------------- |
+| `dds--content-block-simple`          | Pattern         |
+| `dds--content-block-simple__content` | Pattern content |
+| `dds--content-block-simple__media`   | Media content   |
 
 ## 🙌 Contributing
 
