@@ -43,11 +43,15 @@ const renderCTA = ({ style, type, ...cta }) => {
     case 'card':
       return (
         <Card
-          className={`${prefix}--card--CTA`}
-          title={cta.title}
-          href={cta.href}
+          customClassName={`${prefix}--card--CTA`}
+          cta={{
+            href: cta.href,
+            icon: {
+              src: _iconSelector(type),
+            },
+          }}
+          heading={cta.title}
           type="link"
-          icon={_iconSelector(type)}
           target={_external(type)}
           handleClick={e => _jump(e, type)}
         />

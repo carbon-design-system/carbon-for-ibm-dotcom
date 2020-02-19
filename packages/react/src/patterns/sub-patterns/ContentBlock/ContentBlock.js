@@ -23,7 +23,7 @@ const { prefix } = settings;
  *
  * @param {object} props props object
  * @param {string} props.heading  Heading objects
- * @param {copy} props.copy Heading copy
+ * @param {string} props.copy Heading copy
  * @param {*} props.children JSX Components
  * @param {*} props.cta CTA props object
  * @returns {*} JSX ContentArrayBlock component

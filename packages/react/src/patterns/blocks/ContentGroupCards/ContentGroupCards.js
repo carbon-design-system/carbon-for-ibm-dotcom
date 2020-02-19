@@ -83,11 +83,15 @@ const _renderCards = items =>
       className={`${prefix}--content-group-cards-item__col`}
       key={index}>
       <Card
-        className={`${prefix}--content-group-cards-item`}
-        title={elem.heading}
-        content={elem.copy}
-        icon={ArrowRight20}
-        href={elem.cta.href}
+        customClassName={`${prefix}--content-group-cards-item`}
+        heading={elem.heading}
+        copy={elem.copy}
+        cta={{
+          href: elem.cta.href,
+          icon: {
+            src: ArrowRight20,
+          },
+        }}
         type="link"
       />
     </div>

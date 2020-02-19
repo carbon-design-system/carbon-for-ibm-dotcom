@@ -47,8 +47,10 @@ storiesOf('Components|CTA', module)
           heading: copy[0],
           card: {
             type: type,
-            href: urlBy[type],
-            title: copy[1],
+            heading: copy[1],
+            cta: {
+              href: urlBy[type],
+            },
             image: {
               defaultImage: 'https://picsum.photos/id/672/672',
               alt: 'featured card image',

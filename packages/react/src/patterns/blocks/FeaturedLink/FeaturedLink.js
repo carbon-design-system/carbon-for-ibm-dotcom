@@ -25,15 +25,18 @@ const { prefix } = settings;
  * @returns {*} FeaturedLink JSX component
  */
 const FeaturedLink = ({ heading, card }) => {
+  const cardProps = {
+    ...card,
+    cta: { ...card.cta, icon: { src: ArrowRight20, ...card.cta.icon } },
+  };
   return (
     <section
       className={`${prefix}--featuredlink`}
       data-autoid={`${stablePrefix}--featuredlink`}>
       <ContentGroup heading={heading}>
         <Card
-          className={`${prefix}--featuredlink__card`}
-          {...card}
-          icon={ArrowRight20}
+          customClassName={`${prefix}--featuredlink__card`}
+          {...cardProps}
           type="link"
         />
       </ContentGroup>

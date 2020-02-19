@@ -12,6 +12,29 @@ import React from 'react';
 import readme from '../README.md';
 import { storiesOf } from '@storybook/react';
 
+const props = {
+  cardProps: () => ({
+    heading: text('title (required)', 'Lorem ipsum dolor sit amet'),
+    type: text('type', 'link'),
+    copy: text('copy', ''),
+    cta: object('cta', {
+      type: 'local',
+      copy: '',
+      icon: {
+        src: ArrowRight20,
+      },
+      href: 'https://example.com',
+    }),
+    inverse: boolean('inverse', false),
+    image: object('image', {
+      defaultImage: 'https://picsum.photos/id/2/600/300',
+      alt: 'featured link image',
+    }),
+    eyebrow: text('eyebrow', 'eyebrow text'),
+    target: text('target', ''),
+  }),
+};
+
 storiesOf('Patterns (Sub-Patterns)|Card', module)
   .addDecorator(withKnobs)
   .addParameters({
@@ -20,21 +43,6 @@ storiesOf('Patterns (Sub-Patterns)|Card', module)
     },
   })
   .add('Static', () => {
-    const title = text('title (required)', 'Lorem ipsum dolor sit amet');
-    const type = text('type', 'static');
-    const copy = text('copy', '');
-    const cta = {
-      type: 'local',
-      copy: text('cta.copy', ''),
-    };
-    const inverse = boolean('inverse', false);
-    const image = object('image', {
-      defaultImage: 'https://picsum.photos/id/2/600/300',
-      alt: 'featured link image',
-    });
-    const eyebrow = text('eyebrow', 'eyebrow text');
-    const href = text('href (required)', 'https://example.com');
-    const target = text('target', '');
     const ratio = {
       none: null,
       '2:1': '2x1',
@@ -50,6 +58,8 @@ storiesOf('Patterns (Sub-Patterns)|Card', module)
       g90: 'g90',
       g100: 'g100',
     };
+
+    const type = text('type', 'static');
 
     const theme = select('theme', themes, themes.g100);
 
@@ -63,18 +73,7 @@ storiesOf('Patterns (Sub-Patterns)|Card', module)
         <div className="bx--row">
           <div className={`bx--card--${theme}`}>
             {!select('Ratio', ratio, ratio['none']) ? (
-              <Card
-                title={title}
-                eyebrow={eyebrow}
-                inverse={inverse}
-                image={image}
-                copy={copy}
-                href={href}
-                cta={cta}
-                icon={ArrowRight20}
-                target={target}
-                type={type}
-              />
+              <Card {...props.cardProps()} type={type} />
             ) : (
               <div
                 className={`bx--aspect-ratio bx--aspect-ratio--${select(
@@ -83,17 +82,9 @@ storiesOf('Patterns (Sub-Patterns)|Card', module)
                   ratio['none']
                 )}`}>
                 <Card
-                  title={title}
-                  eyebrow={eyebrow}
-                  inverse={inverse}
-                  image={image}
-                  copy={copy}
-                  cta={cta}
-                  href={href}
-                  icon={ArrowRight20}
-                  target={target}
+                  {...props.cardProps()}
                   type={type}
-                  className="bx--aspect-ratio--object"
+                  customClassName="bx--aspect-ratio--object"
                 />
               </div>
             )}
@@ -103,21 +94,6 @@ storiesOf('Patterns (Sub-Patterns)|Card', module)
     );
   })
   .add('Link/Clickable', () => {
-    const title = text('title (required)', 'Lorem ipsum dolor sit amet');
-    const type = text('type', 'link');
-    const copy = text('copy', '');
-    const cta = {
-      type: 'local',
-      copy: text('cta.copy', ''),
-    };
-    const inverse = boolean('inverse', false);
-    const image = object('image', {
-      defaultImage: 'https://picsum.photos/id/2/600/300',
-      alt: 'featured link image',
-    });
-    const eyebrow = text('eyebrow', 'eyebrow text');
-    const href = text('href (required)', 'https://example.com');
-    const target = text('target', '');
     const ratio = {
       none: null,
       '2:1': '2x1',
@@ -136,6 +112,8 @@ storiesOf('Patterns (Sub-Patterns)|Card', module)
 
     const theme = select('theme', themes, themes.g100);
 
+    const type = text('type', 'link');
+
     return (
       <div
         className="bx--grid"
@@ -146,18 +124,7 @@ storiesOf('Patterns (Sub-Patterns)|Card', module)
         <div className="bx--row">
           <div className={`bx--card--${select('theme', themes, themes.g100)}`}>
             {!select('Ratio', ratio, ratio['none']) ? (
-              <Card
-                title={title}
-                eyebrow={eyebrow}
-                inverse={inverse}
-                image={image}
-                copy={copy}
-                href={href}
-                cta={cta}
-                icon={ArrowRight20}
-                target={target}
-                type={type}
-              />
+              <Card {...props.cardProps()} type={type} />
             ) : (
               <div
                 className={`bx--aspect-ratio bx--aspect-ratio--${select(
@@ -166,15 +133,7 @@ storiesOf('Patterns (Sub-Patterns)|Card', module)
                   ratio['none']
                 )}`}>
                 <Card
-                  title={title}
-                  eyebrow={eyebrow}
-                  inverse={inverse}
-                  image={image}
-                  copy={copy}
-                  cta={cta}
-                  icon={ArrowRight20}
-                  href={href}
-                  target={target}
+                  {...props.cardProps()}
                   type={type}
                   className="bx--aspect-ratio--object"
                 />

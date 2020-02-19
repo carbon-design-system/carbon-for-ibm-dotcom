@@ -26,16 +26,14 @@ const { prefix } = settings;
  * @returns {object} JSX object
  */
 const Card = ({
-  title,
-  copy,
-  eyebrow,
-  href,
-  cta,
-  image,
-  inverse,
-  className,
   type,
-  icon: Icon,
+  inverse,
+  image,
+  eyebrow,
+  heading,
+  customClassName,
+  copy,
+  cta,
   ...props
 }) => {
   const CardTile = type === 'link' ? ClickableTile : Tile;
@@ -48,16 +46,16 @@ const Card = ({
           [`${prefix}--card--inverse`]: inverse,
           [`${prefix}--card--link`]: type === 'link',
         },
-        className
+        customClassName
       )}
-      href={href}
+      href={cta.href}
       {...props}>
       <Image {...image} classname={`${prefix}--card__img`} />
       <div className={`${prefix}--card__wrapper`}>
         {eyebrow && <p className={`${prefix}--card__eyebrow`}>{eyebrow}</p>}
-        {title && <h3 className={`${prefix}--card__title`}>{title}</h3>}
+        {heading && <h3 className={`${prefix}--card__title`}>{heading}</h3>}
         {optionalContent(copy)}
-        {renderFooter(cta, type, href, Icon)}
+        {renderFooter(cta, type)}
       </div>
     </CardTile>
   );
@@ -84,41 +82,41 @@ function optionalContent(copy) {
  *
  * @param {object} cta cta object
  * @param {string} type type of card (clickable/static)
- * @param {string} href url for card
- * @param {object} Icon cta icon for card
  * @returns {object} JSX object
  */
-function renderFooter(cta, type, href, Icon) {
+function renderFooter(cta, type) {
   return (
     <footer className={`${prefix}--card__footer`}>
       {type !== 'link' ? (
         <CTA
           style="text"
           type={cta.type}
-          href={href}
+          href={cta.href}
           copy={cta.copy}
           customClassName={`${prefix}--card__cta`}
         />
       ) : (
-        Icon && <Icon className={`${prefix}--card__cta`} />
+        cta.icon.src && (
+          <cta.icon.src className={`${prefix}--card__cta`} {...cta.icon} />
+        )
       )}
     </footer>
   );
 }
 
 Card.propTypes = {
-  title: PropTypes.string,
+  heading: PropTypes.string,
   eyebrow: PropTypes.string,
-  icon: PropTypes.object,
   copy: PropTypes.string,
-  href: PropTypes.string.isRequired,
   cta: PropTypes.shape({
     type: PropTypes.string,
     copy: PropTypes.string,
+    href: PropTypes.string,
+    icon: PropTypes.object,
   }),
   image: PropTypes.object,
   inverse: PropTypes.bool,
-  className: PropTypes.string,
+  customClassName: PropTypes.string,
   type: PropTypes.string,
 };
 
