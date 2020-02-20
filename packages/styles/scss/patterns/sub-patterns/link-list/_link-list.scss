@@ -1,0 +1,70 @@
+//
+// Copyright IBM Corp. 2016, 2018
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import '../../../globals/imports';
+@mixin themed-items {
+  .#{$prefix}--link--list__heading {
+    color: $text-01;
+  }
+}
+@mixin link--list {
+  .#{$prefix}--link--list {
+    @include carbon--breakpoint(sm) {
+      padding-top: $carbon--layout-03;
+      padding-bottom: $carbon--layout-05;
+      &__heading {
+        margin-bottom: $carbon--layout-05;
+        border: 1px solid #ee538b;
+        padding: $carbon--layout-01;
+      }
+    }
+    @include carbon--breakpoint(lg) {
+      padding-top: $carbon--layout-05;
+      padding-bottom: $carbon--layout-07;
+      &__heading {
+        margin-bottom: $carbon--layout-03;
+      }
+    }
+
+    &__heading {
+      padding-right: $carbon--layout-01;
+      //max-width: 90%;
+      @include carbon--breakpoint('lg') {
+        @include carbon--make-col(12, 16);
+      }
+
+      @include type-style('expressive-heading-02');
+    }
+
+    &__list {
+      margin-bottom: $carbon--layout-03;
+      border: 1px solid #ee538b;
+      padding: $carbon--layout-01;
+
+      @include carbon--breakpoint('lg') {
+        @include carbon--make-col(12, 16);
+      }
+      h2 {
+        @include type-style('expressive-heading-02');
+
+        margin-bottom: $carbon--layout-03;
+      }
+      &__CTA {
+        margin-bottom: $carbon--layout-07;
+
+        @include carbon--breakpoint('md') {
+          @include carbon--make-col(4, 8);
+        }
+      }
+    }
+
+    margin-bottom: $carbon--layout-03;
+  }
+}
+@include exports('link--list') {
+  @include link--list;
+}
