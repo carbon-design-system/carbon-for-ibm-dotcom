@@ -36,9 +36,8 @@ storiesOf('Components|CTA', module)
       case 'card':
         type = select('type', types, types[0]);
         cta = {
-          type: type,
           href: urlBy[type],
-          title: copy[0],
+          heading: copy[0],
         };
         break;
       case 'feature':

@@ -75,15 +75,9 @@
       transition: $duration--moderate-01 motion(standard, productive);
     }
 
-    &--link {
-      height: 100%;
+    &--link:hover {
+      background-color: $hover-ui;
 
-      &:hover {
-        background-color: $hover-ui;
-      }
-    }
-
-    &:hover {
       text-decoration: none;
 
       .#{$prefix}--card__img {

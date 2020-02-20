@@ -12,7 +12,6 @@ import {
 import classNames from 'classnames';
 import { CTA } from '../../../components/CTA';
 import { Image } from '../../../components/Image';
-import { LinkWithIcon } from '../../../components/LinkWithIcon';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { settings } from 'carbon-components';
@@ -88,22 +87,20 @@ function optionalContent(copy) {
 function renderFooter(cta, type) {
   return (
     <footer className={`${prefix}--card__footer`}>
-      {type !== 'link' ? (
-        <CTA
-          style="text"
-          type={cta.type}
-          href={cta.href}
-          copy={cta.copy}
-          customClassName={`${prefix}--card__cta`}
-        />
-      ) : (
-        <div className={`${prefix}--card__cta`}>
-          <LinkWithIcon>
-            <span>{cta.copy}</span>
-            {cta.icon.src && <cta.icon.src {...cta.icon} />}
-          </LinkWithIcon>
-        </div>
-      )}
+      {cta &&
+        (type !== 'link' ? (
+          <CTA
+            style="text"
+            type={cta.type}
+            href={cta.href}
+            copy={cta.copy}
+            customClassName={`${prefix}--card__cta`}
+          />
+        ) : (
+          cta.icon.src && (
+            <cta.icon.src className={`${prefix}--card__cta`} {...cta.icon} />
+          )
+        ))}
     </footer>
   );
 }

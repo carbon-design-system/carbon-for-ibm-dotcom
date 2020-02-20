@@ -50,7 +50,7 @@ const renderCTA = ({ style, type, ...cta }) => {
               src: _iconSelector(type),
             },
           }}
-          heading={cta.title}
+          heading={cta.heading}
           type="link"
           target={_external(type)}
           handleClick={e => _jump(e, type)}
@@ -72,7 +72,7 @@ const renderCTA = ({ style, type, ...cta }) => {
           href={cta.href}
           target={_external(type)}
           onClick={e => _jump(e, type)}>
-          {cta.copy && <span>{cta.copy}</span>}
+          {cta.copy}
           <Icon />
         </LinkWithIcon>
       );
