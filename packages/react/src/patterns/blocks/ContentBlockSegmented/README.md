@@ -32,17 +32,17 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 ## Props
 
-| Name           | Required | Data Type | Default Value | Description                                          |
-| -------------- | -------- | --------- | ------------- | ---------------------------------------------------- |
-| `copy`         | yes      | String    | null          | Short copy to suppport title.                        |
-| `heading`      | yes      | String    | n/a           | Main title of pattern.                               |
-| `contentGroup` | yes      | Array     | n/a           | Array of content items to render. See `items` below. |
+| Name      | Required | Data Type | Default Value | Description                                          |
+| --------- | -------- | --------- | ------------- | ---------------------------------------------------- |
+| `copy`    | yes      | String    | null          | Short copy to suppport title.                        |
+| `heading` | yes      | String    | n/a           | Main title of pattern.                               |
+| `items`   | yes      | Array     | n/a           | Array of content items to render. See `items` below. |
 
 ### items
 
 | Name        | Data Type | Description                                                      |
 | ----------- | --------- | ---------------------------------------------------------------- |
-| `heading`   | String    | Short copy describing content.                                   |
+| `heading`   | String    | Short copy describing content item.                              |
 | `mediaType` | String    | Type of media, currently only `image` supported.                 |
 | `mediaData` | String    | Media data.                                                      |
 | `items`     | Array     | Array of content paragraphs.                                     |
@@ -60,11 +60,12 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 ## Stable selectors
 
-| Name                                         | Description |
-| -------------------------------------------- | ----------- |
-| `dds--content-block-segmented`               | Pattern     |
-| `dds--content-block-segmented__media`        | Element     |
-| `dds--content-block-segmented__content-item` | Element     |
+| Name                                          | Description |
+| --------------------------------------------- | ----------- |
+| `dds--content-block-segmented`                | Pattern     |
+| `dds--content-block-segmented__content-group` | Element     |
+| `dds--content-block-segmented__media`         | Element     |
+| `dds--content-block-segmented__content-item`  | Element     |
 
 ## 🙌 Contributing
 

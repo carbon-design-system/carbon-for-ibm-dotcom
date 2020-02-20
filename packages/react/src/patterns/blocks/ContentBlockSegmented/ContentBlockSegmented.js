@@ -40,7 +40,7 @@ const ContentBlockSegmented = ({ copy, heading, items }) => {
 
 /**
  *
- * @param {object} items content data
+ * @param {object} items content item data
  * @returns {*} JSX Component with the media
  */
 const _renderGroup = items =>
