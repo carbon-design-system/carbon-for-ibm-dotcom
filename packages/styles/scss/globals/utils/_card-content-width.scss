@@ -1,0 +1,13 @@
+//Sets the Width and Max-Width of the Card to 90% / carbon--mini-units(80)
+
+@mixin card-content-width {
+  .#{$prefix}--card__title,
+  .#{$prefix}--card__content {
+    width: 90%;
+    max-width: carbon--mini-units(80);
+  }
+}
+
+@include exports('card-content-width') {
+  @include card-content-width;
+}
