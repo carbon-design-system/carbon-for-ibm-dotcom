@@ -1,4 +1,4 @@
-import { object, select, text, withKnobs } from '@storybook/addon-knobs';
+import { select, text, withKnobs } from '@storybook/addon-knobs';
 import ContentBlockSegmented from '../ContentBlockSegmented';
 // import ContentGroupSimpleKnobs from '../../ContentGroupSimple/__stories__/data/ContentGroupSimple.knobs';
 import React from 'react';
@@ -45,6 +45,7 @@ storiesOf('Patterns (Blocks)|ContentBlockSegmented', module)
 
     const items = [
       {
+        heading: 'Lorem ipsum dolor sit amet.',
         mediaData: {
           images: [
             { src: 'https://picsum.photos/id/2/320/160', minWidth: 320 },
@@ -66,6 +67,7 @@ storiesOf('Patterns (Blocks)|ContentBlockSegmented', module)
         },
       },
       {
+        heading: 'Lorem ipsum dolor sit amet.',
         content: {
           heading: 'Lorem ipsum dolor sit amet.',
           copy:
@@ -77,6 +79,7 @@ storiesOf('Patterns (Blocks)|ContentBlockSegmented', module)
         },
       },
       {
+        heading: 'Lorem ipsum dolor sit amet.',
         mediaData: {
           images: [
             { src: 'https://picsum.photos/id/2/320/160', minWidth: 320 },
@@ -98,6 +101,7 @@ storiesOf('Patterns (Blocks)|ContentBlockSegmented', module)
         },
       },
       {
+        heading: 'Lorem ipsum dolor sit amet.',
         content: {
           heading: 'Lorem ipsum dolor sit amet.',
           copy:
