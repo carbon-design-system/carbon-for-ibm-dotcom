@@ -54,7 +54,11 @@ const _renderGroup = items =>
           <Image {...item.mediaData} />
         </div>
       )}
-      <ContentItem {...item.content} />
+      <ContentItem
+        data-autoid={`${stablePrefix}--content-block-segmented__content-item`}
+        {...item.content}
+        key={index}
+      />
     </ContentGroup>
   ));
 

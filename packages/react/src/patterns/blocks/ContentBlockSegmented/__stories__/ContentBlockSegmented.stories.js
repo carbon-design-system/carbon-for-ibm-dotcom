@@ -62,8 +62,10 @@ storiesOf('Patterns (Blocks)|ContentBlockSegmented', module)
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.',
         },
         cta: {
-          title: 'Lorem ipsum dolor',
+          style: 'text',
+          type: 'local',
           href: 'https://www.example.com',
+          copy: 'Lorem ipsum dolor sit ametttt',
         },
       },
       {
@@ -74,6 +76,8 @@ storiesOf('Patterns (Blocks)|ContentBlockSegmented', module)
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.',
         },
         cta: {
+          style: 'card',
+          type: 'external',
           title: 'Lorem ipsum dolor',
           href: 'https://www.example.com',
         },
@@ -96,6 +100,8 @@ storiesOf('Patterns (Blocks)|ContentBlockSegmented', module)
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.',
         },
         cta: {
+          style: 'card',
+          type: 'jump',
           title: 'Lorem ipsum dolor',
           href: 'https://www.example.com',
         },
