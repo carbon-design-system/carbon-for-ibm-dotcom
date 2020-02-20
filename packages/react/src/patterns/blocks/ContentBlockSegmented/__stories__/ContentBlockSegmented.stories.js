@@ -48,12 +48,25 @@ storiesOf('Patterns (Blocks)|ContentBlockSegmented', module)
         heading: 'Lorem ipsum dolor sit amet.',
         mediaData: {
           images: [
-            { src: 'https://picsum.photos/id/2/320/160', minWidth: 320 },
-            { src: 'https://picsum.photos/id/2/400/400', minWidth: 400 },
-            { src: 'https://picsum.photos/id/2/672/672', minWidth: 672 },
+            {
+              src:
+                'http://fpoimg.com/320x160?bg_color=0f62fe&text_color=ffffff',
+              minWidth: 320,
+            },
+            {
+              src:
+                'http://fpoimg.com/400x400?bg_color=0f62fe&text_color=ffffff',
+              minWidth: 400,
+            },
+            {
+              src:
+                'http://fpoimg.com/672x672?bg_color=0f62fe&text_color=ffffff',
+              minWidth: 672,
+            },
           ],
           alt: 'lead space image',
-          defaultImage: 'https://picsum.photos/id/2/672/672',
+          defaultImage:
+            'http://fpoimg.com/672x672?bg_color=0f62fe&text_color=ffffff',
         },
         mediaType: 'image',
         content: {
@@ -86,12 +99,25 @@ storiesOf('Patterns (Blocks)|ContentBlockSegmented', module)
         heading: 'Lorem ipsum dolor sit amet.',
         mediaData: {
           images: [
-            { src: 'https://picsum.photos/id/2/320/160', minWidth: 320 },
-            { src: 'https://picsum.photos/id/2/400/400', minWidth: 400 },
-            { src: 'https://picsum.photos/id/2/672/672', minWidth: 672 },
+            {
+              src:
+                'http://fpoimg.com/320x160?bg_color=0f62fe&text_color=ffffff',
+              minWidth: 320,
+            },
+            {
+              src:
+                'http://fpoimg.com/400x400?bg_color=0f62fe&text_color=ffffff',
+              minWidth: 400,
+            },
+            {
+              src:
+                'http://fpoimg.com/672x672?bg_color=0f62fe&text_color=ffffff',
+              minWidth: 672,
+            },
           ],
           alt: 'lead space image',
-          defaultImage: 'https://picsum.photos/id/2/672/672',
+          defaultImage:
+            'http://fpoimg.com/672x672?bg_color=0f62fe&text_color=ffffff',
         },
         mediaType: 'image',
         content: {
