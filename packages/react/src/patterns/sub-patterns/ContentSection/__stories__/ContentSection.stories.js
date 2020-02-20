@@ -20,7 +20,7 @@ storiesOf('Patterns (Sub-Patterns)|ContentSection', module)
       'Component heading(required):',
       'Lorem ipsum dolor sit amet'
     );
-    const children = text('Grey box represents:', '');
+    const children = text('Children:', '');
     const themes = {
       g10: 'g10',
       g90: 'g90',
@@ -29,13 +29,11 @@ storiesOf('Patterns (Sub-Patterns)|ContentSection', module)
     };
 
     return (
-      <div className={`${prefix}--content-section-story`}>
-        <ContentSection
-          heading={heading}
-          theme={select('theme', themes, themes.white)}
-          children={children}
-          customClassName={`${prefix}--col-lg-sm-8`}
-        />
-      </div>
+      <ContentSection
+        heading={heading}
+        theme={select('theme', themes, themes.white)}
+        children={children}
+        customClassName={`${prefix}--content-section-story`}
+      />
     );
   });

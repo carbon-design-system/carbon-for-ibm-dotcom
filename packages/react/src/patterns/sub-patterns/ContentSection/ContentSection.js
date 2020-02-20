@@ -25,7 +25,6 @@ const { prefix } = settings;
  * @returns {*} JSX ContentSection component
  */
 const ContentSection = ({ heading, theme, children, customClassName }) => {
-  const className = classNames(`${prefix}--content-section`, customClassName);
   /**
    * sets the class name based on theme type
    *
@@ -36,6 +35,8 @@ const ContentSection = ({ heading, theme, children, customClassName }) => {
   const _setTheme = theme => {
     return theme && `${prefix}--content-section--${theme}`;
   };
+
+  const className = classNames(`${prefix}--content-section`, customClassName);
 
   return (
     <section
