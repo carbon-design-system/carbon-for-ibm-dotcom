@@ -6,6 +6,13 @@
 
 Here's a quick example to get you started.
 
+## For more details
+
+> 👀 See
+> [Card](https://github.com/mkothur/ibm-dotcom-library/blob/master/packages/react/src/patterns/sub-patterns/Card/README.md)
+> and 👀
+> [Card Object](https://github.com/mkothur/ibm-dotcom-library/blob/master/packages/react/src/patterns/sections/CardSection/__stories__/data/cards.json)
+
 ```scss
 // yourapplication.scss
 @import '@carbon/type/scss/font-face/mono';
@@ -96,20 +103,15 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 ## Props
 
-| Name      | Required | Data Type | Default Value | Description                                                                                                                                                       |
-| --------- | -------- | --------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `heading` | YES      | String    | null          | Cards with or without images heading.                                                                                                                             |
-| `cards`   | YES      | Array     | null          | Array of card objects. See [CardSection](https://github.com/mkothur/ibm-dotcom-library/blob/master/packages/react/src/patterns/sections/CardSection/README.md) 👀 |
-| `theme`   | NO       | String    | 'white'       | Color theme for pattern. See `theme` below.                                                                                                                       |
+| Name      | Required | Data Type | Default Value | Description                                                                                                                                             |
+| --------- | -------- | --------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `heading` | YES      | String    | null          | Cards with or without images heading.                                                                                                                   |
+| `cards`   | YES      | Array     | null          | Array of card objects. See [Card](https://github.com/mkothur/ibm-dotcom-library/blob/master/packages/react/src/patterns/sub-patterns/card/README.md) 👀 |
+| `theme`   | NO       | String    | 'white'       | Color theme for pattern. See `theme` below.                                                                                                             |
 
 ## Card Props
 
 Card accepts the folloing information for this `CardSectionImages` pattern
-
-> 👀 See
-> [Card](https://github.com/mkothur/ibm-dotcom-library/blob/master/packages/react/src/patterns/sub-patterns/Card/README.md)
-> and 👀
-> [Card Object](https://github.com/mkothur/ibm-dotcom-library/blob/master/packages/react/src/patterns/sections/CardSection/__stories__/data/cards.json)
 
 | Name       | Required | Data Type | Description                                                       |
 | ---------- | -------- | --------- | ----------------------------------------------------------------- |
