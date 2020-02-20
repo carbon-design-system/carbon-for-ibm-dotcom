@@ -100,13 +100,16 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 | --------- | -------- | --------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `heading` | YES      | String    | null          | Cards with or without images heading.                                                                                                                                         |
 | `cards`   | YES      | Array     | null          | Array of card objects. See [CardSection](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/patterns/sections/CardSection/README.md)👀 |
+| `theme`   | NO       | String    | 'white'       | Color theme for pattern. See `theme` below.                                                                                                                                   |
 
-> 💡 Card accepts the folloing information for this `CardSectionImages` pattern.
+## Card accepts the folloing information for this `CardSectionImages` pattern
 
-- Image
-- Eyebrow
-- Heading
-- cta.href
+| Name       | Data Type | Description                                                       |
+| ---------- | --------- | ----------------------------------------------------------------- |
+| `Image`    | Object    | It contains defaultImage and alt text properties.                 |
+| `Eyebrow`  | String    | Eyebrow of the Card.                                              |
+| `Heading`  | String    | Heading of the Card.                                              |
+| `cta.href` | String    | Valid URL for a the location of an internal or external resource. |
 
 ### theme (optional)
 
