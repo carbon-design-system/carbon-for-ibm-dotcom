@@ -96,11 +96,11 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 ## Props
 
-| Name      | Required | Data Type | Default Value | Description                                                                                                                                                                   |
-| --------- | -------- | --------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `heading` | YES      | String    | null          | Cards with or without images heading.                                                                                                                                         |
-| `cards`   | YES      | Array     | null          | Array of card objects. See [CardSection](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/patterns/sections/CardSection/README.md)👀 |
-| `theme`   | NO       | String    | 'white'       | Color theme for pattern. See `theme` below.                                                                                                                                   |
+| Name      | Required | Data Type | Default Value | Description                                                                                                                                             |
+| --------- | -------- | --------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `heading` | YES      | String    | null          | Cards with or without images heading.                                                                                                                   |
+| `cards`   | YES      | Array     | null          | Array of card objects. See [Card](https://github.com/mkothur/ibm-dotcom-library/blob/master/packages/react/src/patterns/sub-patterns/Card/README.md) 👀 |
+| `theme`   | NO       | String    | 'white'       | Color theme for pattern. See `theme` below.                                                                                                             |
 
 ## Card accepts the folloing information for this `CardSectionImages` pattern
 
