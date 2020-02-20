@@ -7,8 +7,8 @@
 
 @mixin content-group-cards-item {
   .#{$prefix}--content-group-cards-item {
-    h3,
-    p {
+    .#{$prefix}--card__title,
+    .#{$prefix}--card__content {
       width: 90%;
       max-width: carbon--mini-units(80);
     }
