@@ -97,6 +97,14 @@
         a:hover {
           cursor: pointer;
         }
+
+        @supports (-moz-appearance: none) {
+          a:focus {
+            outline: none;
+            border: 1px solid $interactive-04;
+            box-shadow: 0 0 4px 0 $interactive-04;
+          }
+        }
       }
     }
     @include carbon--breakpoint('sm') {
