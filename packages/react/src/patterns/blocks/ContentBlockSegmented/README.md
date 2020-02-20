@@ -1,7 +1,7 @@
 # Content Block - Segmented
 
-> The Content Block - Segmented pattern includes a single Content Item, optional
-> media (image), and ends with an optional CTA.
+> The Content Block - Segmented pattern allows for larger groups of content to
+> be presented at once.
 
 ## Getting started
 
@@ -24,16 +24,7 @@ import { ContentBlockSegmented } from '@carbon/ibmdotcom-react';
 import 'yourapplication.scss';
 
 function App() {
-  return (
-    <ContentBlockSimple
-      copy={copy}
-      heading={heading}
-      contentGroup={contentGroup}
-      cta={cta}
-      ctaStyle={ctaStyle}
-      ctaType={ctaType}
-    />
-  );
+  return <ContentBlockSegmented copy={copy} heading={heading} items={items} />;
 }
 
 ReactDOM.render(<App />, document.querySelector('#app'));
@@ -41,16 +32,13 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 ## Props
 
-| Name           | Required | Data Type | Default Value | Description                                       |
-| -------------- | -------- | --------- | ------------- | ------------------------------------------------- |
-| `heading`      | YES      | Boolean   | false         | Determines whether to render bottom border.       |
-| `copy`         | YES      | Object    | null          | Short copy to support the heading.                |
-| `contentGroup` | YES      | Object    | null          | Content group elements. See `contentGroup` below. |
-| `cta`          | NO       | Object    | null          | Object with CTA data. See `cta` below.            |
-| `ctaStyle`     | n/a      | String    | null          | Determines type of CTA style.                     |
-| `ctaType`      | n/a      | String    | null          | Determines CTA link behavior.                     |
+| Name           | Required | Data Type | Default Value | Description                                          |
+| -------------- | -------- | --------- | ------------- | ---------------------------------------------------- |
+| `copy`         | yes      | String    | null          | Short copy to suppport title.                        |
+| `heading`      | yes      | String    | n/a           | Main title of pattern.                               |
+| `contentGroup` | yes      | Array     | n/a           | Array of content items to render. See `items` below. |
 
-### contentGroup
+### items
 
 | Name        | Data Type | Description                                                      |
 | ----------- | --------- | ---------------------------------------------------------------- |
@@ -60,20 +48,23 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 | `items`     | Array     | Array of content paragraphs.                                     |
 | `cta`       | Object    | CTA object for child content. Supports `text` and `card` styles. |
 
-### cta (for ContentBlock)
+### cta
 
-| Name    | Data Type | Description                                     |
-| ------- | --------- | ----------------------------------------------- |
-| `href`  | String    | CTA link.                                       |
-| `title` | String    | CTA title.                                      |
-| `text`  | String    | CTA link text.                                  |
-| `type`  | String    | CTA link behavior (`local`, `jump`, `external`) |
+| Name    | Data Type | Description                                              |
+| ------- | --------- | -------------------------------------------------------- |
+| `style` | String    | CTA style. Supports `card` and `text`.                   |
+| `href`  | String    | CTA link.                                                |
+| `title` | String    | CTA title.                                               |
+| `copy`  | String    | CTA link text.                                           |
+| `type`  | String    | CTA link behavior. Supports `local`, `jump`, `external`. |
 
 ## Stable selectors
 
-| Name                        | Description |
-| --------------------------- | ----------- |
-| `dds--content-block-simple` | Pattern     |
+| Name                                         | Description |
+| -------------------------------------------- | ----------- |
+| `dds--content-block-segmented`               | Pattern     |
+| `dds--content-block-segmented__media`        | Element     |
+| `dds--content-block-segmented__content-item` | Element     |
 
 ## 🙌 Contributing
 
