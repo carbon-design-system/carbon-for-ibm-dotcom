@@ -1,6 +1,12 @@
 import './index.scss';
 import { Desktop, Pattern, Touch } from '@carbon/pictograms-react';
-import { select, text, withKnobs, boolean } from '@storybook/addon-knobs';
+import {
+  select,
+  text,
+  withKnobs,
+  boolean,
+  number,
+} from '@storybook/addon-knobs';
 import classNames from 'classnames';
 import ContentGroupPictograms from '../ContentGroupPictograms';
 import React from 'react';
@@ -20,24 +26,6 @@ storiesOf('Patterns (Blocks)|ContentGroupPictograms', module)
       Touch: 'Touch',
       Pattern: 'Pattern',
     };
-
-    const pictogram1 = select(
-      'Element 1 pictogram (required)',
-      pictograms,
-      pictograms.Desktop
-    );
-
-    const pictogram2 = select(
-      'Element 2 pictogram (required)',
-      pictograms,
-      pictograms.Touch
-    );
-
-    const pictogram3 = select(
-      'Element 3 pictogram (required)',
-      pictograms,
-      pictograms.Pattern
-    );
 
     /**
      * Returns the react component based on the value in the pictogram variables
@@ -67,7 +55,7 @@ storiesOf('Patterns (Blocks)|ContentGroupPictograms', module)
      * @param {boolean} item defines if cta will be rendered
      * @returns {*} if true returns cta data, if false, returns null
      */
-    const toggleCta = item => {
+    const toggleCTA = item => {
       if (item) {
         return {
           type: 'local',
@@ -79,53 +67,32 @@ storiesOf('Patterns (Blocks)|ContentGroupPictograms', module)
       }
     };
 
-    const items = [
-      {
+    const pictogramCount = number('Number of PictogramItems', 3);
+    const items = [];
+
+    for (let i = 0; i < pictogramCount; i++) {
+      items.push({
         heading: text(
-          'Item 1 Heading (required)',
+          `Item ${i + 1} Heading (required)`,
           'Aliquam condimentum interdum'
         ),
         copy: text(
-          'Item 1 Copy (required)',
+          `Item ${i + 1} Copy (required)`,
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.'
         ),
-        cta: toggleCta(boolean('Item 1 Cta', false)),
+        cta: toggleCTA(boolean(`Item ${i + 1} CTA`, false)),
         pictogram: {
-          src: selectPictogram(pictogram1),
+          src: selectPictogram(
+            select(
+              `Item ${i + 1} Pictogram (required)`,
+              pictograms,
+              pictograms.Desktop
+            )
+          ),
           'aria-label': text('Aria-label 1:', 'Desktop'),
         },
-      },
-      {
-        heading: text(
-          'Item 2 Heading (required)',
-          'Aliquam condimentum interdum'
-        ),
-        copy: text(
-          'Item 2 Copy (required)',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.'
-        ),
-        cta: toggleCta(boolean('Item 2 Cta', false)),
-        pictogram: {
-          src: selectPictogram(pictogram2),
-          'aria-label': text('Aria-label 2:', 'Touch'),
-        },
-      },
-      {
-        heading: text(
-          'Item 3 Heading (required)',
-          'Aliquam condimentum interdum'
-        ),
-        copy: text(
-          'Item 3 Copy (required)',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.'
-        ),
-        cta: toggleCta(boolean('Item 3 Cta', false)),
-        pictogram: {
-          src: selectPictogram(pictogram3),
-          'aria-label': text('Aria-label 3:', 'Pattern'),
-        },
-      },
-    ];
+      });
+    }
 
     return (
       <div className="bx--grid">
