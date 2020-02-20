@@ -96,20 +96,27 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 ## Props
 
-| Name      | Required | Data Type | Default Value | Description                                                                                                                                             |
-| --------- | -------- | --------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `heading` | YES      | String    | null          | Cards with or without images heading.                                                                                                                   |
-| `cards`   | YES      | Array     | null          | Array of card objects. See [Card](https://github.com/mkothur/ibm-dotcom-library/blob/master/packages/react/src/patterns/sub-patterns/Card/README.md) 👀 |
-| `theme`   | NO       | String    | 'white'       | Color theme for pattern. See `theme` below.                                                                                                             |
+| Name      | Required | Data Type | Default Value | Description                                                                                                                                                       |
+| --------- | -------- | --------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `heading` | YES      | String    | null          | Cards with or without images heading.                                                                                                                             |
+| `cards`   | YES      | Array     | null          | Array of card objects. See [CardSection](https://github.com/mkothur/ibm-dotcom-library/blob/master/packages/react/src/patterns/sections/CardSection/README.md) 👀 |
+| `theme`   | NO       | String    | 'white'       | Color theme for pattern. See `theme` below.                                                                                                                       |
 
-## Card accepts the folloing information for this `CardSectionImages` pattern
+## Card Props
 
-| Name       | Data Type | Description                                                       |
-| ---------- | --------- | ----------------------------------------------------------------- |
-| `Image`    | Object    | It contains defaultImage and alt text properties.                 |
-| `Eyebrow`  | String    | Eyebrow of the Card.                                              |
-| `Heading`  | String    | Heading of the Card.                                              |
-| `cta.href` | String    | Valid URL for a the location of an internal or external resource. |
+Card accepts the folloing information for this `CardSectionImages` pattern
+
+> 👀 See
+> [Card](https://github.com/mkothur/ibm-dotcom-library/blob/master/packages/react/src/patterns/sub-patterns/Card/README.md)
+> and 👀
+> [Card Object](https://github.com/mkothur/ibm-dotcom-library/blob/master/packages/react/src/patterns/sections/CardSection/__stories__/data/cards.json)
+
+| Name       | Required | Data Type | Description                                                       |
+| ---------- | -------- | --------- | ----------------------------------------------------------------- |
+| `Image`    | YES      | Object    | It contains defaultImage and alt text properties.                 |
+| `Eyebrow`  | YES      | String    | Eyebrow of the Card.                                              |
+| `Heading`  | YES      | String    | Heading of the Card.                                              |
+| `cta.href` | YES      | String    | Valid URL for a the location of an internal or external resource. |
 
 ### theme (optional)
 
@@ -119,12 +126,6 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 | `g10`   | String    | Carbon Gray 10 (g10) theme   |
 | `g90`   | String    | Carbon Gray 90 (g90) theme   |
 | `g100`  | String    | Carbon Gray 100 (g100) theme |
-
-### cardType
-
-| Name                | Description                                                                            |
-| ------------------- | -------------------------------------------------------------------------------------- |
-| `CardSectionImages` | Array of objects with image object, eyebrow, heading and link properties of each card. |
 
 ## 🙌 Contributing
 
