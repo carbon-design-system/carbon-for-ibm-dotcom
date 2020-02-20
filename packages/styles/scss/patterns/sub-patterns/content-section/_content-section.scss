@@ -48,11 +48,6 @@
       padding-bottom: $carbon--layout-06;
     }
 
-    @include carbon--breakpoint('lg') {
-      padding-top: $carbon--layout-03;
-      padding-bottom: $carbon--layout-07;
-    }
-
     padding-top: $carbon--layout-01;
     padding-bottom: $carbon--layout-05;
   }
