@@ -41,28 +41,19 @@ function App() {
 ReactDOM.render(<App />, document.querySelector('#app'));
 ```
 
-> 💡 Don't forget to import the simplelongform styles from
+> 💡 Don't forget to import the ContentBlockSimple styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
 ## Props
 
-| Name        | Required | Data Type | Default Value | Description                                                              |
-| ----------- | -------- | --------- | ------------- | ------------------------------------------------------------------------ |
-| `heading`   | YES      | String    | n/a           | Title of the content block.                                              |
-| `copy`      | YES      | String    | n/a           | Introduction copy briefly describing the section.                        |
-| `items`     | YES      | Array     | n/a           | Array of content items for use as content body.                          |
-| `mediaData` | NO       | Array     | n/a           | Array of image sizes for use with content items.                         |
-| `mediaType` | NO       | String    | 'image'       | Type of media. Currently only supports `image`.                          |
-| `cta`       | NO       | Object    | n/a           | CTA used at the end of content body. `Text` and `Card` styles supported. |
+| Name      | Required | Data Type | Default Value | Description                                                              |
+| --------- | -------- | --------- | ------------- | ------------------------------------------------------------------------ |
+| `heading` | YES      | String    | n/a           | Title of the content block.                                              |
+| `copy`    | YES      | String    | n/a           | Simple content item.                                                     |
+| `image`   | NO       | Array     | n/a           | Optional image to use after content item. See `image` section.           |
+| `cta`     | NO       | Object    | n/a           | CTA used at the end of content body. `Text` and `Card` styles supported. |
 
-### items
-
-| Name      | Data Type | Description          |
-| --------- | --------- | -------------------- |
-| `heading` | String    | Item section heading |
-| `copy`    | String    | Item section copy    |
-
-### mediaData
+### image
 
 | Name           | Data Type | Description                                            |
 | -------------- | --------- | ------------------------------------------------------ |
@@ -70,16 +61,6 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 | `minWidth`     | String    | Minimum width of image. Supports multiple breakpoints. |
 | `alt`          | String    | Image alt text.                                        |
 | `defaultImage` | String    | Default image to use.                                  |
-
-### CTA
-
-| Name    | Data Type | Description                                                  |
-| ------- | --------- | ------------------------------------------------------------ |
-| `style` | String    | CTA style. Supports `text` and `card`.                       |
-| `type`  | String    | CTA link behavior. Supports `external`, `jump`, and `local`. |
-| `title` | String    | CTA title.                                                   |
-| `href`  | String    | CTA url.                                                     |
-| `copy`  | String    | CTA copy.                                                    |
 
 ## Stable selectors
 

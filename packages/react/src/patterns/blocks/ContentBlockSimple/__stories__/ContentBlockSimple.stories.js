@@ -1,7 +1,6 @@
 import './index.scss';
-import { object, select, text, withKnobs } from '@storybook/addon-knobs';
+import { select, text, withKnobs } from '@storybook/addon-knobs';
 import ContentBlockSimple from '../ContentBlockSimple';
-import ContentGroupSimpleKnobs from '../../ContentGroupSimple/__stories__/data/ContentGroupSimple.knobs';
 import React from 'react';
 import readme from '../README.md';
 import { settings } from 'carbon-components';
@@ -17,10 +16,28 @@ storiesOf('Patterns (Blocks)|ContentBlockSimple', module)
     },
   })
   .add('Default', () => {
-    const mediaData = object('Media Data:', ContentGroupSimpleKnobs.mediaData);
-    const types = ContentGroupSimpleKnobs.types;
-    const mediaType = select('Media type:', types, types.image);
-    const items = object('Content Items:', ContentGroupSimpleKnobs.items);
+    const ctaProps = {
+      style: 'card',
+      type: 'external',
+      title: 'Lorem ipsum dolor sit amet',
+      href: 'https://www.ibm.com',
+      copy: 'Lorem ipsum dolor sit ametttt',
+    };
+
+    const cta = {
+      cta: ctaProps,
+      none: null,
+    };
+
+    const image = {
+      images: [
+        { src: 'https://picsum.photos/id/2/320/160', minWidth: 320 },
+        { src: 'https://picsum.photos/id/2/400/400', minWidth: 400 },
+        { src: 'https://picsum.photos/id/2/672/672', minWidth: 672 },
+      ],
+      alt: 'lead space image',
+      defaultImage: 'https://picsum.photos/id/2/672/672',
+    };
 
     const copy = {
       'single paragraph': `Lorem    ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.
@@ -36,8 +53,8 @@ storiesOf('Patterns (Blocks)|ContentBlockSimple', module)
 
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
       `,
-      'multiple paragraphs (styled)': `   __Lorem__    ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
-      Mauris iaculis eget dolor nec hendrerit. __Phasellus__ at elit sollicitudin, sodales
+      'multiple paragraphs (styled)': `   Lorem    ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+      Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
       nulla quis, *consequat* libero. Here are
       some common categories:
 
@@ -45,26 +62,6 @@ storiesOf('Patterns (Blocks)|ContentBlockSimple', module)
 
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
       `,
-    };
-
-    const ctaStyles = {
-      text: 'text',
-      card: 'card',
-      none: null,
-    };
-
-    const ctaTypes = {
-      external: 'external',
-      jump: 'jump',
-      local: 'local',
-    };
-
-    const ctaProps = {
-      style: select('CTA style', ctaStyles, ctaStyles.text),
-      type: select('CTA types', ctaTypes, ctaTypes.local),
-      title: 'Lorem ipsum dolor sit amet',
-      href: 'https://www.ibm.com',
-      copy: 'Lorem ipsum dolor sit ametttt',
     };
 
     return (
@@ -75,10 +72,8 @@ storiesOf('Patterns (Blocks)|ContentBlockSimple', module)
             'Heading (required)',
             'Curabitur malesuada varius mi eu posuere'
           )}
-          items={items}
-          mediaData={mediaData}
-          mediaType={mediaType}
-          cta={ctaProps}
+          image={image}
+          cta={select('CTA (optional)', cta, cta.cta)}
         />
       </div>
     );

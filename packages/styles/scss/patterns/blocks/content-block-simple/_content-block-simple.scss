@@ -13,6 +13,22 @@
     &__content {
       padding-bottom: $carbon--spacing-07;
     }
+
+    .#{$prefix}--content-item {
+      margin-bottom: $carbon--spacing-07;
+
+      &__heading {
+        margin-top: 0;
+      }
+
+      p {
+        margin-bottom: $carbon--spacing-07;
+
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+      }
+    }
   }
 }
 
