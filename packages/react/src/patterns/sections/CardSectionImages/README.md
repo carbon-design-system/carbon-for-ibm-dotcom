@@ -1,17 +1,11 @@
 # CardSectionImages
 
-> The CardSection Images pattern is to be utilized within IBM.com.
+> The CardSection Images pattern is to be utilized within IBM.com. See
+> [CardSection](https://github.com/mkothur/ibm-dotcom-library/blob/master/packages/react/src/patterns/sections/CardSection/README.md)👀
 
 ## Getting started
 
 Here's a quick example to get you started.
-
-## For more details
-
-> 👀 See
-> [Card](https://github.com/mkothur/ibm-dotcom-library/blob/master/packages/react/src/patterns/sub-patterns/Card/README.md)
-> and 👀
-> [Card Object](https://github.com/mkothur/ibm-dotcom-library/blob/master/packages/react/src/patterns/sections/CardSection/__stories__/data/cards.json)
 
 ```scss
 // yourapplication.scss
@@ -31,64 +25,6 @@ import ReactDOM from 'react-dom';
 import { CardSectionImages } from '@carbon/ibmdotcom-react';
 import 'yourapplication.scss';
 
-const CardSectionImages = [
-  {
-    image: {
-      defaultImage: 'https://picsum.photos/id/1003/1056/480',
-      alt: 'cards with image',
-    },
-    eyebrow: 'Topic',
-    heading: 'Natural language processing.',
-    cta: {
-      href: 'https://www.example.com',
-    },
-  },
-  {
-    image: {
-      defaultImage: 'https://picsum.photos/id/1018/1056/480',
-      alt: 'cards with image',
-    },
-    eyebrow: 'Blog',
-    heading: 'Natural language processing.',
-    cta: {
-      href: 'https://www.example.com',
-    },
-  },
-  {
-    image: {
-      defaultImage: 'https://picsum.photos/id/1076/1056/480',
-      alt: 'cards with image',
-    },
-    eyebrow: 'Topic',
-    heading: 'Natural language processing.',
-    cta: {
-      href: 'https://www.example.com',
-    },
-  },
-  {
-    image: {
-      defaultImage: 'https://picsum.photos/id/102/1056/480',
-      alt: 'cards with image',
-    },
-    eyebrow: 'Blog',
-    heading: 'Serving society ethically in the age of Artificial Intelligence.',
-    cta: {
-      href: 'https://www.example.com',
-    },
-  },
-  {
-    image: {
-      defaultImage: 'https://picsum.photos/id/1032/1056/480',
-      alt: 'cards with image',
-    },
-    eyebrow: 'Topic',
-    heading: 'Serving society ethically in the age of Artificial Intelligence.',
-    cta: {
-      href: 'https://www.example.com',
-    },
-  },
-];
-
 function App() {
   return (
     <CardSectionImages cards={CardSectionImages} heading="Read more about it" />
@@ -98,20 +34,28 @@ function App() {
 ReactDOM.render(<App />, document.querySelector('#app'));
 ```
 
+## See below to know the structure of CardSectionImages Array
+
+> See
+> [Card Object](https://github.com/mkothur/ibm-dotcom-library/blob/master/packages/react/src/patterns/sections/CardSection/__stories__/data/cards.json)
+> 👀
+
 > 💡 Don't forget to import the card-section styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
 ## Props
 
-| Name      | Required | Data Type | Default Value | Description                                                                                                                                             |
-| --------- | -------- | --------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `heading` | YES      | String    | null          | Cards with or without images heading.                                                                                                                   |
-| `cards`   | YES      | Array     | null          | Array of card objects. See [Card](https://github.com/mkothur/ibm-dotcom-library/blob/master/packages/react/src/patterns/sub-patterns/card/README.md) 👀 |
-| `theme`   | NO       | String    | 'white'       | Color theme for pattern. See `theme` below.                                                                                                             |
+| Name      | Required | Data Type | Default Value | Description                                                |
+| --------- | -------- | --------- | ------------- | ---------------------------------------------------------- |
+| `heading` | YES      | String    | null          | Cards with or without images heading.                      |
+| `cards`   | YES      | Array     | null          | Array of card objects. For more details See `Cards Props`. |
+| `theme`   | NO       | String    | 'white'       | Color theme for pattern. See `theme` below.                |
 
 ## Card Props
 
-Card accepts the folloing information for this `CardSectionImages` pattern
+Card accepts the folloing information for this `CardSectionImages` pattern See
+[Card](https://github.com/mkothur/ibm-dotcom-library/blob/master/packages/react/src/patterns/sub-patterns/card/README.md)
+👀
 
 | Name       | Required | Data Type | Description                                                       |
 | ---------- | -------- | --------- | ----------------------------------------------------------------- |
