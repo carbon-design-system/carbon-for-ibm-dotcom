@@ -15,21 +15,17 @@ import { storiesOf } from '@storybook/react';
 const props = {
   cardProps: () => ({
     heading: text('title (required)', 'Lorem ipsum dolor sit amet'),
-    type: text('type', 'link'),
     copy: text('copy', ''),
     cta: object('cta', {
       type: 'local',
-      copy: '',
+      copy: 'click here',
       icon: {
         src: ArrowRight20,
       },
       href: 'https://example.com',
     }),
+    image: boolean('image', false),
     inverse: boolean('inverse', false),
-    image: object('image', {
-      defaultImage: 'https://picsum.photos/id/2/600/300',
-      alt: 'featured link image',
-    }),
     eyebrow: text('eyebrow', 'eyebrow text'),
     target: text('target', ''),
   }),
@@ -51,29 +47,24 @@ storiesOf('Patterns (Sub-Patterns)|Card', module)
       '4:3': '4x3',
       '1:1': '1x1',
     };
-
     const themes = {
       white: '',
       g10: 'g10',
       g90: 'g90',
       g100: 'g100',
     };
-
+    const image = props.cardProps().image && {
+      defaultImage: 'https://picsum.photos/id/2/600/300',
+      alt: 'featured link image',
+    };
     const type = text('type', 'static');
 
-    const theme = select('theme', themes, themes.g100);
-
     return (
-      <div
-        className="bx--grid"
-        style={{
-          padding: '2rem',
-          backgroundColor: theme === 'g10' || theme === '' ? 'black' : 'white',
-        }}>
+      <div className="bx--grid">
         <div className="bx--row">
-          <div className={`bx--card--${theme}`}>
+          <div className={`bx--card--${select('theme', themes, themes.white)}`}>
             {!select('Ratio', ratio, ratio['none']) ? (
-              <Card {...props.cardProps()} type={type} />
+              <Card {...props.cardProps()} image={image} type={type} />
             ) : (
               <div
                 className={`bx--aspect-ratio bx--aspect-ratio--${select(
@@ -83,6 +74,7 @@ storiesOf('Patterns (Sub-Patterns)|Card', module)
                 )}`}>
                 <Card
                   {...props.cardProps()}
+                  image={image}
                   type={type}
                   customClassName="bx--aspect-ratio--object"
                 />
@@ -102,29 +94,24 @@ storiesOf('Patterns (Sub-Patterns)|Card', module)
       '4:3': '4x3',
       '1:1': '1x1',
     };
-
     const themes = {
       white: '',
       g10: 'g10',
       g90: 'g90',
       g100: 'g100',
     };
-
-    const theme = select('theme', themes, themes.g100);
-
+    const image = props.cardProps().image && {
+      defaultImage: 'https://picsum.photos/id/2/600/300',
+      alt: 'featured link image',
+    };
     const type = text('type', 'link');
 
     return (
-      <div
-        className="bx--grid"
-        style={{
-          padding: '2rem',
-          backgroundColor: theme === 'g10' || theme === '' ? 'black' : 'white',
-        }}>
+      <div className="bx--grid">
         <div className="bx--row">
-          <div className={`bx--card--${select('theme', themes, themes.g100)}`}>
+          <div className={`bx--card--${select('theme', themes, themes.white)}`}>
             {!select('Ratio', ratio, ratio['none']) ? (
-              <Card {...props.cardProps()} type={type} />
+              <Card {...props.cardProps()} image={image} type={type} />
             ) : (
               <div
                 className={`bx--aspect-ratio bx--aspect-ratio--${select(
@@ -135,6 +122,7 @@ storiesOf('Patterns (Sub-Patterns)|Card', module)
                 <Card
                   {...props.cardProps()}
                   type={type}
+                  image={image}
                   className="bx--aspect-ratio--object"
                 />
               </div>

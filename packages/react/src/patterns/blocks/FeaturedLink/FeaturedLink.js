@@ -38,6 +38,7 @@ const FeaturedLink = ({ heading, card }) => {
           customClassName={`${prefix}--featuredlink__card`}
           {...cardProps}
           type="link"
+          inverse={true}
         />
       </ContentGroup>
     </section>

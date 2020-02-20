@@ -10,17 +10,20 @@
 
 .#{$prefix}--card--g10 {
   @include carbon--theme($carbon--theme--g10) {
+    background-color: $ui-background;
     @include card;
   }
 }
 .#{$prefix}--card--g90 {
   @include carbon--theme($carbon--theme--g90) {
+    background-color: $ui-background;
     @include card;
   }
 }
 
 .#{$prefix}--card--g100 {
   @include carbon--theme($carbon--theme--g100) {
+    background-color: $ui-background;
     @include card;
   }
 }
