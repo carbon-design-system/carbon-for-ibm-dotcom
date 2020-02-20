@@ -41,11 +41,11 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 ## Props
 
-| Name      | Required | Data Type | Default Value | Description                                                                                                                                                                     |
-| --------- | -------- | --------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `heading` | YES      | String    | null          | Cards with or without images heading.                                                                                                                                           |
-| `cards`   | YES      | Array     | null          | Array of [card objects](https://github.com/mkothur/ibm-dotcom-library/blob/master/packages/react/src/patterns/sub-patterns/card/README.md). For more details See `Cards Props`. |
-| `theme`   | NO       | String    | 'white'       | Color theme for pattern. See `theme` below.                                                                                                                                     |
+| Name      | Required | Data Type | Default Value | Description                                                                                                                                                                                    |
+| --------- | -------- | --------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `heading` | YES      | String    | null          | Cards with or without images heading.                                                                                                                                                          |
+| `cards`   | YES      | Array     | null          | Array of objects. [Card Array Example](https://github.com/mkothur/ibm-dotcom-library/blob/master/packages/react/src/patterns/sub-patterns/card/README.md). For more details See `Cards Props`. |
+| `theme`   | NO       | String    | 'white'       | Color theme for pattern. See `theme` below.                                                                                                                                                    |
 
 ## Card Props
 
