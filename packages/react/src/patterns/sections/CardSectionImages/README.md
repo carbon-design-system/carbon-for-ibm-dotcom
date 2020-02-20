@@ -53,9 +53,7 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 ## Card Props
 
-Card accepts the folloing information for this `CardSectionImages` pattern See
-[Card](https://github.com/mkothur/ibm-dotcom-library/blob/master/packages/react/src/patterns/sub-patterns/card/README.md)
-👀
+Card accepts the folloing information for this `CardSectionImages` pattern
 
 | Name       | Required | Data Type | Description                                                       |
 | ---------- | -------- | --------- | ----------------------------------------------------------------- |
@@ -63,6 +61,10 @@ Card accepts the folloing information for this `CardSectionImages` pattern See
 | `Eyebrow`  | YES      | String    | Eyebrow of the Card.                                              |
 | `Heading`  | YES      | String    | Heading of the Card.                                              |
 | `cta.href` | YES      | String    | Valid URL for a the location of an internal or external resource. |
+
+> See
+> [Card](https://github.com/mkothur/ibm-dotcom-library/blob/master/packages/react/src/patterns/sub-patterns/card/README.md)
+> 👀
 
 ### theme (optional)
 
