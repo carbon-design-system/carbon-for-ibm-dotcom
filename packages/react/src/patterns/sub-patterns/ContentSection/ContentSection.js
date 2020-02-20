@@ -15,13 +15,13 @@ const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
- * ContentArrayGroup Component, for use with content arrays
+ * ContentSection Component, for use with cardSection
  *
  * @param {object} props props object
- * @param {string} props.heading  Heading objects
+ * @param {string} props.heading  Heading
  * @param {string} props.theme theme name
  * @param {*} props.children JSX Components
- * @param {string} props.className optional class to be applied to the containing node
+ * @param {string} props.customClassName optional class to be applied to the containing node
  * @returns {*} JSX ContentSection component
  */
 const ContentSection = ({ heading, theme, children, customClassName }) => {
@@ -36,11 +36,13 @@ const ContentSection = ({ heading, theme, children, customClassName }) => {
     return theme && `${prefix}--content-section--${theme}`;
   };
 
-  const className = classNames(`${prefix}--content-section`, customClassName);
-
   return (
     <section
-      className={classNames(className, _setTheme(theme))}
+      className={classNames(
+        `${prefix}--content-section`,
+        customClassName,
+        _setTheme(theme)
+      )}
       data-autoid={`${stablePrefix}--content-section`}>
       <div className={`${prefix}--content-section__grid`}>
         <div className={`${prefix}--content-section__row`}>
