@@ -1,0 +1,6 @@
+@import '../../../../../../styles/scss/patterns/sub-patterns/content-section/content-section';
+
+.#{$prefix}--content-section-story .#{$prefix}--content-section__children {
+  height: 800px;
+  background-color: #f4f4f4;
+}
