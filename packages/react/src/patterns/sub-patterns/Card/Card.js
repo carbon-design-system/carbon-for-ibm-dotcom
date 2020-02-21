@@ -26,28 +26,36 @@ const { prefix } = settings;
  * @returns {object} JSX object
  */
 const Card = ({
-  title,
-  copy,
-  href,
-  cta,
-  image,
-  className,
   type,
-  icon: Icon,
+  inverse,
+  image,
+  eyebrow,
+  heading,
+  customClassName,
+  copy,
+  cta,
   ...props
 }) => {
   const CardTile = type === 'link' ? ClickableTile : Tile;
   return (
     <CardTile
       data-autoid={`${stablePrefix}--card`}
-      className={classNames(`${prefix}--card`, className)}
-      href={href}
+      className={classNames(
+        `${prefix}--card`,
+        {
+          [`${prefix}--card--inverse`]: inverse,
+          [`${prefix}--card--link`]: type === 'link',
+        },
+        customClassName
+      )}
+      href={cta.href}
       {...props}>
       <Image {...image} classname={`${prefix}--card__img`} />
       <div className={`${prefix}--card__wrapper`}>
-        <h3 className={`${prefix}--card__title`}>{title}</h3>
+        {eyebrow && <p className={`${prefix}--card__eyebrow`}>{eyebrow}</p>}
+        {heading && <h3 className={`${prefix}--card__heading`}>{heading}</h3>}
         {optionalContent(copy)}
-        {renderFooter(cta, type, href, Icon)}
+        {renderFooter(cta, type)}
       </div>
     </CardTile>
   );
@@ -62,7 +70,7 @@ const Card = ({
 function optionalContent(copy) {
   return !copy ? null : (
     <div
-      className={`${prefix}--card__content`}
+      className={`${prefix}--card__copy`}
       dangerouslySetInnerHTML={{
         __html: markdownToHtml(copy, { bold: false }),
       }}></div>
@@ -74,33 +82,32 @@ function optionalContent(copy) {
  *
  * @param {object} cta cta object
  * @param {string} type type of card (clickable/static)
- * @param {string} href url for card
- * @param {object} Icon cta icon for card
  * @returns {object} JSX object
  */
-function renderFooter(cta, type, href, Icon) {
+function renderFooter(cta, type) {
   return (
-    <footer className={`${prefix}--card__footer`}>
-      {type !== 'link' ? (
-        <CTA style="text" type={cta.type} href={href} copy={cta.copy} />
-      ) : (
-        Icon && <Icon />
-      )}
-    </footer>
+    cta && (
+      <footer className={`${prefix}--card__footer`}>
+        {type !== 'link' ? (
+          <CTA style="text" {...cta} customClassName={`${prefix}--card__cta`} />
+        ) : (
+          cta.icon.src && (
+            <cta.icon.src className={`${prefix}--card__cta`} {...cta.icon} />
+          )
+        )}
+      </footer>
+    )
   );
 }
 
 Card.propTypes = {
-  title: PropTypes.string.isRequired,
-  icon: PropTypes.object,
+  heading: PropTypes.string,
+  eyebrow: PropTypes.string,
   copy: PropTypes.string,
-  href: PropTypes.string.isRequired,
-  cta: PropTypes.shape({
-    type: PropTypes.string,
-    copy: PropTypes.string,
-  }),
+  cta: PropTypes.object,
   image: PropTypes.object,
-  className: PropTypes.string,
+  inverse: PropTypes.bool,
+  customClassName: PropTypes.string,
   type: PropTypes.string,
 };
 

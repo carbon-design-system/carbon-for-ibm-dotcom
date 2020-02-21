@@ -36,9 +36,10 @@ storiesOf('Components|CTA', module)
       case 'card':
         type = select('type', types, types[0]);
         cta = {
-          type: type,
-          href: urlBy[type],
-          title: copy[0],
+          heading: copy[0],
+          cta: {
+            href: urlBy[type],
+          },
         };
         break;
       case 'feature':
@@ -47,8 +48,10 @@ storiesOf('Components|CTA', module)
           heading: copy[0],
           card: {
             type: type,
-            href: urlBy[type],
-            title: copy[1],
+            heading: copy[1],
+            cta: {
+              href: urlBy[type],
+            },
             image: {
               defaultImage: 'https://picsum.photos/id/672/672',
               alt: 'featured card image',

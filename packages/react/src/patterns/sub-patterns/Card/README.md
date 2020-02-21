@@ -37,15 +37,16 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 ## Props
 
-| Name        | Required | Data Type | Default Value | Description                                                                  |
-| ----------- | -------- | --------- | ------------- | ---------------------------------------------------------------------------- |
-| `copy`      | NO       | String    | null          | Paragraph of text that further describing the resource with added detail.    |
-| `className` | NO       | String    | null          | Classname to be assigned to the Card component                               |
-| `title`     | YES      | String    | n/a           | Concise yet descriptive string of text describing the linked resource.       |
-| `type`      | NO       | String    | n/a           | Determines whether card is clickable or static.                              |
-| `imgSrc`    | NO       | String    | null          | Image source to be passed as a property to the to the Card component         |
-| `altText`   | NO       | String    | null          | Image alternate text to be passed as a property to the to the Card component |
-| `cta`       | YES      | Object    | n/a           | Cta options. See 'cta' below.                                                |
+| Name              | Required | Data Type | Default Value | Description                                                                                                     |
+| ----------------- | -------- | --------- | ------------- | --------------------------------------------------------------------------------------------------------------- |
+| `copy`            | NO       | String    | null          | Paragraph of text that further describing the resource with added detail.                                       |
+| `customClassName` | NO       | String    | null          | Classname to be assigned to the Card component                                                                  |
+| `heading`         | NO       | String    | n/a           | Concise yet descriptive string of text describing the linked resource.                                          |
+| `type`            | NO       | String    | n/a           | Determines whether card is clickable or static.                                                                 |
+| `image`           | NO       | String    | null          | Image source to be passed as a property to the to the Card component. See link to Image component below.        |
+| `inverse`         | NO       | Boolean   | false         | Sets the high contrast for Card                                                                                 |
+| `eyebrow`         | NO       | String    | null          | Eyebrow text to be passed as a property to the Card component. Style for Card component has been set to "text". |
+| `cta`             | YES      | Object    | n/a           | Cta options. See 'cta' below.                                                                                   |
 
 ### cta (required)
 
@@ -59,6 +60,10 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 Visit the
 [CTA storybook](https://ibmdotcom-react.mybluemix.net/?path=/story/components-cta--default)
 for more details on the CTA options.
+
+Visit the
+[Image storybook](https://ibmdotcom-react.mybluemix.net/?path=/story/components-image--default)
+for more details on the Image component.
 
 ## Stable selectors
 
