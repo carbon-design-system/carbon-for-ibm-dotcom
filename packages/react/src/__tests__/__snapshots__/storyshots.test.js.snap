@@ -3124,6 +3124,526 @@ Array [
 ]
 `;
 
+exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
+Array [
+  <div
+    data-floating-menu-container=""
+    role="main"
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+      }
+    }
+  >
+    <div
+      className="storybook-readme-story"
+    >
+      <div
+        style={Object {}}
+      >
+        <div>
+          <div
+            className="bx--grid"
+          >
+            <div
+              className="bx--content-block bx--content-block-media bx--col-lg-8"
+              data-autoid="dds--content-block"
+            >
+              <h2
+                className="bx--content-block__title"
+                data-autoid="dds--content-block__title"
+              >
+                Curabitur malesuada varius mi eu posuere
+              </h2>
+              <div
+                className="bx--content-block__intro"
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Here are some common categories:",
+                  }
+                }
+              />
+              <div
+                data-autoid="dds--content-block__children"
+              >
+                <div
+                  className="bx--content-block-media--group"
+                  data-autoid="dds--content-block-media--group"
+                >
+                  <h2
+                    className="bx--content-block-media--group__title"
+                  >
+                    Aliquam condimentum interdum
+                  </h2>
+                  <div
+                    className="bx--content-block-media--group__img"
+                    data-autoid="dds--content-block-media--group__img"
+                  >
+                    <picture>
+                      <source
+                        media="(min-width: 672px)"
+                        srcSet="https://via.placeholder.com/768x384, https://via.placeholder.com/1024x512 2x"
+                      />
+                      <source
+                        media="(min-width: 320px)"
+                        srcSet="https://via.placeholder.com/640x320, https://via.placeholder.com/768x384 2x"
+                      />
+                      <img
+                        alt="Place Holder Image"
+                        src="https://via.placeholder.com/768x384"
+                        srcSet="https://via.placeholder.com/640x320"
+                      />
+                    </picture>
+                  </div>
+                  <div
+                    className="bx--content-block-media--group__list"
+                  >
+                    <div
+                      className="bx--content-block-media--item"
+                      data-autoid="dds--content-block-media--item"
+                    >
+                      <h3
+                        className="bx--content-block-media--item__title"
+                      >
+                        Nunc convallis lobortis
+                      </h3>
+                      <div
+                        className="bx--content-block-media--item__content"
+                      >
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+                      </div>
+                      <div
+                        className="bx--content-block-media--item__link"
+                        data-autoid="dds--content-block-media--item__link"
+                      />
+                    </div>
+                    <div
+                      className="bx--content-block-media--item"
+                      data-autoid="dds--content-block-media--item"
+                    >
+                      <h3
+                        className="bx--content-block-media--item__title"
+                      >
+                        Interdum et malesuada
+                      </h3>
+                      <div
+                        className="bx--content-block-media--item__content"
+                      >
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+                      </div>
+                      <div
+                        className="bx--content-block-media--item__link"
+                        data-autoid="dds--content-block-media--item__link"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    className="bx--content-block-media--group__card"
+                    data-autoid="dds--content-block-media--group__card"
+                  >
+                    <a
+                      className="bx--link bx--tile bx--tile--clickable bx--card"
+                      data-autoid="dds--card"
+                      href="https://www.example.com"
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      target="_self"
+                    >
+                      <div
+                        className="bx--card__wrapper"
+                      >
+                        <h3
+                          className="bx--card__title"
+                        >
+                          Vivamus interdum ligula
+                        </h3>
+                        <footer
+                          className="bx--card__footer"
+                        >
+                          <svg
+                            aria-hidden={true}
+                            focusable="false"
+                            height={20}
+                            preserveAspectRatio="xMidYMid meet"
+                            style={
+                              Object {
+                                "willChange": "transform",
+                              }
+                            }
+                            viewBox="0 0 20 20"
+                            width={20}
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                            />
+                          </svg>
+                        </footer>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <div
+                  className="bx--content-block-media--group"
+                  data-autoid="dds--content-block-media--group"
+                >
+                  <h2
+                    className="bx--content-block-media--group__title"
+                  >
+                     Vivamus interdum ligula
+                  </h2>
+                  <div
+                    className="bx--content-block-media--group__img"
+                    data-autoid="dds--content-block-media--group__img"
+                  >
+                    <picture>
+                      <source
+                        media="(min-width: 672px)"
+                        srcSet="https://via.placeholder.com/768x384, https://via.placeholder.com/1024x512 2x"
+                      />
+                      <source
+                        media="(min-width: 320px)"
+                        srcSet="https://via.placeholder.com/640x320, https://via.placeholder.com/768x384 2x"
+                      />
+                      <img
+                        alt="Place Holder Image"
+                        src="https://via.placeholder.com/768x384"
+                        srcSet="https://via.placeholder.com/640x320"
+                      />
+                    </picture>
+                  </div>
+                  <div
+                    className="bx--content-block-media--group__list"
+                  >
+                    <div
+                      className="bx--content-block-media--item"
+                      data-autoid="dds--content-block-media--item"
+                    >
+                      <h3
+                        className="bx--content-block-media--item__title"
+                      >
+                        Consectetur adipiscing elit
+                      </h3>
+                      <div
+                        className="bx--content-block-media--item__content"
+                      >
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+                      </div>
+                      <div
+                        className="bx--content-block-media--item__link"
+                        data-autoid="dds--content-block-media--item__link"
+                      />
+                    </div>
+                    <div
+                      className="bx--content-block-media--item"
+                      data-autoid="dds--content-block-media--item"
+                    >
+                      <h3
+                        className="bx--content-block-media--item__title"
+                      >
+                        Proin quis iaculis risus
+                      </h3>
+                      <div
+                        className="bx--content-block-media--item__content"
+                      >
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+                      </div>
+                      <div
+                        className="bx--content-block-media--item__link"
+                        data-autoid="dds--content-block-media--item__link"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    className="bx--content-block-media--group__card"
+                    data-autoid="dds--content-block-media--group__card"
+                  >
+                    <a
+                      className="bx--link bx--tile bx--tile--clickable bx--card"
+                      data-autoid="dds--card"
+                      href="https://www.example.com"
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      target="_self"
+                    >
+                      <div
+                        className="bx--card__wrapper"
+                      >
+                        <h3
+                          className="bx--card__title"
+                        >
+                          Lorem ipsum dolor sit
+                        </h3>
+                        <footer
+                          className="bx--card__footer"
+                        >
+                          <svg
+                            aria-hidden={true}
+                            focusable="false"
+                            height={20}
+                            preserveAspectRatio="xMidYMid meet"
+                            style={
+                              Object {
+                                "willChange": "transform",
+                              }
+                            }
+                            viewBox="0 0 20 20"
+                            width={20}
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                            />
+                          </svg>
+                        </footer>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <div
+                  className="bx--content-block-media--group"
+                  data-autoid="dds--content-block-media--group"
+                >
+                  <h2
+                    className="bx--content-block-media--group__title"
+                  >
+                    Vivamus scelerisque orci at
+                  </h2>
+                  <div
+                    className="bx--content-block-media--group__img"
+                    data-autoid="dds--content-block-media--group__img"
+                  >
+                    <picture>
+                      <source
+                        media="(min-width: 672px)"
+                        srcSet="https://via.placeholder.com/768x384, https://via.placeholder.com/1024x512 2x"
+                      />
+                      <source
+                        media="(min-width: 320px)"
+                        srcSet="https://via.placeholder.com/640x320, https://via.placeholder.com/768x384 2x"
+                      />
+                      <img
+                        alt="Place Holder Image"
+                        src="https://via.placeholder.com/768x384"
+                        srcSet="https://via.placeholder.com/640x320"
+                      />
+                    </picture>
+                  </div>
+                  <div
+                    className="bx--content-block-media--group__list"
+                  >
+                    <div
+                      className="bx--content-block-media--item"
+                      data-autoid="dds--content-block-media--item"
+                    >
+                      <h3
+                        className="bx--content-block-media--item__title"
+                      >
+                        Convallis pretium molestie
+                      </h3>
+                      <div
+                        className="bx--content-block-media--item__content"
+                      >
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+                      </div>
+                      <div
+                        className="bx--content-block-media--item__link"
+                        data-autoid="dds--content-block-media--item__link"
+                      />
+                    </div>
+                    <div
+                      className="bx--content-block-media--item"
+                      data-autoid="dds--content-block-media--item"
+                    >
+                      <h3
+                        className="bx--content-block-media--item__title"
+                      >
+                        Aliquam tincidunt diam sit
+                      </h3>
+                      <div
+                        className="bx--content-block-media--item__content"
+                      >
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+                      </div>
+                      <div
+                        className="bx--content-block-media--item__link"
+                        data-autoid="dds--content-block-media--item__link"
+                      >
+                        <div
+                          className="bx--link-with-icon__container"
+                          data-autoid="dds--link-with-icon"
+                        >
+                          <a
+                            className="bx--link bx--link-with-icon"
+                            href="https://www.example.com"
+                            target="_self"
+                          >
+                            <span>
+                              Learn more
+                            </span>
+                            <svg
+                              aria-hidden={true}
+                              focusable="false"
+                              height={20}
+                              preserveAspectRatio="xMidYMid meet"
+                              style={
+                                Object {
+                                  "willChange": "transform",
+                                }
+                              }
+                              viewBox="0 0 20 20"
+                              width={20}
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                              />
+                            </svg>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className="bx--content-block-media--group__card"
+                    data-autoid="dds--content-block-media--group__card"
+                  >
+                    <a
+                      className="bx--link bx--tile bx--tile--clickable bx--card"
+                      data-autoid="dds--card"
+                      href="https://www.example.com"
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      target="_self"
+                    >
+                      <div
+                        className="bx--card__wrapper"
+                      >
+                        <h3
+                          className="bx--card__title"
+                        >
+                          Aliquam condimentum interdum
+                        </h3>
+                        <footer
+                          className="bx--card__footer"
+                        >
+                          <svg
+                            aria-hidden={true}
+                            focusable="false"
+                            height={20}
+                            preserveAspectRatio="xMidYMid meet"
+                            style={
+                              Object {
+                                "willChange": "transform",
+                              }
+                            }
+                            viewBox="0 0 20 20"
+                            width={20}
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                            />
+                          </svg>
+                        </footer>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="bx--content-block__cta"
+                data-autoid="dds--content-block__cta"
+              >
+                <div>
+                  <section
+                    className="bx--featuredlink"
+                    data-autoid="dds--featuredlink"
+                  >
+                    <div
+                      className="bx--content-group"
+                      data-autoid="dds--content-group"
+                    >
+                      <h3
+                        className="bx--content-group__title"
+                        data-autoid="dds--content-group__title"
+                      >
+                        Lorem ipsum dolor sit amet
+                      </h3>
+                      <div
+                        className="bx--content-group__col bx--content-group__children"
+                        data-autoid="dds--content-group__children"
+                      >
+                        <a
+                          className="bx--link bx--tile bx--tile--clickable bx--card bx--featuredlink__card"
+                          data-autoid="dds--card"
+                          href="https://ibm.com"
+                          onClick={[Function]}
+                          onKeyDown={[Function]}
+                          target={null}
+                        >
+                          <picture
+                            alt="featured card image"
+                            className="bx--image"
+                            data-autoid="dds--image"
+                          >
+                            <img
+                              alt="featured card image"
+                              className="bx--image__img bx--card__img"
+                              src="https://picsum.photos/id/672/672"
+                            />
+                          </picture>
+                          <div
+                            className="bx--card__wrapper"
+                          >
+                            <h3
+                              className="bx--card__title"
+                            >
+                              Consectetur adipisicing elit
+                            </h3>
+                            <footer
+                              className="bx--card__footer"
+                            >
+                              <svg
+                                aria-hidden={true}
+                                focusable="false"
+                                height={20}
+                                preserveAspectRatio="xMidYMid meet"
+                                style={
+                                  Object {
+                                    "willChange": "transform",
+                                  }
+                                }
+                                viewBox="0 0 20 20"
+                                width={20}
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                />
+                              </svg>
+                            </footer>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <input
+    aria-label="input-text-offleft"
+    className="bx--visually-hidden"
+    type="text"
+  />,
+]
+`;
+
 exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
 Array [
   <div
@@ -4036,6 +4556,143 @@ Array [
 ]
 `;
 
+exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock Default 1`] = `
+Array [
+  <div
+    data-floating-menu-container=""
+    role="main"
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+      }
+    }
+  >
+    <div
+      className="storybook-readme-story"
+    >
+      <div
+        style={Object {}}
+      >
+        <div>
+          <div
+            className="bx--grid"
+          >
+            <div
+              className="bx--content-block bx--col-lg-8"
+              data-autoid="dds--content-block"
+            >
+              <h2
+                className="bx--content-block__title"
+                data-autoid="dds--content-block__title"
+              >
+                This is the Content Block heading
+              </h2>
+              <div
+                className="bx--content-block__intro"
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": " <strong class=\\"bx--type-semibold\\">Lorem</strong> ipsum <em class=\\"bx--type-light\\">dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. <strong class=\\"bx--type-semibold\\">Phasellus</strong> at elit sollicitudin, sodales nulla quis, <em class=\\"bx--type-light\\">consequat</em> libero. Here are some common categories: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. ",
+                  }
+                }
+              />
+              <div
+                data-autoid="dds--content-block__children"
+              >
+                This is the Content Group content.
+              </div>
+              <div
+                className="bx--content-block__cta"
+                data-autoid="dds--content-block__cta"
+              >
+                <div>
+                  <section
+                    className="bx--featuredlink"
+                    data-autoid="dds--featuredlink"
+                  >
+                    <div
+                      className="bx--content-group"
+                      data-autoid="dds--content-group"
+                    >
+                      <h3
+                        className="bx--content-group__title"
+                        data-autoid="dds--content-group__title"
+                      >
+                        Lorem ipsum dolor sit amet
+                      </h3>
+                      <div
+                        className="bx--content-group__col bx--content-group__children"
+                        data-autoid="dds--content-group__children"
+                      >
+                        <a
+                          className="bx--link bx--tile bx--tile--clickable bx--card bx--featuredlink__card"
+                          data-autoid="dds--card"
+                          href="https://ibm.com"
+                          onClick={[Function]}
+                          onKeyDown={[Function]}
+                          target={null}
+                        >
+                          <picture
+                            alt="featured card image"
+                            className="bx--image"
+                            data-autoid="dds--image"
+                          >
+                            <img
+                              alt="featured card image"
+                              className="bx--image__img bx--card__img"
+                              src="https://picsum.photos/id/672/672"
+                            />
+                          </picture>
+                          <div
+                            className="bx--card__wrapper"
+                          >
+                            <h3
+                              className="bx--card__title"
+                            >
+                              Consectetur adipisicing elit
+                            </h3>
+                            <footer
+                              className="bx--card__footer"
+                            >
+                              <svg
+                                aria-hidden={true}
+                                focusable="false"
+                                height={20}
+                                preserveAspectRatio="xMidYMid meet"
+                                style={
+                                  Object {
+                                    "willChange": "transform",
+                                  }
+                                }
+                                viewBox="0 0 20 20"
+                                width={20}
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                />
+                              </svg>
+                            </footer>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <input
+    aria-label="input-text-offleft"
+    className="bx--visually-hidden"
+    type="text"
+  />,
+]
+`;
+
 exports[`Storyshots Patterns (Sub-Patterns)|ContentGroup Default 1`] = `
 Array [
   <div
@@ -4244,6 +4901,62 @@ Array [
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <input
+    aria-label="input-text-offleft"
+    className="bx--visually-hidden"
+    type="text"
+  />,
+]
+`;
+
+exports[`Storyshots Patterns (Sub-Patterns)|ContentSection Default 1`] = `
+Array [
+  <div
+    data-floating-menu-container=""
+    role="main"
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+      }
+    }
+  >
+    <div
+      className="storybook-readme-story"
+    >
+      <div
+        style={Object {}}
+      >
+        <div>
+          <div
+            className="bx--grid"
+          >
+            <div
+              className="bx--content-section"
+              data-autoid="dds--content-section"
+            >
+              <div
+                className="bx--content-section__heading__col"
+              >
+                <h3
+                  className="bx--content-section__heading"
+                  data-autoid="dds--content-section__heading"
+                >
+                  Lorem ipsum dolor sit amet
+                </h3>
+              </div>
+              <div
+                className="bx--content-section__children__col"
+              >
+                <div
+                  className="bx--content-section__children"
+                />
               </div>
             </div>
           </div>
