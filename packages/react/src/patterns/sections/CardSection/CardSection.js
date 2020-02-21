@@ -54,6 +54,7 @@ const CardSection = ({ heading, cards, theme }) => {
 
   /**
    * sets the class name based on theme type
+   *
    * @private
    * @param {string} theme theme type ( g10 | g100 | white/default )
    * @returns {string} theme css class names
