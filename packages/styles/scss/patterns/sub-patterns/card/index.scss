@@ -26,17 +26,17 @@
       padding: $carbon--spacing-05;
     }
 
-    &__title {
+    &__heading {
       margin-bottom: $carbon--spacing-05;
       @include carbon--type-style('expressive-heading-03');
     }
 
-    &__title,
-    &__content {
+    &__heading,
+    &__copy {
       color: $text-01;
     }
 
-    &__content {
+    &__copy {
       margin-bottom: $carbon--spacing-05;
       @include carbon--type-style('body-short-02');
     }
@@ -60,7 +60,7 @@
       }
     }
     &--CTA {
-      .#{$prefix}--card__title {
+      .#{$prefix}--card__heading {
         @include carbon--type-style('expressive-heading-02');
       }
     }
@@ -97,8 +97,8 @@
   .#{$prefix}--card--inverse {
     background-color: $inverse-02;
 
-    .#{$prefix}--card__title,
-    .#{$prefix}--card__content {
+    .#{$prefix}--card__heading,
+    .#{$prefix}--card__copy {
       color: $inverse-01;
     }
 

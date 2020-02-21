@@ -37,11 +37,11 @@ const CardSection = ({ title, cards, theme }) => {
    */
   const setCardHeight = () => {
     sameHeight(
-      containerRef.current.getElementsByClassName(`${prefix}--card__title`),
+      containerRef.current.getElementsByClassName(`${prefix}--card__heading`),
       'md'
     );
     sameHeight(
-      containerRef.current.getElementsByClassName(`${prefix}--card__content`),
+      containerRef.current.getElementsByClassName(`${prefix}--card__copy`),
       'md'
     );
   };

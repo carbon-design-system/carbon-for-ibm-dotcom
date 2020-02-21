@@ -53,7 +53,7 @@ const Card = ({
       <Image {...image} classname={`${prefix}--card__img`} />
       <div className={`${prefix}--card__wrapper`}>
         {eyebrow && <p className={`${prefix}--card__eyebrow`}>{eyebrow}</p>}
-        {heading && <h3 className={`${prefix}--card__title`}>{heading}</h3>}
+        {heading && <h3 className={`${prefix}--card__heading`}>{heading}</h3>}
         {optionalContent(copy)}
         {renderFooter(cta, type)}
       </div>
@@ -70,7 +70,7 @@ const Card = ({
 function optionalContent(copy) {
   return !copy ? null : (
     <div
-      className={`${prefix}--card__content`}
+      className={`${prefix}--card__copy`}
       dangerouslySetInnerHTML={{
         __html: markdownToHtml(copy, { bold: false }),
       }}></div>
@@ -86,22 +86,17 @@ function optionalContent(copy) {
  */
 function renderFooter(cta, type) {
   return (
-    <footer className={`${prefix}--card__footer`}>
-      {cta &&
-        (type !== 'link' ? (
-          <CTA
-            style="text"
-            type={cta.type}
-            href={cta.href}
-            copy={cta.copy}
-            customClassName={`${prefix}--card__cta`}
-          />
+    cta && (
+      <footer className={`${prefix}--card__footer`}>
+        {type !== 'link' ? (
+          <CTA style="text" {...cta} customClassName={`${prefix}--card__cta`} />
         ) : (
           cta.icon.src && (
             <cta.icon.src className={`${prefix}--card__cta`} {...cta.icon} />
           )
-        ))}
-    </footer>
+        )}
+      </footer>
+    )
   );
 }
 
@@ -109,12 +104,7 @@ Card.propTypes = {
   heading: PropTypes.string,
   eyebrow: PropTypes.string,
   copy: PropTypes.string,
-  cta: PropTypes.shape({
-    type: PropTypes.string,
-    copy: PropTypes.string,
-    href: PropTypes.string,
-    icon: PropTypes.object,
-  }),
+  cta: PropTypes.instanceOf(CTA),
   image: PropTypes.object,
   inverse: PropTypes.bool,
   customClassName: PropTypes.string,
