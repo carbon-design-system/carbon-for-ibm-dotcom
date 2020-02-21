@@ -54,8 +54,10 @@ storiesOf('Patterns (Blocks)|Content Group Simple', module)
     ]);
 
     const cta = object('CTA Data:', {
-      title: 'Lorem ipsum dolor',
-      href: 'https://www.example.com',
+      heading: 'Lorem ipsum dolor',
+      cta: {
+        href: 'https://www.example.com',
+      },
     });
 
     return (

@@ -73,10 +73,14 @@ const renderLink = (type, data) => {
     <JumpLink link={data} />
   ) : type === 'card' ? (
     <Card
-      title={data.text}
-      href={data.href}
+      heading={data.text}
+      cta={{
+        href: data.href,
+        icon: {
+          src: ArrowRight20,
+        },
+      }}
       target={data.target}
-      icon={ArrowRight20}
     />
   ) : type === 'iconLink' ? (
     <LinkWithIcon href={data.href} target={data.target}>
