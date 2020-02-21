@@ -27,14 +27,7 @@ import 'yourapplication.scss';
 
 function App() {
   return (
-    <ContentBlockSimple
-      heading={heading}
-      copy={copy}
-      items={items}
-      mediaData={mediaData}
-      mediaType={mediaType}
-      cta={cta}
-    />
+    <ContentBlockSimple heading={heading} copy={copy} image={image} cta={cta} />
   );
 }
 
