@@ -98,10 +98,10 @@
           cursor: pointer;
         }
 
-        @supports (-moz-appearance: none) {
-          a:focus {
-            border: 1px solid $interactive-04;
-          }
+        a:focus {
+          outline: 2px solid $focus;
+          z-index: 1;
+          position: relative;
         }
       }
     }
