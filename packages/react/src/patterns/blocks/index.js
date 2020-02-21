@@ -6,9 +6,9 @@
  */
 
 export * from './ContentBlockMedia';
+export * from './ContentBlockSimple';
 export * from './ContentGroupCards';
 export * from './ContentGroupPictograms';
 export * from './FeaturedLink';
 export * from './ListSection';
 export * from './LogoGrid';
-export * from './SimpleLongForm';
