@@ -49,7 +49,7 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 | ---------- | -------- | --------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `copy`     | YES      | String    | null          | Short copy to suppport title.                                                                                                                                             |
 | `heading`  | YES      | String    | n/a           | Main title of ContentBlockWithMedia pattern.                                                                                                                              |
-| `children` | YES      | Component | n/a           | Supported patterns. See `children` section below.                                                                                                                         |
+| `children` | YES      | Component | n/a           | See `children` section.                                                                                                                                                   |
 | `cta`      | NO       | Object    | null          | Supports `text` and `card`. See [`CTA`](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/components/CTA) for full usage details. |
 
 ### children
