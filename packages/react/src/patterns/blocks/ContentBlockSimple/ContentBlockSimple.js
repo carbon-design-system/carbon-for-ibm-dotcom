@@ -20,7 +20,7 @@ const { prefix } = settings;
  * Content Block - Simple pattern
  *
  * @param {object} props props object
- * @param {string} props.copy Content block simple short copy to support the heading
+ * @param {string} props.copy multiple paragraphs to support the heading
  * @param {string} props.heading Content block simple heading
  * @param {object} props.image Content item image
  * @param {object} props.cta cta object
