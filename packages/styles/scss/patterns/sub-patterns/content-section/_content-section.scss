@@ -49,6 +49,7 @@
     }
     @include carbon--breakpoint('lg') {
       padding-top: $carbon--layout-04;
+      padding-bottom: $carbon--layout-07;
     }
   }
 
