@@ -32,9 +32,10 @@ const ContentBlockMixedGroups = ({ heading, copy, children, cta }) => (
     heading={heading}
     copy={copy}
     cta={cta}
-    data-autoid={`${stablePrefix}--content-block-mixedgroups`}
     customClassName={`${prefix}--content-block-mixedgroups ${prefix}--col-lg-8`}>
-    {children}
+    <div data-autoid={`${stablePrefix}--content-block-mixedgroups`}>
+      {children}
+    </div>
   </ContentBlock>
 );
 
