@@ -19,6 +19,26 @@ storiesOf('Patterns (Blocks)|ContentBlockSegmented', module)
   .add('Default', () => {
     const heading = text('Heading', 'Lorem ipsum dolor sit amet.');
 
+    const image = {
+      images: [
+        {
+          src: 'https://fpoimg.com/320x180?bg_color=0f62fe&text_color=ffffff',
+          minWidth: 320,
+        },
+        {
+          src: 'https://fpoimg.com/400x225?bg_color=0f62fe&text_color=ffffff',
+          minWidth: 400,
+        },
+        {
+          src: 'https://fpoimg.com/672x378?bg_color=0f62fe&text_color=ffffff',
+          minWidth: 672,
+        },
+      ],
+      alt: 'CTA image',
+      defaultImage:
+        'https://fpoimg.com/672x378?bg_color=0f62fe&text_color=ffffff',
+    };
+
     const copy = {
       'single paragraph': `Lorem    ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.
       Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
@@ -44,10 +64,28 @@ storiesOf('Patterns (Blocks)|ContentBlockSegmented', module)
       `,
     };
 
+    const ctaStyles = {
+      text: 'text',
+      card: 'card',
+    };
+
+    const ctaTypes = {
+      external: 'external',
+      jump: 'jump',
+      local: 'local',
+    };
+
+    const cta = {
+      style: select('CTA style', ctaStyles, ctaStyles.card),
+      type: select('CTA type', ctaTypes, ctaTypes.local),
+      title: 'Lorem ipsum dolor',
+      href: 'https://www.example.com',
+    };
+
     const items = [
       {
         heading: 'Lorem ipsum dolor sit amet.',
-        mediaData: {
+        image: {
           images: [
             {
               src:
@@ -69,36 +107,21 @@ storiesOf('Patterns (Blocks)|ContentBlockSegmented', module)
           defaultImage:
             'https://fpoimg.com/672x378?bg_color=0f62fe&text_color=ffffff',
         },
-        mediaType: 'image',
         content: {
-          heading: 'Lorem ipsum dolor sit amet.',
           copy:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.',
-        },
-        cta: {
-          style: 'text',
-          type: 'local',
-          href: 'https://www.example.com',
-          copy: 'Lorem ipsum dolor sit ametttt',
         },
       },
       {
         heading: 'Lorem ipsum dolor sit amet.',
         content: {
-          heading: 'Lorem ipsum dolor sit amet.',
           copy:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.',
-        },
-        cta: {
-          style: 'card',
-          type: 'external',
-          title: 'Lorem ipsum dolor',
-          href: 'https://www.example.com',
         },
       },
       {
         heading: 'Lorem ipsum dolor sit amet.',
-        mediaData: {
+        image: {
           images: [
             {
               src:
@@ -120,23 +143,14 @@ storiesOf('Patterns (Blocks)|ContentBlockSegmented', module)
           defaultImage:
             'https://fpoimg.com/672x378?bg_color=0f62fe&text_color=ffffff',
         },
-        mediaType: 'image',
         content: {
-          heading: 'Lorem ipsum dolor sit amet.',
           copy:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.',
-        },
-        cta: {
-          style: 'card',
-          type: 'jump',
-          title: 'Lorem ipsum dolor',
-          href: 'https://www.example.com',
         },
       },
       {
         heading: 'Lorem ipsum dolor sit amet.',
         content: {
-          heading: 'Lorem ipsum dolor sit amet.',
           copy:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.',
         },
@@ -149,7 +163,9 @@ storiesOf('Patterns (Blocks)|ContentBlockSegmented', module)
           <div className="bx--col-lg-8 bx--col-sm-4 bx--offset-lg-4">
             <ContentBlockSegmented
               copy={select('Copy (required)', copy, copy['single paragraph'])}
+              cta={cta}
               heading={heading}
+              image={image}
               items={items}
             />
           </div>

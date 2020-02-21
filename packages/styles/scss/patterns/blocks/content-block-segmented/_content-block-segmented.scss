@@ -7,16 +7,48 @@
 @import '../../../globals/imports';
 
 @mixin content-block-segmented {
-  .#{$prefix}--content-block-segmented {
-    .#{$prefix}--image__img {
-      width: 100%;
-      max-width: rem(640px);
-      padding-top: $carbon--spacing-06;
-      padding-bottom: $carbon--spacing-05;
+  %block-image {
+    width: 100%;
+    max-width: rem(640px);
+  }
 
-      @include carbon--breakpoint-down(md) {
-        padding-top: $carbon--spacing-03;
-        padding-bottom: 0;
+  .#{$prefix}--content-block {
+    &-segmented {
+      .#{$prefix}--content-group {
+        &__children {
+          .#{$prefix}--image__img {
+            padding-top: $carbon--spacing-05;
+            margin-bottom: 0;
+
+            @extend %block-image;
+
+            @include carbon--breakpoint-down(md) {
+              padding-top: $carbon--spacing-03;
+            }
+          }
+        }
+      }
+
+      &__image {
+        margin-bottom: $layout-06;
+
+        @extend %block-image;
+      }
+
+      .#{$prefix}--content-item {
+        margin-bottom: $carbon--spacing-07;
+      }
+
+      .#{$prefix}--content-block {
+        &__intro {
+          p {
+            padding-bottom: 0;
+          }
+        }
+
+        &__cta {
+          margin-top: $layout-06;
+        }
       }
     }
   }

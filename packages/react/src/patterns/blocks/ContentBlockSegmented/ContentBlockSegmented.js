@@ -23,16 +23,25 @@ const { prefix } = settings;
  * @param {object} props props object
  * @param {string} props.heading content block heading
  * @param {string} props.copy content block short copy to support the heading
+ * @param {object} props.cta content block cta
+ * @param {object} props.image content block intro image
  * @param {object} props.items content block content items
  * @returns {*} Content Block - Segmented pattern
  */
-const ContentBlockSegmented = ({ copy, heading, items }) => {
+const ContentBlockSegmented = ({ copy, cta, heading, image, items }) => {
   return (
     <ContentBlock
       heading={heading}
       copy={copy}
+      cta={cta}
       customClassName={`${prefix}--content-block-segmented`}>
       <div data-autoid={`${stablePrefix}--content-block-segmented`}>
+        {image && (
+          <Image
+            classname={`${prefix}--content-block-segmented__image`}
+            {...image}
+          />
+        )}
         {_renderGroup(items)}
       </div>
     </ContentBlock>
@@ -46,15 +55,15 @@ const ContentBlockSegmented = ({ copy, heading, items }) => {
  */
 const _renderGroup = items =>
   items.map((item, index) => (
-    <ContentGroup cta={item.cta} heading={item.heading} key={index}>
+    <ContentGroup heading={item.heading} key={index}>
       <div
         data-autoid={`${stablePrefix}--content-block-segmented__content-group`}>
-        {item.mediaType === 'image' && (
+        <ContentItem {...item.content} key={index} />
+        {item.image && (
           <div data-autoid={`${stablePrefix}--content-block-segmented__media`}>
-            <Image {...item.mediaData} />
+            <Image {...item.image} />
           </div>
         )}
-        <ContentItem {...item.content} key={index} />
       </div>
     </ContentGroup>
   ));
@@ -62,6 +71,8 @@ const _renderGroup = items =>
 ContentBlockSegmented.propTypes = {
   heading: PropTypes.string.isRequired,
   copy: PropTypes.string.isRequired,
+  cta: PropTypes.object,
+  image: PropTypes.instanceOf(Image),
   items: PropTypes.object.isRequired,
 };
 
