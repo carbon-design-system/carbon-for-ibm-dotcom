@@ -5,6 +5,7 @@
 // LICENSE file in the root directory of this source tree.
 //
 @import '../../../globals/imports';
+@import '../../../globals/utils/aspect-ratio';
 
 @mixin content-block-simple {
   .#{$prefix}--content-block-simple {
@@ -26,6 +27,11 @@
           margin-bottom: 0;
         }
       }
+    }
+
+    .#{$prefix}--image__img {
+      width: 100%;
+      max-width: rem(640px);
     }
   }
 }
