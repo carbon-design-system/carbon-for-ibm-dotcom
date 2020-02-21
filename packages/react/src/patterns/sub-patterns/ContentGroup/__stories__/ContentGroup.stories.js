@@ -19,7 +19,7 @@ storiesOf('Patterns (Sub-Patterns)|ContentGroup', module)
     );
     const renderCTA = boolean('render CTA', true);
     const cta = {
-      title: renderCTA && text('CTA heading', 'Lorem ipsum dolor sit amet'),
+      heading: renderCTA && text('CTA heading', 'Lorem ipsum dolor sit amet'),
       href: renderCTA && text('CTA href', 'https://ibm.com'),
     };
 

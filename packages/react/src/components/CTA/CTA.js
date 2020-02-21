@@ -144,4 +144,5 @@ CTA.propTypes = {
   type: PropTypes.string,
   customClassName: PropTypes.string,
 };
+
 export default CTA;
