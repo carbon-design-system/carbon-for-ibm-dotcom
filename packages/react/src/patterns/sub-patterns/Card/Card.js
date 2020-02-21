@@ -104,12 +104,7 @@ Card.propTypes = {
   heading: PropTypes.string,
   eyebrow: PropTypes.string,
   copy: PropTypes.string,
-  cta: PropTypes.shape({
-    type: PropTypes.string,
-    copy: PropTypes.string,
-    href: PropTypes.string,
-    icon: PropTypes.object,
-  }),
+  cta: PropTypes.object,
   image: PropTypes.object,
   inverse: PropTypes.bool,
   customClassName: PropTypes.string,
