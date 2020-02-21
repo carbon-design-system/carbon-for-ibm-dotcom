@@ -43,9 +43,11 @@ if (DDS_FEATURED_LINK) {
               <FeaturedLink
                 heading={heading}
                 card={{
-                  title: cardheading,
+                  heading: cardheading,
                   image: images,
-                  href: cardhref,
+                  cta: {
+                    href: cardhref,
+                  },
                 }}
               />
             </div>
