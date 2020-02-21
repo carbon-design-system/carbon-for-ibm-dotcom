@@ -47,7 +47,7 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 | `cards`   | YES      | Array     | null          | Array of objects. [Card Array Example](https://github.com/mkothur/ibm-dotcom-library/blob/master/packages/react/src/patterns/sub-patterns/card/README.md). For more details See `Cards Props`. |
 | `theme`   | NO       | String    | 'white'       | Color theme for pattern. See `theme` below.                                                                                                                                                    |
 
-## Card Props
+### Card Props
 
 Card accepts the folloing information for this `CardSectionImages` pattern
 
