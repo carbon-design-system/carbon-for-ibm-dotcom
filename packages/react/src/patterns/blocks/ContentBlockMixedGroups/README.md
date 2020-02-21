@@ -45,30 +45,20 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 ## Props
 
-| Name       | Required | Data Type | Default Value | Description                                                           |
-| ---------- | -------- | --------- | ------------- | --------------------------------------------------------------------- |
-| `copy`     | YES      | String    | null          | Short copy to suppport title.                                         |
-| `heading`  | YES      | String    | n/a           | Main title of ContentBlockWithMedia pattern.                          |
-| `children` | YES      | Component | n/a           | Supported patterns. See `children` section below.                     |
-| `cta`      | NO       | Object    | null          | Object for optional CTA. Supports `text` and `card`. See `cta` below. |
+| Name       | Required | Data Type | Default Value | Description                                                                                                                                                               |
+| ---------- | -------- | --------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `copy`     | YES      | String    | null          | Short copy to suppport title.                                                                                                                                             |
+| `heading`  | YES      | String    | n/a           | Main title of ContentBlockWithMedia pattern.                                                                                                                              |
+| `children` | YES      | Component | n/a           | Supported patterns. See `children` section below.                                                                                                                         |
+| `cta`      | NO       | Object    | null          | Supports `text` and `card`. See [`CTA`](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/components/CTA) for full usage details. |
 
 ### children
 
-| Name                     | Data Type | Description                                                                                                                                                                                                 |
-| ------------------------ | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ContentGroupCards`      | Component | See [`ContentGroupCards`](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/patterns/blocks/ContentGroupCards) for full details on usage of this pattern.           |
-| `ContentGroupPictograms` | Component | See [`ContentGroupPictograms`](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/patterns/blocks/ContentGroupPictograms) for full details on usage of this pattern. |
-| `ContentGroupSimple`     | Component | See [`ContentGroupSimple`](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/patterns/blocks/ContentGroupSimple) for full details on usage of this pattern.         |
-
-### CTA
-
-| Name         | Data Type | Description                                        |
-| ------------ | --------- | -------------------------------------------------- |
-| `heading`    | String    | Describes the CTA.                                 |
-| `card.href`  | String    | CTA link url.                                      |
-| `card.copy`  | String    | CTA link text.                                     |
-| `card.title` | String    | CTA link title.                                    |
-| `type`       | String    | Link behavior options `local`, `jump`, `external`. |
+| Name                     | Data Type | Description                                                                                                                                                                              |
+| ------------------------ | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ContentGroupCards`      | Component | See [`ContentGroupCards`](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/patterns/blocks/ContentGroupCards) for full usage details.           |
+| `ContentGroupPictograms` | Component | See [`ContentGroupPictograms`](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/patterns/blocks/ContentGroupPictograms) for full usage details. |
+| `ContentGroupSimple`     | Component | See [`ContentGroupSimple`](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/patterns/blocks/ContentGroupSimple) for full usage details.         |
 
 ### Stable selectors
 

@@ -1,6 +1,6 @@
+import './index.scss';
 import { Desktop, Pattern, Touch } from '@carbon/pictograms-react';
 import { withKnobs, select } from '@storybook/addon-knobs';
-import classNames from 'classnames';
 import ContentBlockMixedGroups from '../ContentBlockMixedGroups';
 import { ContentGroupCards } from '../../ContentGroupCards';
 import ContentGroupCardsKnobs from '../../ContentGroupCards/data/ContentGroupCards.knobs';
@@ -122,11 +122,6 @@ storiesOf('Patterns (Blocks)|Content Block Mixed Groups', module)
               items={ContentGroupCardsKnobs.items}
             />
             <ContentGroupPictograms
-              className={classNames(
-                `bx--col-sm-4`,
-                `bx--col-lg-8`,
-                `bx--offset-lg-4`
-              )}
               heading={pictogramHeading}
               items={pictogramItems}
             />
