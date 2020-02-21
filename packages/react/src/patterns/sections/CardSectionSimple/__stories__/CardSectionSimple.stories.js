@@ -1,5 +1,5 @@
-import { object, select, withKnobs } from '@storybook/addon-knobs';
-import cards from '../../CardSection/__stories__//data/cards.json';
+import { object, select, text, withKnobs } from '@storybook/addon-knobs';
+import cards from '../../CardSection/__stories__/data/cards.json';
 import CardSectionSimple from '../CardSectionSimple';
 import React from 'react';
 import readme from '../README.md';
@@ -23,9 +23,9 @@ storiesOf('Patterns (Sections)|CardSectionSimple', module)
 
     return (
       <CardSectionSimple
-        heading="Aliquam condimentum interdum"
+        heading={text('Heading(required):', 'Aliquam condimentum interdum')}
+        theme={select('theme', themes, themes.white)}
         cards={object('Data', cards.CardSectionSimple)}
-        theme={select('theme', themes, themes.g10)}
       />
     );
   });
