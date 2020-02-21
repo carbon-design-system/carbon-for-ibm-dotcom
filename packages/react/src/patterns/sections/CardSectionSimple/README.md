@@ -1,6 +1,7 @@
 # CardSectionSimple
 
-> The CardSection Simple pattern is to be utilized within IBM.com.
+> The CardSection Simple pattern is to be utilized within IBM.com. See
+> [CardSection](https://github.com/mkothur/ibm-dotcom-library/blob/master/packages/react/src/patterns/sections/CardSection/README.md)👀
 
 ## Getting started
 
@@ -23,76 +24,43 @@ import ReactDOM from 'react-dom';
 import { CardSectionSimple } from '@carbon/ibmdotcom-react';
 import 'yourapplication.scss';
 
-const CardSectionSimple = [
-  {
-    heading: 'Nunc convallis lobortis',
-    copy:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
-    cta: {
-      href: 'https://www.example.com',
-    },
-  },
-  {
-    heading: 'Fusce gravida eu arcu',
-    copy:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
-    cta: {
-      href: 'https://www.example.com',
-    },
-  },
-  {
-    heading: 'Interdum et malesuada',
-    copy:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
-    cta: {
-      href: 'https://www.example.com',
-    },
-  },
-  {
-    heading: 'Nunc convallis loborti',
-    copy:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
-    cta: {
-      href: 'https://www.example.com',
-    },
-  },
-  {
-    heading: 'Nunc convallis lbortis',
-    copy:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
-    cta: {
-      href: 'https://www.example.com',
-    },
-  },
-];
-
 function App() {
   return (
-    <CardSectionSimple
-      cards={CardSectionSimple}
-      heading="Aliquam condimentum interdum"
-    />
+    <CardSectionSimple cards={cards} heading="Aliquam condimentum interdum" />
   );
 }
 
 ReactDOM.render(<App />, document.querySelector('#app'));
 ```
 
+> See
+> [Card Object](https://github.com/mkothur/ibm-dotcom-library/blob/master/packages/react/src/patterns/sections/CardSection/__stories__/data/cards.json)
+> 👀
+
 > 💡 Don't forget to import the card-section styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
 ## Props
 
-| Name      | Required | Data Type | Default Value | Description                                                                                                                                                                   |
-| --------- | -------- | --------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `heading` | YES      | String    | null          | Cards with or without images heading.                                                                                                                                         |
-| `cards`   | YES      | Array     | null          | Array of card objects. See [CardSection](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/patterns/sections/CardSection/README.md)👀 |
+| Name      | Required | Data Type | Default Value | Description                                                                                                                                                                                    |
+| --------- | -------- | --------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `heading` | YES      | String    | null          | Cards with or without images heading.                                                                                                                                                          |
+| `cards`   | YES      | Array     | null          | Array of objects. [Card Array Example](https://github.com/mkothur/ibm-dotcom-library/blob/master/packages/react/src/patterns/sub-patterns/card/README.md). For more details See `Cards Props`. |
+| `theme`   | NO       | String    | 'white'       | Color theme for pattern. See `theme` below.                                                                                                                                                    |
 
-> 💡 Card accepts the folloing information for this `CardSectionSimple` pattern.
+### Card Props
 
-- Copy
-- Heading
-- cta.href
+Card accepts the folloing information for this `CardSectionSimple` pattern
+
+| Name       | Required | Data Type | Description                                                       |
+| ---------- | -------- | --------- | ----------------------------------------------------------------- |
+| `Copy`     | YES      | String    | Copy of the Card.                                                 |
+| `Heading`  | YES      | String    | Heading of the Card.                                              |
+| `cta.href` | YES      | String    | Valid URL for a the location of an internal or external resource. |
+
+> See
+> [Card](https://github.com/mkothur/ibm-dotcom-library/blob/master/packages/react/src/patterns/sub-patterns/card/README.md)
+> 👀
 
 ### theme (optional)
 
@@ -102,12 +70,6 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 | `g10`   | String    | Carbon Gray 10 (g10) theme   |
 | `g90`   | String    | Carbon Gray 90 (g90) theme   |
 | `g100`  | String    | Carbon Gray 100 (g100) theme |
-
-### cardType
-
-| Name                | Description                                                          |
-| ------------------- | -------------------------------------------------------------------- |
-| `CardSectionSimple` | Array of objects with heading, copy and cta properties of each card. |
 
 ## 🙌 Contributing
 
