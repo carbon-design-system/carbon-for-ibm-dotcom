@@ -11,7 +11,7 @@
   background: $ui-background;
   .#{$prefix}--card {
     background-color: $ui-01;
-    &__title {
+    &__heading {
       color: $text-01;
     }
     &__content {
@@ -29,7 +29,7 @@
 }
 @mixin card-section {
   .#{$prefix}--card-section {
-    &__title {
+    &__heading {
       @include type-style('expressive-heading-02');
       @include carbon--make-col-ready;
 
@@ -85,6 +85,16 @@
   }
   .#{$prefix}--card-section.#{$prefix}--card-section--g10 {
     @include carbon--theme($carbon--theme--g10) {
+      @include themed-items;
+    }
+  }
+  .#{$prefix}--card-section.#{$prefix}--card-section--g90 {
+    @include carbon--theme($carbon--theme--g90) {
+      @include themed-items;
+    }
+  }
+  .#{$prefix}--card-section.#{$prefix}--card-section--g100 {
+    @include carbon--theme($carbon--theme--g100) {
       @include themed-items;
     }
   }
