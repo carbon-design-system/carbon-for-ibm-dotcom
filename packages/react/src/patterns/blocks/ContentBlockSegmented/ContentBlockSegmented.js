@@ -31,9 +31,10 @@ const ContentBlockSegmented = ({ copy, heading, items }) => {
     <ContentBlock
       heading={heading}
       copy={copy}
-      data-autoid={`${stablePrefix}--content-block-segmented`}
       customClassName={`${prefix}--content-block-segmented ${prefix}--col-lg-8`}>
-      {_renderGroup(items)}
+      <div data-autoid={`${stablePrefix}--content-block-segmented`}>
+        {_renderGroup(items)}
+      </div>
     </ContentBlock>
   );
 };
