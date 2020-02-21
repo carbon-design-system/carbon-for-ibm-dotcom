@@ -76,10 +76,12 @@ storiesOf('Patterns (Blocks)|ContentBlockSegmented', module)
     };
 
     const cta = {
+      cta: {
+        href: 'https://www.example.com',
+      },
       style: select('CTA style', ctaStyles, ctaStyles.card),
       type: select('CTA type', ctaTypes, ctaTypes.local),
-      title: 'Lorem ipsum dolor',
-      href: 'https://www.example.com',
+      heading: 'Lorem ipsum dolor',
     };
 
     const items = [
