@@ -26,8 +26,10 @@ const { prefix } = settings;
  * @param {string} props.customClassName custom classname from parent
  * @returns {*} CTA component
  */
-const CTA = ({ style, type, customClassName, ...cta }) => (
-  <div className={customClassName}>{renderCTA({ style, type, ...cta })}</div>
+const CTA = ({ style, type, customClassName, ...otherProps }) => (
+  <div className={customClassName}>
+    {renderCTA({ style, type, ...otherProps })}
+  </div>
 );
 
 /**
@@ -38,41 +40,41 @@ const CTA = ({ style, type, customClassName, ...cta }) => (
  * @param {string} props.type cta type ( jump | local | external ).
  * @returns {*} CTA Component
  */
-const renderCTA = ({ style, type, ...cta }) => {
+const renderCTA = ({ style, type, ...otherProps }) => {
   switch (style) {
     case 'card':
       return (
         <Card
           customClassName={`${prefix}--card--CTA`}
           cta={{
-            href: cta.href,
+            href: otherProps.cta.href,
             icon: {
               src: _iconSelector(type),
             },
           }}
-          heading={cta.heading}
+          heading={otherProps.heading}
           type="link"
           target={_external(type)}
           handleClick={e => _jump(e, type)}
         />
       );
     case 'button':
-      return <ButtonGroup buttons={_renderButtons(cta)} />;
+      return <ButtonGroup buttons={_renderButtons(otherProps)} />;
     case 'feature':
       return (
         <FeaturedLink
-          heading={cta.heading}
-          card={_renderFeatureCard(cta.card)}
+          heading={otherProps.heading}
+          card={_renderFeatureCard(otherProps.card)}
         />
       );
     default: {
       const Icon = _iconSelector(type);
       return (
         <LinkWithIcon
-          href={cta.href}
+          href={otherProps.href}
           target={_external(type)}
           onClick={e => _jump(e, type)}>
-          {cta.copy}
+          {otherProps.copy}
           <Icon />
         </LinkWithIcon>
       );
@@ -112,7 +114,7 @@ const _iconSelector = type =>
 /**
  * sets button
  *
- * @param {object} cta object with buttons array
+ * @param {object} buttons object with buttons array
  * @private
  * @returns {*} object
  */
