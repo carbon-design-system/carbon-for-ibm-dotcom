@@ -32,19 +32,19 @@ storiesOf('Patterns (Blocks)|ContentBlockSimple', module)
     const image = {
       images: [
         {
-          src: 'http://fpoimg.com/320x160?bg_color=0f62fe&text_color=ffffff',
+          src: 'https://fpoimg.com/320x160?bg_color=0f62fe&text_color=ffffff',
           minWidth: 320,
         },
         {
-          src: 'http://fpoimg.com/400x400?bg_color=0f62fe&text_color=ffffff',
+          src: 'https://fpoimg.com/400x400?bg_color=0f62fe&text_color=ffffff',
           minWidth: 400,
         },
         {
-          src: 'http://fpoimg.com/672x672?bg_color=0f62fe&text_color=ffffff',
+          src: 'https://fpoimg.com/672x672?bg_color=0f62fe&text_color=ffffff',
           minWidth: 672,
         },
       ],
-      alt: 'lead space image',
+      alt: 'CTA image',
       defaultImage: 'https://picsum.photos/id/2/672/672',
     };
 

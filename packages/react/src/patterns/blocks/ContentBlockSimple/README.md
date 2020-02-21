@@ -22,7 +22,7 @@ Here's a quick example to get you started.
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { SimpleLongForm } from '@carbon/ibmdotcom-react';
+import { ContentBlockSimple } from '@carbon/ibmdotcom-react';
 import 'yourapplication.scss';
 
 function App() {
@@ -46,21 +46,12 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 ## Props
 
-| Name      | Required | Data Type | Default Value | Description                                                              |
-| --------- | -------- | --------- | ------------- | ------------------------------------------------------------------------ |
-| `heading` | YES      | String    | n/a           | Title of the content block.                                              |
-| `copy`    | YES      | String    | n/a           | Simple content item.                                                     |
-| `image`   | NO       | Array     | n/a           | Optional image to use after content item. See `image` section.           |
-| `cta`     | NO       | Object    | n/a           | CTA used at the end of content body. `Text` and `Card` styles supported. |
-
-### image
-
-| Name           | Data Type | Description                                            |
-| -------------- | --------- | ------------------------------------------------------ |
-| `src`          | String    | Url of image.                                          |
-| `minWidth`     | String    | Minimum width of image. Supports multiple breakpoints. |
-| `alt`          | String    | Image alt text.                                        |
-| `defaultImage` | String    | Default image to use.                                  |
+| Name      | Required | Data Type | Default Value | Description                                                                                                                                                     |
+| --------- | -------- | --------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `heading` | YES      | String    | n/a           | Title of the content block.                                                                                                                                     |
+| `copy`    | YES      | String    | n/a           | Simple content item.                                                                                                                                            |
+| `image`   | NO       | Array     | n/a           | See the [`Image`](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/components/Image) component for full usage details. |
+| `cta`     | NO       | Object    | n/a           | CTA used at the end of content body. `Text` and `Card` styles supported.                                                                                        |
 
 ## Stable selectors
 

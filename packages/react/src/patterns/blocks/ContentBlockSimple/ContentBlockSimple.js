@@ -22,6 +22,7 @@ const { prefix } = settings;
  * @param {object} props props object
  * @param {string} props.copy Content block simple short copy to support the heading
  * @param {string} props.heading Content block simple heading
+ * @param {object} props.image Content item image
  * @param {object} props.cta cta object
  * @returns {*} Content block simple pattern
  */
@@ -29,40 +30,17 @@ const ContentBlockSimple = ({ copy, heading, image, cta }) => (
   <ContentBlock
     heading={heading}
     cta={cta}
-    data-autoid={`${stablePrefix}--content-block-simple`}
     customClassName={`${prefix}--content-block-simple ${prefix}--col-lg-8`}>
-    <div
-      data-autoid={`${prefix}--content-block-simple__content`}
-      className={`${prefix}--content-block-simple__content`}>
-      <ContentItem copy={copy} />
-      {image && <Image {...image} />}
+    <div data-autoid={`${stablePrefix}--content-block-simple`}>
+      <div
+        data-autoid={`${prefix}--content-block-simple__content`}
+        className={`${prefix}--content-block-simple__content`}>
+        <ContentItem copy={copy} />
+        {image && <Image {...image} />}
+      </div>
     </div>
   </ContentBlock>
 );
-
-/**
- *
- * @param {string} mediaType Media type, video or image
- * @param {object} mediaData Data for renderimg the media
- * @returns {*} JSX Component with the media
- */
-const _renderMedia = (mediaType, mediaData) => {
-  if (mediaData && mediaType === 'image') {
-    return (
-      <div data-autoid={`${stablePrefix}--content-block-simple__media`}>
-        <Image {...mediaData} />
-      </div>
-    );
-  }
-};
-
-/**
- *
- * @param {Array} items Array of data for ContentItems to be rendered
- * @returns {*} Array of ContentItem Components
- */
-const _renderContent = items =>
-  items.map((item, index) => <ContentItem {...item} key={index} />);
 
 ContentBlockSimple.propTypes = {
   copy: PropTypes.string.isRequired,
