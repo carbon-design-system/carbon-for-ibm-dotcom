@@ -15,7 +15,7 @@ Import the package css into the top of your main CSS file.
 | `.bx--card-section__container` | Element containing all list section content. |
 | `.bx--card-section__row`       | Vertical divisions across the viewport.      |
 | `.bx--card-section__col`       | Horizontal divisions across the viewport.    |
-| `.bx--card-section__title`     | card-section title element.                  |
+| `.bx--card-section__heading`   | card-section heading element.                |
 | `.bx--card-section__cards`     | card-section cards element.                  |
 
 #### Blocks
