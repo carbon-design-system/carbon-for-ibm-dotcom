@@ -1,3 +1,4 @@
+import './index.scss';
 import { select, text, withKnobs } from '@storybook/addon-knobs';
 import ContentBlockSegmented from '../ContentBlockSegmented';
 // import ContentGroupSimpleKnobs from '../../ContentGroupSimple/__stories__/data/ContentGroupSimple.knobs';
@@ -50,23 +51,23 @@ storiesOf('Patterns (Blocks)|ContentBlockSegmented', module)
           images: [
             {
               src:
-                'http://fpoimg.com/320x160?bg_color=0f62fe&text_color=ffffff',
+                'https://fpoimg.com/320x180?bg_color=0f62fe&text_color=ffffff',
               minWidth: 320,
             },
             {
               src:
-                'http://fpoimg.com/400x400?bg_color=0f62fe&text_color=ffffff',
+                'https://fpoimg.com/400x225?bg_color=0f62fe&text_color=ffffff',
               minWidth: 400,
             },
             {
               src:
-                'http://fpoimg.com/672x672?bg_color=0f62fe&text_color=ffffff',
+                'https://fpoimg.com/672x378?bg_color=0f62fe&text_color=ffffff',
               minWidth: 672,
             },
           ],
           alt: 'lead space image',
           defaultImage:
-            'http://fpoimg.com/672x672?bg_color=0f62fe&text_color=ffffff',
+            'https://fpoimg.com/672x378?bg_color=0f62fe&text_color=ffffff',
         },
         mediaType: 'image',
         content: {
@@ -101,23 +102,23 @@ storiesOf('Patterns (Blocks)|ContentBlockSegmented', module)
           images: [
             {
               src:
-                'http://fpoimg.com/320x160?bg_color=0f62fe&text_color=ffffff',
+                'https://fpoimg.com/320x180?bg_color=0f62fe&text_color=ffffff',
               minWidth: 320,
             },
             {
               src:
-                'http://fpoimg.com/400x400?bg_color=0f62fe&text_color=ffffff',
+                'https://fpoimg.com/400x225?bg_color=0f62fe&text_color=ffffff',
               minWidth: 400,
             },
             {
               src:
-                'http://fpoimg.com/672x672?bg_color=0f62fe&text_color=ffffff',
+                'https://fpoimg.com/672x378?bg_color=0f62fe&text_color=ffffff',
               minWidth: 672,
             },
           ],
           alt: 'lead space image',
           defaultImage:
-            'http://fpoimg.com/672x672?bg_color=0f62fe&text_color=ffffff',
+            'https://fpoimg.com/672x378?bg_color=0f62fe&text_color=ffffff',
         },
         mediaType: 'image',
         content: {
@@ -144,11 +145,15 @@ storiesOf('Patterns (Blocks)|ContentBlockSegmented', module)
 
     return (
       <div className={`${prefix}--grid`}>
-        <ContentBlockSegmented
-          copy={select('Copy (required)', copy, copy['single paragraph'])}
-          heading={heading}
-          items={items}
-        />
+        <div className="bx--row">
+          <div className="bx--col-lg-8 bx--col-sm-4 bx--offset-lg-4">
+            <ContentBlockSegmented
+              copy={select('Copy (required)', copy, copy['single paragraph'])}
+              heading={heading}
+              items={items}
+            />
+          </div>
+        </div>
       </div>
     );
   });

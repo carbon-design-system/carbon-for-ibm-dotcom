@@ -31,7 +31,7 @@ const ContentBlockSegmented = ({ copy, heading, items }) => {
     <ContentBlock
       heading={heading}
       copy={copy}
-      customClassName={`${prefix}--content-block-segmented ${prefix}--col-lg-8`}>
+      customClassName={`${prefix}--content-block-segmented`}>
       <div data-autoid={`${stablePrefix}--content-block-segmented`}>
         {_renderGroup(items)}
       </div>
@@ -46,21 +46,16 @@ const ContentBlockSegmented = ({ copy, heading, items }) => {
  */
 const _renderGroup = items =>
   items.map((item, index) => (
-    <ContentGroup
-      cta={item.cta ? item.cta : undefined}
-      heading={item.heading}
-      data-autoid={`${stablePrefix}--content-block-segmented__content-group`}
-      key={index}>
-      {item.mediaType === 'image' && (
-        <div data-autoid={`${stablePrefix}--content-block-segmented__media`}>
-          <Image {...item.mediaData} />
-        </div>
-      )}
-      <ContentItem
-        data-autoid={`${stablePrefix}--content-block-segmented__content-item`}
-        {...item.content}
-        key={index}
-      />
+    <ContentGroup cta={item.cta} heading={item.heading} key={index}>
+      <div
+        data-autoid={`${stablePrefix}--content-block-segmented__content-group`}>
+        {item.mediaType === 'image' && (
+          <div data-autoid={`${stablePrefix}--content-block-segmented__media`}>
+            <Image {...item.mediaData} />
+          </div>
+        )}
+        <ContentItem {...item.content} key={index} />
+      </div>
     </ContentGroup>
   ));
 

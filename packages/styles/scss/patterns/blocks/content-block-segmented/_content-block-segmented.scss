@@ -1,0 +1,27 @@
+//
+// Copyright IBM Corp. 2016, 2018
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+@import '../../../globals/imports';
+
+@mixin content-block-segmented {
+  .#{$prefix}--content-block-segmented {
+    .#{$prefix}--image__img {
+      width: 100%;
+      max-width: rem(640px);
+      padding-top: $carbon--spacing-06;
+      padding-bottom: $carbon--spacing-05;
+
+      @include carbon--breakpoint-down(md) {
+        padding-top: $carbon--spacing-03;
+        padding-bottom: 0;
+      }
+    }
+  }
+}
+
+@include exports('content-block-segmented') {
+  @include content-block-segmented;
+}
