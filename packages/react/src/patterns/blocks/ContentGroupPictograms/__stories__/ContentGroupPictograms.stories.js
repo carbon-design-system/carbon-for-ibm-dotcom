@@ -89,7 +89,7 @@ storiesOf('Patterns (Blocks)|ContentGroupPictograms', module)
               pictograms.Desktop
             )
           ),
-          'aria-label': text('Aria-label 1:', 'Desktop'),
+          'aria-label': 'Pictogram',
         },
       });
     }
