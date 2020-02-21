@@ -75,15 +75,19 @@ storiesOf('Patterns (Blocks)|ContentBlockSimple', module)
 
     return (
       <div className={`${prefix}--grid`}>
-        <ContentBlockSimple
-          copy={select('Copy (required)', copy, copy['single paragraph'])}
-          heading={text(
-            'Heading (required)',
-            'Curabitur malesuada varius mi eu posuere'
-          )}
-          image={image}
-          cta={select('CTA (optional)', cta, cta.cta)}
-        />
+        <div class="bx--row">
+          <div class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
+            <ContentBlockSimple
+              copy={select('Copy (required)', copy, copy['single paragraph'])}
+              heading={text(
+                'Heading (required)',
+                'Curabitur malesuada varius mi eu posuere'
+              )}
+              image={image}
+              cta={select('CTA (optional)', cta, cta.cta)}
+            />
+          </div>
+        </div>
       </div>
     );
   });

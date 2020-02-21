@@ -30,7 +30,7 @@ const ContentBlockSimple = ({ copy, heading, image, cta }) => (
   <ContentBlock
     heading={heading}
     cta={cta}
-    customClassName={`${prefix}--content-block-simple ${prefix}--col-lg-8`}>
+    customClassName={`${prefix}--content-block-simple`}>
     <div data-autoid={`${stablePrefix}--content-block-simple`}>
       <div
         data-autoid={`${prefix}--content-block-simple__content`}
