@@ -28,12 +28,14 @@
 
     &__title {
       @include carbon--type-style('expressive-heading-03');
+      @include content-width;
 
       margin-bottom: $carbon--layout-05;
     }
 
     &__content {
       @include carbon--type-style('body-short-02');
+      @include content-width;
 
       margin-bottom: $carbon--layout-01;
       color: $text-02;

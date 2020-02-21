@@ -85,7 +85,7 @@ const _renderCards = items =>
       <Card
         className={`${prefix}--content-group-cards-item`}
         title={elem.heading}
-        content={elem.copy}
+        copy={elem.copy}
         icon={ArrowRight20}
         href={elem.cta.href}
         type="link"

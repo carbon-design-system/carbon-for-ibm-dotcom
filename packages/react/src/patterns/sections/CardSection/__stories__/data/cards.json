@@ -1,63 +1,51 @@
 {
-  "simpleCards": [
+  "CardSectionSimple": [
     {
-      "title": "Nunc convallis lobortis",
+      "heading": "Nunc convallis lobortis",
       "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
-      "link": {
-        "href": "https://www.example.com",
-        "text": "Learn more",
-        "target": "_self"
+      "cta": {
+        "href": "https://www.example.com"
       }
     },
     {
-      "title": "Fusce gravida eu arcu",
+      "heading": "Fusce gravida eu arcu",
       "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
-      "link": {
-        "href": "https://www.example.com",
-        "text": "Learn more",
-        "target": "_self"
+      "cta": {
+        "href": "https://www.example.com"
       }
     },
     {
-      "title": "Interdum et malesuada",
+      "heading": "Interdum et malesuada",
       "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
-      "link": {
-        "href": "https://www.example.com",
-        "text": "Learn more",
-        "target": "_self"
+      "cta": {
+        "href": "https://www.example.com"
       }
     },
     {
-      "title": "Nunc convallis loborti",
+      "heading": "Nunc convallis loborti",
       "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
-      "link": {
-        "href": "https://www.example.com",
-        "text": "Learn more",
-        "target": "_self"
+      "cta": {
+        "href": "https://www.example.com"
       }
     },
     {
-      "title": "Nunc convallis lbortis",
+      "heading": "Nunc convallis lbortis",
       "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
-      "link": {
-        "href": "https://www.example.com",
-        "text": "Learn more",
-        "target": "_self"
+      "cta": {
+        "href": "https://www.example.com"
       }
     }
   ],
-  "imageCards": [
+  "CardSectionImages": [
     {
       "image": {
         "defaultImage": "https://picsum.photos/id/1003/1056/480",
         "alt": "cards with image"
       },
-      "title": "Topic",
-      "copy": "Natural language processing.",
-      "link": {
-        "href": "https://www.example.com",
-        "text": "Learn more",
-        "target": "_self"
+      "eyebrow": "Topic",
+      "heading": "Natural language processing.",
+      "cta": {
+        "href": "https://www.example.com"
       }
     },
     {
@@ -65,12 +53,10 @@
         "defaultImage": "https://picsum.photos/id/1018/1056/480",
         "alt": "cards with image"
       },
-      "title": "Blog",
-      "copy": "Natural language processing.",
-      "link": {
-        "href": "https://www.example.com",
-        "text": "Learn more",
-        "target": "_self"
+      "eyebrow": "Blog",
+      "heading": "Natural language processing.",
+      "cta": {
+        "href": "https://www.example.com"
       }
     },
     {
@@ -78,12 +64,10 @@
         "defaultImage": "https://picsum.photos/id/1076/1056/480",
         "alt": "cards with image"
       },
-      "title": "Topic",
-      "copy": "Natural language processing.",
-      "link": {
-        "href": "https://www.example.com",
-        "text": "Learn more",
-        "target": "_self"
+      "eyebrow": "Topic",
+      "heading": "Natural language processing.",
+      "cta": {
+        "href": "https://www.example.com"
       }
     },
     {
@@ -91,12 +75,10 @@
         "defaultImage": "https://picsum.photos/id/102/1056/480",
         "alt": "cards with image"
       },
-      "title": "Blog",
-      "copy": "Serving society ethically in the age of Artificial Intelligence.",
-      "link": {
-        "href": "https://www.example.com",
-        "text": "Learn more",
-        "target": "_self"
+      "eyebrow": "Blog",
+      "heading": "Serving society ethically in the age of Artificial Intelligence.",
+      "cta": {
+        "href": "https://www.example.com"
       }
     },
     {
@@ -104,12 +86,10 @@
         "defaultImage": "https://picsum.photos/id/1032/1056/480",
         "alt": "cards with image"
       },
-      "title": "Topic",
-      "copy": "Serving society ethically in the age of Artificial Intelligence.",
-      "link": {
-        "href": "https://www.example.com",
-        "text": "Learn more",
-        "target": "_self"
+      "eyebrow": "Topic",
+      "heading": "Serving society ethically in the age of Artificial Intelligence.",
+      "cta": {
+        "href": "https://www.example.com"
       }
     }
   ]
