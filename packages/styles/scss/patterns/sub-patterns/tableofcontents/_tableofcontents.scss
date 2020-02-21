@@ -98,6 +98,12 @@
         a:hover {
           cursor: pointer;
         }
+
+        a:focus {
+          outline: 2px solid $focus;
+          z-index: 1;
+          position: relative;
+        }
       }
     }
     @include carbon--breakpoint('sm') {
