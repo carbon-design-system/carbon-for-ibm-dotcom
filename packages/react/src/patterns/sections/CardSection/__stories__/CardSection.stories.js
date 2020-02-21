@@ -42,4 +42,4 @@ storiesOf('Patterns (Sections)|CardSection', module)
         theme={theme}
       />
     );
-  })
+  });
