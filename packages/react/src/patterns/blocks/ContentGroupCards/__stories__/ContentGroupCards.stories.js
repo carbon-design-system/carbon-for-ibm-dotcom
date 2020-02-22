@@ -1,6 +1,6 @@
 import './index.scss';
 import ContentGroupCards from '../ContentGroupCards';
-import ContentGroupCardsKnobs from '../data/ContentGroupCards.knobs';
+import ContentGroupCardsKnobs from './data/ContentGroupCards.knobs';
 import React from 'react';
 import readme from '../README.md';
 import { storiesOf } from '@storybook/react';

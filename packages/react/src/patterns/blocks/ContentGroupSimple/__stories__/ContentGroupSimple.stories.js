@@ -1,7 +1,7 @@
 import './index.scss';
 import { text, object, withKnobs, select } from '@storybook/addon-knobs';
 import ContentGroupSimple from '../ContentGroupSimple';
-import ContentGroupSimpleKnobs from '../data/ContentGroupSimple.knobs';
+import ContentGroupSimpleKnobs from './data/ContentGroupSimple.knobs';
 import React from 'react';
 import readme from '../README.md';
 import { storiesOf } from '@storybook/react';
