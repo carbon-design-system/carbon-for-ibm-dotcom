@@ -23,30 +23,61 @@ const { prefix } = settings;
  * @param {object} props ContentBlockMixedGroups props object
  * @param {string} props.heading Content block heading
  * @param {string} props.copy Content block description
- * @param {*} props.children Content block mixed groups
  * @param {*} props.cta cta object
+ * @param {*} props.items Content block mixed group patterns
  * @returns {*} ContentBlockMixedGroups JSX Object
  */
-const ContentBlockMixedGroups = ({ heading, copy, children, cta }) => (
-  <ContentBlock
-    heading={heading}
-    copy={copy}
-    cta={cta}
-    customClassName={`${prefix}--content-block-mixedgroups ${prefix}--col-lg-8`}>
-    <div data-autoid={`${stablePrefix}--content-block-mixedgroups`}>
-      {children}
-    </div>
-  </ContentBlock>
-);
+const ContentBlockMixedGroups = ({ heading, copy, cta, items }) => {
+  const group = items.map((item, index) => {
+    switch (item.type) {
+      case 'ContentGroupCards':
+        return (
+          <ContentGroupCards
+            heading={item.heading}
+            items={item.items}
+            key={index}
+          />
+        );
+      case 'ContentGroupPictograms':
+        return (
+          <ContentGroupPictograms
+            heading={item.heading}
+            items={item.items}
+            key={index}
+          />
+        );
+      case 'ContentGroupSimple':
+        return (
+          <ContentGroupSimple
+            mediaType={item.mediaType}
+            mediaData={item.mediaData}
+            heading={item.heading}
+            items={item.items}
+            cta={item.cta}
+            key={index}
+          />
+        );
+    }
+  });
+
+  return (
+    <ContentBlock
+      heading={heading}
+      copy={copy}
+      cta={cta}
+      items={items}
+      customClassName={`${prefix}--content-block-mixedgroups`}>
+      <div data-autoid={`${stablePrefix}--content-block-mixedgroups`}>
+        {group}
+      </div>
+    </ContentBlock>
+  );
+};
 
 ContentBlockMixedGroups.propTypes = {
   heading: PropTypes.string.isRequired,
   copy: PropTypes.string,
-  children: PropTypes.oneOfType([
-    PropTypes.instanceOf(ContentGroupCards),
-    PropTypes.instanceOf(ContentGroupPictograms),
-    PropTypes.instanceOf(ContentGroupSimple),
-  ]),
+  items: PropTypes.object,
   cta: PropTypes.object,
 };
 
