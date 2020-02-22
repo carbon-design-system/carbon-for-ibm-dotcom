@@ -1,7 +1,7 @@
 # Content Block - Mixed Groups
 
 > The "Content Block - Mixed Groups" pattern leverages the Content Block as the
-> overall contain of this patter, and allows only a few opinionated block
+> overall contain of this pattern, and allows only a few opinionated block
 > patterns to be included.
 
 ## Getting started
@@ -25,18 +25,91 @@ import { ContentBlockMixedGroups } from '@carbon/ibmdotcom-react';
 import 'yourapplication.scss';
 
 function App() {
+  const heading = 'This is the content block heading.';
+  const copy = `__This__ *is* the content block intro copy.`;
+  const cta = {
+    cta: {
+      href: 'https://www.ibm.com',
+    },
+    style: 'card',
+    type: 'local',
+    copy: 'Content Block CTA copy',
+    heading: 'Content Block CTA heading',
+  };
+
+  const items = [
+    {
+      type: 'ContentGroupCards',
+      heading: 'ContentGroupCards heading',
+      items: [
+        {
+          heading: 'ContentGroupCards item heading',
+          copy: 'ContentGroupCards item copy.',
+          cta: {
+            href: 'https://www.ibm.com',
+          },
+        },
+      ],
+    },
+    {
+      type: 'ContentGroupPictograms',
+      heading: 'ContentGroupPictograms heading',
+      items: [
+        {
+          heading: 'ContentGroupPictograms item heading.',
+          copy: 'ContentGroupPictograms item copy.',
+          cta: {
+            cta: {
+              href: 'https://www.ibm.com',
+            },
+            type: 'local',
+            copy: 'ContentGroupPictograms CTA copy',
+          },
+          pictogram: {
+            src: Desktop,
+            'aria-label': 'Desktop',
+          },
+        },
+      ],
+    },
+    {
+      type: 'ContentGroupSimple',
+      mediaType: 'image',
+      mediaData: {
+        images: [
+          { src: 'https://your-image.com/320/160', minWidth: 320 },
+          { src: 'https://your-image.com/400/400', minWidth: 400 },
+          { src: 'https://your-image.com/672/672', minWidth: 672 },
+        ],
+        alt: 'Image alt',
+        defaultImage: 'https://your-image.com/672/672',
+      },
+      heading: 'ContentGroupSimple heading.',
+      items: [
+        {
+          heading: 'ContentGroupSimple item heading.',
+          copy: 'ContentGroupSimple item copy.',
+        },
+      ],
+      cta: {
+        cta: {
+          href: 'https://www.ibm.com',
+        },
+        style: 'text',
+        type: 'local',
+        copy: 'ContentGroupSimple CTA copy',
+        heading: 'ContentGroupSimple CTA heading',
+      },
+    },
+  ];
+
   return (
-    <ContentBlockMixedGroups heading={heading} copy={copy} cta={cta}>
-      <ContentGroupCards heading={heading} items={items} />
-      <ContentGroupPictograms heading={heading} items={items} />
-      <ContentGroupSimple
-        mediaType={mediaType}
-        mediaData={mediaData}
-        heading={heading}
-        items={items}
-        cta={cta}
-      />
-    </ContentBlockMixedGroups>
+    <ContentBlockMixedGroups
+      heading={heading}
+      copy={copy}
+      cta={cta}
+      items={items}
+    />
   );
 }
 
@@ -45,20 +118,12 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 ## Props
 
-| Name       | Required | Data Type | Default Value | Description                                                                                                                                                               |
-| ---------- | -------- | --------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `copy`     | YES      | String    | null          | Short copy to suppport title.                                                                                                                                             |
-| `heading`  | YES      | String    | n/a           | Main title of ContentBlockWithMedia pattern.                                                                                                                              |
-| `children` | YES      | Component | n/a           | See `children` section.                                                                                                                                                   |
-| `cta`      | NO       | Object    | null          | Supports `text` and `card`. See [`CTA`](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/components/CTA) for full usage details. |
-
-### children
-
-| Name                     | Data Type | Description                                                                                                                                                                              |
-| ------------------------ | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ContentGroupCards`      | Component | See [`ContentGroupCards`](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/patterns/blocks/ContentGroupCards) for full usage details.           |
-| `ContentGroupPictograms` | Component | See [`ContentGroupPictograms`](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/patterns/blocks/ContentGroupPictograms) for full usage details. |
-| `ContentGroupSimple`     | Component | See [`ContentGroupSimple`](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/patterns/blocks/ContentGroupSimple) for full usage details.         |
+| Name      | Required | Data Type | Default Value | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --------- | -------- | --------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `heading` | YES      | String    | n/a           | Title of the content block.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| `copy`    | YES      | String    | n/a           | Simple content item. Uses [`markdownToHtml`](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/utilities/src/utilities/markdownToHtml) utility.                                                                                                                                                                                                                                                                                                                                                            |
+| `cta`     | NO       | Object    | n/a           | CTA used at the end of content body. `Text` and `Card` styles supported.                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| `items`   | YES      | Object    | null          | Supports [`ContentGroupCards`](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/patterns/blocks/ContentGroupCards), [`ContentGroupPictograms`](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/patterns/blocks/ContentGroupPictograms), and [`ContentGroupSimple`](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/patterns/blocks/ContentGroupSimple) pattern groups. See patterns for full usage details. |
 
 ### Stable selectors
 
