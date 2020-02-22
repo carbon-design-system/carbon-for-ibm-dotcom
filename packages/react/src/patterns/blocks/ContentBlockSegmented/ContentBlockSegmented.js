@@ -24,8 +24,8 @@ const { prefix } = settings;
  * @param {string} props.heading content block heading
  * @param {string} props.copy content block short copy to support the heading
  * @param {object} props.cta content block cta
- * @param {object} props.image content block intro image
- * @param {object} props.items content block content items
+ * @param {Array} props.image content block intro image
+ * @param {Array} props.items content block content items
  * @returns {*} Content Block - Segmented pattern
  */
 const ContentBlockSegmented = ({ copy, cta, heading, image, items }) => {
@@ -58,7 +58,7 @@ const _renderGroup = items =>
     <ContentGroup heading={item.heading} key={index}>
       <div
         data-autoid={`${stablePrefix}--content-block-segmented__content-group`}>
-        <ContentItem {...item.content} key={index} />
+        <ContentItem copy={item.copy} key={index} />
         {item.image && (
           <div data-autoid={`${stablePrefix}--content-block-segmented__media`}>
             <Image {...item.image} />
@@ -72,8 +72,8 @@ ContentBlockSegmented.propTypes = {
   heading: PropTypes.string.isRequired,
   copy: PropTypes.string.isRequired,
   cta: PropTypes.object,
-  image: PropTypes.instanceOf(Image),
-  items: PropTypes.object.isRequired,
+  image: PropTypes.array,
+  items: PropTypes.array.isRequired,
 };
 
 export default ContentBlockSegmented;
