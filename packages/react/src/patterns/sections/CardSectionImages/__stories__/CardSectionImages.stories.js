@@ -22,7 +22,7 @@ storiesOf('Patterns (Sections)|CardSectionImages', module)
     };
     return (
       <CardSectionImages
-        heading={text('Heading(required):', 'Read more about it')}
+        heading={text('Heading (required):', 'Read more about it')}
         theme={select('theme', themes, themes.white)}
         cards={object('Data', cards.CardSectionImages)}
       />

@@ -23,7 +23,7 @@ storiesOf('Patterns (Sections)|CardSectionSimple', module)
 
     return (
       <CardSectionSimple
-        heading={text('Heading(required):', 'Aliquam condimentum interdum')}
+        heading={text('Heading (required):', 'Aliquam condimentum interdum')}
         theme={select('theme', themes, themes.white)}
         cards={object('Data', cards.CardSectionSimple)}
       />
