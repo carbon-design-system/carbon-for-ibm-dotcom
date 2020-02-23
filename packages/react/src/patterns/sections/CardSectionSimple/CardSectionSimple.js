@@ -5,8 +5,7 @@ import React from 'react';
  * CardSectionSimple pattern it is Cards without images
  *
  * @param {object} props props object
- * @param {string} props.otherProps props
- * @param {Array} props.cards array card
+ * @param {Array} props.cards array of card
  * @returns {object} JSX Object
  */
 const CardSectionSimple = ({ cards, ...otherProps }) => {
