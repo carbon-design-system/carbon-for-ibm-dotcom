@@ -24,7 +24,7 @@ const { prefix } = settings;
  * @param {string} props.heading content block heading
  * @param {string} props.copy content block short copy to support the heading
  * @param {object} props.cta content block cta
- * @param {Array} props.image content block intro image
+ * @param {object} props.image content block intro image
  * @param {Array} props.items content block content items
  * @returns {*} Content Block - Segmented pattern
  */
@@ -72,7 +72,7 @@ ContentBlockSegmented.propTypes = {
   heading: PropTypes.string.isRequired,
   copy: PropTypes.string.isRequired,
   cta: PropTypes.object,
-  image: PropTypes.array,
+  image: PropTypes.object,
   items: PropTypes.array.isRequired,
 };
 

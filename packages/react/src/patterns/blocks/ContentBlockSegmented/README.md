@@ -46,7 +46,7 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 | `cta`     | NO       | Object    | n/a           | Supports `text` and `card` styles. See the [`CTA`](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/components/CTA) component for full usage details. |
 | `heading` | YES      | String    | n/a           | Main title of pattern.                                                                                                                                                                         |
 | `items`   | YES      | Array     | n/a           | Array of content items to render. See `items` below.                                                                                                                                           |
-| `image`   | NO       | Array     | n/a           | See the [`Image`](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/components/image) component for full usage details.                                |
+| `image`   | NO       | Object    | n/a           | See the [`Image`](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/components/image) component for full usage details.                                |
 
 ### items
 
@@ -54,7 +54,7 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 | --------- | -------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `heading` | YES      | String    | Short copy describing content item.                                                                                                                             |
 | `image`   | NO       | Array     | See the [`Image`](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/components/Image) component for full usage details. |
-| `copy`    | YES      | Sting     | Item content.                                                                                                                                                   |
+| `copy`    | YES      | String    | Item content.                                                                                                                                                   |
 
 ## Stable selectors
 

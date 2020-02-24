@@ -1,5 +1,5 @@
 import './index.scss';
-import { select, text, withKnobs } from '@storybook/addon-knobs';
+import { select, object, text, withKnobs } from '@storybook/addon-knobs';
 import ContentBlockSegmented from '../ContentBlockSegmented';
 import React from 'react';
 import readme from '../README.md';
@@ -146,7 +146,7 @@ storiesOf('Patterns (Blocks)|ContentBlockSegmented', module)
               cta={cta}
               heading={heading}
               image={image}
-              items={items}
+              items={object('Conent items', items)}
             />
           </div>
         </div>
