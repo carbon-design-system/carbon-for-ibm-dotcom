@@ -53,7 +53,7 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 | Name      | Required | Data Type | Description                                                                                                                                                     |
 | --------- | -------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `heading` | YES      | String    | Short copy describing content item.                                                                                                                             |
-| `image`   | NO       | Array     | See the [`Image`](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/components/Image) component for full usage details. |
+| `image`   | NO       | Object    | See the [`Image`](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/components/Image) component for full usage details. |
 | `copy`    | YES      | String    | Item content.                                                                                                                                                   |
 
 ## Stable selectors
