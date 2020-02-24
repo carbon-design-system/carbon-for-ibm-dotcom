@@ -42,8 +42,10 @@ const ContentGroupSimpleKnobs = {
     },
   ],
   cta: {
-    title: 'Lorem ipsum dolor',
-    href: 'https://www.example.com',
+    cta: {
+      href: 'https://www.example.com',
+    },
+    heading: 'Lorem ipsum dolor',
   },
 };
 
