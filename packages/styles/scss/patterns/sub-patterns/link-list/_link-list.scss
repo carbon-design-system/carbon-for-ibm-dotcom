@@ -18,7 +18,6 @@
       padding-bottom: $carbon--layout-05;
       &__heading {
         margin-bottom: $carbon--layout-05;
-        border: 1px solid #ee538b;
         padding: $carbon--layout-01;
       }
     }
@@ -42,7 +41,6 @@
 
     &__list {
       margin-bottom: $carbon--layout-03;
-      border: 1px solid #ee538b;
       padding: $carbon--layout-01;
 
       @include carbon--breakpoint('lg') {
