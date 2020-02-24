@@ -25,13 +25,13 @@ const { prefix } = settings;
 const LinkList = ({ heading, items }) => {
   return (
     <div
-      className={`${prefix}--link--list`}
-      data-autoid={`${stablePrefix}--link--list`}>
-      <h3 className={`${prefix}--link--list__heading`}>{heading}</h3>
-      <div className={`${prefix}--link--list__list`}>
+      className={`${prefix}--link-list`}
+      data-autoid={`${stablePrefix}--link-list`}>
+      <h3 className={`${prefix}--link-list__heading`}>{heading}</h3>
+      <div className={`${prefix}--link-list__list`}>
         {items.map((item, index) => {
           return (
-            <div className={`${prefix}--link--list__list__CTA`} key={index}>
+            <div className={`${prefix}--link-list__list__CTA`} key={index}>
               <h2>{item.heading}</h2>
               <CTA type={item.type} {...item} />
             </div>

@@ -12,7 +12,7 @@
   }
 }
 @mixin link--list {
-  .#{$prefix}--link--list {
+  .#{$prefix}--link-list {
     @include carbon--breakpoint(sm) {
       padding-top: $carbon--layout-03;
       padding-bottom: $carbon--layout-05;
