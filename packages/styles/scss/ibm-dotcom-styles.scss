@@ -28,12 +28,15 @@
 @import 'patterns/sections/simpleoverview/simpleoverview';
 
 // Patterns - Blocks
-@import 'patterns/blocks/contentgroupcards/contentgroupcards';
-@import 'patterns/blocks/content-group-pictograms/content-group-pictograms';
+@import 'patterns/blocks/content-block-media/content-block-media';
+@import 'patterns/blocks/content-block-mixedgroups/content-block-mixedgroups';
+@import 'patterns/blocks/content-block-simple/content-block-simple';
+@import 'patterns/blocks/content-group-cards';
+@import 'patterns/blocks/content-group-pictograms';
+@import 'patterns/blocks/content-group-simple/content-group-simple';
 @import 'patterns/blocks/FeaturedLink/featuredlink';
 @import 'patterns/blocks/listsection/listsection';
 @import 'patterns/blocks/logo-grid/logo-grid';
-@import 'patterns/blocks/simplelongform/simplelongform';
 @import 'patterns/blocks/usecases/usecases';
 
 // Patterns - Sub-Patterns
