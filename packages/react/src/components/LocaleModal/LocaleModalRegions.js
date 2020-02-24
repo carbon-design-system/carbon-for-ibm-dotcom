@@ -88,10 +88,14 @@ const LocaleModalRegions = ({
                   data-autoid={`${stablePrefix}--locale-modal__geo-btn-${region.key}`}
                   data-region={region.key}
                   key={region.key}
-                  title={region.name}
+                  heading={region.name}
                   type="link"
-                  href={hasCountries ? 'javascript:void(0);' : null}
-                  icon={hasCountries ? ArrowRight20 : Error20}
+                  cta={{
+                    href: hasCountries ? 'javascript:void(0);' : null,
+                    icon: {
+                      src: hasCountries ? ArrowRight20 : Error20,
+                    },
+                  }}
                 />
               </div>
             );
