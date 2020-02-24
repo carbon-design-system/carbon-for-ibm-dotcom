@@ -79,16 +79,16 @@ const CardSection = ({ heading, cards, theme }) => {
                     <Card
                       key={index}
                       image={card.image}
-                      heading={card.title}
+                      heading={card.heading}
                       eyebrow={card.eyebrow}
                       copy={card.copy}
                       cta={{
-                        href: card.link.href,
+                        href: card.cta.href,
                         icon: {
                           src: ArrowRight20,
                         },
                       }}
-                      target={card.link.target}
+                      target={card.cta.target}
                       type="link"
                     />
                   </div>

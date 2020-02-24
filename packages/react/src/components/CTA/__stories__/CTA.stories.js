@@ -1,4 +1,5 @@
 import { select, withKnobs } from '@storybook/addon-knobs';
+import { ArrowRight20 } from '@carbon/icons-react';
 import CTA from '../CTA';
 import React from 'react';
 import readme from '../README.md';
@@ -51,6 +52,7 @@ storiesOf('Components|CTA', module)
             heading: copy[1],
             cta: {
               href: urlBy[type],
+              src: ArrowRight20,
             },
             image: {
               defaultImage: 'https://picsum.photos/id/672/672',

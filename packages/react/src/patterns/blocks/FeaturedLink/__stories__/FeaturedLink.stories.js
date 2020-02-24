@@ -6,6 +6,7 @@
  */
 import './index.scss';
 import { object, text, withKnobs } from '@storybook/addon-knobs';
+import { ArrowRight20 } from '@carbon/icons-react';
 import { DDS_FEATURED_LINK } from '../../../../internal/FeatureFlags';
 import FeaturedLink from '../FeaturedLink';
 import React from 'react';
@@ -47,6 +48,7 @@ if (DDS_FEATURED_LINK) {
                   image: images,
                   cta: {
                     href: cardhref,
+                    src: ArrowRight20,
                   },
                 }}
               />

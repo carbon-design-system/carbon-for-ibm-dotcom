@@ -4,8 +4,6 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-
-import { ArrowRight20 } from '@carbon/icons-react';
 import { Card } from '../../sub-patterns/Card';
 import { ContentGroup } from '../../sub-patterns/ContentGroup';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
@@ -27,7 +25,7 @@ const { prefix } = settings;
 const FeaturedLink = ({ heading, card }) => {
   const cardProps = {
     ...card,
-    cta: { ...card.cta, icon: { src: ArrowRight20, ...card.cta.icon } },
+    cta: { ...card.cta, icon: { src: card.cta.src, ...card.cta.icon } },
   };
   return (
     <section
