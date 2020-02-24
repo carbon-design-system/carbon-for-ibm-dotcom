@@ -9,11 +9,13 @@ import { ArrowRight20 } from '@carbon/icons-react';
 import { Card } from '../../sub-patterns/Card';
 import classNames from 'classnames';
 import { ContentSection } from '../../sub-patterns/ContentSection';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
 import root from 'window-or-global';
 import { sameHeight } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
 
+const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 /**
  * Card section Component
@@ -63,9 +65,8 @@ const CardSection = ({ heading, cards, theme }) => {
   return (
     <ContentSection
       heading={heading}
-      customClassName={classNames(`${prefix}--card-section`, _setTheme(theme))}
-      ref={containerRef}>
-      {_renderCards(cards)}
+      customClassName={classNames(`${prefix}--card-section`, _setTheme(theme))}>
+      {_renderCards(cards, containerRef)}
     </ContentSection>
   );
 };
@@ -74,31 +75,32 @@ const CardSection = ({ heading, cards, theme }) => {
  * Renders the cards based on the CardSection entries
  *
  * @param {Array} cards objects array
+ * @param {object} containerRef ref of elements
  * @returns {*} CardSection JSX objects
  */
-const _renderCards = cards => (
+const _renderCards = (cards, containerRef) => (
   <div
-    className={`${prefix}--card-section__cards__row ${prefix}--row--condensed`}>
+    data-autoid={`${stablePrefix}--card-section`}
+    className={`${prefix}--card-section__cards__row ${prefix}--row--condensed`}
+    ref={containerRef}>
     {cards.map((card, index) => {
       return (
         <div className={`${prefix}--card-section__cards__col`}>
-          <div className={`${prefix}--card-section__cards__col`}>
-            <Card
-              key={index}
-              image={card.image}
-              heading={card.title}
-              eyebrow={card.eyebrow}
-              copy={card.copy}
-              cta={{
-                href: card.link.href,
-                icon: {
-                  src: ArrowRight20,
-                },
-              }}
-              target={card.link.target}
-              type="link"
-            />
-          </div>
+          <Card
+            key={index}
+            image={card.image}
+            heading={card.heading}
+            eyebrow={card.eyebrow}
+            copy={card.copy}
+            cta={{
+              href: card.cta.href,
+              icon: {
+                src: ArrowRight20,
+              },
+            }}
+            target={card.cta.target}
+            type="link"
+          />
         </div>
       );
     })}
