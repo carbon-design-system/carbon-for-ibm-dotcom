@@ -7,8 +7,8 @@
 @import '../../sub-patterns/card/index';
 @import '../../../globals/utils/aspect-ratio';
 
-@mixin featuredlink {
-  .#{$prefix}--featuredlink {
+@mixin feature-card {
+  .#{$prefix}--feature-card {
     color: $text-01;
     background: $ui-background;
 
@@ -40,6 +40,6 @@
     }
   }
 }
-@include exports('featuredlink') {
-  @include featuredlink;
+@include exports('feature-card') {
+  @include feature-card;
 }

@@ -10,6 +10,6 @@ export * from './ContentBlockMixed';
 export * from './ContentBlockSimple';
 export * from './ContentGroupCards';
 export * from './ContentGroupPictograms';
-export * from './FeaturedLink';
+export * from './FeatureCard';
 export * from './ListSection';
 export * from './LogoGrid';

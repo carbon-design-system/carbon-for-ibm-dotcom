@@ -20,22 +20,22 @@ const { prefix } = settings;
  * Featured Link Component
  *
  * @param {object} props props object
- * @param {string} props.heading FeaturedLink section heading
- * @param {Array} props.card FeaturedLink section card object
- * @returns {*} FeaturedLink JSX component
+ * @param {string} props.heading section heading
+ * @param {Array} props.card section card object
+ * @returns {*} FeatureCard JSX component
  */
-const FeaturedLink = ({ heading, card }) => {
+const FeatureCard = ({ heading, card }) => {
   const cardProps = {
     ...card,
     cta: { ...card.cta, icon: { src: ArrowRight20, ...card.cta.icon } },
   };
   return (
     <section
-      className={`${prefix}--featuredlink`}
-      data-autoid={`${stablePrefix}--featuredlink`}>
+      className={`${prefix}--feature-card`}
+      data-autoid={`${stablePrefix}--feature-card`}>
       <ContentGroup heading={heading}>
         <Card
-          customClassName={`${prefix}--featuredlink__card`}
+          customClassName={`${prefix}--feature-card__card`}
           {...cardProps}
           type="link"
           inverse={true}
@@ -45,9 +45,9 @@ const FeaturedLink = ({ heading, card }) => {
   );
 };
 
-FeaturedLink.propTypes = {
+FeatureCard.propTypes = {
   heading: PropTypes.string.isRequired,
   card: PropTypes.object.isRequired,
 };
 
-export default FeaturedLink;
+export default FeatureCard;
