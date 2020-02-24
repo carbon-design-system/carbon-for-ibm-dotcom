@@ -47,7 +47,7 @@ const PictogramItem = ({
         <ContentItem
           heading={heading}
           copy={copy}
-          cta={{ style: 'text', ...cta }}
+          cta={cta && { style: 'text', ...cta }}
         />
       </div>
     </div>

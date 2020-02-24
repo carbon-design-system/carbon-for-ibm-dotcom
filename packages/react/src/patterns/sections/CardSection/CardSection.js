@@ -1,12 +1,18 @@
-import { featureFlag, sameHeight } from '@carbon/ibmdotcom-utilities';
+/**
+ * Copyright IBM Corp. 2016, 2018
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 import React, { useEffect, useRef } from 'react';
 import { ArrowRight20 } from '@carbon/icons-react';
 import { Card } from '../../sub-patterns/Card';
 import classNames from 'classnames';
-import { DDS_CARD_SECTION } from '../../../internal/FeatureFlags';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
 import root from 'window-or-global';
+import { sameHeight } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
 
 const { stablePrefix } = ddsSettings;
@@ -16,12 +22,12 @@ const { prefix } = settings;
  * Card section Component
  *
  * @param {object} props props object
- * @param {string} props.title cards group title
+ * @param {string} props.heading cards group heading
  * @param {string} props.theme theme name
- * @param {Array} props.cards Array of object with title, href and target properties
+ * @param {Array} props.cards Array of card
  * @returns {object} JSX Object
  */
-const CardSection = ({ title, cards, theme }) => {
+const CardSection = ({ heading, cards, theme }) => {
   const containerRef = useRef();
   useEffect(() => {
     setCardHeight();
@@ -37,11 +43,11 @@ const CardSection = ({ title, cards, theme }) => {
    */
   const setCardHeight = () => {
     sameHeight(
-      containerRef.current.getElementsByClassName(`${prefix}--card__title`),
+      containerRef.current.getElementsByClassName(`${prefix}--card__heading`),
       'md'
     );
     sameHeight(
-      containerRef.current.getElementsByClassName(`${prefix}--card__content`),
+      containerRef.current.getElementsByClassName(`${prefix}--card__copy`),
       'md'
     );
   };
@@ -49,21 +55,21 @@ const CardSection = ({ title, cards, theme }) => {
   /**
    * sets the class name based on theme type
    *
-   * @param {string} theme theme type ( g10 | white/default )
+   * @private
+   * @param {string} theme theme type ( g10 | g100 | white/default )
    * @returns {string} theme css class names
    */
-  const setTheme = theme => {
+  const _setTheme = theme => {
     return theme && `${prefix}--card-section--${theme}`;
   };
 
-  return featureFlag(
-    DDS_CARD_SECTION,
+  return (
     <section
       data-autoid={`${stablePrefix}--card-section`}
-      className={classNames(`${prefix}--card-section`, setTheme(theme))}>
+      className={classNames(`${prefix}--card-section`, _setTheme(theme))}>
       <div className={`${prefix}--card-section__container`}>
         <div className={`${prefix}--card-section__row`}>
-          <h2 className={`${prefix}--card-section__title`}>{title}</h2>
+          <h2 className={`${prefix}--card-section__heading`}>{heading}</h2>
           <div className={`${prefix}--card-section__cards`} ref={containerRef}>
             <div
               className={`${prefix}--card-section__cards__row ${prefix}--row--condensed`}>
@@ -73,11 +79,16 @@ const CardSection = ({ title, cards, theme }) => {
                     <Card
                       key={index}
                       image={card.image}
-                      title={card.title}
-                      content={card.copy}
-                      href={card.link.href}
+                      heading={card.title}
+                      eyebrow={card.eyebrow}
+                      copy={card.copy}
+                      cta={{
+                        href: card.link.href,
+                        icon: {
+                          src: ArrowRight20,
+                        },
+                      }}
                       target={card.link.target}
-                      icon={ArrowRight20}
                       type="link"
                     />
                   </div>
@@ -93,19 +104,8 @@ const CardSection = ({ title, cards, theme }) => {
 
 CardSection.propTypes = {
   theme: PropTypes.string,
-  title: PropTypes.string,
-  cards: PropTypes.arrayOf(
-    PropTypes.shape({
-      image: PropTypes.object,
-      title: PropTypes.string,
-      copy: PropTypes.string,
-      link: PropTypes.shape({
-        href: PropTypes.string,
-        text: PropTypes.string,
-        target: PropTypes.string,
-      }),
-    })
-  ),
+  heading: PropTypes.string.isRequired,
+  cards: PropTypes.arrayOf(Card),
 };
 
 export default CardSection;

@@ -51,7 +51,7 @@ const ContentItem = ({ cta, copy, heading, image }) => (
         type={cta.type}
         copy={cta.copy}
         href={cta.href}
-        customClassname={`${prefix}--content-item__cta`}
+        customClassName={`${prefix}--content-item__cta`}
       />
     )}
   </div>

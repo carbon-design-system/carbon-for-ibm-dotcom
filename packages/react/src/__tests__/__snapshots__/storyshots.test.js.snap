@@ -808,7 +808,7 @@ Array [
                     tabIndex={0}
                     type="button"
                   >
-                    
+
                     <svg
                       aria-hidden={true}
                       className="bx--btn__icon"
@@ -1437,7 +1437,7 @@ Array [
                     tabIndex={0}
                     type="button"
                   >
-                    
+
                     <svg
                       aria-hidden={true}
                       className="bx--btn__icon"
@@ -2431,114 +2431,112 @@ Array [
                       className="bx--content-group__col bx--content-group__children"
                       data-autoid="dds--content-group__children"
                     >
-                      <div>
-                        <div
-                          data-autoid="dds--content-group-simple__media"
+                      <div
+                        data-autoid="dds--content-group-simple__media"
+                      >
+                        <picture
+                          alt="lead space image"
+                          className="bx--image"
+                          data-autoid="dds--image"
                         >
-                          <picture
+                          <source
+                            media="(min-width: 672px )"
+                            srcSet="https://picsum.photos/id/2/672/672"
+                          />
+                          <source
+                            media="(min-width: 400px )"
+                            srcSet="https://picsum.photos/id/2/400/400"
+                          />
+                          <source
+                            media="(min-width: 320px )"
+                            srcSet="https://picsum.photos/id/2/320/160"
+                          />
+                          <img
                             alt="lead space image"
-                            className="bx--image"
-                            data-autoid="dds--image"
-                          >
-                            <source
-                              media="(min-width: 672px )"
-                              srcSet="https://picsum.photos/id/2/672/672"
-                            />
-                            <source
-                              media="(min-width: 400px )"
-                              srcSet="https://picsum.photos/id/2/400/400"
-                            />
-                            <source
-                              media="(min-width: 320px )"
-                              srcSet="https://picsum.photos/id/2/320/160"
-                            />
-                            <img
-                              alt="lead space image"
-                              className="bx--image__img"
-                              src="https://picsum.photos/id/2/672/672"
-                            />
-                          </picture>
-                        </div>
-                        <div
-                          className="bx--content-item"
-                          data-autoid="dds--content-item"
-                        >
-                          <h4
-                            className="bx--content-item__heading"
-                            data-autoid="dds--content-item__heading"
-                          >
-                            Lorem ipsum dolor sit amet.
-                          </h4>
-                          <div
-                            className="bx--content-item__copy"
-                            dangerouslySetInnerHTML={
-                              Object {
-                                "__html": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.",
-                              }
-                            }
-                            data-autoid="dds--content-item__copy"
+                            className="bx--image__img"
+                            src="https://picsum.photos/id/2/672/672"
                           />
-                        </div>
-                        <div
-                          className="bx--content-item"
-                          data-autoid="dds--content-item"
+                        </picture>
+                      </div>
+                      <div
+                        className="bx--content-item"
+                        data-autoid="dds--content-item"
+                      >
+                        <h4
+                          className="bx--content-item__heading"
+                          data-autoid="dds--content-item__heading"
                         >
-                          <h4
-                            className="bx--content-item__heading"
-                            data-autoid="dds--content-item__heading"
-                          >
-                            Lorem ipsum dolor sit amet.
-                          </h4>
-                          <div
-                            className="bx--content-item__copy"
-                            dangerouslySetInnerHTML={
-                              Object {
-                                "__html": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.",
-                              }
-                            }
-                            data-autoid="dds--content-item__copy"
-                          />
-                        </div>
+                          Lorem ipsum dolor sit amet.
+                        </h4>
                         <div
-                          className="bx--content-item"
-                          data-autoid="dds--content-item"
-                        >
-                          <h4
-                            className="bx--content-item__heading"
-                            data-autoid="dds--content-item__heading"
-                          >
-                            Lorem ipsum dolor sit amet.
-                          </h4>
-                          <div
-                            className="bx--content-item__copy"
-                            dangerouslySetInnerHTML={
-                              Object {
-                                "__html": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.",
-                              }
+                          className="bx--content-item__copy"
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p>",
                             }
-                            data-autoid="dds--content-item__copy"
-                          />
-                        </div>
+                          }
+                          data-autoid="dds--content-item__copy"
+                        />
+                      </div>
+                      <div
+                        className="bx--content-item"
+                        data-autoid="dds--content-item"
+                      >
+                        <h4
+                          className="bx--content-item__heading"
+                          data-autoid="dds--content-item__heading"
+                        >
+                          Lorem ipsum dolor sit amet.
+                        </h4>
                         <div
-                          className="bx--content-item"
-                          data-autoid="dds--content-item"
-                        >
-                          <h4
-                            className="bx--content-item__heading"
-                            data-autoid="dds--content-item__heading"
-                          >
-                            Lorem ipsum dolor sit amet.
-                          </h4>
-                          <div
-                            className="bx--content-item__copy"
-                            dangerouslySetInnerHTML={
-                              Object {
-                                "__html": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.",
-                              }
+                          className="bx--content-item__copy"
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p>",
                             }
-                            data-autoid="dds--content-item__copy"
-                          />
-                        </div>
+                          }
+                          data-autoid="dds--content-item__copy"
+                        />
+                      </div>
+                      <div
+                        className="bx--content-item"
+                        data-autoid="dds--content-item"
+                      >
+                        <h4
+                          className="bx--content-item__heading"
+                          data-autoid="dds--content-item__heading"
+                        >
+                          Lorem ipsum dolor sit amet.
+                        </h4>
+                        <div
+                          className="bx--content-item__copy"
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p>",
+                            }
+                          }
+                          data-autoid="dds--content-item__copy"
+                        />
+                      </div>
+                      <div
+                        className="bx--content-item"
+                        data-autoid="dds--content-item"
+                      >
+                        <h4
+                          className="bx--content-item__heading"
+                          data-autoid="dds--content-item__heading"
+                        >
+                          Lorem ipsum dolor sit amet.
+                        </h4>
+                        <div
+                          className="bx--content-item__copy"
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p>",
+                            }
+                          }
+                          data-autoid="dds--content-item__copy"
+                        />
                       </div>
                     </div>
                     <div
@@ -2639,7 +2637,7 @@ Array [
                 className="bx--content-block__intro"
                 dangerouslySetInnerHTML={
                   Object {
-                    "__html": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Here are some common categories:",
+                    "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Here are some common categories:</p>",
                   }
                 }
               />
@@ -3124,6 +3122,393 @@ Array [
 ]
 `;
 
+exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
+Array [
+  <div
+    data-floating-menu-container=""
+    role="main"
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+      }
+    }
+  >
+    <div
+      className="storybook-readme-story"
+    >
+      <div
+        style={Object {}}
+      >
+        <div>
+          <div
+            className="bx--grid"
+          >
+            <div
+              className="bx--content-block bx--content-block-segmented bx--col-lg-8"
+              data-autoid="dds--content-block"
+            >
+              <h2
+                className="bx--content-block__title"
+                data-autoid="dds--content-block__title"
+              >
+                Lorem ipsum dolor sit amet.
+              </h2>
+              <div
+                className="bx--content-block__intro"
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Here are some common categories:</p>",
+                  }
+                }
+              />
+              <div
+                data-autoid="dds--content-block__children"
+              >
+                <div
+                  className="bx--content-group"
+                  data-autoid="dds--content-group"
+                >
+                  <h3
+                    className="bx--content-group__title"
+                    data-autoid="dds--content-group__title"
+                  >
+                    Lorem ipsum dolor sit amet.
+                  </h3>
+                  <div
+                    className="bx--content-group__col bx--content-group__children"
+                    data-autoid="dds--content-group__children"
+                  >
+                    <div
+                      data-autoid="dds--content-block-segmented__media"
+                    >
+                      <picture
+                        alt="lead space image"
+                        className="bx--image"
+                        data-autoid="dds--image"
+                      >
+                        <source
+                          media="(min-width: 672px )"
+                          srcSet="https://picsum.photos/id/2/672/672"
+                        />
+                        <source
+                          media="(min-width: 400px )"
+                          srcSet="https://picsum.photos/id/2/400/400"
+                        />
+                        <source
+                          media="(min-width: 320px )"
+                          srcSet="https://picsum.photos/id/2/320/160"
+                        />
+                        <img
+                          alt="lead space image"
+                          className="bx--image__img"
+                          src="https://picsum.photos/id/2/672/672"
+                        />
+                      </picture>
+                    </div>
+                    <div
+                      className="bx--content-item"
+                      data-autoid="dds--content-item"
+                    >
+                      <h4
+                        className="bx--content-item__heading"
+                        data-autoid="dds--content-item__heading"
+                      >
+                        Lorem ipsum dolor sit amet.
+                      </h4>
+                      <div
+                        className="bx--content-item__copy"
+                        dangerouslySetInnerHTML={
+                          Object {
+                            "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p>",
+                          }
+                        }
+                        data-autoid="dds--content-item__copy"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    className="bx--content-group__CTA"
+                  >
+                    <div>
+                      <div
+                        className="bx--link-with-icon__container"
+                        data-autoid="dds--link-with-icon"
+                      >
+                        <a
+                          className="bx--link bx--link-with-icon"
+                          href="https://www.example.com"
+                          onClick={[Function]}
+                          target={null}
+                        >
+                          Lorem ipsum dolor sit ametttt
+                          <svg
+                            aria-hidden={true}
+                            focusable="false"
+                            height={20}
+                            preserveAspectRatio="xMidYMid meet"
+                            style={
+                              Object {
+                                "willChange": "transform",
+                              }
+                            }
+                            viewBox="0 0 20 20"
+                            width={20}
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                            />
+                          </svg>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="bx--content-group"
+                  data-autoid="dds--content-group"
+                >
+                  <h3
+                    className="bx--content-group__title"
+                    data-autoid="dds--content-group__title"
+                  >
+                    Lorem ipsum dolor sit amet.
+                  </h3>
+                  <div
+                    className="bx--content-group__col bx--content-group__children"
+                    data-autoid="dds--content-group__children"
+                  >
+                    <div
+                      className="bx--content-item"
+                      data-autoid="dds--content-item"
+                    >
+                      <h4
+                        className="bx--content-item__heading"
+                        data-autoid="dds--content-item__heading"
+                      >
+                        Lorem ipsum dolor sit amet.
+                      </h4>
+                      <div
+                        className="bx--content-item__copy"
+                        dangerouslySetInnerHTML={
+                          Object {
+                            "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p>",
+                          }
+                        }
+                        data-autoid="dds--content-item__copy"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    className="bx--content-group__CTA"
+                  >
+                    <div>
+                      <a
+                        className="bx--link bx--tile bx--tile--clickable bx--card bx--card--CTA"
+                        data-autoid="dds--card"
+                        href="https://www.example.com"
+                        onClick={[Function]}
+                        onKeyDown={[Function]}
+                        target="_blank"
+                      >
+                        <div
+                          className="bx--card__wrapper"
+                        >
+                          <h3
+                            className="bx--card__title"
+                          >
+                            Lorem ipsum dolor
+                          </h3>
+                          <footer
+                            className="bx--card__footer"
+                          >
+                            <svg
+                              aria-hidden={true}
+                              focusable="false"
+                              height={20}
+                              preserveAspectRatio="xMidYMid meet"
+                              style={
+                                Object {
+                                  "willChange": "transform",
+                                }
+                              }
+                              viewBox="0 0 32 32"
+                              width={20}
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M26,28H6a2,2,0,0,1-2-2V6A2,2,0,0,1,6,4h9V6H6V26H26V17h2v9A2,2,0,0,1,26,28Z"
+                              />
+                              <path
+                                d="M21 2L21 4 26.59 4 18 12.59 19.41 14 28 5.41 28 11 30 11 30 2 21 2z"
+                              />
+                            </svg>
+                          </footer>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="bx--content-group"
+                  data-autoid="dds--content-group"
+                >
+                  <h3
+                    className="bx--content-group__title"
+                    data-autoid="dds--content-group__title"
+                  >
+                    Lorem ipsum dolor sit amet.
+                  </h3>
+                  <div
+                    className="bx--content-group__col bx--content-group__children"
+                    data-autoid="dds--content-group__children"
+                  >
+                    <div
+                      data-autoid="dds--content-block-segmented__media"
+                    >
+                      <picture
+                        alt="lead space image"
+                        className="bx--image"
+                        data-autoid="dds--image"
+                      >
+                        <source
+                          media="(min-width: 672px )"
+                          srcSet="https://picsum.photos/id/2/672/672"
+                        />
+                        <source
+                          media="(min-width: 400px )"
+                          srcSet="https://picsum.photos/id/2/400/400"
+                        />
+                        <source
+                          media="(min-width: 320px )"
+                          srcSet="https://picsum.photos/id/2/320/160"
+                        />
+                        <img
+                          alt="lead space image"
+                          className="bx--image__img"
+                          src="https://picsum.photos/id/2/672/672"
+                        />
+                      </picture>
+                    </div>
+                    <div
+                      className="bx--content-item"
+                      data-autoid="dds--content-item"
+                    >
+                      <h4
+                        className="bx--content-item__heading"
+                        data-autoid="dds--content-item__heading"
+                      >
+                        Lorem ipsum dolor sit amet.
+                      </h4>
+                      <div
+                        className="bx--content-item__copy"
+                        dangerouslySetInnerHTML={
+                          Object {
+                            "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p>",
+                          }
+                        }
+                        data-autoid="dds--content-item__copy"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    className="bx--content-group__CTA"
+                  >
+                    <div>
+                      <a
+                        className="bx--link bx--tile bx--tile--clickable bx--card bx--card--CTA"
+                        data-autoid="dds--card"
+                        href="https://www.example.com"
+                        onClick={[Function]}
+                        onKeyDown={[Function]}
+                        target={null}
+                      >
+                        <div
+                          className="bx--card__wrapper"
+                        >
+                          <h3
+                            className="bx--card__title"
+                          >
+                            Lorem ipsum dolor
+                          </h3>
+                          <footer
+                            className="bx--card__footer"
+                          >
+                            <svg
+                              aria-hidden={true}
+                              focusable="false"
+                              height={20}
+                              preserveAspectRatio="xMidYMid meet"
+                              style={
+                                Object {
+                                  "willChange": "transform",
+                                }
+                              }
+                              viewBox="0 0 32 32"
+                              width={20}
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M24.59 16.59L17 24.17 17 2 15 2 15 24.17 7.41 16.59 6 18 16 28 26 18 24.59 16.59z"
+                              />
+                            </svg>
+                          </footer>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="bx--content-group"
+                  data-autoid="dds--content-group"
+                >
+                  <h3
+                    className="bx--content-group__title"
+                    data-autoid="dds--content-group__title"
+                  >
+                    Lorem ipsum dolor sit amet.
+                  </h3>
+                  <div
+                    className="bx--content-group__col bx--content-group__children"
+                    data-autoid="dds--content-group__children"
+                  >
+                    <div
+                      className="bx--content-item"
+                      data-autoid="dds--content-item"
+                    >
+                      <h4
+                        className="bx--content-item__heading"
+                        data-autoid="dds--content-item__heading"
+                      >
+                        Lorem ipsum dolor sit amet.
+                      </h4>
+                      <div
+                        className="bx--content-item__copy"
+                        dangerouslySetInnerHTML={
+                          Object {
+                            "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p>",
+                          }
+                        }
+                        data-autoid="dds--content-item__copy"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <input
+    aria-label="input-text-offleft"
+    className="bx--visually-hidden"
+    type="text"
+  />,
+]
+`;
+
 exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
 Array [
   <div
@@ -3420,13 +3805,13 @@ Array [
                           className="bx--pictogram-item__wrapper"
                         >
                           <svg
-                            aria-hidden={true}
-                            ariaLabel="Desktop"
+                            aria-label="Desktop"
                             className="bx--pictogram-item__pictogram"
                             data-autoid="dds--pictogram-item__pictogram"
                             focusable="false"
                             height={48}
                             preserveAspectRatio="xMidYMid meet"
+                            role="img"
                             style={
                               Object {
                                 "willChange": "transform",
@@ -3464,7 +3849,7 @@ Array [
                               className="bx--content-item__copy"
                               dangerouslySetInnerHTML={
                                 Object {
-                                  "__html": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
+                                  "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
                                 }
                               }
                               data-autoid="dds--content-item__copy"
@@ -3518,13 +3903,13 @@ Array [
                           className="bx--pictogram-item__wrapper"
                         >
                           <svg
-                            aria-hidden={true}
-                            ariaLabel="Touch"
+                            aria-label="Touch"
                             className="bx--pictogram-item__pictogram"
                             data-autoid="dds--pictogram-item__pictogram"
                             focusable="false"
                             height={48}
                             preserveAspectRatio="xMidYMid meet"
+                            role="img"
                             style={
                               Object {
                                 "willChange": "transform",
@@ -3562,7 +3947,7 @@ Array [
                               className="bx--content-item__copy"
                               dangerouslySetInnerHTML={
                                 Object {
-                                  "__html": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
+                                  "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
                                 }
                               }
                               data-autoid="dds--content-item__copy"
@@ -3616,13 +4001,13 @@ Array [
                           className="bx--pictogram-item__wrapper"
                         >
                           <svg
-                            aria-hidden={true}
-                            ariaLabel="Pattern"
+                            aria-label="Pattern"
                             className="bx--pictogram-item__pictogram"
                             data-autoid="dds--pictogram-item__pictogram"
                             focusable="false"
                             height={48}
                             preserveAspectRatio="xMidYMid meet"
+                            role="img"
                             style={
                               Object {
                                 "willChange": "transform",
@@ -3661,7 +4046,7 @@ Array [
                               className="bx--content-item__copy"
                               dangerouslySetInnerHTML={
                                 Object {
-                                  "__html": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
+                                  "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
                                 }
                               }
                               data-autoid="dds--content-item__copy"
@@ -3859,7 +4244,7 @@ Array [
                             onClick={[Function]}
                             target={null}
                           >
-                            
+
                             <svg
                               aria-hidden={true}
                               focusable="false"
@@ -3934,7 +4319,7 @@ Array [
                 className="bx--content-block__intro"
                 dangerouslySetInnerHTML={
                   Object {
-                    "__html": " <strong class=\\"bx--type-semibold\\">Lorem</strong> ipsum <em class=\\"bx--type-light\\">dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. <strong class=\\"bx--type-semibold\\">Phasellus</strong> at elit sollicitudin, sodales nulla quis, <em class=\\"bx--type-light\\">consequat</em> libero. Here are some common categories: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. ",
+                    "__html": "<p> <strong class=\\"bx--type-semibold\\">Lorem</strong> ipsum <em class=\\"bx--type-light\\">dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. <strong class=\\"bx--type-semibold\\">Phasellus</strong> at elit sollicitudin, sodales nulla quis, <em class=\\"bx--type-light\\">consequat</em> libero. Here are some common categories:</p><p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p><p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. </p>",
                   }
                 }
               />
@@ -4055,7 +4440,7 @@ Array [
       >
         <div>
           <div
-            className="bx--grid "
+            className="bx--grid bx--content-group-story"
           >
             <div
               className="bx--row"
@@ -4203,7 +4588,7 @@ Array [
                     className="bx--content-item__copy"
                     dangerouslySetInnerHTML={
                       Object {
-                        "__html": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.",
+                        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p>",
                       }
                     }
                     data-autoid="dds--content-item__copy"
@@ -4497,13 +4882,13 @@ Array [
                       className="bx--pictogram-item__wrapper"
                     >
                       <svg
-                        aria-hidden={true}
-                        ariaLabel="Pictogram description"
+                        aria-label="Pictogram description"
                         className="bx--pictogram-item__pictogram"
                         data-autoid="dds--pictogram-item__pictogram"
                         focusable="false"
                         height={48}
                         preserveAspectRatio="xMidYMid meet"
+                        role="img"
                         style={
                           Object {
                             "willChange": "transform",
@@ -4541,7 +4926,7 @@ Array [
                           className="bx--content-item__copy"
                           dangerouslySetInnerHTML={
                             Object {
-                              "__html": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+                              "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>",
                             }
                           }
                           data-autoid="dds--content-item__copy"

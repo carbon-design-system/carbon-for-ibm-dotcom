@@ -57,14 +57,6 @@ export const DDS_LEADSPACE_CENTERED =
   process.env.DDS_LEADSPACE_CENTERED === 'true' || DDS_FLAGS_ALL || false;
 
 /**
- * This determines if the listsection will be rendered or not
- *
- * @type {string | boolean}
- */
-export const DDS_LISTSECTION =
-  process.env.DDS_LISTSECTION === 'true' || DDS_FLAGS_ALL || false;
-
-/**
  * This determines if the simplebenefits will be rendered or not
  *
  * @type {string | boolean}
@@ -86,13 +78,6 @@ export const DDS_SIMPLELONGFORM =
  */
 export const DDS_PICTOGRAM_ARRAY =
   process.env.DDS_PICTOGRAM_ARRAY === 'true' || DDS_FLAGS_ALL || false;
-
-/** This determines if the cardSection will be rendered or not
- *
- * @type {string | boolean}
- */
-export const DDS_CARD_SECTION =
-  process.env.DDS_CARD_SECTION === 'true' || DDS_FLAGS_ALL || false;
 
 /**
  * This determines if the usecases will be rendered or not

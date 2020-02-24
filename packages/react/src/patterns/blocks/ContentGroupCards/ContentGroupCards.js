@@ -41,11 +41,11 @@ const ContentGroupCards = ({ heading, items }) => {
    */
   const setSameHeight = () => {
     sameHeight(
-      containerRef.current.getElementsByClassName(`${prefix}--card__title`),
+      containerRef.current.getElementsByClassName(`${prefix}--card__heading`),
       'md'
     );
     sameHeight(
-      containerRef.current.getElementsByClassName(`${prefix}--card__content`),
+      containerRef.current.getElementsByClassName(`${prefix}--card__copy`),
       'md'
     );
   };
@@ -83,12 +83,18 @@ const _renderCards = items =>
       className={`${prefix}--content-group-cards-item__col`}
       key={index}>
       <Card
-        className={`${prefix}--content-group-cards-item`}
-        title={elem.heading}
-        content={elem.copy}
-        icon={ArrowRight20}
-        href={elem.cta.href}
+        customClassName={`${prefix}--content-group-cards-item`}
+        heading={elem.heading}
+        copy={elem.copy}
+        cta={{
+          href: elem.cta.href,
+          icon: {
+            src: ArrowRight20,
+          },
+        }}
         type="link"
+        role="region"
+        aria-labelledby={`region${index}`}
       />
     </div>
   ));
