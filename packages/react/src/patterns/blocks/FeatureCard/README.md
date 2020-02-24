@@ -40,7 +40,7 @@ function App() {
 ReactDOM.render(<App />, document.querySelector('#app'));
 ```
 
-> 💡 Don't forget to import the Featured Link styles from
+> 💡 Don't forget to import the FeatureCard styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
 ## Props
@@ -60,12 +60,12 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 ### image
 
-| Name      | Required | Data Type | Description                                |
-| --------- | -------- | --------- | ------------------------------------------ |
-| `mobile`  | NO       | String    | Device in which needs to pass image        |
-| `tablet`  | NO       | String    | Device in which needs to pass image        |
-| `default` | YES      | String    | Max width of the device                    |
-| `alt`     | NO       | String    | Alternate text for featured link component |
+| Name      | Required | Data Type | Description                              |
+| --------- | -------- | --------- | ---------------------------------------- |
+| `mobile`  | NO       | String    | Device in which needs to pass image      |
+| `tablet`  | NO       | String    | Device in which needs to pass image      |
+| `default` | YES      | String    | Max width of the device                  |
+| `alt`     | NO       | String    | Alternate text for FeatureCard component |
 
 ### cta
 
