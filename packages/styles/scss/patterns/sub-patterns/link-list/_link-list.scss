@@ -11,21 +11,20 @@
     color: $text-01;
   }
 }
-@mixin link--list {
+@mixin link-list {
   .#{$prefix}--link-list {
     @include carbon--breakpoint(sm) {
       padding-top: $carbon--layout-03;
-      padding-bottom: $carbon--layout-05;
+      padding-bottom: $carbon--layout-03;
       &__heading {
-        margin-bottom: $carbon--layout-05;
+        margin-bottom: $carbon--layout-02;
         padding: $carbon--layout-01;
       }
     }
     @include carbon--breakpoint(lg) {
       padding-top: $carbon--layout-05;
-      padding-bottom: $carbon--layout-07;
       &__heading {
-        margin-bottom: $carbon--layout-03;
+        margin-bottom: $carbon--layout-02;
       }
     }
 
@@ -40,7 +39,7 @@
     }
 
     &__list {
-      margin-bottom: $carbon--layout-03;
+      margin-bottom: $carbon--layout-02;
       padding: $carbon--layout-01;
 
       @include carbon--breakpoint('lg') {
@@ -49,10 +48,10 @@
       h2 {
         @include type-style('expressive-heading-02');
 
-        margin-bottom: $carbon--layout-03;
+        margin-bottom: $carbon--layout-02;
       }
       &__CTA {
-        margin-bottom: $carbon--layout-07;
+        margin-bottom: $carbon--layout-06;
 
         @include carbon--breakpoint('md') {
           @include carbon--make-col(4, 8);
@@ -63,6 +62,6 @@
     margin-bottom: $carbon--layout-03;
   }
 }
-@include exports('link--list') {
-  @include link--list;
+@include exports('link-list') {
+  @include link-list;
 }
