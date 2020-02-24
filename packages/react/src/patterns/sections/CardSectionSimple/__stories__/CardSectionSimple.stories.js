@@ -1,11 +1,11 @@
 import { object, select, text, withKnobs } from '@storybook/addon-knobs';
 import cards from '../../CardSection/__stories__/data/cards.json';
-import CardSectionImages from '../CardSectionImages';
+import CardSectionSimple from '../CardSectionSimple';
 import React from 'react';
 import readme from '../README.md';
 import { storiesOf } from '@storybook/react';
 
-storiesOf('Patterns (Sections)|CardSectionImages', module)
+storiesOf('Patterns (Sections)|CardSectionSimple', module)
   .addDecorator(withKnobs)
   .addParameters({
     readme: {
@@ -20,11 +20,12 @@ storiesOf('Patterns (Sections)|CardSectionImages', module)
       g90: 'g90',
       g100: 'g100',
     };
+
     return (
-      <CardSectionImages
-        heading={text('Heading (required):', 'Read more about it')}
+      <CardSectionSimple
+        heading={text('Heading (required):', 'Aliquam condimentum interdum')}
         theme={select('theme', themes, themes.white)}
-        cards={object('Data', cards.CardSectionImages)}
+        cards={object('Data', cards.CardSectionSimple)}
       />
     );
   });

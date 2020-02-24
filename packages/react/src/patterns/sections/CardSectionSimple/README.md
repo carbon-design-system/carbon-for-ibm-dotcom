@@ -1,6 +1,6 @@
-# Card Section - Images
+# Card Section - Simple
 
-> The CardSection Images pattern is to be utilized within IBM.com. See
+> The CardSection Simple pattern is to be utilized within IBM.com. See
 > [CardSection](https://github.com/mkothur/ibm-dotcom-library/blob/master/packages/react/src/patterns/sections/CardSection/README.md)👀
 
 ## Getting started
@@ -13,7 +13,6 @@ Here's a quick example to get you started.
 @import '@carbon/type/scss/font-face/sans';
 @include carbon--font-face-mono();
 @include carbon--font-face-sans();
-
 @import '@carbon/ibmdotcom-styles/scss/patterns/sections/card-section/index';
 ```
 
@@ -22,11 +21,13 @@ Here's a quick example to get you started.
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { CardSectionImages } from '@carbon/ibmdotcom-react';
+import { CardSectionSimple } from '@carbon/ibmdotcom-react';
 import 'yourapplication.scss';
 
 function App() {
-  return <CardSectionImages cards={cards} heading="Read more about it" />;
+  return (
+    <CardSectionSimple cards={cards} heading="Aliquam condimentum interdum" />
+  );
 }
 
 ReactDOM.render(<App />, document.querySelector('#app'));
@@ -49,12 +50,11 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 ### Card Props
 
-Card accepts the folloing information for this `CardSectionImages` pattern
+Card accepts the folloing information for this `CardSectionSimple` pattern
 
 | Name       | Required | Data Type | Description                                                       |
 | ---------- | -------- | --------- | ----------------------------------------------------------------- |
-| `Image`    | YES      | Object    | It contains defaultImage and alt text properties.                 |
-| `Eyebrow`  | YES      | String    | Eyebrow of the Card.                                              |
+| `Copy`     | YES      | String    | Copy of the Card.                                                 |
 | `Heading`  | YES      | String    | Heading of the Card.                                              |
 | `cta.href` | YES      | String    | Valid URL for a the location of an internal or external resource. |
 
