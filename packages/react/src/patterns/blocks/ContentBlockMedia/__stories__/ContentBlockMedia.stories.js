@@ -138,8 +138,10 @@ storiesOf('Patterns (Blocks)|ContentBlockMedia', module)
       type: 'local',
       heading: 'Lorem ipsum dolor sit amet',
       card: {
-        href: 'https://ibm.com',
-        title: 'Consectetur adipisicing elit',
+        cta: {
+          href: 'https://ibm.com',
+        },
+        heading: 'Consectetur adipisicing elit',
         image: {
           defaultImage: 'https://picsum.photos/id/672/672',
           alt: 'featured card image',

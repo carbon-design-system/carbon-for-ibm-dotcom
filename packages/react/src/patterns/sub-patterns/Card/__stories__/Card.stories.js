@@ -1,39 +1,43 @@
 import './index.scss';
-import { select, text, withKnobs } from '@storybook/addon-knobs';
+import {
+  select,
+  text,
+  withKnobs,
+  boolean,
+  object,
+} from '@storybook/addon-knobs';
 import { ArrowRight20 } from '@carbon/icons-react';
 import { Card } from '../';
 import React from 'react';
 import readme from '../README.md';
 import { storiesOf } from '@storybook/react';
 
+const props = {
+  cardProps: () => ({
+    image: boolean('image', false),
+    eyebrow: text('eyebrow', 'eyebrow text'),
+    heading: text('title (required)', 'Lorem ipsum dolor sit amet'),
+    copy: text('copy', ''),
+    cta: object('cta', {
+      type: 'local',
+      copy: 'click here',
+      icon: {
+        src: ArrowRight20,
+      },
+      href: 'https://example.com',
+    }),
+    inverse: boolean('inverse', false),
+  }),
+};
+
 storiesOf('Patterns (Sub-Patterns)|Card', module)
   .addDecorator(withKnobs)
-  .addDecorator(Story => {
-    return (
-      <div className="bx--grid">
-        <div className="bx--row">
-          <div className="bx--col-sm-2 bx--col-md-3 bx--col-lg-6 bx--col-xlg-4 bx--no-gutter">
-            <Story />
-          </div>
-        </div>
-      </div>
-    );
-  })
   .addParameters({
     readme: {
       sidebar: readme,
     },
   })
   .add('Static', () => {
-    const title = text('title (required)', 'Lorem ipsum dolor sit amet');
-    const type = text('type', 'static');
-    const copy = text('copy', '');
-    const cta = {
-      type: 'local',
-      copy: text('cta.copy', ''),
-    };
-    const href = text('href (required)', 'https://example.com');
-    const target = text('target', '');
     const ratio = {
       none: null,
       '2:1': '2x1',
@@ -42,47 +46,46 @@ storiesOf('Patterns (Sub-Patterns)|Card', module)
       '4:3': '4x3',
       '1:1': '1x1',
     };
+    const themes = {
+      white: '',
+      g10: 'g10',
+      g90: 'g90',
+      g100: 'g100',
+    };
+    const image = props.cardProps().image && {
+      defaultImage: 'https://picsum.photos/id/2/600/300',
+      alt: 'featured link image',
+    };
 
-    return !select('Ratio', ratio, ratio['none']) ? (
-      <Card
-        title={title}
-        copy={copy}
-        href={href}
-        cta={cta}
-        icon={ArrowRight20}
-        target={target}
-        type={type}
-      />
-    ) : (
-      <div
-        className={`bx--aspect-ratio bx--aspect-ratio--${select(
-          'Ratio',
-          ratio,
-          ratio['none']
-        )}`}>
-        <Card
-          title={title}
-          copy={copy}
-          cta={cta}
-          href={href}
-          icon={ArrowRight20}
-          target={target}
-          type={type}
-          className="bx--aspect-ratio--object"
-        />
+    return (
+      <div className={`bx--card--${select('theme', themes, themes.white)}`}>
+        <div className="bx--grid">
+          <div className="bx--row">
+            <div className="bx--col-sm-2 bx--col-md-3 bx--col-lg-6 bx--col-xlg-4 bx--no-gutter">
+              {!select('Ratio', ratio, ratio['none']) ? (
+                <Card {...props.cardProps()} image={image} type="static" />
+              ) : (
+                <div
+                  className={`bx--aspect-ratio bx--aspect-ratio--${select(
+                    'Ratio',
+                    ratio,
+                    ratio['none']
+                  )}`}>
+                  <Card
+                    {...props.cardProps()}
+                    image={image}
+                    type="static"
+                    customClassName="bx--aspect-ratio--object"
+                  />
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
       </div>
     );
   })
   .add('Link/Clickable', () => {
-    const title = text('title (required)', 'Lorem ipsum dolor sit amet');
-    const type = text('type', 'link');
-    const copy = text('copy', '');
-    const cta = {
-      type: 'local',
-      copy: text('cta.copy', ''),
-    };
-    const href = text('href (required)', 'https://example.com');
-    const target = text('target', '');
     const ratio = {
       none: null,
       '2:1': '2x1',
@@ -91,34 +94,42 @@ storiesOf('Patterns (Sub-Patterns)|Card', module)
       '4:3': '4x3',
       '1:1': '1x1',
     };
+    const themes = {
+      white: '',
+      g10: 'g10',
+      g90: 'g90',
+      g100: 'g100',
+    };
+    const image = props.cardProps().image && {
+      defaultImage: 'https://picsum.photos/id/2/600/300',
+      alt: 'featured link image',
+    };
 
-    return !select('Ratio', ratio, ratio['none']) ? (
-      <Card
-        title={title}
-        copy={copy}
-        href={href}
-        cta={cta}
-        icon={ArrowRight20}
-        target={target}
-        type={type}
-      />
-    ) : (
-      <div
-        className={`bx--aspect-ratio bx--aspect-ratio--${select(
-          'Ratio',
-          ratio,
-          ratio['none']
-        )}`}>
-        <Card
-          title={title}
-          copy={copy}
-          cta={cta}
-          icon={ArrowRight20}
-          href={href}
-          target={target}
-          type={type}
-          className="bx--aspect-ratio--object"
-        />
+    return (
+      <div className={`bx--card--${select('theme', themes, themes.white)}`}>
+        <div className="bx--grid">
+          <div className="bx--row">
+            <div className="bx--col-sm-2 bx--col-md-3 bx--col-lg-6 bx--col-xlg-4 bx--no-gutter">
+              {!select('Ratio', ratio, ratio['none']) ? (
+                <Card {...props.cardProps()} image={image} type="link" />
+              ) : (
+                <div
+                  className={`bx--aspect-ratio bx--aspect-ratio--${select(
+                    'Ratio',
+                    ratio,
+                    ratio['none']
+                  )}`}>
+                  <Card
+                    {...props.cardProps()}
+                    type="link"
+                    image={image}
+                    customClassName="bx--aspect-ratio--object"
+                  />
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
       </div>
     );
   });
