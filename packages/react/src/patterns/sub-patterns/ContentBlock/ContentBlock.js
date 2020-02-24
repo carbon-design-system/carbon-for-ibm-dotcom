@@ -22,7 +22,7 @@ const { prefix } = settings;
  * ContentArrayBlock Component, for use with content arrays
  *
  * @param {object} props props object
- * @param {string} props.heading  Heading text
+ * @param {string} props.heading Heading text
  * @param {string} props.copy copy text
  * @param {*} props.children JSX Components
  * @param {*} props.cta CTA props object
