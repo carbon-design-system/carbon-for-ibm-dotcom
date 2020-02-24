@@ -43,11 +43,11 @@ const CardSection = ({ heading, cards, theme }) => {
    */
   const setCardHeight = () => {
     sameHeight(
-      containerRef.current.getElementsByClassName(`${prefix}--card__title`),
+      containerRef.current.getElementsByClassName(`${prefix}--card__heading`),
       'md'
     );
     sameHeight(
-      containerRef.current.getElementsByClassName(`${prefix}--card__content`),
+      containerRef.current.getElementsByClassName(`${prefix}--card__copy`),
       'md'
     );
   };
@@ -78,12 +78,16 @@ const CardSection = ({ heading, cards, theme }) => {
                     <Card
                       key={index}
                       image={card.image}
-                      title={card.heading}
+                      heading={card.title}
                       eyebrow={card.eyebrow}
                       copy={card.copy}
-                      href={card.cta.href}
-                      target={card.cta.target}
-                      icon={ArrowRight20}
+                      cta={{
+                        href: card.link.href,
+                        icon: {
+                          src: ArrowRight20,
+                        },
+                      }}
+                      target={card.link.target}
                       type="link"
                     />
                   </div>

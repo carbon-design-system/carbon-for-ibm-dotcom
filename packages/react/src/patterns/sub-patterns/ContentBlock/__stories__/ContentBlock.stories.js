@@ -1,11 +1,10 @@
 import './index.scss';
-
+import { select, withKnobs } from '@storybook/addon-knobs';
 import ContentBlock from '../ContentBlock';
 import React from 'react';
 import readme from '../README.md';
 import { settings } from 'carbon-components';
 import { storiesOf } from '@storybook/react';
-import { withKnobs } from '@storybook/addon-knobs';
 
 const { prefix } = settings;
 
@@ -36,8 +35,10 @@ storiesOf('Patterns (Sub-Patterns)|ContentBlock', module)
       type: 'external',
       heading: 'Lorem ipsum dolor sit amet',
       card: {
-        href: 'https://ibm.com',
-        title: 'Consectetur adipisicing elit',
+        cta: {
+          href: 'https://ibm.com',
+        },
+        heading: 'Consectetur adipisicing elit',
         image: {
           defaultImage: 'https://picsum.photos/id/672/672',
           alt: 'featured card image',
@@ -55,7 +56,7 @@ storiesOf('Patterns (Sub-Patterns)|ContentBlock', module)
         <ContentBlock
           heading={blockProps.heading}
           copy={blockProps.copy}
-          cta={cta.cta}
+          cta={select('CTA (optional)', cta, cta.cta)}
           customClassName={`${prefix}--col-lg-8`}>
           {blockProps.content}
         </ContentBlock>
