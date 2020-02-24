@@ -35,7 +35,7 @@ const card = [
   },
 ];
 function App() {
-  return <FeatureCard heading={title} card={card} />;
+  return <FeatureCard heading={heading} card={card} />;
 }
 ReactDOM.render(<App />, document.querySelector('#app'));
 ```
