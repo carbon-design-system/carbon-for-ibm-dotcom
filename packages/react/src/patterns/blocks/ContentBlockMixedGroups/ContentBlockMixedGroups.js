@@ -23,41 +23,19 @@ const { prefix } = settings;
  * @param {object} props ContentBlockMixedGroups props object
  * @param {string} props.heading Content block heading
  * @param {string} props.copy Content block description
- * @param {*} props.cta cta object
- * @param {*} props.items Content block mixed group patterns
+ * @param {object} props.cta cta object
+ * @param {Array} props.items Content block mixed group patterns
  * @returns {*} ContentBlockMixedGroups JSX Object
  */
 const ContentBlockMixedGroups = ({ heading, copy, cta, items }) => {
-  const group = items.map((item, index) => {
-    switch (item.type) {
-      case 'ContentGroupCards':
-        return (
-          <ContentGroupCards
-            heading={item.heading}
-            items={item.items}
-            key={index}
-          />
-        );
-      case 'ContentGroupPictograms':
-        return (
-          <ContentGroupPictograms
-            heading={item.heading}
-            items={item.items}
-            key={index}
-          />
-        );
-      case 'ContentGroupSimple':
-        return (
-          <ContentGroupSimple
-            mediaType={item.mediaType}
-            mediaData={item.mediaData}
-            heading={item.heading}
-            items={item.items}
-            cta={item.cta}
-            key={index}
-          />
-        );
-    }
+  const patterns = {
+    ContentGroupCards,
+    ContentGroupSimple,
+    ContentGroupPictograms,
+  };
+  const groups = items.map((item, index) => {
+    const Pattern = patterns[item.type];
+    return <Pattern key={index} {...item} />;
   });
 
   return (
@@ -65,10 +43,9 @@ const ContentBlockMixedGroups = ({ heading, copy, cta, items }) => {
       heading={heading}
       copy={copy}
       cta={cta}
-      items={items}
       customClassName={`${prefix}--content-block-mixedgroups`}>
       <div data-autoid={`${stablePrefix}--content-block-mixedgroups`}>
-        {group}
+        {groups}
       </div>
     </ContentBlock>
   );
@@ -77,8 +54,10 @@ const ContentBlockMixedGroups = ({ heading, copy, cta, items }) => {
 ContentBlockMixedGroups.propTypes = {
   heading: PropTypes.string.isRequired,
   copy: PropTypes.string,
-  items: PropTypes.object,
-  cta: PropTypes.object,
+  items: PropTypes.array,
+  cta: PropTypes.shape({
+    style: PropTypes.oneOf(['card']),
+  }),
 };
 
 export default ContentBlockMixedGroups;

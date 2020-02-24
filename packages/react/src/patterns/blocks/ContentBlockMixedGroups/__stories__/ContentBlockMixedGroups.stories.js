@@ -118,27 +118,6 @@ storiesOf('Patterns (Blocks)|Content Block Mixed Groups', module)
         items: simpleItems,
         cta: simpleCta,
       },
-      {
-        type: 'ContentGroupSimple',
-        mediaType: simpleMediaType,
-        mediaData: simpleMediaData,
-        heading: simpleHeading,
-        items: simpleItems,
-        cta: simpleCta,
-      },
-      {
-        type: 'ContentGroupCards',
-        heading: ContentGroupCardsKnobs.heading,
-        items: ContentGroupCardsKnobs.items,
-      },
-      {
-        type: 'ContentGroupSimple',
-        mediaType: simpleMediaType,
-        mediaData: simpleMediaData,
-        heading: simpleHeading,
-        items: simpleItems,
-        cta: simpleCta,
-      },
     ];
 
     return (
