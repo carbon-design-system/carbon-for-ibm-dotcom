@@ -6,6 +6,7 @@
  */
 
 export * from './ContentBlockMedia';
+export * from './ContentBlockMixed';
 export * from './ContentBlockSegmented';
 export * from './ContentBlockSimple';
 export * from './ContentGroupCards';
