@@ -29,14 +29,12 @@ const TOCMobile = ({ menuItems, selectedId, menuLabel, updateState }) => {
   const [selectedOption, setSelectedOption] = useState('menuLabel');
 
   useEffect(() => {
-    scrollStop(() => {
-      if (areElementsVisible(document.querySelectorAll(`a[name]`))[0]) {
-        setSelectedOption('menuLabel');
-      } else if (!areElementsVisible(document.querySelectorAll(`a[name]`))[0]) {
-        setSelectedOption(selectedId);
-      }
-    });
-  });
+    if (areElementsVisible(document.querySelectorAll(`a[name]`))[0]) {
+      setSelectedOption('menuLabel');
+    } else if (!areElementsVisible(document.querySelectorAll(`a[name]`))[0]) {
+      setSelectedOption(selectedId);
+    }
+  }, [selectedId]);
 
   /**
    * Check if elements are visible
@@ -58,26 +56,6 @@ const TOCMobile = ({ menuItems, selectedId, menuLabel, updateState }) => {
     });
 
     return elemsPos;
-  };
-
-  /**
-   * Detect scroll stop event and run callback function
-   *
-   * @param {*} callback callback function
-   */
-  const scrollStop = callback => {
-    if (!callback || typeof callback !== 'function') return;
-    let isScrolling;
-    root.addEventListener(
-      'scroll',
-      () => {
-        root.clearTimeout(isScrolling);
-        isScrolling = setTimeout(() => {
-          callback();
-        }, 200);
-      },
-      false
-    );
   };
 
   /**
@@ -114,7 +92,7 @@ const TOCMobile = ({ menuItems, selectedId, menuLabel, updateState }) => {
   return (
     <div
       className={`${prefix}--tableofcontents__mobile`}
-      data-autoid={`${stablePrefix}}--tableofcontents__mobile`}>
+      data-autoid={`${stablePrefix}--tableofcontents__mobile`}>
       <div className={`${prefix}--tableofcontents__mobile__select__wrapper`}>
         <select
           className={`${prefix}--tableofcontents__mobile__select`}
