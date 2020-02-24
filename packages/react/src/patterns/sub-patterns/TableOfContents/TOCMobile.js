@@ -92,7 +92,7 @@ const TOCMobile = ({ menuItems, selectedId, menuLabel, updateState }) => {
   return (
     <div
       className={`${prefix}--tableofcontents__mobile`}
-      data-autoid={`${stablePrefix}}--tableofcontents__mobile`}>
+      data-autoid={`${stablePrefix}--tableofcontents__mobile`}>
       <div className={`${prefix}--tableofcontents__mobile__select__wrapper`}>
         <select
           className={`${prefix}--tableofcontents__mobile__select`}
