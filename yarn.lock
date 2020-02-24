@@ -1607,16 +1607,6 @@
     "@carbon/import-once" "10.3.0"
     "@carbon/layout" "^10.7.0"
 
-"@carbon/ibmdotcom-utilities@1.4.0-alpha.2353":
-  version "1.4.0-alpha.2353"
-  resolved "https://registry.yarnpkg.com/@carbon/ibmdotcom-utilities/-/ibmdotcom-utilities-1.4.0-alpha.2353.tgz#0ea0df067bf2b1fb49b59676ce9baa78fe54a643"
-  integrity sha512-7zvaVYeJVxbG1yzKZTnnbBqwd/E3oUd4Jc7qimyDBQ2vybDUv7v4jIeeBLO4oc7LndvniOuTGrMnXpHXLrpgNg==
-  dependencies:
-    axios "^0.19.0"
-    carbon-components "^10.7.4"
-    js-cookie "^2.2.1"
-    window-or-global "^1.0.1"
-
 "@carbon/icon-helpers@^10.5.0":
   version "10.5.0"
   resolved "https://registry.yarnpkg.com/@carbon/icon-helpers/-/icon-helpers-10.5.0.tgz#dca43b95ead0555d308a583983835804b869f810"

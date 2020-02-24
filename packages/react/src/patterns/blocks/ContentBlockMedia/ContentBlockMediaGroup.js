@@ -50,10 +50,14 @@ const ContentBlockMediaGroup = ({
           data-autoid={`${stablePrefix}--content-block-media--group__card`}
           className={`${prefix}--content-block-media--group__card`}>
           <Card
-            title={link.title}
-            href={link.href}
+            heading={link.title}
+            cta={{
+              href: link.href,
+              icon: {
+                src: ArrowRight20,
+              },
+            }}
             target={link.target}
-            icon={ArrowRight20}
             type="link"
           />
         </div>

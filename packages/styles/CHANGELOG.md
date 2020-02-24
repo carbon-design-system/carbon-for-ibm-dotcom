@@ -3,6 +3,51 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-styles@1.4.0-rc.0...@carbon/ibmdotcom-styles@1.4.0-rc.1) (2020-02-24)
+
+### Bug Fixes
+
+- **card:** add more margin btw content and cta
+  ([7b1e69b](https://github.com/carbon-design-system/ibm-dotcom-library/commit/7b1e69b))
+- **card:** change class names for card
+  ([b4f8850](https://github.com/carbon-design-system/ibm-dotcom-library/commit/b4f8850))
+- **card:** feedback addressing
+  ([fe2f9ac](https://github.com/carbon-design-system/ibm-dotcom-library/commit/fe2f9ac))
+- **card:** fix locale modal icon color
+  ([2627280](https://github.com/carbon-design-system/ibm-dotcom-library/commit/2627280))
+- **card:** set inverse link to correct color
+  ([27ccb17](https://github.com/carbon-design-system/ibm-dotcom-library/commit/27ccb17))
+- **component:** updates content item; PR fixes
+  ([62cb925](https://github.com/carbon-design-system/ibm-dotcom-library/commit/62cb925))
+- **css:** fix responsive image padding
+  ([e7155b2](https://github.com/carbon-design-system/ibm-dotcom-library/commit/e7155b2))
+- **css:** remove ContentGroup paddingTop
+  ([7f7fef3](https://github.com/carbon-design-system/ibm-dotcom-library/commit/7f7fef3))
+- **css:** remove unused styles
+  ([d1adbf9](https://github.com/carbon-design-system/ibm-dotcom-library/commit/d1adbf9))
+- **image:** add max-width and aspect ratio
+  ([7d19b17](https://github.com/carbon-design-system/ibm-dotcom-library/commit/7d19b17))
+- **locale-modal:** set height of card tile to 100%
+  ([c78ab0c](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c78ab0c))
+- **pattern:** update props types and data; update docs
+  ([c207a20](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c207a20))
+- **story:** update image fpo and css
+  ([b8f531b](https://github.com/carbon-design-system/ibm-dotcom-library/commit/b8f531b))
+- **styles:** fix to style imports
+  ([cfece30](https://github.com/carbon-design-system/ibm-dotcom-library/commit/cfece30))
+
+### Features
+
+- **css:** add ContentBlockSimple styles
+  ([b32faa3](https://github.com/carbon-design-system/ibm-dotcom-library/commit/b32faa3))
+- **css:** add pattern css
+  ([b721d3b](https://github.com/carbon-design-system/ibm-dotcom-library/commit/b721d3b))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.4.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-styles@1.3.1...@carbon/ibmdotcom-styles@1.4.0-rc.0) (2020-02-14)
 
 ### Bug Fixes
