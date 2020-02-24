@@ -7,6 +7,7 @@
 
 export * from './CardSection';
 export * from './CardSectionImages';
+export * from './CardSectionSimple';
 export * from './LeadSpace';
 export * from './LeadSpaceCentered';
 export * from './SimpleBenefits';

@@ -6,7 +6,7 @@ import React from 'react';
 import readme from '../README.md';
 import { storiesOf } from '@storybook/react';
 
-storiesOf('Patterns (Blocks)|Content Group Simple', module)
+storiesOf('Patterns (Blocks)|ContentGroupSimple', module)
   .addDecorator(withKnobs)
   .addParameters({
     readme: {

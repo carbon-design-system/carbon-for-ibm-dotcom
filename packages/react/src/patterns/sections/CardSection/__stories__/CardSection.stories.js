@@ -4,7 +4,6 @@ import cards from './data/cards.json';
 import CardSection from '../CardSection';
 import React from 'react';
 import readme from '../README.md';
-import SimpleCards from '../SimpleCards';
 import { storiesOf } from '@storybook/react';
 
 storiesOf('Patterns (Sections)|CardSection', module)
@@ -20,6 +19,7 @@ storiesOf('Patterns (Sections)|CardSection', module)
     const themes = {
       white: '',
       g10: 'g10',
+      g90: 'g90',
       g100: 'g100',
     };
     const type = select('cardType', cardTypes, cardTypes[0]);
@@ -40,22 +40,6 @@ storiesOf('Patterns (Sections)|CardSection', module)
         cards={cards[type]}
         data={data}
         theme={theme}
-      />
-    );
-  })
-
-  .add('CardSectionSimple', () => {
-    const themes = {
-      white: '',
-      g10: 'g10',
-      g90: 'g90',
-      g100: 'g100',
-    };
-    return (
-      <SimpleCards
-        heading="Aliquam condimentum interdum"
-        cards={object('Data', cards.CardSectionSimple)}
-        theme={select('theme', themes, themes.g10)}
       />
     );
   });
