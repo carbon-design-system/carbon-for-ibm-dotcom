@@ -130,11 +130,10 @@ const TableOfContents = ({ menuItems, children, menuLabel, theme }) => {
     root.addEventListener(
       'scroll',
       () => {
-        if (isScrolling) {
-          root.cancelAnimationFrame(isScrolling);
-        }
-
-        isScrolling = root.requestAnimationFrame(callback);
+        root.clearTimeout(isScrolling);
+        isScrolling = setTimeout(() => {
+          callback();
+        }, 66);
       },
       false
     );
