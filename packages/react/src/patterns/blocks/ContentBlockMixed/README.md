@@ -1,7 +1,7 @@
 # Content Block - Mixed Groups
 
 > The "Content Block - Mixed Groups" pattern leverages the Content Block as the
-> overall contain of this pattern, and allows only a few opinionated block
+> overall container of this pattern, and allows only a few opinionated block
 > patterns to be included.
 
 ## Getting started

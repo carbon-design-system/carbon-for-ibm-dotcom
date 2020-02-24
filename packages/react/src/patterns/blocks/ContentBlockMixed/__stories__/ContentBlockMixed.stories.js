@@ -1,14 +1,14 @@
 import './index.scss';
 import { Desktop, Pattern, Touch } from '@carbon/pictograms-react';
-import ContentBlockMixedGroups from '../ContentBlockMixedGroups';
+import { text, object, withKnobs } from '@storybook/addon-knobs';
+import ContentBlockMixed from '../ContentBlockMixed';
 import ContentGroupCardsKnobs from '../../ContentGroupCards/__stories__/data/ContentGroupCards.knobs';
 import ContentGroupSimpleKnobs from '../../ContentGroupSimple/__stories__/data/ContentGroupSimple.knobs';
 import React from 'react';
 import readme from '../README.md';
 import { storiesOf } from '@storybook/react';
-import { withKnobs } from '@storybook/addon-knobs';
 
-storiesOf('Patterns (Blocks)|Content Block Mixed Groups', module)
+storiesOf('Patterns (Blocks)|Content Block Mixed', module)
   .addDecorator(withKnobs)
   .addParameters({
     readme: {
@@ -102,21 +102,21 @@ storiesOf('Patterns (Blocks)|Content Block Mixed Groups', module)
     const items = [
       {
         type: 'ContentGroupCards',
-        heading: ContentGroupCardsKnobs.heading,
-        items: ContentGroupCardsKnobs.items,
+        heading: text('Card group heading', ContentGroupCardsKnobs.heading),
+        items: object('Card group content', ContentGroupCardsKnobs.items),
       },
       {
         type: 'ContentGroupPictograms',
-        heading: pictogramHeading,
-        items: pictogramItems,
+        heading: text('Pictogram group heading', pictogramHeading),
+        items: object('Pictogram group content', pictogramItems),
       },
       {
         type: 'ContentGroupSimple',
         mediaType: simpleMediaType,
         mediaData: simpleMediaData,
-        heading: simpleHeading,
-        items: simpleItems,
-        cta: simpleCta,
+        heading: text('Simple group heading', simpleHeading),
+        items: object('Simple group content', simpleItems),
+        cta: object('Simple group CTA', simpleCta),
       },
     ];
 
@@ -124,7 +124,7 @@ storiesOf('Patterns (Blocks)|Content Block Mixed Groups', module)
       <div className="bx--grid">
         <div class="bx--row">
           <div class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
-            <ContentBlockMixedGroups
+            <ContentBlockMixed
               heading={heading}
               copy={copy}
               cta={cta}

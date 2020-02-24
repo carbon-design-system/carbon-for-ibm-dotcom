@@ -18,16 +18,16 @@ const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
- * ContentBlockMixedGroups Pattern
+ * ContentBlockMixed Pattern
  *
- * @param {object} props ContentBlockMixedGroups props object
+ * @param {object} props ContentBlockMixed props object
  * @param {string} props.heading Content block heading
  * @param {string} props.copy Content block description
  * @param {object} props.cta cta object
  * @param {Array} props.items Content block mixed group patterns
- * @returns {*} ContentBlockMixedGroups JSX Object
+ * @returns {*} ContentBlockMixed JSX Object
  */
-const ContentBlockMixedGroups = ({ heading, copy, cta, items }) => {
+const ContentBlockMixed = ({ heading, copy, cta, items }) => {
   const patterns = {
     ContentGroupCards,
     ContentGroupSimple,
@@ -51,7 +51,7 @@ const ContentBlockMixedGroups = ({ heading, copy, cta, items }) => {
   );
 };
 
-ContentBlockMixedGroups.propTypes = {
+ContentBlockMixed.propTypes = {
   heading: PropTypes.string.isRequired,
   copy: PropTypes.string,
   items: PropTypes.array,
@@ -60,4 +60,4 @@ ContentBlockMixedGroups.propTypes = {
   }),
 };
 
-export default ContentBlockMixedGroups;
+export default ContentBlockMixed;
