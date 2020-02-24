@@ -1,6 +1,6 @@
 # LinkList
 
-> The LintList component will be used to have list of different cta types.
+> The LinkList component will be used to have list of different cta types.
 
 ## Getting started
 
@@ -12,7 +12,7 @@ Here's a quick example to get you started.
 @import '@carbon/type/scss/font-face/sans';
 @include carbon--font-face-mono();
 @include carbon--font-face-sans();
-@import '@carbon/ibmdotcom-styles/scss/components/imagecomponent/imagecomponent';
+@import '@carbon/ibmdotcom-styles/scss/patterns/sub-patterns/link-list';
 ```
 
 > 💡 Only import font's once per usage
@@ -48,7 +48,7 @@ function App() {
 ReactDOM.render(<App />, document.querySelector('#app'));
 ```
 
-> 💡 Don't forget to import the image styles from
+> 💡 Don't forget to import the LinkList styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
 ## Props
