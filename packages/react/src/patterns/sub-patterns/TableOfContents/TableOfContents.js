@@ -30,10 +30,12 @@ const _findMenuItems = () => {
   const eles = document.querySelectorAll('a[name]');
   const menuItems = [];
   eles.forEach(element => {
-    menuItems.push({
-      id: element.getAttribute('name'),
-      title: element.getAttribute('data-title'),
-    });
+    if (element.getAttribute('name') !== 'menuLabel') {
+      menuItems.push({
+        id: element.getAttribute('name'),
+        title: element.getAttribute('data-title'),
+      });
+    }
   });
   return menuItems;
 };
@@ -48,8 +50,29 @@ const _findMenuItems = () => {
  * @returns {*} JSX Object
  */
 const TableOfContents = ({ menuItems, children, menuLabel, theme }) => {
-  const [selectedId, setSelectedId] = useState(menuItems[0].id);
-  const [selectedTitle, setSelectedTitle] = useState(menuItems[0].name);
+  const [useMenuItems, setUseMenuItems] = useState([]);
+  const [selectedId, setSelectedId] = useState('');
+  const [selectedTitle, setSelectedTitle] = useState('');
+
+  useEffect(() => {
+    if (menuItems && menuItems.length) {
+      setUseMenuItems([...menuItems]);
+    } else {
+      setUseMenuItems(_findMenuItems());
+    }
+  }, [menuItems]);
+
+  useEffect(() => {
+    let id = useMenuItems[0] ? useMenuItems[0].id : '';
+    let title = useMenuItems[0] ? useMenuItems[0].title : '';
+    if (id === 'menuLabel' && useMenuItems[1]) {
+      id = useMenuItems[1].id;
+      title = useMenuItems[1].title;
+    }
+
+    setSelectedId(id);
+    setSelectedTitle(title);
+  }, [useMenuItems]);
 
   useEffect(() => {
     scrollStop(setSelectedItem);
@@ -61,8 +84,8 @@ const TableOfContents = ({ menuItems, children, menuLabel, theme }) => {
    */
   const setSelectedItem = () => {
     const elems = getElemsInView();
-    const id = elems[0] || menuItems[0].id;
-    const filteredItems = menuItems.filter(menu => {
+    const id = elems[0] || useMenuItems[0].id;
+    const filteredItems = useMenuItems.filter(menu => {
       if (id !== 'undefined') {
         return menu.id === id;
       }
@@ -107,17 +130,18 @@ const TableOfContents = ({ menuItems, children, menuLabel, theme }) => {
     root.addEventListener(
       'scroll',
       () => {
-        root.clearTimeout(isScrolling);
-        isScrolling = setTimeout(() => {
-          callback();
-        }, 66);
+        if (isScrolling) {
+          root.cancelAnimationFrame(isScrolling);
+        }
+
+        isScrolling = root.requestAnimationFrame(callback);
       },
       false
     );
   };
 
   /**
-   *
+   * Sets the selected menu item
    *
    * @param {*} id selected id of menu item
    * @param {*} title selected title of menu item
@@ -138,14 +162,28 @@ const TableOfContents = ({ menuItems, children, menuLabel, theme }) => {
     return theme && `${prefix}--tableofcontents--${theme}`;
   };
 
+  /**
+   * Props for the Layout component
+   * @type {{marginBottom: string, type: string, marginTop: string}}
+   */
   const layoutProps = {
     type: '1-3',
     marginTop: 'none',
     marginBottom: 'none',
   };
 
+  /**
+   * Props for TOCDesktop and TOCMobile
+   * @type {{
+   * updateState: updateState,
+   * selectedId: string,
+   * menuItems: Array,
+   * selectedTitle: string,
+   * menuLabel: string
+   * }}
+   */
   const props = {
-    menuItems,
+    menuItems: useMenuItems,
     selectedId,
     selectedTitle,
     menuLabel,
