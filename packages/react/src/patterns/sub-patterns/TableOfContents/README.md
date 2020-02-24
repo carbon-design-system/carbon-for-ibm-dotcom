@@ -66,21 +66,6 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 > 💡 Don't forget to import the tableofcontents styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
-#### Feature Flags
-
-To utilize the following features, set the following variable's to `true` within
-your `.env` file or your application build settings.
-
-```
-DDS_TOC=true
-```
-
-> See
-> [feature-flags.md](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/patterns-react/docs/feature-flags.md)
-> and
-> [.env.example](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/patterns-react/.env.example)
-> for more information
-
 ## Props
 
 | Name        | Required | Data Type | Default Value                                                     | Description                                                                      |
