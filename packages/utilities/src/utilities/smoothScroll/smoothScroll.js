@@ -17,17 +17,17 @@
  * You can use this for jump to target element by providing event object.
  * it will scroll into view of target by selecting attribute and assigning to id.
  *
- * @param {*} e event object and seletor
+ * @param {object} { e: Event, Selector: QuerySelector for the target element }
  */
 const smoothScroll = ({ e, selector }) => {
-  if (e != null) {
+  if (e !== null) {
     e.preventDefault();
     const id = e.currentTarget.getAttribute('href');
     document.querySelector(id).scrollIntoView({
       behavior: 'smooth',
       block: 'start',
     });
-  } else if (selector != null) {
+  } else if (selector !== null) {
     document.querySelector(selector).scrollIntoView({
       behavior: 'smooth',
       block: 'start',
