@@ -8,6 +8,7 @@
 @import '../../../components/image/image';
 @import '../../sub-patterns/card/index';
 @import '../../../globals/utils/aspect-ratio';
+@import '../../../globals/utils/hang';
 
 @mixin feature-card {
   .#{$prefix}--feature-card {
@@ -20,7 +21,7 @@
       color: $inverse-01;
     }
 
-    .bx--content-group__children {
+    .#{$prefix}--content-group__children {
       padding-top: aspect-ratio(1, 1);
       position: relative;
       @include carbon--breakpoint('md') {
@@ -36,6 +37,7 @@
       bottom: 0;
       @include carbon--breakpoint('md') {
         flex-direction: row;
+        @include hang;
       }
 
       &__wrapper,
@@ -46,6 +48,13 @@
           width: 50%;
           height: aspect-ratio(1, 1);
         }
+      }
+    }
+
+    @include carbon--breakpoint('md') {
+      .#{$prefix}--content-group__title {
+        max-width: 100%;
+        padding: 0;
       }
     }
   }
