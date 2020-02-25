@@ -72,7 +72,7 @@ const TOCMobile = ({ menuItems, selectedId, menuLabel, updateState }) => {
     const title = filteredItems[0].title;
     updateState(id, title);
     const selector = `a[name="${id}"]`;
-    smoothScroll({ e: null, selector });
+    smoothScroll({ selector });
   };
 
   /**

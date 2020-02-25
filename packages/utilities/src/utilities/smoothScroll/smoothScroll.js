@@ -20,18 +20,19 @@
  * @param {object} { e: Event, Selector: QuerySelector for the target element }
  */
 const smoothScroll = ({ e, selector }) => {
-  if (e !== null) {
+  let getSelector;
+  if (e) {
     e.preventDefault();
-    const id = e.currentTarget.getAttribute('href');
-    document.querySelector(id).scrollIntoView({
-      behavior: 'smooth',
-      block: 'start',
-    });
-  } else if (selector !== null) {
-    document.querySelector(selector).scrollIntoView({
-      behavior: 'smooth',
-      block: 'start',
-    });
+    getSelector = e.currentTarget.getAttribute('href');
+  } else if (selector) {
+    getSelector = selector;
+  } else {
+    return null;
   }
+  document.querySelector(getSelector).scrollIntoView({
+    behavior: 'smooth',
+    block: 'start',
+  });
 };
+
 export default smoothScroll;
