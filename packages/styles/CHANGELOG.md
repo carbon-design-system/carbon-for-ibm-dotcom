@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0-rc.2](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-styles@1.4.0-rc.1...@carbon/ibmdotcom-styles@1.4.0-rc.2) (2020-02-25)
+
+### Bug Fixes
+
+- **pattern:** listsection is now ContentBlockMixed
+  ([5b1edf2](https://github.com/carbon-design-system/ibm-dotcom-library/commit/5b1edf2))
+- **styles:** fix to style imports
+  ([2a83328](https://github.com/carbon-design-system/ibm-dotcom-library/commit/2a83328))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.4.0-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-styles@1.4.0-rc.0...@carbon/ibmdotcom-styles@1.4.0-rc.1) (2020-02-24)
 
 ### Bug Fixes
