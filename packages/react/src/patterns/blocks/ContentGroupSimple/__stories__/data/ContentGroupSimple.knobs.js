@@ -8,12 +8,22 @@ const ContentGroupSimpleKnobs = {
   heading: 'Lorem ipsum dolor sit amet',
   mediaData: {
     images: [
-      { src: 'https://picsum.photos/id/2/320/160', minWidth: 320 },
-      { src: 'https://picsum.photos/id/2/400/400', minWidth: 400 },
-      { src: 'https://picsum.photos/id/2/672/672', minWidth: 672 },
+      {
+        src: 'https://fpoimg.com/320x180?bg_color=0f62fe&text_color=ffffff',
+        minWidth: 320,
+      },
+      {
+        src: 'https://fpoimg.com/400x225?bg_color=0f62fe&text_color=ffffff',
+        minWidth: 400,
+      },
+      {
+        src: 'https://fpoimg.com/672x378?bg_color=0f62fe&text_color=ffffff',
+        minWidth: 672,
+      },
     ],
-    alt: 'lead space image',
-    defaultImage: 'https://picsum.photos/id/2/672/672',
+    alt: 'CTA image',
+    defaultImage:
+      'https://fpoimg.com/672x378?bg_color=0f62fe&text_color=ffffff',
   },
   types: {
     image: 'image',

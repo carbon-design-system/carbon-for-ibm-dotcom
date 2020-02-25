@@ -59,20 +59,10 @@ storiesOf('Patterns (Sub-Patterns)|Table of Contents', module)
     );
   })
   .add('Dynamic Items', () => {
-    let menuItems = [];
-    dataContent.props.children.forEach(element => {
-      if (element.props['data-title']) {
-        menuItems.push({
-          title: element.props['data-title'],
-          id: element.props['name'],
-        });
-      }
-    });
     return (
       <TableOfContents
         theme={select('theme', _themes, _themes.white)}
-        menuLabel={_menuLabel}
-        menuItems={menuItems}>
+        menuLabel={_menuLabel}>
         {dataContent}
       </TableOfContents>
     );
