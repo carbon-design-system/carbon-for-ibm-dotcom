@@ -14,6 +14,12 @@
     color: $text-01;
     background: $ui-background;
 
+    &__card.#{$prefix}--card--inverse .#{$prefix}--card__cta,
+    &__card.#{$prefix}--card--inverse .#{$prefix}--card__cta:visited {
+      float: right;
+      color: $inverse-01;
+    }
+
     .bx--content-group__children {
       padding-top: aspect-ratio(1, 1);
       position: relative;
@@ -21,6 +27,7 @@
         padding-top: aspect-ratio(2, 1);
       }
     }
+
     .#{$prefix}--card {
       position: absolute;
       top: 0;
@@ -30,6 +37,7 @@
       @include carbon--breakpoint('md') {
         flex-direction: row;
       }
+
       &__wrapper,
       .#{$prefix}--image {
         width: 100%;
