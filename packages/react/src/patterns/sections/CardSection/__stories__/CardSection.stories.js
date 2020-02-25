@@ -1,5 +1,5 @@
 import './index.scss';
-import { object, select, withKnobs } from '@storybook/addon-knobs';
+import { object, select, text, withKnobs } from '@storybook/addon-knobs';
 import cards from './data/cards.json';
 import CardSection from '../CardSection';
 import React from 'react';
@@ -23,7 +23,7 @@ storiesOf('Patterns (Sections)|CardSection', module)
       g100: 'g100',
     };
     const type = select('cardType', cardTypes, cardTypes[0]);
-    const theme = select('theme', themes, themes.g10);
+    const theme = select('theme', themes, themes.white);
 
     const cardsTitle =
       type === 'CardSectionSimple'
@@ -36,7 +36,7 @@ storiesOf('Patterns (Sections)|CardSection', module)
 
     return (
       <CardSection
-        heading={cardsTitle}
+        heading={text('Heading (required)', cardsTitle)}
         cards={cards[type]}
         data={data}
         theme={theme}
