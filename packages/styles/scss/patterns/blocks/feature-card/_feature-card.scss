@@ -37,6 +37,7 @@
       bottom: 0;
       @include carbon--breakpoint('md') {
         flex-direction: row;
+        @include hang;
       }
 
       &__wrapper,
@@ -53,10 +54,7 @@
     @include carbon--breakpoint('md') {
       .#{$prefix}--content-group__title {
         max-width: 100%;
-      }
-
-      .#{$prefix}--content-group__children {
-        @include hang;
+        padding: 0;
       }
     }
   }
