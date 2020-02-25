@@ -1,6 +1,6 @@
-# FeatureCard
+# Feature Card
 
-> The FeatureCard pattern is to be utilized within IBM.com.
+> The Feature Card pattern is to be utilized within IBM.com.
 
 ## Getting started
 
@@ -26,11 +26,12 @@ const heading = 'Lorem ipsum dolor sit amet.';
 const card = [
   {
     heading: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-    copy:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     cta: {
-      target: '_blank',
       href: 'https://www.example.com',
+    },
+    image: {
+      defaultImage: 'https://picsum.photos/id/2/672/672',
+      alt: 'featured card image',
     },
   },
 ];
@@ -58,21 +59,17 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 | `image`   | Object    | Image object used in the FeatureCard component. See `image` below. |
 | `cta`     | Object    | Object containing target and href of link. See `cta` below.        |
 
-### image
-
-| Name      | Required | Data Type | Description                              |
-| --------- | -------- | --------- | ---------------------------------------- |
-| `mobile`  | NO       | String    | Device in which needs to pass image      |
-| `tablet`  | NO       | String    | Device in which needs to pass image      |
-| `default` | YES      | String    | Max width of the device                  |
-| `alt`     | NO       | String    | Alternate text for FeatureCard component |
-
 ### cta
 
-| Name     | Data Type | Description                                                 |
-| -------- | --------- | ----------------------------------------------------------- |
-| `target` | String    | Open within current tab or new tab ('\_self' or '\_blank'). |
-| `href`   | String    | Url of the FeatureCard component.                           |
+| Name   | Data Type | Description                       |
+| ------ | --------- | --------------------------------- |
+| `href` | String    | Url of the FeatureCard component. |
+
+### image
+
+Visit the
+[Image storybook](https://ibmdotcom-react.mybluemix.net/?path=/story/components-image--default)
+for more details on the Image component.
 
 ## Stable selectors
 

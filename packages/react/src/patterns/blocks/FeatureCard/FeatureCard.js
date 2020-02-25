@@ -47,7 +47,7 @@ const FeatureCard = ({ heading, card }) => {
 
 FeatureCard.propTypes = {
   heading: PropTypes.string.isRequired,
-  card: PropTypes.object.isRequired,
+  card: PropTypes.instanceOf(Card).isRequired,
 };
 
 export default FeatureCard;
