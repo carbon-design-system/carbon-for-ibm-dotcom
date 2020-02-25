@@ -21,7 +21,7 @@ const { prefix } = settings;
  *
  * @param {object} props props object
  * @param {string} props.heading section heading
- * @param {Array} props.card section card object
+ * @param {object} props.card section card object
  * @returns {*} FeatureCard JSX component
  */
 const FeatureCard = ({ heading, card }) => {
