@@ -29,21 +29,6 @@
 }
 @mixin card-section {
   .#{$prefix}--card-section {
-    &__heading {
-      @include type-style('expressive-heading-02');
-      @include carbon--make-col-ready;
-
-      @include carbon--breakpoint('lg') {
-        @include carbon--make-col(4, 16);
-
-        margin-top: $carbon--layout-01;
-      }
-
-      margin-bottom: $carbon--layout-05;
-    }
-    &__container {
-      @include carbon--make-container;
-    }
     &__row {
       @include carbon--make-row;
     }
@@ -69,17 +54,6 @@
         margin-top: $carbon--grid-gutter--condensed / 2;
         margin-bottom: $carbon--grid-gutter--condensed / 2;
       }
-    }
-
-    padding-top: $carbon--layout-03;
-    padding-bottom: $carbon--layout-05;
-
-    @include carbon--breakpoint('md') {
-      padding-bottom: $carbon--layout-06;
-    }
-    @include carbon--breakpoint('lg') {
-      padding-top: $carbon--layout-04;
-      padding-bottom: $carbon--layout-07;
     }
     @include themed-items;
   }

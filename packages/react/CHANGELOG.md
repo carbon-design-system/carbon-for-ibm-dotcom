@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0-rc.2](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.4.0-rc.1...@carbon/ibmdotcom-react@1.4.0-rc.2) (2020-02-25)
+
+### Bug Fixes
+
+- **dependencies:** updating utilities dependency to rc.1
+  ([efcdd19](https://github.com/carbon-design-system/ibm-dotcom-library/commit/efcdd19))
+- **featureflags:** removed unused feature flags
+  ([0642cde](https://github.com/carbon-design-system/ibm-dotcom-library/commit/0642cde))
+- **pattern:** listsection is now ContentBlockMixed
+  ([5b1edf2](https://github.com/carbon-design-system/ibm-dotcom-library/commit/5b1edf2))
+- **tableofcontents:** removed feature flag documentation
+  ([fbde8ce](https://github.com/carbon-design-system/ibm-dotcom-library/commit/fbde8ce))
+- **tableofcontents:** switch back from requestAnimationFrame
+  ([9b36ca3](https://github.com/carbon-design-system/ibm-dotcom-library/commit/9b36ca3))
+- **tableofcontents:** various fixes for dynamic menu items
+  ([5f59b83](https://github.com/carbon-design-system/ibm-dotcom-library/commit/5f59b83))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.4.0-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.4.0-rc.0...@carbon/ibmdotcom-react@1.4.0-rc.1) (2020-02-24)
 
 ### Bug Fixes
