@@ -6,7 +6,7 @@
  */
 
 import { ContentBlock } from '../../sub-patterns/ContentBlock';
-import ContentBlockMediaGroup from './ContentBlockMediaGroup';
+import { ContentGroupSimple } from '../ContentGroupSimple';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -25,8 +25,12 @@ const { prefix } = settings;
  * @param {object} props.cta cta object
  * @returns {object} JSX Object
  */
-const ContentBlockMedia = ({ copy, heading, contentGroup, cta }) => {
+const ContentBlockMedia = ({ copy, heading, items, cta }) => {
   if (cta) cta.style = 'feature';
+
+  const content = items.map((item, index) => {
+    return <ContentGroupSimple key={index} {...item} />;
+  });
 
   return (
     <ContentBlock
@@ -35,28 +39,15 @@ const ContentBlockMedia = ({ copy, heading, contentGroup, cta }) => {
       cta={cta}
       data-autoid={`${stablePrefix}--content-block-media`}
       customClassName={`${prefix}--content-block-media ${prefix}--col-lg-8`}>
-      {_renderContentGroup(contentGroup)}
+      {content}
     </ContentBlock>
   );
-};
-
-/**
- * Render Content Block Media Group Component
- *
- * @private
- * @param {Array} items content block media group items array
- * @returns {object} JSX Object
- */
-const _renderContentGroup = items => {
-  return items.map(item => {
-    return <ContentBlockMediaGroup key={item.title} contentGroup={item} />;
-  });
 };
 
 ContentBlockMedia.propTypes = {
   copy: PropTypes.string,
   heading: PropTypes.string.isRequired,
-  contentGroup: PropTypes.array.isRequired,
+  items: PropTypes.array.isRequired,
   cta: PropTypes.object,
 };
 
