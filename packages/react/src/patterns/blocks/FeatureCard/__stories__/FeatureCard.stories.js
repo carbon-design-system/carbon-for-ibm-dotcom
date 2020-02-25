@@ -6,7 +6,6 @@
  */
 import './index.scss';
 import { object, text, withKnobs } from '@storybook/addon-knobs';
-import { ArrowRight20 } from '@carbon/icons-react';
 import FeatureCard from '../FeatureCard';
 import React from 'react';
 import readme from '../README.md';
@@ -46,9 +45,6 @@ storiesOf('Patterns (Blocks)|FeatureCard', module)
                 image: image,
                 cta: {
                   href: cardhref,
-                  icon: {
-                    src: ArrowRight20,
-                  },
                 },
               }}
             />
