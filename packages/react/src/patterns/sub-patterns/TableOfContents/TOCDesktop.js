@@ -18,7 +18,7 @@ const { prefix } = settings;
  * DesktopMenu Component
  *
  * @param {object} props props object
- * @param {object} props.menuItems menu items object
+ * @param {Array} props.menuItems menu items object
  * @param {string} props.selectedId id of a menu item
  * @param {*} props.updateState function to update parent state.
  * @returns {*} JSX Object
