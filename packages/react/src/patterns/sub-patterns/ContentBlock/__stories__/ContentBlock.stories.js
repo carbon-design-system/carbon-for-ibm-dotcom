@@ -38,7 +38,9 @@ storiesOf('Patterns (Sub-Patterns)|ContentBlock', module)
       card: {
         cta: {
           href: 'https://ibm.com',
-          src: ArrowRight20,
+          icon: {
+            src: ArrowRight20,
+          },
         },
         heading: 'Consectetur adipisicing elit',
         image: {

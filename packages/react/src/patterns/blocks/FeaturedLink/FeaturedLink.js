@@ -23,23 +23,22 @@ const { prefix } = settings;
  * @returns {*} FeaturedLink JSX component
  */
 const FeaturedLink = ({ heading, card }) => {
-  const cardProps = {
-    ...card,
-    cta: { ...card.cta, icon: { src: card.cta.src, ...card.cta.icon } },
-  };
   return (
-    <section
-      className={`${prefix}--featuredlink`}
-      data-autoid={`${stablePrefix}--featuredlink`}>
-      <ContentGroup heading={heading}>
-        <Card
-          customClassName={`${prefix}--featuredlink__card`}
-          {...cardProps}
-          type="link"
-          inverse={true}
-        />
-      </ContentGroup>
-    </section>
+    heading &&
+    card.cta && (
+      <section
+        className={`${prefix}--featuredlink`}
+        data-autoid={`${stablePrefix}--featuredlink`}>
+        <ContentGroup heading={heading}>
+          <Card
+            customClassName={`${prefix}--featuredlink__card`}
+            {...card}
+            type="link"
+            inverse={true}
+          />
+        </ContentGroup>
+      </section>
+    )
   );
 };
 

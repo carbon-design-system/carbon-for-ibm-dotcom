@@ -48,7 +48,9 @@ if (DDS_FEATURED_LINK) {
                   image: images,
                   cta: {
                     href: cardhref,
-                    src: ArrowRight20,
+                    icon: {
+                      src: ArrowRight20,
+                    },
                   },
                 }}
               />

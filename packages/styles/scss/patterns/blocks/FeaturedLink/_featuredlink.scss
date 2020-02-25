@@ -12,8 +12,10 @@
     color: $text-01;
     background: $ui-background;
 
-    &__card svg {
+    &__card.#{$prefix}--card--inverse .#{$prefix}--card__cta,
+    &__card.#{$prefix}--card--inverse .#{$prefix}--card__cta:visited {
       float: right;
+      color: $inverse-01;
     }
 
     .bx--content-group__children {

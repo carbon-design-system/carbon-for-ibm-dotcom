@@ -52,7 +52,9 @@ storiesOf('Components|CTA', module)
             heading: copy[1],
             cta: {
               href: urlBy[type],
-              src: ArrowRight20,
+              icon: {
+                src: ArrowRight20,
+              },
             },
             image: {
               defaultImage: 'https://picsum.photos/id/672/672',
