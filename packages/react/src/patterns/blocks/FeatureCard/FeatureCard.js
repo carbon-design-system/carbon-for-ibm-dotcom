@@ -32,7 +32,7 @@ const FeatureCard = ({ heading, card }) => {
         <ContentGroup heading={heading}>
           <Card
             customClassName={`${prefix}--feature-card__card`}
-            {...cardProps}
+            {...card}
             type="link"
             inverse={true}
           />
