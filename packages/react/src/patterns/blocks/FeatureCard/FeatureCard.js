@@ -15,24 +15,24 @@ const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
- * Featured Link Component
+ * Featured Card Component
  *
  * @param {object} props props object
- * @param {string} props.heading FeaturedLink section heading
- * @param {Array} props.card FeaturedLink section card object
- * @returns {*} FeaturedLink JSX component
+ * @param {string} props.heading section heading
+ * @param {object} props.card section card object
+ * @returns {*} FeatureCard JSX component
  */
-const FeaturedLink = ({ heading, card }) => {
+const FeatureCard = ({ heading, card }) => {
   return (
     heading &&
     card.cta && (
       <section
-        className={`${prefix}--featuredlink`}
-        data-autoid={`${stablePrefix}--featuredlink`}>
+        className={`${prefix}--feature-card`}
+        data-autoid={`${stablePrefix}--feature-card`}>
         <ContentGroup heading={heading}>
           <Card
-            customClassName={`${prefix}--featuredlink__card`}
-            {...card}
+            customClassName={`${prefix}--feature-card__card`}
+            {...cardProps}
             type="link"
             inverse={true}
           />
@@ -42,9 +42,9 @@ const FeaturedLink = ({ heading, card }) => {
   );
 };
 
-FeaturedLink.propTypes = {
+FeatureCard.propTypes = {
   heading: PropTypes.string.isRequired,
-  card: PropTypes.object.isRequired,
+  card: PropTypes.instanceOf(Card).isRequired,
 };
 
-export default FeaturedLink;
+export default FeatureCard;

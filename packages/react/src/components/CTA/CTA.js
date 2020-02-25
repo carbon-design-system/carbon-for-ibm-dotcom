@@ -8,7 +8,7 @@
 import { ArrowDown20, ArrowRight20, Launch20 } from '@carbon/icons-react';
 import { ButtonGroup } from '../../patterns/sub-patterns/ButtonGroup';
 import { Card } from '../../patterns/sub-patterns/Card';
-import { FeaturedLink } from '../../patterns/blocks/FeaturedLink';
+import { FeatureCard } from '../../patterns/blocks/FeatureCard';
 import { LinkWithIcon } from '../LinkWithIcon';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -62,7 +62,7 @@ const renderCTA = ({ style, type, ...otherProps }) => {
       return <ButtonGroup buttons={_renderButtons(otherProps)} />;
     case 'feature':
       return (
-        <FeaturedLink
+        <FeatureCard
           heading={otherProps.heading}
           card={_renderFeatureCard(otherProps.card)}
         />

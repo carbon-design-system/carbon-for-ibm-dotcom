@@ -73,14 +73,6 @@ export const DDS_LOGO_GRID =
   process.env.DDS_LOGO_GRID === 'true' || DDS_FLAGS_ALL || false;
 
 /**
- * This determines if the featuredlink will be rendered or not
- *
- * @type {string | boolean}
- */
-export const DDS_FEATURED_LINK =
-  process.env.DDS_FEATURED_LINK === 'true' || DDS_FLAGS_ALL || false;
-
-/**
  * This flag turns on/off the ButtonGroup component
  *
  * @type {string | boolean}
