@@ -66,7 +66,7 @@ const TOCDesktop = ({ menuItems, selectedId, updateState }) => {
     const title = filteredItems[0].title;
     updateState(id, title);
     const selector = `a[name="${id}"]`;
-    smoothScroll({ selector });
+    smoothScroll(null, selector);
   };
 
   /**

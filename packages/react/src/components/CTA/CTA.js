@@ -90,7 +90,7 @@ const renderCTA = ({ style, type, ...otherProps }) => {
  * @private
  * @returns {*} behaviour object
  */
-const _jump = (e, type) => (type === 'jump' ? smoothScroll({ e }) : null);
+const _jump = (e, type) => (type === 'jump' ? smoothScroll(e) : null);
 
 /**
  * sets target

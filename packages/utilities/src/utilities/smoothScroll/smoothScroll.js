@@ -17,9 +17,10 @@
  * You can use this for jump to target element by providing event object.
  * it will scroll into view of target by selecting attribute and assigning to id.
  *
- * @param {object} { e: Event, Selector: QuerySelector for the target element }
+ * @param {*} e event object
+ * @param {*} selector menu item selector id
  */
-const smoothScroll = ({ e, selector }) => {
+const smoothScroll = (e, selector) => {
   let getSelector;
   if (e) {
     e.preventDefault();

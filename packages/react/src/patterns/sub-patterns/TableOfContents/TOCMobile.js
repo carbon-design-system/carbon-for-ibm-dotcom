@@ -8,7 +8,6 @@
 import React, { useState, useEffect } from 'react';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
-import root from 'window-or-global';
 import { settings } from 'carbon-components';
 import { smoothScroll } from '@carbon/ibmdotcom-utilities';
 import { TableOfContents20 } from '@carbon/icons-react';
@@ -72,7 +71,7 @@ const TOCMobile = ({ menuItems, selectedId, menuLabel, updateState }) => {
     const title = filteredItems[0].title;
     updateState(id, title);
     const selector = `a[name="${id}"]`;
-    smoothScroll({ selector });
+    smoothScroll(null, selector);
   };
 
   /**
