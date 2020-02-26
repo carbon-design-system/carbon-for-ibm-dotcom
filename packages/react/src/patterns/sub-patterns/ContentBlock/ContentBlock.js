@@ -19,7 +19,7 @@ const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
- * ContentArrayBlock Component, for use with content arrays
+ * ContentBlock Sub-pattern
  *
  * @param {object} props props object
  * @param {string} props.heading Heading text
@@ -28,11 +28,9 @@ const { prefix } = settings;
  * @param {*} props.cta CTA props object
  * @returns {*} JSX ContentArrayBlock component
  */
-const ContentBlock = ({ heading, copy, children, cta, customClassName }) => {
-  const className = cx(`${prefix}--content-block`, customClassName);
-
+const ContentBlock = ({ heading, copy, children, cta }) => {
   return (
-    <div data-autoid={`${stablePrefix}--content-block`} className={className}>
+    <>
       {heading && (
         <h2
           data-autoid={`${stablePrefix}--content-block__title`}
@@ -56,7 +54,7 @@ const ContentBlock = ({ heading, copy, children, cta, customClassName }) => {
           {cta && <CTA style={cta.style} type={cta.type} {...cta} />}
         </div>
       )}
-    </div>
+    </>
   );
 };
 
