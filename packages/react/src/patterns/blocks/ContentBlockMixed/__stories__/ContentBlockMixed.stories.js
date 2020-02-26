@@ -8,7 +8,7 @@ import React from 'react';
 import readme from '../README.md';
 import { storiesOf } from '@storybook/react';
 
-storiesOf('Patterns (Blocks)|Content Block Mixed', module)
+storiesOf('Patterns (Blocks)|ContentBlockMixed', module)
   .addDecorator(withKnobs)
   .addParameters({
     readme: {
