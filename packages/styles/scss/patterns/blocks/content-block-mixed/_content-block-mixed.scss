@@ -6,8 +6,8 @@
 //
 @import '../../../globals/imports';
 
-@mixin content-block-mixedgroups {
-  .#{$prefix}--content-block-mixedgroups {
+@mixin content-block-mixed {
+  .#{$prefix}--content-block-mixed {
     .#{$prefix}--content-group-cards {
       @include carbon--breakpoint(lg) {
         padding-left: $spacing-05;
@@ -34,6 +34,6 @@
   }
 }
 
-@include exports('content-block-mixedgroups') {
-  @include content-block-mixedgroups;
+@include exports('content-block-mixed') {
+  @include content-block-mixed;
 }
