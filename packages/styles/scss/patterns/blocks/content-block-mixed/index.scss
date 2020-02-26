@@ -1,6 +1,6 @@
 @import '../../../globals/imports';
 @import '../../sub-patterns/content-block/content-block';
-@import '../../blocks/content-group-cards/content-group-cards';
-@import '../content-group-pictograms';
-@import '../content-group-simple/content-group-simple';
+@import '../../blocks/content-group-cards/index';
+@import '../content-group-pictograms/index';
+@import '../content-group-simple/index';
 @import 'content-block-mixed';
