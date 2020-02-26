@@ -31,9 +31,10 @@ const { prefix } = settings;
  * @param {object} props react proptypes
  * @param {object} props.navigation footer navigation object
  * @param {object} props.langCode langCode object { cc, lc }
+ * @param {boolean} props.disableLocaleButton Boolean to disable locale button
  * @returns {object} JSX object
  */
-const Footer = ({ type, navigation, langCode }) => {
+const Footer = ({ type, navigation, langCode, disableLocaleButton }) => {
   let [footerMenuData, setFooterMenuData] = useState([]);
   let [footerLegalData, setFooterLegalData] = useState([]);
   let [displayLang, setDisplayLang] = useState('');
@@ -89,7 +90,9 @@ const Footer = ({ type, navigation, langCode }) => {
         <div className={`${prefix}--footer__main-container`}>
           <FooterLogo />
           {optionalFooterNav(type, footerMenuData)}
-          <LocaleButton displayLang={displayLang} selectItem={selectItem} />
+          {!disableLocaleButton && (
+            <LocaleButton displayLang={displayLang} selectItem={selectItem} />
+          )}
         </div>
       </section>
       <LegalNav links={footerLegalData} />
@@ -130,6 +133,19 @@ Footer.propTypes = {
   navigation: PropTypes.object,
   type: PropTypes.string,
   langCode: PropTypes.object,
+  disableLocaleButton: PropTypes.bool,
+};
+
+/**
+ * @property defaultProps
+ * @type {{navigation: null, langCode: null, disableLocaleButton: boolean,
+ * type: string}}
+ */
+Footer.defaultProps = {
+  navigation: null,
+  type: 'full',
+  langCode: null,
+  disableLocaleButton: false,
 };
 
 export default Footer;
