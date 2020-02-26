@@ -100,8 +100,9 @@ const _renderCards = (cards, containerRef, cta) => (
                 src: ArrowRight20,
               },
             }}
-            target={card.cta.target}
             type="link"
+            role="region"
+            aria-labelledby={`region${index}`}
           />
         </div>
       );
