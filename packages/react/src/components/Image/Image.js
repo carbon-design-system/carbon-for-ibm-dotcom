@@ -24,16 +24,17 @@ const { prefix } = settings;
  */
 const sortSources = sources => {
   const images = sources.map(elem => {
-    if (typeof elem.minWidth == 'number') {
+    if (typeof elem.breakpoint == 'number') {
       return elem;
     } else {
       return {
-        minWidth: parseFloat(breakpoints[elem.minWidth].width) * baseFontSize,
+        breakpoint:
+          parseFloat(breakpoints[elem.breakpoint].width) * baseFontSize,
         src: elem.src,
       };
     }
   });
-  return images.sort((a, b) => (a.minWidth > b.minWidth ? -1 : 1));
+  return images.sort((a, b) => (a.breakpoint > b.breakpoint ? -1 : 1));
 };
 
 /**
@@ -61,7 +62,7 @@ const Image = ({ classname, sources, defaultSrc, alt }) => {
       {sortedImages.map((imgSrc, key) => {
         return (
           <source
-            media={`(min-width: ${imgSrc.minWidth}px )`}
+            media={`(min-width: ${imgSrc.breakpoint}px )`}
             key={key}
             srcSet={imgSrc.src}
           />
@@ -81,7 +82,7 @@ Image.propTypes = {
   sources: PropTypes.arrayOf(
     PropTypes.shape({
       src: PropTypes.string,
-      minWidth: PropTypes.any,
+      breakpoint: PropTypes.any,
     })
   ),
   defaultSrc: PropTypes.string.isRequired,

@@ -76,13 +76,13 @@ function App() {
       type: 'ContentGroupSimple',
       mediaType: 'image',
       mediaData: {
-        images: [
-          { src: 'https://your-image.com/320/160', minWidth: 320 },
-          { src: 'https://your-image.com/400/400', minWidth: 400 },
-          { src: 'https://your-image.com/672/672', minWidth: 672 },
+        sources: [
+          { src: 'https://your-image.com/320/160', breakpoint: 320 },
+          { src: 'https://your-image.com/400/400', breakpoint: 400 },
+          { src: 'https://your-image.com/672/672', breakpoint: 672 },
         ],
         alt: 'Image alt',
-        defaultImage: 'https://your-image.com/672/672',
+        defaultSrc: 'https://your-image.com/672/672',
       },
       heading: 'ContentGroupSimple heading.',
       items: [

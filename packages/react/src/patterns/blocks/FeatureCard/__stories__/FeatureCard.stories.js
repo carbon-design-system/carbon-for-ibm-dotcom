@@ -31,7 +31,7 @@ storiesOf('Patterns (Blocks)|FeatureCard', module)
     );
     const cardhref = text('Card href:', 'https://www.example.com');
     const image = object('card image', {
-      defaultImage: 'https://picsum.photos/id/2/672/672',
+      defaultSrc: 'https://picsum.photos/id/2/672/672',
       alt: 'featured card image',
     });
 

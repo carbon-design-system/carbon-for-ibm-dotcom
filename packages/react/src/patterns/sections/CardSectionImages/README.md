@@ -53,7 +53,7 @@ Card accepts the folloing information for this `CardSectionImages` pattern
 
 | Name       | Required | Data Type | Description                                                       |
 | ---------- | -------- | --------- | ----------------------------------------------------------------- |
-| `Image`    | YES      | Object    | It contains defaultImage and alt text properties.                 |
+| `Image`    | YES      | Object    | It contains defaultSrc and alt text properties.                   |
 | `Eyebrow`  | YES      | String    | Eyebrow of the Card.                                              |
 | `Heading`  | YES      | String    | Heading of the Card.                                              |
 | `cta.href` | YES      | String    | Valid URL for a the location of an internal or external resource. |

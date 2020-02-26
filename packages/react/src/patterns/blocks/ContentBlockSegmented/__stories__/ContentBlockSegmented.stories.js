@@ -19,22 +19,22 @@ storiesOf('Patterns (Blocks)|ContentBlockSegmented', module)
     const heading = text('Heading', 'Lorem ipsum dolor sit amet.');
 
     const image = {
-      images: [
+      sources: [
         {
           src: 'https://fpoimg.com/320x180?bg_color=0f62fe&text_color=ffffff',
-          minWidth: 320,
+          breakpoint: 320,
         },
         {
           src: 'https://fpoimg.com/400x225?bg_color=0f62fe&text_color=ffffff',
-          minWidth: 400,
+          breakpoint: 400,
         },
         {
           src: 'https://fpoimg.com/672x378?bg_color=0f62fe&text_color=ffffff',
-          minWidth: 672,
+          breakpoint: 672,
         },
       ],
       alt: 'CTA image',
-      defaultImage:
+      defaultSrc:
         'https://fpoimg.com/672x378?bg_color=0f62fe&text_color=ffffff',
     };
 
@@ -72,25 +72,25 @@ storiesOf('Patterns (Blocks)|ContentBlockSegmented', module)
       {
         heading: 'Lorem ipsum dolor sit amet.',
         image: {
-          images: [
+          sources: [
             {
               src:
                 'https://fpoimg.com/320x180?bg_color=0f62fe&text_color=ffffff',
-              minWidth: 320,
+              breakpoint: 320,
             },
             {
               src:
                 'https://fpoimg.com/400x225?bg_color=0f62fe&text_color=ffffff',
-              minWidth: 400,
+              breakpoint: 400,
             },
             {
               src:
                 'https://fpoimg.com/672x378?bg_color=0f62fe&text_color=ffffff',
-              minWidth: 672,
+              breakpoint: 672,
             },
           ],
           alt: 'lead space image',
-          defaultImage:
+          defaultSrc:
             'https://fpoimg.com/672x378?bg_color=0f62fe&text_color=ffffff',
         },
         copy: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.
@@ -106,25 +106,25 @@ storiesOf('Patterns (Blocks)|ContentBlockSegmented', module)
       {
         heading: 'Lorem ipsum dolor sit amet.',
         image: {
-          images: [
+          sources: [
             {
               src:
                 'https://fpoimg.com/320x180?bg_color=0f62fe&text_color=ffffff',
-              minWidth: 320,
+              breakpoint: 320,
             },
             {
               src:
                 'https://fpoimg.com/400x225?bg_color=0f62fe&text_color=ffffff',
-              minWidth: 400,
+              breakpoint: 400,
             },
             {
               src:
                 'https://fpoimg.com/672x378?bg_color=0f62fe&text_color=ffffff',
-              minWidth: 672,
+              breakpoint: 672,
             },
           ],
           alt: 'lead space image',
-          defaultImage:
+          defaultSrc:
             'https://fpoimg.com/672x378?bg_color=0f62fe&text_color=ffffff',
         },
         copy:

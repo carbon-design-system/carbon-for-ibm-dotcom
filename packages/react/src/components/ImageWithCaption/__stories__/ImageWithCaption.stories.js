@@ -23,8 +23,8 @@ storiesOf('Components|ImageWithCaption', module)
 
     const image = object('image', {
       sources: [
-        { src: 'https://picsum.photos/id/2/320/160', minWidth: 320 },
-        { src: 'https://picsum.photos/id/2/400/400', minWidth: 400 },
+        { src: 'https://picsum.photos/id/2/320/160', breakpoint: 320 },
+        { src: 'https://picsum.photos/id/2/400/400', breakpoint: 400 },
       ],
       alt: 'image with caption image',
       defaultSrc: 'https://picsum.photos/id/2/672/672',
