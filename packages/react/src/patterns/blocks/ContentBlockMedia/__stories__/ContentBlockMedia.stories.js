@@ -1,5 +1,6 @@
 import './index.scss';
 import { object, select, withKnobs, text } from '@storybook/addon-knobs';
+import { ArrowRight20 } from '@carbon/icons-react';
 import ContentBlockMedia from '../ContentBlockMedia';
 import ContentGroupSimpleKnobs from '../../ContentGroupSimple/__stories__/data/ContentGroupSimple.knobs';
 import React from 'react';
@@ -49,6 +50,9 @@ storiesOf('Patterns (Blocks)|ContentBlockMedia', module)
       card: {
         cta: {
           href: 'https://ibm.com',
+          icon: {
+            src: ArrowRight20,
+          },
         },
         heading: 'Consectetur adipisicing elit',
         image: {

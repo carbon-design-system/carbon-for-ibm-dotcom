@@ -8,7 +8,7 @@
  *
  */
 const settings = {
-  version: 'dds.v1.4.0-rc.2',
+  version: 'dds.v1.4.1',
   stablePrefix: 'dds',
 };
 
