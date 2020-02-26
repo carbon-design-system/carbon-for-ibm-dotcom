@@ -11,19 +11,29 @@
  * @example
  * import { smoothScroll } from '@carbon/ibmdotcom-utilities';
  *
- * <a href="#anchorlinkname" onClick={smoothScroll(e)}>lorem ipsum</a>
+ * Here e is event param and seletor is param where you want to apply smoothscroll
+ * <a href="#anchorlinkname" onClick={smoothScroll({ e, selector })}>lorem ipsum</a>
  *
  * You can use this for jump to target element by providing event object.
  * it will scroll into view of target by selecting attribute and assigning to id.
  *
  * @param {*} e event object
+ * @param {*} selector menu item selector id
  */
-const smoothScroll = e => {
-  e.preventDefault();
-  const id = e.currentTarget.getAttribute('href');
-  document.querySelector(id).scrollIntoView({
+const smoothScroll = (e, selector) => {
+  let getSelector;
+  if (e) {
+    e.preventDefault();
+    getSelector = e.currentTarget.getAttribute('href');
+  } else if (selector) {
+    getSelector = selector;
+  } else {
+    return null;
+  }
+  document.querySelector(getSelector).scrollIntoView({
     behavior: 'smooth',
     block: 'start',
   });
 };
+
 export default smoothScroll;
