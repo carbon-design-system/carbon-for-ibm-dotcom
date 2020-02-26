@@ -19,7 +19,7 @@ const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
- * ContenBlock Sub-pattern
+ * ContentBlock Sub-pattern
  *
  * @param {object} props props object
  * @param {string} props.heading Heading text
