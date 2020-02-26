@@ -23,6 +23,10 @@ $btn-min-width: 26;
   .#{$prefix}--leadspace--centered__desc {
     color: $text-01;
   }
+  .#{$prefix}--leadspace--centered__desc {
+    padding-top: $carbon--layout-01;
+    width: 100%;
+  }
 
   .#{$prefix}--leadspace--gradient {
     background-color: rgba($ui-background, 0.75);
@@ -50,6 +54,9 @@ $btn-min-width: 26;
 }
 
 @mixin leadspace {
+  .#{$prefix}--buttongroup {
+    padding-top: $carbon--layout-01;
+  }
   .#{$prefix}--leadspace {
     position: relative;
     padding-top: aspect-ratio(320px, 370px);
@@ -81,7 +88,7 @@ $btn-min-width: 26;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding-top: $carbon--layout-03;
+      padding-top: $carbon--layout-05;
       padding-bottom: $carbon--layout-03;
       position: absolute;
       top: 0;
@@ -91,10 +98,13 @@ $btn-min-width: 26;
     }
 
     .#{$prefix}--leadspace__title {
+      padding-top: 0;
       @include carbon--type-style(display-01, true);
     }
 
-    &__title,
+    &__title {
+      width: 95%;
+    }
     &__desc {
       @include carbon--make-col-ready;
     }
@@ -198,28 +208,22 @@ $btn-min-width: 26;
         width: 100%;
       }
     }
-
     &__content {
-      @include carbon--make-container;
+      @include carbon--make-row;
     }
 
     .#{$prefix}--buttongroup {
       padding-left: $carbon--layout-01;
     }
-
-    &__title,
     &__desc {
+      padding-top: $carbon--layout-01;
       width: 95%;
+      @include carbon--type-style(expressive-heading-03, true);
     }
 
     &__title {
       padding-top: $carbon--layout-03;
       @include carbon--type-style(expressive-heading-05, true);
-    }
-
-    &__desc {
-      padding-top: $carbon--layout-03;
-      @include carbon--type-style(expressive-heading-03, true);
     }
 
     @include themed-items;
@@ -242,9 +246,7 @@ $btn-min-width: 26;
         max-width: carbon--mini-units(80);
         width: 50%;
         margin: auto;
-      }
-      &__desc {
-        padding-top: $carbon--layout-04;
+        padding-top: $carbon--layout-01;
       }
 
       .#{$prefix}--buttongroup {

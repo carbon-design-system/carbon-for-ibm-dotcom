@@ -7,10 +7,10 @@
 
 import React, { useEffect, useState } from 'react';
 import { ButtonGroup } from '../../sub-patterns/ButtonGroup';
-import LeadSpaceImage from './LeadSpaceImage';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import LeadSpaceImage from './LeadSpaceImage';
+import PropTypes from 'prop-types';
 import { settings } from 'carbon-components';
 
 const { stablePrefix } = ddsSettings;
@@ -52,6 +52,27 @@ function centeredClassname(type, element) {
   } else return `${prefix}--leadspace__${element}`;
 }
 
+/**
+ *
+ * @param {string} type returns centered or default
+ * @returns {string} centered classname
+ */
+function centeredContent(type) {
+  if (type === 'centered') {
+    return `${prefix}--leadspace--centered__title`;
+  } else return `${prefix}--leadspace__content`;
+}
+
+// function newoverlayClassname(type, gradient) {
+//   if (type === 'centered') {
+//     return classnames(`${prefix}--leadspace--centered__overlay`, {
+//       [`${prefix}--leadspace--centered__gradient`]: gradient,
+//     });
+//   } else
+//     return classnames(`${prefix}--leadspace__overlay`, {
+//       [`${prefix}--leadspace--gradient`]: gradient,
+//     });
+// }
 /**
  *
  * @param {string} type type
@@ -170,12 +191,12 @@ const LeadSpace = ({
                 ? `${prefix}--leadspace--content__container`
                 : `${prefix}--leadspace--centered--content__container`
             }>
-            <div className={`${prefix}--leadspace__row`}>
+            <div className={centeredClassname(type, 'row')}>
               <h1 className={centeredClassname(type, 'title')}>{title}</h1>
             </div>
-            <div className={centeredClassname(type, 'content')}>
+            <div className={centeredContent(type)}>
               {copy && (
-                <div className={`${prefix}--leadspace__row`}>
+                <div className={centeredClassname(type, 'row')}>
                   {copy && (
                     <p
                       data-autoid={`${stablePrefix}--leadspace__desc`}
@@ -191,7 +212,6 @@ const LeadSpace = ({
             </div>
           </div>
         </div>
-
         {image && imageClassname(type, image)}
       </div>
     </section>
