@@ -1,5 +1,11 @@
 import './index.scss';
-import { number, select, text, withKnobs } from '@storybook/addon-knobs';
+import {
+  number,
+  select,
+  text,
+  withKnobs,
+  object,
+} from '@storybook/addon-knobs';
 import LinkList from '../LinkList';
 import React from 'react';
 import readme from '../README.md';
@@ -13,15 +19,15 @@ storiesOf('Patterns (Sub-Patterns)|LinkList', module)
     },
   })
   .add('Default', () => {
-    const heading = text('heading(required):', 'Tutorials');
+    const heading = text('heading (required):', 'Tutorials');
     const headlines = [
       'Containerization A Complete Guide',
       'Why should you use microservices and containers',
     ];
     const types = ['local', 'external'];
     const type = [
-      select('cta 1 type', types, types[0]),
-      select('cta 2 type', types, types[0]),
+      select('Resource icon 1', types, types[0]),
+      select('Resource icon 2', types, types[0]),
     ];
 
     const items = [
@@ -50,7 +56,7 @@ storiesOf('Patterns (Sub-Patterns)|LinkList', module)
       <div className="bx--grid">
         <div className="bx--row">
           <div className="bx--col-sm-4 bx--col-lg-4 bx--offset-lg-12">
-            <LinkList heading={heading} items={items} />
+            <LinkList heading={heading} items={object('Items array ', items)} />
           </div>
         </div>
       </div>
