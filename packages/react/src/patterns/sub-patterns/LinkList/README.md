@@ -1,6 +1,6 @@
-# LinkList
+# Link List
 
-> The LinkList component will be used to have list of different cta types.
+> The Link List component will be used to have list of different cta types.
 
 ## Getting started
 
@@ -28,15 +28,13 @@ function App() {
       {
         heading: 'Containerization: A Complete Guide',
         type: local,
-        style: 'text',
-        title: 'Lorem ipsum dolor sit amet',
+        copy: 'Lorem ipsum dolor sit amet',
         href: 'https://ibm.com',
       },
       {
         heading: 'Why should you use microservices and containers?',
         type: external,
-        style: 'text',
-        title: 'Lorem ipsum dolor sit amet',
+        copy: 'Lorem ipsum dolor sit amet',
         href: 'https://ibm.com',
       },
 
@@ -53,29 +51,27 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 ## Props
 
-| Name      | Required | Data Type | Default Value | Description                                                                                                                                             |
-| --------- | -------- | --------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `heading` | YES      | String    | text          | Describes heading of LinkList.                                                                                                                          |
-| `items`   | NO       | Array     | null          | Describes the list of CTA. For more See [CTA](https://github.com/mkothur/ibm-dotcom-library/blob/master/packages/react/src/components/CTA/README.md)!👀 |
+| Name      | Required | Data Type | Default Value | Description                                          |
+| --------- | -------- | --------- | ------------- | ---------------------------------------------------- |
+| `heading` | YES      | String    | text          | Describes heading of LinkList.                       |
+| `items`   | YES      | Array     | null          | Describes the list of CTA. For more See below `CTA`. |
 
-## Styles
+## CTA
 
-| Style  | Component Name | Description                                                                                                                                              |
-| ------ | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `text` | LinkWithIcon   | Use their props here. For more details [see here](https://ibmdotcom-react-experimental.mybluemix.net/?path=/story/components-link-with-icon--default)!👀 |
+| Name   | Description                                                                |
+| ------ | -------------------------------------------------------------------------- |
+| `copy` | Describing the resource with added detail.                                 |
+| `type` | Describes after onClick where to load. For more details See below `Types`. |
 
-## Types
+> 👀 See more here
+> [CTA](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/src/components/CTA/README.md)
 
-| Type       | SVG element Name | Description                                                                                   |
-| ---------- | ---------------- | --------------------------------------------------------------------------------------------- |
-| `local`    | ArrowRight20     | Describes right arrow onClick which loads in self page. For more details click `Icons` below. |
-| `external` | Launch20         | Describes launch arrow onClick which loads in new tab. For more details click `Icons` below.  |
+### Types
 
-## Icons
-
-- [Icons library](https://www.carbondesignsystem.com/guidelines/icons/library/)!👀
-- [@carbon/icons-react](https://github.com/carbon-design-system/carbon/tree/master/packages/icons-react)!👀
-- [carbon-icons](https://www.npmjs.com/package/carbon-icons)!👀
+| Type       | SVG element Name | Description                                             |
+| ---------- | ---------------- | ------------------------------------------------------- |
+| `local`    | ArrowRight20     | Describes right arrow onClick which loads in self page. |
+| `external` | Launch20         | Describes launch arrow onClick which loads in new tab.  |
 
 ## 🙌 Contributing
 

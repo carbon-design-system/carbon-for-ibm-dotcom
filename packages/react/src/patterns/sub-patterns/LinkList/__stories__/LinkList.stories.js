@@ -1,12 +1,9 @@
 import './index.scss';
-import { select, text, withKnobs } from '@storybook/addon-knobs';
+import { number, select, text, withKnobs } from '@storybook/addon-knobs';
 import LinkList from '../LinkList';
 import React from 'react';
 import readme from '../README.md';
-import { settings } from 'carbon-components';
 import { storiesOf } from '@storybook/react';
-
-const { prefix } = settings;
 
 storiesOf('Patterns (Sub-Patterns)|LinkList', module)
   .addDecorator(withKnobs)
@@ -17,31 +14,42 @@ storiesOf('Patterns (Sub-Patterns)|LinkList', module)
   })
   .add('Default', () => {
     const heading = text('heading(required):', 'Tutorials');
+    const headlines = [
+      'Containerization A Complete Guide',
+      'Why should you use microservices and containers',
+    ];
     const types = ['local', 'external'];
     const type = [
       select('cta 1 type', types, types[0]),
       select('cta 2 type', types, types[0]),
     ];
+
     const items = [
       {
-        heading: 'Containerization: A Complete Guide',
         type: type[0],
-        style: 'text',
-        title: 'Lorem ipsum dolor sit amet',
+        copy: headlines[0],
         href: 'https://ibm.com',
       },
       {
-        heading: 'Why should you use microservices and containers?',
         type: type[1],
-        style: 'text',
-        title: 'Lorem ipsum dolor sit amet',
+        copy: headlines[1],
         href: 'https://ibm.com',
       },
     ];
+
+    const itemsCount = number('Number of items', 0);
+
+    for (let i = 0; i < itemsCount; i++) {
+      items.push({
+        type: type[0],
+        copy: headlines[i],
+        href: 'https://ibm.com',
+      });
+    }
     return (
-      <div className={`${prefix}--grid`}>
+      <div className="bx--grid">
         <div className="bx--row">
-          <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
+          <div className="bx--col-sm-4 bx--col-lg-4 bx--offset-lg-12">
             <LinkList heading={heading} items={items} />
           </div>
         </div>

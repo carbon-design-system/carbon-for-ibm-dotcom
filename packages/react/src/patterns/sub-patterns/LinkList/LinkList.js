@@ -15,7 +15,7 @@ const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
- * LinkList Component, for use with content arrays
+ * LinkList Component, for use with items array
  *
  * @param {object} props props object
  * @param {string} props.heading  Heading string
@@ -27,24 +27,23 @@ const LinkList = ({ heading, items }) => {
     <div
       className={`${prefix}--link-list`}
       data-autoid={`${stablePrefix}--link-list`}>
-      <h3 className={`${prefix}--link-list__heading`}>{heading}</h3>
-      <div className={`${prefix}--link-list__list`}>
+      <h4 className={`${prefix}--link-list__heading`}>{heading}</h4>
+      <ul className={`${prefix}--link-list__list`}>
         {items.map((item, index) => {
           return (
-            <div className={`${prefix}--link-list__list__CTA`} key={index}>
-              <h2>{item.heading}</h2>
-              <CTA type={item.type} {...item} />
-            </div>
+            <li className={`${prefix}--link-list__list__CTA`} key={index}>
+              <CTA style="text" {...item} />
+            </li>
           );
         })}
-      </div>
+      </ul>
     </div>
   );
 };
 
 LinkList.propTypes = {
-  heading: PropTypes.string,
-  items: PropTypes.array,
+  heading: PropTypes.string.isRequired,
+  items: PropTypes.arrayOf(PropTypes.instanceOf(CTA).isRequired),
 };
 
 export default LinkList;
