@@ -24,16 +24,17 @@ const { prefix } = settings;
  */
 const sortSources = sources => {
   const images = sources.map(elem => {
-    if (typeof elem.minWidth == 'number') {
+    if (typeof elem.breakpoint == 'number') {
       return elem;
     } else {
       return {
-        minWidth: parseFloat(breakpoints[elem.minWidth].width) * baseFontSize,
+        breakpoint:
+          parseFloat(breakpoints[elem.breakpoint].width) * baseFontSize,
         src: elem.src,
       };
     }
   });
-  return images.sort((a, b) => (a.minWidth > b.minWidth ? -1 : 1));
+  return images.sort((a, b) => (a.breakpoint > b.breakpoint ? -1 : 1));
 };
 
 /**
@@ -42,16 +43,16 @@ const sortSources = sources => {
  * @param {object} props props object
  * @param {object} props.classname classname
  * @param {object} props.images array of images used for diff breakpoints
- * @param {string} props.defaultImage default image (usually image for largest breakpoint)
+ * @param {string} props.defaultSrc default image (usually image for largest breakpoint)
  * @param {string} props.alt alt of the image
  * @returns {*} picture element
  */
-const Image = ({ classname, images, defaultImage, alt }) => {
-  if (!defaultImage || !alt) {
+const Image = ({ classname, sources, defaultSrc, alt }) => {
+  if (!defaultSrc || !alt) {
     return null;
   }
 
-  const sortedImages = images ? sortSources(images) : [];
+  const sortedImages = sources ? sortSources(sources) : [];
 
   return (
     <picture
@@ -61,7 +62,7 @@ const Image = ({ classname, images, defaultImage, alt }) => {
       {sortedImages.map((imgSrc, key) => {
         return (
           <source
-            media={`(min-width: ${imgSrc.minWidth}px )`}
+            media={`(min-width: ${imgSrc.breakpoint}px )`}
             key={key}
             srcSet={imgSrc.src}
           />
@@ -69,7 +70,7 @@ const Image = ({ classname, images, defaultImage, alt }) => {
       })}
       <img
         className={classnames(`${prefix}--image__img`, classname)}
-        src={defaultImage}
+        src={defaultSrc}
         alt={alt}
       />
     </picture>
@@ -78,14 +79,14 @@ const Image = ({ classname, images, defaultImage, alt }) => {
 
 Image.propTypes = {
   classname: PropTypes.string,
-  images: PropTypes.arrayOf(
+  sources: PropTypes.arrayOf(
     PropTypes.shape({
       src: PropTypes.string,
-      minWidth: PropTypes.any,
+      breakpoint: PropTypes.any,
     })
   ),
-  defaultImage: PropTypes.string,
-  alt: PropTypes.string,
+  defaultSrc: PropTypes.string.isRequired,
+  alt: PropTypes.string.isRequired,
 };
 
 export default Image;

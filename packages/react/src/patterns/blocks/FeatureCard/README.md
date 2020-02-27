@@ -30,7 +30,7 @@ const card = [
       href: 'https://www.example.com',
     },
     image: {
-      defaultImage: 'https://picsum.photos/id/2/672/672',
+      defaultSrc: 'https://picsum.photos/id/2/672/672',
       alt: 'featured card image',
     },
   },

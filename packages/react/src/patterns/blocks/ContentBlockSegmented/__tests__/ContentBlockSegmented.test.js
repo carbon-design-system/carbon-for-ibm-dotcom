@@ -12,13 +12,13 @@ describe('<ContentBlockSegmented />', () => {
       {
         heading: 'Lorem ipsum dolor sit amet.',
         mediaData: {
-          images: [
-            { src: 'https://picsum.photos/id/2/320/160', minWidth: 320 },
-            { src: 'https://picsum.photos/id/2/400/400', minWidth: 400 },
-            { src: 'https://picsum.photos/id/2/672/672', minWidth: 672 },
+          sources: [
+            { src: 'https://picsum.photos/id/2/320/160', breakpoint: 320 },
+            { src: 'https://picsum.photos/id/2/400/400', breakpoint: 400 },
+            { src: 'https://picsum.photos/id/2/672/672', breakpoint: 672 },
           ],
           alt: 'lead space image',
-          defaultImage: 'https://picsum.photos/id/2/672/672',
+          defaultSrc: 'https://picsum.photos/id/2/672/672',
         },
         mediaType: 'video',
         content: {
@@ -33,13 +33,13 @@ describe('<ContentBlockSegmented />', () => {
       {
         heading: 'Lorem ipsum dolor sit amet.',
         mediaData: {
-          images: [
-            { src: 'https://picsum.photos/id/2/320/160', minWidth: 320 },
-            { src: 'https://picsum.photos/id/2/400/400', minWidth: 400 },
-            { src: 'https://picsum.photos/id/2/672/672', minWidth: 672 },
+          sources: [
+            { src: 'https://picsum.photos/id/2/320/160', breakpoint: 320 },
+            { src: 'https://picsum.photos/id/2/400/400', breakpoint: 400 },
+            { src: 'https://picsum.photos/id/2/672/672', breakpoint: 672 },
           ],
           alt: 'lead space image',
-          defaultImage: 'https://picsum.photos/id/2/672/672',
+          defaultSrc: 'https://picsum.photos/id/2/672/672',
         },
         mediaType: 'image',
         content: {
@@ -71,13 +71,13 @@ describe('<ContentBlockSegmented />', () => {
       {
         heading: 'Lorem ipsum dolor sit amet.',
         mediaData: {
-          images: [
-            { src: 'https://picsum.photos/id/2/320/160', minWidth: 320 },
-            { src: 'https://picsum.photos/id/2/400/400', minWidth: 400 },
-            { src: 'https://picsum.photos/id/2/672/672', minWidth: 672 },
+          sources: [
+            { src: 'https://picsum.photos/id/2/320/160', breakpoint: 320 },
+            { src: 'https://picsum.photos/id/2/400/400', breakpoint: 400 },
+            { src: 'https://picsum.photos/id/2/672/672', breakpoint: 672 },
           ],
           alt: 'lead space image',
-          defaultImage: 'https://picsum.photos/id/2/672/672',
+          defaultSrc: 'https://picsum.photos/id/2/672/672',
         },
         mediaType: 'image',
         content: {

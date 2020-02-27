@@ -11,13 +11,13 @@ import { shallow } from 'enzyme';
 const content = {
   heading: 'this is a heading',
   image: {
-    images: [
-      { src: 'https://picsum.photos/id/2/288/144', minWidth: 'sm' },
-      { src: 'https://picsum.photos/id/2/448/224', minWidth: 'md' },
-      { src: 'https://picsum.photos/id/2/352/176', minWidth: 'lg' },
+    sources: [
+      { src: 'https://picsum.photos/id/2/288/144', breakpoint: 'sm' },
+      { src: 'https://picsum.photos/id/2/448/224', breakpoint: 'md' },
+      { src: 'https://picsum.photos/id/2/352/176', breakpoint: 'lg' },
     ],
     alt: 'content item image',
-    defaultImage: 'https://picsum.photos/id/2/352/176',
+    defaultSrc: 'https://picsum.photos/id/2/352/176',
   },
   copy: 'this is the copy',
   cta: {
