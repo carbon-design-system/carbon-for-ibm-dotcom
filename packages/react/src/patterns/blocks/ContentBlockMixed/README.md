@@ -14,6 +14,8 @@ Here's a quick example to get you started.
 @import '@carbon/type/scss/font-face/sans';
 @include carbon--font-face-mono();
 @include carbon--font-face-sans();
+
+@import '@carbon/ibmdotcom-styles/scss/patterns/blocks/content-block-mixed/index';
 ```
 
 > 💡 Only import fonts once per usage
@@ -21,7 +23,7 @@ Here's a quick example to get you started.
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { ContentBlockMixedGroups } from '@carbon/ibmdotcom-react';
+import { ContentBlockMixed } from '@carbon/ibmdotcom-react';
 import 'yourapplication.scss';
 
 function App() {
@@ -104,12 +106,7 @@ function App() {
   ];
 
   return (
-    <ContentBlockMixedGroups
-      heading={heading}
-      copy={copy}
-      cta={cta}
-      items={items}
-    />
+    <ContentBlockMixed heading={heading} copy={copy} cta={cta} items={items} />
   );
 }
 
