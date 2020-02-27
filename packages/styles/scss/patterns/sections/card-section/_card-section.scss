@@ -11,10 +11,11 @@
   background: $ui-background;
   .#{$prefix}--card {
     background-color: $ui-01;
-    &__title {
+    &__heading {
       color: $text-01;
     }
-    &__content {
+    &__copy,
+    &__eyebrow {
       color: $text-02;
     }
     &__footer {
@@ -29,21 +30,6 @@
 }
 @mixin card-section {
   .#{$prefix}--card-section {
-    &__title {
-      @include type-style('expressive-heading-02');
-      @include carbon--make-col-ready;
-
-      @include carbon--breakpoint('lg') {
-        @include carbon--make-col(4, 16);
-
-        margin-top: $carbon--layout-01;
-      }
-
-      margin-bottom: $carbon--layout-05;
-    }
-    &__container {
-      @include carbon--make-container;
-    }
     &__row {
       @include carbon--make-row;
     }
@@ -70,21 +56,20 @@
         margin-bottom: $carbon--grid-gutter--condensed / 2;
       }
     }
-
-    padding-top: $carbon--layout-03;
-    padding-bottom: $carbon--layout-05;
-
-    @include carbon--breakpoint('md') {
-      padding-bottom: $carbon--layout-06;
-    }
-    @include carbon--breakpoint('lg') {
-      padding-top: $carbon--layout-04;
-      padding-bottom: $carbon--layout-07;
-    }
     @include themed-items;
   }
   .#{$prefix}--card-section.#{$prefix}--card-section--g10 {
     @include carbon--theme($carbon--theme--g10) {
+      @include themed-items;
+    }
+  }
+  .#{$prefix}--card-section.#{$prefix}--card-section--g90 {
+    @include carbon--theme($carbon--theme--g90) {
+      @include themed-items;
+    }
+  }
+  .#{$prefix}--card-section.#{$prefix}--card-section--g100 {
+    @include carbon--theme($carbon--theme--g100) {
       @include themed-items;
     }
   }

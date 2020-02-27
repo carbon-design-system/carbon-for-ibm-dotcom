@@ -8,7 +8,7 @@
 import { ArrowDown20, ArrowRight20, Launch20 } from '@carbon/icons-react';
 import { ButtonGroup } from '../../patterns/sub-patterns/ButtonGroup';
 import { Card } from '../../patterns/sub-patterns/Card';
-import { FeaturedLink } from '../../patterns/blocks/FeaturedLink';
+import { FeatureCard } from '../../patterns/blocks/FeatureCard';
 import { LinkWithIcon } from '../LinkWithIcon';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -23,11 +23,13 @@ const { prefix } = settings;
  * @param {object} props props object
  * @param {string} props.style cta style ( text | card | button | feature ).
  * @param {string} props.type cta type ( jump | local | external ).
- * @param {string} props.customClassname custom classname from parent
+ * @param {string} props.customClassName custom classname from parent
  * @returns {*} CTA component
  */
-const CTA = ({ style, type, customClassname, ...cta }) => (
-  <div className={customClassname}>{renderCTA({ style, type, ...cta })}</div>
+const CTA = ({ style, type, customClassName, ...otherProps }) => (
+  <div className={customClassName}>
+    {renderCTA({ style, type, ...otherProps })}
+  </div>
 );
 
 /**
@@ -38,37 +40,41 @@ const CTA = ({ style, type, customClassname, ...cta }) => (
  * @param {string} props.type cta type ( jump | local | external ).
  * @returns {*} CTA Component
  */
-const renderCTA = ({ style, type, ...cta }) => {
+const renderCTA = ({ style, type, ...otherProps }) => {
   switch (style) {
     case 'card':
       return (
         <Card
-          className={`${prefix}--card--CTA`}
-          title={cta.title}
-          href={cta.href}
+          customClassName={`${prefix}--card--CTA`}
+          cta={{
+            href: otherProps.cta.href,
+            icon: {
+              src: _iconSelector(type),
+            },
+          }}
+          heading={otherProps.heading}
           type="link"
-          icon={_iconSelector(type)}
           target={_external(type)}
           handleClick={e => _jump(e, type)}
         />
       );
     case 'button':
-      return <ButtonGroup buttons={_renderButtons(cta)} />;
+      return <ButtonGroup buttons={_renderButtons(otherProps)} />;
     case 'feature':
       return (
-        <FeaturedLink
-          heading={cta.heading}
-          card={_renderFeatureCard(cta.card)}
+        <FeatureCard
+          heading={otherProps.heading}
+          card={_renderFeatureCard(otherProps.card)}
         />
       );
     default: {
       const Icon = _iconSelector(type);
       return (
         <LinkWithIcon
-          href={cta.href}
+          href={otherProps.href}
           target={_external(type)}
           onClick={e => _jump(e, type)}>
-          {cta.copy}
+          {otherProps.copy}
           <Icon />
         </LinkWithIcon>
       );
@@ -108,7 +114,7 @@ const _iconSelector = type =>
 /**
  * sets button
  *
- * @param {object} cta object with buttons array
+ * @param {object} buttons object with buttons array
  * @private
  * @returns {*} object
  */
@@ -138,6 +144,7 @@ const _renderFeatureCard = featureCard => {
 CTA.propTypes = {
   style: PropTypes.string,
   type: PropTypes.string,
-  customClassname: PropTypes.string,
+  customClassName: PropTypes.string,
 };
+
 export default CTA;

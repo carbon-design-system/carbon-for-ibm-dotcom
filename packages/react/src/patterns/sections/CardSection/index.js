@@ -6,5 +6,3 @@
  */
 
 export { default as CardSection } from './CardSection';
-export { default as ImageCards } from './ImageCards';
-export { default as SimpleCards } from './SimpleCards';

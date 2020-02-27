@@ -1,6 +1,8 @@
 import './index.scss';
 import { object, select, withKnobs, text } from '@storybook/addon-knobs';
+import { ArrowRight20 } from '@carbon/icons-react';
 import ContentBlockMedia from '../ContentBlockMedia';
+import ContentGroupSimpleKnobs from '../../ContentGroupSimple/__stories__/data/ContentGroupSimple.knobs';
 import React from 'react';
 import readme from '../README.md';
 import { settings } from 'carbon-components';
@@ -16,21 +18,7 @@ storiesOf('Patterns (Blocks)|ContentBlockMedia', module)
     },
   })
   .add('Default', () => {
-    const copy = {
-      'single paragraph': `Lorem    ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.
-      Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
-      nulla quis, consequat libero. Here are
-      some common categories:`,
-      'multiple paragraphs': `   Lorem    ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.
-      Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
-      nulla quis, consequat libero. Here are
-      some common categories:
-
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
-
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
-      `,
-      'multiple paragraphs (styled)': `   __Lorem__    ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+    const copy = `   __Lorem__    ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
       Mauris iaculis eget dolor nec hendrerit. __Phasellus__ at elit sollicitudin, sodales
       nulla quis, *consequat* libero. Here are
       some common categories:
@@ -38,108 +26,19 @@ storiesOf('Patterns (Blocks)|ContentBlockMedia', module)
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
 
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
-      `,
-      none: null,
-    };
-
-    const contentGroup = [
-      {
-        title: 'Aliquam condimentum interdum',
-        image: {
-          uri: {
-            sm: 'https://via.placeholder.com/640x320',
-            md: 'https://via.placeholder.com/768x384',
-            lg: 'https://via.placeholder.com/1024x512',
-          },
-          alt: 'Place Holder Image',
-        },
-        lists: [
-          {
-            title: 'Nunc convallis lobortis',
-            copy:
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
-          },
-          {
-            title: 'Interdum et malesuada',
-            copy:
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
-          },
-        ],
-        link: {
-          href: 'https://www.example.com',
-          title: 'Vivamus interdum ligula',
-          target: '_self',
-        },
-      },
-      {
-        title: ' Vivamus interdum ligula',
-        image: {
-          uri: {
-            sm: 'https://via.placeholder.com/640x320',
-            md: 'https://via.placeholder.com/768x384',
-            lg: 'https://via.placeholder.com/1024x512',
-          },
-          alt: 'Place Holder Image',
-        },
-        lists: [
-          {
-            title: 'Consectetur adipiscing elit',
-            copy:
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
-          },
-          {
-            title: 'Proin quis iaculis risus',
-            copy:
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
-          },
-        ],
-        link: {
-          href: 'https://www.example.com',
-          title: 'Lorem ipsum dolor sit',
-          target: '_self',
-        },
-      },
-      {
-        title: 'Vivamus scelerisque orci at',
-        image: {
-          uri: {
-            sm: 'https://via.placeholder.com/640x320',
-            md: 'https://via.placeholder.com/768x384',
-            lg: 'https://via.placeholder.com/1024x512',
-          },
-          alt: 'Place Holder Image',
-        },
-        lists: [
-          {
-            title: 'Convallis pretium molestie',
-            copy:
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
-          },
-          {
-            title: 'Aliquam tincidunt diam sit',
-            copy:
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
-            link: {
-              href: 'https://www.example.com',
-              title: 'Learn more',
-              target: '_self',
-            },
-          },
-        ],
-        link: {
-          href: 'https://www.example.com',
-          title: 'Aliquam condimentum interdum',
-          target: '_self',
-        },
-      },
-    ];
+      `;
 
     const ctaProps = {
       type: 'local',
       heading: 'Lorem ipsum dolor sit amet',
       card: {
-        href: 'https://ibm.com',
-        title: 'Consectetur adipisicing elit',
+        cta: {
+          href: 'https://ibm.com',
+          icon: {
+            src: ArrowRight20,
+          },
+        },
+        heading: 'Consectetur adipisicing elit',
         image: {
           defaultImage: 'https://picsum.photos/id/672/672',
           alt: 'featured card image',
@@ -152,17 +51,45 @@ storiesOf('Patterns (Blocks)|ContentBlockMedia', module)
       none: null,
     };
 
+    const simpleHeading = ContentGroupSimpleKnobs.heading;
+    const simpleMediaData = ContentGroupSimpleKnobs.mediaData;
+    const simpleTypes = ContentGroupSimpleKnobs.types;
+    const simpleMediaType = simpleTypes.image;
+    const simpleItems = ContentGroupSimpleKnobs.items;
+    const simpleCta = ContentGroupSimpleKnobs.cta;
+
+    const items = [
+      {
+        mediaType: simpleMediaType,
+        mediaData: simpleMediaData,
+        heading: text('Simple group heading', simpleHeading),
+        items: object('Simple group content', simpleItems),
+        cta: object('Simple group CTA', simpleCta),
+      },
+      {
+        mediaType: simpleMediaType,
+        mediaData: simpleMediaData,
+        heading: text('Simple group heading', simpleHeading),
+        items: object('Simple group content', simpleItems),
+        cta: object('Simple group CTA', simpleCta),
+      },
+    ];
+
     return (
       <div className={`${prefix}--grid`}>
-        <ContentBlockMedia
-          copy={select('Copy (optional)', copy, copy['single paragraph'])}
-          heading={text(
-            'Heading (required)',
-            'Curabitur malesuada varius mi eu posuere'
-          )}
-          contentGroup={object('contentGroup', contentGroup)}
-          cta={select('Feature Link (optional)', cta, cta.cta)}
-        />
+        <div class="bx--row">
+          <div class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
+            <ContentBlockMedia
+              copy={copy}
+              heading={text(
+                'Heading (required)',
+                'Curabitur malesuada varius mi eu posuere'
+              )}
+              items={items}
+              cta={select('Feature Link (optional)', cta, cta.cta)}
+            />
+          </div>
+        </div>
       </div>
     );
   });

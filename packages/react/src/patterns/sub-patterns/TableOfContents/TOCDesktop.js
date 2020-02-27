@@ -10,6 +10,7 @@ import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { settings } from 'carbon-components';
+import { smoothScroll } from '@carbon/ibmdotcom-utilities';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
@@ -18,7 +19,7 @@ const { prefix } = settings;
  * DesktopMenu Component
  *
  * @param {object} props props object
- * @param {object} props.menuItems menu items object
+ * @param {Array} props.menuItems menu items object
  * @param {string} props.selectedId id of a menu item
  * @param {*} props.updateState function to update parent state.
  * @returns {*} JSX Object
@@ -64,10 +65,8 @@ const TOCDesktop = ({ menuItems, selectedId, updateState }) => {
     });
     const title = filteredItems[0].title;
     updateState(id, title);
-    document.querySelector(`a[name="${id}"]`).scrollIntoView({
-      behavior: 'smooth',
-      block: 'start',
-    });
+    const selector = `a[name="${id}"]`;
+    smoothScroll(null, selector);
   };
 
   /**
