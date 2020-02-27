@@ -8,12 +8,21 @@ describe('<ContentBlockSimple />', () => {
 
     const mediaData = {
       images: [
-        { src: 'https://picsum.photos/id/2/320/160', minWidth: 320 },
-        { src: 'https://picsum.photos/id/2/400/400', minWidth: 400 },
-        { src: 'https://picsum.photos/id/2/672/672', minWidth: 672 },
+        {
+          src: 'https://dummyimage.com/320x160/ee5396/fff&text=2x1',
+          minWidth: 320,
+        },
+        {
+          src: 'https://dummyimage.com/400x400/ee5396/fff&text=1x1',
+          minWidth: 400,
+        },
+        {
+          src: 'https://dummyimage.com/672x672/ee5396/fff&text=1x1',
+          minWidth: 672,
+        },
       ],
-      alt: 'lead space image',
-      defaultImage: 'https://picsum.photos/id/2/672/672',
+      defaultImage: 'https://dummyimage.com/672x672/ee5396/fff&text=1x1',
+      alt: 'Image alt text',
     };
 
     const mediaType = 'image';

@@ -20,14 +20,23 @@ storiesOf('Components|Image', module)
   })
   .add('Default', () => {
     const imageObject = object('Images Object:', [
-      { src: 'https://picsum.photos/id/2/320/160', minWidth: 320 },
-      { src: 'https://picsum.photos/id/2/400/400', minWidth: 400 },
-      { src: 'https://picsum.photos/id/2/672/672', minWidth: 672 },
+      {
+        src: 'https://dummyimage.com/320x160/ee5396/fff&text=2x1',
+        minWidth: 320,
+      },
+      {
+        src: 'https://dummyimage.com/400x400/ee5396/fff&text=1x1',
+        minWidth: 400,
+      },
+      {
+        src: 'https://dummyimage.com/672x672/ee5396/fff&text=1x1',
+        minWidth: 672,
+      },
     ]);
-    const alt = text('alt', 'lead space image');
+    const alt = text('alt', 'Image alt text');
     const defaultImage = text(
       'default image:',
-      'https://picsum.photos/id/2/672/672'
+      'https://dummyimage.com/672x672/ee5396/fff&text=1x1'
     );
 
     return (
