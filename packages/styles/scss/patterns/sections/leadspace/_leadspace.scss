@@ -15,7 +15,7 @@ $btn-min-width: 26;
 @mixin themed-items {
   @include buttongroup;
 
-  background: $ui-background;
+  background-color: $ui-background;
 
   .#{$prefix}--leadspace__title,
   .#{$prefix}--leadspace__desc,
@@ -182,11 +182,6 @@ $btn-min-width: 26;
   @include carbon--breakpoint(max) {
     .#{$prefix}--leadspace {
       padding-top: aspect-ratio(1584px, 640px);
-
-      //&__overlay {
-      //  padding-top: $carbon--spacing-08;
-      //  padding-bottom: $carbon--spacing-08;
-      //}
     }
   }
 }
@@ -198,8 +193,9 @@ $btn-min-width: 26;
       flex-direction: column;
       justify-content: space-between;
       padding-left: $carbon--spacing-05;
+      @include carbon--make-col-ready;
+      @include carbon--make-col(4, 4);
     }
-
     &--mobile__image {
       height: carbon--mini-units(20);
       width: 100%;
@@ -235,7 +231,11 @@ $btn-min-width: 26;
       &__overlay {
         padding-bottom: carbon--mini-units(20);
       }
-
+      &--content__container {
+        margin: auto;
+        padding-left: 1.5rem;
+        @include carbon--make-col(4, 8);
+      }
       &__image {
         background-repeat: no-repeat;
         background-size: cover;
@@ -245,8 +245,6 @@ $btn-min-width: 26;
       &__title,
       &__desc {
         max-width: carbon--mini-units(80);
-        width: 50%;
-        margin: auto;
       }
       &__desc {
         padding-top: $carbon--layout-04;
@@ -272,6 +270,11 @@ $btn-min-width: 26;
         width: 50%;
         margin: auto;
       }
+    }
+  }
+  .#{$prefix}--leadspace--centered--g100 {
+    @include carbon--theme($carbon--theme--g100) {
+      @include themed-items;
     }
   }
 }
