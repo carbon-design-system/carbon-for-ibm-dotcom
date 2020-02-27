@@ -81,8 +81,8 @@ function App() {
           { src: 'https://your-image.com/400/400', minWidth: 400 },
           { src: 'https://your-image.com/672/672', minWidth: 672 },
         ],
-        alt: 'Image alt',
         defaultImage: 'https://your-image.com/672/672',
+        alt: 'Image alt',
       },
       heading: 'ContentGroupSimple heading.',
       items: [

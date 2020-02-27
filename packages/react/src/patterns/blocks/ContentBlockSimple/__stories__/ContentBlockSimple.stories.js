@@ -41,8 +41,8 @@ storiesOf('Patterns (Blocks)|ContentBlockSimple', module)
           minWidth: 'lg',
         },
       ],
-      alt: 'CTA image',
       defaultImage: 'https://dummyimage.com/672x378/ee5396/fff&text=16x9',
+      alt: 'CTA image',
     };
 
     const copy = `   Lorem    ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.

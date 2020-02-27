@@ -33,11 +33,11 @@ storiesOf('Components|Image', module)
         minWidth: 'lg',
       },
     ]);
-    const alt = text('alt', 'Image alt text');
     const defaultImage = text(
       'default image:',
       'https://dummyimage.com/672x672/ee5396/fff&text=1x1'
     );
+    const alt = text('alt', 'Image alt text');
 
     return (
       <Image images={imageObject} defaultImage={defaultImage} alt={alt}></Image>

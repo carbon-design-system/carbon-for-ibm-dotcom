@@ -25,8 +25,8 @@ const content = {
         minWidth: 'lg',
       },
     ],
-    alt: 'Image alt text',
     defaultImage: 'https://dummyimage.com/352x176/ee5396/fff&text=2x1',
+    alt: 'Image alt text',
   },
   copy: 'this is the copy',
   cta: {
