@@ -10,6 +10,14 @@
     &__item:not(:last-of-type) {
       padding-bottom: $carbon--layout-03;
     }
+
+    @include carbon--breakpoint(md) {
+      padding-bottom: $carbon--layout-03;
+    }
+
+    @include carbon--breakpoint(lg) {
+      padding-bottom: $carbon--layout-05;
+    }
   }
 }
 @include exports('content-group-pictograms') {
