@@ -44,7 +44,7 @@ storiesOf('Patterns (Sub-Patterns)|ContentBlock', module)
         },
         heading: 'Consectetur adipisicing elit',
         image: {
-          defaultImage: 'https://picsum.photos/id/672/672',
+          defaultSrc: 'https://picsum.photos/id/672/672',
           alt: 'featured card image',
         },
       },

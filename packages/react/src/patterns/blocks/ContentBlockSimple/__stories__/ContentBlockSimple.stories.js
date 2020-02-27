@@ -27,22 +27,22 @@ storiesOf('Patterns (Blocks)|ContentBlockSimple', module)
     };
 
     const image = {
-      images: [
+      sources: [
         {
           src: 'https://fpoimg.com/320x180?bg_color=0f62fe&text_color=ffffff',
-          minWidth: 320,
+          breakpoint: 320,
         },
         {
           src: 'https://fpoimg.com/400x225?bg_color=0f62fe&text_color=ffffff',
-          minWidth: 400,
+          breakpoint: 400,
         },
         {
           src: 'https://fpoimg.com/672x378?bg_color=0f62fe&text_color=ffffff',
-          minWidth: 672,
+          breakpoint: 672,
         },
       ],
       alt: 'CTA image',
-      defaultImage:
+      defaultSrc:
         'https://fpoimg.com/672x378?bg_color=0f62fe&text_color=ffffff',
     };
 

@@ -53,7 +53,7 @@ storiesOf('Patterns (Sub-Patterns)|Card', module)
       g100: 'g100',
     };
     const image = props.cardProps().image && {
-      defaultImage: 'https://picsum.photos/id/2/600/300',
+      defaultSrc: 'https://picsum.photos/id/2/600/300',
       alt: 'featured link image',
     };
 
@@ -101,7 +101,7 @@ storiesOf('Patterns (Sub-Patterns)|Card', module)
       g100: 'g100',
     };
     const image = props.cardProps().image && {
-      defaultImage: 'https://picsum.photos/id/2/600/300',
+      defaultSrc: 'https://picsum.photos/id/2/600/300',
       alt: 'featured link image',
     };
 
