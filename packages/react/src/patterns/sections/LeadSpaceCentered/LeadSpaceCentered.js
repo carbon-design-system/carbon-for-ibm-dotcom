@@ -5,14 +5,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import {
-  settings as ddsSettings,
-  featureFlag,
-} from '@carbon/ibmdotcom-utilities';
 import React, { useEffect, useState } from 'react';
 import { ButtonGroup } from '../../sub-patterns/ButtonGroup';
 import classnames from 'classnames';
-import { DDS_LEADSPACE_CENTERED } from '../../../internal/FeatureFlags';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
 import { settings } from 'carbon-components';
 
@@ -89,8 +85,7 @@ const LeadSpaceCentered = ({
       ? { backgroundImage: `url(${image.url})` }
       : { backgroundImage: 'none' };
 
-  return featureFlag(
-    DDS_LEADSPACE_CENTERED,
+  return (
     <section
       style={background}
       data-autoid={`${stablePrefix}--leadspace--centered`}
