@@ -93,8 +93,10 @@ storiesOf('Patterns (Sections)|LeadSpace', module)
     };
 
     const images = {
-      mobile: 'https://picsum.photos/id/1076/320/370',
-      tablet: 'https://picsum.photos/id/1076/672/400',
+      sources: [
+        { src: 'https://picsum.photos/id/1076/320/370', breakpoint: 'sm' },
+        { src: 'https://picsum.photos/id/1076/672/400', breakpoint: 'md' },
+      ],
       default: 'https://picsum.photos/id/1076/1056/480',
       alt: 'lead space image',
     };

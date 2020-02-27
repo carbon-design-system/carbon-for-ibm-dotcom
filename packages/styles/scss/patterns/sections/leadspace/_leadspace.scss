@@ -24,7 +24,6 @@ $btn-min-width: 26;
     color: $text-01;
   }
   .#{$prefix}--leadspace--centered__desc {
-    padding-top: $carbon--layout-01;
     width: 100%;
   }
   .#{$prefix}--buttongroup {
@@ -198,13 +197,12 @@ $btn-min-width: 26;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      padding-left: $carbon--spacing-05;
     }
 
     &--mobile__image {
       height: carbon--mini-units(20);
       width: 100%;
-      position: absolute;
-      bottom: 0;
 
       img {
         object-fit: cover;

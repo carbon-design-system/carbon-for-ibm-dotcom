@@ -9,7 +9,7 @@ import React, { useEffect, useState } from 'react';
 import { ButtonGroup } from '../../sub-patterns/ButtonGroup';
 import classnames from 'classnames';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
-import LeadSpaceImage from './LeadSpaceImage';
+import { Image } from '../../../components/Image';
 import PropTypes from 'prop-types';
 import { settings } from 'carbon-components';
 
@@ -19,27 +19,26 @@ const { prefix } = settings;
 /**
  * renders the pattern classnames
  *
- * @param {string} variation variation of the pattern
  * @param {string} theme theme of the pattern
  * @param {string} type switches between centered or default
  * @param {object} image object
  * @returns {string} classnames
  */
-const className = (variation, theme, type, image) =>
-  classnames(
-    `${prefix}--leadspace`,
-    theme && `${prefix}--leadspace--${theme}`,
+const className = (theme, type, image) => {
+  const mainClassName = `${prefix}--leadspace${
+    type === 'centered' ? '--centered' : ''
+  }`;
+  return classnames(
+    mainClassName,
+    theme && `${mainClassName}--${theme}`,
     {
       [`${prefix}--leadspace--productive`]: type === 'small',
-    },
-    {
-      [`${prefix}--leadspace--centered${theme && '--g100'}`]:
-        type === 'centered',
     },
     {
       [`${prefix}--leadspace--centered__image`]: image && type === 'centered',
     }
   );
+};
 
 /**
  * @param {string} type returns centered or default
@@ -96,36 +95,13 @@ function imageClassname(type, image) {
     );
   } else
     return (
-      <LeadSpaceImage
-        images={sortImages(image)}
-        defaultImage={image.default}
+      <Image
+        sources={image.sources}
+        defaultSrc={image.default}
         alt={image.alt}
       />
     );
 }
-
-/**
- * sorts images by breakpoints for the LeadSpaceImage component
- *
- * @param {object} images object with all the image srcs for diff breakpoints
- * @returns {Array} images sorted
- */
-const sortImages = images => {
-  return [
-    {
-      minWidth: 1056,
-      url: images.default,
-    },
-    {
-      minWidth: 672,
-      url: images.tablet,
-    },
-    {
-      minWidth: 0,
-      url: images.mobile,
-    },
-  ];
-};
 
 /**
  * Lead space component (left-aligned)
@@ -140,16 +116,7 @@ const sortImages = images => {
  * @param {string} props.variation variation of the lead space (expressive (default) | productive)
  * @returns {*} Lead space component
  */
-const LeadSpace = ({
-  buttons,
-  copy,
-  gradient,
-  image,
-  theme,
-  title,
-  type,
-  variation,
-}) => {
+const LeadSpace = ({ buttons, copy, gradient, image, theme, title, type }) => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const isMobile = windowWidth <= 671;
 
@@ -177,8 +144,8 @@ const LeadSpace = ({
     <section
       style={background}
       data-autoid={`${stablePrefix}--leadspace`}
-      className={className(variation, theme, type, image)}>
-      <div className={`${prefix}--leadspace__container`}>
+      className={className(theme, type, image)}>
+      <div className={centeredClassname(type, 'container')}>
         <div className={newoverlayClassname(type, gradient)}>
           <div
             className={
@@ -217,17 +184,10 @@ LeadSpace.propTypes = {
   buttons: PropTypes.array,
   copy: PropTypes.string,
   gradient: PropTypes.bool,
-  image: PropTypes.shape({
-    mobile: PropTypes.string,
-    tablet: PropTypes.string,
-    default: PropTypes.string,
-    url: PropTypes.string,
-    alt: PropTypes.string,
-  }),
+  image: PropTypes.instanceOf(Image),
   theme: PropTypes.string,
   title: PropTypes.string.isRequired,
   type: PropTypes.string,
-  variation: PropTypes.string,
 };
 
 export default LeadSpace;
