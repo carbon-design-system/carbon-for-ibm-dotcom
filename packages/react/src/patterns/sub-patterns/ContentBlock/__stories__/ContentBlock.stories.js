@@ -36,12 +36,12 @@ storiesOf('Patterns (Sub-Patterns)|ContentBlock', module)
       heading: 'Lorem ipsum dolor sit amet',
       card: {
         cta: {
-          href: 'https://ibm.com',
+          href: 'https://www.example.com',
         },
         heading: 'Consectetur adipisicing elit',
         image: {
-          defaultImage: 'https://picsum.photos/id/672/672',
-          alt: 'featured card image',
+          defaultImage: 'https://dummyimage.com/672x672/ee5396/fff&text=1x1',
+          alt: 'Image alt text',
         },
       },
     };
@@ -53,13 +53,18 @@ storiesOf('Patterns (Sub-Patterns)|ContentBlock', module)
 
     return (
       <div className={`${prefix}--grid`}>
-        <ContentBlock
-          heading={blockProps.heading}
-          copy={blockProps.copy}
-          cta={select('CTA (optional)', cta, cta.cta)}
-          customClassName={`${prefix}--col-lg-8`}>
-          {blockProps.content}
-        </ContentBlock>
+        <div class="bx--row">
+          <div class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
+            <div className={`${prefix}--content-block`}>
+              <ContentBlock
+                heading={blockProps.heading}
+                copy={blockProps.copy}
+                cta={select('CTA (optional)', cta, cta.cta)}>
+                {blockProps.content}
+              </ContentBlock>
+            </div>
+          </div>
+        </div>
       </div>
     );
   });

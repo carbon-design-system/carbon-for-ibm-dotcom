@@ -25,7 +25,12 @@ import 'yourapplication.scss';
 
 function App() {
   return (
-    <CTA style="text" type="local" copy="IBM Homepage" href="www.ibm.com" />
+    <CTA
+      style="text"
+      type="local"
+      copy="IBM Homepage"
+      href="https://www.example.com"
+    />
   );
 }
 

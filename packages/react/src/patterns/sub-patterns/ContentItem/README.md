@@ -27,18 +27,27 @@ function App() {
 
   const image = {
     images: [
-      { src: 'https://picsum.photos/id/2/288/144', minWidth: 'sm' },
-      { src: 'https://picsum.photos/id/2/448/224', minWidth: 'md' },
-      { src: 'https://picsum.photos/id/2/352/176', minWidth: 'lg' },
+      {
+        src: 'https://dummyimage.com/288x144/ee5396/fff&text=2x1',
+        minWidth: 'sm',
+      },
+      {
+        src: 'https://dummyimage.com/448x224/ee5396/fff&text=2x1',
+        minWidth: 'md',
+      },
+      {
+        src: 'https://dummyimage.com/352x176/ee5396/fff&text=2x1',
+        minWidth: 'lg',
+      },
     ],
-    alt: 'content item image',
-    defaultImage: 'https://picsum.photos/id/2/352/176',
+    alt: 'Image alt text',
+    defaultImage: 'https://dummyimage.com/352x176/ee5396/fff&text=2x1',
   };
 
   const cta = {
     type: 'jump',
     copy: 'Click here',
-    href: 'www.ibm.com',
+    href: 'https://www.example.com',
   };
 
   return <ContentItem heading={heading} copy={copy} image={image} cta={cta} />;

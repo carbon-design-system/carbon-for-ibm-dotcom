@@ -65,8 +65,8 @@ if (DDS_LEADSPACE_CENTERED) {
       const title = text('title', 'What is artificial intelligence?');
 
       const image = {
-        url: 'https://picsum.photos/id/1076/1056/480',
-        alt: 'building',
+        url: 'https://dummyimage.com/1056x480/ee5396/fff',
+        alt: 'Image alt text',
       };
 
       const iconMap = {

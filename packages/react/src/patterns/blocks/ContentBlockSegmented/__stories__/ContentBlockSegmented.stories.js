@@ -22,15 +22,15 @@ storiesOf('Patterns (Blocks)|ContentBlockSegmented', module)
       images: [
         {
           src: 'https://dummyimage.com/320x180/ee5396/fff&text=16x9',
-          minWidth: 320,
+          minWidth: 'sm',
         },
         {
           src: 'https://dummyimage.com/400x225/ee5396/fff&text=16x9',
-          minWidth: 400,
+          minWidth: 'md',
         },
         {
           src: 'https://dummyimage.com/672x378/ee5396/fff&text=16x9',
-          minWidth: 672,
+          minWidth: 'lg',
         },
       ],
       defaultImage: 'https://dummyimage.com/672x378/ee5396/fff&text=16x9',
@@ -74,15 +74,15 @@ storiesOf('Patterns (Blocks)|ContentBlockSegmented', module)
           images: [
             {
               src: 'https://dummyimage.com/320x180/ee5396/fff&text=16x9',
-              minWidth: 320,
+              minWidth: 'sm',
             },
             {
               src: 'https://dummyimage.com/400x225/ee5396/fff&text=16x9',
-              minWidth: 400,
+              minWidth: 'md',
             },
             {
               src: 'https://dummyimage.com/672x378/ee5396/fff&text=16x9',
-              minWidth: 672,
+              minWidth: 'lg',
             },
           ],
           defaultImage: 'https://dummyimage.com/672x378/ee5396/fff&text=16x9',
@@ -104,15 +104,15 @@ storiesOf('Patterns (Blocks)|ContentBlockSegmented', module)
           images: [
             {
               src: 'https://dummyimage.com/320x180/ee5396/fff&text=16x9',
-              minWidth: 320,
+              minWidth: 'sm',
             },
             {
               src: 'https://dummyimage.com/400x225/ee5396/fff&text=16x9',
-              minWidth: 400,
+              minWidth: 'md',
             },
             {
               src: 'https://dummyimage.com/672x378/ee5396/fff&text=16x9',
-              minWidth: 672,
+              minWidth: 'lg',
             },
           ],
           defaultImage: 'https://dummyimage.com/672x378/ee5396/fff&text=16x9',

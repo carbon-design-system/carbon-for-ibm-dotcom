@@ -54,8 +54,22 @@ const CardKnobs = {
   imageCards: [
     {
       image: {
-        defaultImage: 'https://picsum.photos/id/1003/1056/480',
-        alt: 'cards with image',
+        images: [
+          {
+            src: 'https://dummyimage.com/320x180/ee5396/fff&text=16x9',
+            minWidth: 'sm',
+          },
+          {
+            src: 'https://dummyimage.com/400x225/ee5396/fff&text=16x9',
+            minWidth: 'md',
+          },
+          {
+            src: 'https://dummyimage.com/672x378/ee5396/fff&text=16x9',
+            minWidth: 'lg',
+          },
+        ],
+        defaultImage: 'https://dummyimage.com/672x378/ee5396/fff&text=16x9',
+        alt: 'Image alt text',
       },
       title: 'Topic',
       copy: 'Natural language processing.',
@@ -67,8 +81,22 @@ const CardKnobs = {
     },
     {
       image: {
-        defaultImage: 'https://picsum.photos/id/1018/1056/480',
-        alt: 'cards with image',
+        images: [
+          {
+            src: 'https://dummyimage.com/320x180/ee5396/fff&text=16x9',
+            minWidth: 'sm',
+          },
+          {
+            src: 'https://dummyimage.com/400x225/ee5396/fff&text=16x9',
+            minWidth: 'md',
+          },
+          {
+            src: 'https://dummyimage.com/672x378/ee5396/fff&text=16x9',
+            minWidth: 'lg',
+          },
+        ],
+        defaultImage: 'https://dummyimage.com/672x378/ee5396/fff&text=16x9',
+        alt: 'Image alt text',
       },
       title: 'Blog',
       copy: 'Natural language processing.',
@@ -80,8 +108,22 @@ const CardKnobs = {
     },
     {
       image: {
-        defaultImage: 'https://picsum.photos/id/1076/1056/480',
-        alt: 'cards with image',
+        images: [
+          {
+            src: 'https://dummyimage.com/320x180/ee5396/fff&text=16x9',
+            minWidth: 'sm',
+          },
+          {
+            src: 'https://dummyimage.com/400x225/ee5396/fff&text=16x9',
+            minWidth: 'md',
+          },
+          {
+            src: 'https://dummyimage.com/672x378/ee5396/fff&text=16x9',
+            minWidth: 'lg',
+          },
+        ],
+        defaultImage: 'https://dummyimage.com/672x378/ee5396/fff&text=16x9',
+        alt: 'Image alt text',
       },
       title: 'Topic',
       copy: 'Natural language processing.',
@@ -93,8 +135,22 @@ const CardKnobs = {
     },
     {
       image: {
-        defaultImage: 'https://picsum.photos/id/102/1056/480',
-        alt: 'cards with image',
+        images: [
+          {
+            src: 'https://dummyimage.com/320x180/ee5396/fff&text=16x9',
+            minWidth: 'sm',
+          },
+          {
+            src: 'https://dummyimage.com/400x225/ee5396/fff&text=16x9',
+            minWidth: 'md',
+          },
+          {
+            src: 'https://dummyimage.com/672x378/ee5396/fff&text=16x9',
+            minWidth: 'lg',
+          },
+        ],
+        defaultImage: 'https://dummyimage.com/672x378/ee5396/fff&text=16x9',
+        alt: 'Image alt text',
       },
       title: 'Blog',
       copy: 'Serving society ethically in the age of Artificial Intelligence.',
@@ -106,8 +162,22 @@ const CardKnobs = {
     },
     {
       image: {
-        defaultImage: 'https://picsum.photos/id/1032/1056/480',
-        alt: 'cards with image',
+        images: [
+          {
+            src: 'https://dummyimage.com/320x180/ee5396/fff&text=16x9',
+            minWidth: 'sm',
+          },
+          {
+            src: 'https://dummyimage.com/400x225/ee5396/fff&text=16x9',
+            minWidth: 'md',
+          },
+          {
+            src: 'https://dummyimage.com/672x378/ee5396/fff&text=16x9',
+            minWidth: 'lg',
+          },
+        ],
+        defaultImage: 'https://dummyimage.com/672x378/ee5396/fff&text=16x9',
+        alt: 'Image alt text',
       },
       title: 'Topic',
       copy: 'Serving society ethically in the age of Artificial Intelligence.',

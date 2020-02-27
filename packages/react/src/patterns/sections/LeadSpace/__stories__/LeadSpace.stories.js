@@ -93,10 +93,10 @@ if (DDS_LEADSPACE) {
       };
 
       const images = {
-        mobile: 'https://picsum.photos/id/1076/320/370',
-        tablet: 'https://picsum.photos/id/1076/672/400',
-        default: 'https://picsum.photos/id/1076/1056/480',
-        alt: 'lead space image',
+        mobile: 'https://dummyimage.com/320x370/ee5396/fff',
+        tablet: 'https://dummyimage.com/672x400/ee5396/fff',
+        default: 'https://dummyimage.com/1056x480/ee5396/fff',
+        alt: 'Image alt text',
       };
 
       const iconMap = {

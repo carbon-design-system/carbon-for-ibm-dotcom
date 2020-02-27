@@ -18,7 +18,7 @@ storiesOf('Patterns (Blocks)|ContentBlockSimple', module)
   .add('Default', () => {
     const ctaProps = {
       cta: {
-        href: 'https://www.ibm.com',
+        href: 'https://www.example.com',
       },
       style: 'card',
       type: 'external',
@@ -29,21 +29,20 @@ storiesOf('Patterns (Blocks)|ContentBlockSimple', module)
     const image = {
       images: [
         {
-          src: 'https://fpoimg.com/320x180?bg_color=0f62fe&text_color=ffffff',
-          minWidth: 320,
+          src: 'https://dummyimage.com/320x180/ee5396/fff&text=16x9',
+          minWidth: 'sm',
         },
         {
-          src: 'https://fpoimg.com/400x225?bg_color=0f62fe&text_color=ffffff',
-          minWidth: 400,
+          src: 'https://dummyimage.com/400x225/ee5396/fff&text=16x9',
+          minWidth: 'md',
         },
         {
-          src: 'https://fpoimg.com/672x378?bg_color=0f62fe&text_color=ffffff',
-          minWidth: 672,
+          src: 'https://dummyimage.com/672x378/ee5396/fff&text=16x9',
+          minWidth: 'lg',
         },
       ],
       alt: 'CTA image',
-      defaultImage:
-        'https://fpoimg.com/672x378?bg_color=0f62fe&text_color=ffffff',
+      defaultImage: 'https://dummyimage.com/672x378/ee5396/fff&text=16x9',
     };
 
     const copy = `   Lorem    ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.

@@ -15,15 +15,15 @@ describe('<ContentBlockSegmented />', () => {
           images: [
             {
               src: 'https://dummyimage.com/320x160/ee5396/fff&text=2x1',
-              minWidth: 320,
+              minWidth: 'sm',
             },
             {
               src: 'https://dummyimage.com/400x400/ee5396/fff&text=1x1',
-              minWidth: 400,
+              minWidth: 'md',
             },
             {
               src: 'https://dummyimage.com/672x672/ee5396/fff&text=1x1',
-              minWidth: 672,
+              minWidth: 'lg',
             },
           ],
           defaultImage: 'https://dummyimage.com/672x672/ee5396/fff&text=1x1',
@@ -45,15 +45,15 @@ describe('<ContentBlockSegmented />', () => {
           images: [
             {
               src: 'https://dummyimage.com/320x160/ee5396/fff&text=2x1',
-              minWidth: 320,
+              minWidth: 'sm',
             },
             {
               src: 'https://dummyimage.com/400x400/ee5396/fff&text=1x1',
-              minWidth: 400,
+              minWidth: 'md',
             },
             {
               src: 'https://dummyimage.com/672x672/ee5396/fff&text=1x1',
-              minWidth: 672,
+              minWidth: 'lg',
             },
           ],
           defaultImage: 'https://dummyimage.com/672x672/ee5396/fff&text=1x1',
@@ -92,15 +92,15 @@ describe('<ContentBlockSegmented />', () => {
           images: [
             {
               src: 'https://dummyimage.com/320x180/ee5396/fff&text=16x9',
-              minWidth: 320,
+              minWidth: 'sm',
             },
             {
               src: 'https://dummyimage.com/400x225/ee5396/fff&text=16x9',
-              minWidth: 400,
+              minWidth: 'md',
             },
             {
               src: 'https://dummyimage.com/672x378/ee5396/fff&text=16x9',
-              minWidth: 672,
+              minWidth: 'lg',
             },
           ],
           defaultImage: 'https://dummyimage.com/672x378/ee5396/fff&text=16x9',
