@@ -29,19 +29,19 @@ storiesOf('Patterns (Blocks)|ContentBlockSimple', module)
     const image = {
       images: [
         {
-          src: 'https://dummyimage.com/320x180/ee5396/fff&text=16x9',
+          src: 'https://dummyimage.com/320x180/ee5396/161616&text=16:9',
           minWidth: 'sm',
         },
         {
-          src: 'https://dummyimage.com/400x225/ee5396/fff&text=16x9',
+          src: 'https://dummyimage.com/400x225/ee5396/161616&text=16:9',
           minWidth: 'md',
         },
         {
-          src: 'https://dummyimage.com/672x378/ee5396/fff&text=16x9',
+          src: 'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
           minWidth: 'lg',
         },
       ],
-      defaultImage: 'https://dummyimage.com/672x378/ee5396/fff&text=16x9',
+      defaultImage: 'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
       alt: 'CTA image',
     };
 

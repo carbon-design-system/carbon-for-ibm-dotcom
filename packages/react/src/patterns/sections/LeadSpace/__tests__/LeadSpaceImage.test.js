@@ -7,20 +7,20 @@ describe('<LeadSpaceImage />', () => {
     const image = [
       {
         minWidth: 0,
-        url: 'https://dummyimage.com/320x370/ee5396/fff',
+        url: 'https://dummyimage.com/320x370/ee5396/161616',
       },
       {
         minWidth: 672,
-        url: 'https://dummyimage.com/672x400/ee5396/fff',
+        url: 'https://dummyimage.com/672x400/ee5396/161616',
       },
       {
         minWidth: 1056,
-        url: 'https://dummyimage.com/1056x480/ee5396/fff',
+        url: 'https://dummyimage.com/1056x480/ee5396/161616',
       },
     ];
 
     const imageInfo = {
-      default: 'https://dummyimage.com/1056x480/ee5396/fff',
+      default: 'https://dummyimage.com/1056x480/ee5396/161616',
       alt: 'Image alt text',
     };
 

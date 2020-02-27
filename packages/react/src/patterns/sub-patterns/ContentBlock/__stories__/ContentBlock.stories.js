@@ -40,7 +40,7 @@ storiesOf('Patterns (Sub-Patterns)|ContentBlock', module)
         },
         heading: 'Consectetur adipisicing elit',
         image: {
-          defaultImage: 'https://dummyimage.com/672x672/ee5396/fff&text=1x1',
+          defaultImage: 'https://dummyimage.com/672x672/ee5396/161616&text=1:1',
           alt: 'Image alt text',
         },
       },

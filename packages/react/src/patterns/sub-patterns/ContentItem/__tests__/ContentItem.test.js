@@ -13,19 +13,19 @@ const content = {
   image: {
     images: [
       {
-        src: 'https://dummyimage.com/288x144/ee5396/fff&text=2x1',
+        src: 'https://dummyimage.com/288x144/ee5396/161616&text=2:1',
         minWidth: 'sm',
       },
       {
-        src: 'https://dummyimage.com/448x224/ee5396/fff&text=2x1',
+        src: 'https://dummyimage.com/448x224/ee5396/161616&text=2:1',
         minWidth: 'md',
       },
       {
-        src: 'https://dummyimage.com/352x176/ee5396/fff&text=2x1',
+        src: 'https://dummyimage.com/352x176/ee5396/161616&text=2:1',
         minWidth: 'lg',
       },
     ],
-    defaultImage: 'https://dummyimage.com/352x176/ee5396/fff&text=2x1',
+    defaultImage: 'https://dummyimage.com/352x176/ee5396/161616&text=2:1',
     alt: 'Image alt text',
   },
   copy: 'this is the copy',

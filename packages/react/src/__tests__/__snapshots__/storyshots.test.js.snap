@@ -1648,20 +1648,20 @@ Array [
           >
             <source
               media="(min-width: 1056px )"
-              srcSet="https://dummyimage.com/672x672/ee5396/fff&amp;text=1x1"
+              srcSet="https://dummyimage.com/672x672/ee5396/161616&amp;text=1:1"
             />
             <source
               media="(min-width: 672px )"
-              srcSet="https://dummyimage.com/400x400/ee5396/fff&amp;text=1x1"
+              srcSet="https://dummyimage.com/400x400/ee5396/161616&amp;text=1:1"
             />
             <source
               media="(min-width: 320px )"
-              srcSet="https://dummyimage.com/320x160/ee5396/fff&amp;text=2x1"
+              srcSet="https://dummyimage.com/320x160/ee5396/161616&amp;text=2:1"
             />
             <img
               alt="Image alt text"
               className="bx--image__img"
-              src="https://dummyimage.com/672x672/ee5396/fff&amp;text=1x1"
+              src="https://dummyimage.com/672x672/ee5396/161616&amp;text=1:1"
             />
           </picture>
         </div>
@@ -2462,20 +2462,20 @@ Array [
                             >
                               <source
                                 media="(min-width: 1056px )"
-                                srcSet="https://dummyimage.com/672x672/ee5396/fff&text=1x1"
+                                srcSet="https://dummyimage.com/672x672/ee5396/161616&text=1:1"
                               />
                               <source
                                 media="(min-width: 672px )"
-                                srcSet="https://dummyimage.com/400x400/ee5396/fff&text=1x1"
+                                srcSet="https://dummyimage.com/400x400/ee5396/161616&text=1:1"
                               />
                               <source
                                 media="(min-width: 320px )"
-                                srcSet="https://dummyimage.com/320x160/ee5396/fff&text=2x1"
+                                srcSet="https://dummyimage.com/320x160/ee5396/161616&text=2:1"
                               />
                               <img
                                 alt="Image alt text"
                                 className="bx--image__img"
-                                src="https://dummyimage.com/672x672/ee5396/fff&text=1x1"
+                                src="https://dummyimage.com/672x672/ee5396/161616&text=1:1"
                               />
                             </picture>
                           </div>
@@ -2627,20 +2627,20 @@ Array [
                             >
                               <source
                                 media="(min-width: 1056px )"
-                                srcSet="https://dummyimage.com/672x672/ee5396/fff&text=1x1"
+                                srcSet="https://dummyimage.com/672x672/ee5396/161616&text=1:1"
                               />
                               <source
                                 media="(min-width: 672px )"
-                                srcSet="https://dummyimage.com/400x400/ee5396/fff&text=1x1"
+                                srcSet="https://dummyimage.com/400x400/ee5396/161616&text=1:1"
                               />
                               <source
                                 media="(min-width: 320px )"
-                                srcSet="https://dummyimage.com/320x160/ee5396/fff&text=2x1"
+                                srcSet="https://dummyimage.com/320x160/ee5396/161616&text=2:1"
                               />
                               <img
                                 alt="Image alt text"
                                 className="bx--image__img"
-                                src="https://dummyimage.com/672x672/ee5396/fff&text=1x1"
+                                src="https://dummyimage.com/672x672/ee5396/161616&text=1:1"
                               />
                             </picture>
                           </div>
@@ -2809,20 +2809,20 @@ Array [
                               >
                                 <source
                                   media="(min-width: 1056px )"
-                                  srcSet="https://dummyimage.com/672x672/ee5396/fff&amp;text=1x1"
+                                  srcSet="https://dummyimage.com/672x672/ee5396/161616&amp;text=1:1"
                                 />
                                 <source
                                   media="(min-width: 672px )"
-                                  srcSet="https://dummyimage.com/400x400/ee5396/fff&amp;text=1x1"
+                                  srcSet="https://dummyimage.com/400x400/ee5396/161616&amp;text=1:1"
                                 />
                                 <source
                                   media="(min-width: 320px )"
-                                  srcSet="https://dummyimage.com/320x160/ee5396/fff&amp;text=2x1"
+                                  srcSet="https://dummyimage.com/320x160/ee5396/161616&amp;text=2:1"
                                 />
                                 <img
                                   alt="Image alt text"
                                   className="bx--image__img"
-                                  src="https://dummyimage.com/672x672/ee5396/fff&amp;text=1x1"
+                                  src="https://dummyimage.com/672x672/ee5396/161616&amp;text=1:1"
                                 />
                               </picture>
                               <div
@@ -3547,20 +3547,20 @@ Array [
                             >
                               <source
                                 media="(min-width: 1056px )"
-                                srcSet="https://dummyimage.com/672x672/ee5396/fff&text=1x1"
+                                srcSet="https://dummyimage.com/672x672/ee5396/161616&text=1:1"
                               />
                               <source
                                 media="(min-width: 672px )"
-                                srcSet="https://dummyimage.com/400x400/ee5396/fff&text=1x1"
+                                srcSet="https://dummyimage.com/400x400/ee5396/161616&text=1:1"
                               />
                               <source
                                 media="(min-width: 320px )"
-                                srcSet="https://dummyimage.com/320x160/ee5396/fff&text=2x1"
+                                srcSet="https://dummyimage.com/320x160/ee5396/161616&text=2:1"
                               />
                               <img
                                 alt="Image alt text"
                                 className="bx--image__img"
-                                src="https://dummyimage.com/672x672/ee5396/fff&text=1x1"
+                                src="https://dummyimage.com/672x672/ee5396/161616&text=1:1"
                               />
                             </picture>
                           </div>
@@ -3810,20 +3810,20 @@ Array [
                     >
                       <source
                         media="(min-width: 1056px )"
-                        srcSet="https://dummyimage.com/672x378/ee5396/fff&text=16x9"
+                        srcSet="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                       />
                       <source
                         media="(min-width: 672px )"
-                        srcSet="https://dummyimage.com/400x225/ee5396/fff&text=16x9"
+                        srcSet="https://dummyimage.com/400x225/ee5396/161616&text=16:9"
                       />
                       <source
                         media="(min-width: 320px )"
-                        srcSet="https://dummyimage.com/320x180/ee5396/fff&text=16x9"
+                        srcSet="https://dummyimage.com/320x180/ee5396/161616&text=16:9"
                       />
                       <img
                         alt="Image alt text"
                         className="bx--image__img"
-                        src="https://dummyimage.com/672x378/ee5396/fff&text=16x9"
+                        src="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                       />
                     </picture>
                     <div
@@ -3867,20 +3867,20 @@ Array [
                             >
                               <source
                                 media="(min-width: 1056px )"
-                                srcSet="https://dummyimage.com/672x378/ee5396/fff&amp;text=16x9"
+                                srcSet="https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9"
                               />
                               <source
                                 media="(min-width: 672px )"
-                                srcSet="https://dummyimage.com/400x225/ee5396/fff&amp;text=16x9"
+                                srcSet="https://dummyimage.com/400x225/ee5396/161616&amp;text=16:9"
                               />
                               <source
                                 media="(min-width: 320px )"
-                                srcSet="https://dummyimage.com/320x180/ee5396/fff&amp;text=16x9"
+                                srcSet="https://dummyimage.com/320x180/ee5396/161616&amp;text=16:9"
                               />
                               <img
                                 alt="Image alt text"
                                 className="bx--image__img"
-                                src="https://dummyimage.com/672x378/ee5396/fff&amp;text=16x9"
+                                src="https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9"
                               />
                             </picture>
                           </div>
@@ -3962,20 +3962,20 @@ Array [
                             >
                               <source
                                 media="(min-width: 1056px )"
-                                srcSet="https://dummyimage.com/672x378/ee5396/fff&amp;text=16x9"
+                                srcSet="https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9"
                               />
                               <source
                                 media="(min-width: 672px )"
-                                srcSet="https://dummyimage.com/400x225/ee5396/fff&amp;text=16x9"
+                                srcSet="https://dummyimage.com/400x225/ee5396/161616&amp;text=16:9"
                               />
                               <source
                                 media="(min-width: 320px )"
-                                srcSet="https://dummyimage.com/320x180/ee5396/fff&amp;text=16x9"
+                                srcSet="https://dummyimage.com/320x180/ee5396/161616&amp;text=16:9"
                               />
                               <img
                                 alt="Image alt text"
                                 className="bx--image__img"
-                                src="https://dummyimage.com/672x378/ee5396/fff&amp;text=16x9"
+                                src="https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9"
                               />
                             </picture>
                           </div>
@@ -4151,20 +4151,20 @@ Array [
                       >
                         <source
                           media="(min-width: 1056px )"
-                          srcSet="https://dummyimage.com/672x378/ee5396/fff&text=16x9"
+                          srcSet="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                         />
                         <source
                           media="(min-width: 672px )"
-                          srcSet="https://dummyimage.com/400x225/ee5396/fff&text=16x9"
+                          srcSet="https://dummyimage.com/400x225/ee5396/161616&text=16:9"
                         />
                         <source
                           media="(min-width: 320px )"
-                          srcSet="https://dummyimage.com/320x180/ee5396/fff&text=16x9"
+                          srcSet="https://dummyimage.com/320x180/ee5396/161616&text=16:9"
                         />
                         <img
                           alt="CTA image"
                           className="bx--image__img"
-                          src="https://dummyimage.com/672x378/ee5396/fff&text=16x9"
+                          src="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                         />
                       </picture>
                     </div>
@@ -4951,20 +4951,20 @@ Array [
                         >
                           <source
                             media="(min-width: 1056px )"
-                            srcSet="https://dummyimage.com/672x672/ee5396/fff&amp;text=1x1"
+                            srcSet="https://dummyimage.com/672x672/ee5396/161616&amp;text=1:1"
                           />
                           <source
                             media="(min-width: 672px )"
-                            srcSet="https://dummyimage.com/400x400/ee5396/fff&amp;text=1x1"
+                            srcSet="https://dummyimage.com/400x400/ee5396/161616&amp;text=1:1"
                           />
                           <source
                             media="(min-width: 320px )"
-                            srcSet="https://dummyimage.com/320x160/ee5396/fff&amp;text=2x1"
+                            srcSet="https://dummyimage.com/320x160/ee5396/161616&amp;text=2:1"
                           />
                           <img
                             alt="Image alt text"
                             className="bx--image__img"
-                            src="https://dummyimage.com/672x672/ee5396/fff&amp;text=1x1"
+                            src="https://dummyimage.com/672x672/ee5396/161616&amp;text=1:1"
                           />
                         </picture>
                       </div>
@@ -5399,7 +5399,7 @@ Array [
                                 <img
                                   alt="Image alt text"
                                   className="bx--image__img"
-                                  src="https://dummyimage.com/672x672/ee5396/fff&amp;text=1x1"
+                                  src="https://dummyimage.com/672x672/ee5396/161616&amp;text=1:1"
                                 />
                               </picture>
                               <div
@@ -5616,20 +5616,20 @@ Array [
                   >
                     <source
                       media="(min-width: 1056px )"
-                      srcSet="https://dummyimage.com/352x176/ee5396/fff&amp;text=2x1"
+                      srcSet="https://dummyimage.com/352x176/ee5396/161616&amp;text=2:1"
                     />
                     <source
                       media="(min-width: 672px )"
-                      srcSet="https://dummyimage.com/448x224/ee5396/fff&amp;text=2x1"
+                      srcSet="https://dummyimage.com/448x224/ee5396/161616&amp;text=2:1"
                     />
                     <source
                       media="(min-width: 320px )"
-                      srcSet="https://dummyimage.com/288x144/ee5396/fff&amp;text=2x1"
+                      srcSet="https://dummyimage.com/288x144/ee5396/161616&amp;text=2:1"
                     />
                     <img
                       alt="Image alt text"
                       className="bx--image__img"
-                      src="https://dummyimage.com/352x176/ee5396/fff&amp;text=2x1"
+                      src="https://dummyimage.com/352x176/ee5396/161616&amp;text=2:1"
                     />
                   </picture>
                   <div

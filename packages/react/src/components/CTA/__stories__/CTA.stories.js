@@ -55,20 +55,20 @@ storiesOf('Components|CTA', module)
             image: {
               images: [
                 {
-                  src: 'https://dummyimage.com/320x160/ee5396/fff&text=2x1',
+                  src: 'https://dummyimage.com/320x160/ee5396/161616&text=2:1',
                   minWidth: 'sm',
                 },
                 {
-                  src: 'https://dummyimage.com/400x400/ee5396/fff&text=1x1',
+                  src: 'https://dummyimage.com/400x400/ee5396/161616&text=1:1',
                   minWidth: 'md',
                 },
                 {
-                  src: 'https://dummyimage.com/672x672/ee5396/fff&text=1x1',
+                  src: 'https://dummyimage.com/672x672/ee5396/161616&text=1:1',
                   minWidth: 'lg',
                 },
               ],
               defaultImage:
-                'https://dummyimage.com/672x672/ee5396/fff&text=1x1',
+                'https://dummyimage.com/672x672/ee5396/161616&text=1:1',
               alt: 'Image alt text',
             },
           },

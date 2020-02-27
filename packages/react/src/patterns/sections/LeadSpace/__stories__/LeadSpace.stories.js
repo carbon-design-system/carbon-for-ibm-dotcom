@@ -93,9 +93,9 @@ if (DDS_LEADSPACE) {
       };
 
       const images = {
-        mobile: 'https://dummyimage.com/320x370/ee5396/fff',
-        tablet: 'https://dummyimage.com/672x400/ee5396/fff',
-        default: 'https://dummyimage.com/1056x480/ee5396/fff',
+        mobile: 'https://dummyimage.com/320x370/ee5396/161616',
+        tablet: 'https://dummyimage.com/672x400/ee5396/161616',
+        default: 'https://dummyimage.com/1056x480/ee5396/161616',
         alt: 'Image alt text',
       };
 
