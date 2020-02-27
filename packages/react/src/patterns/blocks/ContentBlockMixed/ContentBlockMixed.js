@@ -39,15 +39,13 @@ const ContentBlockMixed = ({ heading, copy, cta, items }) => {
   });
 
   return (
-    <ContentBlock
-      heading={heading}
-      copy={copy}
-      cta={cta}
-      customClassName={`${prefix}--content-block-mixedgroups`}>
-      <div data-autoid={`${stablePrefix}--content-block-mixedgroups`}>
+    <div
+      data-autoid={`${stablePrefix}--content-block-mixed`}
+      className={`${prefix}--content-block ${prefix}--content-block-mixed`}>
+      <ContentBlock heading={heading} copy={copy} cta={cta}>
         {groups}
-      </div>
-    </ContentBlock>
+      </ContentBlock>
+    </div>
   );
 };
 

@@ -41,6 +41,7 @@ storiesOf('Components|Dotcom Shell', module)
         footerType={select('Footer', footer, footer.default)}
         hasProfile={boolean('Has profile', true)}
         hasSearch={boolean('Has search', true)}
+        disableLocaleButton={boolean('hide the locale button', false)}
         {...mastheadL1Props}>
         {content}
       </DotcomShell>
