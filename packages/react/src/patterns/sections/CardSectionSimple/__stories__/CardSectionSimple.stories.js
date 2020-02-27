@@ -26,6 +26,12 @@ storiesOf('Patterns (Sections)|CardSectionSimple', module)
         heading={text('Heading (required):', 'Aliquam condimentum interdum')}
         theme={select('theme', themes, themes.white)}
         cards={object('Data', cards.CardSectionSimple)}
+        cta={{
+          heading: 'Top level card link',
+          cta: {
+            href: 'https://www.example.com',
+          },
+        }}
       />
     );
   });

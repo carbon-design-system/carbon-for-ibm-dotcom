@@ -37,9 +37,14 @@ storiesOf('Patterns (Sections)|CardSection', module)
     return (
       <CardSection
         heading={text('Heading (required)', cardsTitle)}
-        cards={cards[type]}
-        data={data}
         theme={theme}
+        cards={data}
+        cta={{
+          heading: 'Top level card link',
+          cta: {
+            href: 'https://www.example.com',
+          },
+        }}
       />
     );
   });
