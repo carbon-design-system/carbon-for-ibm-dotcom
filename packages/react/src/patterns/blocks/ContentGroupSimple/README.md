@@ -33,8 +33,8 @@ const mediaData = {
     { src: 'https://dummyimage.com/400x400', minWidth: 'md' },
     { src: 'https://dummyimage.com/672x672', minWidth: 'lg' },
   ],
-  alt: 'lead space image',
   defaultImage: 'https://dummyimage.com/672x672',
+  alt: 'lead space image',
 };
 
 const mediaType = 'image';
