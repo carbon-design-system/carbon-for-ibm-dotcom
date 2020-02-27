@@ -87,10 +87,7 @@ const _renderCards = (cards, containerRef, cta) => (
     ref={containerRef}>
     {cards.map((card, index) => {
       return (
-        <div
-          className={`${prefix}--card-section__cards__col`}
-          role="region"
-          aria-labelledby={`${card.heading}`}>
+        <div className={`${prefix}--card-section__cards__col`}>
           <Card
             key={index}
             image={card.image}
@@ -104,7 +101,8 @@ const _renderCards = (cards, containerRef, cta) => (
               },
             }}
             type="link"
-            id={`${card.heading}`}
+            role="region"
+            aria-labelledby={`region${card.heading}`}
           />
         </div>
       );
