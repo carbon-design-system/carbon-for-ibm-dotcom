@@ -23,7 +23,6 @@ storiesOf('Patterns (Sections)|CardSection', module)
       g100: 'g100',
     };
     const type = select('cardType', cardTypes, cardTypes[0]);
-    console.log('sss', type);
     const theme = select('theme', themes, themes.white);
 
     const cardsTitle =
