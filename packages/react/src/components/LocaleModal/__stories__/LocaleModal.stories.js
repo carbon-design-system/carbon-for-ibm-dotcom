@@ -15,6 +15,7 @@ storiesOf('Components|Locale Modal', module)
   .add('Default', () => {
     const localeModalProps = {
       headerTitle: text('title', 'Select region'),
+      modalClose: 'Close',
     };
 
     return <LocaleModal isOpen={true} {...localeModalProps} />;

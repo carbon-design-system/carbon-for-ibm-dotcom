@@ -104,6 +104,7 @@ const LocaleModalCountries = ({
           data-autoid={`${stablePrefix}--locale-modal__filter`}
           placeHolderText={localeModalProps.placeHolderText}
           labelText={localeModalProps.labelText}
+          closeButtonLabelText={localeModalProps.searchClearText}
           id={`${prefix}--locale-modal__filter`}
         />
         <p className={`${prefix}--locale-modal__search-text`}>
@@ -143,6 +144,7 @@ LocaleModalCountries.propTypes = {
   regionList: PropTypes.array,
   availabilityText: PropTypes.string,
   unavailabilityText: PropTypes.string,
+  closeButtonLabelText: PropTypes.string,
   placeHolderText: PropTypes.string,
   labelText: PropTypes.string,
   setClearResults: PropTypes.func,
@@ -157,6 +159,7 @@ LocaleModalCountries.defaultProps = {
     'This page is available in the following locations and languages',
   unavailabilityText:
     'This page is unavailable in your preferred location or language',
+  closeButtonLabelText: 'Clear search input',
   placeHolderText: 'Search by location or language',
   labelText: 'Search',
 };

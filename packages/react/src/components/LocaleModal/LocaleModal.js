@@ -126,6 +126,7 @@ const LocaleModal = ({ isOpen, setIsOpen, ...localeModalProps }) => {
             <Globe20 className={`${prefix}--locale-modal__label-globe`} />,
           ]}
           title={localeModalProps.headerTitle}
+          iconDescription={localeModalProps.modalClose}
         />
       )}
       <ModalBody className={`${prefix}--locale-modal ${filterClass}`}>
