@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.1-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.4.0...@carbon/ibmdotcom-react@1.4.1-rc.0) (2020-02-26)
+
+### Bug Fixes
+
+- **css:** adds missing css to block-level patterns; fixes
+  [#1488](https://github.com/carbon-design-system/ibm-dotcom-library/issues/1488)
+  ([d3d6052](https://github.com/carbon-design-system/ibm-dotcom-library/commit/d3d6052))
+- **localebutton:** added prop to disable the locale button
+  ([dee069f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/dee069f))
+- **pattern:** fix block-level autoid structure; fixes
+  [#1490](https://github.com/carbon-design-system/ibm-dotcom-library/issues/1490)
+  ([e078536](https://github.com/carbon-design-system/ibm-dotcom-library/commit/e078536))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.4.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.4.0-rc.2...@carbon/ibmdotcom-react@1.4.0) (2020-02-25)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-react
