@@ -13,6 +13,8 @@ Here's a quick example to get you started.
 @import '@carbon/type/scss/font-face/sans';
 @include carbon--font-face-mono();
 @include carbon--font-face-sans();
+
+@import '@carbon/ibmdotcom-styles/scss/patterns/blocks/content-block-segmented/index';
 ```
 
 > 💡 Only import fonts once per usage

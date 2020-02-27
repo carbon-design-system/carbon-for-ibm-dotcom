@@ -13,7 +13,7 @@ Here's a quick example to get you started.
 @include carbon--font-face-mono();
 @include carbon--font-face-sans();
 
-@import '@carbon/ibmdotcom-styles/scss/patterns/blocks/content-group-pictograms/content-group-pictograms';
+@import '@carbon/ibmdotcom-styles/scss/patterns/blocks/content-group-pictograms/index';
 ```
 
 > 💡 Only import font's once per usage
