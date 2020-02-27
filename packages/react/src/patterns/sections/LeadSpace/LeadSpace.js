@@ -63,16 +63,22 @@ function centeredContent(type) {
   } else return `${prefix}--leadspace__content`;
 }
 
-// function newoverlayClassname(type, gradient) {
-//   if (type === 'centered') {
-//     return classnames(`${prefix}--leadspace--centered__overlay`, {
-//       [`${prefix}--leadspace--centered__gradient`]: gradient,
-//     });
-//   } else
-//     return classnames(`${prefix}--leadspace__overlay`, {
-//       [`${prefix}--leadspace--gradient`]: gradient,
-//     });
-// }
+/**
+ *
+ * @param {string} type returns centered or default
+ * @param {string} gradient gradient
+ * @returns {object} gradient
+ */
+function newoverlayClassname(type, gradient) {
+  if (type === 'centered') {
+    return classnames(`${prefix}--leadspace--centered__overlay`, {
+      [`${prefix}--leadspace--centered__gradient`]: gradient,
+    });
+  } else
+    return classnames(`${prefix}--leadspace__overlay`, {
+      [`${prefix}--leadspace--gradient`]: gradient,
+    });
+}
 /**
  *
  * @param {string} type type
@@ -97,17 +103,6 @@ function imageClassname(type, image) {
       />
     );
 }
-
-/**
- * renders the pattern classnames
- *
- * @param {boolean} gradient determines whether to render gradient
- * @returns {string} classnames
- */
-const overlayClassname = gradient =>
-  classnames(`${prefix}--leadspace__overlay`, {
-    [`${prefix}--leadspace--gradient`]: gradient,
-  });
 
 /**
  * sorts images by breakpoints for the LeadSpaceImage component
@@ -184,7 +179,7 @@ const LeadSpace = ({
       data-autoid={`${stablePrefix}--leadspace`}
       className={className(variation, theme, type, image)}>
       <div className={`${prefix}--leadspace__container`}>
-        <div className={overlayClassname(gradient)}>
+        <div className={newoverlayClassname(type, gradient)}>
           <div
             className={
               type !== 'centered'
