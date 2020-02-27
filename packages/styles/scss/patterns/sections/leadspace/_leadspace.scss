@@ -27,6 +27,9 @@ $btn-min-width: 26;
     padding-top: $carbon--layout-01;
     width: 100%;
   }
+  .#{$prefix}--buttongroup {
+    padding-left: 0;
+  }
 
   .#{$prefix}--leadspace--gradient {
     background-color: rgba($ui-background, 0.75);
@@ -88,7 +91,7 @@ $btn-min-width: 26;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding-top: $carbon--layout-05;
+      padding-top: $carbon--layout-03;
       padding-bottom: $carbon--layout-03;
       position: absolute;
       top: 0;
@@ -103,6 +106,7 @@ $btn-min-width: 26;
     }
 
     &__title {
+      padding-left: 1rem;
       width: 95%;
     }
     &__desc {
@@ -180,10 +184,10 @@ $btn-min-width: 26;
     .#{$prefix}--leadspace {
       padding-top: aspect-ratio(1584px, 640px);
 
-      &__overlay {
-        padding-top: $carbon--spacing-08;
-        padding-bottom: $carbon--spacing-08;
-      }
+      //&__overlay {
+      //  padding-top: $carbon--spacing-08;
+      //  padding-bottom: $carbon--spacing-08;
+      //}
     }
   }
 }
@@ -211,18 +215,17 @@ $btn-min-width: 26;
     &__content {
       @include carbon--make-row;
     }
-
     .#{$prefix}--buttongroup {
       padding-left: $carbon--layout-01;
     }
     &__desc {
-      padding-top: $carbon--layout-01;
+      padding-top: $carbon--layout-04;
       width: 95%;
       @include carbon--type-style(expressive-heading-03, true);
     }
 
     &__title {
-      padding-top: $carbon--layout-03;
+      padding-top: 0;
       @include carbon--type-style(expressive-heading-05, true);
     }
 
@@ -246,9 +249,10 @@ $btn-min-width: 26;
         max-width: carbon--mini-units(80);
         width: 50%;
         margin: auto;
-        padding-top: $carbon--layout-01;
       }
-
+      &__desc {
+        padding-top: $carbon--layout-04;
+      }
       .#{$prefix}--buttongroup {
         padding-bottom: 0;
       }
