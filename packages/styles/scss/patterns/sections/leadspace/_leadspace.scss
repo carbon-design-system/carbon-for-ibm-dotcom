@@ -17,6 +17,10 @@ $btn-min-width: 26;
 
   background-color: $ui-background;
 
+  .#{$prefix}--leadspace--centered__overlay {
+    background-color: $ui-background;
+  }
+
   .#{$prefix}--leadspace__title,
   .#{$prefix}--leadspace__desc,
   .#{$prefix}--leadspace--centered__title,
@@ -43,14 +47,20 @@ $btn-min-width: 26;
     }
   }
   @include carbon--breakpoint(md) {
-    .#{$prefix}--leadspace--centered__gradient {
-      background: linear-gradient(
-        to bottom,
-        $ui-background,
-        rgba($ui-background, 0.8),
-        rgba($ui-background, 0.6),
-        transparent 80%
-      );
+    .#{$prefix}--leadspace--centered {
+      &__gradient {
+        background: linear-gradient(
+          to bottom,
+          $ui-background,
+          rgba($ui-background, 0.8),
+          rgba($ui-background, 0.6),
+          transparent 80%
+        );
+      }
+
+      &__overlay {
+        background-color: transparent;
+      }
     }
   }
 }

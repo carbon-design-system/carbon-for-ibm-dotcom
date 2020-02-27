@@ -5,12 +5,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, { useEffect, useState } from 'react';
 import { ButtonGroup } from '../../sub-patterns/ButtonGroup';
 import classnames from 'classnames';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { Image } from '../../../components/Image';
 import PropTypes from 'prop-types';
+import React from 'react';
 import { settings } from 'carbon-components';
 
 const { stablePrefix } = ddsSettings;
@@ -106,28 +106,9 @@ function imageClassname(type, image) {
  * @returns {*} Lead space component
  */
 const LeadSpace = ({ buttons, copy, gradient, image, theme, title, type }) => {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const isMobile = windowWidth <= 671;
-
-  /**
-   *  Sets the window width
-   */
-  const handleWindowResize = () => {
-    setWindowWidth(window.innerWidth);
+  const background = image && {
+    backgroundImage: `url(${image.default})`,
   };
-
-  useEffect(() => {
-    window.addEventListener('resize', handleWindowResize);
-
-    return () => {
-      window.removeEventListener('resize', handleWindowResize);
-    };
-  });
-
-  const background =
-    type === 'centered' && image && !isMobile
-      ? { backgroundImage: `url(${image.default})` }
-      : { backgroundImage: 'none' };
 
   return (
     <section
