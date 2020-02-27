@@ -54,17 +54,6 @@ function centeredClassname(type, element) {
 /**
  *
  * @param {string} type returns centered or default
- * @returns {string} centered classname
- */
-function centeredContent(type) {
-  if (type === 'centered') {
-    return `${prefix}--leadspace--centered__title`;
-  } else return `${prefix}--leadspace__content`;
-}
-
-/**
- *
- * @param {string} type returns centered or default
  * @param {string} gradient gradient
  * @returns {object} gradient
  */
@@ -156,7 +145,7 @@ const LeadSpace = ({ buttons, copy, gradient, image, theme, title, type }) => {
             <div className={centeredClassname(type, 'row')}>
               <h1 className={centeredClassname(type, 'title')}>{title}</h1>
             </div>
-            <div className={centeredContent(type)}>
+            <div className={`${prefix}--leadspace__content`}>
               {copy && (
                 <div className={centeredClassname(type, 'row')}>
                   {copy && (

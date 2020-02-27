@@ -188,6 +188,11 @@ $btn-min-width: 26;
 
 @mixin leadspace-centered {
   .#{$prefix}--leadspace--centered {
+    .#{$prefix}--buttongroup {
+      padding-bottom: $carbon--layout-01;
+      padding-top: 0;
+    }
+
     &--content__container {
       display: flex;
       flex-direction: column;
@@ -209,18 +214,19 @@ $btn-min-width: 26;
     &__content {
       @include carbon--make-row;
     }
-    .#{$prefix}--buttongroup {
-      padding-left: $carbon--layout-01;
-    }
+
     &__desc {
-      padding-top: $carbon--layout-04;
       width: 95%;
       @include carbon--type-style(expressive-heading-03, true);
     }
 
     &__title {
-      padding-top: 0;
       @include carbon--type-style(expressive-heading-05, true);
+    }
+
+    &__desc,
+    &__title {
+      padding-top: $carbon--layout-03;
     }
 
     @include themed-items;
@@ -228,6 +234,10 @@ $btn-min-width: 26;
 
   @include carbon--breakpoint(md) {
     .#{$prefix}--leadspace--centered {
+      .#{$prefix}--buttongroup {
+        padding-bottom: 0;
+      }
+
       &__overlay {
         padding-bottom: carbon--mini-units(20);
       }
@@ -246,11 +256,9 @@ $btn-min-width: 26;
       &__desc {
         max-width: carbon--mini-units(80);
       }
+
       &__desc {
         padding-top: $carbon--layout-04;
-      }
-      .#{$prefix}--buttongroup {
-        padding-bottom: 0;
       }
 
       &--mobile__image {
@@ -266,6 +274,10 @@ $btn-min-width: 26;
 
   @include carbon--breakpoint(lg) {
     .#{$prefix}--leadspace--centered {
+      &__title {
+        padding-top: $carbon--layout-05;
+      }
+
       &__content {
         width: 50%;
         margin: auto;
