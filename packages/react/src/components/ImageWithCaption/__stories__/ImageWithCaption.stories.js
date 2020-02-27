@@ -23,12 +23,26 @@ storiesOf('Components|ImageWithCaption', module)
 
     const image = object('image', {
       sources: [
-        { src: 'https://picsum.photos/id/2/320/160', breakpoint: 320 },
-        { src: 'https://picsum.photos/id/2/400/400', breakpoint: 400 },
+        {
+          src: 'https://dummyimage.com/320x160/ee5396/fff&text=2x1',
+          breakpoint: 'sm',
+        },
+        {
+          src: 'https://dummyimage.com/400x200/ee5396/fff&text=2x1',
+          breakpoint: 'md',
+        },
       ],
       alt: 'image with caption image',
       defaultSrc: 'https://picsum.photos/id/2/672/672',
     });
 
-    return <ImageWithCaption image={image} heading={heading} />;
+    return (
+      <div className="bx--grid">
+        <div className="bx--row">
+          <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
+            <ImageWithCaption image={image} heading={heading} />
+          </div>
+        </div>
+      </div>
+    );
   });
