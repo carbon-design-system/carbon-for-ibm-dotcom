@@ -1,4 +1,5 @@
 @import '../../../globals/imports';
+@import '../../sub-patterns/card/index';
+@import '../../sub-patterns/content-block/content-block';
+@import '../../blocks/content-group-simple/content-group-simple';
 @import 'content-block-media';
-@import 'content-block-media-group';
-@import 'content-block-media-item';

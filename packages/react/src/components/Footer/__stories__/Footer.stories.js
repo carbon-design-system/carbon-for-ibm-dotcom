@@ -27,10 +27,13 @@ storiesOf('Components|Footer', module)
 
     let isCustom = boolean('show custom navigation (not a prop)', true);
 
+    let disableLocaleButton = boolean('hide the locale button', false);
+
     return (
       <Footer
         navigation={isCustom && navigation}
         type={select('type', footerTypeOptions, footerTypeOptions.tall)}
+        disableLocaleButton={disableLocaleButton}
       />
     );
   });
