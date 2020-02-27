@@ -7,112 +7,109 @@ import {
   text,
   withKnobs,
 } from '@storybook/addon-knobs';
-import { DDS_LEADSPACE_CENTERED } from '../../../../internal/FeatureFlags';
 import LeadSpaceCentered from '../LeadSpaceCentered';
 import React from 'react';
 import readme from '../README.md';
 import { storiesOf } from '@storybook/react';
 
-if (DDS_LEADSPACE_CENTERED) {
-  storiesOf('Patterns (Sections)|LeadSpace - Centered', module)
-    .addDecorator(withKnobs)
-    .addParameters({
-      readme: {
-        sidebar: readme,
+storiesOf('Patterns (Sections)|LeadSpace - Centered', module)
+  .addDecorator(withKnobs)
+  .addParameters({
+    readme: {
+      sidebar: readme,
+    },
+  })
+  .add('Centered with no image', () => {
+    const copy = text(
+      'copy',
+      'Blockchain is a shared, immutable ledger for the process of recording transactions and tracking assets (tangible or intangible) in a business network.'
+    );
+
+    const title = text('title', 'What is artificial intelligence?');
+
+    const buttons = [
+      {
+        link: '',
+        copy: 'Primary action button',
+        renderIcon: ArrowDown20,
       },
-    })
-    .add('Centered with no image', () => {
-      const copy = text(
-        'copy',
-        'Blockchain is a shared, immutable ledger for the process of recording transactions and tracking assets (tangible or intangible) in a business network.'
-      );
+      {
+        link: '',
+        copy: 'Secondary action button',
+        renderIcon: ArrowRight20,
+      },
+    ];
 
-      const title = text('title', 'What is artificial intelligence?');
+    const themes = {
+      g100: 'g100',
+      white: '',
+    };
 
-      const buttons = [
-        {
-          link: '',
-          copy: 'Primary action button',
-          renderIcon: ArrowDown20,
-        },
-        {
-          link: '',
-          copy: 'Secondary action button',
-          renderIcon: ArrowRight20,
-        },
-      ];
+    return (
+      <LeadSpaceCentered
+        title={title}
+        copy={copy}
+        theme={select('theme', themes, themes.g100)}
+        buttons={object('buttons', buttons)}
+      />
+    );
+  })
+  .add('Centered with image', () => {
+    const copy = text(
+      'copy',
+      'Blockchain is a shared, immutable ledger for the process of recording transactions and tracking assets (tangible or intangible) in a business network.'
+    );
 
-      const themes = {
-        g100: 'g100',
-        white: '',
-      };
+    const title = text('title', 'What is artificial intelligence?');
 
-      return (
-        <LeadSpaceCentered
-          title={title}
-          copy={copy}
-          theme={select('theme', themes, themes.g100)}
-          buttons={object('buttons', buttons)}
-        />
-      );
-    })
-    .add('Centered with image', () => {
-      const copy = text(
-        'copy',
-        'Blockchain is a shared, immutable ledger for the process of recording transactions and tracking assets (tangible or intangible) in a business network.'
-      );
+    const image = {
+      url: 'https://picsum.photos/id/1076/1056/480',
+      alt: 'building',
+    };
 
-      const title = text('title', 'What is artificial intelligence?');
+    const iconMap = {
+      ArrowRight20,
+      ArrowDown20,
+      Pdf20,
+    };
 
-      const image = {
-        url: 'https://picsum.photos/id/1076/1056/480',
-        alt: 'building',
-      };
+    const icons = {
+      ArrowRight: 'ArrowRight20',
+      ArrowDown: 'ArrowDown20',
+      Pdf: 'Pdf20',
+      none: null,
+    };
 
-      const iconMap = {
-        ArrowRight20,
-        ArrowDown20,
-        Pdf20,
-      };
+    const buttons = [
+      {
+        link: '',
+        copy: 'Primary action button',
+        renderIcon:
+          iconMap[select('primary button icon', icons, icons.ArrowRight)],
+      },
+      {
+        link: '',
+        copy: 'Secondary',
+        renderIcon:
+          iconMap[select('secondary button icon', icons, icons.ArrowRight)],
+      },
+    ];
 
-      const icons = {
-        ArrowRight: 'ArrowRight20',
-        ArrowDown: 'ArrowDown20',
-        Pdf: 'Pdf20',
-        none: null,
-      };
+    const themes = {
+      g100: 'g100',
+      white: '',
+    };
 
-      const buttons = [
-        {
-          link: '',
-          copy: 'Primary action button',
-          renderIcon:
-            iconMap[select('primary button icon', icons, icons.ArrowRight)],
-        },
-        {
-          link: '',
-          copy: 'Secondary',
-          renderIcon:
-            iconMap[select('secondary button icon', icons, icons.ArrowRight)],
-        },
-      ];
+    const graident = boolean('gradient overlay', true);
 
-      const themes = {
-        g100: 'g100',
-        white: '',
-      };
-
-      const graident = boolean('gradient overlay', true);
-
-      return (
-        <LeadSpaceCentered
-          title={title}
-          copy={copy}
-          gradient={graident}
-          buttons={buttons}
-          theme={select('theme', themes, themes.g100)}
-          image={object('image', image)}
-        />
-      );
-    });
-}
+    return (
+      <LeadSpaceCentered
+        title={title}
+        copy={copy}
+        gradient={graident}
+        buttons={buttons}
+        theme={select('theme', themes, themes.g100)}
+        image={object('image', image)}
+      />
+    );
+  });
