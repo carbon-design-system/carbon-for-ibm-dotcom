@@ -81,7 +81,10 @@ Image.propTypes = {
   images: PropTypes.arrayOf(
     PropTypes.shape({
       src: PropTypes.string,
-      minWidth: PropTypes.oneOfType([PropTypes.oneOf(['sm', 'md', 'lg', 'xlg', 'max']), PropTypes.number]),
+      minWidth: PropTypes.oneOfType([
+        PropTypes.oneOf(['sm', 'md', 'lg', 'xlg', 'max']),
+        PropTypes.number,
+      ]),
     })
   ),
   defaultImage: PropTypes.string.isRequired,
