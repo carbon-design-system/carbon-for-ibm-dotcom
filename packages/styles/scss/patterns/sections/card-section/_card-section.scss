@@ -31,23 +31,12 @@
     background-color: $inverse-02;
     height: 100%;
 
-    .#{$prefix}--card__heading,
-    .#{$prefix}--card__copy {
+    .#{$prefix}--card__heading {
       color: $inverse-01;
-    }
-
-    .#{$prefix}--card__eyebrow {
-      color: $text-03;
     }
 
     &.#{$prefix}--card--link:hover {
       background-color: $inverse-hover-ui;
-    }
-
-    .#{$prefix}--card__cta,
-    .#{$prefix}--card__cta a,
-    .#{$prefix}--card__cta a:visited {
-      color: $inverse-link;
     }
   }
 }
