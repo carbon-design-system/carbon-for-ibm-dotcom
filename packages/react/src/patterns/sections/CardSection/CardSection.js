@@ -4,6 +4,7 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
+
 import React, { useEffect, useRef } from 'react';
 import { ArrowRight20 } from '@carbon/icons-react';
 import { Card } from '../../sub-patterns/Card';
