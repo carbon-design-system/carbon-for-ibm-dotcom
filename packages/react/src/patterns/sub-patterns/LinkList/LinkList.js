@@ -29,10 +29,10 @@ const LinkList = ({ heading, items }) => {
       data-autoid={`${stablePrefix}--link-list`}>
       <h4 className={`${prefix}--link-list__heading`}>{heading}</h4>
       <ul className={`${prefix}--link-list__list`}>
-        {items.map((item, index) => {
+        {items.map((cta, index) => {
           return (
             <li className={`${prefix}--link-list__list__CTA`} key={index}>
-              <CTA style="text" {...item} />
+              <CTA style="text" {...cta} />
             </li>
           );
         })}
