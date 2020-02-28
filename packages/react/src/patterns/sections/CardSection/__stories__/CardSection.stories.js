@@ -1,6 +1,6 @@
 import './index.scss';
 import { object, select, withKnobs } from '@storybook/addon-knobs';
-import CardKnobs from './data/CardKnobs';
+import cards from './data/cards.json';
 import CardSection from '../CardSection';
 import { DDS_CARD_SECTION } from '../../../../internal/FeatureFlags';
 import ImageCards from '../ImageCards';
@@ -19,7 +19,7 @@ if (DDS_CARD_SECTION) {
     })
 
     .add('default', () => {
-      const cardTypes = Object.keys(CardKnobs);
+      const cardTypes = Object.keys(cards);
       const themes = {
         white: '',
         g10: 'g10',
@@ -32,14 +32,14 @@ if (DDS_CARD_SECTION) {
           ? 'Aliquam condimentum interdum'
           : 'Read more about it';
 
-      const data = object(`Data (${type})`, CardKnobs[type]);
+      const data = object(`Data (${type})`, cards[type]);
 
-      CardKnobs[type] = data;
+      cards[type] = data;
 
       return (
         <CardSection
           title={cardsTitle}
-          cards={CardKnobs[type]}
+          cards={cards[type]}
           data={data}
           theme={theme}
         />
@@ -55,7 +55,7 @@ if (DDS_CARD_SECTION) {
       return (
         <SimpleCards
           title="Aliquam condimentum interdum"
-          cards={object('Data', CardKnobs.simpleCards)}
+          cards={object('Data', cards.simpleCards)}
           theme={select('theme', themes, themes.g10)}
         />
       );
@@ -70,7 +70,7 @@ if (DDS_CARD_SECTION) {
       return (
         <ImageCards
           title="Read more about it"
-          cards={object('Data', CardKnobs.imageCards)}
+          cards={object('Data', cards.imageCards)}
           theme={select('theme', themes, themes.g10)}
         />
       );

@@ -23,7 +23,7 @@ storiesOf('Components|Link with Icon', module)
           flexDirection: 'column',
         }}>
         <LinkWithIcon
-          href="https://www.example.com"
+          href="https://www.ibm.com"
           disabled={boolean('Disabled', false)}>
           <span>Link text</span>
           <ArrowRight20 />

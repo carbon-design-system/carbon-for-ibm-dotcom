@@ -25,7 +25,7 @@ function App() {
   const heading = 'Lorem ipsum dolor sit amet.';
   const cta = {
     title: 'Lorem ipsum dolor sit amet',
-    href: 'https://www.example.com',
+    href: 'https://ibm.com',
   };
 
   return (

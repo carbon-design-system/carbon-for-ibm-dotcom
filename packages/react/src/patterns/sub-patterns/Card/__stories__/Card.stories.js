@@ -53,8 +53,8 @@ storiesOf('Patterns (Sub-Patterns)|Card', module)
       g100: 'g100',
     };
     const image = props.cardProps().image && {
-      defaultImage: 'https://dummyimage.com/320x160/ee5396/161616&text=2:1',
-      alt: 'Image alt text',
+      defaultImage: 'https://picsum.photos/id/2/600/300',
+      alt: 'featured link image',
     };
 
     return (
@@ -101,8 +101,8 @@ storiesOf('Patterns (Sub-Patterns)|Card', module)
       g100: 'g100',
     };
     const image = props.cardProps().image && {
-      defaultImage: 'https://dummyimage.com/320x160/ee5396/161616&text=2:1',
-      alt: 'Image alt text',
+      defaultImage: 'https://picsum.photos/id/2/600/300',
+      alt: 'featured link image',
     };
 
     return (

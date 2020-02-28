@@ -30,12 +30,12 @@ const title =
 const logosGroup = [
   {
     title: 'Company A',
-    imgSrc: 'https://dummyimage.com/140x140',
+    imgSrc: 'https://via.placeholder.com/140',
     altText: 'placeholder',
   },
   {
     title: 'Company B',
-    imgSrc: 'https://dummyimage.com/140x140',
+    imgSrc: 'https://via.placeholder.com/140',
     altText: 'placeholder',
   },
 ];
