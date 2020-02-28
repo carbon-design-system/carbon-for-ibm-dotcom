@@ -11,9 +11,7 @@ import { shallow } from 'enzyme';
 
 describe('LinkWithIcon', () => {
   it('renders as expected', () => {
-    const linkWithIcon = shallow(
-      <LinkWithIcon href="https://www.example.com" />
-    );
+    const linkWithIcon = shallow(<LinkWithIcon href="https://www.ibm.com" />);
 
     expect(linkWithIcon.find('.bx--link-with-icon')).toHaveLength(1);
   });

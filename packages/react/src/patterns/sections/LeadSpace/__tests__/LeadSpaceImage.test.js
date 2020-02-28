@@ -7,21 +7,21 @@ describe('<LeadSpaceImage />', () => {
     const image = [
       {
         minWidth: 0,
-        url: 'https://dummyimage.com/320x370/ee5396/161616',
+        url: 'https://picsum.photos/id/1076/320/370',
       },
       {
         minWidth: 672,
-        url: 'https://dummyimage.com/672x400/ee5396/161616',
+        url: 'https://picsum.photos/id/1076/672/400',
       },
       {
         minWidth: 1056,
-        url: 'https://dummyimage.com/1056x480/ee5396/161616',
+        url: 'https://picsum.photos/id/1076/1056/480',
       },
     ];
 
     const imageInfo = {
-      default: 'https://dummyimage.com/1056x480/ee5396/161616',
-      alt: 'Image alt text',
+      default: 'https://picsum.photos/id/1076/1056/480',
+      alt: 'lead space image',
     };
 
     const leadspaceImage = mount(

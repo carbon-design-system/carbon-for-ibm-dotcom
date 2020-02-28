@@ -29,7 +29,7 @@ function App() {
   const copy = `__This__ *is* the content block intro copy.`;
   const cta = {
     cta: {
-      href: 'https://www.example.com',
+      href: 'https://www.ibm.com',
     },
     style: 'card',
     type: 'local',
@@ -46,7 +46,7 @@ function App() {
           heading: 'ContentGroupCards item heading',
           copy: 'ContentGroupCards item copy.',
           cta: {
-            href: 'https://www.example.com',
+            href: 'https://www.ibm.com',
           },
         },
       ],
@@ -60,7 +60,7 @@ function App() {
           copy: 'ContentGroupPictograms item copy.',
           cta: {
             cta: {
-              href: 'https://www.example.com',
+              href: 'https://www.ibm.com',
             },
             type: 'local',
             copy: 'ContentGroupPictograms CTA copy',
@@ -81,8 +81,8 @@ function App() {
           { src: 'https://your-image.com/400/400', minWidth: 400 },
           { src: 'https://your-image.com/672/672', minWidth: 672 },
         ],
-        defaultImage: 'https://your-image.com/672/672',
         alt: 'Image alt',
+        defaultImage: 'https://your-image.com/672/672',
       },
       heading: 'ContentGroupSimple heading.',
       items: [
@@ -93,7 +93,7 @@ function App() {
       ],
       cta: {
         cta: {
-          href: 'https://www.example.com',
+          href: 'https://www.ibm.com',
         },
         style: 'text',
         type: 'local',

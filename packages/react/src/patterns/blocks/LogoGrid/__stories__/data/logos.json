@@ -1,47 +1,47 @@
 [
   {
     "label": "Company A",
-    "imgSrc": "https://dummyimage.com/140x140/ee5396/161616&text=1:1",
-    "altText": "Image alt text"
+    "imgSrc": "https://via.placeholder.com/140",
+    "altText": "placeholder"
   },
   {
     "label": "Company B",
-    "imgSrc": "https://dummyimage.com/140x140/ee5396/161616&text=1:1",
-    "altText": "Image alt text"
+    "imgSrc": "https://via.placeholder.com/140",
+    "altText": "placeholder"
   },
   {
     "label": "Company C",
-    "imgSrc": "https://dummyimage.com/140x140/ee5396/161616&text=1:1",
-    "altText": "Image alt text"
+    "imgSrc": "https://via.placeholder.com/140",
+    "altText": "placeholder"
   },
   {
     "label": "Company D",
-    "imgSrc": "https://dummyimage.com/140x140/ee5396/161616&text=1:1",
-    "altText": "Image alt text"
+    "imgSrc": "https://via.placeholder.com/140",
+    "altText": "placeholder"
   },
   {
     "label": "Company E",
-    "imgSrc": "https://dummyimage.com/140x140/ee5396/161616&text=1:1",
-    "altText": "Image alt text"
+    "imgSrc": "https://via.placeholder.com/140",
+    "altText": "placeholder"
   },
   {
     "label": "Company F",
-    "imgSrc": "https://dummyimage.com/140x140/ee5396/161616&text=1:1",
-    "altText": "Image alt text"
+    "imgSrc": "https://via.placeholder.com/140",
+    "altText": "placeholder"
   },
   {
     "label": "Company G",
-    "imgSrc": "https://dummyimage.com/140x140/ee5396/161616&text=1:1",
-    "altText": "Image alt text"
+    "imgSrc": "https://via.placeholder.com/140",
+    "altText": "placeholder"
   },
   {
     "label": "Company H",
-    "imgSrc": "https://dummyimage.com/140x140/ee5396/161616&text=1:1",
-    "altText": "Image alt text"
+    "imgSrc": "https://via.placeholder.com/140",
+    "altText": "placeholder"
   },
   {
     "label": "Company I",
-    "imgSrc": "https://dummyimage.com/140x140/ee5396/161616&text=1:1",
-    "altText": "Image alt text"
+    "imgSrc": "https://via.placeholder.com/140",
+    "altText": "placeholder"
   }
 ]
