@@ -61,23 +61,15 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 ### cta (optional)
 
-| Name    | Data Type | Description                                               |
-| ------- | --------- | --------------------------------------------------------- |
-| `type`  | String    | Type of CTA (jump, local, or external)                    |
-| `copy`  | String    | Text of the CTA component                                 |
-| `style` | String    | 'text' style of the CTA is hardcoded into this subpattern |
-
 Visit the
 [CTA documentation](https://ibmdotcom-react.mybluemix.net/?path=/story/components-cta--default)
 for more details on the CTA options.
 
 ### image (optional)
 
-| Name      | Data Type | Description                                                                  |
-| --------- | --------- | ---------------------------------------------------------------------------- |
-| `images`  | Array     | Array of image spec objects including src of image and min-width breakpoint. |
-| `default` | String    | Default image, usually for largest breakpoint.                               |
-| `alt`     | String    | Alt description of the image                                                 |
+Visit the
+[ImageWithCaption documentation](https://ibmdotcom-react.mybluemix.net/?path=/story/components-imagewithcaption--default)
+for more details on the ImageWithCaption options.
 
 ## Stable selectors
 
