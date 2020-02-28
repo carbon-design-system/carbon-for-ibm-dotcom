@@ -6,6 +6,7 @@
 //
 
 @import '../../../globals/imports';
+@import '../../../globals/utils/hang';
 
 @mixin link-list {
   .#{$prefix}--link-list {
@@ -17,24 +18,28 @@
 
       color: $text-01;
     }
+    &__CTA {
+      .#{$prefix}--card {
+        &__wrapper {
+          min-height: 116px;
+        }
+        &:not(:hover) {
+          background: $ui-background;
+        }
+        &__heading {
+          @include carbon--type-style('body-short-02');
 
-    &__list {
-      padding-bottom: $carbon--layout-01;
-
-      &__CTA {
-        @include carbon--type-style('body-short-02');
-
-        color: $link-01;
-        padding-top: $carbon--spacing-05;
-        padding-bottom: $carbon--spacing-05;
-        min-height: 116px;
-
+          color: $link-01;
+        }
         svg {
-          // margin-top: $carbon--spacing-05;
-          margin-bottom: $carbon--spacing-05;
           fill: $interactive-04;
         }
-
+      }
+    }
+    &__list {
+      padding-bottom: $carbon--layout-01;
+      @include hang;
+      &__CTA {
         &:first-child {
           border-top: 1px solid $ui-03;
         }
