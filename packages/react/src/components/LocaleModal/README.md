@@ -72,7 +72,6 @@ See how to
 | `dds--locale-modal`                    | Component   |
 | `dds--locale-modal__geo-btn-${region}` | Interactive |
 | `dds--locale-modal__filter`            | Interactive |
-| `dds--locale-modal__locales`           | Interactive |
 | `dds--locale-modal__region-back`       | Interactive |
 
 ## CORS Proxy

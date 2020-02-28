@@ -116,7 +116,6 @@ const LocaleModalCountries = ({
           regionList.map(region =>
             region.countries.map((country, index) => (
               <a
-                data-autoid={`${stablePrefix}--locale-modal__locales`}
                 key={index}
                 className={`${prefix}--locale-modal__locales`}
                 href={country.href}
