@@ -16,8 +16,8 @@ let _lastId = 0;
  *
  * const id1 = uniqueid(); // id1
  * const id2 = uniqueid(); // id2
- * const id1 = uniqueid('prefix'); // prefix3
- * const id2 = uniqueid('prefix-'); // prefix-4
+ * const id3 = uniqueid('prefix'); // prefix3
+ * const id4 = uniqueid('prefix-'); // prefix-4
  */
 function uniqueid(prefix = 'id') {
   _lastId++;
