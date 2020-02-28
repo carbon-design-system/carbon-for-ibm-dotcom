@@ -139,7 +139,6 @@ const LocaleModal = ({ isOpen, setIsOpen }) => {
         />
         <LocaleModalCountries
           regionList={sortList(list)}
-          setIsFiltering={setIsFiltering}
           setClearResults={setClearResults}
           {...modalLabels}
         />
