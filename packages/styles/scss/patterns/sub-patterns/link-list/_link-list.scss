@@ -8,34 +8,14 @@
 @import '../../../globals/imports';
 @import '../../../globals/utils/hang';
 
-@mixin cta {
-  .#{$prefix}--card {
-    &__wrapper {
-      min-height: 116px;
-    }
-    &:not(:hover) {
-      background: $ui-background;
-    }
-    &__heading {
-      @include carbon--type-style('body-short-02');
-
-      color: $link-01;
-    }
-  }
-}
-
 @mixin link-list {
   .#{$prefix}--link-list {
     &__heading {
-      margin-top: $carbon--spacing-07;
       margin-bottom: $carbon--spacing-05;
 
       @include type-style('expressive-heading-02');
 
       color: $text-01;
-    }
-    &__CTA {
-      @include cta;
     }
     &__list {
       @include hang;
@@ -50,14 +30,29 @@
         &:last-child {
           border-bottom: 1px solid $ui-03;
         }
-
-        @include carbon--breakpoint('md') {
-          max-width: carbon--mini-units(80);
-        }
       }
+    }
+
+    .#{$prefix}--card {
+      &__wrapper {
+        min-height: 116px;
+      }
+      &:not(:hover) {
+        background: $ui-background;
+      }
+      &__heading {
+        @include carbon--type-style('body-short-02');
+
+        color: $link-01;
+      }
+    }
+
+    @include carbon--breakpoint('md') {
+      max-width: carbon--mini-units(80);
     }
   }
 }
+
 @include exports('link-list') {
   @include link-list;
 }

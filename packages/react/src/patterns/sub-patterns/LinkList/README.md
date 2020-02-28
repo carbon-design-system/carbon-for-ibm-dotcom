@@ -25,22 +25,20 @@ import 'yourapplication.scss';
 
 function App() {
   const items = [
-      {
-        heading: 'Containerization: A Complete Guide',
-        type: local,
-        copy: 'Lorem ipsum dolor sit amet',
-        href: 'https://ibm.com',
-      },
-      {
-        heading: 'Why should you use microservices and containers?',
-        type: external,
-        copy: 'Lorem ipsum dolor sit amet',
-        href: 'https://ibm.com',
-      },
-
-  return (
-    <LinkList heading={heading} items={items} />
-  );
+    {
+      heading: 'Containerization: A Complete Guide',
+      type: local,
+      copy: 'Lorem ipsum dolor sit amet',
+      href: 'https://ibm.com',
+    },
+    {
+      heading: 'Why should you use microservices and containers?',
+      type: external,
+      copy: 'Lorem ipsum dolor sit amet',
+      href: 'https://ibm.com',
+    },
+  ];
+  return <LinkList heading={heading} items={items} />;
 }
 
 ReactDOM.render(<App />, document.querySelector('#app'));
@@ -61,17 +59,10 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 | Name      | Description                                                                |
 | --------- | -------------------------------------------------------------------------- |
 | `heading` | Describing the resource with added detail.                                 |
-| `type`    | Describes after onClick where to load. For more details See below `Types`. |
+| `type`    | Describes after onClick where to load. It has `external`, `local` options. |
 
 > 👀 See more here
 > [CTA](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/src/components/CTA/README.md)
-
-### Types
-
-| Type       | SVG element Name | Description                                             |
-| ---------- | ---------------- | ------------------------------------------------------- |
-| `local`    | ArrowRight20     | Describes right arrow onClick which loads in self page. |
-| `external` | Launch20         | Describes launch arrow onClick which loads in new tab.  |
 
 ## 🙌 Contributing
 

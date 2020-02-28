@@ -32,11 +32,7 @@ const LinkList = ({ heading, items }) => {
         {items.map((cta, index) => {
           return (
             <li className={`${prefix}--link-list__list__CTA`} key={index}>
-              <CTA
-                style="card"
-                {...cta}
-                customClassName={`${prefix}--link-list__CTA`}
-              />
+              <CTA style="card" {...cta} />
             </li>
           );
         })}
