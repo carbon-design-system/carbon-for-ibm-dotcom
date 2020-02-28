@@ -102,7 +102,7 @@ function imageClassname(type, image) {
  * @param {object} props.image image object with diff source for diff breakpoints
  * @param {string} props.theme theme of the pattern (g100 or white (default))
  * @param {string} props.title lead space title
- * @param {string} props.variation variation of the lead space (expressive (default) | productive)
+ * @param {string} props.type type of lead space
  * @returns {*} Lead space component
  */
 const LeadSpace = ({ buttons, copy, gradient, image, theme, title, type }) => {
@@ -157,7 +157,7 @@ LeadSpace.propTypes = {
   image: PropTypes.instanceOf(Image),
   theme: PropTypes.string,
   title: PropTypes.string.isRequired,
-  type: PropTypes.string,
+  type: PropTypes.oneOf(['small', 'left', 'centered']),
 };
 
 export default LeadSpace;

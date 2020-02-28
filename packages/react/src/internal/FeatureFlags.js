@@ -55,11 +55,3 @@ export const DDS_SIMPLE_OVERVIEW =
  */
 export const DDS_LOGO_GRID =
   process.env.DDS_LOGO_GRID === 'true' || DDS_FLAGS_ALL || false;
-
-/**
- * This flag turns on/off the ButtonGroup component
- *
- * @type {string | boolean}
- */
-export const DDS_BUTTON_GROUP =
-  process.env.DDS_BUTTON_GROUP === 'true' || DDS_FLAGS_ALL || false;
