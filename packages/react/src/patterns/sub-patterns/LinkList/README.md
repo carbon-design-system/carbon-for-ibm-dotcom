@@ -56,12 +56,12 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 | `heading` | YES      | String    | text          | Describes heading of LinkList.                       |
 | `items`   | YES      | Array     | null          | Describes the list of CTA. For more See below `CTA`. |
 
-## CTA
+### CTA
 
-| Name   | Description                                                                |
-| ------ | -------------------------------------------------------------------------- |
-| `copy` | Describing the resource with added detail.                                 |
-| `type` | Describes after onClick where to load. For more details See below `Types`. |
+| Name      | Description                                                                |
+| --------- | -------------------------------------------------------------------------- |
+| `heading` | Describing the resource with added detail.                                 |
+| `type`    | Describes after onClick where to load. For more details See below `Types`. |
 
 > 👀 See more here
 > [CTA](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/src/components/CTA/README.md)

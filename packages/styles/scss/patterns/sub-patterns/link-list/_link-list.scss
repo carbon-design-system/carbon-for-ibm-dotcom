@@ -8,6 +8,22 @@
 @import '../../../globals/imports';
 @import '../../../globals/utils/hang';
 
+@mixin cta {
+  .#{$prefix}--card {
+    &__wrapper {
+      min-height: 116px;
+    }
+    &:not(:hover) {
+      background: $ui-background;
+    }
+    &__heading {
+      @include carbon--type-style('body-short-02');
+
+      color: $link-01;
+    }
+  }
+}
+
 @mixin link-list {
   .#{$prefix}--link-list {
     &__heading {
@@ -19,27 +35,12 @@
       color: $text-01;
     }
     &__CTA {
-      .#{$prefix}--card {
-        &__wrapper {
-          min-height: 116px;
-        }
-        &:not(:hover) {
-          background: $ui-background;
-        }
-        &__heading {
-          @include carbon--type-style('body-short-02');
-
-          color: $link-01;
-        }
-        svg {
-          fill: $interactive-04;
-        }
-      }
+      @include cta;
     }
     &__list {
-      padding-bottom: $carbon--layout-01;
       @include hang;
       &__CTA {
+        border-top: 1px solid $ui-03;
         &:first-child {
           border-top: 1px solid $ui-03;
         }
@@ -47,12 +48,11 @@
           border-top: 1px solid $ui-03;
         }
         &:last-child {
-          border-top: 1px solid $ui-03;
           border-bottom: 1px solid $ui-03;
         }
 
         @include carbon--breakpoint('md') {
-          max-width: carbon--rem(640px);
+          max-width: carbon--mini-units(80);
         }
       }
     }
