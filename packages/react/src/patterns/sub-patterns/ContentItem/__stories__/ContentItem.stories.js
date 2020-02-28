@@ -33,14 +33,30 @@ storiesOf('Patterns (Sub-Patterns)|ContentItem', module)
     };
 
     const image = {
-      sources: object('Image assets:', [
-        { src: 'https://picsum.photos/id/2/288/144', breakpoint: 'sm' },
-        { src: 'https://picsum.photos/id/2/448/224', breakpoint: 'md' },
-        { src: 'https://picsum.photos/id/2/352/176', breakpoint: 'lg' },
-      ]),
-      alt: text('alt', 'content item image'),
-      defaultSrc: text('default image:', 'https://picsum.photos/id/2/352/176'),
+      image: {
+        sources: object('Image assets:', [
+          {
+            src: 'https://dummyimage.com/288x144/ee5396/161616&text=2:1',
+            breakpoint: 'sm',
+          },
+          {
+            src: 'https://dummyimage.com/448x224/ee5396/161616&text=2:1',
+            breakpoint: 'md',
+          },
+          {
+            src: 'https://dummyimage.com/352x176/ee5396/161616&text=2:1',
+            breakpoint: 'lg',
+          },
+        ]),
+        alt: text('alt', 'content item image'),
+        defaultSrc: text(
+          'default image:',
+          'https://dummyimage.com/352x176/ee5396/161616&text=2:1'
+        ),
+      },
+      heading: text('image caption:', 'this is an image caption'),
     };
+
     return (
       <div class="bx--grid">
         <div class="bx--row">
