@@ -57,7 +57,7 @@ storiesOf('Components|CTA', module)
               },
             },
             image: {
-              defaultImage: 'https://picsum.photos/id/672/672',
+              defaultSrc: 'https://picsum.photos/id/672/672',
               alt: 'featured card image',
             },
           },

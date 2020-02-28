@@ -18,21 +18,7 @@ storiesOf('Patterns (Blocks)|ContentBlockMedia', module)
     },
   })
   .add('Default', () => {
-    const copy = {
-      'single paragraph': `Lorem    ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.
-      Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
-      nulla quis, consequat libero. Here are
-      some common categories:`,
-      'multiple paragraphs': `   Lorem    ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.
-      Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
-      nulla quis, consequat libero. Here are
-      some common categories:
-
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
-
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
-      `,
-      'multiple paragraphs (styled)': `   __Lorem__    ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+    const copy = `   __Lorem__    ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
       Mauris iaculis eget dolor nec hendrerit. __Phasellus__ at elit sollicitudin, sodales
       nulla quis, *consequat* libero. Here are
       some common categories:
@@ -40,9 +26,7 @@ storiesOf('Patterns (Blocks)|ContentBlockMedia', module)
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
 
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
-      `,
-      none: null,
-    };
+      `;
 
     const ctaProps = {
       type: 'local',
@@ -56,7 +40,7 @@ storiesOf('Patterns (Blocks)|ContentBlockMedia', module)
         },
         heading: 'Consectetur adipisicing elit',
         image: {
-          defaultImage: 'https://picsum.photos/id/672/672',
+          defaultSrc: 'https://picsum.photos/id/672/672',
           alt: 'featured card image',
         },
       },
@@ -93,15 +77,19 @@ storiesOf('Patterns (Blocks)|ContentBlockMedia', module)
 
     return (
       <div className={`${prefix}--grid`}>
-        <ContentBlockMedia
-          copy={select('Copy (optional)', copy, copy['single paragraph'])}
-          heading={text(
-            'Heading (required)',
-            'Curabitur malesuada varius mi eu posuere'
-          )}
-          items={items}
-          cta={select('Feature Link (optional)', cta, cta.cta)}
-        />
+        <div class="bx--row">
+          <div class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
+            <ContentBlockMedia
+              copy={copy}
+              heading={text(
+                'Heading (required)',
+                'Curabitur malesuada varius mi eu posuere'
+              )}
+              items={items}
+              cta={select('Feature Link (optional)', cta, cta.cta)}
+            />
+          </div>
+        </div>
       </div>
     );
   });

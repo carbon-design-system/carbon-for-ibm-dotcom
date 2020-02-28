@@ -23,20 +23,19 @@
 // Patterns - Sections
 @import 'patterns/sections/card-section/card-section';
 @import 'patterns/sections/leadspace/leadspace';
-@import 'patterns/sections/leadspace-centered/leadspace-centered';
 @import 'patterns/sections/simplebenefits/simplebenefits';
 @import 'patterns/sections/simpleoverview/simpleoverview';
 
 // Patterns - Blocks
-@import 'patterns/blocks/content-block-media/content-block-media';
-@import 'patterns/blocks/content-block-mixedgroups/content-block-mixedgroups';
-@import 'patterns/blocks/content-block-simple/content-block-simple';
+@import 'patterns/blocks/content-block-media/index';
+@import 'patterns/blocks/content-block-mixed/index';
+@import 'patterns/blocks/content-block-segmented/index';
+@import 'patterns/blocks/content-block-simple/index';
 @import 'patterns/blocks/content-group-cards/index';
 @import 'patterns/blocks/content-group-pictograms/index';
-@import 'patterns/blocks/content-group-simple/content-group-simple';
+@import 'patterns/blocks/content-group-simple/index';
 @import 'patterns/blocks/feature-card/feature-card';
 @import 'patterns/blocks/logo-grid/logo-grid';
-@import 'patterns/blocks/usecases/usecases';
 
 // Patterns - Sub-Patterns
 @import 'patterns/sub-patterns/buttongroup/buttongroup';

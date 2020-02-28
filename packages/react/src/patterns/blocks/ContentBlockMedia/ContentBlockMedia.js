@@ -16,11 +16,11 @@ const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
- * Use cases pattern
+ * Content Block - segmented pattern
  *
  * @param {object} props props object
- * @param {string} props.copy Use cases short copy to support the heading
- * @param {string} props.heading Use cases heading
+ * @param {string} props.copy pattern short copy to support the heading
+ * @param {string} props.heading pattern heading
  * @param {Array} props.contentGroup contentGroup array with heading, image and lists
  * @param {object} props.cta cta object
  * @returns {object} JSX Object
@@ -33,14 +33,13 @@ const ContentBlockMedia = ({ copy, heading, items, cta }) => {
   });
 
   return (
-    <ContentBlock
-      heading={heading}
-      copy={copy}
-      cta={cta}
+    <div
       data-autoid={`${stablePrefix}--content-block-media`}
-      customClassName={`${prefix}--content-block-media ${prefix}--col-lg-8`}>
-      {content}
-    </ContentBlock>
+      className={`${prefix}--content-block ${prefix}--content-block-media`}>
+      <ContentBlock heading={heading} copy={copy} cta={cta}>
+        {content}
+      </ContentBlock>
+    </div>
   );
 };
 
