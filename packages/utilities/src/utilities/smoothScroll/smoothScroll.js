@@ -22,7 +22,7 @@
  */
 const smoothScroll = (e, selector) => {
   let getSelector;
-  if (e) {
+  if (e !== null) {
     e.preventDefault();
     getSelector = e.currentTarget.getAttribute('href');
   } else if (selector) {
