@@ -4,8 +4,10 @@
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
 //
+
 @import '../../../components/link-with-icon/link-with-icon';
 @import '../../../globals/imports';
+
 @mixin themed-items {
   color: $text-01;
   background: $ui-background;
@@ -17,11 +19,6 @@
     &__copy,
     &__eyebrow {
       color: $text-02;
-    }
-    &__footer {
-      svg {
-        fill: $link-01;
-      }
     }
     &:hover {
       background: $hover-ui;
@@ -38,8 +35,14 @@
     &.#{$prefix}--card--link:hover {
       background-color: $inverse-hover-ui;
     }
+    .#{$prefix}--card__cta,
+    .#{$prefix}--card__cta a,
+    .#{$prefix}--card__cta a:visited {
+      color: $inverse-link;
+    }
   }
 }
+
 @mixin card-section {
   .#{$prefix}--card-section {
     &__row {

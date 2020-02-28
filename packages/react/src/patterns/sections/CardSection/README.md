@@ -41,7 +41,7 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 | `heading` | YES      | String    | null          | Cards with or without images heading.                                                                                                                                |
 | `theme`   | NO       | String    | 'white'       | Color theme for pattern. See `theme` below.                                                                                                                          |
 | `cards`   | YES      | Array     | null          | Array of card objects. See [Card](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/patterns/sub-patterns/Card/README.md) 👀 |
-| `cta`     | NO       | Object    | null          | Cta options. See [Card] README with above link.                                                                                                                      |
+| `cta`     | NO       | Object    | null          | CTA options. See `Card` README with the above link.                                                                                                                  |
 
 ### theme (optional)
 

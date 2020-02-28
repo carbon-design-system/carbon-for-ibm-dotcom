@@ -128,7 +128,7 @@ CardSection.propTypes = {
   theme: PropTypes.string,
   heading: PropTypes.string.isRequired,
   cards: PropTypes.arrayOf(Card),
-  cta: PropTypes.object,
+  cta: PropTypes.instanceOf(Card),
 };
 
 export default CardSection;
