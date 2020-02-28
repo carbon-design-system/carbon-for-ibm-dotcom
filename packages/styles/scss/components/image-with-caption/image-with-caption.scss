@@ -1,0 +1,21 @@
+//
+// Copyright IBM Corp. 2016, 2018
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import '../../globals/imports';
+
+@mixin image-with-caption {
+  .#{$prefix}--image__caption {
+    color: $text-05;
+    margin-top: $carbon--spacing-03;
+    margin-bottom: $carbon--spacing-07;
+    @include carbon--type-style(caption-01);
+  }
+}
+
+@include exports('image-with-caption') {
+  @include image-with-caption;
+}

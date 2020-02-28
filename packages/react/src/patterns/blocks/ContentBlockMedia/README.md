@@ -66,7 +66,7 @@ function App() {
       href: 'https://ibm.com',
       title: 'Consectetur adipisicing elit',
       image: {
-        defaultImage: 'https://picsum.photos/id/2/672/672',
+        defaultSrc: 'https://picsum.photos/id/2/672/672',
         alt: 'featured link image',
       },
     }
@@ -144,7 +144,7 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 | `heading`    | String    | Describes the CTA.                                 |
 | `card.href`  | String    | Feature link url.                                  |
 | `card.title` | String    | Feature link text.                                 |
-| `card.image` | String    | Feature link `defaultImage` and `alt`.             |
+| `card.image` | String    | Feature link `defaultSrc` and `alt`.               |
 | `type`       | String    | Link behavior options `local`, `jump`, `external`. |
 
 ## Stable selectors

@@ -27,19 +27,16 @@ const { prefix } = settings;
  * @returns {*} Content block simple pattern
  */
 const ContentBlockSimple = ({ copy, heading, image, cta }) => (
-  <ContentBlock
-    heading={heading}
-    cta={cta}
-    customClassName={`${prefix}--content-block-simple`}>
-    <div data-autoid={`${stablePrefix}--content-block-simple`}>
-      <div
-        data-autoid={`${prefix}--content-block-simple__content`}
-        className={`${prefix}--content-block-simple__content`}>
+  <div
+    data-autoid={`${stablePrefix}--content-block-simple`}
+    className={`${prefix}--content-block ${prefix}--content-block-simple`}>
+    <ContentBlock heading={heading} cta={cta}>
+      <div className={`${prefix}--content-block-simple__content`}>
         <ContentItem copy={copy} />
         {image && <Image {...image} />}
       </div>
-    </div>
-  </ContentBlock>
+    </ContentBlock>
+  </div>
 );
 
 ContentBlockSimple.propTypes = {

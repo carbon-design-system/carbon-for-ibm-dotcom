@@ -51,15 +51,9 @@ See how to
 
 ## Options
 
-| Name                 | Description                                       |
-| -------------------- | ------------------------------------------------- |
-| `isOpen`             | Set initial modal open state                      |
-| `headerLabel`        | Header label                                      |
-| `headerTitle`        | Header title                                      |
-| `availabilityText`   | Description of region and language availablilty   |
-| `unavailabilityText` | Description of region and language unavailablilty |
-| `labelText`          | Label for search input accessibility              |
-| `placeHolderText`    | Placeholder text for search input                 |
+| Name     | Description                  |
+| -------- | ---------------------------- |
+| `isOpen` | Set initial modal open state |
 
 > 💡 Props default to English if not provided. See Carbon's
 > [composed modal](http://react.carbondesignsystem.com/?path=/story/composedmodal--using-child-nodes)
@@ -72,7 +66,6 @@ See how to
 | `dds--locale-modal`                    | Component   |
 | `dds--locale-modal__geo-btn-${region}` | Interactive |
 | `dds--locale-modal__filter`            | Interactive |
-| `dds--locale-modal__locales`           | Interactive |
 | `dds--locale-modal__region-back`       | Interactive |
 
 ## CORS Proxy

@@ -7,23 +7,22 @@
 const ContentGroupSimpleKnobs = {
   heading: 'Lorem ipsum dolor sit amet',
   mediaData: {
-    images: [
+    sources: [
       {
         src: 'https://fpoimg.com/320x180?bg_color=0f62fe&text_color=ffffff',
-        minWidth: 320,
+        breakpoint: 320,
       },
       {
         src: 'https://fpoimg.com/400x225?bg_color=0f62fe&text_color=ffffff',
-        minWidth: 400,
+        breakpoint: 400,
       },
       {
         src: 'https://fpoimg.com/672x378?bg_color=0f62fe&text_color=ffffff',
-        minWidth: 672,
+        breakpoint: 672,
       },
     ],
     alt: 'CTA image',
-    defaultImage:
-      'https://fpoimg.com/672x378?bg_color=0f62fe&text_color=ffffff',
+    defaultSrc: 'https://fpoimg.com/672x378?bg_color=0f62fe&text_color=ffffff',
   },
   types: {
     image: 'image',

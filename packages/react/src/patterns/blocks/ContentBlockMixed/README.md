@@ -14,6 +14,8 @@ Here's a quick example to get you started.
 @import '@carbon/type/scss/font-face/sans';
 @include carbon--font-face-mono();
 @include carbon--font-face-sans();
+
+@import '@carbon/ibmdotcom-styles/scss/patterns/blocks/content-block-mixed/index';
 ```
 
 > 💡 Only import fonts once per usage
@@ -21,7 +23,7 @@ Here's a quick example to get you started.
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { ContentBlockMixedGroups } from '@carbon/ibmdotcom-react';
+import { ContentBlockMixed } from '@carbon/ibmdotcom-react';
 import 'yourapplication.scss';
 
 function App() {
@@ -76,13 +78,13 @@ function App() {
       type: 'ContentGroupSimple',
       mediaType: 'image',
       mediaData: {
-        images: [
-          { src: 'https://your-image.com/320/160', minWidth: 320 },
-          { src: 'https://your-image.com/400/400', minWidth: 400 },
-          { src: 'https://your-image.com/672/672', minWidth: 672 },
+        sources: [
+          { src: 'https://your-image.com/320/160', breakpoint: 320 },
+          { src: 'https://your-image.com/400/400', breakpoint: 400 },
+          { src: 'https://your-image.com/672/672', breakpoint: 672 },
         ],
         alt: 'Image alt',
-        defaultImage: 'https://your-image.com/672/672',
+        defaultSrc: 'https://your-image.com/672/672',
       },
       heading: 'ContentGroupSimple heading.',
       items: [
@@ -104,12 +106,7 @@ function App() {
   ];
 
   return (
-    <ContentBlockMixedGroups
-      heading={heading}
-      copy={copy}
-      cta={cta}
-      items={items}
-    />
+    <ContentBlockMixed heading={heading} copy={copy} cta={cta} items={items} />
   );
 }
 

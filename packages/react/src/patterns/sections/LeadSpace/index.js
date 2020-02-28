@@ -6,4 +6,3 @@
  */
 
 export { default as LeadSpace } from './LeadSpace';
-export { default as LeadSpaceImage } from './LeadSpaceImage';
