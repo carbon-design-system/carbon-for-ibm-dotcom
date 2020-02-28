@@ -7,14 +7,27 @@
 
 @mixin content-group-simple {
   .#{$prefix}--content-group-simple {
+    padding-top: $carbon--layout-03;
+
     @include carbon--breakpoint(md) {
-      padding-top: $carbon--layout-03;
       padding-bottom: $carbon--layout-05;
     }
 
     @include carbon--breakpoint(lg) {
-      padding-top: $carbon--layout-03;
+      padding-top: $carbon--layout-06;
       padding-bottom: $carbon--layout-06;
+    }
+
+    .#{$prefix}--content-group__children {
+      margin-bottom: $carbon--layout-01;
+
+      .#{$prefix}--content-item:not(:last-of-type) {
+        margin-bottom: $carbon--layout-03;
+      }
+
+      .#{$prefix}--content-item__heading {
+        margin-top: 0;
+      }
     }
 
     .#{$prefix}--content-group__title {
