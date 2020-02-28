@@ -29,6 +29,7 @@ function App() {
       images={sortImages(image)}
       defaultImage={image.default}
       alt={image.alt}
+      customClassName={customClassName}
     />
   );
 }
@@ -43,13 +44,12 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 ## Props
 
-| Name                    | Required | Data Type | Default Value                        | Description                                 |
-| ----------------------- | -------- | --------- | ------------------------------------ | ------------------------------------------- |
-| `defaultImage`          | NO       | String    | 'https://picsum.photos/id/2/672/672' | Featured                                    |
-| Link with default image |
-| `alt`                   | NO       | String    | 'sample image'                       | Alternate text for image component          |
-| `images`                | NO       | Array     | null                                 | Array of Image objects. See `Images` below. |
-|                         |
+| Name              | Required | Data Type | Default Value | Description                                 |
+| ----------------- | -------- | --------- | ------------- | ------------------------------------------- |
+| `defaultImage`    | YES      | String    | null          | Default image.                              |
+| `alt`             | YES      | String    | null          | Alternate text for image.                   |
+| `customClassName` | NO       | String    | null          | User-defined class name.                    |
+| `images`          | NO       | Array     | null          | Array of Image objects. See `Images` below. |
 
 ### Images
 

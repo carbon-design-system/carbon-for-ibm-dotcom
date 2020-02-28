@@ -21,7 +21,7 @@ storiesOf('Patterns (Sub-Patterns)|ContentGroup', module)
     const cta = {
       heading: renderCTA && text('CTA heading', 'Lorem ipsum dolor sit amet'),
       cta: {
-        href: renderCTA && text('CTA href', 'https://ibm.com'),
+        href: renderCTA && text('CTA href', 'https://www.example.com'),
       },
     };
 

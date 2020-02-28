@@ -21,21 +21,20 @@ storiesOf('Patterns (Blocks)|ContentBlockSegmented', module)
     const image = {
       images: [
         {
-          src: 'https://fpoimg.com/320x180?bg_color=0f62fe&text_color=ffffff',
-          minWidth: 320,
+          src: 'https://dummyimage.com/320x180/ee5396/161616&text=16:9',
+          minWidth: 'sm',
         },
         {
-          src: 'https://fpoimg.com/400x225?bg_color=0f62fe&text_color=ffffff',
-          minWidth: 400,
+          src: 'https://dummyimage.com/400x225/ee5396/161616&text=16:9',
+          minWidth: 'md',
         },
         {
-          src: 'https://fpoimg.com/672x378?bg_color=0f62fe&text_color=ffffff',
-          minWidth: 672,
+          src: 'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
+          minWidth: 'lg',
         },
       ],
-      alt: 'CTA image',
-      defaultImage:
-        'https://fpoimg.com/672x378?bg_color=0f62fe&text_color=ffffff',
+      defaultImage: 'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
+      alt: 'Image alt text',
     };
 
     const copy = `   __Lorem__    ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
@@ -74,24 +73,21 @@ storiesOf('Patterns (Blocks)|ContentBlockSegmented', module)
         image: {
           images: [
             {
-              src:
-                'https://fpoimg.com/320x180?bg_color=0f62fe&text_color=ffffff',
-              minWidth: 320,
+              src: 'https://dummyimage.com/320x180/ee5396/161616&text=16:9',
+              minWidth: 'sm',
             },
             {
-              src:
-                'https://fpoimg.com/400x225?bg_color=0f62fe&text_color=ffffff',
-              minWidth: 400,
+              src: 'https://dummyimage.com/400x225/ee5396/161616&text=16:9',
+              minWidth: 'md',
             },
             {
-              src:
-                'https://fpoimg.com/672x378?bg_color=0f62fe&text_color=ffffff',
-              minWidth: 672,
+              src: 'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
+              minWidth: 'lg',
             },
           ],
-          alt: 'lead space image',
           defaultImage:
-            'https://fpoimg.com/672x378?bg_color=0f62fe&text_color=ffffff',
+            'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
+          alt: 'Image alt text',
         },
         copy: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.
 
@@ -108,24 +104,21 @@ storiesOf('Patterns (Blocks)|ContentBlockSegmented', module)
         image: {
           images: [
             {
-              src:
-                'https://fpoimg.com/320x180?bg_color=0f62fe&text_color=ffffff',
-              minWidth: 320,
+              src: 'https://dummyimage.com/320x180/ee5396/161616&text=16:9',
+              minWidth: 'sm',
             },
             {
-              src:
-                'https://fpoimg.com/400x225?bg_color=0f62fe&text_color=ffffff',
-              minWidth: 400,
+              src: 'https://dummyimage.com/400x225/ee5396/161616&text=16:9',
+              minWidth: 'md',
             },
             {
-              src:
-                'https://fpoimg.com/672x378?bg_color=0f62fe&text_color=ffffff',
-              minWidth: 672,
+              src: 'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
+              minWidth: 'lg',
             },
           ],
-          alt: 'lead space image',
           defaultImage:
-            'https://fpoimg.com/672x378?bg_color=0f62fe&text_color=ffffff',
+            'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
+          alt: 'Image alt text',
         },
         copy:
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.',

@@ -24,8 +24,8 @@ if (DDS_LIGHTBOX_MEDIA_VIEWER) {
         `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Here are some common categories:`
       );
       const image = {
-        defaultImage: 'https://via.placeholder.com/1024x512',
-        alt: 'Placeholder Image',
+        defaultImage: 'https://dummyimage.com/1024x512/ee5396/161616&text=2:1',
+        alt: 'Image alt text',
       };
 
       return (

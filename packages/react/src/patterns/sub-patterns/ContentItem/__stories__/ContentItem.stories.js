@@ -34,14 +34,23 @@ storiesOf('Patterns (Sub-Patterns)|ContentItem', module)
 
     const image = {
       images: object('Image assets:', [
-        { src: 'https://picsum.photos/id/2/288/144', minWidth: 'sm' },
-        { src: 'https://picsum.photos/id/2/448/224', minWidth: 'md' },
-        { src: 'https://picsum.photos/id/2/352/176', minWidth: 'lg' },
+        {
+          src: 'https://dummyimage.com/288x144/ee5396/161616&text=2:1',
+          minWidth: 'sm',
+        },
+        {
+          src: 'https://dummyimage.com/448x224/ee5396/161616&text=2:1',
+          minWidth: 'md',
+        },
+        {
+          src: 'https://dummyimage.com/352x176/ee5396/161616&text=2:1',
+          minWidth: 'lg',
+        },
       ]),
-      alt: text('alt', 'content item image'),
+      alt: text('alt', 'Image alt text'),
       defaultImage: text(
         'default image:',
-        'https://picsum.photos/id/2/352/176'
+        'https://dummyimage.com/352x176/ee5396/161616&text=2:1'
       ),
     };
     return (

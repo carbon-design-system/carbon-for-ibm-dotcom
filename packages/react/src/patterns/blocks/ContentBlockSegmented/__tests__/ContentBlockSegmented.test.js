@@ -13,12 +13,21 @@ describe('<ContentBlockSegmented />', () => {
         heading: 'Lorem ipsum dolor sit amet.',
         mediaData: {
           images: [
-            { src: 'https://picsum.photos/id/2/320/160', minWidth: 320 },
-            { src: 'https://picsum.photos/id/2/400/400', minWidth: 400 },
-            { src: 'https://picsum.photos/id/2/672/672', minWidth: 672 },
+            {
+              src: 'https://dummyimage.com/320x160/ee5396/161616&text=2:1',
+              minWidth: 'sm',
+            },
+            {
+              src: 'https://dummyimage.com/400x400/ee5396/161616&text=1:1',
+              minWidth: 'md',
+            },
+            {
+              src: 'https://dummyimage.com/672x672/ee5396/161616&text=1:1',
+              minWidth: 'lg',
+            },
           ],
-          alt: 'lead space image',
-          defaultImage: 'https://picsum.photos/id/2/672/672',
+          defaultImage: 'https://dummyimage.com/672x672/ee5396/161616&text=1:1',
+          alt: 'Image alt text',
         },
         mediaType: 'video',
         content: {
@@ -34,12 +43,21 @@ describe('<ContentBlockSegmented />', () => {
         heading: 'Lorem ipsum dolor sit amet.',
         mediaData: {
           images: [
-            { src: 'https://picsum.photos/id/2/320/160', minWidth: 320 },
-            { src: 'https://picsum.photos/id/2/400/400', minWidth: 400 },
-            { src: 'https://picsum.photos/id/2/672/672', minWidth: 672 },
+            {
+              src: 'https://dummyimage.com/320x160/ee5396/161616&text=2:1',
+              minWidth: 'sm',
+            },
+            {
+              src: 'https://dummyimage.com/400x400/ee5396/161616&text=1:1',
+              minWidth: 'md',
+            },
+            {
+              src: 'https://dummyimage.com/672x672/ee5396/161616&text=1:1',
+              minWidth: 'lg',
+            },
           ],
-          alt: 'lead space image',
-          defaultImage: 'https://picsum.photos/id/2/672/672',
+          defaultImage: 'https://dummyimage.com/672x672/ee5396/161616&text=1:1',
+          alt: 'Image alt text',
         },
         mediaType: 'image',
         content: {
@@ -72,12 +90,22 @@ describe('<ContentBlockSegmented />', () => {
         heading: 'Lorem ipsum dolor sit amet.',
         mediaData: {
           images: [
-            { src: 'https://picsum.photos/id/2/320/160', minWidth: 320 },
-            { src: 'https://picsum.photos/id/2/400/400', minWidth: 400 },
-            { src: 'https://picsum.photos/id/2/672/672', minWidth: 672 },
+            {
+              src: 'https://dummyimage.com/320x180/ee5396/161616&text=16:9',
+              minWidth: 'sm',
+            },
+            {
+              src: 'https://dummyimage.com/400x225/ee5396/161616&text=16:9',
+              minWidth: 'md',
+            },
+            {
+              src: 'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
+              minWidth: 'lg',
+            },
           ],
-          alt: 'lead space image',
-          defaultImage: 'https://picsum.photos/id/2/672/672',
+          defaultImage:
+            'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
+          alt: 'Image alt text',
         },
         mediaType: 'image',
         content: {
