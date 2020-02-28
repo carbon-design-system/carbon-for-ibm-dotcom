@@ -12,7 +12,7 @@ Here's a quick example to get you started.
 @import '@carbon/type/scss/font-face/sans';
 @include carbon--font-face-mono();
 @include carbon--font-face-sans();
-@import '@carbon/ibmdotcom-styles/scss/patterns/sub-patterns/link-list';
+@import '@carbon/ibmdotcom-styles/scss/patterns/sub-patterns/link-list/index';
 ```
 
 > 💡 Only import font's once per usage
