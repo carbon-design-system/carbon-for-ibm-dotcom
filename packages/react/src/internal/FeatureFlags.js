@@ -33,22 +33,6 @@ export const DDS_LIGHTBOX_MEDIA_VIEWER =
   process.env.DDS_LIGHTBOX_MEDIA_VIEWER === 'true' || DDS_FLAGS_ALL || false;
 
 /**
- * This determines if the leadspace (left-aligned) will be rendered or not
- *
- * @type {string | boolean}
- */
-export const DDS_LEADSPACE =
-  process.env.DDS_LEADSPACE === 'true' || DDS_FLAGS_ALL || false;
-
-/**
- * This determines if the leadspace (centered) will be rendered or not
- *
- * @type {string | boolean}
- */
-export const DDS_LEADSPACE_CENTERED =
-  process.env.DDS_LEADSPACE_CENTERED === 'true' || DDS_FLAGS_ALL || false;
-
-/**
  * This determines if the simplebenefits will be rendered or not
  *
  * @type {string | boolean}
@@ -71,11 +55,3 @@ export const DDS_SIMPLE_OVERVIEW =
  */
 export const DDS_LOGO_GRID =
   process.env.DDS_LOGO_GRID === 'true' || DDS_FLAGS_ALL || false;
-
-/**
- * This flag turns on/off the ButtonGroup component
- *
- * @type {string | boolean}
- */
-export const DDS_BUTTON_GROUP =
-  process.env.DDS_BUTTON_GROUP === 'true' || DDS_FLAGS_ALL || false;
