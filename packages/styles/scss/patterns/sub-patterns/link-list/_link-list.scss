@@ -30,20 +30,20 @@
         min-height: 116px;
 
         svg {
-          margin-top: $carbon--spacing-05;
+          // margin-top: $carbon--spacing-05;
           margin-bottom: $carbon--spacing-05;
           fill: $interactive-04;
         }
 
         &:first-child {
-          border-top: 1px solid $text-03;
+          border-top: 1px solid $ui-03;
         }
         &:not(:first-child) {
-          border-top: 1px solid $text-03;
+          border-top: 1px solid $ui-03;
         }
         &:last-child {
-          border-top: 1px solid $text-03;
-          border-bottom: 1px solid $text-03;
+          border-top: 1px solid $ui-03;
+          border-bottom: 1px solid $ui-03;
         }
 
         @include carbon--breakpoint('md') {
@@ -51,8 +51,6 @@
         }
       }
     }
-
-    // margin-bottom: $carbon--layout-03;
   }
 }
 @include exports('link-list') {
