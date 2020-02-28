@@ -39,7 +39,7 @@ storiesOf('Patterns (Sub-Patterns)|LinkList', module)
     return (
       <div className="bx--grid">
         <div className="bx--row">
-          <div className="bx--col-sm-4 bx--col-lg-4 bx--offset-lg-12">
+          <div className="bx--col-sm-4 bx--col-lg-4 bx--offset-lg-4">
             <LinkList heading={heading} items={object('Items array ', items)} />
           </div>
         </div>
