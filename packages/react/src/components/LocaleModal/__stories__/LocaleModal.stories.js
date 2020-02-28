@@ -1,9 +1,9 @@
 import './index.scss';
-import { text, withKnobs } from '@storybook/addon-knobs';
 import LocaleModal from '../LocaleModal';
 import React from 'react';
 import readme from '../README.md';
 import { storiesOf } from '@storybook/react';
+import { withKnobs } from '@storybook/addon-knobs';
 
 storiesOf('Components|Locale Modal', module)
   .addDecorator(withKnobs)
@@ -13,10 +13,5 @@ storiesOf('Components|Locale Modal', module)
     },
   })
   .add('Default', () => {
-    const localeModalProps = {
-      headerTitle: text('title', 'Select region'),
-      modalClose: 'Close',
-    };
-
-    return <LocaleModal isOpen={true} {...localeModalProps} />;
+    return <LocaleModal isOpen={true} />;
   });

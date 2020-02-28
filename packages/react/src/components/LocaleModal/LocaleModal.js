@@ -25,12 +25,12 @@ const { prefix } = settings;
  * @param {object} props props object
  * @param {boolean} props.isOpen Opens modal
  * @param {boolean} props.setIsOpen isOpen state of modal
- * @param {string} props.headerTitle modal header title
  * @returns {*} LocaleModal component
  */
-const LocaleModal = ({ isOpen, setIsOpen, ...localeModalProps }) => {
+const LocaleModal = ({ isOpen, setIsOpen }) => {
   const [list, setList] = useState({});
   const [langDisplay, setLangDisplay] = useState();
+  const [modalLabels, setModalLabels] = useState({});
   const [isFiltering, setIsFiltering] = useState(false);
   const [clearResults, setClearResults] = useState(false);
   const [currentRegion, setCurrentRegion] = useState();
@@ -46,6 +46,7 @@ const LocaleModal = ({ isOpen, setIsOpen, ...localeModalProps }) => {
       const getLangDisplay = await LocaleAPI.getLangDisplay();
       setLangDisplay(getLangDisplay);
       setList(list);
+      setModalLabels(list.localeModal);
     })();
 
     // reset the country search results when clicking close icon or back to region button
@@ -114,7 +115,7 @@ const LocaleModal = ({ isOpen, setIsOpen, ...localeModalProps }) => {
           data-autoid={`${stablePrefix}--locale-modal__region-back`}
           label={[
             <ArrowLeft20 className={`${prefix}--locale-modal__label-arrow`} />,
-            localeModalProps.headerTitle,
+            modalLabels.headerTitle,
           ]}
           title={currentRegion}
           className={`${prefix}--locale-modal__back`}
@@ -125,8 +126,8 @@ const LocaleModal = ({ isOpen, setIsOpen, ...localeModalProps }) => {
             langDisplay,
             <Globe20 className={`${prefix}--locale-modal__label-globe`} />,
           ]}
-          title={localeModalProps.headerTitle}
-          iconDescription={localeModalProps.modalClose}
+          title={modalLabels.headerTitle}
+          iconDescription={modalLabels.modalClose}
         />
       )}
       <ModalBody className={`${prefix}--locale-modal ${filterClass}`}>
@@ -135,13 +136,12 @@ const LocaleModal = ({ isOpen, setIsOpen, ...localeModalProps }) => {
           setCurrentRegion={setCurrentRegion}
           setIsFiltering={setIsFiltering}
           setClearResults={setClearResults}
-          {...localeModalProps}
         />
         <LocaleModalCountries
           regionList={sortList(list)}
           setIsFiltering={setIsFiltering}
           setClearResults={setClearResults}
-          {...localeModalProps}
+          {...modalLabels}
         />
       </ModalBody>
     </ComposedModal>
@@ -165,20 +165,6 @@ const LocaleModal = ({ isOpen, setIsOpen, ...localeModalProps }) => {
 LocaleModal.propTypes = {
   isOpen: PropTypes.bool,
   setIsOpen: PropTypes.bool,
-  headerLabel: PropTypes.string,
-  headerTitle: PropTypes.string,
-};
-
-/**
- * @property defaultProps
- * @type {{availabilityText: string, unavailabilityText: string, placeHolderText: string, labelText: string}}
- */
-LocaleModal.defaultProps = {
-  headerTitle: 'Select region',
-  availabilityText:
-    'This page is available in the following locations and languages',
-  unavailabilityText:
-    'This page is unavailable in your preferred location or language',
 };
 
 export default LocaleModal;

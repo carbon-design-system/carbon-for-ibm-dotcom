@@ -30,7 +30,7 @@ const { prefix } = settings;
 const LocaleModalCountries = ({
   regionList,
   setClearResults,
-  ...localeModalProps
+  ...modalLabels
 }) => {
   useEffect(() => {
     const localeFilter = document.getElementById(
@@ -84,8 +84,8 @@ const LocaleModalCountries = ({
 
       localeText.innerHTML =
         localeItems.length == localeItemsHidden.length
-          ? localeModalProps.unavailabilityText
-          : localeModalProps.availabilityText;
+          ? modalLabels.unavailabilityText
+          : modalLabels.availabilityText;
     }
 
     /**
@@ -102,13 +102,13 @@ const LocaleModalCountries = ({
       <div className={`${prefix}--locale-modal__search`}>
         <Search
           data-autoid={`${stablePrefix}--locale-modal__filter`}
-          placeHolderText={localeModalProps.placeHolderText}
-          labelText={localeModalProps.labelText}
-          closeButtonLabelText={localeModalProps.searchClearText}
+          placeHolderText={modalLabels.searchPlaceholder}
+          labelText={modalLabels.searchLabel}
+          closeButtonLabelText={modalLabels.searchClearText}
           id={`${prefix}--locale-modal__filter`}
         />
         <p className={`${prefix}--locale-modal__search-text`}>
-          {localeModalProps.availabilityText}
+          {modalLabels.availabilityText}
         </p>
       </div>
       <div className={`${prefix}--locale-modal__list`}>
@@ -148,20 +148,6 @@ LocaleModalCountries.propTypes = {
   placeHolderText: PropTypes.string,
   labelText: PropTypes.string,
   setClearResults: PropTypes.func,
-};
-
-/**
- * @property defaultProps
- * @type {{availabilityText: string, unavailabilityText: string, placeHolderText: string, labelText: string}}
- */
-LocaleModalCountries.defaultProps = {
-  availabilityText:
-    'This page is available in the following locations and languages',
-  unavailabilityText:
-    'This page is unavailable in your preferred location or language',
-  closeButtonLabelText: 'Clear search input',
-  placeHolderText: 'Search by location or language',
-  labelText: 'Search',
 };
 
 export default LocaleModalCountries;
