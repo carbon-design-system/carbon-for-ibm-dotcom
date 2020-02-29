@@ -37,15 +37,15 @@ storiesOf('Patterns (Sub-Patterns)|ContentBlock', module)
       heading: 'Lorem ipsum dolor sit amet',
       card: {
         cta: {
-          href: 'https://ibm.com',
+          href: 'https://www.example.com',
           icon: {
             src: ArrowRight20,
           },
         },
         heading: 'Consectetur adipisicing elit',
         image: {
-          defaultSrc: 'https://picsum.photos/id/672/672',
-          alt: 'featured card image',
+          defaultSrc: 'https://dummyimage.com/672x672/ee5396/fff&text=1x1',
+          alt: 'Image alt text',
         },
       },
     };

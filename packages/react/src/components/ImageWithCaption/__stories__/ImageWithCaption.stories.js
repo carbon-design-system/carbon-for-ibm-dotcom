@@ -33,7 +33,7 @@ storiesOf('Components|ImageWithCaption', module)
         },
       ],
       alt: 'image with caption image',
-      defaultSrc: 'https://picsum.photos/id/2/672/672',
+      defaultSrc: 'https://dummyimage.com/672x672/ee5396/fff&text=1x1',
     });
 
     return (

@@ -30,7 +30,7 @@ describe('TranslationAPI', () => {
     expect(mockAxios.get).toHaveBeenCalledWith(fetchUrl, {
       headers: {
         'Content-Type': 'text/plain',
-        origin: 'https://ibm.com',
+        origin: 'https://www.example.com',
       },
     });
   });

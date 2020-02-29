@@ -9,20 +9,20 @@ const ContentGroupSimpleKnobs = {
   mediaData: {
     sources: [
       {
-        src: 'https://fpoimg.com/320x180?bg_color=0f62fe&text_color=ffffff',
+        src: 'https://dummyimage.com/320x180/ee5396/161616&text=16:9',
         breakpoint: 320,
       },
       {
-        src: 'https://fpoimg.com/400x225?bg_color=0f62fe&text_color=ffffff',
+        src: 'https://dummyimage.com/400x225/ee5396/161616&text=16:9',
         breakpoint: 400,
       },
       {
-        src: 'https://fpoimg.com/672x378?bg_color=0f62fe&text_color=ffffff',
+        src: 'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
         breakpoint: 672,
       },
     ],
-    alt: 'CTA image',
-    defaultSrc: 'https://fpoimg.com/672x378?bg_color=0f62fe&text_color=ffffff',
+    alt: 'Image alt text',
+    defaultSrc: 'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
   },
   types: {
     image: 'image',
