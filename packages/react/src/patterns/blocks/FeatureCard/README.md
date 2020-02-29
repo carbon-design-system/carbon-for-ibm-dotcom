@@ -30,7 +30,7 @@ const card = [
       href: 'https://www.example.com',
     },
     image: {
-      defaultSrc: 'https://dummyimage.com/672x672/ee5396/fff&text=1x1',
+      defaultSrc: 'https://dummyimage.com/672x672/ee5396/161616&text=1x1',
       alt: 'Image alt text',
     },
   },

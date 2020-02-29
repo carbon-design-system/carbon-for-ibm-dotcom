@@ -95,15 +95,15 @@ storiesOf('Patterns (Sections)|LeadSpace', module)
     const images = {
       sources: [
         {
-          src: 'https://dummyimage.com/320x370',
+          src: 'https://dummyimage.com/320x370/ee5396/161616',
           breakpoint: 'sm',
         },
         {
-          src: 'https://dummyimage.com/672x400',
+          src: 'https://dummyimage.com/672x400/ee5396/161616',
           breakpoint: 'md',
         },
       ],
-      default: 'https://dummyimage.com/1056x480',
+      default: 'https://dummyimage.com/1056x480/ee5396/161616',
       alt: 'Image alt text',
     };
 
