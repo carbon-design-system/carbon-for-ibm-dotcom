@@ -21,7 +21,7 @@ storiesOf('Components|CTA', module)
 
     const urlBy = {
       jump: '#example',
-      local: 'https://ibm.com',
+      local: 'https://www.example.com',
       external: 'https://www.example.com',
     };
 
@@ -57,8 +57,9 @@ storiesOf('Components|CTA', module)
               },
             },
             image: {
-              defaultSrc: 'https://picsum.photos/id/672/672',
-              alt: 'featured card image',
+              defaultSrc:
+                'https://dummyimage.com/672x672/ee5396/161616&text=1x1',
+              alt: 'Image alt text',
             },
           },
         };

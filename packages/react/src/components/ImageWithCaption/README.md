@@ -26,7 +26,7 @@ import 'yourapplication.scss';
 function App() {
   const heading = 'this is the caption text.';
   const image = {
-    defaultSrc: 'https://picsum.photos/id/2/672/672',
+    defaultSrc: 'https://dummyimage.com/672x672',
     alt: 'image with caption alt text',
   };
 
