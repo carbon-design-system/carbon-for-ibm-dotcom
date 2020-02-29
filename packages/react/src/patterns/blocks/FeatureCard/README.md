@@ -30,8 +30,8 @@ const card = [
       href: 'https://www.example.com',
     },
     image: {
-      defaultSrc: 'https://picsum.photos/id/2/672/672',
-      alt: 'featured card image',
+      defaultSrc: 'https://dummyimage.com/672x672/ee5396/fff&text=1x1',
+      alt: 'Image alt text',
     },
   },
 ];
