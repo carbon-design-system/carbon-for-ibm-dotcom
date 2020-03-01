@@ -46,7 +46,9 @@ storiesOf('Patterns (Sections)|CardSection', module)
         heading={text('Heading (required)', cardsTitle)}
         theme={theme}
         cards={data}
-        cta={type === 'CardSectionSimple' ? cta : null}
+        cta={
+          type === 'CardSectionSimple' ? object('CTA Inverse Data', cta) : null
+        }
       />
     );
   });

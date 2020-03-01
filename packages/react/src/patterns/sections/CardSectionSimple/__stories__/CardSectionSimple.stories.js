@@ -1,10 +1,4 @@
-import {
-  boolean,
-  object,
-  select,
-  text,
-  withKnobs,
-} from '@storybook/addon-knobs';
+import { object, select, text, withKnobs } from '@storybook/addon-knobs';
 import cards from '../../CardSection/__stories__/data/cards.json';
 import CardSectionSimple from '../CardSectionSimple';
 import React from 'react';
@@ -32,12 +26,13 @@ storiesOf('Patterns (Sections)|CardSectionSimple', module)
         href: 'https://www.example.com',
       },
     };
+
     return (
       <CardSectionSimple
         heading={text('Heading (required):', 'Aliquam condimentum interdum')}
         theme={select('theme', themes, themes.white)}
         cards={object('Data', cards.CardSectionSimple)}
-        cta={boolean('CTA', cta) && cta}
+        cta={object('CTA Inverse data', cta)}
       />
     );
   });
