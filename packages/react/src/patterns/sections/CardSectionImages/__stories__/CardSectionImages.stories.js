@@ -20,11 +20,18 @@ storiesOf('Patterns (Sections)|CardSectionImages', module)
       g90: 'g90',
       g100: 'g100',
     };
+    const cta = {
+      heading: 'Top level card link',
+      cta: {
+        href: 'https://www.example.com',
+      },
+    };
     return (
       <CardSectionImages
         heading={text('Heading (required):', 'Read more about it')}
         theme={select('theme', themes, themes.white)}
         cards={object('Data', cards.CardSectionImages)}
+        cta={cta}
       />
     );
   });
