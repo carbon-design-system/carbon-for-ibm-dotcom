@@ -1,5 +1,11 @@
 import './index.scss';
-import { object, select, text, withKnobs } from '@storybook/addon-knobs';
+import {
+  boolean,
+  object,
+  select,
+  text,
+  withKnobs,
+} from '@storybook/addon-knobs';
 import cards from './data/cards.json';
 import CardSection from '../CardSection';
 import React from 'react';
@@ -34,6 +40,7 @@ storiesOf('Patterns (Sections)|CardSection', module)
 
     cards[type] = data;
 
+    const toggleCTA = boolean('cta', true);
     const cta = {
       heading: 'Top level card link',
       cta: {
@@ -46,9 +53,7 @@ storiesOf('Patterns (Sections)|CardSection', module)
         heading={text('Heading (required)', cardsTitle)}
         theme={theme}
         cards={data}
-        cta={
-          type === 'CardSectionSimple' ? object('CTA Inverse Data', cta) : null
-        }
+        cta={toggleCTA && cta}
       />
     );
   });
