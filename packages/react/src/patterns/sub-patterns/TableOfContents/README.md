@@ -82,6 +82,16 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 | title           | String    | Menu title text |
 | id              | String    | Menu id         |
 
+### Dynamic menuItems
+
+If `menuItems` is not passed in as a prop, the menu items are dynamically
+generated based on anchor links that exist on the page. The anchor links should
+follow the following format:
+
+```html
+<a name="name-of-section" data-title="Lorem Ipsum"></a>
+```
+
 ## Theme (optional)
 
 | Name            | Description                              |
