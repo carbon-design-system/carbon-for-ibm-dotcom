@@ -25,7 +25,6 @@ storiesOf('Patterns (Blocks)|ContentBlockMixed', module)
       style: 'card',
       type: 'local',
       copy: 'Lorem ipsum dolor sit ametttt',
-      heading: 'Lorem ipsum dolor',
     };
 
     const copy = `   __Lorem__    ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.

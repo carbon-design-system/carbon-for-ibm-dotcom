@@ -1,6 +1,6 @@
 @import '../../../../../../styles/scss/patterns/sub-patterns/content-block/content-block';
 
-.#{$prefix}--content-block__children {
+.#{$prefix}--content-block-story .#{$prefix}--content-block__children {
   height: 300px;
   background-color: #f4f4f4;
 }

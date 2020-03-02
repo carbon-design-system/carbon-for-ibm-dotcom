@@ -64,7 +64,7 @@ storiesOf('Patterns (Blocks)|ContentBlockSegmented', module)
       },
       style: select('CTA style', ctaStyles, ctaStyles.card),
       type: select('CTA type', ctaTypes, ctaTypes.local),
-      heading: 'Lorem ipsum dolor',
+      copy: 'Lorem ipsum dolor',
     };
 
     const items = [

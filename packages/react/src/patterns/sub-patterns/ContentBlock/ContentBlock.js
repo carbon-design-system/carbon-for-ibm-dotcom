@@ -25,12 +25,15 @@ const { prefix } = settings;
  * @param {string} props.heading Heading text
  * @param {string} props.copy copy text
  * @param {*} props.children JSX Components
+ * @param {string} props.customClassName allows user to pass in custom class name
  * @param {*} props.cta CTA props object
  * @returns {*} JSX ContentArrayBlock component
  */
-const ContentBlock = ({ heading, copy, children, cta }) => {
+const ContentBlock = ({ heading, copy, children, customClassName, cta }) => {
   return (
-    <>
+    <div
+      data-autoid={`${stablePrefix}--content-block`}
+      className={cx(`${prefix}--content-block`, customClassName)}>
       {heading && (
         <h2
           data-autoid={`${stablePrefix}--content-block__title`}
@@ -44,7 +47,9 @@ const ContentBlock = ({ heading, copy, children, cta }) => {
           dangerouslySetInnerHTML={{ __html: markdownToHtml(copy) }}
         />
       )}
-      <div data-autoid={`${stablePrefix}--content-block__children`}>
+      <div
+        data-autoid={`${stablePrefix}--content-block__children`}
+        className={`${prefix}--content-block__children`}>
         {children}
       </div>
       {cta && (
@@ -54,7 +59,7 @@ const ContentBlock = ({ heading, copy, children, cta }) => {
           {cta && <CTA style={cta.style} type={cta.type} {...cta} />}
         </div>
       )}
-    </>
+    </div>
   );
 };
 

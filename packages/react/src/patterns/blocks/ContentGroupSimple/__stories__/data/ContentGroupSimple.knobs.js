@@ -57,7 +57,6 @@ const ContentGroupSimpleKnobs = {
     style: 'text',
     type: 'local',
     copy: 'Lorem ipsum dolor sit ametttt',
-    heading: 'Lorem ipsum dolor',
   },
 };
 

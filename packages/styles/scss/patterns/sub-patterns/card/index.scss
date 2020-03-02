@@ -24,11 +24,13 @@
       display: flex;
       flex-direction: column;
       padding: $carbon--spacing-05;
+      min-height: carbon--mini-units(20);
     }
 
     &__heading {
-      margin-bottom: $carbon--spacing-05;
       @include carbon--type-style('expressive-heading-03');
+
+      margin-bottom: $carbon--layout-05;
     }
 
     &__heading,
@@ -37,14 +39,16 @@
     }
 
     &__copy {
-      margin-bottom: $carbon--spacing-05;
       @include carbon--type-style('body-short-02');
+
+      margin-bottom: $carbon--spacing-07;
     }
 
     &__eyebrow {
-      color: $text-02;
-      margin-bottom: $carbon--spacing-03;
       @include carbon--type-style('body-short-01');
+
+      margin-bottom: $carbon--spacing-03;
+      color: $text-02;
     }
 
     &__cta,
@@ -58,10 +62,13 @@
 
       svg {
         fill: currentColor;
+        display: block;
       }
     }
     &--CTA {
-      .#{$prefix}--card__heading {
+      max-width: carbon--mini-units(40);
+
+      .#{$prefix}--card__copy p {
         @include carbon--type-style('expressive-heading-02');
       }
     }
