@@ -22,14 +22,14 @@ storiesOf('Patterns (Sub-Patterns)|LinkList', module)
     const items = [
       {
         type: types[0],
-        heading: headlines[0],
+        copy: headlines[0],
         cta: {
           href: 'https://ibm.com',
         },
       },
       {
         type: types[0],
-        heading: headlines[1],
+        copy: headlines[1],
         cta: {
           href: 'https://ibm.com',
         },

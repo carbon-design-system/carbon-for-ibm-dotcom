@@ -37,7 +37,7 @@
       &:not(:hover) {
         background: $ui-background;
       }
-      &__heading {
+      &__copy {
         @include carbon--type-style('body-short-02');
 
         color: $link-01;
