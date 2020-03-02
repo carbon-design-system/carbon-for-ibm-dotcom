@@ -10,8 +10,8 @@
 @mixin content-group-cards-item {
   .#{$prefix}--content-group-cards-item {
     p {
-      margin-bottom: $carbon--layout-03;
-      margin-top: $carbon--layout-03;
+      // margin-bottom: $carbon--layout-03;
+      // margin-top: $carbon--layout-03;
     }
   }
 }

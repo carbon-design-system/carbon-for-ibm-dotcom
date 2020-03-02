@@ -8,24 +8,24 @@
   .#{$prefix}--content-block-mixed {
     .#{$prefix}--content-group-cards {
       @include carbon--breakpoint(lg) {
-        padding-left: $spacing-05;
-        padding-right: $spacing-05;
+        // padding-left: $spacing-05;
+        // padding-right: $spacing-05;
       }
       .#{$prefix}--content-group {
-        padding: 0;
-        margin-left: 0;
-        flex: none;
-        max-width: 100%;
+        // padding: 0;
+        // margin-left: 0;
+        // flex: none;
+        // max-width: 100%;
 
         &-cards__row {
-          padding: 0;
+          // padding: 0;
         }
       }
 
       .#{$prefix}--content-group-cards-group {
         @include carbon--breakpoint(sm) {
-          padding-left: $spacing-05;
-          padding-right: $spacing-05;
+          // padding-left: $spacing-05;
+          // padding-right: $spacing-05;
         }
       }
     }

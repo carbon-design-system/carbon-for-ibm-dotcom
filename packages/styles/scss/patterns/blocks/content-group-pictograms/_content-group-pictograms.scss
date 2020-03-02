@@ -8,15 +8,15 @@
 @mixin content-group-pictograms {
   .#{$prefix}--content-group-pictograms {
     &__item:not(:last-of-type) {
-      padding-bottom: $carbon--layout-03;
+      // padding-bottom: $carbon--layout-03;
     }
 
     @include carbon--breakpoint(md) {
-      padding-bottom: $carbon--layout-03;
+      // padding-bottom: $carbon--layout-03;
     }
 
     @include carbon--breakpoint(lg) {
-      padding-bottom: $carbon--layout-05;
+      // padding-bottom: $carbon--layout-05;
     }
   }
 }
