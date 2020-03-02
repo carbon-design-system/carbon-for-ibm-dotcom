@@ -39,8 +39,8 @@
   "CardSectionImages": [
     {
       "image": {
-        "defaultSrc": "https://picsum.photos/id/1003/1056/480",
-        "alt": "cards with image"
+        "defaultSrc": "https://dummyimage.com/1056x480/ee5396/161616",
+        "alt": "Image alt text"
       },
       "eyebrow": "Topic",
       "heading": "Natural language processing.",
@@ -50,8 +50,8 @@
     },
     {
       "image": {
-        "defaultSrc": "https://picsum.photos/id/1018/1056/480",
-        "alt": "cards with image"
+        "defaultSrc": "https://dummyimage.com/1056x480/ee5396/161616",
+        "alt": "Image alt text"
       },
       "eyebrow": "Blog",
       "heading": "Natural language processing.",
@@ -61,8 +61,8 @@
     },
     {
       "image": {
-        "defaultSrc": "https://picsum.photos/id/1076/1056/480",
-        "alt": "cards with image"
+        "defaultSrc": "https://dummyimage.com/1056x480/ee5396/161616",
+        "alt": "Image alt text"
       },
       "eyebrow": "Topic",
       "heading": "Natural language processing.",
@@ -72,8 +72,8 @@
     },
     {
       "image": {
-        "defaultSrc": "https://picsum.photos/id/102/1056/480",
-        "alt": "cards with image"
+        "defaultSrc": "https://dummyimage.com/1056x480/ee5396/161616",
+        "alt": "Image alt text"
       },
       "eyebrow": "Blog",
       "heading": "Serving society ethically in the age of Artificial Intelligence.",
@@ -83,8 +83,8 @@
     },
     {
       "image": {
-        "defaultSrc": "https://picsum.photos/id/1032/1056/480",
-        "alt": "cards with image"
+        "defaultSrc": "https://dummyimage.com/1056x480/ee5396/161616",
+        "alt": "Image alt text"
       },
       "eyebrow": "Topic",
       "heading": "Serving society ethically in the age of Artificial Intelligence.",
