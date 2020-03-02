@@ -7,19 +7,7 @@
 
 @mixin content-group-simple {
   .#{$prefix}--content-group-simple {
-    @include carbon--breakpoint(md) {
-      // padding-top: $carbon--layout-03;
-      // padding-bottom: $carbon--layout-05;
-    }
-
-    @include carbon--breakpoint(lg) {
-      // padding-top: $carbon--layout-03;
-      // padding-bottom: $carbon--layout-06;
-    }
-
-    .#{$prefix}--content-group__title {
-      // padding-left: 0;
-    }
+    // empty for now
   }
 }
 

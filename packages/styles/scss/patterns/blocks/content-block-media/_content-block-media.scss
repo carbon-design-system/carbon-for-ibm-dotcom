@@ -16,65 +16,6 @@
 
 @mixin content-block-media {
   .#{$prefix}--content-block-media {
-    // &__container {
-    //   @include carbon--make-container;
-    // }
-    // &__row {
-    //   @include carbon--make-row;
-    // }
-    // &__col {
-    //   @include carbon--make-col-ready;
-    // }
-    &__title {
-      // @include carbon--type-style('expressive-heading-05');
-
-      // padding-top: $carbon--spacing-07;
-      // padding-bottom: $carbon--spacing-07;
-    }
-
-    // &__divider {
-    //   border-bottom: 1px solid transparent;
-    // margin-top: $carbon--layout-05;
-    // margin-left: -$carbon--spacing-05;
-    // margin-right: -$carbon--spacing-05;
-    // margin-bottom: $carbon--spacing-05;
-    // &__col {
-    // @include carbon--make-col-ready;
-    //   }
-    // }
-
-    @include carbon--breakpoint('md') {
-      // &__title {
-      //   padding-bottom: $carbon--spacing-09;
-      // }
-      // &__title,
-      // &__content {
-      //   max-width: carbon--rem(640px);
-      // }
-      // &__col {
-      //   @include carbon--make-col(8, 8);
-      // }
-      // &__divider {
-      //   margin-top: $carbon--layout-06;
-      // }
-    }
-    @include carbon--breakpoint('lg') {
-      // &__title {
-      //   padding-top: $carbon--layout-05;
-      // }
-      // &__col {
-      //   @include carbon--make-col-offset(4, 16);
-      //   @include carbon--make-col(8, 16);
-      // }
-      // &__divider {
-      //   margin-top: $carbon--layout-07;
-      //   &__col {
-      //     @include carbon--make-col-offset(4, 16);
-      //     @include carbon--make-col(12, 16);
-      //   }
-      // }
-    }
-
     @include themed-items;
   }
 

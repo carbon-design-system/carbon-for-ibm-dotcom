@@ -27,15 +27,9 @@ storiesOf('Patterns (Blocks)|ContentBlockMixed', module)
       copy: 'Lorem ipsum dolor sit ametttt',
     };
 
-    const copy = `   __Lorem__    ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
-      Mauris iaculis eget dolor nec hendrerit. __Phasellus__ at elit sollicitudin, sodales
-      nulla quis, *consequat* libero. Here are
-      some common categories:
-
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
-
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
-      `;
+    const copy = `Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+      Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
+      nulla quis, *consequat* libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.`;
 
     const pictogramHeading =
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
@@ -96,7 +90,6 @@ storiesOf('Patterns (Blocks)|ContentBlockMixed', module)
     const simpleTypes = ContentGroupSimpleKnobs.types;
     const simpleMediaType = simpleTypes.image;
     const simpleItems = ContentGroupSimpleKnobs.items;
-    const simpleCta = ContentGroupSimpleKnobs.cta;
 
     const items = [
       {
@@ -115,7 +108,6 @@ storiesOf('Patterns (Blocks)|ContentBlockMixed', module)
         mediaData: simpleMediaData,
         heading: text('Simple group heading', simpleHeading),
         items: object('Simple group content', simpleItems),
-        cta: object('Simple group CTA', simpleCta),
       },
     ];
 

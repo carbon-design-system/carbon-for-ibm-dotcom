@@ -19,7 +19,7 @@
     margin-top: $carbon--layout-05;
     margin-bottom: $carbon--layout-05;
 
-    @include carbon--breakpoint(lg) {
+    @include carbon--breakpoint('lg') {
       margin-top: $carbon--layout-06;
       margin-bottom: $carbon--layout-06;
     }
@@ -34,14 +34,17 @@
     &__cta {
       @include carbon--make-col-ready;
 
-      margin-top: $carbon--spacing-09;
-
-      &-row {
-        @include carbon--make-row;
-      }
+      margin-top: $carbon--layout-04;
 
       @include carbon--breakpoint('md') {
         @include carbon--make-col(4, 8);
+      }
+
+      &-row {
+        @include carbon--make-row;
+
+        // allows for margin collapsing
+        display: block;
       }
     }
 
