@@ -10,7 +10,7 @@
     &__heading {
       margin-bottom: $carbon--spacing-05;
 
-      @include type-style('expressive-heading-02');
+      @include carbon--type-style('expressive-heading-02');
 
       color: $text-01;
     }
