@@ -45,6 +45,16 @@
 
 @mixin card-section {
   .#{$prefix}--card-section {
+    &__card {
+      .#{$prefix}--image {
+        @include ratio-base;
+
+        &__img {
+          height: auto;
+          flex: 1;
+        }
+      }
+    }
     &__row {
       @include carbon--make-row;
     }
