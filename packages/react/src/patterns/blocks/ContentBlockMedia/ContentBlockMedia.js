@@ -21,7 +21,7 @@ const { prefix } = settings;
  * @param {object} props props object
  * @param {string} props.copy pattern short copy to support the heading
  * @param {string} props.heading pattern heading
- * @param {Array} props.contentGroup contentGroup array with heading, image and lists
+ * @param {Array} props.items items array with heading, image and lists
  * @param {object} props.cta cta object
  * @returns {object} JSX Object
  */

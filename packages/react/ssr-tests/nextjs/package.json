@@ -9,8 +9,8 @@
     "update-staging": "yarn upgrade @carbon/ibmdotcom-react@latest && yarn upgrade @carbon/ibmdotcom-styles@latest"
   },
   "dependencies": {
-    "@carbon/ibmdotcom-react": "^1.3.1-rc.0",
-    "@carbon/ibmdotcom-styles": "^1.3.0",
+    "@carbon/ibmdotcom-react": "^1.5.0-alpha.2864",
+    "@carbon/ibmdotcom-styles": "^1.5.0-alpha.2864",
     "@zeit/next-css": "^1.0.1",
     "@zeit/next-sass": "^1.0.1",
     "dotenv": "^8.2.0",
