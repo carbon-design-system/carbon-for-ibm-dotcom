@@ -7634,6 +7634,172 @@ Array [
 ]
 `;
 
+exports[`Storyshots Patterns (Sub-Patterns)|LinkList Default 1`] = `
+Array [
+  <div
+    data-floating-menu-container=""
+    role="main"
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+      }
+    }
+  >
+    <div
+      className="storybook-readme-story"
+    >
+      <div
+        style={Object {}}
+      >
+        <div>
+          <div
+            className="bx--grid"
+          >
+            <div
+              className="bx--row"
+            >
+              <div
+                className="bx--col-sm-4 bx--col-lg-4 bx--offset-lg-12"
+              >
+                <div
+                  className="bx--link-list"
+                  data-autoid="dds--link-list"
+                >
+                  <h4
+                    className="bx--link-list__heading"
+                  >
+                    Tutorials
+                  </h4>
+                  <ul
+                    className="bx--link-list__list"
+                  >
+                    <li
+                      className="bx--link-list__list__CTA"
+                    >
+                      <div
+                        className="bx--link-list__CTA"
+                      >
+                        <a
+                          className="bx--link bx--tile bx--tile--clickable bx--card bx--card--link bx--card--CTA"
+                          data-autoid="dds--card"
+                          href="https://ibm.com"
+                          onClick={[Function]}
+                          onKeyDown={[Function]}
+                          target={null}
+                        >
+                          <div
+                            className="bx--card__wrapper"
+                          >
+                            <h3
+                              className="bx--card__heading"
+                            >
+                              Containerization A Complete Guide
+                            </h3>
+                            <footer
+                              className="bx--card__footer"
+                            >
+                              <svg
+                                aria-hidden={true}
+                                className="bx--card__cta"
+                                focusable="false"
+                                height={20}
+                                preserveAspectRatio="xMidYMid meet"
+                                src={
+                                  Object {
+                                    "$$typeof": Symbol(react.forward_ref),
+                                    "render": [Function],
+                                  }
+                                }
+                                style={
+                                  Object {
+                                    "willChange": "transform",
+                                  }
+                                }
+                                viewBox="0 0 20 20"
+                                width={20}
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                />
+                              </svg>
+                            </footer>
+                          </div>
+                        </a>
+                      </div>
+                    </li>
+                    <li
+                      className="bx--link-list__list__CTA"
+                    >
+                      <div
+                        className="bx--link-list__CTA"
+                      >
+                        <a
+                          className="bx--link bx--tile bx--tile--clickable bx--card bx--card--link bx--card--CTA"
+                          data-autoid="dds--card"
+                          href="https://ibm.com"
+                          onClick={[Function]}
+                          onKeyDown={[Function]}
+                          target={null}
+                        >
+                          <div
+                            className="bx--card__wrapper"
+                          >
+                            <h3
+                              className="bx--card__heading"
+                            >
+                              Why should you use microservices and containers
+                            </h3>
+                            <footer
+                              className="bx--card__footer"
+                            >
+                              <svg
+                                aria-hidden={true}
+                                className="bx--card__cta"
+                                focusable="false"
+                                height={20}
+                                preserveAspectRatio="xMidYMid meet"
+                                src={
+                                  Object {
+                                    "$$typeof": Symbol(react.forward_ref),
+                                    "render": [Function],
+                                  }
+                                }
+                                style={
+                                  Object {
+                                    "willChange": "transform",
+                                  }
+                                }
+                                viewBox="0 0 20 20"
+                                width={20}
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                />
+                              </svg>
+                            </footer>
+                          </div>
+                        </a>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <input
+    aria-label="input-text-offleft"
+    className="bx--visually-hidden"
+    type="text"
+  />,
+]
+`;
+
 exports[`Storyshots Patterns (Sub-Patterns)|PictogramItem Default 1`] = `
 Array [
   <div

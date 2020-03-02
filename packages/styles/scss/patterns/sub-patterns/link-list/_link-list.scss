@@ -1,0 +1,55 @@
+//
+// Copyright IBM Corp. 2016, 2018
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@mixin link-list {
+  .#{$prefix}--link-list {
+    &__heading {
+      margin-bottom: $carbon--spacing-05;
+
+      @include carbon--type-style('expressive-heading-02');
+
+      color: $text-01;
+    }
+    &__list {
+      @include hang;
+      &__CTA {
+        border-top: 1px solid $ui-03;
+        &:first-child {
+          border-top: 1px solid $ui-03;
+        }
+        &:not(:first-child) {
+          border-top: 1px solid $ui-03;
+        }
+        &:last-child {
+          border-bottom: 1px solid $ui-03;
+        }
+      }
+    }
+
+    .#{$prefix}--card {
+      &__wrapper {
+        min-height: 116px;
+      }
+      &:not(:hover) {
+        background: $ui-background;
+      }
+      &__copy p {
+        @include carbon--type-style('body-short-02');
+
+        color: $link-01;
+      }
+    }
+
+    @include carbon--breakpoint('md') {
+      max-width: carbon--mini-units(80);
+    }
+  }
+}
+
+@include exports('link-list') {
+  @include link-list;
+}

@@ -65,7 +65,7 @@
         display: block;
       }
     }
-    &--CTA {
+    &__CTA {
       max-width: carbon--mini-units(40);
 
       .#{$prefix}--card__copy p {
