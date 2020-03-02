@@ -8,11 +8,17 @@
 @import '../../globals/imports';
 
 @mixin image-with-caption {
+  .#{$prefix}--image-with-caption {
+    margin-top: $carbon--spacing-07;
+    margin-bottom: $carbon--spacing-07;
+  }
+
   .#{$prefix}--image__caption {
+    @include carbon--type-style('caption-01');
+
     color: $text-05;
     margin-top: $carbon--spacing-03;
     margin-bottom: $carbon--spacing-07;
-    @include carbon--type-style(caption-01);
   }
 }
 

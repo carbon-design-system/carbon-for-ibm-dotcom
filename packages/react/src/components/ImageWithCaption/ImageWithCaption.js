@@ -23,18 +23,24 @@ const { prefix } = settings;
  * @param {string} props.customClassName custom classname
  * @returns {*} picture element
  */
-const ImageWithCaption = ({ image, heading, customClassName }) => (
-  <div
-    className={classnames(`${prefix}--image-with-caption`, customClassName)}
-    data-autoid={`${stablePrefix}--image-with-caption`}>
-    <Image {...image} />
-    <p
-      className={`${prefix}--image__caption`}
-      data-autoid={`${stablePrefix}--image__caption`}>
-      {heading}
-    </p>
-  </div>
-);
+const ImageWithCaption = ({ image, heading, customClassName }) => {
+  if (!image) {
+    return null;
+  }
+
+  return (
+    <div
+      className={classnames(`${prefix}--image-with-caption`, customClassName)}
+      data-autoid={`${stablePrefix}--image-with-caption`}>
+      <Image {...image} />
+      <p
+        className={`${prefix}--image__caption`}
+        data-autoid={`${stablePrefix}--image__caption`}>
+        {heading}
+      </p>
+    </div>
+  );
+};
 
 ImageWithCaption.propTypes = {
   image: PropTypes.instanceOf(Image).isRequired,
