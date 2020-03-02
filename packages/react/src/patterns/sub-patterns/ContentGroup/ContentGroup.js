@@ -44,8 +44,13 @@ const ContentGroup = ({ children, heading, customClassName, cta }) => {
         {children}
       </div>
       {cta && (
-        <div className={`${prefix}--content-group__CTA`}>
-          <CTA style="card" type="local" {...cta} />
+        <div className={`${prefix}--content-group__cta-row`}>
+          <CTA
+            customClassName={`${prefix}--content-group__cta`}
+            style="card"
+            type="local"
+            {...cta}
+          />
         </div>
       )}
     </div>

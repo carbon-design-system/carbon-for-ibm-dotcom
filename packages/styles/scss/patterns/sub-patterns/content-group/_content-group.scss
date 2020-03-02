@@ -6,6 +6,9 @@
 //
 
 @import '../../../globals/imports';
+@import '../../../globals/utils/content-width';
+@import '../../../globals/utils/hang';
+
 @mixin themed-items {
   .#{$prefix}--content-group__title {
     color: $text-01;
@@ -13,41 +16,38 @@
 }
 @mixin content-group {
   .#{$prefix}--content-group {
-    @include carbon--breakpoint(sm) {
-      padding-bottom: $carbon--layout-05;
-      &__title {
-        margin-bottom: $carbon--layout-05;
-      }
-    }
+    margin-top: $carbon--layout-05;
+    margin-bottom: $carbon--layout-05;
 
     @include carbon--breakpoint(lg) {
-      padding-bottom: $carbon--layout-06;
-      &__title {
-        margin-bottom: $carbon--layout-03;
-      }
+      margin-top: $carbon--layout-06;
+      margin-bottom: $carbon--layout-06;
     }
 
     &__title {
-      padding-right: $carbon--layout-01;
-      max-width: 90%;
-
       @include carbon--type-style('expressive-heading-04', true);
+      @include content-width;
+
+      margin-bottom: $carbon--spacing-07;
     }
 
-    &__children {
-      margin-bottom: $carbon--layout-03;
+    &__cta {
+      @include carbon--make-col-ready;
 
-      .#{$prefix}--image__img {
-        margin-bottom: $spacing-07;
+      margin-top: $carbon--spacing-09;
+
+      &-row {
+        @include carbon--make-row;
       }
-    }
-
-    &__CTA {
-      max-width: 320px;
 
       @include carbon--breakpoint('md') {
         @include carbon--make-col(4, 8);
       }
+    }
+
+    .#{$prefix}--card--CTA {
+      // TO DO: aspect ratio 2x1
+      @include hang;
     }
   }
 }
