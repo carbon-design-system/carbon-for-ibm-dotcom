@@ -1,10 +1,4 @@
-import {
-  boolean,
-  object,
-  select,
-  text,
-  withKnobs,
-} from '@storybook/addon-knobs';
+import { object, select, text, withKnobs } from '@storybook/addon-knobs';
 import cards from '../../CardSection/__stories__/data/cards.json';
 import CardSectionImages from '../CardSectionImages';
 import React from 'react';
@@ -26,19 +20,11 @@ storiesOf('Patterns (Sections)|CardSectionImages', module)
       g90: 'g90',
       g100: 'g100',
     };
-    const toggleCTA = boolean('cta', true);
-    const cta = {
-      heading: 'Top level card link',
-      cta: {
-        href: 'https://www.example.com',
-      },
-    };
     return (
       <CardSectionImages
         heading={text('Heading (required):', 'Read more about it')}
         theme={select('theme', themes, themes.white)}
         cards={object('Data', cards.CardSectionImages)}
-        cta={toggleCTA && cta}
       />
     );
   });
