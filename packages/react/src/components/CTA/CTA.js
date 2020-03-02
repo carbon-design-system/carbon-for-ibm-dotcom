@@ -45,7 +45,7 @@ const renderCTA = ({ style, type, ...otherProps }) => {
     case 'card':
       return (
         <Card
-          customClassName={`${prefix}--card--CTA`}
+          customClassName={`${prefix}--card__CTA`}
           cta={{
             href: otherProps.cta.href,
             icon: {
