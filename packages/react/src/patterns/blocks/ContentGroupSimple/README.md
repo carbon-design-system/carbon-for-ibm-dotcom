@@ -29,12 +29,21 @@ const heading = 'Lorem ipsum dolor sit amet';
 
 const mediaData = {
   sources: [
-    { src: 'https://picsum.photos/id/2/320/160', breakpoint: 320 },
-    { src: 'https://picsum.photos/id/2/400/400', breakpoint: 400 },
-    { src: 'https://picsum.photos/id/2/672/672', breakpoint: 672 },
+    {
+      src: 'https://dummyimage.com/320x160/ee5396/161616&text=2x1',
+      breakpoint: 320,
+    },
+    {
+      src: 'https://dummyimage.com/400x400/ee5396/161616&text=1x1',
+      breakpoint: 400,
+    },
+    {
+      src: 'https://dummyimage.com/672x672/ee5396/161616&text=1x1',
+      breakpoint: 672,
+    },
   ],
-  alt: 'lead space image',
-  defaultSrc: 'https://picsum.photos/id/2/672/672',
+  alt: 'Image alt text',
+  defaultSrc: 'https://dummyimage.com/672x672/ee5396/161616&text=1x1',
 };
 
 const mediaType = 'image';

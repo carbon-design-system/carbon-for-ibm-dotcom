@@ -1,6 +1,6 @@
 /**
  * Utility function to parse and decode text content.
- * Strings can become encoded when passed as props for various reasons.
+ * Strings can become encoded for various reasons.
  * This utility decodes those strings.
  *
  * @param {string} str String to decode

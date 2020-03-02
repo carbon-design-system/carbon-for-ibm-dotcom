@@ -33,11 +33,11 @@ function App() {
       title: 'Aliquam condimentum interdum',
       image: {
         uri: {
-          sm: 'https://via.placeholder.com/640x320',
-          md: 'https://via.placeholder.com/768x384',
-          lg: 'https://via.placeholder.com/1024x512',
+          sm: 'https://dummyimage.com/640x320',
+          md: 'https://dummyimage.com/768x384',
+          lg: 'https://dummyimage.com/1024x512',
         },
-        alt: 'Place Holder Image',
+        alt: 'Image alt text',
       },
       lists: [
         {
@@ -63,11 +63,11 @@ function App() {
     type: 'local'|'jump'|'external'
     heading: 'Feature Link heading',
     card: {
-      href: 'https://ibm.com',
+      href: 'https://www.example.com',
       title: 'Consectetur adipisicing elit',
       image: {
-        defaultSrc: 'https://picsum.photos/id/2/672/672',
-        alt: 'featured link image',
+        defaultSrc: 'https://dummyimage.com/672x672/ee5396/161616&text=1x1',
+        alt: 'Image alt text',
       },
     }
   },
