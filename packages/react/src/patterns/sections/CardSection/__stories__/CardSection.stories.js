@@ -36,6 +36,7 @@ storiesOf('Patterns (Sections)|CardSection', module)
         ? 'Aliquam condimentum interdum'
         : 'Read more about it';
 
+    const heading = text('Heading (required)', cardsTitle);
     const data = object(`Data (${type})`, cards[type]);
 
     cards[type] = data;
@@ -50,7 +51,7 @@ storiesOf('Patterns (Sections)|CardSection', module)
 
     return (
       <CardSection
-        heading={text('Heading (required)', cardsTitle)}
+        heading={heading}
         theme={theme}
         cards={data}
         cta={toggleCTA && cta}
