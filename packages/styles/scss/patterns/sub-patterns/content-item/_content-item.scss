@@ -24,6 +24,11 @@
       color: $text-01;
     }
 
+    &__image {
+      margin-top: $carbon--spacing-07;
+      margin-bottom: $carbon--spacing-07;
+    }
+
     &__copy {
       p {
         @include carbon--type-style('body-long-02');

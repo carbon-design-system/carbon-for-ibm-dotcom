@@ -19,22 +19,25 @@ storiesOf('Patterns (Blocks)|ContentBlockSegmented', module)
     const heading = text('Heading', 'Lorem ipsum dolor sit amet.');
 
     const image = {
-      sources: [
-        {
-          src: 'https://dummyimage.com/320x180/ee5396/161616&text=16:9',
-          breakpoint: 320,
-        },
-        {
-          src: 'https://dummyimage.com/400x225/ee5396/161616&text=16:9',
-          breakpoint: 400,
-        },
-        {
-          src: 'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
-          breakpoint: 672,
-        },
-      ],
-      alt: 'Image alt text',
-      defaultSrc: 'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
+      heading: 'Mauris iaculis eget dolor nec hendrerit.',
+      image: {
+        sources: [
+          {
+            src: 'https://dummyimage.com/320x180/ee5396/161616&text=16:9',
+            breakpoint: 320,
+          },
+          {
+            src: 'https://dummyimage.com/400x225/ee5396/161616&text=16:9',
+            breakpoint: 400,
+          },
+          {
+            src: 'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
+            breakpoint: 672,
+          },
+        ],
+        alt: 'Image alt text',
+        defaultSrc: 'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
+      },
     };
 
     const copy = `Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
@@ -70,24 +73,7 @@ storiesOf('Patterns (Blocks)|ContentBlockSegmented', module)
       },
       {
         heading: 'Lorem ipsum dolor sit amet.',
-        image: {
-          sources: [
-            {
-              src: 'https://dummyimage.com/320x180/ee5396/161616&text=16:9',
-              breakpoint: 320,
-            },
-            {
-              src: 'https://dummyimage.com/400x225/ee5396/161616&text=16:9',
-              breakpoint: 400,
-            },
-            {
-              src: 'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
-              breakpoint: 672,
-            },
-          ],
-          alt: 'Image alt text',
-          defaultSrc: 'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
-        },
+        image: image,
         copy: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.
 
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.`,

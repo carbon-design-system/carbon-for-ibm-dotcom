@@ -27,25 +27,28 @@ storiesOf('Patterns (Blocks)|ContentBlockSimple', module)
     };
 
     const image = {
-      sources: [
-        {
-          src: 'https://dummyimage.com/320x180/ee5396/161616&text=16:9',
-          breakpoint: 320,
-        },
-        {
-          src: 'https://dummyimage.com/400x225/ee5396/161616&text=16:9',
-          breakpoint: 400,
-        },
-        {
-          src: 'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
-          breakpoint: 672,
-        },
-      ],
-      alt: 'Image alt text',
-      defaultSrc: 'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
+      heading: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+      image: {
+        sources: [
+          {
+            src: 'https://dummyimage.com/320x180/ee5396/161616&text=16:9',
+            breakpoint: 320,
+          },
+          {
+            src: 'https://dummyimage.com/400x225/ee5396/161616&text=16:9',
+            breakpoint: 400,
+          },
+          {
+            src: 'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
+            breakpoint: 672,
+          },
+        ],
+        alt: 'Image alt text',
+        defaultSrc: 'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
+      },
     };
 
-    const copy = `   Lorem    ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+    const copy = `Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
       Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
       nulla quis, *consequat* libero. Here are
       some common categories:
