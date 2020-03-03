@@ -1,5 +1,5 @@
 import './index.scss';
-import { select, withKnobs } from '@storybook/addon-knobs';
+import { select, number, withKnobs } from '@storybook/addon-knobs';
 import Layout from '../Layout';
 import React from 'react';
 import readme from '../README.md';
@@ -55,7 +55,8 @@ storiesOf('Patterns (Sub-Patterns)|Layout', module)
             'Bottom Margin (marginBottom)',
             layoutOptions,
             layoutOptions['layout-06']
-          )}>
+          )}
+          stickyOffset={number('Sticky offset (in pixels)', 0)}>
           <div
             data-sticky={select(
               'Sticky left column',

@@ -42,7 +42,7 @@ const Learn = () => (
         alt: 'Image alt text',
       }}
     />
-    <TableOfContents menuLabel="Jump to" theme="white">
+    <TableOfContents menuLabel="Jump to" theme="white" stickyOffset={48}>
       <a name="1" data-title="Lorem ipsum dolor sit amet"></a>
       <ContentBlockMixed
         heading="Lorem ipsum dolor sit amet"

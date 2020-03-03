@@ -46,10 +46,18 @@ const _findMenuItems = () => {
  * @param {object} props props object
  * @param {object} props.menuItems menu items object
  * @param {string} props.menuLabel mobile menu label
+ * @param {string} props.theme theme [g100/white]
+ * @param {number} props.stickyOffset offset amount for Layout (in pixels)
  * @param {*} props.children children property of component
  * @returns {*} JSX Object
  */
-const TableOfContents = ({ menuItems, children, menuLabel, theme }) => {
+const TableOfContents = ({
+  menuItems,
+  children,
+  menuLabel,
+  theme,
+  stickyOffset,
+}) => {
   const [useMenuItems, setUseMenuItems] = useState([]);
   const [selectedId, setSelectedId] = useState('');
   const [selectedTitle, setSelectedTitle] = useState('');
@@ -83,7 +91,6 @@ const TableOfContents = ({ menuItems, children, menuLabel, theme }) => {
    *
    */
   const setSelectedItem = () => {
-    console.log('useMenuItems', useMenuItems);
     const elems = getElemsInView();
     const id = elems[0] || useMenuItems[0].id;
     const filteredItems = useMenuItems.filter(menu => {
@@ -170,6 +177,7 @@ const TableOfContents = ({ menuItems, children, menuLabel, theme }) => {
     type: '1-3',
     marginTop: 'none',
     marginBottom: 'none',
+    stickyOffset,
   };
 
   /**
@@ -223,6 +231,18 @@ TableOfContents.propTypes = {
   children: PropTypes.object,
   menuLabel: PropTypes.string,
   theme: PropTypes.string,
+  stickyOffset: PropTypes.number,
+};
+
+/**
+ * @property defaultProps
+ * @type {{marginBottom: null, stickyOffset: number, marginTop: null}}
+ */
+TableOfContents.defaultProps = {
+  menuItems: null,
+  menuLabel: 'Jump to',
+  theme: 'white',
+  stickyOffset: null,
 };
 
 export default TableOfContents;
