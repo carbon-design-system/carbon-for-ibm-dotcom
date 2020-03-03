@@ -16,3 +16,4 @@ export * from './sameHeight';
 export * from './serialize';
 export * from './settings';
 export * from './smoothScroll';
+export * from './uniqueid';
