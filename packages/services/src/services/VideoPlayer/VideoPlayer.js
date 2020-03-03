@@ -189,7 +189,7 @@ class VideoPlayerAPI {
           entryId: videoId,
         },
         function(jsonObj) {
-          console.log(jsonObj);
+          // console.log(jsonObj);
           return jsonObj;
         }
       );
