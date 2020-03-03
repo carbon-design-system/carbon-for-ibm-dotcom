@@ -15,9 +15,15 @@ storiesOf('Patterns (Blocks)|ContentGroupCards', module)
   })
   .add('Default', () => {
     return (
-      <ContentGroupCards
-        heading={ContentGroupCardsKnobs.heading}
-        items={ContentGroupCardsKnobs.items}
-      />
+      <div className="bx--grid">
+        <div className="bx--row">
+          <div className="bx--col-lg-10 bx--col-sm-4 bx--offset-lg-4">
+            <ContentGroupCards
+              heading={ContentGroupCardsKnobs.heading}
+              items={ContentGroupCardsKnobs.items}
+            />
+          </div>
+        </div>
+      </div>
     );
   });

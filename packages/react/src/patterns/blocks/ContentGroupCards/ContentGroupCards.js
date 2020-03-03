@@ -54,18 +54,16 @@ const ContentGroupCards = ({ heading, items }) => {
     <section
       data-autoid={`${stablePrefix}--content-group-cards`}
       className={`${prefix}--content-group-cards`}>
-      <div className={`${prefix}--content-group-cards__row`}>
-        <ContentGroup heading={heading}>
-          <div
-            data-autoid={`${stablePrefix}--content-group-cards-group`}
-            ref={containerRef}
-            className={`${prefix}--content-group-cards-group ${prefix}--grid--condensed`}>
-            <div className={`${prefix}--content-group-cards__row`}>
-              {_renderCards(items)}
-            </div>
+      <ContentGroup heading={heading}>
+        <div
+          data-autoid={`${stablePrefix}--content-group-cards-group`}
+          ref={containerRef}
+          className={`${prefix}--content-group-cards-group ${prefix}--grid--condensed`}>
+          <div className={`${prefix}--content-group-cards__row`}>
+            {_renderCards(items)}
           </div>
-        </ContentGroup>
-      </div>
+        </div>
+      </ContentGroup>
     </section>
   );
 };
