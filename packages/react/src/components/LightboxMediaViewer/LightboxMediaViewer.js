@@ -9,13 +9,14 @@ import {
   settings as ddsSettings,
   featureFlag,
 } from '@carbon/ibmdotcom-utilities';
+import React, { useEffect } from 'react';
 import { DDS_LIGHTBOX_MEDIA_VIEWER } from '../../internal/FeatureFlags';
 import { ExpressiveModal } from '../ExpressiveModal';
 import { Image } from '../Image';
 import { ModalBody } from 'carbon-components-react';
 import PropTypes from 'prop-types';
-import React from 'react';
 import { settings } from 'carbon-components';
+import { VideoPlayerAPI } from '@carbon/ibmdotcom-services';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
@@ -31,6 +32,18 @@ const { prefix } = settings;
  * @returns {*} JSX Object
  */
 const LightboxMediaViewer = ({ title, image, copy, ...modalProps }) => {
+  useEffect(() => {
+    (async () => {
+      const embedData = await VideoPlayerAPI.embedVideo(
+        '0_uka1msg4',
+        document.getElementById('kaltura_player')
+      );
+      console.log(embedData);
+
+      const apiData = await VideoPlayerAPI.api('0_uka1msg4');
+      console.log(apiData);
+    })();
+  });
   return featureFlag(
     DDS_LIGHTBOX_MEDIA_VIEWER,
     <section
@@ -56,6 +69,11 @@ const LightboxMediaViewer = ({ title, image, copy, ...modalProps }) => {
                     {copy}
                   </div>
                 )}
+                <div
+                  id="kaltura_player"
+                  className={`${prefix}--lighbox-media-viewer__content__videoPlayer`}>
+                  <a href="http://www.example.com">watch</a>
+                </div>
               </div>
             </div>
           </div>

@@ -135,6 +135,7 @@ class VideoPlayerAPI {
         readyCallback: function(playerId) {
           var kdp = document.getElementById(playerId);
           kdp.kBind('Play', function() {
+            console.log('do Play called on  ' + playerId);
             return playerId;
           });
           var events = [
@@ -188,6 +189,7 @@ class VideoPlayerAPI {
           entryId: videoId,
         },
         function(jsonObj) {
+          console.log(jsonObj);
           return jsonObj;
         }
       );

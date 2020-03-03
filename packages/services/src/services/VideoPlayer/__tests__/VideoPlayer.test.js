@@ -1,19 +1,30 @@
+import apiDataResponse from './data/response.json';
 import VideoPlayerAPI from '../VideoPlayer';
 
-jest.mock('@carbon/ibmdotcom-utilities', () => ({
-  settings: {
-    version: 'dds.v1.0.0',
-  },
-}));
+// const _timeoutRetries = 50;
 
 describe('VideoPlayer', () => {
   it('should return the apiData', async () => {
-    const apiData = await VideoPlayerAPI.api();
+    VideoPlayerAPI.checkScript();
+    const apiData = await VideoPlayerAPI.api('0_uka1msg4');
+    // console.log(apiData)
 
-    expect(apiData).toEqual();
+    expect(apiData.referenceId).toEqual(apiDataResponse.referenceId);
   });
 
-  it('should set a loop if the data layer is not ready', () => {
+  it('should return the embedData', async () => {
+    // VideoPlayerAPI.checkScript();
+
+    const embedData = await VideoPlayerAPI.embedVideo(
+      '0_uka1msg4',
+      document.getElementById('kaltura_player')
+    );
+    console.log(embedData);
+
+    //expect(apiData).toEqual();
+  });
+
+  it('should set a loop to check script state is the loaded state or loading state', () => {
     let _scriptLoaded = false;
     jest.useFakeTimers();
 
@@ -21,7 +32,7 @@ describe('VideoPlayer', () => {
 
     setTimeout(() => {
       _scriptLoaded = true;
-    }, 500);
+    }, 1000);
     jest.runAllTimers();
 
     expect(_scriptLoaded).toEqual(true);
