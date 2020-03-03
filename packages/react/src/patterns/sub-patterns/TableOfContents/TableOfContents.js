@@ -179,6 +179,18 @@ const TableOfContents = ({
   };
 
   /**
+   * Validate if the Menu Items has Id and Title filled
+   *
+   * @param {Array} menuItems array of Items
+   * @returns {Array} filtered array of items
+   */
+  const validateMenuItems = menuItems => {
+    return menuItems.filter(
+      item => item.title.length > 0 && item.id.length > 0
+    );
+  };
+
+  /**
    * Props for TOCDesktop and TOCMobile
    * @type {{
    * updateState: updateState,
