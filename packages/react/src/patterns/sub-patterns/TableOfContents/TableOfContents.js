@@ -83,6 +83,7 @@ const TableOfContents = ({ menuItems, children, menuLabel, theme }) => {
    *
    */
   const setSelectedItem = () => {
+    console.log('useMenuItems', useMenuItems);
     const elems = getElemsInView();
     const id = elems[0] || useMenuItems[0].id;
     const filteredItems = useMenuItems.filter(menu => {
