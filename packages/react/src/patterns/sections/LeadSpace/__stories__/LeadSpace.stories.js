@@ -21,11 +21,11 @@ storiesOf('Patterns (Sections)|LeadSpace', module)
   })
   .add('Default with no image', () => {
     const copy = text(
-      'copy',
+      'Copy',
       'Use this area for a short line of copy to support the title'
     );
 
-    const title = text('title', 'Lead space title');
+    const title = text('Title', 'Lead space title');
 
     const type = {
       left: '',
@@ -51,14 +51,14 @@ storiesOf('Patterns (Sections)|LeadSpace', module)
         link: '',
         copy: text('Primary button copy:', 'Primary action button'),
         renderIcon:
-          iconMap[select('primary button icon', icons, icons.ArrowRight)],
+          iconMap[select('Primary button icon', icons, icons.ArrowRight)],
         href: text('Primary button link:', 'https://www.example.com'),
       },
       {
         link: '',
         copy: text('Secondary button copy:', 'Secondary action button'),
         renderIcon:
-          iconMap[select('secondary button icon', icons, icons.ArrowRight)],
+          iconMap[select('Secondary button icon', icons, icons.ArrowRight)],
         href: text('Secondary button link:', 'https://www.example.com'),
       },
     ];
@@ -70,8 +70,8 @@ storiesOf('Patterns (Sections)|LeadSpace', module)
 
     return (
       <LeadSpace
-        type={select('type', type, type.small)}
-        theme={select('theme', themes, themes.g100)}
+        type={select('Type', type, type.small)}
+        theme={select('Theme', themes, themes.g100)}
         title={title}
         copy={copy}
         buttons={buttons}
@@ -80,11 +80,11 @@ storiesOf('Patterns (Sections)|LeadSpace', module)
   })
   .add('Default with image', () => {
     const copy = text(
-      'copy',
+      'Copy',
       'Use this area for a short line of copy to support the title'
     );
 
-    const title = text('title', 'Lead space title');
+    const title = text('Title', 'Lead space title');
 
     const type = {
       left: '',
@@ -94,11 +94,17 @@ storiesOf('Patterns (Sections)|LeadSpace', module)
 
     const images = {
       sources: [
-        { src: 'https://picsum.photos/id/1076/320/370', breakpoint: 'sm' },
-        { src: 'https://picsum.photos/id/1076/672/400', breakpoint: 'md' },
+        {
+          src: 'https://dummyimage.com/320x370/ee5396/161616',
+          breakpoint: 'sm',
+        },
+        {
+          src: 'https://dummyimage.com/672x400/ee5396/161616',
+          breakpoint: 'md',
+        },
       ],
-      default: 'https://picsum.photos/id/1076/1056/480',
-      alt: 'lead space image',
+      default: 'https://dummyimage.com/1056x480/ee5396/161616',
+      alt: 'Image alt text',
     };
 
     const iconMap = {
@@ -119,14 +125,14 @@ storiesOf('Patterns (Sections)|LeadSpace', module)
         link: '',
         copy: text('Primary button copy:', 'Primary action button'),
         renderIcon:
-          iconMap[select('primary button icon', icons, icons.ArrowRight)],
+          iconMap[select('Primary button icon', icons, icons.ArrowRight)],
         href: text('Primary button link:', 'https://www.example.com'),
       },
       {
         link: '',
         copy: text('Secondary button copy:', 'Secondary action button'),
         renderIcon:
-          iconMap[select('secondary button icon', icons, icons.ArrowRight)],
+          iconMap[select('Secondary button icon', icons, icons.ArrowRight)],
         href: text('Secondary button link:', 'https://www.example.com'),
       },
     ];
@@ -140,13 +146,13 @@ storiesOf('Patterns (Sections)|LeadSpace', module)
 
     return (
       <LeadSpace
-        type={select('type', type, type.small)}
-        theme={select('theme', themes, themes.g100)}
+        type={select('Type', type, type.small)}
+        theme={select('Theme', themes, themes.g100)}
         title={title}
         copy={copy}
         gradient={gradient}
         buttons={buttons}
-        image={object('image', images)}
+        image={object('Image', images)}
       />
     );
   });

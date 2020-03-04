@@ -9,7 +9,7 @@ import { ContentBlock } from '../../sub-patterns/ContentBlock';
 import { ContentGroup } from '../../sub-patterns/ContentGroup';
 import { ContentItem } from '../../sub-patterns/ContentItem';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
-import { Image } from '../../../components/Image';
+import { ImageWithCaption } from '../../../components/ImageWithCaption';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { settings } from 'carbon-components';
@@ -32,10 +32,10 @@ const ContentBlockSegmented = ({ copy, cta, heading, image, items }) => {
   return (
     <div
       data-autoid={`${stablePrefix}--content-block-segmented`}
-      className={`${prefix}--content-block ${prefix}--content-block-segmented`}>
+      className={`${prefix}--content-block-segmented`}>
       <ContentBlock heading={heading} copy={copy} cta={cta}>
         {image && (
-          <Image
+          <ImageWithCaption
             classname={`${prefix}--content-block-segmented__image`}
             {...image}
           />
@@ -59,7 +59,7 @@ const _renderGroup = items =>
         <ContentItem copy={item.copy} key={index} />
         {item.image && (
           <div data-autoid={`${stablePrefix}--content-block-segmented__media`}>
-            <Image {...item.image} />
+            <ImageWithCaption {...item.image} />
           </div>
         )}
       </div>

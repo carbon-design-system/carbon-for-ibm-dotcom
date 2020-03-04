@@ -25,38 +25,65 @@ const { prefix } = settings;
  * @param {string} props.heading Heading text
  * @param {string} props.copy copy text
  * @param {*} props.children JSX Components
+ * @param {string} props.customClassName allows user to pass in custom class name
  * @param {*} props.cta CTA props object
- * @returns {*} JSX ContentArrayBlock component
+ * @returns {*} JSX ContentBlock component
  */
-const ContentBlock = ({ heading, copy, children, cta }) => {
+const ContentBlock = ({ heading, copy, children, customClassName, cta }) => {
   return (
-    <>
+    <div
+      data-autoid={`${stablePrefix}--content-block`}
+      className={cx(`${prefix}--content-block`, customClassName)}>
       {heading && (
         <h2
-          data-autoid={`${stablePrefix}--content-block__title`}
-          className={`${prefix}--content-block__title`}>
+          data-autoid={`${stablePrefix}--content-block__heading`}
+          className={`${prefix}--content-block__heading`}>
           {heading}
         </h2>
       )}
       {copy && (
         <div
-          className={`${prefix}--content-block__intro`}
-          dangerouslySetInnerHTML={{ __html: markdownToHtml(copy) }}
+          className={`${prefix}--content-block__copy`}
+          dangerouslySetInnerHTML={{
+            __html: markdownToHtml(copy, { bold: false }),
+          }}
         />
       )}
-      <div data-autoid={`${stablePrefix}--content-block__children`}>
+      <div
+        data-autoid={`${stablePrefix}--content-block__children`}
+        className={`${prefix}--content-block__children`}>
         {children}
       </div>
-      {cta && (
-        <div
-          data-autoid={`${stablePrefix}--content-block__cta`}
-          className={cx(`${prefix}--content-block__cta`)}>
-          {cta && <CTA style={cta.style} type={cta.type} {...cta} />}
-        </div>
-      )}
-    </>
+      {cta && _renderCTA(cta)}
+    </div>
   );
 };
+
+/**
+ * sets the class name based on theme type
+ *
+ * @private
+ * @param {object} cta a cta object
+ * @returns {*} jsx cta component
+ */
+function _renderCTA(cta) {
+  if (cta.style === 'feature') {
+    return (
+      <CTA customClassName={cx(`${prefix}--content-block__cta`)} {...cta} />
+    );
+  }
+
+  return (
+    <div
+      data-autoid={`${stablePrefix}--content-block__cta`}
+      className={`${prefix}--content-block__cta-row`}>
+      <CTA
+        customClassName={`${prefix}--content-block__cta ${prefix}--content-block__cta-col`}
+        {...cta}
+      />
+    </div>
+  );
+}
 
 ContentBlock.propTypes = {
   heading: PropTypes.string,

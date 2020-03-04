@@ -19,9 +19,9 @@ storiesOf('Patterns (Sub-Patterns)|ContentGroup', module)
     );
     const renderCTA = boolean('render CTA', true);
     const cta = {
-      heading: renderCTA && text('CTA heading', 'Lorem ipsum dolor sit amet'),
+      copy: renderCTA && text('CTA heading', 'Lorem ipsum dolor sit amet'),
       cta: {
-        href: renderCTA && text('CTA href', 'https://ibm.com'),
+        href: renderCTA && text('CTA href', 'https://www.example.com'),
       },
     };
 
@@ -29,7 +29,9 @@ storiesOf('Patterns (Sub-Patterns)|ContentGroup', module)
       <div className="bx--grid bx--content-group-story">
         <div className="bx--row">
           <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
-            <ContentGroup heading={heading} cta={renderCTA && cta} />
+            <ContentGroup heading={heading} cta={renderCTA && cta}>
+              This is the Content Group children.
+            </ContentGroup>
           </div>
         </div>
       </div>

@@ -20,7 +20,7 @@ storiesOf('Patterns (Sub-Patterns)|ContentSection', module)
       'Component heading(required):',
       'Lorem ipsum dolor sit amet'
     );
-    const children = text('Children:', '');
+    const children = text('Children:', 'This is the Content Section children.');
     const themes = {
       g10: 'g10',
       g90: 'g90',

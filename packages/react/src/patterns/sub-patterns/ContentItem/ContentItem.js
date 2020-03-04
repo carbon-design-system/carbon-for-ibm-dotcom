@@ -6,7 +6,7 @@
  */
 import { CTA } from '../../../components/CTA';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
-import { Image } from '../../../components/Image';
+import { ImageWithCaption } from '../../../components/ImageWithCaption';
 import { markdownToHtml } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -36,7 +36,12 @@ const ContentItem = ({ cta, copy, heading, image }) => (
         {heading}
       </h4>
     )}
-    {image && <Image classname={`${prefix}--content-item__image`} {...image} />}
+    {image && (
+      <ImageWithCaption
+        customClassName={`${prefix}--content-item__image`}
+        {...image}
+      />
+    )}
     {copy && (
       <div
         data-autoid={`${stablePrefix}--content-item__copy`}
@@ -61,7 +66,7 @@ ContentItem.propTypes = {
   cta: PropTypes.instanceOf(CTA),
   copy: PropTypes.string,
   heading: PropTypes.string,
-  image: PropTypes.instanceOf(Image),
+  image: PropTypes.instanceOf(ImageWithCaption),
 };
 
 export default ContentItem;

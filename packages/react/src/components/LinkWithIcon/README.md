@@ -25,7 +25,7 @@ import 'yourapplication.scss';
 
 function App() {
   return (
-    <LinkWithIcon href="https://www.ibm.com">
+    <LinkWithIcon href="https://www.example.com">
       <span>Link text</span>
       <ArrowRight20 />
     </LinkWithIcon>

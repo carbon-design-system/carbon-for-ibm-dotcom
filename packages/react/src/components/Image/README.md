@@ -25,9 +25,18 @@ import 'yourapplication.scss';
 
 function App() {
   const sources = [
-    { src: 'https://picsum.photos/id/2/320/160', breakpoint: 'sm' },
-    { src: 'https://picsum.photos/id/2/400/400', breakpoint: 400 },
-    { src: 'https://picsum.photos/id/2/672/672', breakpoint: 'lg' },
+    {
+      src: 'https://dummyimage.com/320x160',
+      breakpoint: 320,
+    },
+    {
+      src: 'https://dummyimage.com/400x400',
+      breakpoint: 400,
+    },
+    {
+      src: 'https://dummyimage.com/672x672',
+      breakpoint: 672,
+    },
   ];
 
   return <Image sources={image} defaultSrc={image.default} alt={image.alt} />;
@@ -43,12 +52,12 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 ## Props
 
-| Name            | Required | Data Type | Default Value  | Description                                   |
-| --------------- | -------- | --------- | -------------- | --------------------------------------------- |
-| `defaultSrc`    | YES      | String    | n/a            | Featured                                      |
-| `alt`           | YES      | String    | 'sample image' | Alternate text for image component            |
-| longDescription | NO       | String    | null           | Visible to screen readers, hidden from users. |
-| `sources`       | NO       | Array     | null           | Array of image objects. See `sources` below.  |
+| Name              | Required | Data Type | Default Value  | Description                                   |
+| ----------------- | -------- | --------- | -------------- | --------------------------------------------- |
+| `defaultSrc`      | YES      | String    | n/a            | Featured                                      |
+| `alt`             | YES      | String    | 'sample image' | Alternate text for image component            |
+| `longDescription` | NO       | String    | null           | Visible to screen readers, hidden from users. |
+| `sources`         | NO       | Array     | null           | Array of image objects. See `sources` below.  |
 
 ### sources
 

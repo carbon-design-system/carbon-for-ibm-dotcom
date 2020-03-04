@@ -27,12 +27,21 @@ function App() {
 
   const image = {
     sources: [
-      { src: 'https://picsum.photos/id/2/288/144', breakpoint: 'sm' },
-      { src: 'https://picsum.photos/id/2/448/224', breakpoint: 'md' },
-      { src: 'https://picsum.photos/id/2/352/176', breakpoint: 'lg' },
+      {
+        src: 'https://dummyimage.com/288x144/ee5396/161616&text=2:1',
+        breakpoint: 'sm',
+      },
+      {
+        src: 'https://dummyimage.com/448x224/ee5396/161616&text=2:1',
+        breakpoint: 'md',
+      },
+      {
+        src: 'https://dummyimage.com/352x176/ee5396/161616&text=2:1',
+        breakpoint: 'lg',
+      },
     ],
-    alt: 'content item image',
-    defaultSrc: 'https://picsum.photos/id/2/352/176',
+    alt: 'Image alt text',
+    defaultSrc: 'https://dummyimage.com/352x176/ee5396/161616&text=2:1',
   };
 
   const cta = {
@@ -61,23 +70,15 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 ### cta (optional)
 
-| Name    | Data Type | Description                                               |
-| ------- | --------- | --------------------------------------------------------- |
-| `type`  | String    | Type of CTA (jump, local, or external)                    |
-| `copy`  | String    | Text of the CTA component                                 |
-| `style` | String    | 'text' style of the CTA is hardcoded into this subpattern |
-
 Visit the
 [CTA documentation](https://ibmdotcom-react.mybluemix.net/?path=/story/components-cta--default)
 for more details on the CTA options.
 
 ### image (optional)
 
-| Name      | Data Type | Description                                                                  |
-| --------- | --------- | ---------------------------------------------------------------------------- |
-| `images`  | Array     | Array of image spec objects including src of image and min-width breakpoint. |
-| `default` | String    | Default image, usually for largest breakpoint.                               |
-| `alt`     | String    | Alt description of the image                                                 |
+Visit the
+[ImageWithCaption documentation](https://ibmdotcom-react.mybluemix.net/?path=/story/components-imagewithcaption--default)
+for more details on the ImageWithCaption options.
 
 ## Stable selectors
 
