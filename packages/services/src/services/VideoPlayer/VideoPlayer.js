@@ -78,6 +78,13 @@ function _scriptReady(resolve, reject) {
   }
 }
 
+// function checkKWidget() {
+//   if (root.kWidget) {
+//     return true;
+//   } else {
+//     return false;
+//   }
+// }
 /**
  *
  * Returns boolean if the _scriptLoading and _scriptLoaded flag is false
@@ -89,10 +96,15 @@ function _loadScript() {
   script.async = true;
   document.body.appendChild(script);
 
-  script.onload = function() {
-    _scriptLoaded = true;
-    _scriptLoading = false;
-  };
+  // if (checkKWidget()) {
+  //   resolve();
+  // } else {
+  //   reject();
+  // }
+  // script.onload = function() {
+  //   _scriptLoaded = true;
+  //   _scriptLoading = false;
+  // };
 }
 
 /**
@@ -189,7 +201,6 @@ class VideoPlayerAPI {
           entryId: videoId,
         },
         function(jsonObj) {
-          // console.log(jsonObj);
           return jsonObj;
         }
       );
