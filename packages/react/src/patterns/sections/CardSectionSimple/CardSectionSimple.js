@@ -6,14 +6,15 @@ import React from 'react';
  *
  * @param {object} props props object
  * @param {Array} props.cards array of card
+ * @param {object} props.cta cta object
  * @returns {object} JSX Object
  */
-const CardSectionSimple = ({ cards, ...otherProps }) => {
+const CardSectionSimple = ({ cards, cta, ...otherProps }) => {
   const cardsWithoutImages = cards.filter(
     ({ image, eyebrow, heading, copy, cta: { href } }) =>
       !image && !eyebrow && heading && copy && href
   );
-  return <CardSection {...otherProps} cards={cardsWithoutImages} />;
+  return <CardSection {...otherProps} cards={cardsWithoutImages} cta={cta} />;
 };
 
 CardSectionSimple.propTypes = {
@@ -26,5 +27,6 @@ CardSectionSimple.propTypes = {
       cta: PropTypes.object,
     })
   ),
+  cta: PropTypes.object,
 };
 export default CardSectionSimple;

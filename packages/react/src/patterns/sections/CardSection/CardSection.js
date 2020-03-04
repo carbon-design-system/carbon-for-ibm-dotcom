@@ -23,10 +23,11 @@ const { prefix } = settings;
  * @param {object} props props object
  * @param {string} props.heading cards group heading
  * @param {string} props.theme theme name
+ * @param {object} props.cta cta object
  * @param {Array} props.cards Array of card
  * @returns {object} JSX Object
  */
-const CardSection = ({ heading, cards, theme }) => {
+const CardSection = ({ heading, theme, cards, cta }) => {
   const containerRef = useRef();
   useEffect(() => {
     setCardHeight();
@@ -43,10 +44,6 @@ const CardSection = ({ heading, cards, theme }) => {
   const setCardHeight = () => {
     sameHeight(
       containerRef.current.getElementsByClassName(`${prefix}--card__heading`),
-      'md'
-    );
-    sameHeight(
-      containerRef.current.getElementsByClassName(`${prefix}--card__eyebrow`),
       'md'
     );
     sameHeight(
@@ -70,7 +67,7 @@ const CardSection = ({ heading, cards, theme }) => {
     <ContentSection
       heading={heading}
       customClassName={classNames(`${prefix}--card-section`, _setTheme(theme))}>
-      {_renderCards(cards, containerRef)}
+      {_renderCards(cards, containerRef, cta)}
     </ContentSection>
   );
 };
@@ -80,9 +77,10 @@ const CardSection = ({ heading, cards, theme }) => {
  *
  * @param {Array} cards objects array
  * @param {object} containerRef ref of elements
+ * @param {object} cta object
  * @returns {*} CardSection JSX objects
  */
-const _renderCards = (cards, containerRef) => (
+const _renderCards = (cards, containerRef, cta) => (
   <div
     data-autoid={`${stablePrefix}--card-section`}
     className={`${prefix}--card-section__cards__row ${prefix}--row--condensed`}
@@ -108,6 +106,21 @@ const _renderCards = (cards, containerRef) => (
         </div>
       );
     })}
+    {cta && (
+      <div className={`${prefix}--card-section__cards__col`}>
+        <Card
+          inverse={true}
+          heading={cta.heading}
+          cta={{
+            href: cta.cta.href,
+            icon: {
+              src: ArrowRight20,
+            },
+          }}
+          type="link"
+        />
+      </div>
+    )}
   </div>
 );
 
@@ -115,6 +128,7 @@ CardSection.propTypes = {
   theme: PropTypes.string,
   heading: PropTypes.string.isRequired,
   cards: PropTypes.arrayOf(Card),
+  cta: PropTypes.instanceOf(Card),
 };
 
 export default CardSection;

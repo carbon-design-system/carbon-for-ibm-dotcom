@@ -41,7 +41,7 @@ const ContentBlockMixed = ({ heading, copy, cta, items }) => {
   return (
     <div
       data-autoid={`${stablePrefix}--content-block-mixed`}
-      className={`${prefix}--content-block ${prefix}--content-block-mixed`}>
+      className={`${prefix}--content-block-mixed`}>
       <ContentBlock heading={heading} copy={copy} cta={cta}>
         {groups}
       </ContentBlock>

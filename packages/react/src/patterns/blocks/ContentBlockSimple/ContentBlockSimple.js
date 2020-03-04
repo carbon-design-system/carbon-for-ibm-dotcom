@@ -29,7 +29,7 @@ const { prefix } = settings;
 const ContentBlockSimple = ({ copy, heading, image, cta }) => (
   <div
     data-autoid={`${stablePrefix}--content-block-simple`}
-    className={`${prefix}--content-block ${prefix}--content-block-simple`}>
+    className={`${prefix}--content-block-simple`}>
     <ContentBlock heading={heading} cta={cta}>
       <div className={`${prefix}--content-block-simple__content`}>
         <ContentItem copy={copy} />
