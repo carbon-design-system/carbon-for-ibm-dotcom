@@ -7,7 +7,7 @@
 
 @import '../../../components/link-with-icon/link-with-icon';
 @import '../../../globals/imports';
-@import '../../../globals/utils/aspect-ratio';
+@import '../../../globals/utils/ratio-base';
 
 @mixin themed-items {
   color: $text-01;
@@ -44,30 +44,11 @@
   }
 }
 
-@mixin ratio-base() {
-  display: flex;
-
-  &::before {
-    content: '';
-    width: 1px;
-    margin-left: -1px;
-    float: left;
-    height: 0;
-    padding-top: aspect-ratio(4, 3);
-  }
-  &::after {
-    content: '';
-    display: table;
-    clear: both;
-  }
-}
-
 @mixin card-section {
   .#{$prefix}--card-section {
     &__card {
       .#{$prefix}--image {
         @include ratio-base;
-
         &__img {
           height: auto;
           flex: 1;
