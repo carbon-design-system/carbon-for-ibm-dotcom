@@ -21,6 +21,7 @@ const CardSectionImages = ({ cards, ...otherProps }) => {
     ({ image, eyebrow, heading, copy, cta: { href } }) =>
       image && eyebrow && heading && !copy && href
   );
+  delete otherProps.cta;
   return <CardSection {...otherProps} cards={cardsWithImages} />;
 };
 
