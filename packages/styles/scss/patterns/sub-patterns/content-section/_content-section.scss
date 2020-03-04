@@ -35,9 +35,6 @@
 
       @include type-style('expressive-heading-02');
 
-      @include carbon--breakpoint('md') {
-        margin-top: $carbon--layout-03;
-      }
       @include carbon--breakpoint('lg') {
         margin-top: $carbon--layout-01;
       }
