@@ -48,7 +48,7 @@
   .#{$prefix}--card-section {
     &__card {
       .#{$prefix}--image {
-        @include ratio-base;
+        @include ratio-base(4, 3);
         &__img {
           height: auto;
           flex: 1;
