@@ -39,12 +39,12 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 ## Props
 
-| Name      | Required | Data Type | Default Value | Description                                                                                                                                                                   |
-| --------- | -------- | --------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `heading` | YES      | String    | n/a           | Title of the content block.                                                                                                                                                   |
-| `copy`    | YES      | String    | n/a           | Simple content item. Uses [`markdownToHtml`](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/utilities/src/utilities/markdownToHtml) utility. |
-| `image`   | NO       | Array     | n/a           | See the [`Image`](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/components/Image) component for full usage details.               |
-| `cta`     | NO       | Object    | n/a           | CTA used at the end of content body. `Text` and `Card` styles supported.                                                                                                      |
+| Name      | Required | Data Type | Default Value | Description                                                                                                                                                                           |
+| --------- | -------- | --------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `heading` | YES      | String    | n/a           | Title of the content block.                                                                                                                                                           |
+| `copy`    | YES      | String    | n/a           | Simple content item. Uses [`markdownToHtml`](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/utilities/src/utilities/markdownToHtml) utility.         |
+| `image`   | NO       | Array     | n/a           | See the [`ImageWithCaption`](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/components/ImageWithCaption) component for full usage details. |
+| `cta`     | NO       | Object    | n/a           | CTA used at the end of content body. `Text` and `Card` styles supported.                                                                                                              |
 
 ## Stable selectors
 
