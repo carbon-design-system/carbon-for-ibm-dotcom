@@ -47,5 +47,13 @@ describe('<ContentGroupCards />', () => {
     expect(
       contentgroupcards.find('[data-autoid="dds--content-group-cards-item"]')
     ).toHaveLength(4);
+    global.innerWidth = 900;
+    global.dispatchEvent(new Event('resize'));
+
+    const sameHeightCalled = jest.spyOn(
+      ContentGroupCards.prototype,
+      'setSameHeight'
+    );
+    expect(sameHeightCalled).toHaveBeenCalled();
   });
 });

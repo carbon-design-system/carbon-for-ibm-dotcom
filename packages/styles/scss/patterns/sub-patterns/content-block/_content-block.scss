@@ -71,7 +71,7 @@
       }
     }
 
-    .#{$prefix}--card--CTA {
+    .#{$prefix}--card__CTA {
       // TO DO: aspect ratio 2x1
       @include hang;
     }

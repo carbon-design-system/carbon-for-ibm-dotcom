@@ -12,7 +12,7 @@ module.exports = {
   ],
   coverageDirectory: 'coverage',
   coverageReporters: ['text', 'html'],
-  setupFiles: ['<rootDir>/config/jest/setup.js'],
+  setupFiles: ['<rootDir>/config/jest/setup.js', 'raf/polyfill'],
   setupFilesAfterEnv: ['../../tasks/jest/setupafter.js'],
   testMatch: [
     '<rootDir>/**/__tests__/**/*.test.js?(x)',
