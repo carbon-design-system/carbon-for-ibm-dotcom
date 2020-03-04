@@ -91,7 +91,7 @@ const _renderCards = (cards, containerRef, cta) => (
         <div
           className={`${prefix}--card-section__cards__col`}
           role="region"
-          aria-labelledby={card.heading}>
+          aria-label={card.heading}>
           <Card
             key={index}
             image={card.image}
@@ -105,7 +105,6 @@ const _renderCards = (cards, containerRef, cta) => (
               },
             }}
             type="link"
-            id={card.heading}
           />
         </div>
       );
