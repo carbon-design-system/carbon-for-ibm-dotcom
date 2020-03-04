@@ -26,6 +26,11 @@ nextApp.prepare().then(() => {
     return nextApp.render(req, res, '/', req.query);
   });
 
+  // Homepage route
+  server.get('/learn', (req, res) => {
+    return nextApp.render(req, res, '/learn', req.query);
+  });
+
   // Default catch-all renders Next app
   server.get('*', (req, res) => {
     const parsedUrl = url.parse(req.url, true);
