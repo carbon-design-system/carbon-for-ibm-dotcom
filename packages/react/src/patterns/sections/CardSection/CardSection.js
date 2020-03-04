@@ -94,6 +94,7 @@ const _renderCards = (cards, containerRef, cta) => (
           aria-label={card.heading}>
           <Card
             key={index}
+            customClassName={`${prefix}--card-section__card`}
             image={card.image}
             heading={card.heading}
             eyebrow={card.eyebrow}
