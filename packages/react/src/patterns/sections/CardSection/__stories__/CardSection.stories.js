@@ -1,5 +1,11 @@
 import './index.scss';
-import { object, select, text, withKnobs } from '@storybook/addon-knobs';
+import {
+  boolean,
+  object,
+  select,
+  text,
+  withKnobs,
+} from '@storybook/addon-knobs';
 import cards from './data/cards.json';
 import CardSection from '../CardSection';
 import React from 'react';
@@ -30,16 +36,25 @@ storiesOf('Patterns (Sections)|CardSection', module)
         ? 'Aliquam condimentum interdum'
         : 'Read more about it';
 
+    const heading = text('Heading (required)', cardsTitle);
     const data = object(`Data (${type})`, cards[type]);
 
     cards[type] = data;
 
+    const toggleCTA = boolean('cta', true);
+    const cta = {
+      heading: 'Top level card link',
+      cta: {
+        href: 'https://www.example.com',
+      },
+    };
+
     return (
       <CardSection
-        heading={text('Heading (required)', cardsTitle)}
-        cards={cards[type]}
-        data={data}
+        heading={heading}
         theme={theme}
+        cards={data}
+        cta={toggleCTA && cta}
       />
     );
   });
