@@ -30,14 +30,31 @@
       }
     }
     &__heading {
-      margin-top: $carbon--layout-01;
+      margin-top: $carbon--layout-03;
       margin-bottom: $carbon--layout-05;
 
       @include type-style('expressive-heading-02');
+
+      @include carbon--breakpoint('md') {
+        margin-top: $carbon--layout-03;
+      }
+      @include carbon--breakpoint('lg') {
+        margin-top: $carbon--layout-01;
+      }
     }
     &__children {
       @include carbon--breakpoint(lg) {
         @include carbon--make-col(12, 16);
+      }
+    }
+    .#{$prefix}--card {
+      &__eyebrow {
+        margin-top: $carbon--layout-01;
+      }
+      &__heading {
+        @include carbon--breakpoint(lg) {
+          margin-bottom: $carbon--layout-03;
+        }
       }
     }
 
