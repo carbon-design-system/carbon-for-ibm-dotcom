@@ -20,6 +20,7 @@ storiesOf('Patterns (Sections)|CardSectionImages', module)
       g90: 'g90',
       g100: 'g100',
     };
+
     return (
       <CardSectionImages
         heading={text('Heading (required):', 'Read more about it')}
