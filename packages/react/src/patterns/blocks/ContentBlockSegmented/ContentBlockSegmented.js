@@ -32,7 +32,7 @@ const ContentBlockSegmented = ({ copy, cta, heading, image, items }) => {
   return (
     <div
       data-autoid={`${stablePrefix}--content-block-segmented`}
-      className={`${prefix}--content-block ${prefix}--content-block-segmented`}>
+      className={`${prefix}--content-block-segmented`}>
       <ContentBlock heading={heading} copy={copy} cta={cta}>
         {image && (
           <ImageWithCaption
