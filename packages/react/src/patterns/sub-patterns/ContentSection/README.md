@@ -24,11 +24,7 @@ import 'yourapplication.scss';
 function App() {
   const heading = 'Lorem ipsum dolor sit amet.';
 
-  return (
-    <ContentSection heading={heading}>
-      //Children goes here
-    </ContentGroup>
-  );
+  return <ContentSection heading={heading}>//Children goes here</ContentGroup>;
 }
 
 ReactDOM.render(<App />, document.querySelector('#app'));
