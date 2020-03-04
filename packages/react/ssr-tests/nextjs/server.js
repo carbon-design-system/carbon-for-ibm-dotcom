@@ -1,7 +1,6 @@
 const express = require('express');
 const next = require('next');
 const path = require('path');
-const url = require('url');
 
 const dev = process.env.NODE_ENV !== 'production';
 const port = process.env.PORT || 9000;
@@ -21,20 +20,8 @@ nextApp.prepare().then(() => {
     })
   );
 
-  // Homepage route
-  server.get('/', (req, res) => {
-    return nextApp.render(req, res, '/', req.query);
-  });
-
-  // Homepage route
-  server.get('/learn', (req, res) => {
-    return nextApp.render(req, res, '/learn', req.query);
-  });
-
-  // Default catch-all renders Next app
   server.get('*', (req, res) => {
-    const parsedUrl = url.parse(req.url, true);
-    nextHandler(req, res, parsedUrl);
+    return nextHandler(req, res);
   });
 
   server.listen(port, err => {
