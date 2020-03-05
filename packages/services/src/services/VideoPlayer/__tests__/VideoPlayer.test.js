@@ -29,15 +29,6 @@ describe('VideoPlayer', () => {
       ),
     };
   };
-  it('should set a loop to check script state is the loaded state or loading state', () => {
-    jest.useFakeTimers();
-    setTimeout(() => {
-      _scriptLoaded = true;
-    }, 500);
-    jest.runAllTimers();
-    expect(_scriptLoaded).toEqual(true);
-  });
-
   it('should load script', () => {
     process.env.script =
       'https://cdnapisec.kaltura.com/p/243342/sp/24334200/embedIframeJs/uiconf_id/12905712/partner_id/243342';
