@@ -42,6 +42,8 @@
 
         color: $link-01;
       }
+
+      max-width: none;
     }
 
     @include carbon--breakpoint('md') {
