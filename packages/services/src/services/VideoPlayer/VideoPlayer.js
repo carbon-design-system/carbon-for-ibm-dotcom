@@ -104,10 +104,6 @@ function _loadScript() {
   script.src = _embedUrl;
   script.async = true;
   document.body.appendChild(script);
-  // script.onload = function() {
-  //   _scriptLoaded = true;
-  //   _scriptLoading = false;
-  // };
 }
 
 /**
@@ -150,7 +146,6 @@ class VideoPlayerAPI {
         readyCallback: function(playerId) {
           var kdp = document.getElementById(playerId);
           kdp.kBind('Play', function() {
-            console.log('do Play called on  ' + playerId);
             return playerId;
           });
           var events = [
@@ -204,7 +199,6 @@ class VideoPlayerAPI {
           entryId: videoId,
         },
         function(jsonObj) {
-          console.log(jsonObj);
           return jsonObj;
         }
       );
