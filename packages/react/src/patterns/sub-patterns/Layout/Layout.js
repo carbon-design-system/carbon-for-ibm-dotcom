@@ -28,11 +28,12 @@ const _types = {
  * Returns the child classes with the proper column class names
  *
  * @param {string} type layout type
+ * @param {number} stickyOffset Sticky offset amount (in pixels)
  * @param {object} children child nodes
  * @returns {*} modified child content
  * @private
  */
-function _updateChild(type, children) {
+function _updateChild(type, stickyOffset, children) {
   const final = [];
 
   children.map((child, i) => {
@@ -44,12 +45,18 @@ function _updateChild(type, children) {
               ? `${_types[type][i]} ${prefix}--layout--sticky`
               : `${prefix}--col`
           }
-          key={i}>
+          key={i}
+          style={{
+            top: stickyOffset ? `${stickyOffset}px` : 0,
+          }}>
           {React.cloneElement(child, {
             className: classnames(
               child.props.className,
               `${prefix}--layout--sticky`
             ),
+            style: {
+              top: stickyOffset ? `${stickyOffset}px` : 0,
+            },
           })}
         </div>
       );
@@ -91,9 +98,10 @@ function _spacingClass(position, modifier) {
  * @param {string} props.type layout type (1-3)
  * @param {string=} props.marginTop top margin layout class (layout-01 - layout-07)
  * @param {string=} props.marginBottom top margin layout class (layout-01 - layout-07)
+ * @param {number=} props.stickyOffset offset amount for sticky columns
  * @returns {*} Layout component
  */
-const Layout = ({ type, marginTop, marginBottom, children }) => (
+const Layout = ({ type, marginTop, marginBottom, stickyOffset, children }) => (
   <section
     data-autoid={`${stablePrefix}--layout`}
     className={classnames(
@@ -101,7 +109,9 @@ const Layout = ({ type, marginTop, marginBottom, children }) => (
       _spacingClass('top', marginTop),
       _spacingClass('bottom', marginBottom)
     )}>
-    <div className={`${prefix}--row`}>{_updateChild(type, children)}</div>
+    <div className={`${prefix}--row`}>
+      {_updateChild(type, stickyOffset, children)}
+    </div>
   </section>
 );
 
@@ -110,6 +120,17 @@ Layout.propTypes = {
   marginTop: PropTypes.string,
   marginBottom: PropTypes.string,
   children: PropTypes.node,
+  stickyOffset: PropTypes.number,
+};
+
+/**
+ * @property defaultProps
+ * @type {{marginBottom: null, stickyOffset: number, marginTop: null}}
+ */
+Layout.defaultProps = {
+  marginTop: null,
+  marginBottom: null,
+  stickyOffset: null,
 };
 
 export default Layout;

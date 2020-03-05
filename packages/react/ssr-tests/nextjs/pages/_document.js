@@ -5,7 +5,7 @@ import Document, { Head, Main, NextScript } from 'next/document';
  * @type {string}
  * @private
  */
-const _defaultLang = 'us-en';
+const _defaultLang = 'en-US';
 
 /**
  * Custom document for nextjs that includes the lang attribute
