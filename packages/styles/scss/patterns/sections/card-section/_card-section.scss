@@ -48,9 +48,14 @@
   .#{$prefix}--card-section {
     &__card {
       .#{$prefix}--image {
-        @include ratio-base(4, 3);
         &__img {
-          height: auto;
+          @include carbon--breakpoint('lg') {
+            @include ratio-base(4, 3);
+
+            height: auto;
+          }
+
+          height: 240px;
           flex: 1;
         }
       }
