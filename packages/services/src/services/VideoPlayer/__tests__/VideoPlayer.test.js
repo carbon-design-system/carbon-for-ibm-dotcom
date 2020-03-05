@@ -34,7 +34,7 @@ describe('VideoPlayer', () => {
     VideoPlayerAPI.checkScript();
     setTimeout(() => {
       _scriptLoaded = true;
-    }, 5000);
+    }, 500);
     jest.runAllTimers();
     expect(_scriptLoaded).toEqual(true);
   });

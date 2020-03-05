@@ -1,3 +1,5 @@
+import root from 'window-or-global';
+
 /**
  * These id's for production use of IBM.com
  * @type {number} _partnerId The ID of your Kaltura account (aka partnerId)
@@ -60,7 +62,7 @@ function _scriptReady(resolve, reject) {
    *
    * @param {boolean}  _scriptLoaded is true then resolve.
    */
-  if (_scriptLoaded) {
+  if (_checkKWidget()) {
     resolve();
   } else if (_scriptLoading) {
     _attempt++;
@@ -78,16 +80,22 @@ function _scriptReady(resolve, reject) {
   }
 }
 
-// function checkKWidget() {
-//   if (root.kWidget) {
-//     return true;
-//   } else {
-//     return false;
-//   }
-// }
+/**
+ *
+ * Check to kWidget object exists or not
+ * @private
+ */
+function _checkKWidget() {
+  if (root.kWidget) {
+    return true;
+  } else {
+    return false;
+  }
+}
 /**
  *
  * Returns boolean if the _scriptLoading and _scriptLoaded flag is false
+ * @private
  */
 function _loadScript() {
   _scriptLoading = true;
@@ -95,12 +103,6 @@ function _loadScript() {
   script.src = _embedUrl;
   script.async = true;
   document.body.appendChild(script);
-
-  // if (checkKWidget()) {
-  //   resolve();
-  // } else {
-  //   reject();
-  // }
   // script.onload = function() {
   //   _scriptLoaded = true;
   //   _scriptLoading = false;
@@ -201,6 +203,7 @@ class VideoPlayerAPI {
           entryId: videoId,
         },
         function(jsonObj) {
+          console.log(jsonObj);
           return jsonObj;
         }
       );
