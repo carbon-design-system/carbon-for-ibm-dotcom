@@ -2,8 +2,6 @@ import apiDataResponse from './data/response.json';
 import root from 'window-or-global';
 import VideoPlayerAPI from '../VideoPlayer';
 
-let _scriptLoaded = false;
-
 //jest.mock('../../VideoPlayer');
 
 describe('VideoPlayer', () => {
