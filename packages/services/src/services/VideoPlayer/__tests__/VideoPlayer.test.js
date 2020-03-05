@@ -31,16 +31,15 @@ describe('VideoPlayer', () => {
     process.env.script =
       'https://cdnapisec.kaltura.com/p/243342/sp/24334200/embedIframeJs/uiconf_id/12905712/partner_id/243342';
     VideoPlayerAPI.checkScript();
+    mockFn();
     expect(document.body.innerHTML).toEqual(
       '<script src="https://cdnapisec.kaltura.com/p/243342/sp/24334200/embedIframeJs/uiconf_id/12905712/partner_id/243342"></script>'
     );
   });
 
-  it('should return the apiData', async done => {
+  it('should return the apiData', async () => {
     const data = await VideoPlayerAPI.api('0_uka1msg4');
     mockFn();
     expect(data).toEqual(apiDataResponse);
-    done();
-    jest.clearAllTimers();
   });
 });
