@@ -38,8 +38,8 @@ describe('VideoPlayer', () => {
   });
 
   it('should return the apiData', async () => {
-    const data = await VideoPlayerAPI.api('0_uka1msg4');
     mockFn();
+    const data = await VideoPlayerAPI.api('0_uka1msg4');
     expect(data).toEqual(apiDataResponse);
   });
 });
