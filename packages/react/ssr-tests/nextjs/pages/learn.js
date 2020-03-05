@@ -21,12 +21,12 @@ import React from 'react';
 const Learn = () => (
   <>
     <LeadSpace
-      type="small"
+      type="centered"
       theme="g100"
       title="Lead space title"
       copy="Use this area for a short line of copy to support the title"
       gradient={true}
-      /*buttons={buttons}*/
+      // buttons={buttons}
       image={{
         sources: [
           {
@@ -38,7 +38,7 @@ const Learn = () => (
             breakpoint: 'md',
           },
         ],
-        default: 'https://dummyimage.com/1056x480/ee5396/161616',
+        defaultSrc: 'https://dummyimage.com/1056x480/ee5396/161616',
         alt: 'Image alt text',
       }}
     />
