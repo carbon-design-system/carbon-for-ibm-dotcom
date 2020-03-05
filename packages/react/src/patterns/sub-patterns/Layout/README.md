@@ -47,6 +47,7 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 | `marginBottom` | NO       | String    | null          | Bottom Margin value for Layout. See `marginBottom` below. |
 | `marginTop`    | NO       | String    | null          | Top Margin value for Layout. See `marginTop` below.       |
 | `type`         | YES      | String    | null          | Layout type. See `type` below.                            |
+| `stickyOffset` | NO       | Number    | null          | Defines the offset for the sticky column(s)               |
 
 ## type
 
