@@ -4,6 +4,7 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
+
 import React, { useEffect, useRef } from 'react';
 import { ArrowRight20 } from '@carbon/icons-react';
 import { Card } from '../../sub-patterns/Card';
@@ -87,7 +88,10 @@ const _renderCards = (cards, containerRef, cta) => (
     ref={containerRef}>
     {cards.map((card, index) => {
       return (
-        <div className={`${prefix}--card-section__cards__col`}>
+        <div
+          className={`${prefix}--card-section__cards__col`}
+          role="region"
+          aria-label={card.heading}>
           <Card
             key={index}
             image={card.image}
@@ -100,7 +104,6 @@ const _renderCards = (cards, containerRef, cta) => (
                 src: ArrowRight20,
               },
             }}
-            target={card.cta.target}
             type="link"
           />
         </div>
