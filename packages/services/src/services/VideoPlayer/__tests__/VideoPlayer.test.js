@@ -4,13 +4,14 @@ import VideoPlayerAPI from '../VideoPlayer';
 
 let _scriptLoaded = false;
 
-const _partnerId = process.env.KALTURA_PARTNER_ID || 243342;
-const _uiConfId = process.env.KALTURA_UICONF_ID || 12905712;
-
 //jest.mock('../../VideoPlayer');
 
 describe('VideoPlayer', () => {
-  beforeEach(function() {
+  /**
+   *
+   * Mock function for kWidget api and embed objects
+   */
+  const mockFn = () => {
     root.kWidget = {
       api: {
         doRequest: jest.fn(() => Promise.resolve(apiDataResponse)),
@@ -18,8 +19,8 @@ describe('VideoPlayer', () => {
       embed: jest.fn(() =>
         Promise.resolve({
           targetId: 'kaltura_player',
-          wid: '_' + _partnerId,
-          uiconf_id: _uiConfId,
+          wid: '_' + 123456,
+          uiconf_id: 12345678,
           entry_id: '0_uka1msg4',
           flashvars: {
             autoPlay: false,
@@ -27,11 +28,9 @@ describe('VideoPlayer', () => {
         })
       ),
     };
-  });
-
+  };
   it('should set a loop to check script state is the loaded state or loading state', () => {
     jest.useFakeTimers();
-    VideoPlayerAPI.checkScript();
     setTimeout(() => {
       _scriptLoaded = true;
     }, 500);
@@ -49,10 +48,10 @@ describe('VideoPlayer', () => {
   });
 
   it('should return the apiData', async done => {
-    return VideoPlayerAPI.api('0_uka1msg4').then(data => {
-      expect(data).toEqual(apiDataResponse);
-      done();
-      jest.clearAllTimers();
-    });
+    const data = await VideoPlayerAPI.api('0_uka1msg4');
+    mockFn();
+    expect(data).toEqual(apiDataResponse);
+    done();
+    jest.clearAllTimers();
   });
 });

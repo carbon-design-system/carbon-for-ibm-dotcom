@@ -87,6 +87,7 @@ function _scriptReady(resolve, reject) {
  */
 function _checkKWidget() {
   if (root.kWidget) {
+    _scriptLoading = false;
     return true;
   } else {
     return false;

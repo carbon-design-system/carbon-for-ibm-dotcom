@@ -34,10 +34,6 @@
         color: $text-02;
       }
     }
-    &__videoPlayer {
-      width: '400px';
-      height: '400px';
-    }
     @include carbon--breakpoint('md') {
       .#{$prefix}--model-container {
         padding-top: $carbon--layout-05;
