@@ -30,12 +30,11 @@ const _types = {
  *
  * @param {string} type layout type
  * @param {number} stickyOffset Sticky offset amount (in pixels)
- * @param {bool} border toggles border-bottom to the components
  * @param {object} children child nodes
  * @returns {*} modified child content
  * @private
  */
-function _updateChild(type, stickyOffset, border, children) {
+function _updateChild(type, stickyOffset, children) {
   const final = [];
 
   const componentArr = type === '2-1' ? [children[1], children[0]] : children;
@@ -47,8 +46,7 @@ function _updateChild(type, stickyOffset, border, children) {
           className={classnames(
             _types[type] && _types[type][i]
               ? `${_types[type][i]} ${prefix}--layout--sticky`
-              : `${prefix}--col`,
-            border ? `${prefix}--layout-border` : ''
+              : `${prefix}--col`
           )}
           key={i}
           style={{
@@ -70,10 +68,7 @@ function _updateChild(type, stickyOffset, border, children) {
         React.cloneElement(child, {
           className: classnames(
             child.props.className,
-            _types[type] && _types[type][i]
-              ? _types[type][i]
-              : `${prefix}--col`,
-            border ? `${prefix}--layout-border` : ''
+            _types[type] && _types[type][i] ? _types[type][i] : `${prefix}--col`
           ),
           key: i,
         })
@@ -127,8 +122,12 @@ const Layout = ({
       _spacingClass('top', marginTop),
       _spacingClass('bottom', marginBottom)
     )}>
-    <div className={`${prefix}--row`}>
-      {_updateChild(type, stickyOffset, border, children)}
+    <div
+      className={classnames(
+        `${prefix}--row`,
+        border ? `${prefix}--layout-border` : ''
+      )}>
+      {_updateChild(type, stickyOffset, children)}
     </div>
   </section>
 );
