@@ -53,7 +53,7 @@ storiesOf('Patterns (Sub-Patterns)|Layout', module)
             layoutOptions['layout-06']
           )}
           stickyOffset={number('Sticky offset (in pixels)', 0)}
-          nested={true}>
+          nested={false}>
           <div
             data-sticky={select(
               'Sticky left column',
