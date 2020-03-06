@@ -10,9 +10,11 @@
 @mixin layout {
   .#{$prefix}--layout {
     &--sticky {
-      position: sticky;
-      top: 0;
-      z-index: 1;
+      @include carbon--breakpoint(lg) {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+      }
     }
 
     @each $layout in $carbon--layout {
