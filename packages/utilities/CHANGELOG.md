@@ -3,6 +3,35 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-utilities@1.4.1...@carbon/ibmdotcom-utilities@1.5.0-rc.0) (2020-03-06)
+
+### Bug Fixes
+
+- **utility:** fixed utility not working properly
+  ([5a03802](https://github.com/carbon-design-system/ibm-dotcom-library/commit/5a03802))
+
+### Features
+
+- **uniqueid:** adding uniqueid utility
+  ([2d90557](https://github.com/carbon-design-system/ibm-dotcom-library/commit/2d90557))
+- **util:** add decode string util tests
+  ([caf8625](https://github.com/carbon-design-system/ibm-dotcom-library/commit/caf8625))
+- **util:** add decode string utility
+  ([a0812bd](https://github.com/carbon-design-system/ibm-dotcom-library/commit/a0812bd))
+- **utility:** addressed the review comments
+  ([89c550c](https://github.com/carbon-design-system/ibm-dotcom-library/commit/89c550c))
+- **utility:** make use of smoothScroll util in tableOfContents
+  ([b79ef5a](https://github.com/carbon-design-system/ibm-dotcom-library/commit/b79ef5a))
+- **utility:** removed smoothScroll args, parameters from curly braces
+  ([b1fa073](https://github.com/carbon-design-system/ibm-dotcom-library/commit/b1fa073))
+- **utility:** updated the document and relational operator
+  ([9cda24d](https://github.com/carbon-design-system/ibm-dotcom-library/commit/9cda24d))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.4.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-utilities@1.4.1-rc.0...@carbon/ibmdotcom-utilities@1.4.1) (2020-02-28)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-utilities
