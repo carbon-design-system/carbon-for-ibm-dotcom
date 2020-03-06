@@ -1,5 +1,5 @@
 import './index.scss';
-import { text, withKnobs } from '@storybook/addon-knobs';
+import { select, text, withKnobs } from '@storybook/addon-knobs';
 import ContentBlockSimple from '../ContentBlockSimple';
 import React from 'react';
 import readme from '../README.md';
@@ -27,25 +27,28 @@ storiesOf('Patterns (Blocks)|ContentBlockSimple', module)
     };
 
     const image = {
-      heading: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
       image: {
-        sources: [
-          {
-            src: 'https://dummyimage.com/320x180/ee5396/161616&text=16:9',
-            breakpoint: 320,
-          },
-          {
-            src: 'https://dummyimage.com/400x225/ee5396/161616&text=16:9',
-            breakpoint: 400,
-          },
-          {
-            src: 'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
-            breakpoint: 672,
-          },
-        ],
-        alt: 'Image alt text',
-        defaultSrc: 'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
+        heading: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        image: {
+          sources: [
+            {
+              src: 'https://dummyimage.com/320x180/ee5396/161616&text=16:9',
+              breakpoint: 320,
+            },
+            {
+              src: 'https://dummyimage.com/400x225/ee5396/161616&text=16:9',
+              breakpoint: 400,
+            },
+            {
+              src: 'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
+              breakpoint: 672,
+            },
+          ],
+          alt: 'Image alt text',
+          defaultSrc: 'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
+        },
       },
+      none: null,
     };
 
     const copy = `Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
@@ -68,7 +71,7 @@ storiesOf('Patterns (Blocks)|ContentBlockSimple', module)
                 'Heading (required)',
                 'Curabitur malesuada varius mi eu posuere'
               )}
-              image={image}
+              image={select('Image (optional)', image, image.image)}
               cta={ctaProps}
             />
           </div>
