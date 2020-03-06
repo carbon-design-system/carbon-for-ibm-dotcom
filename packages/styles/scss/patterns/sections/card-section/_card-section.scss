@@ -7,6 +7,7 @@
 
 @import '../../../components/link-with-icon/link-with-icon';
 @import '../../../globals/imports';
+@import '../../../globals/utils/ratio-base';
 
 @mixin themed-items {
   color: $text-01;
@@ -45,6 +46,20 @@
 
 @mixin card-section {
   .#{$prefix}--card-section {
+    &__card {
+      .#{$prefix}--image {
+        &__img {
+          @include carbon--breakpoint('lg') {
+            @include ratio-base(4, 3);
+
+            height: auto;
+          }
+
+          height: carbon--mini-units(30);
+          flex: 1;
+        }
+      }
+    }
     &__row {
       @include carbon--make-row;
     }
