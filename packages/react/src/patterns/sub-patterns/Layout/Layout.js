@@ -100,8 +100,8 @@ function _spacingClass(position, modifier) {
  * @param {string=} props.marginTop top margin layout class (layout-01 - layout-07)
  * @param {string=} props.marginBottom top margin layout class (layout-01 - layout-07)
  * @param {number=} props.stickyOffset offset amount for sticky columns
- * @param {bool} props.border toggles the optional border
- * @param {bool} props.nested toggles the nested styling
+ * @param {boolean=} props.border toggles the optional border
+ * @param {boolean=} props.nested toggles the nested styling
  * @returns {*} Layout component
  */
 const Layout = ({
@@ -148,6 +148,8 @@ Layout.defaultProps = {
   marginTop: null,
   marginBottom: null,
   stickyOffset: null,
+  border: false,
+  nested: false,
 };
 
 export default Layout;
