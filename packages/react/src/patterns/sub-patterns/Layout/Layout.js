@@ -116,7 +116,7 @@ const Layout = ({
   <section
     data-autoid={`${stablePrefix}--layout`}
     className={classnames(
-      nested ? `${prefix}--col` : `${prefix}--grid`,
+      nested ? `` : `${prefix}--grid`,
       _spacingClass('top', marginTop),
       _spacingClass('bottom', marginBottom)
     )}>
