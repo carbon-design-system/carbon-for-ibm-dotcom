@@ -37,9 +37,7 @@ const _types = {
 function _updateChild(type, stickyOffset, children) {
   const final = [];
 
-  const componentArr = type === '2-1' ? [children[1], children[0]] : children;
-
-  componentArr.map((child, i) => {
+  children.map((child, i) => {
     if (child.props['data-sticky'] === 'true') {
       final.push(
         <div

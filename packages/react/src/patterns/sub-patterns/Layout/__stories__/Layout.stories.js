@@ -30,6 +30,11 @@ storiesOf('Patterns (Sub-Patterns)|Layout', module)
     };
 
     const nested = boolean('Nested pattern', false);
+    const selectedType = select(
+      'Layout Type (type)',
+      type,
+      type['1-4 - 3/4 layout']
+    );
 
     return (
       <>
@@ -51,11 +56,7 @@ storiesOf('Patterns (Sub-Patterns)|Layout', module)
           <div className="bx--row">
             <div className="bx--col-lg-12 bx--col-sm-4 bx--offset-lg-4">
               <Layout
-                type={select(
-                  'Layout Type (type)',
-                  type,
-                  type['1-4 - 3/4 layout']
-                )}
+                type={selectedType}
                 marginTop={select(
                   'Top Margin (marginTop)',
                   layoutOptions,
