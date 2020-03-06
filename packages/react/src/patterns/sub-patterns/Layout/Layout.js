@@ -22,7 +22,7 @@ const { prefix } = settings;
  */
 const _types = {
   '1-3': [`${prefix}--col-lg-4`, `${prefix}--col-lg-12`], // 1/4 - 3/4
-  '2-1': [`${prefix}--col-lg-8`, `${prefix}--col-lg-4`], // 2/3 - 1/3
+  '2-1': [`${prefix}--layout-2-3`, `${prefix}--layout-1-3`], // 2/3 - 1/3
 };
 
 /**
