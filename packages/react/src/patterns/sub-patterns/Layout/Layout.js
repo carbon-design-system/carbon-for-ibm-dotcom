@@ -22,6 +22,7 @@ const { prefix } = settings;
  */
 const _types = {
   '1-3': [`${prefix}--col-lg-4`, `${prefix}--col-lg-12`], // 1/4 - 3/4
+  '2-3': [`${prefix}--col-lg-8`, `${prefix}--col-lg-4`], // 2/3 - 1/3
 };
 
 /**
@@ -29,22 +30,26 @@ const _types = {
  *
  * @param {string} type layout type
  * @param {number} stickyOffset Sticky offset amount (in pixels)
+ * @param {bool} border toggles border-bottom to the components
  * @param {object} children child nodes
  * @returns {*} modified child content
  * @private
  */
-function _updateChild(type, stickyOffset, children) {
+function _updateChild(type, stickyOffset, border, children) {
   const final = [];
 
-  children.map((child, i) => {
+  const componentArr = type === '2-3' ? [children[1], children[0]] : children;
+
+  componentArr.map((child, i) => {
     if (child.props['data-sticky'] === 'true') {
       final.push(
         <div
-          className={
+          className={classnames(
             _types[type] && _types[type][i]
               ? `${_types[type][i]} ${prefix}--layout--sticky`
-              : `${prefix}--col`
-          }
+              : `${prefix}--col`,
+            border ? `${prefix}--layout-border` : ''
+          )}
           key={i}
           style={{
             top: stickyOffset ? `${stickyOffset}px` : 0,
@@ -65,7 +70,10 @@ function _updateChild(type, stickyOffset, children) {
         React.cloneElement(child, {
           className: classnames(
             child.props.className,
-            _types[type] && _types[type][i] ? _types[type][i] : `${prefix}--col`
+            _types[type] && _types[type][i]
+              ? _types[type][i]
+              : `${prefix}--col`,
+            border ? `${prefix}--layout-border` : ''
           ),
           key: i,
         })
@@ -99,18 +107,28 @@ function _spacingClass(position, modifier) {
  * @param {string=} props.marginTop top margin layout class (layout-01 - layout-07)
  * @param {string=} props.marginBottom top margin layout class (layout-01 - layout-07)
  * @param {number=} props.stickyOffset offset amount for sticky columns
+ * @param {bool} props.border toggles the optional border
+ * @param {bool} props.nested toggles the nested styling
  * @returns {*} Layout component
  */
-const Layout = ({ type, marginTop, marginBottom, stickyOffset, children }) => (
+const Layout = ({
+  type,
+  marginTop,
+  marginBottom,
+  stickyOffset,
+  border,
+  nested,
+  children,
+}) => (
   <section
     data-autoid={`${stablePrefix}--layout`}
     className={classnames(
-      `${prefix}--grid`,
+      nested ? '' : `${prefix}--grid`,
       _spacingClass('top', marginTop),
       _spacingClass('bottom', marginBottom)
     )}>
     <div className={`${prefix}--row`}>
-      {_updateChild(type, stickyOffset, children)}
+      {_updateChild(type, stickyOffset, border, children)}
     </div>
   </section>
 );
@@ -121,6 +139,8 @@ Layout.propTypes = {
   marginBottom: PropTypes.string,
   children: PropTypes.node,
   stickyOffset: PropTypes.number,
+  border: PropTypes.bool,
+  nested: PropTypes.bool,
 };
 
 /**

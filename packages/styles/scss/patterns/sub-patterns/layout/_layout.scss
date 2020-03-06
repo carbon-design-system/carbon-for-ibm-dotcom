@@ -28,6 +28,10 @@
         }
       }
     }
+
+    &-border {
+      border-bottom: solid 1px $ui-04;
+    }
   }
 }
 
