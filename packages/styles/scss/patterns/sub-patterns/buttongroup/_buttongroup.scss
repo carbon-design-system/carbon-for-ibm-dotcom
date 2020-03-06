@@ -18,9 +18,9 @@
     flex-direction: column-reverse;
     margin-top: $carbon--layout-01;
 
-    @include carbon--breakpoint(md) {
-      flex-flow: row-reverse wrap-reverse;
+    @include carbon--breakpoint(lg) {
       justify-content: flex-end;
+      flex-direction: row-reverse;
     }
 
     .#{$prefix}--btn {
