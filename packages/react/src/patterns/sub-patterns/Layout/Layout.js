@@ -125,7 +125,7 @@ const Layout = ({
     <div
       className={classnames(
         `${prefix}--row`,
-        border ? `${prefix}--layout-border` : ''
+        border ? `${prefix}--layout--border` : ''
       )}>
       {_updateChild(type, stickyOffset, children)}
     </div>
