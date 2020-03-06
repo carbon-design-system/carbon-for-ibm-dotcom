@@ -15,7 +15,7 @@ storiesOf('Patterns (Sub-Patterns)|Layout', module)
   .add('Default', () => {
     const type = {
       '1-4 - 3/4 layout': '1-3',
-      '2-3 - 1/3 layout': '2-3',
+      '2-1 - 2/3 layout': '2-1',
     };
 
     const layoutOptions = {

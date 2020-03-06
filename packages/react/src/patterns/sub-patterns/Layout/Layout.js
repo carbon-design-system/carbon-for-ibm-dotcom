@@ -22,7 +22,7 @@ const { prefix } = settings;
  */
 const _types = {
   '1-3': [`${prefix}--col-lg-4`, `${prefix}--col-lg-12`], // 1/4 - 3/4
-  '2-3': [`${prefix}--col-lg-8`, `${prefix}--col-lg-4`], // 2/3 - 1/3
+  '2-1': [`${prefix}--col-lg-8`, `${prefix}--col-lg-4`], // 2/3 - 1/3
 };
 
 /**
@@ -38,7 +38,7 @@ const _types = {
 function _updateChild(type, stickyOffset, border, children) {
   const final = [];
 
-  const componentArr = type === '2-3' ? [children[1], children[0]] : children;
+  const componentArr = type === '2-1' ? [children[1], children[0]] : children;
 
   componentArr.map((child, i) => {
     if (child.props['data-sticky'] === 'true') {

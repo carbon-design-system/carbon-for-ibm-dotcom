@@ -54,6 +54,7 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 | Name  | Description             |
 | ----- | ----------------------- |
 | `1-3` | 1/4 - 3/4 column layout |
+| `2-1` | 2/3 - 1/3 column layout |
 
 ## marginTop (optional)
 
