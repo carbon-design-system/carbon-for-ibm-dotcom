@@ -48,6 +48,8 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 | `marginTop`    | NO       | String    | null          | Top Margin value for Layout. See `marginTop` below.       |
 | `type`         | YES      | String    | null          | Layout type. See `type` below.                            |
 | `stickyOffset` | NO       | Number    | null          | Defines the offset for the sticky column(s)               |
+| `border`       | NO       | Boolean   | null          | Toggles the optional border at the bottom of pattern      |
+| `nested`       | NO       | Boolean   | null          | Toggles the styling, so the pattern fits inside a grid    |
 
 ## type
 
