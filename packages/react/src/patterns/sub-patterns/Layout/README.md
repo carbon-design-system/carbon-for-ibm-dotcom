@@ -46,10 +46,10 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 | `children`     | NO       | Node      | null          | Component/Element to render within Layout                 |
 | `marginBottom` | NO       | String    | null          | Bottom Margin value for Layout. See `marginBottom` below. |
 | `marginTop`    | NO       | String    | null          | Top Margin value for Layout. See `marginTop` below.       |
-| `type`         | YES      | String    | null          | Layout type. See `type` below.                            |
+| `type`         | YES      | String    | n/a           | Layout type. See `type` below.                            |
 | `stickyOffset` | NO       | Number    | null          | Defines the offset for the sticky column(s)               |
-| `border`       | NO       | Boolean   | null          | Toggles the optional border at the bottom of pattern      |
-| `nested`       | NO       | Boolean   | null          | Toggles the styling, so the pattern fits inside a grid    |
+| `border`       | NO       | Boolean   | false         | Toggles the optional border at the bottom of pattern      |
+| `nested`       | NO       | Boolean   | false         | Toggles the styling, so the pattern fits inside a grid    |
 
 ## type
 
