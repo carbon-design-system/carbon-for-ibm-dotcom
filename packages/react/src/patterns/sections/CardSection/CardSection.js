@@ -28,7 +28,7 @@ const { prefix } = settings;
  * @param {Array} props.cards Array of card
  * @returns {object} JSX Object
  */
-const CardSection = ({ heading, theme, cards, cta }) => {
+const CardSection = ({ heading, theme, cards, cta, ...otherProps }) => {
   const containerRef = useRef();
   useEffect(() => {
     setCardHeight();
@@ -67,6 +67,7 @@ const CardSection = ({ heading, theme, cards, cta }) => {
   return (
     <ContentSection
       heading={heading}
+      autoid={otherProps.autoid}
       customClassName={classNames(`${prefix}--card-section`, _setTheme(theme))}>
       {_renderCards(cards, containerRef, cta)}
     </ContentSection>

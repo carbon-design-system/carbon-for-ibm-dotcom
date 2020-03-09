@@ -24,7 +24,13 @@ const { prefix } = settings;
  * @param {string} props.customClassName optional class to be applied to the containing node
  * @returns {*} JSX ContentSection component
  */
-const ContentSection = ({ heading, theme, children, customClassName }) => {
+const ContentSection = ({
+  heading,
+  theme,
+  children,
+  customClassName,
+  ...otherProps
+}) => {
   /**
    * sets the class name based on theme type
    *
@@ -43,7 +49,11 @@ const ContentSection = ({ heading, theme, children, customClassName }) => {
         customClassName,
         _setTheme(theme)
       )}
-      data-autoid={`${stablePrefix}--content-section`}>
+      data-autoid={
+        otherProps.autoid
+          ? otherProps.autoid
+          : `${stablePrefix}--content-section`
+      }>
       <div className={`${prefix}--content-section__grid`}>
         <div className={`${prefix}--content-section__row`}>
           <div className={`${prefix}--content-section__left`}>
