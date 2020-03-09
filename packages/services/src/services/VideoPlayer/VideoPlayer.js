@@ -1,3 +1,5 @@
+import root from 'window-or-global';
+
 /**
  * These id's for production use of IBM.com
  * @type {number} _partnerId The ID of your Kaltura account (aka partnerId)
@@ -14,42 +16,41 @@ const _uiConfId = process.env.KALTURA_UICONF_ID || 12905712;
 const _embedUrl = `https://cdnapisec.kaltura.com/p/${_partnerId}/sp/${_partnerId}00/embedIframeJs/uiconf_id/${_uiConfId}/partner_id/${_partnerId}`;
 
 /**
- *
  * Number of times to retry the script ready loop before failing
+ *
  * @type {number}
  * @private
  */
 
 const _timeoutRetries = 50;
 /**
- *
  * Tracks the number of attempts for the script ready loop
+ *
  * @type {number}
  * @private
  */
 let _attempt = 0;
 
 /**
- *
  * Tracks the script status
+ *
  * @type {boolean} _scriptLoaded to track the script loaded or not
  * @private
  */
-let _scriptLoaded = false;
+// let _scriptLoaded = false;
 
 /**
- *
  * Tracks the script status
- * * @type {boolean} _scriptLoading to track the script loading or not
+ *
+ * @type {boolean} _scriptLoading to track the script loading or not
  * @private
  */
 let _scriptLoading = false;
 
-let kWidget;
+// let kWidget;
 
 /**
- *
- * Timeout loop to check script state is the _scriptLoaded state or _scriptLoading state .
+ * Timeout loop to check script state is the _scriptLoaded state or _scriptLoading state
  *
  * @param {Function} resolve Resolve function
  * @param {Function} reject Reject function
@@ -58,9 +59,10 @@ let kWidget;
 function _scriptReady(resolve, reject) {
   /**
    *
-   * @param {boolean}  _scriptLoaded is true then resolve.
+   * @param {object} root.kWidget if exists then resolve
    */
-  if (_scriptLoaded) {
+  if (root.kWidget) {
+    _scriptLoading = false;
     resolve();
   } else if (_scriptLoading) {
     _attempt++;
@@ -80,7 +82,22 @@ function _scriptReady(resolve, reject) {
 
 /**
  *
+ * Check to kWidget object exists or not
+ * @private
+ */
+// function _checkKWidget() {
+//   if (root.kWidget) {
+//     _scriptLoading = false;
+//     return true;
+//   } else {
+//     return false;
+//   }
+// }
+
+/**
  * Returns boolean if the _scriptLoading and _scriptLoaded flag is false
+ *
+ * @private
  */
 function _loadScript() {
   _scriptLoading = true;
@@ -88,11 +105,6 @@ function _loadScript() {
   script.src = _embedUrl;
   script.async = true;
   document.body.appendChild(script);
-
-  script.onload = function() {
-    _scriptLoaded = true;
-    _scriptLoading = false;
-  };
 }
 
 /**
@@ -123,7 +135,7 @@ class VideoPlayerAPI {
    */
   static async embedVideo(videoId, targetId) {
     return await this.checkScript().then(() => {
-      kWidget.embed({
+      root.kWidget.embed({
         targetId: targetId,
         wid: '_' + _partnerId,
         uiconf_id: _uiConfId,
@@ -181,13 +193,14 @@ class VideoPlayerAPI {
    */
   static async api(videoId) {
     return await this.checkScript().then(() => {
-      new kWidget.api({ wid: _partnerId }).doRequest(
+      new root.kWidget.api({ wid: _partnerId }).doRequest(
         {
           service: 'media',
           action: 'get',
           entryId: videoId,
         },
         function(jsonObj) {
+          console.log('jsonObj', jsonObj);
           return jsonObj;
         }
       );
