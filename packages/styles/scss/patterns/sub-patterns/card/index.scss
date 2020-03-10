@@ -8,6 +8,7 @@
 @import '../../../globals/imports';
 @import '../../../temp-carbon-expressive/temp-carbon-expressive';
 @import '@carbon/motion/scss/motion.scss';
+@import '../../../globals/utils/ratio-base';
 
 @import 'carbon-components/scss/components/link/link';
 @import 'carbon-components/scss/components/tile/tile';
@@ -122,6 +123,28 @@
     .#{$prefix}--card__cta a,
     .#{$prefix}--card__cta a:visited {
       color: $inverse-link;
+    }
+  }
+
+  .#{$prefix}--aspect- {
+    &2x1 {
+      @include ratio-base(2, 1);
+    }
+
+    &16x9 {
+      @include ratio-base(16, 9);
+    }
+
+    &3x2 {
+      @include ratio-base(3, 2);
+    }
+
+    &4x3 {
+      @include ratio-base(4, 3);
+    }
+
+    &1x1 {
+      @include ratio-base(1, 1);
     }
   }
 }

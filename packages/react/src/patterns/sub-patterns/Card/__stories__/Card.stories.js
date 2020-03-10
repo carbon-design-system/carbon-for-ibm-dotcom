@@ -62,23 +62,12 @@ storiesOf('Patterns (Sub-Patterns)|Card', module)
         <div className="bx--grid">
           <div className="bx--row">
             <div className="bx--col-sm-2 bx--col-md-3 bx--col-lg-6 bx--col-xlg-4 bx--no-gutter">
-              {!select('Ratio', ratio, ratio['none']) ? (
-                <Card {...props.cardProps()} image={image} type="static" />
-              ) : (
-                <div
-                  className={`bx--aspect-ratio bx--aspect-ratio--${select(
-                    'Ratio',
-                    ratio,
-                    ratio['none']
-                  )}`}>
-                  <Card
-                    {...props.cardProps()}
-                    image={image}
-                    type="static"
-                    customClassName="bx--aspect-ratio--object"
-                  />
-                </div>
-              )}
+              <Card
+                imageAspect={select('Ratio', ratio, ratio['none'])}
+                {...props.cardProps()}
+                image={image}
+                type="link"
+              />
             </div>
           </div>
         </div>
@@ -110,23 +99,12 @@ storiesOf('Patterns (Sub-Patterns)|Card', module)
         <div className="bx--grid">
           <div className="bx--row">
             <div className="bx--col-sm-2 bx--col-md-3 bx--col-lg-6 bx--col-xlg-4 bx--no-gutter">
-              {!select('Ratio', ratio, ratio['none']) ? (
-                <Card {...props.cardProps()} image={image} type="link" />
-              ) : (
-                <div
-                  className={`bx--aspect-ratio bx--aspect-ratio--${select(
-                    'Ratio',
-                    ratio,
-                    ratio['none']
-                  )}`}>
-                  <Card
-                    {...props.cardProps()}
-                    type="link"
-                    image={image}
-                    customClassName="bx--aspect-ratio--object"
-                  />
-                </div>
-              )}
+              <Card
+                imageAspect={select('Ratio', ratio, ratio['none'])}
+                {...props.cardProps()}
+                image={image}
+                type="link"
+              />
             </div>
           </div>
         </div>
