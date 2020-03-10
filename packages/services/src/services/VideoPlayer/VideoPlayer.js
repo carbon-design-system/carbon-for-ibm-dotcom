@@ -192,7 +192,7 @@ class VideoPlayerAPI {
    */
   static async api(videoId) {
     return await this.checkScript().then(() => {
-      new kWidget.api({ wid: _partnerId }).doRequest(
+      new root.kWidget.api({ wid: _partnerId }).doRequest(
         {
           service: 'media',
           action: 'get',
