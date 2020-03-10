@@ -83,7 +83,9 @@ const TableOfContents = ({
   }, [useMenuItems]);
 
   useEffect(() => {
-    scrollStop(setSelectedItem);
+    window.addEventListener('scroll', () => {
+      window.requestAnimationFrame(setSelectedItem);
+    });
   });
 
   /**
@@ -92,15 +94,19 @@ const TableOfContents = ({
    */
   const setSelectedItem = () => {
     const elems = getElemsInView();
-    const id = elems[0] || useMenuItems[0].id;
-    const filteredItems = useMenuItems.filter(menu => {
-      if (id !== 'undefined') {
-        return menu.id === id;
+    if (elems.length > 0) {
+      const id = elems[0] || useMenuItems[0].id;
+      const filteredItems = useMenuItems.filter(menu => {
+        if (id !== 'undefined') {
+          return menu.id === id;
+        }
+      });
+      if (filteredItems.length > 0 && filteredItems[0].title !== undefined) {
+        const title = filteredItems[0].title;
+        setSelectedId(id);
+        setSelectedTitle(title);
       }
-    });
-    const title = filteredItems[0].title;
-    setSelectedId(id);
-    setSelectedTitle(title);
+    }
   };
 
   /**
@@ -125,26 +131,6 @@ const TableOfContents = ({
       }
     });
     return elesInView;
-  };
-
-  /**
-   * Detect scroll stop event and run callback function
-   *
-   * @param {*} callback callback function
-   */
-  const scrollStop = callback => {
-    if (!callback || typeof callback !== 'function') return;
-    let isScrolling;
-    root.addEventListener(
-      'scroll',
-      () => {
-        root.clearTimeout(isScrolling);
-        isScrolling = setTimeout(() => {
-          callback();
-        }, 66);
-      },
-      false
-    );
   };
 
   /**
