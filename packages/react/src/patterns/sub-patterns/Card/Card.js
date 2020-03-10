@@ -29,6 +29,7 @@ const Card = ({
   type,
   inverse,
   image,
+  imageAspect,
   eyebrow,
   heading,
   customClassName,
@@ -50,7 +51,14 @@ const Card = ({
       )}
       href={cta.href}
       {...props}>
-      <Image {...image} classname={`${prefix}--card__img`} />
+      <div
+        className={`${
+          imageAspect !== undefined && imageAspect !== null
+            ? `${prefix}--aspect-${imageAspect}`
+            : ``
+        }`}>
+        <Image {...image} classname={`${prefix}--card__img`} />
+      </div>
       <div className={`${prefix}--card__wrapper`}>
         {eyebrow && <p className={`${prefix}--card__eyebrow`}>{eyebrow}</p>}
         {heading && <h3 className={`${prefix}--card__heading`}>{heading}</h3>}
@@ -106,6 +114,7 @@ Card.propTypes = {
   copy: PropTypes.string,
   cta: PropTypes.object,
   image: PropTypes.object,
+  imageAspect: PropTypes.string,
   inverse: PropTypes.bool,
   customClassName: PropTypes.string,
   type: PropTypes.string,
