@@ -33,7 +33,7 @@ function App() {
   };
 
   const pictogram = {
-    url: Desktop,
+    src: Desktop,
     ariaLabel: 'Desktop pictogram',
   };
 
