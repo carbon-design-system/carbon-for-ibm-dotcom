@@ -1,0 +1,36 @@
+//
+// Copyright IBM Corp. 2016, 2018
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import '../../globals/imports';
+
+@mixin video-player {
+  .#{$prefix}--video-player {
+    &__container {
+      width: 100%;
+      position: relative;
+      display: inline-block;
+
+      .#{$prefix}--video-player__video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+
+      &::before {
+        content: '';
+        display: block;
+        margin-top: 56.25%;
+      }
+    }
+  }
+}
+
+@include exports('video-player') {
+  @include video-player;
+}
