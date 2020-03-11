@@ -1,0 +1,35 @@
+//
+// Copyright IBM Corp. 2016, 2018
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import '../../globals/imports';
+
+@mixin image-with-caption {
+  .#{$prefix}--image-with-caption {
+    margin-top: $carbon--spacing-07;
+    margin-bottom: $carbon--spacing-07;
+    max-width: carbon--mini-units(80);
+
+    @include carbon--breakpoint('md') {
+      margin-top: $carbon--spacing-09;
+      margin-bottom: $carbon--spacing-09;
+    }
+  }
+
+  // can we set 2x1 ratio here?
+
+  .#{$prefix}--image__caption {
+    @include carbon--type-style('caption-01');
+
+    color: $text-05;
+    margin-top: $carbon--spacing-03;
+    margin-bottom: $carbon--spacing-07;
+  }
+}
+
+@include exports('image-with-caption') {
+  @include image-with-caption;
+}

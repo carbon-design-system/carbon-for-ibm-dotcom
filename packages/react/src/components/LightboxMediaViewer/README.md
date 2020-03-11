@@ -29,8 +29,8 @@ function App() {
     title='Curabitur malesuada varius mi eu posuere'
     copy='Lorem ipsum dolor sit amet, consectetur adipiscing Aenean et ultricies est.'
     image = {
-      defaultImage: 'https://via.placeholder.com/1024x512',
-      alt: 'Placeholder Image',
+      defaultSrc: 'https://dummyimage.com/1024x512',
+      alt: 'Image alt text',
     }
     open={true}
   />

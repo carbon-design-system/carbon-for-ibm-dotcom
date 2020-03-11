@@ -23,5 +23,6 @@
 @import 'carbon-components/scss/globals/scss/css--reset';
 
 @import '../themes/expressive/index';
+@import './utils/content-width';
 
 @include carbon--type-reset();

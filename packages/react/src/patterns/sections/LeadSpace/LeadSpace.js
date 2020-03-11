@@ -5,16 +5,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import {
-  settings as ddsSettings,
-  featureFlag,
-} from '@carbon/ibmdotcom-utilities';
 import { ButtonGroup } from '../../sub-patterns/ButtonGroup';
-import { DDS_LEADSPACE } from '../../../internal/FeatureFlags';
-import LeadSpaceImage from './LeadSpaceImage';
+import classnames from 'classnames';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import { Image } from '../../../components/Image';
 import PropTypes from 'prop-types';
 import React from 'react';
-import classnames from 'classnames';
 import { settings } from 'carbon-components';
 
 const { stablePrefix } = ddsSettings;
@@ -23,52 +19,78 @@ const { prefix } = settings;
 /**
  * renders the pattern classnames
  *
- * @param {string} variation variation of the pattern
  * @param {string} theme theme of the pattern
+ * @param {string} type switches between centered or default
+ * @param {object} image object
  * @returns {string} classnames
  */
-const className = (variation, theme) =>
-  classnames(
-    `${prefix}--leadspace`,
-    theme && `${prefix}--leadspace--${theme}`,
+const className = (theme, type, image) => {
+  const mainClassName = `${prefix}--leadspace${
+    type === 'centered' ? '--centered' : ''
+  }`;
+  return classnames(
+    mainClassName,
+    theme && `${mainClassName}--${theme}`,
     {
-      [`${prefix}--leadspace--productive`]: variation === 'productive',
+      [`${prefix}--leadspace--productive`]: type === 'small',
+    },
+    {
+      [`${prefix}--leadspace--centered__image`]: image && type === 'centered',
     }
   );
+};
 
 /**
- * renders the pattern classnames
- *
- * @param {boolean} gradient determines whether to render gradient
+ * @param {string} type returns centered or default
+ * @param {string} element returns element name
  * @returns {string} classnames
  */
-const overlayClassname = gradient =>
-  classnames(`${prefix}--leadspace__overlay`, {
-    [`${prefix}--leadspace--gradient`]: gradient,
-  });
+function centeredClassname(type, element) {
+  if (type === 'centered') {
+    return `${prefix}--leadspace--centered__${element}`;
+  } else return `${prefix}--leadspace__${element}`;
+}
 
 /**
- * sorts images by breakpoints for the LeadSpaceImage component
  *
- * @param {object} images object with all the image srcs for diff breakpoints
- * @returns {Array} images sorted
+ * @param {string} type returns centered or default
+ * @param {string} gradient gradient
+ * @returns {object} gradient
  */
-const sortImages = images => {
-  return [
-    {
-      minWidth: 1056,
-      url: images.default,
-    },
-    {
-      minWidth: 672,
-      url: images.tablet,
-    },
-    {
-      minWidth: 0,
-      url: images.mobile,
-    },
-  ];
-};
+function newoverlayClassname(type, gradient) {
+  if (type === 'centered') {
+    return classnames(`${prefix}--leadspace--centered__overlay`, {
+      [`${prefix}--leadspace--centered__gradient`]: gradient,
+    });
+  } else
+    return classnames(`${prefix}--leadspace__overlay`, {
+      [`${prefix}--leadspace--gradient`]: gradient,
+    });
+}
+/**
+ *
+ * @param {string} type type
+ * @param {object} image image
+ * @returns {object} returns either image component or the centered image div
+ */
+function imageClassname(type, image) {
+  if (type === 'centered') {
+    return (
+      <div
+        data-autoid={`${stablePrefix}--leadspace--centered--mobile__image`}
+        className={`${prefix}--leadspace--centered--mobile__image`}>
+        <img src={image.default} alt={image.alt} />
+      </div>
+    );
+  } else
+    return (
+      <Image
+        sources={image.sources}
+        defaultSrc={image.default}
+        alt={image.alt}
+      />
+    );
+}
 
 /**
  * Lead space component (left-aligned)
@@ -80,67 +102,62 @@ const sortImages = images => {
  * @param {object} props.image image object with diff source for diff breakpoints
  * @param {string} props.theme theme of the pattern (g100 or white (default))
  * @param {string} props.title lead space title
- * @param {string} props.variation variation of the lead space (expressive (default) | productive)
+ * @param {string} props.type type of lead space
  * @returns {*} Lead space component
  */
-const LeadSpace = ({
-  buttons,
-  copy,
-  gradient,
-  image,
-  theme,
-  title,
-  variation,
-}) =>
-  featureFlag(
-    DDS_LEADSPACE,
+const LeadSpace = ({ buttons, copy, gradient, image, theme, title, type }) => {
+  const background = image && {
+    backgroundImage: `url(${image.default})`,
+  };
+
+  return (
     <section
+      style={background}
       data-autoid={`${stablePrefix}--leadspace`}
-      className={className(variation, theme)}>
-      <div className={`${prefix}--leadspace__container`}>
-        <div className={overlayClassname(gradient)}>
-          <div className={`${prefix}--leadspace__row`}>
-            <h1 className={`${prefix}--leadspace__title`}>{title}</h1>
-          </div>
-          <div className={`${prefix}--leadspace__content`}>
-            {copy && (
-              <div className={`${prefix}--leadspace__row`}>
-                {copy && (
-                  <p
-                    data-autoid={`${stablePrefix}--leadspace__desc`}
-                    className={`${prefix}--leadspace__desc`}>
-                    {copy}
-                  </p>
-                )}
-              </div>
-            )}
-            {buttons && buttons.length > 0 && <ButtonGroup buttons={buttons} />}
+      className={className(theme, type, image)}>
+      <div className={centeredClassname(type, 'container')}>
+        <div className={newoverlayClassname(type, gradient)}>
+          <div
+            className={
+              type !== 'centered'
+                ? `${prefix}--leadspace--content__container`
+                : `${prefix}--leadspace--centered--content__container`
+            }>
+            <div className={centeredClassname(type, 'row')}>
+              <h1 className={centeredClassname(type, 'title')}>{title}</h1>
+            </div>
+            <div className={`${prefix}--leadspace__content`}>
+              {copy && (
+                <div className={centeredClassname(type, 'row')}>
+                  {copy && (
+                    <p
+                      data-autoid={`${stablePrefix}--leadspace__desc`}
+                      className={centeredClassname(type, 'desc')}>
+                      {copy}
+                    </p>
+                  )}
+                </div>
+              )}
+              {buttons && buttons.length > 0 && (
+                <ButtonGroup buttons={buttons} />
+              )}
+            </div>
           </div>
         </div>
-        {image && (
-          <LeadSpaceImage
-            images={sortImages(image)}
-            defaultImage={image.default}
-            alt={image.alt}
-          />
-        )}
+        {image && imageClassname(type, image)}
       </div>
     </section>
   );
+};
 
 LeadSpace.propTypes = {
   buttons: PropTypes.array,
   copy: PropTypes.string,
   gradient: PropTypes.bool,
-  image: PropTypes.shape({
-    mobile: PropTypes.string,
-    tablet: PropTypes.string,
-    default: PropTypes.string,
-    alt: PropTypes.string,
-  }),
+  image: PropTypes.instanceOf(Image),
   theme: PropTypes.string,
   title: PropTypes.string.isRequired,
-  variation: PropTypes.string,
+  type: PropTypes.oneOf(['small', 'left', 'centered']),
 };
 
 export default LeadSpace;

@@ -5,21 +5,21 @@
  * LICENSE file in the root directory of this source tree.
  */
 import {
-  LocaleAPI,
-  TranslationAPI,
-  globalInit,
-} from '@carbon/ibmdotcom-services';
-import React, { useEffect, useState } from 'react';
-import {
   settings as ddsSettings,
   ipcinfoCookie,
 } from '@carbon/ibmdotcom-utilities';
+import {
+  globalInit,
+  LocaleAPI,
+  TranslationAPI,
+} from '@carbon/ibmdotcom-services';
+import React, { useEffect, useState } from 'react';
+import classNames from 'classnames';
 import FooterLogo from './FooterLogo';
 import FooterNav from './FooterNav';
 import LegalNav from './LegalNav';
 import LocaleButton from './LocaleButton';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import { settings } from 'carbon-components';
 
 const { stablePrefix } = ddsSettings;
@@ -31,9 +31,10 @@ const { prefix } = settings;
  * @param {object} props react proptypes
  * @param {object} props.navigation footer navigation object
  * @param {object} props.langCode langCode object { cc, lc }
+ * @param {boolean} props.disableLocaleButton Boolean to disable locale button
  * @returns {object} JSX object
  */
-const Footer = ({ type, navigation, langCode }) => {
+const Footer = ({ type, navigation, langCode, disableLocaleButton }) => {
   let [footerMenuData, setFooterMenuData] = useState([]);
   let [footerLegalData, setFooterLegalData] = useState([]);
   let [displayLang, setDisplayLang] = useState('');
@@ -89,7 +90,9 @@ const Footer = ({ type, navigation, langCode }) => {
         <div className={`${prefix}--footer__main-container`}>
           <FooterLogo />
           {optionalFooterNav(type, footerMenuData)}
-          <LocaleButton displayLang={displayLang} selectItem={selectItem} />
+          {!disableLocaleButton && (
+            <LocaleButton displayLang={displayLang} selectItem={selectItem} />
+          )}
         </div>
       </section>
       <LegalNav links={footerLegalData} />
@@ -130,6 +133,19 @@ Footer.propTypes = {
   navigation: PropTypes.object,
   type: PropTypes.string,
   langCode: PropTypes.object,
+  disableLocaleButton: PropTypes.bool,
+};
+
+/**
+ * @property defaultProps
+ * @type {{navigation: null, langCode: null, disableLocaleButton: boolean,
+ * type: string}}
+ */
+Footer.defaultProps = {
+  navigation: null,
+  type: 'full',
+  langCode: null,
+  disableLocaleButton: false,
 };
 
 export default Footer;

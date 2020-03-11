@@ -4,14 +4,16 @@ import root from 'window-or-global';
  * @constant {boolean} scrollTracker determines whether scroll tracking analytics is enabled
  * @private
  */
-const _scrollTracker = process.env.SCROLL_TRACKING === 'true' || false;
+const _scrollTracker =
+  (process && process.env.SCROLL_TRACKING === 'true') || false;
 
 /**
  * Current NODE_ENV
+ *
  * @type {string | string}
  * @private
  */
-const _env = process.env.NODE_ENV || 'development';
+const _env = (process && process.env.NODE_ENV) || 'development';
 
 /**
  * Analytics API class with methods for firing analytics events on

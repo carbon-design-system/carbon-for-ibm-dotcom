@@ -18,15 +18,20 @@
     flex-direction: column-reverse;
     margin-top: $carbon--layout-01;
 
-    @include carbon--breakpoint(md) {
-      flex-flow: row-reverse wrap-reverse;
+    @include carbon--breakpoint(lg) {
       justify-content: flex-end;
+      flex-direction: row-reverse;
     }
 
     .#{$prefix}--btn {
+      font-size: 1rem;
       position: relative;
       width: 100%;
       height: 100%;
+      &__icon {
+        width: auto;
+        height: auto;
+      }
     }
   }
 

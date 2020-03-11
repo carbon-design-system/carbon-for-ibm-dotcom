@@ -5,12 +5,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { act } from 'react-dom/test-utils';
+import { altlangs } from '@carbon/ibmdotcom-utilities';
 import { LocaleAPI } from '@carbon/ibmdotcom-services';
 import LocaleModal from '../LocaleModal';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { act } from 'react-dom/test-utils';
-import { altlangs } from '@carbon/ibmdotcom-utilities';
 
 const pageLangs = altlangs();
 
@@ -48,7 +48,7 @@ describe('<LocaleModal />', () => {
 
     expect(LocaleAPI.getLocale).toHaveBeenCalledTimes(1);
     expect(LocaleAPI.getList).toHaveBeenCalledTimes(1);
-    expect(localeModal.querySelectorAll('.bx--card-link')).toHaveLength(4);
+    expect(localeModal.querySelectorAll('.bx--card')).toHaveLength(4);
     expect(
       localeModal.querySelectorAll('.bx--locale-modal__filter')
     ).toHaveLength(1);

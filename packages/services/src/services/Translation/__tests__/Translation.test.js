@@ -1,6 +1,6 @@
-import TranslationAPI from '../Translation';
 import mockAxios from 'axios';
 import responseSuccess from './data/response.json';
+import TranslationAPI from '../Translation';
 
 jest.mock('../../Locale', () => ({
   LocaleAPI: {

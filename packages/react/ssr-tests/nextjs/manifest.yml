@@ -1,0 +1,10 @@
+---
+applications:
+  - name: ibmdotcom-nextjs-test
+    path: ./
+    memory: 512M
+    command: node server.js
+    routes:
+      - route: ibmdotcom-nextjs-test.mybluemix.net
+      - route: ibmdotcom-nextjs-test-temp.mybluemix.net
+

@@ -24,7 +24,6 @@
 
 <!-- Deploy Previews are enabled by applying the following labels for the corresponding package: -->
 <!-- *** "package: react" -->
-<!-- *** "package: patterns" -->
 <!-- *** "package: vanilla" -->
 <!-- *** "package: services" -->
 <!-- *** "package: utilities" -->

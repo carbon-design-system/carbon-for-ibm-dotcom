@@ -3,6 +3,850 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.4.1...@carbon/ibmdotcom-react@1.5.0-rc.0) (2020-03-06)
+
+### Bug Fixes
+
+- **accessibility:** added role and aria-labelledby on cards
+  ([7033207](https://github.com/carbon-design-system/ibm-dotcom-library/commit/7033207))
+- **accessibility:** removed trigger focus
+  ([d05244e](https://github.com/carbon-design-system/ibm-dotcom-library/commit/d05244e))
+- **alignment:** added sameheight for eyebrow to fix alignment
+  ([6c86a8b](https://github.com/carbon-design-system/ibm-dotcom-library/commit/6c86a8b))
+- **branch:** fixed merged conflicts
+  ([d35ed22](https://github.com/carbon-design-system/ibm-dotcom-library/commit/d35ed22))
+- **cardsection:** added role and aria-labelledby in card of cardSection
+  ([#1489](https://github.com/carbon-design-system/ibm-dotcom-library/issues/1489))
+  ([ca3c2af](https://github.com/carbon-design-system/ibm-dotcom-library/commit/ca3c2af))
+- **component:** add translation props
+  ([a46572f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/a46572f))
+- **content-item:** update readme with links to imagewithcaption
+  ([fca68e8](https://github.com/carbon-design-system/ibm-dotcom-library/commit/fca68e8))
+- **contentgroupcards:** raised test coverage on ContentGroupCards
+  ([ea9b68c](https://github.com/carbon-design-system/ibm-dotcom-library/commit/ea9b68c))
+- **docs:** changed image component reference on readme
+  ([bda3351](https://github.com/carbon-design-system/ibm-dotcom-library/commit/bda3351))
+- **docs:** update docs with new FPO image hosts
+  ([d57034d](https://github.com/carbon-design-system/ibm-dotcom-library/commit/d57034d))
+- **feature-card:** address small tweaks to readme
+  ([ddd9574](https://github.com/carbon-design-system/ibm-dotcom-library/commit/ddd9574))
+- **feature-card:** change icon position and accept icon as prop
+  ([cff070c](https://github.com/carbon-design-system/ibm-dotcom-library/commit/cff070c))
+- **feature-card:** correct cta object structure for icon
+  ([a23efba](https://github.com/carbon-design-system/ibm-dotcom-library/commit/a23efba))
+- **feature-card:** pass in correct card prop
+  ([60f0333](https://github.com/carbon-design-system/ibm-dotcom-library/commit/60f0333))
+- **feature-card:** remove unnecessary index scss file
+  ([162b9c1](https://github.com/carbon-design-system/ibm-dotcom-library/commit/162b9c1))
+- **feature-card:** renaming feature link to feature card
+  ([19234ed](https://github.com/carbon-design-system/ibm-dotcom-library/commit/19234ed))
+- **feature-card:** set card itself to hang
+  ([0bf92a5](https://github.com/carbon-design-system/ibm-dotcom-library/commit/0bf92a5))
+- **feature-card:** update prop type
+  ([ab50679](https://github.com/carbon-design-system/ibm-dotcom-library/commit/ab50679))
+- **feature-card:** update readme and prop docs
+  ([66d38f2](https://github.com/carbon-design-system/ibm-dotcom-library/commit/66d38f2))
+- **image:** align image props to func specs
+  ([c0c85cd](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c0c85cd))
+- **image-with-caption:** add grid to image with caption story
+  ([76cb568](https://github.com/carbon-design-system/ibm-dotcom-library/commit/76cb568))
+- **leadspace:** added gradient
+  ([43cfaee](https://github.com/carbon-design-system/ibm-dotcom-library/commit/43cfaee))
+- **leadspace:** adjust leadspace centered mobile
+  ([cf05a58](https://github.com/carbon-design-system/ibm-dotcom-library/commit/cf05a58))
+- **leadspace:** deleted leadspace centered
+  ([4ac73c3](https://github.com/carbon-design-system/ibm-dotcom-library/commit/4ac73c3))
+- **leadspace:** fixed alignment
+  ([744fc89](https://github.com/carbon-design-system/ibm-dotcom-library/commit/744fc89))
+- **leadspace:** remove buttongroup flag and update readme
+  ([f45d432](https://github.com/carbon-design-system/ibm-dotcom-library/commit/f45d432))
+- **leadspace:** remove centerContent func
+  ([9b33012](https://github.com/carbon-design-system/ibm-dotcom-library/commit/9b33012))
+- **leadspace:** remove leadspace centered from index file
+  ([395dc9b](https://github.com/carbon-design-system/ibm-dotcom-library/commit/395dc9b))
+- **leadspace:** remove window event listener
+  ([4763712](https://github.com/carbon-design-system/ibm-dotcom-library/commit/4763712))
+- **leadspace:** removed feature flag
+  ([b960a1a](https://github.com/carbon-design-system/ibm-dotcom-library/commit/b960a1a))
+- **leadspace:** removed feature flag from leadspace centered
+  ([1660ebd](https://github.com/carbon-design-system/ibm-dotcom-library/commit/1660ebd))
+- **leadspace:** removed featureflag from leadspace
+  ([13a91b3](https://github.com/carbon-design-system/ibm-dotcom-library/commit/13a91b3))
+- **mastheadprofile:** fixed styling of profile icon on masthead
+  ([fa8517d](https://github.com/carbon-design-system/ibm-dotcom-library/commit/fa8517d))
+- **pattern:** changes on props
+  ([24e124b](https://github.com/carbon-design-system/ibm-dotcom-library/commit/24e124b))
+- **pattern:** name change fixed on jump to menu
+  ([ce05b79](https://github.com/carbon-design-system/ibm-dotcom-library/commit/ce05b79))
+- **pattern:** switch back to delete operator
+  ([4fc1ff0](https://github.com/carbon-design-system/ibm-dotcom-library/commit/4fc1ff0))
+- **pattern:** updated according review comments
+  ([64b7efb](https://github.com/carbon-design-system/ibm-dotcom-library/commit/64b7efb))
+- **pattern:** use ContentGroupSimple in ContentBlockMedia
+  ([2eebb3a](https://github.com/carbon-design-system/ibm-dotcom-library/commit/2eebb3a))
+- **pattern:** validate and do not pass cta into cardsectionimages
+  ([2bd3f83](https://github.com/carbon-design-system/ibm-dotcom-library/commit/2bd3f83))
+- **profileicon:** fixed dropshadow and added focus on first item
+  ([36595b6](https://github.com/carbon-design-system/ibm-dotcom-library/commit/36595b6))
+- **readme:** rename to featurecard in readme
+  ([2aad63d](https://github.com/carbon-design-system/ibm-dotcom-library/commit/2aad63d))
+- **scss:** adjusted padding on mobile version to match design specs
+  ([d06cccb](https://github.com/carbon-design-system/ibm-dotcom-library/commit/d06cccb))
+- **scss:** adjusted padding on mobile version to match design specs
+  ([9d7ac4f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/9d7ac4f))
+- **spacing:** added correct spacing for card
+  ([991e84b](https://github.com/carbon-design-system/ibm-dotcom-library/commit/991e84b))
+- **spacing:** fixes spacing on the content group for the moment
+  ([2343059](https://github.com/carbon-design-system/ibm-dotcom-library/commit/2343059))
+- **spacing:** initial pass to fix contentitem spacing
+  ([753f1d2](https://github.com/carbon-design-system/ibm-dotcom-library/commit/753f1d2))
+- **spacing:** removing sub-pattern classnames from decorators
+  ([2182b7b](https://github.com/carbon-design-system/ibm-dotcom-library/commit/2182b7b))
+- **spacing:** worked to fix spacing in content block
+  ([abb3349](https://github.com/carbon-design-system/ibm-dotcom-library/commit/abb3349))
+- **story:** removed aria knob from story
+  ([65bf04a](https://github.com/carbon-design-system/ibm-dotcom-library/commit/65bf04a))
+- **storybook:** fix storybook var for TOC
+  ([d51778a](https://github.com/carbon-design-system/ibm-dotcom-library/commit/d51778a))
+- **storybook:** update FPO image host for stories
+  ([896ef4f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/896ef4f))
+- **styles:** fix to import in style build
+  ([e965755](https://github.com/carbon-design-system/ibm-dotcom-library/commit/e965755))
+- **sub-pattern:** screen reader content targeting
+  ([1a2fce3](https://github.com/carbon-design-system/ibm-dotcom-library/commit/1a2fce3))
+- **sub-pattern:** screen reader content targeting
+  ([80c82cc](https://github.com/carbon-design-system/ibm-dotcom-library/commit/80c82cc))
+
+### Features
+
+- **cardsectionimages:** added aspect ratio for cardsection images pattern
+  ([#1495](https://github.com/carbon-design-system/ibm-dotcom-library/issues/1495))
+  ([48f7d7a](https://github.com/carbon-design-system/ibm-dotcom-library/commit/48f7d7a))
+- **componont:** change component props to use json; fixes
+  [#1310](https://github.com/carbon-design-system/ibm-dotcom-library/issues/1310)
+  ([211fabb](https://github.com/carbon-design-system/ibm-dotcom-library/commit/211fabb))
+- **content-item:** update content item with imagewithcaption component
+  ([675dbad](https://github.com/carbon-design-system/ibm-dotcom-library/commit/675dbad))
+- **image-with-caption:** image with caption component)
+  ([98316da](https://github.com/carbon-design-system/ibm-dotcom-library/commit/98316da))
+- **layout:** added 2/3 - 1/3 layout
+  ([#1606](https://github.com/carbon-design-system/ibm-dotcom-library/issues/1606))
+  ([2255a54](https://github.com/carbon-design-system/ibm-dotcom-library/commit/2255a54))
+- **leadspace:** added background image functionality
+  ([3a7b6cf](https://github.com/carbon-design-system/ibm-dotcom-library/commit/3a7b6cf))
+- **leadspace:** merging centered leadspace with leadspace
+  ([9743fb4](https://github.com/carbon-design-system/ibm-dotcom-library/commit/9743fb4))
+- **learntest:** adding learn test page for nextjs
+  ([0f3c694](https://github.com/carbon-design-system/ibm-dotcom-library/commit/0f3c694))
+- **pattern:** added ### in CardSectionImages README file
+  ([67dcede](https://github.com/carbon-design-system/ibm-dotcom-library/commit/67dcede))
+- **pattern:** added boolean knob in cardSection -simple story
+  ([a4b5b96](https://github.com/carbon-design-system/ibm-dotcom-library/commit/a4b5b96))
+- **pattern:** added boolean knob to control a cta prop
+  ([f00296f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/f00296f))
+- **pattern:** added CTA inverse for cardSection simple
+  ([5a3a710](https://github.com/carbon-design-system/ibm-dotcom-library/commit/5a3a710))
+- **pattern:** added grid in story and cotainer
+  ([06ee965](https://github.com/carbon-design-system/ibm-dotcom-library/commit/06ee965))
+- **pattern:** added little condition to add cta based pattern type
+  ([793ea81](https://github.com/carbon-design-system/ibm-dotcom-library/commit/793ea81))
+- **pattern:** added scss, unittest and documentation
+  ([0300c0b](https://github.com/carbon-design-system/ibm-dotcom-library/commit/0300c0b))
+- **pattern:** added the README files for pattern and scss
+  ([c4e0acc](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c4e0acc))
+- **pattern:** added unit test case
+  ([b819730](https://github.com/carbon-design-system/ibm-dotcom-library/commit/b819730))
+- **pattern:** centered the LinkList in storybook
+  ([fcf141a](https://github.com/carbon-design-system/ibm-dotcom-library/commit/fcf141a))
+- **pattern:** changed prop name of Card content to copy
+  ([c4573b4](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c4573b4))
+- **pattern:** changed story name to - with images
+  ([07b24b0](https://github.com/carbon-design-system/ibm-dotcom-library/commit/07b24b0))
+- **pattern:** changed the heading to copy
+  ([b2d4448](https://github.com/carbon-design-system/ibm-dotcom-library/commit/b2d4448))
+- **pattern:** contentsection initial commit
+  ([6107d5c](https://github.com/carbon-design-system/ibm-dotcom-library/commit/6107d5c))
+- **pattern:** created LinkList pattern
+  ([2ba2129](https://github.com/carbon-design-system/ibm-dotcom-library/commit/2ba2129))
+- **pattern:** cta is now optional for content-group-pictograms
+  ([014d4fe](https://github.com/carbon-design-system/ibm-dotcom-library/commit/014d4fe))
+- **pattern:** gave spave for text knob
+  ([c60a938](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c60a938))
+- **pattern:** leaverage the cardSection cards array
+  ([44212b8](https://github.com/carbon-design-system/ibm-dotcom-library/commit/44212b8))
+- **pattern:** made changes according to review comments
+  ([39c6024](https://github.com/carbon-design-system/ibm-dotcom-library/commit/39c6024))
+- **pattern:** made changes as per review comments
+  ([85f1224](https://github.com/carbon-design-system/ibm-dotcom-library/commit/85f1224))
+- **pattern:** made changes as per review comments
+  ([b7eeffd](https://github.com/carbon-design-system/ibm-dotcom-library/commit/b7eeffd))
+- **pattern:** made changes as per review comments
+  ([9fb96f6](https://github.com/carbon-design-system/ibm-dotcom-library/commit/9fb96f6))
+- **pattern:** made changes cards.json fileds
+  ([ac05dcc](https://github.com/carbon-design-system/ibm-dotcom-library/commit/ac05dcc))
+- **pattern:** made changes in scss and jsx
+  ([26d8d62](https://github.com/carbon-design-system/ibm-dotcom-library/commit/26d8d62))
+- **pattern:** made changes to address the review comments
+  ([748903e](https://github.com/carbon-design-system/ibm-dotcom-library/commit/748903e))
+- **pattern:** made changes to the ontology and functional specs
+  ([322712b](https://github.com/carbon-design-system/ibm-dotcom-library/commit/322712b))
+- **pattern:** made changes to the ontology and functional specs
+  ([d49286d](https://github.com/carbon-design-system/ibm-dotcom-library/commit/d49286d))
+- **pattern:** made CTA inverse optional as a knob
+  ([7b67199](https://github.com/carbon-design-system/ibm-dotcom-library/commit/7b67199))
+- **pattern:** moved heading text knob to above
+  ([a8c75db](https://github.com/carbon-design-system/ibm-dotcom-library/commit/a8c75db))
+- **pattern:** pattern ontology development of card section
+  ([7d77ad8](https://github.com/carbon-design-system/ibm-dotcom-library/commit/7d77ad8))
+- **pattern:** props alignment in documentaion and scss
+  ([8f0bfe2](https://github.com/carbon-design-system/ibm-dotcom-library/commit/8f0bfe2))
+- **pattern:** removed cta prop from CardSectionImages story
+  ([48d2e3f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/48d2e3f))
+- **pattern:** renamed and updated as per functional specs
+  ([33a8458](https://github.com/carbon-design-system/ibm-dotcom-library/commit/33a8458))
+- **pattern:** responded to the review comments
+  ([9148b9f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/9148b9f))
+- **pattern:** responded to the review comments
+  ([f2bef6d](https://github.com/carbon-design-system/ibm-dotcom-library/commit/f2bef6d))
+- **pattern:** separated from cardSection story and repose to review
+  ([b43c020](https://github.com/carbon-design-system/ibm-dotcom-library/commit/b43c020))
+- **pattern:** separated from cardSection story and reponse to review
+  ([dbdbce6](https://github.com/carbon-design-system/ibm-dotcom-library/commit/dbdbce6))
+- **pattern:** small jsx changes and documentation
+  ([0477d6e](https://github.com/carbon-design-system/ibm-dotcom-library/commit/0477d6e))
+- **pattern:** small parameter changes
+  ([8df6d5c](https://github.com/carbon-design-system/ibm-dotcom-library/commit/8df6d5c))
+- **pattern:** updated and added scss documentation
+  ([c9d6f31](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c9d6f31))
+- **pattern:** updated as per the review comments
+  ([4b1f60f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/4b1f60f))
+- **pattern:** updated CTA style to card and updated styles
+  ([f92c6e0](https://github.com/carbon-design-system/ibm-dotcom-library/commit/f92c6e0))
+- **pattern:** updated styling and cards props
+  ([a1e8ceb](https://github.com/carbon-design-system/ibm-dotcom-library/commit/a1e8ceb))
+- **pattern:** updated the documentation
+  ([4c4284b](https://github.com/carbon-design-system/ibm-dotcom-library/commit/4c4284b))
+- **pattern:** updated the documentation
+  ([8c323b4](https://github.com/carbon-design-system/ibm-dotcom-library/commit/8c323b4))
+- **pattern:** updated the documentation
+  ([bc06cb0](https://github.com/carbon-design-system/ibm-dotcom-library/commit/bc06cb0))
+- **pattern:** updated the documentation
+  ([f567a96](https://github.com/carbon-design-system/ibm-dotcom-library/commit/f567a96))
+- **pattern:** updated the documentation
+  ([2c6b1ff](https://github.com/carbon-design-system/ibm-dotcom-library/commit/2c6b1ff))
+- **pattern:** updated the documentation and cards array
+  ([23a8453](https://github.com/carbon-design-system/ibm-dotcom-library/commit/23a8453))
+- **pattern:** updated the documentation as per review commnents
+  ([d7aaca1](https://github.com/carbon-design-system/ibm-dotcom-library/commit/d7aaca1))
+- **pattern:** updated the documentation as per review commnents
+  ([b2b0568](https://github.com/carbon-design-system/ibm-dotcom-library/commit/b2b0568))
+- **pattern:** updated the documentation as per review commnents
+  ([40c5c42](https://github.com/carbon-design-system/ibm-dotcom-library/commit/40c5c42))
+- **pattern:** updated the documentation as per review commnents
+  ([753e5f6](https://github.com/carbon-design-system/ibm-dotcom-library/commit/753e5f6))
+- **pattern:** updated the documents based on review
+  ([fe97913](https://github.com/carbon-design-system/ibm-dotcom-library/commit/fe97913))
+- **pattern:** updated the imports and README
+  ([1aa3e96](https://github.com/carbon-design-system/ibm-dotcom-library/commit/1aa3e96))
+- **pattern:** updated the jsx, documentation, story and scss
+  ([c9208db](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c9208db))
+- **pattern:** updated the modifier hyphen to underscore
+  ([fad11eb](https://github.com/carbon-design-system/ibm-dotcom-library/commit/fad11eb))
+- **pattern:** updated the README
+  ([07a88e9](https://github.com/carbon-design-system/ibm-dotcom-library/commit/07a88e9))
+- **pattern:** updated the README
+  ([8b2e280](https://github.com/carbon-design-system/ibm-dotcom-library/commit/8b2e280))
+- **pattern:** updated the README
+  ([bce39c9](https://github.com/carbon-design-system/ibm-dotcom-library/commit/bce39c9))
+- **pattern:** updated the README
+  ([1cd4a22](https://github.com/carbon-design-system/ibm-dotcom-library/commit/1cd4a22))
+- **pattern:** updated the README file
+  ([c6c11d8](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c6c11d8))
+- **pattern:** updated the scss and story
+  ([e758f75](https://github.com/carbon-design-system/ibm-dotcom-library/commit/e758f75))
+- **pattern:** updated the scss selector
+  ([9a4ea01](https://github.com/carbon-design-system/ibm-dotcom-library/commit/9a4ea01))
+- **pattern:** updated the scss selector and rules
+  ([ce6501c](https://github.com/carbon-design-system/ibm-dotcom-library/commit/ce6501c))
+- **pattern:** utilizing the ContentSection in CardSection pattern
+  ([eefedbf](https://github.com/carbon-design-system/ibm-dotcom-library/commit/eefedbf))
+- **story:** updated storybook
+  ([d302025](https://github.com/carbon-design-system/ibm-dotcom-library/commit/d302025))
+- **utility:** addressed the review comments
+  ([89c550c](https://github.com/carbon-design-system/ibm-dotcom-library/commit/89c550c))
+- **utility:** make use of smoothScroll util in tableOfContents
+  ([b79ef5a](https://github.com/carbon-design-system/ibm-dotcom-library/commit/b79ef5a))
+- **utility:** removed smoothScroll args, parameters from curly braces
+  ([b1fa073](https://github.com/carbon-design-system/ibm-dotcom-library/commit/b1fa073))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [1.4.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.4.1-rc.0...@carbon/ibmdotcom-react@1.4.1) (2020-02-28)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [1.4.1-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.4.0...@carbon/ibmdotcom-react@1.4.1-rc.0) (2020-02-26)
+
+### Bug Fixes
+
+- **css:** adds missing css to block-level patterns; fixes
+  [#1488](https://github.com/carbon-design-system/ibm-dotcom-library/issues/1488)
+  ([d3d6052](https://github.com/carbon-design-system/ibm-dotcom-library/commit/d3d6052))
+- **localebutton:** added prop to disable the locale button
+  ([dee069f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/dee069f))
+- **pattern:** fix block-level autoid structure; fixes
+  [#1490](https://github.com/carbon-design-system/ibm-dotcom-library/issues/1490)
+  ([e078536](https://github.com/carbon-design-system/ibm-dotcom-library/commit/e078536))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.4.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.4.0-rc.2...@carbon/ibmdotcom-react@1.4.0) (2020-02-25)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.4.0-rc.2](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.4.0-rc.1...@carbon/ibmdotcom-react@1.4.0-rc.2) (2020-02-25)
+
+### Bug Fixes
+
+- **dependencies:** updating utilities dependency to rc.1
+  ([efcdd19](https://github.com/carbon-design-system/ibm-dotcom-library/commit/efcdd19))
+- **featureflags:** removed unused feature flags
+  ([0642cde](https://github.com/carbon-design-system/ibm-dotcom-library/commit/0642cde))
+- **pattern:** listsection is now ContentBlockMixed
+  ([5b1edf2](https://github.com/carbon-design-system/ibm-dotcom-library/commit/5b1edf2))
+- **tableofcontents:** removed feature flag documentation
+  ([fbde8ce](https://github.com/carbon-design-system/ibm-dotcom-library/commit/fbde8ce))
+- **tableofcontents:** switch back from requestAnimationFrame
+  ([9b36ca3](https://github.com/carbon-design-system/ibm-dotcom-library/commit/9b36ca3))
+- **tableofcontents:** various fixes for dynamic menu items
+  ([5f59b83](https://github.com/carbon-design-system/ibm-dotcom-library/commit/5f59b83))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.4.0-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.4.0-rc.0...@carbon/ibmdotcom-react@1.4.0-rc.1) (2020-02-24)
+
+### Bug Fixes
+
+- **card:** adjust props to match card func specs
+  ([53de6b2](https://github.com/carbon-design-system/ibm-dotcom-library/commit/53de6b2))
+- **card:** change card proptype to object to avoid build error
+  ([d826aee](https://github.com/carbon-design-system/ibm-dotcom-library/commit/d826aee))
+- **card:** change class names for card
+  ([b4f8850](https://github.com/carbon-design-system/ibm-dotcom-library/commit/b4f8850))
+- **card:** feedback addressing
+  ([fe2f9ac](https://github.com/carbon-design-system/ibm-dotcom-library/commit/fe2f9ac))
+- **card:** fix content group prop pass to card
+  ([e96d1a8](https://github.com/carbon-design-system/ibm-dotcom-library/commit/e96d1a8))
+- **card:** high contrast modifier
+  ([dca7ae1](https://github.com/carbon-design-system/ibm-dotcom-library/commit/dca7ae1))
+- **card:** various adjustments to address feedback
+  ([1bea864](https://github.com/carbon-design-system/ibm-dotcom-library/commit/1bea864))
+- **component:** updates content item; PR fixes
+  ([62cb925](https://github.com/carbon-design-system/ibm-dotcom-library/commit/62cb925))
+- **content-group:** adjust prop to card for content-group component
+  ([b152842](https://github.com/carbon-design-system/ibm-dotcom-library/commit/b152842))
+- **content-group-simple:** adjust cta object in story
+  ([71a6160](https://github.com/carbon-design-system/ibm-dotcom-library/commit/71a6160))
+- **content-item:** change customClassName passed into CTA
+  ([70a9b21](https://github.com/carbon-design-system/ibm-dotcom-library/commit/70a9b21))
+- **css:** fix responsive image padding
+  ([e7155b2](https://github.com/carbon-design-system/ibm-dotcom-library/commit/e7155b2))
+- **cta:** adjust cta story props for card
+  ([d11c351](https://github.com/carbon-design-system/ibm-dotcom-library/commit/d11c351))
+- **cta:** change prop name to otherProps to avoid confusion
+  ([dacefea](https://github.com/carbon-design-system/ibm-dotcom-library/commit/dacefea))
+- **docs:** udpate readme
+  ([0306683](https://github.com/carbon-design-system/ibm-dotcom-library/commit/0306683))
+- **docs:** update prop names in readme
+  ([c29f284](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c29f284))
+- **docs:** update readme
+  ([17abefa](https://github.com/carbon-design-system/ibm-dotcom-library/commit/17abefa))
+- **docs:** update readme
+  ([3ce6514](https://github.com/carbon-design-system/ibm-dotcom-library/commit/3ce6514))
+- **docs:** update readme and stories
+  ([ad2f95b](https://github.com/carbon-design-system/ibm-dotcom-library/commit/ad2f95b))
+- **docs:** update README links
+  ([202332d](https://github.com/carbon-design-system/ibm-dotcom-library/commit/202332d))
+- **image:** add max-width and aspect ratio
+  ([7d19b17](https://github.com/carbon-design-system/ibm-dotcom-library/commit/7d19b17))
+- **images:** replaces FPO images; fixes
+  [#1316](https://github.com/carbon-design-system/ibm-dotcom-library/issues/1316)
+  ([28faf87](https://github.com/carbon-design-system/ibm-dotcom-library/commit/28faf87))
+- **images:** replaces FPO images; fixes
+  [#1316](https://github.com/carbon-design-system/ibm-dotcom-library/issues/1316)
+  ([4b46ffc](https://github.com/carbon-design-system/ibm-dotcom-library/commit/4b46ffc))
+- **jsx:** remove unused div
+  ([c4d3497](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c4d3497))
+- **patter:** update pattern markup; fixes
+  [#1263](https://github.com/carbon-design-system/ibm-dotcom-library/issues/1263)
+  ([85ba3ee](https://github.com/carbon-design-system/ibm-dotcom-library/commit/85ba3ee))
+- **pattern:** data object props instead of components
+  ([81c0fa8](https://github.com/carbon-design-system/ibm-dotcom-library/commit/81c0fa8))
+- **pattern:** fix CTA href prop
+  ([a82231b](https://github.com/carbon-design-system/ibm-dotcom-library/commit/a82231b))
+- **pattern:** optimize pattern iteration
+  ([c020b79](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c020b79))
+- **pattern:** removed intersection-observer and scroll fixed
+  ([f688b98](https://github.com/carbon-design-system/ibm-dotcom-library/commit/f688b98))
+- **pattern:** update pattern markup
+  ([6d97bb2](https://github.com/carbon-design-system/ibm-dotcom-library/commit/6d97bb2))
+- **pattern:** update pattern props for item copy
+  ([8cf9636](https://github.com/carbon-design-system/ibm-dotcom-library/commit/8cf9636))
+- **pattern:** update props types and data; update docs
+  ([c207a20](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c207a20))
+- **props:** fix ContentBlock copy proptype
+  ([bb8946b](https://github.com/carbon-design-system/ibm-dotcom-library/commit/bb8946b))
+- **props:** update cta object shape and heading
+  ([106c708](https://github.com/carbon-design-system/ibm-dotcom-library/commit/106c708))
+- **story:** abstract ContentGroupCards story data
+  ([e414c57](https://github.com/carbon-design-system/ibm-dotcom-library/commit/e414c57))
+- **story:** update CTA props in story
+  ([2b66300](https://github.com/carbon-design-system/ibm-dotcom-library/commit/2b66300))
+- **story:** update image fpo and css
+  ([b8f531b](https://github.com/carbon-design-system/ibm-dotcom-library/commit/b8f531b))
+- **story:** update story content paragraphs
+  ([dcad0c9](https://github.com/carbon-design-system/ibm-dotcom-library/commit/dcad0c9))
+- **story:** update story data
+  ([2fee536](https://github.com/carbon-design-system/ibm-dotcom-library/commit/2fee536))
+- **story:** update story data and readme
+  ([833240e](https://github.com/carbon-design-system/ibm-dotcom-library/commit/833240e))
+- **story:** update storybook
+  ([7cfa125](https://github.com/carbon-design-system/ibm-dotcom-library/commit/7cfa125))
+- **story:** use abstracted story data
+  ([52f3b42](https://github.com/carbon-design-system/ibm-dotcom-library/commit/52f3b42))
+- **styles:** fix to style imports
+  ([cfece30](https://github.com/carbon-design-system/ibm-dotcom-library/commit/cfece30))
+
+### Features
+
+- **component:** add ContentBlockSegmented pattern
+  ([9b99a5f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/9b99a5f))
+- **component:** adds ContentBlockMixedGroups pattern; fixes
+  [#1263](https://github.com/carbon-design-system/ibm-dotcom-library/issues/1263)
+  ([6cd9443](https://github.com/carbon-design-system/ibm-dotcom-library/commit/6cd9443))
+- **component:** adds ContentBlockSegmented component
+  ([da91ea1](https://github.com/carbon-design-system/ibm-dotcom-library/commit/da91ea1))
+- **component:** adds ContentBlockSimple component; fixes
+  [#1275](https://github.com/carbon-design-system/ibm-dotcom-library/issues/1275)
+  ([f154007](https://github.com/carbon-design-system/ibm-dotcom-library/commit/f154007))
+- **component:** update story and component; fixes
+  [#1267](https://github.com/carbon-design-system/ibm-dotcom-library/issues/1267)
+  ([789f32d](https://github.com/carbon-design-system/ibm-dotcom-library/commit/789f32d))
+- **docs:** add ContentBlockMixedGroups README
+  ([d65c921](https://github.com/carbon-design-system/ibm-dotcom-library/commit/d65c921))
+- **docs:** update readme and story
+  ([5a97f8a](https://github.com/carbon-design-system/ibm-dotcom-library/commit/5a97f8a))
+- **story:** add ContentBlockMixedGroups story
+  ([3d3627a](https://github.com/carbon-design-system/ibm-dotcom-library/commit/3d3627a))
+- **story:** add ContentBlockMixedGroups tests
+  ([8d541c9](https://github.com/carbon-design-system/ibm-dotcom-library/commit/8d541c9))
+- **storybook:** add reusable knob data
+  ([287cf85](https://github.com/carbon-design-system/ibm-dotcom-library/commit/287cf85))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.4.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.3.1...@carbon/ibmdotcom-react@1.4.0-rc.0) (2020-02-14)
+
+### Bug Fixes
+
+- **block:** changed functions and variable names
+  ([e9669e5](https://github.com/carbon-design-system/ibm-dotcom-library/commit/e9669e5))
+- **blocks:** rename UseCases to ContentBlockMedia
+  ([115de2f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/115de2f))
+- **blocks:** rename UseCases to ContentBlockMedia
+  ([b7e13d8](https://github.com/carbon-design-system/ibm-dotcom-library/commit/b7e13d8))
+- **branch:** fixed conflicts
+  ([3ca6b80](https://github.com/carbon-design-system/ibm-dotcom-library/commit/3ca6b80))
+- **card:** add markdown utility to card copy
+  ([75f5d82](https://github.com/carbon-design-system/ibm-dotcom-library/commit/75f5d82))
+- **card:** add static story for card
+  ([06882f9](https://github.com/carbon-design-system/ibm-dotcom-library/commit/06882f9))
+- **card:** adding static or unclickable option to card
+  ([4f606c8](https://github.com/carbon-design-system/ibm-dotcom-library/commit/4f606c8))
+- **card:** have icon outside of cta object
+  ([20ae2a6](https://github.com/carbon-design-system/ibm-dotcom-library/commit/20ae2a6))
+- **card:** opt out of bold instead in markdown utility
+  ([39fd949](https://github.com/carbon-design-system/ibm-dotcom-library/commit/39fd949))
+- **card:** pass classname to img and wrap transition
+  ([1388e3f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/1388e3f))
+- **card:** remove markdown utility in patterns using card
+  ([f2fdf9f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/f2fdf9f))
+- **card:** rename all cardlink to card
+  ([3ab94f7](https://github.com/carbon-design-system/ibm-dotcom-library/commit/3ab94f7))
+- **component:** fix conditional cta style assignment
+  ([a8cc77a](https://github.com/carbon-design-system/ibm-dotcom-library/commit/a8cc77a))
+- **component:** merge conflicts
+  ([5d179b4](https://github.com/carbon-design-system/ibm-dotcom-library/commit/5d179b4))
+- **component:** restore cta component
+  ([c2cd7b8](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c2cd7b8))
+- **component:** update ContentBlockMedia to use CTA
+  ([e551878](https://github.com/carbon-design-system/ibm-dotcom-library/commit/e551878))
+- **component:** use cta directly from ContentBlock
+  ([e2c2f3f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/e2c2f3f))
+- **content-item:** add unit test and adjust to feedback
+  ([271e02c](https://github.com/carbon-design-system/ibm-dotcom-library/commit/271e02c))
+- **content-item:** pass in href to cta object and adjust readme
+  ([378d443](https://github.com/carbon-design-system/ibm-dotcom-library/commit/378d443))
+- **content-item:** scss readme and adjustment to copy element
+  ([97cd95f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/97cd95f))
+- **css:** clean up css class names
+  ([4e1847d](https://github.com/carbon-design-system/ibm-dotcom-library/commit/4e1847d))
+- **docs:** docs updated
+  ([710df0a](https://github.com/carbon-design-system/ibm-dotcom-library/commit/710df0a))
+- **docs:** docs updated
+  ([a73da7a](https://github.com/carbon-design-system/ibm-dotcom-library/commit/a73da7a))
+- **docs:** docs updated
+  ([7fec545](https://github.com/carbon-design-system/ibm-dotcom-library/commit/7fec545))
+- **docs:** docs updated
+  ([1ca992a](https://github.com/carbon-design-system/ibm-dotcom-library/commit/1ca992a))
+- **docs:** docs updated and added to the storybook
+  ([240b8d8](https://github.com/carbon-design-system/ibm-dotcom-library/commit/240b8d8))
+- **docs:** documentation updated to reflect the naming changes
+  ([7d811db](https://github.com/carbon-design-system/ibm-dotcom-library/commit/7d811db))
+- **docs:** fixed mention to old pattern name
+  ([abce97f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/abce97f))
+- **docs:** update README; fix inconsistent naming
+  ([8155a4d](https://github.com/carbon-design-system/ibm-dotcom-library/commit/8155a4d))
+- **eslint:** adjust config for sort-imports in eslint
+  ([3a4a3dc](https://github.com/carbon-design-system/ibm-dotcom-library/commit/3a4a3dc))
+- **icon:** fix arrow icon usage
+  ([26ce826](https://github.com/carbon-design-system/ibm-dotcom-library/commit/26ce826))
+- **jest:** add stories to the file
+  ([eca0192](https://github.com/carbon-design-system/ibm-dotcom-library/commit/eca0192))
+- **logogrid:** fix to the storybook story nmame for logogrid
+  ([b49b3a1](https://github.com/carbon-design-system/ibm-dotcom-library/commit/b49b3a1))
+- **nextjs-test:** updated yarn lock file
+  ([ffc673f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/ffc673f))
+- **pattern:** added class-name as a prop and removed not used scss
+  ([68e2964](https://github.com/carbon-design-system/ibm-dotcom-library/commit/68e2964))
+- **pattern:** added class-name as a prop changed grid handling to story
+  ([4b968c8](https://github.com/carbon-design-system/ibm-dotcom-library/commit/4b968c8))
+- **pattern:** addresed the PR review comments
+  ([be02ca9](https://github.com/carbon-design-system/ibm-dotcom-library/commit/be02ca9))
+- **pattern:** changed class and stable selector namings to be compliant
+  ([8fda62d](https://github.com/carbon-design-system/ibm-dotcom-library/commit/8fda62d))
+- **pattern:** changed data structure to follow the card functional specs
+  ([80db7e1](https://github.com/carbon-design-system/ibm-dotcom-library/commit/80db7e1))
+- **pattern:** removed image styles and div it is using image component
+  ([49a6ad8](https://github.com/carbon-design-system/ibm-dotcom-library/commit/49a6ad8))
+- **patterns:** dev dependency fixes for react storybook
+  ([e49e622](https://github.com/carbon-design-system/ibm-dotcom-library/commit/e49e622))
+- **patterns:** enable terserplugin sourcemaps by env variable
+  ([5691c42](https://github.com/carbon-design-system/ibm-dotcom-library/commit/5691c42))
+- **patterns:** remove UseCase export
+  ([97c79aa](https://github.com/carbon-design-system/ibm-dotcom-library/commit/97c79aa))
+- **patterns:** storybook failure fix
+  ([6ea6282](https://github.com/carbon-design-system/ibm-dotcom-library/commit/6ea6282))
+- **prettier:** fix prettier errors
+  ([ef0a428](https://github.com/carbon-design-system/ibm-dotcom-library/commit/ef0a428))
+- **props:** moved cta type to inside of the script
+  ([4f38c91](https://github.com/carbon-design-system/ibm-dotcom-library/commit/4f38c91))
+- **readme:** updated documentation
+  ([c9dad36](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c9dad36))
+- **readme:** updated documentation
+  ([424331a](https://github.com/carbon-design-system/ibm-dotcom-library/commit/424331a))
+- **readme:** updated documentation
+  ([40aeabf](https://github.com/carbon-design-system/ibm-dotcom-library/commit/40aeabf))
+- **release:** resolve merge conflicts
+  ([dc80f5f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/dc80f5f))
+- **scss:** fixed selector for content-group story styling
+  ([e9934c6](https://github.com/carbon-design-system/ibm-dotcom-library/commit/e9934c6))
+- **ssr-test:** added ibm common
+  ([c5084f8](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c5084f8))
+- **ssr-test:** adding staging manifest file
+  ([9d156d4](https://github.com/carbon-design-system/ibm-dotcom-library/commit/9d156d4))
+- **ssr-test:** changed to loop data file
+  ([f4c0db9](https://github.com/carbon-design-system/ibm-dotcom-library/commit/f4c0db9))
+- **ssr-test:** fixes to properly load in the language/country combo
+  ([9001779](https://github.com/carbon-design-system/ibm-dotcom-library/commit/9001779))
+- **ssr-test:** removed unnecessary prop for altlang
+  ([07adc3d](https://github.com/carbon-design-system/ibm-dotcom-library/commit/07adc3d))
+- **ssr-test:** updates to the nextjs deployment to use express
+  ([f6bd788](https://github.com/carbon-design-system/ibm-dotcom-library/commit/f6bd788))
+- **story:** fixed missing class
+  ([2de7aaa](https://github.com/carbon-design-system/ibm-dotcom-library/commit/2de7aaa))
+- **storybook:** add FPO content to ContentBlock pattern story
+  ([54f5cf4](https://github.com/carbon-design-system/ibm-dotcom-library/commit/54f5cf4))
+- **storybook:** fixes IE11 loading issues in Storybook; fixes
+  [#840](https://github.com/carbon-design-system/ibm-dotcom-library/issues/840)
+  ([53d2fa3](https://github.com/carbon-design-system/ibm-dotcom-library/commit/53d2fa3))
+- **storybook:** move localemodal knob within story
+  ([e6f7e6d](https://github.com/carbon-design-system/ibm-dotcom-library/commit/e6f7e6d))
+- **sub-pattern:** cleaned the code old comments
+  ([b700823](https://github.com/carbon-design-system/ibm-dotcom-library/commit/b700823))
+- **svg:** removed custom view-box
+  ([fa0bfc7](https://github.com/carbon-design-system/ibm-dotcom-library/commit/fa0bfc7))
+- **test:** update variables in test
+  ([9947afd](https://github.com/carbon-design-system/ibm-dotcom-library/commit/9947afd))
+
+### Features
+
+- **block:** content-group-pictogram created
+  ([45947c7](https://github.com/carbon-design-system/ibm-dotcom-library/commit/45947c7))
+- **card:** use CTA component when card is static
+  ([b9855bc](https://github.com/carbon-design-system/ibm-dotcom-library/commit/b9855bc))
+- **cloud:** adding manifest file for react experimental staging
+  ([83d56f4](https://github.com/carbon-design-system/ibm-dotcom-library/commit/83d56f4))
+- **component:** add ContentBlock component
+  ([a74b860](https://github.com/carbon-design-system/ibm-dotcom-library/commit/a74b860))
+- **component:** add ContentBlock component
+  ([b383a8f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/b383a8f))
+- **component:** add ContentBlock component
+  ([bc18c02](https://github.com/carbon-design-system/ibm-dotcom-library/commit/bc18c02))
+- **component:** add ContentBlock component
+  ([851966f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/851966f))
+- **component:** add ContentBlockMedia story and README
+  ([31dd469](https://github.com/carbon-design-system/ibm-dotcom-library/commit/31dd469))
+- **component:** add ContentBlockMedia story and README
+  ([55430af](https://github.com/carbon-design-system/ibm-dotcom-library/commit/55430af))
+- **component:** added external type condition/changed to if else
+  ([f1884ee](https://github.com/carbon-design-system/ibm-dotcom-library/commit/f1884ee))
+- **component:** added smooth scroll for jump type removed target object
+  ([1f1ad4f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/1f1ad4f))
+- **component:** added the external and jump props
+  ([830a50c](https://github.com/carbon-design-system/ibm-dotcom-library/commit/830a50c))
+- **component:** addressed PR review comments
+  ([2b60331](https://github.com/carbon-design-system/ibm-dotcom-library/commit/2b60331))
+- **component:** addressed PR review comments
+  ([e7b2b3d](https://github.com/carbon-design-system/ibm-dotcom-library/commit/e7b2b3d))
+- **component:** changed the event from onClick to onMouseDown event
+  ([76e32fd](https://github.com/carbon-design-system/ibm-dotcom-library/commit/76e32fd))
+- **component:** changes
+  ([f994d34](https://github.com/carbon-design-system/ibm-dotcom-library/commit/f994d34))
+- **component:** content blocks initial commit
+  ([769288a](https://github.com/carbon-design-system/ibm-dotcom-library/commit/769288a))
+- **component:** content blocks initial commit
+  ([765ae7e](https://github.com/carbon-design-system/ibm-dotcom-library/commit/765ae7e))
+- **component:** created cta component and changing the data model
+  ([2b2d9da](https://github.com/carbon-design-system/ibm-dotcom-library/commit/2b2d9da))
+- **component:** created utility for smoothScrolling
+  ([7d4e186](https://github.com/carbon-design-system/ibm-dotcom-library/commit/7d4e186))
+- **component:** first commit
+  ([059b393](https://github.com/carbon-design-system/ibm-dotcom-library/commit/059b393))
+- **component:** fixed declarations in case/default clauses
+  ([69cd617](https://github.com/carbon-design-system/ibm-dotcom-library/commit/69cd617))
+- **component:** fixed lint issues and alignments in README
+  ([ca4d3b6](https://github.com/carbon-design-system/ibm-dotcom-library/commit/ca4d3b6))
+- **component:** made changes according to carbonIcons
+  ([eb8ed52](https://github.com/carbon-design-system/ibm-dotcom-library/commit/eb8ed52))
+- **component:** refactored the CTA and updated the README
+  ([9a48125](https://github.com/carbon-design-system/ibm-dotcom-library/commit/9a48125))
+- **component:** renamed Cta to CTA
+  ([1982e22](https://github.com/carbon-design-system/ibm-dotcom-library/commit/1982e22))
+- **component:** renamed Cta to CTA
+  ([e6cf625](https://github.com/carbon-design-system/ibm-dotcom-library/commit/e6cf625))
+- **component:** renamed Cta.stories to CTA.stories
+  ([36b6a3a](https://github.com/carbon-design-system/ibm-dotcom-library/commit/36b6a3a))
+- **component:** revert the change back to onClick event
+  ([c7882d5](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c7882d5))
+- **component:** reverted back contentGroup changes
+  ([fbf4b55](https://github.com/carbon-design-system/ibm-dotcom-library/commit/fbf4b55))
+- **component:** shifted title little up
+  ([4f2e0ac](https://github.com/carbon-design-system/ibm-dotcom-library/commit/4f2e0ac))
+- **component:** updated the buttonGrp and featureCard
+  ([57e7ae8](https://github.com/carbon-design-system/ibm-dotcom-library/commit/57e7ae8))
+- **component:** updated the CTA path name in story
+  ([66e1f79](https://github.com/carbon-design-system/ibm-dotcom-library/commit/66e1f79))
+- **component:** updated the document of util and added private to const
+  ([09af5d8](https://github.com/carbon-design-system/ibm-dotcom-library/commit/09af5d8))
+- **component:** updated to switch case and made few changes
+  ([bd8d783](https://github.com/carbon-design-system/ibm-dotcom-library/commit/bd8d783))
+- **component/pattern:** addressed PR comments, including 1173 changes
+  ([2c0d430](https://github.com/carbon-design-system/ibm-dotcom-library/commit/2c0d430))
+- **component/pattern:** exporting CTA inside index
+  ([8bded33](https://github.com/carbon-design-system/ibm-dotcom-library/commit/8bded33))
+- **content-item:** add cta component to content item
+  ([fe83e2e](https://github.com/carbon-design-system/ibm-dotcom-library/commit/fe83e2e))
+- **content-item:** add cta to readme for content item
+  ([d5358ac](https://github.com/carbon-design-system/ibm-dotcom-library/commit/d5358ac))
+- **content-item:** add grid to content item story
+  ([7806a29](https://github.com/carbon-design-system/ibm-dotcom-library/commit/7806a29))
+- **content-item:** export content item
+  ([85e02de](https://github.com/carbon-design-system/ibm-dotcom-library/commit/85e02de))
+- **content-item:** general styles for content item
+  ([c66f59f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c66f59f))
+- **content-item:** readme and stable selectors added
+  ([2785624](https://github.com/carbon-design-system/ibm-dotcom-library/commit/2785624))
+- **content-item:** set up of content item
+  ([588b9cd](https://github.com/carbon-design-system/ibm-dotcom-library/commit/588b9cd))
+- **flag:** remove feature flag from FeaturedLink
+  ([f59a22f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/f59a22f))
+- **pattern:** added area-label and area-hidden to pictogram-item
+  ([d3efd6c](https://github.com/carbon-design-system/ibm-dotcom-library/commit/d3efd6c))
+- **pattern:** added new spread to pictogram-item
+  ([ad252c9](https://github.com/carbon-design-system/ibm-dotcom-library/commit/ad252c9))
+- **pattern:** added the customeClassName as a prop
+  ([6d4d907](https://github.com/carbon-design-system/ibm-dotcom-library/commit/6d4d907))
+- **pattern:** added type prop for card
+  ([77bc0fa](https://github.com/carbon-design-system/ibm-dotcom-library/commit/77bc0fa))
+- **pattern:** changed back to CTA object from instanceOf
+  ([3915b46](https://github.com/carbon-design-system/ibm-dotcom-library/commit/3915b46))
+- **pattern:** content-group-simple block created
+  ([4d26e78](https://github.com/carbon-design-system/ibm-dotcom-library/commit/4d26e78))
+- **pattern:** content-group-simple block created
+  ([d59a6b5](https://github.com/carbon-design-system/ibm-dotcom-library/commit/d59a6b5))
+- **pattern:** contentBlockMedia pattern replaces UseCases; fixes
+  [#1238](https://github.com/carbon-design-system/ibm-dotcom-library/issues/1238)
+  ([cc0bbe6](https://github.com/carbon-design-system/ibm-dotcom-library/commit/cc0bbe6))
+- **pattern:** contentBlockMedia pattern replaces UseCases; fixes
+  [#1238](https://github.com/carbon-design-system/ibm-dotcom-library/issues/1238)
+  ([41e8a22](https://github.com/carbon-design-system/ibm-dotcom-library/commit/41e8a22))
+- **pattern:** cta added to content-group
+  ([97e6703](https://github.com/carbon-design-system/ibm-dotcom-library/commit/97e6703))
+- **pattern:** exporting CTA in inde
+  ([4ca7927](https://github.com/carbon-design-system/ibm-dotcom-library/commit/4ca7927))
+- **pattern:** fixed lint errors
+  ([1ec30f7](https://github.com/carbon-design-system/ibm-dotcom-library/commit/1ec30f7))
+- **pattern:** implemented spread props on pictogram
+  ([dd29c06](https://github.com/carbon-design-system/ibm-dotcom-library/commit/dd29c06))
+- **pattern:** name change and feature-flag removed
+  ([f764d6e](https://github.com/carbon-design-system/ibm-dotcom-library/commit/f764d6e))
+- **pattern:** name change and feature-flag removed
+  ([db5be90](https://github.com/carbon-design-system/ibm-dotcom-library/commit/db5be90))
+- **pattern:** new changes
+  ([c62a644](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c62a644))
+- **pattern:** removed feature flag
+  ([997b620](https://github.com/carbon-design-system/ibm-dotcom-library/commit/997b620))
+- **pattern:** rename the file content
+  ([aece66c](https://github.com/carbon-design-system/ibm-dotcom-library/commit/aece66c))
+- **pattern:** renamed to ContentGroup.stories.js
+  ([e9d9fb5](https://github.com/carbon-design-system/ibm-dotcom-library/commit/e9d9fb5))
+- **pattern:** resolved errors
+  ([422e84c](https://github.com/carbon-design-system/ibm-dotcom-library/commit/422e84c))
+- **pattern:** resolved issues
+  ([bd8a148](https://github.com/carbon-design-system/ibm-dotcom-library/commit/bd8a148))
+- **pattern:** resolved linting errors
+  ([a1b5e4b](https://github.com/carbon-design-system/ibm-dotcom-library/commit/a1b5e4b))
+- **pattern:** resolved reviews
+  ([14ed230](https://github.com/carbon-design-system/ibm-dotcom-library/commit/14ed230))
+- **pattern:** responded review comments
+  ([a065bde](https://github.com/carbon-design-system/ibm-dotcom-library/commit/a065bde))
+- **pattern:** updated comments
+  ([1f1aff9](https://github.com/carbon-design-system/ibm-dotcom-library/commit/1f1aff9))
+- **pattern:** updated functional specs, ontology ref and CTA
+  ([219a855](https://github.com/carbon-design-system/ibm-dotcom-library/commit/219a855))
+- **pattern:** updated image object structure, using the Image component
+  ([f04ac7b](https://github.com/carbon-design-system/ibm-dotcom-library/commit/f04ac7b))
+- **pattern:** updated reviews
+  ([1616375](https://github.com/carbon-design-system/ibm-dotcom-library/commit/1616375))
+- **pattern:** updated the README file for image component props
+  ([9354dce](https://github.com/carbon-design-system/ibm-dotcom-library/commit/9354dce))
+- **pattern:** updated the README file for image component props
+  ([f646dcc](https://github.com/carbon-design-system/ibm-dotcom-library/commit/f646dcc))
+- **pattern:** updated the reviews
+  ([b4ff668](https://github.com/carbon-design-system/ibm-dotcom-library/commit/b4ff668))
+- **pattern:** updated the scss,jsx and added new class in jsx
+  ([10cc03c](https://github.com/carbon-design-system/ibm-dotcom-library/commit/10cc03c))
+- **patterns:** patterns package re-org
+  ([b5b2633](https://github.com/carbon-design-system/ibm-dotcom-library/commit/b5b2633))
+- **patterns:** update reviews
+  ([d483f73](https://github.com/carbon-design-system/ibm-dotcom-library/commit/d483f73))
+- **readme:** add/update component README
+  ([92246ca](https://github.com/carbon-design-system/ibm-dotcom-library/commit/92246ca))
+- **readme:** readme added to storybook
+  ([836c159](https://github.com/carbon-design-system/ibm-dotcom-library/commit/836c159))
+- **ssr-test:** adding language switching capabilities to nextjs test
+  ([0a5c414](https://github.com/carbon-design-system/ibm-dotcom-library/commit/0a5c414))
+- **ssr-test:** adding nextjs ssr test application
+  ([61a8c9c](https://github.com/carbon-design-system/ibm-dotcom-library/commit/61a8c9c))
+- **ssr-test:** adding update script for staging environment
+  ([73ba8e3](https://github.com/carbon-design-system/ibm-dotcom-library/commit/73ba8e3))
+- **ssr-test:** fixes to production build
+  ([8fe3311](https://github.com/carbon-design-system/ibm-dotcom-library/commit/8fe3311))
+- **sub-pattern:** added unit-test and js and scss documentation
+  ([189a92b](https://github.com/carbon-design-system/ibm-dotcom-library/commit/189a92b))
+- **sub-pattern:** first version of pictogram-item
+  ([cc83bb2](https://github.com/carbon-design-system/ibm-dotcom-library/commit/cc83bb2))
+- **test:** content-group-cards test added
+  ([694cbfb](https://github.com/carbon-design-system/ibm-dotcom-library/commit/694cbfb))
+- **test:** content-group-cards test added
+  ([0f81ead](https://github.com/carbon-design-system/ibm-dotcom-library/commit/0f81ead))
+- **vanilla:** changed to linking to sample data instead
+  ([434e3a8](https://github.com/carbon-design-system/ibm-dotcom-library/commit/434e3a8))
+- **vanilla:** cleanup of vanilla storybook
+  ([0db130d](https://github.com/carbon-design-system/ibm-dotcom-library/commit/0db130d))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [1.3.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.3.1-rc.1...@carbon/ibmdotcom-react@1.3.1) (2020-02-11)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [1.3.1-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.3.1-rc.0...@carbon/ibmdotcom-react@1.3.1-rc.1) (2020-02-10)
+
+### Bug Fixes
+
+- **locale:** fixes locale for multiple langs; fixes
+  [#1347](https://github.com/carbon-design-system/ibm-dotcom-library/issues/1347)
+  ([05f6be0](https://github.com/carbon-design-system/ibm-dotcom-library/commit/05f6be0))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [1.3.1-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.3.0...@carbon/ibmdotcom-react@1.3.1-rc.0) (2020-02-06)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.3.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.3.0-rc.1...@carbon/ibmdotcom-react@1.3.0) (2020-01-27)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.3.0-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.3.0-rc.0...@carbon/ibmdotcom-react@1.3.0-rc.1) (2020-01-24)
+
+### Bug Fixes
+
+- **footer:** pass display language to the locale button
+  ([4b4ad03](https://github.com/carbon-design-system/ibm-dotcom-library/commit/4b4ad03))
+- **footer:** render modal when locale button is clicked
+  ([c23fdef](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c23fdef))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.3.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.2.1...@carbon/ibmdotcom-react@1.3.0-rc.0) (2020-01-20)
 
 ### Bug Fixes

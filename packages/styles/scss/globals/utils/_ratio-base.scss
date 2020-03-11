@@ -1,0 +1,20 @@
+// mixin to give the ratio for lays doen for an aspect ratio
+@import '../../globals/utils/aspect-ratio';
+
+@mixin ratio-base($height, $width) {
+  display: flex;
+
+  &::before {
+    content: '';
+    width: 1px;
+    margin-left: -1px;
+    float: left;
+    height: 0;
+    padding-top: aspect-ratio($height, $width);
+  }
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}

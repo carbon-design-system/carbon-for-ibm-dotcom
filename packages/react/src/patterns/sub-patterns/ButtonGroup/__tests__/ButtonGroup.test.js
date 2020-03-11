@@ -1,10 +1,6 @@
 import ButtonGroup from '../ButtonGroup';
-import React from 'react';
 import { mount } from 'enzyme';
-
-jest.mock('../../../../internal/FeatureFlags', () => ({
-  DDS_BUTTON_GROUP: true,
-}));
+import React from 'react';
 
 describe('<ButtonGroup />', () => {
   it('renders ButtonGroup as expected', () => {

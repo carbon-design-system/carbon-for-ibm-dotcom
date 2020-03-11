@@ -3,6 +3,149 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.4.1...@carbon/ibmdotcom-services@1.5.0-rc.0) (2020-03-06)
+
+### Bug Fixes
+
+- **storybook:** update FPO image host for stories
+  ([896ef4f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/896ef4f))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [1.4.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.4.1-rc.0...@carbon/ibmdotcom-services@1.4.1) (2020-02-28)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-services
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [1.4.1-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.4.0...@carbon/ibmdotcom-services@1.4.1-rc.0) (2020-02-26)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-services
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.4.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.4.0-rc.2...@carbon/ibmdotcom-services@1.4.0) (2020-02-25)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-services
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.4.0-rc.2](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.4.0-rc.1...@carbon/ibmdotcom-services@1.4.0-rc.2) (2020-02-25)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-services
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.4.0-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.4.0-rc.0...@carbon/ibmdotcom-services@1.4.0-rc.1) (2020-02-24)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-services
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.4.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.3.1...@carbon/ibmdotcom-services@1.4.0-rc.0) (2020-02-14)
+
+### Bug Fixes
+
+- **eslint:** adjust config for sort-imports in eslint
+  ([3a4a3dc](https://github.com/carbon-design-system/ibm-dotcom-library/commit/3a4a3dc))
+- **storybook:** fixes IE11 loading issues in Storybook; fixes
+  [#840](https://github.com/carbon-design-system/ibm-dotcom-library/issues/840)
+  ([53d2fa3](https://github.com/carbon-design-system/ibm-dotcom-library/commit/53d2fa3))
+
+### Features
+
+- **services:** added api method and updated the jsdoc
+  ([4c15c42](https://github.com/carbon-design-system/ibm-dotcom-library/commit/4c15c42))
+- **services:** created a videoplayer service to load script and embed
+  ([6b7cdf2](https://github.com/carbon-design-system/ibm-dotcom-library/commit/6b7cdf2))
+- **services:** kwidget.api warpped inside the checkScript
+  ([849364d](https://github.com/carbon-design-system/ibm-dotcom-library/commit/849364d))
+- **services:** removed tests for now
+  ([12d98ce](https://github.com/carbon-design-system/ibm-dotcom-library/commit/12d98ce))
+- **services:** updated the changes
+  ([a5407d9](https://github.com/carbon-design-system/ibm-dotcom-library/commit/a5407d9))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [1.3.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.3.1-rc.1...@carbon/ibmdotcom-services@1.3.1) (2020-02-11)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-services
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [1.3.1-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.3.1-rc.0...@carbon/ibmdotcom-services@1.3.1-rc.1) (2020-02-10)
+
+### Bug Fixes
+
+- **locale:** fixes locale for multiple langs; fixes
+  [#1347](https://github.com/carbon-design-system/ibm-dotcom-library/issues/1347)
+  ([05f6be0](https://github.com/carbon-design-system/ibm-dotcom-library/commit/05f6be0))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [1.3.1-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.3.0...@carbon/ibmdotcom-services@1.3.1-rc.0) (2020-02-06)
+
+### Bug Fixes
+
+- **locale:** fixes fallback when translation response fails; fixes
+  [#1300](https://github.com/carbon-design-system/ibm-dotcom-library/issues/1300)
+  ([b0a6089](https://github.com/carbon-design-system/ibm-dotcom-library/commit/b0a6089))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.3.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.3.0-rc.1...@carbon/ibmdotcom-services@1.3.0) (2020-01-27)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-services
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.3.0-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.3.0-rc.0...@carbon/ibmdotcom-services@1.3.0-rc.1) (2020-01-24)
+
+### Bug Fixes
+
+- **footer:** allow for getLangDisplay to recieve langCode param
+  ([8c71cee](https://github.com/carbon-design-system/ibm-dotcom-library/commit/8c71cee))
+- **footer:** render modal when locale button is clicked
+  ([c23fdef](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c23fdef))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.3.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.2.1...@carbon/ibmdotcom-services@1.3.0-rc.0) (2020-01-20)
 
 ### Bug Fixes

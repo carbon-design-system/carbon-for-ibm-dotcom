@@ -33,49 +33,29 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 > 💡 Don't forget to import the leadspace styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
-#### Feature Flags
-
-To utilize the following features, set the following variable's to `true` within
-your `.env` file or your application build settings.
-
-```
-DDS_LEADSPACE=true
-```
-
-> See
-> [feature-flags.md](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/patterns-react/docs/feature-flags.md)
-> and
-> [.env.example](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/patterns-react/.env.example)
-> for more information
-
 ## Props
 
-| Name        | Required | Data Type | Default Value | Description                                                                           |
-| ----------- | -------- | --------- | ------------- | ------------------------------------------------------------------------------------- |
-| `buttons`   | NO       | Array     | null          | Array of button objects to render (max 2). See `buttons` below.                       |
-| `copy`      | NO       | String    | null          | Short copy of LeadSpace.                                                              |
-| `gradient`  | NO       | Boolean   | false         | Determines whether to render overlay gradient.                                        |
-| `image`     | NO       | Object    | null          | Object with different ratio options for corresponding breakpoints. See `image` below. |
-| `theme`     | NO       | String    | 'white'       | Color theme of LeadSpace. See `themes` below.                                         |
-| `title`     | YES      | String    | n/a           | Title of LeadSpace.                                                                   |
-| `variation` | NO       | String    | 'expressive'  | Variation of LeadSpace title. See `variations` below.                                 |
+| Name       | Required | Data Type | Default Value | Description                                                                           |
+| ---------- | -------- | --------- | ------------- | ------------------------------------------------------------------------------------- |
+| `buttons`  | NO       | Array     | null          | Array of button objects to render (max 2). See `buttons` below.                       |
+| `copy`     | NO       | String    | null          | Short copy of LeadSpace.                                                              |
+| `gradient` | NO       | Boolean   | false         | Determines whether to render overlay gradient.                                        |
+| `image`    | NO       | Object    | null          | Object with different ratio options for corresponding breakpoints. See `image` below. |
+| `theme`    | NO       | String    | 'white'       | Color theme of LeadSpace. See `themes` below.                                         |
+| `title`    | YES      | String    | n/a           | Title of LeadSpace.                                                                   |
+| `type`     | NO       | String    | 'small'       | Sets the type of Leadspace layout. See `types` below.                                 |
 
 ### buttons (optional)
 
-| Name         | Data Type | Description                                                                                                                                                                                       |
-| ------------ | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `link`       | String    | Url of the CTA                                                                                                                                                                                    |
-| `copy`       | String    | CTA's text                                                                                                                                                                                        |
-| `renderIcon` | Component | Provide an optional icon for the CTA from [Carbon's icon library](https://www.carbondesignsystem.com/guidelines/icons/library), it must be imported with from `'@carbon/icons-react'` before used |
+Visit the
+[ButtonGroup storybook](https://ibmdotcom-react.mybluemix.net/?path=/story/patterns-sub-patterns-buttongroup--default)
+for more details on the ButtonGroup component.
 
 ### image (optional)
 
-| Name      | Data Type | Description                                                 |
-| --------- | --------- | ----------------------------------------------------------- |
-| `mobile`  | String    | Image with aspect ratio (320 x 370) for mobile breakpoint   |
-| `tablet`  | String    | Image with aspect ratio (672 x 400) for tablet breakpoint   |
-| `default` | String    | Image with aspect ratio (1056 x 480) for desktop breakpoint |
-| `alt`     | String    | Alt description of the image                                |
+Visit the
+[Image storybook](https://ibmdotcom-react.mybluemix.net/?path=/story/components-imagewithcaption--default)
+for more details on the ImageWithCaption component.
 
 ### themes (optional)
 
@@ -84,12 +64,13 @@ DDS_LEADSPACE=true
 | `white` | String    | Carbon White theme    |
 | `g100`  | String    | Carbon Gray 100 theme |
 
-### variations (optional)
+### type (optional)
 
-| Name                   | Data Type | Description                             |
-| ---------------------- | --------- | --------------------------------------- |
-| `expressive`/`default` | String    | Expressive style of the leadspace title |
-| `productive`           | String    | Productive style of the leadspace title |
+| Name              | Data Type | Description                                       |
+| ----------------- | --------- | ------------------------------------------------- |
+| `small`/`default` | String    | Left-aligned - small style of the leadspace title |
+| `left`            | String    | Left-aligned - large style of the leadspace title |
+| `centered`        | String    | Centered type of the LeadSpace                    |
 
 ## Stable selectors
 

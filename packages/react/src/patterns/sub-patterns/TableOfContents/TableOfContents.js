@@ -6,21 +6,39 @@
  */
 
 import React, { useEffect, useState } from 'react';
-import {
-  settings as ddsSettings,
-  featureFlag,
-} from '@carbon/ibmdotcom-utilities';
-import { DDS_TOC } from '../../../internal/FeatureFlags';
+import classNames from 'classnames';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+
 import Layout from '../Layout/Layout';
 import PropTypes from 'prop-types';
-import TOCDesktop from './TOCDesktop';
-import TOCMobile from './TOCMobile';
-import classNames from 'classnames';
 import root from 'window-or-global';
 import { settings } from 'carbon-components';
 
+import TOCDesktop from './TOCDesktop';
+import TOCMobile from './TOCMobile';
+
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
+
+/**
+ * loops into the array of elements and returns the values
+ *
+ * @private
+ * @returns {Array} returns elemenrt name and data title
+ */
+const _findMenuItems = () => {
+  const eles = document.querySelectorAll('a[name]');
+  const menuItems = [];
+  eles.forEach(element => {
+    if (element.getAttribute('name') !== 'menuLabel') {
+      menuItems.push({
+        id: element.getAttribute('name'),
+        title: element.getAttribute('data-title'),
+      });
+    }
+  });
+  return menuItems;
+};
 
 /**
  * Table of Contents pattern
@@ -28,16 +46,68 @@ const { prefix } = settings;
  * @param {object} props props object
  * @param {object} props.menuItems menu items object
  * @param {string} props.menuLabel mobile menu label
+ * @param {string} props.theme theme [g100/white]
+ * @param {number} props.stickyOffset offset amount for Layout (in pixels)
  * @param {*} props.children children property of component
  * @returns {*} JSX Object
  */
-const TableOfContents = ({ menuItems, children, menuLabel, theme }) => {
-  const [selectedId, setSelectedId] = useState(menuItems[0].id);
-  const [selectedTitle, setSelectedTitle] = useState(menuItems[0].title);
+const TableOfContents = ({
+  menuItems,
+  children,
+  menuLabel,
+  theme,
+  stickyOffset,
+}) => {
+  const [useMenuItems, setUseMenuItems] = useState([]);
+  const [selectedId, setSelectedId] = useState('');
+  const [selectedTitle, setSelectedTitle] = useState('');
 
   useEffect(() => {
-    scrollStop(setSelectedItem);
+    if (menuItems && menuItems.length) {
+      setUseMenuItems([...menuItems]);
+    } else {
+      setUseMenuItems(_findMenuItems());
+    }
+  }, [menuItems]);
+
+  useEffect(() => {
+    let id = useMenuItems[0] ? useMenuItems[0].id : '';
+    let title = useMenuItems[0] ? useMenuItems[0].title : '';
+    if (id === 'menuLabel' && useMenuItems[1]) {
+      id = useMenuItems[1].id;
+      title = useMenuItems[1].title;
+    }
+
+    setSelectedId(id);
+    setSelectedTitle(title);
+  }, [useMenuItems]);
+
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
+      window.requestAnimationFrame(setSelectedItem);
+    });
   });
+
+  /**
+   * Set selected id & title
+   *
+   */
+  const setSelectedItem = () => {
+    const elems = getElemsInView();
+    if (elems.length > 0) {
+      const id = elems[0] || useMenuItems[0].id;
+      const filteredItems = useMenuItems.filter(menu => {
+        if (id !== 'undefined') {
+          return menu.id === id;
+        }
+      });
+      if (filteredItems.length > 0 && filteredItems[0].title !== undefined) {
+        const title = filteredItems[0].title;
+        setSelectedId(id);
+        setSelectedTitle(title);
+      }
+    }
+  };
 
   /**
    * Check whether provided anchor tags are in visible viewport
@@ -64,44 +134,7 @@ const TableOfContents = ({ menuItems, children, menuLabel, theme }) => {
   };
 
   /**
-   * Set selected id & title
-   *
-   */
-  const setSelectedItem = () => {
-    const elems = getElemsInView();
-    const id = elems[0] || menuItems[0].id;
-    const filteredItems = menuItems.filter(menu => {
-      if (id !== 'undefined') {
-        return menu.id == id;
-      }
-    });
-    const title = filteredItems[0].title;
-    setSelectedId(id);
-    setSelectedTitle(title);
-  };
-
-  /**
-   * Detect scroll stop event and run callback function
-   *
-   * @param {*} callback callback function
-   */
-  const scrollStop = callback => {
-    if (!callback || typeof callback !== 'function') return;
-    let isScrolling;
-    root.addEventListener(
-      'scroll',
-      () => {
-        root.clearTimeout(isScrolling);
-        isScrolling = setTimeout(() => {
-          callback();
-        }, 66);
-      },
-      false
-    );
-  };
-
-  /**
-   *
+   * Sets the selected menu item
    *
    * @param {*} id selected id of menu item
    * @param {*} title selected title of menu item
@@ -122,14 +155,29 @@ const TableOfContents = ({ menuItems, children, menuLabel, theme }) => {
     return theme && `${prefix}--tableofcontents--${theme}`;
   };
 
+  /**
+   * Props for the Layout component
+   * @type {{marginBottom: string, type: string, marginTop: string}}
+   */
   const layoutProps = {
     type: '1-3',
     marginTop: 'none',
     marginBottom: 'none',
+    stickyOffset,
   };
 
+  /**
+   * Props for TOCDesktop and TOCMobile
+   * @type {{
+   * updateState: updateState,
+   * selectedId: string,
+   * menuItems: Array,
+   * selectedTitle: string,
+   * menuLabel: string
+   * }}
+   */
   const props = {
-    menuItems,
+    menuItems: useMenuItems,
     selectedId,
     selectedTitle,
     menuLabel,
@@ -141,8 +189,7 @@ const TableOfContents = ({ menuItems, children, menuLabel, theme }) => {
    *
    * @returns {*} JSX Object
    */
-  return featureFlag(
-    DDS_TOC,
+  return (
     <section
       data-autoid={`${stablePrefix}--tableofcontents`}
       className={classNames(`${prefix}--tableofcontents`, _setTheme(theme))}>
@@ -167,9 +214,21 @@ const TableOfContents = ({ menuItems, children, menuLabel, theme }) => {
 
 TableOfContents.propTypes = {
   menuItems: PropTypes.array,
-  children: PropTypes.array,
+  children: PropTypes.object,
   menuLabel: PropTypes.string,
   theme: PropTypes.string,
+  stickyOffset: PropTypes.number,
+};
+
+/**
+ * @property defaultProps
+ * @type {{marginBottom: null, stickyOffset: number, marginTop: null}}
+ */
+TableOfContents.defaultProps = {
+  menuItems: null,
+  menuLabel: 'Jump to',
+  theme: 'white',
+  stickyOffset: null,
 };
 
 export default TableOfContents;

@@ -5,9 +5,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import MastheadLogo from '@carbon/ibmdotcom-styles/icons/svg/IBM-8bar-logo--h23.svg';
 import React from 'react';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { settings } from 'carbon-components';
 
 const { stablePrefix } = ddsSettings;

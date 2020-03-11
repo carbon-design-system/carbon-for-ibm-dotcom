@@ -1,27 +1,27 @@
 import LeadSpaceImage from '../LeadSpaceImage';
-import React from 'react';
 import { mount } from 'enzyme';
+import React from 'react';
 
 describe('<LeadSpaceImage />', () => {
   it('renders expected number of source elements', () => {
     const image = [
       {
         minWidth: 0,
-        url: 'https://picsum.photos/id/1076/320/370',
+        url: 'https://dummyimage.com/320x370',
       },
       {
         minWidth: 672,
-        url: 'https://picsum.photos/id/1076/672/400',
+        url: 'https://dummyimage.com/672x400',
       },
       {
         minWidth: 1056,
-        url: 'https://picsum.photos/id/1076/1056/480',
+        url: 'https://dummyimage.com/1056x480',
       },
     ];
 
     const imageInfo = {
-      default: 'https://picsum.photos/id/1076/1056/480',
-      alt: 'lead space image',
+      default: 'https://dummyimage.com/1056x480',
+      alt: 'Image alt text',
     };
 
     const leadspaceImage = mount(

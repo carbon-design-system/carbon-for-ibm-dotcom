@@ -17,29 +17,33 @@
 @import 'components/image/image';
 @import 'components/lightbox-media-viewer/lightbox-media-viewer';
 @import 'components/link-with-icon/link-with-icon';
+@import 'components/locale-modal/locale-modal';
 @import 'components/masthead/index';
 
 // Patterns - Sections
 @import 'patterns/sections/card-section/card-section';
 @import 'patterns/sections/leadspace/leadspace';
-@import 'patterns/sections/leadspace-centered/leadspace-centered';
 @import 'patterns/sections/simplebenefits/simplebenefits';
 @import 'patterns/sections/simpleoverview/simpleoverview';
 
 // Patterns - Blocks
-@import 'patterns/blocks/cardarray/cardarray';
-@import 'patterns/blocks/FeaturedLink/featuredlink';
-@import 'patterns/blocks/listsection/listsection';
+@import 'patterns/blocks/content-block-media/index';
+@import 'patterns/blocks/content-block-mixed/index';
+@import 'patterns/blocks/content-block-segmented/index';
+@import 'patterns/blocks/content-block-simple/index';
+@import 'patterns/blocks/content-group-cards/index';
+@import 'patterns/blocks/content-group-pictograms/index';
+@import 'patterns/blocks/content-group-simple/index';
+@import 'patterns/blocks/feature-card/feature-card';
 @import 'patterns/blocks/logo-grid/logo-grid';
-@import 'patterns/blocks/pictogramarray/pictogramarray';
-@import 'patterns/blocks/simplelongform/simplelongform';
-@import 'patterns/blocks/usecases/usecases';
 
 // Patterns - Sub-Patterns
 @import 'patterns/sub-patterns/buttongroup/buttongroup';
-@import 'patterns/sub-patterns/card-link/index';
+@import 'patterns/sub-patterns/card/index';
 @import 'patterns/sub-patterns/content-group/content-group';
+@import 'patterns/sub-patterns/content-section/content-section';
 @import 'patterns/sub-patterns/layout/layout';
+@import 'patterns/sub-patterns/link-list/index';
 @import 'patterns/sub-patterns/tableofcontents/tableofcontents';
 
 // Temporary Expressive

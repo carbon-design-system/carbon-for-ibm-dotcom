@@ -22,9 +22,17 @@ import { ContentGroup } from '@carbon/ibmdotcom-react';
 import 'yourapplication.scss';
 
 function App() {
-  const copy = 'Lorem ipsum dolor sit amet.';
+  const heading = 'Lorem ipsum dolor sit amet.';
+  const cta = {
+    title: 'Lorem ipsum dolor sit amet',
+    href: 'https://www.example.com',
+  };
 
-  return <ContentGroup heading={copy}>//Content array goes here</ContentGroup>;
+  return (
+    <ContentGroup heading={heading} cta={cta}>
+      //Children goes here
+    </ContentGroup>
+  );
 }
 
 ReactDOM.render(<App />, document.querySelector('#app'));
@@ -35,9 +43,18 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 ## Props
 
-| Name      | Required | Data Type | Default Value | Description  |
-| --------- | -------- | --------- | ------------- | ------------ |
-| `heading` | NO       | String    | null          | Heading text |
+| Name        | Required | Data Type | Default Value | Description                                 |
+| ----------- | -------- | --------- | ------------- | ------------------------------------------- |
+| `heading`   | NO       | String    | null          | Heading text                                |
+| `children`  | NO       | Object    | null          | Container for other components.             |
+| `cta`       | NO       | CTA       | Card          | CTA type for more details see `CTA` below.  |
+| `className` | NO       | String    | null          | class to be applied to the containing node. |
+
+## CTA
+
+| Name  | Style | Type  | Description                                                                                                                                                     |
+| ----- | ----- | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `CTA` | Card  | local | Allowed style is Card and type is local for more details [see here](https://ibmdotcom-react-experimental.mybluemix.net/?path=/story/components-cta--default)!👀 |
 
 ## Stable selectors
 

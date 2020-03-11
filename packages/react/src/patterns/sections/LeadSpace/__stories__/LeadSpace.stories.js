@@ -7,145 +7,152 @@ import {
   text,
   withKnobs,
 } from '@storybook/addon-knobs';
-import { DDS_LEADSPACE } from '../../../../internal/FeatureFlags';
 import LeadSpace from '../LeadSpace';
 import React from 'react';
 import readme from '../README.md';
 import { storiesOf } from '@storybook/react';
 
-if (DDS_LEADSPACE) {
-  storiesOf('Patterns (Sections)|LeadSpace', module)
-    .addDecorator(withKnobs)
-    .addParameters({
-      readme: {
-        sidebar: readme,
+storiesOf('Patterns (Sections)|LeadSpace', module)
+  .addDecorator(withKnobs)
+  .addParameters({
+    readme: {
+      sidebar: readme,
+    },
+  })
+  .add('Default with no image', () => {
+    const copy = text(
+      'Copy',
+      'Use this area for a short line of copy to support the title'
+    );
+
+    const title = text('Title', 'Lead space title');
+
+    const type = {
+      left: '',
+      small: 'small',
+      centered: 'centered',
+    };
+
+    const iconMap = {
+      ArrowRight20,
+      ArrowDown20,
+      Pdf20,
+    };
+
+    const icons = {
+      ArrowRight: 'ArrowRight20',
+      ArrowDown: 'ArrowDown20',
+      Pdf: 'Pdf20',
+      none: null,
+    };
+
+    const buttons = [
+      {
+        link: '',
+        copy: text('Primary button copy:', 'Primary action button'),
+        renderIcon:
+          iconMap[select('Primary button icon', icons, icons.ArrowRight)],
+        href: text('Primary button link:', 'https://www.example.com'),
       },
-    })
-    .add('Default with no image', () => {
-      const copy = text(
-        'copy',
-        'Use this area for a short line of copy to support the title'
-      );
+      {
+        link: '',
+        copy: text('Secondary button copy:', 'Secondary action button'),
+        renderIcon:
+          iconMap[select('Secondary button icon', icons, icons.ArrowRight)],
+        href: text('Secondary button link:', 'https://www.example.com'),
+      },
+    ];
 
-      const title = text('title', 'Lead space title');
+    const themes = {
+      g100: 'g100',
+      white: '',
+    };
 
-      const variations = {
-        expressive: '',
-        productive: 'productive',
-      };
+    return (
+      <LeadSpace
+        type={select('Type', type, type.small)}
+        theme={select('Theme', themes, themes.g100)}
+        title={title}
+        copy={copy}
+        buttons={buttons}
+      />
+    );
+  })
+  .add('Default with image', () => {
+    const copy = text(
+      'Copy',
+      'Use this area for a short line of copy to support the title'
+    );
 
-      const iconMap = {
-        ArrowRight20,
-        ArrowDown20,
-        Pdf20,
-      };
+    const title = text('Title', 'Lead space title');
 
-      const icons = {
-        ArrowRight: 'ArrowRight20',
-        ArrowDown: 'ArrowDown20',
-        Pdf: 'Pdf20',
-        none: null,
-      };
+    const type = {
+      left: '',
+      small: 'small',
+      centered: 'centered',
+    };
 
-      const buttons = [
+    const images = {
+      sources: [
         {
-          link: '',
-          copy: text('Primary button copy:', 'Primary action button'),
-          renderIcon:
-            iconMap[select('primary button icon', icons, icons.ArrowRight)],
-          href: text('Primary button link:', 'https://www.example.com'),
+          src: 'https://dummyimage.com/320x370/ee5396/161616',
+          breakpoint: 'sm',
         },
         {
-          link: '',
-          copy: text('Secondary button copy:', 'Secondary action button'),
-          renderIcon:
-            iconMap[select('secondary button icon', icons, icons.ArrowRight)],
-          href: text('Secondary button link:', 'https://www.example.com'),
+          src: 'https://dummyimage.com/672x400/ee5396/161616',
+          breakpoint: 'md',
         },
-      ];
+      ],
+      default: 'https://dummyimage.com/1056x480/ee5396/161616',
+      alt: 'Image alt text',
+    };
 
-      const themes = {
-        g100: 'g100',
-        white: '',
-      };
+    const iconMap = {
+      ArrowRight20,
+      ArrowDown20,
+      Pdf20,
+    };
 
-      return (
-        <LeadSpace
-          theme={select('theme', themes, themes.g100)}
-          title={title}
-          copy={copy}
-          buttons={buttons}
-          variation={select('variation', variations, variations.expressive)}
-        />
-      );
-    })
-    .add('Default with image', () => {
-      const copy = text(
-        'copy',
-        'Use this area for a short line of copy to support the title'
-      );
+    const icons = {
+      ArrowRight: 'ArrowRight20',
+      ArrowDown: 'ArrowDown20',
+      Pdf: 'Pdf20',
+      none: null,
+    };
 
-      const title = text('title', 'Lead space title');
+    const buttons = [
+      {
+        link: '',
+        copy: text('Primary button copy:', 'Primary action button'),
+        renderIcon:
+          iconMap[select('Primary button icon', icons, icons.ArrowRight)],
+        href: text('Primary button link:', 'https://www.example.com'),
+      },
+      {
+        link: '',
+        copy: text('Secondary button copy:', 'Secondary action button'),
+        renderIcon:
+          iconMap[select('Secondary button icon', icons, icons.ArrowRight)],
+        href: text('Secondary button link:', 'https://www.example.com'),
+      },
+    ];
 
-      const variations = {
-        expressive: '',
-        productive: 'productive',
-      };
+    const themes = {
+      g100: 'g100',
+      white: '',
+    };
 
-      const images = {
-        mobile: 'https://picsum.photos/id/1076/320/370',
-        tablet: 'https://picsum.photos/id/1076/672/400',
-        default: 'https://picsum.photos/id/1076/1056/480',
-        alt: 'lead space image',
-      };
+    const gradient = boolean('gradient overlay', true);
 
-      const iconMap = {
-        ArrowRight20,
-        ArrowDown20,
-        Pdf20,
-      };
-
-      const icons = {
-        ArrowRight: 'ArrowRight20',
-        ArrowDown: 'ArrowDown20',
-        Pdf: 'Pdf20',
-        none: null,
-      };
-
-      const buttons = [
-        {
-          link: '',
-          copy: text('Primary button copy:', 'Primary action button'),
-          renderIcon:
-            iconMap[select('primary button icon', icons, icons.ArrowRight)],
-          href: text('Primary button link:', 'https://www.example.com'),
-        },
-        {
-          link: '',
-          copy: text('Secondary button copy:', 'Secondary action button'),
-          renderIcon:
-            iconMap[select('secondary button icon', icons, icons.ArrowRight)],
-          href: text('Secondary button link:', 'https://www.example.com'),
-        },
-      ];
-
-      const themes = {
-        g100: 'g100',
-        white: '',
-      };
-
-      const gradient = boolean('gradient overlay', true);
-
-      return (
-        <LeadSpace
-          theme={select('theme', themes, themes.g100)}
-          title={title}
-          copy={copy}
-          gradient={gradient}
-          buttons={buttons}
-          image={object('image', images)}
-          variation={select('variation', variations, variations.expressive)}
-        />
-      );
-    });
-}
+    return (
+      <LeadSpace
+        type={select('Type', type, type.small)}
+        theme={select('Theme', themes, themes.g100)}
+        title={title}
+        copy={copy}
+        gradient={gradient}
+        buttons={buttons}
+        image={object('Image', images)}
+      />
+    );
+  });
