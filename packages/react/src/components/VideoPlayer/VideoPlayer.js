@@ -9,7 +9,7 @@ import React, { useEffect } from 'react';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
 import { settings } from 'carbon-components';
-import { VideoPlayerAPI } from '@carbon/ibmdotcom-services/lib/services/VideoPlayer';
+import { VideoPlayerAPI } from '@carbon/ibmdotcom-services';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
@@ -20,22 +20,22 @@ const { prefix } = settings;
  * @param {string} videoId Kaltura video id
  * @returns {*} VideoPlayer components
  */
-const VideoPlayer = ({ videoId, videoTarget }) => {
+const VideoPlayer = ({ videoId }) => {
+  const videoPlayerId = `video-player__video-${videoId}`;
+
   useEffect(() => {
     (async () => {
-      await VideoPlayerAPI.embedVideo(videoId, videoTarget);
+      await VideoPlayerAPI.embedVideo(videoId, `${prefix}--${videoPlayerId}`);
     })();
   });
 
   return (
     <div
       className={`${prefix}--video-player__container`}
-      data-autoid={`${stablePrefix}--video-player-${videoId}`}>
+      data-autoid={`${stablePrefix}--${videoPlayerId}`}>
       <div
-        id={`${videoTarget}`}
-        className={`${prefix}--lighbox-media-viewer__content__videoPlayer`}>
-        Hello
-      </div>
+        className={`${prefix}--video-player__video`}
+        id={`${prefix}--${videoPlayerId}`}></div>
     </div>
   );
 };
@@ -48,7 +48,6 @@ const VideoPlayer = ({ videoId, videoTarget }) => {
  */
 VideoPlayer.propTypes = {
   videoId: PropTypes.string.isRequired,
-  videoTarget: PropTypes.string.isRequired,
 };
 
 export default VideoPlayer;
