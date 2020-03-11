@@ -6,18 +6,11 @@
 //
 
 @import '../../../globals/imports';
-@import '../../../globals/utils/vendor-prefix';
 
 @mixin layout {
   .#{$prefix}--layout {
     &--sticky {
-      @include prefix(
-        (
-          position: sticky,
-        ),
-        webkit
-      );
-
+      position: sticky;
       top: 0;
       z-index: 1;
     }
