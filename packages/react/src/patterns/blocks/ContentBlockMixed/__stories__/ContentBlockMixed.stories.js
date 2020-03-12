@@ -32,7 +32,7 @@ storiesOf('Patterns (Blocks)|ContentBlockMixed', module)
       cta: {
         href: 'https://www.ibm.com',
       },
-      style: select('CTA style', ctaStyles, ctaStyles.card),
+      style: 'card',
       type: select('CTA type', ctaTypes, ctaTypes.local),
       heading: 'Lorem ipsum dolor sit amet',
       copy: 'Lorem ipsum dolor sit ametttt',
