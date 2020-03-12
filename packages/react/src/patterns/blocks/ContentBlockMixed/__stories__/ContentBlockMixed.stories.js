@@ -17,10 +17,6 @@ storiesOf('Patterns (Blocks)|ContentBlockMixed', module)
   })
   .add('Default', () => {
     const heading = 'Lorem ipsum dolor sit amet';
-    const ctaStyles = {
-      text: 'text',
-      card: 'card',
-    };
 
     const ctaTypes = {
       local: 'local',
