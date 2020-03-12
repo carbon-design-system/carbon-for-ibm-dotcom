@@ -43,7 +43,7 @@ function _updateChild(type, stickyOffset, children) {
         <div
           className={classnames(
             _types[type] && _types[type][i]
-              ? `${_types[type][i]} ${prefix}--layout--sticky`
+              ? `${_types[type][i]} ${prefix}--layout--sticky-mobile`
               : `${prefix}--col`
           )}
           key={i}
@@ -53,7 +53,7 @@ function _updateChild(type, stickyOffset, children) {
           {React.cloneElement(child, {
             className: classnames(
               child.props.className,
-              `${prefix}--layout--sticky`
+              `${prefix}--layout--sticky-desktop`
             ),
             style: {
               top: stickyOffset ? `${stickyOffset}px` : 0,
