@@ -69,9 +69,10 @@ const renderCTA = ({ style, type, ...otherProps }) => {
       );
     default: {
       const Icon = _iconSelector(type);
+      const href = otherProps.href ? otherProps.href : otherProps.cta.href;
       return (
         <LinkWithIcon
-          href={otherProps.cta.href}
+          href={href}
           target={_external(type)}
           onClick={e => _jump(e, type)}>
           {otherProps.copy}
