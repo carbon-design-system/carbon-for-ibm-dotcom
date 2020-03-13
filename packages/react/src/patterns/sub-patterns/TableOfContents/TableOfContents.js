@@ -188,7 +188,7 @@ const TableOfContents = ({
    */
   const validateMenuItems = menuItems => {
     return menuItems.filter(
-      item => item.title.length > 0 && item.id.length > 0
+      item => item.title.trim().length > 0 && item.id.trim().length > 0
     );
   };
 
