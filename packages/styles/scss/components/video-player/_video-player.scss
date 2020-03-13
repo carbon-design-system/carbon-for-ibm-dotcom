@@ -28,6 +28,11 @@
         margin-top: 56.25%;
       }
     }
+
+    &__description {
+      padding-top: $spacing-05;
+      color: $text-05;
+    }
   }
 }
 
