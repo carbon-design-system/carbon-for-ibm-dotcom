@@ -34,20 +34,10 @@ let _attempt = 0;
 /**
  * Tracks the script status
  *
- * @type {boolean} _scriptLoaded to track the script loaded or not
- * @private
- */
-// let _scriptLoaded = false;
-
-/**
- * Tracks the script status
- *
  * @type {boolean} _scriptLoading to track the script loading or not
  * @private
  */
 let _scriptLoading = false;
-
-// let kWidget;
 
 /**
  * Timeout loop to check script state is the _scriptLoaded state or _scriptLoading state

@@ -18,18 +18,17 @@ const { prefix } = settings;
  * VideoPlayer component
  *
  * @param {string} videoId Kaltura video id
- * @returns {*} VideoPlayer components
+ * @returns {*} VideoPlayer component
  */
 const VideoPlayer = ({ videoId, showDescription }) => {
-  const videoPlayerId = `video-player__video-${videoId}`;
   const [videoData, setVideoData] = useState({});
-  const [videoDuration, setVideoDuration] = useState(0);
+  const videoPlayerId = `video-player__video-${videoId}`;
+  const videoDuration = videoTime(videoData.msDuration);
 
   useEffect(() => {
     (async () => {
       await VideoPlayerAPI.embedVideo(videoId, `${prefix}--${videoPlayerId}`);
-      const getVideoData = await VideoPlayerAPI.api(videoId);
-      setVideoData(getVideoData);
+      setVideoData(await VideoPlayerAPI.api(videoId));
     })();
   }, [videoId, videoPlayerId]);
 
@@ -48,10 +47,6 @@ const VideoPlayer = ({ videoId, showDescription }) => {
 
     return hours + minutes + ':' + seconds;
   }
-
-  useEffect(() => {
-    setVideoDuration(videoTime(videoData.msDuration));
-  }, [videoData.msDuration]);
 
   return (
     <>
