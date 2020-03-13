@@ -13,7 +13,9 @@ Here's a quick example to get you started.
 @import '@carbon/ibmdotcom-styles/scss/patterns/sub-patterns/content-group';
 ```
 
-> 💡 Only import font's once per usage
+> 💡 Only import fonts once per usage. Don't forget to import the ContentSection
+> styles from
+> [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
 ```javascript
 import React from 'react';
@@ -25,9 +27,7 @@ function App() {
   const heading = 'Lorem ipsum dolor sit amet.';
 
   return (
-    <ContentSection heading={heading}>
-      //Children goes here
-    </ContentGroup>
+    <ContentSection heading={heading}>//Children goes here</ContentSection>
   );
 }
 
