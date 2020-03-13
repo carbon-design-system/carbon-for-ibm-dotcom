@@ -29,14 +29,11 @@ const TOCMobile = ({ menuItems, selectedId, menuLabel, updateState }) => {
   const [selectedOption, setSelectedOption] = useState('menuLabel');
 
   useEffect(() => {
-    if (areElementsVisible(document.querySelectorAll(`a[name]`))[0]) {
-      setSelectedOption('menuLabel');
-    } else if (!areElementsVisible(document.querySelectorAll(`a[name]`))[0]) {
-      setSelectedOption(selectedId);
-    }
+    setSelectedOption(selectedId);
   }, [selectedId]);
 
   /**
+<<<<<<< HEAD
    * Check if elements are visible
    *
    * @param {Array} elements array of HTML components to be checked to be on screen
@@ -58,6 +55,8 @@ const TOCMobile = ({ menuItems, selectedId, menuLabel, updateState }) => {
     return elemsPos;
   };
   /**
+=======
+>>>>>>> fix(pattern): fixed dropdown label for  mobile
    * Handle onChange event of select
    *
    * @param {*} e event object
