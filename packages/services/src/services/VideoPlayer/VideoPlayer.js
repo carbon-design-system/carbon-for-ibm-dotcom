@@ -81,20 +81,6 @@ function _scriptReady(resolve, reject) {
 }
 
 /**
- *
- * Check to kWidget object exists or not
- * @private
- */
-// function _checkKWidget() {
-//   if (root.kWidget) {
-//     _scriptLoading = false;
-//     return true;
-//   } else {
-//     return false;
-//   }
-// }
-
-/**
  * Returns boolean if the _scriptLoading and _scriptLoaded flag is false
  *
  * @private
@@ -142,6 +128,11 @@ class VideoPlayerAPI {
         entry_id: videoId,
         flashvars: {
           autoPlay: false,
+          titleLabel: {
+            plugin: true,
+            align: 'left',
+            text: '{mediaProxy.entry.name}',
+          },
         },
         // Ready callback is issued for this player:
         readyCallback: function(playerId) {
@@ -193,17 +184,18 @@ class VideoPlayerAPI {
    */
   static async api(videoId) {
     return await this.checkScript().then(() => {
-      new root.kWidget.api({ wid: _partnerId }).doRequest(
-        {
-          service: 'media',
-          action: 'get',
-          entryId: videoId,
-        },
-        function(jsonObj) {
-          console.log('jsonObj', jsonObj);
-          return jsonObj;
-        }
-      );
+      return new Promise(resolve => {
+        return new root.kWidget.api({ wid: _partnerId }).doRequest(
+          {
+            service: 'media',
+            action: 'get',
+            entryId: videoId,
+          },
+          function(jsonObj) {
+            resolve(jsonObj);
+          }
+        );
+      });
     });
   }
 }
