@@ -6,8 +6,11 @@
  */
 
 import { CardSection } from '../CardSection';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
 import React from 'react';
+
+const { stablePrefix } = ddsSettings;
 
 /**
  * CardSectionImages pattern it is Cards with images
@@ -22,7 +25,13 @@ const CardSectionImages = ({ cards, ...otherProps }) => {
       image && eyebrow && heading && !copy && href
   );
   delete otherProps.cta;
-  return <CardSection {...otherProps} cards={cardsWithImages} />;
+  return (
+    <CardSection
+      {...otherProps}
+      autoid={`${stablePrefix}--card-section-images-section`}
+      cards={cardsWithImages}
+    />
+  );
 };
 
 CardSectionImages.propTypes = {
