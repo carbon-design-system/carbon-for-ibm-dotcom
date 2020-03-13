@@ -191,7 +191,6 @@ class VideoPlayerAPI {
             entryId: videoId,
           },
           function(response) {
-            console.log('3');
             resolve(response);
           }
         );

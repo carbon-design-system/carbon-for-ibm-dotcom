@@ -14,9 +14,8 @@ function _kWidgetMock() {
        * mock constructor for the kWidget api class
        */
       constructor() {
-        this.doRequest = () => {
-          console.log('hah!');
-          return response;
+        this.doRequest = (obj, cb) => {
+          cb(response);
         };
       }
     },
