@@ -1,3 +1,5 @@
+import root from 'window-or-global';
+
 /**
  * These id's for production use of IBM.com
  * @type {number} _partnerId The ID of your Kaltura account (aka partnerId)
@@ -32,20 +34,25 @@ let _attempt = 0;
 /**
  *
  * Tracks the script status
- * @type {boolean} _scriptLoaded to track the script loaded or not
- * @private
- */
-let _scriptLoaded = false;
-
-/**
- *
- * Tracks the script status
  * * @type {boolean} _scriptLoading to track the script loading or not
  * @private
  */
 let _scriptLoading = false;
 
-let kWidget;
+/**
+ * Determines if the kWidget object exists
+ *
+ * @returns {boolean} kWidget exists
+ * @private
+ */
+function _scriptLoaded() {
+  if (root.kWidget) {
+    _scriptLoading = false;
+    return true;
+  } else {
+    return false;
+  }
+}
 
 /**
  *
@@ -88,11 +95,6 @@ function _loadScript() {
   script.src = _embedUrl;
   script.async = true;
   document.body.appendChild(script);
-
-  script.onload = function() {
-    _scriptLoaded = true;
-    _scriptLoading = false;
-  };
 }
 
 /**
@@ -123,7 +125,7 @@ class VideoPlayerAPI {
    */
   static async embedVideo(videoId, targetId) {
     return await this.checkScript().then(() => {
-      kWidget.embed({
+      root.kWidget.embed({
         targetId: targetId,
         wid: '_' + _partnerId,
         uiconf_id: _uiConfId,
@@ -181,16 +183,19 @@ class VideoPlayerAPI {
    */
   static async api(videoId) {
     return await this.checkScript().then(() => {
-      new kWidget.api({ wid: _partnerId }).doRequest(
-        {
-          service: 'media',
-          action: 'get',
-          entryId: videoId,
-        },
-        function(jsonObj) {
-          return jsonObj;
-        }
-      );
+      return new Promise(resolve => {
+        new root.kWidget.api({ wid: _partnerId }).doRequest(
+          {
+            service: 'media',
+            action: 'get',
+            entryId: videoId,
+          },
+          function(response) {
+            console.log('3');
+            resolve(response);
+          }
+        );
+      });
     });
   }
 }
