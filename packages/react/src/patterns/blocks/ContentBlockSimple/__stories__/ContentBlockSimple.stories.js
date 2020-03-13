@@ -16,12 +16,23 @@ storiesOf('Patterns (Blocks)|ContentBlockSimple', module)
     },
   })
   .add('Default', () => {
+    const ctaStyles = {
+      text: 'text',
+      card: 'card',
+    };
+
+    const ctaTypes = {
+      local: 'local',
+      jump: 'jump',
+      external: 'external',
+    };
+
     const ctaProps = {
       cta: {
         href: 'https://www.ibm.com',
       },
-      style: 'card',
-      type: 'external',
+      style: select('CTA style', ctaStyles, ctaStyles.card),
+      type: select('CTA type', ctaTypes, ctaTypes.local),
       heading: 'Lorem ipsum dolor sit amet',
       copy: 'Lorem ipsum dolor sit ametttt',
     };

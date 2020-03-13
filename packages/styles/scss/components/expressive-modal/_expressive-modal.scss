@@ -56,7 +56,8 @@
         #{$modal}-container {
           width: calc(100% - #{$carbon--spacing-07});
           max-width: calc(100% - #{$carbon--spacing-07});
-          max-height: calc(100% - #{$carbon--spacing-07});
+          height: calc(100% - #{$carbon--spacing-07});
+          max-height: none;
           padding-bottom: 0;
         }
       }
