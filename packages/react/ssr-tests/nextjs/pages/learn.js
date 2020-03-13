@@ -3,7 +3,9 @@ import { Desktop, Pattern, Touch } from '@carbon/pictograms-react';
 import {
   TableOfContents,
   LeadSpace,
+  Layout,
   ContentBlockMedia,
+  LinkList,
   ContentBlockMixed,
   ContentBlockSegmented,
   ContentBlockSimple,
@@ -43,206 +45,203 @@ const Learn = () => (
       }}
     />
     <TableOfContents menuLabel="Jump to" theme="white" stickyOffset={48}>
-      <a name="1" data-title="Lorem ipsum dolor sit amet"></a>
-      <ContentBlockMixed
-        heading="Lorem ipsum dolor sit amet"
-        copy="Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
-      Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
-      nulla quis, *consequat* libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
-        cta={{
-          cta: {
-            href: 'https://www.example.com',
-          },
-          style: 'card',
-          type: 'local',
-          copy: 'Lorem ipsum dolor sit ametttt',
-        }}
-        items={[
-          {
-            type: 'ContentGroupCards',
-            heading: 'Lorem ipsum dolor sit amet.',
-            items: [
-              {
-                heading:
-                  'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt',
-                copy:
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-                cta: {
-                  href: 'https://www.example.com',
-                },
+      <Layout nested={true} type="2-1" border={true}>
+        <div>
+          <a name="1" data-title="Lorem ipsum dolor sit amet"></a>
+          <ContentBlockMixed
+            heading="Lorem ipsum dolor sit amet"
+            copy="Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+          Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
+          nulla quis, *consequat* libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
+            cta={{
+              cta: {
+                href: 'https://www.example.com',
               },
+              style: 'card',
+              type: 'local',
+              copy: 'Lorem ipsum dolor sit ametttt',
+            }}
+            items={[
               {
-                heading:
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-                copy: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-                cta: {
-                  href: 'https://www.example.com',
-                },
-              },
-              {
-                heading:
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-                copy: 'Lorem ipsum dolor sit amet',
-                cta: {
-                  href: 'https://www.example.com',
-                },
-              },
-              {
-                heading:
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-                copy:
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt',
-                cta: {
-                  href: 'https://www.example.com',
-                },
-              },
-            ],
-          },
-          {
-            type: 'ContentGroupPictograms',
-            heading: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            items: [
-              {
-                heading: 'Aliquam condimentum interdum',
-                copy:
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
-                cta: {
-                  cta: {
-                    href: 'https://www.example.com',
-                  },
-                  type: 'local',
-                  copy: 'Lorem ipsum dolor',
-                },
-                pictogram: {
-                  src: Desktop,
-                  'aria-label': 'Desktop',
-                },
-              },
-              {
-                heading: 'Aliquam condimentum interdum',
-                copy:
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
-                cta: {
-                  cta: {
-                    href: 'https://www.example.com',
-                  },
-                  type: 'local',
-                  copy: 'Lorem ipsum dolor',
-                },
-                pictogram: {
-                  src: Pattern,
-                  'aria-label': 'Pattern',
-                },
-              },
-              {
-                heading: 'Aliquam condimentum interdum',
-                copy:
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
-                cta: {
-                  cta: {
-                    href: 'https://www.example.com',
-                  },
-                  type: 'local',
-                  copy: 'Lorem ipsum dolor',
-                },
-                pictogram: {
-                  src: Touch,
-                  'aria-label': 'Touch',
-                },
-              },
-            ],
-          },
-          {
-            type: 'ContentGroupSimple',
-            mediaType: 'image',
-            mediaData: {
-              heading: 'Lorem ipsum dolor sit amet.',
-              image: {
-                sources: [
+                type: 'ContentGroupCards',
+                heading: 'Lorem ipsum dolor sit amet.',
+                items: [
                   {
-                    src:
-                      'https://dummyimage.com/320x180/ee5396/161616&text=16:9',
-                    breakpoint: 320,
+                    heading:
+                      'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt',
+                    copy:
+                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                    cta: {
+                      href: 'https://www.example.com',
+                    },
                   },
                   {
-                    src:
-                      'https://dummyimage.com/400x225/ee5396/161616&text=16:9',
-                    breakpoint: 400,
+                    heading:
+                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+                    copy:
+                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+                    cta: {
+                      href: 'https://www.example.com',
+                    },
                   },
                   {
-                    src:
-                      'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
-                    breakpoint: 672,
+                    heading:
+                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+                    copy: 'Lorem ipsum dolor sit amet',
+                    cta: {
+                      href: 'https://www.example.com',
+                    },
+                  },
+                  {
+                    heading:
+                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+                    copy:
+                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt',
+                    cta: {
+                      href: 'https://www.example.com',
+                    },
                   },
                 ],
-                alt: 'Image alt text',
-                defaultSrc:
-                  'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
-              },
-            },
-            heading: 'Lorem ipsum dolor sit amet',
-            items: [
-              {
-                heading: 'Lorem ipsum dolor sit amet.',
-                copy:
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.',
               },
               {
-                heading: 'Lorem ipsum dolor sit amet.',
-                copy:
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.',
+                type: 'ContentGroupPictograms',
+                heading:
+                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                items: [
+                  {
+                    heading: 'Aliquam condimentum interdum',
+                    copy:
+                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
+                    cta: {
+                      cta: {
+                        href: 'https://www.example.com',
+                      },
+                      type: 'local',
+                      copy: 'Lorem ipsum dolor',
+                    },
+                    pictogram: {
+                      src: Desktop,
+                      'aria-label': 'Desktop',
+                    },
+                  },
+                  {
+                    heading: 'Aliquam condimentum interdum',
+                    copy:
+                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
+                    cta: {
+                      cta: {
+                        href: 'https://www.example.com',
+                      },
+                      type: 'local',
+                      copy: 'Lorem ipsum dolor',
+                    },
+                    pictogram: {
+                      src: Pattern,
+                      'aria-label': 'Pattern',
+                    },
+                  },
+                  {
+                    heading: 'Aliquam condimentum interdum',
+                    copy:
+                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
+                    cta: {
+                      cta: {
+                        href: 'https://www.example.com',
+                      },
+                      type: 'local',
+                      copy: 'Lorem ipsum dolor',
+                    },
+                    pictogram: {
+                      src: Touch,
+                      'aria-label': 'Touch',
+                    },
+                  },
+                ],
               },
-            ],
-          },
-        ]}
-      />
-
-      <a name="2" data-title="Consectetur adipiscing elit"></a>
-      <ContentBlockSegmented
-        copy="Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
-      Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
-      nulla quis, *consequat* libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit."
-        cta={{
-          cta: {
-            href: 'https://www.example.com',
-          },
-          style: 'card',
-          type: 'local',
-          copy: 'Lorem ipsum dolor',
-        }}
-        heading="Lorem ipsum dolor sit amet."
-        image={{
-          heading: 'Mauris iaculis eget dolor nec hendrerit.',
-          image: {
-            sources: [
               {
-                src: 'https://dummyimage.com/320x180/ee5396/161616&text=16:9',
-                breakpoint: 320,
+                type: 'ContentGroupSimple',
+                mediaType: 'image',
+                mediaData: {
+                  heading: 'Lorem ipsum dolor sit amet.',
+                  image: {
+                    sources: [
+                      {
+                        src:
+                          'https://dummyimage.com/320x180/ee5396/161616&text=16:9',
+                        breakpoint: 320,
+                      },
+                      {
+                        src:
+                          'https://dummyimage.com/400x225/ee5396/161616&text=16:9',
+                        breakpoint: 400,
+                      },
+                      {
+                        src:
+                          'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
+                        breakpoint: 672,
+                      },
+                    ],
+                    alt: 'Image alt text',
+                    defaultSrc:
+                      'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
+                  },
+                },
+                heading: 'Lorem ipsum dolor sit amet',
+                items: [
+                  {
+                    heading: 'Lorem ipsum dolor sit amet.',
+                    copy:
+                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.',
+                  },
+                  {
+                    heading: 'Lorem ipsum dolor sit amet.',
+                    copy:
+                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.',
+                  },
+                ],
+              },
+            ]}
+          />
+        </div>
+        <div>
+          <LinkList
+            heading="Tutorials"
+            items={[
+              {
+                type: 'local',
+                copy: 'Containerization A Complete Guide',
+                cta: {
+                  href: 'https://ibm.com',
+                },
               },
               {
-                src: 'https://dummyimage.com/400x225/ee5396/161616&text=16:9',
-                breakpoint: 400,
+                type: 'local',
+                copy: 'Why should you use microservices and containers',
+                cta: {
+                  href: 'https://example.com',
+                },
               },
-              {
-                src: 'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
-                breakpoint: 672,
+            ]}
+          />
+        </div>
+      </Layout>
+      <Layout nested={true} type="2-1" border={true}>
+        <div>
+          <a name="2" data-title="Consectetur adipiscing elit"></a>
+          <ContentBlockSegmented
+            copy="Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+          Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
+          nulla quis, *consequat* libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit."
+            cta={{
+              cta: {
+                href: 'https://www.example.com',
               },
-            ],
-            alt: 'Image alt text',
-            defaultSrc:
-              'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
-          },
-        }}
-        items={[
-          {
-            heading: 'Lorem ipsum dolor sit amet.',
-            copy: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.
-
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.`,
-          },
-          {
-            heading: 'Lorem ipsum dolor sit amet.',
-            image: {
+              style: 'card',
+              type: 'local',
+              copy: 'Lorem ipsum dolor',
+            }}
+            heading="Lorem ipsum dolor sit amet."
+            image={{
               heading: 'Mauris iaculis eget dolor nec hendrerit.',
               image: {
                 sources: [
@@ -266,73 +265,66 @@ const Learn = () => (
                 defaultSrc:
                   'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
               },
-            },
-            copy: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.
-
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.`,
-          },
-        ]}
-      />
-
-      <a name="aenean" data-title="Aenean et ultricies est"></a>
-      <ContentBlockSimple
-        copy="Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
-      Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
-      nulla quis, *consequat* libero. Here are
-      some common categories:
-
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
-
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
-        heading="Curabitur malesuada varius mi eu posuere"
-        image={{
-          heading: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-          image: {
-            sources: [
+            }}
+            items={[
               {
-                src: 'https://dummyimage.com/320x180/ee5396/161616&text=16:9',
-                breakpoint: 320,
+                heading: 'Lorem ipsum dolor sit amet.',
+                copy: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.
+
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.`,
               },
               {
-                src: 'https://dummyimage.com/400x225/ee5396/161616&text=16:9',
-                breakpoint: 400,
-              },
-              {
-                src: 'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
-                breakpoint: 672,
-              },
-            ],
-            alt: 'Image alt text',
-            defaultSrc:
-              'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
-          },
-        }}
-        cta={{
-          cta: {
-            href: 'https://www.ibm.com',
-          },
-          style: 'card',
-          type: 'external',
-          heading: 'Lorem ipsum dolor sit amet',
-          copy: 'Lorem ipsum dolor sit ametttt',
-        }}
-      />
+                heading: 'Lorem ipsum dolor sit amet.',
+                image: {
+                  heading: 'Mauris iaculis eget dolor nec hendrerit.',
+                  image: {
+                    sources: [
+                      {
+                        src:
+                          'https://dummyimage.com/320x180/ee5396/161616&text=16:9',
+                        breakpoint: 320,
+                      },
+                      {
+                        src:
+                          'https://dummyimage.com/400x225/ee5396/161616&text=16:9',
+                        breakpoint: 400,
+                      },
+                      {
+                        src:
+                          'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
+                        breakpoint: 672,
+                      },
+                    ],
+                    alt: 'Image alt text',
+                    defaultSrc:
+                      'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
+                  },
+                },
+                copy: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.
 
-      <a
-        name="curabitur"
-        data-title="Curabitur malesuada varius mi eu posuere"
-      />
-      <ContentBlockMedia
-        copy="Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean
-        et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at
-        elit sollicitudin, sodales nulla quis, *consequat* libero. Phasellus at
-        elit sollicitudin, sodales nulla quis, consequat libero."
-        heading="Curabitur malesuada varius mi eu posuere"
-        items={[
-          {
-            mediaType: 'image',
-            mediaData: {
-              heading: 'Lorem ipsum dolor sit amet.',
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.`,
+              },
+            ]}
+          />
+        </div>
+        <div></div>
+      </Layout>
+      <Layout nested={true} type="2-1" border={true}>
+        <div>
+          <a name="aenean" data-title="Aenean et ultricies est"></a>
+          <ContentBlockSimple
+            copy="Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+          Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
+          nulla quis, *consequat* libero. Here are
+          some common categories:
+
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
+            heading="Curabitur malesuada varius mi eu posuere"
+            image={{
+              heading:
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
               image: {
                 sources: [
                   {
@@ -355,98 +347,154 @@ const Learn = () => (
                 defaultSrc:
                   'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
               },
-            },
-            heading: 'Lorem ipsum dolor sit amet',
-            items: [
-              {
-                heading: 'Lorem ipsum dolor sit amet.',
-                copy:
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.',
-              },
-              {
-                heading: 'Lorem ipsum dolor sit amet.',
-                copy:
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.',
-              },
-            ],
-            cta: {
+            }}
+            cta={{
               cta: {
-                href: 'https://www.example.com',
+                href: 'https://www.ibm.com',
               },
               style: 'card',
-              type: 'local',
+              type: 'external',
+              heading: 'Lorem ipsum dolor sit amet',
               copy: 'Lorem ipsum dolor sit ametttt',
-            },
-          },
-          {
-            mediaType: 'image',
-            mediaData: {
-              heading: 'Lorem ipsum dolor sit amet.',
-              image: {
-                sources: [
-                  {
-                    src:
-                      'https://dummyimage.com/320x180/ee5396/161616&text=16:9',
-                    breakpoint: 320,
-                  },
-                  {
-                    src:
-                      'https://dummyimage.com/400x225/ee5396/161616&text=16:9',
-                    breakpoint: 400,
-                  },
-                  {
-                    src:
+            }}
+          />
+        </div>
+        <div></div>
+      </Layout>
+      <Layout nested={true} type="2-1" border={true}>
+        <div>
+          <a
+            name="curabitur"
+            data-title="Curabitur malesuada varius mi eu posuere"
+          />
+          <ContentBlockMedia
+            copy="Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean
+            et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at
+            elit sollicitudin, sodales nulla quis, *consequat* libero. Phasellus at
+            elit sollicitudin, sodales nulla quis, consequat libero."
+            heading="Curabitur malesuada varius mi eu posuere"
+            items={[
+              {
+                mediaType: 'image',
+                mediaData: {
+                  heading: 'Lorem ipsum dolor sit amet.',
+                  image: {
+                    sources: [
+                      {
+                        src:
+                          'https://dummyimage.com/320x180/ee5396/161616&text=16:9',
+                        breakpoint: 320,
+                      },
+                      {
+                        src:
+                          'https://dummyimage.com/400x225/ee5396/161616&text=16:9',
+                        breakpoint: 400,
+                      },
+                      {
+                        src:
+                          'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
+                        breakpoint: 672,
+                      },
+                    ],
+                    alt: 'Image alt text',
+                    defaultSrc:
                       'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
-                    breakpoint: 672,
+                  },
+                },
+                heading: 'Lorem ipsum dolor sit amet',
+                items: [
+                  {
+                    heading: 'Lorem ipsum dolor sit amet.',
+                    copy:
+                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.',
+                  },
+                  {
+                    heading: 'Lorem ipsum dolor sit amet.',
+                    copy:
+                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.',
                   },
                 ],
-                alt: 'Image alt text',
-                defaultSrc:
-                  'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
-              },
-            },
-            heading: 'Lorem ipsum dolor sit amet',
-            items: [
-              {
-                heading: 'Lorem ipsum dolor sit amet.',
-                copy:
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.',
+                cta: {
+                  cta: {
+                    href: 'https://www.example.com',
+                  },
+                  style: 'card',
+                  type: 'local',
+                  copy: 'Lorem ipsum dolor sit ametttt',
+                },
               },
               {
-                heading: 'Lorem ipsum dolor sit amet.',
-                copy:
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.',
+                mediaType: 'image',
+                mediaData: {
+                  heading: 'Lorem ipsum dolor sit amet.',
+                  image: {
+                    sources: [
+                      {
+                        src:
+                          'https://dummyimage.com/320x180/ee5396/161616&text=16:9',
+                        breakpoint: 320,
+                      },
+                      {
+                        src:
+                          'https://dummyimage.com/400x225/ee5396/161616&text=16:9',
+                        breakpoint: 400,
+                      },
+                      {
+                        src:
+                          'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
+                        breakpoint: 672,
+                      },
+                    ],
+                    alt: 'Image alt text',
+                    defaultSrc:
+                      'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
+                  },
+                },
+                heading: 'Lorem ipsum dolor sit amet',
+                items: [
+                  {
+                    heading: 'Lorem ipsum dolor sit amet.',
+                    copy:
+                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.',
+                  },
+                  {
+                    heading: 'Lorem ipsum dolor sit amet.',
+                    copy:
+                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.',
+                  },
+                ],
+                cta: {
+                  cta: {
+                    href: 'https://www.example.com',
+                  },
+                  style: 'card',
+                  type: 'local',
+                  copy: 'Lorem ipsum dolor sit ametttt',
+                },
               },
-            ],
-            cta: {
-              cta: {
-                href: 'https://www.example.com',
+            ]}
+            cta={{
+              type: 'feature',
+              heading: 'Lorem ipsum dolor sit amet',
+              card: {
+                cta: {
+                  href: 'https://www.example.com',
+                  icon: {
+                    src: ArrowRight20,
+                  },
+                },
+                heading: 'Consectetur adipisicing elit',
+                image: {
+                  defaultSrc:
+                    'https://dummyimage.com/672x672/ee5396/161616&text=1x1',
+                  alt: 'Image alt text',
+                },
               },
-              style: 'card',
-              type: 'local',
-              copy: 'Lorem ipsum dolor sit ametttt',
-            },
-          },
-        ]}
-        cta={{
-          type: 'feature',
-          heading: 'Lorem ipsum dolor sit amet',
-          card: {
-            cta: {
-              href: 'https://www.example.com',
-              icon: {
-                src: ArrowRight20,
-              },
-            },
-            heading: 'Consectetur adipisicing elit',
-            image: {
-              defaultSrc:
-                'https://dummyimage.com/672x672/ee5396/161616&text=1x1',
-              alt: 'Image alt text',
-            },
-          },
-        }}
-      />
+            }}
+          />
+        </div>
+        <div></div>
+      </Layout>
     </TableOfContents>
 
     <CardSectionImages

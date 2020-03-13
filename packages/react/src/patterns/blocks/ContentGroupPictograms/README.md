@@ -38,7 +38,7 @@ const items = [
       copy: 'Lorem ipsum dolor',
     },
     pictogram: {
-      url: Desktop,
+      src: Desktop,
       'aria-label': 'Desktop Pictogram',
     },
   },
@@ -52,7 +52,7 @@ const items = [
       copy: 'Lorem ipsum dolor',
     },
     pictogram: {
-      url: Touch,
+      src: Touch,
       'aria-label': 'Touch Pictogram',
     },
   },
@@ -66,7 +66,7 @@ const items = [
       copy: 'Lorem ipsum dolor',
     },
     pictogram: {
-      url: Pattern,
+      src: Pattern,
       'aria-label': 'Pattern Pictogram',
     },
   },
