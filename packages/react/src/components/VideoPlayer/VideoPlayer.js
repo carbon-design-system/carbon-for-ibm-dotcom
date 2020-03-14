@@ -40,7 +40,7 @@ const VideoPlayer = ({ videoId, showDescription }) => {
    */
   function videoTime(duration) {
     let seconds = Math.floor((duration / 1000) % 60);
-    let minutes = Math.floor((duration / (1000 * 60)) % 60);
+    const minutes = Math.floor((duration / (1000 * 60)) % 60);
     let hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
     hours = hours > 0 ? hours + ':' : '';
     seconds = seconds < 10 ? '0' + seconds : seconds;
