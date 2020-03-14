@@ -5,11 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 import './index.scss';
+import { boolean, withKnobs } from '@storybook/addon-knobs';
 import React from 'react';
 import readme from '../README.md';
 import { storiesOf } from '@storybook/react';
 import VideoPlayer from '../VideoPlayer';
-import { withKnobs } from '@storybook/addon-knobs';
 
 storiesOf('Components|VideoPlayer', module)
   .addDecorator(withKnobs)
@@ -23,7 +23,10 @@ storiesOf('Components|VideoPlayer', module)
       <div className="bx--grid">
         <div class="bx--row">
           <div class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
-            <VideoPlayer videoId="0_uka1msg4" showDescription={true} />
+            <VideoPlayer
+              videoId="0_uka1msg4"
+              showDescription={boolean('Show description', true)}
+            />
           </div>
         </div>
       </div>
