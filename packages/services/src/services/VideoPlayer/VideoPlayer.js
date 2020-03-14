@@ -188,6 +188,22 @@ class VideoPlayerAPI {
       });
     });
   }
+
+  /**
+   * Convert video duration from milliseconds to HH:MM:SS
+   *
+   * @param {string} duration video duration in milliseconds
+   * @returns {string} converted duration
+   */
+  static getVideoDuration(duration) {
+    let seconds = Math.floor((duration / 1000) % 60);
+    const minutes = Math.floor((duration / (1000 * 60)) % 60);
+    let hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
+    hours = hours > 0 ? hours + ':' : '';
+    seconds = seconds < 10 ? '0' + seconds : seconds;
+
+    return hours + minutes + ':' + seconds;
+  }
 }
 
 export default VideoPlayerAPI;

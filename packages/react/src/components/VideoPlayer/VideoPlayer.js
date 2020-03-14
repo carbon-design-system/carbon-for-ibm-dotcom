@@ -23,7 +23,7 @@ const { prefix } = settings;
 const VideoPlayer = ({ videoId, showDescription }) => {
   const [videoData, setVideoData] = useState({});
   const videoPlayerId = `video-player__video-${videoId}`;
-  const videoDuration = videoTime(videoData.msDuration);
+  const videoDuration = VideoPlayerAPI.getVideoDuration(videoData.msDuration);
 
   useEffect(() => {
     (async () => {
@@ -31,22 +31,6 @@ const VideoPlayer = ({ videoId, showDescription }) => {
       setVideoData(await VideoPlayerAPI.api(videoId));
     })();
   }, [videoId, videoPlayerId]);
-
-  /**
-   * Convert video duration in milliseconds to HH:MM:SS
-   *
-   * @param {string} duration video duration in milliseconds
-   * @returns {*} converted duration
-   */
-  function videoTime(duration) {
-    let seconds = Math.floor((duration / 1000) % 60);
-    const minutes = Math.floor((duration / (1000 * 60)) % 60);
-    let hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
-    hours = hours > 0 ? hours + ':' : '';
-    seconds = seconds < 10 ? '0' + seconds : seconds;
-
-    return hours + minutes + ':' + seconds;
-  }
 
   return (
     <div classNamee={`${prefix}--video-player`}>
