@@ -9,7 +9,7 @@
 
 @mixin video-player {
   .#{$prefix}--video-player {
-    &__container {
+    &__video-container {
       width: 100%;
       position: relative;
       display: inline-block;
@@ -29,7 +29,7 @@
       }
     }
 
-    &__description {
+    &__video-description {
       padding-top: $spacing-05;
       color: $text-05;
     }

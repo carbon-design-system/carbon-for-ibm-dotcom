@@ -49,20 +49,20 @@ const VideoPlayer = ({ videoId, showDescription }) => {
   }
 
   return (
-    <>
+    <div classNamee={`${prefix}--video-player`}>
       <div
-        className={`${prefix}--video-player__container`}
+        className={`${prefix}--video-player__video-container`}
         data-autoid={`${stablePrefix}--${videoPlayerId}`}>
         <div
           className={`${prefix}--video-player__video`}
           id={`${prefix}--${videoPlayerId}`}></div>
       </div>
       {showDescription && (
-        <div className={`${prefix}--video-player__description`}>
+        <div className={`${prefix}--video-player__video-description`}>
           {videoData.description} ({videoDuration})
         </div>
       )}
-    </>
+    </div>
   );
 };
 
