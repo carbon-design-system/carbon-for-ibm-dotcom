@@ -1,4 +1,4 @@
-import { AnalyticsAPI } from '@carbon/ibmdotcom-services';
+import { AnalyticsAPI } from '../Analytics';
 import root from 'window-or-global';
 
 /**
