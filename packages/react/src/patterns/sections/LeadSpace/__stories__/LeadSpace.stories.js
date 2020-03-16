@@ -2,6 +2,7 @@ import './index.scss';
 import { ArrowDown20, ArrowRight20, Pdf20 } from '@carbon/icons-react';
 import {
   boolean,
+  number,
   object,
   select,
   text,
@@ -39,29 +40,51 @@ storiesOf('Patterns (Sections)|LeadSpace', module)
       Pdf20,
     };
 
-    const icons = {
-      ArrowRight: 'ArrowRight20',
-      ArrowDown: 'ArrowDown20',
-      Pdf: 'Pdf20',
-      none: null,
+    // const icons = {
+    //   ArrowRight: 'ArrowRight20',
+    //   ArrowDown: 'ArrowDown20',
+    //   Pdf: 'Pdf20',
+    //   none: null,
+    // };
+
+    const iconOptions = {
+      None: null,
+      'Arrow Right': 'ArrowRight20',
+      'Arrow Down': 'ArrowDown20',
+      PDF: 'Pdf20',
     };
 
-    const buttons = [
-      {
+    const buttonCount = number('Number of buttons', 2);
+    const buttons = [];
+
+    for (let i = 0; i < buttonCount; i++) {
+      buttons.push({
         link: '',
-        copy: text('Primary button copy:', 'Primary action button'),
+        copy: text(`Button ${i + 1}`, `Button ${i + 1}`),
         renderIcon:
-          iconMap[select('primary button icon', icons, icons.ArrowRight)],
-        href: text('Primary button link:', 'https://www.example.com'),
-      },
-      {
-        link: '',
-        copy: text('Secondary button copy:', 'Secondary action button'),
-        renderIcon:
-          iconMap[select('secondary button icon', icons, icons.ArrowRight)],
-        href: text('Secondary button link:', 'https://www.example.com'),
-      },
-    ];
+          iconMap[
+            select(`Button Icon ${i + 1}`, iconOptions, iconOptions.ArrowRight)
+          ],
+        href: text('Primary button link', 'https://www.example.com'),
+      });
+    }
+
+    // const buttons = [
+    //   {
+    //     link: '',
+    //     copy: text('Primary button copy:', 'Pri mary action button'),
+    //     renderIcon:
+    //       iconMap[select('primary button icon', icons, icons.ArrowRight)],
+    //     href: text('Primary button link:', 'https://www.example.com'),
+    //   },
+    //   {
+    //     link: '',
+    //     copy: text('Secondary button copy:', 'Secondary action button'),
+    //     renderIcon:
+    //       iconMap[select('secondary button icon', icons, icons.ArrowRight)],
+    //     href: text('Secondary button link:', 'https://www.example.com'),
+    //   },
+    // ];
 
     const themes = {
       g100: 'g100',
