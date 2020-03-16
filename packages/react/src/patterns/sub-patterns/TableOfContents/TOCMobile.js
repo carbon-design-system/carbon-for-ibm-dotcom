@@ -46,6 +46,9 @@ const TOCMobile = ({ menuItems, selectedId, menuLabel, updateState }) => {
     updateState(id, title);
     const selector = `a[name="${id}"]`;
     smoothScroll(null, selector);
+    document.querySelector(
+      `.${prefix}--tableofcontents__sidebar`
+    ).style.top = 0;
   };
 
   /**
