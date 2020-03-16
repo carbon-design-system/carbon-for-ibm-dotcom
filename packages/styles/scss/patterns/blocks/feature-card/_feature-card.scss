@@ -50,13 +50,6 @@
         }
       }
     }
-
-    @include carbon--breakpoint('md') {
-      .#{$prefix}--content-group__title {
-        max-width: 100%;
-        padding: 0;
-      }
-    }
   }
 }
 @include exports('feature-card') {

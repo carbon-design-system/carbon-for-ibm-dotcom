@@ -68,12 +68,13 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 ## Props
 
-| Name        | Required | Data Type | Default Value                                                     | Description                                                                      |
-| ----------- | -------- | --------- | ----------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `children`  | NO       | Array     | null                                                              | Content to display next to the side nav.                                         |
-| `menuItems` | NO       | Array     | null                                                              | Array of menu item objects to render within the side nav. See `menuItems` below. |
-| `menuLabel` | NO       | String    | `Jump to`                                                         | Placeholder value for menu label                                                 |
-| `theme`     | NO       | String    | `` | Defines the color theme for the pattern (See `Theme` bellow) |
+| Name           | Required | Data Type | Default Value | Description                                                                      |
+| -------------- | -------- | --------- | ------------- | -------------------------------------------------------------------------------- |
+| `children`     | NO       | Array     | null          | Content to display next to the side nav.                                         |
+| `menuItems`    | NO       | Array     | null          | Array of menu item objects to render within the side nav. See `menuItems` below. |
+| `menuLabel`    | NO       | String    | `Jump to`     | Placeholder value for menu label                                                 |
+| `theme`        | NO       | String    | `white`       | Defines the color theme for the pattern (See `Theme` bellow)                     |
+| `stickyOffset` | NO       | Number    | null          | Defines the offset for the sticky column                                         |
 
 ## menuItems
 
@@ -81,6 +82,16 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 | --------------- | --------- | --------------- |
 | title           | String    | Menu title text |
 | id              | String    | Menu id         |
+
+### Dynamic menuItems
+
+If `menuItems` is not passed in as a prop, the menu items are dynamically
+generated based on anchor links that exist on the page. The anchor links should
+follow the following format:
+
+```html
+<a name="name-of-section" data-title="Lorem Ipsum"></a>
+```
 
 ## Theme (optional)
 

@@ -5,46 +5,14 @@
 // LICENSE file in the root directory of this source tree.
 //
 @mixin content-block-segmented {
-  %block-image {
-    width: 100%;
-    max-width: rem(640px);
-  }
+  .#{$prefix}--content-block-segmented {
+    .#{$prefix}--content-group {
+      margin-top: $carbon--layout-04;
+      margin-bottom: $carbon--layout-04;
 
-  .#{$prefix}--content-block {
-    &-segmented {
-      .#{$prefix}--content-group {
-        &__children {
-          .#{$prefix}--image__img {
-            padding-top: $carbon--spacing-05;
-            margin-bottom: 0;
-
-            @extend %block-image;
-
-            @include carbon--breakpoint-down(md) {
-              padding-top: $carbon--spacing-03;
-            }
-          }
-        }
-      }
-
-      &__image {
-        margin-bottom: $layout-06;
-
-        @extend %block-image;
-      }
-
-      .#{$prefix}--content-item {
-        margin-bottom: $carbon--spacing-07;
-
-        p {
-          padding-bottom: $carbon--spacing-07;
-        }
-      }
-
-      .#{$prefix}--content-block {
-        &__cta {
-          margin-top: $layout-06;
-        }
+      @include carbon--breakpoint('lg') {
+        margin-top: $carbon--layout-05;
+        margin-bottom: $carbon--layout-05;
       }
     }
   }

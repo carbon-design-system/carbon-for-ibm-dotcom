@@ -27,26 +27,28 @@ storiesOf('Patterns (Blocks)|ContentBlockSimple', module)
     };
 
     const image = {
-      sources: [
-        {
-          src: 'https://fpoimg.com/320x180?bg_color=0f62fe&text_color=ffffff',
-          breakpoint: 320,
-        },
-        {
-          src: 'https://fpoimg.com/400x225?bg_color=0f62fe&text_color=ffffff',
-          breakpoint: 400,
-        },
-        {
-          src: 'https://fpoimg.com/672x378?bg_color=0f62fe&text_color=ffffff',
-          breakpoint: 672,
-        },
-      ],
-      alt: 'CTA image',
-      defaultSrc:
-        'https://fpoimg.com/672x378?bg_color=0f62fe&text_color=ffffff',
+      heading: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+      image: {
+        sources: [
+          {
+            src: 'https://dummyimage.com/320x180/ee5396/161616&text=16:9',
+            breakpoint: 320,
+          },
+          {
+            src: 'https://dummyimage.com/400x225/ee5396/161616&text=16:9',
+            breakpoint: 400,
+          },
+          {
+            src: 'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
+            breakpoint: 672,
+          },
+        ],
+        alt: 'Image alt text',
+        defaultSrc: 'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
+      },
     };
 
-    const copy = `   Lorem    ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+    const copy = `Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
       Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
       nulla quis, *consequat* libero. Here are
       some common categories:
@@ -59,7 +61,7 @@ storiesOf('Patterns (Blocks)|ContentBlockSimple', module)
     return (
       <div className={`${prefix}--grid`}>
         <div class="bx--row">
-          <div class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
+          <div class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4 content-block-story">
             <ContentBlockSimple
               copy={copy}
               heading={text(

@@ -8,7 +8,7 @@
 import { ContentBlock } from '../../sub-patterns/ContentBlock';
 import { ContentItem } from '../../sub-patterns/ContentItem';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
-import { Image } from '../../../components/Image';
+import { ImageWithCaption } from '../../../components/ImageWithCaption';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { settings } from 'carbon-components';
@@ -29,11 +29,11 @@ const { prefix } = settings;
 const ContentBlockSimple = ({ copy, heading, image, cta }) => (
   <div
     data-autoid={`${stablePrefix}--content-block-simple`}
-    className={`${prefix}--content-block ${prefix}--content-block-simple`}>
+    className={`${prefix}--content-block-simple`}>
     <ContentBlock heading={heading} cta={cta}>
       <div className={`${prefix}--content-block-simple__content`}>
         <ContentItem copy={copy} />
-        {image && <Image {...image} />}
+        {image && <ImageWithCaption {...image} />}
       </div>
     </ContentBlock>
   </div>
@@ -42,7 +42,7 @@ const ContentBlockSimple = ({ copy, heading, image, cta }) => (
 ContentBlockSimple.propTypes = {
   copy: PropTypes.string.isRequired,
   heading: PropTypes.string.isRequired,
-  image: PropTypes.instanceOf(Image),
+  image: PropTypes.instanceOf(ImageWithCaption),
   cta: PropTypes.object,
 };
 

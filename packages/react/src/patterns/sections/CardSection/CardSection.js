@@ -4,6 +4,7 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
+
 import React, { useEffect, useRef } from 'react';
 import { ArrowRight20 } from '@carbon/icons-react';
 import { Card } from '../../sub-patterns/Card';
@@ -23,10 +24,11 @@ const { prefix } = settings;
  * @param {object} props props object
  * @param {string} props.heading cards group heading
  * @param {string} props.theme theme name
+ * @param {object} props.cta cta object
  * @param {Array} props.cards Array of card
  * @returns {object} JSX Object
  */
-const CardSection = ({ heading, cards, theme }) => {
+const CardSection = ({ heading, theme, cards, cta }) => {
   const containerRef = useRef();
   useEffect(() => {
     setCardHeight();
@@ -43,10 +45,6 @@ const CardSection = ({ heading, cards, theme }) => {
   const setCardHeight = () => {
     sameHeight(
       containerRef.current.getElementsByClassName(`${prefix}--card__heading`),
-      'md'
-    );
-    sameHeight(
-      containerRef.current.getElementsByClassName(`${prefix}--card__eyebrow`),
       'md'
     );
     sameHeight(
@@ -70,7 +68,7 @@ const CardSection = ({ heading, cards, theme }) => {
     <ContentSection
       heading={heading}
       customClassName={classNames(`${prefix}--card-section`, _setTheme(theme))}>
-      {_renderCards(cards, containerRef)}
+      {_renderCards(cards, containerRef, cta)}
     </ContentSection>
   );
 };
@@ -80,18 +78,23 @@ const CardSection = ({ heading, cards, theme }) => {
  *
  * @param {Array} cards objects array
  * @param {object} containerRef ref of elements
+ * @param {object} cta object
  * @returns {*} CardSection JSX objects
  */
-const _renderCards = (cards, containerRef) => (
+const _renderCards = (cards, containerRef, cta) => (
   <div
     data-autoid={`${stablePrefix}--card-section`}
     className={`${prefix}--card-section__cards__row ${prefix}--row--condensed`}
     ref={containerRef}>
     {cards.map((card, index) => {
       return (
-        <div className={`${prefix}--card-section__cards__col`}>
+        <div
+          className={`${prefix}--card-section__cards__col`}
+          role="region"
+          aria-label={card.heading}>
           <Card
             key={index}
+            customClassName={`${prefix}--card-section__card`}
             image={card.image}
             heading={card.heading}
             eyebrow={card.eyebrow}
@@ -102,12 +105,26 @@ const _renderCards = (cards, containerRef) => (
                 src: ArrowRight20,
               },
             }}
-            target={card.cta.target}
             type="link"
           />
         </div>
       );
     })}
+    {cta && (
+      <div className={`${prefix}--card-section__cards__col`}>
+        <Card
+          inverse={true}
+          heading={cta.heading}
+          cta={{
+            href: cta.cta.href,
+            icon: {
+              src: ArrowRight20,
+            },
+          }}
+          type="link"
+        />
+      </div>
+    )}
   </div>
 );
 
@@ -115,6 +132,7 @@ CardSection.propTypes = {
   theme: PropTypes.string,
   heading: PropTypes.string.isRequired,
   cards: PropTypes.arrayOf(Card),
+  cta: PropTypes.instanceOf(Card),
 };
 
 export default CardSection;

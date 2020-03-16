@@ -28,55 +28,76 @@ import 'yourapplication.scss';
 function App() {
   const heading = 'Lorem Ipsum';
   const copy = 'Lorem Ipsum';
-  const contentGroup = [
+  const items={[
     {
-      title: 'Aliquam condimentum interdum',
-      image: {
-        uri: {
-          sm: 'https://via.placeholder.com/640x320',
-          md: 'https://via.placeholder.com/768x384',
-          lg: 'https://via.placeholder.com/1024x512',
+      mediaType: 'image',
+      mediaData: {
+        heading: 'Lorem ipsum dolor sit amet.',
+        image: {
+          sources: [
+            {
+              src:
+                'https://dummyimage.com/320x180/ee5396/161616&text=16:9',
+              breakpoint: 320,
+            },
+            {
+              src:
+                'https://dummyimage.com/400x225/ee5396/161616&text=16:9',
+              breakpoint: 400,
+            },
+            {
+              src:
+                'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
+              breakpoint: 672,
+            },
+          ],
+          alt: 'Image alt text',
+          defaultSrc:
+            'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
         },
-        alt: 'Place Holder Image',
       },
-      lists: [
+      heading: 'Lorem ipsum dolor sit amet',
+      items: [
         {
-          title: 'Nunc convallis lobortis',
+          heading: 'Lorem ipsum dolor sit amet.',
           copy:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         },
         {
-          title: 'Interdum et malesuada',
+          heading: 'Lorem ipsum dolor sit amet.',
           copy:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         },
       ],
-      link: {
-        href: 'https://www.example.com',
-        title: 'Vivamus interdum ligula',
-        target: '_self',
+      cta: {
+        cta: {
+          href: 'https://www.example.com',
+        },
+        style: 'card',
+        type: 'local',
+        copy: 'Lorem ipsum dolor sit ametttt',
       },
-    },
-  ];
+    }
+  ]};
 
   const cta = {
     type: 'local'|'jump'|'external'
     heading: 'Feature Link heading',
     card: {
-      href: 'https://ibm.com',
+      href: 'https://www.example.com',
       title: 'Consectetur adipisicing elit',
       image: {
-        defaultSrc: 'https://picsum.photos/id/2/672/672',
-        alt: 'featured link image',
+        defaultSrc: 'https://dummyimage.com/672x672/ee5396/161616&text=1x1',
+        alt: 'Image alt text',
       },
     }
-  },
+  };
 
   return (
     <ContentBlockWithMedia
       copy={copy}
       heading={heading}
-      contentGroup={contentGroup}
+      items={items}
       cta={cta}
     />
   );
@@ -90,73 +111,33 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 ## Props
 
-| Name           | Required | Data Type | Default Value | Description                                                        |
-| -------------- | -------- | --------- | ------------- | ------------------------------------------------------------------ |
-| `copy`         | no       | String    | null          | Short copy to suppport title.                                      |
-| `heading`      | yes      | String    | n/a           | Main title of ContentBlockWithMedia pattern.                       |
-| `contentGroup` | yes      | Array     | n/a           | Array of contentGroup objects to render. See `contentGroup` below. |
-| `cta`          | no       | Object    | null          | Object for optional CTA. Must be `Feature Link`. See `cta` below.  |
+| Name      | Required | Data Type | Default Value | Description                                                                                                                                                                                       |
+| --------- | -------- | --------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `copy`    | NO       | String    | null          | Short copy to suppport title.                                                                                                                                                                     |
+| `heading` | YES      | String    | n/a           | Main title of ContentBlockWithMedia pattern.                                                                                                                                                      |
+| `items`   | YES      | Array     | n/a           | Array of content items objects to render. See `items` below.                                                                                                                                      |
+| `cta`     | NO       | Object    | null          | Optional CTA. Must be `Feature Link`. See the [`CTA`](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/components/CTA) component for full usage details. |
 
-### contentGroup
+### items
 
-| Name      | Data Type | Description                                                                                         |
-| --------- | --------- | --------------------------------------------------------------------------------------------------- |
-| `heading` | String    | Describes the block that it is a part of.                                                           |
-| `image`   | Object    | Content group image including different aspect ratios for different breakpoints. See `image` below. |
-| `lists`   | Array     | Array of list objects to render within the content group. See `lists` below.                        |
-| `link`    | Object    | Object with the href, text, and target properties of the content group link. See `link` below.      |
-| `title`   | String    | Content group title.                                                                                |
+| Name        | Required | Data Type | Description                                                                                                                                                                        |
+| ----------- | -------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `heading`   | YES      | String    | Describes the block that it is a part of.                                                                                                                                          |
+| `mediaData` | YES      | Object    | See `mediaData` below.                                                                                                                                                             |
+| `cta`       | NO       | Object    | Supports `card` style. See the [`CTA`](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/components/CTA) component for full usage details. |
 
-#### image
+### mediaData
 
-| Name  | Data Type | Description                                                                           |
-| ----- | --------- | ------------------------------------------------------------------------------------- |
-| `alt` | String    | Alt description of image.                                                             |
-| `uri` | Object    | Image object containing urls to the image for different breakpoints. See `uri` below. |
-
-#### uri
-
-| Name | Data Type | Description                                               |
-| ---- | --------- | --------------------------------------------------------- |
-| `sm` | String    | Image with aspect ration (640 x 320) for `sm` breakpoint  |
-| `md` | String    | Image with aspect ration (768 x 384) for `md` breakpoint  |
-| `lg` | String    | Image with aspect ration (1024 x 512) for `lg` breakpoint |
-
-#### lists
-
-| Name    | Data Type | Description                    |
-| ------- | --------- | ------------------------------ |
-| `copy`  | String    | Content group list item copy.  |
-| `title` | String    | Content gropu list item title. |
-
-#### link
-
-| Name     | Data Type | Description                                                |
-| -------- | --------- | ---------------------------------------------------------- |
-| `href`   | String    | Content group link.                                        |
-| `text`   | String    | Content group link text.                                   |
-| `target` | String    | Open within current tab or new tab ('\_self' or '\_blank') |
-
-### CTA
-
-| Name         | Data Type | Description                                        |
-| ------------ | --------- | -------------------------------------------------- |
-| `heading`    | String    | Describes the CTA.                                 |
-| `card.href`  | String    | Feature link url.                                  |
-| `card.title` | String    | Feature link text.                                 |
-| `card.image` | String    | Feature link `defaultSrc` and `alt`.               |
-| `type`       | String    | Link behavior options `local`, `jump`, `external`. |
+| Name      | Description                                                                                                                                                   |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `heading` | Describes the media section                                                                                                                                   |
+| `image`   | See the [Image](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/components/Image) component for full usage details. |
 
 ## Stable selectors
 
-| Name                                          | Description                     |
-| --------------------------------------------- | ------------------------------- |
-| `dds--content-block-media`                    | Pattern                         |
-| `dds--content-block-media--group`             | Pattern                         |
-| `dds--content-block-media--group__img`        | Content group image element     |
-| `dds--content-block-media--group__card`       | Content group card link element |
-| `dds--content-block-media--group--item`       | Content group item component    |
-| `dds--content-block-media--group--item__link` | Content group item link element |
+| Name                       | Description |
+| -------------------------- | ----------- |
+| `dds--content-block-media` | Pattern     |
 
 ## 🙌 Contributing
 

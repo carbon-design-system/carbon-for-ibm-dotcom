@@ -8,7 +8,7 @@
 import { ContentGroup } from '../../sub-patterns/ContentGroup';
 import { ContentItem } from '../../sub-patterns/ContentItem';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
-import { Image } from '../../../components/Image';
+import { ImageWithCaption } from '../../../components/ImageWithCaption';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { settings } from 'carbon-components';
@@ -48,7 +48,7 @@ const _renderMedia = (mediaType, mediaData) => {
     if (mediaType === 'image') {
       return (
         <div data-autoid={`${stablePrefix}--content-group-simple__media`}>
-          <Image {...mediaData} />
+          <ImageWithCaption {...mediaData} />
         </div>
       );
     }
