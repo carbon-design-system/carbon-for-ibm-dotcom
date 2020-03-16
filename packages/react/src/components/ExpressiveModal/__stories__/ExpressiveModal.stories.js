@@ -61,7 +61,7 @@ storiesOf('Components|Expressive Modal', module)
       </>
     );
   })
-  .add('Fullwidth', () => {
+  .add('Expanded', () => {
     return (
       <>
         <ExpressiveModal
