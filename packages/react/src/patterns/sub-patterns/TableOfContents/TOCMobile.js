@@ -34,6 +34,9 @@ const TOCMobile = ({ menuItems, selectedId, menuLabel, updateState }) => {
 
   /**
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> fix(pattern): fix on top-menu for ios
    * Check if elements are visible
    *
    * @param {Array} elements array of HTML components to be checked to be on screen
@@ -55,8 +58,11 @@ const TOCMobile = ({ menuItems, selectedId, menuLabel, updateState }) => {
     return elemsPos;
   };
   /**
+<<<<<<< HEAD
 =======
 >>>>>>> fix(pattern): fixed dropdown label for  mobile
+=======
+>>>>>>> fix(pattern): fix on top-menu for ios
    * Handle onChange event of select
    *
    * @param {*} e event object
