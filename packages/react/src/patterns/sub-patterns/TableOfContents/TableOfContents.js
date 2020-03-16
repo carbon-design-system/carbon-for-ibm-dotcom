@@ -83,7 +83,9 @@ const TableOfContents = ({
   }, [useMenuItems]);
 
   useEffect(() => {
-    scrollStop(setSelectedItem);
+    window.addEventListener('scroll', () => {
+      window.requestAnimationFrame(setSelectedItem);
+    });
   });
 
   /**
@@ -92,15 +94,19 @@ const TableOfContents = ({
    */
   const setSelectedItem = () => {
     const elems = getElemsInView();
-    const id = elems[0] || useMenuItems[0].id;
-    const filteredItems = useMenuItems.filter(menu => {
-      if (id !== 'undefined') {
-        return menu.id === id;
+    if (elems.length > 0) {
+      const id = elems[0] || useMenuItems[0].id;
+      const filteredItems = useMenuItems.filter(menu => {
+        if (id !== 'undefined') {
+          return menu.id === id;
+        }
+      });
+      if (filteredItems.length > 0 && filteredItems[0].title !== undefined) {
+        const title = filteredItems[0].title;
+        setSelectedId(id);
+        setSelectedTitle(title);
       }
-    });
-    const title = filteredItems[0].title;
-    setSelectedId(id);
-    setSelectedTitle(title);
+    }
   };
 
   /**
@@ -125,26 +131,6 @@ const TableOfContents = ({
       }
     });
     return elesInView;
-  };
-
-  /**
-   * Detect scroll stop event and run callback function
-   *
-   * @param {*} callback callback function
-   */
-  const scrollStop = callback => {
-    if (!callback || typeof callback !== 'function') return;
-    let isScrolling;
-    root.addEventListener(
-      'scroll',
-      () => {
-        root.clearTimeout(isScrolling);
-        isScrolling = setTimeout(() => {
-          callback();
-        }, 66);
-      },
-      false
-    );
   };
 
   /**
@@ -181,6 +167,18 @@ const TableOfContents = ({
   };
 
   /**
+   * Validate if the Menu Items has Id and Title filled
+   *
+   * @param {Array} menuItems array of Items
+   * @returns {Array} filtered array of items
+   */
+  const validateMenuItems = menuItems => {
+    return menuItems.filter(
+      item => item.title.trim().length > 0 && item.id.trim().length > 0
+    );
+  };
+
+  /**
    * Props for TOCDesktop and TOCMobile
    * @type {{
    * updateState: updateState,
@@ -191,7 +189,7 @@ const TableOfContents = ({
    * }}
    */
   const props = {
-    menuItems: useMenuItems,
+    menuItems: validateMenuItems(useMenuItems),
     selectedId,
     selectedTitle,
     menuLabel,
@@ -227,7 +225,12 @@ const TableOfContents = ({
 };
 
 TableOfContents.propTypes = {
-  menuItems: PropTypes.array,
+  menuItems: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired,
+    })
+  ),
   children: PropTypes.object,
   menuLabel: PropTypes.string,
   theme: PropTypes.string,

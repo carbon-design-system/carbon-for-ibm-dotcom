@@ -16,7 +16,9 @@ Here's a quick example to get you started.
 @import '@carbon/ibmdotcom-styles/scss/patterns/blocks/content-group-pictograms/index';
 ```
 
-> 💡 Only import font's once per usage
+> 💡 Only import fonts once per usage. Don't forget to import the
+> ContentGroupPictograms styles from
+> [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
 ```javascript
 import React from 'react';
@@ -38,7 +40,7 @@ const items = [
       copy: 'Lorem ipsum dolor',
     },
     pictogram: {
-      url: Desktop,
+      src: Desktop,
       'aria-label': 'Desktop Pictogram',
     },
   },
@@ -52,7 +54,7 @@ const items = [
       copy: 'Lorem ipsum dolor',
     },
     pictogram: {
-      url: Touch,
+      src: Touch,
       'aria-label': 'Touch Pictogram',
     },
   },
@@ -66,7 +68,7 @@ const items = [
       copy: 'Lorem ipsum dolor',
     },
     pictogram: {
-      url: Pattern,
+      src: Pattern,
       'aria-label': 'Pattern Pictogram',
     },
   },

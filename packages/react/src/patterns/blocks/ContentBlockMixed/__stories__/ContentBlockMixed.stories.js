@@ -1,6 +1,6 @@
 import './index.scss';
 import { Desktop, Pattern, Touch } from '@carbon/pictograms-react';
-import { text, object, withKnobs } from '@storybook/addon-knobs';
+import { text, object, select, withKnobs } from '@storybook/addon-knobs';
 import ContentBlockMixed from '../ContentBlockMixed';
 import ContentGroupCardsKnobs from '../../ContentGroupCards/__stories__/data/ContentGroupCards.knobs';
 import ContentGroupSimpleKnobs from '../../ContentGroupSimple/__stories__/data/ContentGroupSimple.knobs';
@@ -18,12 +18,19 @@ storiesOf('Patterns (Blocks)|ContentBlockMixed', module)
   .add('Default', () => {
     const heading = 'Lorem ipsum dolor sit amet';
 
-    const cta = {
+    const ctaTypes = {
+      local: 'local',
+      jump: 'jump',
+      external: 'external',
+    };
+
+    const ctaProps = {
       cta: {
-        href: 'https://www.example.com',
+        href: 'https://www.ibm.com',
       },
       style: 'card',
-      type: 'local',
+      type: select('CTA type', ctaTypes, ctaTypes.local),
+      heading: 'Lorem ipsum dolor sit amet',
       copy: 'Lorem ipsum dolor sit ametttt',
     };
 
@@ -40,9 +47,7 @@ storiesOf('Patterns (Blocks)|ContentBlockMixed', module)
         copy:
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
         cta: {
-          cta: {
-            href: 'https://www.example.com',
-          },
+          href: 'https://www.ibm.com',
           type: 'local',
           copy: 'Lorem ipsum dolor',
         },
@@ -56,9 +61,7 @@ storiesOf('Patterns (Blocks)|ContentBlockMixed', module)
         copy:
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
         cta: {
-          cta: {
-            href: 'https://www.example.com',
-          },
+          href: 'https://www.ibm.com',
           type: 'local',
           copy: 'Lorem ipsum dolor',
         },
@@ -72,9 +75,7 @@ storiesOf('Patterns (Blocks)|ContentBlockMixed', module)
         copy:
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
         cta: {
-          cta: {
-            href: 'https://www.example.com',
-          },
+          href: 'https://www.ibm.com',
           type: 'local',
           copy: 'Lorem ipsum dolor',
         },
@@ -118,7 +119,7 @@ storiesOf('Patterns (Blocks)|ContentBlockMixed', module)
             <ContentBlockMixed
               heading={heading}
               copy={copy}
-              cta={cta}
+              cta={ctaProps}
               items={items}
             />
           </div>

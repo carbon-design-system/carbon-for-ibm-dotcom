@@ -17,7 +17,9 @@ Here's a quick example to get you started.
 @import '@carbon/ibmdotcom-styles/scss/patterns/sections/card-section/index';
 ```
 
-> 💡 Only import fonts once per usage
+> 💡 Only import fonts once per usage. Don't forget to import the CardSection
+> styles from
+> [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
 ```javascript
 import React from 'react';
