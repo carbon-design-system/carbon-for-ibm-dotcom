@@ -214,6 +214,76 @@ class AnalyticsAPI {
       }
     }
   }
+
+  /**
+   * Sends video player metrics data
+   *
+   * @param {string} data event data from the video player
+   */
+  static videoPlayerStats(data) {
+    let playerState = '',
+      ibmCoremetricsState = data.playerState,
+      currentTime = Math.floor(data.currentTime),
+      duration = Math.floor(data.duration),
+      percentWatched = Math.floor((currentTime / duration) * 100);
+
+    // Set nicenames for player states for event.
+    switch (data.playerState) {
+      case 0:
+        playerState = 'launched';
+        break;
+      case 1:
+        playerState = 'paused';
+        break;
+      case 2:
+        playerState = 'played';
+        break;
+      case 3:
+        playerState = 'ended';
+        break;
+      case 99:
+        playerState = 'error';
+        break;
+      default:
+    }
+
+    if (currentTime === 0) {
+      currentTime = 'start';
+      percentWatched = '0';
+    }
+
+    if (currentTime >= duration || data.playerState === 3) {
+      currentTime = 'end';
+      percentWatched = '100';
+    }
+
+    // If went to the end of the video, and fired "pause" event, don't fire pause event b/c it's really
+    // the end of the video, so just let "end" event fire and tag metrics.
+    if (currentTime === 'end' && data.playerState === 1) {
+      return;
+    }
+
+    const eventData = {
+      type: 'video',
+      primaryCategory: 'VIDEO',
+      eventName: data.title,
+      eventCategoryGroup: data.playerType,
+      executionPath: data.videoId,
+      execPathReturnCode: playerState,
+      eventVidStatus: ibmCoremetricsState,
+      eventVidTimeStamp: currentTime,
+      eventVidLength: duration,
+      eventVidPlayed: percentWatched + '%',
+    };
+
+    try {
+      this.registerEvent(eventData);
+    } catch (err) {
+      if (_env !== 'production') {
+        console.error('Error firing video metrics:', err);
+      }
+    }
+  }
 }
 
 export default AnalyticsAPI;

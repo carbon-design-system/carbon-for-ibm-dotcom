@@ -1,3 +1,6 @@
+import { AnalyticsAPI } from '@carbon/ibmdotcom-services';
+import root from 'window-or-global';
+
 /**
  * These id's for production use of IBM.com
  * @type {number} _partnerId The ID of your Kaltura account (aka partnerId)
@@ -14,42 +17,31 @@ const _uiConfId = process.env.KALTURA_UICONF_ID || 12905712;
 const _embedUrl = `https://cdnapisec.kaltura.com/p/${_partnerId}/sp/${_partnerId}00/embedIframeJs/uiconf_id/${_uiConfId}/partner_id/${_partnerId}`;
 
 /**
- *
  * Number of times to retry the script ready loop before failing
+ *
  * @type {number}
  * @private
  */
 
 const _timeoutRetries = 50;
 /**
- *
  * Tracks the number of attempts for the script ready loop
+ *
  * @type {number}
  * @private
  */
 let _attempt = 0;
 
 /**
- *
  * Tracks the script status
- * @type {boolean} _scriptLoaded to track the script loaded or not
- * @private
- */
-let _scriptLoaded = false;
-
-/**
  *
- * Tracks the script status
- * * @type {boolean} _scriptLoading to track the script loading or not
+ * @type {boolean} _scriptLoading to track the script loading or not
  * @private
  */
 let _scriptLoading = false;
 
-let kWidget;
-
 /**
- *
- * Timeout loop to check script state is the _scriptLoaded state or _scriptLoading state .
+ * Timeout loop to check script state is the _scriptLoaded state or _scriptLoading state
  *
  * @param {Function} resolve Resolve function
  * @param {Function} reject Reject function
@@ -58,9 +50,10 @@ let kWidget;
 function _scriptReady(resolve, reject) {
   /**
    *
-   * @param {boolean}  _scriptLoaded is true then resolve.
+   * @param {object} root.kWidget if exists then resolve
    */
-  if (_scriptLoaded) {
+  if (root.kWidget) {
+    _scriptLoading = false;
     resolve();
   } else if (_scriptLoading) {
     _attempt++;
@@ -79,8 +72,9 @@ function _scriptReady(resolve, reject) {
 }
 
 /**
- *
  * Returns boolean if the _scriptLoading and _scriptLoaded flag is false
+ *
+ * @private
  */
 function _loadScript() {
   _scriptLoading = true;
@@ -88,11 +82,6 @@ function _loadScript() {
   script.src = _embedUrl;
   script.async = true;
   document.body.appendChild(script);
-
-  script.onload = function() {
-    _scriptLoaded = true;
-    _scriptLoading = false;
-  };
 }
 
 /**
@@ -122,55 +111,70 @@ class VideoPlayerAPI {
    * @returns {object}  object
    */
   static async embedVideo(videoId, targetId) {
+    const fireEvent = this.fireEvent;
     return await this.checkScript().then(() => {
-      kWidget.embed({
+      root.kWidget.embed({
         targetId: targetId,
         wid: '_' + _partnerId,
         uiconf_id: _uiConfId,
         entry_id: videoId,
         flashvars: {
           autoPlay: false,
+          titleLabel: {
+            plugin: true,
+            align: 'left',
+            text: '{mediaProxy.entry.name}',
+          },
         },
         // Ready callback is issued for this player:
         readyCallback: function(playerId) {
           var kdp = document.getElementById(playerId);
-          kdp.kBind('Play', function() {
-            return playerId;
+
+          kdp.addJsListener('playerPaused', function() {
+            fireEvent({ playerState: 1, kdp, videoId });
           });
-          var events = [
-            'layoutBuildDone',
-            'playerReady',
-            'mediaLoaded',
-            'mediaError',
-            'playerStateChange',
-            'firstPlay',
-            'playerPlayed',
-            'playerPaused',
-            'preSeek',
-            'seek',
-            'seeked',
-            'playerUpdatePlayhead',
-            'openFullScreen',
-            'closeFullScreen',
-            'volumeChanged',
-            'mute',
-            'unmute',
-            'bufferChange',
-            'cuePointReached',
-            'playerPlayEnd',
-            'onChangeMedia',
-            'onChangeMediaDone',
-          ];
-          for (var i = 0; i < events.length; i++) {
-            (function(i) {
-              kdp.kBind(events[i], function(event) {
-                return JSON.stringify(event);
-              });
-            })(i);
-          }
+          kdp.addJsListener('playerPlayed', function() {
+            fireEvent({ playerState: 2, kdp, videoId });
+          });
+          kdp.addEventListener('playerPlayEnd', function() {
+            fireEvent({ playerState: 3, kdp, videoId });
+          });
         },
       });
     });
+  }
+
+  /**
+   * Fires a metrics event when the video was played.
+   * Pass events to common metrics event.
+   *
+   * @param {object} param params
+   * @param {number} param.playerState state detecting different user actions
+   * @param {object} param.kdp video object
+   * @param {string} param.videoId id of the video
+   *
+   * @returns {object} eventData
+   */
+  static fireEvent({ playerState, kdp, videoId }) {
+    // If video was played and timestamp is 0, it should be "launched" state.
+    var currentTime = Math.round(kdp.evaluate('{video.player.currentTime}'));
+
+    if (playerState === 2 && currentTime === 0) {
+      playerState = 0;
+    }
+
+    const eventData = {
+      playerType: 'kaltura',
+      title: kdp.evaluate('{mediaProxy.entry.name}'),
+      currentTime: currentTime,
+      duration: kdp.evaluate('{mediaProxy.entry.duration}'),
+      playerState: playerState,
+      videoId: videoId,
+    };
+
+    AnalyticsAPI.videoPlayerStats(eventData);
+
+    return eventData;
   }
 
   /**
@@ -181,17 +185,35 @@ class VideoPlayerAPI {
    */
   static async api(videoId) {
     return await this.checkScript().then(() => {
-      new kWidget.api({ wid: _partnerId }).doRequest(
-        {
-          service: 'media',
-          action: 'get',
-          entryId: videoId,
-        },
-        function(jsonObj) {
-          return jsonObj;
-        }
-      );
+      return new Promise(resolve => {
+        return new root.kWidget.api({ wid: _partnerId }).doRequest(
+          {
+            service: 'media',
+            action: 'get',
+            entryId: videoId,
+          },
+          function(jsonObj) {
+            resolve(jsonObj);
+          }
+        );
+      });
     });
+  }
+
+  /**
+   * Convert video duration from milliseconds to HH:MM:SS
+   *
+   * @param {string} duration video duration in milliseconds
+   * @returns {string} converted duration
+   */
+  static getVideoDuration(duration) {
+    let seconds = Math.floor((duration / 1000) % 60);
+    const minutes = Math.floor((duration / (1000 * 60)) % 60);
+    let hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
+    hours = hours > 0 ? hours + ':' : '';
+    seconds = seconds < 10 ? '0' + seconds : seconds;
+
+    return hours + minutes + ':' + seconds;
   }
 }
 
