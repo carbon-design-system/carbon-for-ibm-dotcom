@@ -43,7 +43,7 @@ const VideoPlayer = ({ videoId, showDescription }) => {
       </div>
       {showDescription && (
         <div className={`${prefix}--video-player__video-description`}>
-          {videoData.description} ({videoDuration})
+          {videoData.description} {videoDuration}
         </div>
       )}
     </div>

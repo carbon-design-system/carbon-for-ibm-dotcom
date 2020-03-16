@@ -202,7 +202,7 @@ class VideoPlayerAPI {
     hours = hours > 0 ? hours + ':' : '';
     seconds = seconds < 10 ? '0' + seconds : seconds;
 
-    return hours + minutes + ':' + seconds;
+    return duration && '(' + hours + minutes + ':' + seconds + ')';
   }
 }
 
