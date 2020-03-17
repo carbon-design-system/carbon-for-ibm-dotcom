@@ -233,7 +233,6 @@ class AnalyticsAPI {
    */
   static videoPlayerStats(data) {
     let playerState = '',
-      ibmCoremetricsState = data.playerState,
       currentTime = Math.floor(data.currentTime),
       duration = Math.floor(data.duration),
       percentWatched = Math.floor((currentTime / duration) * 100);
@@ -281,7 +280,7 @@ class AnalyticsAPI {
       eventCategoryGroup: data.playerType,
       executionPath: data.videoId,
       execPathReturnCode: playerState,
-      eventVidStatus: ibmCoremetricsState,
+      eventVidStatus: data.playerState,
       eventVidTimeStamp: currentTime,
       eventVidLength: duration,
       eventVidPlayed: percentWatched + '%',
