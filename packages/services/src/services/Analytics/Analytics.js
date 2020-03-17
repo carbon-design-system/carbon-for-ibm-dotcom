@@ -219,6 +219,17 @@ class AnalyticsAPI {
    * Sends video player metrics data
    *
    * @param {string} data event data from the video player
+   *
+   * @example of the `data` object structure:
+   * data = {
+   *    playerType: "kaltura"
+   *    title: "Folgers Coffee"
+   *    currentTime: 1
+   *    duration: 60
+   *    playerState: 1
+   *    videoId: "0_uka1msg4"
+   * }
+   *
    */
   static videoPlayerStats(data) {
     let playerState = '',

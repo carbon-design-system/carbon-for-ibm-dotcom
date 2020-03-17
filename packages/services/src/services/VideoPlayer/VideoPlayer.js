@@ -136,7 +136,7 @@ class VideoPlayerAPI {
           kdp.addJsListener('playerPlayed', function() {
             fireEvent({ playerState: 2, kdp, videoId });
           });
-          kdp.addEventListener('playerPlayEnd', function() {
+          kdp.addJsListener('playerPlayEnd', function() {
             fireEvent({ playerState: 3, kdp, videoId });
           });
         },
@@ -171,6 +171,8 @@ class VideoPlayerAPI {
       playerState: playerState,
       videoId: videoId,
     };
+
+    console.log('data', eventData);
 
     AnalyticsAPI.videoPlayerStats(eventData);
 
