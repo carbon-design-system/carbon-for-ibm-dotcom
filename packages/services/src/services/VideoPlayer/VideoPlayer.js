@@ -153,7 +153,6 @@ class VideoPlayerAPI {
    * @param {object} param.kdp video object
    * @param {string} param.videoId id of the video
    *
-   * @returns {object} eventData
    */
   static fireEvent({ playerState, kdp, videoId }) {
     // If video was played and timestamp is 0, it should be "launched" state.
@@ -173,8 +172,6 @@ class VideoPlayerAPI {
     };
 
     AnalyticsAPI.videoPlayerStats(eventData);
-
-    return eventData;
   }
 
   /**
