@@ -172,8 +172,6 @@ class VideoPlayerAPI {
       videoId: videoId,
     };
 
-    console.log('data', eventData);
-
     AnalyticsAPI.videoPlayerStats(eventData);
 
     return eventData;
