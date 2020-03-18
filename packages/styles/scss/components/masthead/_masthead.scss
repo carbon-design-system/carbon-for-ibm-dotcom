@@ -45,7 +45,7 @@ $search-transition-timing: 95ms;
       background-color: $ui-03;
     }
 
-    [data-autoid$='search--search'] {
+    [data-autoid$='header__search--search'] {
       svg {
         top: 0;
       }
