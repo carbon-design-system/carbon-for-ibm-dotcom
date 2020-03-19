@@ -124,7 +124,10 @@ const LeadSpace = ({ buttons, copy, gradient, image, theme, title, type }) => {
                 : `${prefix}--leadspace--centered--content__container`
             }>
             <div className={centeredClassname(type, 'row')}>
-              <h1 className={centeredClassname(type, 'title')}>{title}</h1>
+              <h1
+                className={centeredClassname(type, 'title')}
+                dangerouslySetInnerHTML={{ __html: `${title}` }}
+              />
             </div>
             <div className={`${prefix}--leadspace__content`}>
               {copy && (
@@ -132,9 +135,9 @@ const LeadSpace = ({ buttons, copy, gradient, image, theme, title, type }) => {
                   {copy && (
                     <p
                       data-autoid={`${stablePrefix}--leadspace__desc`}
-                      className={centeredClassname(type, 'desc')}>
-                      {copy}
-                    </p>
+                      className={centeredClassname(type, 'desc')}
+                      dangerouslySetInnerHTML={{ __html: `${copy}` }}
+                    />
                   )}
                 </div>
               )}
