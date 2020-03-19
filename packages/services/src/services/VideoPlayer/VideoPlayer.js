@@ -1,3 +1,4 @@
+import { AnalyticsAPI } from '../Analytics';
 import root from 'window-or-global';
 
 /**
@@ -110,6 +111,7 @@ class VideoPlayerAPI {
    * @returns {object}  object
    */
   static async embedVideo(videoId, targetId) {
+    const fireEvent = this.fireEvent;
     return await this.checkScript().then(() => {
       root.kWidget.embed({
         targetId: targetId,
@@ -127,43 +129,49 @@ class VideoPlayerAPI {
         // Ready callback is issued for this player:
         readyCallback: function(playerId) {
           var kdp = document.getElementById(playerId);
-          kdp.kBind('Play', function() {
-            return playerId;
+
+          kdp.addJsListener('playerPaused', function() {
+            fireEvent({ playerState: 1, kdp, videoId });
           });
-          var events = [
-            'layoutBuildDone',
-            'playerReady',
-            'mediaLoaded',
-            'mediaError',
-            'playerStateChange',
-            'firstPlay',
-            'playerPlayed',
-            'playerPaused',
-            'preSeek',
-            'seek',
-            'seeked',
-            'playerUpdatePlayhead',
-            'openFullScreen',
-            'closeFullScreen',
-            'volumeChanged',
-            'mute',
-            'unmute',
-            'bufferChange',
-            'cuePointReached',
-            'playerPlayEnd',
-            'onChangeMedia',
-            'onChangeMediaDone',
-          ];
-          for (var i = 0; i < events.length; i++) {
-            (function(i) {
-              kdp.kBind(events[i], function(event) {
-                return JSON.stringify(event);
-              });
-            })(i);
-          }
+          kdp.addJsListener('playerPlayed', function() {
+            fireEvent({ playerState: 2, kdp, videoId });
+          });
+          kdp.addJsListener('playerPlayEnd', function() {
+            fireEvent({ playerState: 3, kdp, videoId });
+          });
         },
       });
     });
+  }
+
+  /**
+   * Fires a metrics event when the video was played.
+   * Pass events to common metrics event.
+   *
+   * @param {object} param params
+   * @param {number} param.playerState state detecting different user actions
+   * @param {object} param.kdp video object
+   * @param {string} param.videoId id of the video
+   *
+   */
+  static fireEvent({ playerState, kdp, videoId }) {
+    // If video was played and timestamp is 0, it should be "launched" state.
+    var currentTime = Math.round(kdp.evaluate('{video.player.currentTime}'));
+
+    if (playerState === 2 && currentTime === 0) {
+      playerState = 0;
+    }
+
+    const eventData = {
+      playerType: 'kaltura',
+      title: kdp.evaluate('{mediaProxy.entry.name}'),
+      currentTime: currentTime,
+      duration: kdp.evaluate('{mediaProxy.entry.duration}'),
+      playerState: playerState,
+      videoId: videoId,
+    };
+
+    AnalyticsAPI.videoPlayerStats(eventData);
   }
 
   /**
