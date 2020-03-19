@@ -167,6 +167,18 @@ const TableOfContents = ({
   };
 
   /**
+   * Validate if the Menu Items has Id and Title filled
+   *
+   * @param {Array} menuItems array of Items
+   * @returns {Array} filtered array of items
+   */
+  const validateMenuItems = menuItems => {
+    return menuItems.filter(
+      item => item.title.trim().length > 0 && item.id.trim().length > 0
+    );
+  };
+
+  /**
    * Props for TOCDesktop and TOCMobile
    * @type {{
    * updateState: updateState,
@@ -177,7 +189,7 @@ const TableOfContents = ({
    * }}
    */
   const props = {
-    menuItems: useMenuItems,
+    menuItems: validateMenuItems(useMenuItems),
     selectedId,
     selectedTitle,
     menuLabel,
@@ -213,7 +225,12 @@ const TableOfContents = ({
 };
 
 TableOfContents.propTypes = {
-  menuItems: PropTypes.array,
+  menuItems: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired,
+    })
+  ),
   children: PropTypes.object,
   menuLabel: PropTypes.string,
   theme: PropTypes.string,

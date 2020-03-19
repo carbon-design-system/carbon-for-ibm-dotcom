@@ -2,6 +2,7 @@ import './index.scss';
 import { ArrowDown20, ArrowRight20, Pdf20 } from '@carbon/icons-react';
 import {
   boolean,
+  number,
   object,
   select,
   text,
@@ -21,11 +22,11 @@ storiesOf('Patterns (Sections)|LeadSpace', module)
   })
   .add('Default with no image', () => {
     const copy = text(
-      'Copy',
+      'copy',
       'Use this area for a short line of copy to support the title'
     );
 
-    const title = text('Title', 'Lead space title');
+    const title = text('title', 'Lead space title');
 
     const type = {
       left: '',
@@ -39,29 +40,27 @@ storiesOf('Patterns (Sections)|LeadSpace', module)
       Pdf20,
     };
 
-    const icons = {
+    const iconOptions = {
+      None: null,
       ArrowRight: 'ArrowRight20',
       ArrowDown: 'ArrowDown20',
-      Pdf: 'Pdf20',
-      none: null,
+      PDF: 'Pdf20',
     };
 
-    const buttons = [
-      {
+    const buttonCount = number('Number of buttons', 2);
+    const buttons = [];
+
+    for (let i = 0; i < buttonCount; i++) {
+      buttons.push({
         link: '',
-        copy: text('Primary button copy:', 'Primary action button'),
+        copy: text(`Button ${i + 1}`, `Button ${i + 1}`),
         renderIcon:
-          iconMap[select('Primary button icon', icons, icons.ArrowRight)],
-        href: text('Primary button link:', 'https://www.example.com'),
-      },
-      {
-        link: '',
-        copy: text('Secondary button copy:', 'Secondary action button'),
-        renderIcon:
-          iconMap[select('Secondary button icon', icons, icons.ArrowRight)],
-        href: text('Secondary button link:', 'https://www.example.com'),
-      },
-    ];
+          iconMap[
+            select(`Button Icon ${i + 1}`, iconOptions, iconOptions.ArrowRight)
+          ],
+        href: text('Primary button link', 'https://www.example.com'),
+      });
+    }
 
     const themes = {
       g100: 'g100',
@@ -70,8 +69,8 @@ storiesOf('Patterns (Sections)|LeadSpace', module)
 
     return (
       <LeadSpace
-        type={select('Type', type, type.small)}
-        theme={select('Theme', themes, themes.g100)}
+        type={select('type', type, type.small)}
+        theme={select('theme', themes, themes.g100)}
         title={title}
         copy={copy}
         buttons={buttons}
@@ -80,11 +79,11 @@ storiesOf('Patterns (Sections)|LeadSpace', module)
   })
   .add('Default with image', () => {
     const copy = text(
-      'Copy',
+      'copy',
       'Use this area for a short line of copy to support the title'
     );
 
-    const title = text('Title', 'Lead space title');
+    const title = text('title', 'Lead space title');
 
     const type = {
       left: '',
@@ -94,17 +93,11 @@ storiesOf('Patterns (Sections)|LeadSpace', module)
 
     const images = {
       sources: [
-        {
-          src: 'https://dummyimage.com/320x370/ee5396/161616',
-          breakpoint: 'sm',
-        },
-        {
-          src: 'https://dummyimage.com/672x400/ee5396/161616',
-          breakpoint: 'md',
-        },
+        { src: 'https://picsum.photos/id/1076/320/370', breakpoint: 'sm' },
+        { src: 'https://picsum.photos/id/1076/672/400', breakpoint: 'md' },
       ],
-      default: 'https://dummyimage.com/1056x480/ee5396/161616',
-      alt: 'Image alt text',
+      default: 'https://picsum.photos/id/1076/1056/480',
+      alt: 'lead space image',
     };
 
     const iconMap = {
@@ -113,29 +106,27 @@ storiesOf('Patterns (Sections)|LeadSpace', module)
       Pdf20,
     };
 
-    const icons = {
+    const iconOptions = {
+      None: null,
       ArrowRight: 'ArrowRight20',
       ArrowDown: 'ArrowDown20',
-      Pdf: 'Pdf20',
-      none: null,
+      PDF: 'Pdf20',
     };
 
-    const buttons = [
-      {
+    const buttonCount = number('Number of buttons', 2);
+    const buttons = [];
+
+    for (let i = 0; i < buttonCount; i++) {
+      buttons.push({
         link: '',
-        copy: text('Primary button copy:', 'Primary action button'),
+        copy: text(`Button ${i + 1}`, `Button ${i + 1}`),
         renderIcon:
-          iconMap[select('Primary button icon', icons, icons.ArrowRight)],
-        href: text('Primary button link:', 'https://www.example.com'),
-      },
-      {
-        link: '',
-        copy: text('Secondary button copy:', 'Secondary action button'),
-        renderIcon:
-          iconMap[select('Secondary button icon', icons, icons.ArrowRight)],
-        href: text('Secondary button link:', 'https://www.example.com'),
-      },
-    ];
+          iconMap[
+            select(`Button Icon ${i + 1}`, iconOptions, iconOptions.ArrowRight)
+          ],
+        href: text('Primary button link', 'https://www.example.com'),
+      });
+    }
 
     const themes = {
       g100: 'g100',
@@ -146,13 +137,13 @@ storiesOf('Patterns (Sections)|LeadSpace', module)
 
     return (
       <LeadSpace
-        type={select('Type', type, type.small)}
-        theme={select('Theme', themes, themes.g100)}
+        type={select('type', type, type.small)}
+        theme={select('theme', themes, themes.g100)}
         title={title}
         copy={copy}
         gradient={gradient}
         buttons={buttons}
-        image={object('Image', images)}
+        image={object('image', images)}
       />
     );
   });
