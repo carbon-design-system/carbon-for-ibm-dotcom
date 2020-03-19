@@ -218,7 +218,7 @@ class AnalyticsAPI {
   /**
    * Sends video player metrics data
    *
-   * @param {string} data event data from the video player
+   * @param {object} data event data from the video player
    *
    * @example
    * import { AnalyticsAPI } from '@carbon/ibmdotcom-services';
