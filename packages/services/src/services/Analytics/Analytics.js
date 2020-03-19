@@ -220,9 +220,9 @@ class AnalyticsAPI {
    *
    * @param {string} data event data from the video player
    *
-   * @example 
+   * @example
    * import { AnalyticsAPI } from '@carbon/ibmdotcom-services';
-   
+   *
    *function init() {
    *    const data = {
    *       playerType: 'kaltura',
