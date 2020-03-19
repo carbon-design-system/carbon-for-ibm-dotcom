@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-styles@1.5.0-rc.1...@carbon/ibmdotcom-styles@1.5.0) (2020-03-18)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.5.0-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-styles@1.5.0-rc.0...@carbon/ibmdotcom-styles@1.5.0-rc.1) (2020-03-13)
+
+### Bug Fixes
+
+- **import:** import content section styles in card section
+  ([84ed2da](https://github.com/carbon-design-system/ibm-dotcom-library/commit/84ed2da))
+- **layout:** fix to sticky attribute for safari browsers
+  ([680b57e](https://github.com/carbon-design-system/ibm-dotcom-library/commit/680b57e))
+- **scss:** added padding for link-list
+  ([9ea5d7f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/9ea5d7f))
+- **toc:** fixes toc overlapping the masthead dropdown
+  ([44d71f4](https://github.com/carbon-design-system/ibm-dotcom-library/commit/44d71f4))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.5.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-styles@1.4.1...@carbon/ibmdotcom-styles@1.5.0-rc.0) (2020-03-06)
 
 ### Bug Fixes

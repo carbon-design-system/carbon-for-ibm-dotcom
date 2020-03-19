@@ -13,7 +13,9 @@
 @include carbon--font-face-sans();
 ```
 
-> 💡 Only import font's once per usage
+> 💡 Only import fonts once per usage. Don't forget to import the DotcomShell
+> styles from
+> [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
 ### Content
 

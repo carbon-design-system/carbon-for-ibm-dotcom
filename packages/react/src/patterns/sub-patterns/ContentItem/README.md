@@ -13,12 +13,14 @@ Here's a quick example to get you started.
 @import '@carbon/ibmdotcom-styles/scss/patterns/sub-patterns/content-item';
 ```
 
-> 💡 Only import font's once per usage
+> 💡 Only import fonts once per usage. Don't forget to import the ContentItem
+> styles from
+> [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { ContentGroup } from '@carbon/ibmdotcom-react';
+import { ContentItem } from '@carbon/ibmdotcom-react';
 import 'yourapplication.scss';
 
 function App() {

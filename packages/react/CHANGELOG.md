@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.5.0-rc.1...@carbon/ibmdotcom-react@1.5.0) (2020-03-18)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.5.0-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.5.0-rc.0...@carbon/ibmdotcom-react@1.5.0-rc.1) (2020-03-13)
+
+### Bug Fixes
+
+- **autoid:** make autoids more specific for card section
+  ([0fd8333](https://github.com/carbon-design-system/ibm-dotcom-library/commit/0fd8333))
+- **cta:** fix CTA text link prop object; fixes
+  [#1682](https://github.com/carbon-design-system/ibm-dotcom-library/issues/1682)
+  ([dc9d1d8](https://github.com/carbon-design-system/ibm-dotcom-library/commit/dc9d1d8))
+- **layout:** fix to sticky attribute for safari browsers
+  ([680b57e](https://github.com/carbon-design-system/ibm-dotcom-library/commit/680b57e))
+- **pattern:** fixed left navigation not showing any selected section
+  ([d537c41](https://github.com/carbon-design-system/ibm-dotcom-library/commit/d537c41))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.5.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.4.1...@carbon/ibmdotcom-react@1.5.0-rc.0) (2020-03-06)
 
 ### Bug Fixes
