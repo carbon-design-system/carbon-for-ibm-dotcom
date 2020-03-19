@@ -21,10 +21,9 @@ const { prefix } = settings;
  * @param {object} props props object
  * @param {Array} props.menuItems menu items object
  * @param {string} props.selectedId id of a menu item
- * @param {*} props.updateState function to update parent state.
  * @returns {*} JSX Object
  */
-const TOCDesktop = ({ menuItems, selectedId, updateState }) => {
+const TOCDesktop = ({ menuItems, selectedId }) => {
   /**
    * Render menu items
    *
@@ -60,11 +59,6 @@ const TOCDesktop = ({ menuItems, selectedId, updateState }) => {
    */
   const handleOnClick = (e, id) => {
     e.preventDefault();
-    const filteredItems = menuItems.filter(menu => {
-      return menu.id === id;
-    });
-    const title = filteredItems[0].title;
-    updateState(id, title);
     const selector = `a[name="${id}"]`;
     smoothScroll(null, selector);
   };
@@ -97,7 +91,6 @@ const TOCDesktop = ({ menuItems, selectedId, updateState }) => {
 TOCDesktop.propTypes = {
   menuItems: PropTypes.array,
   selectedId: PropTypes.string,
-  updateState: PropTypes.func,
 };
 
 export default TOCDesktop;
