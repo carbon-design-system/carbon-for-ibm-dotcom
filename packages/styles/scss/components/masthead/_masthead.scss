@@ -44,12 +44,6 @@ $search-transition-timing: 95ms;
       left: 0;
       background-color: $ui-03;
     }
-
-    [data-autoid$='header__search--search'] {
-      svg {
-        top: 0;
-      }
-    }
   }
 
   .#{$prefix}--header {
