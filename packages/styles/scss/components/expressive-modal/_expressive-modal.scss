@@ -25,9 +25,16 @@
     color: $text-01;
 
     #{$modal}-content {
+      display: flex;
       padding-left: 0;
       padding-right: $button-size - $offset-close-icon;
       margin-bottom: 0;
+      padding-top: 0;
+      // padding-bottom: $carbon--spacing-07;
+
+      *:last-child {
+        padding-bottom: 0;
+      }
     }
 
     #{$modal}-close {
@@ -36,12 +43,12 @@
     }
 
     #{$modal}-container {
-      padding: $carbon--spacing-07;
+      padding: $carbon--spacing-08 $carbon--spacing-07 $carbon--spacing-07;
       min-height: $carbon--spacing-07 + $icon-size + $carbon--spacing-07;
     }
     &--fullwidth {
       #{$modal}-container {
-        padding: $carbon--spacing-09 $carbon--spacing-05 $carbon--spacing-05;
+        padding: $carbon--spacing-07;
       }
       #{$modal}-content {
         padding-right: 0;
@@ -58,7 +65,7 @@
           max-width: calc(100% - #{$carbon--spacing-07});
           height: calc(100% - #{$carbon--spacing-07});
           max-height: none;
-          padding-bottom: 0;
+          // padding-bottom: 0;
         }
       }
     }

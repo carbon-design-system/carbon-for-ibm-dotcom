@@ -40,22 +40,28 @@ const LightboxMediaViewer = ({ title, image, copy, ...modalProps }) => {
         <ModalBody>
           <div className={`${prefix}--lightbox-media-viewer__container`}>
             <div className={`${prefix}--lightbox-media-viewer__row`}>
-              <Image {...image} />
-              <div className={`${prefix}--lightbox-media-viewer__content`}>
-                {title && (
-                  <div
-                    data-autoid={`${stablePrefix}--lightbox-media-viewer__content__title`}
-                    className={`${prefix}--lightbox-media-viewer__content__title`}>
-                    {title}
-                  </div>
-                )}
-                {copy && (
-                  <div
-                    data-autoid={`${stablePrefix}--lightbox-media-viewer__content__desc`}
-                    className={`${prefix}--lightbox-media-viewer__content__desc`}>
-                    {copy}
-                  </div>
-                )}
+              <div
+                className={`${prefix}--lightbox-media-viewer__media ${prefix}--no-gutter`}>
+                <Image {...image} />
+              </div>
+              <div
+                className={`${prefix}--lightbox-media-viewer__media-description ${prefix}--no-gutter`}>
+                <div className={`${prefix}--lightbox-media-viewer__content`}>
+                  {title && (
+                    <div
+                      data-autoid={`${stablePrefix}--lightbox-media-viewer__content__title`}
+                      className={`${prefix}--lightbox-media-viewer__content__title`}>
+                      {title}
+                    </div>
+                  )}
+                  {copy && (
+                    <div
+                      data-autoid={`${stablePrefix}--lightbox-media-viewer__content__desc`}
+                      className={`${prefix}--lightbox-media-viewer__content__desc`}>
+                      {copy}
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
           </div>
