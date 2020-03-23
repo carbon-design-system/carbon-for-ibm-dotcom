@@ -49,6 +49,12 @@ function App() {
 }
 ```
 
+Add the following line on your `.env` file at the root of your project
+
+```
+  SASS_PATH=node_modules:src
+```
+
 > 💡 And don't forget to import the DotcomShell styles from
 > [@carbon/ibmdotcom-styles](/packages/styles).
 

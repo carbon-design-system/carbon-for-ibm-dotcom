@@ -115,6 +115,12 @@ function App() {
 ReactDOM.render(<App />, document.querySelector('#app'));
 ```
 
+Add the following line on your `.env` file at the root of your project
+
+```
+  SASS_PATH=node_modules:src
+```
+
 ## Props
 
 | Name      | Required | Data Type | Default Value | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |

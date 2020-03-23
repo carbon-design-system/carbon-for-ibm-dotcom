@@ -42,6 +42,12 @@ function App() {
 ReactDOM.render(<App />, document.querySelector('#app'));
 ```
 
+Add the following line on your `.env` file at the root of your project
+
+```
+  SASS_PATH=node_modules:src
+```
+
 > 💡 Don't forget to import the expressive modal styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 

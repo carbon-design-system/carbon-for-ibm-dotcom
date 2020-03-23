@@ -35,6 +35,12 @@ function App() {
 ReactDOM.render(<App />, document.querySelector('#app'));
 ```
 
+Add the following line on your `.env` file at the root of your project
+
+```
+  SASS_PATH=node_modules:src
+```
+
 > See
 > [Card Object](https://github.com/mkothur/ibm-dotcom-library/blob/master/packages/react/src/patterns/sections/CardSection/__stories__/data/cards.json)
 > 👀
