@@ -33,6 +33,13 @@ application:
 import '@carbon/ibmdotcom-styles';
 ```
 
+For Carbon component styles to properly import, the following should be added to
+your environment variables:
+
+```
+SASS_PATH=node_modules:src
+```
+
 ## Expressive Theme
 
 In addition to styles for IBM.com Library components and patterns, this package

@@ -35,7 +35,8 @@ function App() {
 }
 ```
 
-Add the following line on your `.env` file at the root of your project
+Add the following line on your `.env` file at the root of your project,
+[see more details](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles/README.md)
 
 ```
   SASS_PATH=node_modules:src
