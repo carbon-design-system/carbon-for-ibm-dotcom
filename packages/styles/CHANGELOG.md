@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.1-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-styles@1.5.0...@carbon/ibmdotcom-styles@1.5.1-rc.0) (2020-03-23)
+
+### Bug Fixes
+
+- **cardsection:** fixed the aspect ratio on images
+  ([f686ddf](https://github.com/carbon-design-system/ibm-dotcom-library/commit/f686ddf))
+- **scss:** reinforced link-list pattern styling selectors
+  ([327d577](https://github.com/carbon-design-system/ibm-dotcom-library/commit/327d577))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.5.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-styles@1.5.0-rc.1...@carbon/ibmdotcom-styles@1.5.0) (2020-03-18)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.5.0-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-styles@1.5.0-rc.0...@carbon/ibmdotcom-styles@1.5.0-rc.1) (2020-03-13)
 
 ### Bug Fixes
