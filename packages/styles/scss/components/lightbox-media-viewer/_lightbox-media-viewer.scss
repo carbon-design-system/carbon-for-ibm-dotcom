@@ -13,21 +13,30 @@
     color: $text-01;
 
     &__container {
-      // @include carbon--make-container;
       display: flex;
       padding-bottom: 0;
     }
 
     &__row {
       @include carbon--make-row(0);
+
+      @include carbon--breakpoint-down('lg') {
+        flex-direction: column;
+        flex-wrap: nowrap;
+      }
     }
 
     &__media {
-      @include carbon--make-col-ready;
-      // @include carbon--make-col(12, 16);
-
       img {
+        width: auto;
+        max-width: 100%;
         height: auto;
+      }
+
+      @include carbon--breakpoint-down('lg') {
+        display: flex;
+        flex: 1;
+        align-items: center;
       }
     }
 
@@ -35,13 +44,6 @@
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-
-      @include carbon--make-col-ready;
-      // @include carbon--make-col
-
-      @include carbon--breakpoint-up('lg') {
-        @include carbon--make-col(4, 16);
-      }
     }
 
     &__content {
@@ -63,14 +65,8 @@
       }
 
       @include carbon--breakpoint-up('lg') {
-        // display: flex;
-        // flex-direction: column;
-        // justify-content: flex-end;
         padding-right: 0;
         padding-left: $carbon--spacing-07;
-
-        // @include carbon--make-col-ready;
-        // @include carbon--make-col(4, 16);
       }
     }
 
@@ -78,10 +74,6 @@
       .#{$prefix}--model-container {
         padding-top: $carbon--layout-05;
         padding-bottom: 0;
-      }
-      .#{$prefix}--modal-close {
-        top: $carbon--spacing-05;
-        right: $carbon--spacing-05;
       }
       &__container {
         padding-top: $carbon--spacing-07;
@@ -92,33 +84,21 @@
         padding-top: $carbon--layout-04;
         padding-bottom: $carbon--spacing-05;
       }
+
       &__media {
         @include carbon--make-col-ready;
         @include carbon--make-col(12, 16);
       }
-      // &__image {
-      //   @include carbon--make-col-ready;
-      //   @include carbon--make-col(12, 16);
 
-      //   padding-left: 0;
-      // }
-      // &__content {
-      //   @include carbon--make-col-ready;
-      //   padding-left: $carbon--spacing-07;
-      //   @include carbon--make-col(4, 16);
-
-      //   display: flex;
-      //   flex-direction: column;
-      //   justify-content: flex-end;
-
-      //   padding-right: 0;
-      // }
+      &__media-description {
+        @include carbon--make-col-ready;
+        @include carbon--make-col(4, 16);
+      }
       .#{$prefix}--modal-close {
         top: 0;
         right: 0;
       }
       &__container {
-        // min-height: carbon--rem(640px);
         padding-top: 0;
         padding-bottom: $carbon--spacing-05;
         display: flex;
