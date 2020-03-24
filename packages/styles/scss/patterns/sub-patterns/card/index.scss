@@ -25,7 +25,6 @@
       flex-direction: column;
       padding: $carbon--spacing-05;
       min-height: carbon--mini-units(20);
-      max-width: 90%;
     }
 
     &__heading {
@@ -36,6 +35,8 @@
 
     &__heading,
     &__copy {
+      @include content-width;
+
       color: $text-01;
     }
 
