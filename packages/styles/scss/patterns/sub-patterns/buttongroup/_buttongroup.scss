@@ -16,7 +16,6 @@
   .#{$prefix}--buttongroup {
     display: flex;
     flex-direction: column-reverse;
-    margin-top: $carbon--layout-01;
 
     @include carbon--breakpoint(lg) {
       justify-content: flex-end;
