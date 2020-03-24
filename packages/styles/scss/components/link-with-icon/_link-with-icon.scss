@@ -17,6 +17,8 @@
     display: flex;
 
     span {
+      @include carbon--type-style(body-short-02, true);
+
       vertical-align: middle;
       align-self: center;
     }
