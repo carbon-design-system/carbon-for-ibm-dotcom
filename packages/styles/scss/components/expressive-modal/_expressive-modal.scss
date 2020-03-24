@@ -30,7 +30,6 @@
       padding-right: $button-size - $offset-close-icon;
       margin-bottom: 0;
       padding-top: 0;
-      // padding-bottom: $carbon--spacing-07;
 
       *:last-child {
         padding-bottom: 0;
@@ -65,7 +64,6 @@
           max-width: calc(100% - #{$carbon--spacing-07});
           height: calc(100% - #{$carbon--spacing-07});
           max-height: none;
-          // padding-bottom: 0;
         }
       }
     }
