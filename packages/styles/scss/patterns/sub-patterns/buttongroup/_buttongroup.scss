@@ -36,7 +36,7 @@
 
   .#{$prefix}--buttongroup-item {
     margin-top: $carbon--layout-01;
-    max-width: 21rem;
+    max-width: carbon--mini-units(42);
     min-width: 0;
 
     @include carbon--breakpoint(md) {

@@ -29,6 +29,10 @@
       display: flex;
       align-items: center;
       justify-content: center;
+
+      svg {
+        top: 0;
+      }
     }
 
     .#{$prefix}--header__nav {

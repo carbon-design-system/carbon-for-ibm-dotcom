@@ -36,19 +36,14 @@
       max-width: none;
       &__wrapper {
         min-height: 116px;
+        .#{$prefix}--card__copy p {
+          color: $link-01;
+          @include carbon--type-style('body-short-02');
+        }
       }
       &:not(:hover) {
         background: $ui-background;
       }
-      &__copy p {
-        @include carbon--type-style('body-short-02');
-
-        color: $link-01;
-      }
-    }
-
-    @include carbon--breakpoint('md') {
-      max-width: carbon--mini-units(80);
     }
   }
 }
