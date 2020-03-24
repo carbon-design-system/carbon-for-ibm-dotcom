@@ -67,7 +67,20 @@ const TOCDesktop = ({ menuItems, selectedId, updateState }) => {
     updateState(id, title);
     const selector = `a[name="${id}"]`;
     smoothScroll(null, selector);
+    triggerFocus(selector);
   };
+
+  /**
+   * Trigger the focus on screen readers, so they can read the target paragraph
+   *
+   * @param {*} elem Selector to find the item
+   */
+  function triggerFocus(elem) {
+    const element = document.querySelector(elem);
+    element.setAttribute('tabindex', '0');
+    element.focus({ preventScroll: true });
+    element.removeAttribute('tabindex');
+  }
 
   /**
    * Set class name for active menu item
