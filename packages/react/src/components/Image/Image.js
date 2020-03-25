@@ -5,8 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 import { baseFontSize, breakpoints } from '@carbon/layout';
+import {
+  decodeString,
+  settings as ddsSettings,
+} from '@carbon/ibmdotcom-utilities';
 import classnames from 'classnames';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { settings } from 'carbon-components';

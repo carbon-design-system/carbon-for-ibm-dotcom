@@ -9,7 +9,10 @@ import { object, text, withKnobs } from '@storybook/addon-knobs';
 import Image from '../Image';
 import React from 'react';
 import readme from '../README.md';
+import { settings } from 'carbon-components';
 import { storiesOf } from '@storybook/react';
+
+const { prefix } = settings;
 
 storiesOf('Components|Image', module)
   .addDecorator(withKnobs)

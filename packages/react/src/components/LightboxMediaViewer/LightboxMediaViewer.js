@@ -39,26 +39,32 @@ const LightboxMediaViewer = ({ media, ...modalProps }) => {
         <ModalBody>
           <div className={`${prefix}--lightbox-media-viewer__container`}>
             <div className={`${prefix}--lightbox-media-viewer__row`}>
-              {media.type === 'video' ? (
-                <VideoPlayer videoId={media.src} />
-              ) : (
-                <Image defaultSrc={media.src} alt={media.alt} />
-              )}
-              <div className={`${prefix}--lightbox-media-viewer__content`}>
-                {media.title && (
-                  <div
-                    data-autoid={`${stablePrefix}--lightbox-media-viewer__content__title`}
-                    className={`${prefix}--lightbox-media-viewer__content__title`}>
-                    {media.title}
-                  </div>
+              <div
+                className={`${prefix}--lightbox-media-viewer__media ${prefix}--no-gutter`}>
+                {media.type === 'video' ? (
+                  <VideoPlayer videoId={media.src} />
+                ) : (
+                  <Image defaultSrc={media.src} alt={media.alt} />
                 )}
-                {media.description && (
-                  <div
-                    data-autoid={`${stablePrefix}--lightbox-media-viewer__content__desc`}
-                    className={`${prefix}--lightbox-media-viewer__content__desc`}>
-                    {media.description}
-                  </div>
-                )}
+              </div>
+              <div
+                className={`${prefix}--lightbox-media-viewer__media-description ${prefix}--no-gutter`}>
+                <div className={`${prefix}--lightbox-media-viewer__content`}>
+                  {media.title && (
+                    <div
+                      data-autoid={`${stablePrefix}--lightbox-media-viewer__content__title`}
+                      className={`${prefix}--lightbox-media-viewer__content__title`}>
+                      {media.title}
+                    </div>
+                  )}
+                  {media.description && (
+                    <div
+                      data-autoid={`${stablePrefix}--lightbox-media-viewer__content__desc`}
+                      className={`${prefix}--lightbox-media-viewer__content__desc`}>
+                      {media.description}
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
           </div>
