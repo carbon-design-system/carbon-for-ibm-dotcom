@@ -9,7 +9,10 @@ import { object, text, withKnobs } from '@storybook/addon-knobs';
 import Image from '../Image';
 import React from 'react';
 import readme from '../README.md';
+import { settings } from 'carbon-components';
 import { storiesOf } from '@storybook/react';
+
+const { prefix } = settings;
 
 storiesOf('Components|Image', module)
   .addDecorator(withKnobs)
@@ -39,5 +42,13 @@ storiesOf('Components|Image', module)
       'https://dummyimage.com/672x672/ee5396/161616&text=1x1'
     );
 
-    return <Image sources={image} defaultSrc={defaultSrc} alt={alt}></Image>;
+    return (
+      <div className={`${prefix}--grid`}>
+        <div class="bx--row">
+          <div class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
+            <Image sources={image} defaultSrc={defaultSrc} alt={alt}></Image>
+          </div>
+        </div>
+      </div>
+    );
   });
