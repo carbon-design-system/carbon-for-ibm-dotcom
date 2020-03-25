@@ -18,7 +18,9 @@ Here's a quick example to get you started.
 @import '@carbon/ibmdotcom-styles/scss/patterns/blocks/content-block-mixed/index';
 ```
 
-> 💡 Only import fonts once per usage
+> 💡 Only import fonts once per usage. Don't forget to import the
+> ContentBlockMixed styles from
+> [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
 ```javascript
 import React from 'react';

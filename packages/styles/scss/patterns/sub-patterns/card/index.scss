@@ -35,6 +35,8 @@
 
     &__heading,
     &__copy {
+      @include content-width;
+
       color: $text-01;
     }
 

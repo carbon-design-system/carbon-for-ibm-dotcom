@@ -29,34 +29,8 @@ const TOCMobile = ({ menuItems, selectedId, menuLabel, updateState }) => {
   const [selectedOption, setSelectedOption] = useState('menuLabel');
 
   useEffect(() => {
-    if (areElementsVisible(document.querySelectorAll(`a[name]`))[0]) {
-      setSelectedOption('menuLabel');
-    } else if (!areElementsVisible(document.querySelectorAll(`a[name]`))[0]) {
-      setSelectedOption(selectedId);
-    }
+    setSelectedOption(selectedId);
   }, [selectedId]);
-
-  /**
-   * Check if elements are visible
-   *
-   * @param {Array} elements array of HTML components to be checked to be on screen
-   * @returns {Array} array of boolean values based on if the element is on screen
-   */
-  const areElementsVisible = elements => {
-    const elemsPos = Array.prototype.slice.call(elements).map(elem => {
-      const rect = elem.getBoundingClientRect();
-      return (
-        rect.top >= 0 &&
-        rect.left >= 0 &&
-        rect.bottom <=
-          (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.right <=
-          (window.innerWidth || document.documentElement.clientWidth)
-      );
-    });
-
-    return elemsPos;
-  };
 
   /**
    * Handle onChange event of select
