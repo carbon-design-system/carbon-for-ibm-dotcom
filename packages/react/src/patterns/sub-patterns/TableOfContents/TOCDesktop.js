@@ -62,6 +62,7 @@ const TOCDesktop = ({ menuItems, selectedId }) => {
     const selector = `a[name="${id}"]`;
     triggerFocus(selector);
     smoothScroll(null, selector);
+    triggerFocus(selector);
   };
 
   /**
