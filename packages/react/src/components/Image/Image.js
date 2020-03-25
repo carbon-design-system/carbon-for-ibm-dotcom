@@ -10,6 +10,7 @@ import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { settings } from 'carbon-components';
+import { uniqueid } from '@carbon/ibmdotcom-utilities';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
@@ -45,35 +46,44 @@ const sortSources = sources => {
  * @param {object} props.images array of images used for diff breakpoints
  * @param {string} props.defaultSrc default image (usually image for largest breakpoint)
  * @param {string} props.alt alt of the image
+ * @param {string} props.longDescription optional long description for infographics.
  * @returns {*} picture element
  */
-const Image = ({ classname, sources, defaultSrc, alt }) => {
+const Image = ({ classname, sources, defaultSrc, alt, longDescription }) => {
   if (!defaultSrc || !alt) {
     return null;
   }
 
   const sortedImages = sources ? sortSources(sources) : [];
-
+  const id = uniqueid(`${prefix}--image-`);
   return (
-    <picture
-      alt={alt}
-      className={`${prefix}--image`}
-      data-autoid={`${stablePrefix}--image`}>
-      {sortedImages.map((imgSrc, key) => {
-        return (
-          <source
-            media={`(min-width: ${imgSrc.breakpoint}px )`}
-            key={key}
-            srcSet={imgSrc.src}
-          />
-        );
-      })}
-      <img
-        className={classnames(`${prefix}--image__img`, classname)}
-        src={defaultSrc}
+    <>
+      <picture
         alt={alt}
-      />
-    </picture>
+        className={`${prefix}--image`}
+        data-autoid={`${stablePrefix}--image__longdescription-`}>
+        {sortedImages.map((imgSrc, key) => {
+          return (
+            <source
+              media={`(min-width: ${imgSrc.breakpoint}px )`}
+              key={key}
+              srcSet={imgSrc.src}
+            />
+          );
+        })}
+        <img
+          className={classnames(`${prefix}--image__img`, classname)}
+          src={defaultSrc}
+          alt={alt}
+          longdesc={longDescription ? `#${id}` : ''}
+        />
+      </picture>
+      {longDescription ? (
+        <div id={id} className={`${prefix}--image__longdescription`}>
+          {longDescription}
+        </div>
+      ) : null}
+    </>
   );
 };
 
@@ -87,6 +97,7 @@ Image.propTypes = {
   ),
   defaultSrc: PropTypes.string.isRequired,
   alt: PropTypes.string.isRequired,
+  longDescription: PropTypes.string,
 };
 
 export default Image;
