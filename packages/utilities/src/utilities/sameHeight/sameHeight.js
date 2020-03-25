@@ -11,15 +11,15 @@ import { baseFontSize, breakpoints } from '@carbon/layout';
  * Utility that sets an array of elements to the same height.
  *
  * @example
- * import {sameheight} from '@carbon/ibmdotcom-utilities';
+ * import {sameHeight} from '@carbon/ibmdotcom-utilities';
  *
- * sameheight(ElementArray, 'md');
+ * sameHeight(ElementArray, 'md');
  *
  * if you want the utility to refresh the sizes as you resize the screen, consider using a listener:
  *
  * window.addEventListener('resize', function() {
  *   window.requestAnimationFrame(function() {
- *     sameheight(ElementArray, 'md');
+ *     sameHeight(ElementArray, 'md');
  *   });
  * }, true);
  *
