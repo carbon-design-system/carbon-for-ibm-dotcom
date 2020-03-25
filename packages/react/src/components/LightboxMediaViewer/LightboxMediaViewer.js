@@ -16,6 +16,7 @@ import { ModalBody } from 'carbon-components-react';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { settings } from 'carbon-components';
+import { VideoPlayer } from '../VideoPlayer';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
@@ -24,13 +25,11 @@ const { prefix } = settings;
  * LightboxMediaViewer Component
  *
  * @param {object} modalProps props object
- * @param {string} modalProps.title LightboxMediaViewer media title
- * @param {string} modalProps.copy LightboxMediaViewer media short description
- * @param {string} modalProps.image LightboxMediaViewer responsive image object
+ * @param {object} modalProps.media LightboxMediaViewer media object
  * @param {boolean} modalProps.open sets whether the modal is open/close
  * @returns {*} JSX Object
  */
-const LightboxMediaViewer = ({ title, image, copy, ...modalProps }) => {
+const LightboxMediaViewer = ({ media, ...modalProps }) => {
   return featureFlag(
     DDS_LIGHTBOX_MEDIA_VIEWER,
     <section
@@ -42,23 +41,27 @@ const LightboxMediaViewer = ({ title, image, copy, ...modalProps }) => {
             <div className={`${prefix}--lightbox-media-viewer__row`}>
               <div
                 className={`${prefix}--lightbox-media-viewer__media ${prefix}--no-gutter`}>
-                <Image {...image} />
+                {media.type === 'video' ? (
+                  <VideoPlayer videoId={media.src} />
+                ) : (
+                  <Image defaultSrc={media.src} alt={media.alt} />
+                )}
               </div>
               <div
                 className={`${prefix}--lightbox-media-viewer__media-description ${prefix}--no-gutter`}>
                 <div className={`${prefix}--lightbox-media-viewer__content`}>
-                  {title && (
+                  {media.title && (
                     <div
                       data-autoid={`${stablePrefix}--lightbox-media-viewer__content__title`}
                       className={`${prefix}--lightbox-media-viewer__content__title`}>
-                      {title}
+                      {media.title}
                     </div>
                   )}
-                  {copy && (
+                  {media.description && (
                     <div
                       data-autoid={`${stablePrefix}--lightbox-media-viewer__content__desc`}
                       className={`${prefix}--lightbox-media-viewer__content__desc`}>
-                      {copy}
+                      {media.description}
                     </div>
                   )}
                 </div>
@@ -72,8 +75,6 @@ const LightboxMediaViewer = ({ title, image, copy, ...modalProps }) => {
 };
 
 LightboxMediaViewer.propTypes = {
-  title: PropTypes.string,
-  copy: PropTypes.string,
-  image: PropTypes.object.isRequired,
+  media: PropTypes.object.isRequired,
 };
 export default LightboxMediaViewer;

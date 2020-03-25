@@ -12,6 +12,10 @@
   .#{$prefix}--lightbox-media-viewer {
     color: $text-01;
 
+    .#{$prefix}--video-player {
+      width: 100%;
+    }
+
     &__container {
       display: flex;
       padding-bottom: 0;
@@ -25,7 +29,6 @@
         flex-wrap: nowrap;
       }
     }
-
     &__media {
       img {
         width: auto;
