@@ -43,7 +43,7 @@ if (DDS_LIGHTBOX_MEDIA_VIEWER) {
         ),
         type: 'image',
         active: false,
-        srcThumb: 'https://dummyimage.com/600x550/ee5396/161616&text=12:11',
+        srcThumb: () => this.src,
       };
 
       return <LightboxMediaViewer media={media} open={boolean('open', true)} />;
