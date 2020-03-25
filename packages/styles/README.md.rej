@@ -1,6 +1,0 @@
-diff a/packages/styles/README.md b/packages/styles/README.md	(rejected hunks)
-@@ -36 +36,3 @@ import '@carbon/ibmdotcom-styles';
--💡 There may be times pathing errors are encountered when importing certain stylesheets. We're working hard to fix these, but in the meantime you can add the following to your .env file to resolve:
-+💡 There may be times pathing errors are encountered when importing certain
-+stylesheets. We're working hard to fix these, but in the meantime you can add
-+the following to your .env file to resolve:
