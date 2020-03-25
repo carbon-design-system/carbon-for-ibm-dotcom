@@ -33,8 +33,9 @@ application:
 import '@carbon/ibmdotcom-styles';
 ```
 
-For Carbon component styles to properly import, the following should be added to
-your environment variables:
+💡 There may be times pathing errors are encountered when importing certain
+stylesheets. We're working hard to fix these, but in the meantime you can add
+the following to your .env file to resolve:
 
 ```
 SASS_PATH=node_modules:src
