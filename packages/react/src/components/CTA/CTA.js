@@ -56,6 +56,7 @@ const renderCTA = ({ style, type, ...otherProps }) => {
           type="link"
           target={_external(type)}
           handleClick={e => _jump(e, type)}
+          role="region"
         />
       );
     case 'button':
