@@ -33,6 +33,14 @@ application:
 import '@carbon/ibmdotcom-styles';
 ```
 
+💡 There may be times pathing errors are encountered when importing certain
+stylesheets. We're working hard to fix these, but in the meantime you can add
+the following to your `.env` file to resolve:
+
+```
+SASS_PATH=node_modules:src
+```
+
 ## Expressive Theme
 
 In addition to styles for IBM.com Library components and patterns, this package
