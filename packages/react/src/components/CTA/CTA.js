@@ -93,7 +93,7 @@ const renderCTA = ({
               }}
               copy={`${otherProps.copy} ${videoDuration}`}
               type="link"
-              handleClick={() => openLightBox(true)}
+              handleClick={e => setLightBox(e, openLightBox)}
             />
           )}
         </div>
@@ -142,7 +142,7 @@ const renderCTA = ({
                 ...otherProps.card,
                 heading: `${otherProps.card.heading} ${videoDuration}`,
               })}
-              onClick={() => openLightBox(true)}
+              onClick={e => setLightBox(e, openLightBox)}
             />
           )}
         </div>
@@ -164,7 +164,7 @@ const renderCTA = ({
         <div>
           {launchLightBox(renderLightBox, openLightBox, otherProps.media)}
           {!renderLightBox && (
-            <LinkWithIcon href="#" onClick={() => openLightBox(true)}>
+            <LinkWithIcon href="#" onClick={e => setLightBox(e, openLightBox)}>
               {`${otherProps.copy} ${videoDuration}`}
               <Icon />
             </LinkWithIcon>
@@ -202,6 +202,18 @@ const launchLightBox = (renderLightBox, openLightBox, media) => {
       />
     )
   );
+};
+
+/**
+ *
+ * @param {*} e event
+ * @param {Function} openLightBox function to toggle lightbox
+ *
+ * @returns {*} set lightbox state
+ */
+const setLightBox = (e, openLightBox) => {
+  e.preventDefault();
+  return openLightBox(true);
 };
 
 /**
