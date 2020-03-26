@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.1-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-vanilla@0.5.1-rc.0...@carbon/ibmdotcom-vanilla@0.5.1-rc.1) (2020-03-26)
+
+### Bug Fixes
+
+- **deps:** add missing dependencies to vanilla package
+  ([a0f34c7](https://github.com/carbon-design-system/ibm-dotcom-library/commit/a0f34c7))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [0.5.1-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-vanilla@0.5.0...@carbon/ibmdotcom-vanilla@0.5.1-rc.0) (2020-03-23)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-vanilla
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [0.5.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-vanilla@0.5.0-rc.1...@carbon/ibmdotcom-vanilla@0.5.0) (2020-03-18)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-vanilla
