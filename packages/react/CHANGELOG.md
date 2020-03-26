@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.1-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.5.1-rc.0...@carbon/ibmdotcom-react@1.5.1-rc.1) (2020-03-26)
+
+### Bug Fixes
+
+- **accessibility:** focus now change to the content heading on toc
+  ([#1787](https://github.com/carbon-design-system/ibm-dotcom-library/issues/1787))
+  ([5af81de](https://github.com/carbon-design-system/ibm-dotcom-library/commit/5af81de))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.5.1-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.5.0...@carbon/ibmdotcom-react@1.5.1-rc.0) (2020-03-23)
 
 ### Bug Fixes
