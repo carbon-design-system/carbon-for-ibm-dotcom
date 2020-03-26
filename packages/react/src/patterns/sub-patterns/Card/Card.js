@@ -87,7 +87,7 @@ function optionalContent(copy) {
 function renderFooter(cta, type) {
   return (
     cta && (
-      <footer className={`${prefix}--card__footer`}>
+      <div className={`${prefix}--card__footer`}>
         {type !== 'link' ? (
           <CTA style="text" {...cta} customClassName={`${prefix}--card__cta`} />
         ) : (
@@ -95,7 +95,7 @@ function renderFooter(cta, type) {
             <cta.icon.src className={`${prefix}--card__cta`} {...cta.icon} />
           )
         )}
-      </footer>
+      </div>
     )
   );
 }
