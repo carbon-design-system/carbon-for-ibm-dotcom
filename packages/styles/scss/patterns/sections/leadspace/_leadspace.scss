@@ -135,7 +135,7 @@ $btn-min-width: 26;
 
     .#{$prefix}--leadspace__desc {
       @include carbon--type-style(expressive-heading-03, true);
-      @include carbon--make-col(3, 4);
+      @include carbon--make-col(4, 4);
     }
 
     @include themed-items;
@@ -162,7 +162,7 @@ $btn-min-width: 26;
       }
 
       .#{$prefix}--leadspace__desc {
-        @include carbon--make-col(5, 8);
+        @include carbon--make-col(4, 8);
       }
     }
   }
@@ -177,7 +177,7 @@ $btn-min-width: 26;
 
       .#{$prefix}--leadspace__desc {
         @include carbon--make-col-ready;
-        @include carbon--make-col(6, 16);
+        @include carbon--make-col(4, 16);
       }
     }
 
