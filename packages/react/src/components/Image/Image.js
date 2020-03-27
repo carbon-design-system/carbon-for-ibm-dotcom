@@ -57,22 +57,8 @@ const Image = ({ classname, sources, defaultSrc, alt, longDescription }) => {
   const sortedImages = sources ? sortSources(sources) : [];
   const id = uniqueid(`${prefix}--image-`);
   return (
-    <picture
-      alt={alt}
-      className={`${prefix}--image`}
-      data-autoid={`${stablePrefix}--image`}>
-      {sortedImages.map((imgSrc, key) => {
-        return (
-          <source
-            media={`(min-width: ${imgSrc.breakpoint}px )`}
-            key={key}
-            srcSet={imgSrc.src}
-          />
-        );
-      })}
-      <img
-        className={classnames(`${prefix}--image__img`, classname)}
-        src={defaultSrc}
+    <>
+      <picture
         alt={alt}
         className={`${prefix}--image`}
         data-autoid={`${stablePrefix}--image__longdescription-`}>
