@@ -82,6 +82,8 @@
     &__desktop {
       margin-top: $carbon--spacing-07;
       padding-top: $carbon--spacing-07;
+
+      @include carbon--make-col(3, 4);
       &__item {
         a {
           text-decoration: none;
