@@ -92,7 +92,7 @@ const _renderCards = items =>
         }}
         type="link"
         role="region"
-        aria-labelledby={`region${index}`}
+        aria-label={elem.heading}
       />
     </div>
   ));
