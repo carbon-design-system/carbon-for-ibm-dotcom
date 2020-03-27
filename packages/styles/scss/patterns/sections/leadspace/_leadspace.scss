@@ -70,6 +70,9 @@ $btn-min-width: 26;
     padding-top: $carbon--layout-01;
   }
   .#{$prefix}--leadspace {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 99rem;
     position: relative;
     padding-top: aspect-ratio(320px, 370px);
     height: 0;
@@ -132,7 +135,7 @@ $btn-min-width: 26;
 
     .#{$prefix}--leadspace__desc {
       @include carbon--type-style(expressive-heading-03, true);
-      @include carbon--make-col(3, 4);
+      @include carbon--make-col(4, 4);
     }
 
     @include themed-items;
@@ -159,7 +162,7 @@ $btn-min-width: 26;
       }
 
       .#{$prefix}--leadspace__desc {
-        @include carbon--make-col(5, 8);
+        @include carbon--make-col(4, 8);
       }
     }
   }
@@ -174,7 +177,7 @@ $btn-min-width: 26;
 
       .#{$prefix}--leadspace__desc {
         @include carbon--make-col-ready;
-        @include carbon--make-col(6, 16);
+        @include carbon--make-col(4, 16);
       }
     }
 
@@ -198,6 +201,9 @@ $btn-min-width: 26;
 
 @mixin leadspace-centered {
   .#{$prefix}--leadspace--centered {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 99rem;
     .#{$prefix}--buttongroup {
       padding-bottom: $carbon--layout-01;
       padding-top: 0;
