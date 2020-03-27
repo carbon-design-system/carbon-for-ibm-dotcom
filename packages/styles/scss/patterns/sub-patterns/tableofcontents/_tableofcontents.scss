@@ -12,13 +12,6 @@
 @mixin themed-items {
   color: $text-01;
   background: $ui-background;
-  .#{$prefix}--tableofcontents__content {
-    h2,
-    h3,
-    h4 {
-      color: $text-01;
-    }
-  }
   .#{$prefix}--tableofcontents__mobile {
     border-top: 1px solid $ui-04;
     border-bottom: 1px solid $ui-04;

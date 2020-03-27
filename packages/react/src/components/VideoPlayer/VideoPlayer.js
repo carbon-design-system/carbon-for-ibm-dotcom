@@ -33,7 +33,7 @@ const VideoPlayer = ({ videoId, showDescription }) => {
   }, [videoId, videoPlayerId]);
 
   return (
-    <div classNamee={`${prefix}--video-player`}>
+    <div className={`${prefix}--video-player`}>
       <div
         className={`${prefix}--video-player__video-container`}
         data-autoid={`${stablePrefix}--${videoPlayerId}`}>

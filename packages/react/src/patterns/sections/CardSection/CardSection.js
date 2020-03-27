@@ -51,6 +51,10 @@ const CardSection = ({ heading, theme, cards, cta, ...otherProps }) => {
       containerRef.current.getElementsByClassName(`${prefix}--card__copy`),
       'md'
     );
+    sameHeight(
+      containerRef.current.getElementsByClassName(`${prefix}--card__eyebrow`),
+      'md'
+    );
   };
 
   /**
