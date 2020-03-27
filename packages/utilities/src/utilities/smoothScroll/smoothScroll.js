@@ -19,6 +19,7 @@
  *
  * @param {*} e event object
  * @param {*} selector menu item selector id
+ * @returns {null} Returns null if no scroll is needed
  */
 const smoothScroll = (e, selector) => {
   let getSelector;
