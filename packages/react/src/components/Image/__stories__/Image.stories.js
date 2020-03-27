@@ -43,10 +43,12 @@ storiesOf('Components|Image', module)
     );
 
     return (
-      <Image
-        sources={image}
-        defaultSrc={defaultSrc}
-        alt={alt}
-        longDescription="Description used for infographics"></Image>
+      <div className={`${prefix}--grid`}>
+        <div class="bx--row">
+          <div class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
+            <Image sources={image} defaultSrc={defaultSrc} alt={alt}></Image>
+          </div>
+        </div>
+      </div>
     );
   });
