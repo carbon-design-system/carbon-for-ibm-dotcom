@@ -5,11 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 import { baseFontSize, breakpoints } from '@carbon/layout';
-import {
-  decodeString,
-  settings as ddsSettings,
-} from '@carbon/ibmdotcom-utilities';
 import classnames from 'classnames';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { settings } from 'carbon-components';
@@ -67,13 +64,13 @@ const Image = ({ classname, sources, defaultSrc, alt }) => {
           <source
             media={`(min-width: ${imgSrc.breakpoint}px )`}
             key={key}
-            srcSet={decodeString(imgSrc.src)}
+            srcSet={imgSrc.src}
           />
         );
       })}
       <img
         className={classnames(`${prefix}--image__img`, classname)}
-        src={decodeString(defaultSrc)}
+        src={defaultSrc}
         alt={alt}
       />
     </picture>
