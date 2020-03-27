@@ -70,6 +70,9 @@ $btn-min-width: 26;
     padding-top: $carbon--layout-01;
   }
   .#{$prefix}--leadspace {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 99rem;
     position: relative;
     padding-top: aspect-ratio(320px, 370px);
     height: 0;
@@ -198,6 +201,9 @@ $btn-min-width: 26;
 
 @mixin leadspace-centered {
   .#{$prefix}--leadspace--centered {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 99rem;
     .#{$prefix}--buttongroup {
       padding-bottom: $carbon--layout-01;
       padding-top: 0;
