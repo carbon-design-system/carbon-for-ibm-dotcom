@@ -7,7 +7,7 @@ import root from 'window-or-global';
  * @private
  */
 const _host =
-  (process && process.env.TRANSLATION_HOST) || 'https://1.www.s81c.com';
+  (process && process.env.TRANSLATION_HOST) || 'https://www.ibm.com';
 
 /**
  * @constant {string | string} CORS proxy for lower environment calls
