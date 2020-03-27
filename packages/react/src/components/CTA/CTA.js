@@ -35,17 +35,25 @@ const { prefix } = settings;
  */
 const CTA = ({ style, type, customClassName, ...otherProps }) => {
   const [renderLightBox, openLightBox] = useState(false);
-  const [videoDuration, setVideoDuration] = useState('');
+  const [videoDuration, setVideoDuration] = useState(['']);
 
   useEffect(() => {
     (async () => {
-      if (type === 'video') {
+      if (type === 'video' || type.includes('video')) {
         const videoId = getVideoId(style, otherProps);
-        const videoData = await VideoPlayerAPI.api(videoId);
-        setVideoDuration(VideoPlayerAPI.getVideoDuration(videoData.msDuration));
+        const videoTime = await Promise.all(
+          videoId.map(async id => {
+            const video = await VideoPlayerAPI.api(id);
+            console.log('video', video);
+            return VideoPlayerAPI.getVideoDuration(video.msDuration);
+          })
+        );
+        setVideoDuration(videoTime);
       }
     })();
-  }, [otherProps, style, type]);
+  }, [otherProps, style, type, videoDuration]);
+
+  console.log('videoDuration', videoDuration);
 
   return (
     <div className={customClassName}>
@@ -127,7 +135,6 @@ const renderCTA = ({
         <ButtonGroup buttons={_renderButtons(otherProps)} />
       );
     case 'feature':
-      console.log('otherProps', otherProps);
       return type === 'video' ? (
         <div>
           {launchLightBox(
@@ -227,13 +234,21 @@ const setLightBox = (e, openLightBox) => {
 const getVideoId = (style, otherProps) => {
   switch (style) {
     case 'text':
-      return otherProps.media.src;
+      return [otherProps.media.src];
     case 'card':
-      return otherProps.media.src;
+      return [otherProps.media.src];
     case 'feature':
-      return otherProps.card.cta.media.src;
-    case 'button':
+      return [otherProps.card.cta.media.src];
+    case 'button': {
+      const videoIds = otherProps.buttons
+        .map(button => {
+          if (button.type === 'video' && button.media) return button.media.src;
+        })
+        .filter(id => id && id);
+      return videoIds;
+    }
     default:
+      return [];
   }
 };
 
