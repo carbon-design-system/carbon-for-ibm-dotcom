@@ -40,7 +40,7 @@ const CTA = ({ style, type, customClassName, ...otherProps }) => {
 
   useEffect(() => {
     video();
-  }, [video, style, type, otherProps]);
+  }, [video, style, type]);
 
   const video = useCallback(async () => {
     if (type === 'video' || type.includes('video')) {
@@ -309,7 +309,7 @@ const _iconSelector = type => {
  *
  * @param {object} param param object
  * @param {object} param.buttons object with buttons array
- * @param {Array} param.videoTitle array of video duration times
+ * @param {Array} param.videoTitle array of video titles
  * @param {Function} param.openLightBox func to set renderLightBox state
  * @private
  * @returns {*} object
@@ -347,6 +347,7 @@ const _renderButtons = ({
  * @returns {*} object
  */
 const _renderFeatureCard = featureCard => {
+  if (featureCard.type === 'video') featureCard.cta.href = '#';
   featureCard.icon = _iconSelector(featureCard.type);
   featureCard.handleClick = e => _jump(e, featureCard.type);
   featureCard.target = _external(featureCard.type);

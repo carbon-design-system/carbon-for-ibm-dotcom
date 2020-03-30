@@ -23,7 +23,6 @@ storiesOf('Components|CTA', module)
       jump: '#example',
       local: 'https://www.example.com',
       external: 'https://www.example.com',
-      video: '#',
     };
 
     switch (style) {
