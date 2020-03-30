@@ -122,7 +122,7 @@ storiesOf('Components|CTA', module)
               href: urlBy[type[1]],
               copy: copy[1],
               media: {
-                src: '0_uka1msg4',
+                src: '1_sf5ovm7u',
                 alt: 'Image alt text',
                 title: 'Curabitur malesuada varius mi eu posuere',
                 description:

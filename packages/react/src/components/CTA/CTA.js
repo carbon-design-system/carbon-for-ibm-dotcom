@@ -11,7 +11,7 @@ import {
   Launch20,
   PlayOutline20,
 } from '@carbon/icons-react';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { ButtonGroup } from '../../patterns/sub-patterns/ButtonGroup';
 import { Card } from '../../patterns/sub-patterns/Card';
 import { FeatureCard } from '../../patterns/blocks/FeatureCard';
@@ -35,25 +35,29 @@ const { prefix } = settings;
  */
 const CTA = ({ style, type, customClassName, ...otherProps }) => {
   const [renderLightBox, openLightBox] = useState(false);
-  const [videoDuration, setVideoDuration] = useState(['']);
+  const [videoDuration, setVideoDuration] = useState([
+    { duration: '', key: 0 },
+  ]);
+  const [mediaData, setMediaData] = useState({});
 
   useEffect(() => {
-    (async () => {
-      if (type === 'video' || type.includes('video')) {
-        const videoId = getVideoId(style, otherProps);
-        const videoTime = await Promise.all(
-          videoId.map(async id => {
-            const video = await VideoPlayerAPI.api(id);
-            console.log('video', video);
-            return VideoPlayerAPI.getVideoDuration(video.msDuration);
-          })
-        );
-        setVideoDuration(videoTime);
-      }
-    })();
-  }, [otherProps, style, type, videoDuration]);
+    video();
+  }, [video, style, type]);
 
-  console.log('videoDuration', videoDuration);
+  const video = useCallback(async () => {
+    if (type === 'video' || type.includes('video')) {
+      const videoId = getVideoId(style, otherProps);
+      const duration = [];
+      videoId.map(async vidId => {
+        const video = await VideoPlayerAPI.api(vidId.src);
+        duration.push({
+          duration: VideoPlayerAPI.getVideoDuration(video.msDuration),
+          key: vidId.key,
+        });
+        setVideoDuration(duration);
+      });
+    }
+  }, [otherProps, style, type]);
 
   return (
     <div className={customClassName}>
@@ -63,6 +67,8 @@ const CTA = ({ style, type, customClassName, ...otherProps }) => {
         renderLightBox,
         openLightBox,
         videoDuration,
+        mediaData,
+        setMediaData,
         ...otherProps,
       })}
     </div>
@@ -83,6 +89,8 @@ const renderCTA = ({
   renderLightBox,
   openLightBox,
   videoDuration,
+  mediaData,
+  setMediaData,
   ...otherProps
 }) => {
   switch (style) {
@@ -99,7 +107,7 @@ const renderCTA = ({
                   src: _iconSelector(type),
                 },
               }}
-              copy={`${otherProps.copy} ${videoDuration}`}
+              copy={`${otherProps.copy} ${videoDuration[0].duration}`}
               type="link"
               handleClick={e => setLightBox(e, openLightBox)}
             />
@@ -121,19 +129,25 @@ const renderCTA = ({
           role="region"
         />
       );
-    case 'button':
-      return type === 'video' ? (
+    case 'button': {
+      return type.includes('video') ? (
         <div>
-          {launchLightBox(renderLightBox, openLightBox, otherProps.media)}
+          {launchLightBox(renderLightBox, openLightBox, mediaData)}
           {!renderLightBox && (
             <ButtonGroup
-              buttons={_renderButtons({ ...otherProps, openLightBox })}
+              buttons={_renderButtons({
+                videoDuration,
+                openLightBox,
+                setMediaData,
+                ...otherProps,
+              })}
             />
           )}
         </div>
       ) : (
-        <ButtonGroup buttons={_renderButtons(otherProps)} />
+        <ButtonGroup buttons={_renderButtons({ ...otherProps })} />
       );
+    }
     case 'feature':
       return type === 'video' ? (
         <div>
@@ -147,7 +161,7 @@ const renderCTA = ({
               heading={otherProps.heading}
               card={_renderFeatureCard({
                 ...otherProps.card,
-                heading: `${otherProps.card.heading} ${videoDuration}`,
+                heading: `${otherProps.card.heading} ${videoDuration[0].duration}`,
               })}
               onClick={e => setLightBox(e, openLightBox)}
             />
@@ -172,7 +186,7 @@ const renderCTA = ({
           {launchLightBox(renderLightBox, openLightBox, otherProps.media)}
           {!renderLightBox && (
             <LinkWithIcon href="#" onClick={e => setLightBox(e, openLightBox)}>
-              {`${otherProps.copy} ${videoDuration}`}
+              {`${otherProps.copy} ${videoDuration[0].duration}`}
               <Icon />
             </LinkWithIcon>
           )}
@@ -234,15 +248,16 @@ const setLightBox = (e, openLightBox) => {
 const getVideoId = (style, otherProps) => {
   switch (style) {
     case 'text':
-      return [otherProps.media.src];
+      return [{ src: otherProps.media.src }];
     case 'card':
-      return [otherProps.media.src];
+      return [{ src: otherProps.media.src }];
     case 'feature':
-      return [otherProps.card.cta.media.src];
+      return [{ src: otherProps.card.cta.media.src }];
     case 'button': {
       const videoIds = otherProps.buttons
-        .map(button => {
-          if (button.type === 'video' && button.media) return button.media.src;
+        .map((button, key) => {
+          if (button.type === 'video' && button.media)
+            return { src: button.media.src, key };
         })
         .filter(id => id && id);
       return videoIds;
@@ -295,23 +310,38 @@ const _iconSelector = type => {
  *
  * @param {object} param param object
  * @param {object} param.buttons object with buttons array
- * @param {string} param.type type of CTA
+ * @param {Array} param.videoDuration array of video duration times
  * @param {Function} param.openLightBox func to set renderLightBox state
  * @private
  * @returns {*} object
  */
-const _renderButtons = ({ buttons, type, openLightBox }) =>
-  buttons.map(button => {
-    button.renderIcon = _iconSelector(button.type);
-    if (type === 'video') {
-      button.onClick = () => openLightBox(true);
+const _renderButtons = ({
+  openLightBox,
+  videoDuration,
+  setMediaData,
+  buttons,
+}) => {
+  return buttons.map((button, key) => {
+    if (button.type === 'video') {
+      button.onClick = e => {
+        e.preventDefault();
+        setMediaData(button.media);
+        return setLightBox(e, openLightBox);
+      };
+      const time = videoDuration.filter(duration => duration.key === key);
+      button.copy =
+        !time[0] || button.copy.includes(`${time[0].duration}`)
+          ? button.copy + ''
+          : `${button.copy} ${time[0].duration}`;
       button.href = '#';
     } else {
       button.onClick = e => _jump(e, button.type);
-      button.target = _external(button.type);
     }
+    button.renderIcon = _iconSelector(button.type);
+    button.target = _external(button.type);
     return button;
   });
+};
 
 /**
  * sets featureCard
