@@ -31,6 +31,7 @@ const ButtonGroup = ({ buttons }) => (
       return (
         <li key={key} className={`${prefix}--buttongroup-item`}>
           <Button
+            tabIndex={key === 0 ? 2 : 1}
             data-autoid={`${stablePrefix}--button-group-${key}`}
             {...button}
             kind={key === 0 ? 'primary' : 'tertiary'}>
