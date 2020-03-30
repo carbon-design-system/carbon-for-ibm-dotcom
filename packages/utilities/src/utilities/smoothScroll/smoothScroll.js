@@ -39,7 +39,6 @@ const smoothScroll = (e, selector) => {
       window.scrollY,
     behavior: 'smooth',
   });
-  console.log('smooth');
 };
 
 export default smoothScroll;
