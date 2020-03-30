@@ -31,10 +31,15 @@ const smoothScroll = (e, selector) => {
   } else {
     return null;
   }
-  document.querySelector(getSelector).scrollIntoView({
+
+  window.scroll({
+    top:
+      document.querySelector(getSelector).getBoundingClientRect().top -
+      50 +
+      window.scrollY,
     behavior: 'smooth',
-    block: 'start',
   });
+  console.log('smooth');
 };
 
 export default smoothScroll;
