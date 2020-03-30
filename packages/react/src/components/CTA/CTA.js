@@ -35,26 +35,25 @@ const { prefix } = settings;
  */
 const CTA = ({ style, type, customClassName, ...otherProps }) => {
   const [renderLightBox, openLightBox] = useState(false);
-  const [videoDuration, setVideoDuration] = useState([
-    { duration: '', key: 0 },
-  ]);
+  const [videoTitle, setVideoTitle] = useState([{ title: '', key: 0 }]);
   const [mediaData, setMediaData] = useState({});
 
   useEffect(() => {
     video();
-  }, [video, style, type]);
+  }, [video, style, type, otherProps]);
 
   const video = useCallback(async () => {
     if (type === 'video' || type.includes('video')) {
       const videoId = getVideoId(style, otherProps);
-      const duration = [];
+      const title = [];
       videoId.map(async vidId => {
         const video = await VideoPlayerAPI.api(vidId.src);
-        duration.push({
-          duration: VideoPlayerAPI.getVideoDuration(video.msDuration),
+        const time = VideoPlayerAPI.getVideoDuration(video.msDuration);
+        title.push({
+          title: `${video.name} ${time}`,
           key: vidId.key,
         });
-        setVideoDuration(duration);
+        setVideoTitle(title);
       });
     }
   }, [otherProps, style, type]);
@@ -66,7 +65,7 @@ const CTA = ({ style, type, customClassName, ...otherProps }) => {
         type,
         renderLightBox,
         openLightBox,
-        videoDuration,
+        videoTitle,
         mediaData,
         setMediaData,
         ...otherProps,
@@ -88,7 +87,7 @@ const renderCTA = ({
   type,
   renderLightBox,
   openLightBox,
-  videoDuration,
+  videoTitle,
   mediaData,
   setMediaData,
   ...otherProps
@@ -107,7 +106,7 @@ const renderCTA = ({
                   src: _iconSelector(type),
                 },
               }}
-              copy={`${otherProps.copy} ${videoDuration[0].duration}`}
+              copy={videoTitle[0].title}
               type="link"
               handleClick={e => setLightBox(e, openLightBox)}
             />
@@ -136,7 +135,7 @@ const renderCTA = ({
           {!renderLightBox && (
             <ButtonGroup
               buttons={_renderButtons({
-                videoDuration,
+                videoTitle,
                 openLightBox,
                 setMediaData,
                 ...otherProps,
@@ -161,7 +160,7 @@ const renderCTA = ({
               heading={otherProps.heading}
               card={_renderFeatureCard({
                 ...otherProps.card,
-                heading: `${otherProps.card.heading} ${videoDuration[0].duration}`,
+                heading: videoTitle[0].title,
               })}
               onClick={e => setLightBox(e, openLightBox)}
             />
@@ -186,7 +185,7 @@ const renderCTA = ({
           {launchLightBox(renderLightBox, openLightBox, otherProps.media)}
           {!renderLightBox && (
             <LinkWithIcon href="#" onClick={e => setLightBox(e, openLightBox)}>
-              {`${otherProps.copy} ${videoDuration[0].duration}`}
+              {videoTitle[0].title}
               <Icon />
             </LinkWithIcon>
           )}
@@ -310,14 +309,14 @@ const _iconSelector = type => {
  *
  * @param {object} param param object
  * @param {object} param.buttons object with buttons array
- * @param {Array} param.videoDuration array of video duration times
+ * @param {Array} param.videoTitle array of video duration times
  * @param {Function} param.openLightBox func to set renderLightBox state
  * @private
  * @returns {*} object
  */
 const _renderButtons = ({
   openLightBox,
-  videoDuration,
+  videoTitle,
   setMediaData,
   buttons,
 }) => {
@@ -328,11 +327,8 @@ const _renderButtons = ({
         setMediaData(button.media);
         return setLightBox(e, openLightBox);
       };
-      const time = videoDuration.filter(duration => duration.key === key);
-      button.copy =
-        !time[0] || button.copy.includes(`${time[0].duration}`)
-          ? button.copy + ''
-          : `${button.copy} ${time[0].duration}`;
+      const title = videoTitle.filter(name => name.key === key);
+      button.copy = !title[0] ? button.copy : title[0].title;
       button.href = '#';
     } else {
       button.onClick = e => _jump(e, button.type);
