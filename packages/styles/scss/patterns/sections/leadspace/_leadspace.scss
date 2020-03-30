@@ -72,7 +72,6 @@ $btn-min-width: 26;
   .#{$prefix}--leadspace {
     margin-right: auto;
     margin-left: auto;
-    max-width: 99rem;
     position: relative;
     padding-top: aspect-ratio(320px, 370px);
     height: 0;
