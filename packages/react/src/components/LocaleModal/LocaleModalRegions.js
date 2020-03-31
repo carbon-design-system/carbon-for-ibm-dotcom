@@ -61,11 +61,21 @@ const LocaleModalRegions = ({
         );
 
         [...localeBackBtn].forEach(btn => {
+          btn.setAttribute('tabindex', '1');
+          btn.setAttribute('role', 'button');
           btn.addEventListener('click', () => {
             setIsFiltering(false);
             setClearResults(true);
             document.getElementById(`${prefix}--locale-modal__filter`).value =
               '';
+          });
+          btn.addEventListener('keyup', e => {
+            if (e.keyCode === 32 || e.keyCode === 13) {
+              setIsFiltering(false);
+              setClearResults(true);
+              document.getElementById(`${prefix}--locale-modal__filter`).value =
+                '';
+            }
           });
         });
       });
