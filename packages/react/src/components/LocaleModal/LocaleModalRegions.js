@@ -60,21 +60,27 @@ const LocaleModalRegions = ({
           .${prefix}--locale-modal__back .${prefix}--modal-close`
         );
 
+        /**
+         * Removes tabindex and role as it goes back
+         * @param {*} btn button to be handled
+         */
+        const localeBackPressed = btn => {
+          setIsFiltering(false);
+          setClearResults(true);
+          document.getElementById(`${prefix}--locale-modal__filter`).value = '';
+          btn.removeAttribute('tabindex');
+          btn.removeAttribute('role');
+        };
+
         [...localeBackBtn].forEach(btn => {
           btn.setAttribute('tabindex', '1');
           btn.setAttribute('role', 'button');
           btn.addEventListener('click', () => {
-            setIsFiltering(false);
-            setClearResults(true);
-            document.getElementById(`${prefix}--locale-modal__filter`).value =
-              '';
+            localeBackPressed(btn);
           });
           btn.addEventListener('keyup', e => {
             if (e.keyCode === 32 || e.keyCode === 13) {
-              setIsFiltering(false);
-              setClearResults(true);
-              document.getElementById(`${prefix}--locale-modal__filter`).value =
-                '';
+              localeBackPressed(btn);
             }
           });
         });
