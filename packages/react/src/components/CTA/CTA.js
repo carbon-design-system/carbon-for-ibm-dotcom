@@ -42,6 +42,13 @@ const CTA = ({ style, type, customClassName, ...otherProps }) => {
     getVideoData();
   }, [getVideoData, style, type]);
 
+  /**
+   * retrieve duration and title information from the video if
+   * the type of the CTA is `video`
+   *
+   * sets the `videoTitle` state with an array of title objects
+   *
+   */
   const getVideoData = useCallback(async () => {
     if (type === 'video' || type.includes('video')) {
       const videoId = getVideoId(style, otherProps);
