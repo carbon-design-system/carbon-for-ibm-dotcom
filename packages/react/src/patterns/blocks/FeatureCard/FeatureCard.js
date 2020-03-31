@@ -20,9 +20,10 @@ const { prefix } = settings;
  * @param {object} props props object
  * @param {string} props.heading section heading
  * @param {object} props.card section card object
+ * @param {Function} props.onClick onClick function
  * @returns {*} FeatureCard JSX component
  */
-const FeatureCard = ({ heading, card }) => {
+const FeatureCard = ({ heading, card, onClick }) => {
   return (
     heading &&
     card.cta && (
@@ -35,6 +36,7 @@ const FeatureCard = ({ heading, card }) => {
             {...card}
             type="link"
             inverse={true}
+            handleClick={onClick}
           />
         </ContentGroup>
       </section>
