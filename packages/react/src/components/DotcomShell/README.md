@@ -39,7 +39,7 @@ export default content;
 ```javascript
 import React from 'react';
 import { DotcomShell } from '@carbon/ibmdotcom-react';
-import 'yourappliction.scss';
+import 'yourapplication.scss';
 import content from 'content';
 
 function App() {
