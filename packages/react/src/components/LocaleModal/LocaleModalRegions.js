@@ -63,10 +63,8 @@ const LocaleModalRegions = ({
         /**
          * Removes tabindex and role as it goes back
          * @param {*} btn btn element
-         * @param {*} e event
          */
-        const localeBackActive = (btn, e) => {
-          console.log(e);
+        const localeBackActive = btn => {
           setIsFiltering(false);
           setClearResults(true);
           document.getElementById(`${prefix}--locale-modal__filter`).value = '';
@@ -78,13 +76,13 @@ const LocaleModalRegions = ({
           btn.setAttribute('tabindex', '1');
           btn.setAttribute('role', 'button');
 
-          btn.addEventListener('click', function click(e) {
-            localeBackActive(btn, e);
+          btn.addEventListener('click', function click() {
+            localeBackActive(btn);
             btn.removeEventListener('click', click);
           });
           btn.addEventListener('keyup', function keyup(e) {
             if (e.keyCode === 32 || e.keyCode === 13) {
-              localeBackActive(btn, e);
+              localeBackActive(btn);
               btn.removeEventListener('keyup', keyup);
             }
           });
