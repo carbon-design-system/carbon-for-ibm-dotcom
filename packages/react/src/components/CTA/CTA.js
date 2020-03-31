@@ -39,10 +39,10 @@ const CTA = ({ style, type, customClassName, ...otherProps }) => {
   const [mediaData, setMediaData] = useState({});
 
   useEffect(() => {
-    video();
-  }, [video, style, type]);
+    getVideoData();
+  }, [getVideoData, style, type]);
 
-  const video = useCallback(async () => {
+  const getVideoData = useCallback(async () => {
     if (type === 'video' || type.includes('video')) {
       const videoId = getVideoId(style, otherProps);
       const title = [];
