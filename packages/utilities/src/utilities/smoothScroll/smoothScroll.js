@@ -19,9 +19,10 @@
  *
  * @param {*} e event object
  * @param {*} selector menu item selector id
+ * @param {number} offset top offset for the scroll
  * @returns {null} Returns null if no scroll is needed
  */
-const smoothScroll = (e, selector) => {
+const smoothScroll = (e, selector, offset = 0) => {
   let getSelector;
   if (e !== null) {
     e.preventDefault();
@@ -31,9 +32,13 @@ const smoothScroll = (e, selector) => {
   } else {
     return null;
   }
-  document.querySelector(getSelector).scrollIntoView({
+
+  window.scroll({
+    top:
+      document.querySelector(getSelector).getBoundingClientRect().top -
+      offset +
+      window.scrollY,
     behavior: 'smooth',
-    block: 'start',
   });
 };
 
