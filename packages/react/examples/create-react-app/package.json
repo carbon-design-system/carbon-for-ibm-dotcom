@@ -133,5 +133,9 @@
     "presets": [
       "react-app"
     ]
+  },
+  "resolutions": {
+    "minimist": "^1.2.2",
+    "acorn": "^7.1.1"
   }
 }
