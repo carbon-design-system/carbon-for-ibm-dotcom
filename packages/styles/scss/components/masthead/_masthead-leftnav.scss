@@ -36,6 +36,14 @@
         display: none;
       }
     }
+
+    @include carbon--breakpoint-between('md', 'lg') {
+      + .#{$prefix}--header__logo {
+        a {
+          padding: 0 $carbon--spacing-05;
+        }
+      }
+    }
   }
 
   .#{$prefix}--side-nav {
