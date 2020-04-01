@@ -38,6 +38,7 @@ const LocaleModalRegions = ({
     );
 
     [...regionLink].forEach(link => {
+      link.setAttribute('tabindex', '1');
       link.addEventListener('click', () => {
         const region = link.dataset.region;
         setCurrentRegion(link.getElementsByTagName('h3')[0].innerHTML);
