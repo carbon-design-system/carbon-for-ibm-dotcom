@@ -38,6 +38,7 @@ const Footer = ({ type, navigation, langCode, disableLocaleButton }) => {
   let [footerMenuData, setFooterMenuData] = useState([]);
   let [footerLegalData, setFooterLegalData] = useState([]);
   let [displayLang, setDisplayLang] = useState('');
+  let [localeButtonAria, setLocaleButtonAria] = useState('');
 
   useEffect(() => {
     // initialize global execution calls
@@ -58,6 +59,10 @@ const Footer = ({ type, navigation, langCode, disableLocaleButton }) => {
     (async () => {
       const response = await LocaleAPI.getLangDisplay(langCode);
       setDisplayLang(response);
+
+      const locale = await LocaleAPI.getLocale();
+      const list = await LocaleAPI.getList(locale);
+      setLocaleButtonAria(list.localeModal.headerTitle);
     })();
   }, [langCode]);
 
@@ -91,7 +96,11 @@ const Footer = ({ type, navigation, langCode, disableLocaleButton }) => {
           <FooterLogo />
           {optionalFooterNav(type, footerMenuData)}
           {!disableLocaleButton && (
-            <LocaleButton displayLang={displayLang} selectItem={selectItem} />
+            <LocaleButton
+              aria={localeButtonAria}
+              displayLang={displayLang}
+              selectItem={selectItem}
+            />
           )}
         </div>
       </section>

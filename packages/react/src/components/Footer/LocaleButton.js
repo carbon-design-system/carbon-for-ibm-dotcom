@@ -14,12 +14,12 @@ const { prefix } = settings;
  *
  * @param {object} props props object
  * @param {string} props.displayLang display language for locale button
+ * @param {string} props.aria aria-label value
  *
  * @returns {object} JSX object
  */
-const LocaleButton = ({ displayLang }) => {
+const LocaleButton = ({ displayLang, aria }) => {
   const [isOpen, setIsOpen] = useState(false);
-
   return (
     <div className={`${prefix}--locale-btn__container`}>
       <Button
@@ -27,7 +27,8 @@ const LocaleButton = ({ displayLang }) => {
         className={`${prefix}--locale-btn`}
         kind="secondary"
         onClick={open}
-        renderIcon={Globe20}>
+        renderIcon={Globe20}
+        aria-label={aria}>
         {displayLang}
       </Button>
 
@@ -47,6 +48,7 @@ const LocaleButton = ({ displayLang }) => {
 
 LocaleButton.propTypes = {
   displayLang: PropTypes.string,
+  aria: PropTypes.string,
 };
 
 export default LocaleButton;
