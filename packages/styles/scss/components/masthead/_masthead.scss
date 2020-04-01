@@ -90,6 +90,10 @@ $search-transition-timing: 95ms;
         @include carbon--breakpoint-down(lg) {
           padding: 0 $carbon--spacing-05;
         }
+
+        @include carbon--breakpoint-between('md', 'lg') {
+          padding: 0 $carbon--spacing-05 0 $carbon--spacing-07;
+        }
       }
     }
 
