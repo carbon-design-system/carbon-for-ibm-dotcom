@@ -79,7 +79,8 @@ const _renderCards = items =>
     <div
       data-autoid={`${stablePrefix}--content-group-cards-item`}
       className={`${prefix}--content-group-cards-item__col`}
-      key={index}>
+      key={index}
+      role="region">
       <Card
         customClassName={`${prefix}--content-group-cards-item`}
         heading={elem.heading}
@@ -91,7 +92,6 @@ const _renderCards = items =>
           },
         }}
         type="link"
-        role="region"
         aria-label={elem.heading}
       />
     </div>
