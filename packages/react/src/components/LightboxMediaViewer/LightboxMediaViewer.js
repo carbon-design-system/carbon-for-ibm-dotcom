@@ -44,7 +44,10 @@ const LightboxMediaViewer = ({ media, ...modalProps }) => {
                 {media.type === 'video' ? (
                   <VideoPlayer videoId={media.src} />
                 ) : (
-                  <Image defaultSrc={media.src} alt={media.alt} />
+                  <div
+                    className={`${prefix}--lightbox-media-viewer__media-image-wrapper`}>
+                    <Image defaultSrc={media.src} alt={media.alt} />
+                  </div>
                 )}
               </div>
               <div
