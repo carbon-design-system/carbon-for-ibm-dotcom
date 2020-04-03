@@ -23,10 +23,10 @@
 
     &__row {
       @include carbon--make-row(0);
-
       @include carbon--breakpoint-down('lg') {
-        flex-direction: column;
-        flex-wrap: nowrap;
+        // flex-direction: column;
+        // flex-wrap: nowrap;
+        flex-flow: row wrap;
       }
     }
     &__media {
@@ -37,24 +37,6 @@
       }
 
       @include carbon--breakpoint-down('lg') {
-        position: relative;
-
-        &-image-wrapper {
-          position: absolute;
-          height: 100%;
-          width: 100%;
-
-          img {
-            max-height: 100%;
-            margin: auto;
-            position: absolute;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            right: 0;
-          }
-        }
-
         display: flex;
         flex: auto;
         align-items: center;
