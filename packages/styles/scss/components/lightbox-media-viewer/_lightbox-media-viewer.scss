@@ -24,8 +24,6 @@
     &__row {
       @include carbon--make-row(0);
       @include carbon--breakpoint-down('lg') {
-        // flex-direction: column;
-        // flex-wrap: nowrap;
         flex-flow: row wrap;
       }
     }
