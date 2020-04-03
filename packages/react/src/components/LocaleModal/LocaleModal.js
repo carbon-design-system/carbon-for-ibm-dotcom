@@ -47,6 +47,14 @@ const LocaleModal = ({ isOpen, setIsOpen }) => {
       setLangDisplay(getLangDisplay);
       setList(list);
       setModalLabels(list.localeModal);
+
+      if (
+        document.querySelector(`.${prefix}--modal-header__heading`) !== null
+      ) {
+        document
+          .querySelector(`.${prefix}--modal-header__heading`)
+          .setAttribute('tabindex', '1');
+      }
     })();
 
     // reset the country search results when clicking close icon or back to region button
