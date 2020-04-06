@@ -6,7 +6,6 @@
 //
 
 @import '../../../../../../styles/scss/patterns/sub-patterns/card';
-@import '@carbon/grid/scss/index.scss';
 
 .#{$prefix}--card--g10 {
   @include carbon--theme($carbon--theme--g10) {
