@@ -55,14 +55,14 @@ storiesOf('Patterns (Blocks)|ContentBlockMedia', module)
     const items = [
       {
         mediaType: simpleMediaType,
-        mediaData: simpleMediaData,
+        mediaData: object('Simple group media (image)', simpleMediaData),
         heading: text('Simple group heading', simpleHeading),
         items: object('Simple group content', simpleItems),
         cta: object('Simple group CTA', simpleCta),
       },
       {
         mediaType: simpleMediaType,
-        mediaData: simpleMediaData,
+        mediaData: object('Simple group media (image)', simpleMediaData),
         heading: text('Simple group heading', simpleHeading),
         items: object('Simple group content', simpleItems),
         cta: object('Simple group CTA', simpleCta),

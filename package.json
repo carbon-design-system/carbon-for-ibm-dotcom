@@ -36,7 +36,7 @@
     "@babel/plugin-proposal-export-default-from": "^7.2.0",
     "@babel/plugin-proposal-export-namespace-from": "^7.2.0",
     "@babel/plugin-transform-runtime": "^7.5.0",
-    "@babel/preset-env": "^7.5.0",
+    "@babel/preset-env": "^7.9.0",
     "@babel/preset-react": "^7.0.0",
     "@commitlint/cli": "^7.5.2",
     "@commitlint/config-conventional": "^7.5.0",
@@ -71,6 +71,7 @@
     "@babel/runtime": "^7.5.1"
   },
   "resolutions": {
-    "**/minimist": "^1.2.2"
+    "minimist": ">=1.2.2",
+    "kind-of": ">=6.0.3"
   }
 }
