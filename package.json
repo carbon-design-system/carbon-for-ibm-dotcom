@@ -71,6 +71,7 @@
     "@babel/runtime": "^7.5.1"
   },
   "resolutions": {
-    "**/minimist": "^1.2.2"
+    "minimist": ">=1.2.2",
+    "kind-of": ">=6.0.3"
   }
 }
