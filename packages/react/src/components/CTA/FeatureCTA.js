@@ -25,6 +25,9 @@ const FeatureCTA = ({
   renderLightBox,
   launchLightBox,
   videoTitle,
+  iconSelector,
+  jump,
+  external,
   ...otherProps
 }) => {
   return type === 'video' ? (
@@ -34,8 +37,13 @@ const FeatureCTA = ({
         <FeatureCard
           heading={otherProps.heading}
           card={_renderFeatureCard({
-            ...otherProps,
-            heading: videoTitle[0].title,
+            card: {
+              ...otherProps.card,
+              heading: videoTitle[0].title,
+            },
+            iconSelector,
+            jump,
+            external,
           })}
           onClick={e => setLightBox(e, openLightBox)}
         />
@@ -44,7 +52,12 @@ const FeatureCTA = ({
   ) : (
     <FeatureCard
       heading={otherProps.heading}
-      card={_renderFeatureCard({ ...otherProps })}
+      card={_renderFeatureCard({
+        card: otherProps.card,
+        iconSelector,
+        jump,
+        external,
+      })}
     />
   );
 };
@@ -58,7 +71,7 @@ const FeatureCTA = ({
  */
 const _renderFeatureCard = ({ card, iconSelector, jump, external }) => {
   if (card.type === 'video') card.cta.href = '#';
-  card.icon = iconSelector(card.type);
+  card.cta.icon.src = iconSelector(card.type);
   card.handleClick = e => jump(e, card.type);
   card.target = external(card.type);
   card.type = 'link';
@@ -72,6 +85,9 @@ FeatureCTA.propTypes = {
   renderLightBox: PropTypes.bool,
   launchLightBox: PropTypes.func,
   videoTitle: PropTypes.array,
+  iconSelector: PropTypes.func,
+  jump: PropTypes.func,
+  external: PropTypes.func,
 };
 
 export default FeatureCTA;
