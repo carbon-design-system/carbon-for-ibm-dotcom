@@ -23,6 +23,7 @@
 
     &__row {
       @include carbon--make-row(0);
+
       flex-direction: column;
       flex-wrap: nowrap;
 
