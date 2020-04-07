@@ -23,10 +23,11 @@
 
     &__row {
       @include carbon--make-row(0);
+      flex-direction: column;
+      flex-wrap: nowrap;
 
-      @include carbon--breakpoint-down('lg') {
-        flex-direction: column;
-        flex-wrap: nowrap;
+      @include carbon--breakpoint('lg') {
+        flex-direction: row;
       }
     }
     &__media {
@@ -38,7 +39,7 @@
 
       @include carbon--breakpoint-down('lg') {
         display: flex;
-        flex: 1;
+        flex: auto;
         align-items: center;
       }
     }
