@@ -4,9 +4,12 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
+import {
+  settings as ddsSettings,
+  markdownToHtml,
+} from '@carbon/ibmdotcom-utilities';
 import classNames from 'classnames';
 import { ClickableTile } from 'carbon-components-react';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { Image } from '../../../components/Image';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -25,7 +28,7 @@ const CardLink = ({
   title,
   href,
   content,
-  icon,
+  icon: Icon,
   image,
   className,
   ...props
@@ -40,11 +43,11 @@ const CardLink = ({
       className={classNames(`${prefix}--card-link`, className)}
       href={href}
       {...props}>
-      <Image {...image} />
+      <Image {...image} classname={`${prefix}--card-link__img`} />
       <div className={`${prefix}--card-link__wrapper`}>
         <h3 className={`${prefix}--card-link__title`}>{title}</h3>
         {optionalContent(content)}
-        {renderFooter(icon)}
+        {renderFooter(Icon)}
       </div>
     </ClickableTile>
   );
@@ -58,26 +61,32 @@ const CardLink = ({
  */
 function optionalContent(content) {
   return !content ? null : (
-    <p className={`${prefix}--card-link__content`}>{content}</p>
+    <div
+      className={`${prefix}--card-link__content`}
+      dangerouslySetInnerHTML={{
+        __html: markdownToHtml(content, { bold: false }),
+      }}></div>
   );
 }
 
 /**
  * Render footer with icon
  *
- * @param {object} icon passes in react icon
+ * @param {object} Icon passes in react icon
  * @returns {object} JSX object
  */
-function renderFooter(icon) {
-  return !icon ? null : (
-    <footer className={`${prefix}--card-link__footer`}>{icon}</footer>
+function renderFooter(Icon) {
+  return !Icon ? null : (
+    <footer className={`${prefix}--card-link__footer`}>
+      <Icon />
+    </footer>
   );
 }
 
 CardLink.propTypes = {
   title: PropTypes.string.isRequired,
   href: PropTypes.string.isRequired,
-  icon: PropTypes.element,
+  icon: PropTypes.object,
   content: PropTypes.string,
   image: PropTypes.object,
   className: PropTypes.string,

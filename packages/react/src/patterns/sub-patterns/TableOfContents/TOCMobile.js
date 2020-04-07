@@ -117,13 +117,13 @@ const renderOptions = (options, label) => {
   options.findIndex(x => x.id === labelObj.id) === -1
     ? options.unshift(labelObj)
     : null;
-  return options.map(option => {
+  return options.map((option, index) => {
     if (option) {
       return (
         <option
           className={`${prefix}--tableofcontents__mobile__select__option`}
           data-autoid={`${stablePrefix}}--tableofcontents__mobile__select__option-${option.id}`}
-          key={option.id}
+          key={index}
           value={option.id}>
           {option.title}
         </option>

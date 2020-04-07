@@ -6,9 +6,7 @@
  */
 
 import classNames from 'classnames';
-import { DDS_CONTENT_GROUP } from '../../../internal/FeatureFlags';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
-import { featureFlag } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { settings } from 'carbon-components';
@@ -25,8 +23,7 @@ const { prefix } = settings;
  * @returns {*} JSX ContentArrayGroup component
  */
 const ContentGroup = ({ children, heading }) => {
-  return featureFlag(
-    DDS_CONTENT_GROUP,
+  return (
     <div
       className={`${prefix}--content-group`}
       data-autoid={`${stablePrefix}--content-group`}>
