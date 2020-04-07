@@ -63,6 +63,21 @@ const LocaleModal = ({ isOpen, setIsOpen }) => {
     }
   }, [clearResults]);
 
+  useEffect(() => {
+    /**
+     * @param {number} keyCode - The code of the keyboard key pressed.
+     */
+    function closeFilterOnEscapeKeyPress({ keyCode }) {
+      if (keyCode === 27 && isFiltering) {
+        setIsFiltering(false);
+      }
+    }
+
+    document.addEventListener('keydown', closeFilterOnEscapeKeyPress);
+    return () =>
+      document.removeEventListener('keydown', closeFilterOnEscapeKeyPress);
+  });
+
   /**
    *  New region/country list based lang attributes available on page
    *
