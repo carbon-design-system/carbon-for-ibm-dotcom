@@ -97,71 +97,30 @@ const renderCTA = ({
   setMediaData,
   ...otherProps
 }) => {
+  const ctaProps = {
+    iconSelector: _iconSelector,
+    external: _external,
+    jump: _jump,
+    type: type,
+    openLightBox: openLightBox,
+    setLightBox: setLightBox,
+    renderLightBox: renderLightBox,
+    launchLightBox: launchLightBox,
+    videoTitle: videoTitle,
+    mediaData: mediaData,
+    setMediaData: setMediaData,
+  };
+
   switch (style) {
     case 'card':
-      return (
-        <CardCTA
-          iconSelector={_iconSelector}
-          external={_external}
-          jump={_jump}
-          type={type}
-          openLightBox={openLightBox}
-          setLightBox={setLightBox}
-          renderLightBox={renderLightBox}
-          launchLightBox={launchLightBox}
-          videoTitle={videoTitle[0].title}
-          {...otherProps}
-        />
-      );
+      return <CardCTA {...ctaProps} {...otherProps} />;
     case 'button': {
-      console.log('videoTitle in button outside', videoTitle);
-      return (
-        <ButtonCTA
-          iconSelector={_iconSelector}
-          external={_external}
-          jump={_jump}
-          type={type}
-          openLightBox={openLightBox}
-          setLightBox={setLightBox}
-          renderLightBox={renderLightBox}
-          launchLightBox={launchLightBox}
-          videoTitle={videoTitle}
-          mediaData={mediaData}
-          setMediaData={setMediaData}
-          {...otherProps}
-        />
-      );
+      return <ButtonCTA {...ctaProps} {...otherProps} />;
     }
     case 'feature':
-      return (
-        <FeatureCTA
-          iconSelector={_iconSelector}
-          external={_external}
-          jump={_jump}
-          type={type}
-          openLightBox={openLightBox}
-          setLightBox={setLightBox}
-          renderLightBox={renderLightBox}
-          launchLightBox={launchLightBox}
-          videoTitle={videoTitle[0].title}
-          {...otherProps}
-        />
-      );
+      return <FeatureCTA {...ctaProps} {...otherProps} />;
     default: {
-      return (
-        <TextCTA
-          iconSelector={_iconSelector}
-          external={_external}
-          jump={_jump}
-          type={type}
-          openLightBox={openLightBox}
-          setLightBox={setLightBox}
-          renderLightBox={renderLightBox}
-          launchLightBox={launchLightBox}
-          videoTitle={videoTitle[0].title}
-          {...otherProps}
-        />
-      );
+      return <TextCTA {...ctaProps} {...otherProps} />;
     }
   }
 };

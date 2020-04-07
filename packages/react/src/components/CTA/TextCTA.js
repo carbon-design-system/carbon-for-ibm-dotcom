@@ -41,7 +41,7 @@ const TextCTA = ({
       {launchLightBox(renderLightBox, openLightBox, otherProps.media)}
       {!renderLightBox && (
         <LinkWithIcon href="#" onClick={e => setLightBox(e, openLightBox)}>
-          {videoTitle}
+          {videoTitle[0].title}
           <Icon />
         </LinkWithIcon>
       )}
@@ -66,7 +66,7 @@ TextCTA.propTypes = {
   setLightBox: PropTypes.func,
   renderLightBox: PropTypes.bool,
   launchLightBox: PropTypes.func,
-  videoTitle: PropTypes.string,
+  videoTitle: PropTypes.array,
 };
 
 export default TextCTA;

@@ -35,7 +35,7 @@ const FeatureCTA = ({
           heading={otherProps.heading}
           card={_renderFeatureCard({
             ...otherProps,
-            heading: videoTitle,
+            heading: videoTitle[0].title,
           })}
           onClick={e => setLightBox(e, openLightBox)}
         />
@@ -71,7 +71,7 @@ FeatureCTA.propTypes = {
   setLightBox: PropTypes.func,
   renderLightBox: PropTypes.bool,
   launchLightBox: PropTypes.func,
-  videoTitle: PropTypes.string,
+  videoTitle: PropTypes.array,
 };
 
 export default FeatureCTA;

@@ -45,7 +45,7 @@ const CardCTA = ({
               src: iconSelector(type),
             },
           }}
-          copy={videoTitle}
+          copy={videoTitle[0].title}
           type="link"
           handleClick={e => setLightBox(e, openLightBox)}
         />
@@ -78,7 +78,7 @@ CardCTA.propTypes = {
   setLightBox: PropTypes.func,
   renderLightBox: PropTypes.bool,
   launchLightBox: PropTypes.func,
-  videoTitle: PropTypes.string,
+  videoTitle: PropTypes.array,
 };
 
 export default CardCTA;
