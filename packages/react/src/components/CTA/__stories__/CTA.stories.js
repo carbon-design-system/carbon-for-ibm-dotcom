@@ -98,6 +98,7 @@ storiesOf('Components|CTA', module)
         type = [
           select('button 1 type', types, types[0]),
           select('button 2 type', types, types[0]),
+          select('button 3 type', types, types[0]),
         ];
         cta = {
           buttons: [
@@ -120,6 +121,21 @@ storiesOf('Components|CTA', module)
               type: type[1],
               href: urlBy[type[1]],
               copy: copy[1],
+              media: {
+                src: '0_uka1msg4',
+                alt: 'Image alt text',
+                title: 'Curabitur malesuada varius mi eu posuere',
+                description:
+                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Here are some common categories:',
+                type: 'video',
+                active: false,
+                srcThumb: '',
+              },
+            },
+            {
+              type: type[2],
+              href: urlBy[type[2]],
+              copy: copy[0],
               media: {
                 src: '1_sf5ovm7u',
                 alt: 'Image alt text',

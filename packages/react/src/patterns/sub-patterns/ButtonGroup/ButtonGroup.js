@@ -23,25 +23,28 @@ const { prefix } = settings;
  * @param {object} props.buttons[].renderIcon Optional icon type
  * @returns {*} button components
  */
-const ButtonGroup = ({ buttons }) => (
-  <ol
-    className={`${prefix}--buttongroup`}
-    data-autoid={`${stablePrefix}--button-group`}>
-    {buttons.map((button, key) => {
-      return (
-        <li key={key} className={`${prefix}--buttongroup-item`}>
-          <Button
-            tabIndex={key === 0 ? 2 : 1}
-            data-autoid={`${stablePrefix}--button-group-${key}`}
-            {...button}
-            kind={key === 0 ? 'primary' : 'tertiary'}>
-            {button.copy}
-          </Button>
-        </li>
-      );
-    })}
-  </ol>
-);
+const ButtonGroup = ({ buttons }) => {
+  console.log('buttons', buttons);
+  return (
+    <ol
+      className={`${prefix}--buttongroup`}
+      data-autoid={`${stablePrefix}--button-group`}>
+      {buttons.map((button, key) => {
+        return (
+          <li key={key} className={`${prefix}--buttongroup-item`}>
+            <Button
+              tabIndex={key === 0 ? 2 : 1}
+              data-autoid={`${stablePrefix}--button-group-${key}`}
+              {...button}
+              kind={key === 0 ? 'primary' : 'tertiary'}>
+              {button.copy}
+            </Button>
+          </li>
+        );
+      })}
+    </ol>
+  );
+};
 
 ButtonGroup.propTypes = {
   buttons: PropTypes.arrayOf(
