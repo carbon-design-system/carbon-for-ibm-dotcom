@@ -309,6 +309,7 @@ $search-transition-timing: 95ms;
   // masthead profile menu
   .#{$prefix}--overflow-menu-options {
     background-color: $ui-background;
+    position: fixed;
     z-index: 99999;
 
     &__btn {

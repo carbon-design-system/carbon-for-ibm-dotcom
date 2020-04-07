@@ -68,13 +68,15 @@ storiesOf('Patterns (Sections)|LeadSpace', module)
     };
 
     return (
-      <LeadSpace
-        type={select('type', type, type.small)}
-        theme={select('theme', themes, themes.g100)}
-        title={title}
-        copy={copy}
-        buttons={buttons}
-      />
+      <div className="bx--grid">
+        <LeadSpace
+          type={select('type', type, type.small)}
+          theme={select('theme', themes, themes.g100)}
+          title={title}
+          copy={copy}
+          buttons={buttons}
+        />
+      </div>
     );
   })
   .add('Default with image', () => {
@@ -136,14 +138,16 @@ storiesOf('Patterns (Sections)|LeadSpace', module)
     const gradient = boolean('gradient overlay', true);
 
     return (
-      <LeadSpace
-        type={select('type', type, type.small)}
-        theme={select('theme', themes, themes.g100)}
-        title={title}
-        copy={copy}
-        gradient={gradient}
-        buttons={buttons}
-        image={object('image', images)}
-      />
+      <div className="bx--grid">
+        <LeadSpace
+          type={select('type', type, type.small)}
+          theme={select('theme', themes, themes.g100)}
+          title={title}
+          copy={copy}
+          gradient={gradient}
+          buttons={buttons}
+          image={object('image', images)}
+        />
+      </div>
     );
   });
