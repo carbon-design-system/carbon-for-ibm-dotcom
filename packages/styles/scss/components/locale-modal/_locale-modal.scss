@@ -7,7 +7,6 @@
 
 @import '../../globals/imports';
 @import '../../temp-carbon-expressive/temp-carbon-expressive';
-
 @import 'carbon-components/scss/components/search/search';
 
 /// Locale modal
@@ -44,10 +43,6 @@
         min-height: rem(184px);
         outline: 1px solid $ui-02;
         outline-offset: -1px;
-
-        &__cta {
-          color: $text-01;
-        }
 
         &--link {
           height: 100%;

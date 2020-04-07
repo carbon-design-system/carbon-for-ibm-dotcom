@@ -38,6 +38,7 @@ const LocaleModalRegions = ({
     );
 
     [...regionLink].forEach(link => {
+      link.setAttribute('tabindex', '1');
       link.addEventListener('click', () => {
         const region = link.dataset.region;
         setCurrentRegion(link.getElementsByTagName('h3')[0].innerHTML);
@@ -60,12 +61,31 @@ const LocaleModalRegions = ({
           .${prefix}--locale-modal__back .${prefix}--modal-close`
         );
 
+        /**
+         * Removes tabindex and role as it goes back
+         * @param {*} btn btn element
+         */
+        const localeBackActive = btn => {
+          setIsFiltering(false);
+          setClearResults(true);
+          document.getElementById(`${prefix}--locale-modal__filter`).value = '';
+          btn.removeAttribute('tabindex');
+          btn.removeAttribute('role');
+        };
+
         [...localeBackBtn].forEach(btn => {
-          btn.addEventListener('click', () => {
-            setIsFiltering(false);
-            setClearResults(true);
-            document.getElementById(`${prefix}--locale-modal__filter`).value =
-              '';
+          btn.setAttribute('tabindex', '1');
+          btn.setAttribute('role', 'button');
+
+          btn.addEventListener('click', function click() {
+            localeBackActive(btn);
+            btn.removeEventListener('click', click);
+          });
+          btn.addEventListener('keyup', function keyup(e) {
+            if (e.keyCode === 32 || e.keyCode === 13) {
+              localeBackActive(btn);
+              btn.removeEventListener('keyup', keyup);
+            }
           });
         });
       });
