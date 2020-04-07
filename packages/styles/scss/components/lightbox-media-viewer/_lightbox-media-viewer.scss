@@ -23,8 +23,11 @@
 
     &__row {
       @include carbon--make-row(0);
-      @include carbon--breakpoint-down('lg') {
-        flex-flow: row wrap;
+      flex-direction: column;
+      flex-wrap: nowrap;
+
+      @include carbon--breakpoint('lg') {
+        flex-direction: row;
       }
     }
     &__media {
