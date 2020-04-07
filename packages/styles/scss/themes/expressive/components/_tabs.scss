@@ -19,4 +19,8 @@
     height: 3rem;
     padding: carbon--rem(11.5px) $carbon--spacing-05;
   }
+  .#{$prefix}--tabs__nav-item--selected:not(.#{$prefix}--tabs__nav-item--disabled)
+    .#{$prefix}--tabs__nav-link {
+    padding: 0.7188rem 1rem;
+  }
 }
