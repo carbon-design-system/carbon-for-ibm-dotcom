@@ -9,13 +9,13 @@
 
 @mixin image-with-caption {
   .#{$prefix}--image-with-caption {
-    margin-top: $carbon--spacing-07;
+    margin-top: $carbon--spacing-06;
     margin-bottom: $carbon--spacing-07;
     max-width: carbon--mini-units(80);
 
     @include carbon--breakpoint('md') {
-      margin-top: $carbon--spacing-09;
-      margin-bottom: $carbon--spacing-09;
+      margin-top: $carbon--spacing-07;
+      margin-bottom: $carbon--spacing-07;
     }
   }
 
