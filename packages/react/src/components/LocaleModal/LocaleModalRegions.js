@@ -71,11 +71,13 @@ const LocaleModalRegions = ({
           document.getElementById(`${prefix}--locale-modal__filter`).value = '';
           btn.removeAttribute('tabindex');
           btn.removeAttribute('role');
+          btn.removeAttribute('aria-label');
         };
 
         [...localeBackBtn].forEach(btn => {
           btn.setAttribute('tabindex', '1');
           btn.setAttribute('role', 'button');
+          btn.setAttribute('aria-label', 'back');
 
           btn.addEventListener('click', function click() {
             localeBackActive(btn);
