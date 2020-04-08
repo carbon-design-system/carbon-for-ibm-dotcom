@@ -23,4 +23,7 @@
     .#{$prefix}--tabs__nav-link {
     padding: 0.7188rem 1rem;
   }
+  a.bx--tabs__nav-link:active {
+    padding: 0.7188rem 1rem;
+  }
 }
