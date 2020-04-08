@@ -16,7 +16,10 @@
 /// @group tabs-expressive
 @mixin tabs-expressive {
   .#{$prefix}--tabs__nav-item .#{$prefix}--tabs__nav-link {
+    height: 2.5rem;
+    padding-left: 0;
+  }
+  .#{$prefix}--tabs-trigger {
     height: 3rem;
-    padding: carbon--rem(11.5px) $carbon--spacing-05;
   }
 }
