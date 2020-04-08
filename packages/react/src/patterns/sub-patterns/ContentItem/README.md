@@ -13,12 +13,14 @@ Here's a quick example to get you started.
 @import '@carbon/ibmdotcom-styles/scss/patterns/sub-patterns/content-item';
 ```
 
-> 💡 Only import font's once per usage
+> 💡 Only import fonts once per usage. Don't forget to import the ContentItem
+> styles from
+> [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { ContentGroup } from '@carbon/ibmdotcom-react';
+import { ContentItem } from '@carbon/ibmdotcom-react';
 import 'yourapplication.scss';
 
 function App() {
@@ -26,19 +28,41 @@ function App() {
   const copy = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
 
   const image = {
-    images: [
-      { src: 'https://picsum.photos/id/2/288/144', minWidth: 'sm' },
-      { src: 'https://picsum.photos/id/2/448/224', minWidth: 'md' },
-      { src: 'https://picsum.photos/id/2/352/176', minWidth: 'lg' },
+    sources: [
+      {
+        src: 'https://dummyimage.com/288x144/ee5396/161616&text=2:1',
+        breakpoint: 'sm',
+      },
+      {
+        src: 'https://dummyimage.com/448x224/ee5396/161616&text=2:1',
+        breakpoint: 'md',
+      },
+      {
+        src: 'https://dummyimage.com/352x176/ee5396/161616&text=2:1',
+        breakpoint: 'lg',
+      },
     ],
-    alt: 'content item image',
-    defaultImage: 'https://picsum.photos/id/2/352/176',
+    alt: 'Image alt text',
+    defaultSrc: 'https://dummyimage.com/352x176/ee5396/161616&text=2:1',
   };
 
-  return <ContentItem heading={heading} copy={copy} image={image} />;
+  const cta = {
+    type: 'jump',
+    copy: 'Click here',
+    href: 'www.ibm.com',
+  };
+
+  return <ContentItem heading={heading} copy={copy} image={image} cta={cta} />;
 }
 
 ReactDOM.render(<App />, document.querySelector('#app'));
+```
+
+Add the following line on your `.env` file at the root of your project,
+[see more details](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/styles#usage)
+
+```
+  SASS_PATH=node_modules:src
 ```
 
 > 💡 Don't forget to import the content group styles from
@@ -50,15 +74,20 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 | --------- | -------- | --------- | ------------- | -------------------------------- |
 | `heading` | NO       | String    | null          | Heading text                     |
 | `copy`    | NO       | String    | null          | Copy text                        |
+| `cta`     | NO       | object    | null          | CTA object. See `cta` below.     |
 | `image`   | NO       | object    | null          | Image object. See `image` below. |
+
+### cta (optional)
+
+Visit the
+[CTA documentation](https://ibmdotcom-react.mybluemix.net/?path=/story/components-cta--default)
+for more details on the CTA options.
 
 ### image (optional)
 
-| Name      | Data Type | Description                                                                  |
-| --------- | --------- | ---------------------------------------------------------------------------- |
-| `images`  | Array     | Array of image spec objects including src of image and min-width breakpoint. |
-| `default` | String    | Default image, usually for largest breakpoint.                               |
-| `alt`     | String    | Alt description of the image                                                 |
+Visit the
+[ImageWithCaption documentation](https://ibmdotcom-react.mybluemix.net/?path=/story/components-imagewithcaption--default)
+for more details on the ImageWithCaption options.
 
 ## Stable selectors
 

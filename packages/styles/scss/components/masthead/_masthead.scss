@@ -19,10 +19,11 @@ $search-transition-timing: 95ms;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1;
+    z-index: 2;
     transition-delay: 200ms;
     transition-timing-function: $search-transition;
     transition-duration: 300ms;
+    background-color: $ui-background;
 
     &--sticky {
       &.#{$prefix}--masthead--sticky__l1 {
@@ -88,6 +89,10 @@ $search-transition-timing: 95ms;
 
         @include carbon--breakpoint-down(lg) {
           padding: 0 $carbon--spacing-05;
+        }
+
+        @include carbon--breakpoint-between('md', 'lg') {
+          padding: 0 $carbon--spacing-05 0 $carbon--spacing-07;
         }
       }
     }
@@ -208,7 +213,6 @@ $search-transition-timing: 95ms;
           top: 2px;
         }
       }
-
       &:hover {
         background-color: $ui-01;
         transition-duration: $search-transition-timing;
@@ -305,6 +309,7 @@ $search-transition-timing: 95ms;
   // masthead profile menu
   .#{$prefix}--overflow-menu-options {
     background-color: $ui-background;
+    position: fixed;
     z-index: 99999;
 
     &__btn {
@@ -323,14 +328,18 @@ $search-transition-timing: 95ms;
         background-color: $ui-01;
       }
     }
-
     &:focus {
       outline: none;
     }
-
     &::after {
       display: none;
     }
+  }
+  .#{$prefix}--overflow-menu.#{$prefix}--overflow-menu--open {
+    box-shadow: none;
+  }
+  .#{$prefix}--header__action.#{$prefix}--overflow-menu {
+    height: $spacing-09;
   }
 }
 

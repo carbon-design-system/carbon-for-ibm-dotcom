@@ -10,6 +10,7 @@ import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { settings } from 'carbon-components';
+import { uniqueid } from '@carbon/ibmdotcom-utilities';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
@@ -24,16 +25,17 @@ const { prefix } = settings;
  */
 const sortSources = sources => {
   const images = sources.map(elem => {
-    if (typeof elem.minWidth == 'number') {
+    if (typeof elem.breakpoint == 'number') {
       return elem;
     } else {
       return {
-        minWidth: parseFloat(breakpoints[elem.minWidth].width) * baseFontSize,
+        breakpoint:
+          parseFloat(breakpoints[elem.breakpoint].width) * baseFontSize,
         src: elem.src,
       };
     }
   });
-  return images.sort((a, b) => (a.minWidth > b.minWidth ? -1 : 1));
+  return images.sort((a, b) => (a.breakpoint > b.breakpoint ? -1 : 1));
 };
 
 /**
@@ -42,50 +44,60 @@ const sortSources = sources => {
  * @param {object} props props object
  * @param {object} props.classname classname
  * @param {object} props.images array of images used for diff breakpoints
- * @param {string} props.defaultImage default image (usually image for largest breakpoint)
+ * @param {string} props.defaultSrc default image (usually image for largest breakpoint)
  * @param {string} props.alt alt of the image
+ * @param {string} props.longDescription optional long description for infographics.
  * @returns {*} picture element
  */
-const Image = ({ classname, images, defaultImage, alt }) => {
-  if (!defaultImage || !alt) {
+const Image = ({ classname, sources, defaultSrc, alt, longDescription }) => {
+  if (!defaultSrc || !alt) {
     return null;
   }
 
-  const sortedImages = images ? sortSources(images) : [];
-
+  const sortedImages = sources ? sortSources(sources) : [];
+  const id = uniqueid(`${prefix}--image-`);
   return (
-    <picture
-      alt={alt}
-      className={`${prefix}--image`}
-      data-autoid={`${stablePrefix}--image`}>
-      {sortedImages.map((imgSrc, key) => {
-        return (
-          <source
-            media={`(min-width: ${imgSrc.minWidth}px )`}
-            key={key}
-            srcSet={imgSrc.src}
-          />
-        );
-      })}
-      <img
-        className={classnames(`${prefix}--image__img`, classname)}
-        src={defaultImage}
+    <>
+      <picture
         alt={alt}
-      />
-    </picture>
+        className={`${prefix}--image`}
+        data-autoid={`${stablePrefix}--image__longdescription-`}>
+        {sortedImages.map((imgSrc, key) => {
+          return (
+            <source
+              media={`(min-width: ${imgSrc.breakpoint}px )`}
+              key={key}
+              srcSet={imgSrc.src}
+            />
+          );
+        })}
+        <img
+          className={classnames(`${prefix}--image__img`, classname)}
+          src={defaultSrc}
+          alt={alt}
+          aria-describedby={longDescription ? `${id}` : ''}
+        />
+      </picture>
+      {longDescription ? (
+        <div id={id} className={`${prefix}--image__longdescription`}>
+          {longDescription}
+        </div>
+      ) : null}
+    </>
   );
 };
 
 Image.propTypes = {
   classname: PropTypes.string,
-  images: PropTypes.arrayOf(
+  sources: PropTypes.arrayOf(
     PropTypes.shape({
       src: PropTypes.string,
-      minWidth: PropTypes.any,
+      breakpoint: PropTypes.any,
     })
   ),
-  defaultImage: PropTypes.string,
-  alt: PropTypes.string,
+  defaultSrc: PropTypes.string.isRequired,
+  alt: PropTypes.string.isRequired,
+  longDescription: PropTypes.string,
 };
 
 export default Image;

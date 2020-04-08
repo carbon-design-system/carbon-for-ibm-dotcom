@@ -12,8 +12,6 @@ import readme from '../README.md';
 import { storiesOf } from '@storybook/react';
 import TableOfContents from '../TableOfContents';
 
-const _menuLabel = text('menu label', 'Jump to');
-
 const _themes = {
   g100: 'g100',
   white: '',
@@ -26,6 +24,8 @@ storiesOf('Patterns (Sub-Patterns)|Table of Contents', module)
     },
   })
   .add('Manually define Menu Items', () => {
+    const _menuLabel = text('menu label', 'Jump to');
+
     const menuItems = [
       {
         title: 'Cras molestie condimentum',
@@ -59,20 +59,12 @@ storiesOf('Patterns (Sub-Patterns)|Table of Contents', module)
     );
   })
   .add('Dynamic Items', () => {
-    let menuItems = [];
-    dataContent.props.children.forEach(element => {
-      if (element.props['data-title']) {
-        menuItems.push({
-          title: element.props['data-title'],
-          id: element.props['name'],
-        });
-      }
-    });
+    const _menuLabel = text('menu label', 'Jump to');
+
     return (
       <TableOfContents
         theme={select('theme', _themes, _themes.white)}
-        menuLabel={_menuLabel}
-        menuItems={menuItems}>
+        menuLabel={_menuLabel}>
         {dataContent}
       </TableOfContents>
     );

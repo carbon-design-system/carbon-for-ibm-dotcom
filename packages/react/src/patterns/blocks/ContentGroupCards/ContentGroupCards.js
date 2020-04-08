@@ -7,7 +7,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import { ArrowRight20 } from '@carbon/icons-react';
-import { CardLink } from '../../sub-patterns/CardLink';
+import { Card } from '../../sub-patterns/Card';
 import { ContentGroup } from '../../sub-patterns/ContentGroup';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
@@ -41,15 +41,11 @@ const ContentGroupCards = ({ heading, items }) => {
    */
   const setSameHeight = () => {
     sameHeight(
-      containerRef.current.getElementsByClassName(
-        `${prefix}--card-link__title`
-      ),
+      containerRef.current.getElementsByClassName(`${prefix}--card__heading`),
       'md'
     );
     sameHeight(
-      containerRef.current.getElementsByClassName(
-        `${prefix}--card-link__content`
-      ),
+      containerRef.current.getElementsByClassName(`${prefix}--card__copy`),
       'md'
     );
   };
@@ -58,18 +54,16 @@ const ContentGroupCards = ({ heading, items }) => {
     <section
       data-autoid={`${stablePrefix}--content-group-cards`}
       className={`${prefix}--content-group-cards`}>
-      <div className={`${prefix}--content-group-cards__row`}>
-        <ContentGroup heading={heading}>
-          <div
-            data-autoid={`${stablePrefix}--content-group-cards-group`}
-            ref={containerRef}
-            className={`${prefix}--content-group-cards-group ${prefix}--grid--condensed`}>
-            <div className={`${prefix}--content-group-cards__row`}>
-              {_renderCards(items)}
-            </div>
+      <ContentGroup heading={heading}>
+        <div
+          data-autoid={`${stablePrefix}--content-group-cards-group`}
+          ref={containerRef}
+          className={`${prefix}--content-group-cards-group ${prefix}--grid--condensed`}>
+          <div className={`${prefix}--content-group-cards__row`}>
+            {_renderCards(items)}
           </div>
-        </ContentGroup>
-      </div>
+        </div>
+      </ContentGroup>
     </section>
   );
 };
@@ -85,13 +79,20 @@ const _renderCards = items =>
     <div
       data-autoid={`${stablePrefix}--content-group-cards-item`}
       className={`${prefix}--content-group-cards-item__col`}
-      key={index}>
-      <CardLink
-        className={`${prefix}--content-group-cards-item`}
-        title={elem.heading}
-        content={elem.copy}
-        icon={ArrowRight20}
-        href={elem.cta.href}
+      key={index}
+      role="region">
+      <Card
+        customClassName={`${prefix}--content-group-cards-item`}
+        heading={elem.heading}
+        copy={elem.copy}
+        cta={{
+          href: elem.cta.href,
+          icon: {
+            src: ArrowRight20,
+          },
+        }}
+        type="link"
+        aria-label={elem.heading}
       />
     </div>
   ));

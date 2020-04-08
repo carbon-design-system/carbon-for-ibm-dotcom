@@ -15,7 +15,9 @@ Here's a quick example to get you started.
 @import '@carbon/ibmdotcom-styles/scss/patterns/sub-patterns/tableofcontents/index.scss';
 ```
 
-> 💡 Only import font's once per usage
+> 💡 Only import fonts once per usage. Don't forget to import the
+> TableOfContents styles from
+> [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
 ```javascript
 import React from 'react';
@@ -63,32 +65,25 @@ function App() {
 ReactDOM.render(<App />, document.querySelector('#app'));
 ```
 
+Add the following line on your `.env` file at the root of your project,
+[see more details](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/styles#usage)
+
+```
+  SASS_PATH=node_modules:src
+```
+
 > 💡 Don't forget to import the tableofcontents styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
-#### Feature Flags
-
-To utilize the following features, set the following variable's to `true` within
-your `.env` file or your application build settings.
-
-```
-DDS_TOC=true
-```
-
-> See
-> [feature-flags.md](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/patterns-react/docs/feature-flags.md)
-> and
-> [.env.example](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/patterns-react/.env.example)
-> for more information
-
 ## Props
 
-| Name        | Required | Data Type | Default Value                                                     | Description                                                                      |
-| ----------- | -------- | --------- | ----------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `children`  | NO       | Array     | null                                                              | Content to display next to the side nav.                                         |
-| `menuItems` | NO       | Array     | null                                                              | Array of menu item objects to render within the side nav. See `menuItems` below. |
-| `menuLabel` | NO       | String    | `Jump to`                                                         | Placeholder value for menu label                                                 |
-| `theme`     | NO       | String    | `` | Defines the color theme for the pattern (See `Theme` bellow) |
+| Name           | Required | Data Type | Default Value | Description                                                                      |
+| -------------- | -------- | --------- | ------------- | -------------------------------------------------------------------------------- |
+| `children`     | NO       | Array     | null          | Content to display next to the side nav.                                         |
+| `menuItems`    | NO       | Array     | null          | Array of menu item objects to render within the side nav. See `menuItems` below. |
+| `menuLabel`    | NO       | String    | `Jump to`     | Placeholder value for menu label                                                 |
+| `theme`        | NO       | String    | `white`       | Defines the color theme for the pattern (See `Theme` bellow)                     |
+| `stickyOffset` | NO       | Number    | null          | Defines the offset for the sticky column                                         |
 
 ## menuItems
 
@@ -96,6 +91,16 @@ DDS_TOC=true
 | --------------- | --------- | --------------- |
 | title           | String    | Menu title text |
 | id              | String    | Menu id         |
+
+### Dynamic menuItems
+
+If `menuItems` is not passed in as a prop, the menu items are dynamically
+generated based on anchor links that exist on the page. The anchor links should
+follow the following format:
+
+```html
+<a name="name-of-section" data-title="Lorem Ipsum"></a>
+```
 
 ## Theme (optional)
 

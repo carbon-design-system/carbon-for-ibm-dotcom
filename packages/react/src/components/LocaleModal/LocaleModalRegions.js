@@ -7,7 +7,7 @@
 
 import { ArrowRight20, Error20 } from '@carbon/icons-react';
 import React, { useEffect } from 'react';
-import { CardLink } from '../../patterns/sub-patterns/CardLink';
+import { Card } from '../../patterns/sub-patterns/Card';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
 import { settings } from 'carbon-components';
@@ -32,12 +32,13 @@ const LocaleModalRegions = ({
   setClearResults,
 }) => {
   useEffect(() => {
-    const regionLink = document.querySelectorAll(`.${prefix}--card-link`);
+    const regionLink = document.querySelectorAll(`.${prefix}--card`);
     const localeItems = document.querySelectorAll(
       `.${prefix}--locale-modal__locales`
     );
 
     [...regionLink].forEach(link => {
+      link.setAttribute('tabindex', '1');
       link.addEventListener('click', () => {
         const region = link.dataset.region;
         setCurrentRegion(link.getElementsByTagName('h3')[0].innerHTML);
@@ -60,12 +61,31 @@ const LocaleModalRegions = ({
           .${prefix}--locale-modal__back .${prefix}--modal-close`
         );
 
+        /**
+         * Removes tabindex and role as it goes back
+         * @param {*} btn btn element
+         */
+        const localeBackActive = btn => {
+          setIsFiltering(false);
+          setClearResults(true);
+          document.getElementById(`${prefix}--locale-modal__filter`).value = '';
+          btn.removeAttribute('tabindex');
+          btn.removeAttribute('role');
+        };
+
         [...localeBackBtn].forEach(btn => {
-          btn.addEventListener('click', () => {
-            setIsFiltering(false);
-            setClearResults(true);
-            document.getElementById(`${prefix}--locale-modal__filter`).value =
-              '';
+          btn.setAttribute('tabindex', '1');
+          btn.setAttribute('role', 'button');
+
+          btn.addEventListener('click', function click() {
+            localeBackActive(btn);
+            btn.removeEventListener('click', click);
+          });
+          btn.addEventListener('keyup', function keyup(e) {
+            if (e.keyCode === 32 || e.keyCode === 13) {
+              localeBackActive(btn);
+              btn.removeEventListener('keyup', keyup);
+            }
           });
         });
       });
@@ -84,13 +104,18 @@ const LocaleModalRegions = ({
               <div
                 key={`${region.name}`}
                 className={`${prefix}--col-sm-4 ${prefix}--col-md-8 ${prefix}--col-lg-8 ${prefix}--col-xlg-8 ${prefix}--no-gutter`}>
-                <CardLink
+                <Card
                   data-autoid={`${stablePrefix}--locale-modal__geo-btn-${region.key}`}
                   data-region={region.key}
                   key={region.key}
-                  title={region.name}
-                  href={hasCountries ? 'javascript:void(0);' : null}
-                  icon={hasCountries ? ArrowRight20 : Error20}
+                  heading={region.name}
+                  type="link"
+                  cta={{
+                    href: hasCountries ? 'javascript:void(0);' : null,
+                    icon: {
+                      src: hasCountries ? ArrowRight20 : Error20,
+                    },
+                  }}
                 />
               </div>
             );

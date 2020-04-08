@@ -11,9 +11,13 @@
 @import '@carbon/type/scss/font-face/sans';
 @include carbon--font-face-mono();
 @include carbon--font-face-sans();
+
+@import '@carbon/ibmdotcom-styles/scss/components/dotcom-shell/dotcom-shell';
 ```
 
-> 💡 Only import font's once per usage
+> 💡 Only import fonts once per usage. Don't forget to import the DotcomShell
+> styles from
+> [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
 ### Content
 
@@ -35,7 +39,7 @@ export default content;
 ```javascript
 import React from 'react';
 import { DotcomShell } from '@carbon/ibmdotcom-react';
-import '@carbon/ibmdotcom-styles/scss/components/dotcom-shell/_dotcom-shell.scss';
+import 'yourapplication.scss';
 import content from 'content';
 
 function App() {
@@ -45,6 +49,13 @@ function App() {
     </DotcomShell>
   );
 }
+```
+
+Add the following line on your `.env` file at the root of your project,
+[see more details](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/styles#usage)
+
+```
+  SASS_PATH=node_modules:src
 ```
 
 > 💡 And don't forget to import the DotcomShell styles from

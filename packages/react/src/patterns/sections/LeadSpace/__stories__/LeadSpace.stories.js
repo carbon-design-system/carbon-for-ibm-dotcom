@@ -2,150 +2,152 @@ import './index.scss';
 import { ArrowDown20, ArrowRight20, Pdf20 } from '@carbon/icons-react';
 import {
   boolean,
+  number,
   object,
   select,
   text,
   withKnobs,
 } from '@storybook/addon-knobs';
-import { DDS_LEADSPACE } from '../../../../internal/FeatureFlags';
 import LeadSpace from '../LeadSpace';
 import React from 'react';
 import readme from '../README.md';
 import { storiesOf } from '@storybook/react';
 
-if (DDS_LEADSPACE) {
-  storiesOf('Patterns (Sections)|LeadSpace', module)
-    .addDecorator(withKnobs)
-    .addParameters({
-      readme: {
-        sidebar: readme,
-      },
-    })
-    .add('Default with no image', () => {
-      const copy = text(
-        'copy',
-        'Use this area for a short line of copy to support the title'
-      );
+storiesOf('Patterns (Sections)|LeadSpace', module)
+  .addDecorator(withKnobs)
+  .addParameters({
+    readme: {
+      sidebar: readme,
+    },
+  })
+  .add('Default with no image', () => {
+    const copy = text(
+      'copy',
+      'Use this area for a short line of copy to support the title'
+    );
 
-      const title = text('title', 'Lead space title');
+    const title = text('title', 'Lead space title');
 
-      const variations = {
-        expressive: '',
-        productive: 'productive',
-      };
+    const type = {
+      left: '',
+      small: 'small',
+      centered: 'centered',
+    };
 
-      const iconMap = {
-        ArrowRight20,
-        ArrowDown20,
-        Pdf20,
-      };
+    const iconMap = {
+      ArrowRight20,
+      ArrowDown20,
+      Pdf20,
+    };
 
-      const icons = {
-        ArrowRight: 'ArrowRight20',
-        ArrowDown: 'ArrowDown20',
-        Pdf: 'Pdf20',
-        none: null,
-      };
+    const iconOptions = {
+      None: null,
+      ArrowRight: 'ArrowRight20',
+      ArrowDown: 'ArrowDown20',
+      PDF: 'Pdf20',
+    };
 
-      const buttons = [
-        {
-          link: '',
-          copy: text('Primary button copy:', 'Primary action button'),
-          renderIcon:
-            iconMap[select('primary button icon', icons, icons.ArrowRight)],
-          href: text('Primary button link:', 'https://www.example.com'),
-        },
-        {
-          link: '',
-          copy: text('Secondary button copy:', 'Secondary action button'),
-          renderIcon:
-            iconMap[select('secondary button icon', icons, icons.ArrowRight)],
-          href: text('Secondary button link:', 'https://www.example.com'),
-        },
-      ];
+    const buttonCount = number('Number of buttons', 2);
+    const buttons = [];
 
-      const themes = {
-        g100: 'g100',
-        white: '',
-      };
+    for (let i = 0; i < buttonCount; i++) {
+      buttons.push({
+        link: '',
+        copy: text(`Button ${i + 1}`, `Button ${i + 1}`),
+        renderIcon:
+          iconMap[
+            select(`Button Icon ${i + 1}`, iconOptions, iconOptions.ArrowRight)
+          ],
+        href: text('Primary button link', 'https://www.example.com'),
+      });
+    }
 
-      return (
+    const themes = {
+      g100: 'g100',
+      white: '',
+    };
+
+    return (
+      <div className="bx--grid">
         <LeadSpace
+          type={select('type', type, type.small)}
           theme={select('theme', themes, themes.g100)}
           title={title}
           copy={copy}
           buttons={buttons}
-          variation={select('variation', variations, variations.expressive)}
         />
-      );
-    })
-    .add('Default with image', () => {
-      const copy = text(
-        'copy',
-        'Use this area for a short line of copy to support the title'
-      );
+      </div>
+    );
+  })
+  .add('Default with image', () => {
+    const copy = text(
+      'copy',
+      'Use this area for a short line of copy to support the title'
+    );
 
-      const title = text('title', 'Lead space title');
+    const title = text('title', 'Lead space title');
 
-      const variations = {
-        expressive: '',
-        productive: 'productive',
-      };
+    const type = {
+      left: '',
+      small: 'small',
+      centered: 'centered',
+    };
 
-      const images = {
-        mobile: 'https://picsum.photos/id/1076/320/370',
-        tablet: 'https://picsum.photos/id/1076/672/400',
-        default: 'https://picsum.photos/id/1076/1056/480',
-        alt: 'lead space image',
-      };
+    const images = {
+      sources: [
+        { src: 'https://picsum.photos/id/1076/320/370', breakpoint: 'sm' },
+        { src: 'https://picsum.photos/id/1076/672/400', breakpoint: 'md' },
+      ],
+      default: 'https://picsum.photos/id/1076/1056/480',
+      alt: 'lead space image',
+    };
 
-      const iconMap = {
-        ArrowRight20,
-        ArrowDown20,
-        Pdf20,
-      };
+    const iconMap = {
+      ArrowRight20,
+      ArrowDown20,
+      Pdf20,
+    };
 
-      const icons = {
-        ArrowRight: 'ArrowRight20',
-        ArrowDown: 'ArrowDown20',
-        Pdf: 'Pdf20',
-        none: null,
-      };
+    const iconOptions = {
+      None: null,
+      ArrowRight: 'ArrowRight20',
+      ArrowDown: 'ArrowDown20',
+      PDF: 'Pdf20',
+    };
 
-      const buttons = [
-        {
-          link: '',
-          copy: text('Primary button copy:', 'Primary action button'),
-          renderIcon:
-            iconMap[select('primary button icon', icons, icons.ArrowRight)],
-          href: text('Primary button link:', 'https://www.example.com'),
-        },
-        {
-          link: '',
-          copy: text('Secondary button copy:', 'Secondary action button'),
-          renderIcon:
-            iconMap[select('secondary button icon', icons, icons.ArrowRight)],
-          href: text('Secondary button link:', 'https://www.example.com'),
-        },
-      ];
+    const buttonCount = number('Number of buttons', 2);
+    const buttons = [];
 
-      const themes = {
-        g100: 'g100',
-        white: '',
-      };
+    for (let i = 0; i < buttonCount; i++) {
+      buttons.push({
+        link: '',
+        copy: text(`Button ${i + 1}`, `Button ${i + 1}`),
+        renderIcon:
+          iconMap[
+            select(`Button Icon ${i + 1}`, iconOptions, iconOptions.ArrowRight)
+          ],
+        href: text('Primary button link', 'https://www.example.com'),
+      });
+    }
 
-      const gradient = boolean('gradient overlay', true);
+    const themes = {
+      g100: 'g100',
+      white: '',
+    };
 
-      return (
+    const gradient = boolean('gradient overlay', true);
+
+    return (
+      <div className="bx--grid">
         <LeadSpace
+          type={select('type', type, type.small)}
           theme={select('theme', themes, themes.g100)}
           title={title}
           copy={copy}
           gradient={gradient}
           buttons={buttons}
           image={object('image', images)}
-          variation={select('variation', variations, variations.expressive)}
         />
-      );
-    });
-}
+      </div>
+    );
+  });

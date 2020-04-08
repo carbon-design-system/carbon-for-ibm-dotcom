@@ -16,27 +16,31 @@
   .#{$prefix}--buttongroup {
     display: flex;
     flex-direction: column-reverse;
-    margin-top: $carbon--layout-01;
 
-    @include carbon--breakpoint(md) {
-      flex-flow: row-reverse wrap-reverse;
+    @include carbon--breakpoint(lg) {
       justify-content: flex-end;
+      flex-direction: row-reverse;
     }
 
     .#{$prefix}--btn {
+      font-size: 1rem;
       position: relative;
       width: 100%;
       height: 100%;
+      &__icon {
+        width: auto;
+        height: auto;
+      }
     }
   }
 
   .#{$prefix}--buttongroup-item {
     margin-top: $carbon--layout-01;
-    max-width: 22rem;
+    max-width: carbon--mini-units(42);
     min-width: 0;
 
     @include carbon--breakpoint(md) {
-      padding-right: $carbon--layout-03;
+      padding-right: $carbon--layout-01;
       flex: 1 1 0;
     }
   }

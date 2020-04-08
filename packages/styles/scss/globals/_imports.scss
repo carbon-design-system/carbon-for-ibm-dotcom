@@ -19,9 +19,10 @@
 @import 'carbon-components/scss/globals/scss/helper-mixins';
 @import 'carbon-components/scss/globals/scss/layout';
 @import '@carbon/import-once/scss/import-once';
-@import '@carbon/grid/scss/mixins';
+@import '@carbon/grid/scss/index';
 @import 'carbon-components/scss/globals/scss/css--reset';
 
 @import '../themes/expressive/index';
+@import './utils/content-width';
 
 @include carbon--type-reset();

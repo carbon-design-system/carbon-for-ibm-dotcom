@@ -13,7 +13,9 @@ Here's a quick example to get you started.
 @import '@carbon/ibmdotcom-styles/scss/patterns/sub-patterns/content-group';
 ```
 
-> 💡 Only import font's once per usage
+> 💡 Only import fonts once per usage. Don't forget to import the ContentGroup
+> styles from
+> [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
 ```javascript
 import React from 'react';
@@ -22,12 +24,27 @@ import { ContentGroup } from '@carbon/ibmdotcom-react';
 import 'yourapplication.scss';
 
 function App() {
-  const copy = 'Lorem ipsum dolor sit amet.';
+  const heading = 'Lorem ipsum dolor sit amet.';
+  const cta = {
+    title: 'Lorem ipsum dolor sit amet',
+    href: 'https://www.example.com',
+  };
 
-  return <ContentGroup heading={copy}>//Content array goes here</ContentGroup>;
+  return (
+    <ContentGroup heading={heading} cta={cta}>
+      //Children goes here
+    </ContentGroup>
+  );
 }
 
 ReactDOM.render(<App />, document.querySelector('#app'));
+```
+
+Add the following line on your `.env` file at the root of your project,
+[see more details](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/styles#usage)
+
+```
+  SASS_PATH=node_modules:src
 ```
 
 > 💡 Don't forget to import the content group styles from
@@ -35,9 +52,18 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 ## Props
 
-| Name      | Required | Data Type | Default Value | Description  |
-| --------- | -------- | --------- | ------------- | ------------ |
-| `heading` | NO       | String    | null          | Heading text |
+| Name        | Required | Data Type | Default Value | Description                                 |
+| ----------- | -------- | --------- | ------------- | ------------------------------------------- |
+| `heading`   | NO       | String    | null          | Heading text                                |
+| `children`  | NO       | Object    | null          | Container for other components.             |
+| `cta`       | NO       | CTA       | Card          | CTA type for more details see `CTA` below.  |
+| `className` | NO       | String    | null          | class to be applied to the containing node. |
+
+## CTA
+
+| Name  | Style | Type  | Description                                                                                                                                                     |
+| ----- | ----- | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `CTA` | Card  | local | Allowed style is Card and type is local for more details [see here](https://ibmdotcom-react-experimental.mybluemix.net/?path=/story/components-cta--default)!👀 |
 
 ## Stable selectors
 

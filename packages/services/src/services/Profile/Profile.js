@@ -4,13 +4,14 @@ import jsonp from 'jsonp';
  * @constant {string | string} Host for the profile status API call
  * @private
  */
-const _host = process.env.PROFILE_HOST || 'https://idaas.iam.ibm.com';
+const _host =
+  (process && process.env.PROFILE_HOST) || 'https://idaas.iam.ibm.com';
 
 /**
  * @constant {string | string} API version
  * @private
  */
-const _version = process.env.PROFILE_VERSION || 'v1';
+const _version = (process && process.env.PROFILE_VERSION) || 'v1';
 
 /**
  * Profile status endpoint

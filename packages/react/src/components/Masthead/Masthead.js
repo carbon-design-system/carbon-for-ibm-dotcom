@@ -93,6 +93,17 @@ const Masthead = ({ navigation, hasProfile, hasSearch, ...mastheadProps }) => {
     });
   }, []);
 
+  /**
+   * Forces profile menu position to fixed to prevent scrolling
+   *
+   */
+  const _setProfileListPosition = () => {
+    const profileMenuList = document.querySelector(
+      `.${prefix}--masthead__profile-item`
+    );
+    profileMenuList.closest('ul').style.position = 'fixed';
+  };
+
   const [isMastheadSticky, setIsMastheadSticky] = useState(false);
   const stickyRef = useRef(null);
   const mastheadL1Ref = useRef(null);
@@ -183,10 +194,16 @@ const Masthead = ({ navigation, hasProfile, hasSearch, ...mastheadProps }) => {
                 <HeaderGlobalBar>
                   <MastheadProfile
                     overflowMenuProps={{
+                      ariaLabel: 'User Profile',
+                      'data-autoid': `${stablePrefix}--masthead__profile`,
                       flipped: true,
-                      style: { width: 'auto' },
+                      style: { width: '3rem' },
+                      onOpen: () => _setProfileListPosition(),
                       renderIcon: () =>
                         isAuthenticated ? <UserOnline20 /> : <User20 />,
+                    }}
+                    overflowMenuItemProps={{
+                      wrapperClassName: `${prefix}--masthead__profile-item`,
                     }}
                     profileMenu={
                       isAuthenticated
