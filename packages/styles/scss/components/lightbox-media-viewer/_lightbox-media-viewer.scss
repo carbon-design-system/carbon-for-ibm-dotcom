@@ -37,10 +37,20 @@
       }
     }
     &__media {
+      @include carbon--breakpoint-down('lg') {
+        position: relative;
+      }
+
       img {
         width: auto;
         max-width: 100%;
         height: auto;
+
+        @include carbon--breakpoint-down('lg') {
+          position: absolute;
+          top: 0;
+          max-height: 100%;
+        }
       }
 
       @include carbon--breakpoint-down('lg') {
