@@ -43,7 +43,7 @@ const LinkList = ({ heading, items }) => {
 
 LinkList.propTypes = {
   heading: PropTypes.string.isRequired,
-  items: PropTypes.arrayOf(PropTypes.instanceOf(CTA).isRequired),
+  items: PropTypes.arrayOf(PropTypes.shape(CTA.propTypes)).isRequired,
 };
 
 export default LinkList;
