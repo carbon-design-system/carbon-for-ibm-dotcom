@@ -8,6 +8,7 @@ import {
   text,
   withKnobs,
 } from '@storybook/addon-knobs';
+import { DotcomShell } from '../../../../components/DotcomShell';
 import LeadSpace from '../LeadSpace';
 import React from 'react';
 import readme from '../README.md';
@@ -68,7 +69,7 @@ storiesOf('Patterns (Sections)|LeadSpace', module)
     };
 
     return (
-      <div className="bx--grid">
+      <DotcomShell footerType="short">
         <LeadSpace
           type={select('type', type, type.small)}
           theme={select('theme', themes, themes.g100)}
@@ -76,7 +77,7 @@ storiesOf('Patterns (Sections)|LeadSpace', module)
           copy={copy}
           buttons={buttons}
         />
-      </div>
+      </DotcomShell>
     );
   })
   .add('Default with image', () => {
