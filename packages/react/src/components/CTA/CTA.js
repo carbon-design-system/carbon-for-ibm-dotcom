@@ -12,17 +12,14 @@ import {
   PlayOutline20,
 } from '@carbon/icons-react';
 import React, { useState, useEffect, useCallback } from 'react';
-import { ButtonGroup } from '../../patterns/sub-patterns/ButtonGroup';
-import { Card } from '../../patterns/sub-patterns/Card';
-import { FeatureCard } from '../../patterns/blocks/FeatureCard';
+import ButtonCTA from './ButtonCTA';
+import CardCTA from './CardCTA';
+import FeatureCTA from './FeatureCTA';
 import { LightboxMediaViewer } from '../LightboxMediaViewer';
-import { LinkWithIcon } from '../LinkWithIcon';
 import PropTypes from 'prop-types';
-import { settings } from 'carbon-components';
 import { smoothScroll } from '@carbon/ibmdotcom-utilities';
+import TextCTA from './TextCTA';
 import { VideoPlayerAPI } from '@carbon/ibmdotcom-services';
-
-const { prefix } = settings;
 
 /**
  * CTA component
@@ -52,16 +49,17 @@ const CTA = ({ style, type, customClassName, ...otherProps }) => {
   const getVideoData = useCallback(async () => {
     if (type === 'video' || type.includes('video')) {
       const videoId = getVideoId(style, otherProps);
-      const title = [];
-      videoId.map(async vidId => {
-        const video = await VideoPlayerAPI.api(vidId.src);
-        const time = VideoPlayerAPI.getVideoDuration(video.msDuration);
-        title.push({
-          title: `${video.name} ${time}`,
-          key: vidId.key,
-        });
-        setVideoTitle(title);
-      });
+      const title = await Promise.all(
+        videoId.map(async vidId => {
+          const video = await VideoPlayerAPI.api(vidId.src);
+          const time = VideoPlayerAPI.getVideoDuration(video.msDuration);
+          return {
+            title: `${video.name} ${time}`,
+            key: vidId.key,
+          };
+        })
+      );
+      setVideoTitle(title);
     }
   }, [otherProps, style, type]);
 
@@ -89,123 +87,27 @@ const CTA = ({ style, type, customClassName, ...otherProps }) => {
  * @param {string} props.type cta type ( jump | local | external ).
  * @returns {*} CTA Component
  */
-const renderCTA = ({
-  style,
-  type,
-  renderLightBox,
-  openLightBox,
-  videoTitle,
-  mediaData,
-  setMediaData,
-  ...otherProps
-}) => {
+const renderCTA = ({ style, ...otherProps }) => {
+  const ctaProps = {
+    iconSelector: _iconSelector,
+    external: _external,
+    jump: _jump,
+    style: style,
+    setLightBox: setLightBox,
+    launchLightBox: launchLightBox,
+    ...otherProps,
+  };
+
   switch (style) {
     case 'card':
-      return type === 'video' ? (
-        <div>
-          {launchLightBox(renderLightBox, openLightBox, otherProps.media)}
-          {!renderLightBox && (
-            <Card
-              customClassName={`${prefix}--card__CTA`}
-              cta={{
-                href: '#',
-                icon: {
-                  src: _iconSelector(type),
-                },
-              }}
-              copy={videoTitle[0].title}
-              type="link"
-              handleClick={e => setLightBox(e, openLightBox)}
-            />
-          )}
-        </div>
-      ) : (
-        <Card
-          customClassName={`${prefix}--card__CTA`}
-          cta={{
-            href: otherProps.cta.href,
-            icon: {
-              src: _iconSelector(type),
-            },
-          }}
-          copy={otherProps.copy}
-          type="link"
-          target={_external(type)}
-          handleClick={e => _jump(e, type)}
-          role="region"
-        />
-      );
+      return <CardCTA {...ctaProps} />;
     case 'button': {
-      return type.includes('video') ? (
-        <div>
-          {launchLightBox(renderLightBox, openLightBox, mediaData)}
-          {!renderLightBox && (
-            <ButtonGroup
-              buttons={_renderButtons({
-                videoTitle,
-                openLightBox,
-                setMediaData,
-                ...otherProps,
-              })}
-            />
-          )}
-        </div>
-      ) : (
-        <ButtonGroup buttons={_renderButtons({ ...otherProps })} />
-      );
+      return <ButtonCTA {...ctaProps} />;
     }
     case 'feature':
-      return type === 'video' ? (
-        <div>
-          {launchLightBox(
-            renderLightBox,
-            openLightBox,
-            otherProps.card.cta.media
-          )}
-          {!renderLightBox && (
-            <FeatureCard
-              heading={otherProps.heading}
-              card={_renderFeatureCard({
-                ...otherProps.card,
-                heading: videoTitle[0].title,
-              })}
-              onClick={e => setLightBox(e, openLightBox)}
-            />
-          )}
-        </div>
-      ) : (
-        <FeatureCard
-          heading={otherProps.heading}
-          card={_renderFeatureCard(otherProps.card)}
-        />
-      );
+      return <FeatureCTA {...ctaProps} />;
     default: {
-      const Icon = _iconSelector(type);
-      const href =
-        type !== 'video'
-          ? otherProps.href
-            ? otherProps.href
-            : otherProps.cta.href
-          : null;
-      return type === 'video' ? (
-        <div>
-          {launchLightBox(renderLightBox, openLightBox, otherProps.media)}
-          {!renderLightBox && (
-            <LinkWithIcon href="#" onClick={e => setLightBox(e, openLightBox)}>
-              {videoTitle[0].title}
-              <Icon />
-            </LinkWithIcon>
-          )}
-        </div>
-      ) : (
-        <LinkWithIcon
-          href={href}
-          target={_external(type)}
-          onClick={e => _jump(e, type)}>
-          {otherProps.copy}
-          <Icon />
-        </LinkWithIcon>
-      );
+      return <TextCTA {...ctaProps} />;
     }
   }
 };
@@ -310,56 +212,6 @@ const _iconSelector = type => {
     default:
       return ArrowRight20;
   }
-};
-/**
- * sets button
- *
- * @param {object} param param object
- * @param {object} param.buttons object with buttons array
- * @param {Array} param.videoTitle array of video titles
- * @param {Function} param.openLightBox func to set renderLightBox state
- * @private
- * @returns {*} object
- */
-const _renderButtons = ({
-  openLightBox,
-  videoTitle,
-  setMediaData,
-  buttons,
-}) => {
-  return buttons.map((button, key) => {
-    if (button.type === 'video') {
-      button.onClick = e => {
-        e.preventDefault();
-        setMediaData(button.media);
-        return setLightBox(e, openLightBox);
-      };
-      const title = videoTitle.filter(name => name.key === key);
-      button.copy = !title[0] ? button.copy : title[0].title;
-      button.href = '#';
-    } else {
-      button.onClick = e => _jump(e, button.type);
-    }
-    button.renderIcon = _iconSelector(button.type);
-    button.target = _external(button.type);
-    return button;
-  });
-};
-
-/**
- * sets featureCard
- *
- * @param {object} featureCard object with card object
- * @private
- * @returns {*} object
- */
-const _renderFeatureCard = featureCard => {
-  if (featureCard.type === 'video') featureCard.cta.href = '#';
-  featureCard.icon = _iconSelector(featureCard.type);
-  featureCard.handleClick = e => _jump(e, featureCard.type);
-  featureCard.target = _external(featureCard.type);
-  featureCard.type = 'link';
-  return featureCard;
 };
 
 CTA.propTypes = {
