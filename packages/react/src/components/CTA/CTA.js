@@ -87,40 +87,27 @@ const CTA = ({ style, type, customClassName, ...otherProps }) => {
  * @param {string} props.type cta type ( jump | local | external ).
  * @returns {*} CTA Component
  */
-const renderCTA = ({
-  style,
-  type,
-  renderLightBox,
-  openLightBox,
-  videoTitle,
-  mediaData,
-  setMediaData,
-  ...otherProps
-}) => {
+const renderCTA = ({ style, ...otherProps }) => {
   const ctaProps = {
     iconSelector: _iconSelector,
     external: _external,
     jump: _jump,
-    type: type,
-    openLightBox: openLightBox,
+    style: style,
     setLightBox: setLightBox,
-    renderLightBox: renderLightBox,
     launchLightBox: launchLightBox,
-    videoTitle: videoTitle,
-    mediaData: mediaData,
-    setMediaData: setMediaData,
+    ...otherProps,
   };
 
   switch (style) {
     case 'card':
-      return <CardCTA {...ctaProps} {...otherProps} />;
+      return <CardCTA {...ctaProps} />;
     case 'button': {
-      return <ButtonCTA {...ctaProps} {...otherProps} />;
+      return <ButtonCTA {...ctaProps} />;
     }
     case 'feature':
-      return <FeatureCTA {...ctaProps} {...otherProps} />;
+      return <FeatureCTA {...ctaProps} />;
     default: {
-      return <TextCTA {...ctaProps} {...otherProps} />;
+      return <TextCTA {...ctaProps} />;
     }
   }
 };
