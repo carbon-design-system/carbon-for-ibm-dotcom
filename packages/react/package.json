@@ -26,7 +26,7 @@
   "scripts": {
     "build": "yarn clean && node scripts/build.js",
     "build-storybook": "build-storybook",
-    "ci-check": "yarn test-ssr",
+    "ci-check": "yarn test-ssr && yarn test",
     "clean": "rimraf es lib umd storybook-static",
     "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate",
