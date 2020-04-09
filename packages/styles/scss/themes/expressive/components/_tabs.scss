@@ -36,4 +36,11 @@
       padding: 0.7188rem 1rem;
     }
   }
+  .#{$prefix}--tabs__nav-item--selected:not(.#{$prefix}--tabs__nav-item--disabled)
+    .#{$prefix}--tabs__nav-link {
+    padding: 0.7188rem 1rem;
+  }
+  a.bx--tabs__nav-link:active {
+    padding: 0.7188rem 1rem;
+  }
 }
