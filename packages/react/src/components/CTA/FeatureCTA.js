@@ -9,12 +9,18 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 /**
- * Card subcomponent for CTA
+ * FeatureCard subcomponent for CTA
  *
- * @param {object} params param object
- * @param {object} params.otherProps other props
- * @param {string} params.target target type
- * @param {Element} params.icon icon element
+ * @param {object} param param object
+ * @param {string} param.type CTA type
+ * @param {Function} param.openLightBox func to set renderLightBox state
+ * @param {Function} param.setLightBox func to open the lightbox
+ * @param {boolean} param.renderLightBox bool to determine whether to open lightbox
+ * @param {Function} param.launchLightBox func to render lightbox
+ * @param {Array} param.videoTitle array of video titles
+ * @param {Function} param.iconSelector func to set icon type
+ * @param {Function} param.jump func to set smooth scroll functionality
+ * @param {Function} param.external func to determine if link opens in new tab
  *
  * @returns {object} JSX object
  */
@@ -65,7 +71,12 @@ const FeatureCTA = ({
 /**
  * sets featureCard
  *
- * @param {object} featureCard object with card object
+ * @param {object} param param object
+ * @param {object} param.card card object
+ * @param {Function} param.iconSelector func to set icon type
+ * @param {Function} param.jump func to set smooth scroll functionality
+ * @param {Function} param.external func to determine if link opens in new tab
+ *
  * @private
  * @returns {*} object
  */
