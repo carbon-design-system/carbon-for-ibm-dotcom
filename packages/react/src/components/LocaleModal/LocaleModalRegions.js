@@ -23,6 +23,7 @@ const { prefix } = settings;
  * @param {string} props.setCurrentRegion state for region name
  * @param {boolean} props.setIsFiltering true when search filter is visible
  * @param {Function} props.setClearResults set flag to determine whether to reset the filtered results
+ * @param {string} props.returnButtonLabel label for the return button
  * @returns {*} LocaleModalRegions component
  */
 const LocaleModalRegions = ({
@@ -30,6 +31,7 @@ const LocaleModalRegions = ({
   setCurrentRegion,
   setIsFiltering,
   setClearResults,
+  returnButtonLabel,
 }) => {
   useEffect(() => {
     const regionLink = document.querySelectorAll(`.${prefix}--card`);
@@ -77,7 +79,7 @@ const LocaleModalRegions = ({
         [...localeBackBtn].forEach(btn => {
           btn.setAttribute('tabindex', '1');
           btn.setAttribute('role', 'button');
-          btn.setAttribute('aria-label', 'back');
+          btn.setAttribute('aria-label', returnButtonLabel);
 
           btn.addEventListener('click', function click() {
             localeBackActive(btn);
@@ -137,6 +139,7 @@ LocaleModalRegions.propTypes = {
   setCurrentRegion: PropTypes.string,
   setIsFiltering: PropTypes.func,
   setClearResults: PropTypes.func,
+  returnButtonLabel: PropTypes.string,
 };
 
 export default LocaleModalRegions;
