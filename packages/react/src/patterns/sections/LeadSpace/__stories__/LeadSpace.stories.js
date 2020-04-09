@@ -139,7 +139,7 @@ storiesOf('Patterns (Sections)|LeadSpace', module)
     const gradient = boolean('gradient overlay', true);
 
     return (
-      <div className="bx--grid">
+      <DotcomShell footerType="short">
         <LeadSpace
           type={select('type', type, type.small)}
           theme={select('theme', themes, themes.g100)}
@@ -149,6 +149,6 @@ storiesOf('Patterns (Sections)|LeadSpace', module)
           buttons={buttons}
           image={object('image', images)}
         />
-      </div>
+      </DotcomShell>
     );
   });
