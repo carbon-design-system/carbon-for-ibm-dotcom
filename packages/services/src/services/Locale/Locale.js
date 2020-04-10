@@ -1,5 +1,6 @@
 import { geolocation, ipcinfoCookie } from '@carbon/ibmdotcom-utilities';
 import axios from 'axios';
+import { DDOAPI } from '../DDO';
 import root from 'window-or-global';
 
 /**
@@ -141,7 +142,8 @@ class LocaleAPI {
   }
 
   /**
-   * Gets the `lang` html attribute containing the cc and lc
+   * Checks for DDO object to return the correct cc and lc
+   * Otherwise gets those values from the `lang` html attribute
    *
    * @returns {object} locale object
    *
@@ -152,8 +154,46 @@ class LocaleAPI {
    *    const locale = await LocaleAPI.getLang();
    * }
    */
-  static getLang() {
-    if (root.document.documentElement.lang) {
+  static async getLang() {
+    let ddoLocal = await DDOAPI.getAll();
+
+    if (ddoLocal && ddoLocal.page && ddoLocal.page.pageInfo) {
+      const lang = root.document.documentElement.lang || undefined;
+      let pageInfoIBM = ddoLocal.page.pageInfo.ibm;
+
+      if (pageInfoIBM) {
+        // Set proper CC for us to use.
+        if (pageInfoIBM.country) {
+          pageInfoIBM.cc = pageInfoIBM.country.toLowerCase().trim();
+
+          // If there are multiple countries use just the first one for the CC value
+          if (pageInfoIBM.cc.indexOf(',') > -1)
+            pageInfoIBM.cc = pageInfoIBM.cc
+              .substring(0, pageInfoIBM.cc.indexOf(','))
+              .trim();
+
+          // Gb will be uk elsewhere
+          if (pageInfoIBM.cc === 'gb') pageInfoIBM.cc = 'uk';
+
+          // Map worldwide (ZZ) pages to US
+          if (pageInfoIBM.cc === 'zz') pageInfoIBM.cc = 'us';
+        }
+
+        if (lang) {
+          pageInfoIBM.lc = pageInfoIBM.lc || lang.substring(0, 2).toLowerCase();
+          pageInfoIBM.cc = pageInfoIBM.cc || lang.substring(3, 5).toLowerCase();
+        }
+
+        // Account for more incorrect coding.
+        if (!pageInfoIBM.lc) pageInfoIBM.lc = 'en';
+        if (!pageInfoIBM.cc) pageInfoIBM.cc = 'us';
+
+        return {
+          cc: pageInfoIBM.cc,
+          lc: pageInfoIBM.lc,
+        };
+      } else return _localeDefault;
+    } else if (root.document.documentElement.lang) {
       const lang = root.document.documentElement.lang.toLowerCase();
       if (lang.indexOf('-') === -1) {
         return _localeDefault;
