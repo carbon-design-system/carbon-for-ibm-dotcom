@@ -1,5 +1,5 @@
 import './index.scss';
-import { select, withKnobs } from '@storybook/addon-knobs';
+import { select, withKnobs, text, object } from '@storybook/addon-knobs';
 import ContentBlock from '../ContentBlock';
 import React from 'react';
 import readme from '../README.md';
@@ -46,6 +46,66 @@ storiesOf('Patterns (Sub-Patterns)|ContentBlock', module)
               heading={blockProps.heading}
               copy={blockProps.copy}
               cta={select('CTA (optional)', cta, cta.cta)}
+              customClassName={`${prefix}--content-block-story`}>
+              {blockProps.content}
+            </ContentBlock>
+          </div>
+        </div>
+      </div>
+    );
+  })
+  .add('With LinkList', () => {
+    const blockProps = {
+      heading: 'This is the Content Block heading',
+      copy: `Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+      Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
+      nulla quis, *consequat* libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.`,
+      content: `This is the Content Block children.`,
+    };
+
+    const ctaProps = {
+      style: 'card',
+      type: 'external',
+      copy: 'Lorem ipsum dolor sit amet',
+      cta: {
+        href: 'https://www.example.com',
+      },
+    };
+
+    const cta = {
+      cta: ctaProps,
+      none: null,
+    };
+
+    const linkList = {
+      heading: text('link list heading:', 'Tutorials'),
+      items: object('link list items array', [
+        {
+          type: 'local',
+          copy: 'Containerization A Complete Guide',
+          cta: {
+            href: 'https://ibm.com',
+          },
+        },
+        {
+          type: 'external',
+          copy: 'Why should you use microservices and containers',
+          cta: {
+            href: 'https://ibm.com',
+          },
+        },
+      ]),
+    };
+
+    return (
+      <div className="bx--grid bx--grid--full-width">
+        <div className="bx--row bx--no-gutter">
+          <div className="bx--offset-lg-4">
+            <ContentBlock
+              heading={blockProps.heading}
+              copy={blockProps.copy}
+              cta={select('CTA (optional)', cta, cta.cta)}
+              linkList={linkList}
               customClassName={`${prefix}--content-block-story`}>
               {blockProps.content}
             </ContentBlock>

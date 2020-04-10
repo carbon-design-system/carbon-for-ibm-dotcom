@@ -11,6 +11,8 @@ import {
 } from '@carbon/ibmdotcom-utilities';
 import { CTA } from '../../../components/CTA';
 import cx from 'classnames';
+import Layout from '../Layout/Layout';
+import LinkList from '../LinkList/LinkList';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { settings } from 'carbon-components';
@@ -27,10 +29,54 @@ const { prefix } = settings;
  * @param {*} props.children JSX Components
  * @param {string} props.customClassName allows user to pass in custom class name
  * @param {*} props.cta CTA props object
+ * @param {object} props.linkList LinkList props object
  * @returns {*} JSX ContentBlock component
  */
-const ContentBlock = ({ heading, copy, children, customClassName, cta }) => {
-  return (
+const ContentBlock = ({
+  heading,
+  copy,
+  children,
+  customClassName,
+  cta,
+  linkList,
+}) => {
+  return linkList ? (
+    <div
+      data-autoid={`${stablePrefix}--content-block`}
+      className={cx(`${prefix}--content-block`, customClassName)}>
+      {heading && (
+        <Layout type="2-1">
+          <h2
+            data-autoid={`${stablePrefix}--content-block__heading`}
+            className={`${prefix}--content-block__heading`}>
+            {heading}
+          </h2>
+          <div></div>
+        </Layout>
+      )}
+      <Layout type="2-1">
+        <div>
+          {copy && (
+            <div
+              className={`${prefix}--content-block__copy`}
+              dangerouslySetInnerHTML={{
+                __html: markdownToHtml(copy, { bold: false }),
+              }}
+            />
+          )}
+          <div
+            data-autoid={`${stablePrefix}--content-block__children`}
+            className={`${prefix}--content-block__children`}>
+            {children}
+          </div>
+          {cta && _renderCTA(cta)}
+        </div>
+        <div>
+          <LinkList {...linkList} />
+        </div>
+      </Layout>
+    </div>
+  ) : (
     <div
       data-autoid={`${stablePrefix}--content-block`}
       className={cx(`${prefix}--content-block`, customClassName)}>
@@ -41,20 +87,22 @@ const ContentBlock = ({ heading, copy, children, customClassName, cta }) => {
           {heading}
         </h2>
       )}
-      {copy && (
+      <div>
+        {copy && (
+          <div
+            className={`${prefix}--content-block__copy`}
+            dangerouslySetInnerHTML={{
+              __html: markdownToHtml(copy, { bold: false }),
+            }}
+          />
+        )}
         <div
-          className={`${prefix}--content-block__copy`}
-          dangerouslySetInnerHTML={{
-            __html: markdownToHtml(copy, { bold: false }),
-          }}
-        />
-      )}
-      <div
-        data-autoid={`${stablePrefix}--content-block__children`}
-        className={`${prefix}--content-block__children`}>
-        {children}
+          data-autoid={`${stablePrefix}--content-block__children`}
+          className={`${prefix}--content-block__children`}>
+          {children}
+        </div>
+        {cta && _renderCTA(cta)}
       </div>
-      {cta && _renderCTA(cta)}
     </div>
   );
 };
@@ -91,6 +139,7 @@ ContentBlock.propTypes = {
   children: PropTypes.element,
   cta: PropTypes.object,
   customClassName: PropTypes.string,
+  linkList: PropTypes.instanceOf(LinkList),
 };
 
 export default ContentBlock;
