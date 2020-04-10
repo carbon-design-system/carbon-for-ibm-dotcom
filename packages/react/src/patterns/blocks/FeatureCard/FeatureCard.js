@@ -47,6 +47,7 @@ const FeatureCard = ({ heading, card, onClick }) => {
 FeatureCard.propTypes = {
   heading: PropTypes.string.isRequired,
   card: PropTypes.instanceOf(Card).isRequired,
+  onClick: PropTypes.func,
 };
 
 export default FeatureCard;
