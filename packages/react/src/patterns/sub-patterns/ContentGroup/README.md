@@ -70,7 +70,7 @@ Add the following line on your `.env` file at the root of your project,
 | Name                           | Description                   |
 | ------------------------------ | ----------------------------- |
 | `dds--content-group`           | Content group wrapper element |
-| `dds--content-group_cta`       | Content group CTA element     |
+| `dds--content-group__cta`      | Content group CTA element     |
 | `dds--content-group__title`    | Content group title element   |
 | `dds--content-group__children` | Wrapper for children elements |
 
