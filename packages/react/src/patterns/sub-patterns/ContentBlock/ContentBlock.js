@@ -40,46 +40,27 @@ const ContentBlock = ({
   cta,
   linkList,
 }) => {
-  return linkList ? (
-    <div
-      data-autoid={`${stablePrefix}--content-block`}
-      className={cx(`${prefix}--content-block`, customClassName)}>
-      {heading && (
-        <Layout type="2-1">
-          <h2
-            data-autoid={`${stablePrefix}--content-block__heading`}
-            className={`${prefix}--content-block__heading`}>
-            {heading}
-          </h2>
-          <div></div>
-        </Layout>
+  const content = (
+    <>
+      {copy && (
+        <div
+          className={`${prefix}--content-block__copy`}
+          dangerouslySetInnerHTML={{
+            __html: markdownToHtml(copy, { bold: false }),
+          }}
+        />
       )}
-      <Layout type="2-1">
-        <div>
-          {copy && (
-            <div
-              className={`${prefix}--content-block__copy`}
-              dangerouslySetInnerHTML={{
-                __html: markdownToHtml(copy, { bold: false }),
-              }}
-            />
-          )}
-          <div
-            data-autoid={`${stablePrefix}--content-block__children`}
-            className={`${prefix}--content-block__children`}>
-            {children}
-          </div>
-          {cta && _renderCTA(cta)}
-        </div>
-        <div>
-          <LinkList {...linkList} />
-        </div>
-      </Layout>
-    </div>
-  ) : (
-    <div
-      data-autoid={`${stablePrefix}--content-block`}
-      className={cx(`${prefix}--content-block`, customClassName)}>
+      <div
+        data-autoid={`${stablePrefix}--content-block__children`}
+        className={`${prefix}--content-block__children`}>
+        {children}
+      </div>
+      {cta && _renderCTA(cta)}
+    </>
+  );
+
+  const title = (
+    <div>
       {heading && (
         <h2
           data-autoid={`${stablePrefix}--content-block__heading`}
@@ -87,25 +68,45 @@ const ContentBlock = ({
           {heading}
         </h2>
       )}
-      <div>
-        {copy && (
-          <div
-            className={`${prefix}--content-block__copy`}
-            dangerouslySetInnerHTML={{
-              __html: markdownToHtml(copy, { bold: false }),
-            }}
-          />
-        )}
-        <div
-          data-autoid={`${stablePrefix}--content-block__children`}
-          className={`${prefix}--content-block__children`}>
-          {children}
-        </div>
-        {cta && _renderCTA(cta)}
-      </div>
+    </div>
+  );
+
+  return (
+    <div
+      data-autoid={`${stablePrefix}--content-block`}
+      className={cx(`${prefix}--content-block`, customClassName)}>
+      {linkList
+        ? _layoutWrap(
+            <>
+              {title}
+              <div></div>
+            </>
+          )
+        : title}
+      {linkList
+        ? _layoutWrap(
+            <>
+              <div>{content}</div>
+              <div>
+                <LinkList {...linkList} />
+              </div>
+            </>
+          )
+        : content}
     </div>
   );
 };
+
+/**
+ * wraps content in layout component
+ *
+ * @private
+ * @param {Element} content content elements
+ * @returns {*} jsx cta component
+ */
+const _layoutWrap = content => (
+  <Layout type="2-1">{content.props.children}</Layout>
+);
 
 /**
  * sets the class name based on theme type
