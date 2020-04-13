@@ -8,7 +8,6 @@ import {
   text,
   withKnobs,
 } from '@storybook/addon-knobs';
-import { DotcomShell } from '../../../../components/DotcomShell';
 import LeadSpace from '../LeadSpace';
 import React from 'react';
 import readme from '../README.md';
@@ -69,15 +68,13 @@ storiesOf('Patterns (Sections)|LeadSpace', module)
     };
 
     return (
-      <DotcomShell footerType="short">
-        <LeadSpace
-          type={select('type', type, type.small)}
-          theme={select('theme', themes, themes.g100)}
-          title={title}
-          copy={copy}
-          buttons={buttons}
-        />
-      </DotcomShell>
+      <LeadSpace
+        type={select('type', type, type.small)}
+        theme={select('theme', themes, themes.g100)}
+        title={title}
+        copy={copy}
+        buttons={buttons}
+      />
     );
   })
   .add('Default with image', () => {
@@ -139,16 +136,14 @@ storiesOf('Patterns (Sections)|LeadSpace', module)
     const gradient = boolean('gradient overlay', true);
 
     return (
-      <DotcomShell footerType="short">
-        <LeadSpace
-          type={select('type', type, type.small)}
-          theme={select('theme', themes, themes.g100)}
-          title={title}
-          copy={copy}
-          gradient={gradient}
-          buttons={buttons}
-          image={object('image', images)}
-        />
-      </DotcomShell>
+      <LeadSpace
+        type={select('type', type, type.small)}
+        theme={select('theme', themes, themes.g100)}
+        title={title}
+        copy={copy}
+        gradient={gradient}
+        buttons={buttons}
+        image={object('image', images)}
+      />
     );
   });
