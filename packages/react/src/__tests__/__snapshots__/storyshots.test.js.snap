@@ -7460,6 +7460,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                                       </div>
                                       <div
                                         className="bx--content-group__cta-row"
+                                        data-autoid="dds--content-group__cta}"
                                       >
                                         <CTA
                                           copy="Lorem ipsum dolor sit ametttt"
@@ -7844,6 +7845,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                                       </div>
                                       <div
                                         className="bx--content-group__cta-row"
+                                        data-autoid="dds--content-group__cta}"
                                       >
                                         <CTA
                                           copy="Lorem ipsum dolor sit ametttt"
@@ -13029,6 +13031,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupSimple Default 1`] = `
                             </div>
                             <div
                               className="bx--content-group__cta-row"
+                              data-autoid="dds--content-group__cta}"
                             >
                               <CTA
                                 copy="Lorem ipsum dolor sit ametttt"
@@ -18429,6 +18432,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentGroup Default 1`] = `
                         </div>
                         <div
                           className="bx--content-group__cta-row"
+                          data-autoid="dds--content-group__cta}"
                         >
                           <CTA
                             copy="Lorem ipsum dolor sit amet"
