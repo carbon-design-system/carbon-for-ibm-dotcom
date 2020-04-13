@@ -19,7 +19,7 @@ const _proxy = (process && process.env.CORS_PROXY) || '';
 /**
  * Sets the default location if nothing is returned
  *
- * @type {string}
+ * @type {object}
  * @private
  */
 const _localeDefault = {
@@ -84,6 +84,76 @@ const _axiosConfig = {
  * @private
  */
 const _sessionListKey = 'dds-countrylist';
+
+/**
+ * Use the <html> lang attr to determine a return locale object
+ *
+ * @returns {object}
+ * @private
+ */
+const _getLocaleByLangAttr = () => {
+  if (root.document.documentElement.lang) {
+    const lang = root.document.documentElement.lang.toLowerCase();
+    if (lang.indexOf('-') === -1) {
+      return _localeDefault;
+    } else {
+      const codes = lang.split('-');
+      return { cc: codes[1], lc: codes[0] };
+    }
+  } else {
+    return _localeDefault;
+  }
+};
+
+/**
+ * Return a locale object based on the DDO API, or "false"
+ * so the consumer can decide what to do next
+ *
+ * @returns {(object | boolean)}
+ * @private
+ */
+async function _getLocaleFromDDO() {
+  const ddoLocal = await DDOAPI.getAll();
+
+  const lang = root.document.documentElement.lang || undefined;
+  let pageInfoIBM = ddoLocal.page.pageInfo.ibm;
+
+  if (ddoLocal && ddoLocal.page && ddoLocal.page.pageInfo) {
+    if (pageInfoIBM) {
+      // Set proper CC for us to use.
+      if (pageInfoIBM.country) {
+        pageInfoIBM.cc = pageInfoIBM.country.toLowerCase().trim();
+
+        // If there are multiple countries use just the first one for the CC value
+        if (pageInfoIBM.cc.indexOf(',') > -1)
+          pageInfoIBM.cc = pageInfoIBM.cc
+            .substring(0, pageInfoIBM.cc.indexOf(','))
+            .trim();
+
+        // Gb will be uk elsewhere
+        if (pageInfoIBM.cc === 'gb') pageInfoIBM.cc = 'uk';
+
+        // Map worldwide (ZZ) pages to US
+        if (pageInfoIBM.cc === 'zz') pageInfoIBM.cc = 'us';
+      }
+
+      if (lang) {
+        pageInfoIBM.lc = pageInfoIBM.lc || lang.substring(0, 2).toLowerCase();
+        pageInfoIBM.cc = pageInfoIBM.cc || lang.substring(3, 5).toLowerCase();
+      }
+
+      // Account for more incorrect coding.
+      if (!pageInfoIBM.lc) pageInfoIBM.lc = 'en';
+      if (!pageInfoIBM.cc) pageInfoIBM.cc = 'us';
+
+      return {
+        cc: pageInfoIBM.cc,
+        lc: pageInfoIBM.lc,
+      };
+    } else return false;
+  }
+  return false;
+}
 
 /**
  * Locale API class with method of fetching user's locale for
@@ -155,55 +225,9 @@ class LocaleAPI {
    * }
    */
   static async getLang() {
-    let ddoLocal = await DDOAPI.getAll();
-
-    if (ddoLocal && ddoLocal.page && ddoLocal.page.pageInfo) {
-      const lang = root.document.documentElement.lang || undefined;
-      let pageInfoIBM = ddoLocal.page.pageInfo.ibm;
-
-      if (pageInfoIBM) {
-        // Set proper CC for us to use.
-        if (pageInfoIBM.country) {
-          pageInfoIBM.cc = pageInfoIBM.country.toLowerCase().trim();
-
-          // If there are multiple countries use just the first one for the CC value
-          if (pageInfoIBM.cc.indexOf(',') > -1)
-            pageInfoIBM.cc = pageInfoIBM.cc
-              .substring(0, pageInfoIBM.cc.indexOf(','))
-              .trim();
-
-          // Gb will be uk elsewhere
-          if (pageInfoIBM.cc === 'gb') pageInfoIBM.cc = 'uk';
-
-          // Map worldwide (ZZ) pages to US
-          if (pageInfoIBM.cc === 'zz') pageInfoIBM.cc = 'us';
-        }
-
-        if (lang) {
-          pageInfoIBM.lc = pageInfoIBM.lc || lang.substring(0, 2).toLowerCase();
-          pageInfoIBM.cc = pageInfoIBM.cc || lang.substring(3, 5).toLowerCase();
-        }
-
-        // Account for more incorrect coding.
-        if (!pageInfoIBM.lc) pageInfoIBM.lc = 'en';
-        if (!pageInfoIBM.cc) pageInfoIBM.cc = 'us';
-
-        return {
-          cc: pageInfoIBM.cc,
-          lc: pageInfoIBM.lc,
-        };
-      } else return _localeDefault;
-    } else if (root.document.documentElement.lang) {
-      const lang = root.document.documentElement.lang.toLowerCase();
-      if (lang.indexOf('-') === -1) {
-        return _localeDefault;
-      } else {
-        const codes = lang.split('-');
-        return { cc: codes[1], lc: codes[0] };
-      }
-    } else {
-      return _localeDefault;
-    }
+    await _getLocaleFromDDO().then(res => {
+      return res ? res : _getLocaleByLangAttr();
+    });
   }
 
   /**
