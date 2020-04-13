@@ -18,7 +18,10 @@ describe('<PictogramItem />', () => {
         heading={heading}
         copy={copy}
         cta={cta}
-        Pictogram={Desktop}
+        pictogram={{
+          src: Desktop,
+          'aria-label': 'Desktop icon',
+        }}
       />
     );
     expect(buttonGroup.find('.bx--pictogram-item')).toHaveLength(1);

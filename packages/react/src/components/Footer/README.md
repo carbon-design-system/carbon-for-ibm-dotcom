@@ -15,7 +15,9 @@ Here's a quick example to get you started.
 @include carbon--font-face-sans();
 ```
 
-> 💡 Only import font's once per usage
+> 💡 Only import fonts once per usage. Don't forget to import the Footer styles
+> from
+> [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
 ```javascript
 import React from 'react';
@@ -29,6 +31,13 @@ function App() {
 }
 
 ReactDOM.render(<App />, document.querySelector('#app'));
+```
+
+Add the following line on your `.env` file at the root of your project,
+[see more details](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/styles#usage)
+
+```
+  SASS_PATH=node_modules:src
 ```
 
 > 💡 Don't forget to import the footer styles from
@@ -63,6 +72,14 @@ DDS_FOOTER_LOCALE_BUTTON=true
 | `tall`  | Default footer variant includes additional navigation taking up more space. |
 | `short` | Short footer variant reduces space by removing any additional navigation.   |
 
+### navigation data
+
+If setting the navigation data manually, examples can be seen here based on
+type:
+
+- [Tall](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/src/components/Footer/__data__/footer-menu.json)
+- [Short](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/src/components/Footer/__data__/footer-thin.json)
+
 ## Stable selectors
 
 | Name                          | Description |
@@ -87,6 +104,10 @@ A cors proxy can be configured using the following
 [environment variable](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/docs/environment-variables.md):
 
 `CORS_PROXY=https://myproxy.com/`
+
+> NOTE: The `CORS_PROXY` is not necessary when publishing to production
+> (www.ibm.com). Be sure to either set `CORS_PROXY` as blank or leave it
+> unconfigured when pushing your application to production.
 
 ## Server Side Rendering
 

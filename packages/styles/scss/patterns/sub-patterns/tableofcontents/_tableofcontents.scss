@@ -5,21 +5,13 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import '@carbon/grid/scss/grid.scss';
+@import '../../../globals/imports';
 @import '../layout/layout';
 
 // items that change according to the theme applied
 @mixin themed-items {
   color: $text-01;
   background: $ui-background;
-  .#{$prefix}--tableofcontents__content {
-    h2,
-    h3,
-    h4,
-    p {
-      color: $text-01;
-    }
-  }
   .#{$prefix}--tableofcontents__mobile {
     border-top: 1px solid $ui-04;
     border-bottom: 1px solid $ui-04;
@@ -56,6 +48,7 @@
         height: carbon--rem(48px);
         width: 100%;
         appearance: none;
+        @include carbon--type-style(body-short-02);
         @include focus-outline('reset');
 
         display: block;
@@ -82,6 +75,8 @@
     &__desktop {
       margin-top: $carbon--spacing-07;
       padding-top: $carbon--spacing-07;
+
+      @include carbon--make-col(3, 4);
       &__item {
         a {
           text-decoration: none;
@@ -96,6 +91,12 @@
         }
         a:hover {
           cursor: pointer;
+        }
+
+        a:focus {
+          outline: 2px solid $focus;
+          z-index: 1;
+          position: relative;
         }
       }
     }

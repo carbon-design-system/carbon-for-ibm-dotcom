@@ -6,6 +6,7 @@
  */
 
 export * from './altlangs';
+export * from './decodeString';
 export * from './escaperegexp';
 export * from './featureflag';
 export * from './geolocation';
@@ -14,3 +15,5 @@ export * from './markdownToHtml';
 export * from './sameHeight';
 export * from './serialize';
 export * from './settings';
+export * from './smoothScroll';
+export * from './uniqueid';

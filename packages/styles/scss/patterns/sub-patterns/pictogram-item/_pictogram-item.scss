@@ -5,24 +5,36 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import '@carbon/grid/scss/grid.scss';
 @import '../../../globals/imports';
 
 @mixin pictogram-item {
   .#{$prefix}--pictogram-item {
     &__row {
-      @include carbon--make-row();
+      @include carbon--make-row;
     }
-    &__pic-col {
-      margin-top: $carbon--spacing-07;
-      @include carbon--make-col-ready();
-      @include carbon--make-col(2, 16);
+
+    &__wrapper {
+      @include carbon--make-col-ready;
+
+      @include carbon--make-col(4, 4);
+
+      @include carbon--breakpoint('md') {
+        @include carbon--make-col(2, 8);
+      }
     }
-    &__content-col {
-      @include carbon--make-col-ready();
-      @include carbon--make-col(6, 16);
+
+    &__content {
+      @include carbon--make-col-ready;
+
+      @include carbon--make-col(4, 4);
+
+      @include carbon--breakpoint('md') {
+        @include carbon--make-col(6, 8);
+      }
     }
+
     &__pictogram {
+      margin-top: $carbon--spacing-07;
       height: 80px;
       width: 80px;
     }

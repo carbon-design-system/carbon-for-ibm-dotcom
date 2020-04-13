@@ -18,7 +18,7 @@ Here's a quick example to get you started.
 @import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead.scss';
 ```
 
-> 💡 Only import font's once per usage 💡 Don't forget to import the masthead
+> 💡 Only import fonts once per usage. 💡 Don't forget to import the Masthead
 > styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
@@ -101,6 +101,10 @@ A cors proxy can be configured using the following
 [environment variable](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/docs/environment-variables.md):
 
 `CORS_PROXY=https://myproxy.com/`
+
+> NOTE: The `CORS_PROXY` is not necessary when publishing to production
+> (www.ibm.com). Be sure to either set `CORS_PROXY` as blank or leave it
+> unconfigured when pushing your application to production.
 
 ## 🙌 Contributing
 

@@ -7,7 +7,6 @@
 
 @import '../../globals/imports';
 @import '../../temp-carbon-expressive/temp-carbon-expressive';
-
 @import 'carbon-components/scss/components/search/search';
 
 /// Locale modal
@@ -40,10 +39,14 @@
         margin-left: 0;
         margin-right: 0;
       }
-      .#{$prefix}--card-link {
+      .#{$prefix}--card {
         min-height: rem(184px);
         outline: 1px solid $ui-02;
         outline-offset: -1px;
+
+        &--link {
+          height: 100%;
+        }
 
         &:focus {
           outline-width: 2px;

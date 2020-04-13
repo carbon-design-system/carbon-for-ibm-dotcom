@@ -16,7 +16,9 @@ Here's a quick example to get you started.
 @import '@carbon/ibmdotcom-styles/scss/components/imagecomponent/imagecomponent';
 ```
 
-> 💡 Only import font's once per usage
+> 💡 Only import fonts once per usage. Don't forget to import the Image styles
+> from
+> [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
 ```javascript
 import React from 'react';
@@ -24,16 +26,32 @@ import ReactDOM from 'react-dom';
 import 'yourapplication.scss';
 
 function App() {
-  return (
-    <Image
-      images={sortImages(image)}
-      defaultImage={image.default}
-      alt={image.alt}
-    />
-  );
+  const sources = [
+    {
+      src: 'https://dummyimage.com/320x160',
+      breakpoint: 320,
+    },
+    {
+      src: 'https://dummyimage.com/400x400',
+      breakpoint: 400,
+    },
+    {
+      src: 'https://dummyimage.com/672x672',
+      breakpoint: 672,
+    },
+  ];
+
+  return <Image sources={image} defaultSrc={image.default} alt={image.alt} />;
 }
 
 ReactDOM.render(<App />, document.querySelector('#app'));
+```
+
+Add the following line on your `.env` file at the root of your project,
+[see more details](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/styles#usage)
+
+```
+  SASS_PATH=node_modules:src
 ```
 
 > 💡 Don't forget to import the image styles from
@@ -43,20 +61,19 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 ## Props
 
-| Name                    | Required | Data Type | Default Value                        | Description                                 |
-| ----------------------- | -------- | --------- | ------------------------------------ | ------------------------------------------- |
-| `defaultImage`          | NO       | String    | 'https://picsum.photos/id/2/672/672' | Featured                                    |
-| Link with default image |
-| `alt`                   | NO       | String    | 'sample image'                       | Alternate text for image component          |
-| `images`                | NO       | Array     | null                                 | Array of Image objects. See `Images` below. |
-|                         |
+| Name              | Required | Data Type | Default Value  | Description                                   |
+| ----------------- | -------- | --------- | -------------- | --------------------------------------------- |
+| `defaultSrc`      | YES      | String    | n/a            | Featured                                      |
+| `alt`             | YES      | String    | 'sample image' | Alternate text for image component            |
+| `longDescription` | NO       | String    | null           | Visible to screen readers, hidden from users. |
+| `sources`         | NO       | Array     | null           | Array of image objects. See `sources` below.  |
 
-### Images
+### sources
 
-| Name       | Data Type | Description        |
-| ---------- | --------- | ------------------ |
-| `src`      | String    | Url of Image.      |
-| `minWidth` | int       | min Width of image |
+| Name         | Data Type     | Description                                  |
+| ------------ | ------------- | -------------------------------------------- |
+| `src`        | String        | Url of Image.                                |
+| `breakpoint` | Num OR String | min-width breakpoint to render the image src |
 
 ## Stable selectors
 

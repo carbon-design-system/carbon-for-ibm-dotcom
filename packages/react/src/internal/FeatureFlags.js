@@ -33,74 +33,12 @@ export const DDS_LIGHTBOX_MEDIA_VIEWER =
   process.env.DDS_LIGHTBOX_MEDIA_VIEWER === 'true' || DDS_FLAGS_ALL || false;
 
 /**
- * This determines the image component will be rendered or not
- *
- * @type {string | boolean}
- */
-export const DDS_IMAGE_COMPONENT =
-  process.env.DDS_IMAGE_COMPONENT === 'true' || DDS_FLAGS_ALL || false;
-
-/**
- * This determines if the leadspace (left-aligned) will be rendered or not
- *
- * @type {string | boolean}
- */
-export const DDS_LEADSPACE =
-  process.env.DDS_LEADSPACE === 'true' || DDS_FLAGS_ALL || false;
-
-/**
- * This determines if the leadspace (centered) will be rendered or not
- *
- * @type {string | boolean}
- */
-export const DDS_LEADSPACE_CENTERED =
-  process.env.DDS_LEADSPACE_CENTERED === 'true' || DDS_FLAGS_ALL || false;
-
-/**
- * This determines if the listsection will be rendered or not
- *
- * @type {string | boolean}
- */
-export const DDS_LISTSECTION =
-  process.env.DDS_LISTSECTION === 'true' || DDS_FLAGS_ALL || false;
-
-/**
  * This determines if the simplebenefits will be rendered or not
  *
  * @type {string | boolean}
  */
 export const DDS_SIMPLEBENEFITS =
   process.env.DDS_SIMPLEBENEFITS === 'true' || DDS_FLAGS_ALL || false;
-
-/**
- * This determines if the simplelongform will be rendered or not
- *
- * @type {string | boolean}
- */
-export const DDS_SIMPLELONGFORM =
-  process.env.DDS_SIMPLELONGFORM === 'true' || DDS_FLAGS_ALL || false;
-
-/** This determines if the contentarraywithpictograms will be rendered or not
- *
- * @type {string | boolean}
- */
-export const DDS_PICTOGRAM_ARRAY =
-  process.env.DDS_PICTOGRAM_ARRAY === 'true' || DDS_FLAGS_ALL || false;
-
-/** This determines if the cardSection will be rendered or not
- *
- * @type {string | boolean}
- */
-export const DDS_CARD_SECTION =
-  process.env.DDS_CARD_SECTION === 'true' || DDS_FLAGS_ALL || false;
-
-/**
- * This determines if the usecases will be rendered or not
- *
- * @type {string | boolean}
- */
-export const DDS_USECASES =
-  process.env.DDS_USECASES === 'true' || DDS_FLAGS_ALL || false;
 
 /**
  * This determines if the simple overview will be rendered or not
@@ -117,19 +55,3 @@ export const DDS_SIMPLE_OVERVIEW =
  */
 export const DDS_LOGO_GRID =
   process.env.DDS_LOGO_GRID === 'true' || DDS_FLAGS_ALL || false;
-
-/**
- * This determines if the featuredlink will be rendered or not
- *
- * @type {string | boolean}
- */
-export const DDS_FEATURED_LINK =
-  process.env.DDS_FEATURED_LINK === 'true' || DDS_FLAGS_ALL || false;
-
-/**
- * This flag turns on/off the ButtonGroup component
- *
- * @type {string | boolean}
- */
-export const DDS_BUTTON_GROUP =
-  process.env.DDS_BUTTON_GROUP === 'true' || DDS_FLAGS_ALL || false;

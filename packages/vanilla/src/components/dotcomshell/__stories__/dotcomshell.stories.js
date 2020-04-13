@@ -13,7 +13,7 @@ import mastheadKnobs from '../../masthead/__stories__/data/Masthead.stories.knob
 import readme from '../README.md';
 import { storiesOf } from '@storybook/html';
 
-storiesOf('Dotcom Shell', module)
+storiesOf('Components|Dotcom Shell', module)
   .addDecorator(withKnobs)
   .addParameters({
     readme: {

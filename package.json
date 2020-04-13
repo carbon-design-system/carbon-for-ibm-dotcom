@@ -36,7 +36,7 @@
     "@babel/plugin-proposal-export-default-from": "^7.2.0",
     "@babel/plugin-proposal-export-namespace-from": "^7.2.0",
     "@babel/plugin-transform-runtime": "^7.5.0",
-    "@babel/preset-env": "^7.5.0",
+    "@babel/preset-env": "^7.9.0",
     "@babel/preset-react": "^7.0.0",
     "@commitlint/cli": "^7.5.2",
     "@commitlint/config-conventional": "^7.5.0",
@@ -56,10 +56,10 @@
     "jest": "^24.8.0",
     "jest-circus": "^24.8.0",
     "jest-junit": "^6.4.0",
-    "lerna": "^3.15.0",
+    "lerna": "^3.20.2",
     "lint-staged": "^8.1.5",
     "prettier": "^1.17.0",
-    "react": "^16.8.6",
+    "react": "16.9.0",
     "rimraf": "^2.6.3",
     "sass": "^1.19.0",
     "stylelint": "^10.1.0",
@@ -69,5 +69,9 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.5.1"
+  },
+  "resolutions": {
+    "minimist": ">=1.2.2",
+    "kind-of": ">=6.0.3"
   }
 }

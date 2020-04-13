@@ -13,9 +13,11 @@ import { HeaderSubmenu } from 'carbon-components';
  */
 class MastheadSubmenu extends HeaderSubmenu {
   /**
+   * Header submenu action method
    *
    * @param {Event} event The event triggering this method
-   * @returns {actions | null}
+   * @returns {null|*} Various actions
+   * @private
    */
   _getAction = event => {
     const isFlyoutMenu = eventMatches(event, this.options.selectorFlyoutMenu);

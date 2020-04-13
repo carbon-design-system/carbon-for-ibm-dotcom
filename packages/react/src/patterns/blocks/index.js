@@ -5,10 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+export * from './ContentBlockMedia';
+export * from './ContentBlockMixed';
+export * from './ContentBlockSegmented';
+export * from './ContentBlockSimple';
 export * from './ContentGroupCards';
-export * from './FeaturedLink';
-export * from './ListSection';
+export * from './ContentGroupPictograms';
+export * from './FeatureCard';
 export * from './LogoGrid';
-export * from './PictogramArray';
-export * from './SimpleLongForm';
-export * from './UseCases';

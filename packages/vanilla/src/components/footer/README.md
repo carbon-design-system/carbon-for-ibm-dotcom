@@ -17,7 +17,7 @@ Here's a quick example to get you started.
 import '@carbon/ibmdotcom-styles/scss/components/footer/index.scss';
 ```
 
-> 💡 Only import font's once per usage 💡 Don't forget to import the footer
+> 💡 Only import fonts once per usage. 💡 Don't forget to import the Footer
 > styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
@@ -57,11 +57,11 @@ Footer.init(elem); // initializes the footer
 
 ## Props
 
-| Name         | Required | Data Type | Default Value | Description                        |
-| ------------ | -------- | --------- | ------------- | ---------------------------------- |
-| `footerMenu` | NO       | Object    | null          | Navigation data object for Footer  |
-| `footerThin` | NO       | Object    | null          | Legal Nav data object for Footer   |
-| `type`       | NO       | String    | null          | Type of Footer. See below `types`. |
+| Name         | Required | Data Type | Default Value | Description                                                                                                                                                                              |
+| ------------ | -------- | --------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `footerMenu` | NO       | Object    | null          | Navigation data object for Footer. [Example data](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/src/components/Footer/__data__/footer-menu.json) |
+| `footerThin` | NO       | Object    | null          | Legal Nav data object for Footer. [Example data](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/src/components/Footer/__data__/footer-thin.json)  |
+| `type`       | NO       | String    | null          | Type of Footer. See below `types`.                                                                                                                                                       |
 
 ### types (optional)
 
@@ -94,6 +94,10 @@ A cors proxy can be configured using the following
 [environment variable](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/docs/environment-variables.md):
 
 `CORS_PROXY=https://myproxy.com/`
+
+> NOTE: The `CORS_PROXY` is not necessary when publishing to production
+> (www.ibm.com). Be sure to either set `CORS_PROXY` as blank or leave it
+> unconfigured when pushing your application to production.
 
 ## 🙌 Contributing
 

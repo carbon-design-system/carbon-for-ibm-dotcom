@@ -15,7 +15,9 @@
 import '@carbon/ibmdotcom-styles/scss/components/dotcom-shell/_dotcom-shell.scss';
 ```
 
-> 💡 Only import font's once per usage
+> 💡 Only import fonts once per usage. Don't forget to import the DotcomShell
+> styles from
+> [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
 ### Content
 
@@ -99,6 +101,10 @@ A cors proxy can be configured using the following
 [environment variable](../../../docs/environment-variables.md):
 
 `CORS_PROXY=https://myproxy.com/`
+
+> NOTE: The `CORS_PROXY` is not necessary when publishing to production
+> (www.ibm.com). Be sure to either set `CORS_PROXY` as blank or leave it
+> unconfigured when pushing your application to production.
 
 ## 🙌 Contributing
 

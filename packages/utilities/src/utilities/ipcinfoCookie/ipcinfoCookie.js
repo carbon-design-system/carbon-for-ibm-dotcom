@@ -1,13 +1,14 @@
 import Cookies from 'js-cookie';
 
 /**
- *  Name of cookie needed to grab cc and lc
+ * Name of cookie needed to grab cc and lc
+ * @type {string}
+ * @private
  */
 const _cookieName = 'ipcInfo';
 
 /**
  * Utility to set and get the ipcInfo cookie needed to determine country and language code
- *
  */
 class ipcinfoCookie {
   /**
