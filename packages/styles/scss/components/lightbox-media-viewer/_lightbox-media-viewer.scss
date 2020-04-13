@@ -9,6 +9,11 @@
 @import '.././expressive-modal/expressive-modal';
 
 @mixin lightbox-media-viewer {
+  .#{$prefix}--modal--expressive--fullwidth
+    .#{$prefix}--modal-container
+    .#{$prefix}--modal-content {
+    min-height: 100%;
+  }
   .#{$prefix}--lightbox-media-viewer {
     color: $text-01;
 
@@ -24,9 +29,11 @@
     &__row {
       @include carbon--make-row(0);
 
-      @include carbon--breakpoint-down('lg') {
-        flex-direction: column;
-        flex-wrap: nowrap;
+      flex-direction: column;
+      flex-wrap: nowrap;
+
+      @include carbon--breakpoint('lg') {
+        flex-direction: row;
       }
     }
     &__media {
@@ -38,7 +45,7 @@
 
       @include carbon--breakpoint-down('lg') {
         display: flex;
-        flex: 1;
+        flex: auto;
         align-items: center;
       }
     }
