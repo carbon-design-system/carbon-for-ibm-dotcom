@@ -6,6 +6,7 @@
 //
 
 @import '@carbon/layout/scss/convert';
+@import '@carbon/grid/scss/mixins';
 
 //-----------------------------
 // Tabs (expressive)
@@ -16,8 +17,24 @@
 /// @group tabs-expressive
 @mixin tabs-expressive {
   .#{$prefix}--tabs__nav-item .#{$prefix}--tabs__nav-link {
+    height: 2.5rem;
+    padding-left: 0;
+  }
+  .#{$prefix}--tabs-trigger {
     height: 3rem;
-    padding: carbon--rem(11.5px) $carbon--spacing-05;
+  }
+  @include carbon--breakpoint(md) {
+    .#{$prefix}--tabs__nav-item .#{$prefix}--tabs__nav-link {
+      height: 3rem;
+      padding: carbon--rem(11.5px) $carbon--spacing-05;
+    }
+    .#{$prefix}--tabs__nav-item--selected:not(.#{$prefix}--tabs__nav-item--disabled)
+      .#{$prefix}--tabs__nav-link {
+      padding: 0.7188rem 1rem;
+    }
+    a.bx--tabs__nav-link:active {
+      padding: 0.7188rem 1rem;
+    }
   }
   .#{$prefix}--tabs__nav-item--selected:not(.#{$prefix}--tabs__nav-item--disabled)
     .#{$prefix}--tabs__nav-link {
