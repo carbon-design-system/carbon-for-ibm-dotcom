@@ -72,18 +72,9 @@ const LocaleModal = ({ isOpen, setIsOpen }) => {
   }, [clearResults]);
 
   useEffect(() => {
-    /**
-     * @param {number} keyCode - The code of the keyboard key pressed.
-     */
-    function closeFilterOnEscapeKeyPress({ keyCode }) {
-      if (keyCode === 27 && isFiltering) {
-        setIsFiltering(false);
-      }
-    }
-
-    document.addEventListener('keydown', closeFilterOnEscapeKeyPress);
+    document.addEventListener('keydown', _closeFilterOnEscapeKeyPress);
     return () =>
-      document.removeEventListener('keydown', closeFilterOnEscapeKeyPress);
+      document.removeEventListener('keydown', _closeFilterOnEscapeKeyPress);
   });
 
   /**
@@ -176,6 +167,17 @@ const LocaleModal = ({ isOpen, setIsOpen }) => {
    */
   function close() {
     setIsOpen(false);
+  }
+
+  /**
+   * @private
+   *
+   * @param {number} keyCode - The code of the keyboard key pressed.
+   */
+  function _closeFilterOnEscapeKeyPress({ keyCode }) {
+    if (keyCode === 27 && isFiltering) {
+      setIsFiltering(false);
+    }
   }
 };
 
