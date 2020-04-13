@@ -105,6 +105,10 @@ A cors proxy can be configured using the following
 
 `CORS_PROXY=https://myproxy.com/`
 
+> NOTE: The `CORS_PROXY` is not necessary when publishing to production
+> (www.ibm.com). Be sure to either set `CORS_PROXY` as blank or leave it
+> unconfigured when pushing your application to production.
+
 ## Server Side Rendering
 
 To server side render the footer, the `Translation` service call needs to be
