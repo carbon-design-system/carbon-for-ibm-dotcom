@@ -14,8 +14,16 @@
     .#{$prefix}--modal-content {
     min-height: 100%;
   }
+
   .#{$prefix}--lightbox-media-viewer {
     color: $text-01;
+
+    .#{$prefix}--modal-container {
+      @include carbon--breakpoint-down('md') {
+        padding: $carbon--layout-04 $carbon--layout-01 $carbon--layout-01
+          $carbon--layout-01;
+      }
+    }
 
     .#{$prefix}--video-player {
       width: 100%;
