@@ -44,8 +44,7 @@ const LocaleModal = ({ isOpen, setIsOpen }) => {
       const locale = await LocaleAPI.getLocale();
       const list = locale && (await LocaleAPI.getList(locale));
       const getLangDisplay = await LocaleAPI.getLangDisplay();
-      const formatedLangDisplay = getLangDisplay.replace('-', '—');
-      setLangDisplay(formatedLangDisplay);
+      setLangDisplay(getLangDisplay);
       setList(list);
       setModalLabels(list.localeModal);
 
