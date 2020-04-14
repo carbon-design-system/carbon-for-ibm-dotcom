@@ -74,7 +74,7 @@ const ContentBlock = ({
     <div
       data-autoid={`${stablePrefix}--content-block`}
       className={cx(`${prefix}--content-block`, customClassName)}>
-      {aside.items
+      {aside && aside.items
         ? _layoutWrap(
             <>
               {title}
@@ -82,7 +82,7 @@ const ContentBlock = ({
             </>
           )
         : title}
-      {aside.items
+      {aside && aside.items
         ? _layoutWrap(
             <>
               <div>{content}</div>
