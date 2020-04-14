@@ -6,11 +6,9 @@
 //
 
 @import '@carbon/layout/scss/convert';
-
 //-----------------------------
 // File Uploader (expressive)
 //-----------------------------
-
 /// File uploader styles (expressive)
 /// @access private
 /// @group file-uploader-expressive
@@ -23,10 +21,11 @@
     height: rem(20px);
     width: rem(20px);
   }
-  .#{$prefix}--file__selected-file:last-child {
-    height: rem(40px);
-  }
   .#{$prefix}--file__state-container .#{$prefix}--btn--tertiary {
     width: rem(142px);
+  }
+  .#{$prefix}--file__state-container .#{$prefix}--file-invalid {
+    height: rem(20px);
+    width: rem(20px);
   }
 }
