@@ -170,9 +170,11 @@ const LocaleModal = ({ isOpen, setIsOpen }) => {
   }
 
   /**
+   * Detects for the esc key press then closes the modal
+   *
+   * @param {object} event Event object from the event listener
+   * @param {number} event.keyCode code of the keyboard key pressed
    * @private
-   * @description Closes the region filter when the user press the Escape key. Triggered by the keydown event.
-   * @param {number} keyCode - The code of the keyboard key pressed.
    */
   function _closeFilterOnEscapeKeyPress({ keyCode }) {
     if (keyCode === 27 && isFiltering) {
