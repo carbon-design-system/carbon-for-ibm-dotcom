@@ -65,6 +65,7 @@ const LocaleModalRegions = ({
 
         /**
          * Removes tabindex and role as it goes back
+         *
          * @param {*} btn btn element
          */
         const localeBackActive = btn => {

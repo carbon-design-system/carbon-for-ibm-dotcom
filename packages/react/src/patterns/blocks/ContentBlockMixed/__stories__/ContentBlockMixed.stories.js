@@ -114,8 +114,8 @@ storiesOf('Patterns (Blocks)|ContentBlockMixed', module)
 
     return (
       <div className="bx--grid">
-        <div class="bx--row">
-          <div class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
+        <div className="bx--row">
+          <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
             <ContentBlockMixed
               heading={heading}
               copy={copy}
