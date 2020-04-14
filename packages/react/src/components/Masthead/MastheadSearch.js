@@ -147,10 +147,7 @@ const MastheadSearch = ({ placeHolderText, renderValue, searchOpenOnload }) => {
    * @param {event} event The callback event
    */
   function onBlur(event) {
-    if (
-      !searchOpenOnload &&
-      !event.currentTarget.contains(event.relatedTarget)
-    ) {
+    if (!event.currentTarget.contains(event.relatedTarget)) {
       dispatch({ type: 'setSearchClosed' });
     }
   }
