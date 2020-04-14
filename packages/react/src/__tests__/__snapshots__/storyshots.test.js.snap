@@ -724,6 +724,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                   data-autoid="dds--masthead-logo"
                                 >
                                   <a
+                                    aria-label="IBM®"
                                     data-autoid="dds--masthead-logo__link"
                                     href="https://www.ibm.com/"
                                   >
@@ -5444,6 +5445,7 @@ exports[`Storyshots Components|Masthead Default 1`] = `
                                 data-autoid="dds--masthead-logo"
                               >
                                 <a
+                                  aria-label="IBM®"
                                   data-autoid="dds--masthead-logo__link"
                                   href="https://www.ibm.com/"
                                 >
@@ -6105,6 +6107,7 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
                                 data-autoid="dds--masthead-logo"
                               >
                                 <a
+                                  aria-label="IBM®"
                                   data-autoid="dds--masthead-logo__link"
                                   href="https://www.ibm.com/"
                                 >
