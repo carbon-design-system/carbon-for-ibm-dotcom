@@ -86,7 +86,7 @@ const ContentBlock = ({
         ? _layoutWrap(
             <>
               <div>{content}</div>
-              <div>{aside.items}</div>
+              <aside>{aside.items}</aside>
             </>,
             aside.border
           )
