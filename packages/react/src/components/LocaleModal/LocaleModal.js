@@ -150,6 +150,7 @@ const LocaleModal = ({ isOpen, setIsOpen }) => {
           setCurrentRegion={setCurrentRegion}
           setIsFiltering={setIsFiltering}
           setClearResults={setClearResults}
+          returnButtonLabel={modalLabels.headerTitle}
         />
         <LocaleModalCountries
           regionList={sortList(list)}

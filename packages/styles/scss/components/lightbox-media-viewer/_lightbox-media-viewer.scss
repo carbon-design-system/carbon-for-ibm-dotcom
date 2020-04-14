@@ -9,6 +9,11 @@
 @import '.././expressive-modal/expressive-modal';
 
 @mixin lightbox-media-viewer {
+  .#{$prefix}--modal--expressive--fullwidth
+    .#{$prefix}--modal-container
+    .#{$prefix}--modal-content {
+    min-height: 100%;
+  }
   .#{$prefix}--lightbox-media-viewer {
     color: $text-01;
 
@@ -40,7 +45,7 @@
 
       @include carbon--breakpoint-down('lg') {
         display: flex;
-        flex: 1;
+        flex: auto;
         align-items: center;
       }
     }

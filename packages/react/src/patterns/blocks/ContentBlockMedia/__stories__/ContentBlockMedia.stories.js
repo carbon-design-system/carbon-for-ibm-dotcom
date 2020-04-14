@@ -71,8 +71,8 @@ storiesOf('Patterns (Blocks)|ContentBlockMedia', module)
 
     return (
       <div className={`${prefix}--grid`}>
-        <div class="bx--row">
-          <div class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
+        <div className="bx--row">
+          <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
             <ContentBlockMedia
               copy={copy}
               heading={text(

@@ -70,7 +70,7 @@ $search-transition-timing: 95ms;
         outline: none;
 
         &:hover {
-          background-color: $ui-01;
+          background-color: $hover-ui;
         }
 
         &:active,
@@ -309,6 +309,7 @@ $search-transition-timing: 95ms;
   // masthead profile menu
   .#{$prefix}--overflow-menu-options {
     background-color: $ui-background;
+    position: fixed;
     z-index: 99999;
 
     &__btn {
@@ -323,6 +324,7 @@ $search-transition-timing: 95ms;
     }
 
     &__option {
+      height: $layout-04;
       &:hover {
         background-color: $ui-01;
       }
