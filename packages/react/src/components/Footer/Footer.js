@@ -58,7 +58,8 @@ const Footer = ({ type, navigation, langCode, disableLocaleButton }) => {
   useEffect(() => {
     (async () => {
       const response = await LocaleAPI.getLangDisplay(langCode);
-      setDisplayLang(response);
+      const formatedLangDisplay = response.replace('-', '—');
+      setDisplayLang(formatedLangDisplay);
 
       const locale = await LocaleAPI.getLocale();
       const list = await LocaleAPI.getList(locale);
