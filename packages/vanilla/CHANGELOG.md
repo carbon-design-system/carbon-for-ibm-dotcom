@@ -3,6 +3,240 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-vanilla@0.5.1-rc.1...@carbon/ibmdotcom-vanilla@0.5.1) (2020-03-30)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-vanilla
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [0.5.1-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-vanilla@0.5.1-rc.0...@carbon/ibmdotcom-vanilla@0.5.1-rc.1) (2020-03-26)
+
+### Bug Fixes
+
+- **deps:** add missing dependencies to vanilla package
+  ([a0f34c7](https://github.com/carbon-design-system/ibm-dotcom-library/commit/a0f34c7))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [0.5.1-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-vanilla@0.5.0...@carbon/ibmdotcom-vanilla@0.5.1-rc.0) (2020-03-23)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-vanilla
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [0.5.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-vanilla@0.5.0-rc.1...@carbon/ibmdotcom-vanilla@0.5.0) (2020-03-18)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-vanilla
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [0.5.0-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-vanilla@0.5.0-rc.0...@carbon/ibmdotcom-vanilla@0.5.0-rc.1) (2020-03-13)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-vanilla
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [0.5.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-vanilla@0.4.1...@carbon/ibmdotcom-vanilla@0.5.0-rc.0) (2020-03-06)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-vanilla
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [0.4.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-vanilla@0.4.1-rc.0...@carbon/ibmdotcom-vanilla@0.4.1) (2020-02-28)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-vanilla
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [0.4.1-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-vanilla@0.4.0...@carbon/ibmdotcom-vanilla@0.4.1-rc.0) (2020-02-26)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-vanilla
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [0.4.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-vanilla@0.4.0-rc.2...@carbon/ibmdotcom-vanilla@0.4.0) (2020-02-25)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-vanilla
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [0.4.0-rc.2](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-vanilla@0.4.0-rc.1...@carbon/ibmdotcom-vanilla@0.4.0-rc.2) (2020-02-25)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-vanilla
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [0.4.0-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-vanilla@0.4.0-rc.0...@carbon/ibmdotcom-vanilla@0.4.0-rc.1) (2020-02-24)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-vanilla
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [0.4.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-vanilla@0.3.1...@carbon/ibmdotcom-vanilla@0.4.0-rc.0) (2020-02-14)
+
+### Bug Fixes
+
+- **docs:** add jsdocs
+  ([1be01df](https://github.com/carbon-design-system/ibm-dotcom-library/commit/1be01df))
+- **dotcomshell:** update readme; dotcomshell getData functions private
+  ([5beaa64](https://github.com/carbon-design-system/ibm-dotcom-library/commit/5beaa64))
+- **eslint:** adjust config for sort-imports in eslint
+  ([3a4a3dc](https://github.com/carbon-design-system/ibm-dotcom-library/commit/3a4a3dc))
+- **jsdocs:** clean up jsdocs and lint errors
+  ([e5bd5db](https://github.com/carbon-design-system/ibm-dotcom-library/commit/e5bd5db))
+- **jsdocs:** jsdoc param fixes
+  ([e2b7b1d](https://github.com/carbon-design-system/ibm-dotcom-library/commit/e2b7b1d))
+- **lint:** fixed import order on some vanilla elements
+  ([a408a62](https://github.com/carbon-design-system/ibm-dotcom-library/commit/a408a62))
+- **lint:** update comments; remove unused function
+  ([09e460d](https://github.com/carbon-design-system/ibm-dotcom-library/commit/09e460d))
+- **misc:** misc PR comment fixes
+  ([b4dc526](https://github.com/carbon-design-system/ibm-dotcom-library/commit/b4dc526))
+- **package:** remove duplicate package entries
+  ([e7e8da0](https://github.com/carbon-design-system/ibm-dotcom-library/commit/e7e8da0))
+- **readme:** fix dotcomshell scss import documentation in readme
+  ([ea9d8e1](https://github.com/carbon-design-system/ibm-dotcom-library/commit/ea9d8e1))
+- **sidenav:** add autoid indices to nav items
+  ([1e958b4](https://github.com/carbon-design-system/ibm-dotcom-library/commit/1e958b4))
+- **storybook:** add global ibmdotcom styles to storybook container
+  ([569c08f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/569c08f))
+- **storybook:** fixes IE11 loading issues in Storybook; fixes
+  [#840](https://github.com/carbon-design-system/ibm-dotcom-library/issues/840)
+  ([53d2fa3](https://github.com/carbon-design-system/ibm-dotcom-library/commit/53d2fa3))
+- **storybook:** remove unused template
+  ([cbd1af9](https://github.com/carbon-design-system/ibm-dotcom-library/commit/cbd1af9))
+- **template:** replace svg with icon; fix autoid index for menu items
+  ([2c542df](https://github.com/carbon-design-system/ibm-dotcom-library/commit/2c542df))
+- **vanilla:** added missing dependency
+  ([e57fbab](https://github.com/carbon-design-system/ibm-dotcom-library/commit/e57fbab))
+
+### Features
+
+- **component:** add event handlers to search; update search css
+  ([19442fc](https://github.com/carbon-design-system/ibm-dotcom-library/commit/19442fc))
+- **component:** add sidenav and overflow carbon init
+  ([1843549](https://github.com/carbon-design-system/ibm-dotcom-library/commit/1843549))
+- **component:** fixes
+  [#546](https://github.com/carbon-design-system/ibm-dotcom-library/issues/546);
+  fixes
+  [#355](https://github.com/carbon-design-system/ibm-dotcom-library/issues/355)
+  ([985e529](https://github.com/carbon-design-system/ibm-dotcom-library/commit/985e529))
+- **css:** add autocomplete results css; add locale to search
+  ([4cdf16b](https://github.com/carbon-design-system/ibm-dotcom-library/commit/4cdf16b))
+- **dotcomshell:** add dotcomshell component and story
+  ([3eae631](https://github.com/carbon-design-system/ibm-dotcom-library/commit/3eae631))
+- **dotcomshell:** adds dotcomshell vanilla component
+  ([96f100a](https://github.com/carbon-design-system/ibm-dotcom-library/commit/96f100a))
+- **icons:** use carbon icons
+  ([bc05b26](https://github.com/carbon-design-system/ibm-dotcom-library/commit/bc05b26))
+- **masthead:** add profile/search elements
+  ([b85bc5c](https://github.com/carbon-design-system/ibm-dotcom-library/commit/b85bc5c))
+- **masthead:** add search open on load
+  ([80de89c](https://github.com/carbon-design-system/ibm-dotcom-library/commit/80de89c))
+- **masthead:** adds vanilla masthead topnav
+  ([b7131fa](https://github.com/carbon-design-system/ibm-dotcom-library/commit/b7131fa))
+- **nav:** optionally render navigation and sidenav
+  ([46870f4](https://github.com/carbon-design-system/ibm-dotcom-library/commit/46870f4))
+- **profile:** adds ibm profile auth and menus
+  ([45348a4](https://github.com/carbon-design-system/ibm-dotcom-library/commit/45348a4))
+- **readme:** add/update component README
+  ([92246ca](https://github.com/carbon-design-system/ibm-dotcom-library/commit/92246ca))
+- **search:** add search typeahead
+  ([437cd4b](https://github.com/carbon-design-system/ibm-dotcom-library/commit/437cd4b))
+- **templates:** break into component templates
+  ([6c4fd27](https://github.com/carbon-design-system/ibm-dotcom-library/commit/6c4fd27))
+- **vanilla:** adding overview to vanilla storybook
+  ([e8e73ce](https://github.com/carbon-design-system/ibm-dotcom-library/commit/e8e73ce))
+- **vanilla:** changed to linking to sample data instead
+  ([434e3a8](https://github.com/carbon-design-system/ibm-dotcom-library/commit/434e3a8))
+- **vanilla:** cleanup of vanilla storybook
+  ([c317a63](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c317a63))
+- **vanilla:** cleanup of vanilla storybook
+  ([0db130d](https://github.com/carbon-design-system/ibm-dotcom-library/commit/0db130d))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [0.3.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-vanilla@0.3.1-rc.1...@carbon/ibmdotcom-vanilla@0.3.1) (2020-02-11)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-vanilla
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [0.3.1-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-vanilla@0.3.1-rc.0...@carbon/ibmdotcom-vanilla@0.3.1-rc.1) (2020-02-10)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-vanilla
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [0.3.1-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-vanilla@0.3.0...@carbon/ibmdotcom-vanilla@0.3.1-rc.0) (2020-02-06)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-vanilla
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [0.3.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-vanilla@0.3.0-rc.1...@carbon/ibmdotcom-vanilla@0.3.0) (2020-01-27)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-vanilla
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [0.3.0-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-vanilla@0.3.0-rc.0...@carbon/ibmdotcom-vanilla@0.3.0-rc.1) (2020-01-24)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-vanilla
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [0.3.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-vanilla@0.2.1...@carbon/ibmdotcom-vanilla@0.3.0-rc.0) (2020-01-20)
 
 ### Bug Fixes

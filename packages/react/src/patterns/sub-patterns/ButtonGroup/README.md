@@ -16,7 +16,9 @@ Here's a quick example to get you started.
 @import '@carbon/ibmdotcom-styles/scss/patterns/sub-patterns/buttongroup/buttongroup';
 ```
 
-> 💡 Only import font's once per usage
+> 💡 Only import fonts once per usage. Don't forget to import the ButtonGroup
+> styles from
+> [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
 ### Base example
 
@@ -51,7 +53,14 @@ function App() {
 ReactDOM.render(<App />, document.querySelector('#app'));
 ```
 
-> 💡 Only import font's once per usage 💡
+Add the following line on your `.env` file at the root of your project,
+[see more details](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/styles#usage)
+
+```
+  SASS_PATH=node_modules:src
+```
+
+> 💡 Only import fonts once per usage. 💡
 
 ### Example with buttons based on text size
 
@@ -94,21 +103,6 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 > Don't forget to import the button group styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
-
-#### Feature Flags
-
-To utilize the following features, set the following variable's to `true` within
-your `.env` file or your application build settings.
-
-```
-DDS_BUTTON_GROUP=true
-```
-
-> See
-> [feature-flags.md](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/patterns-react/docs/feature-flags.md)
-> and
-> [.env.example](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/patterns-react/.env.example)
-> for more information
 
 ## Props
 

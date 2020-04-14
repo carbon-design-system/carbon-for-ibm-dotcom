@@ -4,14 +4,16 @@ import root from 'window-or-global';
  * @constant {boolean} scrollTracker determines whether scroll tracking analytics is enabled
  * @private
  */
-const _scrollTracker = process.env.SCROLL_TRACKING === 'true' || false;
+const _scrollTracker =
+  (process && process.env.SCROLL_TRACKING === 'true') || false;
 
 /**
  * Current NODE_ENV
+ *
  * @type {string | string}
  * @private
  */
-const _env = process.env.NODE_ENV || 'development';
+const _env = (process && process.env.NODE_ENV) || 'development';
 
 /**
  * Analytics API class with methods for firing analytics events on
@@ -209,6 +211,92 @@ class AnalyticsAPI {
     } catch (err) {
       if (_env !== 'production') {
         console.error('Error triggering modal show event:', err);
+      }
+    }
+  }
+
+  /**
+   * Sends video player metrics data
+   *
+   * @param {object} data event data from the video player
+   *
+   * @example
+   * import { AnalyticsAPI } from '@carbon/ibmdotcom-services';
+   *
+   *function init() {
+   *    const data = {
+   *       playerType: 'kaltura',
+   *       title: 'Folgers Coffee',
+   *       currentTime: 1,
+   *       duration: 60,
+   *       playerState: 1,
+   *       videoId: '0_uka1msg4',
+   *    };
+   *
+   *    AnalyticsAPI.videoPlayerStats(data);
+   *}
+   *
+   */
+  static videoPlayerStats(data) {
+    let playerState = '',
+      currentTime = Math.floor(data.currentTime),
+      duration = Math.floor(data.duration),
+      percentWatched = Math.floor((currentTime / duration) * 100);
+
+    // Set nicenames for player states for event.
+    switch (data.playerState) {
+      case 0:
+        playerState = 'launched';
+        break;
+      case 1:
+        playerState = 'paused';
+        break;
+      case 2:
+        playerState = 'played';
+        break;
+      case 3:
+        playerState = 'ended';
+        break;
+      case 99:
+        playerState = 'error';
+        break;
+      default:
+    }
+
+    if (currentTime === 0) {
+      currentTime = 'start';
+      percentWatched = '0';
+    }
+
+    if (currentTime >= duration || data.playerState === 3) {
+      currentTime = 'end';
+      percentWatched = '100';
+    }
+
+    // If went to the end of the video, and fired "pause" event, don't fire pause event b/c it's really
+    // the end of the video, so just let "end" event fire and tag metrics.
+    if (currentTime === 'end' && data.playerState === 1) {
+      return;
+    }
+
+    const eventData = {
+      type: 'video',
+      primaryCategory: 'VIDEO',
+      eventName: data.title,
+      eventCategoryGroup: data.playerType,
+      executionPath: data.videoId,
+      execPathReturnCode: playerState,
+      eventVidStatus: data.playerState,
+      eventVidTimeStamp: currentTime,
+      eventVidLength: duration,
+      eventVidPlayed: percentWatched + '%',
+    };
+
+    try {
+      this.registerEvent(eventData);
+    } catch (err) {
+      if (_env !== 'production') {
+        console.error('Error firing video metrics:', err);
       }
     }
   }

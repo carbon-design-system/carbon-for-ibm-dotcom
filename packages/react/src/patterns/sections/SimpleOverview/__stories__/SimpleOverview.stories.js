@@ -9,8 +9,8 @@ import './index.scss';
 import { boolean, select, text, withKnobs } from '@storybook/addon-knobs';
 import { DDS_SIMPLE_OVERVIEW } from '../../../../internal/FeatureFlags';
 import React from 'react';
-import SimpleOverview from '../SimpleOverview';
 import readme from '../README.md';
+import SimpleOverview from '../SimpleOverview';
 import { storiesOf } from '@storybook/react';
 
 if (DDS_SIMPLE_OVERVIEW) {

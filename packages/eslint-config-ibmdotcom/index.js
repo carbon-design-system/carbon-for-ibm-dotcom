@@ -26,7 +26,13 @@ module.exports = {
         varsIgnorePattern: '^_',
       },
     ],
-    'sort-imports': 2,
+    'sort-imports': [
+      'error',
+      {
+        ignoreCase: true,
+        ignoreMemberSort: true,
+      },
+    ],
     'react/jsx-uses-vars': 1,
     'react/jsx-uses-react': 1,
 
@@ -90,12 +96,7 @@ module.exports = {
         'packages/utilities/src/*.js',
       ],
       rules: {
-        'tree-shaking/no-side-effects-in-initialization': [
-          2,
-          {
-            compatibility: 'rollup',
-          },
-        ],
+        'tree-shaking/no-side-effects-in-initialization': 2,
       },
     },
   ],

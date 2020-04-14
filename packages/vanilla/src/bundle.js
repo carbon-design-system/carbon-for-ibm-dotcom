@@ -17,6 +17,7 @@ const _autoinit = process.env.VANILLA_AUTOINIT === 'true' || true;
 
 /**
  * The handles for event handlers to lazily instantiate components.
+ *
  * @type {Array}
  */
 const lazyInitHandles = [];

@@ -21,7 +21,9 @@ Here's a quick example to get you started.
 @import '@carbon/ibmdotcom-styles/scss/components/expressive-modal/expressive-modal.scss';
 ```
 
-> 💡 Only import font's once per usage
+> 💡 Only import fonts once per usage. Don't forget to import the
+> ExpressiveModal styles from
+> [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
 ```javascript
 import React from 'react';
@@ -38,6 +40,13 @@ function App() {
 }
 
 ReactDOM.render(<App />, document.querySelector('#app'));
+```
+
+Add the following line on your `.env` file at the root of your project,
+[see more details](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/styles#usage)
+
+```
+  SASS_PATH=node_modules:src
 ```
 
 > 💡 Don't forget to import the expressive modal styles from

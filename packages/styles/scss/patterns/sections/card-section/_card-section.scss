@@ -4,45 +4,66 @@
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
 //
+
 @import '../../../components/link-with-icon/link-with-icon';
+@import '../../sub-patterns/content-section/content-section';
+@import '../../sub-patterns/card/index';
 @import '../../../globals/imports';
+@import '../../../globals/utils/ratio-base';
+
 @mixin themed-items {
   color: $text-01;
   background: $ui-background;
-  .bx--card-link {
+  .#{$prefix}--card {
     background-color: $ui-01;
-    &__title {
+    &__heading {
       color: $text-01;
     }
-    &__content {
+    &__copy,
+    &__eyebrow {
       color: $text-02;
-    }
-    &__footer {
-      svg {
-        fill: $link-01;
-      }
     }
     &:hover {
       background: $hover-ui;
     }
   }
+  .#{$prefix}--card--inverse {
+    background-color: $inverse-02;
+    height: 100%;
+
+    .#{$prefix}--card__heading {
+      color: $inverse-01;
+    }
+
+    &.#{$prefix}--card--link:hover {
+      background-color: $inverse-hover-ui;
+    }
+    .#{$prefix}--card__cta,
+    .#{$prefix}--card__cta a,
+    .#{$prefix}--card__cta a:visited {
+      color: $inverse-link;
+    }
+  }
 }
+
 @mixin card-section {
   .#{$prefix}--card-section {
-    &__title {
-      @include type-style('expressive-heading-02');
-      @include carbon--make-col-ready;
+    &__card {
+      .#{$prefix}--image {
+        &__img {
+          height: carbon--mini-units(30);
+        }
 
-      @include carbon--breakpoint('lg') {
-        @include carbon--make-col(4, 16);
+        @include carbon--breakpoint('lg') {
+          @include ratio-base(4, 3, true);
 
-        margin-top: $carbon--layout-01;
+          &__img {
+            position: absolute;
+            height: 100%;
+            top: 0;
+          }
+        }
       }
-
-      margin-bottom: $carbon--layout-05;
-    }
-    &__container {
-      @include carbon--make-container;
     }
     &__row {
       @include carbon--make-row;
@@ -70,21 +91,20 @@
         margin-bottom: $carbon--grid-gutter--condensed / 2;
       }
     }
-
-    padding-top: $carbon--layout-03;
-    padding-bottom: $carbon--layout-05;
-
-    @include carbon--breakpoint('md') {
-      padding-bottom: $carbon--layout-06;
-    }
-    @include carbon--breakpoint('lg') {
-      padding-top: $carbon--layout-04;
-      padding-bottom: $carbon--layout-07;
-    }
     @include themed-items;
   }
   .#{$prefix}--card-section.#{$prefix}--card-section--g10 {
     @include carbon--theme($carbon--theme--g10) {
+      @include themed-items;
+    }
+  }
+  .#{$prefix}--card-section.#{$prefix}--card-section--g90 {
+    @include carbon--theme($carbon--theme--g90) {
+      @include themed-items;
+    }
+  }
+  .#{$prefix}--card-section.#{$prefix}--card-section--g100 {
+    @include carbon--theme($carbon--theme--g100) {
       @include themed-items;
     }
   }

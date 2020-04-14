@@ -13,11 +13,13 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    padding-top: $carbon--layout-07;
-    padding-bottom: $carbon--layout-06;
+    padding-top: $carbon--layout-04;
 
     &__content {
       flex: 1;
+      margin: auto;
+      max-width: 99rem;
+      width: 100%;
     }
   }
 }

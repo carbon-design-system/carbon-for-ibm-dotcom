@@ -7,15 +7,15 @@
 
 import React, { useEffect, useReducer } from 'react';
 import Autosuggest from 'react-autosuggest';
+import cx from 'classnames';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import { escapeRegExp } from '@carbon/ibmdotcom-utilities';
 import { LocaleAPI } from '@carbon/ibmdotcom-services';
 import MastheadSearchInput from './MastheadSearchInput';
 import MastheadSearchSuggestion from './MastheadSearchSuggestion';
 import PropTypes from 'prop-types';
-import { SearchTypeaheadAPI } from '@carbon/ibmdotcom-services';
-import cx from 'classnames';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
-import { escapeRegExp } from '@carbon/ibmdotcom-utilities';
 import root from 'window-or-global';
+import { SearchTypeaheadAPI } from '@carbon/ibmdotcom-services';
 import { settings } from 'carbon-components';
 
 const { stablePrefix } = ddsSettings;
@@ -147,10 +147,7 @@ const MastheadSearch = ({ placeHolderText, renderValue, searchOpenOnload }) => {
    * @param {event} event The callback event
    */
   function onBlur(event) {
-    if (
-      !searchOpenOnload &&
-      !event.currentTarget.contains(event.relatedTarget)
-    ) {
+    if (!event.currentTarget.contains(event.relatedTarget)) {
       dispatch({ type: 'setSearchClosed' });
     }
   }

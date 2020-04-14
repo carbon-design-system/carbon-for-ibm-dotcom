@@ -4,19 +4,22 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-
-import React, { useEffect, useState } from 'react';
-import { TranslationAPI, globalInit } from '@carbon/ibmdotcom-services';
 import {
   settings as ddsSettings,
   ipcinfoCookie,
 } from '@carbon/ibmdotcom-utilities';
+import {
+  globalInit,
+  LocaleAPI,
+  TranslationAPI,
+} from '@carbon/ibmdotcom-services';
+import React, { useEffect, useState } from 'react';
+import classNames from 'classnames';
 import FooterLogo from './FooterLogo';
 import FooterNav from './FooterNav';
 import LegalNav from './LegalNav';
 import LocaleButton from './LocaleButton';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import { settings } from 'carbon-components';
 
 const { stablePrefix } = ddsSettings;
@@ -27,11 +30,15 @@ const { prefix } = settings;
  *
  * @param {object} props react proptypes
  * @param {object} props.navigation footer navigation object
+ * @param {object} props.langCode langCode object { cc, lc }
+ * @param {boolean} props.disableLocaleButton Boolean to disable locale button
  * @returns {object} JSX object
  */
-const Footer = ({ type, navigation }) => {
+const Footer = ({ type, navigation, langCode, disableLocaleButton }) => {
   let [footerMenuData, setFooterMenuData] = useState([]);
   let [footerLegalData, setFooterLegalData] = useState([]);
+  let [displayLang, setDisplayLang] = useState('');
+  let [localeButtonAria, setLocaleButtonAria] = useState('');
 
   useEffect(() => {
     // initialize global execution calls
@@ -47,6 +54,17 @@ const Footer = ({ type, navigation }) => {
       })();
     }
   }, [navigation]);
+
+  useEffect(() => {
+    (async () => {
+      const response = await LocaleAPI.getLangDisplay(langCode);
+      setDisplayLang(response);
+
+      const locale = await LocaleAPI.getLocale();
+      const list = await LocaleAPI.getList(locale);
+      setLocaleButtonAria(list.localeModal.headerTitle);
+    })();
+  }, [langCode]);
 
   if (navigation) {
     footerMenuData = navigation.footerMenu;
@@ -77,7 +95,13 @@ const Footer = ({ type, navigation }) => {
         <div className={`${prefix}--footer__main-container`}>
           <FooterLogo />
           {optionalFooterNav(type, footerMenuData)}
-          <LocaleButton selectItem={selectItem} />
+          {!disableLocaleButton && (
+            <LocaleButton
+              aria={localeButtonAria}
+              displayLang={displayLang}
+              selectItem={selectItem}
+            />
+          )}
         </div>
       </section>
       <LegalNav links={footerLegalData} />
@@ -117,6 +141,20 @@ function setFooterType(type) {
 Footer.propTypes = {
   navigation: PropTypes.object,
   type: PropTypes.string,
+  langCode: PropTypes.object,
+  disableLocaleButton: PropTypes.bool,
+};
+
+/**
+ * @property defaultProps
+ * @type {{navigation: null, langCode: null, disableLocaleButton: boolean,
+ * type: string}}
+ */
+Footer.defaultProps = {
+  navigation: null,
+  type: 'full',
+  langCode: null,
+  disableLocaleButton: false,
 };
 
 export default Footer;

@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Button } from 'carbon-components-react';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { Globe20 } from '@carbon/icons-react';
 import LocaleModal from '../LocaleModal/LocaleModal';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import PropTypes from 'prop-types';
 import { settings } from 'carbon-components';
 
 const { stablePrefix } = ddsSettings;
@@ -11,11 +12,14 @@ const { prefix } = settings;
 /**
  * Renders the locale button
  *
+ * @param {object} props props object
+ * @param {string} props.displayLang display language for locale button
+ * @param {string} props.aria aria-label value
+ *
  * @returns {object} JSX object
  */
-const LocaleButton = () => {
+const LocaleButton = ({ displayLang, aria }) => {
   const [isOpen, setIsOpen] = useState(false);
-
   return (
     <div className={`${prefix}--locale-btn__container`}>
       <Button
@@ -23,11 +27,12 @@ const LocaleButton = () => {
         className={`${prefix}--locale-btn`}
         kind="secondary"
         onClick={open}
-        renderIcon={Globe20}>
-        United States — English
+        renderIcon={Globe20}
+        aria-label={aria}>
+        {displayLang}
       </Button>
 
-      <LocaleModal isOpen={isOpen} setIsOpen={setIsOpen} />
+      {isOpen && <LocaleModal isOpen={isOpen} setIsOpen={setIsOpen} />}
     </div>
   );
 
@@ -39,6 +44,11 @@ const LocaleButton = () => {
   function open() {
     setIsOpen(true);
   }
+};
+
+LocaleButton.propTypes = {
+  displayLang: PropTypes.string,
+  aria: PropTypes.string,
 };
 
 export default LocaleButton;

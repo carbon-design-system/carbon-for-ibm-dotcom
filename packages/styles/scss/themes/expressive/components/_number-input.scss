@@ -19,6 +19,11 @@
     height: carbon--rem(48px); /* $carbon--container-04 */
   }
 
+  .#{$prefix}--number__input-wrapper .#{$prefix}--number__invalid {
+    width: carbon--rem(20px);
+    height: carbon--rem(20px);
+  }
+
   .#{$prefix}--number__control-btn.up-icon,
   .#{$prefix}--number__control-btn.down-icon {
     height: $carbon--spacing-06;

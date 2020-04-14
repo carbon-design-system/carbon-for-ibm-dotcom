@@ -5,11 +5,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import PropTypes from 'prop-types';
-import React from 'react';
 import classNames from 'classnames';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { settings } from 'carbon-components';
+import { smoothScroll } from '@carbon/ibmdotcom-utilities';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
@@ -18,12 +19,11 @@ const { prefix } = settings;
  * DesktopMenu Component
  *
  * @param {object} props props object
- * @param {object} props.menuItems menu items object
+ * @param {Array} props.menuItems menu items object
  * @param {string} props.selectedId id of a menu item
- * @param {*} props.updateState function to update parent state.
  * @returns {*} JSX Object
  */
-const TOCDesktopMenu = ({ menuItems, selectedId, updateState }) => {
+const TOCDesktop = ({ menuItems, selectedId }) => {
   /**
    * Render menu items
    *
@@ -32,12 +32,12 @@ const TOCDesktopMenu = ({ menuItems, selectedId, updateState }) => {
    * @returns {*} JSX Object
    */
   const renderMenuItems = (items, activeId) => {
-    return items.map(item => {
+    return items.map((item, index) => {
       if (item && item.id !== 'menuLabel') {
         return (
           <li
-            key={item.id}
-            data-autoid={`${stablePrefix}}--tableofcontents__desktop__item-${item.id}`}
+            key={index}
+            data-autoid={`${stablePrefix}--tableofcontents__desktop__item-${item.id}`}
             className={classNames(
               `${prefix}--tableofcontents__desktop__item`,
               setActiveClass(activeId, item.id)
@@ -59,16 +59,23 @@ const TOCDesktopMenu = ({ menuItems, selectedId, updateState }) => {
    */
   const handleOnClick = (e, id) => {
     e.preventDefault();
-    const filteredItems = menuItems.filter(menu => {
-      return menu.id == id;
-    });
-    const title = filteredItems[0].title;
-    updateState(id, title);
-    document.querySelector(`a[name="${id}"]`).scrollIntoView({
-      behavior: 'smooth',
-      block: 'start',
-    });
+    const selector = `a[name="${id}"]`;
+    triggerFocus(selector);
+    smoothScroll(null, selector);
+    triggerFocus(selector);
   };
+
+  /**
+   * Trigger the focus on screen readers, so they can read the target paragraph
+   *
+   * @param {*} elem Selector to find the item
+   */
+  function triggerFocus(elem) {
+    const element = document.querySelector(elem);
+    element.setAttribute('tabindex', '0');
+    element.focus({ preventScroll: true });
+    element.removeAttribute('tabindex');
+  }
 
   /**
    * Set class name for active menu item
@@ -89,16 +96,15 @@ const TOCDesktopMenu = ({ menuItems, selectedId, updateState }) => {
   return (
     <div
       className={`${prefix}--tableofcontents__desktop`}
-      data-autoid={`${stablePrefix}}--tableofcontents__desktop`}>
+      data-autoid={`${stablePrefix}--tableofcontents__desktop`}>
       <ul>{renderMenuItems(menuItems, selectedId)}</ul>
     </div>
   );
 };
 
-TOCDesktopMenu.propTypes = {
+TOCDesktop.propTypes = {
   menuItems: PropTypes.array,
   selectedId: PropTypes.string,
-  updateState: PropTypes.func,
 };
 
-export default TOCDesktopMenu;
+export default TOCDesktop;

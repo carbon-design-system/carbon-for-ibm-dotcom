@@ -32,37 +32,37 @@ release_alpha () {
 
 # RC.0 patch release
 release_rc0_patch () {
-  ./node_modules/.bin/lerna publish prepatch --exact --conventional-commits --conventional-prerelease --preid rc
+  ./node_modules/.bin/lerna publish prepatch --conventional-prerelease --preid rc
 }
 
 # RC.0 minor release
 release_rc0_minor () {
-  ./node_modules/.bin/lerna publish preminor --exact --conventional-commits --conventional-prerelease --preid rc
+  ./node_modules/.bin/lerna publish preminor --conventional-prerelease --preid rc
 }
 
 # RC.0 major release
 release_rc0_major () {
-  ./node_modules/.bin/lerna publish premajor --exact --conventional-commits --conventional-prerelease --preid rc
+  ./node_modules/.bin/lerna publish premajor --conventional-prerelease --preid rc
 }
 
 # RC.1+ release
 release_rc1plus () {
-  ./node_modules/.bin/lerna publish --exact --conventional-commits --conventional-prerelease --preid rc
+  ./node_modules/.bin/lerna publish --conventional-prerelease --preid rc
 }
 
 # Full patch release
 release_full_patch () {
-  ./node_modules/.bin/lerna publish patch --exact --conventional-commits --conventional-graduate
+  ./node_modules/.bin/lerna publish patch --conventional-graduate
 }
 
 # Full minor release
 release_full_minor () {
-  ./node_modules/.bin/lerna publish minor --exact --conventional-commits --conventional-graduate
+  ./node_modules/.bin/lerna publish minor --conventional-graduate
 }
 
 # Full major release
 release_full_major () {
-  ./node_modules/.bin/lerna publish major --exact --conventional-commits --conventional-graduate
+  ./node_modules/.bin/lerna publish major --conventional-graduate
 }
 
 # Start in tasks/ even if run from root directory

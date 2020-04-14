@@ -5,10 +5,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { ComposedModal } from 'carbon-components-react';
 import LocaleButton from '../LocaleButton';
-import React from 'react';
 import mocklist from '../__data__/locale-list.json';
+import React from 'react';
 import { shallow } from 'enzyme';
 
 jest.mock('@carbon/ibmdotcom-services', () => ({
@@ -22,15 +21,15 @@ describe('<LocaleButton />', () => {
   it('opens and closes the modal', () => {
     const localeBtn = shallow(<LocaleButton />);
 
-    // initial state should be closed
-    expect(localeBtn.find(ComposedModal).prop('open')).toBe(false);
+    expect(
+      localeBtn.html().indexOf('data-autoid="dds--locale-modal"') !== -1
+    ).toBe(false);
 
     // simulates opening modal
     localeBtn.find('.bx--locale-btn').simulate('click');
-    expect(localeBtn.find(ComposedModal).prop('open')).toBe(true);
 
-    // simulates closing modal
-    localeBtn.find(ComposedModal).invoke('onClose')();
-    expect(localeBtn.find(ComposedModal).prop('open')).toBe(false);
+    expect(
+      localeBtn.html().indexOf('data-autoid="dds--locale-modal"') !== -1
+    ).toBe(true);
   });
 });

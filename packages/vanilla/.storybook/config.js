@@ -1,3 +1,4 @@
+import './_container.scss';
 import { configure, addParameters, addDecorator } from '@storybook/html';
 import requireContext from 'require-context.macro';
 import { addReadme } from 'storybook-readme/html';
@@ -12,8 +13,14 @@ addParameters({
 addDecorator(addReadme);
 
 function loadStories() {
-  const req = requireContext('../src/components', true, /\.stories\.js$/);
-  req.keys().forEach(filename => req(filename));
+  require('../src/overview/overview');
+
+  const components = requireContext(
+    '../src/components',
+    true,
+    /\.stories\.js$/
+  );
+  components.keys().forEach(filename => components(filename));
 }
 
 configure(loadStories, module);

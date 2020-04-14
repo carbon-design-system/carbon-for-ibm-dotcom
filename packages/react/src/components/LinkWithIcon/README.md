@@ -15,7 +15,9 @@
 @import '@carbon/ibmdotcom-styles/scss/components/link-with-icon/_link-with-icon.scss';
 ```
 
-> 💡 Only import font's once per usage
+> 💡 Only import fonts once per usage. Don't forget to import the LinkWithIcon
+> styles from
+> [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
 ```javascript
 import React from 'react';
@@ -25,12 +27,19 @@ import 'yourapplication.scss';
 
 function App() {
   return (
-    <LinkWithIcon href="https://www.ibm.com">
+    <LinkWithIcon href="https://www.example.com">
       <span>Link text</span>
       <ArrowRight20 />
     </LinkWithIcon>
   );
 }
+```
+
+Add the following line on your `.env` file at the root of your project,
+[see more details](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/styles#usage)
+
+```
+  SASS_PATH=node_modules:src
 ```
 
 > 💡 And don't forget to import the LinkWithIcon styles from

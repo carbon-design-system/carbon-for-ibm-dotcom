@@ -29,6 +29,10 @@
       display: flex;
       align-items: center;
       justify-content: center;
+
+      svg {
+        top: 0;
+      }
     }
 
     .#{$prefix}--header__nav {
@@ -57,7 +61,7 @@
       position: relative;
 
       &:hover {
-        background-color: $ui-01;
+        background-color: $hover-ui;
         color: $text-01;
       }
 
@@ -179,6 +183,9 @@
     &__suggestion {
       height: $carbon--spacing-09;
       display: flex;
+      span {
+        font-weight: 600;
+      }
 
       .#{$prefix}--container-class {
         display: flex;

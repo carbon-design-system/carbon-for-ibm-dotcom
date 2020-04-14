@@ -2,11 +2,17 @@ module.exports = {
   collectCoverage: true,
   collectCoverageFrom: [
     'src/components/**/*.js',
+    'src/patterns/blocks/**/*.js',
+    'src/patterns/sections/**/*.js',
+    'src/patterns/sub-patterns/**/*.js',
     '!src/components/**/*.stories.js',
+    '!src/patterns/blocks/**/*.stories.js',
+    '!src/patterns/sections/**/*.stories.js',
+    '!src/patterns/sub-patterns/**/*.stories.js',
   ],
   coverageDirectory: 'coverage',
   coverageReporters: ['text', 'html'],
-  setupFiles: ['<rootDir>/config/jest/setup.js'],
+  setupFiles: ['<rootDir>/config/jest/setup.js', 'raf/polyfill'],
   setupFilesAfterEnv: ['../../tasks/jest/setupafter.js'],
   testMatch: [
     '<rootDir>/**/__tests__/**/*.test.js?(x)',

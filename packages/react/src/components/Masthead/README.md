@@ -17,7 +17,9 @@ Here's a quick example to get you started.
 @import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead.scss';
 ```
 
-> 💡 Only import font's once per usage
+> 💡 Only import fonts once per usage. Don't forget to import the Masthead
+> styles from
+> [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
 ```javascript
 import React from 'react';
@@ -28,6 +30,13 @@ function App() {
   return <Masthead />;
 }
 ReactDOM.render(<App />, document.querySelector('#app'));
+```
+
+Add the following line on your `.env` file at the root of your project,
+[see more details](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/styles#usage)
+
+```
+  SASS_PATH=node_modules:src
 ```
 
 > 💡 Don't forget to import the masthead styles from
@@ -55,11 +64,11 @@ DDS_MASTHEAD_L1=true
 | `navigation`      | NO       | String OR Object | null                | Navigation data object/string for Masthead. See `navigation` below. |
 | `hasProfile`      | NO       | Boolean          | true                | Determines whether to render IBM Profile Menu component.            |
 | `hasSearch`       | NO       | Boolean          | true                | Determines whether to render SearchBar component.                   |
-| `placeHolderText` | NO       | String           | `Search all of IBM` | Placeholder value for search input                                  |
+| `placeHolderText` | NO       | String           | `Search all of IBM` | Placeholder value for search input.                                 |
 | `platform`        | NO       | Object           | null                | Platform name that appears on L0. See `platform` below.             |
-| `title`           | NO       | String           | null                | Title for the masthead L1                                           |
-| `eyebrowText`     | NO       | String           | null                | Text for the eyebrow link in masthead L1                            |
-| `eyebrowLink`     | NO       | String           | null                | URL for the eyebrow link in masthead L1                             |
+| `title`           | NO       | String           | null                | Title for the masthead L1.                                          |
+| `eyebrowText`     | NO       | String           | null                | Text for the eyebrow link in masthead L1.                           |
+| `eyebrowLink`     | NO       | String           | null                | URL for the eyebrow link in masthead L1.                            |
 
 ## navigation
 
@@ -112,6 +121,10 @@ A cors proxy can be configured using the following
 [environment variable](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/docs/environment-variables.md):
 
 `CORS_PROXY=https://myproxy.com/`
+
+> NOTE: The `CORS_PROXY` is not necessary when publishing to production
+> (www.ibm.com). Be sure to either set `CORS_PROXY` as blank or leave it
+> unconfigured when pushing your application to production.
 
 ## 🙌 Contributing
 

@@ -6,13 +6,14 @@ import root from 'window-or-global';
  * @constant {string | string} Host for the Locale API call
  * @private
  */
-const _host = process.env.TRANSLATION_HOST || 'https://1.www.s81c.com';
+const _host =
+  (process && process.env.TRANSLATION_HOST) || 'https://www.ibm.com';
 
 /**
  * @constant {string | string} CORS proxy for lower environment calls
  * @private
  */
-const _proxy = process.env.CORS_PROXY || '';
+const _proxy = (process && process.env.CORS_PROXY) || '';
 
 /**
  * Sets the default location if nothing is returned
@@ -42,11 +43,46 @@ const _localeNameDefault = 'United States - English';
 const _endpoint = `${_proxy}${_host}/common/js/dynamicnav/www/countrylist/jsononly`;
 
 /**
+ * Tracking of the country list fetch
+ * @type {{}}
+ * @private
+ */
+const _listFetch = {};
+
+/**
+ * Number of times to retry the fetch before failing
+ *
+ * @type {number}
+ * @private
+ */
+
+const _timeoutRetries = 50;
+/**
+ * Tracks the number of attempts for the fetch
+ *
+ * @type {number}
+ * @private
+ */
+let _attempt = 0;
+
+/**
+ * Configuration for axios
+ * @type {{headers: {'Content-Type': string}}}
+ * @private
+ */
+const _axiosConfig = {
+  headers: {
+    'Content-Type': 'application/json; charset=utf-8',
+  },
+};
+
+/**
  * Session Storage key for country list
+ *
  * @type {string}
  * @private
  */
-const _sessionListKey = 'countrylist';
+const _sessionListKey = 'dds-countrylist';
 
 /**
  * Locale API class with method of fetching user's locale for
@@ -133,21 +169,35 @@ class LocaleAPI {
   /**
    * This fetches the language display name based on language/locale combo
    *
+   * @param {object} langCode lang code with cc and lc
+   *
    * @returns {Promise<string>} Display name of locale/language
    */
-  static async getLangDisplay() {
-    const lang = this.getLang();
+  static async getLangDisplay(langCode) {
+    const lang = langCode ? langCode : this.getLang();
     const list = await this.getList(lang);
     // combines the countryList arrays
     let countries = [];
     list.regionList.forEach(region => {
       countries = countries.concat(region.countryList);
     });
+
+    // get match for countries with multiple languages
     const location = countries.filter(country => {
-      return country.locale[0][0] === `${lang.lc}-${lang.cc}`;
+      let htmlLang = country.locale.findIndex(
+        loc => loc[0] === `${lang.lc}-${lang.cc}`
+      );
+
+      if (htmlLang !== -1) {
+        let localeMatch = country.locale.filter(l =>
+          l.includes(`${lang.lc}-${lang.cc}`)
+        );
+        country.locale.splice(0, country.locale.length, ...localeMatch);
+        return country;
+      }
     });
 
-    if (location.length > 0) {
+    if (location.length) {
       return `${location[0].name} - ${location[0].locale[0][1]}`;
     } else {
       return _localeNameDefault;
@@ -168,43 +218,68 @@ class LocaleAPI {
    * import { LocaleAPI } from '@carbon/ibmdotcom-services';
    *
    * function async getLocale() {
-   *    const list = await LocaleAPI.getList();
+   *    const list = await LocaleAPI.getList({ cc: 'us', lc: 'en' });
+   *    return list;
    * }
    */
   static async getList({ cc, lc }) {
+    return new Promise((resolve, reject) => {
+      this.fetchList(cc, lc, resolve, reject);
+    });
+  }
+
+  /**
+   * Fetches the list data based on cc/lc combination
+   *
+   * @param {string} cc country code
+   * @param {string} lc language code
+   * @param {Function} resolve resolves the Promise
+   * @param {Function} reject rejects the promise
+   */
+  static fetchList(cc, lc, resolve, reject) {
     const sessionList = JSON.parse(
       sessionStorage.getItem(`${_sessionListKey}-${cc}-${lc}`)
     );
 
     if (sessionList) {
-      return sessionList;
-    } else {
-      let url;
-      try {
-        await axios.get(`${_endpoint}/${cc}${lc}-utf8.json`);
-        url = `${_endpoint}/${cc}${lc}-utf8.json`;
-      } catch (error) {
-        // use _localeDefault if 404
-        url = `${_endpoint}/${_localeDefault.cc}${_localeDefault.lc}-utf8.json`;
+      resolve(sessionList);
+    } else if (_listFetch[`${cc}-${lc}`]) {
+      _attempt++;
+
+      if (_attempt < _timeoutRetries) {
+        setTimeout(() => {
+          this.fetchList(cc, lc, resolve, reject);
+        }, 100);
+      } else {
+        reject();
       }
-      /**
-       * if the json file for the cc-lc combo does not exist,
-       * browser will automatically redirect to the us-en country list
-       */
-      const list = await axios
-        .get(url, {
-          headers: {
-            'Content-Type': 'application/json; charset=utf-8',
-          },
+    } else {
+      const url = `${_endpoint}/${cc}${lc}-utf8.json`;
+      _attempt = 0;
+      _listFetch[`${cc}-${lc}`] = true;
+      axios
+        .get(url, _axiosConfig)
+        .then(response => {
+          sessionStorage.setItem(
+            `${_sessionListKey}-${cc}-${lc}`,
+            JSON.stringify(response.data)
+          );
+          _listFetch[`${cc}-${lc}`] = false;
+          resolve(response.data);
         })
-        .then(response => response.data);
-
-      sessionStorage.setItem(
-        `${_sessionListKey}-${cc}-${lc}`,
-        JSON.stringify(list)
-      );
-
-      return list;
+        .catch(() => {
+          if (cc === _localeDefault.cc && lc === _localeDefault.lc) {
+            _listFetch[`${cc}-${lc}`] = false;
+            reject();
+          } else {
+            this.fetchList(
+              _localeDefault.cc,
+              _localeDefault.lc,
+              resolve,
+              reject
+            );
+          }
+        });
     }
   }
 
