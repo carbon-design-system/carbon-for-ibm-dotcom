@@ -138,7 +138,10 @@ function _renderCTA(cta) {
 ContentBlock.propTypes = {
   heading: PropTypes.string,
   copy: PropTypes.string,
-  children: PropTypes.element,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]),
   cta: PropTypes.object,
   customClassName: PropTypes.string,
   aside: PropTypes.shape({

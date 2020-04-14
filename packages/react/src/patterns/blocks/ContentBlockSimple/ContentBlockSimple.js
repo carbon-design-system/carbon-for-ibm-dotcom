@@ -43,7 +43,8 @@ const ContentBlockSimple = ({ copy, heading, image, cta, aside }) => (
 ContentBlockSimple.propTypes = {
   copy: PropTypes.string.isRequired,
   heading: PropTypes.string.isRequired,
-  image: PropTypes.instanceOf(ImageWithCaption),
+  image: PropTypes.oneOfType(PropTypes.shape(ImageWithCaption.propTypes))
+    .isRequired,
   cta: PropTypes.object,
   aside: PropTypes.object,
 };

@@ -10,10 +10,7 @@ import ContentBlockSimple from '../ContentBlockSimple';
 import { LinkList } from '../../../sub-patterns/LinkList';
 import React from 'react';
 import readme from '../README.md';
-import { settings } from 'carbon-components';
 import { storiesOf } from '@storybook/react';
-
-const { prefix } = settings;
 
 storiesOf('Patterns (Blocks)|ContentBlockSimple', module)
   .addDecorator(withKnobs)
@@ -108,7 +105,7 @@ storiesOf('Patterns (Blocks)|ContentBlockSimple', module)
     };
 
     return (
-      <div className={`${prefix}--grid`}>
+      <div className={'bx--grid'}>
         <div class="bx--row">
           <div
             class={
