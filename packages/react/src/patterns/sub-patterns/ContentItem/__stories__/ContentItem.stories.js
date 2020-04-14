@@ -58,9 +58,9 @@ storiesOf('Patterns (Sub-Patterns)|ContentItem', module)
     };
 
     return (
-      <div class="bx--grid">
-        <div class="bx--row">
-          <div class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
+      <div className="bx--grid">
+        <div className="bx--row">
+          <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
             <ContentItem
               heading={heading}
               copy={copy}

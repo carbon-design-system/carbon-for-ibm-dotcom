@@ -40,14 +40,16 @@ const ContentGroupCards = ({ heading, items }) => {
    * Function that activates the sameHeight utility
    */
   const setSameHeight = () => {
-    sameHeight(
-      containerRef.current.getElementsByClassName(`${prefix}--card__heading`),
-      'md'
-    );
-    sameHeight(
-      containerRef.current.getElementsByClassName(`${prefix}--card__copy`),
-      'md'
-    );
+    if (containerRef && containerRef.current) {
+      sameHeight(
+        containerRef.current.getElementsByClassName(`${prefix}--card__heading`),
+        'md'
+      );
+      sameHeight(
+        containerRef.current.getElementsByClassName(`${prefix}--card__copy`),
+        'md'
+      );
+    }
   };
 
   return (

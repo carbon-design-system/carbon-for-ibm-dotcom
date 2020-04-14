@@ -33,7 +33,9 @@ const VideoPlayer = ({ videoId, showDescription }) => {
   }, [videoId, videoPlayerId]);
 
   return (
-    <div className={`${prefix}--video-player`}>
+    <div
+      aria-label={`${videoData.description} ${videoDuration}`}
+      className={`${prefix}--video-player`}>
       <div
         className={`${prefix}--video-player__video-container`}
         data-autoid={`${stablePrefix}--${videoPlayerId}`}>

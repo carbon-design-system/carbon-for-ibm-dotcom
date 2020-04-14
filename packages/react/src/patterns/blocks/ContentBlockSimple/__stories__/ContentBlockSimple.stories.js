@@ -74,8 +74,8 @@ storiesOf('Patterns (Blocks)|ContentBlockSimple', module)
 
     return (
       <div className={`${prefix}--grid`}>
-        <div class="bx--row">
-          <div class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4 content-block-story">
+        <div className="bx--row">
+          <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4 content-block-story">
             <ContentBlockSimple
               copy={copy}
               heading={text(
