@@ -41,7 +41,7 @@
       }
     }
 
-    li a.#{$prefix}--link {
+    .#{$prefix}--footer__link.#{$prefix}--link {
       &,
       &:visited {
         color: $text-02;
