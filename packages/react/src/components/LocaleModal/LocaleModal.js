@@ -171,7 +171,7 @@ const LocaleModal = ({ isOpen, setIsOpen }) => {
 
   /**
    * @private
-   *
+   * @description Closes the region filter when the user press the Escape key. Triggered by the keydown event.
    * @param {number} keyCode - The code of the keyboard key pressed.
    */
   function _closeFilterOnEscapeKeyPress({ keyCode }) {
