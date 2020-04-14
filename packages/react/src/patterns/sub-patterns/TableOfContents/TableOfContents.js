@@ -231,7 +231,10 @@ TableOfContents.propTypes = {
       id: PropTypes.string.isRequired,
     })
   ),
-  children: PropTypes.object,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]),
   menuLabel: PropTypes.string,
   theme: PropTypes.string,
   stickyOffset: PropTypes.number,
