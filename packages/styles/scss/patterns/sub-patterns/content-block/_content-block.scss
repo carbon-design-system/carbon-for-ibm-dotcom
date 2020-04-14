@@ -76,12 +76,6 @@
       // TO DO: aspect ratio 2x1
       @include hang;
     }
-
-    @include carbon--breakpoint('lg') {
-      .#{$prefix}--link-list {
-        padding-top: 0;
-      }
-    }
   }
 }
 
