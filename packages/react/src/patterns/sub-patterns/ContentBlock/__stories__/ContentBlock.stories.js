@@ -1,6 +1,13 @@
 import './index.scss';
-import { select, withKnobs, text, object } from '@storybook/addon-knobs';
+import {
+  select,
+  withKnobs,
+  text,
+  object,
+  boolean,
+} from '@storybook/addon-knobs';
 import ContentBlock from '../ContentBlock';
+import { LinkList } from '../../LinkList';
 import React from 'react';
 import readme from '../README.md';
 import { settings } from 'carbon-components';
@@ -77,7 +84,7 @@ storiesOf('Patterns (Sub-Patterns)|ContentBlock', module)
       none: null,
     };
 
-    const linkList = {
+    const linkListProps = {
       heading: text('link list heading:', 'Tutorials'),
       items: object('link list items array', [
         {
@@ -97,15 +104,20 @@ storiesOf('Patterns (Sub-Patterns)|ContentBlock', module)
       ]),
     };
 
+    const aside = {
+      items: <LinkList {...linkListProps} />,
+      border: boolean('border', false),
+    };
+
     return (
-      <div className="bx--grid bx--grid--full-width">
-        <div className="bx--row bx--no-gutter">
+      <div className="bx--grid">
+        <div className="bx--row">
           <div className="bx--offset-lg-4">
             <ContentBlock
               heading={blockProps.heading}
               copy={blockProps.copy}
               cta={select('CTA (optional)', cta, cta.cta)}
-              linkList={linkList}
+              aside={aside}
               customClassName={`${prefix}--content-block-story`}>
               {blockProps.content}
             </ContentBlock>

@@ -11,8 +11,7 @@ import {
 } from '@carbon/ibmdotcom-utilities';
 import { CTA } from '../../../components/CTA';
 import cx from 'classnames';
-import Layout from '../Layout/Layout';
-import LinkList from '../LinkList/LinkList';
+import { Layout } from '../Layout';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { settings } from 'carbon-components';
@@ -29,7 +28,7 @@ const { prefix } = settings;
  * @param {*} props.children JSX Components
  * @param {string} props.customClassName allows user to pass in custom class name
  * @param {*} props.cta CTA props object
- * @param {object} props.linkList LinkList props object
+ * @param {object} props.aside components to be passed into the right panel
  * @returns {*} JSX ContentBlock component
  */
 const ContentBlock = ({
@@ -38,7 +37,7 @@ const ContentBlock = ({
   children,
   customClassName,
   cta,
-  linkList,
+  aside,
 }) => {
   const content = (
     <>
@@ -75,7 +74,7 @@ const ContentBlock = ({
     <div
       data-autoid={`${stablePrefix}--content-block`}
       className={cx(`${prefix}--content-block`, customClassName)}>
-      {linkList
+      {aside.items
         ? _layoutWrap(
             <>
               {title}
@@ -83,14 +82,13 @@ const ContentBlock = ({
             </>
           )
         : title}
-      {linkList
+      {aside.items
         ? _layoutWrap(
             <>
               <div>{content}</div>
-              <div>
-                <LinkList {...linkList} />
-              </div>
-            </>
+              <div>{aside.items}</div>
+            </>,
+            aside.border
           )
         : content}
     </div>
@@ -102,10 +100,13 @@ const ContentBlock = ({
  *
  * @private
  * @param {Element} content content elements
+ * @param {boolean} border set border or not
  * @returns {*} jsx cta component
  */
-const _layoutWrap = content => (
-  <Layout type="2-1">{content.props.children}</Layout>
+const _layoutWrap = (content, border) => (
+  <Layout type="2-1" nested={true} border={border}>
+    {content.props.children}
+  </Layout>
 );
 
 /**
@@ -140,7 +141,7 @@ ContentBlock.propTypes = {
   children: PropTypes.element,
   cta: PropTypes.object,
   customClassName: PropTypes.string,
-  linkList: PropTypes.instanceOf(LinkList),
+  aside: PropTypes.element,
 };
 
 export default ContentBlock;
