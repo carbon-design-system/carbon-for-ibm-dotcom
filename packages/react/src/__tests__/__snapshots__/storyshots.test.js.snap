@@ -6696,6 +6696,7 @@ exports[`Storyshots Components|VideoPlayer Default 1`] = `
                       videoId="0_uka1msg4"
                     >
                       <div
+                        aria-label="undefined undefined"
                         className="bx--video-player"
                       >
                         <div
