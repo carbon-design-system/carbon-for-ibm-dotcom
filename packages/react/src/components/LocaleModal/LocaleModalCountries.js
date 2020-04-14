@@ -42,7 +42,9 @@ const LocaleModalCountries = ({
     );
     const localeHidden = `${prefix}--locale-modal__locales-hidden`;
 
-    localeFilter.addEventListener('keyup', filterLocale);
+    if (localeFilter) {
+      localeFilter.addEventListener('keyup', filterLocale);
+    }
 
     /**
      * Filter locale links based on search input
@@ -87,9 +89,11 @@ const LocaleModalCountries = ({
      * Show all links when close button clicked
      *
      */
-    closeBtn.addEventListener('click', () => {
-      setClearResults(true);
-    });
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => {
+        setClearResults(true);
+      });
+    }
   });
 
   return (
