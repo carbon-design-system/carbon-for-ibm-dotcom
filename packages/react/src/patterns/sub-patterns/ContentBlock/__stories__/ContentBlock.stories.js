@@ -61,7 +61,7 @@ storiesOf('Patterns (Sub-Patterns)|ContentBlock', module)
       </div>
     );
   })
-  .add('With LinkList', () => {
+  .add('With aside elements', () => {
     const blockProps = {
       heading: 'This is the Content Block heading',
       copy: `Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.

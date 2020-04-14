@@ -141,7 +141,10 @@ ContentBlock.propTypes = {
   children: PropTypes.element,
   cta: PropTypes.object,
   customClassName: PropTypes.string,
-  aside: PropTypes.element,
+  aside: PropTypes.shape({
+    items: PropTypes.element,
+    border: PropTypes.bool,
+  }),
 };
 
 export default ContentBlock;

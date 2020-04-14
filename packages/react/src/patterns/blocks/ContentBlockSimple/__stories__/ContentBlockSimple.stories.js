@@ -1,6 +1,13 @@
 import './index.scss';
-import { select, text, withKnobs } from '@storybook/addon-knobs';
+import {
+  select,
+  text,
+  withKnobs,
+  object,
+  boolean,
+} from '@storybook/addon-knobs';
 import ContentBlockSimple from '../ContentBlockSimple';
+import { LinkList } from '../../../sub-patterns/LinkList';
 import React from 'react';
 import readme from '../README.md';
 import { settings } from 'carbon-components';
@@ -72,10 +79,43 @@ storiesOf('Patterns (Blocks)|ContentBlockSimple', module)
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
       `;
 
+    // Render right panels elements
+    const showAside = boolean('Render aside elements', false);
+
+    const linkListProps = showAside && {
+      heading: text('link list heading:', 'Tutorials'),
+      items: object('link list items array', [
+        {
+          type: 'local',
+          copy: 'Containerization A Complete Guide',
+          cta: {
+            href: 'https://ibm.com',
+          },
+        },
+        {
+          type: 'external',
+          copy: 'Why should you use microservices and containers',
+          cta: {
+            href: 'https://ibm.com',
+          },
+        },
+      ]),
+    };
+
+    const aside = showAside && {
+      items: <LinkList {...linkListProps} />,
+      border: boolean('border', false),
+    };
+
     return (
       <div className={`${prefix}--grid`}>
         <div class="bx--row">
-          <div class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4 content-block-story">
+          <div
+            class={
+              showAside
+                ? 'bx--offset-lg-4 content-block-story'
+                : 'bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4 content-block-story'
+            }>
             <ContentBlockSimple
               copy={copy}
               heading={text(
@@ -84,6 +124,7 @@ storiesOf('Patterns (Blocks)|ContentBlockSimple', module)
               )}
               image={select('Image (optional)', image, image.image)}
               cta={ctaProps}
+              aside={aside}
             />
           </div>
         </div>
