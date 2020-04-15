@@ -43,7 +43,8 @@
 
     .#{$prefix}--link {
       &,
-      &:visited {
+      &:visited,
+      &:visited:hover {
         color: $text-02;
       }
 
