@@ -41,7 +41,7 @@
       }
     }
 
-    .#{$prefix}--link {
+    .#{$prefix}--footer__link.#{$prefix}--link {
       &,
       &:visited,
       &:visited:hover {
