@@ -24,13 +24,14 @@ const { prefix } = settings;
  * @param {string} props.heading Content block simple heading
  * @param {object} props.image Content item image
  * @param {object} props.cta cta object
+ * @param {object} props.aside elements to render on right panel
  * @returns {*} Content block simple pattern
  */
-const ContentBlockSimple = ({ copy, heading, image, cta }) => (
+const ContentBlockSimple = ({ copy, heading, image, cta, aside }) => (
   <div
     data-autoid={`${stablePrefix}--content-block-simple`}
     className={`${prefix}--content-block-simple`}>
-    <ContentBlock heading={heading} cta={cta}>
+    <ContentBlock heading={heading} cta={cta} aside={aside}>
       <div className={`${prefix}--content-block-simple__content`}>
         <ContentItem copy={copy} />
         {image && <ImageWithCaption {...image} />}
@@ -45,6 +46,7 @@ ContentBlockSimple.propTypes = {
   image: PropTypes.oneOfType(PropTypes.shape(ImageWithCaption.propTypes))
     .isRequired,
   cta: PropTypes.object,
+  aside: PropTypes.object,
 };
 
 export default ContentBlockSimple;

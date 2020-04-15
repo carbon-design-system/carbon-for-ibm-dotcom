@@ -54,6 +54,7 @@ Add the following line on your `.env` file at the root of your project,
 | `copy`    | YES      | String    | n/a           | Simple content item. Uses [`markdownToHtml`](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/utilities/src/utilities/markdownToHtml) utility.         |
 | `image`   | NO       | Array     | n/a           | See the [`ImageWithCaption`](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/components/ImageWithCaption) component for full usage details. |
 | `cta`     | NO       | Object    | n/a           | CTA used at the end of content body. `Text` and `Card` styles supported.                                                                                                              |
+| `aside`   | NO       | Object    | n/a           | Elements to be rendered on right panel of the content block. See `ContentBlock` README for more info.                                                                                 |
 
 ## Stable selectors
 
