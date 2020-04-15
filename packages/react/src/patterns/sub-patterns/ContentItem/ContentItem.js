@@ -63,10 +63,10 @@ const ContentItem = ({ cta, copy, heading, image }) => (
 );
 
 ContentItem.propTypes = {
-  cta: PropTypes.instanceOf(CTA),
+  cta: PropTypes.oneOfType(PropTypes.shape(CTA.propTypes)),
   copy: PropTypes.string,
   heading: PropTypes.string,
-  image: PropTypes.instanceOf(ImageWithCaption),
+  image: PropTypes.oneOfType(PropTypes.shape(ImageWithCaption.propTypes)),
 };
 
 export default ContentItem;
