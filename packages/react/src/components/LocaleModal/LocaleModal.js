@@ -6,7 +6,7 @@
  */
 
 import { altlangs, settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
-import { ArrowLeft20, Globe20 } from '@carbon/icons-react';
+import { ArrowLeft20, EarthFilled20 } from '@carbon/icons-react';
 import { ComposedModal, ModalBody, ModalHeader } from 'carbon-components-react';
 import React, { useEffect, useState } from 'react';
 import cx from 'classnames';
@@ -141,7 +141,9 @@ const LocaleModal = ({ isOpen, setIsOpen }) => {
         <ModalHeader
           label={[
             langDisplay,
-            <Globe20 className={`${prefix}--locale-modal__label-globe`} />,
+            <EarthFilled20
+              className={`${prefix}--locale-modal__label-globe`}
+            />,
           ]}
           title={modalLabels.headerTitle}
           iconDescription={modalLabels.modalClose}

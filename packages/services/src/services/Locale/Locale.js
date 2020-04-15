@@ -32,7 +32,7 @@ const _localeDefault = {
  * @type {string}
  * @private
  */
-const _localeNameDefault = 'United States - English';
+const _localeNameDefault = 'United States — English';
 
 /**
  * Locale API endpoint
@@ -198,7 +198,7 @@ class LocaleAPI {
     });
 
     if (location.length) {
-      return `${location[0].name} - ${location[0].locale[0][1]}`;
+      return `${location[0].name} — ${location[0].locale[0][1]}`;
     } else {
       return _localeNameDefault;
     }

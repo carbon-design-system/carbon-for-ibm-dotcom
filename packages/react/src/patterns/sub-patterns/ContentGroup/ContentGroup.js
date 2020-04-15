@@ -60,7 +60,10 @@ const ContentGroup = ({ children, heading, customClassName, cta }) => {
 
 ContentGroup.propTypes = {
   heading: PropTypes.string,
-  children: PropTypes.object,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]),
   customClassName: PropTypes.string,
   cta: PropTypes.object,
 };
