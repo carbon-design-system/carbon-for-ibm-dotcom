@@ -69,6 +69,7 @@ function renderListItems(links) {
       <li className={`${prefix}--legal-nav__list-item`} key={index}>
         <Link
           data-autoid={`${stablePrefix}--footer-legal-nav__link`}
+          className={`${prefix}--footer__link`}
           href={url}>
           {title}
         </Link>

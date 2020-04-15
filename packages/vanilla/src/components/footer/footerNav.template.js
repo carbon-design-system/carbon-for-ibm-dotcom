@@ -89,7 +89,7 @@ function _renderNavItems(links) {
  */
 function _renderNavItem(link) {
   return `
-    <li class="${prefix}--footer-nav-group__item"><a href="${link.url}" class="${prefix}--link ${prefix}--footer-nav-group__link" data-autoid="${stablePrefix}--footer-nav-group__link">${link.title}</a></li>
+    <li class="${prefix}--footer-nav-group__item"><a href="${link.url}" class="${prefix}--link ${prefix}--footer-nav-group__link ${prefix}--footer__link" data-autoid="${stablePrefix}--footer-nav-group__link">${link.title}</a></li>
   `;
 }
 

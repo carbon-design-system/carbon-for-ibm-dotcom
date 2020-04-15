@@ -11,6 +11,7 @@ import {
 } from '@carbon/ibmdotcom-utilities';
 import { CTA } from '../../../components/CTA';
 import cx from 'classnames';
+import { Layout } from '../Layout';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { settings } from 'carbon-components';
@@ -27,20 +28,19 @@ const { prefix } = settings;
  * @param {*} props.children JSX Components
  * @param {string} props.customClassName allows user to pass in custom class name
  * @param {*} props.cta CTA props object
+ * @param {object} props.aside components to be passed into the right panel
  * @returns {*} JSX ContentBlock component
  */
-const ContentBlock = ({ heading, copy, children, customClassName, cta }) => {
-  return (
-    <div
-      data-autoid={`${stablePrefix}--content-block`}
-      className={cx(`${prefix}--content-block`, customClassName)}>
-      {heading && (
-        <h2
-          data-autoid={`${stablePrefix}--content-block__heading`}
-          className={`${prefix}--content-block__heading`}>
-          {heading}
-        </h2>
-      )}
+const ContentBlock = ({
+  heading,
+  copy,
+  children,
+  customClassName,
+  cta,
+  aside,
+}) => {
+  const content = (
+    <>
       {copy && (
         <div
           className={`${prefix}--content-block__copy`}
@@ -55,9 +55,59 @@ const ContentBlock = ({ heading, copy, children, customClassName, cta }) => {
         {children}
       </div>
       {cta && _renderCTA(cta)}
+    </>
+  );
+
+  const title = (
+    <div>
+      {heading && (
+        <h2
+          data-autoid={`${stablePrefix}--content-block__heading`}
+          className={`${prefix}--content-block__heading`}>
+          {heading}
+        </h2>
+      )}
+    </div>
+  );
+
+  return (
+    <div
+      data-autoid={`${stablePrefix}--content-block`}
+      className={cx(`${prefix}--content-block`, customClassName)}>
+      {aside && aside.items
+        ? _layoutWrap(
+            <>
+              {title}
+              <div></div>
+            </>
+          )
+        : title}
+      {aside && aside.items
+        ? _layoutWrap(
+            <>
+              <div>{content}</div>
+              <aside>{aside.items}</aside>
+            </>,
+            aside.border
+          )
+        : content}
     </div>
   );
 };
+
+/**
+ * wraps content in layout component
+ *
+ * @private
+ * @param {Element} content content elements
+ * @param {boolean} border set border or not
+ * @returns {*} jsx cta component
+ */
+const _layoutWrap = (content, border) => (
+  <Layout type="2-1" nested={true} border={border}>
+    {content.props.children}
+  </Layout>
+);
 
 /**
  * sets the class name based on theme type
@@ -88,9 +138,16 @@ function _renderCTA(cta) {
 ContentBlock.propTypes = {
   heading: PropTypes.string,
   copy: PropTypes.string,
-  children: PropTypes.element,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]),
   cta: PropTypes.object,
   customClassName: PropTypes.string,
+  aside: PropTypes.shape({
+    items: PropTypes.element,
+    border: PropTypes.bool,
+  }),
 };
 
 export default ContentBlock;
