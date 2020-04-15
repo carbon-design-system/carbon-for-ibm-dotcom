@@ -48,7 +48,9 @@
 
         @include carbon--breakpoint-down('lg') {
           position: absolute;
+          margin: auto;
           top: 0;
+          bottom: 0;
           max-height: 100%;
         }
       }
