@@ -22,6 +22,9 @@ Here's a quick example to get you started.
 > styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
+> 💡 If importing `carbon-components.min.css`, remember to import the `Masthead`
+> styles after Carbon's `css`
+
 ### Method 1: Fetch Navigation data and return Masthead markup (recommended)
 
 This method will fetch the default navigation data, then inject into the

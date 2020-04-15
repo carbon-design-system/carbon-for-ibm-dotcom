@@ -17,7 +17,7 @@ Here's a quick example to get you started.
 @import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead.scss';
 ```
 
-> 💡 Only import fonts once per usage. Don't forget to import the Masthead
+> `💡 Only import fonts once per usage. Don't forget to import the Masthead`
 > styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
@@ -31,6 +31,9 @@ function App() {
 }
 ReactDOM.render(<App />, document.querySelector('#app'));
 ```
+
+💡 If importing `carbon-components.min.css`, remember to import the `Masthead`
+styles after Carbon's `css`
 
 Add the following line on your `.env` file at the root of your project,
 [see more details](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/styles#usage)
