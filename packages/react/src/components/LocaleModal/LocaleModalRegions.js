@@ -42,6 +42,11 @@ const LocaleModalRegions = ({
     [...regionLink].forEach(link => {
       link.setAttribute('tabindex', '1');
       link.addEventListener('click', () => {
+        const searchInput = document.getElementById(
+          `${prefix}--locale-modal__filter`
+        );
+        searchInput.focus();
+
         const region = link.dataset.region;
         setCurrentRegion(link.getElementsByTagName('h3')[0].innerHTML);
 
@@ -65,6 +70,7 @@ const LocaleModalRegions = ({
 
         /**
          * Removes tabindex and role as it goes back
+         *
          * @param {*} btn btn element
          */
         const localeBackActive = btn => {
