@@ -6895,12 +6895,13 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                 className="bx--grid"
               >
                 <div
-                  className="bx--row"
+                  class="bx--row"
                 >
                   <div
-                    className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
+                    class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
                   >
                     <ContentBlockMedia
+                      aside={false}
                       copy="Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
       Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
       nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
@@ -7056,12 +7057,13 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                 className="bx--grid"
               >
                 <div
-                  className="bx--row"
+                  class="bx--row"
                 >
                   <div
-                    className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
+                    class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
                   >
                     <ContentBlockMedia
+                      aside={false}
                       copy="Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
       Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
       nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
@@ -7188,6 +7190,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                         data-autoid="dds--content-block-media"
                       >
                         <ContentBlock
+                          aside={false}
                           copy="Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
       Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
       nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
@@ -7223,12 +7226,14 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                             className="bx--content-block"
                             data-autoid="dds--content-block"
                           >
-                            <h2
-                              className="bx--content-block__heading"
-                              data-autoid="dds--content-block__heading"
-                            >
-                              Curabitur malesuada varius mi eu posuere
-                            </h2>
+                            <div>
+                              <h2
+                                className="bx--content-block__heading"
+                                data-autoid="dds--content-block__heading"
+                              >
+                                Curabitur malesuada varius mi eu posuere
+                              </h2>
+                            </div>
                             <div
                               className="bx--content-block__copy"
                               dangerouslySetInnerHTML={
@@ -8308,12 +8313,13 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                 className="bx--grid"
               >
                 <div
-                  className="bx--row"
+                  class="bx--row"
                 >
                   <div
-                    className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
+                    class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
                   >
                     <ContentBlockMixed
+                      aside={false}
                       copy="Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
       Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
       nulla quis, *consequat* libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
@@ -8492,12 +8498,13 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                 className="bx--grid"
               >
                 <div
-                  className="bx--row"
+                  class="bx--row"
                 >
                   <div
-                    className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
+                    class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
                   >
                     <ContentBlockMixed
+                      aside={false}
                       copy="Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
       Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
       nulla quis, *consequat* libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
@@ -8647,6 +8654,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                         data-autoid="dds--content-block-mixed"
                       >
                         <ContentBlock
+                          aside={false}
                           copy="Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
       Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
       nulla quis, *consequat* libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
@@ -8667,12 +8675,14 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                             className="bx--content-block"
                             data-autoid="dds--content-block"
                           >
-                            <h2
-                              className="bx--content-block__heading"
-                              data-autoid="dds--content-block__heading"
-                            >
-                              Lorem ipsum dolor sit amet
-                            </h2>
+                            <div>
+                              <h2
+                                className="bx--content-block__heading"
+                                data-autoid="dds--content-block__heading"
+                              >
+                                Lorem ipsum dolor sit amet
+                              </h2>
+                            </div>
                             <div
                               className="bx--content-block__copy"
                               dangerouslySetInnerHTML={
@@ -10361,6 +10371,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                     className="bx--col-lg-8 bx--col-sm-4 bx--offset-lg-4"
                   >
                     <ContentBlockSegmented
+                      aside={false}
                       copy="Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
       Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
       nulla quis, *consequat* libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit."
@@ -10476,6 +10487,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                     className="bx--col-lg-8 bx--col-sm-4 bx--offset-lg-4"
                   >
                     <ContentBlockSegmented
+                      aside={false}
                       copy="Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
       Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
       nulla quis, *consequat* libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit."
@@ -10556,6 +10568,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                         data-autoid="dds--content-block-segmented"
                       >
                         <ContentBlock
+                          aside={false}
                           copy="Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
       Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
       nulla quis, *consequat* libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit."
@@ -10575,12 +10588,14 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                             className="bx--content-block"
                             data-autoid="dds--content-block"
                           >
-                            <h2
-                              className="bx--content-block__heading"
-                              data-autoid="dds--content-block__heading"
-                            >
-                              Lorem ipsum dolor sit amet.
-                            </h2>
+                            <div>
+                              <h2
+                                className="bx--content-block__heading"
+                                data-autoid="dds--content-block__heading"
+                              >
+                                Lorem ipsum dolor sit amet.
+                              </h2>
+                            </div>
                             <div
                               className="bx--content-block__copy"
                               dangerouslySetInnerHTML={
@@ -11061,12 +11076,13 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                 className="bx--grid"
               >
                 <div
-                  className="bx--row"
+                  class="bx--row"
                 >
                   <div
-                    className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4 content-block-story"
+                    class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4 content-block-story"
                   >
                     <ContentBlockSimple
+                      aside={false}
                       copy="Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
       Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
       nulla quis, *consequat* libero. Here are
@@ -11146,12 +11162,13 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                 className="bx--grid"
               >
                 <div
-                  className="bx--row"
+                  class="bx--row"
                 >
                   <div
-                    className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4 content-block-story"
+                    class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4 content-block-story"
                   >
                     <ContentBlockSimple
+                      aside={false}
                       copy="Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
       Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
       nulla quis, *consequat* libero. Here are
@@ -11202,6 +11219,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                         data-autoid="dds--content-block-simple"
                       >
                         <ContentBlock
+                          aside={false}
                           cta={
                             Object {
                               "copy": "Lorem ipsum dolor sit ametttt",
@@ -11219,12 +11237,14 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                             className="bx--content-block"
                             data-autoid="dds--content-block"
                           >
-                            <h2
-                              className="bx--content-block__heading"
-                              data-autoid="dds--content-block__heading"
-                            >
-                              Curabitur malesuada varius mi eu posuere
-                            </h2>
+                            <div>
+                              <h2
+                                className="bx--content-block__heading"
+                                data-autoid="dds--content-block__heading"
+                              >
+                                Curabitur malesuada varius mi eu posuere
+                              </h2>
+                            </div>
                             <div
                               className="bx--content-block__children"
                               data-autoid="dds--content-block__children"
@@ -18109,12 +18129,14 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock Default 1`] = `
                         className="bx--content-block bx--content-block-story"
                         data-autoid="dds--content-block"
                       >
-                        <h2
-                          className="bx--content-block__heading"
-                          data-autoid="dds--content-block__heading"
-                        >
-                          This is the Content Block heading
-                        </h2>
+                        <div>
+                          <h2
+                            className="bx--content-block__heading"
+                            data-autoid="dds--content-block__heading"
+                          >
+                            This is the Content Block heading
+                          </h2>
+                        </div>
                         <div
                           className="bx--content-block__copy"
                           dangerouslySetInnerHTML={
@@ -18292,6 +18314,775 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock Default 1`] = `
                             </div>
                           </CTA>
                         </div>
+                      </div>
+                    </ContentBlock>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </_default>
+      </div>
+    </ReadmeContent>
+  </div>
+  <input
+    aria-label="input-text-offleft"
+    className="bx--visually-hidden"
+    type="text"
+  />
+</Container>
+`;
+
+exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock With aside elements 1`] = `
+<Container
+  story={[Function]}
+>
+  <div
+    data-floating-menu-container=""
+    role="main"
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+      }
+    }
+  >
+    <ReadmeContent
+      codeTheme="github"
+      layout={
+        Array [
+          Object {
+            "content": <React.Fragment>
+              <div
+                className="bx--grid"
+              >
+                <div
+                  className="bx--row"
+                >
+                  <div
+                    className="bx--offset-lg-4"
+                  >
+                    <ContentBlock
+                      aside={
+                        Object {
+                          "border": false,
+                          "items": <LinkList
+                            heading="Tutorials"
+                            items={
+                              Array [
+                                Object {
+                                  "copy": "Containerization A Complete Guide",
+                                  "cta": Object {
+                                    "href": "https://ibm.com",
+                                  },
+                                  "type": "local",
+                                },
+                                Object {
+                                  "copy": "Why should you use microservices and containers",
+                                  "cta": Object {
+                                    "href": "https://ibm.com",
+                                  },
+                                  "type": "external",
+                                },
+                              ]
+                            }
+                          />,
+                        }
+                      }
+                      copy="Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+      Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
+      nulla quis, *consequat* libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit."
+                      cta={
+                        Object {
+                          "copy": "Lorem ipsum dolor sit amet",
+                          "cta": Object {
+                            "href": "https://www.example.com",
+                          },
+                          "style": "card",
+                          "type": "external",
+                        }
+                      }
+                      customClassName="bx--content-block-story"
+                      heading="This is the Content Block heading"
+                    >
+                      This is the Content Block children.
+                    </ContentBlock>
+                  </div>
+                </div>
+              </div>
+            </React.Fragment>,
+            "type": "STORY",
+          },
+        ]
+      }
+      theme={Object {}}
+      types={
+        Array [
+          "MD",
+          "STORY",
+          "STORY_SOURCE",
+          "PROPS",
+          "FOOTER_MD",
+          "HEADER_MD",
+        ]
+      }
+    >
+      <div
+        className="storybook-readme-story"
+      >
+        <_default
+          key="0"
+        >
+          <div
+            style={Object {}}
+          >
+            <div>
+              <div
+                className="bx--grid"
+              >
+                <div
+                  className="bx--row"
+                >
+                  <div
+                    className="bx--offset-lg-4"
+                  >
+                    <ContentBlock
+                      aside={
+                        Object {
+                          "border": false,
+                          "items": <LinkList
+                            heading="Tutorials"
+                            items={
+                              Array [
+                                Object {
+                                  "copy": "Containerization A Complete Guide",
+                                  "cta": Object {
+                                    "href": "https://ibm.com",
+                                  },
+                                  "type": "local",
+                                },
+                                Object {
+                                  "copy": "Why should you use microservices and containers",
+                                  "cta": Object {
+                                    "href": "https://ibm.com",
+                                  },
+                                  "type": "external",
+                                },
+                              ]
+                            }
+                          />,
+                        }
+                      }
+                      copy="Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+      Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
+      nulla quis, *consequat* libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit."
+                      cta={
+                        Object {
+                          "copy": "Lorem ipsum dolor sit amet",
+                          "cta": Object {
+                            "href": "https://www.example.com",
+                          },
+                          "style": "card",
+                          "type": "external",
+                        }
+                      }
+                      customClassName="bx--content-block-story"
+                      heading="This is the Content Block heading"
+                    >
+                      <div
+                        className="bx--content-block bx--content-block-story"
+                        data-autoid="dds--content-block"
+                      >
+                        <Layout
+                          border={false}
+                          marginBottom={null}
+                          marginTop={null}
+                          nested={true}
+                          stickyOffset={null}
+                          type="2-1"
+                        >
+                          <section
+                            className=""
+                            data-autoid="dds--layout"
+                          >
+                            <div
+                              className="bx--row"
+                            >
+                              <div
+                                className="bx--layout-2-3"
+                                key="0"
+                              >
+                                <h2
+                                  className="bx--content-block__heading"
+                                  data-autoid="dds--content-block__heading"
+                                >
+                                  This is the Content Block heading
+                                </h2>
+                              </div>
+                              <div
+                                className="bx--layout-1-3"
+                                key="1"
+                              />
+                            </div>
+                          </section>
+                        </Layout>
+                        <Layout
+                          border={false}
+                          marginBottom={null}
+                          marginTop={null}
+                          nested={true}
+                          stickyOffset={null}
+                          type="2-1"
+                        >
+                          <section
+                            className=""
+                            data-autoid="dds--layout"
+                          >
+                            <div
+                              className="bx--row"
+                            >
+                              <div
+                                className="bx--layout-2-3"
+                                key="0"
+                              >
+                                <div
+                                  className="bx--content-block__copy"
+                                  dangerouslySetInnerHTML={
+                                    Object {
+                                      "__html": "<p>Lorem ipsum <em class=\\"bx--type-light\\">dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est.  Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales  nulla quis, <em class=\\"bx--type-light\\">consequat</em> libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.</p>",
+                                    }
+                                  }
+                                />
+                                <div
+                                  className="bx--content-block__children"
+                                  data-autoid="dds--content-block__children"
+                                >
+                                  This is the Content Block children.
+                                </div>
+                                <div
+                                  className="bx--content-block__cta-row"
+                                  data-autoid="dds--content-block__cta"
+                                >
+                                  <CTA
+                                    copy="Lorem ipsum dolor sit amet"
+                                    cta={
+                                      Object {
+                                        "href": "https://www.example.com",
+                                      }
+                                    }
+                                    customClassName="bx--content-block__cta bx--content-block__cta-col"
+                                    style="card"
+                                    type="external"
+                                  >
+                                    <div
+                                      className="bx--content-block__cta bx--content-block__cta-col"
+                                    >
+                                      <CardCTA
+                                        copy="Lorem ipsum dolor sit amet"
+                                        cta={
+                                          Object {
+                                            "href": "https://www.example.com",
+                                          }
+                                        }
+                                        external={[Function]}
+                                        iconSelector={[Function]}
+                                        jump={[Function]}
+                                        launchLightBox={[Function]}
+                                        mediaData={Object {}}
+                                        openLightBox={[Function]}
+                                        renderLightBox={false}
+                                        setLightBox={[Function]}
+                                        setMediaData={[Function]}
+                                        style="card"
+                                        type="external"
+                                        videoTitle={
+                                          Array [
+                                            Object {
+                                              "key": 0,
+                                              "title": "",
+                                            },
+                                          ]
+                                        }
+                                      >
+                                        <Card
+                                          copy="Lorem ipsum dolor sit amet"
+                                          cta={
+                                            Object {
+                                              "href": "https://www.example.com",
+                                              "icon": Object {
+                                                "src": Object {
+                                                  "$$typeof": Symbol(react.forward_ref),
+                                                  "render": [Function],
+                                                },
+                                              },
+                                            }
+                                          }
+                                          customClassName="bx--card__CTA"
+                                          handleClick={[Function]}
+                                          role="region"
+                                          target="_blank"
+                                          type="link"
+                                        >
+                                          <ClickableTile
+                                            className="bx--card bx--card--link bx--card__CTA"
+                                            clicked={false}
+                                            data-autoid="dds--card"
+                                            handleClick={[Function]}
+                                            handleKeyDown={[Function]}
+                                            href="https://www.example.com"
+                                            light={false}
+                                            role="region"
+                                            target="_blank"
+                                          >
+                                            <a
+                                              className="bx--link bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                              data-autoid="dds--card"
+                                              href="https://www.example.com"
+                                              onClick={[Function]}
+                                              onKeyDown={[Function]}
+                                              role="region"
+                                              target="_blank"
+                                            >
+                                              <Image
+                                                classname="bx--card__img"
+                                              />
+                                              <div
+                                                className="bx--card__wrapper"
+                                              >
+                                                <div
+                                                  className="bx--card__copy"
+                                                  dangerouslySetInnerHTML={
+                                                    Object {
+                                                      "__html": "<p>Lorem ipsum dolor sit amet</p>",
+                                                    }
+                                                  }
+                                                />
+                                                <div
+                                                  className="bx--card__footer"
+                                                >
+                                                  <ForwardRef(Launch20)
+                                                    className="bx--card__cta"
+                                                    src={
+                                                      Object {
+                                                        "$$typeof": Symbol(react.forward_ref),
+                                                        "render": [Function],
+                                                      }
+                                                    }
+                                                  >
+                                                    <Icon
+                                                      className="bx--card__cta"
+                                                      height={20}
+                                                      preserveAspectRatio="xMidYMid meet"
+                                                      src={
+                                                        Object {
+                                                          "$$typeof": Symbol(react.forward_ref),
+                                                          "render": [Function],
+                                                        }
+                                                      }
+                                                      viewBox="0 0 32 32"
+                                                      width={20}
+                                                      xmlns="http://www.w3.org/2000/svg"
+                                                    >
+                                                      <svg
+                                                        aria-hidden={true}
+                                                        className="bx--card__cta"
+                                                        focusable="false"
+                                                        height={20}
+                                                        preserveAspectRatio="xMidYMid meet"
+                                                        src={
+                                                          Object {
+                                                            "$$typeof": Symbol(react.forward_ref),
+                                                            "render": [Function],
+                                                          }
+                                                        }
+                                                        style={
+                                                          Object {
+                                                            "willChange": "transform",
+                                                          }
+                                                        }
+                                                        viewBox="0 0 32 32"
+                                                        width={20}
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                      >
+                                                        <path
+                                                          d="M26,28H6a2,2,0,0,1-2-2V6A2,2,0,0,1,6,4h9V6H6V26H26V17h2v9A2,2,0,0,1,26,28Z"
+                                                        />
+                                                        <path
+                                                          d="M21 2L21 4 26.59 4 18 12.59 19.41 14 28 5.41 28 11 30 11 30 2 21 2z"
+                                                        />
+                                                      </svg>
+                                                    </Icon>
+                                                  </ForwardRef(Launch20)>
+                                                </div>
+                                              </div>
+                                            </a>
+                                          </ClickableTile>
+                                        </Card>
+                                      </CardCTA>
+                                    </div>
+                                  </CTA>
+                                </div>
+                              </div>
+                              <aside
+                                className="bx--layout-1-3"
+                                key="1"
+                              >
+                                <LinkList
+                                  heading="Tutorials"
+                                  items={
+                                    Array [
+                                      Object {
+                                        "copy": "Containerization A Complete Guide",
+                                        "cta": Object {
+                                          "href": "https://ibm.com",
+                                        },
+                                        "type": "local",
+                                      },
+                                      Object {
+                                        "copy": "Why should you use microservices and containers",
+                                        "cta": Object {
+                                          "href": "https://ibm.com",
+                                        },
+                                        "type": "external",
+                                      },
+                                    ]
+                                  }
+                                >
+                                  <div
+                                    className="bx--link-list"
+                                    data-autoid="dds--link-list"
+                                  >
+                                    <h4
+                                      className="bx--link-list__heading"
+                                    >
+                                      Tutorials
+                                    </h4>
+                                    <ul
+                                      className="bx--link-list__list"
+                                    >
+                                      <li
+                                        className="bx--link-list__list__CTA"
+                                        key="0"
+                                      >
+                                        <CTA
+                                          copy="Containerization A Complete Guide"
+                                          cta={
+                                            Object {
+                                              "href": "https://ibm.com",
+                                            }
+                                          }
+                                          style="card"
+                                          type="local"
+                                        >
+                                          <div>
+                                            <CardCTA
+                                              copy="Containerization A Complete Guide"
+                                              cta={
+                                                Object {
+                                                  "href": "https://ibm.com",
+                                                }
+                                              }
+                                              external={[Function]}
+                                              iconSelector={[Function]}
+                                              jump={[Function]}
+                                              launchLightBox={[Function]}
+                                              mediaData={Object {}}
+                                              openLightBox={[Function]}
+                                              renderLightBox={false}
+                                              setLightBox={[Function]}
+                                              setMediaData={[Function]}
+                                              style="card"
+                                              type="local"
+                                              videoTitle={
+                                                Array [
+                                                  Object {
+                                                    "key": 0,
+                                                    "title": "",
+                                                  },
+                                                ]
+                                              }
+                                            >
+                                              <Card
+                                                copy="Containerization A Complete Guide"
+                                                cta={
+                                                  Object {
+                                                    "href": "https://ibm.com",
+                                                    "icon": Object {
+                                                      "src": Object {
+                                                        "$$typeof": Symbol(react.forward_ref),
+                                                        "render": [Function],
+                                                      },
+                                                    },
+                                                  }
+                                                }
+                                                customClassName="bx--card__CTA"
+                                                handleClick={[Function]}
+                                                role="region"
+                                                target={null}
+                                                type="link"
+                                              >
+                                                <ClickableTile
+                                                  className="bx--card bx--card--link bx--card__CTA"
+                                                  clicked={false}
+                                                  data-autoid="dds--card"
+                                                  handleClick={[Function]}
+                                                  handleKeyDown={[Function]}
+                                                  href="https://ibm.com"
+                                                  light={false}
+                                                  role="region"
+                                                  target={null}
+                                                >
+                                                  <a
+                                                    className="bx--link bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                                    data-autoid="dds--card"
+                                                    href="https://ibm.com"
+                                                    onClick={[Function]}
+                                                    onKeyDown={[Function]}
+                                                    role="region"
+                                                    target={null}
+                                                  >
+                                                    <Image
+                                                      classname="bx--card__img"
+                                                    />
+                                                    <div
+                                                      className="bx--card__wrapper"
+                                                    >
+                                                      <div
+                                                        className="bx--card__copy"
+                                                        dangerouslySetInnerHTML={
+                                                          Object {
+                                                            "__html": "<p>Containerization A Complete Guide</p>",
+                                                          }
+                                                        }
+                                                      />
+                                                      <div
+                                                        className="bx--card__footer"
+                                                      >
+                                                        <ForwardRef(ArrowRight20)
+                                                          className="bx--card__cta"
+                                                          src={
+                                                            Object {
+                                                              "$$typeof": Symbol(react.forward_ref),
+                                                              "render": [Function],
+                                                            }
+                                                          }
+                                                        >
+                                                          <Icon
+                                                            className="bx--card__cta"
+                                                            height={20}
+                                                            preserveAspectRatio="xMidYMid meet"
+                                                            src={
+                                                              Object {
+                                                                "$$typeof": Symbol(react.forward_ref),
+                                                                "render": [Function],
+                                                              }
+                                                            }
+                                                            viewBox="0 0 20 20"
+                                                            width={20}
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                          >
+                                                            <svg
+                                                              aria-hidden={true}
+                                                              className="bx--card__cta"
+                                                              focusable="false"
+                                                              height={20}
+                                                              preserveAspectRatio="xMidYMid meet"
+                                                              src={
+                                                                Object {
+                                                                  "$$typeof": Symbol(react.forward_ref),
+                                                                  "render": [Function],
+                                                                }
+                                                              }
+                                                              style={
+                                                                Object {
+                                                                  "willChange": "transform",
+                                                                }
+                                                              }
+                                                              viewBox="0 0 20 20"
+                                                              width={20}
+                                                              xmlns="http://www.w3.org/2000/svg"
+                                                            >
+                                                              <path
+                                                                d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                                              />
+                                                            </svg>
+                                                          </Icon>
+                                                        </ForwardRef(ArrowRight20)>
+                                                      </div>
+                                                    </div>
+                                                  </a>
+                                                </ClickableTile>
+                                              </Card>
+                                            </CardCTA>
+                                          </div>
+                                        </CTA>
+                                      </li>
+                                      <li
+                                        className="bx--link-list__list__CTA"
+                                        key="1"
+                                      >
+                                        <CTA
+                                          copy="Why should you use microservices and containers"
+                                          cta={
+                                            Object {
+                                              "href": "https://ibm.com",
+                                            }
+                                          }
+                                          style="card"
+                                          type="external"
+                                        >
+                                          <div>
+                                            <CardCTA
+                                              copy="Why should you use microservices and containers"
+                                              cta={
+                                                Object {
+                                                  "href": "https://ibm.com",
+                                                }
+                                              }
+                                              external={[Function]}
+                                              iconSelector={[Function]}
+                                              jump={[Function]}
+                                              launchLightBox={[Function]}
+                                              mediaData={Object {}}
+                                              openLightBox={[Function]}
+                                              renderLightBox={false}
+                                              setLightBox={[Function]}
+                                              setMediaData={[Function]}
+                                              style="card"
+                                              type="external"
+                                              videoTitle={
+                                                Array [
+                                                  Object {
+                                                    "key": 0,
+                                                    "title": "",
+                                                  },
+                                                ]
+                                              }
+                                            >
+                                              <Card
+                                                copy="Why should you use microservices and containers"
+                                                cta={
+                                                  Object {
+                                                    "href": "https://ibm.com",
+                                                    "icon": Object {
+                                                      "src": Object {
+                                                        "$$typeof": Symbol(react.forward_ref),
+                                                        "render": [Function],
+                                                      },
+                                                    },
+                                                  }
+                                                }
+                                                customClassName="bx--card__CTA"
+                                                handleClick={[Function]}
+                                                role="region"
+                                                target="_blank"
+                                                type="link"
+                                              >
+                                                <ClickableTile
+                                                  className="bx--card bx--card--link bx--card__CTA"
+                                                  clicked={false}
+                                                  data-autoid="dds--card"
+                                                  handleClick={[Function]}
+                                                  handleKeyDown={[Function]}
+                                                  href="https://ibm.com"
+                                                  light={false}
+                                                  role="region"
+                                                  target="_blank"
+                                                >
+                                                  <a
+                                                    className="bx--link bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                                    data-autoid="dds--card"
+                                                    href="https://ibm.com"
+                                                    onClick={[Function]}
+                                                    onKeyDown={[Function]}
+                                                    role="region"
+                                                    target="_blank"
+                                                  >
+                                                    <Image
+                                                      classname="bx--card__img"
+                                                    />
+                                                    <div
+                                                      className="bx--card__wrapper"
+                                                    >
+                                                      <div
+                                                        className="bx--card__copy"
+                                                        dangerouslySetInnerHTML={
+                                                          Object {
+                                                            "__html": "<p>Why should you use microservices and containers</p>",
+                                                          }
+                                                        }
+                                                      />
+                                                      <div
+                                                        className="bx--card__footer"
+                                                      >
+                                                        <ForwardRef(Launch20)
+                                                          className="bx--card__cta"
+                                                          src={
+                                                            Object {
+                                                              "$$typeof": Symbol(react.forward_ref),
+                                                              "render": [Function],
+                                                            }
+                                                          }
+                                                        >
+                                                          <Icon
+                                                            className="bx--card__cta"
+                                                            height={20}
+                                                            preserveAspectRatio="xMidYMid meet"
+                                                            src={
+                                                              Object {
+                                                                "$$typeof": Symbol(react.forward_ref),
+                                                                "render": [Function],
+                                                              }
+                                                            }
+                                                            viewBox="0 0 32 32"
+                                                            width={20}
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                          >
+                                                            <svg
+                                                              aria-hidden={true}
+                                                              className="bx--card__cta"
+                                                              focusable="false"
+                                                              height={20}
+                                                              preserveAspectRatio="xMidYMid meet"
+                                                              src={
+                                                                Object {
+                                                                  "$$typeof": Symbol(react.forward_ref),
+                                                                  "render": [Function],
+                                                                }
+                                                              }
+                                                              style={
+                                                                Object {
+                                                                  "willChange": "transform",
+                                                                }
+                                                              }
+                                                              viewBox="0 0 32 32"
+                                                              width={20}
+                                                              xmlns="http://www.w3.org/2000/svg"
+                                                            >
+                                                              <path
+                                                                d="M26,28H6a2,2,0,0,1-2-2V6A2,2,0,0,1,6,4h9V6H6V26H26V17h2v9A2,2,0,0,1,26,28Z"
+                                                              />
+                                                              <path
+                                                                d="M21 2L21 4 26.59 4 18 12.59 19.41 14 28 5.41 28 11 30 11 30 2 21 2z"
+                                                              />
+                                                            </svg>
+                                                          </Icon>
+                                                        </ForwardRef(Launch20)>
+                                                      </div>
+                                                    </div>
+                                                  </a>
+                                                </ClickableTile>
+                                              </Card>
+                                            </CardCTA>
+                                          </div>
+                                        </CTA>
+                                      </li>
+                                    </ul>
+                                  </div>
+                                </LinkList>
+                              </aside>
+                            </div>
+                          </section>
+                        </Layout>
                       </div>
                     </ContentBlock>
                   </div>
