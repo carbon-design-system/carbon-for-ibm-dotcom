@@ -1,5 +1,7 @@
+import digitalDataResponse from '../../DDO/__tests__/data/response.json';
 import mockAxios from 'axios';
 import responseSuccess from './data/response.json';
+import root from 'window-or-global';
 import SearchTypeaheadAPI from '../SearchTypeahead';
 
 const _lc = 'en'; // TODO: bake in tests where lc changes
@@ -12,6 +14,8 @@ describe('SearchTypeaheadAPI', () => {
         data: responseSuccess,
       })
     );
+
+    root.digitalData = digitalDataResponse;
   });
 
   it('should search for ibm.com results', async () => {
