@@ -74,7 +74,7 @@ describe('LocaleAPI', () => {
 
   it('should fetch the display name based on language/locale combination', async () => {
     const data = await LocaleAPI.getLangDisplay();
-    expect(data).toEqual('United States - English');
+    expect(data).toEqual('United States — English');
   });
 
   it('should fetch locale from cookie if availiable', async () => {
