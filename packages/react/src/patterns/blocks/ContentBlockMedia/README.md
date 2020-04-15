@@ -126,6 +126,7 @@ Add the following line on your `.env` file at the root of your project,
 | `heading` | YES      | String    | n/a           | Main title of ContentBlockWithMedia pattern.                                                                                                                                                      |
 | `items`   | YES      | Array     | n/a           | Array of content items objects to render. See `items` below.                                                                                                                                      |
 | `cta`     | NO       | Object    | null          | Optional CTA. Must be `Feature Link`. See the [`CTA`](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/components/CTA) component for full usage details. |
+| `aside`   | NO       | Object    | n/a           | Elements to be rendered on right panel of the content block. See `ContentBlock` README for more info.                                                                                             |
 
 ### items
 
