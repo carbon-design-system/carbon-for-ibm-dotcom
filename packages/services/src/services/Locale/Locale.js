@@ -1,6 +1,6 @@
 import { geolocation, ipcinfoCookie } from '@carbon/ibmdotcom-utilities';
 import axios from 'axios';
-import { DDOAPI } from '../DDO';
+import DDOAPI from '../DDO/DDO';
 import root from 'window-or-global';
 
 /**
@@ -88,7 +88,7 @@ const _sessionListKey = 'dds-countrylist';
 /**
  * Use the <html> lang attr to determine a return locale object
  *
- * @returns {object}
+ * @type {object}
  * @private
  */
 const _getLocaleByLangAttr = () => {
@@ -109,16 +109,22 @@ const _getLocaleByLangAttr = () => {
  * Return a locale object based on the DDO API, or "false"
  * so the consumer can decide what to do next
  *
- * @returns {(object | boolean)}
+ * @type {(object | boolean)}
  * @private
  */
 async function _getLocaleFromDDO() {
   const ddoLocal = await DDOAPI.getAll();
 
-  const lang = root.document.documentElement.lang || undefined;
-  let pageInfoIBM = ddoLocal.page.pageInfo.ibm;
-
   if (ddoLocal && ddoLocal.page && ddoLocal.page.pageInfo) {
+    let pageInfoIBM = ddoLocal.page.pageInfo.ibm;
+
+    // Set proper LC for us to use.
+    if (ddoLocal.page.pageInfo.language) {
+      pageInfoIBM.lc = ddoLocal.page.pageInfo.language
+        .substring(0, 2)
+        .toLowerCase();
+    }
+
     if (pageInfoIBM) {
       // Set proper CC for us to use.
       if (pageInfoIBM.country) {
@@ -136,21 +142,14 @@ async function _getLocaleFromDDO() {
         // Map worldwide (ZZ) pages to US
         if (pageInfoIBM.cc === 'zz') pageInfoIBM.cc = 'us';
       }
+    }
 
-      if (lang) {
-        pageInfoIBM.lc = pageInfoIBM.lc || lang.substring(0, 2).toLowerCase();
-        pageInfoIBM.cc = pageInfoIBM.cc || lang.substring(3, 5).toLowerCase();
-      }
+    if (!pageInfoIBM.lc || !pageInfoIBM.cc) return false;
 
-      // Account for more incorrect coding.
-      if (!pageInfoIBM.lc) pageInfoIBM.lc = 'en';
-      if (!pageInfoIBM.cc) pageInfoIBM.cc = 'us';
-
-      return {
-        cc: pageInfoIBM.cc,
-        lc: pageInfoIBM.lc,
-      };
-    } else return false;
+    return {
+      cc: pageInfoIBM.cc,
+      lc: pageInfoIBM.lc,
+    };
   }
   return false;
 }
@@ -180,7 +179,7 @@ class LocaleAPI {
    */
   static async getLocale() {
     const cookie = ipcinfoCookie.get();
-    const lang = this.getLang();
+    const lang = await this.getLang();
     // grab locale from the html lang attribute
     if (lang) {
       await this.getList(lang);
@@ -213,7 +212,7 @@ class LocaleAPI {
 
   /**
    * Checks for DDO object to return the correct cc and lc
-   * Otherwise gets those values from the `lang` html attribute
+   * Otherwise gets those values from the <html> lang attribute
    *
    * @returns {object} locale object
    *
@@ -225,9 +224,9 @@ class LocaleAPI {
    * }
    */
   static async getLang() {
-    await _getLocaleFromDDO().then(res => {
-      return res ? res : _getLocaleByLangAttr();
-    });
+    const getLocaleFromDDO = await _getLocaleFromDDO();
+
+    return getLocaleFromDDO ? getLocaleFromDDO : _getLocaleByLangAttr();
   }
 
   /**
@@ -238,7 +237,7 @@ class LocaleAPI {
    * @returns {Promise<string>} Display name of locale/language
    */
   static async getLangDisplay(langCode) {
-    const lang = langCode ? langCode : this.getLang();
+    const lang = langCode ? langCode : await this.getLang();
     const list = await this.getList(lang);
     // combines the countryList arrays
     let countries = [];
