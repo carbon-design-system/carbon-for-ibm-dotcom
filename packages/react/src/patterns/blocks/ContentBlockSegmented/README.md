@@ -58,6 +58,7 @@ Add the following line on your `.env` file at the root of your project,
 | `heading` | YES      | String    | n/a           | Main title of pattern.                                                                                                                                                                         |
 | `items`   | YES      | Array     | n/a           | Array of content items to render. See `items` below.                                                                                                                                           |
 | `image`   | NO       | Object    | n/a           | See the [`Image`](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/components/image) component for full usage details.                                |
+| `aside`   | NO       | Object    | n/a           | Elements to be rendered on right panel of the content block. See `ContentBlock` README for more info.                                                                                          |
 
 ### items
 
