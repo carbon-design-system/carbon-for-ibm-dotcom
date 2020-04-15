@@ -51,7 +51,7 @@ function renderListItems(links) {
     return (
       <li className={`${prefix}--footer-nav-group__item`} key={index}>
         <Link
-          className={`${prefix}--footer-nav-group__link`}
+          className={`${prefix}--footer-nav-group__link ${prefix}--footer__link`}
           data-autoid={`${stablePrefix}--footer-nav-group__link`}
           href={url}>
           {title}
