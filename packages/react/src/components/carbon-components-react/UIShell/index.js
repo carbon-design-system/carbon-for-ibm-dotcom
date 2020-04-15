@@ -1,4 +1,5 @@
 /* eslint-disable */
+/* istanbul ignore file */
 
 /**
  * Copyright IBM Corp. 2016, 2018
