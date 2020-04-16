@@ -41,6 +41,9 @@ the following to your `.env` file to resolve:
 SASS_PATH=node_modules:src
 ```
 
+💡 If importing `carbon-components.min.css`, remember to import our CSS after
+it.
+
 ## Expressive Theme
 
 In addition to styles for IBM.com Library components and patterns, this package
