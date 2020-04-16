@@ -4828,6 +4828,465 @@ exports[`Storyshots Components|ImageWithCaption Default 1`] = `
 </Container>
 `;
 
+exports[`Storyshots Components|LightboxMediaViewer Default 1`] = `
+<Container
+  story={[Function]}
+>
+  <div
+    data-floating-menu-container=""
+    role="main"
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+      }
+    }
+  >
+    <ReadmeContent
+      codeTheme="github"
+      layout={
+        Array [
+          Object {
+            "content": <React.Fragment>
+              <LightboxMediaViewer
+                media={
+                  Object {
+                    "active": false,
+                    "alt": "Image alt text",
+                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Here are some common categories:",
+                    "src": "https://dummyimage.com/1280x720/ee5396/161616&amp;text=16:9",
+                    "srcThumb": [Function],
+                    "title": "Curabitur malesuada varius mi eu posuere",
+                    "type": "image",
+                  }
+                }
+                open={true}
+              />
+            </React.Fragment>,
+            "type": "STORY",
+          },
+        ]
+      }
+      theme={Object {}}
+      types={
+        Array [
+          "MD",
+          "STORY",
+          "STORY_SOURCE",
+          "PROPS",
+          "FOOTER_MD",
+          "HEADER_MD",
+        ]
+      }
+    >
+      <div
+        className="storybook-readme-story"
+      >
+        <_default
+          key="0"
+        >
+          <div
+            style={Object {}}
+          >
+            <div>
+              <LightboxMediaViewer
+                media={
+                  Object {
+                    "active": false,
+                    "alt": "Image alt text",
+                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Here are some common categories:",
+                    "src": "https://dummyimage.com/1280x720/ee5396/161616&amp;text=16:9",
+                    "srcThumb": [Function],
+                    "title": "Curabitur malesuada varius mi eu posuere",
+                    "type": "image",
+                  }
+                }
+                open={true}
+              >
+                <section
+                  className="bx--lightbox-media-viewer"
+                  data-autoid="dds--lightbox-media-viewer"
+                >
+                  <ExpressiveModal
+                    fullwidth={true}
+                    open={true}
+                  >
+                    <ComposedModal
+                      className="bx--modal--expressive bx--modal--expressive--fullwidth"
+                      data-autoid="dds--expressive-modal"
+                      onKeyDown={[Function]}
+                      open={true}
+                      selectorPrimaryFocus="[data-modal-primary-focus]"
+                    >
+                      <div
+                        className="bx--modal is-visible bx--modal--expressive bx--modal--expressive--fullwidth"
+                        data-autoid="dds--expressive-modal"
+                        onBlur={[Function]}
+                        onClick={[Function]}
+                        onKeyDown={[Function]}
+                        onTransitionEnd={[Function]}
+                        open={true}
+                        role="presentation"
+                        tabIndex={-1}
+                      >
+                        <div
+                          className="bx--modal-container"
+                        >
+                          <ExpressiveModalCloseBtn
+                            iconDescription="Close"
+                            key=".0"
+                            onClick={[Function]}
+                          >
+                            <button
+                              className="bx--modal-close"
+                              data-autoid="dds--expressive-modal__close"
+                              onClick={[Function]}
+                              title="Close"
+                              type="button"
+                            >
+                              <ForwardRef(Close20)
+                                aria-label="Close"
+                                className="bx--modal-close__icon"
+                              >
+                                <Icon
+                                  aria-label="Close"
+                                  className="bx--modal-close__icon"
+                                  height={20}
+                                  preserveAspectRatio="xMidYMid meet"
+                                  viewBox="0 0 32 32"
+                                  width={20}
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <svg
+                                    aria-label="Close"
+                                    className="bx--modal-close__icon"
+                                    focusable="false"
+                                    height={20}
+                                    preserveAspectRatio="xMidYMid meet"
+                                    role="img"
+                                    style={
+                                      Object {
+                                        "willChange": "transform",
+                                      }
+                                    }
+                                    viewBox="0 0 32 32"
+                                    width={20}
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      d="M24 9.4L22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16 24 9.4z"
+                                    />
+                                  </svg>
+                                </Icon>
+                              </ForwardRef(Close20)>
+                            </button>
+                          </ExpressiveModalCloseBtn>
+                          <ModalBody
+                            key=".1"
+                          >
+                            <div
+                              className="bx--modal-content"
+                            >
+                              <div
+                                className="bx--lightbox-media-viewer__container"
+                              >
+                                <div
+                                  className="bx--lightbox-media-viewer__row"
+                                >
+                                  <div
+                                    className="bx--lightbox-media-viewer__media bx--no-gutter"
+                                  >
+                                    <Image
+                                      alt="Image alt text"
+                                      defaultSrc="https://dummyimage.com/1280x720/ee5396/161616&amp;text=16:9"
+                                    >
+                                      <picture
+                                        alt="Image alt text"
+                                        className="bx--image"
+                                        data-autoid="dds--image__longdescription-"
+                                      >
+                                        <img
+                                          alt="Image alt text"
+                                          aria-describedby=""
+                                          className="bx--image__img"
+                                          src="https://dummyimage.com/1280x720/ee5396/161616&amp;text=16:9"
+                                        />
+                                      </picture>
+                                    </Image>
+                                  </div>
+                                  <div
+                                    className="bx--lightbox-media-viewer__media-description bx--no-gutter"
+                                  >
+                                    <div
+                                      className="bx--lightbox-media-viewer__content"
+                                    >
+                                      <div
+                                        className="bx--lightbox-media-viewer__content__title"
+                                        data-autoid="dds--lightbox-media-viewer__content__title"
+                                      >
+                                        Curabitur malesuada varius mi eu posuere
+                                      </div>
+                                      <div
+                                        className="bx--lightbox-media-viewer__content__desc"
+                                        data-autoid="dds--lightbox-media-viewer__content__desc"
+                                      >
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Here are some common categories:
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </ModalBody>
+                        </div>
+                      </div>
+                    </ComposedModal>
+                  </ExpressiveModal>
+                </section>
+              </LightboxMediaViewer>
+            </div>
+          </div>
+        </_default>
+      </div>
+    </ReadmeContent>
+  </div>
+  <input
+    aria-label="input-text-offleft"
+    className="bx--visually-hidden"
+    type="text"
+  />
+</Container>
+`;
+
+exports[`Storyshots Components|LightboxMediaViewer Embedded Video Player 1`] = `
+<Container
+  story={[Function]}
+>
+  <div
+    data-floating-menu-container=""
+    role="main"
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+      }
+    }
+  >
+    <ReadmeContent
+      codeTheme="github"
+      layout={
+        Array [
+          Object {
+            "content": <React.Fragment>
+              <LightboxMediaViewer
+                media={
+                  Object {
+                    "active": false,
+                    "alt": "Image alt text",
+                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Here are some common categories:",
+                    "src": "0_uka1msg4",
+                    "srcThumb": "",
+                    "title": "Curabitur malesuada varius mi eu posuere",
+                    "type": "video",
+                  }
+                }
+                open={true}
+              />
+            </React.Fragment>,
+            "type": "STORY",
+          },
+        ]
+      }
+      theme={Object {}}
+      types={
+        Array [
+          "MD",
+          "STORY",
+          "STORY_SOURCE",
+          "PROPS",
+          "FOOTER_MD",
+          "HEADER_MD",
+        ]
+      }
+    >
+      <div
+        className="storybook-readme-story"
+      >
+        <_default
+          key="0"
+        >
+          <div
+            style={Object {}}
+          >
+            <div>
+              <LightboxMediaViewer
+                media={
+                  Object {
+                    "active": false,
+                    "alt": "Image alt text",
+                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Here are some common categories:",
+                    "src": "0_uka1msg4",
+                    "srcThumb": "",
+                    "title": "Curabitur malesuada varius mi eu posuere",
+                    "type": "video",
+                  }
+                }
+                open={true}
+              >
+                <section
+                  className="bx--lightbox-media-viewer"
+                  data-autoid="dds--lightbox-media-viewer"
+                >
+                  <ExpressiveModal
+                    fullwidth={true}
+                    open={true}
+                  >
+                    <ComposedModal
+                      className="bx--modal--expressive bx--modal--expressive--fullwidth"
+                      data-autoid="dds--expressive-modal"
+                      onKeyDown={[Function]}
+                      open={true}
+                      selectorPrimaryFocus="[data-modal-primary-focus]"
+                    >
+                      <div
+                        className="bx--modal is-visible bx--modal--expressive bx--modal--expressive--fullwidth"
+                        data-autoid="dds--expressive-modal"
+                        onBlur={[Function]}
+                        onClick={[Function]}
+                        onKeyDown={[Function]}
+                        onTransitionEnd={[Function]}
+                        open={true}
+                        role="presentation"
+                        tabIndex={-1}
+                      >
+                        <div
+                          className="bx--modal-container"
+                        >
+                          <ExpressiveModalCloseBtn
+                            iconDescription="Close"
+                            key=".0"
+                            onClick={[Function]}
+                          >
+                            <button
+                              className="bx--modal-close"
+                              data-autoid="dds--expressive-modal__close"
+                              onClick={[Function]}
+                              title="Close"
+                              type="button"
+                            >
+                              <ForwardRef(Close20)
+                                aria-label="Close"
+                                className="bx--modal-close__icon"
+                              >
+                                <Icon
+                                  aria-label="Close"
+                                  className="bx--modal-close__icon"
+                                  height={20}
+                                  preserveAspectRatio="xMidYMid meet"
+                                  viewBox="0 0 32 32"
+                                  width={20}
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <svg
+                                    aria-label="Close"
+                                    className="bx--modal-close__icon"
+                                    focusable="false"
+                                    height={20}
+                                    preserveAspectRatio="xMidYMid meet"
+                                    role="img"
+                                    style={
+                                      Object {
+                                        "willChange": "transform",
+                                      }
+                                    }
+                                    viewBox="0 0 32 32"
+                                    width={20}
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      d="M24 9.4L22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16 24 9.4z"
+                                    />
+                                  </svg>
+                                </Icon>
+                              </ForwardRef(Close20)>
+                            </button>
+                          </ExpressiveModalCloseBtn>
+                          <ModalBody
+                            key=".1"
+                          >
+                            <div
+                              className="bx--modal-content"
+                            >
+                              <div
+                                className="bx--lightbox-media-viewer__container"
+                              >
+                                <div
+                                  className="bx--lightbox-media-viewer__row"
+                                >
+                                  <div
+                                    className="bx--lightbox-media-viewer__media bx--no-gutter"
+                                  >
+                                    <VideoPlayer
+                                      videoId="0_uka1msg4"
+                                    >
+                                      <div
+                                        aria-label="undefined undefined"
+                                        className="bx--video-player"
+                                      >
+                                        <div
+                                          className="bx--video-player__video-container"
+                                          data-autoid="dds--video-player__video-0_uka1msg4"
+                                        >
+                                          <div
+                                            className="bx--video-player__video"
+                                            id="bx--video-player__video-0_uka1msg4"
+                                          />
+                                        </div>
+                                      </div>
+                                    </VideoPlayer>
+                                  </div>
+                                  <div
+                                    className="bx--lightbox-media-viewer__media-description bx--no-gutter"
+                                  >
+                                    <div
+                                      className="bx--lightbox-media-viewer__content"
+                                    >
+                                      <div
+                                        className="bx--lightbox-media-viewer__content__title"
+                                        data-autoid="dds--lightbox-media-viewer__content__title"
+                                      >
+                                        Curabitur malesuada varius mi eu posuere
+                                      </div>
+                                      <div
+                                        className="bx--lightbox-media-viewer__content__desc"
+                                        data-autoid="dds--lightbox-media-viewer__content__desc"
+                                      >
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Here are some common categories:
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </ModalBody>
+                        </div>
+                      </div>
+                    </ComposedModal>
+                  </ExpressiveModal>
+                </section>
+              </LightboxMediaViewer>
+            </div>
+          </div>
+        </_default>
+      </div>
+    </ReadmeContent>
+  </div>
+  <input
+    aria-label="input-text-offleft"
+    className="bx--visually-hidden"
+    type="text"
+  />
+</Container>
+`;
+
 exports[`Storyshots Components|Link with Icon Default 1`] = `
 <Container
   story={[Function]}
