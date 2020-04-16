@@ -25,14 +25,6 @@ export const DDS_MASTHEAD_L1 =
   process.env.DDS_MASTHEAD_L1 === 'true' || DDS_FLAGS_ALL || false;
 
 /**
- * This determines if the LightboxMediaViewer component will be rendered or not
- *
- * @type {string | boolean}
- */
-export const DDS_LIGHTBOX_MEDIA_VIEWER =
-  process.env.DDS_LIGHTBOX_MEDIA_VIEWER === 'true' || DDS_FLAGS_ALL || false;
-
-/**
  * This determines if the simplebenefits will be rendered or not
  *
  * @type {string | boolean}
