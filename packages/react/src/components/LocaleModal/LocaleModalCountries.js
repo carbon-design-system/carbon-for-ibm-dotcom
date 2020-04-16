@@ -31,9 +31,6 @@ const LocaleModalCountries = ({
     const localeFilter = document.getElementById(
       `${prefix}--locale-modal__filter`
     );
-    // const localeItems = document.querySelectorAll(
-    //   `.${prefix}--locale-modal__locales`
-    // );
     const localeText = document.querySelector(
       `.${prefix}--locale-modal__search-text`
     );
@@ -110,7 +107,11 @@ const LocaleModalCountries = ({
           {modalLabels.availabilityText}
         </p>
       </div>
-      <div className={`${prefix}--locale-modal__list`}>
+      <div
+        role="listbox"
+        tabindex="0"
+        aria-labelledby={`${prefix}--locale-modal__filter`}
+        className={`${prefix}--locale-modal__list`}>
         {regionList &&
           regionList.map(region =>
             region.countries.map((country, index) => (
