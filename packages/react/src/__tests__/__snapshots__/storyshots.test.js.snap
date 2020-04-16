@@ -782,7 +782,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                   <div
                                     className="bx--masthead__search"
                                     data-autoid="dds--masthead__search"
-                                    onBlur={[Function]}
                                   >
                                     <form
                                       action="https://www.ibm.com/search?lnk=mhsrch"
@@ -5961,7 +5960,6 @@ exports[`Storyshots Components|Masthead Default 1`] = `
                                 <div
                                   className="bx--masthead__search"
                                   data-autoid="dds--masthead__search"
-                                  onBlur={[Function]}
                                 >
                                   <form
                                     action="https://www.ibm.com/search?lnk=mhsrch"
@@ -6624,7 +6622,6 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
                                 <div
                                   className="bx--masthead__search bx--masthead__search--active"
                                   data-autoid="dds--masthead__search"
-                                  onBlur={[Function]}
                                 >
                                   <form
                                     action="https://www.ibm.com/search?lnk=mhsrch"
