@@ -105,9 +105,6 @@
         padding-top: $carbon--layout-05;
         padding-bottom: 0;
       }
-      &__container {
-        padding-top: $carbon--spacing-07;
-      }
     }
     @include carbon--breakpoint('lg') {
       .#{$prefix}--model-container {
