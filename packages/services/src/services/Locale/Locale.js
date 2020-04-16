@@ -144,14 +144,14 @@ async function _getLocaleFromDDO() {
       }
     }
 
-    if (!pageInfoIBM.lc || !pageInfoIBM.cc) return false;
+    if (!pageInfoIBM.lc || !pageInfoIBM.cc) return _getLocaleByLangAttr();
 
     return {
       cc: pageInfoIBM.cc,
       lc: pageInfoIBM.lc,
     };
   }
-  return false;
+  return _getLocaleByLangAttr();
 }
 
 /**
@@ -226,7 +226,9 @@ class LocaleAPI {
   static async getLang() {
     const getLocaleFromDDO = await _getLocaleFromDDO();
 
-    return getLocaleFromDDO ? getLocaleFromDDO : _getLocaleByLangAttr();
+    if (getLocaleFromDDO) {
+      return getLocaleFromDDO;
+    } else return _getLocaleByLangAttr();
   }
 
   /**

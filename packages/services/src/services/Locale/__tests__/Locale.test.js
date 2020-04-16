@@ -12,6 +12,7 @@ jest.mock('@carbon/ibmdotcom-utilities', () => ({
   },
   geolocation: jest.fn(() => Promise.resolve('us')),
 }));
+jest.setTimeout(20000);
 
 describe('LocaleAPI', () => {
   const _cc = 'us';
@@ -109,6 +110,16 @@ describe('LocaleAPI', () => {
       headers: {
         'Content-Type': 'application/json; charset=utf-8',
       },
+    });
+  });
+
+  it('should return default locale if no html lang and no DDO', async () => {
+    root.digitalData = null;
+    const lang = await LocaleAPI.getLang();
+
+    expect(lang).toEqual({
+      cc: 'us',
+      lc: 'en',
     });
   });
 });
