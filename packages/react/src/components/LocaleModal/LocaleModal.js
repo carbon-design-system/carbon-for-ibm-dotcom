@@ -55,6 +55,14 @@ const LocaleModal = ({ isOpen, setIsOpen }) => {
           .querySelector(`.${prefix}--modal-header__heading`)
           .setAttribute('tabindex', '1');
       }
+
+      const localeModalContainer = document.querySelector(
+        `.${prefix}--locale-modal-container .${prefix}--modal-container`
+      );
+
+      localeModalContainer.setAttribute('role', 'dialog');
+      localeModalContainer.setAttribute('tabindex', '-1');
+      localeModalContainer.setAttribute('aria-modal', 'true');
     })();
 
     // reset the country search results when clicking close icon or back to region button
@@ -117,7 +125,8 @@ const LocaleModal = ({ isOpen, setIsOpen }) => {
       open={isOpen}
       onClose={close}
       className={`${prefix}--locale-modal-container`}
-      data-autoid={`${stablePrefix}--locale-modal`}>
+      data-autoid={`${stablePrefix}--locale-modal`}
+      selectorPrimaryFocus={`.${prefix}--modal-close`}>
       {isFiltering ? (
         <ModalHeader
           data-autoid={`${stablePrefix}--locale-modal__region-back`}
@@ -164,6 +173,12 @@ const LocaleModal = ({ isOpen, setIsOpen }) => {
    */
   function close() {
     setIsOpen(false);
+    const footerBtn = document.querySelector(
+      `.${prefix}--locale-btn__container .${prefix}--btn--secondary`
+    );
+    setTimeout(() => {
+      footerBtn.focus();
+    }, 100);
   }
 };
 
