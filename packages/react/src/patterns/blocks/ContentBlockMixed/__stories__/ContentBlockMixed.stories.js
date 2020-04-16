@@ -113,7 +113,7 @@ storiesOf('Patterns (Blocks)|ContentBlockMixed', module)
       {
         type: 'ContentGroupSimple',
         mediaType: simpleMediaType,
-        mediaData: simpleMediaData,
+        mediaData: simpleMediaData.image,
         heading: text('Simple group heading', simpleHeading),
         items: object('Simple group content', simpleItems),
       },
