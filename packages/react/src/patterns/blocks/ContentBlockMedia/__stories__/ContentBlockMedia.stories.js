@@ -50,7 +50,7 @@ storiesOf('Patterns (Blocks)|ContentBlockMedia', module)
     };
 
     const simpleHeading = ContentGroupSimpleKnobs.heading;
-    const simpleMediaData = ContentGroupSimpleKnobs.mediaData;
+    const simpleMediaData = ContentGroupSimpleKnobs.mediaData.image;
     const simpleTypes = ContentGroupSimpleKnobs.types;
     const simpleMediaType = simpleTypes.image;
     const simpleItems = ContentGroupSimpleKnobs.items;

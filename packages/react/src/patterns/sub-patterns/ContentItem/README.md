@@ -27,23 +27,27 @@ function App() {
   const heading = 'Lorem ipsum dolor sit amet.';
   const copy = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
 
-  const image = {
-    sources: [
-      {
-        src: 'https://dummyimage.com/288x144/ee5396/161616&text=2:1',
-        breakpoint: 'sm',
-      },
-      {
-        src: 'https://dummyimage.com/448x224/ee5396/161616&text=2:1',
-        breakpoint: 'md',
-      },
-      {
-        src: 'https://dummyimage.com/352x176/ee5396/161616&text=2:1',
-        breakpoint: 'lg',
-      },
-    ],
-    alt: 'Image alt text',
-    defaultSrc: 'https://dummyimage.com/352x176/ee5396/161616&text=2:1',
+  const mediaType = 'image';
+  const mediaData = {
+    heading: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    image: {
+      sources: [
+        {
+          src: 'https://dummyimage.com/320x180/ee5396/161616&text=16:9',
+          breakpoint: 320,
+        },
+        {
+          src: 'https://dummyimage.com/400x225/ee5396/161616&text=16:9',
+          breakpoint: 400,
+        },
+        {
+          src: 'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
+          breakpoint: 672,
+        },
+      ],
+      alt: 'Image alt text',
+      defaultSrc: 'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
+    },
   };
 
   const cta = {
@@ -52,7 +56,15 @@ function App() {
     href: 'www.ibm.com',
   };
 
-  return <ContentItem heading={heading} copy={copy} image={image} cta={cta} />;
+  return (
+    <ContentItem
+      heading={heading}
+      copy={copy}
+      mediaType={mediaType}
+      mediaData={mediaData}
+      cta={cta}
+    />
+  );
 }
 
 ReactDOM.render(<App />, document.querySelector('#app'));
@@ -70,12 +82,13 @@ Add the following line on your `.env` file at the root of your project,
 
 ## Props
 
-| Name      | Required | Data Type | Default Value | Description                      |
-| --------- | -------- | --------- | ------------- | -------------------------------- |
-| `heading` | NO       | String    | null          | Heading text                     |
-| `copy`    | NO       | String    | null          | Copy text                        |
-| `cta`     | NO       | object    | null          | CTA object. See `cta` below.     |
-| `image`   | NO       | object    | null          | Image object. See `image` below. |
+| Name        | Required | Data Type | Default Value | Description                                                                                                                                                                                                                                                                                                                                                      |
+| ----------- | -------- | --------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `heading`   | NO       | String    | null          | Heading text                                                                                                                                                                                                                                                                                                                                                     |
+| `copy`      | NO       | String    | null          | Copy text                                                                                                                                                                                                                                                                                                                                                        |
+| `cta`       | NO       | object    | null          | CTA object. See `cta` below.                                                                                                                                                                                                                                                                                                                                     |
+| `mediaType` | NO       | String    | n/a           | Determines media type (image or video).                                                                                                                                                                                                                                                                                                                          |
+| `mediaData` | NO       | Object    | n/a           | Media Data for either image or video. See the [`ImageWithCaption`](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/components/ImageWithCaption) or [`VideoPlayer`](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/components/VideoPlayer) component for full usage details. |
 
 ### cta (optional)
 
@@ -96,6 +109,7 @@ for more details on the ImageWithCaption options.
 | `dds--content-item`          | Content item wrapper element. |
 | `dds--content-item__heading` | Content item heading element. |
 | `dds--content-item__copy`    | Content item copy element.    |
+| `dds--content-item__media`   | Content item media element.   |
 
 ## 🙌 Contributing
 
