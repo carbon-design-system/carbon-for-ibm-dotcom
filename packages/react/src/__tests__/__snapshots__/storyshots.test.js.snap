@@ -751,7 +751,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                 </div>
                               </IbmLogo>
                               <div
-                                aria-hidden="false"
                                 className="bx--header__search "
                               >
                                 <MastheadTopNav
@@ -5769,7 +5768,6 @@ exports[`Storyshots Components|Masthead Default 1`] = `
                               </div>
                             </IbmLogo>
                             <div
-                              aria-hidden="false"
                               className="bx--header__search "
                             >
                               <MastheadTopNav
@@ -6271,7 +6269,6 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
                               </div>
                             </IbmLogo>
                             <div
-                              aria-hidden="false"
                               className="bx--header__search "
                             >
                               <MastheadTopNav
