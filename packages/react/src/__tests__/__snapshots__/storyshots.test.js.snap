@@ -10840,29 +10840,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                         }
                       }
                       heading="Lorem ipsum dolor sit amet."
-                      image={
-                        Object {
-                          "heading": "Mauris iaculis eget dolor nec hendrerit.",
-                          "image": Object {
-                            "alt": "Image alt text",
-                            "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
-                            "sources": Array [
-                              Object {
-                                "breakpoint": 320,
-                                "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
-                              },
-                              Object {
-                                "breakpoint": 400,
-                                "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
-                              },
-                              Object {
-                                "breakpoint": 672,
-                                "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
-                              },
-                            ],
-                          },
-                        }
-                      }
                       items={
                         Array [
                           Object {
@@ -10900,6 +10877,30 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                           },
                         ]
                       }
+                      mediaData={
+                        Object {
+                          "heading": "Mauris iaculis eget dolor nec hendrerit.",
+                          "image": Object {
+                            "alt": "Image alt text",
+                            "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
+                            "sources": Array [
+                              Object {
+                                "breakpoint": 320,
+                                "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
+                              },
+                              Object {
+                                "breakpoint": 400,
+                                "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
+                              },
+                              Object {
+                                "breakpoint": 672,
+                                "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
+                              },
+                            ],
+                          },
+                        }
+                      }
+                      mediaType="image"
                     />
                   </div>
                 </div>
@@ -10956,29 +10957,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                         }
                       }
                       heading="Lorem ipsum dolor sit amet."
-                      image={
-                        Object {
-                          "heading": "Mauris iaculis eget dolor nec hendrerit.",
-                          "image": Object {
-                            "alt": "Image alt text",
-                            "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
-                            "sources": Array [
-                              Object {
-                                "breakpoint": 320,
-                                "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
-                              },
-                              Object {
-                                "breakpoint": 400,
-                                "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
-                              },
-                              Object {
-                                "breakpoint": 672,
-                                "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
-                              },
-                            ],
-                          },
-                        }
-                      }
                       items={
                         Array [
                           Object {
@@ -11016,6 +10994,30 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                           },
                         ]
                       }
+                      mediaData={
+                        Object {
+                          "heading": "Mauris iaculis eget dolor nec hendrerit.",
+                          "image": Object {
+                            "alt": "Image alt text",
+                            "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
+                            "sources": Array [
+                              Object {
+                                "breakpoint": 320,
+                                "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
+                              },
+                              Object {
+                                "breakpoint": 400,
+                                "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
+                              },
+                              Object {
+                                "breakpoint": 672,
+                                "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
+                              },
+                            ],
+                          },
+                        }
+                      }
+                      mediaType="image"
                     >
                       <div
                         className="bx--content-block-segmented"
@@ -11062,39 +11064,16 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                               className="bx--content-block__children"
                               data-autoid="dds--content-block__children"
                             >
-                              <ImageWithCaption
-                                classname="bx--content-block-segmented__image"
-                                heading="Mauris iaculis eget dolor nec hendrerit."
-                                image={
-                                  Object {
-                                    "alt": "Image alt text",
-                                    "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
-                                    "sources": Array [
-                                      Object {
-                                        "breakpoint": 320,
-                                        "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
-                                      },
-                                      Object {
-                                        "breakpoint": 400,
-                                        "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
-                                      },
-                                      Object {
-                                        "breakpoint": 672,
-                                        "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
-                                      },
-                                    ],
-                                  }
-                                }
+                              <div
+                                data-autoid="dds--content-block-segmented__media"
                               >
-                                <div
-                                  className="bx--image-with-caption"
-                                  data-autoid="dds--image-with-caption"
-                                >
-                                  <Image
-                                    alt="Image alt text"
-                                    defaultSrc="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
-                                    sources={
-                                      Array [
+                                <ImageWithCaption
+                                  heading="Mauris iaculis eget dolor nec hendrerit."
+                                  image={
+                                    Object {
+                                      "alt": "Image alt text",
+                                      "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
+                                      "sources": Array [
                                         Object {
                                           "breakpoint": 320,
                                           "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
@@ -11107,45 +11086,71 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                           "breakpoint": 672,
                                           "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                                         },
-                                      ]
+                                      ],
                                     }
+                                  }
+                                >
+                                  <div
+                                    className="bx--image-with-caption"
+                                    data-autoid="dds--image-with-caption"
                                   >
-                                    <picture
+                                    <Image
                                       alt="Image alt text"
-                                      className="bx--image"
-                                      data-autoid="dds--image__longdescription-"
+                                      defaultSrc="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
+                                      sources={
+                                        Array [
+                                          Object {
+                                            "breakpoint": 320,
+                                            "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
+                                          },
+                                          Object {
+                                            "breakpoint": 400,
+                                            "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
+                                          },
+                                          Object {
+                                            "breakpoint": 672,
+                                            "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
+                                          },
+                                        ]
+                                      }
                                     >
-                                      <source
-                                        key="0"
-                                        media="(min-width: 672px )"
-                                        srcSet="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
-                                      />
-                                      <source
-                                        key="1"
-                                        media="(min-width: 400px )"
-                                        srcSet="https://dummyimage.com/400x225/ee5396/161616&text=16:9"
-                                      />
-                                      <source
-                                        key="2"
-                                        media="(min-width: 320px )"
-                                        srcSet="https://dummyimage.com/320x180/ee5396/161616&text=16:9"
-                                      />
-                                      <img
+                                      <picture
                                         alt="Image alt text"
-                                        aria-describedby=""
-                                        className="bx--image__img"
-                                        src="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
-                                      />
-                                    </picture>
-                                  </Image>
-                                  <p
-                                    className="bx--image__caption"
-                                    data-autoid="dds--image__caption"
-                                  >
-                                    Mauris iaculis eget dolor nec hendrerit.
-                                  </p>
-                                </div>
-                              </ImageWithCaption>
+                                        className="bx--image"
+                                        data-autoid="dds--image__longdescription-"
+                                      >
+                                        <source
+                                          key="0"
+                                          media="(min-width: 672px )"
+                                          srcSet="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
+                                        />
+                                        <source
+                                          key="1"
+                                          media="(min-width: 400px )"
+                                          srcSet="https://dummyimage.com/400x225/ee5396/161616&text=16:9"
+                                        />
+                                        <source
+                                          key="2"
+                                          media="(min-width: 320px )"
+                                          srcSet="https://dummyimage.com/320x180/ee5396/161616&text=16:9"
+                                        />
+                                        <img
+                                          alt="Image alt text"
+                                          aria-describedby=""
+                                          className="bx--image__img"
+                                          src="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
+                                        />
+                                      </picture>
+                                    </Image>
+                                    <p
+                                      className="bx--image__caption"
+                                      data-autoid="dds--image__caption"
+                                    >
+                                      Mauris iaculis eget dolor nec hendrerit.
+                                    </p>
+                                  </div>
+                                </ImageWithCaption>
+                              </div>
                               <ContentGroup
                                 heading="Lorem ipsum dolor sit amet."
                                 key="0"
@@ -11558,29 +11563,30 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                         }
                       }
                       heading="Curabitur malesuada varius mi eu posuere"
-                      image={
+                      mediaData={
                         Object {
                           "heading": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
                           "image": Object {
                             "alt": "Image alt text",
-                            "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                            "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                             "sources": Array [
                               Object {
                                 "breakpoint": 320,
-                                "src": "https://dummyimage.com/320x180/ee5396/161616&amp;text=16:9",
+                                "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
                               },
                               Object {
                                 "breakpoint": 400,
-                                "src": "https://dummyimage.com/400x225/ee5396/161616&amp;text=16:9",
+                                "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
                               },
                               Object {
                                 "breakpoint": 672,
-                                "src": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                                "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                               },
                             ],
                           },
                         }
                       }
+                      mediaType="image"
                     />
                   </div>
                 </div>
@@ -11644,29 +11650,30 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                         }
                       }
                       heading="Curabitur malesuada varius mi eu posuere"
-                      image={
+                      mediaData={
                         Object {
                           "heading": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
                           "image": Object {
                             "alt": "Image alt text",
-                            "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                            "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                             "sources": Array [
                               Object {
                                 "breakpoint": 320,
-                                "src": "https://dummyimage.com/320x180/ee5396/161616&amp;text=16:9",
+                                "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
                               },
                               Object {
                                 "breakpoint": 400,
-                                "src": "https://dummyimage.com/400x225/ee5396/161616&amp;text=16:9",
+                                "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
                               },
                               Object {
                                 "breakpoint": 672,
-                                "src": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                                "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                               },
                             ],
                           },
                         }
                       }
+                      mediaType="image"
                     >
                       <div
                         className="bx--content-block-simple"
@@ -11732,89 +11739,93 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                                     />
                                   </div>
                                 </ContentItem>
-                                <ImageWithCaption
-                                  heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-                                  image={
-                                    Object {
-                                      "alt": "Image alt text",
-                                      "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
-                                      "sources": Array [
-                                        Object {
-                                          "breakpoint": 320,
-                                          "src": "https://dummyimage.com/320x180/ee5396/161616&amp;text=16:9",
-                                        },
-                                        Object {
-                                          "breakpoint": 400,
-                                          "src": "https://dummyimage.com/400x225/ee5396/161616&amp;text=16:9",
-                                        },
-                                        Object {
-                                          "breakpoint": 672,
-                                          "src": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
-                                        },
-                                      ],
-                                    }
-                                  }
+                                <div
+                                  data-autoid="dds--content-block-simple__media"
                                 >
-                                  <div
-                                    className="bx--image-with-caption"
-                                    data-autoid="dds--image-with-caption"
-                                  >
-                                    <Image
-                                      alt="Image alt text"
-                                      defaultSrc="https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9"
-                                      sources={
-                                        Array [
+                                  <ImageWithCaption
+                                    heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                                    image={
+                                      Object {
+                                        "alt": "Image alt text",
+                                        "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
+                                        "sources": Array [
                                           Object {
                                             "breakpoint": 320,
-                                            "src": "https://dummyimage.com/320x180/ee5396/161616&amp;text=16:9",
+                                            "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
                                           },
                                           Object {
                                             "breakpoint": 400,
-                                            "src": "https://dummyimage.com/400x225/ee5396/161616&amp;text=16:9",
+                                            "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
                                           },
                                           Object {
                                             "breakpoint": 672,
-                                            "src": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                                            "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                                           },
-                                        ]
+                                        ],
                                       }
+                                    }
+                                  >
+                                    <div
+                                      className="bx--image-with-caption"
+                                      data-autoid="dds--image-with-caption"
                                     >
-                                      <picture
+                                      <Image
                                         alt="Image alt text"
-                                        className="bx--image"
-                                        data-autoid="dds--image__longdescription-"
+                                        defaultSrc="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
+                                        sources={
+                                          Array [
+                                            Object {
+                                              "breakpoint": 320,
+                                              "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
+                                            },
+                                            Object {
+                                              "breakpoint": 400,
+                                              "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
+                                            },
+                                            Object {
+                                              "breakpoint": 672,
+                                              "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
+                                            },
+                                          ]
+                                        }
                                       >
-                                        <source
-                                          key="0"
-                                          media="(min-width: 672px )"
-                                          srcSet="https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9"
-                                        />
-                                        <source
-                                          key="1"
-                                          media="(min-width: 400px )"
-                                          srcSet="https://dummyimage.com/400x225/ee5396/161616&amp;text=16:9"
-                                        />
-                                        <source
-                                          key="2"
-                                          media="(min-width: 320px )"
-                                          srcSet="https://dummyimage.com/320x180/ee5396/161616&amp;text=16:9"
-                                        />
-                                        <img
+                                        <picture
                                           alt="Image alt text"
-                                          aria-describedby=""
-                                          className="bx--image__img"
-                                          src="https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9"
-                                        />
-                                      </picture>
-                                    </Image>
-                                    <p
-                                      className="bx--image__caption"
-                                      data-autoid="dds--image__caption"
-                                    >
-                                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                    </p>
-                                  </div>
-                                </ImageWithCaption>
+                                          className="bx--image"
+                                          data-autoid="dds--image__longdescription-"
+                                        >
+                                          <source
+                                            key="0"
+                                            media="(min-width: 672px )"
+                                            srcSet="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
+                                          />
+                                          <source
+                                            key="1"
+                                            media="(min-width: 400px )"
+                                            srcSet="https://dummyimage.com/400x225/ee5396/161616&text=16:9"
+                                          />
+                                          <source
+                                            key="2"
+                                            media="(min-width: 320px )"
+                                            srcSet="https://dummyimage.com/320x180/ee5396/161616&text=16:9"
+                                          />
+                                          <img
+                                            alt="Image alt text"
+                                            aria-describedby=""
+                                            className="bx--image__img"
+                                            src="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
+                                          />
+                                        </picture>
+                                      </Image>
+                                      <p
+                                        className="bx--image__caption"
+                                        data-autoid="dds--image__caption"
+                                      >
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                      </p>
+                                    </div>
+                                  </ImageWithCaption>
+                                </div>
                               </div>
                             </div>
                             <div
@@ -13228,19 +13239,19 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupSimple Default 1`] = `
                           "heading": "Lorem ipsum dolor sit amet.",
                           "image": Object {
                             "alt": "Image alt text",
-                            "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                            "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                             "sources": Array [
                               Object {
                                 "breakpoint": 320,
-                                "src": "https://dummyimage.com/320x180/ee5396/161616&amp;text=16:9",
+                                "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
                               },
                               Object {
                                 "breakpoint": 400,
-                                "src": "https://dummyimage.com/400x225/ee5396/161616&amp;text=16:9",
+                                "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
                               },
                               Object {
                                 "breakpoint": 672,
-                                "src": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                                "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                               },
                             ],
                           },
@@ -13316,19 +13327,19 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupSimple Default 1`] = `
                           "heading": "Lorem ipsum dolor sit amet.",
                           "image": Object {
                             "alt": "Image alt text",
-                            "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                            "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                             "sources": Array [
                               Object {
                                 "breakpoint": 320,
-                                "src": "https://dummyimage.com/320x180/ee5396/161616&amp;text=16:9",
+                                "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
                               },
                               Object {
                                 "breakpoint": 400,
-                                "src": "https://dummyimage.com/400x225/ee5396/161616&amp;text=16:9",
+                                "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
                               },
                               Object {
                                 "breakpoint": 672,
-                                "src": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                                "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                               },
                             ],
                           },
@@ -13375,19 +13386,19 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupSimple Default 1`] = `
                                   image={
                                     Object {
                                       "alt": "Image alt text",
-                                      "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                                      "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                                       "sources": Array [
                                         Object {
                                           "breakpoint": 320,
-                                          "src": "https://dummyimage.com/320x180/ee5396/161616&amp;text=16:9",
+                                          "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
                                         },
                                         Object {
                                           "breakpoint": 400,
-                                          "src": "https://dummyimage.com/400x225/ee5396/161616&amp;text=16:9",
+                                          "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
                                         },
                                         Object {
                                           "breakpoint": 672,
-                                          "src": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                                          "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                                         },
                                       ],
                                     }
@@ -13399,20 +13410,20 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupSimple Default 1`] = `
                                   >
                                     <Image
                                       alt="Image alt text"
-                                      defaultSrc="https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9"
+                                      defaultSrc="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                       sources={
                                         Array [
                                           Object {
                                             "breakpoint": 320,
-                                            "src": "https://dummyimage.com/320x180/ee5396/161616&amp;text=16:9",
+                                            "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
                                           },
                                           Object {
                                             "breakpoint": 400,
-                                            "src": "https://dummyimage.com/400x225/ee5396/161616&amp;text=16:9",
+                                            "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
                                           },
                                           Object {
                                             "breakpoint": 672,
-                                            "src": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                                            "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                                           },
                                         ]
                                       }
@@ -13425,23 +13436,23 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupSimple Default 1`] = `
                                         <source
                                           key="0"
                                           media="(min-width: 672px )"
-                                          srcSet="https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9"
+                                          srcSet="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                         />
                                         <source
                                           key="1"
                                           media="(min-width: 400px )"
-                                          srcSet="https://dummyimage.com/400x225/ee5396/161616&amp;text=16:9"
+                                          srcSet="https://dummyimage.com/400x225/ee5396/161616&text=16:9"
                                         />
                                         <source
                                           key="2"
                                           media="(min-width: 320px )"
-                                          srcSet="https://dummyimage.com/320x180/ee5396/161616&amp;text=16:9"
+                                          srcSet="https://dummyimage.com/320x180/ee5396/161616&text=16:9"
                                         />
                                         <img
                                           alt="Image alt text"
                                           aria-describedby=""
                                           className="bx--image__img"
-                                          src="https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9"
+                                          src="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                         />
                                       </picture>
                                     </Image>
@@ -19878,7 +19889,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentItem Default 1`] = `
                         }
                       }
                       heading="Lorem ipsum dolor sit amet."
-                      image={
+                      mediaData={
                         Object {
                           "heading": "this is an image caption",
                           "image": Object {
@@ -19901,6 +19912,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentItem Default 1`] = `
                           },
                         }
                       }
+                      mediaType="image"
                     />
                   </div>
                 </div>
@@ -19951,7 +19963,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentItem Default 1`] = `
                         }
                       }
                       heading="Lorem ipsum dolor sit amet."
-                      image={
+                      mediaData={
                         Object {
                           "heading": "this is an image caption",
                           "image": Object {
@@ -19974,6 +19986,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentItem Default 1`] = `
                           },
                         }
                       }
+                      mediaType="image"
                     >
                       <div
                         className="bx--content-item"
@@ -19985,39 +19998,16 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentItem Default 1`] = `
                         >
                           Lorem ipsum dolor sit amet.
                         </h4>
-                        <ImageWithCaption
-                          customClassName="bx--content-item__image"
-                          heading="this is an image caption"
-                          image={
-                            Object {
-                              "alt": "content item image",
-                              "defaultSrc": "https://dummyimage.com/352x176/ee5396/161616&amp;text=2:1",
-                              "sources": Array [
-                                Object {
-                                  "breakpoint": "sm",
-                                  "src": "https://dummyimage.com/288x144/ee5396/161616&amp;text=2:1",
-                                },
-                                Object {
-                                  "breakpoint": "md",
-                                  "src": "https://dummyimage.com/448x224/ee5396/161616&amp;text=2:1",
-                                },
-                                Object {
-                                  "breakpoint": "lg",
-                                  "src": "https://dummyimage.com/352x176/ee5396/161616&amp;text=2:1",
-                                },
-                              ],
-                            }
-                          }
+                        <div
+                          data-autoid="dds--content-item__media"
                         >
-                          <div
-                            className="bx--image-with-caption bx--content-item__image"
-                            data-autoid="dds--image-with-caption"
-                          >
-                            <Image
-                              alt="content item image"
-                              defaultSrc="https://dummyimage.com/352x176/ee5396/161616&amp;text=2:1"
-                              sources={
-                                Array [
+                          <ImageWithCaption
+                            heading="this is an image caption"
+                            image={
+                              Object {
+                                "alt": "content item image",
+                                "defaultSrc": "https://dummyimage.com/352x176/ee5396/161616&amp;text=2:1",
+                                "sources": Array [
                                   Object {
                                     "breakpoint": "sm",
                                     "src": "https://dummyimage.com/288x144/ee5396/161616&amp;text=2:1",
@@ -20030,45 +20020,71 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentItem Default 1`] = `
                                     "breakpoint": "lg",
                                     "src": "https://dummyimage.com/352x176/ee5396/161616&amp;text=2:1",
                                   },
-                                ]
+                                ],
                               }
+                            }
+                          >
+                            <div
+                              className="bx--image-with-caption"
+                              data-autoid="dds--image-with-caption"
                             >
-                              <picture
+                              <Image
                                 alt="content item image"
-                                className="bx--image"
-                                data-autoid="dds--image__longdescription-"
+                                defaultSrc="https://dummyimage.com/352x176/ee5396/161616&amp;text=2:1"
+                                sources={
+                                  Array [
+                                    Object {
+                                      "breakpoint": "sm",
+                                      "src": "https://dummyimage.com/288x144/ee5396/161616&amp;text=2:1",
+                                    },
+                                    Object {
+                                      "breakpoint": "md",
+                                      "src": "https://dummyimage.com/448x224/ee5396/161616&amp;text=2:1",
+                                    },
+                                    Object {
+                                      "breakpoint": "lg",
+                                      "src": "https://dummyimage.com/352x176/ee5396/161616&amp;text=2:1",
+                                    },
+                                  ]
+                                }
                               >
-                                <source
-                                  key="0"
-                                  media="(min-width: 1056px )"
-                                  srcSet="https://dummyimage.com/352x176/ee5396/161616&amp;text=2:1"
-                                />
-                                <source
-                                  key="1"
-                                  media="(min-width: 672px )"
-                                  srcSet="https://dummyimage.com/448x224/ee5396/161616&amp;text=2:1"
-                                />
-                                <source
-                                  key="2"
-                                  media="(min-width: 320px )"
-                                  srcSet="https://dummyimage.com/288x144/ee5396/161616&amp;text=2:1"
-                                />
-                                <img
+                                <picture
                                   alt="content item image"
-                                  aria-describedby=""
-                                  className="bx--image__img"
-                                  src="https://dummyimage.com/352x176/ee5396/161616&amp;text=2:1"
-                                />
-                              </picture>
-                            </Image>
-                            <p
-                              className="bx--image__caption"
-                              data-autoid="dds--image__caption"
-                            >
-                              this is an image caption
-                            </p>
-                          </div>
-                        </ImageWithCaption>
+                                  className="bx--image"
+                                  data-autoid="dds--image__longdescription-"
+                                >
+                                  <source
+                                    key="0"
+                                    media="(min-width: 1056px )"
+                                    srcSet="https://dummyimage.com/352x176/ee5396/161616&amp;text=2:1"
+                                  />
+                                  <source
+                                    key="1"
+                                    media="(min-width: 672px )"
+                                    srcSet="https://dummyimage.com/448x224/ee5396/161616&amp;text=2:1"
+                                  />
+                                  <source
+                                    key="2"
+                                    media="(min-width: 320px )"
+                                    srcSet="https://dummyimage.com/288x144/ee5396/161616&amp;text=2:1"
+                                  />
+                                  <img
+                                    alt="content item image"
+                                    aria-describedby=""
+                                    className="bx--image__img"
+                                    src="https://dummyimage.com/352x176/ee5396/161616&amp;text=2:1"
+                                  />
+                                </picture>
+                              </Image>
+                              <p
+                                className="bx--image__caption"
+                                data-autoid="dds--image__caption"
+                              >
+                                this is an image caption
+                              </p>
+                            </div>
+                          </ImageWithCaption>
+                        </div>
                         <div
                           className="bx--content-item__copy"
                           dangerouslySetInnerHTML={

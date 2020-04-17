@@ -32,6 +32,12 @@ storiesOf('Patterns (Sub-Patterns)|ContentItem', module)
       href: text('cta.href', 'https://example.com'),
     };
 
+    const mediaType = select(
+      'mediaType (optional)',
+      ['image', 'video', 'none'],
+      'image'
+    );
+
     const image = {
       image: {
         sources: object('Image assets:', [
@@ -57,6 +63,13 @@ storiesOf('Patterns (Sub-Patterns)|ContentItem', module)
       heading: text('image caption:', 'this is an image caption'),
     };
 
+    const video = {
+      videoId: '0_uka1msg4',
+      showDescription: true,
+    };
+
+    const mediaData = mediaType === 'image' ? image : video;
+
     return (
       <div className="bx--grid">
         <div className="bx--row">
@@ -64,7 +77,8 @@ storiesOf('Patterns (Sub-Patterns)|ContentItem', module)
             <ContentItem
               heading={heading}
               copy={copy}
-              image={image}
+              mediaType={mediaType}
+              mediaData={mediaData}
               cta={cta}
             />
           </div>

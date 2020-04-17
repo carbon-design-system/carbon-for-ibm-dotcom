@@ -25,6 +25,12 @@ storiesOf('Patterns (Blocks)|ContentBlockSegmented', module)
   .add('Default', () => {
     const heading = text('Heading', 'Lorem ipsum dolor sit amet.');
 
+    const mediaType = select(
+      'mediaType (optional)',
+      ['image', 'video', 'none'],
+      'image'
+    );
+
     const image = {
       heading: 'Mauris iaculis eget dolor nec hendrerit.',
       image: {
@@ -46,6 +52,13 @@ storiesOf('Patterns (Blocks)|ContentBlockSegmented', module)
         defaultSrc: 'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
       },
     };
+
+    const video = {
+      videoId: '0_uka1msg4',
+      showDescription: true,
+    };
+
+    const mediaData = mediaType === 'image' ? image : video;
 
     const copy = `Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
       Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
@@ -128,7 +141,8 @@ storiesOf('Patterns (Blocks)|ContentBlockSegmented', module)
               copy={copy}
               cta={cta}
               heading={heading}
-              image={image}
+              mediaType={mediaType}
+              mediaData={mediaData}
               items={object('Conent items', items)}
               aside={aside}
             />
