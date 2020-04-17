@@ -5,6 +5,8 @@ import mockAxios from 'axios';
 import response from './data/response.json';
 import root from 'window-or-global';
 
+const mockDigitalDataResponse = digitalDataResponse;
+
 jest.mock('@carbon/ibmdotcom-utilities', () => ({
   ipcinfoCookie: {
     get: jest.fn(() => Promise.resolve({ cc: 'us', lc: 'en' })),
@@ -27,7 +29,7 @@ describe('LocaleAPI', () => {
       })
     );
 
-    root.digitalData = digitalDataResponse;
+    root.digitalData = mockDigitalDataResponse;
   });
 
   afterEach(() => {

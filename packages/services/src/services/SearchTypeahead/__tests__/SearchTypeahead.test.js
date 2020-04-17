@@ -6,6 +6,7 @@ import SearchTypeaheadAPI from '../SearchTypeahead';
 
 const _lc = 'en'; // TODO: bake in tests where lc changes
 const _cc = 'us'; // TODO: bake in tests where cc changes
+const mockDigitalDataResponse = digitalDataResponse;
 
 describe('SearchTypeaheadAPI', () => {
   beforeEach(function() {
@@ -15,7 +16,7 @@ describe('SearchTypeaheadAPI', () => {
       })
     );
 
-    root.digitalData = digitalDataResponse;
+    root.digitalData = mockDigitalDataResponse;
   });
 
   it('should search for ibm.com results', async () => {

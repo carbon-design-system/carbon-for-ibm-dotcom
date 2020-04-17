@@ -226,7 +226,9 @@ class LocaleAPI {
   static async getLang() {
     const getLocaleFromDDO = await _getLocaleFromDDO();
 
-    return getLocaleFromDDO ? getLocaleFromDDO : _getLocaleByLangAttr();
+    if (getLocaleFromDDO) {
+      return getLocaleFromDDO;
+    } else return _getLocaleByLangAttr();
   }
 
   /**
