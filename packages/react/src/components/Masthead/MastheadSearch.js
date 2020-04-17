@@ -5,13 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, {
-  useCallback,
-  useEffect,
-  useReducer,
-  useRef,
-  useState,
-} from 'react';
+import React, { useCallback, useEffect, useReducer, useRef } from 'react';
 import Autosuggest from 'react-autosuggest';
 import { Close20 } from '@carbon/icons-react';
 import cx from 'classnames';
@@ -107,7 +101,8 @@ function _reducer(state, action) {
  * @class
  */
 const MastheadSearch = ({ placeHolderText, renderValue, searchOpenOnload }) => {
-  const { ref, isSearchVisible, setIsSearchVisible } = useSearchVisible(true);
+  const { ref } = useSearchVisible(false);
+
   /**
    * Initial state of the autocomplete component
    *
@@ -139,11 +134,9 @@ const MastheadSearch = ({ placeHolderText, renderValue, searchOpenOnload }) => {
   /**
    * Event handlers to toggle visiblity of search
    *
-   * @param {boolean} initialIsVisible Search visibility
-   * @returns {*} search visibility object
+   * @returns {*} search ref
    */
-  function useSearchVisible(initialIsVisible) {
-    const [isSearchVisible, setIsSearchVisible] = useState(initialIsVisible);
+  function useSearchVisible() {
     const ref = useRef(null);
 
     /**
@@ -154,7 +147,6 @@ const MastheadSearch = ({ placeHolderText, renderValue, searchOpenOnload }) => {
     const handleHideSearch = event => {
       if (event.key === 'Escape') {
         if (!state.suggestionContainerVisible) {
-          setIsSearchVisible(false);
           dispatch({ type: 'setSearchClosed' });
         }
       }
@@ -169,7 +161,6 @@ const MastheadSearch = ({ placeHolderText, renderValue, searchOpenOnload }) => {
      */
     const handleClickOutside = event => {
       if (ref.current && !ref.current.contains(event.target)) {
-        setIsSearchVisible(false);
         dispatch({ type: 'setSearchClosed' });
       }
     };
@@ -183,7 +174,7 @@ const MastheadSearch = ({ placeHolderText, renderValue, searchOpenOnload }) => {
       };
     });
 
-    return { ref, isSearchVisible, setIsSearchVisible };
+    return { ref };
   }
 
   const className = cx({
@@ -218,14 +209,12 @@ const MastheadSearch = ({ placeHolderText, renderValue, searchOpenOnload }) => {
    * This will execute the search if the search is open, or will open the
    * search field if closed.
    *
-   * @returns {*} search visibility object
    */
   function searchIconClick() {
     if (state.isSearchOpen) {
       root.parent.location.href = getRedirect(state.val);
     } else {
       dispatch({ type: 'setSearchOpen' });
-      return setIsSearchVisible(true);
     }
   }
 
@@ -369,7 +358,7 @@ const MastheadSearch = ({ placeHolderText, renderValue, searchOpenOnload }) => {
       data-autoid={`${stablePrefix}--masthead__search`}
       className={className}
       ref={ref}>
-      {isSearchVisible && (
+      {state.isSearchOpen && (
         <form
           id={`${prefix}--masthead__search--form`}
           action={_redirectUrl}
@@ -394,7 +383,9 @@ const MastheadSearch = ({ placeHolderText, renderValue, searchOpenOnload }) => {
       <div className={`${prefix}--header__search--actions`}>
         <HeaderGlobalAction
           onClick={searchIconClick}
-          aria-label="Search all of IBM"
+          aria-label={
+            state.isSearchOpen ? 'Search all of IBM' : 'Open IBM search field'
+          }
           className={`${prefix}--header__search--search`}
           data-autoid={`${stablePrefix}--header__search--search`}
           tabIndex="0">
