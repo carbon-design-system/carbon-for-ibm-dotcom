@@ -6,7 +6,7 @@
  */
 
 import { altlangs, settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
-import { ArrowLeft20, Globe20 } from '@carbon/icons-react';
+import { ArrowLeft20, EarthFilled20 } from '@carbon/icons-react';
 import { ComposedModal, ModalBody, ModalHeader } from 'carbon-components-react';
 import React, { useEffect, useState } from 'react';
 import cx from 'classnames';
@@ -55,6 +55,14 @@ const LocaleModal = ({ isOpen, setIsOpen }) => {
           .querySelector(`.${prefix}--modal-header__heading`)
           .setAttribute('tabindex', '1');
       }
+
+      const localeModalContainer = document.querySelector(
+        `.${prefix}--locale-modal-container .${prefix}--modal-container`
+      );
+
+      localeModalContainer.setAttribute('role', 'dialog');
+      localeModalContainer.setAttribute('tabindex', '-1');
+      localeModalContainer.setAttribute('aria-modal', 'true');
     })();
 
     // reset the country search results when clicking close icon or back to region button
@@ -117,7 +125,8 @@ const LocaleModal = ({ isOpen, setIsOpen }) => {
       open={isOpen}
       onClose={close}
       className={`${prefix}--locale-modal-container`}
-      data-autoid={`${stablePrefix}--locale-modal`}>
+      data-autoid={`${stablePrefix}--locale-modal`}
+      selectorPrimaryFocus={`.${prefix}--modal-close`}>
       {isFiltering ? (
         <ModalHeader
           data-autoid={`${stablePrefix}--locale-modal__region-back`}
@@ -132,7 +141,9 @@ const LocaleModal = ({ isOpen, setIsOpen }) => {
         <ModalHeader
           label={[
             langDisplay,
-            <Globe20 className={`${prefix}--locale-modal__label-globe`} />,
+            <EarthFilled20
+              className={`${prefix}--locale-modal__label-globe`}
+            />,
           ]}
           title={modalLabels.headerTitle}
           iconDescription={modalLabels.modalClose}
@@ -144,6 +155,7 @@ const LocaleModal = ({ isOpen, setIsOpen }) => {
           setCurrentRegion={setCurrentRegion}
           setIsFiltering={setIsFiltering}
           setClearResults={setClearResults}
+          returnButtonLabel={modalLabels.headerTitle}
         />
         <LocaleModalCountries
           regionList={sortList(list)}
@@ -161,6 +173,12 @@ const LocaleModal = ({ isOpen, setIsOpen }) => {
    */
   function close() {
     setIsOpen(false);
+    const footerBtn = document.querySelector(
+      `.${prefix}--locale-btn__container .${prefix}--btn--secondary`
+    );
+    setTimeout(() => {
+      footerBtn.focus();
+    }, 100);
   }
 };
 

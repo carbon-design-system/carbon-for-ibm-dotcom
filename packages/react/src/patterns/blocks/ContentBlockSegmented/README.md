@@ -28,12 +28,36 @@ import { ContentBlockSegmented } from '@carbon/ibmdotcom-react';
 import 'yourapplication.scss';
 
 function App() {
+  const mediaType = 'image';
+  const mediaData = {
+    heading: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    image: {
+      sources: [
+        {
+          src: 'https://dummyimage.com/320x180/ee5396/161616&text=16:9',
+          breakpoint: 320,
+        },
+        {
+          src: 'https://dummyimage.com/400x225/ee5396/161616&text=16:9',
+          breakpoint: 400,
+        },
+        {
+          src: 'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
+          breakpoint: 672,
+        },
+      ],
+      alt: 'Image alt text',
+      defaultSrc: 'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
+    },
+  };
+
   return (
     <ContentBlockSegmented
       copy={copy}
       cta={cta}
       heading={heading}
-      image={image}
+      mediaType={mediaType}
+      mediaData={mediaData}
       items={items}
     />
   );
@@ -51,13 +75,15 @@ Add the following line on your `.env` file at the root of your project,
 
 ## Props
 
-| Name      | Required | Data Type | Default Value | Description                                                                                                                                                                                    |
-| --------- | -------- | --------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `copy`    | YES      | String    | null          | Short copy to suppport title.                                                                                                                                                                  |
-| `cta`     | NO       | Object    | n/a           | Supports `text` and `card` styles. See the [`CTA`](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/components/CTA) component for full usage details. |
-| `heading` | YES      | String    | n/a           | Main title of pattern.                                                                                                                                                                         |
-| `items`   | YES      | Array     | n/a           | Array of content items to render. See `items` below.                                                                                                                                           |
-| `image`   | NO       | Object    | n/a           | See the [`Image`](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/components/image) component for full usage details.                                |
+| Name        | Required | Data Type | Default Value | Description                                                                                                                                                                                                                                                                                                                                                      |
+| ----------- | -------- | --------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `copy`      | YES      | String    | null          | Short copy to suppport title.                                                                                                                                                                                                                                                                                                                                    |
+| `cta`       | NO       | Object    | n/a           | Supports `text` and `card` styles. See the [`CTA`](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/components/CTA) component for full usage details.                                                                                                                                                                   |
+| `heading`   | YES      | String    | n/a           | Main title of pattern.                                                                                                                                                                                                                                                                                                                                           |
+| `items`     | YES      | Array     | n/a           | Array of content items to render. See `items` below.                                                                                                                                                                                                                                                                                                             |
+| `mediaType` | NO       | String    | n/a           | Determines media type (image or video).                                                                                                                                                                                                                                                                                                                          |
+| `mediaData` | NO       | Object    | n/a           | Media Data for either image or video. See the [`ImageWithCaption`](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/components/ImageWithCaption) or [`VideoPlayer`](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/components/VideoPlayer) component for full usage details. |
+| `aside`     | NO       | Object    | n/a           | Elements to be rendered on right panel of the content block. See `ContentBlock` README for more info.                                                                                                                                                                                                                                                            |
 
 ### items
 
@@ -69,9 +95,10 @@ Add the following line on your `.env` file at the root of your project,
 
 ## Stable selectors
 
-| Name                           | Description |
-| ------------------------------ | ----------- |
-| `dds--content-block-segmented` | Pattern     |
+| Name                                  | Description   |
+| ------------------------------------- | ------------- |
+| `dds--content-block-segmented`        | Pattern       |
+| `dds--content-block-segmented__media` | Media element |
 
 ## 🙌 Contributing
 

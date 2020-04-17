@@ -13,6 +13,7 @@ import { ImageWithCaption } from '../../../components/ImageWithCaption';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { settings } from 'carbon-components';
+import { VideoPlayer } from '../../../components/VideoPlayer';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
@@ -24,26 +25,50 @@ const { prefix } = settings;
  * @param {string} props.heading content block heading
  * @param {string} props.copy content block short copy to support the heading
  * @param {object} props.cta content block cta
- * @param {object} props.image content block intro image
+ * @param {string} props.mediaType Determines the media type (image or video)
+ * @param {object} props.mediaData Data properties for image or video
  * @param {Array} props.items content block content items
+ * @param {object} props.aside elements to render on right panel
  * @returns {*} Content Block - Segmented pattern
  */
-const ContentBlockSegmented = ({ copy, cta, heading, image, items }) => {
+const ContentBlockSegmented = ({
+  copy,
+  cta,
+  heading,
+  mediaType,
+  mediaData,
+  items,
+  aside,
+}) => {
   return (
     <div
       data-autoid={`${stablePrefix}--content-block-segmented`}
       className={`${prefix}--content-block-segmented`}>
-      <ContentBlock heading={heading} copy={copy} cta={cta}>
-        {image && (
-          <ImageWithCaption
-            classname={`${prefix}--content-block-segmented__image`}
-            {...image}
-          />
-        )}
+      <ContentBlock heading={heading} copy={copy} cta={cta} aside={aside}>
+        {_renderMedia(mediaType, mediaData)}
         {_renderGroup(items)}
       </ContentBlock>
     </div>
   );
+};
+
+/**
+ * renders either video or image content
+ *
+ * @param {string} type cta type ( external | jump | local)
+ * @param {object} data cta type ( external | jump | local)
+ * @private
+ * @returns {*} media component
+ */
+const _renderMedia = (type, data) => {
+  if (data) {
+    return (
+      <div data-autoid={`${stablePrefix}--content-block-segmented__media`}>
+        {type === 'image' && <ImageWithCaption {...data} />}
+        {type === 'video' && <VideoPlayer {...data} />}
+      </div>
+    );
+  }
 };
 
 /**
@@ -70,8 +95,10 @@ ContentBlockSegmented.propTypes = {
   heading: PropTypes.string.isRequired,
   copy: PropTypes.string.isRequired,
   cta: PropTypes.object,
-  image: PropTypes.object,
+  mediaType: PropTypes.string,
+  mediaData: PropTypes.object,
   items: PropTypes.array.isRequired,
+  aside: PropTypes.object,
 };
 
 export default ContentBlockSegmented;

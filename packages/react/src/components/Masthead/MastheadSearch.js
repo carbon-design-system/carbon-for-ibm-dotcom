@@ -142,20 +142,6 @@ const MastheadSearch = ({ placeHolderText, renderValue, searchOpenOnload }) => {
   }
 
   /**
-   * Close search and suggestions only when search container blurs
-   *
-   * @param {event} event The callback event
-   */
-  function onBlur(event) {
-    if (
-      !searchOpenOnload &&
-      !event.currentTarget.contains(event.relatedTarget)
-    ) {
-      dispatch({ type: 'setSearchClosed' });
-    }
-  }
-
-  /**
    * Autosuggest will pass through all these props to the input.
    *
    * @type {{placeholder: string, value: string, onChange: Function, className: string, onKeyDown: Function}}
@@ -168,7 +154,9 @@ const MastheadSearch = ({ placeHolderText, renderValue, searchOpenOnload }) => {
     onKeyDown: event => {
       switch (event.key) {
         case 'Escape':
-          return dispatch({ type: 'setSearchClosed' });
+          if (!state.suggestionContainerVisible)
+            return dispatch({ type: 'setSearchClosed' });
+          break;
         default:
           break;
       }
@@ -264,6 +252,8 @@ const MastheadSearch = ({ placeHolderText, renderValue, searchOpenOnload }) => {
         dispatch({ type: 'setSuggestionsToPrevious' });
         dispatch({ type: 'showSuggestionsContainer' });
       }
+    } else if (request.reason === 'escape-pressed') {
+      onSuggestionsClearedRequested();
     } else {
       dispatch({ type: 'setSuggestionsToPrevious' });
       dispatch({ type: 'showSuggestionsContainer' });
@@ -302,8 +292,7 @@ const MastheadSearch = ({ placeHolderText, renderValue, searchOpenOnload }) => {
   return (
     <div
       data-autoid={`${stablePrefix}--masthead__search`}
-      className={className}
-      onBlur={onBlur}>
+      className={className}>
       <form action={_redirectUrl} method="get">
         <input type="hidden" name="lang" value={state.lc} />
         <input type="hidden" name="cc" value={state.cc} />

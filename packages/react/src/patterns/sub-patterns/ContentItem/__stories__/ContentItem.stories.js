@@ -32,6 +32,12 @@ storiesOf('Patterns (Sub-Patterns)|ContentItem', module)
       href: text('cta.href', 'https://example.com'),
     };
 
+    const mediaType = select(
+      'mediaType (optional)',
+      ['image', 'video', 'none'],
+      'image'
+    );
+
     const image = {
       image: {
         sources: object('Image assets:', [
@@ -57,14 +63,22 @@ storiesOf('Patterns (Sub-Patterns)|ContentItem', module)
       heading: text('image caption:', 'this is an image caption'),
     };
 
+    const video = {
+      videoId: '0_uka1msg4',
+      showDescription: true,
+    };
+
+    const mediaData = mediaType === 'image' ? image : video;
+
     return (
-      <div class="bx--grid">
-        <div class="bx--row">
-          <div class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
+      <div className="bx--grid">
+        <div className="bx--row">
+          <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
             <ContentItem
               heading={heading}
               copy={copy}
-              image={image}
+              mediaType={mediaType}
+              mediaData={mediaData}
               cta={cta}
             />
           </div>

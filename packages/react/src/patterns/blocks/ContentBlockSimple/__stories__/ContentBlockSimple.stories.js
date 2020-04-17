@@ -1,12 +1,16 @@
 import './index.scss';
-import { select, text, withKnobs } from '@storybook/addon-knobs';
+import {
+  select,
+  text,
+  withKnobs,
+  object,
+  boolean,
+} from '@storybook/addon-knobs';
 import ContentBlockSimple from '../ContentBlockSimple';
+import { LinkList } from '../../../sub-patterns/LinkList';
 import React from 'react';
 import readme from '../README.md';
-import { settings } from 'carbon-components';
 import { storiesOf } from '@storybook/react';
-
-const { prefix } = settings;
 
 storiesOf('Patterns (Blocks)|ContentBlockSimple', module)
   .addDecorator(withKnobs)
@@ -37,30 +41,40 @@ storiesOf('Patterns (Blocks)|ContentBlockSimple', module)
       copy: 'Lorem ipsum dolor sit ametttt',
     };
 
+    const mediaType = select(
+      'mediaType (optional)',
+      ['image', 'video', 'none'],
+      'image'
+    );
+
     const image = {
+      heading: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
       image: {
-        heading: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-        image: {
-          sources: [
-            {
-              src: 'https://dummyimage.com/320x180/ee5396/161616&text=16:9',
-              breakpoint: 320,
-            },
-            {
-              src: 'https://dummyimage.com/400x225/ee5396/161616&text=16:9',
-              breakpoint: 400,
-            },
-            {
-              src: 'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
-              breakpoint: 672,
-            },
-          ],
-          alt: 'Image alt text',
-          defaultSrc: 'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
-        },
+        sources: [
+          {
+            src: 'https://dummyimage.com/320x180/ee5396/161616&text=16:9',
+            breakpoint: 320,
+          },
+          {
+            src: 'https://dummyimage.com/400x225/ee5396/161616&text=16:9',
+            breakpoint: 400,
+          },
+          {
+            src: 'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
+            breakpoint: 672,
+          },
+        ],
+        alt: 'Image alt text',
+        defaultSrc: 'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
       },
-      none: null,
     };
+
+    const video = {
+      videoId: '0_uka1msg4',
+      showDescription: true,
+    };
+
+    const mediaData = mediaType === 'image' ? image : video;
 
     const copy = `Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
       Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
@@ -72,18 +86,53 @@ storiesOf('Patterns (Blocks)|ContentBlockSimple', module)
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
       `;
 
+    // Render right panels elements
+    const showAside = boolean('Render aside elements', false);
+
+    const linkListProps = showAside && {
+      heading: text('link list heading:', 'Tutorials'),
+      items: object('link list items array', [
+        {
+          type: 'local',
+          copy: 'Containerization A Complete Guide',
+          cta: {
+            href: 'https://ibm.com',
+          },
+        },
+        {
+          type: 'external',
+          copy: 'Why should you use microservices and containers',
+          cta: {
+            href: 'https://ibm.com',
+          },
+        },
+      ]),
+    };
+
+    const aside = showAside && {
+      items: <LinkList {...linkListProps} />,
+      border: boolean('border', false),
+    };
+
     return (
-      <div className={`${prefix}--grid`}>
+      <div className={'bx--grid'}>
         <div class="bx--row">
-          <div class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4 content-block-story">
+          <div
+            class={
+              showAside
+                ? 'bx--offset-lg-4 content-block-story'
+                : 'bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4 content-block-story'
+            }>
             <ContentBlockSimple
               copy={copy}
               heading={text(
                 'Heading (required)',
                 'Curabitur malesuada varius mi eu posuere'
               )}
-              image={select('Image (optional)', image, image.image)}
+              mediaType={mediaType}
+              mediaData={mediaData}
               cta={ctaProps}
+              aside={aside}
             />
           </div>
         </div>

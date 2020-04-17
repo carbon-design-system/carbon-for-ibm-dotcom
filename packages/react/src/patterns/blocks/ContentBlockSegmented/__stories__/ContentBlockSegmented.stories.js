@@ -1,6 +1,13 @@
 import './index.scss';
-import { select, object, text, withKnobs } from '@storybook/addon-knobs';
+import {
+  select,
+  object,
+  text,
+  withKnobs,
+  boolean,
+} from '@storybook/addon-knobs';
 import ContentBlockSegmented from '../ContentBlockSegmented';
+import { LinkList } from '../../../sub-patterns/LinkList';
 import React from 'react';
 import readme from '../README.md';
 import { settings } from 'carbon-components';
@@ -17,6 +24,12 @@ storiesOf('Patterns (Blocks)|ContentBlockSegmented', module)
   })
   .add('Default', () => {
     const heading = text('Heading', 'Lorem ipsum dolor sit amet.');
+
+    const mediaType = select(
+      'mediaType (optional)',
+      ['image', 'video', 'none'],
+      'image'
+    );
 
     const image = {
       heading: 'Mauris iaculis eget dolor nec hendrerit.',
@@ -39,6 +52,13 @@ storiesOf('Patterns (Blocks)|ContentBlockSegmented', module)
         defaultSrc: 'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
       },
     };
+
+    const video = {
+      videoId: '0_uka1msg4',
+      showDescription: true,
+    };
+
+    const mediaData = mediaType === 'image' ? image : video;
 
     const copy = `Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
       Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
@@ -80,16 +100,51 @@ storiesOf('Patterns (Blocks)|ContentBlockSegmented', module)
       },
     ];
 
+    // Render right panels elements
+    const showAside = boolean('Render aside elements', false);
+
+    const linkListProps = showAside && {
+      heading: text('link list heading:', 'Tutorials'),
+      items: object('link list items array', [
+        {
+          type: 'local',
+          copy: 'Containerization A Complete Guide',
+          cta: {
+            href: 'https://ibm.com',
+          },
+        },
+        {
+          type: 'external',
+          copy: 'Why should you use microservices and containers',
+          cta: {
+            href: 'https://ibm.com',
+          },
+        },
+      ]),
+    };
+
+    const aside = showAside && {
+      items: <LinkList {...linkListProps} />,
+      border: boolean('border', false),
+    };
+
     return (
       <div className={`${prefix}--grid`}>
         <div className="bx--row">
-          <div className="bx--col-lg-8 bx--col-sm-4 bx--offset-lg-4">
+          <div
+            className={
+              showAside
+                ? 'bx--offset-lg-4'
+                : 'bx--col-lg-8 bx--col-sm-4 bx--offset-lg-4'
+            }>
             <ContentBlockSegmented
               copy={copy}
               cta={cta}
               heading={heading}
-              image={image}
+              mediaType={mediaType}
+              mediaData={mediaData}
               items={object('Conent items', items)}
+              aside={aside}
             />
           </div>
         </div>

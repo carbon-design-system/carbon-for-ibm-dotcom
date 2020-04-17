@@ -43,22 +43,24 @@ const CardSection = ({ heading, theme, cards, cta, ...otherProps }) => {
    * Set the cards to have the same height as the bigger one
    */
   const setCardHeight = () => {
-    sameHeight(
-      containerRef.current.getElementsByClassName(`${prefix}--card__heading`),
-      'md'
-    );
-    sameHeight(
-      containerRef.current.getElementsByClassName(`${prefix}--card__copy`),
-      'md'
-    );
-    sameHeight(
-      containerRef.current.getElementsByClassName(`${prefix}--card__eyebrow`),
-      'md'
-    );
-    sameHeight(
-      containerRef.current.getElementsByClassName(`${prefix}--card--link`),
-      'md'
-    );
+    if (containerRef && containerRef.current) {
+      sameHeight(
+        containerRef.current.getElementsByClassName(`${prefix}--card__heading`),
+        'md'
+      );
+      sameHeight(
+        containerRef.current.getElementsByClassName(`${prefix}--card__copy`),
+        'md'
+      );
+      sameHeight(
+        containerRef.current.getElementsByClassName(`${prefix}--card__eyebrow`),
+        'md'
+      );
+      sameHeight(
+        containerRef.current.getElementsByClassName(`${prefix}--card--link`),
+        'md'
+      );
+    }
   };
 
   /**
@@ -140,8 +142,8 @@ const _renderCards = (cards, containerRef, cta) => (
 CardSection.propTypes = {
   theme: PropTypes.string,
   heading: PropTypes.string.isRequired,
-  cards: PropTypes.arrayOf(Card),
-  cta: PropTypes.instanceOf(Card),
+  cards: PropTypes.arrayOf(PropTypes.shape(Card.propTypes)),
+  cta: PropTypes.oneOfType(PropTypes.shape(Card.propTypes)),
 };
 
 export default CardSection;

@@ -44,9 +44,9 @@ storiesOf('Components|Image', module)
 
     return (
       <div className={`${prefix}--grid`}>
-        <div class="bx--row">
-          <div class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
-            <Image sources={image} defaultSrc={defaultSrc} alt={alt}></Image>
+        <div className="bx--row">
+          <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
+            <Image sources={image} defaultSrc={defaultSrc} alt={alt} />
           </div>
         </div>
       </div>
