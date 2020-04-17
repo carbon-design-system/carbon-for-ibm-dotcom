@@ -5,7 +5,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, { useCallback, useEffect, useReducer } from 'react';
+import React, {
+  useCallback,
+  useEffect,
+  useReducer,
+  useRef,
+  useState,
+} from 'react';
 import Autosuggest from 'react-autosuggest';
 import { Close20 } from '@carbon/icons-react';
 import cx from 'classnames';
@@ -101,6 +107,7 @@ function _reducer(state, action) {
  * @class
  */
 const MastheadSearch = ({ placeHolderText, renderValue, searchOpenOnload }) => {
+  const { ref, isSearchVisible, setIsSearchVisible } = useSearchVisible(true);
   /**
    * Initial state of the autocomplete component
    *
@@ -129,6 +136,56 @@ const MastheadSearch = ({ placeHolderText, renderValue, searchOpenOnload }) => {
     })();
   }, []);
 
+  /**
+   * Event handlers to toggle visiblity of search
+   *
+   * @param {boolean} initialIsVisible Search visibility
+   * @returns {*} search visibility object
+   */
+  function useSearchVisible(initialIsVisible) {
+    const [isSearchVisible, setIsSearchVisible] = useState(initialIsVisible);
+    const ref = useRef(null);
+
+    /**
+     * Close search entirely if autosuggestions collapsed
+     *
+     * @param {*} event Escape keypress
+     */
+    const handleHideSearch = event => {
+      if (event.key === 'Escape') {
+        if (!state.suggestionContainerVisible) {
+          setIsSearchVisible(false);
+          dispatch({ type: 'setSearchClosed' });
+        }
+      }
+    };
+
+    /**
+     * Close search when click detected outside of component.
+     * This is necessary otherwise search stays open even when
+     * elements other than the close button are clicked.
+     *
+     * @param {*} event Click event outside search component
+     */
+    const handleClickOutside = event => {
+      if (ref.current && !ref.current.contains(event.target)) {
+        setIsSearchVisible(false);
+        dispatch({ type: 'setSearchClosed' });
+      }
+    };
+
+    useEffect(() => {
+      root.document.addEventListener('keydown', handleHideSearch, true);
+      root.document.addEventListener('click', handleClickOutside, true);
+      return () => {
+        root.document.removeEventListener('keydown', handleHideSearch, true);
+        root.document.removeEventListener('click', handleClickOutside, true);
+      };
+    });
+
+    return { ref, isSearchVisible, setIsSearchVisible };
+  }
+
   const className = cx({
     [`${prefix}--masthead__search`]: true,
     [`${prefix}--masthead__search--active`]: state.isSearchOpen,
@@ -147,35 +204,28 @@ const MastheadSearch = ({ placeHolderText, renderValue, searchOpenOnload }) => {
   /**
    * Autosuggest will pass through all these props to the input.
    *
-   * @type {{placeholder: string, value: string, onChange: Function, className: string, onKeyDown: Function}}
+   * @type {{placeholder: string, value: string, onChange: Function, className: string}}
    */
   const inputProps = {
     placeholder: placeHolderText,
     value: state.val,
     onChange,
     className: `${prefix}--header__search--input`,
-    onKeyDown: event => {
-      switch (event.key) {
-        case 'Escape':
-          if (!state.suggestionContainerVisible)
-            return dispatch({ type: 'setSearchClosed' });
-          break;
-        default:
-          break;
-      }
-    },
   };
 
   /**
    * Executes the logic for the search icon depending on search input state.
    * This will execute the search if the search is open, or will open the
    * search field if closed.
+   *
+   * @returns {*} search visibility object
    */
   function searchIconClick() {
     if (state.isSearchOpen) {
       root.parent.location.href = getRedirect(state.val);
     } else {
       dispatch({ type: 'setSearchOpen' });
+      return setIsSearchVisible(true);
     }
   }
 
@@ -317,34 +367,37 @@ const MastheadSearch = ({ placeHolderText, renderValue, searchOpenOnload }) => {
   return (
     <div
       data-autoid={`${stablePrefix}--masthead__search`}
-      className={className}>
-      <form
-        id={`${prefix}--masthead__search--form`}
-        action={_redirectUrl}
-        method="get">
-        <input type="hidden" name="lang" value={state.lc} />
-        <input type="hidden" name="cc" value={state.cc} />
-        <input type="hidden" name="lnk" value="mhsrch" />
-        <Autosuggest
-          suggestions={state.suggestions} // The state value of suggestion
-          onSuggestionsFetchRequested={onSuggestionsFetchRequest} // Method to fetch data (should be async call)
-          onSuggestionsClearRequested={onSuggestionsClearedRequested} // When input bar loses focus
-          getSuggestionValue={_getSuggestionValue} // Name of suggestion
-          renderSuggestion={renderSuggestion} // How to display a suggestion
-          onSuggestionSelected={onSuggestionSelected} // When a suggestion is selected
-          highlightFirstSuggestion // First suggestion is highlighted by default
-          inputProps={inputProps}
-          renderInputComponent={renderInputComponent}
-          shouldRenderSuggestions={shouldRenderSuggestions}
-        />
-      </form>
+      className={className}
+      ref={ref}>
+      {isSearchVisible && (
+        <form
+          id={`${prefix}--masthead__search--form`}
+          action={_redirectUrl}
+          method="get">
+          <input type="hidden" name="lang" value={state.lc} />
+          <input type="hidden" name="cc" value={state.cc} />
+          <input type="hidden" name="lnk" value="mhsrch" />
+          <Autosuggest
+            suggestions={state.suggestions} // The state value of suggestion
+            onSuggestionsFetchRequested={onSuggestionsFetchRequest} // Method to fetch data (should be async call)
+            onSuggestionsClearRequested={onSuggestionsClearedRequested} // When input bar loses focus
+            getSuggestionValue={_getSuggestionValue} // Name of suggestion
+            renderSuggestion={renderSuggestion} // How to display a suggestion
+            onSuggestionSelected={onSuggestionSelected} // When a suggestion is selected
+            highlightFirstSuggestion // First suggestion is highlighted by default
+            inputProps={inputProps}
+            renderInputComponent={renderInputComponent}
+            shouldRenderSuggestions={shouldRenderSuggestions}
+          />
+        </form>
+      )}
       <div className={`${prefix}--header__search--actions`}>
         <HeaderGlobalAction
           onClick={searchIconClick}
           aria-label="Search all of IBM"
           className={`${prefix}--header__search--search`}
           data-autoid={`${stablePrefix}--header__search--search`}
-          tabindex="0">
+          tabIndex="0">
           <Search20 />
         </HeaderGlobalAction>
         <HeaderGlobalAction
