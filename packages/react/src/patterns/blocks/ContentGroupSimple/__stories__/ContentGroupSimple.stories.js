@@ -15,9 +15,12 @@ storiesOf('Patterns (Blocks)|ContentGroupSimple', module)
   })
   .add('Default', () => {
     const heading = text('Heading', ContentGroupSimpleKnobs.heading);
-    const mediaData = object('Media Data:', ContentGroupSimpleKnobs.mediaData);
     const types = ContentGroupSimpleKnobs.types;
     const mediaType = select('Media type:', types, types.image);
+    const mediaData =
+      mediaType === 'image'
+        ? ContentGroupSimpleKnobs.mediaData.image
+        : ContentGroupSimpleKnobs.mediaData.video;
     const items = object('Content Items:', ContentGroupSimpleKnobs.items);
     const cta = object('CTA Data:', ContentGroupSimpleKnobs.cta);
 

@@ -41,30 +41,40 @@ storiesOf('Patterns (Blocks)|ContentBlockSimple', module)
       copy: 'Lorem ipsum dolor sit ametttt',
     };
 
+    const mediaType = select(
+      'mediaType (optional)',
+      ['image', 'video', 'none'],
+      'image'
+    );
+
     const image = {
+      heading: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
       image: {
-        heading: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-        image: {
-          sources: [
-            {
-              src: 'https://dummyimage.com/320x180/ee5396/161616&text=16:9',
-              breakpoint: 320,
-            },
-            {
-              src: 'https://dummyimage.com/400x225/ee5396/161616&text=16:9',
-              breakpoint: 400,
-            },
-            {
-              src: 'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
-              breakpoint: 672,
-            },
-          ],
-          alt: 'Image alt text',
-          defaultSrc: 'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
-        },
+        sources: [
+          {
+            src: 'https://dummyimage.com/320x180/ee5396/161616&text=16:9',
+            breakpoint: 320,
+          },
+          {
+            src: 'https://dummyimage.com/400x225/ee5396/161616&text=16:9',
+            breakpoint: 400,
+          },
+          {
+            src: 'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
+            breakpoint: 672,
+          },
+        ],
+        alt: 'Image alt text',
+        defaultSrc: 'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
       },
-      none: null,
     };
+
+    const video = {
+      videoId: '0_uka1msg4',
+      showDescription: true,
+    };
+
+    const mediaData = mediaType === 'image' ? image : video;
 
     const copy = `Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
       Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
@@ -119,7 +129,8 @@ storiesOf('Patterns (Blocks)|ContentBlockSimple', module)
                 'Heading (required)',
                 'Curabitur malesuada varius mi eu posuere'
               )}
-              image={select('Image (optional)', image, image.image)}
+              mediaType={mediaType}
+              mediaData={mediaData}
               cta={ctaProps}
               aside={aside}
             />
