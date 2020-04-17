@@ -5,16 +5,19 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, { useEffect, useReducer } from 'react';
+import React, { useCallback, useEffect, useReducer } from 'react';
 import Autosuggest from 'react-autosuggest';
+import { Close20 } from '@carbon/icons-react';
 import cx from 'classnames';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { escapeRegExp } from '@carbon/ibmdotcom-utilities';
+import { HeaderGlobalAction } from 'carbon-components-react';
 import { LocaleAPI } from '@carbon/ibmdotcom-services';
 import MastheadSearchInput from './MastheadSearchInput';
 import MastheadSearchSuggestion from './MastheadSearchSuggestion';
 import PropTypes from 'prop-types';
 import root from 'window-or-global';
+import { Search20 } from '@carbon/icons-react';
 import { SearchTypeaheadAPI } from '@carbon/ibmdotcom-services';
 import { settings } from 'carbon-components';
 
@@ -177,6 +180,28 @@ const MastheadSearch = ({ placeHolderText, renderValue, searchOpenOnload }) => {
   }
 
   /**
+   * Clear search and clear input when called
+   */
+  const resetSearch = useCallback(() => {
+    dispatch({ type: 'setSearchClosed' });
+    dispatch({
+      type: 'setVal',
+      payload: { val: '' },
+    });
+  }, [dispatch]);
+
+  /**
+   * closeBtnAction resets and sets focus after search is closed
+   */
+  function closeBtnAction() {
+    resetSearch();
+    const searchIconRef = root.document.querySelectorAll(
+      `[data-autoid="${stablePrefix}--header__search--search"]`
+    );
+    searchIconRef && searchIconRef[0].focus();
+  }
+
+  /**
    * Renders the input bar with the search icon
    *
    * @param {object} componentInputProps contains the input props
@@ -293,7 +318,10 @@ const MastheadSearch = ({ placeHolderText, renderValue, searchOpenOnload }) => {
     <div
       data-autoid={`${stablePrefix}--masthead__search`}
       className={className}>
-      <form action={_redirectUrl} method="get">
+      <form
+        id={`${prefix}--masthead__search--form`}
+        action={_redirectUrl}
+        method="get">
         <input type="hidden" name="lang" value={state.lc} />
         <input type="hidden" name="cc" value={state.cc} />
         <input type="hidden" name="lnk" value="mhsrch" />
@@ -310,6 +338,23 @@ const MastheadSearch = ({ placeHolderText, renderValue, searchOpenOnload }) => {
           shouldRenderSuggestions={shouldRenderSuggestions}
         />
       </form>
+      <div className={`${prefix}--header__search--actions`}>
+        <HeaderGlobalAction
+          onClick={searchIconClick}
+          aria-label="Search all of IBM"
+          className={`${prefix}--header__search--search`}
+          data-autoid={`${stablePrefix}--header__search--search`}
+          tabindex="0">
+          <Search20 />
+        </HeaderGlobalAction>
+        <HeaderGlobalAction
+          onClick={closeBtnAction}
+          aria-label="Close"
+          className={`${prefix}--header__search--close`}
+          data-autoid={`${stablePrefix}--header__search--close`}>
+          <Close20 />
+        </HeaderGlobalAction>
+      </div>
     </div>
   );
 };
