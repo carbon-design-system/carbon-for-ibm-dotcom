@@ -144,14 +144,14 @@ async function _getLocaleFromDDO() {
       }
     }
 
-    if (!pageInfoIBM.lc || !pageInfoIBM.cc) return _getLocaleByLangAttr();
+    if (!pageInfoIBM.lc || !pageInfoIBM.cc) return false;
 
     return {
       cc: pageInfoIBM.cc,
       lc: pageInfoIBM.lc,
     };
   }
-  return _getLocaleByLangAttr();
+  return false;
 }
 
 /**
