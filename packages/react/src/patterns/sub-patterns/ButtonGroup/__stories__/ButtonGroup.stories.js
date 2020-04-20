@@ -32,7 +32,7 @@ storiesOf('Patterns (Sub-Patterns)|ButtonGroup', module)
 
     for (let i = 0; i < buttonCount; i++) {
       buttons.push({
-        link: text(`Link ${i + 1}`, `https://example.com`),
+        href: text(`Link ${i + 1}`, `https://example.com`),
         copy: text(`Button ${i + 1}`, `Button ${i + 1}`),
         renderIcon:
           iconMap[

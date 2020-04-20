@@ -52,7 +52,6 @@ storiesOf('Patterns (Sections)|LeadSpace', module)
 
     for (let i = 0; i < buttonCount; i++) {
       buttons.push({
-        link: '',
         copy: text(`Button ${i + 1}`, `Button ${i + 1}`),
         renderIcon:
           iconMap[
@@ -96,7 +95,7 @@ storiesOf('Patterns (Sections)|LeadSpace', module)
         { src: 'https://picsum.photos/id/1076/320/370', breakpoint: 'sm' },
         { src: 'https://picsum.photos/id/1076/672/400', breakpoint: 'md' },
       ],
-      default: 'https://picsum.photos/id/1076/1056/480',
+      defaultSrc: 'https://picsum.photos/id/1076/1056/480',
       alt: 'lead space image',
     };
 
