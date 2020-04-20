@@ -16490,7 +16490,7 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with image 1`] = `
                 image={
                   Object {
                     "alt": "lead space image",
-                    "default": "https://picsum.photos/id/1076/1056/480",
+                    "defaultSrc": "https://picsum.photos/id/1076/1056/480",
                     "sources": Array [
                       Object {
                         "breakpoint": "sm",
@@ -16562,7 +16562,7 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with image 1`] = `
                 image={
                   Object {
                     "alt": "lead space image",
-                    "default": "https://picsum.photos/id/1076/1056/480",
+                    "defaultSrc": "https://picsum.photos/id/1076/1056/480",
                     "sources": Array [
                       Object {
                         "breakpoint": "sm",
@@ -16866,7 +16866,6 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with no image 1`] = `
                     Object {
                       "copy": "Button 1",
                       "href": "https://www.example.com",
-                      "link": "",
                       "renderIcon": Object {
                         "$$typeof": Symbol(react.forward_ref),
                         "render": [Function],
@@ -16875,7 +16874,6 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with no image 1`] = `
                     Object {
                       "copy": "Button 2",
                       "href": "https://www.example.com",
-                      "link": "",
                       "renderIcon": Object {
                         "$$typeof": Symbol(react.forward_ref),
                         "render": [Function],
@@ -16921,7 +16919,6 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with no image 1`] = `
                     Object {
                       "copy": "Button 1",
                       "href": "https://www.example.com",
-                      "link": "",
                       "renderIcon": Object {
                         "$$typeof": Symbol(react.forward_ref),
                         "render": [Function],
@@ -16930,7 +16927,6 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with no image 1`] = `
                     Object {
                       "copy": "Button 2",
                       "href": "https://www.example.com",
-                      "link": "",
                       "renderIcon": Object {
                         "$$typeof": Symbol(react.forward_ref),
                         "render": [Function],
@@ -16984,7 +16980,6 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with no image 1`] = `
                                 Object {
                                   "copy": "Button 1",
                                   "href": "https://www.example.com",
-                                  "link": "",
                                   "renderIcon": Object {
                                     "$$typeof": Symbol(react.forward_ref),
                                     "render": [Function],
@@ -16993,7 +16988,6 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with no image 1`] = `
                                 Object {
                                   "copy": "Button 2",
                                   "href": "https://www.example.com",
-                                  "link": "",
                                   "renderIcon": Object {
                                     "$$typeof": Symbol(react.forward_ref),
                                     "render": [Function],
@@ -17016,7 +17010,6 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with no image 1`] = `
                                   disabled={false}
                                   href="https://www.example.com"
                                   kind="primary"
-                                  link=""
                                   renderIcon={
                                     Object {
                                       "$$typeof": Symbol(react.forward_ref),
@@ -17031,7 +17024,6 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with no image 1`] = `
                                     copy="Button 1"
                                     data-autoid="dds--button-group-0"
                                     href="https://www.example.com"
-                                    link=""
                                     role="button"
                                     tabIndex={2}
                                   >
@@ -17083,7 +17075,6 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with no image 1`] = `
                                   disabled={false}
                                   href="https://www.example.com"
                                   kind="tertiary"
-                                  link=""
                                   renderIcon={
                                     Object {
                                       "$$typeof": Symbol(react.forward_ref),
@@ -17098,7 +17089,6 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with no image 1`] = `
                                     copy="Button 2"
                                     data-autoid="dds--button-group-1"
                                     href="https://www.example.com"
-                                    link=""
                                     role="button"
                                     tabIndex={1}
                                   >
@@ -17210,7 +17200,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ButtonGroup Default 1`] = `
                         Array [
                           Object {
                             "copy": "Button 1",
-                            "link": "https://example.com",
+                            "href": "https://example.com",
                             "renderIcon": Object {
                               "$$typeof": Symbol(react.forward_ref),
                               "render": [Function],
@@ -17218,7 +17208,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ButtonGroup Default 1`] = `
                           },
                           Object {
                             "copy": "Button 2",
-                            "link": "https://example.com",
+                            "href": "https://example.com",
                             "renderIcon": Object {
                               "$$typeof": Symbol(react.forward_ref),
                               "render": [Function],
@@ -17244,7 +17234,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ButtonGroup Default 1`] = `
                     Array [
                       Object {
                         "copy": "Button 1",
-                        "link": "https://example.com",
+                        "href": "https://example.com",
                         "renderIcon": Object {
                           "$$typeof": Symbol(react.forward_ref),
                           "render": [Function],
@@ -17252,7 +17242,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ButtonGroup Default 1`] = `
                       },
                       Object {
                         "copy": "Button 2",
-                        "link": "https://example.com",
+                        "href": "https://example.com",
                         "renderIcon": Object {
                           "$$typeof": Symbol(react.forward_ref),
                           "render": [Function],
@@ -17318,7 +17308,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ButtonGroup Default 1`] = `
                         Array [
                           Object {
                             "copy": "Button 1",
-                            "link": "https://example.com",
+                            "href": "https://example.com",
                             "renderIcon": Object {
                               "$$typeof": Symbol(react.forward_ref),
                               "render": [Function],
@@ -17326,7 +17316,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ButtonGroup Default 1`] = `
                           },
                           Object {
                             "copy": "Button 2",
-                            "link": "https://example.com",
+                            "href": "https://example.com",
                             "renderIcon": Object {
                               "$$typeof": Symbol(react.forward_ref),
                               "render": [Function],
@@ -17347,8 +17337,8 @@ exports[`Storyshots Patterns (Sub-Patterns)|ButtonGroup Default 1`] = `
                             copy="Button 1"
                             data-autoid="dds--button-group-0"
                             disabled={false}
+                            href="https://example.com"
                             kind="primary"
-                            link="https://example.com"
                             renderIcon={
                               Object {
                                 "$$typeof": Symbol(react.forward_ref),
@@ -17358,14 +17348,13 @@ exports[`Storyshots Patterns (Sub-Patterns)|ButtonGroup Default 1`] = `
                             tabIndex={2}
                             type="button"
                           >
-                            <button
+                            <a
                               className="bx--btn bx--btn--primary"
                               copy="Button 1"
                               data-autoid="dds--button-group-0"
-                              disabled={false}
-                              link="https://example.com"
+                              href="https://example.com"
+                              role="button"
                               tabIndex={2}
-                              type="button"
                             >
                               Button 1
                               <ForwardRef(ArrowRight20)
@@ -17402,7 +17391,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ButtonGroup Default 1`] = `
                                   </svg>
                                 </Icon>
                               </ForwardRef(ArrowRight20)>
-                            </button>
+                            </a>
                           </ForwardRef(Button)>
                         </li>
                         <li
@@ -17413,8 +17402,8 @@ exports[`Storyshots Patterns (Sub-Patterns)|ButtonGroup Default 1`] = `
                             copy="Button 2"
                             data-autoid="dds--button-group-1"
                             disabled={false}
+                            href="https://example.com"
                             kind="tertiary"
-                            link="https://example.com"
                             renderIcon={
                               Object {
                                 "$$typeof": Symbol(react.forward_ref),
@@ -17424,14 +17413,13 @@ exports[`Storyshots Patterns (Sub-Patterns)|ButtonGroup Default 1`] = `
                             tabIndex={1}
                             type="button"
                           >
-                            <button
+                            <a
                               className="bx--btn bx--btn--tertiary"
                               copy="Button 2"
                               data-autoid="dds--button-group-1"
-                              disabled={false}
-                              link="https://example.com"
+                              href="https://example.com"
+                              role="button"
                               tabIndex={1}
-                              type="button"
                             >
                               Button 2
                               <ForwardRef(ArrowRight20)
@@ -17468,7 +17456,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ButtonGroup Default 1`] = `
                                   </svg>
                                 </Icon>
                               </ForwardRef(ArrowRight20)>
-                            </button>
+                            </a>
                           </ForwardRef(Button)>
                         </li>
                       </ol>
@@ -17490,7 +17478,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ButtonGroup Default 1`] = `
                     Array [
                       Object {
                         "copy": "Button 1",
-                        "link": "https://example.com",
+                        "href": "https://example.com",
                         "renderIcon": Object {
                           "$$typeof": Symbol(react.forward_ref),
                           "render": [Function],
@@ -17498,7 +17486,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ButtonGroup Default 1`] = `
                       },
                       Object {
                         "copy": "Button 2",
-                        "link": "https://example.com",
+                        "href": "https://example.com",
                         "renderIcon": Object {
                           "$$typeof": Symbol(react.forward_ref),
                           "render": [Function],
@@ -17519,8 +17507,8 @@ exports[`Storyshots Patterns (Sub-Patterns)|ButtonGroup Default 1`] = `
                         copy="Button 1"
                         data-autoid="dds--button-group-0"
                         disabled={false}
+                        href="https://example.com"
                         kind="primary"
-                        link="https://example.com"
                         renderIcon={
                           Object {
                             "$$typeof": Symbol(react.forward_ref),
@@ -17530,14 +17518,13 @@ exports[`Storyshots Patterns (Sub-Patterns)|ButtonGroup Default 1`] = `
                         tabIndex={2}
                         type="button"
                       >
-                        <button
+                        <a
                           className="bx--btn bx--btn--primary"
                           copy="Button 1"
                           data-autoid="dds--button-group-0"
-                          disabled={false}
-                          link="https://example.com"
+                          href="https://example.com"
+                          role="button"
                           tabIndex={2}
-                          type="button"
                         >
                           Button 1
                           <ForwardRef(ArrowRight20)
@@ -17574,7 +17561,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ButtonGroup Default 1`] = `
                               </svg>
                             </Icon>
                           </ForwardRef(ArrowRight20)>
-                        </button>
+                        </a>
                       </ForwardRef(Button)>
                     </li>
                     <li
@@ -17585,8 +17572,8 @@ exports[`Storyshots Patterns (Sub-Patterns)|ButtonGroup Default 1`] = `
                         copy="Button 2"
                         data-autoid="dds--button-group-1"
                         disabled={false}
+                        href="https://example.com"
                         kind="tertiary"
-                        link="https://example.com"
                         renderIcon={
                           Object {
                             "$$typeof": Symbol(react.forward_ref),
@@ -17596,14 +17583,13 @@ exports[`Storyshots Patterns (Sub-Patterns)|ButtonGroup Default 1`] = `
                         tabIndex={1}
                         type="button"
                       >
-                        <button
+                        <a
                           className="bx--btn bx--btn--tertiary"
                           copy="Button 2"
                           data-autoid="dds--button-group-1"
-                          disabled={false}
-                          link="https://example.com"
+                          href="https://example.com"
+                          role="button"
                           tabIndex={1}
-                          type="button"
                         >
                           Button 2
                           <ForwardRef(ArrowRight20)
@@ -17640,7 +17626,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ButtonGroup Default 1`] = `
                               </svg>
                             </Icon>
                           </ForwardRef(ArrowRight20)>
-                        </button>
+                        </a>
                       </ForwardRef(Button)>
                     </li>
                   </ol>
