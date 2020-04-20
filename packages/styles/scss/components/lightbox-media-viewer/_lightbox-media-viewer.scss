@@ -90,7 +90,7 @@
       max-width: 95%;
       @include carbon--type-style('body-long-02');
       @include carbon--breakpoint('lg') {
-        overflow: scroll;
+        overflow: auto;
       }
 
       &__title {
