@@ -49,7 +49,7 @@
     "@carbon/ibmdotcom-styles": "1.6.0-rc.0",
     "@carbon/ibmdotcom-utilities": "1.6.0-rc.0",
     "autosuggest-highlight": "^3.1.1",
-    "carbon-components": "10.9.0",
+    "carbon-components": "^10.11.0-rc.0",
     "carbon-components-react": "7.9.0",
     "carbon-icons": "7.0.7",
     "classnames": "2.2.6",
