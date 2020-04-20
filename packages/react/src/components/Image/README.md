@@ -41,7 +41,18 @@ function App() {
     },
   ];
 
-  return <Image sources={image} defaultSrc={image.default} alt={image.alt} />;
+  const defaultSrc = 'https://dummyimage.com/672x672';
+  const alt = 'Lorem Ipsum';
+  const longDescription = 'Lorem Ipsum Dolor';
+
+  return (
+    <Image
+      sources={sources}
+      defaultSrc={defaultSrc}
+      alt={alt}
+      longDescription={longDescription}
+    />
+  );
 }
 
 ReactDOM.render(<App />, document.querySelector('#app'));

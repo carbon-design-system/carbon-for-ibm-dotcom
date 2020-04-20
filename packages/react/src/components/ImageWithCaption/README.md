@@ -30,6 +30,20 @@ function App() {
   const image = {
     defaultSrc: 'https://dummyimage.com/672x672',
     alt: 'image with caption alt text',
+    sources: [
+      {
+        src: 'https://dummyimage.com/320x160',
+        breakpoint: 320,
+      },
+      {
+        src: 'https://dummyimage.com/400x400',
+        breakpoint: 400,
+      },
+      {
+        src: 'https://dummyimage.com/672x672',
+        breakpoint: 672,
+      },
+    ],
   };
 
   return <ImageWithCaption image={image} heading={heading} />;

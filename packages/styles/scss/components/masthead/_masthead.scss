@@ -101,6 +101,10 @@ $search-transition-timing: 95ms;
       flex: 0;
     }
 
+    &__nav-container {
+      height: 100%;
+    }
+
     &__nav {
       a.#{$prefix}--header__menu-item[role='menuitem'] {
         @include carbon--type-style(body-short-02, true);

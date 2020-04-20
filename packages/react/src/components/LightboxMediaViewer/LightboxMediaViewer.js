@@ -5,11 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import {
-  settings as ddsSettings,
-  featureFlag,
-} from '@carbon/ibmdotcom-utilities';
-import { DDS_LIGHTBOX_MEDIA_VIEWER } from '../../internal/FeatureFlags';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { ExpressiveModal } from '../ExpressiveModal';
 import { Image } from '../Image';
 import { ModalBody } from 'carbon-components-react';
@@ -29,50 +25,47 @@ const { prefix } = settings;
  * @param {boolean} modalProps.open sets whether the modal is open/close
  * @returns {*} JSX Object
  */
-const LightboxMediaViewer = ({ media, ...modalProps }) => {
-  return featureFlag(
-    DDS_LIGHTBOX_MEDIA_VIEWER,
-    <section
-      data-autoid={`${stablePrefix}--lightbox-media-viewer`}
-      className={`${prefix}--lightbox-media-viewer`}>
-      <ExpressiveModal fullwidth={true} {...modalProps}>
-        <ModalBody>
-          <div className={`${prefix}--lightbox-media-viewer__container`}>
-            <div className={`${prefix}--lightbox-media-viewer__row`}>
-              <div
-                className={`${prefix}--lightbox-media-viewer__media ${prefix}--no-gutter`}>
-                {media.type === 'video' ? (
-                  <VideoPlayer videoId={media.src} />
-                ) : (
-                  <Image defaultSrc={media.src} alt={media.alt} />
+const LightboxMediaViewer = ({ media, ...modalProps }) => (
+  <section
+    data-autoid={`${stablePrefix}--lightbox-media-viewer`}
+    className={`${prefix}--lightbox-media-viewer`}>
+    <ExpressiveModal fullwidth={true} {...modalProps}>
+      <ModalBody>
+        <div className={`${prefix}--lightbox-media-viewer__container`}>
+          <div className={`${prefix}--lightbox-media-viewer__row`}>
+            <div
+              className={`${prefix}--lightbox-media-viewer__media ${prefix}--no-gutter`}>
+              {media.type === 'video' ? (
+                <VideoPlayer videoId={media.src} />
+              ) : (
+                <Image defaultSrc={media.src} alt={media.alt} />
+              )}
+            </div>
+            <div
+              className={`${prefix}--lightbox-media-viewer__media-description ${prefix}--no-gutter`}>
+              <div className={`${prefix}--lightbox-media-viewer__content`}>
+                {media.title && (
+                  <div
+                    data-autoid={`${stablePrefix}--lightbox-media-viewer__content__title`}
+                    className={`${prefix}--lightbox-media-viewer__content__title`}>
+                    {media.title}
+                  </div>
                 )}
-              </div>
-              <div
-                className={`${prefix}--lightbox-media-viewer__media-description ${prefix}--no-gutter`}>
-                <div className={`${prefix}--lightbox-media-viewer__content`}>
-                  {media.title && (
-                    <div
-                      data-autoid={`${stablePrefix}--lightbox-media-viewer__content__title`}
-                      className={`${prefix}--lightbox-media-viewer__content__title`}>
-                      {media.title}
-                    </div>
-                  )}
-                  {media.description && (
-                    <div
-                      data-autoid={`${stablePrefix}--lightbox-media-viewer__content__desc`}
-                      className={`${prefix}--lightbox-media-viewer__content__desc`}>
-                      {media.description}
-                    </div>
-                  )}
-                </div>
+                {media.description && (
+                  <div
+                    data-autoid={`${stablePrefix}--lightbox-media-viewer__content__desc`}
+                    className={`${prefix}--lightbox-media-viewer__content__desc`}>
+                    {media.description}
+                  </div>
+                )}
               </div>
             </div>
           </div>
-        </ModalBody>
-      </ExpressiveModal>
-    </section>
-  );
-};
+        </div>
+      </ModalBody>
+    </ExpressiveModal>
+  </section>
+);
 
 LightboxMediaViewer.propTypes = {
   media: PropTypes.object.isRequired,
