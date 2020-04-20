@@ -109,7 +109,7 @@ const LocaleModalCountries = ({
       </div>
       <div
         role="listbox"
-        tabindex="0"
+        tabIndex="0"
         aria-labelledby={`${prefix}--locale-modal__filter`}
         className={`${prefix}--locale-modal__list`}>
         {regionList &&
@@ -142,6 +142,10 @@ const LocaleModalCountries = ({
 LocaleModalCountries.propTypes = {
   regionList: PropTypes.array,
   setClearResults: PropTypes.func,
+};
+
+LocaleModalCountries.defaultProps = {
+  searchLabel: 'Search by location or language',
 };
 
 export default LocaleModalCountries;
