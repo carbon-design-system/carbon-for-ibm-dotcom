@@ -43,7 +43,7 @@ const sortSources = sources => {
  *
  * @param {object} props props object
  * @param {object} props.classname classname
- * @param {object} props.images array of images used for diff breakpoints
+ * @param {Array} props.sources array of images used for diff breakpoints
  * @param {string} props.defaultSrc default image (usually image for largest breakpoint)
  * @param {string} props.alt alt of the image
  * @param {string} props.longDescription optional long description for infographics.
@@ -59,7 +59,6 @@ const Image = ({ classname, sources, defaultSrc, alt, longDescription }) => {
   return (
     <>
       <picture
-        alt={alt}
         className={`${prefix}--image`}
         data-autoid={`${stablePrefix}--image__longdescription-`}>
         {sortedImages.map((imgSrc, key) => {
