@@ -757,22 +757,26 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                   navigation={Array []}
                                   platform={null}
                                 >
-                                  <HeaderNavigation
-                                    aria-label="IBM"
-                                    data-autoid="dds--masthead__l0-nav"
+                                  <div
+                                    className="bx--header__nav-container"
                                   >
-                                    <nav
+                                    <HeaderNavigation
                                       aria-label="IBM"
-                                      className="bx--header__nav"
                                       data-autoid="dds--masthead__l0-nav"
                                     >
-                                      <ul
+                                      <nav
                                         aria-label="IBM"
-                                        className="bx--header__menu-bar"
-                                        role="menubar"
-                                      />
-                                    </nav>
-                                  </HeaderNavigation>
+                                        className="bx--header__nav"
+                                        data-autoid="dds--masthead__l0-nav"
+                                      >
+                                        <ul
+                                          aria-label="IBM"
+                                          className="bx--header__menu-bar"
+                                          role="menubar"
+                                        />
+                                      </nav>
+                                    </HeaderNavigation>
+                                  </div>
                                 </MastheadTopNav>
                                 <MastheadSearch
                                   placeHolderText="Search all of IBM"
@@ -783,262 +787,98 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                     className="bx--masthead__search"
                                     data-autoid="dds--masthead__search"
                                   >
-                                    <form
-                                      action="https://www.ibm.com/search?lnk=mhsrch"
-                                      method="get"
+                                    <div
+                                      className="bx--header__search--actions"
                                     >
-                                      <input
-                                        name="lang"
-                                        type="hidden"
-                                        value="en"
-                                      />
-                                      <input
-                                        name="cc"
-                                        type="hidden"
-                                        value="us"
-                                      />
-                                      <input
-                                        name="lnk"
-                                        type="hidden"
-                                        value="mhsrch"
-                                      />
-                                      <Autosuggest
-                                        alwaysRenderSuggestions={false}
-                                        focusInputOnSuggestionClick={true}
-                                        getSuggestionValue={[Function]}
-                                        highlightFirstSuggestion={true}
-                                        id="1"
-                                        inputProps={
-                                          Object {
-                                            "className": "bx--header__search--input",
-                                            "onChange": [Function],
-                                            "onKeyDown": [Function],
-                                            "placeholder": "Search all of IBM",
-                                            "value": "",
-                                          }
-                                        }
-                                        multiSection={false}
-                                        onSuggestionSelected={[Function]}
-                                        onSuggestionsClearRequested={[Function]}
-                                        onSuggestionsFetchRequested={[Function]}
-                                        renderInputComponent={[Function]}
-                                        renderSuggestion={[Function]}
-                                        renderSuggestionsContainer={[Function]}
-                                        shouldRenderSuggestions={[Function]}
-                                        suggestions={Array []}
-                                        theme={
-                                          Object {
-                                            "container": "react-autosuggest__container",
-                                            "containerOpen": "react-autosuggest__container--open",
-                                            "input": "react-autosuggest__input",
-                                            "inputFocused": "react-autosuggest__input--focused",
-                                            "inputOpen": "react-autosuggest__input--open",
-                                            "sectionContainer": "react-autosuggest__section-container",
-                                            "sectionContainerFirst": "react-autosuggest__section-container--first",
-                                            "sectionTitle": "react-autosuggest__section-title",
-                                            "suggestion": "react-autosuggest__suggestion",
-                                            "suggestionFirst": "react-autosuggest__suggestion--first",
-                                            "suggestionHighlighted": "react-autosuggest__suggestion--highlighted",
-                                            "suggestionsContainer": "react-autosuggest__suggestions-container",
-                                            "suggestionsContainerOpen": "react-autosuggest__suggestions-container--open",
-                                            "suggestionsList": "react-autosuggest__suggestions-list",
-                                          }
-                                        }
+                                      <HeaderGlobalAction
+                                        aria-label="Open IBM search field"
+                                        className="bx--header__search--search"
+                                        data-autoid="dds--header__search--search"
+                                        onClick={[Function]}
+                                        tabIndex="0"
                                       >
-                                        <Autowhatever
-                                          containerProps={Object {}}
-                                          getSectionItems={[Function]}
-                                          highlightedItemIndex={null}
-                                          highlightedSectionIndex={null}
-                                          id="1"
-                                          inputProps={
-                                            Object {
-                                              "className": "bx--header__search--input",
-                                              "onBlur": [Function],
-                                              "onChange": [Function],
-                                              "onFocus": [Function],
-                                              "onKeyDown": [Function],
-                                              "placeholder": "Search all of IBM",
-                                              "value": "",
-                                            }
-                                          }
-                                          itemProps={[Function]}
-                                          items={Array []}
-                                          multiSection={false}
-                                          renderInputComponent={[Function]}
-                                          renderItem={[Function]}
-                                          renderItemData={
-                                            Object {
-                                              "query": "",
-                                            }
-                                          }
-                                          renderItemsContainer={[Function]}
-                                          renderSectionTitle={[Function]}
-                                          theme={
-                                            Object {
-                                              "container": "react-autosuggest__container",
-                                              "containerOpen": "react-autosuggest__container--open",
-                                              "input": "react-autosuggest__input",
-                                              "inputFocused": "react-autosuggest__input--focused",
-                                              "inputOpen": "react-autosuggest__input--open",
-                                              "item": "react-autosuggest__suggestion",
-                                              "itemFirst": "react-autosuggest__suggestion--first",
-                                              "itemHighlighted": "react-autosuggest__suggestion--highlighted",
-                                              "itemsContainer": "react-autosuggest__suggestions-container",
-                                              "itemsContainerOpen": "react-autosuggest__suggestions-container--open",
-                                              "itemsList": "react-autosuggest__suggestions-list",
-                                              "sectionContainer": "react-autosuggest__section-container",
-                                              "sectionContainerFirst": "react-autosuggest__section-container--first",
-                                              "sectionTitle": "react-autosuggest__section-title",
-                                            }
-                                          }
+                                        <button
+                                          aria-label="Open IBM search field"
+                                          className="bx--header__search--search bx--header__action"
+                                          data-autoid="dds--header__search--search"
+                                          onClick={[Function]}
+                                          tabIndex="0"
+                                          type="button"
                                         >
-                                          <div
-                                            aria-expanded={false}
-                                            aria-haspopup="listbox"
-                                            aria-owns="react-autowhatever-1"
-                                            className="react-autosuggest__container"
-                                            key="react-autowhatever-1-container"
-                                            role="combobox"
-                                          >
-                                            <MastheadSearchInput
-                                              componentInputProps={
-                                                Object {
-                                                  "aria-activedescendant": null,
-                                                  "aria-autocomplete": "list",
-                                                  "aria-controls": "react-autowhatever-1",
-                                                  "autoComplete": "off",
-                                                  "className": "bx--header__search--input",
-                                                  "key": "react-autowhatever-1-input",
-                                                  "onBlur": [Function],
-                                                  "onChange": [Function],
-                                                  "onFocus": [Function],
-                                                  "onKeyDown": [Function],
-                                                  "placeholder": "Search all of IBM",
-                                                  "ref": [Function],
-                                                  "type": "text",
-                                                  "value": "",
-                                                }
-                                              }
-                                              dispatch={[Function]}
-                                              isActive={false}
-                                              searchIconClick={[Function]}
+                                          <ForwardRef(Search20)>
+                                            <Icon
+                                              height={20}
+                                              preserveAspectRatio="xMidYMid meet"
+                                              viewBox="0 0 32 32"
+                                              width={20}
+                                              xmlns="http://www.w3.org/2000/svg"
                                             >
-                                              <input
-                                                aria-activedescendant={null}
-                                                aria-autocomplete="list"
-                                                aria-controls="react-autowhatever-1"
-                                                autoComplete="off"
-                                                className="bx--header__search--input"
-                                                data-autoid="dds--header__search--input"
-                                                key="react-autowhatever-1-input"
-                                                name="q"
-                                                onBlur={[Function]}
-                                                onChange={[Function]}
-                                                onFocus={[Function]}
-                                                onKeyDown={[Function]}
-                                                placeholder="Search all of IBM"
-                                                tabIndex="-1"
-                                                type="text"
-                                                value=""
-                                              />
-                                              <HeaderGlobalAction
-                                                aria-label="Search all of IBM"
-                                                className="bx--header__search--search"
-                                                data-autoid="dds--header__search--search"
-                                                onClick={[Function]}
+                                              <svg
+                                                aria-hidden={true}
+                                                focusable="false"
+                                                height={20}
+                                                preserveAspectRatio="xMidYMid meet"
+                                                style={
+                                                  Object {
+                                                    "willChange": "transform",
+                                                  }
+                                                }
+                                                viewBox="0 0 32 32"
+                                                width={20}
+                                                xmlns="http://www.w3.org/2000/svg"
                                               >
-                                                <button
-                                                  aria-label="Search all of IBM"
-                                                  className="bx--header__search--search bx--header__action"
-                                                  data-autoid="dds--header__search--search"
-                                                  onClick={[Function]}
-                                                  type="button"
-                                                >
-                                                  <ForwardRef(Search20)>
-                                                    <Icon
-                                                      height={20}
-                                                      preserveAspectRatio="xMidYMid meet"
-                                                      viewBox="0 0 32 32"
-                                                      width={20}
-                                                      xmlns="http://www.w3.org/2000/svg"
-                                                    >
-                                                      <svg
-                                                        aria-hidden={true}
-                                                        focusable="false"
-                                                        height={20}
-                                                        preserveAspectRatio="xMidYMid meet"
-                                                        style={
-                                                          Object {
-                                                            "willChange": "transform",
-                                                          }
-                                                        }
-                                                        viewBox="0 0 32 32"
-                                                        width={20}
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                      >
-                                                        <path
-                                                          d="M30,28.59,22.45,21A11,11,0,1,0,21,22.45L28.59,30ZM5,14a9,9,0,1,1,9,9A9,9,0,0,1,5,14Z"
-                                                        />
-                                                      </svg>
-                                                    </Icon>
-                                                  </ForwardRef(Search20)>
-                                                </button>
-                                              </HeaderGlobalAction>
-                                              <HeaderGlobalAction
-                                                aria-label="Close"
-                                                className="bx--header__search--close"
-                                                data-autoid="dds--header__search--close"
-                                                onClick={[Function]}
+                                                <path
+                                                  d="M30,28.59,22.45,21A11,11,0,1,0,21,22.45L28.59,30ZM5,14a9,9,0,1,1,9,9A9,9,0,0,1,5,14Z"
+                                                />
+                                              </svg>
+                                            </Icon>
+                                          </ForwardRef(Search20)>
+                                        </button>
+                                      </HeaderGlobalAction>
+                                      <HeaderGlobalAction
+                                        aria-label="Close"
+                                        className="bx--header__search--close"
+                                        data-autoid="dds--header__search--close"
+                                        onClick={[Function]}
+                                      >
+                                        <button
+                                          aria-label="Close"
+                                          className="bx--header__search--close bx--header__action"
+                                          data-autoid="dds--header__search--close"
+                                          onClick={[Function]}
+                                          type="button"
+                                        >
+                                          <ForwardRef(Close20)>
+                                            <Icon
+                                              height={20}
+                                              preserveAspectRatio="xMidYMid meet"
+                                              viewBox="0 0 32 32"
+                                              width={20}
+                                              xmlns="http://www.w3.org/2000/svg"
+                                            >
+                                              <svg
+                                                aria-hidden={true}
+                                                focusable="false"
+                                                height={20}
+                                                preserveAspectRatio="xMidYMid meet"
+                                                style={
+                                                  Object {
+                                                    "willChange": "transform",
+                                                  }
+                                                }
+                                                viewBox="0 0 32 32"
+                                                width={20}
+                                                xmlns="http://www.w3.org/2000/svg"
                                               >
-                                                <button
-                                                  aria-label="Close"
-                                                  className="bx--header__search--close bx--header__action"
-                                                  data-autoid="dds--header__search--close"
-                                                  onClick={[Function]}
-                                                  type="button"
-                                                >
-                                                  <ForwardRef(Close20)>
-                                                    <Icon
-                                                      height={20}
-                                                      preserveAspectRatio="xMidYMid meet"
-                                                      viewBox="0 0 32 32"
-                                                      width={20}
-                                                      xmlns="http://www.w3.org/2000/svg"
-                                                    >
-                                                      <svg
-                                                        aria-hidden={true}
-                                                        focusable="false"
-                                                        height={20}
-                                                        preserveAspectRatio="xMidYMid meet"
-                                                        style={
-                                                          Object {
-                                                            "willChange": "transform",
-                                                          }
-                                                        }
-                                                        viewBox="0 0 32 32"
-                                                        width={20}
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                      >
-                                                        <path
-                                                          d="M24 9.4L22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16 24 9.4z"
-                                                        />
-                                                      </svg>
-                                                    </Icon>
-                                                  </ForwardRef(Close20)>
-                                                </button>
-                                              </HeaderGlobalAction>
-                                            </MastheadSearchInput>
-                                            <div
-                                              className="react-autosuggest__suggestions-container"
-                                              id="react-autowhatever-1"
-                                              key="react-autowhatever-1-items-container"
-                                              role="listbox"
-                                            />
-                                          </div>
-                                        </Autowhatever>
-                                      </Autosuggest>
-                                    </form>
+                                                <path
+                                                  d="M24 9.4L22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16 24 9.4z"
+                                                />
+                                              </svg>
+                                            </Icon>
+                                          </ForwardRef(Close20)>
+                                        </button>
+                                      </HeaderGlobalAction>
+                                    </div>
                                   </div>
                                 </MastheadSearch>
                               </div>
@@ -5935,22 +5775,26 @@ exports[`Storyshots Components|Masthead Default 1`] = `
                                 placeHolderText="Search all of IBM"
                                 platform={null}
                               >
-                                <HeaderNavigation
-                                  aria-label="IBM"
-                                  data-autoid="dds--masthead__l0-nav"
+                                <div
+                                  className="bx--header__nav-container"
                                 >
-                                  <nav
+                                  <HeaderNavigation
                                     aria-label="IBM"
-                                    className="bx--header__nav"
                                     data-autoid="dds--masthead__l0-nav"
                                   >
-                                    <ul
+                                    <nav
                                       aria-label="IBM"
-                                      className="bx--header__menu-bar"
-                                      role="menubar"
-                                    />
-                                  </nav>
-                                </HeaderNavigation>
+                                      className="bx--header__nav"
+                                      data-autoid="dds--masthead__l0-nav"
+                                    >
+                                      <ul
+                                        aria-label="IBM"
+                                        className="bx--header__menu-bar"
+                                        role="menubar"
+                                      />
+                                    </nav>
+                                  </HeaderNavigation>
+                                </div>
                               </MastheadTopNav>
                               <MastheadSearch
                                 placeHolderText="Search all of IBM"
@@ -5961,262 +5805,98 @@ exports[`Storyshots Components|Masthead Default 1`] = `
                                   className="bx--masthead__search"
                                   data-autoid="dds--masthead__search"
                                 >
-                                  <form
-                                    action="https://www.ibm.com/search?lnk=mhsrch"
-                                    method="get"
+                                  <div
+                                    className="bx--header__search--actions"
                                   >
-                                    <input
-                                      name="lang"
-                                      type="hidden"
-                                      value="en"
-                                    />
-                                    <input
-                                      name="cc"
-                                      type="hidden"
-                                      value="us"
-                                    />
-                                    <input
-                                      name="lnk"
-                                      type="hidden"
-                                      value="mhsrch"
-                                    />
-                                    <Autosuggest
-                                      alwaysRenderSuggestions={false}
-                                      focusInputOnSuggestionClick={true}
-                                      getSuggestionValue={[Function]}
-                                      highlightFirstSuggestion={true}
-                                      id="1"
-                                      inputProps={
-                                        Object {
-                                          "className": "bx--header__search--input",
-                                          "onChange": [Function],
-                                          "onKeyDown": [Function],
-                                          "placeholder": "Search all of IBM",
-                                          "value": "",
-                                        }
-                                      }
-                                      multiSection={false}
-                                      onSuggestionSelected={[Function]}
-                                      onSuggestionsClearRequested={[Function]}
-                                      onSuggestionsFetchRequested={[Function]}
-                                      renderInputComponent={[Function]}
-                                      renderSuggestion={[Function]}
-                                      renderSuggestionsContainer={[Function]}
-                                      shouldRenderSuggestions={[Function]}
-                                      suggestions={Array []}
-                                      theme={
-                                        Object {
-                                          "container": "react-autosuggest__container",
-                                          "containerOpen": "react-autosuggest__container--open",
-                                          "input": "react-autosuggest__input",
-                                          "inputFocused": "react-autosuggest__input--focused",
-                                          "inputOpen": "react-autosuggest__input--open",
-                                          "sectionContainer": "react-autosuggest__section-container",
-                                          "sectionContainerFirst": "react-autosuggest__section-container--first",
-                                          "sectionTitle": "react-autosuggest__section-title",
-                                          "suggestion": "react-autosuggest__suggestion",
-                                          "suggestionFirst": "react-autosuggest__suggestion--first",
-                                          "suggestionHighlighted": "react-autosuggest__suggestion--highlighted",
-                                          "suggestionsContainer": "react-autosuggest__suggestions-container",
-                                          "suggestionsContainerOpen": "react-autosuggest__suggestions-container--open",
-                                          "suggestionsList": "react-autosuggest__suggestions-list",
-                                        }
-                                      }
+                                    <HeaderGlobalAction
+                                      aria-label="Open IBM search field"
+                                      className="bx--header__search--search"
+                                      data-autoid="dds--header__search--search"
+                                      onClick={[Function]}
+                                      tabIndex="0"
                                     >
-                                      <Autowhatever
-                                        containerProps={Object {}}
-                                        getSectionItems={[Function]}
-                                        highlightedItemIndex={null}
-                                        highlightedSectionIndex={null}
-                                        id="1"
-                                        inputProps={
-                                          Object {
-                                            "className": "bx--header__search--input",
-                                            "onBlur": [Function],
-                                            "onChange": [Function],
-                                            "onFocus": [Function],
-                                            "onKeyDown": [Function],
-                                            "placeholder": "Search all of IBM",
-                                            "value": "",
-                                          }
-                                        }
-                                        itemProps={[Function]}
-                                        items={Array []}
-                                        multiSection={false}
-                                        renderInputComponent={[Function]}
-                                        renderItem={[Function]}
-                                        renderItemData={
-                                          Object {
-                                            "query": "",
-                                          }
-                                        }
-                                        renderItemsContainer={[Function]}
-                                        renderSectionTitle={[Function]}
-                                        theme={
-                                          Object {
-                                            "container": "react-autosuggest__container",
-                                            "containerOpen": "react-autosuggest__container--open",
-                                            "input": "react-autosuggest__input",
-                                            "inputFocused": "react-autosuggest__input--focused",
-                                            "inputOpen": "react-autosuggest__input--open",
-                                            "item": "react-autosuggest__suggestion",
-                                            "itemFirst": "react-autosuggest__suggestion--first",
-                                            "itemHighlighted": "react-autosuggest__suggestion--highlighted",
-                                            "itemsContainer": "react-autosuggest__suggestions-container",
-                                            "itemsContainerOpen": "react-autosuggest__suggestions-container--open",
-                                            "itemsList": "react-autosuggest__suggestions-list",
-                                            "sectionContainer": "react-autosuggest__section-container",
-                                            "sectionContainerFirst": "react-autosuggest__section-container--first",
-                                            "sectionTitle": "react-autosuggest__section-title",
-                                          }
-                                        }
+                                      <button
+                                        aria-label="Open IBM search field"
+                                        className="bx--header__search--search bx--header__action"
+                                        data-autoid="dds--header__search--search"
+                                        onClick={[Function]}
+                                        tabIndex="0"
+                                        type="button"
                                       >
-                                        <div
-                                          aria-expanded={false}
-                                          aria-haspopup="listbox"
-                                          aria-owns="react-autowhatever-1"
-                                          className="react-autosuggest__container"
-                                          key="react-autowhatever-1-container"
-                                          role="combobox"
-                                        >
-                                          <MastheadSearchInput
-                                            componentInputProps={
-                                              Object {
-                                                "aria-activedescendant": null,
-                                                "aria-autocomplete": "list",
-                                                "aria-controls": "react-autowhatever-1",
-                                                "autoComplete": "off",
-                                                "className": "bx--header__search--input",
-                                                "key": "react-autowhatever-1-input",
-                                                "onBlur": [Function],
-                                                "onChange": [Function],
-                                                "onFocus": [Function],
-                                                "onKeyDown": [Function],
-                                                "placeholder": "Search all of IBM",
-                                                "ref": [Function],
-                                                "type": "text",
-                                                "value": "",
-                                              }
-                                            }
-                                            dispatch={[Function]}
-                                            isActive={false}
-                                            searchIconClick={[Function]}
+                                        <ForwardRef(Search20)>
+                                          <Icon
+                                            height={20}
+                                            preserveAspectRatio="xMidYMid meet"
+                                            viewBox="0 0 32 32"
+                                            width={20}
+                                            xmlns="http://www.w3.org/2000/svg"
                                           >
-                                            <input
-                                              aria-activedescendant={null}
-                                              aria-autocomplete="list"
-                                              aria-controls="react-autowhatever-1"
-                                              autoComplete="off"
-                                              className="bx--header__search--input"
-                                              data-autoid="dds--header__search--input"
-                                              key="react-autowhatever-1-input"
-                                              name="q"
-                                              onBlur={[Function]}
-                                              onChange={[Function]}
-                                              onFocus={[Function]}
-                                              onKeyDown={[Function]}
-                                              placeholder="Search all of IBM"
-                                              tabIndex="-1"
-                                              type="text"
-                                              value=""
-                                            />
-                                            <HeaderGlobalAction
-                                              aria-label="Search all of IBM"
-                                              className="bx--header__search--search"
-                                              data-autoid="dds--header__search--search"
-                                              onClick={[Function]}
+                                            <svg
+                                              aria-hidden={true}
+                                              focusable="false"
+                                              height={20}
+                                              preserveAspectRatio="xMidYMid meet"
+                                              style={
+                                                Object {
+                                                  "willChange": "transform",
+                                                }
+                                              }
+                                              viewBox="0 0 32 32"
+                                              width={20}
+                                              xmlns="http://www.w3.org/2000/svg"
                                             >
-                                              <button
-                                                aria-label="Search all of IBM"
-                                                className="bx--header__search--search bx--header__action"
-                                                data-autoid="dds--header__search--search"
-                                                onClick={[Function]}
-                                                type="button"
-                                              >
-                                                <ForwardRef(Search20)>
-                                                  <Icon
-                                                    height={20}
-                                                    preserveAspectRatio="xMidYMid meet"
-                                                    viewBox="0 0 32 32"
-                                                    width={20}
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                  >
-                                                    <svg
-                                                      aria-hidden={true}
-                                                      focusable="false"
-                                                      height={20}
-                                                      preserveAspectRatio="xMidYMid meet"
-                                                      style={
-                                                        Object {
-                                                          "willChange": "transform",
-                                                        }
-                                                      }
-                                                      viewBox="0 0 32 32"
-                                                      width={20}
-                                                      xmlns="http://www.w3.org/2000/svg"
-                                                    >
-                                                      <path
-                                                        d="M30,28.59,22.45,21A11,11,0,1,0,21,22.45L28.59,30ZM5,14a9,9,0,1,1,9,9A9,9,0,0,1,5,14Z"
-                                                      />
-                                                    </svg>
-                                                  </Icon>
-                                                </ForwardRef(Search20)>
-                                              </button>
-                                            </HeaderGlobalAction>
-                                            <HeaderGlobalAction
-                                              aria-label="Close"
-                                              className="bx--header__search--close"
-                                              data-autoid="dds--header__search--close"
-                                              onClick={[Function]}
+                                              <path
+                                                d="M30,28.59,22.45,21A11,11,0,1,0,21,22.45L28.59,30ZM5,14a9,9,0,1,1,9,9A9,9,0,0,1,5,14Z"
+                                              />
+                                            </svg>
+                                          </Icon>
+                                        </ForwardRef(Search20)>
+                                      </button>
+                                    </HeaderGlobalAction>
+                                    <HeaderGlobalAction
+                                      aria-label="Close"
+                                      className="bx--header__search--close"
+                                      data-autoid="dds--header__search--close"
+                                      onClick={[Function]}
+                                    >
+                                      <button
+                                        aria-label="Close"
+                                        className="bx--header__search--close bx--header__action"
+                                        data-autoid="dds--header__search--close"
+                                        onClick={[Function]}
+                                        type="button"
+                                      >
+                                        <ForwardRef(Close20)>
+                                          <Icon
+                                            height={20}
+                                            preserveAspectRatio="xMidYMid meet"
+                                            viewBox="0 0 32 32"
+                                            width={20}
+                                            xmlns="http://www.w3.org/2000/svg"
+                                          >
+                                            <svg
+                                              aria-hidden={true}
+                                              focusable="false"
+                                              height={20}
+                                              preserveAspectRatio="xMidYMid meet"
+                                              style={
+                                                Object {
+                                                  "willChange": "transform",
+                                                }
+                                              }
+                                              viewBox="0 0 32 32"
+                                              width={20}
+                                              xmlns="http://www.w3.org/2000/svg"
                                             >
-                                              <button
-                                                aria-label="Close"
-                                                className="bx--header__search--close bx--header__action"
-                                                data-autoid="dds--header__search--close"
-                                                onClick={[Function]}
-                                                type="button"
-                                              >
-                                                <ForwardRef(Close20)>
-                                                  <Icon
-                                                    height={20}
-                                                    preserveAspectRatio="xMidYMid meet"
-                                                    viewBox="0 0 32 32"
-                                                    width={20}
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                  >
-                                                    <svg
-                                                      aria-hidden={true}
-                                                      focusable="false"
-                                                      height={20}
-                                                      preserveAspectRatio="xMidYMid meet"
-                                                      style={
-                                                        Object {
-                                                          "willChange": "transform",
-                                                        }
-                                                      }
-                                                      viewBox="0 0 32 32"
-                                                      width={20}
-                                                      xmlns="http://www.w3.org/2000/svg"
-                                                    >
-                                                      <path
-                                                        d="M24 9.4L22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16 24 9.4z"
-                                                      />
-                                                    </svg>
-                                                  </Icon>
-                                                </ForwardRef(Close20)>
-                                              </button>
-                                            </HeaderGlobalAction>
-                                          </MastheadSearchInput>
-                                          <div
-                                            className="react-autosuggest__suggestions-container"
-                                            id="react-autowhatever-1"
-                                            key="react-autowhatever-1-items-container"
-                                            role="listbox"
-                                          />
-                                        </div>
-                                      </Autowhatever>
-                                    </Autosuggest>
-                                  </form>
+                                              <path
+                                                d="M24 9.4L22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16 24 9.4z"
+                                              />
+                                            </svg>
+                                          </Icon>
+                                        </ForwardRef(Close20)>
+                                      </button>
+                                    </HeaderGlobalAction>
+                                  </div>
                                 </div>
                               </MastheadSearch>
                             </div>
@@ -6597,22 +6277,26 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
                                 platform={null}
                                 searchOpenOnload={true}
                               >
-                                <HeaderNavigation
-                                  aria-label="IBM"
-                                  data-autoid="dds--masthead__l0-nav"
+                                <div
+                                  className="bx--header__nav-container"
                                 >
-                                  <nav
+                                  <HeaderNavigation
                                     aria-label="IBM"
-                                    className="bx--header__nav"
                                     data-autoid="dds--masthead__l0-nav"
                                   >
-                                    <ul
+                                    <nav
                                       aria-label="IBM"
-                                      className="bx--header__menu-bar"
-                                      role="menubar"
-                                    />
-                                  </nav>
-                                </HeaderNavigation>
+                                      className="bx--header__nav"
+                                      data-autoid="dds--masthead__l0-nav"
+                                    >
+                                      <ul
+                                        aria-label="IBM"
+                                        className="bx--header__menu-bar"
+                                        role="menubar"
+                                      />
+                                    </nav>
+                                  </HeaderNavigation>
+                                </div>
                               </MastheadTopNav>
                               <MastheadSearch
                                 placeHolderText="Search all of IBM"
@@ -6625,6 +6309,7 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
                                 >
                                   <form
                                     action="https://www.ibm.com/search?lnk=mhsrch"
+                                    id="bx--masthead__search--form"
                                     method="get"
                                   >
                                     <input
@@ -6652,7 +6337,6 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
                                         Object {
                                           "className": "bx--header__search--input",
                                           "onChange": [Function],
-                                          "onKeyDown": [Function],
                                           "placeholder": "Search all of IBM",
                                           "value": "",
                                         }
@@ -6782,92 +6466,6 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
                                               type="text"
                                               value=""
                                             />
-                                            <HeaderGlobalAction
-                                              aria-label="Search all of IBM"
-                                              className="bx--header__search--search"
-                                              data-autoid="dds--header__search--search"
-                                              onClick={[Function]}
-                                            >
-                                              <button
-                                                aria-label="Search all of IBM"
-                                                className="bx--header__search--search bx--header__action"
-                                                data-autoid="dds--header__search--search"
-                                                onClick={[Function]}
-                                                type="button"
-                                              >
-                                                <ForwardRef(Search20)>
-                                                  <Icon
-                                                    height={20}
-                                                    preserveAspectRatio="xMidYMid meet"
-                                                    viewBox="0 0 32 32"
-                                                    width={20}
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                  >
-                                                    <svg
-                                                      aria-hidden={true}
-                                                      focusable="false"
-                                                      height={20}
-                                                      preserveAspectRatio="xMidYMid meet"
-                                                      style={
-                                                        Object {
-                                                          "willChange": "transform",
-                                                        }
-                                                      }
-                                                      viewBox="0 0 32 32"
-                                                      width={20}
-                                                      xmlns="http://www.w3.org/2000/svg"
-                                                    >
-                                                      <path
-                                                        d="M30,28.59,22.45,21A11,11,0,1,0,21,22.45L28.59,30ZM5,14a9,9,0,1,1,9,9A9,9,0,0,1,5,14Z"
-                                                      />
-                                                    </svg>
-                                                  </Icon>
-                                                </ForwardRef(Search20)>
-                                              </button>
-                                            </HeaderGlobalAction>
-                                            <HeaderGlobalAction
-                                              aria-label="Close"
-                                              className="bx--header__search--close"
-                                              data-autoid="dds--header__search--close"
-                                              onClick={[Function]}
-                                            >
-                                              <button
-                                                aria-label="Close"
-                                                className="bx--header__search--close bx--header__action"
-                                                data-autoid="dds--header__search--close"
-                                                onClick={[Function]}
-                                                type="button"
-                                              >
-                                                <ForwardRef(Close20)>
-                                                  <Icon
-                                                    height={20}
-                                                    preserveAspectRatio="xMidYMid meet"
-                                                    viewBox="0 0 32 32"
-                                                    width={20}
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                  >
-                                                    <svg
-                                                      aria-hidden={true}
-                                                      focusable="false"
-                                                      height={20}
-                                                      preserveAspectRatio="xMidYMid meet"
-                                                      style={
-                                                        Object {
-                                                          "willChange": "transform",
-                                                        }
-                                                      }
-                                                      viewBox="0 0 32 32"
-                                                      width={20}
-                                                      xmlns="http://www.w3.org/2000/svg"
-                                                    >
-                                                      <path
-                                                        d="M24 9.4L22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16 24 9.4z"
-                                                      />
-                                                    </svg>
-                                                  </Icon>
-                                                </ForwardRef(Close20)>
-                                              </button>
-                                            </HeaderGlobalAction>
                                           </MastheadSearchInput>
                                           <div
                                             className="react-autosuggest__suggestions-container"
@@ -6879,6 +6477,98 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
                                       </Autowhatever>
                                     </Autosuggest>
                                   </form>
+                                  <div
+                                    className="bx--header__search--actions"
+                                  >
+                                    <HeaderGlobalAction
+                                      aria-label="Search all of IBM"
+                                      className="bx--header__search--search"
+                                      data-autoid="dds--header__search--search"
+                                      onClick={[Function]}
+                                      tabIndex="0"
+                                    >
+                                      <button
+                                        aria-label="Search all of IBM"
+                                        className="bx--header__search--search bx--header__action"
+                                        data-autoid="dds--header__search--search"
+                                        onClick={[Function]}
+                                        tabIndex="0"
+                                        type="button"
+                                      >
+                                        <ForwardRef(Search20)>
+                                          <Icon
+                                            height={20}
+                                            preserveAspectRatio="xMidYMid meet"
+                                            viewBox="0 0 32 32"
+                                            width={20}
+                                            xmlns="http://www.w3.org/2000/svg"
+                                          >
+                                            <svg
+                                              aria-hidden={true}
+                                              focusable="false"
+                                              height={20}
+                                              preserveAspectRatio="xMidYMid meet"
+                                              style={
+                                                Object {
+                                                  "willChange": "transform",
+                                                }
+                                              }
+                                              viewBox="0 0 32 32"
+                                              width={20}
+                                              xmlns="http://www.w3.org/2000/svg"
+                                            >
+                                              <path
+                                                d="M30,28.59,22.45,21A11,11,0,1,0,21,22.45L28.59,30ZM5,14a9,9,0,1,1,9,9A9,9,0,0,1,5,14Z"
+                                              />
+                                            </svg>
+                                          </Icon>
+                                        </ForwardRef(Search20)>
+                                      </button>
+                                    </HeaderGlobalAction>
+                                    <HeaderGlobalAction
+                                      aria-label="Close"
+                                      className="bx--header__search--close"
+                                      data-autoid="dds--header__search--close"
+                                      onClick={[Function]}
+                                    >
+                                      <button
+                                        aria-label="Close"
+                                        className="bx--header__search--close bx--header__action"
+                                        data-autoid="dds--header__search--close"
+                                        onClick={[Function]}
+                                        type="button"
+                                      >
+                                        <ForwardRef(Close20)>
+                                          <Icon
+                                            height={20}
+                                            preserveAspectRatio="xMidYMid meet"
+                                            viewBox="0 0 32 32"
+                                            width={20}
+                                            xmlns="http://www.w3.org/2000/svg"
+                                          >
+                                            <svg
+                                              aria-hidden={true}
+                                              focusable="false"
+                                              height={20}
+                                              preserveAspectRatio="xMidYMid meet"
+                                              style={
+                                                Object {
+                                                  "willChange": "transform",
+                                                }
+                                              }
+                                              viewBox="0 0 32 32"
+                                              width={20}
+                                              xmlns="http://www.w3.org/2000/svg"
+                                            >
+                                              <path
+                                                d="M24 9.4L22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16 24 9.4z"
+                                              />
+                                            </svg>
+                                          </Icon>
+                                        </ForwardRef(Close20)>
+                                      </button>
+                                    </HeaderGlobalAction>
+                                  </div>
                                 </div>
                               </MastheadSearch>
                             </div>
@@ -10840,29 +10530,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                         }
                       }
                       heading="Lorem ipsum dolor sit amet."
-                      image={
-                        Object {
-                          "heading": "Mauris iaculis eget dolor nec hendrerit.",
-                          "image": Object {
-                            "alt": "Image alt text",
-                            "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
-                            "sources": Array [
-                              Object {
-                                "breakpoint": 320,
-                                "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
-                              },
-                              Object {
-                                "breakpoint": 400,
-                                "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
-                              },
-                              Object {
-                                "breakpoint": 672,
-                                "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
-                              },
-                            ],
-                          },
-                        }
-                      }
                       items={
                         Array [
                           Object {
@@ -10900,6 +10567,30 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                           },
                         ]
                       }
+                      mediaData={
+                        Object {
+                          "heading": "Mauris iaculis eget dolor nec hendrerit.",
+                          "image": Object {
+                            "alt": "Image alt text",
+                            "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
+                            "sources": Array [
+                              Object {
+                                "breakpoint": 320,
+                                "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
+                              },
+                              Object {
+                                "breakpoint": 400,
+                                "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
+                              },
+                              Object {
+                                "breakpoint": 672,
+                                "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
+                              },
+                            ],
+                          },
+                        }
+                      }
+                      mediaType="image"
                     />
                   </div>
                 </div>
@@ -10956,29 +10647,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                         }
                       }
                       heading="Lorem ipsum dolor sit amet."
-                      image={
-                        Object {
-                          "heading": "Mauris iaculis eget dolor nec hendrerit.",
-                          "image": Object {
-                            "alt": "Image alt text",
-                            "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
-                            "sources": Array [
-                              Object {
-                                "breakpoint": 320,
-                                "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
-                              },
-                              Object {
-                                "breakpoint": 400,
-                                "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
-                              },
-                              Object {
-                                "breakpoint": 672,
-                                "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
-                              },
-                            ],
-                          },
-                        }
-                      }
                       items={
                         Array [
                           Object {
@@ -11016,6 +10684,30 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                           },
                         ]
                       }
+                      mediaData={
+                        Object {
+                          "heading": "Mauris iaculis eget dolor nec hendrerit.",
+                          "image": Object {
+                            "alt": "Image alt text",
+                            "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
+                            "sources": Array [
+                              Object {
+                                "breakpoint": 320,
+                                "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
+                              },
+                              Object {
+                                "breakpoint": 400,
+                                "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
+                              },
+                              Object {
+                                "breakpoint": 672,
+                                "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
+                              },
+                            ],
+                          },
+                        }
+                      }
+                      mediaType="image"
                     >
                       <div
                         className="bx--content-block-segmented"
@@ -11062,39 +10754,16 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                               className="bx--content-block__children"
                               data-autoid="dds--content-block__children"
                             >
-                              <ImageWithCaption
-                                classname="bx--content-block-segmented__image"
-                                heading="Mauris iaculis eget dolor nec hendrerit."
-                                image={
-                                  Object {
-                                    "alt": "Image alt text",
-                                    "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
-                                    "sources": Array [
-                                      Object {
-                                        "breakpoint": 320,
-                                        "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
-                                      },
-                                      Object {
-                                        "breakpoint": 400,
-                                        "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
-                                      },
-                                      Object {
-                                        "breakpoint": 672,
-                                        "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
-                                      },
-                                    ],
-                                  }
-                                }
+                              <div
+                                data-autoid="dds--content-block-segmented__media"
                               >
-                                <div
-                                  className="bx--image-with-caption"
-                                  data-autoid="dds--image-with-caption"
-                                >
-                                  <Image
-                                    alt="Image alt text"
-                                    defaultSrc="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
-                                    sources={
-                                      Array [
+                                <ImageWithCaption
+                                  heading="Mauris iaculis eget dolor nec hendrerit."
+                                  image={
+                                    Object {
+                                      "alt": "Image alt text",
+                                      "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
+                                      "sources": Array [
                                         Object {
                                           "breakpoint": 320,
                                           "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
@@ -11107,45 +10776,71 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                           "breakpoint": 672,
                                           "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                                         },
-                                      ]
+                                      ],
                                     }
+                                  }
+                                >
+                                  <div
+                                    className="bx--image-with-caption"
+                                    data-autoid="dds--image-with-caption"
                                   >
-                                    <picture
+                                    <Image
                                       alt="Image alt text"
-                                      className="bx--image"
-                                      data-autoid="dds--image__longdescription-"
+                                      defaultSrc="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
+                                      sources={
+                                        Array [
+                                          Object {
+                                            "breakpoint": 320,
+                                            "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
+                                          },
+                                          Object {
+                                            "breakpoint": 400,
+                                            "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
+                                          },
+                                          Object {
+                                            "breakpoint": 672,
+                                            "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
+                                          },
+                                        ]
+                                      }
                                     >
-                                      <source
-                                        key="0"
-                                        media="(min-width: 672px )"
-                                        srcSet="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
-                                      />
-                                      <source
-                                        key="1"
-                                        media="(min-width: 400px )"
-                                        srcSet="https://dummyimage.com/400x225/ee5396/161616&text=16:9"
-                                      />
-                                      <source
-                                        key="2"
-                                        media="(min-width: 320px )"
-                                        srcSet="https://dummyimage.com/320x180/ee5396/161616&text=16:9"
-                                      />
-                                      <img
+                                      <picture
                                         alt="Image alt text"
-                                        aria-describedby=""
-                                        className="bx--image__img"
-                                        src="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
-                                      />
-                                    </picture>
-                                  </Image>
-                                  <p
-                                    className="bx--image__caption"
-                                    data-autoid="dds--image__caption"
-                                  >
-                                    Mauris iaculis eget dolor nec hendrerit.
-                                  </p>
-                                </div>
-                              </ImageWithCaption>
+                                        className="bx--image"
+                                        data-autoid="dds--image__longdescription-"
+                                      >
+                                        <source
+                                          key="0"
+                                          media="(min-width: 672px )"
+                                          srcSet="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
+                                        />
+                                        <source
+                                          key="1"
+                                          media="(min-width: 400px )"
+                                          srcSet="https://dummyimage.com/400x225/ee5396/161616&text=16:9"
+                                        />
+                                        <source
+                                          key="2"
+                                          media="(min-width: 320px )"
+                                          srcSet="https://dummyimage.com/320x180/ee5396/161616&text=16:9"
+                                        />
+                                        <img
+                                          alt="Image alt text"
+                                          aria-describedby=""
+                                          className="bx--image__img"
+                                          src="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
+                                        />
+                                      </picture>
+                                    </Image>
+                                    <p
+                                      className="bx--image__caption"
+                                      data-autoid="dds--image__caption"
+                                    >
+                                      Mauris iaculis eget dolor nec hendrerit.
+                                    </p>
+                                  </div>
+                                </ImageWithCaption>
+                              </div>
                               <ContentGroup
                                 heading="Lorem ipsum dolor sit amet."
                                 key="0"
@@ -11558,29 +11253,30 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                         }
                       }
                       heading="Curabitur malesuada varius mi eu posuere"
-                      image={
+                      mediaData={
                         Object {
                           "heading": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
                           "image": Object {
                             "alt": "Image alt text",
-                            "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                            "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                             "sources": Array [
                               Object {
                                 "breakpoint": 320,
-                                "src": "https://dummyimage.com/320x180/ee5396/161616&amp;text=16:9",
+                                "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
                               },
                               Object {
                                 "breakpoint": 400,
-                                "src": "https://dummyimage.com/400x225/ee5396/161616&amp;text=16:9",
+                                "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
                               },
                               Object {
                                 "breakpoint": 672,
-                                "src": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                                "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                               },
                             ],
                           },
                         }
                       }
+                      mediaType="image"
                     />
                   </div>
                 </div>
@@ -11644,29 +11340,30 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                         }
                       }
                       heading="Curabitur malesuada varius mi eu posuere"
-                      image={
+                      mediaData={
                         Object {
                           "heading": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
                           "image": Object {
                             "alt": "Image alt text",
-                            "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                            "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                             "sources": Array [
                               Object {
                                 "breakpoint": 320,
-                                "src": "https://dummyimage.com/320x180/ee5396/161616&amp;text=16:9",
+                                "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
                               },
                               Object {
                                 "breakpoint": 400,
-                                "src": "https://dummyimage.com/400x225/ee5396/161616&amp;text=16:9",
+                                "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
                               },
                               Object {
                                 "breakpoint": 672,
-                                "src": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                                "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                               },
                             ],
                           },
                         }
                       }
+                      mediaType="image"
                     >
                       <div
                         className="bx--content-block-simple"
@@ -11732,89 +11429,93 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                                     />
                                   </div>
                                 </ContentItem>
-                                <ImageWithCaption
-                                  heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-                                  image={
-                                    Object {
-                                      "alt": "Image alt text",
-                                      "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
-                                      "sources": Array [
-                                        Object {
-                                          "breakpoint": 320,
-                                          "src": "https://dummyimage.com/320x180/ee5396/161616&amp;text=16:9",
-                                        },
-                                        Object {
-                                          "breakpoint": 400,
-                                          "src": "https://dummyimage.com/400x225/ee5396/161616&amp;text=16:9",
-                                        },
-                                        Object {
-                                          "breakpoint": 672,
-                                          "src": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
-                                        },
-                                      ],
-                                    }
-                                  }
+                                <div
+                                  data-autoid="dds--content-block-simple__media"
                                 >
-                                  <div
-                                    className="bx--image-with-caption"
-                                    data-autoid="dds--image-with-caption"
-                                  >
-                                    <Image
-                                      alt="Image alt text"
-                                      defaultSrc="https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9"
-                                      sources={
-                                        Array [
+                                  <ImageWithCaption
+                                    heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                                    image={
+                                      Object {
+                                        "alt": "Image alt text",
+                                        "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
+                                        "sources": Array [
                                           Object {
                                             "breakpoint": 320,
-                                            "src": "https://dummyimage.com/320x180/ee5396/161616&amp;text=16:9",
+                                            "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
                                           },
                                           Object {
                                             "breakpoint": 400,
-                                            "src": "https://dummyimage.com/400x225/ee5396/161616&amp;text=16:9",
+                                            "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
                                           },
                                           Object {
                                             "breakpoint": 672,
-                                            "src": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                                            "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                                           },
-                                        ]
+                                        ],
                                       }
+                                    }
+                                  >
+                                    <div
+                                      className="bx--image-with-caption"
+                                      data-autoid="dds--image-with-caption"
                                     >
-                                      <picture
+                                      <Image
                                         alt="Image alt text"
-                                        className="bx--image"
-                                        data-autoid="dds--image__longdescription-"
+                                        defaultSrc="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
+                                        sources={
+                                          Array [
+                                            Object {
+                                              "breakpoint": 320,
+                                              "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
+                                            },
+                                            Object {
+                                              "breakpoint": 400,
+                                              "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
+                                            },
+                                            Object {
+                                              "breakpoint": 672,
+                                              "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
+                                            },
+                                          ]
+                                        }
                                       >
-                                        <source
-                                          key="0"
-                                          media="(min-width: 672px )"
-                                          srcSet="https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9"
-                                        />
-                                        <source
-                                          key="1"
-                                          media="(min-width: 400px )"
-                                          srcSet="https://dummyimage.com/400x225/ee5396/161616&amp;text=16:9"
-                                        />
-                                        <source
-                                          key="2"
-                                          media="(min-width: 320px )"
-                                          srcSet="https://dummyimage.com/320x180/ee5396/161616&amp;text=16:9"
-                                        />
-                                        <img
+                                        <picture
                                           alt="Image alt text"
-                                          aria-describedby=""
-                                          className="bx--image__img"
-                                          src="https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9"
-                                        />
-                                      </picture>
-                                    </Image>
-                                    <p
-                                      className="bx--image__caption"
-                                      data-autoid="dds--image__caption"
-                                    >
-                                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                    </p>
-                                  </div>
-                                </ImageWithCaption>
+                                          className="bx--image"
+                                          data-autoid="dds--image__longdescription-"
+                                        >
+                                          <source
+                                            key="0"
+                                            media="(min-width: 672px )"
+                                            srcSet="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
+                                          />
+                                          <source
+                                            key="1"
+                                            media="(min-width: 400px )"
+                                            srcSet="https://dummyimage.com/400x225/ee5396/161616&text=16:9"
+                                          />
+                                          <source
+                                            key="2"
+                                            media="(min-width: 320px )"
+                                            srcSet="https://dummyimage.com/320x180/ee5396/161616&text=16:9"
+                                          />
+                                          <img
+                                            alt="Image alt text"
+                                            aria-describedby=""
+                                            className="bx--image__img"
+                                            src="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
+                                          />
+                                        </picture>
+                                      </Image>
+                                      <p
+                                        className="bx--image__caption"
+                                        data-autoid="dds--image__caption"
+                                      >
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                      </p>
+                                    </div>
+                                  </ImageWithCaption>
+                                </div>
                               </div>
                             </div>
                             <div
@@ -13228,19 +12929,19 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupSimple Default 1`] = `
                           "heading": "Lorem ipsum dolor sit amet.",
                           "image": Object {
                             "alt": "Image alt text",
-                            "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                            "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                             "sources": Array [
                               Object {
                                 "breakpoint": 320,
-                                "src": "https://dummyimage.com/320x180/ee5396/161616&amp;text=16:9",
+                                "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
                               },
                               Object {
                                 "breakpoint": 400,
-                                "src": "https://dummyimage.com/400x225/ee5396/161616&amp;text=16:9",
+                                "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
                               },
                               Object {
                                 "breakpoint": 672,
-                                "src": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                                "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                               },
                             ],
                           },
@@ -13316,19 +13017,19 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupSimple Default 1`] = `
                           "heading": "Lorem ipsum dolor sit amet.",
                           "image": Object {
                             "alt": "Image alt text",
-                            "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                            "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                             "sources": Array [
                               Object {
                                 "breakpoint": 320,
-                                "src": "https://dummyimage.com/320x180/ee5396/161616&amp;text=16:9",
+                                "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
                               },
                               Object {
                                 "breakpoint": 400,
-                                "src": "https://dummyimage.com/400x225/ee5396/161616&amp;text=16:9",
+                                "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
                               },
                               Object {
                                 "breakpoint": 672,
-                                "src": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                                "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                               },
                             ],
                           },
@@ -13375,19 +13076,19 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupSimple Default 1`] = `
                                   image={
                                     Object {
                                       "alt": "Image alt text",
-                                      "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                                      "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                                       "sources": Array [
                                         Object {
                                           "breakpoint": 320,
-                                          "src": "https://dummyimage.com/320x180/ee5396/161616&amp;text=16:9",
+                                          "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
                                         },
                                         Object {
                                           "breakpoint": 400,
-                                          "src": "https://dummyimage.com/400x225/ee5396/161616&amp;text=16:9",
+                                          "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
                                         },
                                         Object {
                                           "breakpoint": 672,
-                                          "src": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                                          "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                                         },
                                       ],
                                     }
@@ -13399,20 +13100,20 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupSimple Default 1`] = `
                                   >
                                     <Image
                                       alt="Image alt text"
-                                      defaultSrc="https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9"
+                                      defaultSrc="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                       sources={
                                         Array [
                                           Object {
                                             "breakpoint": 320,
-                                            "src": "https://dummyimage.com/320x180/ee5396/161616&amp;text=16:9",
+                                            "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
                                           },
                                           Object {
                                             "breakpoint": 400,
-                                            "src": "https://dummyimage.com/400x225/ee5396/161616&amp;text=16:9",
+                                            "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
                                           },
                                           Object {
                                             "breakpoint": 672,
-                                            "src": "https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9",
+                                            "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
                                           },
                                         ]
                                       }
@@ -13425,23 +13126,23 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupSimple Default 1`] = `
                                         <source
                                           key="0"
                                           media="(min-width: 672px )"
-                                          srcSet="https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9"
+                                          srcSet="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                         />
                                         <source
                                           key="1"
                                           media="(min-width: 400px )"
-                                          srcSet="https://dummyimage.com/400x225/ee5396/161616&amp;text=16:9"
+                                          srcSet="https://dummyimage.com/400x225/ee5396/161616&text=16:9"
                                         />
                                         <source
                                           key="2"
                                           media="(min-width: 320px )"
-                                          srcSet="https://dummyimage.com/320x180/ee5396/161616&amp;text=16:9"
+                                          srcSet="https://dummyimage.com/320x180/ee5396/161616&text=16:9"
                                         />
                                         <img
                                           alt="Image alt text"
                                           aria-describedby=""
                                           className="bx--image__img"
-                                          src="https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9"
+                                          src="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                         />
                                       </picture>
                                     </Image>
@@ -19878,7 +19579,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentItem Default 1`] = `
                         }
                       }
                       heading="Lorem ipsum dolor sit amet."
-                      image={
+                      mediaData={
                         Object {
                           "heading": "this is an image caption",
                           "image": Object {
@@ -19901,6 +19602,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentItem Default 1`] = `
                           },
                         }
                       }
+                      mediaType="image"
                     />
                   </div>
                 </div>
@@ -19951,7 +19653,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentItem Default 1`] = `
                         }
                       }
                       heading="Lorem ipsum dolor sit amet."
-                      image={
+                      mediaData={
                         Object {
                           "heading": "this is an image caption",
                           "image": Object {
@@ -19974,6 +19676,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentItem Default 1`] = `
                           },
                         }
                       }
+                      mediaType="image"
                     >
                       <div
                         className="bx--content-item"
@@ -19985,39 +19688,16 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentItem Default 1`] = `
                         >
                           Lorem ipsum dolor sit amet.
                         </h4>
-                        <ImageWithCaption
-                          customClassName="bx--content-item__image"
-                          heading="this is an image caption"
-                          image={
-                            Object {
-                              "alt": "content item image",
-                              "defaultSrc": "https://dummyimage.com/352x176/ee5396/161616&amp;text=2:1",
-                              "sources": Array [
-                                Object {
-                                  "breakpoint": "sm",
-                                  "src": "https://dummyimage.com/288x144/ee5396/161616&amp;text=2:1",
-                                },
-                                Object {
-                                  "breakpoint": "md",
-                                  "src": "https://dummyimage.com/448x224/ee5396/161616&amp;text=2:1",
-                                },
-                                Object {
-                                  "breakpoint": "lg",
-                                  "src": "https://dummyimage.com/352x176/ee5396/161616&amp;text=2:1",
-                                },
-                              ],
-                            }
-                          }
+                        <div
+                          data-autoid="dds--content-item__media"
                         >
-                          <div
-                            className="bx--image-with-caption bx--content-item__image"
-                            data-autoid="dds--image-with-caption"
-                          >
-                            <Image
-                              alt="content item image"
-                              defaultSrc="https://dummyimage.com/352x176/ee5396/161616&amp;text=2:1"
-                              sources={
-                                Array [
+                          <ImageWithCaption
+                            heading="this is an image caption"
+                            image={
+                              Object {
+                                "alt": "content item image",
+                                "defaultSrc": "https://dummyimage.com/352x176/ee5396/161616&amp;text=2:1",
+                                "sources": Array [
                                   Object {
                                     "breakpoint": "sm",
                                     "src": "https://dummyimage.com/288x144/ee5396/161616&amp;text=2:1",
@@ -20030,45 +19710,71 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentItem Default 1`] = `
                                     "breakpoint": "lg",
                                     "src": "https://dummyimage.com/352x176/ee5396/161616&amp;text=2:1",
                                   },
-                                ]
+                                ],
                               }
+                            }
+                          >
+                            <div
+                              className="bx--image-with-caption"
+                              data-autoid="dds--image-with-caption"
                             >
-                              <picture
+                              <Image
                                 alt="content item image"
-                                className="bx--image"
-                                data-autoid="dds--image__longdescription-"
+                                defaultSrc="https://dummyimage.com/352x176/ee5396/161616&amp;text=2:1"
+                                sources={
+                                  Array [
+                                    Object {
+                                      "breakpoint": "sm",
+                                      "src": "https://dummyimage.com/288x144/ee5396/161616&amp;text=2:1",
+                                    },
+                                    Object {
+                                      "breakpoint": "md",
+                                      "src": "https://dummyimage.com/448x224/ee5396/161616&amp;text=2:1",
+                                    },
+                                    Object {
+                                      "breakpoint": "lg",
+                                      "src": "https://dummyimage.com/352x176/ee5396/161616&amp;text=2:1",
+                                    },
+                                  ]
+                                }
                               >
-                                <source
-                                  key="0"
-                                  media="(min-width: 1056px )"
-                                  srcSet="https://dummyimage.com/352x176/ee5396/161616&amp;text=2:1"
-                                />
-                                <source
-                                  key="1"
-                                  media="(min-width: 672px )"
-                                  srcSet="https://dummyimage.com/448x224/ee5396/161616&amp;text=2:1"
-                                />
-                                <source
-                                  key="2"
-                                  media="(min-width: 320px )"
-                                  srcSet="https://dummyimage.com/288x144/ee5396/161616&amp;text=2:1"
-                                />
-                                <img
+                                <picture
                                   alt="content item image"
-                                  aria-describedby=""
-                                  className="bx--image__img"
-                                  src="https://dummyimage.com/352x176/ee5396/161616&amp;text=2:1"
-                                />
-                              </picture>
-                            </Image>
-                            <p
-                              className="bx--image__caption"
-                              data-autoid="dds--image__caption"
-                            >
-                              this is an image caption
-                            </p>
-                          </div>
-                        </ImageWithCaption>
+                                  className="bx--image"
+                                  data-autoid="dds--image__longdescription-"
+                                >
+                                  <source
+                                    key="0"
+                                    media="(min-width: 1056px )"
+                                    srcSet="https://dummyimage.com/352x176/ee5396/161616&amp;text=2:1"
+                                  />
+                                  <source
+                                    key="1"
+                                    media="(min-width: 672px )"
+                                    srcSet="https://dummyimage.com/448x224/ee5396/161616&amp;text=2:1"
+                                  />
+                                  <source
+                                    key="2"
+                                    media="(min-width: 320px )"
+                                    srcSet="https://dummyimage.com/288x144/ee5396/161616&amp;text=2:1"
+                                  />
+                                  <img
+                                    alt="content item image"
+                                    aria-describedby=""
+                                    className="bx--image__img"
+                                    src="https://dummyimage.com/352x176/ee5396/161616&amp;text=2:1"
+                                  />
+                                </picture>
+                              </Image>
+                              <p
+                                className="bx--image__caption"
+                                data-autoid="dds--image__caption"
+                              >
+                                this is an image caption
+                              </p>
+                            </div>
+                          </ImageWithCaption>
+                        </div>
                         <div
                           className="bx--content-item__copy"
                           dangerouslySetInnerHTML={
