@@ -28,4 +28,7 @@
     height: rem(20px);
     width: rem(20px);
   }
+  .#{$prefix}--tooltip .#{$prefix}--link {
+    font-size: 1rem;
+  }
 }
