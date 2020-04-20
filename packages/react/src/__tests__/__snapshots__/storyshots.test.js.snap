@@ -4450,7 +4450,6 @@ exports[`Storyshots Components|Image Default 1`] = `
                       }
                     >
                       <picture
-                        alt="Image alt text"
                         className="bx--image"
                         data-autoid="dds--image__longdescription-"
                       >
@@ -4620,7 +4619,6 @@ exports[`Storyshots Components|ImageWithCaption Default 1`] = `
                           }
                         >
                           <picture
-                            alt="image with caption image"
                             className="bx--image"
                             data-autoid="dds--image__longdescription-"
                           >
@@ -4839,7 +4837,6 @@ exports[`Storyshots Components|LightboxMediaViewer Default 1`] = `
                                       defaultSrc="https://dummyimage.com/1280x720/ee5396/161616&amp;text=16:9"
                                     >
                                       <picture
-                                        alt="Image alt text"
                                         className="bx--image"
                                         data-autoid="dds--image__longdescription-"
                                       >
@@ -7522,7 +7519,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                                                 }
                                               >
                                                 <picture
-                                                  alt="Image alt text"
                                                   className="bx--image"
                                                   data-autoid="dds--image__longdescription-"
                                                 >
@@ -7907,7 +7903,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                                                 }
                                               >
                                                 <picture
-                                                  alt="Image alt text"
                                                   className="bx--image"
                                                   data-autoid="dds--image__longdescription-"
                                                 >
@@ -8327,7 +8322,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                                                     defaultSrc="https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1"
                                                   >
                                                     <picture
-                                                      alt="Image alt text"
                                                       className="bx--image"
                                                       data-autoid="dds--image__longdescription-"
                                                     >
@@ -10209,7 +10203,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                                 }
                                               >
                                                 <picture
-                                                  alt="Image alt text"
                                                   className="bx--image"
                                                   data-autoid="dds--image__longdescription-"
                                                 >
@@ -10805,7 +10798,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                       }
                                     >
                                       <picture
-                                        alt="Image alt text"
                                         className="bx--image"
                                         data-autoid="dds--image__longdescription-"
                                       >
@@ -10980,7 +10972,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                               }
                                             >
                                               <picture
-                                                alt="Image alt text"
                                                 className="bx--image"
                                                 data-autoid="dds--image__longdescription-"
                                               >
@@ -11480,7 +11471,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                                         }
                                       >
                                         <picture
-                                          alt="Image alt text"
                                           className="bx--image"
                                           data-autoid="dds--image__longdescription-"
                                         >
@@ -13119,7 +13109,6 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupSimple Default 1`] = `
                                       }
                                     >
                                       <picture
-                                        alt="Image alt text"
                                         className="bx--image"
                                         data-autoid="dds--image__longdescription-"
                                       >
@@ -13564,7 +13553,6 @@ exports[`Storyshots Patterns (Blocks)|FeatureCard Default 1`] = `
                                       defaultSrc="https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1"
                                     >
                                       <picture
-                                        alt="Image alt text"
                                         className="bx--image"
                                         data-autoid="dds--image__longdescription-"
                                       >
@@ -14871,7 +14859,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                         defaultSrc="https://dummyimage.com/1056x792/ee5396/161616%26text=4:3"
                                       >
                                         <picture
-                                          alt="Image alt text"
                                           className="bx--image"
                                           data-autoid="dds--image__longdescription-"
                                         >
@@ -15006,7 +14993,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                         defaultSrc="https://dummyimage.com/792x1056/ee5396/161616%26text=3:4"
                                       >
                                         <picture
-                                          alt="Image alt text"
                                           className="bx--image"
                                           data-autoid="dds--image__longdescription-"
                                         >
@@ -15141,7 +15127,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                         defaultSrc="https://dummyimage.com/1056x1056/ee5396/161616%26text=1:1"
                                       >
                                         <picture
-                                          alt="Image alt text"
                                           className="bx--image"
                                           data-autoid="dds--image__longdescription-"
                                         >
@@ -15276,7 +15261,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                         defaultSrc="https://dummyimage.com/1056x528/ee5396/161616%26text=2:1"
                                       >
                                         <picture
-                                          alt="Image alt text"
                                           className="bx--image"
                                           data-autoid="dds--image__longdescription-"
                                         >
@@ -15411,7 +15395,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                         defaultSrc="https://dummyimage.com/1056x594/ee5396/161616%26text=16:9"
                                       >
                                         <picture
-                                          alt="Image alt text"
                                           className="bx--image"
                                           data-autoid="dds--image__longdescription-"
                                         >
@@ -16820,7 +16803,6 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with image 1`] = `
                       }
                     >
                       <picture
-                        alt="lead space image"
                         className="bx--image"
                         data-autoid="dds--image__longdescription-"
                       >
@@ -19739,7 +19721,6 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentItem Default 1`] = `
                                 }
                               >
                                 <picture
-                                  alt="content item image"
                                   className="bx--image"
                                   data-autoid="dds--image__longdescription-"
                                 >
