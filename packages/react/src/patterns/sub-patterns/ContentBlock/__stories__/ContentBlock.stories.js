@@ -112,7 +112,7 @@ storiesOf('Patterns (Sub-Patterns)|ContentBlock', module)
     return (
       <div className="bx--grid">
         <div className="bx--row">
-          <div className="bx--offset-lg-4">
+          <div className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4">
             <ContentBlock
               heading={blockProps.heading}
               copy={blockProps.copy}
