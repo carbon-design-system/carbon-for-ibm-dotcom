@@ -1716,6 +1716,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                               className="bx--locale-btn"
                               data-autoid="dds--locale-btn"
                               disabled={false}
+                              iconDescription="Earth Filled Icon"
                               kind="secondary"
                               onClick={[Function]}
                               renderIcon={
@@ -1738,10 +1739,12 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                               >
                                 <ForwardRef(EarthFilled20)
                                   aria-hidden="true"
+                                  aria-label="Earth Filled Icon"
                                   className="bx--btn__icon"
                                 >
                                   <Icon
                                     aria-hidden="true"
+                                    aria-label="Earth Filled Icon"
                                     className="bx--btn__icon"
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
@@ -1750,11 +1753,13 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                     xmlns="http://www.w3.org/2000/svg"
                                   >
                                     <svg
-                                      aria-hidden={true}
+                                      aria-hidden="true"
+                                      aria-label="Earth Filled Icon"
                                       className="bx--btn__icon"
                                       focusable="false"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
+                                      role="img"
                                       style={
                                         Object {
                                           "willChange": "transform",
@@ -3966,6 +3971,7 @@ exports[`Storyshots Components|Footer Default 1`] = `
                             className="bx--locale-btn"
                             data-autoid="dds--locale-btn"
                             disabled={false}
+                            iconDescription="Earth Filled Icon"
                             kind="secondary"
                             onClick={[Function]}
                             renderIcon={
@@ -3988,10 +3994,12 @@ exports[`Storyshots Components|Footer Default 1`] = `
                             >
                               <ForwardRef(EarthFilled20)
                                 aria-hidden="true"
+                                aria-label="Earth Filled Icon"
                                 className="bx--btn__icon"
                               >
                                 <Icon
                                   aria-hidden="true"
+                                  aria-label="Earth Filled Icon"
                                   className="bx--btn__icon"
                                   height={20}
                                   preserveAspectRatio="xMidYMid meet"
@@ -4000,11 +4008,13 @@ exports[`Storyshots Components|Footer Default 1`] = `
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
                                   <svg
-                                    aria-hidden={true}
+                                    aria-hidden="true"
+                                    aria-label="Earth Filled Icon"
                                     className="bx--btn__icon"
                                     focusable="false"
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
+                                    role="img"
                                     style={
                                       Object {
                                         "willChange": "transform",
