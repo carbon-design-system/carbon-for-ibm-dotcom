@@ -20570,12 +20570,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|LinkList Default 1`] = `
                           },
                           Object {
                             "media": Object {
-                              "active": false,
-                              "alt": "Image alt text",
-                              "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
                               "src": "0_uka1msg4",
-                              "srcThumb": "",
-                              "title": "Curabitur malesuada varius mi eu posuere",
                               "type": "video",
                             },
                             "type": "video",
@@ -20642,12 +20637,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|LinkList Default 1`] = `
                           },
                           Object {
                             "media": Object {
-                              "active": false,
-                              "alt": "Image alt text",
-                              "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
                               "src": "0_uka1msg4",
-                              "srcThumb": "",
-                              "title": "Curabitur malesuada varius mi eu posuere",
                               "type": "video",
                             },
                             "type": "video",
@@ -20988,12 +20978,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|LinkList Default 1`] = `
                             <CTA
                               media={
                                 Object {
-                                  "active": false,
-                                  "alt": "Image alt text",
-                                  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
                                   "src": "0_uka1msg4",
-                                  "srcThumb": "",
-                                  "title": "Curabitur malesuada varius mi eu posuere",
                                   "type": "video",
                                 }
                               }
@@ -21008,12 +20993,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|LinkList Default 1`] = `
                                   launchLightBox={[Function]}
                                   media={
                                     Object {
-                                      "active": false,
-                                      "alt": "Image alt text",
-                                      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
                                       "src": "0_uka1msg4",
-                                      "srcThumb": "",
-                                      "title": "Curabitur malesuada varius mi eu posuere",
                                       "type": "video",
                                     }
                                   }
