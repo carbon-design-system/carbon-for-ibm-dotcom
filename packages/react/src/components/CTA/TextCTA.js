@@ -20,7 +20,7 @@ import React from 'react';
  * @param {Function} param.setLightBox func to open the lightbox
  * @param {boolean} param.renderLightBox bool to determine whether to open lightbox
  * @param {Function} param.launchLightBox func to render lightbox
- * @param {Array} param.videoTitle array of video titles
+ * @param {Array} param.videoData array of videoData objects
  *
  * @returns {object} JSX object
  */
@@ -33,7 +33,7 @@ const TextCTA = ({
   setLightBox,
   renderLightBox,
   launchLightBox,
-  videoTitle,
+  videoData,
   ...otherProps
 }) => {
   const Icon = iconSelector(type);
@@ -45,10 +45,13 @@ const TextCTA = ({
       : null;
   return type === 'video' ? (
     <div>
-      {launchLightBox(renderLightBox, openLightBox, otherProps.media)}
+      {launchLightBox(renderLightBox, openLightBox, {
+        ...otherProps.media,
+        ...videoData[0],
+      })}
       {!renderLightBox && (
         <LinkWithIcon href="#" onClick={e => setLightBox(e, openLightBox)}>
-          {videoTitle[0].title}
+          {videoData[0].ctaText}
           <Icon />
         </LinkWithIcon>
       )}
@@ -73,7 +76,7 @@ TextCTA.propTypes = {
   setLightBox: PropTypes.func,
   renderLightBox: PropTypes.bool,
   launchLightBox: PropTypes.func,
-  videoTitle: PropTypes.array,
+  videoData: PropTypes.array,
 };
 
 export default TextCTA;
