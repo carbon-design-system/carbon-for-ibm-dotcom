@@ -1716,6 +1716,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                               className="bx--locale-btn"
                               data-autoid="dds--locale-btn"
                               disabled={false}
+                              iconDescription="Earth Filled Icon"
                               kind="secondary"
                               onClick={[Function]}
                               renderIcon={
@@ -1738,10 +1739,12 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                               >
                                 <ForwardRef(EarthFilled20)
                                   aria-hidden="true"
+                                  aria-label="Earth Filled Icon"
                                   className="bx--btn__icon"
                                 >
                                   <Icon
                                     aria-hidden="true"
+                                    aria-label="Earth Filled Icon"
                                     className="bx--btn__icon"
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
@@ -1750,11 +1753,13 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                     xmlns="http://www.w3.org/2000/svg"
                                   >
                                     <svg
-                                      aria-hidden={true}
+                                      aria-hidden="true"
+                                      aria-label="Earth Filled Icon"
                                       className="bx--btn__icon"
                                       focusable="false"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
+                                      role="img"
                                       style={
                                         Object {
                                           "willChange": "transform",
@@ -3966,6 +3971,7 @@ exports[`Storyshots Components|Footer Default 1`] = `
                             className="bx--locale-btn"
                             data-autoid="dds--locale-btn"
                             disabled={false}
+                            iconDescription="Earth Filled Icon"
                             kind="secondary"
                             onClick={[Function]}
                             renderIcon={
@@ -3988,10 +3994,12 @@ exports[`Storyshots Components|Footer Default 1`] = `
                             >
                               <ForwardRef(EarthFilled20)
                                 aria-hidden="true"
+                                aria-label="Earth Filled Icon"
                                 className="bx--btn__icon"
                               >
                                 <Icon
                                   aria-hidden="true"
+                                  aria-label="Earth Filled Icon"
                                   className="bx--btn__icon"
                                   height={20}
                                   preserveAspectRatio="xMidYMid meet"
@@ -4000,11 +4008,13 @@ exports[`Storyshots Components|Footer Default 1`] = `
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
                                   <svg
-                                    aria-hidden={true}
+                                    aria-hidden="true"
+                                    aria-label="Earth Filled Icon"
                                     className="bx--btn__icon"
                                     focusable="false"
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
+                                    role="img"
                                     style={
                                       Object {
                                         "willChange": "transform",
@@ -20568,6 +20578,13 @@ exports[`Storyshots Patterns (Sub-Patterns)|LinkList Default 1`] = `
                             },
                             "type": "local",
                           },
+                          Object {
+                            "media": Object {
+                              "src": "0_uka1msg4",
+                              "type": "video",
+                            },
+                            "type": "video",
+                          },
                         ]
                       }
                     />
@@ -20627,6 +20644,13 @@ exports[`Storyshots Patterns (Sub-Patterns)|LinkList Default 1`] = `
                               "href": "https://ibm.com",
                             },
                             "type": "local",
+                          },
+                          Object {
+                            "media": Object {
+                              "src": "0_uka1msg4",
+                              "type": "video",
+                            },
+                            "type": "video",
                           },
                         ]
                       }
@@ -20953,6 +20977,154 @@ exports[`Storyshots Patterns (Sub-Patterns)|LinkList Default 1`] = `
                                       </a>
                                     </ClickableTile>
                                   </Card>
+                                </CardCTA>
+                              </div>
+                            </CTA>
+                          </li>
+                          <li
+                            className="bx--link-list__list__CTA"
+                            key="2"
+                          >
+                            <CTA
+                              media={
+                                Object {
+                                  "src": "0_uka1msg4",
+                                  "type": "video",
+                                }
+                              }
+                              style="card"
+                              type="video"
+                            >
+                              <div>
+                                <CardCTA
+                                  external={[Function]}
+                                  iconSelector={[Function]}
+                                  jump={[Function]}
+                                  launchLightBox={[Function]}
+                                  media={
+                                    Object {
+                                      "src": "0_uka1msg4",
+                                      "type": "video",
+                                    }
+                                  }
+                                  mediaData={Object {}}
+                                  openLightBox={[Function]}
+                                  renderLightBox={false}
+                                  setLightBox={[Function]}
+                                  setMediaData={[Function]}
+                                  style="card"
+                                  type="video"
+                                  videoTitle={
+                                    Array [
+                                      Object {
+                                        "key": 0,
+                                        "title": "",
+                                      },
+                                    ]
+                                  }
+                                >
+                                  <div>
+                                    <Card
+                                      copy=""
+                                      cta={
+                                        Object {
+                                          "href": "#",
+                                          "icon": Object {
+                                            "src": Object {
+                                              "$$typeof": Symbol(react.forward_ref),
+                                              "render": [Function],
+                                            },
+                                          },
+                                        }
+                                      }
+                                      customClassName="bx--card__CTA"
+                                      handleClick={[Function]}
+                                      type="link"
+                                    >
+                                      <ClickableTile
+                                        className="bx--card bx--card--link bx--card__CTA"
+                                        clicked={false}
+                                        data-autoid="dds--card"
+                                        handleClick={[Function]}
+                                        handleKeyDown={[Function]}
+                                        href="#"
+                                        light={false}
+                                      >
+                                        <a
+                                          className="bx--link bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                          data-autoid="dds--card"
+                                          href="#"
+                                          onClick={[Function]}
+                                          onKeyDown={[Function]}
+                                        >
+                                          <Image
+                                            classname="bx--card__img"
+                                          />
+                                          <div
+                                            className="bx--card__wrapper"
+                                          >
+                                            <div
+                                              className="bx--card__footer"
+                                            >
+                                              <ForwardRef(PlayOutline20)
+                                                className="bx--card__cta"
+                                                src={
+                                                  Object {
+                                                    "$$typeof": Symbol(react.forward_ref),
+                                                    "render": [Function],
+                                                  }
+                                                }
+                                              >
+                                                <Icon
+                                                  className="bx--card__cta"
+                                                  height={20}
+                                                  preserveAspectRatio="xMidYMid meet"
+                                                  src={
+                                                    Object {
+                                                      "$$typeof": Symbol(react.forward_ref),
+                                                      "render": [Function],
+                                                    }
+                                                  }
+                                                  viewBox="0 0 32 32"
+                                                  width={20}
+                                                  xmlns="http://www.w3.org/2000/svg"
+                                                >
+                                                  <svg
+                                                    aria-hidden={true}
+                                                    className="bx--card__cta"
+                                                    focusable="false"
+                                                    height={20}
+                                                    preserveAspectRatio="xMidYMid meet"
+                                                    src={
+                                                      Object {
+                                                        "$$typeof": Symbol(react.forward_ref),
+                                                        "render": [Function],
+                                                      }
+                                                    }
+                                                    style={
+                                                      Object {
+                                                        "willChange": "transform",
+                                                      }
+                                                    }
+                                                    viewBox="0 0 32 32"
+                                                    width={20}
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                  >
+                                                    <path
+                                                      d="M16,4A12,12,0,1,1,4,16,12,12,0,0,1,16,4m0-2A14,14,0,1,0,30,16,14,14,0,0,0,16,2Z"
+                                                    />
+                                                    <path
+                                                      d="M12,23a1,1,0,0,1-.51-.14A1,1,0,0,1,11,22V10a1,1,0,0,1,.49-.86,1,1,0,0,1,1,0l11,6a1,1,0,0,1,0,1.76l-11,6A1,1,0,0,1,12,23Zm1-11.32v8.64L20.91,16Z"
+                                                    />
+                                                  </svg>
+                                                </Icon>
+                                              </ForwardRef(PlayOutline20)>
+                                            </div>
+                                          </div>
+                                        </a>
+                                      </ClickableTile>
+                                    </Card>
+                                  </div>
                                 </CardCTA>
                               </div>
                             </CTA>
