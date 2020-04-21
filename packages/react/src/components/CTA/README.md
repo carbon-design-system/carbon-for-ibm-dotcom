@@ -56,12 +56,7 @@ function App() {
       type="video"
       media={{
         src: '0_uka1msg4',
-        alt: 'Image alt text',
-        title: 'Curabitur malesuada varius mi eu posuere',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
         type: 'video',
-        active: false,
-        srcThumb: '',
       }}
     />
   );
@@ -119,18 +114,12 @@ function App() {
       heading="Lorem Ipsum"
       buttons={[
         {
-          type: 'local',
+          type: 'video',
           href: 'https://www.example.com',
           copy: 'Lorem Ipsum',
           media: {
             src: '0_uka1msg4',
-            alt: 'Image alt text',
-            title: 'Curabitur malesuada varius mi eu posuere',
-            description:
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Here are some common categories:',
             type: 'video',
-            active: false,
-            srcThumb: '',
           },
         },
         {
@@ -175,12 +164,7 @@ function AppVideo() {
       copy="Lorem Ipsum"
       media={{
         src: '0_uka1msg4',
-        alt: 'Image alt text',
-        title: 'Curabitur malesuada varius mi eu posuere',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
         type: 'video',
-        active: false,
-        srcThumb: '',
       }}
     />
   );

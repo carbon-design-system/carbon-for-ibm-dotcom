@@ -43,12 +43,7 @@ function App() {
       type: 'video',
       media: {
         src: '0_uka1msg4',
-        alt: 'Image alt text',
-        title: 'Curabitur malesuada varius mi eu posuere',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
         type: 'video',
-        active: false,
-        srcThumb: '',
       },
     },
   ];
