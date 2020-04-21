@@ -29,15 +29,27 @@ function App() {
   const items = [
     {
       heading: 'Containerization: A Complete Guide',
-      type: local,
+      type: 'local',
       copy: 'Lorem ipsum dolor sit amet',
       href: 'https://ibm.com',
     },
     {
       heading: 'Why should you use microservices and containers?',
-      type: external,
+      type: 'external',
       copy: 'Lorem ipsum dolor sit amet',
       href: 'https://ibm.com',
+    },
+    {
+      type: 'video',
+      media: {
+        src: '0_uka1msg4',
+        alt: 'Image alt text',
+        title: 'Curabitur malesuada varius mi eu posuere',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+        type: 'video',
+        active: false,
+        srcThumb: '',
+      },
     },
   ];
   return <LinkList heading={heading} items={items} />;
@@ -65,10 +77,10 @@ Add the following line on your `.env` file at the root of your project,
 
 ### CTA
 
-| Name      | Description                                                                |
-| --------- | -------------------------------------------------------------------------- |
-| `heading` | Describing the resource with added detail.                                 |
-| `type`    | Describes after onClick where to load. It has `external`, `local` options. |
+| Name      | Description                                                                             |
+| --------- | --------------------------------------------------------------------------------------- |
+| `heading` | Describing the resource with added detail.                                              |
+| `type`    | Describes after onClick where to load. It has `external`, `local`, and `video` options. |
 
 > 👀 See more here
 > [CTA](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/src/components/CTA/README.md)

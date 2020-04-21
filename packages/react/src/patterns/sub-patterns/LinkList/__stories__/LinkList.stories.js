@@ -18,7 +18,7 @@ storiesOf('Patterns (Sub-Patterns)|LinkList', module)
       'Containerization A Complete Guide',
       'Why should you use microservices and containers',
     ];
-    const types = ['local', 'external'];
+    const types = ['local', 'external', 'video'];
     const items = [
       {
         type: types[0],
@@ -32,6 +32,19 @@ storiesOf('Patterns (Sub-Patterns)|LinkList', module)
         copy: headlines[1],
         cta: {
           href: 'https://ibm.com',
+        },
+      },
+      {
+        type: types[2],
+        media: {
+          src: '0_uka1msg4',
+          alt: 'Image alt text',
+          title: 'Curabitur malesuada varius mi eu posuere',
+          description:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+          type: 'video',
+          active: false,
+          srcThumb: '',
         },
       },
     ];
