@@ -18482,7 +18482,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock With aside elements 1`]
                   className="bx--row"
                 >
                   <div
-                    className="bx--offset-lg-4"
+                    className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4"
                   >
                     <ContentBlock
                       aside={
@@ -18566,7 +18566,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock With aside elements 1`]
                   className="bx--row"
                 >
                   <div
-                    className="bx--offset-lg-4"
+                    className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4"
                   >
                     <ContentBlock
                       aside={
