@@ -8,23 +8,23 @@
 .#{$prefix}--content-section-story .#{$prefix}--content-section__children {
   height: carbon--mini-units(60);
   padding: $carbon--spacing-05;
-  @include themed-items;
+  @include content-section-themed-items;
 }
 
 .#{$prefix}--content-section--g10 .#{$prefix}--content-section__children {
   @include carbon--theme($carbon--theme--g10) {
-    @include themed-items;
+    @include content-section-themed-items;
   }
 }
 
 .#{$prefix}--content-section--g90 .#{$prefix}--content-section__children {
   @include carbon--theme($carbon--theme--g90) {
-    @include themed-items;
+    @include content-section-themed-items;
   }
 }
 
 .#{$prefix}--content-section--g100 .#{$prefix}--content-section__children {
   @include carbon--theme($carbon--theme--g100) {
-    @include themed-items;
+    @include content-section-themed-items;
   }
 }
