@@ -30,4 +30,7 @@
       border-width: rem(4px) 0 rem(4px) rem(5.5px);
     }
   }
+  .#{$prefix}--tooltip .#{$prefix}--link {
+    font-size: 1rem;
+  }
 }
