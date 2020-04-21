@@ -28,6 +28,7 @@ const LocaleButton = ({ displayLang, aria }) => {
         kind="secondary"
         onClick={open}
         renderIcon={EarthFilled20}
+        iconDescription="Earth Filled Icon"
         aria-label={aria}>
         {displayLang}
       </Button>

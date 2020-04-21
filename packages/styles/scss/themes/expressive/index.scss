@@ -30,6 +30,7 @@
 @import 'components/overflow-menu';
 @import 'components/progressive-indicator';
 @import 'components/tabs';
+@import 'components/text-area';
 @import 'components/text-input';
 @import 'components/tile';
 @import 'components/time-picker';
@@ -71,6 +72,7 @@
     @include overflow-menu-expressive;
     @include progressive-indicator-expressive;
     @include tabs-expressive;
+    @include text-area-expressive;
     @include text-input-expressive;
     @include tile-expressive;
     @include time-picker-expressive;
