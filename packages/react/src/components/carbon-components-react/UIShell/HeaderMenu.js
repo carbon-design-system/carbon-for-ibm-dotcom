@@ -82,14 +82,6 @@ class HeaderMenu extends React.Component {
   };
 
   /**
-   * Handle <a /> onClick, as javascript:void(0)
-   * will no longer be supported in React versions > 16.9
-   */
-  linkOnClick = event => {
-    event.preventDefault();
-  };
-
-  /**
    * Keyboard event handler for the entire menu.
    */
   handleOnKeyDown = event => {
@@ -189,8 +181,8 @@ class HeaderMenu extends React.Component {
           aria-haspopup="menu" // eslint-disable-line jsx-a11y/aria-proptypes
           aria-expanded={this.state.expanded}
           className={`${prefix}--header__menu-item ${prefix}--header__menu-title`}
-          href
-          onClick={this.linkOnClick}
+          href="#"
+          onClick={event => event.preventDefault()}
           onKeyDown={this.handleOnKeyDown}
           ref={this.handleMenuButtonRef}
           role="menuitem"

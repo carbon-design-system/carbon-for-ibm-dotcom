@@ -7,7 +7,7 @@ import mastheadLinks from './MastheadLinks.js';
 
 const mastheadKnobs = {
   navigation: {
-    default: 'string',
+    default: 'default',
     custom: mastheadLinks,
     none: null,
   },

@@ -23,16 +23,6 @@ const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
- * Handle <a /> onClick, as javascript:void(0)
- * will no longer be supported in React versions > 16.9
- *
- * @param {*} event Click event
- */
-const linkOnClick = event => {
-  event.preventDefault();
-};
-
-/**
  * Masthead left nav component
  *
  * @typedef {object} navigation Object containing left navigation elements
@@ -54,11 +44,10 @@ const MastheadLeftNav = ({
       return (
         <SideNavMenu title={link.title} key={i}>
           <SideNavMenuItem
-            href
-            onClick={linkOnClick}
+            onClick={event => event.preventDefault()}
             className={`${prefix}--masthead__side-nav--submemu-back`}
             data-autoid={`${stablePrefix}--masthead__l0-sidenav--subnav-back-${i}`}
-            isBackButton
+            isbackbutton="true"
             key={i}>
             <ArrowLeft16 />
             Back
