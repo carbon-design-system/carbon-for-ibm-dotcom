@@ -101,7 +101,9 @@ const LocaleModalCountries = ({
       if (closeBtn) {
         closeBtn.removeEventListener('click', handleClear);
       }
-      localeFilter.removeEventListener('keyup', filterLocale);
+      if (localeFilter) {
+        localeFilter.removeEventListener('keyup', filterLocale);
+      }
     };
   });
 
