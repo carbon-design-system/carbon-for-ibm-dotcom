@@ -28,9 +28,17 @@ const { prefix } = settings;
  */
 const SimpleBenefits = ({ content, theme, title }) => {
   useEffect(() => {
-    const selector = `.${prefix}--simplebenefits__content-item__title`;
-    setSameHeight(selector);
-    root.addEventListener('resize', () => setSameHeight(selector));
+    /**
+     * Function to be added to eventListener and cleaned later on
+     */
+    const resizeFunction = () => {
+      setSameHeight(`.${prefix}--simplebenefits__content-item__title`);
+    };
+
+    resizeFunction();
+    root.addEventListener('resize', resizeFunction);
+
+    return () => root.removeEventListener('resize', resizeFunction);
   });
 
   /**

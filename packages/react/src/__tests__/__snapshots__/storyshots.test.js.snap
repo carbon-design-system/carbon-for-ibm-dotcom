@@ -33,12 +33,7 @@ exports[`Storyshots Components|CTA Default 1`] = `
                       href="https://www.example.com"
                       media={
                         Object {
-                          "active": false,
-                          "alt": "Image alt text",
-                          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Here are some common categories:",
                           "src": "0_uka1msg4",
-                          "srcThumb": "",
-                          "title": "Curabitur malesuada varius mi eu posuere",
                           "type": "video",
                         }
                       }
@@ -89,12 +84,7 @@ exports[`Storyshots Components|CTA Default 1`] = `
                       href="https://www.example.com"
                       media={
                         Object {
-                          "active": false,
-                          "alt": "Image alt text",
-                          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Here are some common categories:",
                           "src": "0_uka1msg4",
-                          "srcThumb": "",
-                          "title": "Curabitur malesuada varius mi eu posuere",
                           "type": "video",
                         }
                       }
@@ -111,12 +101,7 @@ exports[`Storyshots Components|CTA Default 1`] = `
                           launchLightBox={[Function]}
                           media={
                             Object {
-                              "active": false,
-                              "alt": "Image alt text",
-                              "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Here are some common categories:",
                               "src": "0_uka1msg4",
-                              "srcThumb": "",
-                              "title": "Curabitur malesuada varius mi eu posuere",
                               "type": "video",
                             }
                           }
@@ -234,7 +219,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                 footerType="default"
                 hasProfile={true}
                 hasSearch={true}
-                navigation="string"
+                navigation="default"
                 platform={null}
               >
                 <div
@@ -629,13 +614,13 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                 footerType="default"
                 hasProfile={true}
                 hasSearch={true}
-                navigation="string"
+                navigation="default"
                 platform={null}
               >
                 <Masthead
                   hasProfile={true}
                   hasSearch={true}
-                  navigation="string"
+                  navigation="default"
                   platform={null}
                 >
                   <HeaderContainer
@@ -4697,11 +4682,9 @@ exports[`Storyshots Components|LightboxMediaViewer Default 1`] = `
               <LightboxMediaViewer
                 media={
                   Object {
-                    "active": false,
                     "alt": "Image alt text",
                     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Here are some common categories:",
                     "src": "https://dummyimage.com/1280x720/ee5396/161616&amp;text=16:9",
-                    "srcThumb": [Function],
                     "title": "Curabitur malesuada varius mi eu posuere",
                     "type": "image",
                   }
@@ -4738,11 +4721,9 @@ exports[`Storyshots Components|LightboxMediaViewer Default 1`] = `
               <LightboxMediaViewer
                 media={
                   Object {
-                    "active": false,
                     "alt": "Image alt text",
                     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Here are some common categories:",
                     "src": "https://dummyimage.com/1280x720/ee5396/161616&amp;text=16:9",
-                    "srcThumb": [Function],
                     "title": "Curabitur malesuada varius mi eu posuere",
                     "type": "image",
                   }
@@ -4925,12 +4906,7 @@ exports[`Storyshots Components|LightboxMediaViewer Embedded Video Player 1`] = `
               <LightboxMediaViewer
                 media={
                   Object {
-                    "active": false,
-                    "alt": "Image alt text",
-                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Here are some common categories:",
                     "src": "0_uka1msg4",
-                    "srcThumb": "",
-                    "title": "Curabitur malesuada varius mi eu posuere",
                     "type": "video",
                   }
                 }
@@ -4966,12 +4942,7 @@ exports[`Storyshots Components|LightboxMediaViewer Embedded Video Player 1`] = `
               <LightboxMediaViewer
                 media={
                   Object {
-                    "active": false,
-                    "alt": "Image alt text",
-                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Here are some common categories:",
                     "src": "0_uka1msg4",
-                    "srcThumb": "",
-                    "title": "Curabitur malesuada varius mi eu posuere",
                     "type": "video",
                   }
                 }
@@ -5094,20 +5065,7 @@ exports[`Storyshots Components|LightboxMediaViewer Embedded Video Player 1`] = `
                                   >
                                     <div
                                       className="bx--lightbox-media-viewer__content"
-                                    >
-                                      <div
-                                        className="bx--lightbox-media-viewer__content__title"
-                                        data-autoid="dds--lightbox-media-viewer__content__title"
-                                      >
-                                        Curabitur malesuada varius mi eu posuere
-                                      </div>
-                                      <div
-                                        className="bx--lightbox-media-viewer__content__desc"
-                                        data-autoid="dds--lightbox-media-viewer__content__desc"
-                                      >
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Here are some common categories:
-                                      </div>
-                                    </div>
+                                    />
                                   </div>
                                 </div>
                               </div>
@@ -5624,7 +5582,7 @@ exports[`Storyshots Components|Masthead Default 1`] = `
               <Masthead
                 hasProfile={true}
                 hasSearch={true}
-                navigation="string"
+                navigation="default"
                 placeHolderText="Search all of IBM"
                 platform={null}
               />
@@ -5658,7 +5616,7 @@ exports[`Storyshots Components|Masthead Default 1`] = `
               <Masthead
                 hasProfile={true}
                 hasSearch={true}
-                navigation="string"
+                navigation="default"
                 placeHolderText="Search all of IBM"
                 platform={null}
               >
@@ -6123,7 +6081,7 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
               <Masthead
                 hasProfile={true}
                 hasSearch={true}
-                navigation="string"
+                navigation="default"
                 placeHolderText="Search all of IBM"
                 platform={null}
                 searchOpenOnload={true}
@@ -6158,7 +6116,7 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
               <Masthead
                 hasProfile={true}
                 hasSearch={true}
-                navigation="string"
+                navigation="default"
                 placeHolderText="Search all of IBM"
                 platform={null}
                 searchOpenOnload={true}

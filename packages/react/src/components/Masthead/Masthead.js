@@ -142,7 +142,7 @@ const Masthead = ({ navigation, hasProfile, hasSearch, ...mastheadProps }) => {
 
   if (navigation) {
     switch (typeof navigation) {
-      case 'string':
+      case 'default':
         // eslint-disable-next-line
         mastheadData = mastheadData;
         break;
@@ -246,7 +246,7 @@ const Masthead = ({ navigation, hasProfile, hasSearch, ...mastheadProps }) => {
  * @type {{mastheadProps: object, navigation: object, hasProfile: boolean, hasSearch: boolean}}
  */
 Masthead.propTypes = {
-  navigation: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  navigation: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
   hasProfile: PropTypes.bool,
   hasSearch: PropTypes.bool,
   mastheadProps: PropTypes.object,
