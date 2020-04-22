@@ -83,9 +83,15 @@ const TableOfContents = ({
   }, [useMenuItems]);
 
   useEffect(() => {
-    window.addEventListener('scroll', () => {
+    /**
+     * Function to be added to eventListener and cleaned later on
+     */
+    const handleRAF = () => {
       window.requestAnimationFrame(setSelectedItem);
-    });
+    };
+
+    window.addEventListener('scroll', handleRAF);
+    return () => window.removeEventListener('scroll', handleRAF);
   });
 
   /**
