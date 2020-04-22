@@ -219,7 +219,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                 footerType="default"
                 hasProfile={true}
                 hasSearch={true}
-                navigation="string"
+                navigation="default"
                 platform={null}
               >
                 <div
@@ -614,13 +614,13 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                 footerType="default"
                 hasProfile={true}
                 hasSearch={true}
-                navigation="string"
+                navigation="default"
                 platform={null}
               >
                 <Masthead
                   hasProfile={true}
                   hasSearch={true}
-                  navigation="string"
+                  navigation="default"
                   platform={null}
                 >
                   <HeaderContainer
@@ -5582,7 +5582,7 @@ exports[`Storyshots Components|Masthead Default 1`] = `
               <Masthead
                 hasProfile={true}
                 hasSearch={true}
-                navigation="string"
+                navigation="default"
                 placeHolderText="Search all of IBM"
                 platform={null}
               />
@@ -5616,7 +5616,7 @@ exports[`Storyshots Components|Masthead Default 1`] = `
               <Masthead
                 hasProfile={true}
                 hasSearch={true}
-                navigation="string"
+                navigation="default"
                 placeHolderText="Search all of IBM"
                 platform={null}
               >
@@ -6081,7 +6081,7 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
               <Masthead
                 hasProfile={true}
                 hasSearch={true}
-                navigation="string"
+                navigation="default"
                 placeHolderText="Search all of IBM"
                 platform={null}
                 searchOpenOnload={true}
@@ -6116,7 +6116,7 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
               <Masthead
                 hasProfile={true}
                 hasSearch={true}
-                navigation="string"
+                navigation="default"
                 placeHolderText="Search all of IBM"
                 platform={null}
                 searchOpenOnload={true}
