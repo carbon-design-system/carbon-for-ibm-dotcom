@@ -32,9 +32,7 @@ import { VideoPlayerAPI } from '@carbon/ibmdotcom-services';
  */
 const CTA = ({ style, type, customClassName, ...otherProps }) => {
   const [renderLightBox, openLightBox] = useState(false);
-  const [videoData, setVideoData] = useState([
-    { ctaText: '', key: 0, title: '', alt: '', description: '' },
-  ]);
+  const [videoTitle, setVideoTitle] = useState([{ title: '', key: 0 }]);
   const [mediaData, setMediaData] = useState({});
 
   useEffect(() => {
@@ -51,20 +49,17 @@ const CTA = ({ style, type, customClassName, ...otherProps }) => {
   const getVideoData = useCallback(async () => {
     if (type === 'video' || type.includes('video')) {
       const videoId = getVideoId(style, otherProps);
-      const data = await Promise.all(
+      const title = await Promise.all(
         videoId.map(async vidId => {
           const video = await VideoPlayerAPI.api(vidId.src);
           const time = VideoPlayerAPI.getVideoDuration(video.msDuration);
           return {
-            ctaText: `${video.name} ${time}`,
-            title: video.name,
-            alt: video.name,
-            description: video.description,
+            title: `${video.name} ${time}`,
             key: vidId.key,
           };
         })
       );
-      setVideoData(data);
+      setVideoTitle(title);
     }
   }, [otherProps, style, type]);
 
@@ -75,7 +70,7 @@ const CTA = ({ style, type, customClassName, ...otherProps }) => {
         type,
         renderLightBox,
         openLightBox,
-        videoData,
+        videoTitle,
         mediaData,
         setMediaData,
         ...otherProps,

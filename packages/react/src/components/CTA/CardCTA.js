@@ -23,7 +23,7 @@ const { prefix } = settings;
  * @param {Function} param.setLightBox func to open the lightbox
  * @param {boolean} param.renderLightBox bool to determine whether to open lightbox
  * @param {Function} param.launchLightBox func to render lightbox
- * @param {Array} param.videoData array of videoData objects
+ * @param {Array} param.videoTitle array of video titles
  *
  * @returns {object} JSX object
  */
@@ -36,15 +36,12 @@ const CardCTA = ({
   setLightBox,
   renderLightBox,
   launchLightBox,
-  videoData,
+  videoTitle,
   ...otherProps
 }) => {
   return type === 'video' ? (
     <div>
-      {launchLightBox(renderLightBox, openLightBox, {
-        ...otherProps.media,
-        ...videoData[0],
-      })}
+      {launchLightBox(renderLightBox, openLightBox, otherProps.media)}
       {!renderLightBox && (
         <Card
           customClassName={`${prefix}--card__CTA`}
@@ -54,7 +51,7 @@ const CardCTA = ({
               src: iconSelector(type),
             },
           }}
-          copy={videoData[0].ctaText}
+          copy={videoTitle[0].title}
           type="link"
           handleClick={e => setLightBox(e, openLightBox)}
         />
@@ -87,7 +84,7 @@ CardCTA.propTypes = {
   setLightBox: PropTypes.func,
   renderLightBox: PropTypes.bool,
   launchLightBox: PropTypes.func,
-  videoData: PropTypes.array,
+  videoTitle: PropTypes.array,
 };
 
 export default CardCTA;

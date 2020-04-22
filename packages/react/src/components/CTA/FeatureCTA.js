@@ -17,7 +17,7 @@ import React from 'react';
  * @param {Function} param.setLightBox func to open the lightbox
  * @param {boolean} param.renderLightBox bool to determine whether to open lightbox
  * @param {Function} param.launchLightBox func to render lightbox
- * @param {Array} param.videoData array of videoData objects
+ * @param {Array} param.videoTitle array of video titles
  * @param {Function} param.iconSelector func to set icon type
  * @param {Function} param.jump func to set smooth scroll functionality
  * @param {Function} param.external func to determine if link opens in new tab
@@ -30,7 +30,7 @@ const FeatureCTA = ({
   setLightBox,
   renderLightBox,
   launchLightBox,
-  videoData,
+  videoTitle,
   iconSelector,
   jump,
   external,
@@ -38,17 +38,14 @@ const FeatureCTA = ({
 }) => {
   return type === 'video' ? (
     <div>
-      {launchLightBox(renderLightBox, openLightBox, {
-        ...otherProps.card.cta.media,
-        ...videoData[0],
-      })}
+      {launchLightBox(renderLightBox, openLightBox, otherProps.card.cta.media)}
       {!renderLightBox && (
         <FeatureCard
           heading={otherProps.heading}
           card={_renderFeatureCard({
             card: {
               ...otherProps.card,
-              heading: videoData[0].ctaText,
+              heading: videoTitle[0].title,
             },
             iconSelector,
             jump,
@@ -98,7 +95,7 @@ FeatureCTA.propTypes = {
   setLightBox: PropTypes.func,
   renderLightBox: PropTypes.bool,
   launchLightBox: PropTypes.func,
-  videoData: PropTypes.array,
+  videoTitle: PropTypes.array,
   iconSelector: PropTypes.func,
   jump: PropTypes.func,
   external: PropTypes.func,

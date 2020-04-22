@@ -20,7 +20,7 @@ import React from 'react';
  * @param {Function} param.setLightBox func to open the lightbox
  * @param {boolean} param.renderLightBox bool to determine whether to open lightbox
  * @param {Function} param.launchLightBox func to render lightbox
- * @param {Array} param.videoData array of videoData objects
+ * @param {Array} param.videoTitle array of video titles
  * @param {Function} param.setMediaData func to set media data state
  * @param {object} param.mediaData media data object to render within lightbox
  *
@@ -35,7 +35,7 @@ const ButtonCTA = ({
   setLightBox,
   renderLightBox,
   launchLightBox,
-  videoData,
+  videoTitle,
   mediaData,
   setMediaData,
   ...otherProps
@@ -46,7 +46,7 @@ const ButtonCTA = ({
       {!renderLightBox && (
         <ButtonGroup
           buttons={_renderButtons({
-            videoData,
+            videoTitle,
             external,
             jump,
             iconSelector,
@@ -74,7 +74,7 @@ const ButtonCTA = ({
  * @param {Function} param.iconSelector func to set icon type
  * @param {Function} param.openLightBox func to set renderLightBox state
  * @param {Function} param.setLightBox func to open the lightbox
- * @param {Array} param.videoData array of videoData objects
+ * @param {Array} param.videoTitle array of video titles
  * @param {Function} param.setMediaData func to set media data state
  * @param {object} param.buttons object with buttons array
  * @private
@@ -86,21 +86,21 @@ const _renderButtons = ({
   iconSelector,
   openLightBox,
   setLightBox,
-  videoData,
+  videoTitle,
   setMediaData,
   buttons,
 }) => {
   return buttons.map((button, key) => {
     if (button.type === 'video') {
-      let data = videoData.filter(name => {
-        return name.key === key;
-      });
-      button.copy = !data[0] ? button.copy : data[0].ctaText;
       button.onClick = e => {
         e.preventDefault();
-        setMediaData({ ...button.media, ...data[0] });
+        setMediaData(button.media);
         return setLightBox(e, openLightBox);
       };
+      let title = videoTitle.filter(name => {
+        return name.key === key;
+      });
+      button.copy = !title[0] ? button.copy : title[0].title;
       button.href = '#';
     } else {
       button.onClick = e => jump(e, button.type);
@@ -120,7 +120,7 @@ ButtonCTA.propTypes = {
   setLightBox: PropTypes.func,
   renderLightBox: PropTypes.bool,
   launchLightBox: PropTypes.func,
-  videoData: PropTypes.array,
+  videoTitle: PropTypes.array,
   mediaData: PropTypes.object,
   setMediaData: PropTypes.func,
 };
