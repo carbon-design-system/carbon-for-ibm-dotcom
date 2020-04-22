@@ -30,7 +30,6 @@ const MastheadL1 = ({ isShort, title, eyebrowText, eyebrowLink }) => {
     [`${prefix}--masthead__l1`]: true,
     [`${prefix}--masthead__l1--short`]: isShort,
   });
-
   return (
     <div className={className}>
       <div className={`${prefix}--masthead__l1-name`}>
