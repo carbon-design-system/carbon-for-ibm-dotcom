@@ -86,6 +86,14 @@ function _loadScript() {
 
 /**
  *
+ * Object to cache video data
+ *
+ * @private
+ */
+let videoData = {};
+
+/**
+ *
  * VideoPlayerAPI class with methods of checking script state and
  * embed video meta data and api data
  * ibm.com
@@ -182,18 +190,23 @@ class VideoPlayerAPI {
    */
   static async api(videoId) {
     return await this.checkScript().then(() => {
-      return new Promise(resolve => {
-        return new root.kWidget.api({ wid: _partnerId }).doRequest(
-          {
-            service: 'media',
-            action: 'get',
-            entryId: videoId,
-          },
-          function(jsonObj) {
-            resolve(jsonObj);
-          }
-        );
-      });
+      if (videoData && videoData[videoId]) {
+        return videoData[videoId];
+      } else {
+        return new Promise(resolve => {
+          return new root.kWidget.api({ wid: _partnerId }).doRequest(
+            {
+              service: 'media',
+              action: 'get',
+              entryId: videoId,
+            },
+            function(jsonObj) {
+              videoData[jsonObj.id] = jsonObj;
+              resolve(jsonObj);
+            }
+          );
+        });
+      }
     });
   }
 

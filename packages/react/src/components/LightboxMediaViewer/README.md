@@ -19,6 +19,8 @@ Here's a quick example to get you started.
 > LightBoxMediaViewer styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
+### Image Media
+
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -30,9 +32,42 @@ function App() {
     <LightboxMediaViewer
     title='Curabitur malesuada varius mi eu posuere'
     copy='Lorem ipsum dolor sit amet, consectetur adipiscing Aenean et ultricies est.'
-    image = {
-      defaultSrc: 'https://dummyimage.com/1024x512',
+    media={
+      src: select('Image', images, images['1280 x 720 (16:9)']),
       alt: 'Image alt text',
+      title: text(
+        'title (required)',
+        'Curabitur malesuada varius mi eu posuere'
+      ),
+      description: text(
+        'description (required)',
+        `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Here are some common categories:`
+      ),
+      type: 'image',
+    }
+    open={true}
+  />
+  );
+}
+ReactDOM.render(<App />, document.querySelector('#app'));
+```
+
+### Video Media
+
+```javascript
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { LightboxMediaViewer } from '@carbon/ibmdotcom-react';
+import 'yourapplication.scss';
+
+function App() {
+  return (
+    <LightboxMediaViewer
+    title='Curabitur malesuada varius mi eu posuere'
+    copy='Lorem ipsum dolor sit amet, consectetur adipiscing Aenean et ultricies est.'
+    media={
+      src: '0_uka1msg4',
+      type: 'video',
     }
     open={true}
   />
@@ -57,10 +92,20 @@ Add the following line on your `.env` file at the root of your project,
 | ------- | -------- | --------- | ------------- | -------------------------------------------------------------- |
 | `title` | NO       | String    | null          | Title text for LightboxMediaViewer image                       |
 | `copy`  | NO       | String    | null          | Short description text for LightboxMediaViewer image           |
-| `image` | YES      | Object    | null          | See `../Image/README.md` file for more detail                  |
+| `media` | YES      | Object    | null          | Object containing media info. See `media` below                |
 | `open`  | YES      | Boolean   | null          | sets `true | false` whether the LightboxMediaViewer open/close |
 
 > 💡 See uri object structure above in `Getting started` section.
+
+## media
+
+| Name          | Data Type | Description                                                           |
+| ------------- | --------- | --------------------------------------------------------------------- |
+| `type`        | String    | Determines whether to render `image` or `video`                       |
+| `src`         | String    | Image link or video id                                                |
+| `alt`         | String    | Alternate text for image. For video, this is generated from api call. |
+| `title`       | String    | Title copy. For video, this is generated from api call.               |
+| `description` | String    | Description copy. For video, this is generated from api call.         |
 
 ## Stable selectors
 
