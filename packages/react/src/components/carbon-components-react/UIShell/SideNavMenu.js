@@ -66,7 +66,7 @@ export class SideNavMenu extends React.Component {
     /**
      * For submenu back button to toggle expand/collapse
      */
-    isbackbutton: PropTypes.bool,
+    isbackbutton: PropTypes.string,
   };
 
   static defaultProps = {
