@@ -83,14 +83,24 @@ const LocaleModalCountries = ({
     }
 
     /**
+     * Function to be added to eventListener and cleaned later on
+     */
+    const handleClear = () => {
+      setClearResults(true);
+    };
+
+    /**
      * Show all links when close button clicked
      *
      */
     if (closeBtn) {
-      closeBtn.addEventListener('click', () => {
-        setClearResults(true);
-      });
+      closeBtn.addEventListener('click', handleClear);
     }
+
+    return () => {
+      closeBtn.removeEventListener('click', handleClear);
+      localeFilter.removeEventListener('keyup', filterLocale);
+    };
   });
 
   return (
