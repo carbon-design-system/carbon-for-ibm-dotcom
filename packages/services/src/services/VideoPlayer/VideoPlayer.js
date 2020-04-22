@@ -190,8 +190,8 @@ class VideoPlayerAPI {
    */
   static async api(videoId) {
     return await this.checkScript().then(() => {
-      if (videoData && videoData.id === videoId) {
-        return videoData;
+      if (videoData && videoData[videoId]) {
+        return videoData[videoId];
       } else {
         return new Promise(resolve => {
           return new root.kWidget.api({ wid: _partnerId }).doRequest(
@@ -201,7 +201,7 @@ class VideoPlayerAPI {
               entryId: videoId,
             },
             function(jsonObj) {
-              videoData = jsonObj;
+              videoData[jsonObj.id] = jsonObj;
               resolve(jsonObj);
             }
           );
