@@ -17,6 +17,24 @@
 @mixin locale-modal {
   .#{$prefix}--modal-container {
     background-color: $ui-background;
+
+    @media (max-height: rem(450px)) {
+      .#{$prefix}--locale-modal__filtering {
+        overflow-y: scroll;
+
+        .#{$prefix}--locale-modal__filter {
+          overflow-y: initial;
+
+          .#{$prefix}--locale-modal__list {
+            overflow-y: initial;
+          }
+        }
+      }
+
+      .#{$prefix}--locale-modal__search {
+        position: relative;
+      }
+    }
   }
 
   .#{$prefix}--locale-modal-container .#{$prefix}--modal-container {

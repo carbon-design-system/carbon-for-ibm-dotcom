@@ -44,10 +44,10 @@ const MastheadLeftNav = ({
       return (
         <SideNavMenu title={link.title} key={i}>
           <SideNavMenuItem
-            href="javascript:void(0);"
+            onClick={event => event.preventDefault()}
             className={`${prefix}--masthead__side-nav--submemu-back`}
             data-autoid={`${stablePrefix}--masthead__l0-sidenav--subnav-back-${i}`}
-            isBackButton
+            isbackbutton="true"
             key={i}>
             <ArrowLeft16 />
             Back
