@@ -169,7 +169,7 @@ storiesOf('Patterns (Blocks)|ContentBlockMedia', module)
     };
 
     return (
-      <div className={'bx--grid'}>
+      <div className="bx--grid">
         <div class="bx--row">
           <div class="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4">
             <ContentBlockMedia
