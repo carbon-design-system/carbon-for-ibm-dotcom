@@ -50,7 +50,7 @@ export const Card = ({
       )}
       href={cta.href}
       {...props}>
-      <Image {...image} classname={`${prefix}--card__img`} />
+      {image && <Image {...image} classname={`${prefix}--card__img`} />}
       <div className={`${prefix}--card__wrapper`}>
         {eyebrow && <p className={`${prefix}--card__eyebrow`}>{eyebrow}</p>}
         {heading && <h3 className={`${prefix}--card__heading`}>{heading}</h3>}
