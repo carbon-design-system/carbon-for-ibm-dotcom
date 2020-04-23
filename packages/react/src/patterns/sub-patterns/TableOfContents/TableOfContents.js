@@ -121,19 +121,23 @@ const TableOfContents = ({
    * @returns {Array} array of name attributes
    */
   const getElemsInView = () => {
-    const eles = document.querySelectorAll('a[name]');
+    const eles = [...document.querySelectorAll('a[name]')].map(
+      elem => elem.parentElement
+    );
     let elesInView = [];
     eles.forEach(element => {
-      const bounding = element.getBoundingClientRect();
-      if (
-        bounding.top >= 0 &&
-        bounding.left >= 0 &&
-        bounding.bottom <=
-          (root.innerHeight || document.documentElement.clientHeight) &&
-        bounding.right <=
-          (root.innerWidth || document.documentElement.clientWidth)
-      ) {
-        elesInView.push(element.getAttribute('name'));
+      const rect = element.getBoundingClientRect();
+      const windowHeight =
+        root.innerHeight || document.documentElement.clientHeight;
+      const windowWidth =
+        root.innerWidth || document.documentElement.clientWidth;
+
+      const vertInView =
+        rect.top <= windowHeight && rect.top + rect.height >= 0;
+      const horInView = rect.left <= windowWidth && rect.left + rect.width >= 0;
+
+      if (vertInView && horInView) {
+        elesInView.push(element.querySelector('[name]').getAttribute('name'));
       }
     });
     return elesInView;
