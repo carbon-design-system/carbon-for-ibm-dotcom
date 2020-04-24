@@ -46,7 +46,6 @@ const LegalNav = ({ links }) => {
       <nav className={`${prefix}--legal-nav`}>
         <ul className={`${prefix}--legal-nav__list`}>
           {renderListItems(links)}
-          {renderTrusteItem()}
         </ul>
       </nav>
     </aside>
@@ -60,7 +59,7 @@ const LegalNav = ({ links }) => {
  * @returns {object} JSX object
  */
 function renderListItems(links) {
-  return links.map(({ title, url }, index) => {
+  const renderedLinks = links.map(({ title, url }, index) => {
     if (!title || !url) {
       return null;
     }
@@ -75,6 +74,27 @@ function renderListItems(links) {
         </Link>
       </li>
     );
+  });
+
+  return renderedLinks.map((elem, index, origin) => {
+    console.log(index);
+    if (index == 0) {
+      return <ul className={`${prefix}--legal-nav__holder`}>{elem}</ul>;
+    } else if (index % 2 != 0 && origin[index + 1] != undefined) {
+      return (
+        <ul className={`${prefix}--legal-nav__holder`}>
+          {elem}
+          {origin[index + 1]}
+        </ul>
+      );
+    } else {
+      return (
+        <ul className={`${prefix}--legal-nav__holder`}>
+          {origin[index + 1]}
+          {renderTrusteItem()}
+        </ul>
+      );
+    }
   });
 }
 

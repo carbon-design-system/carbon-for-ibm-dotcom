@@ -28,18 +28,32 @@
     &__list {
       @include carbon--make-col-ready;
 
-      .#{$prefix}--footer:not(.#{$prefix}--footer--short) & {
-        @include carbon--breakpoint('lg') {
-          @include carbon--make-col-offset(4, 16);
-          @include carbon--make-col(12, 16);
+      display: flex;
+    }
+
+    &__holder {
+      @include carbon--breakpoint('lg') {
+        @include carbon--make-col-ready;
+        @include carbon--make-col(1, 4);
+
+        &:nth-child(odd) {
+          padding-left: $carbon--spacing-06;
+        }
+
+        &:first-child {
+          @include carbon--make-col-offset(1, 4);
+
+          padding-left: $carbon--spacing-03;
         }
       }
+
+      padding-bottom: temp--padding-diff($TEMP--link-height, $TEMP--link-type);
     }
 
     &__list-item {
       display: inline-block;
       margin-right: carbon--mini-units(4);
-      padding: temp--padding-diff($TEMP--link-height, $TEMP--link-type) 0;
+      padding: temp--padding-diff($TEMP--link-height, $TEMP--link-type) 0 0 0;
 
       &:last-child {
         margin-right: 0;
