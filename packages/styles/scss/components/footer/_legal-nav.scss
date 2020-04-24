@@ -29,11 +29,31 @@
       @include carbon--make-col-ready;
 
       display: flex;
+      flex-wrap: wrap;
+      padding-bottom: $carbon--layout-04;
     }
 
     &__holder {
+      @include carbon--make-col-ready;
+      @include carbon--breakpoint-down('lg') {
+        @include carbon--make-col(4, 4);
+
+        padding-left: 0;
+
+        @include carbon--breakpoint('md') {
+          @include carbon--make-col(2, 4);
+
+          &:not(:first-child) {
+            padding-left: $carbon--layout-01;
+          }
+
+          &:nth-child(odd):not(:first-child) {
+            @include carbon--make-col-offset(2, 4);
+          }
+        }
+      }
+
       @include carbon--breakpoint('lg') {
-        @include carbon--make-col-ready;
         @include carbon--make-col(1, 4);
 
         &:nth-child(odd) {
@@ -47,7 +67,8 @@
         }
       }
 
-      padding-bottom: temp--padding-diff($TEMP--link-height, $TEMP--link-type);
+      display: flex;
+      flex-direction: column;
     }
 
     &__list-item {

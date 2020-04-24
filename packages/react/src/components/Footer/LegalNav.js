@@ -77,7 +77,6 @@ function renderListItems(links) {
   });
 
   return renderedLinks.map((elem, index, origin) => {
-    console.log(index);
     if (index == 0) {
       return <ul className={`${prefix}--legal-nav__holder`}>{elem}</ul>;
     } else if (index % 2 != 0 && origin[index + 1] != undefined) {
