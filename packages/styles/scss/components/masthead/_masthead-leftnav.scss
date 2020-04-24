@@ -142,6 +142,7 @@
 
         .#{$prefix}--masthead__side-nav--submemu-back {
           a {
+            cursor: pointer;
             border-bottom: none;
             > .#{$prefix}--side-nav__link-text {
               @include carbon--type-style(body-short-01, true);

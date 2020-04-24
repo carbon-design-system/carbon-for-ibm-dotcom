@@ -33,12 +33,7 @@ exports[`Storyshots Components|CTA Default 1`] = `
                       href="https://www.example.com"
                       media={
                         Object {
-                          "active": false,
-                          "alt": "Image alt text",
-                          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Here are some common categories:",
                           "src": "0_uka1msg4",
-                          "srcThumb": "",
-                          "title": "Curabitur malesuada varius mi eu posuere",
                           "type": "video",
                         }
                       }
@@ -89,12 +84,7 @@ exports[`Storyshots Components|CTA Default 1`] = `
                       href="https://www.example.com"
                       media={
                         Object {
-                          "active": false,
-                          "alt": "Image alt text",
-                          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Here are some common categories:",
                           "src": "0_uka1msg4",
-                          "srcThumb": "",
-                          "title": "Curabitur malesuada varius mi eu posuere",
                           "type": "video",
                         }
                       }
@@ -111,12 +101,7 @@ exports[`Storyshots Components|CTA Default 1`] = `
                           launchLightBox={[Function]}
                           media={
                             Object {
-                              "active": false,
-                              "alt": "Image alt text",
-                              "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Here are some common categories:",
                               "src": "0_uka1msg4",
-                              "srcThumb": "",
-                              "title": "Curabitur malesuada varius mi eu posuere",
                               "type": "video",
                             }
                           }
@@ -234,7 +219,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                 footerType="default"
                 hasProfile={true}
                 hasSearch={true}
-                navigation="string"
+                navigation="default"
                 platform={null}
               >
                 <div
@@ -629,13 +614,13 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                 footerType="default"
                 hasProfile={true}
                 hasSearch={true}
-                navigation="string"
+                navigation="default"
                 platform={null}
               >
                 <Masthead
                   hasProfile={true}
                   hasSearch={true}
-                  navigation="string"
+                  navigation="default"
                   platform={null}
                 >
                   <HeaderContainer
@@ -1716,6 +1701,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                               className="bx--locale-btn"
                               data-autoid="dds--locale-btn"
                               disabled={false}
+                              iconDescription="Earth Filled Icon"
                               kind="secondary"
                               onClick={[Function]}
                               renderIcon={
@@ -1738,10 +1724,12 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                               >
                                 <ForwardRef(EarthFilled20)
                                   aria-hidden="true"
+                                  aria-label="Earth Filled Icon"
                                   className="bx--btn__icon"
                                 >
                                   <Icon
                                     aria-hidden="true"
+                                    aria-label="Earth Filled Icon"
                                     className="bx--btn__icon"
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
@@ -1750,11 +1738,13 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                     xmlns="http://www.w3.org/2000/svg"
                                   >
                                     <svg
-                                      aria-hidden={true}
+                                      aria-hidden="true"
+                                      aria-label="Earth Filled Icon"
                                       className="bx--btn__icon"
                                       focusable="false"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
+                                      role="img"
                                       style={
                                         Object {
                                           "willChange": "transform",
@@ -3966,6 +3956,7 @@ exports[`Storyshots Components|Footer Default 1`] = `
                             className="bx--locale-btn"
                             data-autoid="dds--locale-btn"
                             disabled={false}
+                            iconDescription="Earth Filled Icon"
                             kind="secondary"
                             onClick={[Function]}
                             renderIcon={
@@ -3988,10 +3979,12 @@ exports[`Storyshots Components|Footer Default 1`] = `
                             >
                               <ForwardRef(EarthFilled20)
                                 aria-hidden="true"
+                                aria-label="Earth Filled Icon"
                                 className="bx--btn__icon"
                               >
                                 <Icon
                                   aria-hidden="true"
+                                  aria-label="Earth Filled Icon"
                                   className="bx--btn__icon"
                                   height={20}
                                   preserveAspectRatio="xMidYMid meet"
@@ -4000,11 +3993,13 @@ exports[`Storyshots Components|Footer Default 1`] = `
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
                                   <svg
-                                    aria-hidden={true}
+                                    aria-hidden="true"
+                                    aria-label="Earth Filled Icon"
                                     className="bx--btn__icon"
                                     focusable="false"
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
+                                    role="img"
                                     style={
                                       Object {
                                         "willChange": "transform",
@@ -4450,7 +4445,6 @@ exports[`Storyshots Components|Image Default 1`] = `
                       }
                     >
                       <picture
-                        alt="Image alt text"
                         className="bx--image"
                         data-autoid="dds--image__longdescription-"
                       >
@@ -4620,7 +4614,6 @@ exports[`Storyshots Components|ImageWithCaption Default 1`] = `
                           }
                         >
                           <picture
-                            alt="image with caption image"
                             className="bx--image"
                             data-autoid="dds--image__longdescription-"
                           >
@@ -4689,11 +4682,9 @@ exports[`Storyshots Components|LightboxMediaViewer Default 1`] = `
               <LightboxMediaViewer
                 media={
                   Object {
-                    "active": false,
                     "alt": "Image alt text",
                     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Here are some common categories:",
                     "src": "https://dummyimage.com/1280x720/ee5396/161616&amp;text=16:9",
-                    "srcThumb": [Function],
                     "title": "Curabitur malesuada varius mi eu posuere",
                     "type": "image",
                   }
@@ -4730,11 +4721,9 @@ exports[`Storyshots Components|LightboxMediaViewer Default 1`] = `
               <LightboxMediaViewer
                 media={
                   Object {
-                    "active": false,
                     "alt": "Image alt text",
                     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Here are some common categories:",
                     "src": "https://dummyimage.com/1280x720/ee5396/161616&amp;text=16:9",
-                    "srcThumb": [Function],
                     "title": "Curabitur malesuada varius mi eu posuere",
                     "type": "image",
                   }
@@ -4839,7 +4828,6 @@ exports[`Storyshots Components|LightboxMediaViewer Default 1`] = `
                                       defaultSrc="https://dummyimage.com/1280x720/ee5396/161616&amp;text=16:9"
                                     >
                                       <picture
-                                        alt="Image alt text"
                                         className="bx--image"
                                         data-autoid="dds--image__longdescription-"
                                       >
@@ -4918,12 +4906,7 @@ exports[`Storyshots Components|LightboxMediaViewer Embedded Video Player 1`] = `
               <LightboxMediaViewer
                 media={
                   Object {
-                    "active": false,
-                    "alt": "Image alt text",
-                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Here are some common categories:",
                     "src": "0_uka1msg4",
-                    "srcThumb": "",
-                    "title": "Curabitur malesuada varius mi eu posuere",
                     "type": "video",
                   }
                 }
@@ -4959,12 +4942,7 @@ exports[`Storyshots Components|LightboxMediaViewer Embedded Video Player 1`] = `
               <LightboxMediaViewer
                 media={
                   Object {
-                    "active": false,
-                    "alt": "Image alt text",
-                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Here are some common categories:",
                     "src": "0_uka1msg4",
-                    "srcThumb": "",
-                    "title": "Curabitur malesuada varius mi eu posuere",
                     "type": "video",
                   }
                 }
@@ -5087,20 +5065,7 @@ exports[`Storyshots Components|LightboxMediaViewer Embedded Video Player 1`] = `
                                   >
                                     <div
                                       className="bx--lightbox-media-viewer__content"
-                                    >
-                                      <div
-                                        className="bx--lightbox-media-viewer__content__title"
-                                        data-autoid="dds--lightbox-media-viewer__content__title"
-                                      >
-                                        Curabitur malesuada varius mi eu posuere
-                                      </div>
-                                      <div
-                                        className="bx--lightbox-media-viewer__content__desc"
-                                        data-autoid="dds--lightbox-media-viewer__content__desc"
-                                      >
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Here are some common categories:
-                                      </div>
-                                    </div>
+                                    />
                                   </div>
                                 </div>
                               </div>
@@ -5366,6 +5331,7 @@ exports[`Storyshots Components|Locale Modal Default 1`] = `
                           >
                             <ForwardRef(EarthFilled20)
                               className="bx--locale-modal__label-globe"
+                              key="earthfilled"
                             >
                               <Icon
                                 className="bx--locale-modal__label-globe"
@@ -5462,6 +5428,7 @@ exports[`Storyshots Components|Locale Modal Default 1`] = `
                           </LocaleModalRegions>
                           <LocaleModalCountries
                             regionList={Array []}
+                            searchLabel="Search by location or language"
                             setClearResults={[Function]}
                           >
                             <div
@@ -5474,6 +5441,7 @@ exports[`Storyshots Components|Locale Modal Default 1`] = `
                                   closeButtonLabelText="Clear search input"
                                   data-autoid="dds--locale-modal__filter"
                                   id="bx--locale-modal__filter"
+                                  labelText="Search by location or language"
                                   onChange={[Function]}
                                   placeHolderText=""
                                   type="text"
@@ -5516,7 +5484,9 @@ exports[`Storyshots Components|Locale Modal Default 1`] = `
                                     <label
                                       className="bx--label"
                                       htmlFor="bx--locale-modal__filter"
-                                    />
+                                    >
+                                      Search by location or language
+                                    </label>
                                     <input
                                       className="bx--search-input"
                                       data-autoid="dds--locale-modal__filter"
@@ -5571,7 +5541,7 @@ exports[`Storyshots Components|Locale Modal Default 1`] = `
                                 aria-labelledby="bx--locale-modal__filter"
                                 className="bx--locale-modal__list"
                                 role="listbox"
-                                tabindex="0"
+                                tabIndex="0"
                               />
                             </div>
                           </LocaleModalCountries>
@@ -5617,7 +5587,7 @@ exports[`Storyshots Components|Masthead Default 1`] = `
               <Masthead
                 hasProfile={true}
                 hasSearch={true}
-                navigation="string"
+                navigation="default"
                 placeHolderText="Search all of IBM"
                 platform={null}
               />
@@ -5651,7 +5621,7 @@ exports[`Storyshots Components|Masthead Default 1`] = `
               <Masthead
                 hasProfile={true}
                 hasSearch={true}
-                navigation="string"
+                navigation="default"
                 placeHolderText="Search all of IBM"
                 platform={null}
               >
@@ -6116,7 +6086,7 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
               <Masthead
                 hasProfile={true}
                 hasSearch={true}
-                navigation="string"
+                navigation="default"
                 placeHolderText="Search all of IBM"
                 platform={null}
                 searchOpenOnload={true}
@@ -6151,7 +6121,7 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
               <Masthead
                 hasProfile={true}
                 hasSearch={true}
-                navigation="string"
+                navigation="default"
                 placeHolderText="Search all of IBM"
                 platform={null}
                 searchOpenOnload={true}
@@ -7522,7 +7492,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                                                 }
                                               >
                                                 <picture
-                                                  alt="Image alt text"
                                                   className="bx--image"
                                                   data-autoid="dds--image__longdescription-"
                                                 >
@@ -7695,9 +7664,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                                                     role="region"
                                                     target={null}
                                                   >
-                                                    <Image
-                                                      classname="bx--card__img"
-                                                    />
                                                     <div
                                                       className="bx--card__wrapper"
                                                     >
@@ -7907,7 +7873,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                                                 }
                                               >
                                                 <picture
-                                                  alt="Image alt text"
                                                   className="bx--image"
                                                   data-autoid="dds--image__longdescription-"
                                                 >
@@ -8080,9 +8045,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                                                     role="region"
                                                     target={null}
                                                   >
-                                                    <Image
-                                                      classname="bx--card__img"
-                                                    />
                                                     <div
                                                       className="bx--card__wrapper"
                                                     >
@@ -8327,7 +8289,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                                                     defaultSrc="https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1"
                                                   >
                                                     <picture
-                                                      alt="Image alt text"
                                                       className="bx--image"
                                                       data-autoid="dds--image__longdescription-"
                                                     >
@@ -8946,9 +8907,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                                     onClick={[Function]}
                                                     onKeyDown={[Function]}
                                                   >
-                                                    <Image
-                                                      classname="bx--card__img"
-                                                    />
                                                     <div
                                                       className="bx--card__wrapper"
                                                     >
@@ -9066,9 +9024,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                                     onClick={[Function]}
                                                     onKeyDown={[Function]}
                                                   >
-                                                    <Image
-                                                      classname="bx--card__img"
-                                                    />
                                                     <div
                                                       className="bx--card__wrapper"
                                                     >
@@ -9186,9 +9141,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                                     onClick={[Function]}
                                                     onKeyDown={[Function]}
                                                   >
-                                                    <Image
-                                                      classname="bx--card__img"
-                                                    />
                                                     <div
                                                       className="bx--card__wrapper"
                                                     >
@@ -9306,9 +9258,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                                     onClick={[Function]}
                                                     onKeyDown={[Function]}
                                                   >
-                                                    <Image
-                                                      classname="bx--card__img"
-                                                    />
                                                     <div
                                                       className="bx--card__wrapper"
                                                     >
@@ -10209,7 +10158,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                                 }
                                               >
                                                 <picture
-                                                  alt="Image alt text"
                                                   className="bx--image"
                                                   data-autoid="dds--image__longdescription-"
                                                 >
@@ -10389,9 +10337,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                           role="region"
                                           target={null}
                                         >
-                                          <Image
-                                            classname="bx--card__img"
-                                          />
                                           <div
                                             className="bx--card__wrapper"
                                           >
@@ -10805,7 +10750,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                       }
                                     >
                                       <picture
-                                        alt="Image alt text"
                                         className="bx--image"
                                         data-autoid="dds--image__longdescription-"
                                       >
@@ -10980,7 +10924,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                               }
                                             >
                                               <picture
-                                                alt="Image alt text"
                                                 className="bx--image"
                                                 data-autoid="dds--image__longdescription-"
                                               >
@@ -11105,9 +11048,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                           role="region"
                                           target={null}
                                         >
-                                          <Image
-                                            classname="bx--card__img"
-                                          />
                                           <div
                                             className="bx--card__wrapper"
                                           >
@@ -11480,7 +11420,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                                         }
                                       >
                                         <picture
-                                          alt="Image alt text"
                                           className="bx--image"
                                           data-autoid="dds--image__longdescription-"
                                         >
@@ -11604,9 +11543,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                                           role="region"
                                           target={null}
                                         >
-                                          <Image
-                                            classname="bx--card__img"
-                                          />
                                           <div
                                             className="bx--card__wrapper"
                                           >
@@ -11908,9 +11844,6 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
                                           onClick={[Function]}
                                           onKeyDown={[Function]}
                                         >
-                                          <Image
-                                            classname="bx--card__img"
-                                          />
                                           <div
                                             className="bx--card__wrapper"
                                           >
@@ -12028,9 +11961,6 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
                                           onClick={[Function]}
                                           onKeyDown={[Function]}
                                         >
-                                          <Image
-                                            classname="bx--card__img"
-                                          />
                                           <div
                                             className="bx--card__wrapper"
                                           >
@@ -12148,9 +12078,6 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
                                           onClick={[Function]}
                                           onKeyDown={[Function]}
                                         >
-                                          <Image
-                                            classname="bx--card__img"
-                                          />
                                           <div
                                             className="bx--card__wrapper"
                                           >
@@ -12268,9 +12195,6 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
                                           onClick={[Function]}
                                           onKeyDown={[Function]}
                                         >
-                                          <Image
-                                            classname="bx--card__img"
-                                          />
                                           <div
                                             className="bx--card__wrapper"
                                           >
@@ -13119,7 +13043,6 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupSimple Default 1`] = `
                                       }
                                     >
                                       <picture
-                                        alt="Image alt text"
                                         className="bx--image"
                                         data-autoid="dds--image__longdescription-"
                                       >
@@ -13292,9 +13215,6 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupSimple Default 1`] = `
                                           role="region"
                                           target={null}
                                         >
-                                          <Image
-                                            classname="bx--card__img"
-                                          />
                                           <div
                                             className="bx--card__wrapper"
                                           >
@@ -13564,7 +13484,6 @@ exports[`Storyshots Patterns (Blocks)|FeatureCard Default 1`] = `
                                       defaultSrc="https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1"
                                     >
                                       <picture
-                                        alt="Image alt text"
                                         className="bx--image"
                                         data-autoid="dds--image__longdescription-"
                                       >
@@ -13881,9 +13800,6 @@ exports[`Storyshots Patterns (Sections)|CardSection default 1`] = `
                                     onClick={[Function]}
                                     onKeyDown={[Function]}
                                   >
-                                    <Image
-                                      classname="bx--card__img"
-                                    />
                                     <div
                                       className="bx--card__wrapper"
                                     >
@@ -13998,9 +13914,6 @@ exports[`Storyshots Patterns (Sections)|CardSection default 1`] = `
                                     onClick={[Function]}
                                     onKeyDown={[Function]}
                                   >
-                                    <Image
-                                      classname="bx--card__img"
-                                    />
                                     <div
                                       className="bx--card__wrapper"
                                     >
@@ -14115,9 +14028,6 @@ exports[`Storyshots Patterns (Sections)|CardSection default 1`] = `
                                     onClick={[Function]}
                                     onKeyDown={[Function]}
                                   >
-                                    <Image
-                                      classname="bx--card__img"
-                                    />
                                     <div
                                       className="bx--card__wrapper"
                                     >
@@ -14232,9 +14142,6 @@ exports[`Storyshots Patterns (Sections)|CardSection default 1`] = `
                                     onClick={[Function]}
                                     onKeyDown={[Function]}
                                   >
-                                    <Image
-                                      classname="bx--card__img"
-                                    />
                                     <div
                                       className="bx--card__wrapper"
                                     >
@@ -14349,9 +14256,6 @@ exports[`Storyshots Patterns (Sections)|CardSection default 1`] = `
                                     onClick={[Function]}
                                     onKeyDown={[Function]}
                                   >
-                                    <Image
-                                      classname="bx--card__img"
-                                    />
                                     <div
                                       className="bx--card__wrapper"
                                     >
@@ -14462,9 +14366,6 @@ exports[`Storyshots Patterns (Sections)|CardSection default 1`] = `
                                     onClick={[Function]}
                                     onKeyDown={[Function]}
                                   >
-                                    <Image
-                                      classname="bx--card__img"
-                                    />
                                     <div
                                       className="bx--card__wrapper"
                                     >
@@ -14871,7 +14772,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                         defaultSrc="https://dummyimage.com/1056x792/ee5396/161616%26text=4:3"
                                       >
                                         <picture
-                                          alt="Image alt text"
                                           className="bx--image"
                                           data-autoid="dds--image__longdescription-"
                                         >
@@ -15006,7 +14906,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                         defaultSrc="https://dummyimage.com/792x1056/ee5396/161616%26text=3:4"
                                       >
                                         <picture
-                                          alt="Image alt text"
                                           className="bx--image"
                                           data-autoid="dds--image__longdescription-"
                                         >
@@ -15141,7 +15040,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                         defaultSrc="https://dummyimage.com/1056x1056/ee5396/161616%26text=1:1"
                                       >
                                         <picture
-                                          alt="Image alt text"
                                           className="bx--image"
                                           data-autoid="dds--image__longdescription-"
                                         >
@@ -15276,7 +15174,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                         defaultSrc="https://dummyimage.com/1056x528/ee5396/161616%26text=2:1"
                                       >
                                         <picture
-                                          alt="Image alt text"
                                           className="bx--image"
                                           data-autoid="dds--image__longdescription-"
                                         >
@@ -15411,7 +15308,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                         defaultSrc="https://dummyimage.com/1056x594/ee5396/161616%26text=16:9"
                                       >
                                         <picture
-                                          alt="Image alt text"
                                           className="bx--image"
                                           data-autoid="dds--image__longdescription-"
                                         >
@@ -15787,9 +15683,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                       onClick={[Function]}
                                       onKeyDown={[Function]}
                                     >
-                                      <Image
-                                        classname="bx--card__img"
-                                      />
                                       <div
                                         className="bx--card__wrapper"
                                       >
@@ -15904,9 +15797,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                       onClick={[Function]}
                                       onKeyDown={[Function]}
                                     >
-                                      <Image
-                                        classname="bx--card__img"
-                                      />
                                       <div
                                         className="bx--card__wrapper"
                                       >
@@ -16021,9 +15911,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                       onClick={[Function]}
                                       onKeyDown={[Function]}
                                     >
-                                      <Image
-                                        classname="bx--card__img"
-                                      />
                                       <div
                                         className="bx--card__wrapper"
                                       >
@@ -16138,9 +16025,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                       onClick={[Function]}
                                       onKeyDown={[Function]}
                                     >
-                                      <Image
-                                        classname="bx--card__img"
-                                      />
                                       <div
                                         className="bx--card__wrapper"
                                       >
@@ -16255,9 +16139,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                       onClick={[Function]}
                                       onKeyDown={[Function]}
                                     >
-                                      <Image
-                                        classname="bx--card__img"
-                                      />
                                       <div
                                         className="bx--card__wrapper"
                                       >
@@ -16368,9 +16249,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                       onClick={[Function]}
                                       onKeyDown={[Function]}
                                     >
-                                      <Image
-                                        classname="bx--card__img"
-                                      />
                                       <div
                                         className="bx--card__wrapper"
                                       >
@@ -16507,7 +16385,7 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with image 1`] = `
                 image={
                   Object {
                     "alt": "lead space image",
-                    "default": "https://picsum.photos/id/1076/1056/480",
+                    "defaultSrc": "https://picsum.photos/id/1076/1056/480",
                     "sources": Array [
                       Object {
                         "breakpoint": "sm",
@@ -16579,7 +16457,7 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with image 1`] = `
                 image={
                   Object {
                     "alt": "lead space image",
-                    "default": "https://picsum.photos/id/1076/1056/480",
+                    "defaultSrc": "https://picsum.photos/id/1076/1056/480",
                     "sources": Array [
                       Object {
                         "breakpoint": "sm",
@@ -16820,7 +16698,6 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with image 1`] = `
                       }
                     >
                       <picture
-                        alt="lead space image"
                         className="bx--image"
                         data-autoid="dds--image__longdescription-"
                       >
@@ -16884,7 +16761,6 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with no image 1`] = `
                     Object {
                       "copy": "Button 1",
                       "href": "https://www.example.com",
-                      "link": "",
                       "renderIcon": Object {
                         "$$typeof": Symbol(react.forward_ref),
                         "render": [Function],
@@ -16893,7 +16769,6 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with no image 1`] = `
                     Object {
                       "copy": "Button 2",
                       "href": "https://www.example.com",
-                      "link": "",
                       "renderIcon": Object {
                         "$$typeof": Symbol(react.forward_ref),
                         "render": [Function],
@@ -16939,7 +16814,6 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with no image 1`] = `
                     Object {
                       "copy": "Button 1",
                       "href": "https://www.example.com",
-                      "link": "",
                       "renderIcon": Object {
                         "$$typeof": Symbol(react.forward_ref),
                         "render": [Function],
@@ -16948,7 +16822,6 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with no image 1`] = `
                     Object {
                       "copy": "Button 2",
                       "href": "https://www.example.com",
-                      "link": "",
                       "renderIcon": Object {
                         "$$typeof": Symbol(react.forward_ref),
                         "render": [Function],
@@ -17002,7 +16875,6 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with no image 1`] = `
                                 Object {
                                   "copy": "Button 1",
                                   "href": "https://www.example.com",
-                                  "link": "",
                                   "renderIcon": Object {
                                     "$$typeof": Symbol(react.forward_ref),
                                     "render": [Function],
@@ -17011,7 +16883,6 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with no image 1`] = `
                                 Object {
                                   "copy": "Button 2",
                                   "href": "https://www.example.com",
-                                  "link": "",
                                   "renderIcon": Object {
                                     "$$typeof": Symbol(react.forward_ref),
                                     "render": [Function],
@@ -17034,7 +16905,6 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with no image 1`] = `
                                   disabled={false}
                                   href="https://www.example.com"
                                   kind="primary"
-                                  link=""
                                   renderIcon={
                                     Object {
                                       "$$typeof": Symbol(react.forward_ref),
@@ -17049,7 +16919,6 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with no image 1`] = `
                                     copy="Button 1"
                                     data-autoid="dds--button-group-0"
                                     href="https://www.example.com"
-                                    link=""
                                     role="button"
                                     tabIndex={2}
                                   >
@@ -17101,7 +16970,6 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with no image 1`] = `
                                   disabled={false}
                                   href="https://www.example.com"
                                   kind="tertiary"
-                                  link=""
                                   renderIcon={
                                     Object {
                                       "$$typeof": Symbol(react.forward_ref),
@@ -17116,7 +16984,6 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with no image 1`] = `
                                     copy="Button 2"
                                     data-autoid="dds--button-group-1"
                                     href="https://www.example.com"
-                                    link=""
                                     role="button"
                                     tabIndex={1}
                                   >
@@ -17228,7 +17095,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ButtonGroup Default 1`] = `
                         Array [
                           Object {
                             "copy": "Button 1",
-                            "link": "https://example.com",
+                            "href": "https://example.com",
                             "renderIcon": Object {
                               "$$typeof": Symbol(react.forward_ref),
                               "render": [Function],
@@ -17236,7 +17103,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ButtonGroup Default 1`] = `
                           },
                           Object {
                             "copy": "Button 2",
-                            "link": "https://example.com",
+                            "href": "https://example.com",
                             "renderIcon": Object {
                               "$$typeof": Symbol(react.forward_ref),
                               "render": [Function],
@@ -17262,7 +17129,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ButtonGroup Default 1`] = `
                     Array [
                       Object {
                         "copy": "Button 1",
-                        "link": "https://example.com",
+                        "href": "https://example.com",
                         "renderIcon": Object {
                           "$$typeof": Symbol(react.forward_ref),
                           "render": [Function],
@@ -17270,7 +17137,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ButtonGroup Default 1`] = `
                       },
                       Object {
                         "copy": "Button 2",
-                        "link": "https://example.com",
+                        "href": "https://example.com",
                         "renderIcon": Object {
                           "$$typeof": Symbol(react.forward_ref),
                           "render": [Function],
@@ -17336,7 +17203,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ButtonGroup Default 1`] = `
                         Array [
                           Object {
                             "copy": "Button 1",
-                            "link": "https://example.com",
+                            "href": "https://example.com",
                             "renderIcon": Object {
                               "$$typeof": Symbol(react.forward_ref),
                               "render": [Function],
@@ -17344,7 +17211,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ButtonGroup Default 1`] = `
                           },
                           Object {
                             "copy": "Button 2",
-                            "link": "https://example.com",
+                            "href": "https://example.com",
                             "renderIcon": Object {
                               "$$typeof": Symbol(react.forward_ref),
                               "render": [Function],
@@ -17365,8 +17232,8 @@ exports[`Storyshots Patterns (Sub-Patterns)|ButtonGroup Default 1`] = `
                             copy="Button 1"
                             data-autoid="dds--button-group-0"
                             disabled={false}
+                            href="https://example.com"
                             kind="primary"
-                            link="https://example.com"
                             renderIcon={
                               Object {
                                 "$$typeof": Symbol(react.forward_ref),
@@ -17376,14 +17243,13 @@ exports[`Storyshots Patterns (Sub-Patterns)|ButtonGroup Default 1`] = `
                             tabIndex={2}
                             type="button"
                           >
-                            <button
+                            <a
                               className="bx--btn bx--btn--primary"
                               copy="Button 1"
                               data-autoid="dds--button-group-0"
-                              disabled={false}
-                              link="https://example.com"
+                              href="https://example.com"
+                              role="button"
                               tabIndex={2}
-                              type="button"
                             >
                               Button 1
                               <ForwardRef(ArrowRight20)
@@ -17420,7 +17286,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ButtonGroup Default 1`] = `
                                   </svg>
                                 </Icon>
                               </ForwardRef(ArrowRight20)>
-                            </button>
+                            </a>
                           </ForwardRef(Button)>
                         </li>
                         <li
@@ -17431,8 +17297,8 @@ exports[`Storyshots Patterns (Sub-Patterns)|ButtonGroup Default 1`] = `
                             copy="Button 2"
                             data-autoid="dds--button-group-1"
                             disabled={false}
+                            href="https://example.com"
                             kind="tertiary"
-                            link="https://example.com"
                             renderIcon={
                               Object {
                                 "$$typeof": Symbol(react.forward_ref),
@@ -17442,14 +17308,13 @@ exports[`Storyshots Patterns (Sub-Patterns)|ButtonGroup Default 1`] = `
                             tabIndex={1}
                             type="button"
                           >
-                            <button
+                            <a
                               className="bx--btn bx--btn--tertiary"
                               copy="Button 2"
                               data-autoid="dds--button-group-1"
-                              disabled={false}
-                              link="https://example.com"
+                              href="https://example.com"
+                              role="button"
                               tabIndex={1}
-                              type="button"
                             >
                               Button 2
                               <ForwardRef(ArrowRight20)
@@ -17486,7 +17351,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ButtonGroup Default 1`] = `
                                   </svg>
                                 </Icon>
                               </ForwardRef(ArrowRight20)>
-                            </button>
+                            </a>
                           </ForwardRef(Button)>
                         </li>
                       </ol>
@@ -17508,7 +17373,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ButtonGroup Default 1`] = `
                     Array [
                       Object {
                         "copy": "Button 1",
-                        "link": "https://example.com",
+                        "href": "https://example.com",
                         "renderIcon": Object {
                           "$$typeof": Symbol(react.forward_ref),
                           "render": [Function],
@@ -17516,7 +17381,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ButtonGroup Default 1`] = `
                       },
                       Object {
                         "copy": "Button 2",
-                        "link": "https://example.com",
+                        "href": "https://example.com",
                         "renderIcon": Object {
                           "$$typeof": Symbol(react.forward_ref),
                           "render": [Function],
@@ -17537,8 +17402,8 @@ exports[`Storyshots Patterns (Sub-Patterns)|ButtonGroup Default 1`] = `
                         copy="Button 1"
                         data-autoid="dds--button-group-0"
                         disabled={false}
+                        href="https://example.com"
                         kind="primary"
-                        link="https://example.com"
                         renderIcon={
                           Object {
                             "$$typeof": Symbol(react.forward_ref),
@@ -17548,14 +17413,13 @@ exports[`Storyshots Patterns (Sub-Patterns)|ButtonGroup Default 1`] = `
                         tabIndex={2}
                         type="button"
                       >
-                        <button
+                        <a
                           className="bx--btn bx--btn--primary"
                           copy="Button 1"
                           data-autoid="dds--button-group-0"
-                          disabled={false}
-                          link="https://example.com"
+                          href="https://example.com"
+                          role="button"
                           tabIndex={2}
-                          type="button"
                         >
                           Button 1
                           <ForwardRef(ArrowRight20)
@@ -17592,7 +17456,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ButtonGroup Default 1`] = `
                               </svg>
                             </Icon>
                           </ForwardRef(ArrowRight20)>
-                        </button>
+                        </a>
                       </ForwardRef(Button)>
                     </li>
                     <li
@@ -17603,8 +17467,8 @@ exports[`Storyshots Patterns (Sub-Patterns)|ButtonGroup Default 1`] = `
                         copy="Button 2"
                         data-autoid="dds--button-group-1"
                         disabled={false}
+                        href="https://example.com"
                         kind="tertiary"
-                        link="https://example.com"
                         renderIcon={
                           Object {
                             "$$typeof": Symbol(react.forward_ref),
@@ -17614,14 +17478,13 @@ exports[`Storyshots Patterns (Sub-Patterns)|ButtonGroup Default 1`] = `
                         tabIndex={1}
                         type="button"
                       >
-                        <button
+                        <a
                           className="bx--btn bx--btn--tertiary"
                           copy="Button 2"
                           data-autoid="dds--button-group-1"
-                          disabled={false}
-                          link="https://example.com"
+                          href="https://example.com"
+                          role="button"
                           tabIndex={1}
-                          type="button"
                         >
                           Button 2
                           <ForwardRef(ArrowRight20)
@@ -17658,7 +17521,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ButtonGroup Default 1`] = `
                               </svg>
                             </Icon>
                           </ForwardRef(ArrowRight20)>
-                        </button>
+                        </a>
                       </ForwardRef(Button)>
                     </li>
                   </ol>
@@ -17810,9 +17673,6 @@ exports[`Storyshots Patterns (Sub-Patterns)|Card Link/Clickable 1`] = `
                             onClick={[Function]}
                             onKeyDown={[Function]}
                           >
-                            <Image
-                              classname="bx--card__img"
-                            />
                             <div
                               className="bx--card__wrapper"
                             >
@@ -18029,9 +17889,6 @@ exports[`Storyshots Patterns (Sub-Patterns)|Card Static 1`] = `
                             data-autoid="dds--card"
                             href="https://example.com"
                           >
-                            <Image
-                              classname="bx--card__img"
-                            />
                             <div
                               className="bx--card__wrapper"
                             >
@@ -18390,9 +18247,6 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock Default 1`] = `
                                       role="region"
                                       target="_blank"
                                     >
-                                      <Image
-                                        classname="bx--card__img"
-                                      />
                                       <div
                                         className="bx--card__wrapper"
                                       >
@@ -18514,7 +18368,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock With aside elements 1`]
                   className="bx--row"
                 >
                   <div
-                    className="bx--offset-lg-4"
+                    className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4"
                   >
                     <ContentBlock
                       aside={
@@ -18598,7 +18452,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock With aside elements 1`]
                   className="bx--row"
                 >
                   <div
-                    className="bx--offset-lg-4"
+                    className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4"
                   >
                     <ContentBlock
                       aside={
@@ -18797,9 +18651,6 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock With aside elements 1`]
                                               role="region"
                                               target="_blank"
                                             >
-                                              <Image
-                                                classname="bx--card__img"
-                                              />
                                               <div
                                                 className="bx--card__wrapper"
                                               >
@@ -18995,9 +18846,6 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock With aside elements 1`]
                                                     role="region"
                                                     target={null}
                                                   >
-                                                    <Image
-                                                      classname="bx--card__img"
-                                                    />
                                                     <div
                                                       className="bx--card__wrapper"
                                                     >
@@ -19152,9 +19000,6 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock With aside elements 1`]
                                                     role="region"
                                                     target="_blank"
                                                   >
-                                                    <Image
-                                                      classname="bx--card__img"
-                                                    />
                                                     <div
                                                       className="bx--card__wrapper"
                                                     >
@@ -19446,9 +19291,6 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentGroup Default 1`] = `
                                       role="region"
                                       target={null}
                                     >
-                                      <Image
-                                        classname="bx--card__img"
-                                      />
                                       <div
                                         className="bx--card__wrapper"
                                       >
@@ -19739,7 +19581,6 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentItem Default 1`] = `
                                 }
                               >
                                 <picture
-                                  alt="content item image"
                                   className="bx--image"
                                   data-autoid="dds--image__longdescription-"
                                 >
@@ -20601,6 +20442,13 @@ exports[`Storyshots Patterns (Sub-Patterns)|LinkList Default 1`] = `
                             },
                             "type": "local",
                           },
+                          Object {
+                            "media": Object {
+                              "src": "0_uka1msg4",
+                              "type": "video",
+                            },
+                            "type": "video",
+                          },
                         ]
                       }
                     />
@@ -20660,6 +20508,13 @@ exports[`Storyshots Patterns (Sub-Patterns)|LinkList Default 1`] = `
                               "href": "https://ibm.com",
                             },
                             "type": "local",
+                          },
+                          Object {
+                            "media": Object {
+                              "src": "0_uka1msg4",
+                              "type": "video",
+                            },
+                            "type": "video",
                           },
                         ]
                       }
@@ -20757,9 +20612,6 @@ exports[`Storyshots Patterns (Sub-Patterns)|LinkList Default 1`] = `
                                         role="region"
                                         target={null}
                                       >
-                                        <Image
-                                          classname="bx--card__img"
-                                        />
                                         <div
                                           className="bx--card__wrapper"
                                         >
@@ -20914,9 +20766,6 @@ exports[`Storyshots Patterns (Sub-Patterns)|LinkList Default 1`] = `
                                         role="region"
                                         target={null}
                                       >
-                                        <Image
-                                          classname="bx--card__img"
-                                        />
                                         <div
                                           className="bx--card__wrapper"
                                         >
@@ -20986,6 +20835,151 @@ exports[`Storyshots Patterns (Sub-Patterns)|LinkList Default 1`] = `
                                       </a>
                                     </ClickableTile>
                                   </Card>
+                                </CardCTA>
+                              </div>
+                            </CTA>
+                          </li>
+                          <li
+                            className="bx--link-list__list__CTA"
+                            key="2"
+                          >
+                            <CTA
+                              media={
+                                Object {
+                                  "src": "0_uka1msg4",
+                                  "type": "video",
+                                }
+                              }
+                              style="card"
+                              type="video"
+                            >
+                              <div>
+                                <CardCTA
+                                  external={[Function]}
+                                  iconSelector={[Function]}
+                                  jump={[Function]}
+                                  launchLightBox={[Function]}
+                                  media={
+                                    Object {
+                                      "src": "0_uka1msg4",
+                                      "type": "video",
+                                    }
+                                  }
+                                  mediaData={Object {}}
+                                  openLightBox={[Function]}
+                                  renderLightBox={false}
+                                  setLightBox={[Function]}
+                                  setMediaData={[Function]}
+                                  style="card"
+                                  type="video"
+                                  videoTitle={
+                                    Array [
+                                      Object {
+                                        "key": 0,
+                                        "title": "",
+                                      },
+                                    ]
+                                  }
+                                >
+                                  <div>
+                                    <Card
+                                      copy=""
+                                      cta={
+                                        Object {
+                                          "href": "#",
+                                          "icon": Object {
+                                            "src": Object {
+                                              "$$typeof": Symbol(react.forward_ref),
+                                              "render": [Function],
+                                            },
+                                          },
+                                        }
+                                      }
+                                      customClassName="bx--card__CTA"
+                                      handleClick={[Function]}
+                                      type="link"
+                                    >
+                                      <ClickableTile
+                                        className="bx--card bx--card--link bx--card__CTA"
+                                        clicked={false}
+                                        data-autoid="dds--card"
+                                        handleClick={[Function]}
+                                        handleKeyDown={[Function]}
+                                        href="#"
+                                        light={false}
+                                      >
+                                        <a
+                                          className="bx--link bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                          data-autoid="dds--card"
+                                          href="#"
+                                          onClick={[Function]}
+                                          onKeyDown={[Function]}
+                                        >
+                                          <div
+                                            className="bx--card__wrapper"
+                                          >
+                                            <div
+                                              className="bx--card__footer"
+                                            >
+                                              <ForwardRef(PlayOutline20)
+                                                className="bx--card__cta"
+                                                src={
+                                                  Object {
+                                                    "$$typeof": Symbol(react.forward_ref),
+                                                    "render": [Function],
+                                                  }
+                                                }
+                                              >
+                                                <Icon
+                                                  className="bx--card__cta"
+                                                  height={20}
+                                                  preserveAspectRatio="xMidYMid meet"
+                                                  src={
+                                                    Object {
+                                                      "$$typeof": Symbol(react.forward_ref),
+                                                      "render": [Function],
+                                                    }
+                                                  }
+                                                  viewBox="0 0 32 32"
+                                                  width={20}
+                                                  xmlns="http://www.w3.org/2000/svg"
+                                                >
+                                                  <svg
+                                                    aria-hidden={true}
+                                                    className="bx--card__cta"
+                                                    focusable="false"
+                                                    height={20}
+                                                    preserveAspectRatio="xMidYMid meet"
+                                                    src={
+                                                      Object {
+                                                        "$$typeof": Symbol(react.forward_ref),
+                                                        "render": [Function],
+                                                      }
+                                                    }
+                                                    style={
+                                                      Object {
+                                                        "willChange": "transform",
+                                                      }
+                                                    }
+                                                    viewBox="0 0 32 32"
+                                                    width={20}
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                  >
+                                                    <path
+                                                      d="M16,4A12,12,0,1,1,4,16,12,12,0,0,1,16,4m0-2A14,14,0,1,0,30,16,14,14,0,0,0,16,2Z"
+                                                    />
+                                                    <path
+                                                      d="M12,23a1,1,0,0,1-.51-.14A1,1,0,0,1,11,22V10a1,1,0,0,1,.49-.86,1,1,0,0,1,1,0l11,6a1,1,0,0,1,0,1.76l-11,6A1,1,0,0,1,12,23Zm1-11.32v8.64L20.91,16Z"
+                                                    />
+                                                  </svg>
+                                                </Icon>
+                                              </ForwardRef(PlayOutline20)>
+                                            </div>
+                                          </div>
+                                        </a>
+                                      </ClickableTile>
+                                    </Card>
+                                  </div>
                                 </CardCTA>
                               </div>
                             </CTA>
