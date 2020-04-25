@@ -187,7 +187,7 @@ const LocaleModal = ({ isOpen, setIsOpen }) => {
 };
 
 /**
- * @property propTypes
+ * @property {object} propTypes LocaleModal propTypes
  * @description Defined property types for component
  * @type {{isOpen: boolean, setIsOpen: boolean, headerLabel: string, headerTitle: string}}
  */

@@ -407,7 +407,7 @@ const MastheadSearch = ({ placeHolderText, renderValue, searchOpenOnload }) => {
 };
 
 /**
- * @property propTypes
+ * @property {object} propTypes MastheadSearch propTypes
  * @description Defined property types for component
  * @type {{placeHolderText: string, renderValue: number}}
  */
@@ -418,7 +418,7 @@ MastheadSearch.propTypes = {
 };
 
 /**
- * @property defaultProps
+ * @property {object} defaultProps default MastheadSearch props
  * @type {{placeHolderText: string, renderValue: number}}
  */
 MastheadSearch.defaultProps = {

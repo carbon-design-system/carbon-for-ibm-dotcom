@@ -240,7 +240,7 @@ const Masthead = ({ navigation, hasProfile, hasSearch, ...mastheadProps }) => {
 };
 
 /**
- * @property propTypes
+ * @property {object} propTypes Masthead propTypes
  * @description Defined property types for component
  *
  * @type {{mastheadProps: object, navigation: object, hasProfile: boolean, hasSearch: boolean}}
@@ -253,7 +253,7 @@ Masthead.propTypes = {
 };
 
 /**
- * @property defaultProps
+ * @property {object} defaultProps default Masthead props
  * @type {{hasProfile: boolean, hasSearch: boolean}}
  */
 Masthead.defaultProps = {

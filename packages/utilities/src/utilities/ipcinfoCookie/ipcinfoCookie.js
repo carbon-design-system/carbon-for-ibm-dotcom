@@ -2,6 +2,7 @@ import Cookies from 'js-cookie';
 
 /**
  * Name of cookie needed to grab cc and lc
+ *
  * @type {string}
  * @private
  */
