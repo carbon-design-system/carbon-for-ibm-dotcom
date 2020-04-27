@@ -4053,82 +4053,102 @@ exports[`Storyshots Components|Footer Default 1`] = `
                         <ul
                           className="bx--legal-nav__list"
                         >
-                          <li
-                            className="bx--legal-nav__list-item"
-                            key="0"
+                          <ul
+                            className="bx--legal-nav__holder"
                           >
-                            <Link
-                              className="bx--footer__link"
-                              data-autoid="dds--footer-legal-nav__link"
-                              href="https://www.ibm.com/contact/us/en/?lnk=flg-cont-usen"
+                            <li
+                              className="bx--legal-nav__list-item"
+                              key="0"
                             >
-                              <a
-                                className="bx--link bx--footer__link"
+                              <Link
+                                className="bx--footer__link"
                                 data-autoid="dds--footer-legal-nav__link"
                                 href="https://www.ibm.com/contact/us/en/?lnk=flg-cont-usen"
                               >
-                                Contact IBM
-                              </a>
-                            </Link>
-                          </li>
-                          <li
-                            className="bx--legal-nav__list-item"
-                            key="1"
+                                <a
+                                  className="bx--link bx--footer__link"
+                                  data-autoid="dds--footer-legal-nav__link"
+                                  href="https://www.ibm.com/contact/us/en/?lnk=flg-cont-usen"
+                                >
+                                  Contact IBM
+                                </a>
+                              </Link>
+                            </li>
+                          </ul>
+                          <ul
+                            className="bx--legal-nav__holder"
                           >
-                            <Link
-                              className="bx--footer__link"
-                              data-autoid="dds--footer-legal-nav__link"
-                              href="https://www.ibm.com/privacy/us/en/?lnk=flg-priv-usen"
+                            <li
+                              className="bx--legal-nav__list-item"
+                              key="1"
                             >
-                              <a
-                                className="bx--link bx--footer__link"
+                              <Link
+                                className="bx--footer__link"
                                 data-autoid="dds--footer-legal-nav__link"
                                 href="https://www.ibm.com/privacy/us/en/?lnk=flg-priv-usen"
                               >
-                                Privacy
-                              </a>
-                            </Link>
-                          </li>
-                          <li
-                            className="bx--legal-nav__list-item"
-                            key="2"
-                          >
-                            <Link
-                              className="bx--footer__link"
-                              data-autoid="dds--footer-legal-nav__link"
-                              href="https://www.ibm.com/us-en/legal?lnk=flg-tous-usen"
+                                <a
+                                  className="bx--link bx--footer__link"
+                                  data-autoid="dds--footer-legal-nav__link"
+                                  href="https://www.ibm.com/privacy/us/en/?lnk=flg-priv-usen"
+                                >
+                                  Privacy
+                                </a>
+                              </Link>
+                            </li>
+                            <li
+                              className="bx--legal-nav__list-item"
+                              key="2"
                             >
-                              <a
-                                className="bx--link bx--footer__link"
+                              <Link
+                                className="bx--footer__link"
                                 data-autoid="dds--footer-legal-nav__link"
                                 href="https://www.ibm.com/us-en/legal?lnk=flg-tous-usen"
                               >
-                                Terms of use
-                              </a>
-                            </Link>
-                          </li>
-                          <li
-                            className="bx--legal-nav__list-item"
-                            key="3"
+                                <a
+                                  className="bx--link bx--footer__link"
+                                  data-autoid="dds--footer-legal-nav__link"
+                                  href="https://www.ibm.com/us-en/legal?lnk=flg-tous-usen"
+                                >
+                                  Terms of use
+                                </a>
+                              </Link>
+                            </li>
+                          </ul>
+                          <ul
+                            className="bx--legal-nav__holder"
                           >
-                            <Link
-                              className="bx--footer__link"
-                              data-autoid="dds--footer-legal-nav__link"
-                              href="https://www.ibm.com/accessibility/us/en/?lnk=flg-acce-usen"
+                            <li
+                              className="bx--legal-nav__list-item"
+                              key="3"
                             >
-                              <a
-                                className="bx--link bx--footer__link"
+                              <Link
+                                className="bx--footer__link"
                                 data-autoid="dds--footer-legal-nav__link"
                                 href="https://www.ibm.com/accessibility/us/en/?lnk=flg-acce-usen"
                               >
-                                Accessibility
-                              </a>
-                            </Link>
-                          </li>
-                          <li
-                            className="bx--legal-nav__list-item"
-                            data-autoid="dds--privacy-cp"
-                          />
+                                <a
+                                  className="bx--link bx--footer__link"
+                                  data-autoid="dds--footer-legal-nav__link"
+                                  href="https://www.ibm.com/accessibility/us/en/?lnk=flg-acce-usen"
+                                >
+                                  Accessibility
+                                </a>
+                              </Link>
+                            </li>
+                            <li
+                              className="bx--legal-nav__list-item"
+                              data-autoid="dds--privacy-cp"
+                            />
+                          </ul>
+                          <ul
+                            className="bx--legal-nav__holder"
+                          >
+                            <li
+                              className="bx--legal-nav__list-item"
+                              data-autoid="dds--privacy-cp"
+                            />
+                          </ul>
                         </ul>
                       </nav>
                     </aside>
