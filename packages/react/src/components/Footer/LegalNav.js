@@ -111,7 +111,7 @@ LegalNav.propTypes = {
 };
 
 /**
- * @property defaultProps
+ * @property {object} defaultProps default LegalNav props
  * @type {{groups: Array}}
  */
 LegalNav.defaultProps = {

@@ -28,6 +28,7 @@ function _kWidgetMock() {
 
 /**
  * Keeps track of the ID for the generated player element
+ *
  * @type {string}
  * @private
  */

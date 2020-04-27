@@ -97,7 +97,7 @@ function renderNav(sections) {
 }
 
 /**
- * @property propTypes
+ * @property {object} propTypes MastheadTopNav propTypes
  * @description Defined property types for component
  * @type {{navigation: {}}}
  */

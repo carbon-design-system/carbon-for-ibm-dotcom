@@ -33,6 +33,7 @@ const _sessionTranslationKey = 'dds-translation';
 
 /**
  * Tracking of the translation fetch
+ *
  * @type {{}}
  * @private
  */
