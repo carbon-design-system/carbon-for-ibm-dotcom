@@ -50,7 +50,7 @@ xdescribe('<Footer />', () => {
 
   it('renders with everything as expected', async () => {
     await act(async () => {
-      await ReactDOM.render(<Footer />, container);
+      await ReactDOM.render(<Footer type="short" />, container);
     });
 
     const footer = container.querySelector('.bx--footer');
@@ -63,5 +63,6 @@ xdescribe('<Footer />', () => {
     expect(footer.querySelectorAll('.bx--legal-nav__list-item')).toHaveLength(
       MOCK_DATA.footerThin.length + 1
     );
+    expect(footer.querySelectorAll('.bx--footer--short')).toHaveLength(1);
   });
 });

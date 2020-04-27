@@ -4055,6 +4055,7 @@ exports[`Storyshots Components|Footer Default 1`] = `
                         >
                           <ul
                             className="bx--legal-nav__holder"
+                            key="0"
                           >
                             <li
                               className="bx--legal-nav__list-item"
@@ -4077,6 +4078,7 @@ exports[`Storyshots Components|Footer Default 1`] = `
                           </ul>
                           <ul
                             className="bx--legal-nav__holder"
+                            key="1"
                           >
                             <li
                               className="bx--legal-nav__list-item"
@@ -4117,6 +4119,7 @@ exports[`Storyshots Components|Footer Default 1`] = `
                           </ul>
                           <ul
                             className="bx--legal-nav__holder"
+                            key="2"
                           >
                             <li
                               className="bx--legal-nav__list-item"
@@ -4136,14 +4139,6 @@ exports[`Storyshots Components|Footer Default 1`] = `
                                 </a>
                               </Link>
                             </li>
-                            <li
-                              className="bx--legal-nav__list-item"
-                              data-autoid="dds--privacy-cp"
-                            />
-                          </ul>
-                          <ul
-                            className="bx--legal-nav__holder"
-                          >
                             <li
                               className="bx--legal-nav__list-item"
                               data-autoid="dds--privacy-cp"

@@ -78,17 +78,21 @@ function renderListItems(links) {
 
   return renderedLinks.map((elem, index, origin) => {
     if (index == 0) {
-      return <ul className={`${prefix}--legal-nav__holder`}>{elem}</ul>;
+      return (
+        <ul className={`${prefix}--legal-nav__holder`} key={index}>
+          {elem}
+        </ul>
+      );
     } else if (index % 2 != 0 && origin[index + 1] != undefined) {
       return (
-        <ul className={`${prefix}--legal-nav__holder`}>
+        <ul className={`${prefix}--legal-nav__holder`} key={index}>
           {elem}
           {origin[index + 1]}
         </ul>
       );
-    } else {
+    } else if (origin[index + 1] != undefined) {
       return (
-        <ul className={`${prefix}--legal-nav__holder`}>
+        <ul className={`${prefix}--legal-nav__holder`} key={index}>
           {origin[index + 1]}
           {renderTrusteItem()}
         </ul>
