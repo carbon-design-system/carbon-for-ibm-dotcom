@@ -63,6 +63,8 @@ xdescribe('<Footer />', () => {
     expect(footer.querySelectorAll('.bx--legal-nav__list-item')).toHaveLength(
       MOCK_DATA.footerThin.length + 1
     );
+
+    console.log(footer.querySelectorAll('.bx--footer-nav-group'));
     expect(footer.querySelectorAll('.bx--footer--short')).toHaveLength(1);
   });
 });
