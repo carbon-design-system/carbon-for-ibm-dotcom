@@ -47,7 +47,7 @@ const MastheadSearchInput = ({ componentInputProps, dispatch, isActive }) => {
 };
 
 /**
- * @property propTypes
+ * @property {object} propTypes MastheadSearchInput propTypes
  * @description Defined property types for component
  * @type {{dispatch: Function, componentInputProps: object, isActive: boolean}}
  */
@@ -59,7 +59,7 @@ MastheadSearchInput.propTypes = {
 };
 
 /**
- * @property defaultProps
+ * @property {object} defaultProps default MastheadSearchInput props
  * @type {{placeHolderText: string, renderValue: number}}
  */
 MastheadSearchInput.defaultProps = {

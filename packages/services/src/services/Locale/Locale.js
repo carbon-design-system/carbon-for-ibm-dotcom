@@ -45,6 +45,7 @@ const _endpoint = `${_proxy}${_host}/common/js/dynamicnav/www/countrylist/jsonon
 
 /**
  * Tracking of the country list fetch
+ *
  * @type {{}}
  * @private
  */
@@ -68,6 +69,7 @@ let _attempt = 0;
 
 /**
  * Configuration for axios
+ *
  * @type {{headers: {'Content-Type': string}}}
  * @private
  */

@@ -54,7 +54,7 @@ const MastheadL1 = ({ isShort, title, eyebrowText, eyebrowLink }) => {
 };
 
 /**
- * @property propTypes
+ * @property {object} propTypes MastheadL1 propTypes
  * @description Defined property types for component
  *
  * @type {{isShort: boolean, title: string, eyebrowText: string, eyebrowLink: string}}

@@ -137,7 +137,7 @@ const LocaleModalRegions = ({
 };
 
 /**
- * @property propTypes
+ * @property {object} propTypes LocaleModalRegions propTypes
  * @description Defined property types for component
  * @type {{}}
  */

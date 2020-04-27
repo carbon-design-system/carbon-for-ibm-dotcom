@@ -163,6 +163,7 @@ const TableOfContents = ({
 
   /**
    * Props for the Layout component
+   *
    * @type {{marginBottom: string, type: string, marginTop: string}}
    */
   const layoutProps = {
@@ -186,8 +187,9 @@ const TableOfContents = ({
 
   /**
    * Props for TOCDesktop and TOCMobile
+   *
    * @type {{
-   * updateState: updateState,
+   * updateState: Function,
    * selectedId: string,
    * menuItems: Array,
    * selectedTitle: string,
@@ -247,7 +249,7 @@ TableOfContents.propTypes = {
 };
 
 /**
- * @property defaultProps
+ * @property {object} defaultProps default TableOfContents props
  * @type {{marginBottom: null, stickyOffset: number, marginTop: null}}
  */
 TableOfContents.defaultProps = {

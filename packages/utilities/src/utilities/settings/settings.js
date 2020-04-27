@@ -2,7 +2,7 @@
  * Global settings
  *
  * @exports ibmdotcom.settings
- * @type Object
+ * @type {object} Settings object
  * @property {string} [prefix=dds]
  * IBM.com Library prefix
  *
