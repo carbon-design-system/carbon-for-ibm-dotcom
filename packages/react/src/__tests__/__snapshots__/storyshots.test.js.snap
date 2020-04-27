@@ -5331,6 +5331,7 @@ exports[`Storyshots Components|Locale Modal Default 1`] = `
                           >
                             <ForwardRef(EarthFilled20)
                               className="bx--locale-modal__label-globe"
+                              key="earthfilled"
                             >
                               <Icon
                                 className="bx--locale-modal__label-globe"
@@ -5427,6 +5428,7 @@ exports[`Storyshots Components|Locale Modal Default 1`] = `
                           </LocaleModalRegions>
                           <LocaleModalCountries
                             regionList={Array []}
+                            searchLabel="Search by location or language"
                             setClearResults={[Function]}
                           >
                             <div
@@ -5439,6 +5441,7 @@ exports[`Storyshots Components|Locale Modal Default 1`] = `
                                   closeButtonLabelText="Clear search input"
                                   data-autoid="dds--locale-modal__filter"
                                   id="bx--locale-modal__filter"
+                                  labelText="Search by location or language"
                                   onChange={[Function]}
                                   placeHolderText=""
                                   type="text"
@@ -5481,7 +5484,9 @@ exports[`Storyshots Components|Locale Modal Default 1`] = `
                                     <label
                                       className="bx--label"
                                       htmlFor="bx--locale-modal__filter"
-                                    />
+                                    >
+                                      Search by location or language
+                                    </label>
                                     <input
                                       className="bx--search-input"
                                       data-autoid="dds--locale-modal__filter"
@@ -5536,7 +5541,7 @@ exports[`Storyshots Components|Locale Modal Default 1`] = `
                                 aria-labelledby="bx--locale-modal__filter"
                                 className="bx--locale-modal__list"
                                 role="listbox"
-                                tabindex="0"
+                                tabIndex="0"
                               />
                             </div>
                           </LocaleModalCountries>
@@ -7659,9 +7664,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                                                     role="region"
                                                     target={null}
                                                   >
-                                                    <Image
-                                                      classname="bx--card__img"
-                                                    />
                                                     <div
                                                       className="bx--card__wrapper"
                                                     >
@@ -8043,9 +8045,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                                                     role="region"
                                                     target={null}
                                                   >
-                                                    <Image
-                                                      classname="bx--card__img"
-                                                    />
                                                     <div
                                                       className="bx--card__wrapper"
                                                     >
@@ -8908,9 +8907,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                                     onClick={[Function]}
                                                     onKeyDown={[Function]}
                                                   >
-                                                    <Image
-                                                      classname="bx--card__img"
-                                                    />
                                                     <div
                                                       className="bx--card__wrapper"
                                                     >
@@ -9028,9 +9024,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                                     onClick={[Function]}
                                                     onKeyDown={[Function]}
                                                   >
-                                                    <Image
-                                                      classname="bx--card__img"
-                                                    />
                                                     <div
                                                       className="bx--card__wrapper"
                                                     >
@@ -9148,9 +9141,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                                     onClick={[Function]}
                                                     onKeyDown={[Function]}
                                                   >
-                                                    <Image
-                                                      classname="bx--card__img"
-                                                    />
                                                     <div
                                                       className="bx--card__wrapper"
                                                     >
@@ -9268,9 +9258,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                                     onClick={[Function]}
                                                     onKeyDown={[Function]}
                                                   >
-                                                    <Image
-                                                      classname="bx--card__img"
-                                                    />
                                                     <div
                                                       className="bx--card__wrapper"
                                                     >
@@ -10350,9 +10337,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                           role="region"
                                           target={null}
                                         >
-                                          <Image
-                                            classname="bx--card__img"
-                                          />
                                           <div
                                             className="bx--card__wrapper"
                                           >
@@ -11064,9 +11048,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                           role="region"
                                           target={null}
                                         >
-                                          <Image
-                                            classname="bx--card__img"
-                                          />
                                           <div
                                             className="bx--card__wrapper"
                                           >
@@ -11562,9 +11543,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                                           role="region"
                                           target={null}
                                         >
-                                          <Image
-                                            classname="bx--card__img"
-                                          />
                                           <div
                                             className="bx--card__wrapper"
                                           >
@@ -11866,9 +11844,6 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
                                           onClick={[Function]}
                                           onKeyDown={[Function]}
                                         >
-                                          <Image
-                                            classname="bx--card__img"
-                                          />
                                           <div
                                             className="bx--card__wrapper"
                                           >
@@ -11986,9 +11961,6 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
                                           onClick={[Function]}
                                           onKeyDown={[Function]}
                                         >
-                                          <Image
-                                            classname="bx--card__img"
-                                          />
                                           <div
                                             className="bx--card__wrapper"
                                           >
@@ -12106,9 +12078,6 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
                                           onClick={[Function]}
                                           onKeyDown={[Function]}
                                         >
-                                          <Image
-                                            classname="bx--card__img"
-                                          />
                                           <div
                                             className="bx--card__wrapper"
                                           >
@@ -12226,9 +12195,6 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
                                           onClick={[Function]}
                                           onKeyDown={[Function]}
                                         >
-                                          <Image
-                                            classname="bx--card__img"
-                                          />
                                           <div
                                             className="bx--card__wrapper"
                                           >
@@ -13249,9 +13215,6 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupSimple Default 1`] = `
                                           role="region"
                                           target={null}
                                         >
-                                          <Image
-                                            classname="bx--card__img"
-                                          />
                                           <div
                                             className="bx--card__wrapper"
                                           >
@@ -13837,9 +13800,6 @@ exports[`Storyshots Patterns (Sections)|CardSection default 1`] = `
                                     onClick={[Function]}
                                     onKeyDown={[Function]}
                                   >
-                                    <Image
-                                      classname="bx--card__img"
-                                    />
                                     <div
                                       className="bx--card__wrapper"
                                     >
@@ -13954,9 +13914,6 @@ exports[`Storyshots Patterns (Sections)|CardSection default 1`] = `
                                     onClick={[Function]}
                                     onKeyDown={[Function]}
                                   >
-                                    <Image
-                                      classname="bx--card__img"
-                                    />
                                     <div
                                       className="bx--card__wrapper"
                                     >
@@ -14071,9 +14028,6 @@ exports[`Storyshots Patterns (Sections)|CardSection default 1`] = `
                                     onClick={[Function]}
                                     onKeyDown={[Function]}
                                   >
-                                    <Image
-                                      classname="bx--card__img"
-                                    />
                                     <div
                                       className="bx--card__wrapper"
                                     >
@@ -14188,9 +14142,6 @@ exports[`Storyshots Patterns (Sections)|CardSection default 1`] = `
                                     onClick={[Function]}
                                     onKeyDown={[Function]}
                                   >
-                                    <Image
-                                      classname="bx--card__img"
-                                    />
                                     <div
                                       className="bx--card__wrapper"
                                     >
@@ -14305,9 +14256,6 @@ exports[`Storyshots Patterns (Sections)|CardSection default 1`] = `
                                     onClick={[Function]}
                                     onKeyDown={[Function]}
                                   >
-                                    <Image
-                                      classname="bx--card__img"
-                                    />
                                     <div
                                       className="bx--card__wrapper"
                                     >
@@ -14418,9 +14366,6 @@ exports[`Storyshots Patterns (Sections)|CardSection default 1`] = `
                                     onClick={[Function]}
                                     onKeyDown={[Function]}
                                   >
-                                    <Image
-                                      classname="bx--card__img"
-                                    />
                                     <div
                                       className="bx--card__wrapper"
                                     >
@@ -15738,9 +15683,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                       onClick={[Function]}
                                       onKeyDown={[Function]}
                                     >
-                                      <Image
-                                        classname="bx--card__img"
-                                      />
                                       <div
                                         className="bx--card__wrapper"
                                       >
@@ -15855,9 +15797,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                       onClick={[Function]}
                                       onKeyDown={[Function]}
                                     >
-                                      <Image
-                                        classname="bx--card__img"
-                                      />
                                       <div
                                         className="bx--card__wrapper"
                                       >
@@ -15972,9 +15911,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                       onClick={[Function]}
                                       onKeyDown={[Function]}
                                     >
-                                      <Image
-                                        classname="bx--card__img"
-                                      />
                                       <div
                                         className="bx--card__wrapper"
                                       >
@@ -16089,9 +16025,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                       onClick={[Function]}
                                       onKeyDown={[Function]}
                                     >
-                                      <Image
-                                        classname="bx--card__img"
-                                      />
                                       <div
                                         className="bx--card__wrapper"
                                       >
@@ -16206,9 +16139,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                       onClick={[Function]}
                                       onKeyDown={[Function]}
                                     >
-                                      <Image
-                                        classname="bx--card__img"
-                                      />
                                       <div
                                         className="bx--card__wrapper"
                                       >
@@ -16319,9 +16249,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                       onClick={[Function]}
                                       onKeyDown={[Function]}
                                     >
-                                      <Image
-                                        classname="bx--card__img"
-                                      />
                                       <div
                                         className="bx--card__wrapper"
                                       >
@@ -17746,9 +17673,6 @@ exports[`Storyshots Patterns (Sub-Patterns)|Card Link/Clickable 1`] = `
                             onClick={[Function]}
                             onKeyDown={[Function]}
                           >
-                            <Image
-                              classname="bx--card__img"
-                            />
                             <div
                               className="bx--card__wrapper"
                             >
@@ -17965,9 +17889,6 @@ exports[`Storyshots Patterns (Sub-Patterns)|Card Static 1`] = `
                             data-autoid="dds--card"
                             href="https://example.com"
                           >
-                            <Image
-                              classname="bx--card__img"
-                            />
                             <div
                               className="bx--card__wrapper"
                             >
@@ -18326,9 +18247,6 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock Default 1`] = `
                                       role="region"
                                       target="_blank"
                                     >
-                                      <Image
-                                        classname="bx--card__img"
-                                      />
                                       <div
                                         className="bx--card__wrapper"
                                       >
@@ -18733,9 +18651,6 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock With aside elements 1`]
                                               role="region"
                                               target="_blank"
                                             >
-                                              <Image
-                                                classname="bx--card__img"
-                                              />
                                               <div
                                                 className="bx--card__wrapper"
                                               >
@@ -18931,9 +18846,6 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock With aside elements 1`]
                                                     role="region"
                                                     target={null}
                                                   >
-                                                    <Image
-                                                      classname="bx--card__img"
-                                                    />
                                                     <div
                                                       className="bx--card__wrapper"
                                                     >
@@ -19088,9 +19000,6 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock With aside elements 1`]
                                                     role="region"
                                                     target="_blank"
                                                   >
-                                                    <Image
-                                                      classname="bx--card__img"
-                                                    />
                                                     <div
                                                       className="bx--card__wrapper"
                                                     >
@@ -19382,9 +19291,6 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentGroup Default 1`] = `
                                       role="region"
                                       target={null}
                                     >
-                                      <Image
-                                        classname="bx--card__img"
-                                      />
                                       <div
                                         className="bx--card__wrapper"
                                       >
@@ -20706,9 +20612,6 @@ exports[`Storyshots Patterns (Sub-Patterns)|LinkList Default 1`] = `
                                         role="region"
                                         target={null}
                                       >
-                                        <Image
-                                          classname="bx--card__img"
-                                        />
                                         <div
                                           className="bx--card__wrapper"
                                         >
@@ -20863,9 +20766,6 @@ exports[`Storyshots Patterns (Sub-Patterns)|LinkList Default 1`] = `
                                         role="region"
                                         target={null}
                                       >
-                                        <Image
-                                          classname="bx--card__img"
-                                        />
                                         <div
                                           className="bx--card__wrapper"
                                         >
@@ -21015,9 +20915,6 @@ exports[`Storyshots Patterns (Sub-Patterns)|LinkList Default 1`] = `
                                           onClick={[Function]}
                                           onKeyDown={[Function]}
                                         >
-                                          <Image
-                                            classname="bx--card__img"
-                                          />
                                           <div
                                             className="bx--card__wrapper"
                                           >
