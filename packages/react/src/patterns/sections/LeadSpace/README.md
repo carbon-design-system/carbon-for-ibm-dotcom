@@ -24,10 +24,39 @@ Here's a quick example to get you started.
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { LeadSpace } from '@carbon/ibmdotcom-react';
+import { ArrowRight20 } from '@carbon/icons-react';
 import 'yourapplication.scss';
 
 function App() {
-  return <LeadSpace />;
+  return (
+    <LeadSpace
+      type="default"
+      theme="g100"
+      title="Lorem Ipsum"
+      copy="Lorem Ipsum Dolor"
+      gradient={true}
+      buttons={[
+        {
+          copy: 'Button 1',
+          renderIcon: ArrowRight20,
+          href: 'https://www.example.com',
+        },
+        {
+          copy: 'Button 2',
+          renderIcon: ArrowRight20,
+          href: 'https://www.example.com',
+        },
+      ]}
+      image={{
+        sources: [
+          { src: 'https://picsum.photos/id/1076/320/370', breakpoint: 'sm' },
+          { src: 'https://picsum.photos/id/1076/672/400', breakpoint: 'md' },
+        ],
+        defaultSrc: 'https://picsum.photos/id/1076/1056/480',
+        alt: 'lead space image',
+      }}
+    />
+  );
 }
 ReactDOM.render(<App />, document.querySelector('#app'));
 ```

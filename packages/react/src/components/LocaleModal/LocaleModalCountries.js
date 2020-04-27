@@ -83,14 +83,28 @@ const LocaleModalCountries = ({
     }
 
     /**
+     * Function to be added to eventListener and cleaned later on
+     */
+    const handleClear = () => {
+      setClearResults(true);
+    };
+
+    /**
      * Show all links when close button clicked
      *
      */
     if (closeBtn) {
-      closeBtn.addEventListener('click', () => {
-        setClearResults(true);
-      });
+      closeBtn.addEventListener('click', handleClear);
     }
+
+    return () => {
+      if (closeBtn) {
+        closeBtn.removeEventListener('click', handleClear);
+      }
+      if (localeFilter) {
+        localeFilter.removeEventListener('keyup', filterLocale);
+      }
+    };
   });
 
   return (
@@ -109,7 +123,7 @@ const LocaleModalCountries = ({
       </div>
       <div
         role="listbox"
-        tabindex="0"
+        tabIndex="0"
         aria-labelledby={`${prefix}--locale-modal__filter`}
         className={`${prefix}--locale-modal__list`}>
         {regionList &&
@@ -135,13 +149,17 @@ const LocaleModalCountries = ({
 };
 
 /**
- * @property propTypes
+ * @property {object} propTypes LocaleModalCountries propTypes
  * @description Defined property types for component
  * @type {{regionList: Array, availabilityText: string, unavailabilityText: string, placeHolderText: string, labelText: string}}
  */
 LocaleModalCountries.propTypes = {
   regionList: PropTypes.array,
   setClearResults: PropTypes.func,
+};
+
+LocaleModalCountries.defaultProps = {
+  searchLabel: 'Search by location or language',
 };
 
 export default LocaleModalCountries;

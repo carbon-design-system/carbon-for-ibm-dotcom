@@ -2,7 +2,8 @@ import { AnalyticsAPI } from '../Analytics';
 import root from 'window-or-global';
 
 /**
- * These id's for production use of IBM.com
+ * These IDs for production use of IBM.com
+ *
  * @type {number} _partnerId The ID of your Kaltura account (aka partnerId)
  * @type {number} _uiConfId The ID of the Kaltura player to use
  * @private
@@ -83,6 +84,14 @@ function _loadScript() {
   script.async = true;
   document.body.appendChild(script);
 }
+
+/**
+ *
+ * Object to cache video data
+ *
+ * @private
+ */
+let videoData = {};
 
 /**
  *
@@ -182,18 +191,23 @@ class VideoPlayerAPI {
    */
   static async api(videoId) {
     return await this.checkScript().then(() => {
-      return new Promise(resolve => {
-        return new root.kWidget.api({ wid: _partnerId }).doRequest(
-          {
-            service: 'media',
-            action: 'get',
-            entryId: videoId,
-          },
-          function(jsonObj) {
-            resolve(jsonObj);
-          }
-        );
-      });
+      if (videoData && videoData[videoId]) {
+        return videoData[videoId];
+      } else {
+        return new Promise(resolve => {
+          return new root.kWidget.api({ wid: _partnerId }).doRequest(
+            {
+              service: 'media',
+              action: 'get',
+              entryId: videoId,
+            },
+            function(jsonObj) {
+              videoData[jsonObj.id] = jsonObj;
+              resolve(jsonObj);
+            }
+          );
+        });
+      }
     });
   }
 

@@ -141,7 +141,7 @@ Layout.propTypes = {
 };
 
 /**
- * @property defaultProps
+ * @property {object} defaultProps default Layout props
  * @type {{marginBottom: null, stickyOffset: number, marginTop: null}}
  */
 Layout.defaultProps = {

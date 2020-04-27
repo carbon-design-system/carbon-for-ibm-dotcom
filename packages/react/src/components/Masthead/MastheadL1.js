@@ -30,7 +30,6 @@ const MastheadL1 = ({ isShort, title, eyebrowText, eyebrowLink }) => {
     [`${prefix}--masthead__l1`]: true,
     [`${prefix}--masthead__l1--short`]: isShort,
   });
-
   return (
     <div className={className}>
       <div className={`${prefix}--masthead__l1-name`}>
@@ -55,7 +54,7 @@ const MastheadL1 = ({ isShort, title, eyebrowText, eyebrowLink }) => {
 };
 
 /**
- * @property propTypes
+ * @property {object} propTypes MastheadL1 propTypes
  * @description Defined property types for component
  *
  * @type {{isShort: boolean, title: string, eyebrowText: string, eyebrowLink: string}}

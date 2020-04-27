@@ -24,7 +24,7 @@ const { prefix } = settings;
  *
  * @param {object} props props object
  * @param {boolean} props.isOpen Opens modal
- * @param {boolean} props.setIsOpen isOpen state of modal
+ * @param {Function} props.setIsOpen isOpen state of modal
  * @returns {*} LocaleModal component
  */
 const LocaleModal = ({ isOpen, setIsOpen }) => {
@@ -131,7 +131,10 @@ const LocaleModal = ({ isOpen, setIsOpen }) => {
         <ModalHeader
           data-autoid={`${stablePrefix}--locale-modal__region-back`}
           label={[
-            <ArrowLeft20 className={`${prefix}--locale-modal__label-arrow`} />,
+            <ArrowLeft20
+              className={`${prefix}--locale-modal__label-arrow`}
+              key="arrow-left"
+            />,
             modalLabels.headerTitle,
           ]}
           title={currentRegion}
@@ -142,6 +145,7 @@ const LocaleModal = ({ isOpen, setIsOpen }) => {
           label={[
             langDisplay,
             <EarthFilled20
+              key="earthfilled"
               className={`${prefix}--locale-modal__label-globe`}
             />,
           ]}
@@ -183,13 +187,13 @@ const LocaleModal = ({ isOpen, setIsOpen }) => {
 };
 
 /**
- * @property propTypes
+ * @property {object} propTypes LocaleModal propTypes
  * @description Defined property types for component
  * @type {{isOpen: boolean, setIsOpen: boolean, headerLabel: string, headerTitle: string}}
  */
 LocaleModal.propTypes = {
   isOpen: PropTypes.bool,
-  setIsOpen: PropTypes.bool,
+  setIsOpen: PropTypes.func,
 };
 
 export default LocaleModal;

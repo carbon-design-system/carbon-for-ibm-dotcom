@@ -83,9 +83,15 @@ const TableOfContents = ({
   }, [useMenuItems]);
 
   useEffect(() => {
-    window.addEventListener('scroll', () => {
+    /**
+     * Function to be added to eventListener and cleaned later on
+     */
+    const handleRAF = () => {
       window.requestAnimationFrame(setSelectedItem);
-    });
+    };
+
+    window.addEventListener('scroll', handleRAF);
+    return () => window.removeEventListener('scroll', handleRAF);
   });
 
   /**
@@ -157,6 +163,7 @@ const TableOfContents = ({
 
   /**
    * Props for the Layout component
+   *
    * @type {{marginBottom: string, type: string, marginTop: string}}
    */
   const layoutProps = {
@@ -180,8 +187,9 @@ const TableOfContents = ({
 
   /**
    * Props for TOCDesktop and TOCMobile
+   *
    * @type {{
-   * updateState: updateState,
+   * updateState: Function,
    * selectedId: string,
    * menuItems: Array,
    * selectedTitle: string,
@@ -241,7 +249,7 @@ TableOfContents.propTypes = {
 };
 
 /**
- * @property defaultProps
+ * @property {object} defaultProps default TableOfContents props
  * @type {{marginBottom: null, stickyOffset: number, marginTop: null}}
  */
 TableOfContents.defaultProps = {

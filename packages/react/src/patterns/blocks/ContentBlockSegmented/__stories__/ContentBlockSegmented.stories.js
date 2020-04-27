@@ -134,7 +134,7 @@ storiesOf('Patterns (Blocks)|ContentBlockSegmented', module)
           <div
             className={
               showAside
-                ? 'bx--offset-lg-4'
+                ? 'bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4'
                 : 'bx--col-lg-8 bx--col-sm-4 bx--offset-lg-4'
             }>
             <ContentBlockSegmented

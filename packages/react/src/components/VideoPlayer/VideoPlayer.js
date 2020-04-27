@@ -53,10 +53,9 @@ const VideoPlayer = ({ videoId, showDescription }) => {
 };
 
 /**
- * @property propTypes
+ * @property {object} propTypes VideoPlayer propTypes
  * @description Defined property types for component
- *
- * @type {{videoId: string, showDescription: bool}}
+ * @type {{videoId: string, showDescription: boolean}}
  */
 VideoPlayer.propTypes = {
   videoId: PropTypes.string.isRequired,

@@ -122,13 +122,17 @@ const MastheadSearch = ({ placeHolderText, renderValue, searchOpenOnload }) => {
   const [state, dispatch] = useReducer(_reducer, _initialState);
 
   useEffect(() => {
+    const abortController = new AbortController();
     (async () => {
       const response = await LocaleAPI.getLang();
-      if (response) {
+      if (!abortController.signal && response) {
         dispatch({ type: 'setLc', payload: { lc: response.lc } });
         dispatch({ type: 'setCc', payload: { cc: response.cc } });
       }
     })();
+    return () => {
+      abortController.abort();
+    };
   }, []);
 
   /**
@@ -138,7 +142,6 @@ const MastheadSearch = ({ placeHolderText, renderValue, searchOpenOnload }) => {
    */
   function useSearchVisible() {
     const ref = useRef(null);
-
     /**
      * Close search entirely if autosuggestions collapsed
      *
@@ -404,7 +407,7 @@ const MastheadSearch = ({ placeHolderText, renderValue, searchOpenOnload }) => {
 };
 
 /**
- * @property propTypes
+ * @property {object} propTypes MastheadSearch propTypes
  * @description Defined property types for component
  * @type {{placeHolderText: string, renderValue: number}}
  */
@@ -415,7 +418,7 @@ MastheadSearch.propTypes = {
 };
 
 /**
- * @property defaultProps
+ * @property {object} defaultProps default MastheadSearch props
  * @type {{placeHolderText: string, renderValue: number}}
  */
 MastheadSearch.defaultProps = {
