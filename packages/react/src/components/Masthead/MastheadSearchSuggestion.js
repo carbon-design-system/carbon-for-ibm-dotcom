@@ -51,7 +51,7 @@ const MastheadSearchSuggestion = ({
 };
 
 /**
- * @property propTypes
+ * @property {object} propTypes MastheadSearchSuggestion propTypes
  * @description Defined property types for component
  * @type {{isHighlighted: boolean, suggestion: Array, query: string, getSuggestionValue: Function}}
  */
@@ -63,7 +63,7 @@ MastheadSearchSuggestion.propTypes = {
 };
 
 /**
- * @property defaultProps
+ * @property {object} defaultProps default MastheadSearchSuggestion props
  * @type {{isHighlighted: boolean, suggestion: {}, query: string, getSuggestionValue: MastheadSearchSuggestion.defaultProps.getSuggestionValue}}
  */
 MastheadSearchSuggestion.defaultProps = {
