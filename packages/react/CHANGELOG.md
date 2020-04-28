@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.6.0-rc.1...@carbon/ibmdotcom-react@1.6.0) (2020-04-28)
+
+### Bug Fixes
+
+- **storybook:** add separate story for aside elements
+  ([f8005ae](https://github.com/carbon-design-system/ibm-dotcom-library/commit/f8005ae))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.6.0-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.6.0-rc.0...@carbon/ibmdotcom-react@1.6.0-rc.1) (2020-04-22)
 
 ### Bug Fixes
