@@ -60,10 +60,15 @@ DDS_FOOTER_LOCALE_BUTTON=true
 
 ## Props
 
-| Name         | Required | Data Type | Default Value | Description                        |
-| ------------ | -------- | --------- | ------------- | ---------------------------------- |
-| `navigation` | NO       | Object    | null          | Navigation data object for Footer  |
-| `type`       | NO       | String    | null          | Type of Footer. See below `types`. |
+| Name                  | Required | Data Type | Default Value | Description                                                                                                                                   |
+| --------------------- | -------- | --------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| `type`                | NO       | String    | null          | Type of Footer. See below `types`.                                                                                                            |
+| `navigation`          | NO       | Object    | null          | Navigation data object for Footer, used for server-side rendering                                                                             |
+| `langCode`            | NO       | Object    | null          | Language code for fetching the display name                                                                                                   |
+| `disableLocaleButton` | NO       | Boolean   | false         | Disables the Locale button                                                                                                                    |
+| `languageOnly`        | NO       | Boolean   | false         | Switches the locale button with a language dropdown (experimental)                                                                            |
+| `languageItems`       | NO       | Array     | null          | Array of items for the language dropdown, utilizes the [Carbon ComboBox](https://react.carbondesignsystem.com/?path=/story/combobox--default) |
+| `languageCallback`    | NO       | Function  | null          | Callback function onChange of the language dropdown                                                                                           |
 
 ### types (optional)
 
@@ -94,6 +99,7 @@ type:
 | `dds--legal-nav`              | Component   |
 | `dds--legal-nav__link`        | Interactive |
 | `dds--locale-modal`           | Component   |
+| `dds--language-selector`      | Component   |
 
 ## CORS Proxy
 
