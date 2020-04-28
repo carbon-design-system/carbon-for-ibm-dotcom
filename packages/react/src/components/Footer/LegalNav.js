@@ -83,7 +83,6 @@ function renderListItems(links) {
     chunked_arr.push(renderedLinks.slice(index, 2 + index));
     index += 2;
   }
-  console.log('chunked', chunked_arr);
 
   return chunked_arr.map((elem, index) => {
     if (index === chunked_arr.length - 1) {
