@@ -76,7 +76,7 @@ DotcomShell.propTypes = {
 };
 
 /**
- * @property defaultProps
+ * @property {object} defaultProps default Footer props
  * @type {{navigation: null, mastheadProps: null, langCode: null,
  * footerNav: null, footerType: string, disableLocaleButton: boolean}}
  */
