@@ -60,30 +60,65 @@ DDS_FOOTER_LOCALE_BUTTON=true
 
 ## Props
 
-| Name                  | Required | Data Type | Default Value | Description                                                                                                                                   |
-| --------------------- | -------- | --------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| `type`                | NO       | String    | null          | Type of Footer. See below `types`.                                                                                                            |
-| `navigation`          | NO       | Object    | null          | Navigation data object for Footer, used for server-side rendering                                                                             |
-| `langCode`            | NO       | Object    | null          | Language code for fetching the display name                                                                                                   |
-| `disableLocaleButton` | NO       | Boolean   | false         | Disables the Locale button                                                                                                                    |
-| `languageOnly`        | NO       | Boolean   | false         | Switches the locale button with a language dropdown (experimental)                                                                            |
-| `languageItems`       | NO       | Array     | null          | Array of items for the language dropdown, utilizes the [Carbon ComboBox](https://react.carbondesignsystem.com/?path=/story/combobox--default) |
-| `languageCallback`    | NO       | Function  | null          | Callback function onChange of the language dropdown                                                                                           |
+| Name                  | Required | Data Type | Default Value | Description                                                                                                                                                  |
+| --------------------- | -------- | --------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `type`                | NO       | String    | null          | Type of Footer. See below `Types`.                                                                                                                           |
+| `navigation`          | NO       | Object    | null          | Navigation data object for Footer, used for server-side rendering                                                                                            |
+| `langCode`            | NO       | Object    | null          | Language code for fetching the display name                                                                                                                  |
+| `disableLocaleButton` | NO       | Boolean   | false         | Disables the Locale button                                                                                                                                   |
+| `languageOnly`        | NO       | Boolean   | false         | Switches the locale button with a language dropdown (experimental)                                                                                           |
+| `languageItems`       | NO       | Array     | null          | Array of items for the language dropdown, utilizes the [Carbon ComboBox](https://react.carbondesignsystem.com/?path=/story/combobox--default) (experimental) |
+| `languageInitialItem` | NO       | Object    | first item    | Sets the initial value when the component is loaded (experimental)                                                                                           |
+| `languageCallback`    | NO       | Function  | null          | Callback function onChange of the language dropdown (experimental)                                                                                           |
 
-### types (optional)
+### Types (optional)
 
 | Name    | Description                                                                 |
 | ------- | --------------------------------------------------------------------------- |
 | `tall`  | Default footer variant includes additional navigation taking up more space. |
 | `short` | Short footer variant reduces space by removing any additional navigation.   |
 
-### navigation data
+### Navigation data
 
 If setting the navigation data manually, examples can be seen here based on
 type:
 
 - [Tall](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/src/components/Footer/__data__/footer-menu.json)
 - [Short](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/src/components/Footer/__data__/footer-thin.json)
+
+### Language Dropdown (experimental)
+
+The option to use a language dropdown is available in lieu of the locale
+button/selector. This can be activated using the following feature flag:
+
+```bash
+DDS_LANGUAGE_SELECTOR=true
+```
+
+Example implementation:
+
+```javascript
+const items = [
+  { id: 'da', text: 'Danish / Dansk' },
+  { id: 'nl', text: 'Dutch / Nederlands' },
+  { id: 'en', text: 'English' },
+];
+
+function myLanguageCallback(selectedItem) {
+  console.log(selectedItem); // { "id": "en", "text": "English" }
+}
+
+function App() {
+  return (
+    <Footer
+      languageOnly={true}
+      languageItems={items}
+      languageInitialItem={items[2]}
+      languageCallback={myLanguageCallback}
+    />
+  );
+}
+```
 
 ## Stable selectors
 
