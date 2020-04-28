@@ -50,7 +50,7 @@ function renderGroups(groups) {
 }
 
 /**
- * @property propTypes
+ * @property {object} propTypes FooterNav propTypes
  * @description Defined property types for component
  * @type {{groups: Array}}
  */
@@ -64,7 +64,7 @@ FooterNav.propTypes = {
 };
 
 /**
- * @property defaultProps
+ * @property {object} defaultProps default FooterNav props
  * @type {{groups: Array}}
  */
 FooterNav.defaultProps = {

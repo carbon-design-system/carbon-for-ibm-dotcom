@@ -146,7 +146,7 @@ Footer.propTypes = {
 };
 
 /**
- * @property defaultProps
+ * @property {object} defaultProps default Footer props
  * @type {{navigation: null, langCode: null, disableLocaleButton: boolean,
  * type: string}}
  */

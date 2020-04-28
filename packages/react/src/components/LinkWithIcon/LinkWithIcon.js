@@ -17,8 +17,9 @@ const { prefix } = settings;
 /**
  * LinkWithIcon component
  *
- * @typedef {object} children User content
- * @param {string} href Link url
+ * @param {object} props react proptypes
+ * @param {object} props.children User content
+ * @param {string} props.href Link url
  * @returns {*} LinkWithIcon component
  */
 const LinkWithIcon = ({ children, href, ...props }) => {
@@ -34,7 +35,7 @@ const LinkWithIcon = ({ children, href, ...props }) => {
 };
 
 /**
- * @property propTypes
+ * @property {object} propTypes LinkWithIcon propTypes
  * @description Defined property types for component
  *
  * @type {{children: Array, href: string}}
@@ -45,7 +46,7 @@ LinkWithIcon.propTypes = {
 };
 
 /**
- * @property defaultProps
+ * @property {object} defaultProps LinkWithIcon default props
  * @type {{children: [], href: string}}
  */
 LinkWithIcon.defaultProps = {
