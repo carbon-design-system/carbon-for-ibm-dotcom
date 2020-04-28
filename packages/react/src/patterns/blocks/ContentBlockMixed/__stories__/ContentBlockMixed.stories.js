@@ -149,9 +149,9 @@ storiesOf('Patterns (Blocks)|ContentBlockMixed', module)
 
     return (
       <div className="bx--grid">
-        <div class="bx--row">
+        <div className="bx--row">
           <div
-            class={
+            className={
               showAside
                 ? 'bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4'
                 : 'bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4'

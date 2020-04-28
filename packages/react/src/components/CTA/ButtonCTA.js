@@ -115,7 +115,7 @@ ButtonCTA.propTypes = {
   iconSelector: PropTypes.func,
   external: PropTypes.func,
   jump: PropTypes.func,
-  type: PropTypes.string,
+  type: PropTypes.array,
   openLightBox: PropTypes.func,
   setLightBox: PropTypes.func,
   renderLightBox: PropTypes.bool,
