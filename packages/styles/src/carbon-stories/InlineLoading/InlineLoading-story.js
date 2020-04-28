@@ -79,12 +79,6 @@ storiesOf('InlineLoading', module)
       }
 
       MockSubmission.displayName = 'InlineLoading';
-      MockSubmission.__docgenInfo = {
-        ...InlineLoading.__docgenInfo,
-        props: {
-          ...InlineLoading.__docgenInfo.props,
-        },
-      };
 
       return (
         <MockSubmission>
