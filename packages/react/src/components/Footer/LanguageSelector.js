@@ -42,6 +42,7 @@ const LanguageSelector = ({ items, initialSelectedItem, callback }) => {
   return (
     <div className={`${prefix}--language-selector__container`}>
       <ComboBox
+        id="dds-language-selector"
         data-autoid={`${stablePrefix}--language-selector`}
         className={`${prefix}--language-selector`}
         onChange={({ selectedItem }) => _setSelectedItem(selectedItem)}
