@@ -219,7 +219,7 @@ $search-transition-timing: 95ms;
         }
       }
       &:hover {
-        background-color: $ui-01;
+        background-color: $hover-ui;
         transition-duration: $search-transition-timing;
         > {
           svg {
@@ -231,7 +231,7 @@ $search-transition-timing: 95ms;
       &:focus,
       &:active {
         border-color: $focus;
-        background-color: $ui-01;
+        background-color: $hover-ui;
       }
 
       .#{$prefix}--overflow-menu {
@@ -256,7 +256,7 @@ $search-transition-timing: 95ms;
 
       &--active {
         border: 2px solid $interactive-01;
-        background-color: $ui-01;
+        background-color: $hover-ui;
 
         @include carbon--breakpoint-up(sm) {
           position: absolute;
@@ -343,6 +343,7 @@ $search-transition-timing: 95ms;
   }
   .#{$prefix}--overflow-menu.#{$prefix}--overflow-menu--open {
     box-shadow: none;
+    background-color: $hover-ui;
   }
   .#{$prefix}--header__action.#{$prefix}--overflow-menu {
     height: $spacing-09;
