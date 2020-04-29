@@ -92,6 +92,7 @@
         width: 50%;
         color: $text-03;
         padding: $carbon--spacing-04 $carbon--spacing-05;
+        @include type-style('body-short-02');
 
         &:first-of-type {
           color: $text-01;
