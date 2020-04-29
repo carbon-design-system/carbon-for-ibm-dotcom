@@ -1,0 +1,94 @@
+//
+// Copyright IBM Corp. 2016, 2018
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import '../../temp-carbon-expressive/button/button-expressive';
+@import 'carbon-components/scss/components/combo-box/combo-box';
+@import 'carbon-components/scss/components/list-box/list-box';
+@import 'carbon-components/scss/components/text-input/text-input';
+@import '../../themes/expressive/components/combo-box';
+@import '../../themes/expressive/components/list-box';
+@import '../../themes/expressive/components/text-input';
+
+/// Footer language selector
+/// @access private
+/// @group footer
+
+@mixin language-selector {
+  .#{$prefix}--language-selector__container {
+    @include combo-box;
+    @include listbox;
+    @include text-input;
+    @include combo-box-expressive;
+    @include list-box-expressive;
+    @include text-input-expressive;
+    @include carbon--make-col-ready;
+    @include carbon--make-col(4, 4);
+
+    margin-top: $spacing-05;
+    padding-left: 0;
+    padding-right: 0;
+    order: 0;
+
+    .#{$prefix}--language-selector {
+      max-width: 100%;
+      width: 100%;
+
+      @include carbon--breakpoint('md') {
+        min-width: carbon--mini-units(27);
+        max-width: carbon--mini-units(40);
+
+        .#{$prefix}--footer--short & {
+          float: right;
+        }
+      }
+
+      // Expressive styles
+      .#{$prefix}--text-input,
+      .#{$prefix}--list-box__menu-item__option {
+        @include carbon--type-style('body-long-02');
+      }
+    }
+
+    .#{$prefix}--footer--short & {
+      margin-top: 0;
+    }
+
+    @include carbon--breakpoint('md') {
+      @include carbon--make-col(4, 8);
+
+      margin-bottom: carbon--mini-units(2);
+
+      .#{$prefix}--footer--short & {
+        @include carbon--make-col-offset(2, 8);
+      }
+    }
+
+    @include carbon--breakpoint('lg') {
+      @include carbon--make-col(4, 16);
+
+      order: 1;
+
+      .#{$prefix}--footer--short & {
+        @include carbon--make-col-offset(10, 16);
+      }
+    }
+
+    @include carbon--breakpoint('max') {
+      @include carbon--make-col(3, 16);
+
+      .#{$prefix}--footer--short & {
+        @include carbon--make-col-offset(11, 16);
+      }
+    }
+  }
+}
+
+@include exports('language-selector') {
+  @include carbon--theme($carbon--theme--g90) {
+    @include language-selector;
+  }
+}
