@@ -29,6 +29,11 @@ storiesOf('Patterns (Blocks)|FeatureCard', module)
       'Card Heading:',
       'Explore AI use cases in all industries'
     );
+    const eyebrow = text('Eyebrow:', 'this is an eyebrow');
+    const copy = text(
+      'Copy:',
+      'this is some lorem ipsum, eh? dolor emit? Emit?! this is some lorem ipsum, eh? dolor emit? Emit?! '
+    );
     const cardhref = text('Card href:', 'https://www.example.com');
     const image = object('card image', {
       defaultSrc: 'https://dummyimage.com/672x672/ee5396/161616&text=1x1',
@@ -44,6 +49,8 @@ storiesOf('Patterns (Blocks)|FeatureCard', module)
               card={{
                 heading: cardheading,
                 image: image,
+                eyebrow: eyebrow,
+                copy: copy,
                 cta: {
                   href: cardhref,
                   icon: {
