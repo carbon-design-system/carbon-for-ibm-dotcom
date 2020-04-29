@@ -28,7 +28,7 @@
     @include carbon--make-col-ready;
     @include carbon--make-col(4, 4);
 
-    margin-top: carbon--mini-units(2);
+    margin-top: $spacing-05;
     padding-left: 0;
     padding-right: 0;
     order: 0;
