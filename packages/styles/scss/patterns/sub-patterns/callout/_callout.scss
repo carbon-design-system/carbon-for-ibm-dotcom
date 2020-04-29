@@ -1,0 +1,45 @@
+//
+// Copyright IBM Corp. 2016, 2018
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import '../../../globals/imports';
+
+@mixin callout {
+  .#{$prefix}--callout {
+    &__container {
+      @include carbon--make-row;
+
+      background-color: $inverse-02;
+    }
+    &__grid {
+      @include carbon--make-col-ready;
+
+      padding-top: $layout-03;
+      padding-bottom: $layout-05;
+    }
+    &__column {
+      @include carbon--breakpoint(sm) {
+        //@include carbon--make-col(4,4);
+
+        //margin: 0 auto;
+      }
+      @include carbon--breakpoint(md) {
+        @include carbon--make-col-offset(1, 8);
+        @include carbon--make-col(6, 8);
+
+        padding-top: $layout-05;
+      }
+      @include carbon--breakpoint(lg) {
+        @include carbon--make-col-offset(1, 12);
+        @include carbon--make-col(12, 16);
+      }
+    }
+  }
+}
+
+@include exports('callout') {
+  @include callout;
+}
