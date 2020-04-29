@@ -48,7 +48,7 @@ const LanguageSelector = ({ items, initialSelectedItem, callback }) => {
         onChange={({ selectedItem }) => _setSelectedItem(selectedItem)}
         items={items}
         itemToString={item => (item ? item.text : '')}
-        // initialSelectedItem={initialSelectedItem}
+        initialSelectedItem={initialSelectedItem}
         selectedItem={selectedItem}
         direction="top"
       />
