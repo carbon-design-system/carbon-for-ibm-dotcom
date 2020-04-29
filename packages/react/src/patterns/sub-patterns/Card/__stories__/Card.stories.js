@@ -44,10 +44,12 @@ storiesOf('Patterns (Sub-Patterns)|Card', module)
       g90: 'g90',
       g100: 'g100',
     };
-    const image = props.cardProps().image && {
-      defaultSrc: 'https://dummyimage.com/600x300/ee5396/161616&text=2:1',
-      alt: 'Image alt text',
-    };
+    const image = props.cardProps().image
+      ? {
+          defaultSrc: 'https://dummyimage.com/600x300/ee5396/161616&text=2:1',
+          alt: 'Image alt text',
+        }
+      : null;
 
     return (
       <div className={`bx--card--${select('theme', themes, themes.white)}`}>

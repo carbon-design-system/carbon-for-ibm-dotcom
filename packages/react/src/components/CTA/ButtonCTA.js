@@ -107,8 +107,30 @@ const _renderButtons = ({
       button.target = external(button.type);
     }
     button.renderIcon = iconSelector(button.type);
+    button.iconDescription = _renderIconDesc(button.type);
     return button;
   });
+};
+
+/**
+ * render the icon description for screen reader
+ *
+ * @param {string} type type of cta
+ *
+ * @private
+ * @returns {string} icon description
+ */
+const _renderIconDesc = type => {
+  switch (type) {
+    case 'external':
+      return 'external launch icon';
+    case 'jump':
+      return 'down arrow icon';
+    case 'video':
+      return 'play button icon';
+    default:
+      return 'right arrow icon';
+  }
 };
 
 ButtonCTA.propTypes = {

@@ -37,7 +37,6 @@ const DotcomShell = ({
   disableLocaleButton,
   ...mastheadProps
 }) => {
-  console.log('navigation', navigation);
   return (
     <>
       <Masthead navigation={navigation} {...mastheadProps} />
