@@ -43,8 +43,27 @@ import 'yourapplication.scss';
 import content from 'content';
 
 function App() {
+  return <DotcomShell>{content}</DotcomShell>;
+}
+```
+
+Example with custom `Masthead` and `Footer` props:
+
+```javascript
+import React from 'react';
+import { DotcomShell } from '@carbon/ibmdotcom-react';
+import 'yourapplication.scss';
+import content from 'content';
+
+function App() {
   return (
-    <DotcomShell navigation={navigation} footerType="short">
+    <DotcomShell
+      footerProps={{
+        footerType: 'short',
+      }}
+      mastheadProps={{
+        platform: 'My Platform Name',
+      }}>
       {content}
     </DotcomShell>
   );
@@ -63,11 +82,11 @@ Add the following line on your `.env` file at the root of your project,
 
 ## Data and content
 
-| Name          | Description     |
-| ------------- | --------------- |
-| `children`    | User content    |
-| `footer`      | Footer type     |
-| `navigtation` | Navigation data |
+| Name         | Description     |
+| ------------ | --------------- |
+| `children`   | User content    |
+| `footer`     | Footer type     |
+| `navigation` | Navigation data |
 
 > 💡 See the
 > [Masthead](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/components/Masthead)
@@ -77,13 +96,11 @@ Add the following line on your `.env` file at the root of your project,
 
 ## Props
 
-| Name            | Required | Data Type        | Default Value | Description                                                                   |
-| --------------- | -------- | ---------------- | ------------- | ----------------------------------------------------------------------------- |
-| `children`      | YES      | Array OR Node    | n/a           | Component(s) to render within the UI shell                                    |
-| `footerNav`     | NO       | Object           | null          | Navigation data for the Footer                                                |
-| `footerType`    | NO       | String           | null          | Type of Footer (short OR tall). See `Footer` README.md for more details.      |
-| `mastheadProps` | NO       | Object           | null          | Additional Props for the Masthead. See `Masthead` README.md for more details. |
-| `navigation`    | NO       | String OR Object | null          | Navigation data for the Masthead                                              |
+| Name            | Required | Data Type     | Default Value | Description                                                        |
+| --------------- | -------- | ------------- | ------------- | ------------------------------------------------------------------ |
+| `children`      | YES      | Array OR Node | n/a           | Component(s) to render within the UI shell                         |
+| `footerProps`   | NO       | Object        | null          | Props for the Masthead. See `Footer` README.md for more details.   |
+| `mastheadProps` | NO       | Object        | null          | Props for the Masthead. See `Masthead` README.md for more details. |
 
 ## Stable selectors
 

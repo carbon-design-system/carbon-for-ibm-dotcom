@@ -30,7 +30,7 @@ storiesOf('Components|Footer', module)
 
     let isCustom = boolean('show custom navigation (not a prop)', false);
 
-    const navigation =
+    let navigation =
       isCustom &&
       object('custom navigation data (navigation)', {
         footerMenu,
