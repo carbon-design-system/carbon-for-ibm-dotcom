@@ -1847,16 +1847,6 @@ exports[`Storyshots Components|Expressive Modal Default 1`] = `
                     </div>
                   </ModalBody>
                 </ExpressiveModal>
-                <a
-                  href="JavaScript:Void(0);"
-                  style={
-                    Object {
-                      "opacity": 0,
-                    }
-                  }
-                >
-                  Testing trapped focus. For some reason it appears focusing out of the iFrame messes this up.
-                </a>
               </React.Fragment>
             </React.Fragment>,
             "type": "STORY",
@@ -2076,16 +2066,6 @@ exports[`Storyshots Components|Expressive Modal Default 1`] = `
                   </div>
                 </ComposedModal>
               </ExpressiveModal>
-              <a
-                href="JavaScript:Void(0);"
-                style={
-                  Object {
-                    "opacity": 0,
-                  }
-                }
-              >
-                Testing trapped focus. For some reason it appears focusing out of the iFrame messes this up.
-              </a>
             </div>
           </div>
         </_default>
@@ -2162,16 +2142,6 @@ exports[`Storyshots Components|Expressive Modal Expanded 1`] = `
                     </div>
                   </ModalBody>
                 </ExpressiveModal>
-                <a
-                  href="JavaScript:Void(0);"
-                  style={
-                    Object {
-                      "opacity": 0,
-                    }
-                  }
-                >
-                  Testing trapped focus. For some reason it appears focusing out of the iFrame messes this up.
-                </a>
               </React.Fragment>
             </React.Fragment>,
             "type": "STORY",
@@ -2392,16 +2362,6 @@ exports[`Storyshots Components|Expressive Modal Expanded 1`] = `
                   </div>
                 </ComposedModal>
               </ExpressiveModal>
-              <a
-                href="JavaScript:Void(0);"
-                style={
-                  Object {
-                    "opacity": 0,
-                  }
-                }
-              >
-                Testing trapped focus. For some reason it appears focusing out of the iFrame messes this up.
-              </a>
             </div>
           </div>
         </_default>
@@ -6760,10 +6720,10 @@ exports[`Storyshots Components|VideoPlayer Default 1`] = `
                 className="bx--grid"
               >
                 <div
-                  class="bx--row"
+                  className="bx--row"
                 >
                   <div
-                    class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
+                    className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
                   >
                     <VideoPlayer
                       showDescription={true}
@@ -6803,10 +6763,10 @@ exports[`Storyshots Components|VideoPlayer Default 1`] = `
                 className="bx--grid"
               >
                 <div
-                  class="bx--row"
+                  className="bx--row"
                 >
                   <div
-                    class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
+                    className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
                   >
                     <VideoPlayer
                       showDescription={true}
@@ -7009,10 +6969,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                 className="bx--grid"
               >
                 <div
-                  class="bx--row"
+                  className="bx--row"
                 >
                   <div
-                    class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
+                    className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
                   >
                     <ContentBlockMedia
                       copy="Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
@@ -7170,10 +7130,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                 className="bx--grid"
               >
                 <div
-                  class="bx--row"
+                  className="bx--row"
                 >
                   <div
-                    class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
+                    className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
                   >
                     <ContentBlockMedia
                       copy="Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
@@ -8415,10 +8375,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                 className="bx--grid"
               >
                 <div
-                  class="bx--row"
+                  className="bx--row"
                 >
                   <div
-                    class="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4"
+                    className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4"
                   >
                     <ContentBlockMedia
                       aside={
@@ -8602,10 +8562,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                 className="bx--grid"
               >
                 <div
-                  class="bx--row"
+                  className="bx--row"
                 >
                   <div
-                    class="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4"
+                    className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4"
                   >
                     <ContentBlockMedia
                       aside={
@@ -10299,10 +10259,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                 className="bx--grid"
               >
                 <div
-                  class="bx--row"
+                  className="bx--row"
                 >
                   <div
-                    class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
+                    className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
                   >
                     <ContentBlockMixed
                       copy="Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
@@ -10483,10 +10443,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                 className="bx--grid"
               >
                 <div
-                  class="bx--row"
+                  className="bx--row"
                 >
                   <div
-                    class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
+                    className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
                   >
                     <ContentBlockMixed
                       copy="Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
@@ -12332,10 +12292,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                 className="bx--grid"
               >
                 <div
-                  class="bx--row"
+                  className="bx--row"
                 >
                   <div
-                    class="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4"
+                    className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4"
                   >
                     <ContentBlockMixed
                       aside={
@@ -12542,10 +12502,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                 className="bx--grid"
               >
                 <div
-                  class="bx--row"
+                  className="bx--row"
                 >
                   <div
-                    class="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4"
+                    className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4"
                   >
                     <ContentBlockMixed
                       aside={
@@ -16737,10 +16697,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                 className="bx--grid"
               >
                 <div
-                  class="bx--row"
+                  className="bx--row"
                 >
                   <div
-                    class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4 content-block-story"
+                    className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4 content-block-story"
                   >
                     <ContentBlockSimple
                       copy="Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
@@ -16823,10 +16783,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                 className="bx--grid"
               >
                 <div
-                  class="bx--row"
+                  className="bx--row"
                 >
                   <div
-                    class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4 content-block-story"
+                    className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4 content-block-story"
                   >
                     <ContentBlockSimple
                       copy="Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
@@ -17229,10 +17189,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                 className="bx--grid"
               >
                 <div
-                  class="bx--row"
+                  className="bx--row"
                 >
                   <div
-                    class="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4 content-block-story"
+                    className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4 content-block-story"
                   >
                     <ContentBlockSimple
                       aside={
@@ -17341,10 +17301,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                 className="bx--grid"
               >
                 <div
-                  class="bx--row"
+                  className="bx--row"
                 >
                   <div
-                    class="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4 content-block-story"
+                    className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4 content-block-story"
                   >
                     <ContentBlockSimple
                       aside={
@@ -20303,6 +20263,7 @@ exports[`Storyshots Patterns (Sections)|CardSection default 1`] = `
                             <div
                               aria-label="Nunc convallis lobortis"
                               className="bx--card-section__cards__col"
+                              key="0"
                               role="region"
                             >
                               <Card
@@ -20417,6 +20378,7 @@ exports[`Storyshots Patterns (Sections)|CardSection default 1`] = `
                             <div
                               aria-label="Fusce gravida eu arcu"
                               className="bx--card-section__cards__col"
+                              key="1"
                               role="region"
                             >
                               <Card
@@ -20531,6 +20493,7 @@ exports[`Storyshots Patterns (Sections)|CardSection default 1`] = `
                             <div
                               aria-label="Interdum et malesuada"
                               className="bx--card-section__cards__col"
+                              key="2"
                               role="region"
                             >
                               <Card
@@ -20645,6 +20608,7 @@ exports[`Storyshots Patterns (Sections)|CardSection default 1`] = `
                             <div
                               aria-label="Nunc convallis loborti"
                               className="bx--card-section__cards__col"
+                              key="3"
                               role="region"
                             >
                               <Card
@@ -20759,6 +20723,7 @@ exports[`Storyshots Patterns (Sections)|CardSection default 1`] = `
                             <div
                               aria-label="Nunc convallis lbortis"
                               className="bx--card-section__cards__col"
+                              key="4"
                               role="region"
                             >
                               <Card
@@ -21263,6 +21228,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                               <div
                                 aria-label="Natural language processing."
                                 className="bx--card-section__cards__col"
+                                key="0"
                                 role="region"
                               >
                                 <Card
@@ -21397,6 +21363,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                               <div
                                 aria-label="Natural language processing."
                                 className="bx--card-section__cards__col"
+                                key="1"
                                 role="region"
                               >
                                 <Card
@@ -21531,6 +21498,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                               <div
                                 aria-label="Natural language processing."
                                 className="bx--card-section__cards__col"
+                                key="2"
                                 role="region"
                               >
                                 <Card
@@ -21665,6 +21633,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                               <div
                                 aria-label="Serving society ethically in the age of Artificial Intelligence."
                                 className="bx--card-section__cards__col"
+                                key="3"
                                 role="region"
                               >
                                 <Card
@@ -21799,6 +21768,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                               <div
                                 aria-label="Serving society ethically in the age of Artificial Intelligence."
                                 className="bx--card-section__cards__col"
+                                key="4"
                                 role="region"
                               >
                                 <Card
@@ -22186,6 +22156,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                               <div
                                 aria-label="Nunc convallis lobortis"
                                 className="bx--card-section__cards__col"
+                                key="0"
                                 role="region"
                               >
                                 <Card
@@ -22300,6 +22271,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                               <div
                                 aria-label="Fusce gravida eu arcu"
                                 className="bx--card-section__cards__col"
+                                key="1"
                                 role="region"
                               >
                                 <Card
@@ -22414,6 +22386,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                               <div
                                 aria-label="Interdum et malesuada"
                                 className="bx--card-section__cards__col"
+                                key="2"
                                 role="region"
                               >
                                 <Card
@@ -22528,6 +22501,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                               <div
                                 aria-label="Nunc convallis loborti"
                                 className="bx--card-section__cards__col"
+                                key="3"
                                 role="region"
                               >
                                 <Card
@@ -22642,6 +22616,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                               <div
                                 aria-label="Nunc convallis lbortis"
                                 className="bx--card-section__cards__col"
+                                key="4"
                                 role="region"
                               >
                                 <Card
@@ -24349,7 +24324,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|Card Static 1`] = `
                         }
                         eyebrow="eyebrow text"
                         heading="Lorem ipsum dolor sit amet"
-                        image={false}
+                        image={null}
                         inverse={false}
                         type="static"
                       />
@@ -24413,7 +24388,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|Card Static 1`] = `
                         }
                         eyebrow="eyebrow text"
                         heading="Lorem ipsum dolor sit amet"
-                        image={false}
+                        image={null}
                         inverse={false}
                         type="static"
                       >
