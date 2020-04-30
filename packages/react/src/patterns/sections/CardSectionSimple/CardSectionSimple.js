@@ -32,8 +32,8 @@ CardSectionSimple.propTypes = {
   heading: PropTypes.string.isRequired,
   cards: PropTypes.arrayOf(
     PropTypes.exact({
-      title: PropTypes.string,
       heading: PropTypes.string,
+      copy: PropTypes.string,
       cta: PropTypes.object,
     })
   ),
