@@ -16,25 +16,24 @@
     }
     &__grid {
       @include carbon--make-col-ready;
-
-      padding-top: $layout-03;
-      padding-bottom: $layout-05;
     }
     &__column {
       @include carbon--breakpoint(sm) {
-        //@include carbon--make-col(4,4);
-
-        //margin: 0 auto;
+        padding-top: $layout-03;
       }
       @include carbon--breakpoint(md) {
         @include carbon--make-col-offset(1, 8);
         @include carbon--make-col(6, 8);
 
+        padding-left: $spacing-02;
+        padding-right: $spacing-02;
         padding-top: $layout-05;
       }
       @include carbon--breakpoint(lg) {
+        padding-left: $spacing-01;
+        padding-right: $spacing-01;
         @include carbon--make-col-offset(1, 12);
-        @include carbon--make-col(12, 16);
+        @include carbon--make-col(10, 12);
       }
     }
   }

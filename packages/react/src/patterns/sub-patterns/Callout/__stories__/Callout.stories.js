@@ -13,7 +13,7 @@ storiesOf('Patterns (Sub-Patterns)|Callout', module)
       sidebar: readme,
     },
   })
-  .add('Default', () => {
+  .add('With Link List example', () => {
     const heading = text('heading (required):', 'Tutorials');
     const headlines = [
       'Containerization A Complete Guide',
@@ -52,6 +52,18 @@ storiesOf('Patterns (Sub-Patterns)|Callout', module)
         <div className="bx--row">
           <div className="bx--col-sm-4 bx--col-lg-8 bx--col-lg-12 bx--offset-lg-4">
             <Callout children={children} />
+          </div>
+        </div>
+      </div>
+    );
+  })
+
+  .add('Empty', () => {
+    return (
+      <div className="bx--grid">
+        <div className="bx--row">
+          <div className="bx--col-sm-4 bx--col-lg-8 bx--col-lg-12 bx--offset-lg-4">
+            <Callout />
           </div>
         </div>
       </div>
