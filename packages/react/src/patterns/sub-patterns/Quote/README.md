@@ -59,7 +59,7 @@ Add the following line on your `.env` file at the root of your project,
 | Name      | Required | Data Type | Default Value  | Description                                                                                                                                             |
 | --------- | -------- | --------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `copy`    | YES      | String    | null           | Main Quote                                                                                                                                              |
-| `types`   | NO       | String    | `doubleCurved` | See `Types` bellow.                                                                                                                                     |
+| `type`    | NO       | String    | `doubleCurved` | See `Types` bellow.                                                                                                                                     |
 | `source`  | NO       | Object    | null           | See `Source` bellow.                                                                                                                                    |
 | `cta`     | NO       | Object    | null           | Object with CTA data, check [CTA](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/components/CTA/README.md)👀 |
 | `inverse` | NO       | Boolean   | false          | Toggles the invese colors                                                                                                                               |
