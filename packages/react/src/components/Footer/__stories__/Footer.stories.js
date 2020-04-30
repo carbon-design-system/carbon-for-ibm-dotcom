@@ -56,7 +56,7 @@ storiesOf('Components|Footer', module)
      * @param {string} selectedItem Selected item
      */
     const languageCallback = selectedItem => {
-      console.log('Selected Item:', selectedItem);
+      console.log('footer (language selector) selected item:', selectedItem);
     };
 
     return (

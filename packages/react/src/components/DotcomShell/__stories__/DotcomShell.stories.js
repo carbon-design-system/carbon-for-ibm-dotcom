@@ -29,37 +29,40 @@ storiesOf('Components|Dotcom Shell', module)
   })
   .add('Default', () => {
     let navigation = select(
-      'Masthead: navigation data (navigation)',
+      'Masthead (mastheadProps): navigation data (navigation)',
       mastheadKnobs.navigation,
       mastheadKnobs.navigation.default
     );
 
     let platform = select(
-      'Masthead: platform name (platform)',
+      'Masthead (mastheadProps): platform name (platform)',
       mastheadKnobs.platform,
       mastheadKnobs.platform.none
     );
 
     let hasProfile = boolean(
-      'Masthead: show the profile functionality (hasProfile)',
+      'Masthead (mastheadProps): show the profile functionality (hasProfile)',
       true
     );
 
     let hasSearch = boolean(
-      'Masthead: show the search functionality (hasSearch)',
+      'Masthead (mastheadProps): show the search functionality (hasSearch)',
       true
     );
 
     let title = DDS_MASTHEAD_L1
-      ? text('Masthead: L1 Title (title)', 'Stock Charts')
+      ? text('Masthead (mastheadProps): L1 Title (title)', 'Stock Charts')
       : null;
 
     let eyebrowText = DDS_MASTHEAD_L1
-      ? text('Masthead: L1 Eyebrow text (eyebrowText)', 'Eyebrow')
+      ? text(
+          'Masthead (mastheadProps): L1 Eyebrow text (eyebrowText)',
+          'Eyebrow'
+        )
       : null;
 
     let eyebrowLink = DDS_MASTHEAD_L1
-      ? text('Masthead: Eyebrow link (eyebrowLink)', '#')
+      ? text('Masthead (mastheadProps): Eyebrow link (eyebrowLink)', '#')
       : null;
 
     const footerTypeOptions = {
@@ -68,34 +71,40 @@ storiesOf('Components|Dotcom Shell', module)
     };
 
     let type = select(
-      'Footer: sets the type of footer (type)',
+      'Footer (footerProps): sets the type of footer (type)',
       footerTypeOptions,
       footerTypeOptions.tall
     );
 
     let isCustom = boolean(
-      'Footer: show custom navigation (not a prop)',
+      'Footer (footerProps): show custom navigation (not a prop)',
       false
     );
 
     let footerNav = isCustom
-      ? object('Footer: custom navigation data (navigation)', {
+      ? object('Footer (footerProps): custom navigation data (navigation)', {
           footerMenu,
           footerThin,
         })
       : null;
 
     let disableLocaleButton = boolean(
-      'Footer: hide the locale button (disableLocaleButton)',
+      'Footer (footerProps): hide the locale button (disableLocaleButton)',
       false
     );
 
     let languageOnly =
       DDS_LANGUAGE_SELECTOR &&
-      boolean('Footer: switch to the language selector (languageOnly)', false);
+      boolean(
+        'Footer (footerProps): switch to the language selector (languageOnly)',
+        false
+      );
 
     let items = languageOnly
-      ? object('Footer: language dropdown items (languageItems)', languageItems)
+      ? object(
+          'Footer (footerProps): language dropdown items (languageItems)',
+          languageItems
+        )
       : null;
 
     /**
@@ -104,7 +113,7 @@ storiesOf('Components|Dotcom Shell', module)
      * @param {string} selectedItem Selected item
      */
     const languageCallback = selectedItem => {
-      console.log('Selected Item:', selectedItem);
+      console.log('footer (language selector) selected item:', selectedItem);
     };
 
     return (

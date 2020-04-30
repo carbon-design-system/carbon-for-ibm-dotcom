@@ -80,20 +80,6 @@ Add the following line on your `.env` file at the root of your project,
 > 💡 And don't forget to import the DotcomShell styles from
 > [@carbon/ibmdotcom-styles](/packages/styles).
 
-## Data and content
-
-| Name         | Description     |
-| ------------ | --------------- |
-| `children`   | User content    |
-| `footer`     | Footer type     |
-| `navigation` | Navigation data |
-
-> 💡 See the
-> [Masthead](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/components/Masthead)
-> and
-> [Footer](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/components/Footer)
-> component documentation for their specific usage.
-
 ## Props
 
 | Name            | Required | Data Type     | Default Value | Description                                                        |
@@ -101,6 +87,12 @@ Add the following line on your `.env` file at the root of your project,
 | `children`      | YES      | Array OR Node | n/a           | Component(s) to render within the UI shell                         |
 | `footerProps`   | NO       | Object        | null          | Props for the Masthead. See `Footer` README.md for more details.   |
 | `mastheadProps` | NO       | Object        | null          | Props for the Masthead. See `Masthead` README.md for more details. |
+
+> 💡 See the
+> [Masthead](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/components/Masthead)
+> and
+> [Footer](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/components/Footer)
+> component documentation for their specific usage.
 
 ## Stable selectors
 
