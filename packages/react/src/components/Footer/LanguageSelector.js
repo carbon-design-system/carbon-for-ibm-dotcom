@@ -36,7 +36,7 @@ const LanguageSelector = ({ items, initialSelectedItem, callback }) => {
    */
   function _setSelectedItem(selectedItem) {
     setSelectedItem(selectedItem);
-    callback(setSelectedItem);
+    callback(selectedItem);
   }
 
   return (
