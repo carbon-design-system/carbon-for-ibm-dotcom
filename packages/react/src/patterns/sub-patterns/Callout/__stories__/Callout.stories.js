@@ -58,12 +58,13 @@ storiesOf('Patterns (Sub-Patterns)|Callout', module)
     );
   })
 
-  .add('Empty', () => {
+  .add('Simple example', () => {
+    const children = <p>hello world</p>;
     return (
       <div className="bx--grid">
         <div className="bx--row">
           <div className="bx--col-sm-4 bx--col-lg-8 bx--col-lg-12 bx--offset-lg-4">
-            <Callout />
+            <Callout children={children} />
           </div>
         </div>
       </div>

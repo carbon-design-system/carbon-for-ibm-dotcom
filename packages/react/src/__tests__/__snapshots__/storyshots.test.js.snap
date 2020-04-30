@@ -24080,6 +24080,730 @@ exports[`Storyshots Patterns (Sub-Patterns)|ButtonGroup Default 1`] = `
 </Container>
 `;
 
+exports[`Storyshots Patterns (Sub-Patterns)|Callout Empty 1`] = `
+<Container
+  story={[Function]}
+>
+  <div
+    data-floating-menu-container=""
+    role="main"
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+      }
+    }
+  >
+    <ReadmeContent
+      codeTheme="github"
+      layout={
+        Array [
+          Object {
+            "content": <React.Fragment>
+              <div
+                className="bx--grid"
+              >
+                <div
+                  className="bx--row"
+                >
+                  <div
+                    className="bx--col-sm-4 bx--col-lg-8 bx--col-lg-12 bx--offset-lg-4"
+                  >
+                    <Callout />
+                  </div>
+                </div>
+              </div>
+            </React.Fragment>,
+            "type": "STORY",
+          },
+        ]
+      }
+      theme={Object {}}
+      types={
+        Array [
+          "MD",
+          "STORY",
+          "STORY_SOURCE",
+          "PROPS",
+          "FOOTER_MD",
+          "HEADER_MD",
+        ]
+      }
+    >
+      <div
+        className="storybook-readme-story"
+      >
+        <_default
+          key="0"
+        >
+          <div
+            style={Object {}}
+          >
+            <div>
+              <div
+                className="bx--grid"
+              >
+                <div
+                  className="bx--row"
+                >
+                  <div
+                    className="bx--col-sm-4 bx--col-lg-8 bx--col-lg-12 bx--offset-lg-4"
+                  >
+                    <Callout>
+                      <section
+                        className="bx--callout__container"
+                        data-autoid="dds--callout__container"
+                      >
+                        <div
+                          className="bx--callout__grid"
+                        >
+                          <div
+                            className="bx--callout__column"
+                          />
+                        </div>
+                      </section>
+                    </Callout>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </_default>
+      </div>
+    </ReadmeContent>
+  </div>
+  <input
+    aria-label="input-text-offleft"
+    className="bx--visually-hidden"
+    type="text"
+  />
+</Container>
+`;
+
+exports[`Storyshots Patterns (Sub-Patterns)|Callout With Link List example 1`] = `
+<Container
+  story={[Function]}
+>
+  <div
+    data-floating-menu-container=""
+    role="main"
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+      }
+    }
+  >
+    <ReadmeContent
+      codeTheme="github"
+      layout={
+        Array [
+          Object {
+            "content": <React.Fragment>
+              <div
+                className="bx--grid"
+              >
+                <div
+                  className="bx--row"
+                >
+                  <div
+                    className="bx--col-sm-4 bx--col-lg-8 bx--col-lg-12 bx--offset-lg-4"
+                  >
+                    <Callout>
+                      <LinkList
+                        heading="Tutorials"
+                        items={
+                          Array [
+                            Object {
+                              "copy": "Containerization A Complete Guide",
+                              "cta": Object {
+                                "href": "https://ibm.com",
+                              },
+                              "type": "local",
+                            },
+                            Object {
+                              "copy": "Why should you use microservices and containers",
+                              "cta": Object {
+                                "href": "https://ibm.com",
+                              },
+                              "type": "local",
+                            },
+                            Object {
+                              "media": Object {
+                                "src": "0_uka1msg4",
+                                "type": "video",
+                              },
+                              "type": "video",
+                            },
+                          ]
+                        }
+                      />
+                    </Callout>
+                  </div>
+                </div>
+              </div>
+            </React.Fragment>,
+            "type": "STORY",
+          },
+        ]
+      }
+      theme={Object {}}
+      types={
+        Array [
+          "MD",
+          "STORY",
+          "STORY_SOURCE",
+          "PROPS",
+          "FOOTER_MD",
+          "HEADER_MD",
+        ]
+      }
+    >
+      <div
+        className="storybook-readme-story"
+      >
+        <_default
+          key="0"
+        >
+          <div
+            style={Object {}}
+          >
+            <div>
+              <div
+                className="bx--grid"
+              >
+                <div
+                  className="bx--row"
+                >
+                  <div
+                    className="bx--col-sm-4 bx--col-lg-8 bx--col-lg-12 bx--offset-lg-4"
+                  >
+                    <Callout>
+                      <section
+                        className="bx--callout__container"
+                        data-autoid="dds--callout__container"
+                      >
+                        <div
+                          className="bx--callout__grid"
+                        >
+                          <div
+                            className="bx--callout__column"
+                          >
+                            <LinkList
+                              heading="Tutorials"
+                              items={
+                                Array [
+                                  Object {
+                                    "copy": "Containerization A Complete Guide",
+                                    "cta": Object {
+                                      "href": "https://ibm.com",
+                                    },
+                                    "type": "local",
+                                  },
+                                  Object {
+                                    "copy": "Why should you use microservices and containers",
+                                    "cta": Object {
+                                      "href": "https://ibm.com",
+                                    },
+                                    "type": "local",
+                                  },
+                                  Object {
+                                    "media": Object {
+                                      "src": "0_uka1msg4",
+                                      "type": "video",
+                                    },
+                                    "type": "video",
+                                  },
+                                ]
+                              }
+                            >
+                              <div
+                                className="bx--link-list"
+                                data-autoid="dds--link-list"
+                              >
+                                <h4
+                                  className="bx--link-list__heading"
+                                >
+                                  Tutorials
+                                </h4>
+                                <ul
+                                  className="bx--link-list__list"
+                                >
+                                  <li
+                                    className="bx--link-list__list__CTA"
+                                    key="0"
+                                  >
+                                    <CTA
+                                      copy="Containerization A Complete Guide"
+                                      cta={
+                                        Object {
+                                          "href": "https://ibm.com",
+                                        }
+                                      }
+                                      style="card"
+                                      type="local"
+                                    >
+                                      <div>
+                                        <CardCTA
+                                          copy="Containerization A Complete Guide"
+                                          cta={
+                                            Object {
+                                              "href": "https://ibm.com",
+                                            }
+                                          }
+                                          external={[Function]}
+                                          iconSelector={[Function]}
+                                          jump={[Function]}
+                                          launchLightBox={[Function]}
+                                          mediaData={Object {}}
+                                          openLightBox={[Function]}
+                                          renderLightBox={false}
+                                          setLightBox={[Function]}
+                                          setMediaData={[Function]}
+                                          style="card"
+                                          type="local"
+                                          videoTitle={
+                                            Array [
+                                              Object {
+                                                "key": 0,
+                                                "title": "",
+                                              },
+                                            ]
+                                          }
+                                        >
+                                          <Card
+                                            copy="Containerization A Complete Guide"
+                                            cta={
+                                              Object {
+                                                "href": "https://ibm.com",
+                                                "icon": Object {
+                                                  "src": Object {
+                                                    "$$typeof": Symbol(react.forward_ref),
+                                                    "render": [Function],
+                                                  },
+                                                },
+                                              }
+                                            }
+                                            customClassName="bx--card__CTA"
+                                            handleClick={[Function]}
+                                            role="region"
+                                            target={null}
+                                            type="link"
+                                          >
+                                            <ClickableTile
+                                              className="bx--card bx--card--link bx--card__CTA"
+                                              clicked={false}
+                                              data-autoid="dds--card"
+                                              handleClick={[Function]}
+                                              handleKeyDown={[Function]}
+                                              href="https://ibm.com"
+                                              light={false}
+                                              role="region"
+                                              target={null}
+                                            >
+                                              <a
+                                                className="bx--link bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                                data-autoid="dds--card"
+                                                href="https://ibm.com"
+                                                onClick={[Function]}
+                                                onKeyDown={[Function]}
+                                                role="region"
+                                                target={null}
+                                              >
+                                                <div
+                                                  className="bx--card__wrapper"
+                                                >
+                                                  <div
+                                                    className="bx--card__copy"
+                                                    dangerouslySetInnerHTML={
+                                                      Object {
+                                                        "__html": "<p>Containerization A Complete Guide</p>",
+                                                      }
+                                                    }
+                                                  />
+                                                  <div
+                                                    className="bx--card__footer"
+                                                  >
+                                                    <ForwardRef(ArrowRight20)
+                                                      className="bx--card__cta"
+                                                      src={
+                                                        Object {
+                                                          "$$typeof": Symbol(react.forward_ref),
+                                                          "render": [Function],
+                                                        }
+                                                      }
+                                                    >
+                                                      <Icon
+                                                        className="bx--card__cta"
+                                                        height={20}
+                                                        preserveAspectRatio="xMidYMid meet"
+                                                        src={
+                                                          Object {
+                                                            "$$typeof": Symbol(react.forward_ref),
+                                                            "render": [Function],
+                                                          }
+                                                        }
+                                                        viewBox="0 0 20 20"
+                                                        width={20}
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                      >
+                                                        <svg
+                                                          aria-hidden={true}
+                                                          className="bx--card__cta"
+                                                          focusable="false"
+                                                          height={20}
+                                                          preserveAspectRatio="xMidYMid meet"
+                                                          src={
+                                                            Object {
+                                                              "$$typeof": Symbol(react.forward_ref),
+                                                              "render": [Function],
+                                                            }
+                                                          }
+                                                          style={
+                                                            Object {
+                                                              "willChange": "transform",
+                                                            }
+                                                          }
+                                                          viewBox="0 0 20 20"
+                                                          width={20}
+                                                          xmlns="http://www.w3.org/2000/svg"
+                                                        >
+                                                          <path
+                                                            d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                                          />
+                                                        </svg>
+                                                      </Icon>
+                                                    </ForwardRef(ArrowRight20)>
+                                                  </div>
+                                                </div>
+                                              </a>
+                                            </ClickableTile>
+                                          </Card>
+                                        </CardCTA>
+                                      </div>
+                                    </CTA>
+                                  </li>
+                                  <li
+                                    className="bx--link-list__list__CTA"
+                                    key="1"
+                                  >
+                                    <CTA
+                                      copy="Why should you use microservices and containers"
+                                      cta={
+                                        Object {
+                                          "href": "https://ibm.com",
+                                        }
+                                      }
+                                      style="card"
+                                      type="local"
+                                    >
+                                      <div>
+                                        <CardCTA
+                                          copy="Why should you use microservices and containers"
+                                          cta={
+                                            Object {
+                                              "href": "https://ibm.com",
+                                            }
+                                          }
+                                          external={[Function]}
+                                          iconSelector={[Function]}
+                                          jump={[Function]}
+                                          launchLightBox={[Function]}
+                                          mediaData={Object {}}
+                                          openLightBox={[Function]}
+                                          renderLightBox={false}
+                                          setLightBox={[Function]}
+                                          setMediaData={[Function]}
+                                          style="card"
+                                          type="local"
+                                          videoTitle={
+                                            Array [
+                                              Object {
+                                                "key": 0,
+                                                "title": "",
+                                              },
+                                            ]
+                                          }
+                                        >
+                                          <Card
+                                            copy="Why should you use microservices and containers"
+                                            cta={
+                                              Object {
+                                                "href": "https://ibm.com",
+                                                "icon": Object {
+                                                  "src": Object {
+                                                    "$$typeof": Symbol(react.forward_ref),
+                                                    "render": [Function],
+                                                  },
+                                                },
+                                              }
+                                            }
+                                            customClassName="bx--card__CTA"
+                                            handleClick={[Function]}
+                                            role="region"
+                                            target={null}
+                                            type="link"
+                                          >
+                                            <ClickableTile
+                                              className="bx--card bx--card--link bx--card__CTA"
+                                              clicked={false}
+                                              data-autoid="dds--card"
+                                              handleClick={[Function]}
+                                              handleKeyDown={[Function]}
+                                              href="https://ibm.com"
+                                              light={false}
+                                              role="region"
+                                              target={null}
+                                            >
+                                              <a
+                                                className="bx--link bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                                data-autoid="dds--card"
+                                                href="https://ibm.com"
+                                                onClick={[Function]}
+                                                onKeyDown={[Function]}
+                                                role="region"
+                                                target={null}
+                                              >
+                                                <div
+                                                  className="bx--card__wrapper"
+                                                >
+                                                  <div
+                                                    className="bx--card__copy"
+                                                    dangerouslySetInnerHTML={
+                                                      Object {
+                                                        "__html": "<p>Why should you use microservices and containers</p>",
+                                                      }
+                                                    }
+                                                  />
+                                                  <div
+                                                    className="bx--card__footer"
+                                                  >
+                                                    <ForwardRef(ArrowRight20)
+                                                      className="bx--card__cta"
+                                                      src={
+                                                        Object {
+                                                          "$$typeof": Symbol(react.forward_ref),
+                                                          "render": [Function],
+                                                        }
+                                                      }
+                                                    >
+                                                      <Icon
+                                                        className="bx--card__cta"
+                                                        height={20}
+                                                        preserveAspectRatio="xMidYMid meet"
+                                                        src={
+                                                          Object {
+                                                            "$$typeof": Symbol(react.forward_ref),
+                                                            "render": [Function],
+                                                          }
+                                                        }
+                                                        viewBox="0 0 20 20"
+                                                        width={20}
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                      >
+                                                        <svg
+                                                          aria-hidden={true}
+                                                          className="bx--card__cta"
+                                                          focusable="false"
+                                                          height={20}
+                                                          preserveAspectRatio="xMidYMid meet"
+                                                          src={
+                                                            Object {
+                                                              "$$typeof": Symbol(react.forward_ref),
+                                                              "render": [Function],
+                                                            }
+                                                          }
+                                                          style={
+                                                            Object {
+                                                              "willChange": "transform",
+                                                            }
+                                                          }
+                                                          viewBox="0 0 20 20"
+                                                          width={20}
+                                                          xmlns="http://www.w3.org/2000/svg"
+                                                        >
+                                                          <path
+                                                            d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                                          />
+                                                        </svg>
+                                                      </Icon>
+                                                    </ForwardRef(ArrowRight20)>
+                                                  </div>
+                                                </div>
+                                              </a>
+                                            </ClickableTile>
+                                          </Card>
+                                        </CardCTA>
+                                      </div>
+                                    </CTA>
+                                  </li>
+                                  <li
+                                    className="bx--link-list__list__CTA"
+                                    key="2"
+                                  >
+                                    <CTA
+                                      media={
+                                        Object {
+                                          "src": "0_uka1msg4",
+                                          "type": "video",
+                                        }
+                                      }
+                                      style="card"
+                                      type="video"
+                                    >
+                                      <div>
+                                        <CardCTA
+                                          external={[Function]}
+                                          iconSelector={[Function]}
+                                          jump={[Function]}
+                                          launchLightBox={[Function]}
+                                          media={
+                                            Object {
+                                              "src": "0_uka1msg4",
+                                              "type": "video",
+                                            }
+                                          }
+                                          mediaData={Object {}}
+                                          openLightBox={[Function]}
+                                          renderLightBox={false}
+                                          setLightBox={[Function]}
+                                          setMediaData={[Function]}
+                                          style="card"
+                                          type="video"
+                                          videoTitle={
+                                            Array [
+                                              Object {
+                                                "key": 0,
+                                                "title": "",
+                                              },
+                                            ]
+                                          }
+                                        >
+                                          <div>
+                                            <Card
+                                              copy=""
+                                              cta={
+                                                Object {
+                                                  "href": "#",
+                                                  "icon": Object {
+                                                    "src": Object {
+                                                      "$$typeof": Symbol(react.forward_ref),
+                                                      "render": [Function],
+                                                    },
+                                                  },
+                                                }
+                                              }
+                                              customClassName="bx--card__CTA"
+                                              handleClick={[Function]}
+                                              type="link"
+                                            >
+                                              <ClickableTile
+                                                className="bx--card bx--card--link bx--card__CTA"
+                                                clicked={false}
+                                                data-autoid="dds--card"
+                                                handleClick={[Function]}
+                                                handleKeyDown={[Function]}
+                                                href="#"
+                                                light={false}
+                                              >
+                                                <a
+                                                  className="bx--link bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                                  data-autoid="dds--card"
+                                                  href="#"
+                                                  onClick={[Function]}
+                                                  onKeyDown={[Function]}
+                                                >
+                                                  <div
+                                                    className="bx--card__wrapper"
+                                                  >
+                                                    <div
+                                                      className="bx--card__footer"
+                                                    >
+                                                      <ForwardRef(PlayOutline20)
+                                                        className="bx--card__cta"
+                                                        src={
+                                                          Object {
+                                                            "$$typeof": Symbol(react.forward_ref),
+                                                            "render": [Function],
+                                                          }
+                                                        }
+                                                      >
+                                                        <Icon
+                                                          className="bx--card__cta"
+                                                          height={20}
+                                                          preserveAspectRatio="xMidYMid meet"
+                                                          src={
+                                                            Object {
+                                                              "$$typeof": Symbol(react.forward_ref),
+                                                              "render": [Function],
+                                                            }
+                                                          }
+                                                          viewBox="0 0 32 32"
+                                                          width={20}
+                                                          xmlns="http://www.w3.org/2000/svg"
+                                                        >
+                                                          <svg
+                                                            aria-hidden={true}
+                                                            className="bx--card__cta"
+                                                            focusable="false"
+                                                            height={20}
+                                                            preserveAspectRatio="xMidYMid meet"
+                                                            src={
+                                                              Object {
+                                                                "$$typeof": Symbol(react.forward_ref),
+                                                                "render": [Function],
+                                                              }
+                                                            }
+                                                            style={
+                                                              Object {
+                                                                "willChange": "transform",
+                                                              }
+                                                            }
+                                                            viewBox="0 0 32 32"
+                                                            width={20}
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                          >
+                                                            <path
+                                                              d="M16,4A12,12,0,1,1,4,16,12,12,0,0,1,16,4m0-2A14,14,0,1,0,30,16,14,14,0,0,0,16,2Z"
+                                                            />
+                                                            <path
+                                                              d="M12,23a1,1,0,0,1-.51-.14A1,1,0,0,1,11,22V10a1,1,0,0,1,.49-.86,1,1,0,0,1,1,0l11,6a1,1,0,0,1,0,1.76l-11,6A1,1,0,0,1,12,23Zm1-11.32v8.64L20.91,16Z"
+                                                            />
+                                                          </svg>
+                                                        </Icon>
+                                                      </ForwardRef(PlayOutline20)>
+                                                    </div>
+                                                  </div>
+                                                </a>
+                                              </ClickableTile>
+                                            </Card>
+                                          </div>
+                                        </CardCTA>
+                                      </div>
+                                    </CTA>
+                                  </li>
+                                </ul>
+                              </div>
+                            </LinkList>
+                          </div>
+                        </div>
+                      </section>
+                    </Callout>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </_default>
+      </div>
+    </ReadmeContent>
+  </div>
+  <input
+    aria-label="input-text-offleft"
+    className="bx--visually-hidden"
+    type="text"
+  />
+</Container>
+`;
+
 exports[`Storyshots Patterns (Sub-Patterns)|Card Link/Clickable 1`] = `
 <Container
   story={[Function]}

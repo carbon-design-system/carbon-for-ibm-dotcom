@@ -16,15 +16,20 @@ const { prefix } = settings;
 /**
  *
  * @param {object} children jsx component
- * @returns {*} jsx component
- * @class callout
+ * @returns {*} callout with child object
  */
 const Callout = ({ children }) => (
   <section
     className={`${prefix}--callout__container`}
     data-autoid={`${stablePrefix}--callout__container`}>
-    <div className={`${prefix}--callout__grid`}>
-      <div className={`${prefix}--callout__column`}>{children}</div>
+    <div
+      className={`${prefix}--callout__column`}
+      data-autoid={`${stablePrefix}--callout__column`}>
+      <div
+        className={`${prefix}--callout__object`}
+        data-autoid={`${stablePrefix}--callout__object`}>
+        {children}
+      </div>
     </div>
   </section>
 );
