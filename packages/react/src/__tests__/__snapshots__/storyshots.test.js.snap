@@ -24080,7 +24080,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ButtonGroup Default 1`] = `
 </Container>
 `;
 
-exports[`Storyshots Patterns (Sub-Patterns)|Callout Empty 1`] = `
+exports[`Storyshots Patterns (Sub-Patterns)|Callout Simple example 1`] = `
 <Container
   story={[Function]}
 >
@@ -24108,7 +24108,11 @@ exports[`Storyshots Patterns (Sub-Patterns)|Callout Empty 1`] = `
                   <div
                     className="bx--col-sm-4 bx--col-lg-8 bx--col-lg-12 bx--offset-lg-4"
                   >
-                    <Callout />
+                    <Callout>
+                      <p>
+                        hello world
+                      </p>
+                    </Callout>
                   </div>
                 </div>
               </div>
@@ -24154,11 +24158,17 @@ exports[`Storyshots Patterns (Sub-Patterns)|Callout Empty 1`] = `
                         data-autoid="dds--callout__container"
                       >
                         <div
-                          className="bx--callout__grid"
+                          className="bx--callout__column"
+                          data-autoid="dds--callout__column"
                         >
                           <div
-                            className="bx--callout__column"
-                          />
+                            className="bx--callout__object"
+                            data-autoid="dds--callout__object"
+                          >
+                            <p>
+                              hello world
+                            </p>
+                          </div>
                         </div>
                       </section>
                     </Callout>
@@ -24282,10 +24292,12 @@ exports[`Storyshots Patterns (Sub-Patterns)|Callout With Link List example 1`] =
                         data-autoid="dds--callout__container"
                       >
                         <div
-                          className="bx--callout__grid"
+                          className="bx--callout__column"
+                          data-autoid="dds--callout__column"
                         >
                           <div
-                            className="bx--callout__column"
+                            className="bx--callout__object"
+                            data-autoid="dds--callout__object"
                           >
                             <LinkList
                               heading="Tutorials"
