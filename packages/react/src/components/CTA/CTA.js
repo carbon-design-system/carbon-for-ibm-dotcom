@@ -216,7 +216,7 @@ const _iconSelector = type => {
 
 CTA.propTypes = {
   style: PropTypes.string,
-  type: PropTypes.string,
+  type: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
   customClassName: PropTypes.string,
 };
 
