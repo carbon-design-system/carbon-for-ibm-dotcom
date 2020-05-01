@@ -5,10 +5,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 import {
-  settings as ddsSettings,
-  ipcinfoCookie,
-} from '@carbon/ibmdotcom-utilities';
-import {
   globalInit,
   LocaleAPI,
   TranslationAPI,
@@ -16,6 +12,7 @@ import {
 import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import { DDS_LANGUAGE_SELECTOR } from '../../internal/FeatureFlags';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import FooterLogo from './FooterLogo';
 import FooterNav from './FooterNav';
 import LanguageSelector from './LanguageSelector';
@@ -112,23 +109,6 @@ const Footer = ({
 };
 
 /**
- * method to handle when country/region has been selected
- * sets the ipcInfo cookie with selected locale
- *
- * @param {object} item selected country/region
- * @private
- */
-function _selectItem(item) {
-  const stringLocale = item.selectedItem.locale[0][0];
-  const locale = stringLocale.split('-');
-  const localeObj = {
-    cc: locale[1],
-    lc: locale[0],
-  };
-  ipcinfoCookie.set(localeObj);
-}
-
-/**
  * Loads in the locale modal, language selector, or null
  *
  * @param {boolean} disableLocaleButton Flag to disable to locale button
@@ -159,13 +139,7 @@ function _loadLocaleLanguage(
       />
     );
   } else if (!disableLocaleButton) {
-    return (
-      <LocaleButton
-        aria={localeButtonAria}
-        displayLang={displayLang}
-        selectItem={_selectItem}
-      />
-    );
+    return <LocaleButton aria={localeButtonAria} displayLang={displayLang} />;
   } else {
     return null;
   }
