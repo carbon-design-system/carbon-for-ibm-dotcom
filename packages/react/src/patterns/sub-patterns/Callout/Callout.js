@@ -26,8 +26,8 @@ const Callout = ({ children }) => (
       className={`${prefix}--callout__column`}
       data-autoid={`${stablePrefix}--callout__column`}>
       <div
-        className={`${prefix}--callout__object`}
-        data-autoid={`${stablePrefix}--callout__object`}>
+        className={`${prefix}--callout__content`}
+        data-autoid={`${stablePrefix}--callout__content`}>
         {children}
       </div>
     </div>

@@ -56,7 +56,7 @@ Add the following line on your `env` file at the root of your project,
 | ------------------------- | ----------------------- |
 | `dds--callout__container` | Callout element wrapper |
 | `dds--column__column`     | Callout column wrapper  |
-| `dds--column__object`     | Callout object wrapper  |
+| `dds--column__content`    | Callout content wrapper |
 
 ## 🙌 Contributing
 

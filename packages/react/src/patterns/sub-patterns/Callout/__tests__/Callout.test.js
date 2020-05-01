@@ -15,6 +15,6 @@ describe('Callout', () => {
     const callout = shallow(<Callout children={children} />);
     expect(callout.find('.bx--callout__container')).toHaveLength(1);
     expect(callout.find('.bx--callout__column')).toHaveLength(1);
-    expect(callout.find('.bx--callout__objeect')).toHaveLength(1);
+    expect(callout.find('.bx--callout__content')).toHaveLength(1);
   });
 });

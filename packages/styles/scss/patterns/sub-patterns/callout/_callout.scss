@@ -17,7 +17,7 @@
     &__column {
       @include carbon--make-col-ready;
     }
-    &__object {
+    &__content {
       @include carbon--breakpoint(sm) {
         padding-top: $layout-03;
         padding-bottom: $layout-05;
