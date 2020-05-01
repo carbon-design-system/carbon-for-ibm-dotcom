@@ -30,7 +30,7 @@ storiesOf('Components|Footer', module)
 
     let isCustom = boolean('show custom navigation (not a prop)', false);
 
-    const navigation =
+    let navigation =
       isCustom &&
       object('custom navigation data (navigation)', {
         footerMenu,
@@ -56,7 +56,7 @@ storiesOf('Components|Footer', module)
      * @param {string} selectedItem Selected item
      */
     const languageCallback = selectedItem => {
-      console.log('Selected Item:', selectedItem);
+      console.log('footer (language selector) selected item:', selectedItem);
     };
 
     return (
