@@ -1,7 +1,8 @@
 import './index.scss';
-import { object, text, withKnobs } from '@storybook/addon-knobs';
+import { ArrowDown20, ArrowRight20, Pdf20 } from '@carbon/icons-react';
+import { number, select, text, withKnobs } from '@storybook/addon-knobs';
+import ButtonGroup from '../../ButtonGroup/ButtonGroup';
 import Callout from '../Callout';
-import LinkList from '../../LinkList/LinkList';
 import React from 'react';
 import readme from '../README.md';
 import { storiesOf } from '@storybook/react';
@@ -13,39 +14,34 @@ storiesOf('Patterns (Sub-Patterns)|Callout', module)
       sidebar: readme,
     },
   })
-  .add('With Link List example', () => {
-    const heading = text('heading (required):', 'Tutorials');
-    const headlines = [
-      'Containerization A Complete Guide',
-      'Why should you use microservices and containers',
-    ];
-    const types = ['local', 'external', 'video'];
-    const items = [
-      {
-        type: types[0],
-        copy: headlines[0],
-        cta: {
-          href: 'https://ibm.com',
-        },
-      },
-      {
-        type: types[0],
-        copy: headlines[1],
-        cta: {
-          href: 'https://ibm.com',
-        },
-      },
-      {
-        type: types[2],
-        media: {
-          src: '0_uka1msg4',
-          type: 'video',
-        },
-      },
-    ];
-    const children = (
-      <LinkList heading={heading} items={object('Items array ', items)} />
-    );
+  .add('With Button Group example', () => {
+    const iconMap = {
+      ArrowRight20,
+      ArrowDown20,
+      Pdf20,
+    };
+
+    const iconOptions = {
+      None: null,
+      'Arrow Right': 'ArrowRight20',
+      'Arrow Down': 'ArrowDown20',
+      PDF: 'Pdf20',
+    };
+
+    const buttonCount = number('Number of buttons', 2);
+    const buttons = [];
+
+    for (let i = 0; i < buttonCount; i++) {
+      buttons.push({
+        href: text(`Link ${i + 1}`, `https://example.com`),
+        copy: text(`Button ${i + 1}`, `Button ${i + 1}`),
+        renderIcon:
+          iconMap[
+            select(`Icon ${i + 1}`, iconOptions, iconOptions['Arrow Right'])
+          ],
+      });
+    }
+    const children = <ButtonGroup buttons={buttons} />;
 
     return (
       <div className="bx--grid">
@@ -59,7 +55,7 @@ storiesOf('Patterns (Sub-Patterns)|Callout', module)
   })
 
   .add('Simple example', () => {
-    const children = <p>hello world</p>;
+    const children = <p style={{ color: 'white' }}>hello world</p>;
     return (
       <div className="bx--grid">
         <div className="bx--row">
