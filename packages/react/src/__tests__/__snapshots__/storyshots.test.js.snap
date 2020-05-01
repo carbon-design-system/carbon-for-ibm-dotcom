@@ -210,12 +210,31 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
           Object {
             "content": <React.Fragment>
               <DotcomShell
-                disableLocaleButton={false}
-                footerType="default"
-                hasProfile={true}
-                hasSearch={true}
-                navigation="default"
-                platform={null}
+                footerProps={
+                  Object {
+                    "disableLocaleButton": false,
+                    "languageCallback": [Function],
+                    "languageInitialItem": Object {
+                      "id": "en",
+                      "text": "English",
+                    },
+                    "languageItems": null,
+                    "languageOnly": false,
+                    "navigation": false,
+                    "type": "",
+                  }
+                }
+                mastheadProps={
+                  Object {
+                    "eyebrowLink": null,
+                    "eyebrowText": null,
+                    "hasProfile": true,
+                    "hasSearch": true,
+                    "navigation": "default",
+                    "platform": null,
+                    "title": null,
+                  }
+                }
               >
                 <div
                   className="bx--grid"
@@ -604,18 +623,43 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
           >
             <div>
               <DotcomShell
-                disableLocaleButton={false}
-                footerType="default"
-                hasProfile={true}
-                hasSearch={true}
-                navigation="default"
-                platform={null}
+                footerProps={
+                  Object {
+                    "disableLocaleButton": false,
+                    "languageCallback": [Function],
+                    "languageInitialItem": Object {
+                      "id": "en",
+                      "text": "English",
+                    },
+                    "languageItems": null,
+                    "languageOnly": false,
+                    "navigation": false,
+                    "type": "",
+                  }
+                }
+                mastheadProps={
+                  Object {
+                    "eyebrowLink": null,
+                    "eyebrowText": null,
+                    "hasProfile": true,
+                    "hasSearch": true,
+                    "navigation": "default",
+                    "platform": null,
+                    "title": null,
+                  }
+                }
               >
                 <Masthead
+                  eyebrowLink={null}
+                  eyebrowText={null}
                   hasProfile={true}
                   hasSearch={true}
+                  mastheadProps={null}
                   navigation="default"
+                  placeHolderText="Search all of IBM"
                   platform={null}
+                  searchOpenOnload={false}
+                  title={null}
                 >
                   <HeaderContainer
                     isSideNavExpanded={false}
@@ -748,6 +792,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                 className="bx--header__search "
                               >
                                 <MastheadTopNav
+                                  mastheadProps={null}
                                   navigation={Array []}
                                   platform={null}
                                 >
@@ -990,8 +1035,8 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                               </HeaderGlobalBar>
                               <MastheadLeftNav
                                 isSideNavExpanded={false}
+                                mastheadProps={null}
                                 navigation={Array []}
-                                platform={null}
                               >
                                 <ForwardRef(SideNav)
                                   addFocusListeners={true}
@@ -1711,12 +1756,19 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                 </div>
                 <Footer
                   disableLocaleButton={false}
-                  footerNav={null}
-                  footerType="full"
-                  langCode={null}
+                  footerProps={null}
+                  languageCallback={[Function]}
+                  languageInitialItem={
+                    Object {
+                      "id": "en",
+                      "text": "English",
+                    }
+                  }
+                  languageItems={null}
+                  languageOnly={false}
                   mastheadProps={null}
-                  navigation={null}
-                  type="default"
+                  navigation={false}
+                  type=""
                 >
                   <footer
                     className="bx--footer"
@@ -1763,7 +1815,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                         <LocaleButton
                           aria=""
                           displayLang=""
-                          selectItem={[Function]}
                         >
                           <div
                             className="bx--locale-btn__container"
@@ -2472,9 +2523,7 @@ exports[`Storyshots Components|Footer Default 1`] = `
             "content": <React.Fragment>
               <Footer
                 disableLocaleButton={false}
-                footerNav={null}
-                footerType="full"
-                langCode={null}
+                footerProps={null}
                 languageCallback={[Function]}
                 languageInitialItem={
                   Object {
@@ -2517,9 +2566,7 @@ exports[`Storyshots Components|Footer Default 1`] = `
             <div>
               <Footer
                 disableLocaleButton={false}
-                footerNav={null}
-                footerType="full"
-                langCode={null}
+                footerProps={null}
                 languageCallback={[Function]}
                 languageInitialItem={
                   Object {
@@ -2578,7 +2625,6 @@ exports[`Storyshots Components|Footer Default 1`] = `
                       <LocaleButton
                         aria=""
                         displayLang=""
-                        selectItem={[Function]}
                       >
                         <div
                           className="bx--locale-btn__container"
@@ -4114,11 +4160,16 @@ exports[`Storyshots Components|Masthead Default 1`] = `
           Object {
             "content": <React.Fragment>
               <Masthead
+                eyebrowLink={null}
+                eyebrowText={null}
                 hasProfile={true}
                 hasSearch={true}
+                mastheadProps={null}
                 navigation="default"
                 placeHolderText="Search all of IBM"
                 platform={null}
+                searchOpenOnload={false}
+                title={null}
               />
             </React.Fragment>,
             "type": "STORY",
@@ -4148,11 +4199,16 @@ exports[`Storyshots Components|Masthead Default 1`] = `
           >
             <div>
               <Masthead
+                eyebrowLink={null}
+                eyebrowText={null}
                 hasProfile={true}
                 hasSearch={true}
+                mastheadProps={null}
                 navigation="default"
                 placeHolderText="Search all of IBM"
                 platform={null}
+                searchOpenOnload={false}
+                title={null}
               >
                 <HeaderContainer
                   isSideNavExpanded={false}
@@ -4285,8 +4341,8 @@ exports[`Storyshots Components|Masthead Default 1`] = `
                               className="bx--header__search "
                             >
                               <MastheadTopNav
+                                mastheadProps={null}
                                 navigation={Array []}
-                                placeHolderText="Search all of IBM"
                                 platform={null}
                               >
                                 <div
@@ -4528,9 +4584,8 @@ exports[`Storyshots Components|Masthead Default 1`] = `
                             </HeaderGlobalBar>
                             <MastheadLeftNav
                               isSideNavExpanded={false}
+                              mastheadProps={null}
                               navigation={Array []}
-                              placeHolderText="Search all of IBM"
-                              platform={null}
                             >
                               <ForwardRef(SideNav)
                                 addFocusListeners={true}
@@ -4614,12 +4669,16 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
           Object {
             "content": <React.Fragment>
               <Masthead
+                eyebrowLink={null}
+                eyebrowText={null}
                 hasProfile={true}
                 hasSearch={true}
+                mastheadProps={null}
                 navigation="default"
                 placeHolderText="Search all of IBM"
                 platform={null}
                 searchOpenOnload={true}
+                title={null}
               />
             </React.Fragment>,
             "type": "STORY",
@@ -4649,12 +4708,16 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
           >
             <div>
               <Masthead
+                eyebrowLink={null}
+                eyebrowText={null}
                 hasProfile={true}
                 hasSearch={true}
+                mastheadProps={null}
                 navigation="default"
                 placeHolderText="Search all of IBM"
                 platform={null}
                 searchOpenOnload={true}
+                title={null}
               >
                 <HeaderContainer
                   isSideNavExpanded={false}
@@ -4787,10 +4850,9 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
                               className="bx--header__search "
                             >
                               <MastheadTopNav
+                                mastheadProps={null}
                                 navigation={Array []}
-                                placeHolderText="Search all of IBM"
                                 platform={null}
-                                searchOpenOnload={true}
                               >
                                 <div
                                   className="bx--header__nav-container"
@@ -5201,10 +5263,8 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
                             </HeaderGlobalBar>
                             <MastheadLeftNav
                               isSideNavExpanded={false}
+                              mastheadProps={null}
                               navigation={Array []}
-                              placeHolderText="Search all of IBM"
-                              platform={null}
-                              searchOpenOnload={true}
                             >
                               <ForwardRef(SideNav)
                                 addFocusListeners={true}
