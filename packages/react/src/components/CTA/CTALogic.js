@@ -10,10 +10,12 @@ import {
   Launch20,
   PlayOutline20,
 } from '@carbon/icons-react';
+import { LightboxMediaViewer } from '../LightboxMediaViewer';
+import React from 'react';
 import { smoothScroll } from '@carbon/ibmdotcom-utilities';
 
 /**
- *
+ * The logic behind the CTA component
  */
 class CTALogic {
   /**
@@ -52,7 +54,7 @@ class CTALogic {
    * @param {string} type cta type ( external | jump | local)
    * @returns {*} behaviour object
    */
-  static _jump(e, type) {
+  static jump(e, type) {
     return type === 'jump' ? smoothScroll(e) : null;
   }
 
@@ -62,7 +64,7 @@ class CTALogic {
    * @param {string} type cta type ( external | jump | local)
    * @returns {string} target value
    */
-  static _external(type) {
+  static external(type) {
     return type === 'external' ? '_blank' : null;
   }
 
@@ -72,7 +74,7 @@ class CTALogic {
    * @param {string} type cta type ( external | jump | local)
    * @returns {*} cta type component
    */
-  static _iconSelector(type) {
+  static iconSelector(type) {
     switch (type) {
       case 'external':
         return Launch20;
@@ -83,6 +85,38 @@ class CTALogic {
       default:
         return ArrowRight20;
     }
+  }
+
+  /**
+   * Opens the LightBoxMediaViewer component when CTA is clicked
+   *
+   * @param {boolean} renderLightBox determine whether to render the lightbox
+   * @param {Function} openLightBox func to toggle the lightbox
+   * @param {object} media media object to render within the lightbox
+   * @returns {*} lightbox component
+   */
+  static launchLightBox(renderLightBox, openLightBox, media) {
+    return (
+      renderLightBox && (
+        <LightboxMediaViewer
+          media={media}
+          open={true}
+          onClose={() => openLightBox(false)}
+        />
+      )
+    );
+  }
+
+  /**
+   *
+   * @param {*} e event
+   * @param {Function} openLightBox function to toggle lightbox
+   *
+   * @returns {*} set lightbox state
+   */
+  static setLightBox(e, openLightBox) {
+    e.preventDefault();
+    return openLightBox(true);
   }
 }
 

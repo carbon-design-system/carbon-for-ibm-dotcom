@@ -10,7 +10,6 @@ import ButtonCTA from './ButtonCTA';
 import CardCTA from './CardCTA';
 import CTALogic from './CTALogic';
 import FeatureCTA from './FeatureCTA';
-import { LightboxMediaViewer } from '../LightboxMediaViewer';
 import PropTypes from 'prop-types';
 import TextCTA from './TextCTA';
 import { VideoPlayerAPI } from '@carbon/ibmdotcom-services';
@@ -57,86 +56,36 @@ const CTA = ({ style, type, customClassName, ...otherProps }) => {
     }
   }, [otherProps, style, type]);
 
-  return (
-    <div className={customClassName}>
-      {renderCTA({
-        style,
-        type,
-        renderLightBox,
-        openLightBox,
-        videoTitle,
-        mediaData,
-        setMediaData,
-        ...otherProps,
-      })}
-    </div>
-  );
-};
+  const CTAComponent =
+    style === 'card'
+      ? CardCTA
+      : style === 'button'
+      ? ButtonCTA
+      : style === 'feature'
+      ? FeatureCTA
+      : TextCTA;
 
-/**
- * renders CTA component
- *
- * @param {object} props props object
- * @param {string} props.style cta style ( text | card | button | feature ).
- * @param {string} props.type cta type ( jump | local | external ).
- * @returns {*} CTA Component
- */
-const renderCTA = ({ style, ...otherProps }) => {
   const ctaProps = {
-    iconSelector: CTALogic._iconSelector,
-    external: CTALogic._external,
-    jump: CTALogic._jump,
-    style: style,
-    setLightBox: setLightBox,
-    launchLightBox: launchLightBox,
+    style,
+    type,
+    renderLightBox,
+    openLightBox,
+    videoTitle,
+    mediaData,
+    setMediaData,
+    iconSelector: CTALogic.iconSelector,
+    external: CTALogic.external,
+    jump: CTALogic.jump,
+    setLightBox: CTALogic.setLightBox,
+    launchLightBox: CTALogic.launchLightBox,
     ...otherProps,
   };
 
-  switch (style) {
-    case 'card':
-      return <CardCTA {...ctaProps} />;
-    case 'button': {
-      return <ButtonCTA {...ctaProps} />;
-    }
-    case 'feature':
-      return <FeatureCTA {...ctaProps} />;
-    default: {
-      return <TextCTA {...ctaProps} />;
-    }
-  }
-};
-
-/**
- * Opens the LightBoxMediaViewer component when CTA is clicked
- *
- * @param {boolean} renderLightBox determine whether to render the lightbox
- * @param {Function} openLightBox func to toggle the lightbox
- * @param {object} media media object to render within the lightbox
- * @private
- * @returns {*} lightbox component
- */
-const launchLightBox = (renderLightBox, openLightBox, media) => {
   return (
-    renderLightBox && (
-      <LightboxMediaViewer
-        media={media}
-        open={true}
-        onClose={() => openLightBox(false)}
-      />
-    )
+    <div className={customClassName}>
+      <CTAComponent {...ctaProps} />
+    </div>
   );
-};
-
-/**
- *
- * @param {*} e event
- * @param {Function} openLightBox function to toggle lightbox
- *
- * @returns {*} set lightbox state
- */
-const setLightBox = (e, openLightBox) => {
-  e.preventDefault();
-  return openLightBox(true);
 };
 
 CTA.propTypes = {
