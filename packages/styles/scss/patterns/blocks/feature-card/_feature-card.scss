@@ -17,8 +17,8 @@
 
     &__card.#{$prefix}--card--inverse .#{$prefix}--card__cta,
     &__card.#{$prefix}--card--inverse .#{$prefix}--card__cta:visited {
-      float: right;
-      color: $inverse-01;
+      float: none;
+      color: #78a9ff;
     }
 
     .#{$prefix}--content-group__children {
@@ -47,6 +47,29 @@
         @include carbon--breakpoint('md') {
           width: 50%;
           height: aspect-ratio(1, 1);
+        }
+      }
+    }
+
+    .#{$prefix}--card__wrapper {
+      background: $inverse-02;
+      overflow: hidden;
+      padding: rem(64px);
+
+      .#{$prefix}--card__eyebrow {
+        margin-bottom: rem(14px);
+        color: #ffffff;
+      }
+
+      .#{$prefix}--card__heading {
+        margin-bottom: rem(28px);
+      }
+
+      .#{$prefix}--card__copy {
+        p {
+          font-size: 0.875rem;
+          font-weight: 400;
+          line-height: 1.2rem;
         }
       }
     }
