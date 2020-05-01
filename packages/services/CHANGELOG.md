@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.6.0-rc.1...@carbon/ibmdotcom-services@1.6.0) (2020-04-28)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-services
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.6.0-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.6.0-rc.0...@carbon/ibmdotcom-services@1.6.0-rc.1) (2020-04-22)
+
+### Bug Fixes
+
+- **service:** cache video data in an object within service
+  ([606969c](https://github.com/carbon-design-system/ibm-dotcom-library/commit/606969c))
+- **services:** set associative array for cache object
+  ([f61adc2](https://github.com/carbon-design-system/ibm-dotcom-library/commit/f61adc2))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.6.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.5.1...@carbon/ibmdotcom-services@1.6.0-rc.0) (2020-04-17)
 
 ### Bug Fixes

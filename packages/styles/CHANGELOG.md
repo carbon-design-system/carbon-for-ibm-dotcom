@@ -3,6 +3,45 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-styles@1.6.0-rc.1...@carbon/ibmdotcom-styles@1.6.0) (2020-04-28)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.6.0-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-styles@1.6.0-rc.0...@carbon/ibmdotcom-styles@1.6.0-rc.1) (2020-04-22)
+
+### Bug Fixes
+
+- **content-block:** have list link hang on lg breakpoint
+  ([d719c84](https://github.com/carbon-design-system/ibm-dotcom-library/commit/d719c84))
+- **css:** fix lightbox content overflow; fixes
+  [#2125](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2125)
+  ([920e36a](https://github.com/carbon-design-system/ibm-dotcom-library/commit/920e36a))
+- **lightbox:** add back absolute positioning to prevent overlay
+  ([b25ecdb](https://github.com/carbon-design-system/ibm-dotcom-library/commit/b25ecdb))
+- **lightbox:** display video player and description without squishing
+  ([9ff4260](https://github.com/carbon-design-system/ibm-dotcom-library/commit/9ff4260))
+- **linklist:** add padding for mobile linklist
+  ([c96c4d5](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c96c4d5))
+- **locale:** fix locale scroll on mobile landscape;
+  [#1764](https://github.com/carbon-design-system/ibm-dotcom-library/issues/1764)
+  ([bad1006](https://github.com/carbon-design-system/ibm-dotcom-library/commit/bad1006))
+- **react:** fix react masthead console errors
+  ([a4e401e](https://github.com/carbon-design-system/ibm-dotcom-library/commit/a4e401e))
+- **react:** remove javascript:void fixes react errors
+  ([c9e9431](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c9e9431))
+- **token:** use carbon spacing token instead
+  ([abc3726](https://github.com/carbon-design-system/ibm-dotcom-library/commit/abc3726))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.6.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-styles@1.5.1...@carbon/ibmdotcom-styles@1.6.0-rc.0) (2020-04-17)
 
 ### Bug Fixes

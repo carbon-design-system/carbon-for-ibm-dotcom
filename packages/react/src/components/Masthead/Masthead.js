@@ -42,9 +42,26 @@ const { prefix } = settings;
  * @param {object} props.navigation Object containing navigation elements
  * @param {boolean} props.hasProfile Determines whether to render Profile component
  * @param {boolean} props.hasSearch Determines whether to render Search Bar
+ * @param {boolean} props.searchOpenOnload Determines if the search field is open on page load
+ * @param {string} props.placeHolderText Placeholder value for search input
+ * @param {object} props.platform Platform name that appears on L0.
+ * @param {string} props.title Title for the masthead L1
+ * @param {string} props.eyebrowText Text for the eyebrow link in masthead L1
+ * @param {string} props.eyebrowLink URL for the eyebrow link in masthead L1
  * @returns {*} Masthead component
  */
-const Masthead = ({ navigation, hasProfile, hasSearch, ...mastheadProps }) => {
+const Masthead = ({
+  navigation,
+  hasProfile,
+  hasSearch,
+  searchOpenOnload,
+  placeHolderText,
+  platform,
+  title,
+  eyebrowText,
+  eyebrowLink,
+  ...mastheadProps
+}) => {
   /**
    * Returns IBM.com authenticated status
    *
@@ -114,7 +131,7 @@ const Masthead = ({ navigation, hasProfile, hasSearch, ...mastheadProps }) => {
   });
 
   const hasPlatform = cx({
-    [`${prefix}--masthead__platform`]: mastheadProps.platform,
+    [`${prefix}--masthead__platform`]: platform,
   });
 
   useEffect(() => {
@@ -179,13 +196,14 @@ const Masthead = ({ navigation, hasProfile, hasSearch, ...mastheadProps }) => {
                 {navigation && (
                   <MastheadTopNav
                     {...mastheadProps}
+                    platform={platform}
                     navigation={mastheadData}
                   />
                 )}
                 {hasSearch && (
                   <MastheadSearch
-                    searchOpenOnload={mastheadProps.searchOpenOnload}
-                    placeHolderText={mastheadProps.placeHolderText}
+                    searchOpenOnload={searchOpenOnload}
+                    placeHolderText={placeHolderText}
                   />
                 )}
               </div>
@@ -227,9 +245,9 @@ const Masthead = ({ navigation, hasProfile, hasSearch, ...mastheadProps }) => {
             <div ref={mastheadL1Ref}>
               <MastheadL1
                 isShort={isMastheadSticky}
-                title={mastheadProps.title}
-                eyebrowText={mastheadProps.eyebrowText}
-                eyebrowLink={mastheadProps.eyebrowLink}
+                title={title}
+                eyebrowText={eyebrowText}
+                eyebrowLink={eyebrowLink}
               />
             </div>
           )}
@@ -240,7 +258,7 @@ const Masthead = ({ navigation, hasProfile, hasSearch, ...mastheadProps }) => {
 };
 
 /**
- * @property propTypes
+ * @property {object} propTypes Masthead propTypes
  * @description Defined property types for component
  *
  * @type {{mastheadProps: object, navigation: object, hasProfile: boolean, hasSearch: boolean}}
@@ -249,16 +267,29 @@ Masthead.propTypes = {
   navigation: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
   hasProfile: PropTypes.bool,
   hasSearch: PropTypes.bool,
+  searchOpenOnload: PropTypes.bool,
+  platform: PropTypes.object,
+  placeHolderText: PropTypes.string,
+  title: PropTypes.string,
+  eyebrowText: PropTypes.string,
+  eyebrowLink: PropTypes.string,
   mastheadProps: PropTypes.object,
 };
 
 /**
- * @property defaultProps
+ * @property {object} defaultProps default Masthead props
  * @type {{hasProfile: boolean, hasSearch: boolean}}
  */
 Masthead.defaultProps = {
   hasProfile: true,
   hasSearch: true,
+  searchOpenOnload: false,
+  platform: null,
+  placeHolderText: 'Search all of IBM',
+  title: null,
+  eyebrowText: null,
+  eyebrowLink: null,
+  mastheadProps: null,
 };
 
 export default Masthead;

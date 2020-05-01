@@ -3,6 +3,45 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.6.0-rc.1...@carbon/ibmdotcom-react@1.6.0) (2020-04-28)
+
+### Bug Fixes
+
+- **storybook:** add separate story for aside elements
+  ([f8005ae](https://github.com/carbon-design-system/ibm-dotcom-library/commit/f8005ae))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.6.0-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.6.0-rc.0...@carbon/ibmdotcom-react@1.6.0-rc.1) (2020-04-22)
+
+### Bug Fixes
+
+- **cta:** pass in title and desc from video api
+  ([3b4c3d0](https://github.com/carbon-design-system/ibm-dotcom-library/commit/3b4c3d0))
+- **leadspace:** properly point to defaultSrc for the Image
+  ([ad415af](https://github.com/carbon-design-system/ibm-dotcom-library/commit/ad415af))
+- **lightbox:** have lightbox make video api call for text
+  ([bf02da0](https://github.com/carbon-design-system/ibm-dotcom-library/commit/bf02da0))
+- **props:** fix proptype type
+  ([3a3e07e](https://github.com/carbon-design-system/ibm-dotcom-library/commit/3a3e07e))
+- **react:** fix react console errors; fixes
+  [#2099](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2099)
+  ([3e1d4ee](https://github.com/carbon-design-system/ibm-dotcom-library/commit/3e1d4ee))
+- **react:** fix react masthead console errors
+  ([a4e401e](https://github.com/carbon-design-system/ibm-dotcom-library/commit/a4e401e))
+- **react:** remove javascript:void fixes react errors
+  ([c9e9431](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c9e9431))
+- **storybook:** add grid classes for content block patterns mobile
+  ([077c522](https://github.com/carbon-design-system/ibm-dotcom-library/commit/077c522))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.6.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.5.1...@carbon/ibmdotcom-react@1.6.0-rc.0) (2020-04-17)
 
 ### Bug Fixes

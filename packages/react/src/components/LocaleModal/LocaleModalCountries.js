@@ -5,8 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import {
+  settings as ddsSettings,
+  ipcinfoCookie,
+} from '@carbon/ibmdotcom-utilities';
 import React, { useEffect } from 'react';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
 import { Search } from 'carbon-components-react';
 import { settings } from 'carbon-components';
@@ -107,6 +110,22 @@ const LocaleModalCountries = ({
     };
   });
 
+  /**
+   * method to handle when country/region has been selected
+   * sets the ipcInfo cookie with selected locale
+   *
+   * @param {object} locale selected country/region
+   * @private
+   */
+  function _setCookie(locale) {
+    const localeSplit = locale.split('-');
+    const localeObj = {
+      cc: localeSplit[1],
+      lc: localeSplit[0],
+    };
+    ipcinfoCookie.set(localeObj);
+  }
+
   return (
     <div className={`${prefix}--locale-modal__filter`}>
       <div className={`${prefix}--locale-modal__search`}>
@@ -123,7 +142,7 @@ const LocaleModalCountries = ({
       </div>
       <div
         role="listbox"
-        tabindex="0"
+        tabIndex="0"
         aria-labelledby={`${prefix}--locale-modal__filter`}
         className={`${prefix}--locale-modal__list`}>
         {regionList &&
@@ -132,6 +151,7 @@ const LocaleModalCountries = ({
               <a
                 key={index}
                 className={`${prefix}--locale-modal__locales`}
+                onClick={() => _setCookie(country.locale)}
                 href={country.href}
                 data-region={country.region}>
                 <div className={`${prefix}--locale-modal__locales__name`}>
@@ -149,13 +169,17 @@ const LocaleModalCountries = ({
 };
 
 /**
- * @property propTypes
+ * @property {object} propTypes LocaleModalCountries propTypes
  * @description Defined property types for component
  * @type {{regionList: Array, availabilityText: string, unavailabilityText: string, placeHolderText: string, labelText: string}}
  */
 LocaleModalCountries.propTypes = {
   regionList: PropTypes.array,
   setClearResults: PropTypes.func,
+};
+
+LocaleModalCountries.defaultProps = {
+  searchLabel: 'Search by location or language',
 };
 
 export default LocaleModalCountries;

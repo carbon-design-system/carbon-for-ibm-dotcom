@@ -20,7 +20,7 @@ const { prefix } = settings;
  *
  * @param {object} props props object
  * @param {object} props.regionList object of regions
- * @param {string} props.setCurrentRegion state for region name
+ * @param {Function} props.setCurrentRegion sets state for region name
  * @param {boolean} props.setIsFiltering true when search filter is visible
  * @param {Function} props.setClearResults set flag to determine whether to reset the filtered results
  * @param {string} props.returnButtonLabel label for the return button
@@ -120,8 +120,9 @@ const LocaleModalRegions = ({
                   key={region.key}
                   heading={region.name}
                   type="link"
+                  handleClick={e => e.preventDefault()}
                   cta={{
-                    href: hasCountries ? 'javascript:void(0);' : null,
+                    href: hasCountries ? '#' : null,
                     icon: {
                       src: hasCountries ? ArrowRight20 : Error20,
                     },
@@ -136,13 +137,13 @@ const LocaleModalRegions = ({
 };
 
 /**
- * @property propTypes
+ * @property {object} propTypes LocaleModalRegions propTypes
  * @description Defined property types for component
  * @type {{}}
  */
 LocaleModalRegions.propTypes = {
   regionList: PropTypes.array,
-  setCurrentRegion: PropTypes.string,
+  setCurrentRegion: PropTypes.func,
   setIsFiltering: PropTypes.func,
   setClearResults: PropTypes.func,
   returnButtonLabel: PropTypes.string,

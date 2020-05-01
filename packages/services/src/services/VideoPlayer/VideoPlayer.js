@@ -2,7 +2,8 @@ import { AnalyticsAPI } from '../Analytics';
 import root from 'window-or-global';
 
 /**
- * These id's for production use of IBM.com
+ * These IDs for production use of IBM.com
+ *
  * @type {number} _partnerId The ID of your Kaltura account (aka partnerId)
  * @type {number} _uiConfId The ID of the Kaltura player to use
  * @private

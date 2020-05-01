@@ -20,26 +20,14 @@ const { prefix } = settings;
  *
  * @param {object} props react proptypes
  * @param {object} props.children Children of the Dotcom Shell
- * @param {object} props.footerNav Footer navigation object
- * @param {string} props.footerType Sets the footer type
- * @param {object} props.langCode Language code object
- * @param {object} props.navigation Masthead navigation object
- * @param {boolean} props.disableLocaleButton Disables the locale button
+ * @param {object} props.footerProps Properties passed into the Footer
  * @param {object} props.mastheadProps Properties passed into the Masthead
  * @returns {*} JSX component for the Dotcom Shell
  */
-const DotcomShell = ({
-  children,
-  footerNav,
-  footerType,
-  langCode,
-  navigation,
-  disableLocaleButton,
-  ...mastheadProps
-}) => {
+const DotcomShell = ({ children, footerProps, mastheadProps }) => {
   return (
     <>
-      <Masthead navigation={navigation} {...mastheadProps} />
+      <Masthead {...mastheadProps} />
       <div
         data-autoid={`${stablePrefix}--dotcom-shell`}
         className={`${prefix}--dotcom-shell`}>
@@ -49,12 +37,7 @@ const DotcomShell = ({
           {children}
         </div>
       </div>
-      <Footer
-        navigation={footerNav}
-        langCode={langCode}
-        type={footerType}
-        disableLocaleButton={disableLocaleButton}
-      />
+      <Footer {...footerProps} />
     </>
   );
 };
@@ -67,26 +50,17 @@ DotcomShell.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]).isRequired,
-  navigation: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-  footerNav: PropTypes.object,
-  footerType: PropTypes.string,
-  langCode: PropTypes.object,
-  mastheadProps: PropTypes.object,
-  disableLocaleButton: PropTypes.bool,
+  footerProps: PropTypes.oneOf(PropTypes.shape(Footer.propTypes)),
+  mastheadProps: PropTypes.oneOf(PropTypes.shape(Masthead.propTypes)),
 };
 
 /**
- * @property defaultProps
- * @type {{navigation: null, mastheadProps: null, langCode: null,
- * footerNav: null, footerType: string, disableLocaleButton: boolean}}
+ * @property {object} defaultProps default DotcomShell props
+ * @type {{footerProps: null, mastheadProps: null}}
  */
 Footer.defaultProps = {
-  navigation: null,
-  footerNav: null,
-  footerType: 'full',
-  langCode: null,
+  footerProps: null,
   mastheadProps: null,
-  disableLocaleButton: false,
 };
 
 export default DotcomShell;

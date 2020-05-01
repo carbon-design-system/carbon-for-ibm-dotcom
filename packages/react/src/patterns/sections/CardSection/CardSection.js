@@ -103,6 +103,7 @@ const _renderCards = (cards, containerRef, cta) => (
     {cards.map((card, index) => {
       return (
         <div
+          key={index}
           className={`${prefix}--card-section__cards__col`}
           role="region"
           aria-label={card.heading}>
