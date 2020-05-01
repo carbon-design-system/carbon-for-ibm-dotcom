@@ -24,9 +24,11 @@ import { Callout } from '@carbon/ibmdotcom-react';
 import 'yourapplication.scss';
 
 function App() {
-  const children = <p>hello world</p>;
-
-  return <Callout children={children} />;
+  return (
+    <Callout>
+      <p>hello world</p>
+    </Callout>
+  );
 }
 
 ReactDOM.render(<App />, document.querySelector('#app'));
