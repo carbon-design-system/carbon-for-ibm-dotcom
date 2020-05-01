@@ -5,19 +5,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import {
-  ArrowDown20,
-  ArrowRight20,
-  Launch20,
-  PlayOutline20,
-} from '@carbon/icons-react';
 import React, { useState, useEffect, useCallback } from 'react';
 import ButtonCTA from './ButtonCTA';
 import CardCTA from './CardCTA';
+import CTALogic from './CTALogic';
 import FeatureCTA from './FeatureCTA';
 import { LightboxMediaViewer } from '../LightboxMediaViewer';
 import PropTypes from 'prop-types';
-import { smoothScroll } from '@carbon/ibmdotcom-utilities';
 import TextCTA from './TextCTA';
 import { VideoPlayerAPI } from '@carbon/ibmdotcom-services';
 
@@ -48,7 +42,7 @@ const CTA = ({ style, type, customClassName, ...otherProps }) => {
    */
   const getVideoData = useCallback(async () => {
     if (type === 'video' || type.includes('video')) {
-      const videoId = getVideoId(style, otherProps);
+      const videoId = CTALogic.getVideoId(style, otherProps);
       const title = await Promise.all(
         videoId.map(async vidId => {
           const video = await VideoPlayerAPI.api(vidId.src);
@@ -89,9 +83,9 @@ const CTA = ({ style, type, customClassName, ...otherProps }) => {
  */
 const renderCTA = ({ style, ...otherProps }) => {
   const ctaProps = {
-    iconSelector: _iconSelector,
-    external: _external,
-    jump: _jump,
+    iconSelector: CTALogic._iconSelector,
+    external: CTALogic._external,
+    jump: CTALogic._jump,
     style: style,
     setLightBox: setLightBox,
     launchLightBox: launchLightBox,
@@ -143,75 +137,6 @@ const launchLightBox = (renderLightBox, openLightBox, media) => {
 const setLightBox = (e, openLightBox) => {
   e.preventDefault();
   return openLightBox(true);
-};
-
-/**
- * extract video id from props
- *
- * @param {string} style cta type ( external | jump | local)
- * @param {object} otherProps cta type ( external | jump | local)
- * @private
- * @returns {*} behaviour object
- */
-const getVideoId = (style, otherProps) => {
-  switch (style) {
-    case 'text':
-      return [{ src: otherProps.media.src }];
-    case 'card':
-      return [{ src: otherProps.media.src }];
-    case 'feature':
-      return [{ src: otherProps.card.cta.media.src }];
-    case 'button': {
-      const videoIds = otherProps.buttons
-        .map((button, key) => {
-          if (button.type === 'video' && button.media)
-            return { src: button.media.src, key };
-        })
-        .filter(id => id && id);
-      return videoIds;
-    }
-    default:
-      return [];
-  }
-};
-
-/**
- * jump to target element  onClick
- *
- * @param {*} e event object
- * @param {string} type cta type ( external | jump | local)
- * @private
- * @returns {*} behaviour object
- */
-const _jump = (e, type) => (type === 'jump' ? smoothScroll(e) : null);
-
-/**
- * sets target
- *
- * @param {string} type cta type ( external | jump | local)
- * @private
- * @returns {string} target value
- */
-const _external = type => (type === 'external' ? '_blank' : null);
-
-/**
- * sets icon based on link type
- *
- * @param {string} type cta type ( external | jump | local)
- * @private
- * @returns {*} cta type component
- */
-const _iconSelector = type => {
-  switch (type) {
-    case 'external':
-      return Launch20;
-    case 'jump':
-      return ArrowDown20;
-    case 'video':
-      return PlayOutline20;
-    default:
-      return ArrowRight20;
-  }
 };
 
 CTA.propTypes = {
