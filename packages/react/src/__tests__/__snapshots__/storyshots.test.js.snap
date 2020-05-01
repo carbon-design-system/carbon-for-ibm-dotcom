@@ -1815,7 +1815,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                         <LocaleButton
                           aria=""
                           displayLang=""
-                          selectItem={[Function]}
                         >
                           <div
                             className="bx--locale-btn__container"
@@ -2626,7 +2625,6 @@ exports[`Storyshots Components|Footer Default 1`] = `
                       <LocaleButton
                         aria=""
                         displayLang=""
-                        selectItem={[Function]}
                       >
                         <div
                           className="bx--locale-btn__container"
