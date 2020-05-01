@@ -39,8 +39,8 @@
     "@carbon/ibmdotcom-services": "1.6.0",
     "@carbon/ibmdotcom-styles": "1.6.0",
     "@carbon/ibmdotcom-utilities": "1.6.0",
-    "@carbon/icon-helpers": "10.6.0",
-    "@carbon/icons": "^10.8.2",
+    "@carbon/icon-helpers": "10.7.0",
+    "@carbon/icons": "10.10.2",
     "@tarekraafat/autocomplete.js": "^7.2.0",
     "classnames": "2.2.6",
     "window-or-global": "^1.0.1"
