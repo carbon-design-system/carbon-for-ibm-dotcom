@@ -32,35 +32,38 @@ const CardSection = ({ heading, theme, cards, cta, ...otherProps }) => {
   const containerRef = useRef();
   useEffect(() => {
     setCardHeight();
-    root.addEventListener('resize', () => {
-      root.requestAnimationFrame(() => {
-        setCardHeight();
-      });
-    });
+    root.addEventListener('resize', setCardHeight);
+    return () => root.removeEventListener('resize', setCardHeight);
   }, []);
 
   /**
    * Set the cards to have the same height as the bigger one
    */
   const setCardHeight = () => {
-    if (containerRef && containerRef.current) {
-      sameHeight(
-        containerRef.current.getElementsByClassName(`${prefix}--card__heading`),
-        'md'
-      );
-      sameHeight(
-        containerRef.current.getElementsByClassName(`${prefix}--card__copy`),
-        'md'
-      );
-      sameHeight(
-        containerRef.current.getElementsByClassName(`${prefix}--card__eyebrow`),
-        'md'
-      );
-      sameHeight(
-        containerRef.current.getElementsByClassName(`${prefix}--card--link`),
-        'md'
-      );
-    }
+    root.requestAnimationFrame(() => {
+      if (containerRef && containerRef.current) {
+        sameHeight(
+          containerRef.current.getElementsByClassName(
+            `${prefix}--card__heading`
+          ),
+          'md'
+        );
+        sameHeight(
+          containerRef.current.getElementsByClassName(`${prefix}--card__copy`),
+          'md'
+        );
+        sameHeight(
+          containerRef.current.getElementsByClassName(
+            `${prefix}--card__eyebrow`
+          ),
+          'md'
+        );
+        sameHeight(
+          containerRef.current.getElementsByClassName(`${prefix}--card--link`),
+          'md'
+        );
+      }
+    });
   };
 
   /**

@@ -122,13 +122,17 @@ const MastheadSearch = ({ placeHolderText, renderValue, searchOpenOnload }) => {
   const [state, dispatch] = useReducer(_reducer, _initialState);
 
   useEffect(() => {
+    const abortController = new AbortController();
     (async () => {
       const response = await LocaleAPI.getLang();
-      if (response) {
+      if (!abortController.signal && response) {
         dispatch({ type: 'setLc', payload: { lc: response.lc } });
         dispatch({ type: 'setCc', payload: { cc: response.cc } });
       }
     })();
+    return () => {
+      abortController.abort();
+    };
   }, []);
 
   /**
@@ -138,7 +142,6 @@ const MastheadSearch = ({ placeHolderText, renderValue, searchOpenOnload }) => {
    */
   function useSearchVisible() {
     const ref = useRef(null);
-
     /**
      * Close search entirely if autosuggestions collapsed
      *

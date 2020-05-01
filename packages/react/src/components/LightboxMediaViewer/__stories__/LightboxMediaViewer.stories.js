@@ -40,8 +40,6 @@ storiesOf('Components|LightboxMediaViewer', module)
         `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Here are some common categories:`
       ),
       type: 'image',
-      active: false,
-      srcThumb: () => this.src,
     };
 
     return <LightboxMediaViewer media={media} open={boolean('open', true)} />;
@@ -49,18 +47,7 @@ storiesOf('Components|LightboxMediaViewer', module)
   .add('Embedded Video Player', () => {
     const media = {
       src: '0_uka1msg4',
-      alt: 'Image alt text',
-      title: text(
-        'title (required)',
-        'Curabitur malesuada varius mi eu posuere'
-      ),
-      description: text(
-        'description (required)',
-        `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Here are some common categories:`
-      ),
       type: 'video',
-      active: false,
-      srcThumb: '',
     };
 
     return <LightboxMediaViewer media={media} open={boolean('open', true)} />;

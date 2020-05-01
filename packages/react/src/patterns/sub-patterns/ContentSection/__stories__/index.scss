@@ -1,7 +1,30 @@
 @import '../../../../../../styles/scss/patterns/sub-patterns/content-section/content-section';
 
+@mixin content-section-themed-items {
+  color: $text-01;
+  background: $ui-01;
+}
+
 .#{$prefix}--content-section-story .#{$prefix}--content-section__children {
   height: carbon--mini-units(60);
-  background-color: #f4f4f4;
   padding: $carbon--spacing-05;
+  @include content-section-themed-items;
+}
+
+.#{$prefix}--content-section--g10 .#{$prefix}--content-section__children {
+  @include carbon--theme($carbon--theme--g10) {
+    @include content-section-themed-items;
+  }
+}
+
+.#{$prefix}--content-section--g90 .#{$prefix}--content-section__children {
+  @include carbon--theme($carbon--theme--g90) {
+    @include content-section-themed-items;
+  }
+}
+
+.#{$prefix}--content-section--g100 .#{$prefix}--content-section__children {
+  @include carbon--theme($carbon--theme--g100) {
+    @include content-section-themed-items;
+  }
 }

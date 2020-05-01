@@ -1,0 +1,22 @@
+//
+// Copyright IBM Corp. 2016, 2018
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import '@carbon/layout/scss/convert';
+
+//-----------------------------
+// Text Area (expressive)
+//-----------------------------
+
+/// Text area styles (expressive)
+/// @access private
+/// @group text-area-expressive
+@mixin text-area-expressive {
+  .#{$prefix}--text-area__invalid-icon {
+    height: 1.25rem;
+    width: 1.25rem;
+  }
+}

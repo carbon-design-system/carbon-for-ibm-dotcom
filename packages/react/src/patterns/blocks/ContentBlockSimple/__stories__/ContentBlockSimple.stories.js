@@ -120,7 +120,7 @@ storiesOf('Patterns (Blocks)|ContentBlockSimple', module)
           <div
             class={
               showAside
-                ? 'bx--offset-lg-4 content-block-story'
+                ? 'bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4 content-block-story'
                 : 'bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4 content-block-story'
             }>
             <ContentBlockSimple
