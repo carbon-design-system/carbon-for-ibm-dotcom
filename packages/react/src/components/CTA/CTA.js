@@ -73,11 +73,6 @@ const CTA = ({ style, type, customClassName, ...otherProps }) => {
     videoTitle,
     mediaData,
     setMediaData,
-    iconSelector: CTALogic.iconSelector,
-    external: CTALogic.external,
-    jump: CTALogic.jump,
-    setLightBox: CTALogic.setLightBox,
-    launchLightBox: CTALogic.launchLightBox,
     ...otherProps,
   };
 
