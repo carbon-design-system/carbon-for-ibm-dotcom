@@ -22308,6 +22308,127 @@ exports[`Storyshots Patterns (Sub-Patterns)|ButtonGroup Default 1`] = `
 </Container>
 `;
 
+exports[`Storyshots Patterns (Sub-Patterns)|Callout Simple example 1`] = `
+<Container
+  story={[Function]}
+>
+  <div
+    data-floating-menu-container=""
+    role="main"
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+      }
+    }
+  >
+    <ReadmeContent
+      codeTheme="github"
+      layout={
+        Array [
+          Object {
+            "content": <React.Fragment>
+              <div
+                className="bx--grid"
+              >
+                <div
+                  className="bx--row"
+                >
+                  <div
+                    className="bx--col-sm-4 bx--col-lg-8 bx--col-lg-12 bx--offset-lg-4"
+                  >
+                    <Callout>
+                      <p
+                        style={
+                          Object {
+                            "color": "white",
+                          }
+                        }
+                      >
+                        hello world
+                      </p>
+                    </Callout>
+                  </div>
+                </div>
+              </div>
+            </React.Fragment>,
+            "type": "STORY",
+          },
+        ]
+      }
+      theme={Object {}}
+      types={
+        Array [
+          "MD",
+          "STORY",
+          "STORY_SOURCE",
+          "PROPS",
+          "FOOTER_MD",
+          "HEADER_MD",
+        ]
+      }
+    >
+      <div
+        className="storybook-readme-story"
+      >
+        <_default
+          key="0"
+        >
+          <div
+            style={Object {}}
+          >
+            <div>
+              <div
+                className="bx--grid"
+              >
+                <div
+                  className="bx--row"
+                >
+                  <div
+                    className="bx--col-sm-4 bx--col-lg-8 bx--col-lg-12 bx--offset-lg-4"
+                  >
+                    <Callout>
+                      <section
+                        className="bx--callout__container"
+                        data-autoid="dds--callout__container"
+                      >
+                        <div
+                          className="bx--callout__column"
+                          data-autoid="dds--callout__column"
+                        >
+                          <div
+                            className="bx--callout__content"
+                            data-autoid="dds--callout__content"
+                          >
+                            <p
+                              style={
+                                Object {
+                                  "color": "white",
+                                }
+                              }
+                            >
+                              hello world
+                            </p>
+                          </div>
+                        </div>
+                      </section>
+                    </Callout>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </_default>
+      </div>
+    </ReadmeContent>
+  </div>
+  <input
+    aria-label="input-text-offleft"
+    className="bx--visually-hidden"
+    type="text"
+  />
+</Container>
+`;
+
 exports[`Storyshots Patterns (Sub-Patterns)|Card Link/Clickable 1`] = `
 <Container
   story={[Function]}
