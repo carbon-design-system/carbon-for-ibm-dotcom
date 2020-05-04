@@ -27,7 +27,7 @@ describe('MastheadLeftNav', () => {
     expect(wrapper.prop('navigation')).not.toBeUndefined();
   }, 10000);
 
-  it('renders the platform name and link if there`s available', () => {
+  it('receives the `platform` prop correctly', () => {
     const platform = {
       name: 'IBM Cloud',
       url: 'https://www.ibm.com/cloud',
@@ -36,10 +36,12 @@ describe('MastheadLeftNav', () => {
     const component = mount(
       <MastheadLeftNav navigation={[]} platform={platform} />
     );
-    expect(
-      component
-        .find(`nav[data-autoid="${stablePrefix}--masthead__l0-sidenav"]`)
-        .children()
-    ).toHaveLength(2);
+
+    const anchor = component.find(
+      `a[data-autoid="${stablePrefix}--side-nav__submenu-platform"]`
+    );
+
+    expect(anchor.text()).toMatch('IBM Cloud');
+    expect(anchor.prop('href')).toMatch('https://www.ibm.com/cloud');
   });
 });
