@@ -26,12 +26,12 @@ const { prefix } = settings;
  * @param {string} props.markType type of the quote marks
  * @param {string} props.copy quote copy
  * @param {object} props.source source object
- * @param {object} props.source.heading name heading for quote source
- * @param {object} props.source.copy title copy for quote source
+ * @param {string} props.source.heading name heading for quote source
+ * @param {string} props.source.copy title copy for quote source
  * @param {object} props.cta cta props object
- * @param {object} props.cta.copy cta copy
- * @param {object} props.cta.type type 'local' or 'external'
- * @param {object} props.cta.href cta href
+ * @param {string} props.cta.copy cta copy
+ * @param {string} props.cta.type type 'local' or 'external'
+ * @param {string} props.cta.href cta href
  * @param {boolean} props.inverse toggles inverse theme
  * @returns {*} Quote Pattern
  */
