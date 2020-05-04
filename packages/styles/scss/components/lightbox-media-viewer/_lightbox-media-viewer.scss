@@ -6,7 +6,8 @@
 //
 
 @import '../../globals/imports';
-@import '.././expressive-modal/expressive-modal';
+@import '../expressive-modal/expressive-modal';
+@import '../video-player/video-player';
 
 @mixin lightbox-media-viewer {
   .#{$prefix}--modal--expressive--fullwidth

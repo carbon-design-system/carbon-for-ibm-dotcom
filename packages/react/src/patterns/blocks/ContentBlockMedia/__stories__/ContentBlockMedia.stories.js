@@ -74,9 +74,9 @@ storiesOf('Patterns (Blocks)|ContentBlockMedia', module)
     ];
 
     return (
-      <div className={'bx--grid'}>
-        <div class="bx--row">
-          <div class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
+      <div className="bx--grid">
+        <div className="bx--row">
+          <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
             <ContentBlockMedia
               copy={copy}
               heading={text(
@@ -170,8 +170,8 @@ storiesOf('Patterns (Blocks)|ContentBlockMedia', module)
 
     return (
       <div className="bx--grid">
-        <div class="bx--row">
-          <div class="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4">
+        <div className="bx--row">
+          <div className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4">
             <ContentBlockMedia
               copy={copy}
               heading={'Curabitur malesuada varius mi eu posuere'}

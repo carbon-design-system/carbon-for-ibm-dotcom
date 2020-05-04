@@ -17,57 +17,64 @@ storiesOf('Components|Masthead', module)
   .add('Default', () => {
     const standardProps = {
       navigation: select(
-        'Navigation',
+        'navigation data (navigation)',
         mastheadKnobs.navigation,
         mastheadKnobs.navigation.default
       ),
       platform: select(
-        'Platform name',
+        'platform name (platform)',
         mastheadKnobs.platform,
         mastheadKnobs.platform.none
       ),
-      hasProfile: boolean('Has profile', true),
-      hasSearch: boolean('Has search', true),
+      hasProfile: boolean('show the profile functionality (hasProfile)', true),
+      hasSearch: boolean('show the search functionality (hasSearch)', true),
+      placeHolderText: text(
+        'search placeholder (placeHolderText)',
+        'Search all of IBM'
+      ),
     };
     const mastheadL1Props = DDS_MASTHEAD_L1 && {
-      title: text('Title', 'Stock Charts'),
-      eyebrowText: text('Eyebrow text', 'Eyebrow'),
-      eyebrowLink: text('Eyebrow link', '#'),
+      title: text('L1 title (title) (experimental)', 'Stock Charts'),
+      eyebrowText: text(
+        'L1 eyebrow text (eyebrowText) (experimental)',
+        'Eyebrow'
+      ),
+      eyebrowLink: text('L1 eyebrow link (eyebrowLink) (experimental)', '#'),
     };
-    return (
-      <Masthead
-        {...standardProps}
-        {...mastheadL1Props}
-        placeHolderText={text('Search placeholder', 'Search all of IBM')}
-      />
-    );
+    return <Masthead {...standardProps} {...mastheadL1Props} />;
   })
   .add('Search open by default', () => {
     const standardProps = {
       navigation: select(
-        'Navigation',
+        'navigation data (navigation)',
         mastheadKnobs.navigation,
         mastheadKnobs.navigation.default
       ),
       platform: select(
-        'Platform name',
+        'platform name (platform)',
         mastheadKnobs.platform,
         mastheadKnobs.platform.none
       ),
-      hasProfile: boolean('Has profile', true),
-      hasSearch: boolean('Has search', true),
+      hasProfile: boolean('show the profile functionality (hasProfile)', true),
+      hasSearch: boolean('show the search functionality (hasSearch)', true),
+      placeHolderText: text(
+        'search placeholder (placeHolderText)',
+        'Search all of IBM'
+      ),
     };
     const mastheadL1Props = DDS_MASTHEAD_L1 && {
-      title: text('Title', 'Stock Charts'),
-      eyebrowText: text('Eyebrow text', 'Eyebrow'),
-      eyebrowLink: text('Eyebrow link', '#'),
+      title: text('L1 title (title) (experimental)', 'Stock Charts'),
+      eyebrowText: text(
+        'L1 eyebrow text (eyebrowText) (experimental)',
+        'Eyebrow'
+      ),
+      eyebrowLink: text('L1 eyebrow link (eyebrowLink) (experimental)', '#'),
     };
     return (
       <Masthead
         {...standardProps}
         {...mastheadL1Props}
         searchOpenOnload={true}
-        placeHolderText={text('Search placeholder', 'Search all of IBM')}
       />
     );
   });

@@ -21,8 +21,8 @@ storiesOf('Components|VideoPlayer', module)
   .add('Default', () => {
     return (
       <div className="bx--grid">
-        <div class="bx--row">
-          <div class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
+        <div className="bx--row">
+          <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
             <VideoPlayer
               videoId="0_uka1msg4"
               showDescription={boolean('Show description', true)}

@@ -43,7 +43,7 @@ const ImageWithCaption = ({ image, heading, customClassName }) => {
 };
 
 ImageWithCaption.propTypes = {
-  image: PropTypes.oneOfType(PropTypes.shape(Image.propTypes)).isRequired,
+  image: PropTypes.shape(Image.propTypes).isRequired,
   heading: PropTypes.string.isRequired,
   customClassName: PropTypes.string,
 };
