@@ -15,12 +15,37 @@ const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
+ *
+ * @param {string} type returns inverse or default
+ * @returns {string} theme classname
+ */
+function textClassname(type) {
+  if (type === 'inverse') {
+    return `${prefix}--video-player-inverse__video-description`;
+  } else return `${prefix}--video-player__video-description`;
+}
+
+/**
+ *
+ * @param {string} type returns inverse or default
+ * @returns {string} theme classname
+ */
+function themeClassname(type) {
+  if (type === 'inverse') {
+    return `${prefix}--video-player-inverse`;
+  } else return `${prefix}--video-player`;
+}
+
+/**
  * VideoPlayer component
  *
- * @param {string} videoId Kaltura video id
+ * @param {object} props props object
+ * @param {string} props.type theming options
+ * @param {string} props.showDescription video caption
+ * @param {string} props.videoId Kaltura video id
  * @returns {*} VideoPlayer component
  */
-const VideoPlayer = ({ videoId, showDescription }) => {
+const VideoPlayer = ({ type, showDescription, videoId }) => {
   const [videoData, setVideoData] = useState({});
   const videoPlayerId = `video-player__video-${videoId}`;
   const videoDuration = VideoPlayerAPI.getVideoDuration(videoData.msDuration);
@@ -35,7 +60,7 @@ const VideoPlayer = ({ videoId, showDescription }) => {
   return (
     <div
       aria-label={`${videoData.description} ${videoDuration}`}
-      className={`${prefix}--video-player`}>
+      className={themeClassname(type)}>
       <div
         className={`${prefix}--video-player__video-container`}
         data-autoid={`${stablePrefix}--${videoPlayerId}`}>
@@ -44,7 +69,7 @@ const VideoPlayer = ({ videoId, showDescription }) => {
           id={`${prefix}--${videoPlayerId}`}></div>
       </div>
       {showDescription && (
-        <div className={`${prefix}--video-player__video-description`}>
+        <div className={textClassname(type)}>
           {videoData.description} {videoDuration}
         </div>
       )}
@@ -60,6 +85,7 @@ const VideoPlayer = ({ videoId, showDescription }) => {
 VideoPlayer.propTypes = {
   videoId: PropTypes.string.isRequired,
   showDescription: PropTypes.bool,
+  type: PropTypes.oneOf(['inverse', '']),
 };
 
 export default VideoPlayer;
