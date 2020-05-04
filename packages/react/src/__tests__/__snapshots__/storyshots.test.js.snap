@@ -22956,6 +22956,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock Default 1`] = `
                       }
                       customClassName="bx--content-block-story"
                       heading="This is the Content Block heading"
+                      type=""
                     >
                       This is the Content Block children.
                     </ContentBlock>
@@ -23014,6 +23015,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock Default 1`] = `
                       }
                       customClassName="bx--content-block-story"
                       heading="This is the Content Block heading"
+                      type=""
                     >
                       <div
                         className="bx--content-block bx--content-block-story"
