@@ -101,10 +101,8 @@ exports[`Storyshots Components|CTA Default 1`] = `
                               "type": "video",
                             }
                           }
-                          mediaData={Object {}}
                           openLightBox={[Function]}
                           renderLightBox={false}
-                          setMediaData={[Function]}
                           style="text"
                           type="local"
                           videoTitle={
@@ -6188,10 +6186,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                                                   "href": "https://www.example.com",
                                                 }
                                               }
-                                              mediaData={Object {}}
                                               openLightBox={[Function]}
                                               renderLightBox={false}
-                                              setMediaData={[Function]}
                                               style="card"
                                               type="local"
                                               videoTitle={
@@ -6559,10 +6555,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                                                   "href": "https://www.example.com",
                                                 }
                                               }
-                                              mediaData={Object {}}
                                               openLightBox={[Function]}
                                               renderLightBox={false}
-                                              setMediaData={[Function]}
                                               style="card"
                                               type="local"
                                               videoTitle={
@@ -6739,10 +6733,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                                     }
                                   }
                                   heading="Lorem ipsum dolor sit amet"
-                                  mediaData={Object {}}
                                   openLightBox={[Function]}
                                   renderLightBox={false}
-                                  setMediaData={[Function]}
                                   style="feature"
                                   type="local"
                                   videoTitle={
@@ -7686,10 +7678,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                                           "href": "https://www.example.com",
                                                         }
                                                       }
-                                                      mediaData={Object {}}
                                                       openLightBox={[Function]}
                                                       renderLightBox={false}
-                                                      setMediaData={[Function]}
                                                       style="card"
                                                       type="local"
                                                       videoTitle={
@@ -8057,10 +8047,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                                           "href": "https://www.example.com",
                                                         }
                                                       }
-                                                      mediaData={Object {}}
                                                       openLightBox={[Function]}
                                                       renderLightBox={false}
-                                                      setMediaData={[Function]}
                                                       style="card"
                                                       type="local"
                                                       videoTitle={
@@ -8237,10 +8225,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                             }
                                           }
                                           heading="Lorem ipsum dolor sit amet"
-                                          mediaData={Object {}}
                                           openLightBox={[Function]}
                                           renderLightBox={false}
-                                          setMediaData={[Function]}
                                           style="feature"
                                           type="local"
                                           videoTitle={
@@ -8485,10 +8471,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                                       "href": "https://ibm.com",
                                                     }
                                                   }
-                                                  mediaData={Object {}}
                                                   openLightBox={[Function]}
                                                   renderLightBox={false}
-                                                  setMediaData={[Function]}
                                                   style="card"
                                                   type="local"
                                                   videoTitle={
@@ -8629,10 +8613,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                                       "href": "https://ibm.com",
                                                     }
                                                   }
-                                                  mediaData={Object {}}
                                                   openLightBox={[Function]}
                                                   renderLightBox={false}
-                                                  setMediaData={[Function]}
                                                   style="card"
                                                   type="external"
                                                   videoTitle={
@@ -9901,10 +9883,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                                         <TextCTA
                                                           copy="Lorem ipsum dolor"
                                                           href="https://www.ibm.com"
-                                                          mediaData={Object {}}
                                                           openLightBox={[Function]}
                                                           renderLightBox={false}
-                                                          setMediaData={[Function]}
                                                           style="text"
                                                           type="local"
                                                           videoTitle={
@@ -10094,10 +10074,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                                         <TextCTA
                                                           copy="Lorem ipsum dolor"
                                                           href="https://www.ibm.com"
-                                                          mediaData={Object {}}
                                                           openLightBox={[Function]}
                                                           renderLightBox={false}
-                                                          setMediaData={[Function]}
                                                           style="text"
                                                           type="local"
                                                           videoTitle={
@@ -10286,10 +10264,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                                         <TextCTA
                                                           copy="Lorem ipsum dolor"
                                                           href="https://www.ibm.com"
-                                                          mediaData={Object {}}
                                                           openLightBox={[Function]}
                                                           renderLightBox={false}
-                                                          setMediaData={[Function]}
                                                           style="text"
                                                           type="local"
                                                           videoTitle={
@@ -10597,10 +10573,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                       }
                                     }
                                     heading="Lorem ipsum dolor sit amet"
-                                    mediaData={Object {}}
                                     openLightBox={[Function]}
                                     renderLightBox={false}
-                                    setMediaData={[Function]}
                                     style="card"
                                     type="local"
                                     videoTitle={
@@ -11981,10 +11955,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                                 <TextCTA
                                                                   copy="Lorem ipsum dolor"
                                                                   href="https://www.ibm.com"
-                                                                  mediaData={Object {}}
                                                                   openLightBox={[Function]}
                                                                   renderLightBox={false}
-                                                                  setMediaData={[Function]}
                                                                   style="text"
                                                                   type="local"
                                                                   videoTitle={
@@ -12174,10 +12146,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                                 <TextCTA
                                                                   copy="Lorem ipsum dolor"
                                                                   href="https://www.ibm.com"
-                                                                  mediaData={Object {}}
                                                                   openLightBox={[Function]}
                                                                   renderLightBox={false}
-                                                                  setMediaData={[Function]}
                                                                   style="text"
                                                                   type="local"
                                                                   videoTitle={
@@ -12366,10 +12336,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                                 <TextCTA
                                                                   copy="Lorem ipsum dolor"
                                                                   href="https://www.ibm.com"
-                                                                  mediaData={Object {}}
                                                                   openLightBox={[Function]}
                                                                   renderLightBox={false}
-                                                                  setMediaData={[Function]}
                                                                   style="text"
                                                                   type="local"
                                                                   videoTitle={
@@ -12677,10 +12645,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                               }
                                             }
                                             heading="Lorem ipsum dolor sit amet"
-                                            mediaData={Object {}}
                                             openLightBox={[Function]}
                                             renderLightBox={false}
-                                            setMediaData={[Function]}
                                             style="card"
                                             type="local"
                                             videoTitle={
@@ -12859,10 +12825,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                       "href": "https://ibm.com",
                                                     }
                                                   }
-                                                  mediaData={Object {}}
                                                   openLightBox={[Function]}
                                                   renderLightBox={false}
-                                                  setMediaData={[Function]}
                                                   style="card"
                                                   type="local"
                                                   videoTitle={
@@ -13003,10 +12967,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                       "href": "https://ibm.com",
                                                     }
                                                   }
-                                                  mediaData={Object {}}
                                                   openLightBox={[Function]}
                                                   renderLightBox={false}
-                                                  setMediaData={[Function]}
                                                   style="card"
                                                   type="external"
                                                   videoTitle={
@@ -13711,10 +13673,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                         "href": "https://www.example.com",
                                       }
                                     }
-                                    mediaData={Object {}}
                                     openLightBox={[Function]}
                                     renderLightBox={false}
-                                    setMediaData={[Function]}
                                     style="card"
                                     type="local"
                                     videoTitle={
@@ -14531,10 +14491,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                                 "href": "https://www.example.com",
                                               }
                                             }
-                                            mediaData={Object {}}
                                             openLightBox={[Function]}
                                             renderLightBox={false}
-                                            setMediaData={[Function]}
                                             style="card"
                                             type="local"
                                             videoTitle={
@@ -14713,10 +14671,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                                       "href": "https://ibm.com",
                                                     }
                                                   }
-                                                  mediaData={Object {}}
                                                   openLightBox={[Function]}
                                                   renderLightBox={false}
-                                                  setMediaData={[Function]}
                                                   style="card"
                                                   type="local"
                                                   videoTitle={
@@ -14857,10 +14813,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                                       "href": "https://ibm.com",
                                                     }
                                                   }
-                                                  mediaData={Object {}}
                                                   openLightBox={[Function]}
                                                   renderLightBox={false}
-                                                  setMediaData={[Function]}
                                                   style="card"
                                                   type="external"
                                                   videoTitle={
@@ -15349,10 +15303,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                                       }
                                     }
                                     heading="Lorem ipsum dolor sit amet"
-                                    mediaData={Object {}}
                                     openLightBox={[Function]}
                                     renderLightBox={false}
-                                    setMediaData={[Function]}
                                     style="card"
                                     type="local"
                                     videoTitle={
@@ -15953,10 +15905,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                               }
                                             }
                                             heading="Lorem ipsum dolor sit amet"
-                                            mediaData={Object {}}
                                             openLightBox={[Function]}
                                             renderLightBox={false}
-                                            setMediaData={[Function]}
                                             style="card"
                                             type="local"
                                             videoTitle={
@@ -16135,10 +16085,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                                       "href": "https://ibm.com",
                                                     }
                                                   }
-                                                  mediaData={Object {}}
                                                   openLightBox={[Function]}
                                                   renderLightBox={false}
-                                                  setMediaData={[Function]}
                                                   style="card"
                                                   type="local"
                                                   videoTitle={
@@ -16279,10 +16227,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                                       "href": "https://ibm.com",
                                                     }
                                                   }
-                                                  mediaData={Object {}}
                                                   openLightBox={[Function]}
                                                   renderLightBox={false}
-                                                  setMediaData={[Function]}
                                                   style="card"
                                                   type="external"
                                                   videoTitle={
@@ -17916,10 +17862,8 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupSimple Default 1`] = `
                                         "href": "https://www.example.com",
                                       }
                                     }
-                                    mediaData={Object {}}
                                     openLightBox={[Function]}
                                     renderLightBox={false}
-                                    setMediaData={[Function]}
                                     style="card"
                                     type="local"
                                     videoTitle={
@@ -22677,10 +22621,8 @@ exports[`Storyshots Patterns (Sub-Patterns)|Card Static 1`] = `
                                           },
                                         }
                                       }
-                                      mediaData={Object {}}
                                       openLightBox={[Function]}
                                       renderLightBox={false}
-                                      setMediaData={[Function]}
                                       style="text"
                                       type="local"
                                       videoTitle={
@@ -22921,10 +22863,8 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock Default 1`] = `
                                     "href": "https://www.example.com",
                                   }
                                 }
-                                mediaData={Object {}}
                                 openLightBox={[Function]}
                                 renderLightBox={false}
-                                setMediaData={[Function]}
                                 style="card"
                                 type="external"
                                 videoTitle={
@@ -23315,10 +23255,8 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock With aside elements 1`]
                                             "href": "https://www.example.com",
                                           }
                                         }
-                                        mediaData={Object {}}
                                         openLightBox={[Function]}
                                         renderLightBox={false}
-                                        setMediaData={[Function]}
                                         style="card"
                                         type="external"
                                         videoTitle={
@@ -23500,10 +23438,8 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock With aside elements 1`]
                                                   "href": "https://ibm.com",
                                                 }
                                               }
-                                              mediaData={Object {}}
                                               openLightBox={[Function]}
                                               renderLightBox={false}
-                                              setMediaData={[Function]}
                                               style="card"
                                               type="local"
                                               videoTitle={
@@ -23644,10 +23580,8 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock With aside elements 1`]
                                                   "href": "https://ibm.com",
                                                 }
                                               }
-                                              mediaData={Object {}}
                                               openLightBox={[Function]}
                                               renderLightBox={false}
-                                              setMediaData={[Function]}
                                               style="card"
                                               type="external"
                                               videoTitle={
@@ -23926,10 +23860,8 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentGroup Default 1`] = `
                                     "href": "https://www.example.com",
                                   }
                                 }
-                                mediaData={Object {}}
                                 openLightBox={[Function]}
                                 renderLightBox={false}
-                                setMediaData={[Function]}
                                 style="card"
                                 videoTitle={
                                   Array [
@@ -24321,10 +24253,8 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentItem Default 1`] = `
                             <TextCTA
                               copy="Lorem ipsum dolor sit amet"
                               href="https://example.com"
-                              mediaData={Object {}}
                               openLightBox={[Function]}
                               renderLightBox={false}
-                              setMediaData={[Function]}
                               style="text"
                               type="local"
                               videoTitle={
@@ -25226,10 +25156,8 @@ exports[`Storyshots Patterns (Sub-Patterns)|LinkList Default 1`] = `
                                       "href": "https://ibm.com",
                                     }
                                   }
-                                  mediaData={Object {}}
                                   openLightBox={[Function]}
                                   renderLightBox={false}
-                                  setMediaData={[Function]}
                                   style="card"
                                   type="local"
                                   videoTitle={
@@ -25370,10 +25298,8 @@ exports[`Storyshots Patterns (Sub-Patterns)|LinkList Default 1`] = `
                                       "href": "https://ibm.com",
                                     }
                                   }
-                                  mediaData={Object {}}
                                   openLightBox={[Function]}
                                   renderLightBox={false}
-                                  setMediaData={[Function]}
                                   style="card"
                                   type="local"
                                   videoTitle={
@@ -25514,10 +25440,8 @@ exports[`Storyshots Patterns (Sub-Patterns)|LinkList Default 1`] = `
                                       "type": "video",
                                     }
                                   }
-                                  mediaData={Object {}}
                                   openLightBox={[Function]}
                                   renderLightBox={false}
-                                  setMediaData={[Function]}
                                   style="card"
                                   type="video"
                                   videoTitle={
@@ -25850,10 +25774,8 @@ exports[`Storyshots Patterns (Sub-Patterns)|PictogramItem Default 1`] = `
                                     <TextCTA
                                       copy="Lorem ipsum dolor"
                                       href="https://www.example.com"
-                                      mediaData={Object {}}
                                       openLightBox={[Function]}
                                       renderLightBox={false}
-                                      setMediaData={[Function]}
                                       style="text"
                                       type="local"
                                       videoTitle={
