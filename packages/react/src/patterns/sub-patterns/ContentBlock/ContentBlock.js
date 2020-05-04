@@ -18,7 +18,16 @@ import { settings } from 'carbon-components';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
-
+/**
+ *
+ * @param {string} type returns inverse or default
+ * @returns {string} theme classname
+ */
+function themeClassname(type) {
+  if (type === 'inverse') {
+    return `${prefix}--content-block-inverse`;
+  } else return `${prefix}--content-block`;
+}
 /**
  * ContentBlock Sub-pattern
  *
@@ -38,6 +47,7 @@ const ContentBlock = ({
   customClassName,
   cta,
   aside,
+  type,
 }) => {
   const content = (
     <>
@@ -73,7 +83,7 @@ const ContentBlock = ({
   return (
     <div
       data-autoid={`${stablePrefix}--content-block`}
-      className={cx(`${prefix}--content-block`, customClassName)}>
+      className={cx(themeClassname(type), customClassName)}>
       {aside && aside.items
         ? _layoutWrap(
             <>
@@ -136,6 +146,7 @@ function _renderCTA(cta) {
 }
 
 ContentBlock.propTypes = {
+  type: PropTypes.oneOf(['__inverse', '']),
   heading: PropTypes.string,
   copy: PropTypes.string,
   children: PropTypes.oneOfType([

@@ -22,6 +22,7 @@ storiesOf('Patterns (Sub-Patterns)|ContentBlock', module)
       sidebar: readme,
     },
   })
+
   .add('Default', () => {
     const blockProps = {
       heading: 'This is the Content Block heading',
@@ -45,6 +46,11 @@ storiesOf('Patterns (Sub-Patterns)|ContentBlock', module)
       none: null,
     };
 
+    const inverse = {
+      default: '',
+      inverse: 'inverse',
+    };
+
     return (
       <div className="bx--grid">
         <div className="bx--row">
@@ -52,6 +58,7 @@ storiesOf('Patterns (Sub-Patterns)|ContentBlock', module)
             <ContentBlock
               heading={blockProps.heading}
               copy={blockProps.copy}
+              type={select('type', inverse, inverse.default)}
               cta={select('CTA (optional)', cta, cta.cta)}
               customClassName={`${prefix}--content-block-story`}>
               {blockProps.content}
@@ -61,6 +68,7 @@ storiesOf('Patterns (Sub-Patterns)|ContentBlock', module)
       </div>
     );
   })
+
   .add('With aside elements', () => {
     const blockProps = {
       heading: 'This is the Content Block heading',
