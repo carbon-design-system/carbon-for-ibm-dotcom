@@ -4,10 +4,10 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
+import React, { useState } from 'react';
 import { ButtonGroup } from '../../patterns/sub-patterns/ButtonGroup';
 import CTALogic from './CTALogic';
 import PropTypes from 'prop-types';
-import React from 'react';
 
 /**
  * Button subcomponent for CTA
@@ -17,8 +17,6 @@ import React from 'react';
  * @param {Function} param.openLightBox func to set renderLightBox state
  * @param {boolean} param.renderLightBox bool to determine whether to open lightbox
  * @param {Array} param.videoTitle array of video titles
- * @param {Function} param.setMediaData func to set media data state
- * @param {object} param.mediaData media data object to render within lightbox
  *
  * @returns {object} JSX object
  */
@@ -27,10 +25,10 @@ const ButtonCTA = ({
   openLightBox,
   renderLightBox,
   videoTitle,
-  mediaData,
-  setMediaData,
   ...otherProps
 }) => {
+  const [mediaData, setMediaData] = useState({});
+
   return type.includes('video') ? (
     <div>
       {CTALogic.launchLightBox(renderLightBox, openLightBox, mediaData)}

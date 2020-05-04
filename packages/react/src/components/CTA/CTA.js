@@ -5,14 +5,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState } from 'react';
 import ButtonCTA from './ButtonCTA';
 import CardCTA from './CardCTA';
-import CTALogic from './CTALogic';
 import FeatureCTA from './FeatureCTA';
 import PropTypes from 'prop-types';
 import TextCTA from './TextCTA';
-import { VideoPlayerAPI } from '@carbon/ibmdotcom-services';
+import { useVideoData } from '../../internal/hooks/useVideoData';
 
 /**
  * CTA component
@@ -25,36 +24,8 @@ import { VideoPlayerAPI } from '@carbon/ibmdotcom-services';
  */
 const CTA = ({ style, type, customClassName, ...otherProps }) => {
   const [renderLightBox, openLightBox] = useState(false);
-  const [videoTitle, setVideoTitle] = useState([{ title: '', key: 0 }]);
-  const [mediaData, setMediaData] = useState({});
 
-  useEffect(() => {
-    getVideoData();
-  }, [getVideoData, style, type]);
-
-  /**
-   * retrieve duration and title information from the video if
-   * the type of the CTA is `video`
-   *
-   * sets the `videoTitle` state with an array of title objects
-   *
-   */
-  const getVideoData = useCallback(async () => {
-    if (type === 'video' || type.includes('video')) {
-      const videoId = CTALogic.getVideoId(style, otherProps);
-      const title = await Promise.all(
-        videoId.map(async vidId => {
-          const video = await VideoPlayerAPI.api(vidId.src);
-          const time = VideoPlayerAPI.getVideoDuration(video.msDuration);
-          return {
-            title: `${video.name} ${time}`,
-            key: vidId.key,
-          };
-        })
-      );
-      setVideoTitle(title);
-    }
-  }, [otherProps, style, type]);
+  const videoTitle = useVideoData(otherProps, style, type);
 
   const CTAComponent =
     style === 'card'
@@ -71,8 +42,6 @@ const CTA = ({ style, type, customClassName, ...otherProps }) => {
     renderLightBox,
     openLightBox,
     videoTitle,
-    mediaData,
-    setMediaData,
     ...otherProps,
   };
 
