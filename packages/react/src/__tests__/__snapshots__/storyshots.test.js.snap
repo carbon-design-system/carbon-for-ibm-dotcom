@@ -3098,6 +3098,7 @@ exports[`Storyshots Components|ImageWithCaption Default 1`] = `
                           ],
                         }
                       }
+                      type=""
                     />
                   </div>
                 </div>
@@ -3156,6 +3157,7 @@ exports[`Storyshots Components|ImageWithCaption Default 1`] = `
                           ],
                         }
                       }
+                      type=""
                     >
                       <div
                         className="bx--image-with-caption"
