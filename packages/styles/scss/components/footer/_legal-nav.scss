@@ -43,12 +43,15 @@
         @include carbon--breakpoint('md') {
           @include carbon--make-col(2, 4);
 
+          display: flex;
+          flex-direction: column;
+
           &:not(:first-child) {
             padding-left: $carbon--layout-01;
           }
 
           &:nth-child(odd):not(:first-child) {
-            @include carbon--make-col-offset(2, 4);
+            padding-left: 0;
           }
         }
       }
@@ -56,19 +59,18 @@
       @include carbon--breakpoint('lg') {
         @include carbon--make-col(1, 4);
 
+        display: flex;
+        flex-direction: column;
+
         &:nth-child(odd) {
           padding-left: $carbon--spacing-06;
         }
-
         &:first-child {
           @include carbon--make-col-offset(1, 4);
 
           padding-left: $carbon--spacing-03;
         }
       }
-
-      display: flex;
-      flex-direction: column;
     }
 
     &__list-item {

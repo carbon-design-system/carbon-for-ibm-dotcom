@@ -76,42 +76,22 @@ function renderListItems(links) {
     );
   });
 
+  renderedLinks.push(renderTrusteItem());
+
   const chunked_arr = [];
-  chunked_arr.push(renderedLinks[0]);
-  let index = 1;
+  let index = 0;
+
   while (index < renderedLinks.length) {
     chunked_arr.push(renderedLinks.slice(index, 2 + index));
     index += 2;
   }
 
   return chunked_arr.map((elem, index) => {
-    if (index === chunked_arr.length - 1) {
-      if (elem.length === 1) {
-        return (
-          <ul className={`${prefix}--legal-nav__holder`} key={index}>
-            {elem}
-            {renderTrusteItem()}
-          </ul>
-        );
-      } else {
-        return (
-          <>
-            <ul className={`${prefix}--legal-nav__holder`} key={index}>
-              {elem}
-            </ul>
-            <ul className={`${prefix}--legal-nav__holder`} key={index}>
-              {renderTrusteItem()}
-            </ul>
-          </>
-        );
-      }
-    } else {
-      return (
-        <ul className={`${prefix}--legal-nav__holder`} key={index}>
-          {elem}
-        </ul>
-      );
-    }
+    return (
+      <ul className={`${prefix}--legal-nav__holder`} key={index}>
+        {elem}
+      </ul>
+    );
   });
 }
 

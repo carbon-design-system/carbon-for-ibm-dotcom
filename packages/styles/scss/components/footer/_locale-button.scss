@@ -36,11 +36,6 @@
           float: right;
         }
       }
-
-      &:focus {
-        border-color: $inverse-link;
-        background: $field-01;
-      }
     }
 
     .#{$prefix}--footer--short & {
