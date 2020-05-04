@@ -22,11 +22,12 @@ const { prefix } = settings;
  *
  * @param {string} type returns inverse or default
  * @returns {string} theme classname
+ * @private
  */
-function themeClassname(type) {
-  if (type === 'inverse') {
-    return `${prefix}--content-block-inverse`;
-  } else return `${prefix}--content-block`;
+function _themeClassname(type) {
+  return type === 'inverse'
+    ? `${prefix}--content-block-inverse`
+    : `${prefix}--content-block`;
 }
 /**
  * ContentBlock Sub-pattern
@@ -83,7 +84,7 @@ const ContentBlock = ({
   return (
     <div
       data-autoid={`${stablePrefix}--content-block`}
-      className={cx(themeClassname(type), customClassName)}>
+      className={cx(_themeClassname(type), customClassName)}>
       {aside && aside.items
         ? _layoutWrap(
             <>
