@@ -30,6 +30,34 @@
   }
 }
 
+@mixin image-with-caption-inverse {
+  .#{$prefix}--image-with-caption-inverse {
+    background-color: $inverse-02;
+    margin-top: $carbon--spacing-07;
+    margin-bottom: $carbon--spacing-07;
+    max-width: carbon--mini-units(80);
+
+    @include carbon--breakpoint('md') {
+      margin-top: $carbon--spacing-07;
+      margin-bottom: $carbon--spacing-07;
+    }
+  }
+
+  // can we set 2x1 ratio here?
+
+  .#{$prefix}--image__caption-inverse {
+    @include carbon--type-style('caption-01');
+
+    color: #ffffff;
+    margin-top: $carbon--spacing-03;
+    margin-bottom: $carbon--spacing-07;
+  }
+}
+
 @include exports('image-with-caption') {
   @include image-with-caption;
+}
+
+@include exports('image-with-caption-inverse') {
+  @include image-with-caption-inverse;
 }

@@ -15,6 +15,28 @@ const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
+ *
+ * @param {string} type returns inverse or default
+ * @returns {string} theme classname
+ */
+function textClassname(type) {
+  if (type === 'inverse') {
+    return `${prefix}--image__caption-inverse`;
+  } else return `${prefix}--image__caption`;
+}
+
+/**
+ *
+ * @param {string} type returns inverse or default
+ * @returns {string} theme classname
+ */
+function themeClassname(type) {
+  if (type === 'inverse') {
+    return `${prefix}--image-with-caption-inverse`;
+  } else return `${prefix}--image-with-caption`;
+}
+
+/**
  * renders background image
  *
  * @param {object} props props object
@@ -23,18 +45,18 @@ const { prefix } = settings;
  * @param {string} props.customClassName custom classname
  * @returns {*} picture element
  */
-const ImageWithCaption = ({ image, heading, customClassName }) => {
+const ImageWithCaption = ({ type, image, heading, customClassName }) => {
   if (!image) {
     return null;
   }
 
   return (
     <div
-      className={classnames(`${prefix}--image-with-caption`, customClassName)}
+      className={classnames(themeClassname(type), customClassName)}
       data-autoid={`${stablePrefix}--image-with-caption`}>
       <Image {...image} />
       <p
-        className={`${prefix}--image__caption`}
+        className={textClassname(type)}
         data-autoid={`${stablePrefix}--image__caption`}>
         {heading}
       </p>
@@ -43,6 +65,7 @@ const ImageWithCaption = ({ image, heading, customClassName }) => {
 };
 
 ImageWithCaption.propTypes = {
+  type: PropTypes.oneOf(['inverse', '']),
   image: PropTypes.shape(Image.propTypes).isRequired,
   heading: PropTypes.string.isRequired,
   customClassName: PropTypes.string,

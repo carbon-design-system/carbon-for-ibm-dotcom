@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 import './index.scss';
-import { object, text, withKnobs } from '@storybook/addon-knobs';
+import { select, object, text, withKnobs } from '@storybook/addon-knobs';
 import ImageWithCaption from '../ImageWithCaption';
 import React from 'react';
 import readme from '../README.md';
@@ -36,11 +36,20 @@ storiesOf('Components|ImageWithCaption', module)
       defaultSrc: 'https://dummyimage.com/672x672/ee5396/161616&text=1x1',
     });
 
+    const inverse = {
+      default: '',
+      inverse: 'inverse',
+    };
+
     return (
       <div className="bx--grid">
         <div className="bx--row">
           <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
-            <ImageWithCaption image={image} heading={heading} />
+            <ImageWithCaption
+              type={select('type', inverse, inverse.default)}
+              image={image}
+              heading={heading}
+            />
           </div>
         </div>
       </div>
