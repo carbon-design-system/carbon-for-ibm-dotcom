@@ -94,11 +94,7 @@ exports[`Storyshots Components|CTA Default 1`] = `
                       <div>
                         <TextCTA
                           copy="Lorem ipsum dolor sit amet"
-                          external={[Function]}
                           href="https://www.example.com"
-                          iconSelector={[Function]}
-                          jump={[Function]}
-                          launchLightBox={[Function]}
                           media={
                             Object {
                               "src": "0_uka1msg4",
@@ -108,7 +104,6 @@ exports[`Storyshots Components|CTA Default 1`] = `
                           mediaData={Object {}}
                           openLightBox={[Function]}
                           renderLightBox={false}
-                          setLightBox={[Function]}
                           setMediaData={[Function]}
                           style="text"
                           type="local"
@@ -6193,14 +6188,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                                                   "href": "https://www.example.com",
                                                 }
                                               }
-                                              external={[Function]}
-                                              iconSelector={[Function]}
-                                              jump={[Function]}
-                                              launchLightBox={[Function]}
                                               mediaData={Object {}}
                                               openLightBox={[Function]}
                                               renderLightBox={false}
-                                              setLightBox={[Function]}
                                               setMediaData={[Function]}
                                               style="card"
                                               type="local"
@@ -6569,14 +6559,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                                                   "href": "https://www.example.com",
                                                 }
                                               }
-                                              external={[Function]}
-                                              iconSelector={[Function]}
-                                              jump={[Function]}
-                                              launchLightBox={[Function]}
                                               mediaData={Object {}}
                                               openLightBox={[Function]}
                                               renderLightBox={false}
-                                              setLightBox={[Function]}
                                               setMediaData={[Function]}
                                               style="card"
                                               type="local"
@@ -6753,15 +6738,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                                       "type": "link",
                                     }
                                   }
-                                  external={[Function]}
                                   heading="Lorem ipsum dolor sit amet"
-                                  iconSelector={[Function]}
-                                  jump={[Function]}
-                                  launchLightBox={[Function]}
                                   mediaData={Object {}}
                                   openLightBox={[Function]}
                                   renderLightBox={false}
-                                  setLightBox={[Function]}
                                   setMediaData={[Function]}
                                   style="feature"
                                   type="local"
@@ -7706,14 +7686,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                                           "href": "https://www.example.com",
                                                         }
                                                       }
-                                                      external={[Function]}
-                                                      iconSelector={[Function]}
-                                                      jump={[Function]}
-                                                      launchLightBox={[Function]}
                                                       mediaData={Object {}}
                                                       openLightBox={[Function]}
                                                       renderLightBox={false}
-                                                      setLightBox={[Function]}
                                                       setMediaData={[Function]}
                                                       style="card"
                                                       type="local"
@@ -8082,14 +8057,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                                           "href": "https://www.example.com",
                                                         }
                                                       }
-                                                      external={[Function]}
-                                                      iconSelector={[Function]}
-                                                      jump={[Function]}
-                                                      launchLightBox={[Function]}
                                                       mediaData={Object {}}
                                                       openLightBox={[Function]}
                                                       renderLightBox={false}
-                                                      setLightBox={[Function]}
                                                       setMediaData={[Function]}
                                                       style="card"
                                                       type="local"
@@ -8266,15 +8236,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                               "type": "link",
                                             }
                                           }
-                                          external={[Function]}
                                           heading="Lorem ipsum dolor sit amet"
-                                          iconSelector={[Function]}
-                                          jump={[Function]}
-                                          launchLightBox={[Function]}
                                           mediaData={Object {}}
                                           openLightBox={[Function]}
                                           renderLightBox={false}
-                                          setLightBox={[Function]}
                                           setMediaData={[Function]}
                                           style="feature"
                                           type="local"
@@ -8520,14 +8485,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                                       "href": "https://ibm.com",
                                                     }
                                                   }
-                                                  external={[Function]}
-                                                  iconSelector={[Function]}
-                                                  jump={[Function]}
-                                                  launchLightBox={[Function]}
                                                   mediaData={Object {}}
                                                   openLightBox={[Function]}
                                                   renderLightBox={false}
-                                                  setLightBox={[Function]}
                                                   setMediaData={[Function]}
                                                   style="card"
                                                   type="local"
@@ -8669,14 +8629,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                                       "href": "https://ibm.com",
                                                     }
                                                   }
-                                                  external={[Function]}
-                                                  iconSelector={[Function]}
-                                                  jump={[Function]}
-                                                  launchLightBox={[Function]}
                                                   mediaData={Object {}}
                                                   openLightBox={[Function]}
                                                   renderLightBox={false}
-                                                  setLightBox={[Function]}
                                                   setMediaData={[Function]}
                                                   style="card"
                                                   type="external"
@@ -9945,15 +9900,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                                       >
                                                         <TextCTA
                                                           copy="Lorem ipsum dolor"
-                                                          external={[Function]}
                                                           href="https://www.ibm.com"
-                                                          iconSelector={[Function]}
-                                                          jump={[Function]}
-                                                          launchLightBox={[Function]}
                                                           mediaData={Object {}}
                                                           openLightBox={[Function]}
                                                           renderLightBox={false}
-                                                          setLightBox={[Function]}
                                                           setMediaData={[Function]}
                                                           style="text"
                                                           type="local"
@@ -10143,15 +10093,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                                       >
                                                         <TextCTA
                                                           copy="Lorem ipsum dolor"
-                                                          external={[Function]}
                                                           href="https://www.ibm.com"
-                                                          iconSelector={[Function]}
-                                                          jump={[Function]}
-                                                          launchLightBox={[Function]}
                                                           mediaData={Object {}}
                                                           openLightBox={[Function]}
                                                           renderLightBox={false}
-                                                          setLightBox={[Function]}
                                                           setMediaData={[Function]}
                                                           style="text"
                                                           type="local"
@@ -10340,15 +10285,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                                       >
                                                         <TextCTA
                                                           copy="Lorem ipsum dolor"
-                                                          external={[Function]}
                                                           href="https://www.ibm.com"
-                                                          iconSelector={[Function]}
-                                                          jump={[Function]}
-                                                          launchLightBox={[Function]}
                                                           mediaData={Object {}}
                                                           openLightBox={[Function]}
                                                           renderLightBox={false}
-                                                          setLightBox={[Function]}
                                                           setMediaData={[Function]}
                                                           style="text"
                                                           type="local"
@@ -10656,15 +10596,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                         "href": "https://www.ibm.com",
                                       }
                                     }
-                                    external={[Function]}
                                     heading="Lorem ipsum dolor sit amet"
-                                    iconSelector={[Function]}
-                                    jump={[Function]}
-                                    launchLightBox={[Function]}
                                     mediaData={Object {}}
                                     openLightBox={[Function]}
                                     renderLightBox={false}
-                                    setLightBox={[Function]}
                                     setMediaData={[Function]}
                                     style="card"
                                     type="local"
@@ -12045,15 +11980,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                               >
                                                                 <TextCTA
                                                                   copy="Lorem ipsum dolor"
-                                                                  external={[Function]}
                                                                   href="https://www.ibm.com"
-                                                                  iconSelector={[Function]}
-                                                                  jump={[Function]}
-                                                                  launchLightBox={[Function]}
                                                                   mediaData={Object {}}
                                                                   openLightBox={[Function]}
                                                                   renderLightBox={false}
-                                                                  setLightBox={[Function]}
                                                                   setMediaData={[Function]}
                                                                   style="text"
                                                                   type="local"
@@ -12243,15 +12173,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                               >
                                                                 <TextCTA
                                                                   copy="Lorem ipsum dolor"
-                                                                  external={[Function]}
                                                                   href="https://www.ibm.com"
-                                                                  iconSelector={[Function]}
-                                                                  jump={[Function]}
-                                                                  launchLightBox={[Function]}
                                                                   mediaData={Object {}}
                                                                   openLightBox={[Function]}
                                                                   renderLightBox={false}
-                                                                  setLightBox={[Function]}
                                                                   setMediaData={[Function]}
                                                                   style="text"
                                                                   type="local"
@@ -12440,15 +12365,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                               >
                                                                 <TextCTA
                                                                   copy="Lorem ipsum dolor"
-                                                                  external={[Function]}
                                                                   href="https://www.ibm.com"
-                                                                  iconSelector={[Function]}
-                                                                  jump={[Function]}
-                                                                  launchLightBox={[Function]}
                                                                   mediaData={Object {}}
                                                                   openLightBox={[Function]}
                                                                   renderLightBox={false}
-                                                                  setLightBox={[Function]}
                                                                   setMediaData={[Function]}
                                                                   style="text"
                                                                   type="local"
@@ -12756,15 +12676,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                 "href": "https://www.ibm.com",
                                               }
                                             }
-                                            external={[Function]}
                                             heading="Lorem ipsum dolor sit amet"
-                                            iconSelector={[Function]}
-                                            jump={[Function]}
-                                            launchLightBox={[Function]}
                                             mediaData={Object {}}
                                             openLightBox={[Function]}
                                             renderLightBox={false}
-                                            setLightBox={[Function]}
                                             setMediaData={[Function]}
                                             style="card"
                                             type="local"
@@ -12944,14 +12859,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                       "href": "https://ibm.com",
                                                     }
                                                   }
-                                                  external={[Function]}
-                                                  iconSelector={[Function]}
-                                                  jump={[Function]}
-                                                  launchLightBox={[Function]}
                                                   mediaData={Object {}}
                                                   openLightBox={[Function]}
                                                   renderLightBox={false}
-                                                  setLightBox={[Function]}
                                                   setMediaData={[Function]}
                                                   style="card"
                                                   type="local"
@@ -13093,14 +13003,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                       "href": "https://ibm.com",
                                                     }
                                                   }
-                                                  external={[Function]}
-                                                  iconSelector={[Function]}
-                                                  jump={[Function]}
-                                                  launchLightBox={[Function]}
                                                   mediaData={Object {}}
                                                   openLightBox={[Function]}
                                                   renderLightBox={false}
-                                                  setLightBox={[Function]}
                                                   setMediaData={[Function]}
                                                   style="card"
                                                   type="external"
@@ -13806,14 +13711,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                         "href": "https://www.example.com",
                                       }
                                     }
-                                    external={[Function]}
-                                    iconSelector={[Function]}
-                                    jump={[Function]}
-                                    launchLightBox={[Function]}
                                     mediaData={Object {}}
                                     openLightBox={[Function]}
                                     renderLightBox={false}
-                                    setLightBox={[Function]}
                                     setMediaData={[Function]}
                                     style="card"
                                     type="local"
@@ -14631,14 +14531,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                                 "href": "https://www.example.com",
                                               }
                                             }
-                                            external={[Function]}
-                                            iconSelector={[Function]}
-                                            jump={[Function]}
-                                            launchLightBox={[Function]}
                                             mediaData={Object {}}
                                             openLightBox={[Function]}
                                             renderLightBox={false}
-                                            setLightBox={[Function]}
                                             setMediaData={[Function]}
                                             style="card"
                                             type="local"
@@ -14818,14 +14713,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                                       "href": "https://ibm.com",
                                                     }
                                                   }
-                                                  external={[Function]}
-                                                  iconSelector={[Function]}
-                                                  jump={[Function]}
-                                                  launchLightBox={[Function]}
                                                   mediaData={Object {}}
                                                   openLightBox={[Function]}
                                                   renderLightBox={false}
-                                                  setLightBox={[Function]}
                                                   setMediaData={[Function]}
                                                   style="card"
                                                   type="local"
@@ -14967,14 +14857,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                                       "href": "https://ibm.com",
                                                     }
                                                   }
-                                                  external={[Function]}
-                                                  iconSelector={[Function]}
-                                                  jump={[Function]}
-                                                  launchLightBox={[Function]}
                                                   mediaData={Object {}}
                                                   openLightBox={[Function]}
                                                   renderLightBox={false}
-                                                  setLightBox={[Function]}
                                                   setMediaData={[Function]}
                                                   style="card"
                                                   type="external"
@@ -15463,15 +15348,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                                         "href": "https://www.ibm.com",
                                       }
                                     }
-                                    external={[Function]}
                                     heading="Lorem ipsum dolor sit amet"
-                                    iconSelector={[Function]}
-                                    jump={[Function]}
-                                    launchLightBox={[Function]}
                                     mediaData={Object {}}
                                     openLightBox={[Function]}
                                     renderLightBox={false}
-                                    setLightBox={[Function]}
                                     setMediaData={[Function]}
                                     style="card"
                                     type="local"
@@ -16072,15 +15952,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                                 "href": "https://www.ibm.com",
                                               }
                                             }
-                                            external={[Function]}
                                             heading="Lorem ipsum dolor sit amet"
-                                            iconSelector={[Function]}
-                                            jump={[Function]}
-                                            launchLightBox={[Function]}
                                             mediaData={Object {}}
                                             openLightBox={[Function]}
                                             renderLightBox={false}
-                                            setLightBox={[Function]}
                                             setMediaData={[Function]}
                                             style="card"
                                             type="local"
@@ -16260,14 +16135,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                                       "href": "https://ibm.com",
                                                     }
                                                   }
-                                                  external={[Function]}
-                                                  iconSelector={[Function]}
-                                                  jump={[Function]}
-                                                  launchLightBox={[Function]}
                                                   mediaData={Object {}}
                                                   openLightBox={[Function]}
                                                   renderLightBox={false}
-                                                  setLightBox={[Function]}
                                                   setMediaData={[Function]}
                                                   style="card"
                                                   type="local"
@@ -16409,14 +16279,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                                       "href": "https://ibm.com",
                                                     }
                                                   }
-                                                  external={[Function]}
-                                                  iconSelector={[Function]}
-                                                  jump={[Function]}
-                                                  launchLightBox={[Function]}
                                                   mediaData={Object {}}
                                                   openLightBox={[Function]}
                                                   renderLightBox={false}
-                                                  setLightBox={[Function]}
                                                   setMediaData={[Function]}
                                                   style="card"
                                                   type="external"
@@ -18051,14 +17916,9 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupSimple Default 1`] = `
                                         "href": "https://www.example.com",
                                       }
                                     }
-                                    external={[Function]}
-                                    iconSelector={[Function]}
-                                    jump={[Function]}
-                                    launchLightBox={[Function]}
                                     mediaData={Object {}}
                                     openLightBox={[Function]}
                                     renderLightBox={false}
-                                    setLightBox={[Function]}
                                     setMediaData={[Function]}
                                     style="card"
                                     type="local"
@@ -22808,7 +22668,6 @@ exports[`Storyshots Patterns (Sub-Patterns)|Card Static 1`] = `
                                   >
                                     <TextCTA
                                       copy="click here"
-                                      external={[Function]}
                                       href="https://example.com"
                                       icon={
                                         Object {
@@ -22818,13 +22677,9 @@ exports[`Storyshots Patterns (Sub-Patterns)|Card Static 1`] = `
                                           },
                                         }
                                       }
-                                      iconSelector={[Function]}
-                                      jump={[Function]}
-                                      launchLightBox={[Function]}
                                       mediaData={Object {}}
                                       openLightBox={[Function]}
                                       renderLightBox={false}
-                                      setLightBox={[Function]}
                                       setMediaData={[Function]}
                                       style="text"
                                       type="local"
@@ -23066,14 +22921,9 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock Default 1`] = `
                                     "href": "https://www.example.com",
                                   }
                                 }
-                                external={[Function]}
-                                iconSelector={[Function]}
-                                jump={[Function]}
-                                launchLightBox={[Function]}
                                 mediaData={Object {}}
                                 openLightBox={[Function]}
                                 renderLightBox={false}
-                                setLightBox={[Function]}
                                 setMediaData={[Function]}
                                 style="card"
                                 type="external"
@@ -23465,14 +23315,9 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock With aside elements 1`]
                                             "href": "https://www.example.com",
                                           }
                                         }
-                                        external={[Function]}
-                                        iconSelector={[Function]}
-                                        jump={[Function]}
-                                        launchLightBox={[Function]}
                                         mediaData={Object {}}
                                         openLightBox={[Function]}
                                         renderLightBox={false}
-                                        setLightBox={[Function]}
                                         setMediaData={[Function]}
                                         style="card"
                                         type="external"
@@ -23655,14 +23500,9 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock With aside elements 1`]
                                                   "href": "https://ibm.com",
                                                 }
                                               }
-                                              external={[Function]}
-                                              iconSelector={[Function]}
-                                              jump={[Function]}
-                                              launchLightBox={[Function]}
                                               mediaData={Object {}}
                                               openLightBox={[Function]}
                                               renderLightBox={false}
-                                              setLightBox={[Function]}
                                               setMediaData={[Function]}
                                               style="card"
                                               type="local"
@@ -23804,14 +23644,9 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock With aside elements 1`]
                                                   "href": "https://ibm.com",
                                                 }
                                               }
-                                              external={[Function]}
-                                              iconSelector={[Function]}
-                                              jump={[Function]}
-                                              launchLightBox={[Function]}
                                               mediaData={Object {}}
                                               openLightBox={[Function]}
                                               renderLightBox={false}
-                                              setLightBox={[Function]}
                                               setMediaData={[Function]}
                                               style="card"
                                               type="external"
@@ -24091,14 +23926,9 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentGroup Default 1`] = `
                                     "href": "https://www.example.com",
                                   }
                                 }
-                                external={[Function]}
-                                iconSelector={[Function]}
-                                jump={[Function]}
-                                launchLightBox={[Function]}
                                 mediaData={Object {}}
                                 openLightBox={[Function]}
                                 renderLightBox={false}
-                                setLightBox={[Function]}
                                 setMediaData={[Function]}
                                 style="card"
                                 videoTitle={
@@ -24490,15 +24320,10 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentItem Default 1`] = `
                           >
                             <TextCTA
                               copy="Lorem ipsum dolor sit amet"
-                              external={[Function]}
                               href="https://example.com"
-                              iconSelector={[Function]}
-                              jump={[Function]}
-                              launchLightBox={[Function]}
                               mediaData={Object {}}
                               openLightBox={[Function]}
                               renderLightBox={false}
-                              setLightBox={[Function]}
                               setMediaData={[Function]}
                               style="text"
                               type="local"
@@ -25401,14 +25226,9 @@ exports[`Storyshots Patterns (Sub-Patterns)|LinkList Default 1`] = `
                                       "href": "https://ibm.com",
                                     }
                                   }
-                                  external={[Function]}
-                                  iconSelector={[Function]}
-                                  jump={[Function]}
-                                  launchLightBox={[Function]}
                                   mediaData={Object {}}
                                   openLightBox={[Function]}
                                   renderLightBox={false}
-                                  setLightBox={[Function]}
                                   setMediaData={[Function]}
                                   style="card"
                                   type="local"
@@ -25550,14 +25370,9 @@ exports[`Storyshots Patterns (Sub-Patterns)|LinkList Default 1`] = `
                                       "href": "https://ibm.com",
                                     }
                                   }
-                                  external={[Function]}
-                                  iconSelector={[Function]}
-                                  jump={[Function]}
-                                  launchLightBox={[Function]}
                                   mediaData={Object {}}
                                   openLightBox={[Function]}
                                   renderLightBox={false}
-                                  setLightBox={[Function]}
                                   setMediaData={[Function]}
                                   style="card"
                                   type="local"
@@ -25693,10 +25508,6 @@ exports[`Storyshots Patterns (Sub-Patterns)|LinkList Default 1`] = `
                             >
                               <div>
                                 <CardCTA
-                                  external={[Function]}
-                                  iconSelector={[Function]}
-                                  jump={[Function]}
-                                  launchLightBox={[Function]}
                                   media={
                                     Object {
                                       "src": "0_uka1msg4",
@@ -25706,7 +25517,6 @@ exports[`Storyshots Patterns (Sub-Patterns)|LinkList Default 1`] = `
                                   mediaData={Object {}}
                                   openLightBox={[Function]}
                                   renderLightBox={false}
-                                  setLightBox={[Function]}
                                   setMediaData={[Function]}
                                   style="card"
                                   type="video"
@@ -26039,15 +25849,10 @@ exports[`Storyshots Patterns (Sub-Patterns)|PictogramItem Default 1`] = `
                                   >
                                     <TextCTA
                                       copy="Lorem ipsum dolor"
-                                      external={[Function]}
                                       href="https://www.example.com"
-                                      iconSelector={[Function]}
-                                      jump={[Function]}
-                                      launchLightBox={[Function]}
                                       mediaData={Object {}}
                                       openLightBox={[Function]}
                                       renderLightBox={false}
-                                      setLightBox={[Function]}
                                       setMediaData={[Function]}
                                       style="text"
                                       type="local"
