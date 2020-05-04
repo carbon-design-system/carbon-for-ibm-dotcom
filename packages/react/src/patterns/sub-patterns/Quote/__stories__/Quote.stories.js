@@ -21,7 +21,7 @@ storiesOf('Patterns (Sub-Patterns)|Quote', module)
   })
   .add('Default', () => {
     const copy = text(
-      'Quote(Required): ',
+      'Quote (copy): ',
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus est purus, posuere at est vitae, ornare rhoncus sem. Suspendisse vitae tellus fermentum, hendrerit augue eu, placerat magna.'
     );
 
@@ -32,11 +32,21 @@ storiesOf('Patterns (Sub-Patterns)|Quote', module)
       singleAngle: 'singleAngle',
       lowHighReversedDoubleCurved: 'lowHighReversedDoubleCurved',
     };
-    const markType = select('Quote Mark:', types, types.doubleCurved);
+    const markType = select(
+      'Quote Mark (markType):',
+      types,
+      types.doubleCurved
+    );
 
     const source = {
-      heading: text('Quote Source Heading: ', 'Lorem ipsum dolor sit amet'),
-      copy: text('Quote Source Copy: ', 'consectetur adipiscing elit'),
+      heading: text(
+        'Quote Source Heading (source.heading): ',
+        'Lorem ipsum dolor sit amet'
+      ),
+      copy: text(
+        'Quote Source Copy (source.copy): ',
+        'consectetur adipiscing elit'
+      ),
     };
 
     const CTA = object('CTA Object:', {
