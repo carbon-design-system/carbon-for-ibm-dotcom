@@ -5358,6 +5358,7 @@ exports[`Storyshots Components|VideoPlayer Default 1`] = `
                   >
                     <VideoPlayer
                       showDescription={true}
+                      type=""
                       videoId="0_uka1msg4"
                     />
                   </div>
@@ -5401,6 +5402,7 @@ exports[`Storyshots Components|VideoPlayer Default 1`] = `
                   >
                     <VideoPlayer
                       showDescription={true}
+                      type=""
                       videoId="0_uka1msg4"
                     >
                       <div
