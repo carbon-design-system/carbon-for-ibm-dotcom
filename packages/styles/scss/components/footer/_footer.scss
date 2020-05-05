@@ -41,7 +41,10 @@
       }
     }
 
-    .#{$prefix}--footer__link.#{$prefix}--link {
+    .#{$prefix}--footer__link.#{$prefix}--link,
+    .#{$prefix}--legal-nav__list
+      .#{$prefix}--legal-nav__list-item
+      .#{$prefix}--link {
       &,
       &:visited,
       &:visited:hover {
