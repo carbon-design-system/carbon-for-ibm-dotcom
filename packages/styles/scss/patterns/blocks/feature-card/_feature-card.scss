@@ -27,6 +27,12 @@
       @include carbon--breakpoint('md') {
         padding-top: aspect-ratio(2, 1);
       }
+      @include carbon--breakpoint-between('md', 'lg') {
+        padding-top: aspect-ratio(1, 1);
+      }
+      @include carbon--breakpoint('lg') {
+        padding-top: aspect-ratio(2, 1);
+      }
     }
 
     .#{$prefix}--card {
@@ -39,6 +45,13 @@
         flex-direction: row;
         @include hang;
       }
+      @include carbon--breakpoint-between('md', 'lg') {
+        flex-direction: column;
+      }
+      @include carbon--breakpoint('lg') {
+        flex-direction: row;
+        @include hang;
+      }
 
       &__wrapper,
       .#{$prefix}--image {
@@ -48,13 +61,28 @@
           width: 50%;
           height: aspect-ratio(1, 1);
         }
+        @include carbon--breakpoint-between('md', 'lg') {
+          width: 100%;
+          height: aspect-ratio(2, 1);
+        }
+        @include carbon--breakpoint('lg') {
+          width: 50%;
+          height: aspect-ratio(1, 1);
+        }
       }
     }
 
     .#{$prefix}--card__wrapper {
       background: $inverse-02;
       overflow: hidden;
-      padding: rem(64px);
+
+      @include carbon--breakpoint('md') {
+        padding: rem(32px);
+      }
+
+      @include carbon--breakpoint('xlg') {
+        padding: rem(64px);
+      }
 
       .#{$prefix}--card__eyebrow {
         margin-bottom: rem(14px);
@@ -62,6 +90,8 @@
       }
 
       .#{$prefix}--card__heading {
+        @include carbon--type-style(expressive-heading-04, true);
+
         margin-bottom: rem(28px);
       }
 
@@ -78,3 +108,9 @@
 @include exports('feature-card') {
   @include feature-card;
 }
+
+/*
+@include carbon--breakpoint-between('md', 'lg') {
+  padding: 0 $carbon--spacing-05 0 $carbon--spacing-07;
+}
+*/

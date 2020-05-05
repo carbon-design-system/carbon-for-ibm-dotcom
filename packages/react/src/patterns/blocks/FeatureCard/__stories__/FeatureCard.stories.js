@@ -32,7 +32,7 @@ storiesOf('Patterns (Blocks)|FeatureCard', module)
     const eyebrow = text('Eyebrow:', 'this is an eyebrow');
     const copy = text(
       'Copy:',
-      'this is some lorem ipsum, eh? dolor emit? Emit?! this is some lorem ipsum, eh? dolor emit? Emit?! '
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
     );
     const cardhref = text('Card href:', 'https://www.example.com');
     const image = object('card image', {
