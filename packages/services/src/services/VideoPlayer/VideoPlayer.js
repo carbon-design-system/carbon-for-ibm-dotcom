@@ -8,8 +8,8 @@ import root from 'window-or-global';
  * @type {number} _uiConfId The ID of the Kaltura player to use
  * @private
  */
-const _partnerId = process.env.KALTURA_PARTNER_ID || 243342;
-const _uiConfId = process.env.KALTURA_UICONF_ID || 12905712;
+const _partnerId = process.env.KALTURA_PARTNER_ID || 1773841;
+const _uiConfId = process.env.KALTURA_UICONF_ID || 27941801;
 
 /**
  * @type {string} _embedUrl The API URL to call
