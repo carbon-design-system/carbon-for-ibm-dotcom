@@ -8,6 +8,7 @@
 import React, { useState } from 'react';
 import ButtonCTA from './ButtonCTA';
 import CardCTA from './CardCTA';
+import CTALogic from './CTALogic';
 import FeatureCTA from './FeatureCTA';
 import PropTypes from 'prop-types';
 import TextCTA from './TextCTA';
@@ -25,7 +26,8 @@ import { useVideoData } from '../../internal/hooks/useVideoData';
 const CTA = ({ style, type, customClassName, ...otherProps }) => {
   const [renderLightBox, openLightBox] = useState(false);
 
-  const videoTitle = useVideoData(otherProps, style, type);
+  const videoId = CTALogic.getVideoId(style, otherProps);
+  const videoTitle = useVideoData(type, videoId);
 
   const CTAComponent =
     style === 'card'
