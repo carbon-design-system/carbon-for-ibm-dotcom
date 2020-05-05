@@ -13,13 +13,7 @@ Here's a quick example to get you started.
 @import '@carbon/type/scss/font-face/sans';
 @include carbon--font-face-mono();
 @include carbon--font-face-sans();
-
-@import '@carbon/ibmdotcom-styles/scss/patterns/sections/card-section/card-section';
 ```
-
-> 💡 Only import fonts once per usage. Don't forget to import the CardSection
-> styles from
-> [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
 ```javascript
 import React from 'react';
@@ -28,7 +22,13 @@ import { CardSectionImages } from '@carbon/ibmdotcom-react';
 import 'yourapplication.scss';
 
 function App() {
-  return <CardSectionImages cards={cards} heading="Read more about it" />;
+  return (
+    <CardSectionImages
+      cards={cards}
+      heading="Aliquam condimentum interdum"
+      theme={theme}
+    />
+  );
 }
 
 ReactDOM.render(<App />, document.querySelector('#app'));
@@ -44,9 +44,6 @@ Add the following line on your `.env` file at the root of your project,
 > See
 > [Card Object](https://github.com/mkothur/ibm-dotcom-library/blob/master/packages/react/src/patterns/sections/CardSection/__stories__/data/cards.json)
 > 👀
-
-> 💡 Don't forget to import the card-section styles from
-> [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
 ## Props
 
@@ -71,7 +68,7 @@ Card accepts the folloing information for this `CardSectionImages` pattern
 > [Card](https://github.com/mkothur/ibm-dotcom-library/blob/master/packages/react/src/patterns/sub-patterns/card/README.md)
 > 👀
 
-### theme (optional)
+### Theme (optional)
 
 | Name    | Data Type | Description                  |
 | ------- | --------- | ---------------------------- |

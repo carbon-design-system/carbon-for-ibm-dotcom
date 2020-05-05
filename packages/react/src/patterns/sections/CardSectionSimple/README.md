@@ -13,12 +13,7 @@ Here's a quick example to get you started.
 @import '@carbon/type/scss/font-face/sans';
 @include carbon--font-face-mono();
 @include carbon--font-face-sans();
-@import '@carbon/ibmdotcom-styles/scss/patterns/sections/card-section/card-section';
 ```
-
-> 💡 Only import fonts once per usage. Don't forget to import the CardSection
-> styles from
-> [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
 ```javascript
 import React from 'react';
@@ -28,7 +23,12 @@ import 'yourapplication.scss';
 
 function App() {
   return (
-    <CardSectionSimple cards={cards} heading="Aliquam condimentum interdum" />
+    <CardSectionSimple
+      cards={cards}
+      heading="Aliquam condimentum interdum"
+      theme={theme}
+      cta={cta}
+    />
   );
 }
 
@@ -46,9 +46,6 @@ Add the following line on your `.env` file at the root of your project,
 > [Card Object](https://github.com/mkothur/ibm-dotcom-library/blob/master/packages/react/src/patterns/sections/CardSection/__stories__/data/cards.json)
 > 👀
 
-> 💡 Don't forget to import the card-section styles from
-> [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
-
 ## Props
 
 | Name      | Required | Data Type | Default Value | Description                                                                                                                                                                                    |
@@ -56,6 +53,7 @@ Add the following line on your `.env` file at the root of your project,
 | `heading` | YES      | String    | null          | Cards with or without images heading.                                                                                                                                                          |
 | `cards`   | YES      | Array     | null          | Array of objects. [Card Array Example](https://github.com/mkothur/ibm-dotcom-library/blob/master/packages/react/src/patterns/sub-patterns/card/README.md). For more details See `Cards Props`. |
 | `theme`   | NO       | String    | 'white'       | Color theme for pattern. See `theme` below.                                                                                                                                                    |
+| `cta`     | NO       | Object    | null          | CTA options. See `Card` README with the above link.                                                                                                                                            |
 
 ### Card Props
 
@@ -71,7 +69,7 @@ Card accepts the folloing information for this `CardSectionSimple` pattern
 > [Card](https://github.com/mkothur/ibm-dotcom-library/blob/master/packages/react/src/patterns/sub-patterns/card/README.md)
 > 👀
 
-### theme (optional)
+### Theme (optional)
 
 | Name    | Data Type | Description                  |
 | ------- | --------- | ---------------------------- |
