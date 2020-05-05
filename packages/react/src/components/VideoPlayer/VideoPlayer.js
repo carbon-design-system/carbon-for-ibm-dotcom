@@ -6,6 +6,7 @@
  */
 
 import React, { useEffect, useState } from 'react';
+import cx from 'classnames';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
 import { settings } from 'carbon-components';
@@ -13,28 +14,6 @@ import { VideoPlayerAPI } from '@carbon/ibmdotcom-services';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
-
-/**
- *
- * @param {string} type returns inverse or default
- * @returns {string} theme classname
- */
-function textClassname(type) {
-  if (type === 'inverse') {
-    return `${prefix}--video-player-inverse__video-description`;
-  } else return `${prefix}--video-player__video-description`;
-}
-
-/**
- *
- * @param {string} type returns inverse or default
- * @returns {string} theme classname
- */
-function themeClassname(type) {
-  if (type === 'inverse') {
-    return `${prefix}--video-player-inverse`;
-  } else return `${prefix}--video-player`;
-}
 
 /**
  * VideoPlayer component
@@ -45,7 +24,7 @@ function themeClassname(type) {
  * @param {string} props.videoId Kaltura video id
  * @returns {*} VideoPlayer component
  */
-const VideoPlayer = ({ type, showDescription, videoId }) => {
+const VideoPlayer = ({ type, showDescription, videoId, customClassName }) => {
   const [videoData, setVideoData] = useState({});
   const videoPlayerId = `video-player__video-${videoId}`;
   const videoDuration = VideoPlayerAPI.getVideoDuration(videoData.msDuration);
@@ -57,10 +36,24 @@ const VideoPlayer = ({ type, showDescription, videoId }) => {
     })();
   }, [videoId, videoPlayerId]);
 
+  const classnames = cx(
+    `${prefix}--video-player`,
+    { [`${prefix}--video-player--inverse`]: type === 'inverse' },
+    customClassName
+  );
+  const textclass = cx(
+    `${prefix}--video-player__video-description`,
+    {
+      [`${prefix}--video-player__video-description--inverse`]:
+        type === 'inverse',
+    },
+    customClassName
+  );
+
   return (
     <div
       aria-label={`${videoData.description} ${videoDuration}`}
-      className={themeClassname(type)}>
+      className={classnames}>
       <div
         className={`${prefix}--video-player__video-container`}
         data-autoid={`${stablePrefix}--${videoPlayerId}`}>
@@ -69,7 +62,7 @@ const VideoPlayer = ({ type, showDescription, videoId }) => {
           id={`${prefix}--${videoPlayerId}`}></div>
       </div>
       {showDescription && (
-        <div className={textClassname(type)}>
+        <div className={textclass}>
           {videoData.description} {videoDuration}
         </div>
       )}
@@ -83,6 +76,7 @@ const VideoPlayer = ({ type, showDescription, videoId }) => {
  * @type {{videoId: string, showDescription: boolean}}
  */
 VideoPlayer.propTypes = {
+  customClassName: PropTypes.string,
   videoId: PropTypes.string.isRequired,
   showDescription: PropTypes.bool,
   type: PropTypes.oneOf(['inverse', '']),

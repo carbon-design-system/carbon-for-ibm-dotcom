@@ -38,46 +38,14 @@
       }
     }
   }
-}
-
-@mixin video-player-inverse {
-  .#{$prefix}--video-player-inverse {
+  .#{$prefix}--video-player--inverse {
     background-color: $inverse-02;
-    &__video-container {
-      width: 100%;
-      position: relative;
-      display: inline-block;
-
-      .#{$prefix}--video-player__video {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-      }
-
-      &::before {
-        content: '';
-        display: block;
-        margin-top: 56.25%;
-      }
-    }
-
-    &__video-description {
-      padding-top: $spacing-05;
-      color: #ffffff;
-      max-width: 90%;
-      @include carbon--breakpoint('lg') {
-        max-width: 496px;
-      }
-    }
+  }
+  .#{$prefix}--video-player__video-description--inverse {
+    color: #ffffff;
   }
 }
 
 @include exports('video-player') {
   @include video-player;
-}
-
-@include exports('video-player-inverse') {
-  @include video-player-inverse;
 }
