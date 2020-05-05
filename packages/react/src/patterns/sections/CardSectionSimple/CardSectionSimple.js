@@ -45,7 +45,7 @@ const CardSectionSimple = ({ cards, cta, theme, ...otherProps }) => {
   return (
     <ContentSection
       heading={otherProps.heading}
-      autoid={`${stablePrefix}--card-section-simple-section`}
+      autoid={`${stablePrefix}--card-group-simple-group`}
       customClassName={classNames(`${prefix}--card-group`, _setTheme(theme))}>
       <CardGroup cards={cardsWithoutImages} cta={cta} />
     </ContentSection>

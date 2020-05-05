@@ -66,28 +66,28 @@ const CardGroup = ({ cards, cta }) => {
 };
 
 /**
- * Renders the cards based on the CardSection entries
+ * Renders the cards based on the CardGroup entries
  *
  * @param {Array} cards objects array
  * @param {object} containerRef ref of elements
  * @param {object} cta object
- * @returns {*} CardSection JSX objects
+ * @returns {*} CardGroup JSX objects
  */
 const _renderCards = (cards, containerRef, cta) => (
   <div
-    data-autoid={`${stablePrefix}--card-section`}
-    className={`${prefix}--card-section__cards__row ${prefix}--row--condensed`}
+    data-autoid={`${stablePrefix}--card-group`}
+    className={`${prefix}--card-group__cards__row ${prefix}--row--condensed`}
     ref={containerRef}>
     {cards.map((card, index) => {
       return (
         <div
           key={index}
-          className={`${prefix}--card-section__cards__col`}
+          className={`${prefix}--card-group__cards__col`}
           role="region"
           aria-label={card.heading}>
           <Card
             key={index}
-            customClassName={`${prefix}--card-section__card`}
+            customClassName={`${prefix}--card-group__card`}
             image={card.image}
             heading={card.heading}
             eyebrow={card.eyebrow}
@@ -104,7 +104,7 @@ const _renderCards = (cards, containerRef, cta) => (
       );
     })}
     {cta && (
-      <div className={`${prefix}--card-section__cards__col`}>
+      <div className={`${prefix}--card-group__cards__col`}>
         <Card
           inverse={true}
           heading={cta.heading}
