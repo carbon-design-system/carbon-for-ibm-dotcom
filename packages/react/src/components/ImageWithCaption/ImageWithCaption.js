@@ -4,7 +4,7 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import classnames from 'classnames';
+import cx from 'classnames';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { Image } from '../Image';
 import PropTypes from 'prop-types';
@@ -13,28 +13,6 @@ import { settings } from 'carbon-components';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
-
-/**
- *
- * @param {string} type returns inverse or default
- * @returns {string} theme classname
- */
-function textClassname(type) {
-  if (type === 'inverse') {
-    return `${prefix}--image__caption-inverse`;
-  } else return `${prefix}--image__caption`;
-}
-
-/**
- *
- * @param {string} type returns inverse or default
- * @returns {string} theme classname
- */
-function themeClassname(type) {
-  if (type === 'inverse') {
-    return `${prefix}--image-with-caption-inverse`;
-  } else return `${prefix}--image-with-caption`;
-}
 
 /**
  * renders background image
@@ -49,15 +27,23 @@ const ImageWithCaption = ({ type, image, heading, customClassName }) => {
   if (!image) {
     return null;
   }
+  const classnames = cx(
+    `${prefix}--image-with-caption`,
+    { [`${prefix}--image-with-caption--inverse`]: type === 'inverse' },
+    customClassName
+  );
+  const textclass = cx(
+    `${prefix}--image__caption`,
+    { [`${prefix}--image__caption--inverse`]: type === 'inverse' },
+    customClassName
+  );
 
   return (
     <div
-      className={classnames(themeClassname(type), customClassName)}
+      className={classnames}
       data-autoid={`${stablePrefix}--image-with-caption`}>
       <Image {...image} />
-      <p
-        className={textClassname(type)}
-        data-autoid={`${stablePrefix}--image__caption`}>
+      <p className={textclass} data-autoid={`${stablePrefix}--image__caption`}>
         {heading}
       </p>
     </div>
