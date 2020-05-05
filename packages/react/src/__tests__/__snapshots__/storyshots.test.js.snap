@@ -6367,6 +6367,259 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
 </Container>
 `;
 
+exports[`Storyshots Patterns (Blocks)|Callout Quote Default 1`] = `
+<Container
+  story={[Function]}
+>
+  <div
+    data-floating-menu-container=""
+    role="main"
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+      }
+    }
+  >
+    <ReadmeContent
+      codeTheme="github"
+      layout={
+        Array [
+          Object {
+            "content": <React.Fragment>
+              <div
+                className="bx--grid"
+              >
+                <div
+                  className="bx--row"
+                >
+                  <div
+                    className="bx--offset-lg-4 bx--col-lg-12"
+                  >
+                    <CalloutQuote
+                      quote={
+                        Object {
+                          "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus est purus, posuere at est vitae, ornare rhoncus sem. Suspendisse vitae tellus fermentum, hendrerit augue eu, placerat magna.",
+                          "cta": Object {
+                            "copy": "Link with Icon",
+                            "href": "https://example.com",
+                            "type": "local",
+                          },
+                          "markType": "doubleCurved",
+                          "source": Object {
+                            "copy": "consectetur adipiscing elit",
+                            "heading": "Lorem ipsum dolor sit amet",
+                          },
+                        }
+                      }
+                    />
+                  </div>
+                </div>
+              </div>
+            </React.Fragment>,
+            "type": "STORY",
+          },
+        ]
+      }
+      theme={Object {}}
+      types={
+        Array [
+          "MD",
+          "STORY",
+          "STORY_SOURCE",
+          "PROPS",
+          "FOOTER_MD",
+          "HEADER_MD",
+        ]
+      }
+    >
+      <div
+        className="storybook-readme-story"
+      >
+        <_default
+          key="0"
+        >
+          <div
+            style={Object {}}
+          >
+            <div>
+              <div
+                className="bx--grid"
+              >
+                <div
+                  className="bx--row"
+                >
+                  <div
+                    className="bx--offset-lg-4 bx--col-lg-12"
+                  >
+                    <CalloutQuote
+                      quote={
+                        Object {
+                          "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus est purus, posuere at est vitae, ornare rhoncus sem. Suspendisse vitae tellus fermentum, hendrerit augue eu, placerat magna.",
+                          "cta": Object {
+                            "copy": "Link with Icon",
+                            "href": "https://example.com",
+                            "type": "local",
+                          },
+                          "markType": "doubleCurved",
+                          "source": Object {
+                            "copy": "consectetur adipiscing elit",
+                            "heading": "Lorem ipsum dolor sit amet",
+                          },
+                        }
+                      }
+                    >
+                      <div
+                        className="bx--callout-quote"
+                        data-autoid="dds--callout-quote"
+                      >
+                        <Callout>
+                          <section
+                            className="bx--callout__container"
+                            data-autoid="dds--callout__container"
+                          >
+                            <div
+                              className="bx--callout__column"
+                              data-autoid="dds--callout__column"
+                            >
+                              <div
+                                className="bx--callout__content"
+                                data-autoid="dds--callout__content"
+                              >
+                                <Quote
+                                  copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus est purus, posuere at est vitae, ornare rhoncus sem. Suspendisse vitae tellus fermentum, hendrerit augue eu, placerat magna."
+                                  cta={
+                                    Object {
+                                      "copy": "Link with Icon",
+                                      "href": "https://example.com",
+                                      "type": "local",
+                                    }
+                                  }
+                                  inverse="true"
+                                  markType="doubleCurved"
+                                  source={
+                                    Object {
+                                      "copy": "consectetur adipiscing elit",
+                                      "heading": "Lorem ipsum dolor sit amet",
+                                    }
+                                  }
+                                >
+                                  <div
+                                    className="bx--quote bx--quote__inverse"
+                                    data-autoid="dds--quote"
+                                  >
+                                    <div
+                                      className="bx--quote__container"
+                                    >
+                                      <div
+                                        className="bx--quote__wrapper"
+                                        data-autoid="dds--quote__copy"
+                                      >
+                                        <span
+                                          className="bx--quote__mark"
+                                        >
+                                          “
+                                        </span>
+                                        <blockquote
+                                          className="bx--quote__copy"
+                                        >
+                                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus est purus, posuere at est vitae, ornare rhoncus sem. Suspendisse vitae tellus fermentum, hendrerit augue eu, placerat magna.
+                                          ”
+                                        </blockquote>
+                                      </div>
+                                      <div
+                                        className="bx--quote__source"
+                                        data-autoid="dds--quote__source"
+                                      >
+                                        <p
+                                          className="bx--quote__source-heading"
+                                        >
+                                          Lorem ipsum dolor sit amet
+                                        </p>
+                                        <p
+                                          className="bx--quote__source-body"
+                                        >
+                                          consectetur adipiscing elit
+                                        </p>
+                                      </div>
+                                    </div>
+                                    <div
+                                      className="bx--quote__footer"
+                                    >
+                                      <HorizontalRule>
+                                        <hr
+                                          className="bx--hr"
+                                          data-autoid="dds--hr"
+                                        />
+                                      </HorizontalRule>
+                                      <LinkWithIcon
+                                        href="https://example.com"
+                                      >
+                                        <div
+                                          className="bx--link-with-icon__container"
+                                          data-autoid="dds--link-with-icon"
+                                        >
+                                          <Link
+                                            className="bx--link-with-icon"
+                                            href="https://example.com"
+                                          >
+                                            <a
+                                              className="bx--link bx--link-with-icon"
+                                              href="https://example.com"
+                                            >
+                                              Link with Icon
+                                              <ForwardRef(ArrowRight20)>
+                                                <Icon
+                                                  height={20}
+                                                  preserveAspectRatio="xMidYMid meet"
+                                                  viewBox="0 0 20 20"
+                                                  width={20}
+                                                  xmlns="http://www.w3.org/2000/svg"
+                                                >
+                                                  <svg
+                                                    aria-hidden={true}
+                                                    focusable="false"
+                                                    height={20}
+                                                    preserveAspectRatio="xMidYMid meet"
+                                                    viewBox="0 0 20 20"
+                                                    width={20}
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                  >
+                                                    <polygon
+                                                      points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
+                                                    />
+                                                  </svg>
+                                                </Icon>
+                                              </ForwardRef(ArrowRight20)>
+                                            </a>
+                                          </Link>
+                                        </div>
+                                      </LinkWithIcon>
+                                    </div>
+                                  </div>
+                                </Quote>
+                              </div>
+                            </div>
+                          </section>
+                        </Callout>
+                      </div>
+                    </CalloutQuote>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </_default>
+      </div>
+    </ReadmeContent>
+  </div>
+  <input
+    aria-label="input-text-offleft"
+    className="bx--visually-hidden"
+    type="text"
+  />
+</Container>
+`;
+
 exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
 <Container
   story={[Function]}
