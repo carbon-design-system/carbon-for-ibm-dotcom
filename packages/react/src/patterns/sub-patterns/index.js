@@ -7,6 +7,7 @@
 
 export * from './ButtonGroup';
 export * from './Card';
+export * from './CardGroup';
 export * from './ContentBlock';
 export * from './ContentItem';
 export * from './ContentGroup';

@@ -1,0 +1,96 @@
+{
+  "CardSectionSimple": [
+    {
+      "heading": "Nunc convallis lobortis",
+      "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
+      "cta": {
+        "href": "https://www.example.com"
+      }
+    },
+    {
+      "heading": "Fusce gravida eu arcu",
+      "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
+      "cta": {
+        "href": "https://www.example.com"
+      }
+    },
+    {
+      "heading": "Interdum et malesuada",
+      "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
+      "cta": {
+        "href": "https://www.example.com"
+      }
+    },
+    {
+      "heading": "Nunc convallis loborti",
+      "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
+      "cta": {
+        "href": "https://www.example.com"
+      }
+    },
+    {
+      "heading": "Nunc convallis lbortis",
+      "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
+      "cta": {
+        "href": "https://www.example.com"
+      }
+    }
+  ],
+  "CardSectionImages": [
+    {
+      "image": {
+        "defaultSrc": "https://dummyimage.com/1056x792/ee5396/161616%26text=4:3",
+        "alt": "Image alt text"
+      },
+      "eyebrow": "Topic",
+      "heading": "Natural language processing.",
+      "cta": {
+        "href": "https://www.example.com"
+      }
+    },
+    {
+      "image": {
+        "defaultSrc": "https://dummyimage.com/792x1056/ee5396/161616%26text=3:4",
+        "alt": "Image alt text"
+      },
+      "eyebrow": "Blog",
+      "heading": "Natural language processing.",
+      "cta": {
+        "href": "https://www.example.com"
+      }
+    },
+    {
+      "image": {
+        "defaultSrc": "https://dummyimage.com/1056x1056/ee5396/161616%26text=1:1",
+        "alt": "Image alt text"
+      },
+      "eyebrow": "Topic",
+      "heading": "Natural language processing.",
+      "cta": {
+        "href": "https://www.example.com"
+      }
+    },
+    {
+      "image": {
+        "defaultSrc": "https://dummyimage.com/1056x528/ee5396/161616%26text=2:1",
+        "alt": "Image alt text"
+      },
+      "eyebrow": "Blog",
+      "heading": "Serving society ethically in the age of Artificial Intelligence.",
+      "cta": {
+        "href": "https://www.example.com"
+      }
+    },
+    {
+      "image": {
+        "defaultSrc": "https://dummyimage.com/1056x594/ee5396/161616%26text=16:9",
+        "alt": "Image alt text"
+      },
+      "eyebrow": "Topic",
+      "heading": "Serving society ethically in the age of Artificial Intelligence.",
+      "cta": {
+        "href": "https://www.example.com"
+      }
+    }
+  ]
+}

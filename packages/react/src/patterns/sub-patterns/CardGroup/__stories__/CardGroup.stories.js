@@ -8,7 +8,7 @@
 import './index.scss';
 import { boolean, object, select, withKnobs } from '@storybook/addon-knobs';
 import CardGroup from '../CardGroup';
-import cards from '../../../sections/CardSection/__stories__/data/cards.json';
+import cards from './data/cards.json';
 import React from 'react';
 import readme from '../README.md';
 import { storiesOf } from '@storybook/react';

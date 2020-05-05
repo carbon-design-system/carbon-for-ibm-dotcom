@@ -1,5 +1,5 @@
 import { object, select, text, withKnobs } from '@storybook/addon-knobs';
-import cards from '../../CardSection/__stories__/data/cards.json';
+import cards from '../../../sub-patterns/CardGroup/__stories__/data/cards.json';
 import CardSectionImages from '../CardSectionImages';
 import React from 'react';
 import readme from '../README.md';
