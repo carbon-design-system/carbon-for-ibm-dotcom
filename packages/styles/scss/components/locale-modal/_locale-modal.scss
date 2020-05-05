@@ -20,8 +20,6 @@
 
     @media (max-height: rem(450px)) {
       .#{$prefix}--locale-modal__filtering {
-        overflow-y: scroll;
-
         .#{$prefix}--locale-modal__filter {
           overflow-y: initial;
 
