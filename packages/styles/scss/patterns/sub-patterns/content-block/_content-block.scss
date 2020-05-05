@@ -11,18 +11,9 @@
 @import '../../blocks/feature-card/feature-card';
 
 @mixin content-block {
-  .#{$prefix}--content-block-inverse {
+  .#{$prefix}--content-block--inverse {
     background-color: $inverse-02;
     color: #ffffff;
-    padding-top: $carbon--layout-03;
-    padding-bottom: $carbon--layout-05;
-    @include carbon--breakpoint('md') {
-      padding-top: $carbon--layout-05;
-      padding-bottom: $carbon--layout-06;
-    }
-    @include carbon--breakpoint('max') {
-      padding-bottom: $carbon--layout-07;
-    }
   }
   .#{$prefix}--content-block {
     // Do the following spacing really belong on the content-block, or more on a section level?

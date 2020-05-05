@@ -18,17 +18,7 @@ import { settings } from 'carbon-components';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
-/**
- *
- * @param {string} type returns inverse or default
- * @returns {string} theme classname
- * @private
- */
-function _themeClassname(type) {
-  return type === 'inverse'
-    ? `${prefix}--content-block-inverse`
-    : `${prefix}--content-block`;
-}
+
 /**
  * ContentBlock Sub-pattern
  *
@@ -50,6 +40,12 @@ const ContentBlock = ({
   aside,
   type,
 }) => {
+  const classname = cx(
+    `${prefix}--content-block`,
+    { [`${prefix}--content-block--inverse`]: type === 'inverse' },
+    customClassName
+  );
+
   const content = (
     <>
       {copy && (
@@ -82,9 +78,7 @@ const ContentBlock = ({
   );
 
   return (
-    <div
-      data-autoid={`${stablePrefix}--content-block`}
-      className={cx(_themeClassname(type), customClassName)}>
+    <div data-autoid={`${stablePrefix}--content-block`} className={classname}>
       {aside && aside.items
         ? _layoutWrap(
             <>
