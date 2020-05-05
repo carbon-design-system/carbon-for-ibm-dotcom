@@ -25,19 +25,12 @@ const useExternalCss = process.env.REACT_STORYBOOK_USE_EXTERNAL_CSS === 'true';
  */
 const useStyleSourceMap = process.env.REACT_STORYBOOK_SOURCEMAPS === 'true';
 
-const useControlledStateWithEventListener =
-  process.env.CARBON_REACT_USE_CONTROLLED_STATE_WITH_EVENT_LISTENER === 'true';
-
 /**
  * Sets the document direction (https://developer.mozilla.org/en-US/docs/Web/API/Document/dir)
  *
  * @type {boolean}
  */
-const useRtl = process.env.CARBON_REACT_STORYBOOK_USE_RTL === 'true';
-
-const replaceTable = {
-  useControlledStateWithEventListener,
-};
+const useRtl = process.env.REACT_STORYBOOK_USE_RTL === 'true';
 
 const styleLoaders = [
   {
@@ -80,25 +73,6 @@ const styleLoaders = [
   },
 ];
 
-class FeatureFlagProxyPlugin {
-  /**
-   * A WebPack resolver plugin that proxies module request
-   * for `carbon-components/es/globals/js/settings` to `./settings`.
-   */
-  constructor() {
-    this.source = 'before-described-relative';
-  }
-
-  apply(resolver) {
-    resolver.plugin(this.source, (request, callback) => {
-      if (/[\\/]globals[\\/]js[\\/]settings$/.test(request.path)) {
-        request.path = path.resolve(__dirname, './settings');
-      }
-      callback();
-    });
-  }
-}
-
 module.exports = ({ config, mode }) => {
   config.devtool = useStyleSourceMap ? 'source-map' : '';
   config.optimization = {
@@ -112,18 +86,6 @@ module.exports = ({ config, mode }) => {
       }),
     ],
   };
-
-  config.module.rules.push({
-    test: /(\/|\\)FeatureFlags\.js$/,
-    loader: 'string-replace-loader',
-    options: {
-      multiple: Object.keys(replaceTable).map(key => ({
-        search: `export\\s+const\\s+${key}\\s*=\\s*false`,
-        replace: `export const ${key} = ${replaceTable[key]}`,
-        flags: 'i',
-      })),
-    },
-  });
 
   config.module.rules.push({
     test: /.stories\.jsx?$/,
@@ -181,7 +143,6 @@ module.exports = ({ config, mode }) => {
 
   config.resolve = {
     modules: ['node_modules'],
-    plugins: [new FeatureFlagProxyPlugin()],
   };
 
   return config;
