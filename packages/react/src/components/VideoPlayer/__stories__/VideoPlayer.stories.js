@@ -24,7 +24,7 @@ storiesOf('Components|VideoPlayer', module)
         <div className="bx--row">
           <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
             <VideoPlayer
-              videoId="0_uka1msg4"
+              videoId="0_orew0puw"
               showDescription={boolean('Show description', true)}
             />
           </div>
