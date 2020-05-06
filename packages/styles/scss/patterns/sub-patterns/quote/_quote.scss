@@ -34,7 +34,7 @@
       @include carbon--type-style(quotation-02, true);
 
       position: absolute;
-      left: 0.75rem;
+      left: 0.6rem;
       color: $text-01;
     }
 
@@ -75,7 +75,7 @@
         color: $inverse-01;
       }
 
-      .#{$prefix}--link-with-icon__container {
+      .#{$prefix}--link-with-icon__container .#{$prefix}--link {
         color: $inverse-link;
       }
     }

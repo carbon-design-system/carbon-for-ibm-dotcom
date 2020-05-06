@@ -5,15 +5,14 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import './index.scss';
-import { boolean, object, select, withKnobs } from '@storybook/addon-knobs';
-import CardGroup from '../CardGroup';
-import cards from './data/cards.json';
+import { object, select, text, withKnobs } from '@storybook/addon-knobs';
+import cards from '../../../sub-patterns/CardGroup/__stories__/data/cards.json';
+import ContentBlockCards from '../ContentBlockCards';
 import React from 'react';
 import readme from '../README.md';
 import { storiesOf } from '@storybook/react';
 
-storiesOf('Patterns (Sub-Patterns)|CardGroup', module)
+storiesOf('Patterns (Blocks)|ContentBlockCards', module)
   .addDecorator(withKnobs)
   .addParameters({
     readme: {
@@ -21,27 +20,22 @@ storiesOf('Patterns (Sub-Patterns)|CardGroup', module)
     },
   })
 
-  .add('default', () => {
+  .add('Default', () => {
     const cardTypes = Object.keys(cards);
-
     const type = select('Card (type)', cardTypes, cardTypes[0]);
     const data = object(`Data (${type})`, cards[type]);
 
-    cards[type] = data;
-
-    const toggleCTA = boolean('cta', true);
-    const cta = {
-      heading: 'Top level card link',
-      cta: {
-        href: 'https://www.example.com',
-      },
-    };
-
     return (
-      <div className="bx--grid bx--content-group-story">
+      <div className="bx--grid">
         <div className="bx--row">
-          <div className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-2">
-            <CardGroup cards={data} cta={toggleCTA && cta} />
+          <div className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-2 content-block-story">
+            <ContentBlockCards
+              heading={text(
+                'Heading (required):',
+                'Aliquam condimentum interdum'
+              )}
+              cards={data}
+            />
           </div>
         </div>
       </div>

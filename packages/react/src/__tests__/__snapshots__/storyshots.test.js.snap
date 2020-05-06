@@ -94,22 +94,15 @@ exports[`Storyshots Components|CTA Default 1`] = `
                       <div>
                         <TextCTA
                           copy="Lorem ipsum dolor sit amet"
-                          external={[Function]}
                           href="https://www.example.com"
-                          iconSelector={[Function]}
-                          jump={[Function]}
-                          launchLightBox={[Function]}
                           media={
                             Object {
                               "src": "0_uka1msg4",
                               "type": "video",
                             }
                           }
-                          mediaData={Object {}}
                           openLightBox={[Function]}
                           renderLightBox={false}
-                          setLightBox={[Function]}
-                          setMediaData={[Function]}
                           style="text"
                           type="local"
                           videoTitle={
@@ -5577,6 +5570,1056 @@ exports[`Storyshots Overview|Get Started Read Me 1`] = `
 </Container>
 `;
 
+exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
+<Container
+  story={[Function]}
+>
+  <div
+    data-floating-menu-container=""
+    role="main"
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+      }
+    }
+  >
+    <ReadmeContent
+      codeTheme="github"
+      layout={
+        Array [
+          Object {
+            "content": <React.Fragment>
+              <div
+                className="bx--grid"
+              >
+                <div
+                  className="bx--row"
+                >
+                  <div
+                    className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-2 content-block-story"
+                  >
+                    <ContentBlockCards
+                      cards={
+                        Array [
+                          Object {
+                            "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
+                            "cta": Object {
+                              "href": "https://www.example.com",
+                            },
+                            "heading": "Nunc convallis lobortis",
+                          },
+                          Object {
+                            "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
+                            "cta": Object {
+                              "href": "https://www.example.com",
+                            },
+                            "heading": "Fusce gravida eu arcu",
+                          },
+                          Object {
+                            "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
+                            "cta": Object {
+                              "href": "https://www.example.com",
+                            },
+                            "heading": "Interdum et malesuada",
+                          },
+                          Object {
+                            "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
+                            "cta": Object {
+                              "href": "https://www.example.com",
+                            },
+                            "heading": "Nunc convallis loborti",
+                          },
+                          Object {
+                            "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
+                            "cta": Object {
+                              "href": "https://www.example.com",
+                            },
+                            "heading": "Nunc convallis lbortis",
+                          },
+                        ]
+                      }
+                      heading="Aliquam condimentum interdum"
+                    />
+                  </div>
+                </div>
+              </div>
+            </React.Fragment>,
+            "type": "STORY",
+          },
+        ]
+      }
+      theme={Object {}}
+      types={
+        Array [
+          "MD",
+          "STORY",
+          "STORY_SOURCE",
+          "PROPS",
+          "FOOTER_MD",
+          "HEADER_MD",
+        ]
+      }
+    >
+      <div
+        className="storybook-readme-story"
+      >
+        <_default
+          key="0"
+        >
+          <div
+            style={Object {}}
+          >
+            <div>
+              <div
+                className="bx--grid"
+              >
+                <div
+                  className="bx--row"
+                >
+                  <div
+                    className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-2 content-block-story"
+                  >
+                    <ContentBlockCards
+                      cards={
+                        Array [
+                          Object {
+                            "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
+                            "cta": Object {
+                              "href": "https://www.example.com",
+                            },
+                            "heading": "Nunc convallis lobortis",
+                          },
+                          Object {
+                            "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
+                            "cta": Object {
+                              "href": "https://www.example.com",
+                            },
+                            "heading": "Fusce gravida eu arcu",
+                          },
+                          Object {
+                            "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
+                            "cta": Object {
+                              "href": "https://www.example.com",
+                            },
+                            "heading": "Interdum et malesuada",
+                          },
+                          Object {
+                            "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
+                            "cta": Object {
+                              "href": "https://www.example.com",
+                            },
+                            "heading": "Nunc convallis loborti",
+                          },
+                          Object {
+                            "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
+                            "cta": Object {
+                              "href": "https://www.example.com",
+                            },
+                            "heading": "Nunc convallis lbortis",
+                          },
+                        ]
+                      }
+                      heading="Aliquam condimentum interdum"
+                    >
+                      <div
+                        className="bx--content-block-cards"
+                        data-autoid="dds--content-block-cards"
+                      >
+                        <ContentBlock
+                          heading="Aliquam condimentum interdum"
+                        >
+                          <div
+                            className="bx--content-block"
+                            data-autoid="dds--content-block"
+                          >
+                            <div>
+                              <h2
+                                className="bx--content-block__heading"
+                                data-autoid="dds--content-block__heading"
+                              >
+                                Aliquam condimentum interdum
+                              </h2>
+                            </div>
+                            <div
+                              className="bx--content-block__children"
+                              data-autoid="dds--content-block__children"
+                            >
+                              <div
+                                className="bx--content-block-cards__content"
+                              >
+                                <CardGroup
+                                  cards={
+                                    Array [
+                                      Object {
+                                        "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
+                                        "cta": Object {
+                                          "href": "https://www.example.com",
+                                        },
+                                        "heading": "Nunc convallis lobortis",
+                                      },
+                                      Object {
+                                        "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
+                                        "cta": Object {
+                                          "href": "https://www.example.com",
+                                        },
+                                        "heading": "Fusce gravida eu arcu",
+                                      },
+                                      Object {
+                                        "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
+                                        "cta": Object {
+                                          "href": "https://www.example.com",
+                                        },
+                                        "heading": "Interdum et malesuada",
+                                      },
+                                      Object {
+                                        "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
+                                        "cta": Object {
+                                          "href": "https://www.example.com",
+                                        },
+                                        "heading": "Nunc convallis loborti",
+                                      },
+                                      Object {
+                                        "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
+                                        "cta": Object {
+                                          "href": "https://www.example.com",
+                                        },
+                                        "heading": "Nunc convallis lbortis",
+                                      },
+                                    ]
+                                  }
+                                >
+                                  <div
+                                    className="bx--card-group__cards__row bx--row--condensed"
+                                    data-autoid="dds--card-group"
+                                  >
+                                    <div
+                                      aria-label="Nunc convallis lobortis"
+                                      className="bx--card-group__cards__col"
+                                      key="0"
+                                      role="region"
+                                    >
+                                      <Card
+                                        copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
+                                        cta={
+                                          Object {
+                                            "href": "https://www.example.com",
+                                            "icon": Object {
+                                              "src": Object {
+                                                "$$typeof": Symbol(react.forward_ref),
+                                                "render": [Function],
+                                              },
+                                            },
+                                          }
+                                        }
+                                        customClassName="bx--card-group__card"
+                                        heading="Nunc convallis lobortis"
+                                        key="0"
+                                        type="link"
+                                      >
+                                        <ClickableTile
+                                          className="bx--card bx--card--link bx--card-group__card"
+                                          clicked={false}
+                                          data-autoid="dds--card"
+                                          handleClick={[Function]}
+                                          handleKeyDown={[Function]}
+                                          href="https://www.example.com"
+                                          light={false}
+                                        >
+                                          <a
+                                            className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
+                                            data-autoid="dds--card"
+                                            href="https://www.example.com"
+                                            onClick={[Function]}
+                                            onKeyDown={[Function]}
+                                          >
+                                            <div
+                                              className="bx--card__wrapper"
+                                            >
+                                              <h3
+                                                className="bx--card__heading"
+                                              >
+                                                Nunc convallis lobortis
+                                              </h3>
+                                              <div
+                                                className="bx--card__copy"
+                                                dangerouslySetInnerHTML={
+                                                  Object {
+                                                    "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
+                                                  }
+                                                }
+                                              />
+                                              <div
+                                                className="bx--card__footer"
+                                              >
+                                                <ForwardRef(ArrowRight20)
+                                                  className="bx--card__cta"
+                                                  src={
+                                                    Object {
+                                                      "$$typeof": Symbol(react.forward_ref),
+                                                      "render": [Function],
+                                                    }
+                                                  }
+                                                >
+                                                  <Icon
+                                                    className="bx--card__cta"
+                                                    height={20}
+                                                    preserveAspectRatio="xMidYMid meet"
+                                                    src={
+                                                      Object {
+                                                        "$$typeof": Symbol(react.forward_ref),
+                                                        "render": [Function],
+                                                      }
+                                                    }
+                                                    viewBox="0 0 20 20"
+                                                    width={20}
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                  >
+                                                    <svg
+                                                      aria-hidden={true}
+                                                      className="bx--card__cta"
+                                                      focusable="false"
+                                                      height={20}
+                                                      preserveAspectRatio="xMidYMid meet"
+                                                      src={
+                                                        Object {
+                                                          "$$typeof": Symbol(react.forward_ref),
+                                                          "render": [Function],
+                                                        }
+                                                      }
+                                                      viewBox="0 0 20 20"
+                                                      width={20}
+                                                      xmlns="http://www.w3.org/2000/svg"
+                                                    >
+                                                      <polygon
+                                                        points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
+                                                      />
+                                                    </svg>
+                                                  </Icon>
+                                                </ForwardRef(ArrowRight20)>
+                                              </div>
+                                            </div>
+                                          </a>
+                                        </ClickableTile>
+                                      </Card>
+                                    </div>
+                                    <div
+                                      aria-label="Fusce gravida eu arcu"
+                                      className="bx--card-group__cards__col"
+                                      key="1"
+                                      role="region"
+                                    >
+                                      <Card
+                                        copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
+                                        cta={
+                                          Object {
+                                            "href": "https://www.example.com",
+                                            "icon": Object {
+                                              "src": Object {
+                                                "$$typeof": Symbol(react.forward_ref),
+                                                "render": [Function],
+                                              },
+                                            },
+                                          }
+                                        }
+                                        customClassName="bx--card-group__card"
+                                        heading="Fusce gravida eu arcu"
+                                        key="1"
+                                        type="link"
+                                      >
+                                        <ClickableTile
+                                          className="bx--card bx--card--link bx--card-group__card"
+                                          clicked={false}
+                                          data-autoid="dds--card"
+                                          handleClick={[Function]}
+                                          handleKeyDown={[Function]}
+                                          href="https://www.example.com"
+                                          light={false}
+                                        >
+                                          <a
+                                            className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
+                                            data-autoid="dds--card"
+                                            href="https://www.example.com"
+                                            onClick={[Function]}
+                                            onKeyDown={[Function]}
+                                          >
+                                            <div
+                                              className="bx--card__wrapper"
+                                            >
+                                              <h3
+                                                className="bx--card__heading"
+                                              >
+                                                Fusce gravida eu arcu
+                                              </h3>
+                                              <div
+                                                className="bx--card__copy"
+                                                dangerouslySetInnerHTML={
+                                                  Object {
+                                                    "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
+                                                  }
+                                                }
+                                              />
+                                              <div
+                                                className="bx--card__footer"
+                                              >
+                                                <ForwardRef(ArrowRight20)
+                                                  className="bx--card__cta"
+                                                  src={
+                                                    Object {
+                                                      "$$typeof": Symbol(react.forward_ref),
+                                                      "render": [Function],
+                                                    }
+                                                  }
+                                                >
+                                                  <Icon
+                                                    className="bx--card__cta"
+                                                    height={20}
+                                                    preserveAspectRatio="xMidYMid meet"
+                                                    src={
+                                                      Object {
+                                                        "$$typeof": Symbol(react.forward_ref),
+                                                        "render": [Function],
+                                                      }
+                                                    }
+                                                    viewBox="0 0 20 20"
+                                                    width={20}
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                  >
+                                                    <svg
+                                                      aria-hidden={true}
+                                                      className="bx--card__cta"
+                                                      focusable="false"
+                                                      height={20}
+                                                      preserveAspectRatio="xMidYMid meet"
+                                                      src={
+                                                        Object {
+                                                          "$$typeof": Symbol(react.forward_ref),
+                                                          "render": [Function],
+                                                        }
+                                                      }
+                                                      viewBox="0 0 20 20"
+                                                      width={20}
+                                                      xmlns="http://www.w3.org/2000/svg"
+                                                    >
+                                                      <polygon
+                                                        points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
+                                                      />
+                                                    </svg>
+                                                  </Icon>
+                                                </ForwardRef(ArrowRight20)>
+                                              </div>
+                                            </div>
+                                          </a>
+                                        </ClickableTile>
+                                      </Card>
+                                    </div>
+                                    <div
+                                      aria-label="Interdum et malesuada"
+                                      className="bx--card-group__cards__col"
+                                      key="2"
+                                      role="region"
+                                    >
+                                      <Card
+                                        copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
+                                        cta={
+                                          Object {
+                                            "href": "https://www.example.com",
+                                            "icon": Object {
+                                              "src": Object {
+                                                "$$typeof": Symbol(react.forward_ref),
+                                                "render": [Function],
+                                              },
+                                            },
+                                          }
+                                        }
+                                        customClassName="bx--card-group__card"
+                                        heading="Interdum et malesuada"
+                                        key="2"
+                                        type="link"
+                                      >
+                                        <ClickableTile
+                                          className="bx--card bx--card--link bx--card-group__card"
+                                          clicked={false}
+                                          data-autoid="dds--card"
+                                          handleClick={[Function]}
+                                          handleKeyDown={[Function]}
+                                          href="https://www.example.com"
+                                          light={false}
+                                        >
+                                          <a
+                                            className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
+                                            data-autoid="dds--card"
+                                            href="https://www.example.com"
+                                            onClick={[Function]}
+                                            onKeyDown={[Function]}
+                                          >
+                                            <div
+                                              className="bx--card__wrapper"
+                                            >
+                                              <h3
+                                                className="bx--card__heading"
+                                              >
+                                                Interdum et malesuada
+                                              </h3>
+                                              <div
+                                                className="bx--card__copy"
+                                                dangerouslySetInnerHTML={
+                                                  Object {
+                                                    "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
+                                                  }
+                                                }
+                                              />
+                                              <div
+                                                className="bx--card__footer"
+                                              >
+                                                <ForwardRef(ArrowRight20)
+                                                  className="bx--card__cta"
+                                                  src={
+                                                    Object {
+                                                      "$$typeof": Symbol(react.forward_ref),
+                                                      "render": [Function],
+                                                    }
+                                                  }
+                                                >
+                                                  <Icon
+                                                    className="bx--card__cta"
+                                                    height={20}
+                                                    preserveAspectRatio="xMidYMid meet"
+                                                    src={
+                                                      Object {
+                                                        "$$typeof": Symbol(react.forward_ref),
+                                                        "render": [Function],
+                                                      }
+                                                    }
+                                                    viewBox="0 0 20 20"
+                                                    width={20}
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                  >
+                                                    <svg
+                                                      aria-hidden={true}
+                                                      className="bx--card__cta"
+                                                      focusable="false"
+                                                      height={20}
+                                                      preserveAspectRatio="xMidYMid meet"
+                                                      src={
+                                                        Object {
+                                                          "$$typeof": Symbol(react.forward_ref),
+                                                          "render": [Function],
+                                                        }
+                                                      }
+                                                      viewBox="0 0 20 20"
+                                                      width={20}
+                                                      xmlns="http://www.w3.org/2000/svg"
+                                                    >
+                                                      <polygon
+                                                        points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
+                                                      />
+                                                    </svg>
+                                                  </Icon>
+                                                </ForwardRef(ArrowRight20)>
+                                              </div>
+                                            </div>
+                                          </a>
+                                        </ClickableTile>
+                                      </Card>
+                                    </div>
+                                    <div
+                                      aria-label="Nunc convallis loborti"
+                                      className="bx--card-group__cards__col"
+                                      key="3"
+                                      role="region"
+                                    >
+                                      <Card
+                                        copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
+                                        cta={
+                                          Object {
+                                            "href": "https://www.example.com",
+                                            "icon": Object {
+                                              "src": Object {
+                                                "$$typeof": Symbol(react.forward_ref),
+                                                "render": [Function],
+                                              },
+                                            },
+                                          }
+                                        }
+                                        customClassName="bx--card-group__card"
+                                        heading="Nunc convallis loborti"
+                                        key="3"
+                                        type="link"
+                                      >
+                                        <ClickableTile
+                                          className="bx--card bx--card--link bx--card-group__card"
+                                          clicked={false}
+                                          data-autoid="dds--card"
+                                          handleClick={[Function]}
+                                          handleKeyDown={[Function]}
+                                          href="https://www.example.com"
+                                          light={false}
+                                        >
+                                          <a
+                                            className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
+                                            data-autoid="dds--card"
+                                            href="https://www.example.com"
+                                            onClick={[Function]}
+                                            onKeyDown={[Function]}
+                                          >
+                                            <div
+                                              className="bx--card__wrapper"
+                                            >
+                                              <h3
+                                                className="bx--card__heading"
+                                              >
+                                                Nunc convallis loborti
+                                              </h3>
+                                              <div
+                                                className="bx--card__copy"
+                                                dangerouslySetInnerHTML={
+                                                  Object {
+                                                    "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
+                                                  }
+                                                }
+                                              />
+                                              <div
+                                                className="bx--card__footer"
+                                              >
+                                                <ForwardRef(ArrowRight20)
+                                                  className="bx--card__cta"
+                                                  src={
+                                                    Object {
+                                                      "$$typeof": Symbol(react.forward_ref),
+                                                      "render": [Function],
+                                                    }
+                                                  }
+                                                >
+                                                  <Icon
+                                                    className="bx--card__cta"
+                                                    height={20}
+                                                    preserveAspectRatio="xMidYMid meet"
+                                                    src={
+                                                      Object {
+                                                        "$$typeof": Symbol(react.forward_ref),
+                                                        "render": [Function],
+                                                      }
+                                                    }
+                                                    viewBox="0 0 20 20"
+                                                    width={20}
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                  >
+                                                    <svg
+                                                      aria-hidden={true}
+                                                      className="bx--card__cta"
+                                                      focusable="false"
+                                                      height={20}
+                                                      preserveAspectRatio="xMidYMid meet"
+                                                      src={
+                                                        Object {
+                                                          "$$typeof": Symbol(react.forward_ref),
+                                                          "render": [Function],
+                                                        }
+                                                      }
+                                                      viewBox="0 0 20 20"
+                                                      width={20}
+                                                      xmlns="http://www.w3.org/2000/svg"
+                                                    >
+                                                      <polygon
+                                                        points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
+                                                      />
+                                                    </svg>
+                                                  </Icon>
+                                                </ForwardRef(ArrowRight20)>
+                                              </div>
+                                            </div>
+                                          </a>
+                                        </ClickableTile>
+                                      </Card>
+                                    </div>
+                                    <div
+                                      aria-label="Nunc convallis lbortis"
+                                      className="bx--card-group__cards__col"
+                                      key="4"
+                                      role="region"
+                                    >
+                                      <Card
+                                        copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
+                                        cta={
+                                          Object {
+                                            "href": "https://www.example.com",
+                                            "icon": Object {
+                                              "src": Object {
+                                                "$$typeof": Symbol(react.forward_ref),
+                                                "render": [Function],
+                                              },
+                                            },
+                                          }
+                                        }
+                                        customClassName="bx--card-group__card"
+                                        heading="Nunc convallis lbortis"
+                                        key="4"
+                                        type="link"
+                                      >
+                                        <ClickableTile
+                                          className="bx--card bx--card--link bx--card-group__card"
+                                          clicked={false}
+                                          data-autoid="dds--card"
+                                          handleClick={[Function]}
+                                          handleKeyDown={[Function]}
+                                          href="https://www.example.com"
+                                          light={false}
+                                        >
+                                          <a
+                                            className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
+                                            data-autoid="dds--card"
+                                            href="https://www.example.com"
+                                            onClick={[Function]}
+                                            onKeyDown={[Function]}
+                                          >
+                                            <div
+                                              className="bx--card__wrapper"
+                                            >
+                                              <h3
+                                                className="bx--card__heading"
+                                              >
+                                                Nunc convallis lbortis
+                                              </h3>
+                                              <div
+                                                className="bx--card__copy"
+                                                dangerouslySetInnerHTML={
+                                                  Object {
+                                                    "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
+                                                  }
+                                                }
+                                              />
+                                              <div
+                                                className="bx--card__footer"
+                                              >
+                                                <ForwardRef(ArrowRight20)
+                                                  className="bx--card__cta"
+                                                  src={
+                                                    Object {
+                                                      "$$typeof": Symbol(react.forward_ref),
+                                                      "render": [Function],
+                                                    }
+                                                  }
+                                                >
+                                                  <Icon
+                                                    className="bx--card__cta"
+                                                    height={20}
+                                                    preserveAspectRatio="xMidYMid meet"
+                                                    src={
+                                                      Object {
+                                                        "$$typeof": Symbol(react.forward_ref),
+                                                        "render": [Function],
+                                                      }
+                                                    }
+                                                    viewBox="0 0 20 20"
+                                                    width={20}
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                  >
+                                                    <svg
+                                                      aria-hidden={true}
+                                                      className="bx--card__cta"
+                                                      focusable="false"
+                                                      height={20}
+                                                      preserveAspectRatio="xMidYMid meet"
+                                                      src={
+                                                        Object {
+                                                          "$$typeof": Symbol(react.forward_ref),
+                                                          "render": [Function],
+                                                        }
+                                                      }
+                                                      viewBox="0 0 20 20"
+                                                      width={20}
+                                                      xmlns="http://www.w3.org/2000/svg"
+                                                    >
+                                                      <polygon
+                                                        points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
+                                                      />
+                                                    </svg>
+                                                  </Icon>
+                                                </ForwardRef(ArrowRight20)>
+                                              </div>
+                                            </div>
+                                          </a>
+                                        </ClickableTile>
+                                      </Card>
+                                    </div>
+                                  </div>
+                                </CardGroup>
+                              </div>
+                            </div>
+                          </div>
+                        </ContentBlock>
+                      </div>
+                    </ContentBlockCards>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </_default>
+      </div>
+    </ReadmeContent>
+  </div>
+  <input
+    aria-label="input-text-offleft"
+    className="bx--visually-hidden"
+    type="text"
+  />
+</Container>
+`;
+
+exports[`Storyshots Patterns (Blocks)|CalloutQuote Default 1`] = `
+<Container
+  story={[Function]}
+>
+  <div
+    data-floating-menu-container=""
+    role="main"
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+      }
+    }
+  >
+    <ReadmeContent
+      codeTheme="github"
+      layout={
+        Array [
+          Object {
+            "content": <React.Fragment>
+              <div
+                className="bx--grid"
+              >
+                <div
+                  className="bx--row"
+                >
+                  <div
+                    className="bx--offset-lg-4 bx--col-lg-12"
+                  >
+                    <CalloutQuote
+                      quote={
+                        Object {
+                          "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus est purus, posuere at est vitae, ornare rhoncus sem. Suspendisse vitae tellus fermentum, hendrerit augue eu, placerat magna.",
+                          "cta": Object {
+                            "copy": "Link with Icon",
+                            "href": "https://example.com",
+                            "type": "local",
+                          },
+                          "markType": "doubleCurved",
+                          "source": Object {
+                            "copy": "consectetur adipiscing elit",
+                            "heading": "Lorem ipsum dolor sit amet",
+                          },
+                        }
+                      }
+                    />
+                  </div>
+                </div>
+              </div>
+            </React.Fragment>,
+            "type": "STORY",
+          },
+        ]
+      }
+      theme={Object {}}
+      types={
+        Array [
+          "MD",
+          "STORY",
+          "STORY_SOURCE",
+          "PROPS",
+          "FOOTER_MD",
+          "HEADER_MD",
+        ]
+      }
+    >
+      <div
+        className="storybook-readme-story"
+      >
+        <_default
+          key="0"
+        >
+          <div
+            style={Object {}}
+          >
+            <div>
+              <div
+                className="bx--grid"
+              >
+                <div
+                  className="bx--row"
+                >
+                  <div
+                    className="bx--offset-lg-4 bx--col-lg-12"
+                  >
+                    <CalloutQuote
+                      quote={
+                        Object {
+                          "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus est purus, posuere at est vitae, ornare rhoncus sem. Suspendisse vitae tellus fermentum, hendrerit augue eu, placerat magna.",
+                          "cta": Object {
+                            "copy": "Link with Icon",
+                            "href": "https://example.com",
+                            "type": "local",
+                          },
+                          "markType": "doubleCurved",
+                          "source": Object {
+                            "copy": "consectetur adipiscing elit",
+                            "heading": "Lorem ipsum dolor sit amet",
+                          },
+                        }
+                      }
+                    >
+                      <div
+                        className="bx--callout-quote"
+                        data-autoid="dds--callout-quote"
+                      >
+                        <Callout>
+                          <section
+                            className="bx--callout__container"
+                            data-autoid="dds--callout__container"
+                          >
+                            <div
+                              className="bx--callout__column"
+                              data-autoid="dds--callout__column"
+                            >
+                              <div
+                                className="bx--callout__content"
+                                data-autoid="dds--callout__content"
+                              >
+                                <Quote
+                                  copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus est purus, posuere at est vitae, ornare rhoncus sem. Suspendisse vitae tellus fermentum, hendrerit augue eu, placerat magna."
+                                  cta={
+                                    Object {
+                                      "copy": "Link with Icon",
+                                      "href": "https://example.com",
+                                      "type": "local",
+                                    }
+                                  }
+                                  inverse={true}
+                                  markType="doubleCurved"
+                                  source={
+                                    Object {
+                                      "copy": "consectetur adipiscing elit",
+                                      "heading": "Lorem ipsum dolor sit amet",
+                                    }
+                                  }
+                                >
+                                  <div
+                                    className="bx--quote bx--quote__inverse"
+                                    data-autoid="dds--quote"
+                                  >
+                                    <div
+                                      className="bx--quote__container"
+                                    >
+                                      <div
+                                        className="bx--quote__wrapper"
+                                        data-autoid="dds--quote__copy"
+                                      >
+                                        <span
+                                          className="bx--quote__mark"
+                                        >
+                                          “
+                                        </span>
+                                        <blockquote
+                                          className="bx--quote__copy"
+                                        >
+                                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus est purus, posuere at est vitae, ornare rhoncus sem. Suspendisse vitae tellus fermentum, hendrerit augue eu, placerat magna.
+                                          ”
+                                        </blockquote>
+                                      </div>
+                                      <div
+                                        className="bx--quote__source"
+                                        data-autoid="dds--quote__source"
+                                      >
+                                        <p
+                                          className="bx--quote__source-heading"
+                                        >
+                                          Lorem ipsum dolor sit amet
+                                        </p>
+                                        <p
+                                          className="bx--quote__source-body"
+                                        >
+                                          consectetur adipiscing elit
+                                        </p>
+                                      </div>
+                                    </div>
+                                    <div
+                                      className="bx--quote__footer"
+                                    >
+                                      <HorizontalRule>
+                                        <hr
+                                          className="bx--hr"
+                                          data-autoid="dds--hr"
+                                        />
+                                      </HorizontalRule>
+                                      <LinkWithIcon
+                                        href="https://example.com"
+                                      >
+                                        <div
+                                          className="bx--link-with-icon__container"
+                                          data-autoid="dds--link-with-icon"
+                                        >
+                                          <Link
+                                            className="bx--link-with-icon"
+                                            href="https://example.com"
+                                          >
+                                            <a
+                                              className="bx--link bx--link-with-icon"
+                                              href="https://example.com"
+                                            >
+                                              Link with Icon
+                                              <ForwardRef(ArrowRight20)>
+                                                <Icon
+                                                  height={20}
+                                                  preserveAspectRatio="xMidYMid meet"
+                                                  viewBox="0 0 20 20"
+                                                  width={20}
+                                                  xmlns="http://www.w3.org/2000/svg"
+                                                >
+                                                  <svg
+                                                    aria-hidden={true}
+                                                    focusable="false"
+                                                    height={20}
+                                                    preserveAspectRatio="xMidYMid meet"
+                                                    viewBox="0 0 20 20"
+                                                    width={20}
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                  >
+                                                    <polygon
+                                                      points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
+                                                    />
+                                                  </svg>
+                                                </Icon>
+                                              </ForwardRef(ArrowRight20)>
+                                            </a>
+                                          </Link>
+                                        </div>
+                                      </LinkWithIcon>
+                                    </div>
+                                  </div>
+                                </Quote>
+                              </div>
+                            </div>
+                          </section>
+                        </Callout>
+                      </div>
+                    </CalloutQuote>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </_default>
+      </div>
+    </ReadmeContent>
+  </div>
+  <input
+    aria-label="input-text-offleft"
+    className="bx--visually-hidden"
+    type="text"
+  />
+</Container>
+`;
+
 exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
 <Container
   story={[Function]}
@@ -6193,15 +7236,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                                                   "href": "https://www.example.com",
                                                 }
                                               }
-                                              external={[Function]}
-                                              iconSelector={[Function]}
-                                              jump={[Function]}
-                                              launchLightBox={[Function]}
-                                              mediaData={Object {}}
                                               openLightBox={[Function]}
                                               renderLightBox={false}
-                                              setLightBox={[Function]}
-                                              setMediaData={[Function]}
                                               style="card"
                                               type="local"
                                               videoTitle={
@@ -6569,15 +7605,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                                                   "href": "https://www.example.com",
                                                 }
                                               }
-                                              external={[Function]}
-                                              iconSelector={[Function]}
-                                              jump={[Function]}
-                                              launchLightBox={[Function]}
-                                              mediaData={Object {}}
                                               openLightBox={[Function]}
                                               renderLightBox={false}
-                                              setLightBox={[Function]}
-                                              setMediaData={[Function]}
                                               style="card"
                                               type="local"
                                               videoTitle={
@@ -6753,16 +7782,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                                       "type": "link",
                                     }
                                   }
-                                  external={[Function]}
                                   heading="Lorem ipsum dolor sit amet"
-                                  iconSelector={[Function]}
-                                  jump={[Function]}
-                                  launchLightBox={[Function]}
-                                  mediaData={Object {}}
                                   openLightBox={[Function]}
                                   renderLightBox={false}
-                                  setLightBox={[Function]}
-                                  setMediaData={[Function]}
                                   style="feature"
                                   type="local"
                                   videoTitle={
@@ -7706,15 +8728,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                                           "href": "https://www.example.com",
                                                         }
                                                       }
-                                                      external={[Function]}
-                                                      iconSelector={[Function]}
-                                                      jump={[Function]}
-                                                      launchLightBox={[Function]}
-                                                      mediaData={Object {}}
                                                       openLightBox={[Function]}
                                                       renderLightBox={false}
-                                                      setLightBox={[Function]}
-                                                      setMediaData={[Function]}
                                                       style="card"
                                                       type="local"
                                                       videoTitle={
@@ -8082,15 +9097,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                                           "href": "https://www.example.com",
                                                         }
                                                       }
-                                                      external={[Function]}
-                                                      iconSelector={[Function]}
-                                                      jump={[Function]}
-                                                      launchLightBox={[Function]}
-                                                      mediaData={Object {}}
                                                       openLightBox={[Function]}
                                                       renderLightBox={false}
-                                                      setLightBox={[Function]}
-                                                      setMediaData={[Function]}
                                                       style="card"
                                                       type="local"
                                                       videoTitle={
@@ -8266,16 +9274,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                               "type": "link",
                                             }
                                           }
-                                          external={[Function]}
                                           heading="Lorem ipsum dolor sit amet"
-                                          iconSelector={[Function]}
-                                          jump={[Function]}
-                                          launchLightBox={[Function]}
-                                          mediaData={Object {}}
                                           openLightBox={[Function]}
                                           renderLightBox={false}
-                                          setLightBox={[Function]}
-                                          setMediaData={[Function]}
                                           style="feature"
                                           type="local"
                                           videoTitle={
@@ -8520,15 +9521,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                                       "href": "https://ibm.com",
                                                     }
                                                   }
-                                                  external={[Function]}
-                                                  iconSelector={[Function]}
-                                                  jump={[Function]}
-                                                  launchLightBox={[Function]}
-                                                  mediaData={Object {}}
                                                   openLightBox={[Function]}
                                                   renderLightBox={false}
-                                                  setLightBox={[Function]}
-                                                  setMediaData={[Function]}
                                                   style="card"
                                                   type="local"
                                                   videoTitle={
@@ -8669,15 +9663,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                                       "href": "https://ibm.com",
                                                     }
                                                   }
-                                                  external={[Function]}
-                                                  iconSelector={[Function]}
-                                                  jump={[Function]}
-                                                  launchLightBox={[Function]}
-                                                  mediaData={Object {}}
                                                   openLightBox={[Function]}
                                                   renderLightBox={false}
-                                                  setLightBox={[Function]}
-                                                  setMediaData={[Function]}
                                                   style="card"
                                                   type="external"
                                                   videoTitle={
@@ -9945,16 +10932,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                                       >
                                                         <TextCTA
                                                           copy="Lorem ipsum dolor"
-                                                          external={[Function]}
                                                           href="https://www.ibm.com"
-                                                          iconSelector={[Function]}
-                                                          jump={[Function]}
-                                                          launchLightBox={[Function]}
-                                                          mediaData={Object {}}
                                                           openLightBox={[Function]}
                                                           renderLightBox={false}
-                                                          setLightBox={[Function]}
-                                                          setMediaData={[Function]}
                                                           style="text"
                                                           type="local"
                                                           videoTitle={
@@ -10143,16 +11123,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                                       >
                                                         <TextCTA
                                                           copy="Lorem ipsum dolor"
-                                                          external={[Function]}
                                                           href="https://www.ibm.com"
-                                                          iconSelector={[Function]}
-                                                          jump={[Function]}
-                                                          launchLightBox={[Function]}
-                                                          mediaData={Object {}}
                                                           openLightBox={[Function]}
                                                           renderLightBox={false}
-                                                          setLightBox={[Function]}
-                                                          setMediaData={[Function]}
                                                           style="text"
                                                           type="local"
                                                           videoTitle={
@@ -10340,16 +11313,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                                       >
                                                         <TextCTA
                                                           copy="Lorem ipsum dolor"
-                                                          external={[Function]}
                                                           href="https://www.ibm.com"
-                                                          iconSelector={[Function]}
-                                                          jump={[Function]}
-                                                          launchLightBox={[Function]}
-                                                          mediaData={Object {}}
                                                           openLightBox={[Function]}
                                                           renderLightBox={false}
-                                                          setLightBox={[Function]}
-                                                          setMediaData={[Function]}
                                                           style="text"
                                                           type="local"
                                                           videoTitle={
@@ -10656,16 +11622,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                         "href": "https://www.ibm.com",
                                       }
                                     }
-                                    external={[Function]}
                                     heading="Lorem ipsum dolor sit amet"
-                                    iconSelector={[Function]}
-                                    jump={[Function]}
-                                    launchLightBox={[Function]}
-                                    mediaData={Object {}}
                                     openLightBox={[Function]}
                                     renderLightBox={false}
-                                    setLightBox={[Function]}
-                                    setMediaData={[Function]}
                                     style="card"
                                     type="local"
                                     videoTitle={
@@ -12045,16 +13004,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                               >
                                                                 <TextCTA
                                                                   copy="Lorem ipsum dolor"
-                                                                  external={[Function]}
                                                                   href="https://www.ibm.com"
-                                                                  iconSelector={[Function]}
-                                                                  jump={[Function]}
-                                                                  launchLightBox={[Function]}
-                                                                  mediaData={Object {}}
                                                                   openLightBox={[Function]}
                                                                   renderLightBox={false}
-                                                                  setLightBox={[Function]}
-                                                                  setMediaData={[Function]}
                                                                   style="text"
                                                                   type="local"
                                                                   videoTitle={
@@ -12243,16 +13195,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                               >
                                                                 <TextCTA
                                                                   copy="Lorem ipsum dolor"
-                                                                  external={[Function]}
                                                                   href="https://www.ibm.com"
-                                                                  iconSelector={[Function]}
-                                                                  jump={[Function]}
-                                                                  launchLightBox={[Function]}
-                                                                  mediaData={Object {}}
                                                                   openLightBox={[Function]}
                                                                   renderLightBox={false}
-                                                                  setLightBox={[Function]}
-                                                                  setMediaData={[Function]}
                                                                   style="text"
                                                                   type="local"
                                                                   videoTitle={
@@ -12440,16 +13385,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                               >
                                                                 <TextCTA
                                                                   copy="Lorem ipsum dolor"
-                                                                  external={[Function]}
                                                                   href="https://www.ibm.com"
-                                                                  iconSelector={[Function]}
-                                                                  jump={[Function]}
-                                                                  launchLightBox={[Function]}
-                                                                  mediaData={Object {}}
                                                                   openLightBox={[Function]}
                                                                   renderLightBox={false}
-                                                                  setLightBox={[Function]}
-                                                                  setMediaData={[Function]}
                                                                   style="text"
                                                                   type="local"
                                                                   videoTitle={
@@ -12756,16 +13694,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                 "href": "https://www.ibm.com",
                                               }
                                             }
-                                            external={[Function]}
                                             heading="Lorem ipsum dolor sit amet"
-                                            iconSelector={[Function]}
-                                            jump={[Function]}
-                                            launchLightBox={[Function]}
-                                            mediaData={Object {}}
                                             openLightBox={[Function]}
                                             renderLightBox={false}
-                                            setLightBox={[Function]}
-                                            setMediaData={[Function]}
                                             style="card"
                                             type="local"
                                             videoTitle={
@@ -12944,15 +13875,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                       "href": "https://ibm.com",
                                                     }
                                                   }
-                                                  external={[Function]}
-                                                  iconSelector={[Function]}
-                                                  jump={[Function]}
-                                                  launchLightBox={[Function]}
-                                                  mediaData={Object {}}
                                                   openLightBox={[Function]}
                                                   renderLightBox={false}
-                                                  setLightBox={[Function]}
-                                                  setMediaData={[Function]}
                                                   style="card"
                                                   type="local"
                                                   videoTitle={
@@ -13093,15 +14017,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                       "href": "https://ibm.com",
                                                     }
                                                   }
-                                                  external={[Function]}
-                                                  iconSelector={[Function]}
-                                                  jump={[Function]}
-                                                  launchLightBox={[Function]}
-                                                  mediaData={Object {}}
                                                   openLightBox={[Function]}
                                                   renderLightBox={false}
-                                                  setLightBox={[Function]}
-                                                  setMediaData={[Function]}
                                                   style="card"
                                                   type="external"
                                                   videoTitle={
@@ -13806,15 +14723,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                         "href": "https://www.example.com",
                                       }
                                     }
-                                    external={[Function]}
-                                    iconSelector={[Function]}
-                                    jump={[Function]}
-                                    launchLightBox={[Function]}
-                                    mediaData={Object {}}
                                     openLightBox={[Function]}
                                     renderLightBox={false}
-                                    setLightBox={[Function]}
-                                    setMediaData={[Function]}
                                     style="card"
                                     type="local"
                                     videoTitle={
@@ -14631,15 +15541,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                                 "href": "https://www.example.com",
                                               }
                                             }
-                                            external={[Function]}
-                                            iconSelector={[Function]}
-                                            jump={[Function]}
-                                            launchLightBox={[Function]}
-                                            mediaData={Object {}}
                                             openLightBox={[Function]}
                                             renderLightBox={false}
-                                            setLightBox={[Function]}
-                                            setMediaData={[Function]}
                                             style="card"
                                             type="local"
                                             videoTitle={
@@ -14818,15 +15721,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                                       "href": "https://ibm.com",
                                                     }
                                                   }
-                                                  external={[Function]}
-                                                  iconSelector={[Function]}
-                                                  jump={[Function]}
-                                                  launchLightBox={[Function]}
-                                                  mediaData={Object {}}
                                                   openLightBox={[Function]}
                                                   renderLightBox={false}
-                                                  setLightBox={[Function]}
-                                                  setMediaData={[Function]}
                                                   style="card"
                                                   type="local"
                                                   videoTitle={
@@ -14967,15 +15863,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                                       "href": "https://ibm.com",
                                                     }
                                                   }
-                                                  external={[Function]}
-                                                  iconSelector={[Function]}
-                                                  jump={[Function]}
-                                                  launchLightBox={[Function]}
-                                                  mediaData={Object {}}
                                                   openLightBox={[Function]}
                                                   renderLightBox={false}
-                                                  setLightBox={[Function]}
-                                                  setMediaData={[Function]}
                                                   style="card"
                                                   type="external"
                                                   videoTitle={
@@ -15463,16 +16352,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                                         "href": "https://www.ibm.com",
                                       }
                                     }
-                                    external={[Function]}
                                     heading="Lorem ipsum dolor sit amet"
-                                    iconSelector={[Function]}
-                                    jump={[Function]}
-                                    launchLightBox={[Function]}
-                                    mediaData={Object {}}
                                     openLightBox={[Function]}
                                     renderLightBox={false}
-                                    setLightBox={[Function]}
-                                    setMediaData={[Function]}
                                     style="card"
                                     type="local"
                                     videoTitle={
@@ -16072,16 +16954,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                                 "href": "https://www.ibm.com",
                                               }
                                             }
-                                            external={[Function]}
                                             heading="Lorem ipsum dolor sit amet"
-                                            iconSelector={[Function]}
-                                            jump={[Function]}
-                                            launchLightBox={[Function]}
-                                            mediaData={Object {}}
                                             openLightBox={[Function]}
                                             renderLightBox={false}
-                                            setLightBox={[Function]}
-                                            setMediaData={[Function]}
                                             style="card"
                                             type="local"
                                             videoTitle={
@@ -16260,15 +17135,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                                       "href": "https://ibm.com",
                                                     }
                                                   }
-                                                  external={[Function]}
-                                                  iconSelector={[Function]}
-                                                  jump={[Function]}
-                                                  launchLightBox={[Function]}
-                                                  mediaData={Object {}}
                                                   openLightBox={[Function]}
                                                   renderLightBox={false}
-                                                  setLightBox={[Function]}
-                                                  setMediaData={[Function]}
                                                   style="card"
                                                   type="local"
                                                   videoTitle={
@@ -16409,15 +17277,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                                       "href": "https://ibm.com",
                                                     }
                                                   }
-                                                  external={[Function]}
-                                                  iconSelector={[Function]}
-                                                  jump={[Function]}
-                                                  launchLightBox={[Function]}
-                                                  mediaData={Object {}}
                                                   openLightBox={[Function]}
                                                   renderLightBox={false}
-                                                  setLightBox={[Function]}
-                                                  setMediaData={[Function]}
                                                   style="card"
                                                   type="external"
                                                   videoTitle={
@@ -18051,15 +18912,8 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupSimple Default 1`] = `
                                         "href": "https://www.example.com",
                                       }
                                     }
-                                    external={[Function]}
-                                    iconSelector={[Function]}
-                                    jump={[Function]}
-                                    launchLightBox={[Function]}
-                                    mediaData={Object {}}
                                     openLightBox={[Function]}
                                     renderLightBox={false}
-                                    setLightBox={[Function]}
-                                    setMediaData={[Function]}
                                     style="card"
                                     type="local"
                                     videoTitle={
@@ -21956,7 +22810,6 @@ exports[`Storyshots Patterns (Sub-Patterns)|Card Static 1`] = `
                                   >
                                     <TextCTA
                                       copy="click here"
-                                      external={[Function]}
                                       href="https://example.com"
                                       icon={
                                         Object {
@@ -21966,14 +22819,8 @@ exports[`Storyshots Patterns (Sub-Patterns)|Card Static 1`] = `
                                           },
                                         }
                                       }
-                                      iconSelector={[Function]}
-                                      jump={[Function]}
-                                      launchLightBox={[Function]}
-                                      mediaData={Object {}}
                                       openLightBox={[Function]}
                                       renderLightBox={false}
-                                      setLightBox={[Function]}
-                                      setMediaData={[Function]}
                                       style="text"
                                       type="local"
                                       videoTitle={
@@ -23051,15 +23898,8 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock Default 1`] = `
                                     "href": "https://www.example.com",
                                   }
                                 }
-                                external={[Function]}
-                                iconSelector={[Function]}
-                                jump={[Function]}
-                                launchLightBox={[Function]}
-                                mediaData={Object {}}
                                 openLightBox={[Function]}
                                 renderLightBox={false}
-                                setLightBox={[Function]}
-                                setMediaData={[Function]}
                                 style="card"
                                 type="external"
                                 videoTitle={
@@ -23450,15 +24290,8 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock With aside elements 1`]
                                             "href": "https://www.example.com",
                                           }
                                         }
-                                        external={[Function]}
-                                        iconSelector={[Function]}
-                                        jump={[Function]}
-                                        launchLightBox={[Function]}
-                                        mediaData={Object {}}
                                         openLightBox={[Function]}
                                         renderLightBox={false}
-                                        setLightBox={[Function]}
-                                        setMediaData={[Function]}
                                         style="card"
                                         type="external"
                                         videoTitle={
@@ -23640,15 +24473,8 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock With aside elements 1`]
                                                   "href": "https://ibm.com",
                                                 }
                                               }
-                                              external={[Function]}
-                                              iconSelector={[Function]}
-                                              jump={[Function]}
-                                              launchLightBox={[Function]}
-                                              mediaData={Object {}}
                                               openLightBox={[Function]}
                                               renderLightBox={false}
-                                              setLightBox={[Function]}
-                                              setMediaData={[Function]}
                                               style="card"
                                               type="local"
                                               videoTitle={
@@ -23789,15 +24615,8 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock With aside elements 1`]
                                                   "href": "https://ibm.com",
                                                 }
                                               }
-                                              external={[Function]}
-                                              iconSelector={[Function]}
-                                              jump={[Function]}
-                                              launchLightBox={[Function]}
-                                              mediaData={Object {}}
                                               openLightBox={[Function]}
                                               renderLightBox={false}
-                                              setLightBox={[Function]}
-                                              setMediaData={[Function]}
                                               style="card"
                                               type="external"
                                               videoTitle={
@@ -24076,15 +24895,8 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentGroup Default 1`] = `
                                     "href": "https://www.example.com",
                                   }
                                 }
-                                external={[Function]}
-                                iconSelector={[Function]}
-                                jump={[Function]}
-                                launchLightBox={[Function]}
-                                mediaData={Object {}}
                                 openLightBox={[Function]}
                                 renderLightBox={false}
-                                setLightBox={[Function]}
-                                setMediaData={[Function]}
                                 style="card"
                                 videoTitle={
                                   Array [
@@ -24475,16 +25287,9 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentItem Default 1`] = `
                           >
                             <TextCTA
                               copy="Lorem ipsum dolor sit amet"
-                              external={[Function]}
                               href="https://example.com"
-                              iconSelector={[Function]}
-                              jump={[Function]}
-                              launchLightBox={[Function]}
-                              mediaData={Object {}}
                               openLightBox={[Function]}
                               renderLightBox={false}
-                              setLightBox={[Function]}
-                              setMediaData={[Function]}
                               style="text"
                               type="local"
                               videoTitle={
@@ -25386,15 +26191,8 @@ exports[`Storyshots Patterns (Sub-Patterns)|LinkList Default 1`] = `
                                       "href": "https://ibm.com",
                                     }
                                   }
-                                  external={[Function]}
-                                  iconSelector={[Function]}
-                                  jump={[Function]}
-                                  launchLightBox={[Function]}
-                                  mediaData={Object {}}
                                   openLightBox={[Function]}
                                   renderLightBox={false}
-                                  setLightBox={[Function]}
-                                  setMediaData={[Function]}
                                   style="card"
                                   type="local"
                                   videoTitle={
@@ -25535,15 +26333,8 @@ exports[`Storyshots Patterns (Sub-Patterns)|LinkList Default 1`] = `
                                       "href": "https://ibm.com",
                                     }
                                   }
-                                  external={[Function]}
-                                  iconSelector={[Function]}
-                                  jump={[Function]}
-                                  launchLightBox={[Function]}
-                                  mediaData={Object {}}
                                   openLightBox={[Function]}
                                   renderLightBox={false}
-                                  setLightBox={[Function]}
-                                  setMediaData={[Function]}
                                   style="card"
                                   type="local"
                                   videoTitle={
@@ -25678,21 +26469,14 @@ exports[`Storyshots Patterns (Sub-Patterns)|LinkList Default 1`] = `
                             >
                               <div>
                                 <CardCTA
-                                  external={[Function]}
-                                  iconSelector={[Function]}
-                                  jump={[Function]}
-                                  launchLightBox={[Function]}
                                   media={
                                     Object {
                                       "src": "0_uka1msg4",
                                       "type": "video",
                                     }
                                   }
-                                  mediaData={Object {}}
                                   openLightBox={[Function]}
                                   renderLightBox={false}
-                                  setLightBox={[Function]}
-                                  setMediaData={[Function]}
                                   style="card"
                                   type="video"
                                   videoTitle={
@@ -26024,16 +26808,9 @@ exports[`Storyshots Patterns (Sub-Patterns)|PictogramItem Default 1`] = `
                                   >
                                     <TextCTA
                                       copy="Lorem ipsum dolor"
-                                      external={[Function]}
                                       href="https://www.example.com"
-                                      iconSelector={[Function]}
-                                      jump={[Function]}
-                                      launchLightBox={[Function]}
-                                      mediaData={Object {}}
                                       openLightBox={[Function]}
                                       renderLightBox={false}
-                                      setLightBox={[Function]}
-                                      setMediaData={[Function]}
                                       style="text"
                                       type="local"
                                       videoTitle={
