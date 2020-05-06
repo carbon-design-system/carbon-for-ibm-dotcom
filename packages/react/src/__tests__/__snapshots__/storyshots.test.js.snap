@@ -18468,852 +18468,6 @@ exports[`Storyshots Patterns (Blocks)|FeatureCard Default 1`] = `
 </Container>
 `;
 
-exports[`Storyshots Patterns (Sections)|CardSection default 1`] = `
-<Container
-  story={[Function]}
->
-  <div
-    data-floating-menu-container=""
-    role="main"
-    style={
-      Object {
-        "backgroundColor": "#ffffff",
-      }
-    }
-  >
-    <ReadmeContent
-      codeTheme="github"
-      layout={
-        Array [
-          Object {
-            "content": <React.Fragment>
-              <CardSection
-                cards={
-                  Array [
-                    Object {
-                      "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
-                      "cta": Object {
-                        "href": "https://www.example.com",
-                      },
-                      "heading": "Nunc convallis lobortis",
-                    },
-                    Object {
-                      "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
-                      "cta": Object {
-                        "href": "https://www.example.com",
-                      },
-                      "heading": "Fusce gravida eu arcu",
-                    },
-                    Object {
-                      "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
-                      "cta": Object {
-                        "href": "https://www.example.com",
-                      },
-                      "heading": "Interdum et malesuada",
-                    },
-                    Object {
-                      "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
-                      "cta": Object {
-                        "href": "https://www.example.com",
-                      },
-                      "heading": "Nunc convallis loborti",
-                    },
-                    Object {
-                      "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
-                      "cta": Object {
-                        "href": "https://www.example.com",
-                      },
-                      "heading": "Nunc convallis lbortis",
-                    },
-                  ]
-                }
-                cta={
-                  Object {
-                    "cta": Object {
-                      "href": "https://www.example.com",
-                    },
-                    "heading": "Top level card link",
-                  }
-                }
-                heading="Aliquam condimentum interdum"
-                theme=""
-              />
-            </React.Fragment>,
-            "type": "STORY",
-          },
-        ]
-      }
-      theme={Object {}}
-      types={
-        Array [
-          "MD",
-          "STORY",
-          "STORY_SOURCE",
-          "PROPS",
-          "FOOTER_MD",
-          "HEADER_MD",
-        ]
-      }
-    >
-      <div
-        className="storybook-readme-story"
-      >
-        <_default
-          key="0"
-        >
-          <div
-            style={Object {}}
-          >
-            <div>
-              <CardSection
-                cards={
-                  Array [
-                    Object {
-                      "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
-                      "cta": Object {
-                        "href": "https://www.example.com",
-                      },
-                      "heading": "Nunc convallis lobortis",
-                    },
-                    Object {
-                      "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
-                      "cta": Object {
-                        "href": "https://www.example.com",
-                      },
-                      "heading": "Fusce gravida eu arcu",
-                    },
-                    Object {
-                      "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
-                      "cta": Object {
-                        "href": "https://www.example.com",
-                      },
-                      "heading": "Interdum et malesuada",
-                    },
-                    Object {
-                      "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
-                      "cta": Object {
-                        "href": "https://www.example.com",
-                      },
-                      "heading": "Nunc convallis loborti",
-                    },
-                    Object {
-                      "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
-                      "cta": Object {
-                        "href": "https://www.example.com",
-                      },
-                      "heading": "Nunc convallis lbortis",
-                    },
-                  ]
-                }
-                cta={
-                  Object {
-                    "cta": Object {
-                      "href": "https://www.example.com",
-                    },
-                    "heading": "Top level card link",
-                  }
-                }
-                heading="Aliquam condimentum interdum"
-                theme=""
-              >
-                <ContentSection
-                  customClassName="bx--card-section"
-                  heading="Aliquam condimentum interdum"
-                >
-                  <section
-                    className="bx--content-section bx--card-section"
-                    data-autoid="dds--content-section"
-                  >
-                    <div
-                      className="bx--content-section__grid"
-                    >
-                      <div
-                        className="bx--content-section__row"
-                      >
-                        <div
-                          className="bx--content-section__left"
-                        >
-                          <h2
-                            className="bx--content-section__heading"
-                          >
-                            Aliquam condimentum interdum
-                          </h2>
-                        </div>
-                        <div
-                          className="bx--content-section__children"
-                        >
-                          <div
-                            className="bx--card-section__cards__row bx--row--condensed"
-                            data-autoid="dds--card-section"
-                          >
-                            <div
-                              aria-label="Nunc convallis lobortis"
-                              className="bx--card-section__cards__col"
-                              key="0"
-                              role="region"
-                            >
-                              <Card
-                                copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
-                                cta={
-                                  Object {
-                                    "href": "https://www.example.com",
-                                    "icon": Object {
-                                      "src": Object {
-                                        "$$typeof": Symbol(react.forward_ref),
-                                        "render": [Function],
-                                      },
-                                    },
-                                  }
-                                }
-                                customClassName="bx--card-section__card"
-                                heading="Nunc convallis lobortis"
-                                key="0"
-                                type="link"
-                              >
-                                <ClickableTile
-                                  className="bx--card bx--card--link bx--card-section__card"
-                                  clicked={false}
-                                  data-autoid="dds--card"
-                                  handleClick={[Function]}
-                                  handleKeyDown={[Function]}
-                                  href="https://www.example.com"
-                                  light={false}
-                                >
-                                  <a
-                                    className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-section__card"
-                                    data-autoid="dds--card"
-                                    href="https://www.example.com"
-                                    onClick={[Function]}
-                                    onKeyDown={[Function]}
-                                  >
-                                    <div
-                                      className="bx--card__wrapper"
-                                    >
-                                      <h3
-                                        className="bx--card__heading"
-                                      >
-                                        Nunc convallis lobortis
-                                      </h3>
-                                      <div
-                                        className="bx--card__copy"
-                                        dangerouslySetInnerHTML={
-                                          Object {
-                                            "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
-                                          }
-                                        }
-                                      />
-                                      <div
-                                        className="bx--card__footer"
-                                      >
-                                        <ForwardRef(ArrowRight20)
-                                          className="bx--card__cta"
-                                          src={
-                                            Object {
-                                              "$$typeof": Symbol(react.forward_ref),
-                                              "render": [Function],
-                                            }
-                                          }
-                                        >
-                                          <Icon
-                                            className="bx--card__cta"
-                                            height={20}
-                                            preserveAspectRatio="xMidYMid meet"
-                                            src={
-                                              Object {
-                                                "$$typeof": Symbol(react.forward_ref),
-                                                "render": [Function],
-                                              }
-                                            }
-                                            viewBox="0 0 20 20"
-                                            width={20}
-                                            xmlns="http://www.w3.org/2000/svg"
-                                          >
-                                            <svg
-                                              aria-hidden={true}
-                                              className="bx--card__cta"
-                                              focusable="false"
-                                              height={20}
-                                              preserveAspectRatio="xMidYMid meet"
-                                              src={
-                                                Object {
-                                                  "$$typeof": Symbol(react.forward_ref),
-                                                  "render": [Function],
-                                                }
-                                              }
-                                              viewBox="0 0 20 20"
-                                              width={20}
-                                              xmlns="http://www.w3.org/2000/svg"
-                                            >
-                                              <polygon
-                                                points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
-                                              />
-                                            </svg>
-                                          </Icon>
-                                        </ForwardRef(ArrowRight20)>
-                                      </div>
-                                    </div>
-                                  </a>
-                                </ClickableTile>
-                              </Card>
-                            </div>
-                            <div
-                              aria-label="Fusce gravida eu arcu"
-                              className="bx--card-section__cards__col"
-                              key="1"
-                              role="region"
-                            >
-                              <Card
-                                copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
-                                cta={
-                                  Object {
-                                    "href": "https://www.example.com",
-                                    "icon": Object {
-                                      "src": Object {
-                                        "$$typeof": Symbol(react.forward_ref),
-                                        "render": [Function],
-                                      },
-                                    },
-                                  }
-                                }
-                                customClassName="bx--card-section__card"
-                                heading="Fusce gravida eu arcu"
-                                key="1"
-                                type="link"
-                              >
-                                <ClickableTile
-                                  className="bx--card bx--card--link bx--card-section__card"
-                                  clicked={false}
-                                  data-autoid="dds--card"
-                                  handleClick={[Function]}
-                                  handleKeyDown={[Function]}
-                                  href="https://www.example.com"
-                                  light={false}
-                                >
-                                  <a
-                                    className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-section__card"
-                                    data-autoid="dds--card"
-                                    href="https://www.example.com"
-                                    onClick={[Function]}
-                                    onKeyDown={[Function]}
-                                  >
-                                    <div
-                                      className="bx--card__wrapper"
-                                    >
-                                      <h3
-                                        className="bx--card__heading"
-                                      >
-                                        Fusce gravida eu arcu
-                                      </h3>
-                                      <div
-                                        className="bx--card__copy"
-                                        dangerouslySetInnerHTML={
-                                          Object {
-                                            "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
-                                          }
-                                        }
-                                      />
-                                      <div
-                                        className="bx--card__footer"
-                                      >
-                                        <ForwardRef(ArrowRight20)
-                                          className="bx--card__cta"
-                                          src={
-                                            Object {
-                                              "$$typeof": Symbol(react.forward_ref),
-                                              "render": [Function],
-                                            }
-                                          }
-                                        >
-                                          <Icon
-                                            className="bx--card__cta"
-                                            height={20}
-                                            preserveAspectRatio="xMidYMid meet"
-                                            src={
-                                              Object {
-                                                "$$typeof": Symbol(react.forward_ref),
-                                                "render": [Function],
-                                              }
-                                            }
-                                            viewBox="0 0 20 20"
-                                            width={20}
-                                            xmlns="http://www.w3.org/2000/svg"
-                                          >
-                                            <svg
-                                              aria-hidden={true}
-                                              className="bx--card__cta"
-                                              focusable="false"
-                                              height={20}
-                                              preserveAspectRatio="xMidYMid meet"
-                                              src={
-                                                Object {
-                                                  "$$typeof": Symbol(react.forward_ref),
-                                                  "render": [Function],
-                                                }
-                                              }
-                                              viewBox="0 0 20 20"
-                                              width={20}
-                                              xmlns="http://www.w3.org/2000/svg"
-                                            >
-                                              <polygon
-                                                points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
-                                              />
-                                            </svg>
-                                          </Icon>
-                                        </ForwardRef(ArrowRight20)>
-                                      </div>
-                                    </div>
-                                  </a>
-                                </ClickableTile>
-                              </Card>
-                            </div>
-                            <div
-                              aria-label="Interdum et malesuada"
-                              className="bx--card-section__cards__col"
-                              key="2"
-                              role="region"
-                            >
-                              <Card
-                                copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
-                                cta={
-                                  Object {
-                                    "href": "https://www.example.com",
-                                    "icon": Object {
-                                      "src": Object {
-                                        "$$typeof": Symbol(react.forward_ref),
-                                        "render": [Function],
-                                      },
-                                    },
-                                  }
-                                }
-                                customClassName="bx--card-section__card"
-                                heading="Interdum et malesuada"
-                                key="2"
-                                type="link"
-                              >
-                                <ClickableTile
-                                  className="bx--card bx--card--link bx--card-section__card"
-                                  clicked={false}
-                                  data-autoid="dds--card"
-                                  handleClick={[Function]}
-                                  handleKeyDown={[Function]}
-                                  href="https://www.example.com"
-                                  light={false}
-                                >
-                                  <a
-                                    className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-section__card"
-                                    data-autoid="dds--card"
-                                    href="https://www.example.com"
-                                    onClick={[Function]}
-                                    onKeyDown={[Function]}
-                                  >
-                                    <div
-                                      className="bx--card__wrapper"
-                                    >
-                                      <h3
-                                        className="bx--card__heading"
-                                      >
-                                        Interdum et malesuada
-                                      </h3>
-                                      <div
-                                        className="bx--card__copy"
-                                        dangerouslySetInnerHTML={
-                                          Object {
-                                            "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
-                                          }
-                                        }
-                                      />
-                                      <div
-                                        className="bx--card__footer"
-                                      >
-                                        <ForwardRef(ArrowRight20)
-                                          className="bx--card__cta"
-                                          src={
-                                            Object {
-                                              "$$typeof": Symbol(react.forward_ref),
-                                              "render": [Function],
-                                            }
-                                          }
-                                        >
-                                          <Icon
-                                            className="bx--card__cta"
-                                            height={20}
-                                            preserveAspectRatio="xMidYMid meet"
-                                            src={
-                                              Object {
-                                                "$$typeof": Symbol(react.forward_ref),
-                                                "render": [Function],
-                                              }
-                                            }
-                                            viewBox="0 0 20 20"
-                                            width={20}
-                                            xmlns="http://www.w3.org/2000/svg"
-                                          >
-                                            <svg
-                                              aria-hidden={true}
-                                              className="bx--card__cta"
-                                              focusable="false"
-                                              height={20}
-                                              preserveAspectRatio="xMidYMid meet"
-                                              src={
-                                                Object {
-                                                  "$$typeof": Symbol(react.forward_ref),
-                                                  "render": [Function],
-                                                }
-                                              }
-                                              viewBox="0 0 20 20"
-                                              width={20}
-                                              xmlns="http://www.w3.org/2000/svg"
-                                            >
-                                              <polygon
-                                                points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
-                                              />
-                                            </svg>
-                                          </Icon>
-                                        </ForwardRef(ArrowRight20)>
-                                      </div>
-                                    </div>
-                                  </a>
-                                </ClickableTile>
-                              </Card>
-                            </div>
-                            <div
-                              aria-label="Nunc convallis loborti"
-                              className="bx--card-section__cards__col"
-                              key="3"
-                              role="region"
-                            >
-                              <Card
-                                copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
-                                cta={
-                                  Object {
-                                    "href": "https://www.example.com",
-                                    "icon": Object {
-                                      "src": Object {
-                                        "$$typeof": Symbol(react.forward_ref),
-                                        "render": [Function],
-                                      },
-                                    },
-                                  }
-                                }
-                                customClassName="bx--card-section__card"
-                                heading="Nunc convallis loborti"
-                                key="3"
-                                type="link"
-                              >
-                                <ClickableTile
-                                  className="bx--card bx--card--link bx--card-section__card"
-                                  clicked={false}
-                                  data-autoid="dds--card"
-                                  handleClick={[Function]}
-                                  handleKeyDown={[Function]}
-                                  href="https://www.example.com"
-                                  light={false}
-                                >
-                                  <a
-                                    className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-section__card"
-                                    data-autoid="dds--card"
-                                    href="https://www.example.com"
-                                    onClick={[Function]}
-                                    onKeyDown={[Function]}
-                                  >
-                                    <div
-                                      className="bx--card__wrapper"
-                                    >
-                                      <h3
-                                        className="bx--card__heading"
-                                      >
-                                        Nunc convallis loborti
-                                      </h3>
-                                      <div
-                                        className="bx--card__copy"
-                                        dangerouslySetInnerHTML={
-                                          Object {
-                                            "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
-                                          }
-                                        }
-                                      />
-                                      <div
-                                        className="bx--card__footer"
-                                      >
-                                        <ForwardRef(ArrowRight20)
-                                          className="bx--card__cta"
-                                          src={
-                                            Object {
-                                              "$$typeof": Symbol(react.forward_ref),
-                                              "render": [Function],
-                                            }
-                                          }
-                                        >
-                                          <Icon
-                                            className="bx--card__cta"
-                                            height={20}
-                                            preserveAspectRatio="xMidYMid meet"
-                                            src={
-                                              Object {
-                                                "$$typeof": Symbol(react.forward_ref),
-                                                "render": [Function],
-                                              }
-                                            }
-                                            viewBox="0 0 20 20"
-                                            width={20}
-                                            xmlns="http://www.w3.org/2000/svg"
-                                          >
-                                            <svg
-                                              aria-hidden={true}
-                                              className="bx--card__cta"
-                                              focusable="false"
-                                              height={20}
-                                              preserveAspectRatio="xMidYMid meet"
-                                              src={
-                                                Object {
-                                                  "$$typeof": Symbol(react.forward_ref),
-                                                  "render": [Function],
-                                                }
-                                              }
-                                              viewBox="0 0 20 20"
-                                              width={20}
-                                              xmlns="http://www.w3.org/2000/svg"
-                                            >
-                                              <polygon
-                                                points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
-                                              />
-                                            </svg>
-                                          </Icon>
-                                        </ForwardRef(ArrowRight20)>
-                                      </div>
-                                    </div>
-                                  </a>
-                                </ClickableTile>
-                              </Card>
-                            </div>
-                            <div
-                              aria-label="Nunc convallis lbortis"
-                              className="bx--card-section__cards__col"
-                              key="4"
-                              role="region"
-                            >
-                              <Card
-                                copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
-                                cta={
-                                  Object {
-                                    "href": "https://www.example.com",
-                                    "icon": Object {
-                                      "src": Object {
-                                        "$$typeof": Symbol(react.forward_ref),
-                                        "render": [Function],
-                                      },
-                                    },
-                                  }
-                                }
-                                customClassName="bx--card-section__card"
-                                heading="Nunc convallis lbortis"
-                                key="4"
-                                type="link"
-                              >
-                                <ClickableTile
-                                  className="bx--card bx--card--link bx--card-section__card"
-                                  clicked={false}
-                                  data-autoid="dds--card"
-                                  handleClick={[Function]}
-                                  handleKeyDown={[Function]}
-                                  href="https://www.example.com"
-                                  light={false}
-                                >
-                                  <a
-                                    className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-section__card"
-                                    data-autoid="dds--card"
-                                    href="https://www.example.com"
-                                    onClick={[Function]}
-                                    onKeyDown={[Function]}
-                                  >
-                                    <div
-                                      className="bx--card__wrapper"
-                                    >
-                                      <h3
-                                        className="bx--card__heading"
-                                      >
-                                        Nunc convallis lbortis
-                                      </h3>
-                                      <div
-                                        className="bx--card__copy"
-                                        dangerouslySetInnerHTML={
-                                          Object {
-                                            "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
-                                          }
-                                        }
-                                      />
-                                      <div
-                                        className="bx--card__footer"
-                                      >
-                                        <ForwardRef(ArrowRight20)
-                                          className="bx--card__cta"
-                                          src={
-                                            Object {
-                                              "$$typeof": Symbol(react.forward_ref),
-                                              "render": [Function],
-                                            }
-                                          }
-                                        >
-                                          <Icon
-                                            className="bx--card__cta"
-                                            height={20}
-                                            preserveAspectRatio="xMidYMid meet"
-                                            src={
-                                              Object {
-                                                "$$typeof": Symbol(react.forward_ref),
-                                                "render": [Function],
-                                              }
-                                            }
-                                            viewBox="0 0 20 20"
-                                            width={20}
-                                            xmlns="http://www.w3.org/2000/svg"
-                                          >
-                                            <svg
-                                              aria-hidden={true}
-                                              className="bx--card__cta"
-                                              focusable="false"
-                                              height={20}
-                                              preserveAspectRatio="xMidYMid meet"
-                                              src={
-                                                Object {
-                                                  "$$typeof": Symbol(react.forward_ref),
-                                                  "render": [Function],
-                                                }
-                                              }
-                                              viewBox="0 0 20 20"
-                                              width={20}
-                                              xmlns="http://www.w3.org/2000/svg"
-                                            >
-                                              <polygon
-                                                points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
-                                              />
-                                            </svg>
-                                          </Icon>
-                                        </ForwardRef(ArrowRight20)>
-                                      </div>
-                                    </div>
-                                  </a>
-                                </ClickableTile>
-                              </Card>
-                            </div>
-                            <div
-                              className="bx--card-section__cards__col"
-                            >
-                              <Card
-                                cta={
-                                  Object {
-                                    "href": "https://www.example.com",
-                                    "icon": Object {
-                                      "src": Object {
-                                        "$$typeof": Symbol(react.forward_ref),
-                                        "render": [Function],
-                                      },
-                                    },
-                                  }
-                                }
-                                heading="Top level card link"
-                                inverse={true}
-                                type="link"
-                              >
-                                <ClickableTile
-                                  className="bx--card bx--card--inverse bx--card--link"
-                                  clicked={false}
-                                  data-autoid="dds--card"
-                                  handleClick={[Function]}
-                                  handleKeyDown={[Function]}
-                                  href="https://www.example.com"
-                                  light={false}
-                                >
-                                  <a
-                                    className="bx--tile bx--tile--clickable bx--card bx--card--inverse bx--card--link"
-                                    data-autoid="dds--card"
-                                    href="https://www.example.com"
-                                    onClick={[Function]}
-                                    onKeyDown={[Function]}
-                                  >
-                                    <div
-                                      className="bx--card__wrapper"
-                                    >
-                                      <h3
-                                        className="bx--card__heading"
-                                      >
-                                        Top level card link
-                                      </h3>
-                                      <div
-                                        className="bx--card__footer"
-                                      >
-                                        <ForwardRef(ArrowRight20)
-                                          className="bx--card__cta"
-                                          src={
-                                            Object {
-                                              "$$typeof": Symbol(react.forward_ref),
-                                              "render": [Function],
-                                            }
-                                          }
-                                        >
-                                          <Icon
-                                            className="bx--card__cta"
-                                            height={20}
-                                            preserveAspectRatio="xMidYMid meet"
-                                            src={
-                                              Object {
-                                                "$$typeof": Symbol(react.forward_ref),
-                                                "render": [Function],
-                                              }
-                                            }
-                                            viewBox="0 0 20 20"
-                                            width={20}
-                                            xmlns="http://www.w3.org/2000/svg"
-                                          >
-                                            <svg
-                                              aria-hidden={true}
-                                              className="bx--card__cta"
-                                              focusable="false"
-                                              height={20}
-                                              preserveAspectRatio="xMidYMid meet"
-                                              src={
-                                                Object {
-                                                  "$$typeof": Symbol(react.forward_ref),
-                                                  "render": [Function],
-                                                }
-                                              }
-                                              viewBox="0 0 20 20"
-                                              width={20}
-                                              xmlns="http://www.w3.org/2000/svg"
-                                            >
-                                              <polygon
-                                                points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
-                                              />
-                                            </svg>
-                                          </Icon>
-                                        </ForwardRef(ArrowRight20)>
-                                      </div>
-                                    </div>
-                                  </a>
-                                </ClickableTile>
-                              </Card>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </section>
-                </ContentSection>
-              </CardSection>
-            </div>
-          </div>
-        </_default>
-      </div>
-    </ReadmeContent>
-  </div>
-  <input
-    aria-label="input-text-offleft"
-    className="bx--visually-hidden"
-    type="text"
-  />
-</Container>
-`;
-
 exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
 <Container
   story={[Function]}
@@ -19393,7 +18547,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                     },
                   ]
                 }
-                heading="Read more about it"
+                heading="Aliquam condimentum interdum"
                 theme=""
               />
             </React.Fragment>,
@@ -19483,107 +18637,104 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                     },
                   ]
                 }
-                heading="Read more about it"
+                heading="Aliquam condimentum interdum"
                 theme=""
               >
-                <CardSection
-                  autoid="dds--card-section-images-section"
-                  cards={
-                    Array [
-                      Object {
-                        "cta": Object {
-                          "href": "https://www.example.com",
-                        },
-                        "eyebrow": "Topic",
-                        "heading": "Natural language processing.",
-                        "image": Object {
-                          "alt": "Image alt text",
-                          "defaultSrc": "https://dummyimage.com/1056x792/ee5396/161616%26text=4:3",
-                        },
-                      },
-                      Object {
-                        "cta": Object {
-                          "href": "https://www.example.com",
-                        },
-                        "eyebrow": "Blog",
-                        "heading": "Natural language processing.",
-                        "image": Object {
-                          "alt": "Image alt text",
-                          "defaultSrc": "https://dummyimage.com/792x1056/ee5396/161616%26text=3:4",
-                        },
-                      },
-                      Object {
-                        "cta": Object {
-                          "href": "https://www.example.com",
-                        },
-                        "eyebrow": "Topic",
-                        "heading": "Natural language processing.",
-                        "image": Object {
-                          "alt": "Image alt text",
-                          "defaultSrc": "https://dummyimage.com/1056x1056/ee5396/161616%26text=1:1",
-                        },
-                      },
-                      Object {
-                        "cta": Object {
-                          "href": "https://www.example.com",
-                        },
-                        "eyebrow": "Blog",
-                        "heading": "Serving society ethically in the age of Artificial Intelligence.",
-                        "image": Object {
-                          "alt": "Image alt text",
-                          "defaultSrc": "https://dummyimage.com/1056x528/ee5396/161616%26text=2:1",
-                        },
-                      },
-                      Object {
-                        "cta": Object {
-                          "href": "https://www.example.com",
-                        },
-                        "eyebrow": "Topic",
-                        "heading": "Serving society ethically in the age of Artificial Intelligence.",
-                        "image": Object {
-                          "alt": "Image alt text",
-                          "defaultSrc": "https://dummyimage.com/1056x594/ee5396/161616%26text=16:9",
-                        },
-                      },
-                    ]
-                  }
-                  heading="Read more about it"
-                  theme=""
+                <ContentSection
+                  autoid="dds--card-group-images-group"
+                  customClassName="bx--card-group"
+                  heading="Aliquam condimentum interdum"
                 >
-                  <ContentSection
-                    autoid="dds--card-section-images-section"
-                    customClassName="bx--card-section"
-                    heading="Read more about it"
+                  <section
+                    className="bx--content-section bx--card-group"
+                    data-autoid="dds--card-group-images-group"
                   >
-                    <section
-                      className="bx--content-section bx--card-section"
-                      data-autoid="dds--card-section-images-section"
+                    <div
+                      className="bx--content-section__grid"
                     >
                       <div
-                        className="bx--content-section__grid"
+                        className="bx--content-section__row"
                       >
                         <div
-                          className="bx--content-section__row"
+                          className="bx--content-section__left"
                         >
-                          <div
-                            className="bx--content-section__left"
+                          <h2
+                            className="bx--content-section__heading"
                           >
-                            <h2
-                              className="bx--content-section__heading"
-                            >
-                              Read more about it
-                            </h2>
-                          </div>
-                          <div
-                            className="bx--content-section__children"
+                            Aliquam condimentum interdum
+                          </h2>
+                        </div>
+                        <div
+                          className="bx--content-section__children"
+                        >
+                          <CardGroup
+                            cards={
+                              Array [
+                                Object {
+                                  "cta": Object {
+                                    "href": "https://www.example.com",
+                                  },
+                                  "eyebrow": "Topic",
+                                  "heading": "Natural language processing.",
+                                  "image": Object {
+                                    "alt": "Image alt text",
+                                    "defaultSrc": "https://dummyimage.com/1056x792/ee5396/161616%26text=4:3",
+                                  },
+                                },
+                                Object {
+                                  "cta": Object {
+                                    "href": "https://www.example.com",
+                                  },
+                                  "eyebrow": "Blog",
+                                  "heading": "Natural language processing.",
+                                  "image": Object {
+                                    "alt": "Image alt text",
+                                    "defaultSrc": "https://dummyimage.com/792x1056/ee5396/161616%26text=3:4",
+                                  },
+                                },
+                                Object {
+                                  "cta": Object {
+                                    "href": "https://www.example.com",
+                                  },
+                                  "eyebrow": "Topic",
+                                  "heading": "Natural language processing.",
+                                  "image": Object {
+                                    "alt": "Image alt text",
+                                    "defaultSrc": "https://dummyimage.com/1056x1056/ee5396/161616%26text=1:1",
+                                  },
+                                },
+                                Object {
+                                  "cta": Object {
+                                    "href": "https://www.example.com",
+                                  },
+                                  "eyebrow": "Blog",
+                                  "heading": "Serving society ethically in the age of Artificial Intelligence.",
+                                  "image": Object {
+                                    "alt": "Image alt text",
+                                    "defaultSrc": "https://dummyimage.com/1056x528/ee5396/161616%26text=2:1",
+                                  },
+                                },
+                                Object {
+                                  "cta": Object {
+                                    "href": "https://www.example.com",
+                                  },
+                                  "eyebrow": "Topic",
+                                  "heading": "Serving society ethically in the age of Artificial Intelligence.",
+                                  "image": Object {
+                                    "alt": "Image alt text",
+                                    "defaultSrc": "https://dummyimage.com/1056x594/ee5396/161616%26text=16:9",
+                                  },
+                                },
+                              ]
+                            }
                           >
                             <div
-                              className="bx--card-section__cards__row bx--row--condensed"
-                              data-autoid="dds--card-section"
+                              className="bx--card-group__cards__row bx--row--condensed"
+                              data-autoid="dds--card-group"
                             >
                               <div
                                 aria-label="Natural language processing."
-                                className="bx--card-section__cards__col"
+                                className="bx--card-group__cards__col"
                                 key="0"
                                 role="region"
                               >
@@ -19599,7 +18750,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                       },
                                     }
                                   }
-                                  customClassName="bx--card-section__card"
+                                  customClassName="bx--card-group__card"
                                   eyebrow="Topic"
                                   heading="Natural language processing."
                                   image={
@@ -19612,7 +18763,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                   type="link"
                                 >
                                   <ClickableTile
-                                    className="bx--card bx--card--link bx--card-section__card"
+                                    className="bx--card bx--card--link bx--card-group__card"
                                     clicked={false}
                                     data-autoid="dds--card"
                                     handleClick={[Function]}
@@ -19621,7 +18772,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                     light={false}
                                   >
                                     <a
-                                      className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-section__card"
+                                      className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
                                       data-autoid="dds--card"
                                       href="https://www.example.com"
                                       onClick={[Function]}
@@ -19713,7 +18864,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                               </div>
                               <div
                                 aria-label="Natural language processing."
-                                className="bx--card-section__cards__col"
+                                className="bx--card-group__cards__col"
                                 key="1"
                                 role="region"
                               >
@@ -19729,7 +18880,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                       },
                                     }
                                   }
-                                  customClassName="bx--card-section__card"
+                                  customClassName="bx--card-group__card"
                                   eyebrow="Blog"
                                   heading="Natural language processing."
                                   image={
@@ -19742,7 +18893,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                   type="link"
                                 >
                                   <ClickableTile
-                                    className="bx--card bx--card--link bx--card-section__card"
+                                    className="bx--card bx--card--link bx--card-group__card"
                                     clicked={false}
                                     data-autoid="dds--card"
                                     handleClick={[Function]}
@@ -19751,7 +18902,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                     light={false}
                                   >
                                     <a
-                                      className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-section__card"
+                                      className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
                                       data-autoid="dds--card"
                                       href="https://www.example.com"
                                       onClick={[Function]}
@@ -19843,7 +18994,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                               </div>
                               <div
                                 aria-label="Natural language processing."
-                                className="bx--card-section__cards__col"
+                                className="bx--card-group__cards__col"
                                 key="2"
                                 role="region"
                               >
@@ -19859,7 +19010,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                       },
                                     }
                                   }
-                                  customClassName="bx--card-section__card"
+                                  customClassName="bx--card-group__card"
                                   eyebrow="Topic"
                                   heading="Natural language processing."
                                   image={
@@ -19872,7 +19023,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                   type="link"
                                 >
                                   <ClickableTile
-                                    className="bx--card bx--card--link bx--card-section__card"
+                                    className="bx--card bx--card--link bx--card-group__card"
                                     clicked={false}
                                     data-autoid="dds--card"
                                     handleClick={[Function]}
@@ -19881,7 +19032,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                     light={false}
                                   >
                                     <a
-                                      className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-section__card"
+                                      className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
                                       data-autoid="dds--card"
                                       href="https://www.example.com"
                                       onClick={[Function]}
@@ -19973,7 +19124,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                               </div>
                               <div
                                 aria-label="Serving society ethically in the age of Artificial Intelligence."
-                                className="bx--card-section__cards__col"
+                                className="bx--card-group__cards__col"
                                 key="3"
                                 role="region"
                               >
@@ -19989,7 +19140,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                       },
                                     }
                                   }
-                                  customClassName="bx--card-section__card"
+                                  customClassName="bx--card-group__card"
                                   eyebrow="Blog"
                                   heading="Serving society ethically in the age of Artificial Intelligence."
                                   image={
@@ -20002,7 +19153,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                   type="link"
                                 >
                                   <ClickableTile
-                                    className="bx--card bx--card--link bx--card-section__card"
+                                    className="bx--card bx--card--link bx--card-group__card"
                                     clicked={false}
                                     data-autoid="dds--card"
                                     handleClick={[Function]}
@@ -20011,7 +19162,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                     light={false}
                                   >
                                     <a
-                                      className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-section__card"
+                                      className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
                                       data-autoid="dds--card"
                                       href="https://www.example.com"
                                       onClick={[Function]}
@@ -20103,7 +19254,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                               </div>
                               <div
                                 aria-label="Serving society ethically in the age of Artificial Intelligence."
-                                className="bx--card-section__cards__col"
+                                className="bx--card-group__cards__col"
                                 key="4"
                                 role="region"
                               >
@@ -20119,7 +19270,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                       },
                                     }
                                   }
-                                  customClassName="bx--card-section__card"
+                                  customClassName="bx--card-group__card"
                                   eyebrow="Topic"
                                   heading="Serving society ethically in the age of Artificial Intelligence."
                                   image={
@@ -20132,7 +19283,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                   type="link"
                                 >
                                   <ClickableTile
-                                    className="bx--card bx--card--link bx--card-section__card"
+                                    className="bx--card bx--card--link bx--card-group__card"
                                     clicked={false}
                                     data-autoid="dds--card"
                                     handleClick={[Function]}
@@ -20141,7 +19292,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                     light={false}
                                   >
                                     <a
-                                      className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-section__card"
+                                      className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
                                       data-autoid="dds--card"
                                       href="https://www.example.com"
                                       onClick={[Function]}
@@ -20232,12 +19383,12 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                 </Card>
                               </div>
                             </div>
-                          </div>
+                          </CardGroup>
                         </div>
                       </div>
-                    </section>
-                  </ContentSection>
-                </CardSection>
+                    </div>
+                  </section>
+                </ContentSection>
               </CardSectionImages>
             </div>
           </div>
@@ -20401,92 +19552,89 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                 heading="Aliquam condimentum interdum"
                 theme=""
               >
-                <CardSection
-                  autoid="dds--card-section-simple-section"
-                  cards={
-                    Array [
-                      Object {
-                        "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
-                        "cta": Object {
-                          "href": "https://www.example.com",
-                        },
-                        "heading": "Nunc convallis lobortis",
-                      },
-                      Object {
-                        "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
-                        "cta": Object {
-                          "href": "https://www.example.com",
-                        },
-                        "heading": "Fusce gravida eu arcu",
-                      },
-                      Object {
-                        "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
-                        "cta": Object {
-                          "href": "https://www.example.com",
-                        },
-                        "heading": "Interdum et malesuada",
-                      },
-                      Object {
-                        "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
-                        "cta": Object {
-                          "href": "https://www.example.com",
-                        },
-                        "heading": "Nunc convallis loborti",
-                      },
-                      Object {
-                        "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
-                        "cta": Object {
-                          "href": "https://www.example.com",
-                        },
-                        "heading": "Nunc convallis lbortis",
-                      },
-                    ]
-                  }
-                  cta={
-                    Object {
-                      "cta": Object {
-                        "href": "https://www.example.com",
-                      },
-                      "heading": "Top level card link",
-                    }
-                  }
+                <ContentSection
+                  autoid="dds--card-group-simple-group"
+                  customClassName="bx--card-group"
                   heading="Aliquam condimentum interdum"
-                  theme=""
                 >
-                  <ContentSection
-                    autoid="dds--card-section-simple-section"
-                    customClassName="bx--card-section"
-                    heading="Aliquam condimentum interdum"
+                  <section
+                    className="bx--content-section bx--card-group"
+                    data-autoid="dds--card-group-simple-group"
                   >
-                    <section
-                      className="bx--content-section bx--card-section"
-                      data-autoid="dds--card-section-simple-section"
+                    <div
+                      className="bx--content-section__grid"
                     >
                       <div
-                        className="bx--content-section__grid"
+                        className="bx--content-section__row"
                       >
                         <div
-                          className="bx--content-section__row"
+                          className="bx--content-section__left"
                         >
-                          <div
-                            className="bx--content-section__left"
+                          <h2
+                            className="bx--content-section__heading"
                           >
-                            <h2
-                              className="bx--content-section__heading"
-                            >
-                              Aliquam condimentum interdum
-                            </h2>
-                          </div>
-                          <div
-                            className="bx--content-section__children"
+                            Aliquam condimentum interdum
+                          </h2>
+                        </div>
+                        <div
+                          className="bx--content-section__children"
+                        >
+                          <CardGroup
+                            cards={
+                              Array [
+                                Object {
+                                  "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
+                                  "cta": Object {
+                                    "href": "https://www.example.com",
+                                  },
+                                  "heading": "Nunc convallis lobortis",
+                                },
+                                Object {
+                                  "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
+                                  "cta": Object {
+                                    "href": "https://www.example.com",
+                                  },
+                                  "heading": "Fusce gravida eu arcu",
+                                },
+                                Object {
+                                  "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
+                                  "cta": Object {
+                                    "href": "https://www.example.com",
+                                  },
+                                  "heading": "Interdum et malesuada",
+                                },
+                                Object {
+                                  "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
+                                  "cta": Object {
+                                    "href": "https://www.example.com",
+                                  },
+                                  "heading": "Nunc convallis loborti",
+                                },
+                                Object {
+                                  "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
+                                  "cta": Object {
+                                    "href": "https://www.example.com",
+                                  },
+                                  "heading": "Nunc convallis lbortis",
+                                },
+                              ]
+                            }
+                            cta={
+                              Object {
+                                "cta": Object {
+                                  "href": "https://www.example.com",
+                                },
+                                "heading": "Top level card link",
+                              }
+                            }
                           >
                             <div
-                              className="bx--card-section__cards__row bx--row--condensed"
-                              data-autoid="dds--card-section"
+                              className="bx--card-group__cards__row bx--row--condensed"
+                              data-autoid="dds--card-group"
                             >
                               <div
                                 aria-label="Nunc convallis lobortis"
-                                className="bx--card-section__cards__col"
+                                className="bx--card-group__cards__col"
                                 key="0"
                                 role="region"
                               >
@@ -20503,13 +19651,13 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                       },
                                     }
                                   }
-                                  customClassName="bx--card-section__card"
+                                  customClassName="bx--card-group__card"
                                   heading="Nunc convallis lobortis"
                                   key="0"
                                   type="link"
                                 >
                                   <ClickableTile
-                                    className="bx--card bx--card--link bx--card-section__card"
+                                    className="bx--card bx--card--link bx--card-group__card"
                                     clicked={false}
                                     data-autoid="dds--card"
                                     handleClick={[Function]}
@@ -20518,7 +19666,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                     light={false}
                                   >
                                     <a
-                                      className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-section__card"
+                                      className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
                                       data-autoid="dds--card"
                                       href="https://www.example.com"
                                       onClick={[Function]}
@@ -20596,7 +19744,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                               </div>
                               <div
                                 aria-label="Fusce gravida eu arcu"
-                                className="bx--card-section__cards__col"
+                                className="bx--card-group__cards__col"
                                 key="1"
                                 role="region"
                               >
@@ -20613,13 +19761,13 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                       },
                                     }
                                   }
-                                  customClassName="bx--card-section__card"
+                                  customClassName="bx--card-group__card"
                                   heading="Fusce gravida eu arcu"
                                   key="1"
                                   type="link"
                                 >
                                   <ClickableTile
-                                    className="bx--card bx--card--link bx--card-section__card"
+                                    className="bx--card bx--card--link bx--card-group__card"
                                     clicked={false}
                                     data-autoid="dds--card"
                                     handleClick={[Function]}
@@ -20628,7 +19776,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                     light={false}
                                   >
                                     <a
-                                      className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-section__card"
+                                      className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
                                       data-autoid="dds--card"
                                       href="https://www.example.com"
                                       onClick={[Function]}
@@ -20706,7 +19854,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                               </div>
                               <div
                                 aria-label="Interdum et malesuada"
-                                className="bx--card-section__cards__col"
+                                className="bx--card-group__cards__col"
                                 key="2"
                                 role="region"
                               >
@@ -20723,13 +19871,13 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                       },
                                     }
                                   }
-                                  customClassName="bx--card-section__card"
+                                  customClassName="bx--card-group__card"
                                   heading="Interdum et malesuada"
                                   key="2"
                                   type="link"
                                 >
                                   <ClickableTile
-                                    className="bx--card bx--card--link bx--card-section__card"
+                                    className="bx--card bx--card--link bx--card-group__card"
                                     clicked={false}
                                     data-autoid="dds--card"
                                     handleClick={[Function]}
@@ -20738,7 +19886,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                     light={false}
                                   >
                                     <a
-                                      className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-section__card"
+                                      className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
                                       data-autoid="dds--card"
                                       href="https://www.example.com"
                                       onClick={[Function]}
@@ -20816,7 +19964,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                               </div>
                               <div
                                 aria-label="Nunc convallis loborti"
-                                className="bx--card-section__cards__col"
+                                className="bx--card-group__cards__col"
                                 key="3"
                                 role="region"
                               >
@@ -20833,13 +19981,13 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                       },
                                     }
                                   }
-                                  customClassName="bx--card-section__card"
+                                  customClassName="bx--card-group__card"
                                   heading="Nunc convallis loborti"
                                   key="3"
                                   type="link"
                                 >
                                   <ClickableTile
-                                    className="bx--card bx--card--link bx--card-section__card"
+                                    className="bx--card bx--card--link bx--card-group__card"
                                     clicked={false}
                                     data-autoid="dds--card"
                                     handleClick={[Function]}
@@ -20848,7 +19996,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                     light={false}
                                   >
                                     <a
-                                      className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-section__card"
+                                      className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
                                       data-autoid="dds--card"
                                       href="https://www.example.com"
                                       onClick={[Function]}
@@ -20926,7 +20074,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                               </div>
                               <div
                                 aria-label="Nunc convallis lbortis"
-                                className="bx--card-section__cards__col"
+                                className="bx--card-group__cards__col"
                                 key="4"
                                 role="region"
                               >
@@ -20943,13 +20091,13 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                       },
                                     }
                                   }
-                                  customClassName="bx--card-section__card"
+                                  customClassName="bx--card-group__card"
                                   heading="Nunc convallis lbortis"
                                   key="4"
                                   type="link"
                                 >
                                   <ClickableTile
-                                    className="bx--card bx--card--link bx--card-section__card"
+                                    className="bx--card bx--card--link bx--card-group__card"
                                     clicked={false}
                                     data-autoid="dds--card"
                                     handleClick={[Function]}
@@ -20958,7 +20106,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                     light={false}
                                   >
                                     <a
-                                      className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-section__card"
+                                      className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
                                       data-autoid="dds--card"
                                       href="https://www.example.com"
                                       onClick={[Function]}
@@ -21035,7 +20183,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                 </Card>
                               </div>
                               <div
-                                className="bx--card-section__cards__col"
+                                className="bx--card-group__cards__col"
                               >
                                 <Card
                                   cta={
@@ -21132,12 +20280,12 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                 </Card>
                               </div>
                             </div>
-                          </div>
+                          </CardGroup>
                         </div>
                       </div>
-                    </section>
-                  </ContentSection>
-                </CardSection>
+                    </div>
+                  </section>
+                </ContentSection>
               </CardSectionSimple>
             </div>
           </div>
@@ -22895,6 +22043,841 @@ exports[`Storyshots Patterns (Sub-Patterns)|Card Static 1`] = `
                         </Tile>
                       </Card>
                     </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </_default>
+      </div>
+    </ReadmeContent>
+  </div>
+  <input
+    aria-label="input-text-offleft"
+    className="bx--visually-hidden"
+    type="text"
+  />
+</Container>
+`;
+
+exports[`Storyshots Patterns (Sub-Patterns)|CardGroup default 1`] = `
+<Container
+  story={[Function]}
+>
+  <div
+    data-floating-menu-container=""
+    role="main"
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+      }
+    }
+  >
+    <ReadmeContent
+      codeTheme="github"
+      layout={
+        Array [
+          Object {
+            "content": <React.Fragment>
+              <div
+                className="bx--grid bx--content-group-story"
+              >
+                <div
+                  className="bx--row"
+                >
+                  <div
+                    className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-2"
+                  >
+                    <CardGroup
+                      cards={
+                        Array [
+                          Object {
+                            "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
+                            "cta": Object {
+                              "href": "https://www.example.com",
+                            },
+                            "heading": "Nunc convallis lobortis",
+                          },
+                          Object {
+                            "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
+                            "cta": Object {
+                              "href": "https://www.example.com",
+                            },
+                            "heading": "Fusce gravida eu arcu",
+                          },
+                          Object {
+                            "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
+                            "cta": Object {
+                              "href": "https://www.example.com",
+                            },
+                            "heading": "Interdum et malesuada",
+                          },
+                          Object {
+                            "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
+                            "cta": Object {
+                              "href": "https://www.example.com",
+                            },
+                            "heading": "Nunc convallis loborti",
+                          },
+                          Object {
+                            "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
+                            "cta": Object {
+                              "href": "https://www.example.com",
+                            },
+                            "heading": "Nunc convallis lbortis",
+                          },
+                        ]
+                      }
+                      cta={
+                        Object {
+                          "cta": Object {
+                            "href": "https://www.example.com",
+                          },
+                          "heading": "Top level card link",
+                        }
+                      }
+                    />
+                  </div>
+                </div>
+              </div>
+            </React.Fragment>,
+            "type": "STORY",
+          },
+        ]
+      }
+      theme={Object {}}
+      types={
+        Array [
+          "MD",
+          "STORY",
+          "STORY_SOURCE",
+          "PROPS",
+          "FOOTER_MD",
+          "HEADER_MD",
+        ]
+      }
+    >
+      <div
+        className="storybook-readme-story"
+      >
+        <_default
+          key="0"
+        >
+          <div
+            style={Object {}}
+          >
+            <div>
+              <div
+                className="bx--grid bx--content-group-story"
+              >
+                <div
+                  className="bx--row"
+                >
+                  <div
+                    className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-2"
+                  >
+                    <CardGroup
+                      cards={
+                        Array [
+                          Object {
+                            "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
+                            "cta": Object {
+                              "href": "https://www.example.com",
+                            },
+                            "heading": "Nunc convallis lobortis",
+                          },
+                          Object {
+                            "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
+                            "cta": Object {
+                              "href": "https://www.example.com",
+                            },
+                            "heading": "Fusce gravida eu arcu",
+                          },
+                          Object {
+                            "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
+                            "cta": Object {
+                              "href": "https://www.example.com",
+                            },
+                            "heading": "Interdum et malesuada",
+                          },
+                          Object {
+                            "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
+                            "cta": Object {
+                              "href": "https://www.example.com",
+                            },
+                            "heading": "Nunc convallis loborti",
+                          },
+                          Object {
+                            "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
+                            "cta": Object {
+                              "href": "https://www.example.com",
+                            },
+                            "heading": "Nunc convallis lbortis",
+                          },
+                        ]
+                      }
+                      cta={
+                        Object {
+                          "cta": Object {
+                            "href": "https://www.example.com",
+                          },
+                          "heading": "Top level card link",
+                        }
+                      }
+                    >
+                      <div
+                        className="bx--card-group__cards__row bx--row--condensed"
+                        data-autoid="dds--card-group"
+                      >
+                        <div
+                          aria-label="Nunc convallis lobortis"
+                          className="bx--card-group__cards__col"
+                          key="0"
+                          role="region"
+                        >
+                          <Card
+                            copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
+                            cta={
+                              Object {
+                                "href": "https://www.example.com",
+                                "icon": Object {
+                                  "src": Object {
+                                    "$$typeof": Symbol(react.forward_ref),
+                                    "render": [Function],
+                                  },
+                                },
+                              }
+                            }
+                            customClassName="bx--card-group__card"
+                            heading="Nunc convallis lobortis"
+                            key="0"
+                            type="link"
+                          >
+                            <ClickableTile
+                              className="bx--card bx--card--link bx--card-group__card"
+                              clicked={false}
+                              data-autoid="dds--card"
+                              handleClick={[Function]}
+                              handleKeyDown={[Function]}
+                              href="https://www.example.com"
+                              light={false}
+                            >
+                              <a
+                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
+                                data-autoid="dds--card"
+                                href="https://www.example.com"
+                                onClick={[Function]}
+                                onKeyDown={[Function]}
+                              >
+                                <div
+                                  className="bx--card__wrapper"
+                                >
+                                  <h3
+                                    className="bx--card__heading"
+                                  >
+                                    Nunc convallis lobortis
+                                  </h3>
+                                  <div
+                                    className="bx--card__copy"
+                                    dangerouslySetInnerHTML={
+                                      Object {
+                                        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
+                                      }
+                                    }
+                                  />
+                                  <div
+                                    className="bx--card__footer"
+                                  >
+                                    <ForwardRef(ArrowRight20)
+                                      className="bx--card__cta"
+                                      src={
+                                        Object {
+                                          "$$typeof": Symbol(react.forward_ref),
+                                          "render": [Function],
+                                        }
+                                      }
+                                    >
+                                      <Icon
+                                        className="bx--card__cta"
+                                        height={20}
+                                        preserveAspectRatio="xMidYMid meet"
+                                        src={
+                                          Object {
+                                            "$$typeof": Symbol(react.forward_ref),
+                                            "render": [Function],
+                                          }
+                                        }
+                                        viewBox="0 0 20 20"
+                                        width={20}
+                                        xmlns="http://www.w3.org/2000/svg"
+                                      >
+                                        <svg
+                                          aria-hidden={true}
+                                          className="bx--card__cta"
+                                          focusable="false"
+                                          height={20}
+                                          preserveAspectRatio="xMidYMid meet"
+                                          src={
+                                            Object {
+                                              "$$typeof": Symbol(react.forward_ref),
+                                              "render": [Function],
+                                            }
+                                          }
+                                          viewBox="0 0 20 20"
+                                          width={20}
+                                          xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                          <polygon
+                                            points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
+                                          />
+                                        </svg>
+                                      </Icon>
+                                    </ForwardRef(ArrowRight20)>
+                                  </div>
+                                </div>
+                              </a>
+                            </ClickableTile>
+                          </Card>
+                        </div>
+                        <div
+                          aria-label="Fusce gravida eu arcu"
+                          className="bx--card-group__cards__col"
+                          key="1"
+                          role="region"
+                        >
+                          <Card
+                            copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
+                            cta={
+                              Object {
+                                "href": "https://www.example.com",
+                                "icon": Object {
+                                  "src": Object {
+                                    "$$typeof": Symbol(react.forward_ref),
+                                    "render": [Function],
+                                  },
+                                },
+                              }
+                            }
+                            customClassName="bx--card-group__card"
+                            heading="Fusce gravida eu arcu"
+                            key="1"
+                            type="link"
+                          >
+                            <ClickableTile
+                              className="bx--card bx--card--link bx--card-group__card"
+                              clicked={false}
+                              data-autoid="dds--card"
+                              handleClick={[Function]}
+                              handleKeyDown={[Function]}
+                              href="https://www.example.com"
+                              light={false}
+                            >
+                              <a
+                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
+                                data-autoid="dds--card"
+                                href="https://www.example.com"
+                                onClick={[Function]}
+                                onKeyDown={[Function]}
+                              >
+                                <div
+                                  className="bx--card__wrapper"
+                                >
+                                  <h3
+                                    className="bx--card__heading"
+                                  >
+                                    Fusce gravida eu arcu
+                                  </h3>
+                                  <div
+                                    className="bx--card__copy"
+                                    dangerouslySetInnerHTML={
+                                      Object {
+                                        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
+                                      }
+                                    }
+                                  />
+                                  <div
+                                    className="bx--card__footer"
+                                  >
+                                    <ForwardRef(ArrowRight20)
+                                      className="bx--card__cta"
+                                      src={
+                                        Object {
+                                          "$$typeof": Symbol(react.forward_ref),
+                                          "render": [Function],
+                                        }
+                                      }
+                                    >
+                                      <Icon
+                                        className="bx--card__cta"
+                                        height={20}
+                                        preserveAspectRatio="xMidYMid meet"
+                                        src={
+                                          Object {
+                                            "$$typeof": Symbol(react.forward_ref),
+                                            "render": [Function],
+                                          }
+                                        }
+                                        viewBox="0 0 20 20"
+                                        width={20}
+                                        xmlns="http://www.w3.org/2000/svg"
+                                      >
+                                        <svg
+                                          aria-hidden={true}
+                                          className="bx--card__cta"
+                                          focusable="false"
+                                          height={20}
+                                          preserveAspectRatio="xMidYMid meet"
+                                          src={
+                                            Object {
+                                              "$$typeof": Symbol(react.forward_ref),
+                                              "render": [Function],
+                                            }
+                                          }
+                                          viewBox="0 0 20 20"
+                                          width={20}
+                                          xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                          <polygon
+                                            points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
+                                          />
+                                        </svg>
+                                      </Icon>
+                                    </ForwardRef(ArrowRight20)>
+                                  </div>
+                                </div>
+                              </a>
+                            </ClickableTile>
+                          </Card>
+                        </div>
+                        <div
+                          aria-label="Interdum et malesuada"
+                          className="bx--card-group__cards__col"
+                          key="2"
+                          role="region"
+                        >
+                          <Card
+                            copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
+                            cta={
+                              Object {
+                                "href": "https://www.example.com",
+                                "icon": Object {
+                                  "src": Object {
+                                    "$$typeof": Symbol(react.forward_ref),
+                                    "render": [Function],
+                                  },
+                                },
+                              }
+                            }
+                            customClassName="bx--card-group__card"
+                            heading="Interdum et malesuada"
+                            key="2"
+                            type="link"
+                          >
+                            <ClickableTile
+                              className="bx--card bx--card--link bx--card-group__card"
+                              clicked={false}
+                              data-autoid="dds--card"
+                              handleClick={[Function]}
+                              handleKeyDown={[Function]}
+                              href="https://www.example.com"
+                              light={false}
+                            >
+                              <a
+                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
+                                data-autoid="dds--card"
+                                href="https://www.example.com"
+                                onClick={[Function]}
+                                onKeyDown={[Function]}
+                              >
+                                <div
+                                  className="bx--card__wrapper"
+                                >
+                                  <h3
+                                    className="bx--card__heading"
+                                  >
+                                    Interdum et malesuada
+                                  </h3>
+                                  <div
+                                    className="bx--card__copy"
+                                    dangerouslySetInnerHTML={
+                                      Object {
+                                        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
+                                      }
+                                    }
+                                  />
+                                  <div
+                                    className="bx--card__footer"
+                                  >
+                                    <ForwardRef(ArrowRight20)
+                                      className="bx--card__cta"
+                                      src={
+                                        Object {
+                                          "$$typeof": Symbol(react.forward_ref),
+                                          "render": [Function],
+                                        }
+                                      }
+                                    >
+                                      <Icon
+                                        className="bx--card__cta"
+                                        height={20}
+                                        preserveAspectRatio="xMidYMid meet"
+                                        src={
+                                          Object {
+                                            "$$typeof": Symbol(react.forward_ref),
+                                            "render": [Function],
+                                          }
+                                        }
+                                        viewBox="0 0 20 20"
+                                        width={20}
+                                        xmlns="http://www.w3.org/2000/svg"
+                                      >
+                                        <svg
+                                          aria-hidden={true}
+                                          className="bx--card__cta"
+                                          focusable="false"
+                                          height={20}
+                                          preserveAspectRatio="xMidYMid meet"
+                                          src={
+                                            Object {
+                                              "$$typeof": Symbol(react.forward_ref),
+                                              "render": [Function],
+                                            }
+                                          }
+                                          viewBox="0 0 20 20"
+                                          width={20}
+                                          xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                          <polygon
+                                            points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
+                                          />
+                                        </svg>
+                                      </Icon>
+                                    </ForwardRef(ArrowRight20)>
+                                  </div>
+                                </div>
+                              </a>
+                            </ClickableTile>
+                          </Card>
+                        </div>
+                        <div
+                          aria-label="Nunc convallis loborti"
+                          className="bx--card-group__cards__col"
+                          key="3"
+                          role="region"
+                        >
+                          <Card
+                            copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
+                            cta={
+                              Object {
+                                "href": "https://www.example.com",
+                                "icon": Object {
+                                  "src": Object {
+                                    "$$typeof": Symbol(react.forward_ref),
+                                    "render": [Function],
+                                  },
+                                },
+                              }
+                            }
+                            customClassName="bx--card-group__card"
+                            heading="Nunc convallis loborti"
+                            key="3"
+                            type="link"
+                          >
+                            <ClickableTile
+                              className="bx--card bx--card--link bx--card-group__card"
+                              clicked={false}
+                              data-autoid="dds--card"
+                              handleClick={[Function]}
+                              handleKeyDown={[Function]}
+                              href="https://www.example.com"
+                              light={false}
+                            >
+                              <a
+                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
+                                data-autoid="dds--card"
+                                href="https://www.example.com"
+                                onClick={[Function]}
+                                onKeyDown={[Function]}
+                              >
+                                <div
+                                  className="bx--card__wrapper"
+                                >
+                                  <h3
+                                    className="bx--card__heading"
+                                  >
+                                    Nunc convallis loborti
+                                  </h3>
+                                  <div
+                                    className="bx--card__copy"
+                                    dangerouslySetInnerHTML={
+                                      Object {
+                                        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
+                                      }
+                                    }
+                                  />
+                                  <div
+                                    className="bx--card__footer"
+                                  >
+                                    <ForwardRef(ArrowRight20)
+                                      className="bx--card__cta"
+                                      src={
+                                        Object {
+                                          "$$typeof": Symbol(react.forward_ref),
+                                          "render": [Function],
+                                        }
+                                      }
+                                    >
+                                      <Icon
+                                        className="bx--card__cta"
+                                        height={20}
+                                        preserveAspectRatio="xMidYMid meet"
+                                        src={
+                                          Object {
+                                            "$$typeof": Symbol(react.forward_ref),
+                                            "render": [Function],
+                                          }
+                                        }
+                                        viewBox="0 0 20 20"
+                                        width={20}
+                                        xmlns="http://www.w3.org/2000/svg"
+                                      >
+                                        <svg
+                                          aria-hidden={true}
+                                          className="bx--card__cta"
+                                          focusable="false"
+                                          height={20}
+                                          preserveAspectRatio="xMidYMid meet"
+                                          src={
+                                            Object {
+                                              "$$typeof": Symbol(react.forward_ref),
+                                              "render": [Function],
+                                            }
+                                          }
+                                          viewBox="0 0 20 20"
+                                          width={20}
+                                          xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                          <polygon
+                                            points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
+                                          />
+                                        </svg>
+                                      </Icon>
+                                    </ForwardRef(ArrowRight20)>
+                                  </div>
+                                </div>
+                              </a>
+                            </ClickableTile>
+                          </Card>
+                        </div>
+                        <div
+                          aria-label="Nunc convallis lbortis"
+                          className="bx--card-group__cards__col"
+                          key="4"
+                          role="region"
+                        >
+                          <Card
+                            copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
+                            cta={
+                              Object {
+                                "href": "https://www.example.com",
+                                "icon": Object {
+                                  "src": Object {
+                                    "$$typeof": Symbol(react.forward_ref),
+                                    "render": [Function],
+                                  },
+                                },
+                              }
+                            }
+                            customClassName="bx--card-group__card"
+                            heading="Nunc convallis lbortis"
+                            key="4"
+                            type="link"
+                          >
+                            <ClickableTile
+                              className="bx--card bx--card--link bx--card-group__card"
+                              clicked={false}
+                              data-autoid="dds--card"
+                              handleClick={[Function]}
+                              handleKeyDown={[Function]}
+                              href="https://www.example.com"
+                              light={false}
+                            >
+                              <a
+                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
+                                data-autoid="dds--card"
+                                href="https://www.example.com"
+                                onClick={[Function]}
+                                onKeyDown={[Function]}
+                              >
+                                <div
+                                  className="bx--card__wrapper"
+                                >
+                                  <h3
+                                    className="bx--card__heading"
+                                  >
+                                    Nunc convallis lbortis
+                                  </h3>
+                                  <div
+                                    className="bx--card__copy"
+                                    dangerouslySetInnerHTML={
+                                      Object {
+                                        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
+                                      }
+                                    }
+                                  />
+                                  <div
+                                    className="bx--card__footer"
+                                  >
+                                    <ForwardRef(ArrowRight20)
+                                      className="bx--card__cta"
+                                      src={
+                                        Object {
+                                          "$$typeof": Symbol(react.forward_ref),
+                                          "render": [Function],
+                                        }
+                                      }
+                                    >
+                                      <Icon
+                                        className="bx--card__cta"
+                                        height={20}
+                                        preserveAspectRatio="xMidYMid meet"
+                                        src={
+                                          Object {
+                                            "$$typeof": Symbol(react.forward_ref),
+                                            "render": [Function],
+                                          }
+                                        }
+                                        viewBox="0 0 20 20"
+                                        width={20}
+                                        xmlns="http://www.w3.org/2000/svg"
+                                      >
+                                        <svg
+                                          aria-hidden={true}
+                                          className="bx--card__cta"
+                                          focusable="false"
+                                          height={20}
+                                          preserveAspectRatio="xMidYMid meet"
+                                          src={
+                                            Object {
+                                              "$$typeof": Symbol(react.forward_ref),
+                                              "render": [Function],
+                                            }
+                                          }
+                                          viewBox="0 0 20 20"
+                                          width={20}
+                                          xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                          <polygon
+                                            points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
+                                          />
+                                        </svg>
+                                      </Icon>
+                                    </ForwardRef(ArrowRight20)>
+                                  </div>
+                                </div>
+                              </a>
+                            </ClickableTile>
+                          </Card>
+                        </div>
+                        <div
+                          className="bx--card-group__cards__col"
+                        >
+                          <Card
+                            cta={
+                              Object {
+                                "href": "https://www.example.com",
+                                "icon": Object {
+                                  "src": Object {
+                                    "$$typeof": Symbol(react.forward_ref),
+                                    "render": [Function],
+                                  },
+                                },
+                              }
+                            }
+                            heading="Top level card link"
+                            inverse={true}
+                            type="link"
+                          >
+                            <ClickableTile
+                              className="bx--card bx--card--inverse bx--card--link"
+                              clicked={false}
+                              data-autoid="dds--card"
+                              handleClick={[Function]}
+                              handleKeyDown={[Function]}
+                              href="https://www.example.com"
+                              light={false}
+                            >
+                              <a
+                                className="bx--tile bx--tile--clickable bx--card bx--card--inverse bx--card--link"
+                                data-autoid="dds--card"
+                                href="https://www.example.com"
+                                onClick={[Function]}
+                                onKeyDown={[Function]}
+                              >
+                                <div
+                                  className="bx--card__wrapper"
+                                >
+                                  <h3
+                                    className="bx--card__heading"
+                                  >
+                                    Top level card link
+                                  </h3>
+                                  <div
+                                    className="bx--card__footer"
+                                  >
+                                    <ForwardRef(ArrowRight20)
+                                      className="bx--card__cta"
+                                      src={
+                                        Object {
+                                          "$$typeof": Symbol(react.forward_ref),
+                                          "render": [Function],
+                                        }
+                                      }
+                                    >
+                                      <Icon
+                                        className="bx--card__cta"
+                                        height={20}
+                                        preserveAspectRatio="xMidYMid meet"
+                                        src={
+                                          Object {
+                                            "$$typeof": Symbol(react.forward_ref),
+                                            "render": [Function],
+                                          }
+                                        }
+                                        viewBox="0 0 20 20"
+                                        width={20}
+                                        xmlns="http://www.w3.org/2000/svg"
+                                      >
+                                        <svg
+                                          aria-hidden={true}
+                                          className="bx--card__cta"
+                                          focusable="false"
+                                          height={20}
+                                          preserveAspectRatio="xMidYMid meet"
+                                          src={
+                                            Object {
+                                              "$$typeof": Symbol(react.forward_ref),
+                                              "render": [Function],
+                                            }
+                                          }
+                                          viewBox="0 0 20 20"
+                                          width={20}
+                                          xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                          <polygon
+                                            points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
+                                          />
+                                        </svg>
+                                      </Icon>
+                                    </ForwardRef(ArrowRight20)>
+                                  </div>
+                                </div>
+                              </a>
+                            </ClickableTile>
+                          </Card>
+                        </div>
+                      </div>
+                    </CardGroup>
                   </div>
                 </div>
               </div>
