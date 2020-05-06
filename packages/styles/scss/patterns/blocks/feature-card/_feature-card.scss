@@ -24,13 +24,10 @@
     .#{$prefix}--content-group__children {
       padding-top: aspect-ratio(1, 1);
       position: relative;
-      @include carbon--breakpoint('md') {
+      @include carbon--breakpoint-between(992px, 1055px) {
         padding-top: aspect-ratio(2, 1);
       }
-      @include carbon--breakpoint-between('md', 'lg') {
-        padding-top: aspect-ratio(1, 1);
-      }
-      @include carbon--breakpoint('lg') {
+      @include carbon--breakpoint('xlg') {
         padding-top: aspect-ratio(2, 1);
       }
     }
@@ -41,14 +38,19 @@
       left: 0;
       right: 0;
       bottom: 0;
-      @include carbon--breakpoint('md') {
+
+      &.#{$prefix}--card--inverse {
+        background: none;
+        &:hover {
+          background: none;
+        }
+      }
+
+      @include carbon--breakpoint-between(992px, 1055px) {
         flex-direction: row;
         @include hang;
       }
-      @include carbon--breakpoint-between('md', 'lg') {
-        flex-direction: column;
-      }
-      @include carbon--breakpoint('lg') {
+      @include carbon--breakpoint('xlg') {
         flex-direction: row;
         @include hang;
       }
@@ -57,15 +59,12 @@
       .#{$prefix}--image {
         width: 100%;
         height: aspect-ratio(2, 1);
-        @include carbon--breakpoint('md') {
+
+        @include carbon--breakpoint-between(992px, 1055px) {
           width: 50%;
           height: aspect-ratio(1, 1);
         }
-        @include carbon--breakpoint-between('md', 'lg') {
-          width: 100%;
-          height: aspect-ratio(2, 1);
-        }
-        @include carbon--breakpoint('lg') {
+        @include carbon--breakpoint('xlg') {
           width: 50%;
           height: aspect-ratio(1, 1);
         }
@@ -74,19 +73,24 @@
 
     .#{$prefix}--card__wrapper {
       background: $inverse-02;
-      overflow: hidden;
+      height: auto;
 
-      @include carbon--breakpoint('md') {
+      @include carbon--breakpoint('xlg') {
         padding: rem(32px);
       }
 
-      @include carbon--breakpoint('xlg') {
+      @include carbon--breakpoint('max') {
         padding: rem(64px);
       }
 
       .#{$prefix}--card__eyebrow {
         margin-bottom: rem(14px);
         color: #ffffff;
+
+        @include carbon--breakpoint-between(1px, 'sm') {
+          margin-top: rem(28px);
+          margin-bottom: rem(14px);
+        }
       }
 
       .#{$prefix}--card__heading {
@@ -101,6 +105,33 @@
           font-weight: 400;
           line-height: 1.2rem;
         }
+        @include carbon--breakpoint-between(1px, 'sm') {
+          margin-bottom: rem(28px);
+        }
+      }
+    }
+
+    // special breakpoint for no copy present
+    &.no-desc {
+      .#{$prefix}--content-group__children {
+        @include carbon--breakpoint-between(752px, 1055px) {
+          padding-top: aspect-ratio(2, 1);
+        }
+      }
+
+      .#{$prefix}--card {
+        @include carbon--breakpoint-between(752px, 1055px) {
+          flex-direction: row;
+          @include hang;
+        }
+      }
+
+      &__wrapper,
+      .#{$prefix}--image {
+        @include carbon--breakpoint-between(752px, 1055px) {
+          width: 50%;
+          height: aspect-ratio(1, 1);
+        }
       }
     }
   }
@@ -108,9 +139,3 @@
 @include exports('feature-card') {
   @include feature-card;
 }
-
-/*
-@include carbon--breakpoint-between('md', 'lg') {
-  padding: 0 $carbon--spacing-05 0 $carbon--spacing-07;
-}
-*/
