@@ -82,8 +82,10 @@ function renderListItems(links) {
   let index = 0;
 
   while (index < renderedLinks.length) {
-    chunked_arr.push(renderedLinks.slice(index, 2 + index));
-    index += 2;
+    chunked_arr.push(
+      renderedLinks.slice(index, Math.ceil(renderedLinks.length / 3) + index)
+    );
+    index += Math.ceil(renderedLinks.length / 3);
   }
 
   return chunked_arr.map((elem, index) => {
