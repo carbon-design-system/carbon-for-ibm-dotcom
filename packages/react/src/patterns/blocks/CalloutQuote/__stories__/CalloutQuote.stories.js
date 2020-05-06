@@ -6,7 +6,7 @@ import React from 'react';
 import readme from '../README.md';
 import { storiesOf } from '@storybook/react';
 
-storiesOf('Patterns (Blocks)|Callout Quote', module)
+storiesOf('Patterns (Blocks)|CalloutQuote', module)
   .addDecorator(withKnobs)
   .addParameters({
     readme: {
