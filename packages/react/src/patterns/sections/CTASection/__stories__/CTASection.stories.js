@@ -1,3 +1,4 @@
+import './index.scss';
 import { select, withKnobs } from '@storybook/addon-knobs';
 import CTASection from '../CTASection';
 import React from 'react';

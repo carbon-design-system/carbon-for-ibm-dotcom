@@ -4,3 +4,13 @@
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
 //
+
+@mixin cta-section--pattern {
+  .#{$prefix}--cta-section {
+    border: 1px solid;
+  }
+}
+
+@include exports('cta-section--pattern') {
+  @include cta-section--pattern;
+}
