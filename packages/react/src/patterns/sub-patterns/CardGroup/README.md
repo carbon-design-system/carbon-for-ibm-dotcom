@@ -43,10 +43,10 @@ Add the following line on your `.env` file at the root of your project,
 
 ## Props
 
-| Name    | Required | Data Type | Default Value | Description                                                                                                                                                                         |
-| ------- | -------- | --------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `cards` | YES      | Array     | null          | Array of objects. See [Cards props](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/patterns/sub-patterns/CardGroup#card-props---simple). |
-| `cta`   | NO       | Object    | null          | Optional CTA card for group. Always displays as last item.                                                                                                                          |
+| Name    | Required | Data Type | Default Value | Description                                                                                                                                                                        |
+| ------- | -------- | --------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `cards` | YES      | Array     | null          | Array of objects. See [Card props](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/patterns/sub-patterns/CardGroup#card-props---simple). |
+| `cta`   | NO       | Object    | null          | Optional CTA card for group. Always displays as last item.                                                                                                                         |
 
 ### Card props - simple
 
