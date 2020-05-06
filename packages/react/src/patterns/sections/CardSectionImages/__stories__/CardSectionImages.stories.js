@@ -1,3 +1,10 @@
+/**
+ * Copyright IBM Corp. 2016, 2018
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 import { object, select, text, withKnobs } from '@storybook/addon-knobs';
 import cards from '../../../sub-patterns/CardGroup/__stories__/data/cards.json';
 import CardSectionImages from '../CardSectionImages';
@@ -25,7 +32,7 @@ storiesOf('Patterns (Sections)|CardSectionImages', module)
       <CardSectionImages
         heading={text('Heading (required):', 'Aliquam condimentum interdum')}
         theme={select('theme', themes, themes.white)}
-        cards={object('Data', cards.CardSectionImages)}
+        cards={object('Data', cards.Images)}
       />
     );
   });
