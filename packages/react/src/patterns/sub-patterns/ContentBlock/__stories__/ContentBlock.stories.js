@@ -7,6 +7,7 @@ import {
   boolean,
 } from '@storybook/addon-knobs';
 import ContentBlock from '../ContentBlock';
+import cx from 'classnames';
 import { LinkList } from '../../LinkList';
 import React from 'react';
 import readme from '../README.md';
@@ -46,19 +47,19 @@ storiesOf('Patterns (Sub-Patterns)|ContentBlock', module)
       none: null,
     };
 
-    const inverse = {
-      default: '',
-      inverse: 'inverse',
-    };
+    const inverse = boolean('inverse', false);
 
     return (
-      <div className="bx--grid">
+      <div
+        className={cx('bx-grid', {
+          [`${prefix}--content-block--inverse`]: inverse,
+        })}>
         <div className="bx--row">
           <div className="bx--col-lg-8 bx--col-sm-4 bx--offset-lg-4">
             <ContentBlock
               heading={blockProps.heading}
               copy={blockProps.copy}
-              type={select('type', inverse, inverse.default)}
+              inverse={inverse}
               cta={select('CTA (optional)', cta, cta.cta)}
               customClassName={`${prefix}--content-block-story`}>
               {blockProps.content}
