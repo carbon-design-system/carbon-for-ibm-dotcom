@@ -5,32 +5,49 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { CardSection } from '../CardSection';
+import { CardGroup } from '../../sub-patterns/CardGroup';
+import classNames from 'classnames';
+import { ContentSection } from '../../sub-patterns/ContentSection';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
 import React from 'react';
+import { settings } from 'carbon-components';
 
 const { stablePrefix } = ddsSettings;
+const { prefix } = settings;
 
 /**
  * CardSectionImages pattern it is Cards with images
  *
  * @param {object} props props object
  * @param {Array} props.cards array of card
+ * @param {string} props.theme theme of cards
  * @returns {object} JSX Object
  */
-const CardSectionImages = ({ cards, ...otherProps }) => {
+const CardSectionImages = ({ cards, theme, ...otherProps }) => {
   const cardsWithImages = cards.filter(
     ({ image, eyebrow, heading, copy, cta: { href } }) =>
       image && eyebrow && heading && !copy && href
   );
-  delete otherProps.cta;
+
+  /**
+   * sets the class name based on theme type
+   *
+   * @private
+   * @param {string} theme theme type ( g10 | g100 | white/default )
+   * @returns {string} theme css class names
+   */
+  const _setTheme = theme => {
+    return theme && `${prefix}--card-group--${theme}`;
+  };
+
   return (
-    <CardSection
-      {...otherProps}
-      autoid={`${stablePrefix}--card-section-images-section`}
-      cards={cardsWithImages}
-    />
+    <ContentSection
+      heading={otherProps.heading}
+      autoid={`${stablePrefix}--card-group-images-group`}
+      customClassName={classNames(`${prefix}--card-group`, _setTheme(theme))}>
+      <CardGroup cards={cardsWithImages} />
+    </ContentSection>
   );
 };
 

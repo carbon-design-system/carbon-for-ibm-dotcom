@@ -7,7 +7,9 @@
 
 Here's a quick example to get you started.
 
-```scss
+##### CSS
+
+```css
 // yourapplication.scss
 @import '@carbon/type/scss/font-face/mono';
 @import '@carbon/type/scss/font-face/sans';
@@ -23,6 +25,8 @@ Here's a quick example to get you started.
 ### Base example
 
 This is the base example of 'ContentBlock'.
+
+##### JS
 
 ```javascript
 import React from 'react';

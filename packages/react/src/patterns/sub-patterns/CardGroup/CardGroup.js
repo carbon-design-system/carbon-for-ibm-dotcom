@@ -8,8 +8,6 @@
 import React, { useEffect, useRef } from 'react';
 import { ArrowRight20 } from '@carbon/icons-react';
 import { Card } from '../../sub-patterns/Card';
-import classNames from 'classnames';
-import { ContentSection } from '../../sub-patterns/ContentSection';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
 import root from 'window-or-global';
@@ -19,16 +17,14 @@ import { settings } from 'carbon-components';
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 /**
- * Card section Component
+ * CardGroup sub-pattern
  *
  * @param {object} props props object
- * @param {string} props.heading cards group heading
- * @param {string} props.theme theme name
  * @param {object} props.cta cta object
- * @param {Array} props.cards Array of card
- * @returns {object} JSX Object
+ * @param {Array} props.cards Array of cards
+ * @returns {object} JSX object
  */
-const CardSection = ({ heading, theme, cards, cta, ...otherProps }) => {
+const CardGroup = ({ cards, cta }) => {
   const containerRef = useRef();
   useEffect(() => {
     setCardHeight();
@@ -66,50 +62,32 @@ const CardSection = ({ heading, theme, cards, cta, ...otherProps }) => {
     });
   };
 
-  /**
-   * sets the class name based on theme type
-   *
-   * @private
-   * @param {string} theme theme type ( g10 | g100 | white/default )
-   * @returns {string} theme css class names
-   */
-  const _setTheme = theme => {
-    return theme && `${prefix}--card-section--${theme}`;
-  };
-
-  return (
-    <ContentSection
-      heading={heading}
-      autoid={otherProps.autoid}
-      customClassName={classNames(`${prefix}--card-section`, _setTheme(theme))}>
-      {_renderCards(cards, containerRef, cta)}
-    </ContentSection>
-  );
+  return _renderCards(cards, containerRef, cta);
 };
 
 /**
- * Renders the cards based on the CardSection entries
+ * Renders the cards based on the CardGroup entries
  *
  * @param {Array} cards objects array
  * @param {object} containerRef ref of elements
  * @param {object} cta object
- * @returns {*} CardSection JSX objects
+ * @returns {*} CardGroup JSX objects
  */
 const _renderCards = (cards, containerRef, cta) => (
   <div
-    data-autoid={`${stablePrefix}--card-section`}
-    className={`${prefix}--card-section__cards__row ${prefix}--row--condensed`}
+    data-autoid={`${stablePrefix}--card-group`}
+    className={`${prefix}--card-group__cards__row ${prefix}--row--condensed`}
     ref={containerRef}>
     {cards.map((card, index) => {
       return (
         <div
           key={index}
-          className={`${prefix}--card-section__cards__col`}
+          className={`${prefix}--card-group__cards__col`}
           role="region"
           aria-label={card.heading}>
           <Card
             key={index}
-            customClassName={`${prefix}--card-section__card`}
+            customClassName={`${prefix}--card-group__card`}
             image={card.image}
             heading={card.heading}
             eyebrow={card.eyebrow}
@@ -126,7 +104,7 @@ const _renderCards = (cards, containerRef, cta) => (
       );
     })}
     {cta && (
-      <div className={`${prefix}--card-section__cards__col`}>
+      <div className={`${prefix}--card-group__cards__col`}>
         <Card
           inverse={true}
           heading={cta.heading}
@@ -143,11 +121,9 @@ const _renderCards = (cards, containerRef, cta) => (
   </div>
 );
 
-CardSection.propTypes = {
-  theme: PropTypes.string,
-  heading: PropTypes.string.isRequired,
+CardGroup.propTypes = {
   cards: PropTypes.arrayOf(PropTypes.shape(Card.propTypes)),
   cta: PropTypes.oneOfType(PropTypes.shape(Card.propTypes)),
 };
 
-export default CardSection;
+export default CardGroup;

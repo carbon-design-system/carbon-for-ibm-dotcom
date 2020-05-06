@@ -7,7 +7,9 @@
 
 Here's a quick example to get you started.
 
-```scss
+##### CSS
+
+```css
 // yourapplication.scss
 @import '@carbon/type/scss/font-face/mono';
 @import '@carbon/type/scss/font-face/sans';
@@ -18,6 +20,8 @@ Here's a quick example to get you started.
 > 💡 Only import fonts once per usage. Don't forget to import the Footer styles
 > from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
+
+##### JS
 
 ```javascript
 import React from 'react';
@@ -42,21 +46,6 @@ Add the following line on your `.env` file at the root of your project,
 
 > 💡 Don't forget to import the footer styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
-
-#### Feature Flags
-
-To utilize the following features, set the following variable's to `true` within
-your `.env` file or your application build settings.
-
-```
-DDS_FOOTER_LOCALE_BUTTON=true
-```
-
-> See
-> [feature-flags.md](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/docs/feature-flags.md)
-> and
-> [.env.example](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/.env.example)
-> for more information
 
 ## Props
 
@@ -119,6 +108,12 @@ function App() {
   );
 }
 ```
+
+> See
+> [feature-flags.md](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/docs/feature-flags.md)
+> and
+> [.env.example](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/.env.example)
+> for more information
 
 ## Stable selectors
 

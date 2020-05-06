@@ -46,8 +46,8 @@
   }
 }
 
-@mixin card-section {
-  .#{$prefix}--card-section {
+@mixin card-group {
+  .#{$prefix}--card-group {
     &__card {
       .#{$prefix}--image {
         &__img {
@@ -93,22 +93,22 @@
     }
     @include themed-items;
   }
-  .#{$prefix}--card-section.#{$prefix}--card-section--g10 {
+  .#{$prefix}--card-group.#{$prefix}--card-group--g10 {
     @include carbon--theme($carbon--theme--g10) {
       @include themed-items;
     }
   }
-  .#{$prefix}--card-section.#{$prefix}--card-section--g90 {
+  .#{$prefix}--card-group.#{$prefix}--card-group--g90 {
     @include carbon--theme($carbon--theme--g90) {
       @include themed-items;
     }
   }
-  .#{$prefix}--card-section.#{$prefix}--card-section--g100 {
+  .#{$prefix}--card-group.#{$prefix}--card-group--g100 {
     @include carbon--theme($carbon--theme--g100) {
       @include themed-items;
     }
   }
 }
-@include exports('card-section') {
-  @include card-section;
+@include exports('card-group') {
+  @include card-group;
 }
