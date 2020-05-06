@@ -41,7 +41,8 @@
   .#{$prefix}--video-player--inverse {
     background-color: $inverse-02;
   }
-  .#{$prefix}--video-player__video-description--inverse {
+  .#{$prefix}--video-player--inverse
+    .#{$prefix}--video-player__video-description {
     color: $text-04;
   }
 }

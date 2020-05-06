@@ -46,13 +46,6 @@ const VideoPlayer = ({
     { [`${prefix}--video-player--inverse`]: inverse },
     customClassName
   );
-  const textclass = cx(
-    `${prefix}--video-player__video-description`,
-    {
-      [`${prefix}--video-player__video-description--inverse`]: inverse,
-    },
-    customClassName
-  );
 
   return (
     <div
@@ -66,7 +59,7 @@ const VideoPlayer = ({
           id={`${prefix}--${videoPlayerId}`}></div>
       </div>
       {showDescription && (
-        <div className={textclass}>
+        <div className={`${prefix}--video-player__video-description`}>
           {videoData.description} {videoDuration}
         </div>
       )}
