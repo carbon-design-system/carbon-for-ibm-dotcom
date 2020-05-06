@@ -17,24 +17,25 @@ const { prefix } = settings;
 /**
  * renders background image
  *
- * @param {object} props props object
+ * @param {boolean} props props object
+ * @param {boolean} props.inverse inverse
  * @param {object} props.image image object
  * @param {string} props.heading image caption
  * @param {string} props.customClassName custom classname
  * @returns {*} picture element
  */
-const ImageWithCaption = ({ type, image, heading, customClassName }) => {
+const ImageWithCaption = ({ inverse, image, heading, customClassName }) => {
   if (!image) {
     return null;
   }
   const classnames = cx(
     `${prefix}--image-with-caption`,
-    { [`${prefix}--image-with-caption--inverse`]: type === 'inverse' },
+    { [`${prefix}--image-with-caption--inverse`]: inverse },
     customClassName
   );
   const textclass = cx(
     `${prefix}--image__caption`,
-    { [`${prefix}--image__caption--inverse`]: type === 'inverse' },
+    { [`${prefix}--image__caption--inverse`]: inverse },
     customClassName
   );
 
@@ -51,7 +52,7 @@ const ImageWithCaption = ({ type, image, heading, customClassName }) => {
 };
 
 ImageWithCaption.propTypes = {
-  type: PropTypes.oneOf(['inverse', '']),
+  inverse: PropTypes.bool,
   image: PropTypes.shape(Image.propTypes).isRequired,
   heading: PropTypes.string.isRequired,
   customClassName: PropTypes.string,
