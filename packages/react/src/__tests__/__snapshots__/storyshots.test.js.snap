@@ -6494,7 +6494,7 @@ exports[`Storyshots Patterns (Blocks)|CalloutQuote Default 1`] = `
                                       "type": "local",
                                     }
                                   }
-                                  inverse="true"
+                                  inverse={true}
                                   markType="doubleCurved"
                                   source={
                                     Object {

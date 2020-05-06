@@ -10,7 +10,6 @@ import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { settings } from 'carbon-components';
-
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
@@ -34,14 +33,22 @@ const CalloutQuote = ({ quote }) => {
       className={`${prefix}--callout-quote`}
       data-autoid={`${stablePrefix}--callout-quote`}>
       <Callout>
-        <Quote {...quote} inverse="true" />
+        <Quote {...quote} inverse={true} />
       </Callout>
     </div>
   );
 };
 
 CalloutQuote.propTypes = {
-  quote: PropTypes.instanceOf(Quote),
+  quote: PropTypes.shape({
+    markType: PropTypes.string,
+    copy: PropTypes.string.isRequired,
+    source: PropTypes.shape({
+      heading: PropTypes.string,
+      copy: PropTypes.string,
+    }),
+    cta: PropTypes.object,
+  }),
 };
 
 export default CalloutQuote;

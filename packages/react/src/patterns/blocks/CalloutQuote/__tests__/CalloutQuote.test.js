@@ -27,7 +27,5 @@ describe('CalloutQuote', () => {
     const callout = shallow(<CalloutQuote quote={quote} />);
 
     expect(callout.find('.bx--callout-quote')).toHaveLength(1);
-    expect(callout.find('.bx--callout__container')).toHaveLength(1);
-    expect(callout.find('.bx--quote')).toHaveLength(1);
   });
 });
