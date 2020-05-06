@@ -1,5 +1,5 @@
 import { object, select, text, withKnobs } from '@storybook/addon-knobs';
-import cards from '../../CardSection/__stories__/data/cards.json';
+import cards from '../../../sub-patterns/CardGroup/__stories__/data/cards.json';
 import CardSectionImages from '../CardSectionImages';
 import React from 'react';
 import readme from '../README.md';
@@ -23,7 +23,7 @@ storiesOf('Patterns (Sections)|CardSectionImages', module)
 
     return (
       <CardSectionImages
-        heading={text('Heading (required):', 'Read more about it')}
+        heading={text('Heading (required):', 'Aliquam condimentum interdum')}
         theme={select('theme', themes, themes.white)}
         cards={object('Data', cards.CardSectionImages)}
       />
