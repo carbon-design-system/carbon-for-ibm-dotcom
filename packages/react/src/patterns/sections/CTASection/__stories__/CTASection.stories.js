@@ -29,5 +29,36 @@ storiesOf('Patterns (Sections)|CTASection', module)
       copy: `Want to discuss your options with a DevOps expert?`,
     };
 
-    return <CTASection {...contentBlockProps} cta={ctaProps} />;
+    const contentItemsProps = [
+      {
+        heading: 'Get connected',
+        copy: `
+          IBM DevOps partners have a wide range of expertise.
+          Find one to build the right solution for you.
+          `,
+        cta: {
+          copy: 'Find a partner',
+          type: select('ContentItem left | type:', types, types[0]),
+          href: 'https://example.com/',
+        },
+      },
+      {
+        heading: 'Learn how',
+        copy:
+          'Dig into more self-directed learning about DevOps methodologies.',
+        cta: {
+          copy: 'Browse tutorials',
+          type: select('ContentItem right | type:', types, types[0]),
+          href: 'https://example.com/',
+        },
+      },
+    ];
+
+    return (
+      <CTASection
+        {...contentBlockProps}
+        cta={ctaProps}
+        items={contentItemsProps}
+      />
+    );
   });
