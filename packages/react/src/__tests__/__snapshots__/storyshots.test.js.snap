@@ -5357,8 +5357,8 @@ exports[`Storyshots Components|VideoPlayer Default 1`] = `
                     className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
                   >
                     <VideoPlayer
+                      inverse={false}
                       showDescription={true}
-                      type=""
                       videoId="0_uka1msg4"
                     />
                   </div>
@@ -5401,8 +5401,8 @@ exports[`Storyshots Components|VideoPlayer Default 1`] = `
                     className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
                   >
                     <VideoPlayer
+                      inverse={false}
                       showDescription={true}
-                      type=""
                       videoId="0_uka1msg4"
                     >
                       <div
