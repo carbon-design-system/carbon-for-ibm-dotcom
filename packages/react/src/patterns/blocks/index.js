@@ -11,5 +11,6 @@ export * from './ContentBlockSegmented';
 export * from './ContentBlockSimple';
 export * from './ContentGroupCards';
 export * from './ContentGroupPictograms';
+export * from './ContentGroupSimple';
 export * from './FeatureCard';
 export * from './LogoGrid';
