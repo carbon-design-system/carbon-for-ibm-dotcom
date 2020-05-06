@@ -6367,7 +6367,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
 </Container>
 `;
 
-exports[`Storyshots Patterns (Blocks)|Callout Quote Default 1`] = `
+exports[`Storyshots Patterns (Blocks)|CalloutQuote Default 1`] = `
 <Container
   story={[Function]}
 >
