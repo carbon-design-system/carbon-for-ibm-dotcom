@@ -1,3 +1,10 @@
+/**
+ * Copyright IBM Corp. 2016, 2018
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 import {
   boolean,
   object,
@@ -5,7 +12,7 @@ import {
   text,
   withKnobs,
 } from '@storybook/addon-knobs';
-import cards from '../../CardSection/__stories__/data/cards.json';
+import cards from '../../../sub-patterns/CardGroup/__stories__/data/cards.json';
 import CardSectionSimple from '../CardSectionSimple';
 import React from 'react';
 import readme from '../README.md';

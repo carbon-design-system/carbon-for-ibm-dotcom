@@ -9,7 +9,9 @@
 
 Here's a quick example to get you started.
 
-```scss
+##### CSS
+
+```css
 // yourapplication.scss
 @import '@carbon/type/scss/font-face/mono';
 @import '@carbon/type/scss/font-face/sans';
@@ -19,6 +21,8 @@ Here's a quick example to get you started.
 ```
 
 > 💡 Only import fonts once per usage
+
+##### JS
 
 ```javascript
 import React from 'react';
@@ -41,6 +45,18 @@ Add the following line on your `.env` file at the root of your project,
 
 > 💡 Don't forget to import the VideoPlayer styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
+
+## Environment Variables
+
+The partner ID and uiconf ID necessary to render videos from the Kaltura can be
+set from the `.env` file.
+
+example:
+
+```
+KALTURA_PARTNER_ID=243342
+KALTURA_UICONF_ID=12905712
+```
 
 ## Props
 
