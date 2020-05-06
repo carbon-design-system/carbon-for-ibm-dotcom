@@ -23,8 +23,9 @@
 - {{removed thing}}
 
 <!-- Deploy Previews are enabled by applying the following labels for the corresponding package: -->
-<!-- *** "package: react" -->
-<!-- *** "package: vanilla" -->
-<!-- *** "package: services" -->
-<!-- *** "package: utilities" -->
-<!-- *** "package: styles" -->
+<!-- *** "package: react": React, React (experimental) -->
+<!-- *** "package: vanilla": Vanilla -->
+<!-- *** "package: services": Services -->
+<!-- *** "package: utilities" Utilities -->
+<!-- *** "package: styles" Carbon Expressive, React (Expressive) -->
+<!-- *** "RTL" React (RTL) -->
