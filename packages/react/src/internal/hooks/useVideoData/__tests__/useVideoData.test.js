@@ -10,7 +10,6 @@ import useVideoData from '../useVideoData';
 import { VideoPlayerAPI } from '@carbon/ibmdotcom-services';
 
 jest.mock('@carbon/ibmdotcom-services', () => ({
-  __esModule: true,
   VideoPlayerAPI: {
     api: jest.fn(() => Promise.resolve({ msDuration: 10000 })),
     getVideoDuration: jest.fn(() => '1:30'),
@@ -19,14 +18,7 @@ jest.mock('@carbon/ibmdotcom-services', () => ({
 
 describe('useVideoData hook', () => {
   const type = 'video';
-  const style = 'text';
-  const otherProps = {
-    copy: 'testing',
-    media: {
-      src: 'video_id',
-      type: 'video',
-    },
-  };
+  const videoId = [{ src: '0_uka1msg4' }];
   /**
    * @param {object} otherProps otherprops
    * @param {string} style style of CTA
@@ -49,7 +41,7 @@ describe('useVideoData hook', () => {
     return returnVal;
   }
   it('should call the VideoPlayerAPI', async () => {
-    setup(otherProps, style, type);
+    setup(type, videoId);
     expect(VideoPlayerAPI.api).toHaveBeenCalled();
   });
 });
