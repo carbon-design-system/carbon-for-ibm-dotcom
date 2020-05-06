@@ -1,8 +1,8 @@
+import { select, withKnobs } from '@storybook/addon-knobs';
 import CTASection from '../CTASection';
 import React from 'react';
 import readme from '../README.md';
 import { storiesOf } from '@storybook/react';
-import { withKnobs } from '@storybook/addon-knobs';
 
 storiesOf('Patterns (Sections)|CTASection', module)
   .addDecorator(withKnobs)
@@ -12,5 +12,22 @@ storiesOf('Patterns (Sections)|CTASection', module)
     },
   })
   .add('Default', () => {
-    return <CTASection />;
+    const types = ['local', 'external'];
+    const ctaProps = {
+      style: 'button',
+      type: select('CTA type', types, types[0]),
+      buttons: [
+        {
+          type: select('CTA type', types, types[0]),
+          copy: ['Book time with an expert'],
+        },
+      ],
+    };
+
+    const contentBlockProps = {
+      heading: 'Take the next step',
+      copy: `Want to discuss your options with a DevOps expert?`,
+    };
+
+    return <CTASection {...contentBlockProps} cta={ctaProps} />;
   });
