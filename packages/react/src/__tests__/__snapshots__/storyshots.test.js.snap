@@ -22422,16 +22422,9 @@ exports[`Storyshots Patterns (Sub-Patterns)|CardGroup default 1`] = `
                                   <div
                                     className="bx--card__footer"
                                   >
-<<<<<<< HEAD
-                                    <TextCTA
-                                      copy="click here"
-                                      href="https://example.com"
-                                      icon={
-=======
                                     <ForwardRef(ArrowRight20)
                                       className="bx--card__cta"
                                       src={
->>>>>>> master
                                         Object {
                                           "$$typeof": Symbol(react.forward_ref),
                                           "render": [Function],
@@ -22547,21 +22540,12 @@ exports[`Storyshots Patterns (Sub-Patterns)|CardGroup default 1`] = `
                                           "render": [Function],
                                         }
                                       }
-<<<<<<< HEAD
-                                      openLightBox={[Function]}
-                                      renderLightBox={false}
-                                      style="text"
-                                      type="local"
-                                      videoTitle={
-                                        Array [
-=======
                                     >
                                       <Icon
                                         className="bx--card__cta"
                                         height={20}
                                         preserveAspectRatio="xMidYMid meet"
                                         src={
->>>>>>> master
                                           Object {
                                             "$$typeof": Symbol(react.forward_ref),
                                             "render": [Function],
