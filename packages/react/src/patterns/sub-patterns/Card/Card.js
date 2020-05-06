@@ -10,7 +10,6 @@ import {
   markdownToHtml,
 } from '@carbon/ibmdotcom-utilities';
 import classNames from 'classnames';
-// import { CTA } from '../../../components/CTA';
 import { Image } from '../../../components/Image';
 import { LinkWithIcon } from '../../../components/LinkWithIcon';
 import PropTypes from 'prop-types';
@@ -112,7 +111,11 @@ export const cardPropTypes = {
   heading: PropTypes.string,
   eyebrow: PropTypes.string,
   copy: PropTypes.string,
-  cta: PropTypes.object,
+  cta: PropTypes.shape({
+    copy: PropTypes.string,
+    href: PropTypes.string,
+    icon: PropTypes.element,
+  }),
   image: PropTypes.object,
   inverse: PropTypes.bool,
   customClassName: PropTypes.string,
