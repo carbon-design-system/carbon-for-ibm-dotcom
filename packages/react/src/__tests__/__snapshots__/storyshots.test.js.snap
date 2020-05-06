@@ -22932,7 +22932,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock Default 1`] = `
           Object {
             "content": <React.Fragment>
               <div
-                className="bx--grid"
+                className="bx-grid"
               >
                 <div
                   className="bx--row"
@@ -22956,7 +22956,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock Default 1`] = `
                       }
                       customClassName="bx--content-block-story"
                       heading="This is the Content Block heading"
-                      type=""
+                      inverse={false}
                     >
                       This is the Content Block children.
                     </ContentBlock>
@@ -22991,7 +22991,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock Default 1`] = `
           >
             <div>
               <div
-                className="bx--grid"
+                className="bx-grid"
               >
                 <div
                   className="bx--row"
@@ -23015,7 +23015,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock Default 1`] = `
                       }
                       customClassName="bx--content-block-story"
                       heading="This is the Content Block heading"
-                      type=""
+                      inverse={false}
                     >
                       <div
                         className="bx--content-block bx--content-block-story"
