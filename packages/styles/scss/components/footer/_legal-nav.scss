@@ -38,6 +38,8 @@
       @include carbon--breakpoint-down('lg') {
         @include carbon--make-col(4, 4);
 
+        display: flex;
+        flex-direction: column;
         padding-left: 0;
 
         @include carbon--breakpoint('md') {
