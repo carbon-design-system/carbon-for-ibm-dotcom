@@ -26,7 +26,10 @@ import { useVideoData } from '../../internal/hooks/useVideoData';
 const CTA = ({ style, type, customClassName, ...otherProps }) => {
   const [renderLightBox, openLightBox] = useState(false);
 
-  const videoId = CTALogic.getVideoId(style, otherProps);
+  const videoId =
+    type && (type === 'video' || type.includes('video'))
+      ? CTALogic.getVideoId(style, otherProps)
+      : [];
   const videoTitle = useVideoData(type, videoId);
 
   const CTAComponent =

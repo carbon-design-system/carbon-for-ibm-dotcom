@@ -21760,7 +21760,6 @@ exports[`Storyshots Patterns (Sub-Patterns)|Card Static 1`] = `
                                   >
                                     <TextCTA
                                       copy="click here"
-                                      external={[Function]}
                                       href="https://example.com"
                                       icon={
                                         Object {
@@ -21770,14 +21769,8 @@ exports[`Storyshots Patterns (Sub-Patterns)|Card Static 1`] = `
                                           },
                                         }
                                       }
-                                      iconSelector={[Function]}
-                                      jump={[Function]}
-                                      launchLightBox={[Function]}
-                                      mediaData={Object {}}
                                       openLightBox={[Function]}
                                       renderLightBox={false}
-                                      setLightBox={[Function]}
-                                      setMediaData={[Function]}
                                       style="text"
                                       type="local"
                                       videoTitle={
