@@ -5,7 +5,9 @@
 
 ## Getting started
 
-```scss
+##### CSS
+
+```css
 // yourapplication.scss
 @import '@carbon/type/scss/font-face/mono';
 @import '@carbon/type/scss/font-face/sans';
@@ -19,7 +21,9 @@
 > styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
-### Content
+##### JS
+
+##### Content
 
 ```javascript
 import React from 'react';
@@ -34,7 +38,7 @@ const content = (
 export default content;
 ```
 
-### DotcomShell
+##### DotcomShell
 
 ```javascript
 import React from 'react';

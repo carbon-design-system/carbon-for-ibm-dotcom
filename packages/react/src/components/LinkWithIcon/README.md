@@ -6,7 +6,9 @@
 
 ## Getting started
 
-```scss
+##### CSS
+
+```css
 // yourapplication.scss
 @import '@carbon/type/scss/font-face/mono';
 @import '@carbon/type/scss/font-face/sans';
@@ -18,6 +20,8 @@
 > 💡 Only import fonts once per usage. Don't forget to import the LinkWithIcon
 > styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
+
+##### JS
 
 ```javascript
 import React from 'react';
