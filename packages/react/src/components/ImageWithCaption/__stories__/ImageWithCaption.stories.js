@@ -6,10 +6,14 @@
  */
 import './index.scss';
 import { select, object, text, withKnobs } from '@storybook/addon-knobs';
+import cx from 'classnames';
 import ImageWithCaption from '../ImageWithCaption';
 import React from 'react';
 import readme from '../README.md';
+import { settings } from 'carbon-components';
 import { storiesOf } from '@storybook/react';
+
+const { prefix } = settings;
 
 storiesOf('Components|ImageWithCaption', module)
   .addDecorator(withKnobs)
@@ -41,15 +45,16 @@ storiesOf('Components|ImageWithCaption', module)
       inverse: 'inverse',
     };
 
+    const type = select('type', inverse, inverse.default);
+
     return (
-      <div className="bx--grid">
+      <div
+        className={cx('bx--grid', {
+          [`${prefix}--image-with-caption--inverse`]: type === 'inverse',
+        })}>
         <div className="bx--row">
           <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
-            <ImageWithCaption
-              type={select('type', inverse, inverse.default)}
-              image={image}
-              heading={heading}
-            />
+            <ImageWithCaption type={type} image={image} heading={heading} />
           </div>
         </div>
       </div>
