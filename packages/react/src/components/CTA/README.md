@@ -6,7 +6,9 @@
 
 Here's a quick example to get you started.
 
-```scss
+##### CSS
+
+```css
 // yourapplication.scss
 @import '@carbon/type/scss/font-face/mono';
 @import '@carbon/type/scss/font-face/sans';
@@ -19,7 +21,9 @@ Here's a quick example to get you started.
 > from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
-### Text Link
+##### JS
+
+##### Text Link
 
 ```javascript
 import React from 'react';
@@ -41,7 +45,7 @@ function App() {
 ReactDOM.render(<App />, document.querySelector('#app'));
 ```
 
-### Video Link
+##### Video Link
 
 ```javascript
 import React from 'react';
@@ -65,7 +69,7 @@ function App() {
 ReactDOM.render(<App />, document.querySelector('#app'));
 ```
 
-### Feature Card
+##### Feature Card
 
 ```javascript
 import React from 'react';
@@ -97,7 +101,7 @@ function App() {
 ReactDOM.render(<App />, document.querySelector('#app'));
 ```
 
-### Button(s)
+##### Button(s)
 
 ```javascript
 import React from 'react';
@@ -134,7 +138,7 @@ function App() {
 }
 ```
 
-### Card
+##### Card
 
 ```javascript
 import React from 'react';
