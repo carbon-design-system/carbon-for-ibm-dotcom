@@ -17,6 +17,9 @@ storiesOf('Components|VideoPlayer', module)
     readme: {
       sidebar: readme,
     },
+    percy: {
+      skip: true,
+    },
   })
   .add('Default', () => {
     return (

@@ -11,6 +11,9 @@ storiesOf('Components|Locale Modal', module)
     readme: {
       sidebar: readme,
     },
+    percy: {
+      skip: true, // TODO: find way to mock location data for percy
+    },
   })
   .add('Default', () => {
     return <LocaleModal isOpen={true} />;
