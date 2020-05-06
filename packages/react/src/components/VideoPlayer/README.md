@@ -9,7 +9,9 @@
 
 Here's a quick example to get you started.
 
-```scss
+##### CSS
+
+```css
 // yourapplication.scss
 @import '@carbon/type/scss/font-face/mono';
 @import '@carbon/type/scss/font-face/sans';
@@ -19,6 +21,8 @@ Here's a quick example to get you started.
 ```
 
 > 💡 Only import fonts once per usage
+
+##### JS
 
 ```javascript
 import React from 'react';

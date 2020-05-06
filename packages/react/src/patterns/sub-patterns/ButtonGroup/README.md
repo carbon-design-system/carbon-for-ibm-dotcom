@@ -7,7 +7,9 @@
 
 Here's a quick example to get you started.
 
-```scss
+##### CSS
+
+```css
 // yourapplication.scss
 @import '@carbon/type/scss/font-face/mono';
 @import '@carbon/type/scss/font-face/sans';
@@ -24,6 +26,8 @@ Here's a quick example to get you started.
 
 This is the base example 'ButtonGroup'. Note, the buttons will not resize based
 on text size.
+
+##### JS
 
 ```javascript
 import React from 'react';
