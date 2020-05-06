@@ -5,6 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 import { Card, cardPropTypes } from '../../sub-patterns/Card';
+import classNames from 'classnames';
 import { ContentGroup } from '../../sub-patterns/ContentGroup';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
@@ -24,11 +25,12 @@ const { prefix } = settings;
  * @returns {*} FeatureCard JSX component
  */
 const FeatureCard = ({ heading, card, onClick }) => {
+  const hasCopy = classNames({ [`no-desc`]: !card.copy });
   return (
     heading &&
     card.cta && (
       <section
-        className={`${prefix}--feature-card`}
+        className={`${prefix}--feature-card ${hasCopy}`}
         data-autoid={`${stablePrefix}--feature-card`}>
         <ContentGroup heading={heading}>
           <Card
