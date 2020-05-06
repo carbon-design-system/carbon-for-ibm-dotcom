@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 import './index.scss';
-import { select, boolean, withKnobs } from '@storybook/addon-knobs';
+import { boolean, withKnobs } from '@storybook/addon-knobs';
 import cx from 'classnames';
 import React from 'react';
 import readme from '../README.md';
@@ -23,22 +23,17 @@ storiesOf('Components|VideoPlayer', module)
     },
   })
   .add('Default', () => {
-    const inverse = {
-      default: '',
-      inverse: 'inverse',
-    };
-
-    const type = select('type', inverse, inverse.default);
+    const inverse = boolean('inverse', false);
 
     return (
       <div
         className={cx('bx--grid', {
-          [`${prefix}--video-player--inverse`]: type === 'inverse',
+          [`${prefix}--video-player--inverse`]: inverse,
         })}>
         <div className="bx--row">
           <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
             <VideoPlayer
-              type={type}
+              inverse={inverse}
               videoId="0_uka1msg4"
               showDescription={boolean('Show description', true)}
             />

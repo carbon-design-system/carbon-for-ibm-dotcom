@@ -19,12 +19,17 @@ const { prefix } = settings;
  * VideoPlayer component
  *
  * @param {object} props props object
- * @param {string} props.type theming options
+ * @param {boolean} props.inverse theming options
  * @param {string} props.showDescription video caption
  * @param {string} props.videoId Kaltura video id
  * @returns {*} VideoPlayer component
  */
-const VideoPlayer = ({ type, showDescription, videoId, customClassName }) => {
+const VideoPlayer = ({
+  inverse,
+  showDescription,
+  videoId,
+  customClassName,
+}) => {
   const [videoData, setVideoData] = useState({});
   const videoPlayerId = `video-player__video-${videoId}`;
   const videoDuration = VideoPlayerAPI.getVideoDuration(videoData.msDuration);
@@ -38,14 +43,13 @@ const VideoPlayer = ({ type, showDescription, videoId, customClassName }) => {
 
   const classnames = cx(
     `${prefix}--video-player`,
-    { [`${prefix}--video-player--inverse`]: type === 'inverse' },
+    { [`${prefix}--video-player--inverse`]: inverse },
     customClassName
   );
   const textclass = cx(
     `${prefix}--video-player__video-description`,
     {
-      [`${prefix}--video-player__video-description--inverse`]:
-        type === 'inverse',
+      [`${prefix}--video-player__video-description--inverse`]: inverse,
     },
     customClassName
   );
@@ -79,7 +83,7 @@ VideoPlayer.propTypes = {
   customClassName: PropTypes.string,
   videoId: PropTypes.string.isRequired,
   showDescription: PropTypes.bool,
-  type: PropTypes.oneOf(['inverse', '']),
+  inverse: PropTypes.bool,
 };
 
 export default VideoPlayer;
