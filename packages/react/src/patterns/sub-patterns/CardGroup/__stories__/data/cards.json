@@ -1,5 +1,5 @@
 {
-  "CardSectionSimple": [
+  "Simple": [
     {
       "heading": "Nunc convallis lobortis",
       "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.",
@@ -36,7 +36,7 @@
       }
     }
   ],
-  "CardSectionImages": [
+  "Images": [
     {
       "image": {
         "defaultSrc": "https://dummyimage.com/1056x792/ee5396/161616%26text=4:3",
