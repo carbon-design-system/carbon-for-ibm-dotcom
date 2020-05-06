@@ -32,10 +32,8 @@
   .#{$prefix}--image-with-caption--inverse {
     background-color: $inverse-02;
   }
-
-  // can we set 2x1 ratio here?
-
-  .#{$prefix}--image__caption--inverse {
+  .#{$prefix}--image-with-caption--inverse
+    .#{$prefix}--image__caption--inverse {
     color: $text-04;
   }
 }

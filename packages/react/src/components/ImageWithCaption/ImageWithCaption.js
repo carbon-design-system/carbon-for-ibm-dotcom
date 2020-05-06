@@ -33,18 +33,15 @@ const ImageWithCaption = ({ inverse, image, heading, customClassName }) => {
     { [`${prefix}--image-with-caption--inverse`]: inverse },
     customClassName
   );
-  const textclass = cx(
-    `${prefix}--image__caption`,
-    { [`${prefix}--image__caption--inverse`]: inverse },
-    customClassName
-  );
 
   return (
     <div
       className={classnames}
       data-autoid={`${stablePrefix}--image-with-caption`}>
       <Image {...image} />
-      <p className={textclass} data-autoid={`${stablePrefix}--image__caption`}>
+      <p
+        className={`${prefix}--image__caption--inverse`}
+        data-autoid={`${stablePrefix}--image__caption`}>
         {heading}
       </p>
     </div>
