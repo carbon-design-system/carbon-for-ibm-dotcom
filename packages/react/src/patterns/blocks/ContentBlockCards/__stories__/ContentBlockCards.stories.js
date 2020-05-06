@@ -22,7 +22,7 @@ storiesOf('Patterns (Blocks)|ContentBlockCards', module)
 
   .add('Default', () => {
     const cardTypes = Object.keys(cards);
-    const type = select('Card type', cardTypes, cardTypes[0]);
+    const type = select('Card (type)', cardTypes, cardTypes[0]);
     const data = object(`Data (${type})`, cards[type]);
 
     return (

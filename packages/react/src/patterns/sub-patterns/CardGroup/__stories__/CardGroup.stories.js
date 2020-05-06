@@ -24,7 +24,7 @@ storiesOf('Patterns (Sub-Patterns)|CardGroup', module)
   .add('default', () => {
     const cardTypes = Object.keys(cards);
 
-    const type = select('Card type', cardTypes, cardTypes[0]);
+    const type = select('Card (type)', cardTypes, cardTypes[0]);
     const data = object(`Data (${type})`, cards[type]);
 
     cards[type] = data;
