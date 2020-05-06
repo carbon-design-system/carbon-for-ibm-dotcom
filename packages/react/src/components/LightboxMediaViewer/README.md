@@ -6,7 +6,9 @@
 
 Here's a quick example to get you started.
 
-```scss
+##### CSS
+
+```css
 // yourapplication.scss
 @import '@carbon/type/scss/font-face/mono';
 @import '@carbon/type/scss/font-face/sans';
@@ -19,7 +21,9 @@ Here's a quick example to get you started.
 > LightBoxMediaViewer styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
-### Image Media
+##### JS
+
+##### Image Media
 
 ```javascript
 import React from 'react';
@@ -41,7 +45,7 @@ function App() {
       ),
       description: text(
         'description (required)',
-        `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Here are some common categories:`
+        `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit.`
       ),
       type: 'image',
     }
@@ -52,7 +56,7 @@ function App() {
 ReactDOM.render(<App />, document.querySelector('#app'));
 ```
 
-### Video Media
+##### Video Media
 
 ```javascript
 import React from 'react';

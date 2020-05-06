@@ -5,4 +5,4 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-export { default as CardSection } from './CardSection';
+export { default as Quote } from './Quote';

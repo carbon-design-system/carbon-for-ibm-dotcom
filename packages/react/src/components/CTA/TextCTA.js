@@ -4,6 +4,7 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
+import CTALogic from './CTALogic';
 import { LinkWithIcon } from '../LinkWithIcon';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -12,31 +13,21 @@ import React from 'react';
  * Link subcomponent for CTA
  *
  * @param {object} param param object
- * @param {Function} param.iconSelector func to set icon type
- * @param {Function} param.external func to determine if link opens in new tab
- * @param {Function} param.jump func to set smooth scroll functionality
  * @param {string} param.type CTA type
  * @param {Function} param.openLightBox func to set renderLightBox state
- * @param {Function} param.setLightBox func to open the lightbox
  * @param {boolean} param.renderLightBox bool to determine whether to open lightbox
- * @param {Function} param.launchLightBox func to render lightbox
  * @param {Array} param.videoTitle array of video titles
  *
  * @returns {object} JSX object
  */
 const TextCTA = ({
-  iconSelector,
-  external,
-  jump,
   type,
   openLightBox,
-  setLightBox,
   renderLightBox,
-  launchLightBox,
   videoTitle,
   ...otherProps
 }) => {
-  const Icon = iconSelector(type);
+  const Icon = CTALogic.iconSelector(type);
   const href =
     type !== 'video'
       ? otherProps.href
@@ -45,9 +36,11 @@ const TextCTA = ({
       : null;
   return type === 'video' ? (
     <div>
-      {launchLightBox(renderLightBox, openLightBox, otherProps.media)}
+      {CTALogic.launchLightBox(renderLightBox, openLightBox, otherProps.media)}
       {!renderLightBox && (
-        <LinkWithIcon href="#" onClick={e => setLightBox(e, openLightBox)}>
+        <LinkWithIcon
+          href="#"
+          onClick={e => CTALogic.setLightBox(e, openLightBox)}>
           {videoTitle[0].title}
           <Icon />
         </LinkWithIcon>
@@ -56,8 +49,8 @@ const TextCTA = ({
   ) : (
     <LinkWithIcon
       href={href}
-      target={external(type)}
-      onClick={e => jump(e, type)}>
+      target={CTALogic.external(type)}
+      onClick={e => CTALogic.jump(e, type)}>
       {otherProps.copy}
       <Icon />
     </LinkWithIcon>
@@ -65,14 +58,9 @@ const TextCTA = ({
 };
 
 TextCTA.propTypes = {
-  iconSelector: PropTypes.func,
-  external: PropTypes.func,
-  jump: PropTypes.func,
   type: PropTypes.string,
   openLightBox: PropTypes.func,
-  setLightBox: PropTypes.func,
   renderLightBox: PropTypes.bool,
-  launchLightBox: PropTypes.func,
   videoTitle: PropTypes.array,
 };
 
