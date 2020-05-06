@@ -5,8 +5,4 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-export * from './CardSectionImages';
-export * from './CardSectionSimple';
-export * from './LeadSpace';
-export * from './SimpleBenefits';
-export * from './SimpleOverview';
+export { default as CardGroup } from './CardGroup';
