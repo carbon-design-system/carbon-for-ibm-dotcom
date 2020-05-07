@@ -18,7 +18,7 @@
     &__card.#{$prefix}--card--inverse .#{$prefix}--card__cta,
     &__card.#{$prefix}--card--inverse .#{$prefix}--card__cta:visited {
       float: none;
-      color: #78a9ff;
+      color: $inverse-link;
     }
 
     .#{$prefix}--content-group__children {
