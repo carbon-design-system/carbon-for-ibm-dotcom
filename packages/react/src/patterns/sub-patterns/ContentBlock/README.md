@@ -48,7 +48,7 @@ function App() {
   };
 
   return (
-    <ContentBlock heading={heading} copy={copy} cta={cta}>
+    <ContentBlock inverse={false} heading={heading} copy={copy} cta={cta}>
       {content}
     </ContentBlock>
   );
@@ -136,6 +136,7 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 | `cta`             | NO       | Object    | null          | CTA object.                                                                                                |
 | `customClassName` | NO       | String    | null          | Custom className to wrap the `ContentBlock` component.                                                     |
 | `heading`         | NO       | String    | null          | Heading text.                                                                                              |
+| `inverse`         | NO       | Boolean   | `false`       | Changes theme to inverse/default                                                                           |
 
 ### aside
 
