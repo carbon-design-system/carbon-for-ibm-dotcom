@@ -16,7 +16,6 @@
     color: $text-04;
   }
   .#{$prefix}--content-block {
-    // Do the following spacing really belong on the content-block, or more on a section level?
     padding-top: $carbon--layout-03;
     padding-bottom: $carbon--layout-05;
     @include carbon--breakpoint('md') {
