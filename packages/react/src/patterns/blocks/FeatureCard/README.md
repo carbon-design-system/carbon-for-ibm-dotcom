@@ -69,8 +69,6 @@ Add the following line on your `.env` file at the root of your project,
 | Name      | Data Type | Description                                                        |
 | --------- | --------- | ------------------------------------------------------------------ |
 | `heading` | String    | Title of the Card item.                                            |
-| `eyebrow` | String    | "Eyebrow" text above copy and CTA.                                 |
-| `copy`    | String    | Body text for the card.                                            |
 | `image`   | Object    | Image object used in the FeatureCard component. See `image` below. |
 | `cta`     | Object    | Object containing target and href of link. See `cta` below.        |
 
