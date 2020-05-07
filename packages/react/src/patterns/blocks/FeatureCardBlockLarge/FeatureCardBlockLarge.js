@@ -25,7 +25,9 @@ const { prefix } = settings;
  * @returns {*} FeatureCardBlockLarge JSX component
  */
 const FeatureCardBlockLarge = ({ heading, card, onClick }) => {
-  const hasCopy = classNames({ [`no-desc`]: !card.copy });
+  const hasCopy = classNames({
+    [`${prefix}--feature-card-block-large_no-copy-text`]: !card.copy,
+  });
   return (
     card.eyebrow &&
     card.heading &&

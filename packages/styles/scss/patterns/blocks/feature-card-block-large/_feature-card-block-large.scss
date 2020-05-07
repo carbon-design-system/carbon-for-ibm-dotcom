@@ -112,7 +112,7 @@
     }
 
     // special breakpoint for no copy present
-    &.no-desc {
+    &.#{$prefix}--feature-card-block-large_no-copy-text {
       .#{$prefix}--content-group__children {
         @include carbon--breakpoint-between(752px, 1055px) {
           padding-top: aspect-ratio(2, 1);
