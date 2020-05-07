@@ -65,4 +65,35 @@ xdescribe('<Footer />', () => {
     );
     expect(footer.querySelectorAll('.bx--footer--short')).toHaveLength(1);
   });
+  it('renders with a custom navigation', async () => {
+    const navigationData = {
+      footerThin: [
+        {
+          title: 'Contact IBM',
+          url: 'https://www.ibm.com/contact/us/en/?lnk=flg-cont-usen',
+        },
+        {
+          title: 'Privacy',
+          url: 'https://www.ibm.com/privacy/us/en/?lnk=flg-priv-usen',
+        },
+        {
+          title: 'Terms of use',
+          url: 'https://www.ibm.com/us-en/legal?lnk=flg-tous-usen',
+        },
+        {
+          title: 'Accessibility',
+          url: 'https://www.ibm.com/accessibility/us/en/?lnk=flg-acce-usen',
+        },
+      ],
+    };
+
+    await act(async () => {
+      await ReactDOM.render(<Footer navigation={navigationData} />, container);
+    });
+
+    const footer = container.querySelector('.bx--footer');
+    expect(
+      footer.querySelectorAll('[data-autoid*=dds--footer-legal-nav__link]')
+    ).toHaveLength(4);
+  });
 });
