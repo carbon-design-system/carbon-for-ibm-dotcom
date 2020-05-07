@@ -10,7 +10,7 @@
 @import '../../../globals/utils/aspect-ratio';
 @import '../../../globals/utils/hang';
 
-@mixin feature-card {
+@mixin feature-card-block-large {
   .#{$prefix}--feature-card-block-large {
     color: $text-01;
     background: $ui-background;
@@ -22,7 +22,6 @@
     }
 
     .#{$prefix}--content-group__children {
-      padding-top: aspect-ratio(1, 1);
       position: relative;
       @include carbon--breakpoint-between(992px, 1055px) {
         padding-top: aspect-ratio(2, 1);
@@ -33,12 +32,6 @@
     }
 
     .#{$prefix}--card {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-
       &.#{$prefix}--card--inverse {
         background: none;
         &:hover {
@@ -47,10 +40,20 @@
       }
 
       @include carbon--breakpoint-between(992px, 1055px) {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
         flex-direction: row;
         @include hang;
       }
       @include carbon--breakpoint('xlg') {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
         flex-direction: row;
         @include hang;
       }
@@ -59,11 +62,9 @@
       .#{$prefix}--image {
         @include carbon--breakpoint-between(992px, 1055px) {
           width: 50%;
-          height: aspect-ratio(1, 1);
         }
         @include carbon--breakpoint('xlg') {
           width: 50%;
-          height: aspect-ratio(1, 1);
         }
       }
     }
@@ -118,6 +119,11 @@
 
       .#{$prefix}--card {
         @include carbon--breakpoint-between(752px, 1055px) {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
           flex-direction: row;
           @include hang;
         }
@@ -127,12 +133,12 @@
       .#{$prefix}--image {
         @include carbon--breakpoint-between(752px, 1055px) {
           width: 50%;
-          height: aspect-ratio(1, 1);
+          height: 100%;
         }
       }
     }
   }
 }
-@include exports('feature-card') {
-  @include feature-card;
+@include exports('feature-card-block-large') {
+  @include feature-card-block-large;
 }
