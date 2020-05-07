@@ -25,9 +25,11 @@ const { prefix } = settings;
  * @param {object} props props object
  * @param {boolean} props.isOpen Opens modal
  * @param {Function} props.setIsOpen isOpen state of modal
+ * @param {object} props.localeData Locale/Language data to bypass the service call
+ * @param {string} props.localeDisplay display text for current locale/language to bypass service call
  * @returns {*} LocaleModal component
  */
-const LocaleModal = ({ isOpen, setIsOpen }) => {
+const LocaleModal = ({ isOpen, setIsOpen, localeData, localeDisplay }) => {
   const [list, setList] = useState({});
   const [langDisplay, setLangDisplay] = useState();
   const [modalLabels, setModalLabels] = useState({});
@@ -41,9 +43,16 @@ const LocaleModal = ({ isOpen, setIsOpen }) => {
 
   useEffect(() => {
     (async () => {
-      const locale = await LocaleAPI.getLocale();
-      const list = locale && (await LocaleAPI.getList(locale));
-      const getLangDisplay = await LocaleAPI.getLangDisplay();
+      let list, getLangDisplay;
+      if (localeData && localeDisplay) {
+        list = Object.assign({}, localeData);
+        getLangDisplay = localeDisplay;
+      } else {
+        const locale = await LocaleAPI.getLocale();
+        list = locale && (await LocaleAPI.getList(locale));
+        getLangDisplay = await LocaleAPI.getLangDisplay();
+      }
+
       setLangDisplay(getLangDisplay);
       setList(list);
       setModalLabels(list.localeModal);
@@ -77,7 +86,7 @@ const LocaleModal = ({ isOpen, setIsOpen }) => {
         item.classList.remove(localeHidden);
       });
     }
-  }, [clearResults]);
+  }, [clearResults, localeData, localeDisplay]);
 
   /**
    *  New region/country list based lang attributes available on page
@@ -123,7 +132,7 @@ const LocaleModal = ({ isOpen, setIsOpen }) => {
   return (
     <ComposedModal
       open={isOpen}
-      onClose={close}
+      onClose={_close}
       className={`${prefix}--locale-modal-container`}
       data-autoid={`${stablePrefix}--locale-modal`}
       selectorPrimaryFocus={`.${prefix}--modal-close`}>
@@ -175,7 +184,7 @@ const LocaleModal = ({ isOpen, setIsOpen }) => {
    *
    * @private
    */
-  function close() {
+  function _close() {
     setIsOpen(false);
     const footerBtn = document.querySelector(
       `.${prefix}--locale-btn__container .${prefix}--btn--secondary`
@@ -189,11 +198,20 @@ const LocaleModal = ({ isOpen, setIsOpen }) => {
 /**
  * @property {object} propTypes LocaleModal propTypes
  * @description Defined property types for component
- * @type {{isOpen: boolean, setIsOpen: boolean, headerLabel: string, headerTitle: string}}
+ * @type {{isOpen: boolean, setIsOpen: Function, localeData: object, localeDisplay: string}}
  */
 LocaleModal.propTypes = {
   isOpen: PropTypes.bool,
   setIsOpen: PropTypes.func,
+  localeData: PropTypes.object,
+  localeDisplay: PropTypes.string,
+};
+
+LocaleModal.defaultProps = {
+  isOpen: false,
+  setIsOpen: false,
+  localeData: null,
+  localeDisplay: null,
 };
 
 export default LocaleModal;
