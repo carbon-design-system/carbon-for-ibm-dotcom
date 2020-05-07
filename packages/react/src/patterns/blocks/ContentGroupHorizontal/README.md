@@ -21,7 +21,7 @@ Here's a quick example to get you started.
 ```
 
 > 💡 Only import fonts once per usage. Don't forget to import the
-> content-item-horizontal styles from
+> content-group-horizontal styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
 ##### JS
