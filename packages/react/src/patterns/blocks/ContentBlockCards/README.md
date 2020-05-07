@@ -1,38 +1,30 @@
-# Card Group
+# Content Block - Cards
 
-> The CardGroup sub-pattern is a collection of Card components that can be used
-> in block and group -level patterns.
+> The Content Block - Simple pattern is a decorator of `ContentBlock`, and
+> includes a single `CardGroup`.
 
 ## Getting started
 
 Here's a quick example to get you started.
 
-##### CSS
-
-```css
+```scss
 // yourapplication.scss
 @import '@carbon/type/scss/font-face/mono';
 @import '@carbon/type/scss/font-face/sans';
 @include carbon--font-face-mono();
 @include carbon--font-face-sans();
-
-@import '@carbon/ibmdotcom-styles/scss/patterns/sub-patterns/card-group/card-group';
 ```
-
-> 💡 Only import fonts once per usage. Don't forget to import the card-group
-> styles from
-> [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
-
-##### JS
 
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { CardGroup } from '@carbon/ibmdotcom-react';
+import { ContentBlockCards } from '@carbon/ibmdotcom-react';
 import 'yourapplication.scss';
 
 function App() {
-  return <CardGroup cards={cards} cta={cta} />;
+  return (
+    <ContentBlockCards heading={'Aliquam condimentum interdum'} cards={data} />
+  );
 }
 
 ReactDOM.render(<App />, document.querySelector('#app'));
@@ -47,10 +39,10 @@ Add the following line on your `.env` file at the root of your project,
 
 ## Props
 
-| Name    | Required | Data Type | Default Value | Description                                                                                                                                                                        |
-| ------- | -------- | --------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `cards` | YES      | Array     | null          | Array of objects. See [Card props](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/patterns/sub-patterns/CardGroup#card-props---simple). |
-| `cta`   | NO       | Object    | null          | Optional CTA card for group. Always displays as last item.                                                                                                                         |
+| Name      | Required | Data Type | Default Value | Description                                                                                                                                                                          |
+| --------- | -------- | --------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `heading` | YES      | String    | n/a           | Main title of ContentBlockCards pattern.                                                                                                                                             |
+| `cards`   | YES      | Array     | null          | Array of objects. See [Card props](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/patterns/blocks/ContentBlockCards#card-props---simple). |
 
 ### Card props - simple
 
@@ -70,14 +62,14 @@ Add the following line on your `.env` file at the root of your project,
 | `cta.href` | YES      | String    | URI for internal or external resource.   |
 
 > See
-> [Card](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/patterns/sub-patterns/Card)
+> [Card](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/patterns/blocks/Card)
 > sub-pattern for all card options. 👀
 
 ## Stable selectors
 
-| Name              | Description |
-| ----------------- | ----------- |
-| `dds--card-group` | Component   |
+| Name                       | Description |
+| -------------------------- | ----------- |
+| `dds--content-block-cards` | Pattern     |
 
 ## 🙌 Contributing
 
