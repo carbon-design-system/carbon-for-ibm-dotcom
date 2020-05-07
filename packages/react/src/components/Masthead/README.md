@@ -8,7 +8,9 @@
 
 Here's a quick example to get you started.
 
-```scss
+##### CSS
+
+```css
 // yourapplication.scss
 @import '@carbon/type/scss/font-face/mono';
 @import '@carbon/type/scss/font-face/sans';
@@ -20,6 +22,8 @@ Here's a quick example to get you started.
 > 💡 Only import fonts once per usage. Don't forget to import the Masthead
 > styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
+
+##### JS
 
 ```javascript
 import React from 'react';
@@ -59,16 +63,17 @@ DDS_MASTHEAD_L1=true
 
 ## Props
 
-| Name              | Required | Data Type        | Default Value       | Description                                                         |
-| ----------------- | -------- | ---------------- | ------------------- | ------------------------------------------------------------------- |
-| `navigation`      | NO       | String OR Object | null                | Navigation data object/string for Masthead. See `navigation` below. |
-| `hasProfile`      | NO       | Boolean          | true                | Determines whether to render IBM Profile Menu component.            |
-| `hasSearch`       | NO       | Boolean          | true                | Determines whether to render SearchBar component.                   |
-| `placeHolderText` | NO       | String           | `Search all of IBM` | Placeholder value for search input.                                 |
-| `platform`        | NO       | Object           | null                | Platform name that appears on L0. See `platform` below.             |
-| `title`           | NO       | String           | null                | Title for the masthead L1.                                          |
-| `eyebrowText`     | NO       | String           | null                | Text for the eyebrow link in masthead L1.                           |
-| `eyebrowLink`     | NO       | String           | null                | URL for the eyebrow link in masthead L1.                            |
+| Name               | Required | Data Type        | Default Value       | Description                                                         |
+| ------------------ | -------- | ---------------- | ------------------- | ------------------------------------------------------------------- |
+| `navigation`       | NO       | String OR Object | null                | Navigation data object/string for Masthead. See `navigation` below. |
+| `hasProfile`       | NO       | Boolean          | true                | Determines whether to render IBM Profile Menu component.            |
+| `hasSearch`        | NO       | Boolean          | true                | Determines whether to render SearchBar component.                   |
+| `placeHolderText`  | NO       | String           | `Search all of IBM` | Placeholder value for search input.                                 |
+| `platform`         | NO       | Object           | null                | Platform name that appears on L0. See `platform` below.             |
+| `searchOpenOnload` | NO       | Boolean          | false               | Determines if the search field is open on page load.                |
+| `title`            | NO       | String           | null                | Title for the masthead L1 (experimental).                           |
+| `eyebrowText`      | NO       | String           | null                | Text for the eyebrow link in masthead L1 (experimental).            |
+| `eyebrowLink`      | NO       | String           | null                | URL for the eyebrow link in masthead L1 (experimental).             |
 
 ## navigation
 

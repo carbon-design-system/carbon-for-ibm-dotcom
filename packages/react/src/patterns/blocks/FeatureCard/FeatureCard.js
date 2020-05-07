@@ -46,7 +46,7 @@ const FeatureCard = ({ heading, card, onClick }) => {
 
 FeatureCard.propTypes = {
   heading: PropTypes.string.isRequired,
-  card: PropTypes.oneOf(PropTypes.shape(cardPropTypes)).isRequired,
+  card: PropTypes.shape(cardPropTypes).isRequired,
   onClick: PropTypes.func,
 };
 

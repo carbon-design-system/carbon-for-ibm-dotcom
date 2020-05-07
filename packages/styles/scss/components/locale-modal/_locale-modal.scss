@@ -20,8 +20,6 @@
 
     @media (max-height: rem(450px)) {
       .#{$prefix}--locale-modal__filtering {
-        overflow-y: scroll;
-
         .#{$prefix}--locale-modal__filter {
           overflow-y: initial;
 
@@ -92,6 +90,7 @@
         width: 50%;
         color: $text-03;
         padding: $carbon--spacing-04 $carbon--spacing-05;
+        @include type-style('body-short-02');
 
         &:first-of-type {
           color: $text-01;
@@ -147,6 +146,7 @@
         &:hover {
           cursor: pointer;
           color: $interactive-01;
+          text-decoration: underline;
         }
 
         svg {
