@@ -62,8 +62,8 @@ function App() {
 ReactDOM.render(<App />, document.querySelector('#app'));
 ```
 
-Add the following line on your `.env` file at the root of your project,
-[see more details](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/styles#usage).
+Add the following line in your `.env` file at the root of your project.
+[See more details](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/styles#usage)..
 
 ```
   SASS_PATH=node_modules:src
@@ -75,7 +75,7 @@ Add the following line on your `.env` file at the root of your project,
 | --------- | -------- | --------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `eyebrow` | NO       | String    | null          | Optional text displayed above the heading.                                                                                                                                                                     |
 | `heading` | YES      | String    | null          | Heading of the content item.                                                                                                                                                                                   |
-| `copy`    | YES      | String    | null          | Copy of the content item. Accepts **bold** and _italic_ markdown formatting.                                                                                                                                   |
+| `copy`    | YES      | String    | null          | Copy of the content item. Accepts _italic_ markdown formatting.                                                                                                                                                |
 | `cta`     | NO       | Array     | null          | Optional CTA links displayed below the copy. See [CTA props](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/patterns/sub-patterns/ContentItemHorizontal#cta-props). |
 
 ### CTA Props

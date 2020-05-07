@@ -10,11 +10,9 @@
 @mixin content-item-horizontal {
   .#{$prefix}--content-item-horizontal {
     &__item {
-      border-top: 1px solid $ui-03;
+      @include carbon--make-row;
 
-      &:last-of-type {
-        border-bottom: 1px solid $ui-03;
-      }
+      border-top: 1px solid $ui-03;
 
       &--eyebrow,
       &--heading,
@@ -73,8 +71,6 @@
         }
       }
 
-      @include carbon--make-container;
-
       @include carbon--breakpoint(sm) {
         padding-top: $carbon--layout-03;
         padding-bottom: $carbon--layout-03;
@@ -89,11 +85,15 @@
         padding-top: $carbon--layout-03;
         padding-bottom: $carbon--layout-05;
       }
+
+      padding-left: $carbon--spacing-05;
+      padding-right: $carbon--spacing-05;
     }
 
     &__row {
       @include carbon--make-row;
 
+      width: 100%;
       min-height: 160px;
     }
 

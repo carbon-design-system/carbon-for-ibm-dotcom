@@ -6,7 +6,7 @@
  */
 
 import './index.scss';
-import { object, withKnobs } from '@storybook/addon-knobs';
+import { object, text, withKnobs } from '@storybook/addon-knobs';
 import ContentItemHorizontal from '../ContentItemHorizontal';
 import React from 'react';
 import readme from '../README.md';
@@ -20,10 +20,12 @@ storiesOf('Patterns (Sub-Patterns)|ContentItemHorizontal', module)
     },
   })
   .add('Default', () => {
-    const eyebrow = 'Lorem ipsum';
-    const heading = 'Aliquam condimentum';
-    const copy =
-      'Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.';
+    const eyebrow = text('Eyebrow', 'Lorem ipsum');
+    const heading = text('Heading', 'Aliquam condimentum');
+    const copy = text(
+      'Copy',
+      'Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.'
+    );
     const cta = object('cta', [
       {
         type: 'local',
