@@ -51,7 +51,7 @@ storiesOf('Patterns (Sub-Patterns)|ContentBlock', module)
 
     return (
       <div
-        className={cx('bx-grid', {
+        className={cx('bx--grid', {
           [`${prefix}--content-block--inverse`]: inverse,
         })}>
         <div className="bx--row">
