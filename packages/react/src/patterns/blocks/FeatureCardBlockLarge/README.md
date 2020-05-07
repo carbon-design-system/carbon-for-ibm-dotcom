@@ -27,7 +27,6 @@ import 'yourapplication.scss';
 const heading = 'Lorem ipsum dolor sit amet.';
 const card = [
   {
-    heading: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
     cta: {
       href: 'https://www.example.com',
     },
@@ -55,10 +54,9 @@ Add the following line on your `.env` file at the root of your project,
 
 ## Props
 
-| Name      | Required | Data Type | Default Value | Description                                                           |
-| --------- | -------- | --------- | ------------- | --------------------------------------------------------------------- |
-| `heading` | YES      | String    | n/a           | Main title of the pattern.                                            |  |
-| `card`    | YES      | Object    | null          | Object containing Feature Card Block Large details. See `card` below. |
+| Name   | Required | Data Type | Default Value | Description                                                           |
+| ------ | -------- | --------- | ------------- | --------------------------------------------------------------------- |
+| `card` | YES      | Object    | null          | Object containing Feature Card Block Large details. See `card` below. |
 
 ### card
 

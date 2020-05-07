@@ -14,32 +14,26 @@
   .#{$prefix}--feature-card-block-large {
     color: $text-01;
     background: $ui-background;
+    position: relative;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    @include carbon--breakpoint-between(992px, 'lg') {
+      padding-top: aspect-ratio(2, 1);
+    }
+    @include carbon--breakpoint('xlg') {
+      padding-top: aspect-ratio(2, 1);
+    }
 
     &__card.#{$prefix}--card--inverse .#{$prefix}--card__cta,
     &__card.#{$prefix}--card--inverse .#{$prefix}--card__cta:visited {
       float: none;
       color: $inverse-link;
-    }
-
-    .#{$prefix}--content-group__children {
-      position: relative;
-      @include carbon--breakpoint-between(992px, 1055px) {
-        padding-top: aspect-ratio(2, 1);
-      }
-      @include carbon--breakpoint('xlg') {
-        padding-top: aspect-ratio(2, 1);
-      }
+      font-size: 2rem;
     }
 
     .#{$prefix}--card {
-      &.#{$prefix}--card--inverse {
-        background: none;
-        &:hover {
-          background: none;
-        }
-      }
-
-      @include carbon--breakpoint-between(992px, 1055px) {
+      @include carbon--breakpoint-between(992px, 'lg') {
         position: absolute;
         top: 0;
         left: 0;
@@ -60,7 +54,8 @@
 
       &__wrapper,
       .#{$prefix}--image {
-        @include carbon--breakpoint-between(992px, 1055px) {
+        min-height: 50%;
+        @include carbon--breakpoint-between(992px, 'lg') {
           width: 50%;
           height: 100%;
         }
@@ -113,12 +108,6 @@
 
     // special breakpoint for no copy present
     &.#{$prefix}--feature-card-block-large_no-copy-text {
-      .#{$prefix}--content-group__children {
-        @include carbon--breakpoint-between(752px, 1055px) {
-          padding-top: aspect-ratio(2, 1);
-        }
-      }
-
       .#{$prefix}--card {
         @include carbon--breakpoint-between(752px, 1055px) {
           position: absolute;

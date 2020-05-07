@@ -20,11 +20,6 @@ storiesOf('Patterns (Blocks)|FeatureCardBlockLarge', module)
     },
   })
   .add('Default', () => {
-    const heading = text(
-      'Pattern heading:',
-      'How is artificial intelligence used today in your industry?'
-    );
-
     const cardheading = text(
       'Card heading(required):',
       'Explore AI use cases in all industries'
@@ -45,7 +40,6 @@ storiesOf('Patterns (Blocks)|FeatureCardBlockLarge', module)
         <div className="bx--row">
           <div className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-2">
             <FeatureCardBlockLarge
-              heading={heading}
               card={{
                 heading: cardheading,
                 image: image,
