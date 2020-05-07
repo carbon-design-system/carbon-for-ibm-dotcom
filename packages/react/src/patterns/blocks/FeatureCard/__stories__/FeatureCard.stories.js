@@ -21,36 +21,29 @@ storiesOf('Patterns (Blocks)|FeatureCard', module)
   })
   .add('Default', () => {
     const heading = text(
-      'Pattern heading:',
+      'Pattern heading(required):',
       'How is artificial intelligence used today in your industry?'
     );
 
     const cardheading = text(
-      'Card heading(required):',
+      'Card Heading:',
       'Explore AI use cases in all industries'
     );
-    const eyebrow = text('Eyebrow(required):', 'this is an eyebrow');
-    const copy = text(
-      'Copy:',
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-    );
-    const cardhref = text('Card href(required):', 'https://www.example.com');
-    const image = object('Card image(required):', {
-      defaultSrc: 'https://dummyimage.com/600x300/ee5396/161616&text=2:1',
+    const cardhref = text('Card href:', 'https://www.example.com');
+    const image = object('card image', {
+      defaultSrc: 'https://dummyimage.com/672x672/ee5396/161616&text=1x1',
       alt: 'Image alt text',
     });
 
     return (
       <div className="bx--grid">
         <div className="bx--row">
-          <div className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-2">
+          <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
             <FeatureCard
               heading={heading}
               card={{
                 heading: cardheading,
                 image: image,
-                eyebrow: eyebrow,
-                copy: copy,
                 cta: {
                   href: cardhref,
                   icon: {

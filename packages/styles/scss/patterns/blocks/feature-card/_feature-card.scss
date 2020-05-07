@@ -17,23 +17,16 @@
 
     &__card.#{$prefix}--card--inverse .#{$prefix}--card__cta,
     &__card.#{$prefix}--card--inverse .#{$prefix}--card__cta:visited {
-      float: none;
-      color: #78a9ff;
+      float: right;
+      color: $inverse-01;
     }
 
     .#{$prefix}--content-group__children {
       padding-top: aspect-ratio(1, 1);
       position: relative;
-      @include carbon--breakpoint-between(992px, 1055px) {
+      @include carbon--breakpoint('md') {
         padding-top: aspect-ratio(2, 1);
       }
-      @include carbon--breakpoint('xlg') {
-        padding-top: aspect-ratio(2, 1);
-      }
-    }
-
-    .bx--feature-card {
-      border: 1px solid #ff0000;
     }
 
     .#{$prefix}--card {
@@ -42,94 +35,16 @@
       left: 0;
       right: 0;
       bottom: 0;
-
-      &.#{$prefix}--card--inverse {
-        background: none;
-        &:hover {
-          background: none;
-        }
-      }
-
-      @include carbon--breakpoint-between(992px, 1055px) {
-        flex-direction: row;
-        @include hang;
-      }
-      @include carbon--breakpoint('xlg') {
+      @include carbon--breakpoint('md') {
         flex-direction: row;
         @include hang;
       }
 
       &__wrapper,
       .#{$prefix}--image {
-        @include carbon--breakpoint-between(992px, 1055px) {
-          width: 50%;
-          height: aspect-ratio(1, 1);
-        }
-        @include carbon--breakpoint('xlg') {
-          width: 50%;
-          height: aspect-ratio(1, 1);
-        }
-      }
-    }
-
-    .#{$prefix}--card__wrapper {
-      background: $inverse-02;
-      height: auto;
-
-      @include carbon--breakpoint('xlg') {
-        padding: rem(32px);
-      }
-
-      @include carbon--breakpoint('max') {
-        padding: rem(64px);
-      }
-
-      .#{$prefix}--card__eyebrow {
-        margin-bottom: rem(14px);
-        color: #ffffff;
-
-        @include carbon--breakpoint-between(1px, 'sm') {
-          margin-top: rem(28px);
-          margin-bottom: rem(14px);
-        }
-      }
-
-      .#{$prefix}--card__heading {
-        @include carbon--type-style(expressive-heading-04, true);
-
-        margin-bottom: rem(28px);
-      }
-
-      .#{$prefix}--card__copy {
-        p {
-          font-size: 0.875rem;
-          font-weight: 400;
-          line-height: 1.2rem;
-        }
-        @include carbon--breakpoint-between(1px, 'sm') {
-          margin-bottom: rem(28px);
-        }
-      }
-    }
-
-    // special breakpoint for no copy present
-    &.no-desc {
-      .#{$prefix}--content-group__children {
-        @include carbon--breakpoint-between(752px, 1055px) {
-          padding-top: aspect-ratio(2, 1);
-        }
-      }
-
-      .#{$prefix}--card {
-        @include carbon--breakpoint-between(752px, 1055px) {
-          flex-direction: row;
-          @include hang;
-        }
-      }
-
-      &__wrapper,
-      .#{$prefix}--image {
-        @include carbon--breakpoint-between(752px, 1055px) {
+        width: 100%;
+        height: aspect-ratio(2, 1);
+        @include carbon--breakpoint('md') {
           width: 50%;
           height: aspect-ratio(1, 1);
         }
