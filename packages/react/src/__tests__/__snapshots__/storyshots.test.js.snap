@@ -22915,7 +22915,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock Default 1`] = `
           Object {
             "content": <React.Fragment>
               <div
-                className="bx-grid"
+                className="bx--grid"
               >
                 <div
                   className="bx--row"
@@ -22974,7 +22974,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock Default 1`] = `
           >
             <div>
               <div
-                className="bx-grid"
+                className="bx--grid"
               >
                 <div
                   className="bx--row"
