@@ -3091,6 +3091,7 @@ exports[`Storyshots Components|ImageWithCaption Default 1`] = `
                           ],
                         }
                       }
+                      inverse={false}
                     />
                   </div>
                 </div>
@@ -3149,6 +3150,7 @@ exports[`Storyshots Components|ImageWithCaption Default 1`] = `
                           ],
                         }
                       }
+                      inverse={false}
                     >
                       <div
                         className="bx--image-with-caption"
@@ -3193,7 +3195,7 @@ exports[`Storyshots Components|ImageWithCaption Default 1`] = `
                           </picture>
                         </Image>
                         <p
-                          className="bx--image__caption"
+                          className="bx--image__caption--inverse"
                           data-autoid="dds--image__caption"
                         >
                           this is a caption
@@ -7150,7 +7152,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                                                 </picture>
                                               </Image>
                                               <p
-                                                className="bx--image__caption"
+                                                className="bx--image__caption--inverse"
                                                 data-autoid="dds--image__caption"
                                               >
                                                 Lorem ipsum dolor sit amet.
@@ -7519,7 +7521,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                                                 </picture>
                                               </Image>
                                               <p
-                                                className="bx--image__caption"
+                                                className="bx--image__caption--inverse"
                                                 data-autoid="dds--image__caption"
                                               >
                                                 Lorem ipsum dolor sit amet.
@@ -8642,7 +8644,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                                         </picture>
                                                       </Image>
                                                       <p
-                                                        className="bx--image__caption"
+                                                        className="bx--image__caption--inverse"
                                                         data-autoid="dds--image__caption"
                                                       >
                                                         Lorem ipsum dolor sit amet.
@@ -9011,7 +9013,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                                         </picture>
                                                       </Image>
                                                       <p
-                                                        className="bx--image__caption"
+                                                        className="bx--image__caption--inverse"
                                                         data-autoid="dds--image__caption"
                                                       >
                                                         Lorem ipsum dolor sit amet.
@@ -11530,7 +11532,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                                 </picture>
                                               </Image>
                                               <p
-                                                className="bx--image__caption"
+                                                className="bx--image__caption--inverse"
                                                 data-autoid="dds--image__caption"
                                               >
                                                 Lorem ipsum dolor sit amet.
@@ -13602,7 +13604,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                         </picture>
                                                       </Image>
                                                       <p
-                                                        className="bx--image__caption"
+                                                        className="bx--image__caption--inverse"
                                                         data-autoid="dds--image__caption"
                                                       >
                                                         Lorem ipsum dolor sit amet.
@@ -14511,7 +14513,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                       </picture>
                                     </Image>
                                     <p
-                                      className="bx--image__caption"
+                                      className="bx--image__caption--inverse"
                                       data-autoid="dds--image__caption"
                                     >
                                       Mauris iaculis eget dolor nec hendrerit.
@@ -14685,7 +14687,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                               </picture>
                                             </Image>
                                             <p
-                                              className="bx--image__caption"
+                                              className="bx--image__caption--inverse"
                                               data-autoid="dds--image__caption"
                                             >
                                               Mauris iaculis eget dolor nec hendrerit.
@@ -15329,7 +15331,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                               </picture>
                                             </Image>
                                             <p
-                                              className="bx--image__caption"
+                                              className="bx--image__caption--inverse"
                                               data-autoid="dds--image__caption"
                                             >
                                               Mauris iaculis eget dolor nec hendrerit.
@@ -15503,7 +15505,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                                       </picture>
                                                     </Image>
                                                     <p
-                                                      className="bx--image__caption"
+                                                      className="bx--image__caption--inverse"
                                                       data-autoid="dds--image__caption"
                                                     >
                                                       Mauris iaculis eget dolor nec hendrerit.
@@ -16316,7 +16318,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                                         </picture>
                                       </Image>
                                       <p
-                                        className="bx--image__caption"
+                                        className="bx--image__caption--inverse"
                                         data-autoid="dds--image__caption"
                                       >
                                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -16918,7 +16920,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                                 </picture>
                                               </Image>
                                               <p
-                                                className="bx--image__caption"
+                                                className="bx--image__caption--inverse"
                                                 data-autoid="dds--image__caption"
                                               >
                                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -18826,7 +18828,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupSimple Default 1`] = `
                                       </picture>
                                     </Image>
                                     <p
-                                      className="bx--image__caption"
+                                      className="bx--image__caption--inverse"
                                       data-autoid="dds--image__caption"
                                     >
                                       Lorem ipsum dolor sit amet.
@@ -25258,7 +25260,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentItem Default 1`] = `
                                 </picture>
                               </Image>
                               <p
-                                className="bx--image__caption"
+                                className="bx--image__caption--inverse"
                                 data-autoid="dds--image__caption"
                               >
                                 this is an image caption
