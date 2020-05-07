@@ -1,0 +1,144 @@
+/**
+ * Copyright IBM Corp. 2016, 2018
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+@import '../../../globals/imports';
+
+@mixin content-item-horizontal {
+  .#{$prefix}--content-item-horizontal {
+    &__item {
+      border-top: 1px solid $ui-03;
+
+      &:last-of-type {
+        border-bottom: 1px solid $ui-03;
+      }
+
+      &--eyebrow,
+      &--heading,
+      &--copy {
+        @include carbon--breakpoint(md) {
+          max-width: 90%;
+        }
+      }
+
+      &--eyebrow {
+        color: $text-05;
+        padding-bottom: $spacing-03;
+        @include carbon--type-style('body-long-01');
+      }
+
+      &--heading {
+        @include carbon--type-style('expressive-heading-03', true);
+        @include carbon--breakpoint(sm) {
+          margin-bottom: $carbon--spacing-07;
+        }
+
+        @include carbon--breakpoint(md) {
+          margin-bottom: $carbon--layout-04;
+        }
+
+        @include carbon--breakpoint(lg) {
+          margin-bottom: $carbon--layout-04;
+        }
+      }
+
+      &--copy {
+        margin-bottom: $carbon--spacing-07;
+        @include carbon--breakpoint(sm) {
+          margin-bottom: $carbon--spacing-07;
+        }
+        @include carbon--breakpoint(md) {
+          margin-bottom: $layout-05;
+        }
+        @include carbon--breakpoint(lg) {
+          margin-bottom: $layout-05;
+        }
+      }
+
+      &--cta {
+        margin-top: auto;
+
+        .#{$prefix}--card__cta {
+          margin-bottom: $spacing-05;
+          @include carbon--breakpoint(md) {
+            display: inline-block;
+            margin-bottom: 0;
+            &:first-of-type {
+              margin-right: $spacing-07;
+            }
+          }
+        }
+      }
+
+      @include carbon--make-container;
+
+      @include carbon--breakpoint(sm) {
+        padding-top: $carbon--layout-03;
+        padding-bottom: $carbon--layout-03;
+      }
+
+      @include carbon--breakpoint(md) {
+        padding-top: $carbon--layout-03;
+        padding-bottom: $carbon--layout-05;
+      }
+
+      @include carbon--breakpoint(lg) {
+        padding-top: $carbon--layout-03;
+        padding-bottom: $carbon--layout-05;
+      }
+    }
+
+    &__row {
+      @include carbon--make-row;
+
+      min-height: 160px;
+    }
+
+    &__col {
+      flex-direction: column;
+
+      @include carbon--make-col-ready;
+
+      &:first-of-type {
+        @include carbon--breakpoint(sm) {
+          @include carbon--make-col(4, 4);
+        }
+
+        @include carbon--breakpoint(md) {
+          @include carbon--make-col(4, 8);
+        }
+
+        @include carbon--breakpoint(lg) {
+          @include carbon--make-col(6, 16);
+        }
+      }
+
+      &:last-of-type {
+        @include carbon--breakpoint(sm) {
+          @include carbon--make-col(4, 4);
+
+          display: flex;
+        }
+
+        @include carbon--breakpoint(md) {
+          @include carbon--make-col(4, 8);
+
+          display: flex;
+        }
+
+        @include carbon--breakpoint(lg) {
+          @include carbon--make-col(8, 16);
+
+          display: flex;
+        }
+      }
+    }
+  }
+}
+
+@include exports('content-item-horizontal') {
+  @include content-item-horizontal;
+}

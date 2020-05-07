@@ -5,7 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { object, text, withKnobs } from '@storybook/addon-knobs';
+import './index.scss';
+import { object, withKnobs } from '@storybook/addon-knobs';
 import { ArrowRight20 } from '@carbon/icons-react';
 import ContentItemHorizontal from '../ContentItemHorizontal';
 import React from 'react';
@@ -20,34 +21,41 @@ storiesOf('Patterns (Sub-Patterns)|ContentItemHorizontal', module)
     },
   })
   .add('Default', () => {
-    const items = [
+    const eyebrow = 'Lorem ipsum';
+    const heading = 'Aliquam condimentum';
+    const copy =
+      'Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.';
+    const cta = object('cta', [
       {
-        eyebrow: 'eyebrow',
-        heading: 'heading',
-        copy: 'copy',
-        cta: object('cta', {
-          type: 'local',
-          copy: 'click here',
-          icon: {
-            src: ArrowRight20,
-          },
-          href: 'https://example.com',
-        }),
+        type: 'local',
+        copy: 'Link text',
+        icon: {
+          src: ArrowRight20,
+        },
+        href: 'https://example.com',
       },
       {
-        eyebrow: 'eyebrow',
-        heading: 'heading',
-        copy: 'copy',
-        cta: object('cta', {
-          type: 'local',
-          copy: 'click here',
-          icon: {
-            src: ArrowRight20,
-          },
-          href: 'https://example.com',
-        }),
+        type: 'external',
+        copy: 'Link text',
+        icon: {
+          src: ArrowRight20,
+        },
+        href: 'https://example.com',
       },
-    ];
+    ]);
 
-    return <ContentItemHorizontal items={items} />;
+    return (
+      <div className="bx--grid bx--content-group-story">
+        <div className="bx--row">
+          <div className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-2">
+            <ContentItemHorizontal
+              eyebrow={eyebrow}
+              heading={heading}
+              copy={copy}
+              cta={cta}
+            />
+          </div>
+        </div>
+      </div>
+    );
   });
