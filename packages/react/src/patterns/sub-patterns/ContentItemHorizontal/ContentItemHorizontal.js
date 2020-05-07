@@ -6,11 +6,13 @@
  */
 
 import { CTA } from '../../../components/CTA';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { markdownToHtml } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { settings } from 'carbon-components';
 
+const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
@@ -25,27 +27,36 @@ const { prefix } = settings;
  * @returns {*} JSX ContentItemHorizontal pattern
  */
 const ContentItemHorizontal = ({ eyebrow, heading, copy, cta }) => (
-  <div className={`${prefix}--content-item-horizontal__item`}>
+  <div
+    className={`${prefix}--content-item-horizontal__item`}
+    data-autoid={`${stablePrefix}--content-item-horizontal__item`}>
     <div className={`${prefix}--content-item-horizontal__row`}>
       <div className={`${prefix}--content-item-horizontal__col`}>
         {eyebrow && (
-          <p className={`${prefix}--content-item-horizontal__item--eyebrow`}>
+          <p
+            className={`${prefix}--content-item-horizontal__item--eyebrow`}
+            data-autoid={`${stablePrefix}--content-item-horizontal__item--eyebrow`}>
             {eyebrow}
           </p>
         )}
-        <h3 className={`${prefix}--content-item-horizontal__item--heading`}>
+        <h3
+          className={`${prefix}--content-item-horizontal__item--heading`}
+          data-autoid={`${stablePrefix}--content-item-horizontal__item--heading`}>
           {heading}
         </h3>
       </div>
       <div className={`${prefix}--content-item-horizontal__col`}>
         <div
           className={`${prefix}--content-item-horizontal__item--copy`}
+          data-autoid={`${stablePrefix}--content-item-horizontal__item--copy`}
           dangerouslySetInnerHTML={{
             __html: markdownToHtml(copy, { bold: false }),
           }}
         />
         {cta && (
-          <div className={`${prefix}--content-item-horizontal__item--cta`}>
+          <div
+            className={`${prefix}--content-item-horizontal__item--cta`}
+            data-autoid={`${stablePrefix}--content-item-horizontal__item--cta`}>
             {cta.map((cta, index) => (
               <CTA
                 style="text"

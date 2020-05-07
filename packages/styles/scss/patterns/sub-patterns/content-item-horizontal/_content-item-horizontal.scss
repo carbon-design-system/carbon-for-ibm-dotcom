@@ -112,7 +112,7 @@
         }
 
         @include carbon--breakpoint(lg) {
-          @include carbon--make-col(6, 16);
+          @include carbon--make-col(4, 10);
         }
       }
 
@@ -130,7 +130,7 @@
         }
 
         @include carbon--breakpoint(lg) {
-          @include carbon--make-col(8, 16);
+          @include carbon--make-col(6, 10);
 
           display: flex;
         }

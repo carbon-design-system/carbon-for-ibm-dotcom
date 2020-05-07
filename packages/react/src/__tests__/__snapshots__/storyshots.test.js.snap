@@ -759,7 +759,25 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                     data-autoid="dds--masthead-logo__link"
                                     href="https://www.ibm.com/"
                                   >
-                                    <IBM-8bar-logo--h23.svg />
+                                    <MastheadLogo
+                                      height="23"
+                                      viewBox="0 0 58 23"
+                                      width="58"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <svg
+                                        height="23"
+                                        viewBox="0 0 58 23"
+                                        width="58"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                      >
+                                        <path
+                                          d="M58 21.467V23h-7.632v-1.533H58zm-18.316 0V23h-7.631v-1.533h7.631zm5.955 0L45.025 23l-.606-1.533h1.22zm-17.097 0A6.285 6.285 0 0 1 24.391 23H12.21v-1.533zm-17.858 0V23H0v-1.533h10.684zm29-3.067v1.533h-7.631V18.4h7.631zm7.148 0l-.594 1.533H43.82l-.598-1.533h3.609zm-16.764 0a5.719 5.719 0 0 1-.64 1.533H12.21V18.4zm-19.384 0v1.533H0V18.4h10.684zM58 18.4v1.533h-7.632V18.4H58zm-3.053-3.067v1.534h-4.579v-1.534h4.58zm-15.263 0v1.534h-4.579v-1.534h4.58zm8.345 0l-.6 1.534h-4.806l-.604-1.534h6.01zm-18.174 0c.137.49.213 1.003.213 1.534h-5.647v-1.534zm-10.013 0v1.534h-4.579v-1.534h4.58zm-12.21 0v1.534h-4.58v-1.534h4.58zm47.315-3.066V13.8h-4.579v-1.533h4.58zm-15.263 0V13.8h-4.579v-1.533h4.58zm9.541 0l-.597 1.533h-7.22l-.591-1.533h8.408zm-21.248 0c.527.432.98.951 1.328 1.533H15.263v-1.533zm-20.345 0V13.8h-4.58v-1.533h4.58zM44.599 9.2l.427 1.24.428-1.24h9.493v1.533h-4.579V9.324l-.519 1.41h-9.661l-.504-1.41v1.41h-4.579V9.2H44.6zm-36.967 0v1.533h-4.58V9.2h4.58zm21.673 0a5.95 5.95 0 0 1-1.328 1.533H15.263V9.2zm25.642-3.067v1.534h-8.964l.54-1.534h8.424zm-11.413 0l.54 1.534h-8.969V6.133h8.43zm-13.466 0c0 .531-.076 1.045-.213 1.534H24.42V6.133zm-10.226 0v1.534h-4.579V6.133h4.58zm-12.21 0v1.534h-4.58V6.133h4.58zm34.845-3.066l.53 1.533H32.054V3.067h10.424zm15.523 0V4.6H47.04l.55-1.533H58zm-28.573 0c.284.473.504.988.641 1.533H12.211V3.067zm-18.743 0V4.6H0V3.067h10.684zM41.406 0l.54 1.533h-9.893V0h9.353zM58 0v1.533h-9.881L48.647 0H58zM24.39 0c1.601 0 3.057.581 4.152 1.533H12.211V0zM10.685 0v1.533H0V0h10.684z"
+                                          fill="#161616"
+                                          fillRule="evenodd"
+                                        />
+                                      </svg>
+                                    </MastheadLogo>
                                   </a>
                                 </div>
                               </IbmLogo>
@@ -1765,7 +1783,22 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                               data-autoid="dds--footer-logo__link"
                               href="https://www.ibm.com/"
                             >
-                              <IBM-8bar-logo--h65-white.svg />
+                              <FooterLogo
+                                className="bx--footer-logo__logo"
+                                viewBox="0 0 157 65"
+                              >
+                                <svg
+                                  className="bx--footer-logo__logo"
+                                  viewBox="0 0 157 65"
+                                >
+                                  <title>
+                                    IBM Logo
+                                  </title>
+                                  <path
+                                    d="M30.444 60.208v4.03H0v-4.03h30.444zm78.291-.001v4.03H86.983v-4.03h21.752zm47.858 0v4.03H134.84v-4.03h21.753zm-33.416 0l-1.398 4.03-1.38-4.03h2.778zm-88.384 0h42.775c-2.797 2.426-6.39 3.925-10.327 4.025l-.423.006H34.793v-4.03h42.775zm-4.35-8.46v4.03H0v-4.03h30.444zm52.402 0c-.332 1.248-.8 2.44-1.389 3.555l-.259.474H34.793v-4.029h48.052zm73.748-.005v4.031H134.84v-4.03h21.753zm-47.858 0v4.031H86.983v-4.03h21.752zm17.375 0l-1.398 4.031h-5.85l-1.395-4.03h8.643zM21.745 43.285v4.03H8.698v-4.03h13.047zm61.195 0a17.32 17.32 0 0 1 .476 3.51l.008.52H68.796v-4.03H82.94zm-26.401 0v4.03H43.491v-4.03H56.54zm72.502-.007l-1.396 4.03H115.93l-1.397-4.03h14.507zm18.85 0v4.03h-13.05v-4.03h13.05zm-39.156 0v4.03H95.684v-4.03h13.051zm-86.99-8.454v4.03H8.698v-4.03h13.047zm56.117 0a16.945 16.945 0 0 1 2.926 3.582l.264.447h-37.56v-4.03h34.37zm30.873-.01v4.03H95.684v-4.03h13.051zm39.157 0v4.03H134.84v-4.03h13.052zm-15.919 0l-1.396 4.03h-17.579l-1.396-4.03h20.371zm-50.778-8.452a16.963 16.963 0 0 1-2.82 3.674l-.37.355H43.49v-4.029h37.704zm-59.45 0v4.03H8.698v-4.03h13.047zm126.147-.013v4.031H134.84v-3.839l-1.33 3.839h-11.456l1.373-4.03h24.465zm-27.743 0l1.372 4.031h-11.456l-1.33-3.839v3.84H95.684v-4.032h24.465zm-98.404-8.448v4.03H8.698V17.9h13.047zm61.68 0c0 1.215-.134 2.399-.375 3.542l-.11.487H68.796V17.9h14.628zM56.538 17.9v4.03H43.491V17.9H56.54zm91.352-.015v4.03h-22.954l1.37-4.03h21.584zm-30.624 0l1.372 4.03H95.684v-4.03h21.583zM30.444 9.437v4.03H0v-4.03h30.444zm50.753 0a17.048 17.048 0 0 1 1.498 3.499l.15.531H34.794v-4.03h46.403zm75.396-.018v4.03h-28.776l1.373-4.03h27.403zm-42.207 0l1.372 4.031H86.982V9.42h27.404zM30.444.978v4.03H0V.977h30.444zm36.374 0c3.96 0 7.594 1.415 10.448 3.772l.303.257H34.794V.977h32.024zm89.775-.022v4.031h-25.894l1.372-4.03h24.522zm-45.098 0l1.372 4.03H86.982V.955h24.513z"
+                                  />
+                                </svg>
+                              </FooterLogo>
                             </a>
                           </div>
                         </Logo>
@@ -2560,7 +2593,22 @@ exports[`Storyshots Components|Footer Default 1`] = `
                             data-autoid="dds--footer-logo__link"
                             href="https://www.ibm.com/"
                           >
-                            <IBM-8bar-logo--h65-white.svg />
+                            <FooterLogo
+                              className="bx--footer-logo__logo"
+                              viewBox="0 0 157 65"
+                            >
+                              <svg
+                                className="bx--footer-logo__logo"
+                                viewBox="0 0 157 65"
+                              >
+                                <title>
+                                  IBM Logo
+                                </title>
+                                <path
+                                  d="M30.444 60.208v4.03H0v-4.03h30.444zm78.291-.001v4.03H86.983v-4.03h21.752zm47.858 0v4.03H134.84v-4.03h21.753zm-33.416 0l-1.398 4.03-1.38-4.03h2.778zm-88.384 0h42.775c-2.797 2.426-6.39 3.925-10.327 4.025l-.423.006H34.793v-4.03h42.775zm-4.35-8.46v4.03H0v-4.03h30.444zm52.402 0c-.332 1.248-.8 2.44-1.389 3.555l-.259.474H34.793v-4.029h48.052zm73.748-.005v4.031H134.84v-4.03h21.753zm-47.858 0v4.031H86.983v-4.03h21.752zm17.375 0l-1.398 4.031h-5.85l-1.395-4.03h8.643zM21.745 43.285v4.03H8.698v-4.03h13.047zm61.195 0a17.32 17.32 0 0 1 .476 3.51l.008.52H68.796v-4.03H82.94zm-26.401 0v4.03H43.491v-4.03H56.54zm72.502-.007l-1.396 4.03H115.93l-1.397-4.03h14.507zm18.85 0v4.03h-13.05v-4.03h13.05zm-39.156 0v4.03H95.684v-4.03h13.051zm-86.99-8.454v4.03H8.698v-4.03h13.047zm56.117 0a16.945 16.945 0 0 1 2.926 3.582l.264.447h-37.56v-4.03h34.37zm30.873-.01v4.03H95.684v-4.03h13.051zm39.157 0v4.03H134.84v-4.03h13.052zm-15.919 0l-1.396 4.03h-17.579l-1.396-4.03h20.371zm-50.778-8.452a16.963 16.963 0 0 1-2.82 3.674l-.37.355H43.49v-4.029h37.704zm-59.45 0v4.03H8.698v-4.03h13.047zm126.147-.013v4.031H134.84v-3.839l-1.33 3.839h-11.456l1.373-4.03h24.465zm-27.743 0l1.372 4.031h-11.456l-1.33-3.839v3.84H95.684v-4.032h24.465zm-98.404-8.448v4.03H8.698V17.9h13.047zm61.68 0c0 1.215-.134 2.399-.375 3.542l-.11.487H68.796V17.9h14.628zM56.538 17.9v4.03H43.491V17.9H56.54zm91.352-.015v4.03h-22.954l1.37-4.03h21.584zm-30.624 0l1.372 4.03H95.684v-4.03h21.583zM30.444 9.437v4.03H0v-4.03h30.444zm50.753 0a17.048 17.048 0 0 1 1.498 3.499l.15.531H34.794v-4.03h46.403zm75.396-.018v4.03h-28.776l1.373-4.03h27.403zm-42.207 0l1.372 4.031H86.982V9.42h27.404zM30.444.978v4.03H0V.977h30.444zm36.374 0c3.96 0 7.594 1.415 10.448 3.772l.303.257H34.794V.977h32.024zm89.775-.022v4.031h-25.894l1.372-4.03h24.522zm-45.098 0l1.372 4.03H86.982V.955h24.513z"
+                                />
+                              </svg>
+                            </FooterLogo>
                           </a>
                         </div>
                       </Logo>
@@ -4262,7 +4310,25 @@ exports[`Storyshots Components|Masthead Default 1`] = `
                                   data-autoid="dds--masthead-logo__link"
                                   href="https://www.ibm.com/"
                                 >
-                                  <IBM-8bar-logo--h23.svg />
+                                  <MastheadLogo
+                                    height="23"
+                                    viewBox="0 0 58 23"
+                                    width="58"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <svg
+                                      height="23"
+                                      viewBox="0 0 58 23"
+                                      width="58"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <path
+                                        d="M58 21.467V23h-7.632v-1.533H58zm-18.316 0V23h-7.631v-1.533h7.631zm5.955 0L45.025 23l-.606-1.533h1.22zm-17.097 0A6.285 6.285 0 0 1 24.391 23H12.21v-1.533zm-17.858 0V23H0v-1.533h10.684zm29-3.067v1.533h-7.631V18.4h7.631zm7.148 0l-.594 1.533H43.82l-.598-1.533h3.609zm-16.764 0a5.719 5.719 0 0 1-.64 1.533H12.21V18.4zm-19.384 0v1.533H0V18.4h10.684zM58 18.4v1.533h-7.632V18.4H58zm-3.053-3.067v1.534h-4.579v-1.534h4.58zm-15.263 0v1.534h-4.579v-1.534h4.58zm8.345 0l-.6 1.534h-4.806l-.604-1.534h6.01zm-18.174 0c.137.49.213 1.003.213 1.534h-5.647v-1.534zm-10.013 0v1.534h-4.579v-1.534h4.58zm-12.21 0v1.534h-4.58v-1.534h4.58zm47.315-3.066V13.8h-4.579v-1.533h4.58zm-15.263 0V13.8h-4.579v-1.533h4.58zm9.541 0l-.597 1.533h-7.22l-.591-1.533h8.408zm-21.248 0c.527.432.98.951 1.328 1.533H15.263v-1.533zm-20.345 0V13.8h-4.58v-1.533h4.58zM44.599 9.2l.427 1.24.428-1.24h9.493v1.533h-4.579V9.324l-.519 1.41h-9.661l-.504-1.41v1.41h-4.579V9.2H44.6zm-36.967 0v1.533h-4.58V9.2h4.58zm21.673 0a5.95 5.95 0 0 1-1.328 1.533H15.263V9.2zm25.642-3.067v1.534h-8.964l.54-1.534h8.424zm-11.413 0l.54 1.534h-8.969V6.133h8.43zm-13.466 0c0 .531-.076 1.045-.213 1.534H24.42V6.133zm-10.226 0v1.534h-4.579V6.133h4.58zm-12.21 0v1.534h-4.58V6.133h4.58zm34.845-3.066l.53 1.533H32.054V3.067h10.424zm15.523 0V4.6H47.04l.55-1.533H58zm-28.573 0c.284.473.504.988.641 1.533H12.211V3.067zm-18.743 0V4.6H0V3.067h10.684zM41.406 0l.54 1.533h-9.893V0h9.353zM58 0v1.533h-9.881L48.647 0H58zM24.39 0c1.601 0 3.057.581 4.152 1.533H12.211V0zM10.685 0v1.533H0V0h10.684z"
+                                        fill="#161616"
+                                        fillRule="evenodd"
+                                      />
+                                    </svg>
+                                  </MastheadLogo>
                                 </a>
                               </div>
                             </IbmLogo>
@@ -4753,7 +4819,25 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
                                   data-autoid="dds--masthead-logo__link"
                                   href="https://www.ibm.com/"
                                 >
-                                  <IBM-8bar-logo--h23.svg />
+                                  <MastheadLogo
+                                    height="23"
+                                    viewBox="0 0 58 23"
+                                    width="58"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <svg
+                                      height="23"
+                                      viewBox="0 0 58 23"
+                                      width="58"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <path
+                                        d="M58 21.467V23h-7.632v-1.533H58zm-18.316 0V23h-7.631v-1.533h7.631zm5.955 0L45.025 23l-.606-1.533h1.22zm-17.097 0A6.285 6.285 0 0 1 24.391 23H12.21v-1.533zm-17.858 0V23H0v-1.533h10.684zm29-3.067v1.533h-7.631V18.4h7.631zm7.148 0l-.594 1.533H43.82l-.598-1.533h3.609zm-16.764 0a5.719 5.719 0 0 1-.64 1.533H12.21V18.4zm-19.384 0v1.533H0V18.4h10.684zM58 18.4v1.533h-7.632V18.4H58zm-3.053-3.067v1.534h-4.579v-1.534h4.58zm-15.263 0v1.534h-4.579v-1.534h4.58zm8.345 0l-.6 1.534h-4.806l-.604-1.534h6.01zm-18.174 0c.137.49.213 1.003.213 1.534h-5.647v-1.534zm-10.013 0v1.534h-4.579v-1.534h4.58zm-12.21 0v1.534h-4.58v-1.534h4.58zm47.315-3.066V13.8h-4.579v-1.533h4.58zm-15.263 0V13.8h-4.579v-1.533h4.58zm9.541 0l-.597 1.533h-7.22l-.591-1.533h8.408zm-21.248 0c.527.432.98.951 1.328 1.533H15.263v-1.533zm-20.345 0V13.8h-4.58v-1.533h4.58zM44.599 9.2l.427 1.24.428-1.24h9.493v1.533h-4.579V9.324l-.519 1.41h-9.661l-.504-1.41v1.41h-4.579V9.2H44.6zm-36.967 0v1.533h-4.58V9.2h4.58zm21.673 0a5.95 5.95 0 0 1-1.328 1.533H15.263V9.2zm25.642-3.067v1.534h-8.964l.54-1.534h8.424zm-11.413 0l.54 1.534h-8.969V6.133h8.43zm-13.466 0c0 .531-.076 1.045-.213 1.534H24.42V6.133zm-10.226 0v1.534h-4.579V6.133h4.58zm-12.21 0v1.534h-4.58V6.133h4.58zm34.845-3.066l.53 1.533H32.054V3.067h10.424zm15.523 0V4.6H47.04l.55-1.533H58zm-28.573 0c.284.473.504.988.641 1.533H12.211V3.067zm-18.743 0V4.6H0V3.067h10.684zM41.406 0l.54 1.533h-9.893V0h9.353zM58 0v1.533h-9.881L48.647 0H58zM24.39 0c1.601 0 3.057.581 4.152 1.533H12.211V0zM10.685 0v1.533H0V0h10.684z"
+                                        fill="#161616"
+                                        fillRule="evenodd"
+                                      />
+                                    </svg>
+                                  </MastheadLogo>
                                 </a>
                               </div>
                             </IbmLogo>
@@ -25311,24 +25395,37 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentItemHorizontal Default 1`] = 
         Array [
           Object {
             "content": <React.Fragment>
-              <ContentItemHorizontal
-                copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
-                cta={
-                  Object {
-                    "copy": "click here",
-                    "href": "https://example.com",
-                    "icon": Object {
-                      "src": Object {
-                        "$$typeof": Symbol(react.forward_ref),
-                        "render": [Function],
-                      },
-                    },
-                    "type": "local",
-                  }
-                }
-                eyebrow="Lorem ipsum"
-                heading="Aliquam condimentum interdum"
-              />
+              <div
+                className="bx--grid bx--content-group-story"
+              >
+                <div
+                  className="bx--row"
+                >
+                  <div
+                    className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-2"
+                  >
+                    <ContentItemHorizontal
+                      copy="Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin."
+                      cta={
+                        Array [
+                          Object {
+                            "copy": "Link text",
+                            "href": "https://example.com",
+                            "type": "local",
+                          },
+                          Object {
+                            "copy": "External link text",
+                            "href": "https://example.com",
+                            "type": "external",
+                          },
+                        ]
+                      }
+                      eyebrow="Lorem ipsum"
+                      heading="Aliquam condimentum"
+                    />
+                  </div>
+                </div>
+              </div>
             </React.Fragment>,
             "type": "STORY",
           },
@@ -25356,160 +25453,242 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentItemHorizontal Default 1`] = 
             style={Object {}}
           >
             <div>
-              <ContentItemHorizontal
-                copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
-                cta={
-                  Object {
-                    "copy": "click here",
-                    "href": "https://example.com",
-                    "icon": Object {
-                      "src": Object {
-                        "$$typeof": Symbol(react.forward_ref),
-                        "render": [Function],
-                      },
-                    },
-                    "type": "local",
-                  }
-                }
-                eyebrow="Lorem ipsum"
-                heading="Aliquam condimentum interdum"
+              <div
+                className="bx--grid bx--content-group-story"
               >
                 <div
-                  className="bx--content-item-horizontal__item"
+                  className="bx--row"
                 >
                   <div
-                    className="bx--content-item-horizontal__row"
+                    className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-2"
                   >
-                    <div
-                      className="bx--content-item-horizontal__col"
-                    >
-                      <p
-                        className="bx--content-item-horizontal__item--eyebrow"
-                      >
-                        Lorem ipsum
-                      </p>
-                      <h3
-                        className="bx--content-item-horizontal__item--heading"
-                      >
-                        Aliquam condimentum interdum
-                      </h3>
-                    </div>
-                    <div
-                      className="bx--content-item-horizontal__col"
+                    <ContentItemHorizontal
+                      copy="Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin."
+                      cta={
+                        Array [
+                          Object {
+                            "copy": "Link text",
+                            "href": "https://example.com",
+                            "type": "local",
+                          },
+                          Object {
+                            "copy": "External link text",
+                            "href": "https://example.com",
+                            "type": "external",
+                          },
+                        ]
+                      }
+                      eyebrow="Lorem ipsum"
+                      heading="Aliquam condimentum"
                     >
                       <div
-                        className="bx--content-item-horizontal__item--copy"
-                        dangerouslySetInnerHTML={
-                          Object {
-                            "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
-                          }
-                        }
-                      />
-                      <CTA
-                        copy="click here"
-                        customClassName="bx--card__cta"
-                        href="https://example.com"
-                        icon={
-                          Object {
-                            "src": Object {
-                              "$$typeof": Symbol(react.forward_ref),
-                              "render": [Function],
-                            },
-                          }
-                        }
-                        style="text"
-                        type="local"
+                        className="bx--content-item-horizontal__item"
+                        data-autoid="dds--content-item-horizontal__item"
                       >
                         <div
-                          className="bx--card__cta"
+                          className="bx--content-item-horizontal__row"
                         >
-                          <TextCTA
-                            copy="click here"
-                            external={[Function]}
-                            href="https://example.com"
-                            icon={
-                              Object {
-                                "src": Object {
-                                  "$$typeof": Symbol(react.forward_ref),
-                                  "render": [Function],
-                                },
-                              }
-                            }
-                            iconSelector={[Function]}
-                            jump={[Function]}
-                            launchLightBox={[Function]}
-                            mediaData={Object {}}
-                            openLightBox={[Function]}
-                            renderLightBox={false}
-                            setLightBox={[Function]}
-                            setMediaData={[Function]}
-                            style="text"
-                            type="local"
-                            videoTitle={
-                              Array [
-                                Object {
-                                  "key": 0,
-                                  "title": "",
-                                },
-                              ]
-                            }
+                          <div
+                            className="bx--content-item-horizontal__col"
                           >
-                            <LinkWithIcon
-                              href="https://example.com"
-                              onClick={[Function]}
-                              target={null}
+                            <p
+                              className="bx--content-item-horizontal__item--eyebrow"
+                              data-autoid="dds--content-item-horizontal__item--eyebrow"
                             >
-                              <div
-                                className="bx--link-with-icon__container"
-                                data-autoid="dds--link-with-icon"
+                              Lorem ipsum
+                            </p>
+                            <h3
+                              className="bx--content-item-horizontal__item--heading"
+                              data-autoid="dds--content-item-horizontal__item--heading"
+                            >
+                              Aliquam condimentum
+                            </h3>
+                          </div>
+                          <div
+                            className="bx--content-item-horizontal__col"
+                          >
+                            <div
+                              className="bx--content-item-horizontal__item--copy"
+                              dangerouslySetInnerHTML={
+                                Object {
+                                  "__html": "<p>Lorem ipsum dolor sit amet, <em class=\\"bx--type-light\\">consectetur</em> adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.</p>",
+                                }
+                              }
+                              data-autoid="dds--content-item-horizontal__item--copy"
+                            />
+                            <div
+                              className="bx--content-item-horizontal__item--cta"
+                              data-autoid="dds--content-item-horizontal__item--cta"
+                            >
+                              <CTA
+                                copy="Link text"
+                                customClassName="bx--card__cta"
+                                href="https://example.com"
+                                key="0"
+                                style="text"
+                                type="local"
                               >
-                                <Link
-                                  className="bx--link-with-icon"
-                                  href="https://example.com"
-                                  onClick={[Function]}
-                                  target={null}
+                                <div
+                                  className="bx--card__cta"
                                 >
-                                  <a
-                                    className="bx--link bx--link-with-icon"
+                                  <TextCTA
+                                    copy="Link text"
                                     href="https://example.com"
-                                    onClick={[Function]}
-                                    target={null}
+                                    openLightBox={[Function]}
+                                    renderLightBox={false}
+                                    style="text"
+                                    type="local"
+                                    videoTitle={
+                                      Array [
+                                        Object {
+                                          "key": 0,
+                                          "title": "",
+                                        },
+                                      ]
+                                    }
                                   >
-                                    click here
-                                    <ForwardRef(ArrowRight20)>
-                                      <Icon
-                                        height={20}
-                                        preserveAspectRatio="xMidYMid meet"
-                                        viewBox="0 0 20 20"
-                                        width={20}
-                                        xmlns="http://www.w3.org/2000/svg"
+                                    <LinkWithIcon
+                                      href="https://example.com"
+                                      onClick={[Function]}
+                                      target={null}
+                                    >
+                                      <div
+                                        className="bx--link-with-icon__container"
+                                        data-autoid="dds--link-with-icon"
                                       >
-                                        <svg
-                                          aria-hidden={true}
-                                          focusable="false"
-                                          height={20}
-                                          preserveAspectRatio="xMidYMid meet"
-                                          viewBox="0 0 20 20"
-                                          width={20}
-                                          xmlns="http://www.w3.org/2000/svg"
+                                        <Link
+                                          className="bx--link-with-icon"
+                                          href="https://example.com"
+                                          onClick={[Function]}
+                                          target={null}
                                         >
-                                          <polygon
-                                            points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
-                                          />
-                                        </svg>
-                                      </Icon>
-                                    </ForwardRef(ArrowRight20)>
-                                  </a>
-                                </Link>
-                              </div>
-                            </LinkWithIcon>
-                          </TextCTA>
+                                          <a
+                                            className="bx--link bx--link-with-icon"
+                                            href="https://example.com"
+                                            onClick={[Function]}
+                                            target={null}
+                                          >
+                                            Link text
+                                            <ForwardRef(ArrowRight20)>
+                                              <Icon
+                                                height={20}
+                                                preserveAspectRatio="xMidYMid meet"
+                                                viewBox="0 0 20 20"
+                                                width={20}
+                                                xmlns="http://www.w3.org/2000/svg"
+                                              >
+                                                <svg
+                                                  aria-hidden={true}
+                                                  focusable="false"
+                                                  height={20}
+                                                  preserveAspectRatio="xMidYMid meet"
+                                                  viewBox="0 0 20 20"
+                                                  width={20}
+                                                  xmlns="http://www.w3.org/2000/svg"
+                                                >
+                                                  <polygon
+                                                    points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
+                                                  />
+                                                </svg>
+                                              </Icon>
+                                            </ForwardRef(ArrowRight20)>
+                                          </a>
+                                        </Link>
+                                      </div>
+                                    </LinkWithIcon>
+                                  </TextCTA>
+                                </div>
+                              </CTA>
+                              <CTA
+                                copy="External link text"
+                                customClassName="bx--card__cta"
+                                href="https://example.com"
+                                key="1"
+                                style="text"
+                                type="external"
+                              >
+                                <div
+                                  className="bx--card__cta"
+                                >
+                                  <TextCTA
+                                    copy="External link text"
+                                    href="https://example.com"
+                                    openLightBox={[Function]}
+                                    renderLightBox={false}
+                                    style="text"
+                                    type="external"
+                                    videoTitle={
+                                      Array [
+                                        Object {
+                                          "key": 0,
+                                          "title": "",
+                                        },
+                                      ]
+                                    }
+                                  >
+                                    <LinkWithIcon
+                                      href="https://example.com"
+                                      onClick={[Function]}
+                                      target="_blank"
+                                    >
+                                      <div
+                                        className="bx--link-with-icon__container"
+                                        data-autoid="dds--link-with-icon"
+                                      >
+                                        <Link
+                                          className="bx--link-with-icon"
+                                          href="https://example.com"
+                                          onClick={[Function]}
+                                          target="_blank"
+                                        >
+                                          <a
+                                            className="bx--link bx--link-with-icon"
+                                            href="https://example.com"
+                                            onClick={[Function]}
+                                            target="_blank"
+                                          >
+                                            External link text
+                                            <ForwardRef(Launch20)>
+                                              <Icon
+                                                height={20}
+                                                preserveAspectRatio="xMidYMid meet"
+                                                viewBox="0 0 32 32"
+                                                width={20}
+                                                xmlns="http://www.w3.org/2000/svg"
+                                              >
+                                                <svg
+                                                  aria-hidden={true}
+                                                  focusable="false"
+                                                  height={20}
+                                                  preserveAspectRatio="xMidYMid meet"
+                                                  viewBox="0 0 32 32"
+                                                  width={20}
+                                                  xmlns="http://www.w3.org/2000/svg"
+                                                >
+                                                  <path
+                                                    d="M26,28H6a2,2,0,0,1-2-2V6A2,2,0,0,1,6,4h9V6H6V26H26V17h2v9A2,2,0,0,1,26,28Z"
+                                                  />
+                                                  <polygon
+                                                    points="21 2 21 4 26.59 4 18 12.59 19.41 14 28 5.41 28 11 30 11 30 2 21 2"
+                                                  />
+                                                </svg>
+                                              </Icon>
+                                            </ForwardRef(Launch20)>
+                                          </a>
+                                        </Link>
+                                      </div>
+                                    </LinkWithIcon>
+                                  </TextCTA>
+                                </div>
+                              </CTA>
+                            </div>
+                          </div>
                         </div>
-                      </CTA>
-                    </div>
+                      </div>
+                    </ContentItemHorizontal>
                   </div>
                 </div>
-              </ContentItemHorizontal>
+              </div>
             </div>
           </div>
         </_default>

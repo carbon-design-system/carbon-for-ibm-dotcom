@@ -7,7 +7,6 @@
 
 import './index.scss';
 import { object, withKnobs } from '@storybook/addon-knobs';
-import { ArrowRight20 } from '@carbon/icons-react';
 import ContentItemHorizontal from '../ContentItemHorizontal';
 import React from 'react';
 import readme from '../README.md';
@@ -29,17 +28,11 @@ storiesOf('Patterns (Sub-Patterns)|ContentItemHorizontal', module)
       {
         type: 'local',
         copy: 'Link text',
-        icon: {
-          src: ArrowRight20,
-        },
         href: 'https://example.com',
       },
       {
         type: 'external',
-        copy: 'Link text',
-        icon: {
-          src: ArrowRight20,
-        },
+        copy: 'External link text',
         href: 'https://example.com',
       },
     ]);
