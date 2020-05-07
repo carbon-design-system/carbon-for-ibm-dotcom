@@ -45,7 +45,7 @@ storiesOf('Patterns (Sections)|CardSectionSimple', module)
       <CardSectionSimple
         heading={text('Heading (required):', 'Aliquam condimentum interdum')}
         theme={select('theme', themes, themes.white)}
-        cards={object('Data', cards.CardSectionSimple)}
+        cards={object('Data', cards.Simple)}
         cta={toggleCTA && cta}
       />
     );
