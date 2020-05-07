@@ -4,7 +4,6 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import { boolean } from '@storybook/addon-knobs';
 import { CTA } from '../../../components/CTA';
 import cx from 'classnames';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
@@ -54,7 +53,7 @@ const ContentItem = ({
           {heading}
         </h4>
       )}
-      {_renderMedia(mediaType, mediaData)}
+      {_renderMedia(mediaType, mediaData, inverse)}
       {copy && (
         <div
           data-autoid={`${stablePrefix}--content-item__copy`}
@@ -81,12 +80,11 @@ const ContentItem = ({
  *
  * @param {string} type cta type ( external | jump | local)
  * @param {object} data cta type ( external | jump | local)
+ * @param {boolean} inverse inverse type
  * @private
  * @returns {*} media component
  */
-const _renderMedia = (type, data) => {
-  const inverse = boolean('inverse', false);
-
+const _renderMedia = (type, data, inverse) => {
   if (data) {
     return (
       <div data-autoid={`${stablePrefix}--content-item__media`}>
