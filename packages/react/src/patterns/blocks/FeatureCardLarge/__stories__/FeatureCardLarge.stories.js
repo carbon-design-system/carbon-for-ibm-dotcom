@@ -7,12 +7,12 @@
 import './index.scss';
 import { object, text, withKnobs } from '@storybook/addon-knobs';
 import { ArrowRight20 } from '@carbon/icons-react';
-import FeatureCard from '../FeatureCard';
+import FeatureCardLarge from '../FeatureCardLarge';
 import React from 'react';
 import readme from '../README.md';
 import { storiesOf } from '@storybook/react';
 
-storiesOf('Patterns (Blocks)|FeatureCard', module)
+storiesOf('Patterns (Blocks)|FeatureCardLarge', module)
   .addDecorator(withKnobs)
   .addParameters({
     readme: {
@@ -44,7 +44,7 @@ storiesOf('Patterns (Blocks)|FeatureCard', module)
       <div className="bx--grid">
         <div className="bx--row">
           <div className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-2">
-            <FeatureCard
+            <FeatureCardLarge
               heading={heading}
               card={{
                 heading: cardheading,

@@ -24,7 +24,7 @@ const { prefix } = settings;
  * @param {Function} props.onClick onClick function
  * @returns {*} FeatureCard JSX component
  */
-const FeatureCard = ({ heading, card, onClick }) => {
+const FeatureCardLarge = ({ heading, card, onClick }) => {
   const hasCopy = classNames({ [`no-desc`]: !card.copy });
   return (
     card.eyebrow &&
@@ -47,10 +47,10 @@ const FeatureCard = ({ heading, card, onClick }) => {
   );
 };
 
-FeatureCard.propTypes = {
+FeatureCardLarge.propTypes = {
   heading: PropTypes.string.isRequired,
   card: PropTypes.oneOf(PropTypes.shape(cardPropTypes)).isRequired,
   onClick: PropTypes.func,
 };
 
-export default FeatureCard;
+export default FeatureCardLarge;
