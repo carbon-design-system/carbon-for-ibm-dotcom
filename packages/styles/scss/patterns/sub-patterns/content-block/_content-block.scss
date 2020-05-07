@@ -25,7 +25,6 @@
     @include carbon--breakpoint('max') {
       padding-bottom: $carbon--layout-07;
     }
-    //---
     &__heading,
     &__copy {
       @include content-width;

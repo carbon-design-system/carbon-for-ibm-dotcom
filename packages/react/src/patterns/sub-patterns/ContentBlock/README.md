@@ -35,6 +35,7 @@ import { ContentBlock } from '@carbon/ibmdotcom-react';
 import 'yourapplication.scss';
 
 function App() {
+  const inverse = boolean('inverse', false);
   const heading = 'This heading is optional';
   const copy = 'This copy text is optional';
   const content = 'This is the Content Block children.';
@@ -48,7 +49,7 @@ function App() {
   };
 
   return (
-    <ContentBlock heading={heading} copy={copy} cta={cta}>
+    <ContentBlock inverse={inverse} heading={heading} copy={copy} cta={cta}>
       {content}
     </ContentBlock>
   );
@@ -136,6 +137,7 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 | `cta`             | NO       | Object    | null          | CTA object.                                                                                                |
 | `customClassName` | NO       | String    | null          | Custom className to wrap the `ContentBlock` component.                                                     |
 | `heading`         | NO       | String    | null          | Heading text.                                                                                              |
+| `inverse`         | NO       | Boolean   | null          | Changes theme to inverse/default                                                                           |
 
 ### aside
 
