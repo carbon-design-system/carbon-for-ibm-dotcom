@@ -5,11 +5,15 @@
  * LICENSE file in the root directory of this source tree.
  */
 import './index.scss';
-import { object, text, withKnobs } from '@storybook/addon-knobs';
+import { boolean, object, text, withKnobs } from '@storybook/addon-knobs';
+import cx from 'classnames';
 import ImageWithCaption from '../ImageWithCaption';
 import React from 'react';
 import readme from '../README.md';
+import { settings } from 'carbon-components';
 import { storiesOf } from '@storybook/react';
+
+const { prefix } = settings;
 
 storiesOf('Components|ImageWithCaption', module)
   .addDecorator(withKnobs)
@@ -36,11 +40,20 @@ storiesOf('Components|ImageWithCaption', module)
       defaultSrc: 'https://dummyimage.com/672x672/ee5396/161616&text=1x1',
     });
 
+    const inverse = boolean('inverse', false);
+
     return (
-      <div className="bx--grid">
+      <div
+        className={cx('bx--grid', {
+          [`${prefix}--image-with-caption--inverse`]: inverse,
+        })}>
         <div className="bx--row">
           <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
-            <ImageWithCaption image={image} heading={heading} />
+            <ImageWithCaption
+              inverse={inverse}
+              image={image}
+              heading={heading}
+            />
           </div>
         </div>
       </div>
