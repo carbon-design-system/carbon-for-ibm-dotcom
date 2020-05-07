@@ -30,6 +30,7 @@ import ReactDOM from 'react-dom';
 import 'yourapplication.scss';
 
 function App() {
+  const inverse = boolean('inverse', false);
   const heading = 'this is the caption text.';
   const image = {
     defaultSrc: 'https://dummyimage.com/672x672',
@@ -50,7 +51,7 @@ function App() {
     ],
   };
 
-  return <ImageWithCaption image={image} heading={heading} />;
+  return <ImageWithCaption inverse={inverse} image={image} heading={heading} />;
 }
 
 ReactDOM.render(<App />, document.querySelector('#app'));
@@ -74,6 +75,7 @@ Add the following line on your `.env` file at the root of your project,
 | ------- | -------- | --------- | ------------- | ---------------------------------------------------------------------- |
 | image   | YES      | Object    | n/a           | Image object needed for ImageWithCaption component. See `image` below. |
 | heading | YES      | string    | n/a           | Caption text for ImageWithCaption component.                           |
+| inverse | No       | Boolean   | default       | Changes theme to inverse/default                                       |
 
 ### image
 
