@@ -62,9 +62,11 @@
       .#{$prefix}--image {
         @include carbon--breakpoint-between(992px, 1055px) {
           width: 50%;
+          height: 100%;
         }
         @include carbon--breakpoint('xlg') {
           width: 50%;
+          height: 100%;
         }
       }
     }
@@ -129,7 +131,7 @@
         }
       }
 
-      &__wrapper,
+      .#{$prefix}--card__wrapper,
       .#{$prefix}--image {
         @include carbon--breakpoint-between(752px, 1055px) {
           width: 50%;
