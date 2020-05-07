@@ -50,7 +50,7 @@ function App() {
     ],
   };
 
-  return <ImageWithCaption image={image} heading={heading} />;
+  return <ImageWithCaption inverse={false} image={image} heading={heading} />;
 }
 
 ReactDOM.render(<App />, document.querySelector('#app'));
@@ -74,6 +74,7 @@ Add the following line on your `.env` file at the root of your project,
 | ------- | -------- | --------- | ------------- | ---------------------------------------------------------------------- |
 | image   | YES      | Object    | n/a           | Image object needed for ImageWithCaption component. See `image` below. |
 | heading | YES      | string    | n/a           | Caption text for ImageWithCaption component.                           |
+| inverse | No       | Boolean   | `false`       | Changes theme to inverse/default                                       |
 
 ### image
 

@@ -31,7 +31,13 @@ import { VideoPlayer } from '@carbon/ibmdotcom-react';
 import 'yourapplication.scss';
 
 function App() {
-  return <VideoPlayer videoId="your-video-id" showDescription={true} />;
+  return (
+    <VideoPlayer
+      inverse={false}
+      videoId="your-video-id"
+      showDescription={true}
+    />
+  );
 }
 ReactDOM.render(<App />, document.querySelector('#app'));
 ```
@@ -64,6 +70,7 @@ KALTURA_UICONF_ID=12905712
 | ----------------- | -------- | --------- | ------------- | ---------------------------------------------- |
 | `videoId`         | YES      | String    | n/a           | Video ID from Kaltura video platform.          |
 | `showDescription` | NO       | Boolean   | `true`        | Determines whether to show description or not. |
+| `inverse`         | NO       | Boolean   | `false`       | Changes theme to inverse/default               |
 
 ## Stable selectors
 
