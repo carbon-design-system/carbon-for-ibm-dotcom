@@ -11,7 +11,7 @@
 @import '../../../globals/utils/hang';
 
 @mixin feature-card {
-  .#{$prefix}--feature-card {
+  .#{$prefix}--feature-card-block-large {
     color: $text-01;
     background: $ui-background;
 
@@ -30,10 +30,6 @@
       @include carbon--breakpoint('xlg') {
         padding-top: aspect-ratio(2, 1);
       }
-    }
-
-    .bx--feature-card {
-      border: 1px solid #ff0000;
     }
 
     .#{$prefix}--card {

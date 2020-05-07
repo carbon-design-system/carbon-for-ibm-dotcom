@@ -22,20 +22,20 @@ const { prefix } = settings;
  * @param {string} props.heading section heading
  * @param {object} props.card section card object
  * @param {Function} props.onClick onClick function
- * @returns {*} FeatureCard JSX component
+ * @returns {*} FeatureCardBlockLarge JSX component
  */
-const FeatureCardLarge = ({ heading, card, onClick }) => {
+const FeatureCardBlockLarge = ({ heading, card, onClick }) => {
   const hasCopy = classNames({ [`no-desc`]: !card.copy });
   return (
     card.eyebrow &&
     card.heading &&
     card.cta && (
       <section
-        className={`${prefix}--feature-card ${hasCopy}`}
-        data-autoid={`${stablePrefix}--feature-card`}>
+        className={`${prefix}--feature-card-block-large ${hasCopy}`}
+        data-autoid={`${stablePrefix}--feature-card-block-large`}>
         <ContentGroup heading={heading}>
           <Card
-            customClassName={`${prefix}--feature-card__card`}
+            customClassName={`${prefix}--feature-card-block-large__card`}
             {...card}
             type="link"
             inverse={true}
@@ -47,10 +47,10 @@ const FeatureCardLarge = ({ heading, card, onClick }) => {
   );
 };
 
-FeatureCardLarge.propTypes = {
+FeatureCardBlockLarge.propTypes = {
   heading: PropTypes.string.isRequired,
   card: PropTypes.oneOf(PropTypes.shape(cardPropTypes)).isRequired,
   onClick: PropTypes.func,
 };
 
-export default FeatureCardLarge;
+export default FeatureCardBlockLarge;
