@@ -209,7 +209,7 @@ LocaleModal.propTypes = {
 
 LocaleModal.defaultProps = {
   isOpen: false,
-  setIsOpen: false,
+  setIsOpen: () => {},
   localeData: null,
   localeDisplay: null,
 };

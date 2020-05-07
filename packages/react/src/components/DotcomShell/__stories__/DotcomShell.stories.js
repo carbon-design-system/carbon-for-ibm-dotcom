@@ -128,7 +128,7 @@ storiesOf('Components|Dotcom Shell', module)
           eyebrowLink,
         }}
         footerProps={{
-          navigation: isCustom && footerNav,
+          navigation: isCustom ? footerNav : null,
           type,
           disableLocaleButton,
           languageOnly,
