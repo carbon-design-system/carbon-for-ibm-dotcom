@@ -15,7 +15,7 @@ const { prefix } = settings;
  * @param {string} props.heading heading string
  * @param {string} props.copy pattern copy
  * @param {object} props.cta CTA component
- * @param {Array} props.items CTA items to the ContentItem
+ * @ param {Array} props.items CTA items to the ContentItem
  * @returns {object} JSX Object
  */
 const CTASection = ({ heading, copy, cta, items }) => (
@@ -23,9 +23,14 @@ const CTASection = ({ heading, copy, cta, items }) => (
     data-autoid={`${stablePrefix}--cta-section`}
     className={`${prefix}--cta-section`}>
     <ContentBlock heading={heading} copy={copy} cta={cta} />
-    {items.map(item => (
-      <ContentItem heading={item.heading} copy={item.copy} cta={item.cta} />
-    ))}
+    <hr className={`${prefix}--horizontal-line`} />
+    <div className={`${prefix}--helper-wrapper`}>
+      <div className={`${prefix}--content-item-wrapper`}>
+        {items.map(item => (
+          <ContentItem heading={item.heading} copy={item.copy} cta={item.cta} />
+        ))}
+      </div>
+    </div>
   </section>
 );
 
