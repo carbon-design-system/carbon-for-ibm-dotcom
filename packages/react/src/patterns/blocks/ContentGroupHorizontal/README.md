@@ -84,7 +84,7 @@ Add the following line in your `.env` file at the root of your project.
 
 | Name                              | Description |
 | --------------------------------- | ----------- |
-| `dds----content-group-horizontal` | Pattern     |
+| `dds--content-group-horizontal`   | Pattern     |
 
 ## 🙌 Contributing
 
