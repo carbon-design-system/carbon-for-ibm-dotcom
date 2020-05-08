@@ -20,14 +20,14 @@ storiesOf('Patterns (Sections)|CTASection', module)
       buttons: [
         {
           type: select('CTA type', types, types[0]),
-          copy: ['Book time with an expert'],
+          copy: ['Contact sales'],
         },
       ],
     };
 
     const contentBlockProps = {
       heading: 'Take the next step',
-      copy: `Want to discuss your options with a DevOps expert?`,
+      copy: `Want to discuss your options with a DevOps expert? Contact our sales team to evaluate your needs.`,
     };
 
     const contentItemsProps = [
