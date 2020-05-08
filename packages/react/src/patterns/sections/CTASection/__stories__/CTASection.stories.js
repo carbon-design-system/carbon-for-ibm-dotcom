@@ -1,5 +1,5 @@
 import './index.scss';
-import { select, withKnobs } from '@storybook/addon-knobs';
+import { select, text, object, withKnobs } from '@storybook/addon-knobs';
 import CTASection from '../CTASection';
 import React from 'react';
 import readme from '../README.md';
@@ -16,18 +16,22 @@ storiesOf('Patterns (Sections)|CTASection', module)
     const types = ['local', 'external'];
     const ctaProps = {
       style: 'button',
-      type: select('CTA type', types, types[0]),
+      type: types[0],
       buttons: [
         {
-          type: select('CTA type', types, types[0]),
+          type: select('ContentBlock | CTA type', types, types[0]),
           copy: ['Contact sales'],
+          href: 'https://example.com/',
         },
       ],
     };
 
     const contentBlockProps = {
-      heading: 'Take the next step',
-      copy: `Want to discuss your options with a DevOps expert? Contact our sales team to evaluate your needs.`,
+      heading: text('ContentBlock | heading:', 'Take the next step'),
+      copy: text(
+        'ContentBlock | copy:',
+        `Want to discuss your options with a DevOps expert? Contact our sales team to evaluate your needs.`
+      ),
     };
 
     const contentItemsProps = [
@@ -59,7 +63,7 @@ storiesOf('Patterns (Sections)|CTASection', module)
       <CTASection
         {...contentBlockProps}
         cta={ctaProps}
-        items={contentItemsProps}
+        items={object('ContentItems | Data', contentItemsProps)}
       />
     );
   });
