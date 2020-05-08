@@ -7,10 +7,14 @@ import {
   boolean,
 } from '@storybook/addon-knobs';
 import ContentBlockSimple from '../ContentBlockSimple';
+import cx from 'classnames';
 import { LinkList } from '../../../sub-patterns/LinkList';
 import React from 'react';
 import readme from '../README.md';
+import { settings } from 'carbon-components';
 import { storiesOf } from '@storybook/react';
+
+const { prefix } = settings;
 
 storiesOf('Patterns (Blocks)|ContentBlockSimple', module)
   .addDecorator(withKnobs)
@@ -86,11 +90,17 @@ storiesOf('Patterns (Blocks)|ContentBlockSimple', module)
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
       `;
 
+    const inverse = boolean('inverse', false);
+
     return (
-      <div className="bx--grid">
+      <div
+        className={cx('bx--grid', {
+          [`${prefix}--content-block-simple--inverse`]: inverse,
+        })}>
         <div className="bx--row">
           <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4 content-block-story">
             <ContentBlockSimple
+              inverse={inverse}
               copy={copy}
               heading={text(
                 'Heading (required)',

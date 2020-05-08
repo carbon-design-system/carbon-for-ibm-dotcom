@@ -39,7 +39,7 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 ```
 
 Add the following line on your `env` file at the root of your project,
-[see more details](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/styles#usage)
+[See more details](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/styles#usage).
 
 ```
   SASS_PATH=node_modules:src
