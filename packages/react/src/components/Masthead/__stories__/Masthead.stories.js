@@ -1,6 +1,7 @@
 import './index.scss';
 import { boolean, select, text, withKnobs } from '@storybook/addon-knobs';
 import { DDS_MASTHEAD_L1 } from '../../../internal/FeatureFlags';
+import inPercy from '@percy-io/in-percy';
 import Masthead from '../Masthead';
 import mastheadKnobs from './data/Masthead.stories.knobs.js';
 import React from 'react';
@@ -19,7 +20,9 @@ storiesOf('Components|Masthead', module)
       navigation: select(
         'navigation data (navigation)',
         mastheadKnobs.navigation,
-        mastheadKnobs.navigation.default
+        inPercy()
+          ? mastheadKnobs.navigation.custom
+          : mastheadKnobs.navigation.default
       ),
       platform: select(
         'platform name (platform)',
@@ -48,7 +51,9 @@ storiesOf('Components|Masthead', module)
       navigation: select(
         'navigation data (navigation)',
         mastheadKnobs.navigation,
-        mastheadKnobs.navigation.default
+        inPercy()
+          ? mastheadKnobs.navigation.custom
+          : mastheadKnobs.navigation.default
       ),
       platform: select(
         'platform name (platform)',
