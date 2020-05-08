@@ -6,7 +6,6 @@ import {
   boolean,
   object,
 } from '@storybook/addon-knobs';
-import { ArrowRight20 } from '@carbon/icons-react';
 import { Card } from '../';
 import React from 'react';
 import readme from '../README.md';
@@ -21,9 +20,6 @@ const props = {
     cta: object('cta', {
       type: 'local',
       copy: 'click here',
-      icon: {
-        src: ArrowRight20,
-      },
       href: 'https://example.com',
     }),
     inverse: boolean('inverse', false),
