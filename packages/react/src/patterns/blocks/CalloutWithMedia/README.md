@@ -30,11 +30,37 @@ import 'yourapplication.scss';
 function App() {
   const copy = 'lorum ipsum dolor sit ameet';
   const heading = 'lorum ipsum dolor sit amet';
-  const image = 'image';
-  const mediaData = .... image data json...
+  const mediaData = {
+    heading: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    image: {
+      sources: [
+        {
+          src: 'https://dummyimage.com/320x180/ee5396/161616&text=16:9',
+          breakpoint: 320,
+        },
+        {
+          src: 'https://dummyimage.com/400x225/ee5396/161616&text=16:9',
+          breakpoint: 400,
+        },
+        {
+          src: 'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
+          breakpoint: 672,
+        },
+      ],
+      alt: 'Image alt text',
+      defaultSrc: 'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
+    },
+  };
   const mediaType = 'image';
 
-  return <CalloutWithMedia heading={heading} copy={copy} mediaType={mediaType} mediaData={mediaData}  />;
+  return (
+    <CalloutWithMedia
+      heading={heading}
+      copy={copy}
+      mediaType={mediaType}
+      mediaData={mediaData}
+    />
+  );
 }
 ReactDOM.render(<App />, document.querySelector('#app'));
 ```
