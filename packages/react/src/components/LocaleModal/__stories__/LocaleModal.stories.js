@@ -18,8 +18,8 @@ storiesOf('Components|Locale Modal', module)
     return (
       <LocaleModal
         isOpen={true}
-        localeData={inPercy ? localeData : null}
-        localeDisplay={inPercy ? 'United States - English' : null}
+        localeData={inPercy() ? localeData : null}
+        localeDisplay={inPercy() ? 'United States - English' : null}
       />
     );
   });
