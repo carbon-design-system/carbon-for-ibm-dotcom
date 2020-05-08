@@ -7,7 +7,9 @@
 
 Here's a quick example to get you started.
 
-```scss
+##### CSS
+
+```css
 // yourapplication.scss
 @import '@carbon/type/scss/font-face/mono';
 @import '@carbon/type/scss/font-face/sans';
@@ -20,6 +22,8 @@ Here's a quick example to get you started.
 > 💡 Only import fonts once per usage. Don't forget to import the card-group
 > styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
+
+##### JS
 
 ```javascript
 import React from 'react';
@@ -34,8 +38,8 @@ function App() {
 ReactDOM.render(<App />, document.querySelector('#app'));
 ```
 
-Add the following line on your `.env` file at the root of your project,
-[see more details](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/styles#usage)
+Add the following line in your `.env` file at the root of your project.
+[See more details](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/styles#usage)..
 
 ```
   SASS_PATH=node_modules:src
@@ -43,31 +47,37 @@ Add the following line on your `.env` file at the root of your project,
 
 ## Props
 
-| Name    | Required | Data Type | Default Value | Description                                                                                                                                                                                    |
-| ------- | -------- | --------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `cards` | YES      | Array     | null          | Array of objects. [Card Array Example](https://github.com/mkothur/ibm-dotcom-library/blob/master/packages/react/src/patterns/sub-patterns/card/README.md). For more details See `Cards Props`. |
-| `cta`   | NO       | Object    | null          | CTA options. See `Card` README with the above link.                                                                                                                                            |
+| Name    | Required | Data Type | Default Value | Description                                                                                                                                                                        |
+| ------- | -------- | --------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `cards` | YES      | Array     | null          | Array of objects. See [Card props](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/patterns/sub-patterns/CardGroup#card-props---simple). |
+| `cta`   | NO       | Object    | null          | Optional CTA card for group. Always displays as last item.                                                                                                                         |
 
-### Card Props
+### Card props - simple
 
-Card accepts the folloing information for this `CardSectionImages` pattern
+| Name       | Required | Data Type | Description                            |
+| ---------- | -------- | --------- | -------------------------------------- |
+| `copy`     | YES      | String    | Copy of the card.                      |
+| `heading`  | YES      | String    | Heading of the card.                   |
+| `cta.href` | YES      | String    | URI for internal or external resource. |
 
-| Name       | Required | Data Type | Description                                                       |
-| ---------- | -------- | --------- | ----------------------------------------------------------------- |
-| `Image`    | YES      | Object    | It contains defaultSrc and alt text properties.                   |
-| `Eyebrow`  | YES      | String    | Eyebrow of the Card.                                              |
-| `Heading`  | YES      | String    | Heading of the Card.                                              |
-| `cta.href` | YES      | String    | Valid URL for a the location of an internal or external resource. |
+### Card props - image
+
+| Name       | Required | Data Type | Description                              |
+| ---------- | -------- | --------- | ---------------------------------------- |
+| `image`    | YES      | Object    | Contains source and alt text properties. |
+| `eyebrow`  | YES      | String    | Eyebrow of the card.                     |
+| `heading`  | YES      | String    | Heading of the card.                     |
+| `cta.href` | YES      | String    | URI for internal or external resource.   |
+
+> See
+> [Card](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/patterns/sub-patterns/Card)
+> sub-pattern for all card options. 👀
 
 ## Stable selectors
 
 | Name              | Description |
 | ----------------- | ----------- |
 | `dds--card-group` | Component   |
-
-> See
-> [Card](https://github.com/mkothur/ibm-dotcom-library/blob/master/packages/react/src/patterns/sub-patterns/card/README.md)
-> 👀
 
 ## 🙌 Contributing
 

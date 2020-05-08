@@ -1,19 +1,25 @@
 # Card Section - Simple
 
-> The CardSection Simple pattern is to be utilized within IBM.com. See
-> [CardSection](https://github.com/mkothur/ibm-dotcom-library/blob/master/packages/react/src/patterns/sections/CardSection/README.md)👀
+> The Card Section - Simple pattern is a collection of simple cards presented in
+> a section with a left-column header.
 
 ## Getting started
 
 Here's a quick example to get you started.
 
-```scss
+##### CSS
+
+```css
 // yourapplication.scss
 @import '@carbon/type/scss/font-face/mono';
 @import '@carbon/type/scss/font-face/sans';
 @include carbon--font-face-mono();
 @include carbon--font-face-sans();
+
+@include '@carbon/ibmdotcom-styles/scss/patterns/sections/card-section-images/card-section-simple';
 ```
+
+##### JS
 
 ```javascript
 import React from 'react';
@@ -35,38 +41,32 @@ function App() {
 ReactDOM.render(<App />, document.querySelector('#app'));
 ```
 
-Add the following line on your `.env` file at the root of your project,
-[see more details](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/styles#usage)
+Add the following line in your `.env` file at the root of your project.
+[See more details](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/styles#usage)..
 
 ```
   SASS_PATH=node_modules:src
 ```
 
-> See
-> [Card Object](https://github.com/mkothur/ibm-dotcom-library/blob/master/packages/react/src/patterns/sections/CardSection/__stories__/data/cards.json)
-> 👀
-
 ## Props
 
-| Name      | Required | Data Type | Default Value | Description                                                                                                                                                                                    |
-| --------- | -------- | --------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `heading` | YES      | String    | null          | Cards with or without images heading.                                                                                                                                                          |
-| `cards`   | YES      | Array     | null          | Array of objects. [Card Array Example](https://github.com/mkothur/ibm-dotcom-library/blob/master/packages/react/src/patterns/sub-patterns/card/README.md). For more details See `Cards Props`. |
-| `theme`   | NO       | String    | 'white'       | Color theme for pattern. See `theme` below.                                                                                                                                                    |
-| `cta`     | NO       | Object    | null          | CTA options. See `Card` README with the above link.                                                                                                                                            |
+| Name      | Required | Data Type | Default Value | Description                                                                                                                                                                         |
+| --------- | -------- | --------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `heading` | YES      | String    | null          | Section heading.                                                                                                                                                                    |
+| `cards`   | YES      | Array     | null          | Array of objects. See [Card props](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/patterns/sections/CardSectionSimple#props).            |
+| `theme`   | NO       | String    | `white`       | Color theme for pattern. See [theme](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/patterns/sections/CardSectionSimple#theme-optional). |
+| `cta`     | NO       | Object    | null          | Optional CTA card for group. Always displays as last item.                                                                                                                          |
 
-### Card Props
+### Card props
 
-Card accepts the folloing information for this `CardSectionSimple` pattern
+| Name       | Required | Data Type | Description                            |
+| ---------- | -------- | --------- | -------------------------------------- |
+| `copy`     | YES      | String    | Copy of the card.                      |
+| `heading`  | YES      | String    | Heading of the card.                   |
+| `cta.href` | YES      | String    | URI for internal or external resource. |
 
-| Name       | Required | Data Type | Description                                                       |
-| ---------- | -------- | --------- | ----------------------------------------------------------------- |
-| `Copy`     | YES      | String    | Copy of the Card.                                                 |
-| `Heading`  | YES      | String    | Heading of the Card.                                              |
-| `cta.href` | YES      | String    | Valid URL for a the location of an internal or external resource. |
-
-> See
-> [Card](https://github.com/mkothur/ibm-dotcom-library/blob/master/packages/react/src/patterns/sub-patterns/card/README.md)
+> See example
+> [card data](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/src/patterns/sub-patterns/CardGroup/__stories__/data/cards.json).
 > 👀
 
 ### Theme (optional)

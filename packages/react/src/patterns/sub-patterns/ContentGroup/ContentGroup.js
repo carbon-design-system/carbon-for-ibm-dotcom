@@ -45,7 +45,7 @@ const ContentGroup = ({ children, heading, customClassName, cta }) => {
       </div>
       {cta && (
         <div
-          data-autoid={`${stablePrefix}--content-group__cta}`}
+          data-autoid={`${stablePrefix}--content-group__cta`}
           className={`${prefix}--content-group__cta-row`}>
           <CTA
             customClassName={`${prefix}--content-group__cta`}
