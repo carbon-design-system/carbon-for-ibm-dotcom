@@ -10,6 +10,9 @@
 @import '../../../globals/utils/aspect-ratio';
 @import '../../../globals/utils/hang';
 
+$fcb-large-custom-bp-copy: 992px;
+$fcb-large-custom-bp-nocopy: 752px;
+
 @mixin feature-card-block-large {
   .#{$prefix}--feature-card-block-large {
     color: $text-01;
@@ -17,8 +20,9 @@
     position: relative;
     padding-top: 20px;
     padding-bottom: 20px;
+    height: 100%;
 
-    @include carbon--breakpoint-between(992px, 'lg') {
+    @include carbon--breakpoint-between($fcb-large-custom-bp-copy, 'lg') {
       padding-top: aspect-ratio(2, 1);
     }
     @include carbon--breakpoint('xlg') {
@@ -33,14 +37,16 @@
     }
 
     .#{$prefix}--card {
-      @include carbon--breakpoint-between(992px, 'lg') {
+      background: none;
+      height: 100%;
+
+      @include carbon--breakpoint-between($fcb-large-custom-bp-copy, 'lg') {
         position: absolute;
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
         flex-direction: row;
-        @include hang;
       }
       @include carbon--breakpoint('xlg') {
         position: absolute;
@@ -49,13 +55,11 @@
         right: 0;
         bottom: 0;
         flex-direction: row;
-        @include hang;
       }
 
       &__wrapper,
       .#{$prefix}--image {
-        min-height: 50%;
-        @include carbon--breakpoint-between(992px, 'lg') {
+        @include carbon--breakpoint-between($fcb-large-custom-bp-copy, 'lg') {
           width: 50%;
           height: 100%;
         }
@@ -64,65 +68,73 @@
           height: 100%;
         }
       }
-    }
 
-    .#{$prefix}--card__wrapper {
-      background: $inverse-02;
-      height: auto;
-
-      @include carbon--breakpoint('xlg') {
-        padding: rem(32px);
+      .#{$prefix}--image {
+        overflow-y: hidden;
       }
 
-      @include carbon--breakpoint('max') {
-        padding: rem(64px);
-      }
+      &__wrapper {
+        background: $inverse-02;
+        min-height: 50%;
+        height: auto;
 
-      .#{$prefix}--card__eyebrow {
-        margin-bottom: rem(14px);
-        color: #ffffff;
+        @include carbon--breakpoint('xlg') {
+          padding: rem(32px);
+        }
 
-        @include carbon--breakpoint-between(1px, 'sm') {
-          margin-top: rem(28px);
+        @include carbon--breakpoint('max') {
+          padding: rem(64px);
+        }
+
+        .#{$prefix}--card__eyebrow {
           margin-bottom: rem(14px);
+          color: #ffffff;
+
+          @include carbon--breakpoint-between(1px, 'sm') {
+            margin-top: rem(28px);
+            margin-bottom: rem(14px);
+          }
         }
-      }
 
-      .#{$prefix}--card__heading {
-        @include carbon--type-style(expressive-heading-04, true);
+        .#{$prefix}--card__heading {
+          @include carbon--type-style(expressive-heading-04, true);
 
-        margin-bottom: rem(28px);
-      }
-
-      .#{$prefix}--card__copy {
-        p {
-          font-size: 0.875rem;
-          font-weight: 400;
-          line-height: 1.2rem;
-        }
-        @include carbon--breakpoint-between(1px, 'sm') {
           margin-bottom: rem(28px);
+        }
+
+        .#{$prefix}--card__copy {
+          p {
+            font-size: 0.875rem;
+            font-weight: 400;
+            line-height: 1.2rem;
+          }
+          @include carbon--breakpoint-between(1px, 'sm') {
+            margin-bottom: rem(28px);
+          }
         }
       }
     }
 
     // special breakpoint for no copy present
     &.#{$prefix}--feature-card-block-large_no-copy-text {
+      @include carbon--breakpoint-between($fcb-large-custom-bp-nocopy, 'lg') {
+        padding-top: aspect-ratio(2, 1);
+      }
+
       .#{$prefix}--card {
-        @include carbon--breakpoint-between(752px, 1055px) {
+        @include carbon--breakpoint-between($fcb-large-custom-bp-nocopy, 'lg') {
           position: absolute;
           top: 0;
           left: 0;
           right: 0;
           bottom: 0;
           flex-direction: row;
-          @include hang;
         }
       }
 
       .#{$prefix}--card__wrapper,
       .#{$prefix}--image {
-        @include carbon--breakpoint-between(752px, 1055px) {
+        @include carbon--breakpoint-between($fcb-large-custom-bp-nocopy, 'lg') {
           width: 50%;
           height: 100%;
         }
