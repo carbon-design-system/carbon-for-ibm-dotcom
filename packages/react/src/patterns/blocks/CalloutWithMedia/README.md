@@ -45,9 +45,9 @@ Add the following line in your `.env` file at the root of your project.
 
 ## Props
 
-| Name                 | Required | Data Type | Default Value | Description                                                                                                                                                               |
-| -------------------- | -------- | --------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `contentblocksimple` | YES      | Object    | null          | Content Block Simple. See [Quote](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/src/patterns/blocks/ContentBlockSimple/README.md) |
+| Name                           | Required | Data Type | Default Value | Description                                                                                                                                                                            |
+| ------------------------------ | -------- | --------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `props for ContentBlockSimple` | YES      | Object    | null          | Content Block Simple. See [ContentBlockSimple](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/src/patterns/blocks/ContentBlockSimple/README.md) |
 
 ## Stable selectors
 
