@@ -23,6 +23,7 @@ const { prefix } = settings;
  * ContentBlock Sub-pattern
  *
  * @param {object} props props object
+ * @param {boolean} props.inverse inverse class
  * @param {string} props.heading Heading text
  * @param {string} props.copy copy text
  * @param {*} props.children JSX Components
@@ -38,7 +39,14 @@ const ContentBlock = ({
   customClassName,
   cta,
   aside,
+  inverse,
 }) => {
+  const classnames = cx(
+    `${prefix}--content-block`,
+    { [`${prefix}--content-block--inverse`]: inverse },
+    customClassName
+  );
+
   const content = (
     <>
       {copy && (
@@ -71,9 +79,7 @@ const ContentBlock = ({
   );
 
   return (
-    <div
-      data-autoid={`${stablePrefix}--content-block`}
-      className={cx(`${prefix}--content-block`, customClassName)}>
+    <div data-autoid={`${stablePrefix}--content-block`} className={classnames}>
       {aside && aside.items
         ? _layoutWrap(
             <>
@@ -136,6 +142,7 @@ function _renderCTA(cta) {
 }
 
 ContentBlock.propTypes = {
+  inverse: PropTypes.bool,
   heading: PropTypes.string,
   copy: PropTypes.string,
   children: PropTypes.oneOfType([

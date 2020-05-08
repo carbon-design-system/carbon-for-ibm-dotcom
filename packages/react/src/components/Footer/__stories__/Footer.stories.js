@@ -4,6 +4,7 @@ import { DDS_LANGUAGE_SELECTOR } from '../../../internal/FeatureFlags';
 import { Footer } from '../';
 import footerMenu from '../__data__/footer-menu.json';
 import footerThin from '../__data__/footer-thin.json';
+import inPercy from '@percy-io/in-percy';
 import languageItems from '../__data__/language-items.json';
 import React from 'react';
 import readme from '../README.md';
@@ -28,7 +29,7 @@ storiesOf('Components|Footer', module)
       footerTypeOptions.tall
     );
 
-    let isCustom = boolean('show custom navigation (not a prop)', false);
+    let isCustom = boolean('show custom navigation (not a prop)', inPercy());
 
     let navigation =
       isCustom &&
@@ -64,6 +65,7 @@ storiesOf('Components|Footer', module)
         navigation={isCustom && navigation}
         type={type}
         disableLocaleButton={disableLocaleButton}
+        langCode={inPercy() ? { lc: 'en', cc: 'us' } : null}
         languageOnly={languageOnly}
         languageItems={items}
         languageInitialItem={{ id: 'en', text: 'English' }}
