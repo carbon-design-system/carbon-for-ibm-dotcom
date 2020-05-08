@@ -19440,7 +19440,7 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockLarge Default 1`] = `
                       }
                     >
                       <section
-                        className="bx--feature-card-block-large "
+                        className="bx--feature-card-block-large"
                         data-autoid="dds--feature-card-block-large"
                       >
                         <Card
