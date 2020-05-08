@@ -26,8 +26,13 @@ const CTASection = ({ heading, copy, cta, items }) => (
     <div className={`${prefix}--helper-wrapper`}>
       <hr className={`${prefix}--horizontal-line`} />
       <div className={`${prefix}--content-item-wrapper`}>
-        {items.map(item => (
-          <ContentItem heading={item.heading} copy={item.copy} cta={item.cta} />
+        {items.map((item, index) => (
+          <ContentItem
+            key={index}
+            heading={item.heading}
+            copy={item.copy}
+            cta={item.cta}
+          />
         ))}
       </div>
     </div>
