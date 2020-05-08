@@ -16070,6 +16070,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                         }
                       }
                       heading="Curabitur malesuada varius mi eu posuere"
+                      inverse={false}
                       mediaData={
                         Object {
                           "heading": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -16156,6 +16157,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                         }
                       }
                       heading="Curabitur malesuada varius mi eu posuere"
+                      inverse={false}
                       mediaData={
                         Object {
                           "heading": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -16198,6 +16200,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                             }
                           }
                           heading="Curabitur malesuada varius mi eu posuere"
+                          inverse={false}
                         >
                           <div
                             className="bx--content-block"
@@ -16228,6 +16231,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
 
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
       "
+                                  inverse={false}
                                 >
                                   <div
                                     className="bx--content-item"
@@ -16269,6 +16273,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                                         ],
                                       }
                                     }
+                                    inverse={false}
                                   >
                                     <div
                                       className="bx--image-with-caption"
