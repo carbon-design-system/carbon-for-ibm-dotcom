@@ -9,22 +9,17 @@
   .#{$prefix}--cta-section {
     background-color: $ui-background;
 
-    @include carbon--breakpoint(sm) {
-      overflow-y: auto;
-    }
-
     .#{$prefix}--content-block {
       padding-bottom: $layout-01;
-
-      @include carbon--breakpoint(sm) {
-        @include carbon--make-col-ready;
-      }
+      @include carbon--make-col-ready;
 
       &__heading,
       &__copy {
         color: $text-01;
-        p {
-          @include carbon--make-col-ready;
+        @include carbon--make-col-ready;
+
+        @include carbon--breakpoint(sm) {
+          padding: 0;
         }
       }
 
@@ -51,7 +46,11 @@
       &__cta-row {
         margin-right: 0;
         @include carbon--make-col(4, 4);
-        @include carbon--make-col-offset(0, 4);
+        @include carbon--make-col-ready;
+
+        @include carbon--breakpoint(sm) {
+          padding: 0;
+        }
       }
 
       @include carbon--breakpoint(md) {
