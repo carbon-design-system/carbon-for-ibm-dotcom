@@ -62,6 +62,7 @@ function App() {
 
   return (
     <ContentItem
+      inverse={false}
       heading={heading}
       copy={copy}
       mediaType={mediaType}
@@ -93,6 +94,7 @@ Add the following line in your `.env` file at the root of your project.
 | `cta`       | NO       | object    | null          | CTA object. See `cta` below.                                                                                                                                                                                                                                                                                                                                     |
 | `mediaType` | NO       | String    | n/a           | Determines media type (image or video).                                                                                                                                                                                                                                                                                                                          |
 | `mediaData` | NO       | Object    | n/a           | Media Data for either image or video. See the [`ImageWithCaption`](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/components/ImageWithCaption) or [`VideoPlayer`](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/components/VideoPlayer) component for full usage details. |
+| `inverse`   | NO       | Boolean   | `false`       | Changes theme to inverse/default                                                                                                                                                                                                                                                                                                                                 |
 
 ### cta (optional)
 

@@ -5,12 +5,21 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import './index.scss';
-import { object, text, withKnobs, select } from '@storybook/addon-knobs';
+import {
+  object,
+  text,
+  withKnobs,
+  select,
+  boolean,
+} from '@storybook/addon-knobs';
 import ContentItem from '../ContentItem';
+import cx from 'classnames';
 import React from 'react';
 import readme from '../README.md';
+import { settings } from 'carbon-components';
 import { storiesOf } from '@storybook/react';
+
+const { prefix } = settings;
 
 storiesOf('Patterns (Sub-Patterns)|ContentItem', module)
   .addDecorator(withKnobs)
@@ -76,11 +85,17 @@ storiesOf('Patterns (Sub-Patterns)|ContentItem', module)
 
     const mediaData = mediaType === 'image' ? image : video;
 
+    const inverse = boolean('inverse', false);
+
     return (
-      <div className="bx--grid">
+      <div
+        className={cx('bx--grid', {
+          [`${prefix}--content-item--inverse`]: inverse,
+        })}>
         <div className="bx--row">
           <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
             <ContentItem
+              inverse={inverse}
               heading={heading}
               copy={copy}
               mediaType={mediaType}

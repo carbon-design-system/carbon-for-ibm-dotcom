@@ -25673,6 +25673,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentItem Default 1`] = `
                         }
                       }
                       heading="Lorem ipsum dolor sit amet."
+                      inverse={false}
                       mediaData={
                         Object {
                           "heading": "this is an image caption",
@@ -25747,6 +25748,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentItem Default 1`] = `
                         }
                       }
                       heading="Lorem ipsum dolor sit amet."
+                      inverse={false}
                       mediaData={
                         Object {
                           "heading": "this is an image caption",
@@ -25807,6 +25809,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentItem Default 1`] = `
                                 ],
                               }
                             }
+                            inverse={false}
                           >
                             <div
                               className="bx--image-with-caption"
