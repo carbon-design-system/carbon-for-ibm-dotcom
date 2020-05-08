@@ -24,15 +24,14 @@ const { prefix } = settings;
  * @returns {*} FeatureCardBlockLarge JSX component
  */
 const FeatureCardBlockLarge = ({ card, onClick }) => {
-  const hasCopy = classNames({
-    [`${prefix}--feature-card-block-large_no-copy-text`]: !card.copy,
-  });
   return (
     card.eyebrow &&
     card.heading &&
     card.cta && (
       <section
-        className={`${prefix}--feature-card-block-large ${hasCopy}`}
+        className={classNames(`${prefix}--feature-card-block-large`, {
+          [`${prefix}--feature-card-block-large_no-copy-text`]: !card.copy,
+        })}
         data-autoid={`${stablePrefix}--feature-card-block-large`}>
         <Card
           customClassName={`${prefix}--feature-card-block-large__card`}

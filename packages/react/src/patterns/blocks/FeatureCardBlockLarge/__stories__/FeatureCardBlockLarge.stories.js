@@ -21,16 +21,19 @@ storiesOf('Patterns (Blocks)|FeatureCardBlockLarge', module)
   })
   .add('Default', () => {
     const cardheading = text(
-      'Card heading(required):',
+      'Card heading(required) (heading):',
       'Explore AI use cases in all industries'
     );
-    const eyebrow = text('Eyebrow(required):', 'this is an eyebrow');
+    const eyebrow = text('Eyebrow(required) (eyebrow):', 'this is an eyebrow');
     const copy = text(
-      'Copy:',
+      'Copy: (copy)',
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
     );
-    const cardhref = text('Card href(required):', 'https://www.example.com');
-    const image = object('Card image(required):', {
+    const cardhref = text(
+      'Card href(required) (cta.href):',
+      'https://www.example.com'
+    );
+    const image = object('Card image(required) (image):', {
       defaultSrc: 'https://dummyimage.com/600x300/ee5396/161616&text=2:1',
       alt: 'Image alt text',
     });

@@ -33,7 +33,7 @@ $fcb-large-custom-bp-nocopy: 752px;
     &__card.#{$prefix}--card--inverse .#{$prefix}--card__cta:visited {
       float: none;
       color: $inverse-link;
-      font-size: 2rem;
+      @include carbon--type-style('productive-heading-05');
     }
 
     .#{$prefix}--card {
@@ -79,37 +79,36 @@ $fcb-large-custom-bp-nocopy: 752px;
         height: auto;
 
         @include carbon--breakpoint('xlg') {
-          padding: rem(32px);
+          padding: $layout-03;
         }
 
         @include carbon--breakpoint('max') {
-          padding: rem(64px);
+          padding: $layout-05;
         }
 
         .#{$prefix}--card__eyebrow {
-          margin-bottom: rem(14px);
-          color: #ffffff;
+          margin-bottom: $spacing-05;
+          color: $inverse-01;
+          @include carbon--type-style('body-long-02');
 
-          @include carbon--breakpoint-between(1px, 'sm') {
-            margin-top: rem(28px);
-            margin-bottom: rem(14px);
+          @include carbon--breakpoint-down('md') {
+            margin-top: $spacing-07;
+            margin-bottom: $spacing-05;
           }
         }
 
         .#{$prefix}--card__heading {
-          @include carbon--type-style(expressive-heading-04, true);
+          @include carbon--type-style('expressive-heading-04', true);
 
-          margin-bottom: rem(28px);
+          margin-bottom: $spacing-07;
         }
 
         .#{$prefix}--card__copy {
           p {
-            font-size: 0.875rem;
-            font-weight: 400;
-            line-height: 1.2rem;
+            @include carbon--type-style('body-long-02');
           }
-          @include carbon--breakpoint-between(1px, 'sm') {
-            margin-bottom: rem(28px);
+          @include carbon--breakpoint-down('md') {
+            margin-bottom: $spacing-07;
           }
         }
       }
