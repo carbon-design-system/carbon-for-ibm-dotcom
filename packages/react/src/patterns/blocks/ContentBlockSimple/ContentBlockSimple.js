@@ -36,14 +36,15 @@ const ContentBlockSimple = ({
   mediaData,
   cta,
   aside,
+  inverse,
 }) => (
   <div
     data-autoid={`${stablePrefix}--content-block-simple`}
     className={`${prefix}--content-block-simple`}>
-    <ContentBlock heading={heading} cta={cta} aside={aside}>
+    <ContentBlock inverse={inverse} heading={heading} cta={cta} aside={aside}>
       <div className={`${prefix}--content-block-simple__content`}>
-        <ContentItem copy={copy} />
-        {_renderMedia(mediaType, mediaData)}
+        <ContentItem inverse={inverse} copy={copy} />
+        {_renderMedia(mediaType, mediaData, inverse)}
       </div>
     </ContentBlock>
   </div>
@@ -54,15 +55,16 @@ const ContentBlockSimple = ({
  *
  * @param {string} type cta type ( external | jump | local)
  * @param {object} data cta type ( external | jump | local)
+ * @param {boolean} inverse inverse theme
  * @private
  * @returns {*} media component
  */
-const _renderMedia = (type, data) => {
+const _renderMedia = (type, data, inverse) => {
   if (data) {
     return (
       <div data-autoid={`${stablePrefix}--content-block-simple__media`}>
-        {type === 'image' && <ImageWithCaption {...data} />}
-        {type === 'video' && <VideoPlayer {...data} />}
+        {type === 'image' && <ImageWithCaption inverse={inverse} {...data} />}
+        {type === 'video' && <VideoPlayer inverse={inverse} {...data} />}
       </div>
     );
   }
@@ -75,6 +77,7 @@ ContentBlockSimple.propTypes = {
   mediaData: PropTypes.object,
   cta: PropTypes.object,
   aside: PropTypes.object,
+  inverse: PropTypes.bool,
 };
 
 export default ContentBlockSimple;
