@@ -11,6 +11,9 @@ storiesOf('Components|LightboxMediaViewer', module)
     readme: {
       sidebar: readme,
     },
+    percy: {
+      skip: true,
+    },
   })
   .add('Default', () => {
     const images = {
