@@ -14,6 +14,7 @@ import content from './data/content';
 import DotcomShell from '../DotcomShell';
 import footerMenu from '../../Footer/__data__/footer-menu.json';
 import footerThin from '../../Footer/__data__/footer-thin.json';
+import inPercy from '@percy-io/in-percy';
 import languageItems from '../../Footer/__data__/language-items.json';
 import mastheadKnobs from '../../Masthead/__stories__/data/Masthead.stories.knobs.js';
 import React from 'react';
@@ -31,7 +32,9 @@ storiesOf('Components|Dotcom Shell', module)
     let navigation = select(
       'Masthead (mastheadProps): navigation data (navigation)',
       mastheadKnobs.navigation,
-      mastheadKnobs.navigation.default
+      inPercy()
+        ? mastheadKnobs.navigation.custom
+        : mastheadKnobs.navigation.default
     );
 
     let platform = select(
@@ -78,7 +81,7 @@ storiesOf('Components|Dotcom Shell', module)
 
     let isCustom = boolean(
       'Footer (footerProps): show custom navigation (not a prop)',
-      false
+      inPercy()
     );
 
     let footerNav = isCustom
