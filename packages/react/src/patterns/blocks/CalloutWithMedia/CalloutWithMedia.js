@@ -18,29 +18,22 @@ const { prefix } = settings;
 /**
  *
  * @param {object} props Props object
- * @param {object} props.contentblocksimple Contentblocksimple object
  * @returns {*} Callout with media pattern
  */
-const CalloutWithMedia = ({ contentblocksimple }) => {
+const CalloutWithMedia = ({ ...ContentBlockSimpleProps }) => {
   return (
     <div
       data-autoid={`${stablePrefix}--callout-with-media`}
       className={`${prefix}--callout-with-media`}>
       <Callout>
-        <ContentBlockSimple inverse={true} {...contentblocksimple} />
+        <ContentBlockSimple inverse={true} {...ContentBlockSimpleProps} />
       </Callout>
     </div>
   );
 };
 
-CalloutWithMedia.propTypes = {
-  contentblocksimple: PropTypes.shape({
-    copy: PropTypes.string.isRequired,
-    heading: PropTypes.string.isRequired,
-    mediaType: PropTypes.string,
-    mediaData: PropTypes.object,
-    inverse: PropTypes.bool,
-  }),
-};
+CalloutWithMedia.propTypes = PropTypes.oneOf(
+  PropTypes.shape(ContentBlockSimple.propTypes)
+);
 
 export default CalloutWithMedia;

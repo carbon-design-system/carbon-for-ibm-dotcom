@@ -46,35 +46,25 @@ storiesOf('Patterns (Blocks)|CalloutWithMedia', module)
       showDescription: true,
     };
 
-    const mediaData = mediaType === 'image' ? image : video;
-
-    const copy = `Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
-      Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
-      nulla quis, *consequat* libero. Here are
-      some common categories:
-
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
-
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
-      `;
-
-    const heading = text(
-      'Heading (required)',
-      'Curabitur malesuada varius mi eu posuere'
+    const copy = text(
+      'copy',
+      'Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.\n      Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales\n      nulla quis, *consequat* libero. Here are\n      some common categories:\n\n      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.\n\n      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.'
     );
-    const contentblocksimple = {
-      copy,
-      mediaData,
-      mediaType,
-      video,
-      heading,
-    };
 
+    const heading = text('heading', 'Curabitur malesuada varius mi eu posuere');
+
+    const mediaData = mediaType === 'image' ? image : video;
     return (
       <div className="bx--grid">
         <div className="bx--row">
           <div className="bx--offset-lg-4 bx--col-lg-12">
-            <CalloutWithMedia contentblocksimple={contentblocksimple} />
+            <CalloutWithMedia
+              mediaData={mediaData}
+              mediaType={mediaType}
+              image={image}
+              heading={heading}
+              copy={copy}
+            />
           </div>
         </div>
       </div>

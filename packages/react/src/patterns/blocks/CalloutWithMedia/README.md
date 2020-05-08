@@ -28,12 +28,10 @@ import { CalloutWithMedia } from '@carbon/ibmdotcom-react';
 import 'yourapplication.scss';
 
 function App() {
-  const contentblocksimple = {
-    copy: 'Lorem  ipsum dolor sit amet',
-    heading: 'Lorem  ipsum dolor sit amet',
-  };
+  const copy = 'lorum ipsum dolor sit ameet';
+  const heading = 'lorum ipsum dolor sit amet';
 
-  return <CalloutWithMedia contentblocksimple={contentblocksimple} />;
+  return <CalloutWithMedia heading={heading} copy={copy} />;
 }
 ReactDOM.render(<App />, document.querySelector('#app'));
 ```
@@ -47,9 +45,9 @@ Add the following line in your `.env` file at the root of your project.
 
 ## Props
 
-| Name                 | Required | Data Type | Default Value | Description               |
-| -------------------- | -------- | --------- | ------------- | ------------------------- |
-| `contentblocksimple` | YES      | Object    | null          | Contentblocksimple object |
+| Name                 | Required | Data Type | Default Value | Description                                                                                                                                                               |
+| -------------------- | -------- | --------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `contentblocksimple` | YES      | Object    | null          | Content Block Simple. See [Quote](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/src/patterns/blocks/ContentBlockSimple/README.md) |
 
 ## Stable selectors
 
