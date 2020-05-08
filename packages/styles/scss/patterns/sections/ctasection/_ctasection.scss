@@ -7,7 +7,113 @@
 
 @mixin cta-section--pattern {
   .#{$prefix}--cta-section {
-    border: 1px solid;
+    background-color: $ui-background;
+
+    @include carbon--breakpoint(sm) {
+      overflow-y: auto;
+    }
+
+    .#{$prefix}--content-block {
+      padding-bottom: $layout-01;
+
+      @include carbon--breakpoint(sm) {
+        @include carbon--make-col-ready;
+      }
+
+      &__heading,
+      &__copy {
+        color: $text-01;
+        p {
+          @include carbon--make-col-ready;
+        }
+      }
+
+      &__heading {
+        @include carbon--type-style('expressive-heading-05', true);
+      }
+
+      &__copy {
+        p {
+          @include carbon--type-style('expressive-heading-03', true);
+
+          margin-bottom: $spacing-05;
+        }
+      }
+
+      &__cta-col {
+        margin-top: 0;
+
+        .#{$prefix}--buttongroup {
+          padding-top: 0;
+        }
+      }
+
+      &__cta-row {
+        margin-right: 0;
+        @include carbon--make-col(4, 4);
+        @include carbon--make-col-offset(0, 4);
+      }
+
+      @include carbon--breakpoint(md) {
+        padding-bottom: $layout-05;
+      }
+
+      @include carbon--breakpoint(lg) {
+        @include carbon--make-col(12, 16);
+        @include carbon--make-col-offset(4, 16);
+      }
+    }
+
+    .#{$prefix}--helper-wrapper {
+      @include carbon--make-col-ready;
+
+      .#{$prefix}--horizontal-line {
+        border-color: $ui-03;
+        margin: 0;
+      }
+
+      .#{$prefix}--content-item-wrapper {
+        display: flex;
+        margin-bottom: $layout-05;
+
+        @include carbon--breakpoint(sm) {
+          flex-wrap: wrap;
+        }
+
+        .#{$prefix}--content-item {
+          position: relative;
+          box-sizing: border-box;
+          padding-bottom: $spacing-05;
+
+          &__cta {
+            position: absolute;
+            bottom: 0;
+          }
+
+          @include carbon--breakpoint(sm) {
+            margin: $layout-02 0 0 0;
+
+            &__copy {
+              width: 100%;
+            }
+          }
+
+          @include carbon--breakpoint(md) {
+            @include carbon--make-col(4, 8);
+            @include carbon--make-col-ready;
+          }
+
+          @include carbon--breakpoint(lg) {
+            @include carbon--make-col(6, 12);
+          }
+        }
+      }
+
+      @include carbon--breakpoint(lg) {
+        @include carbon--make-col(12, 16);
+        @include carbon--make-col-offset(4, 16);
+      }
+    }
   }
 }
 
