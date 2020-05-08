@@ -82,9 +82,9 @@ Add the following line in your `.env` file at the root of your project.
 
 ## Stable selectors
 
-| Name                              | Description |
-| --------------------------------- | ----------- |
-| `dds--content-group-horizontal`   | Pattern     |
+| Name                            | Description |
+| ------------------------------- | ----------- |
+| `dds--content-group-horizontal` | Pattern     |
 
 ## 🙌 Contributing
 
