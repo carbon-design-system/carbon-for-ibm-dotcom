@@ -37,7 +37,15 @@ const card = [
   },
 ];
 function App() {
-  return <FeatureCardBlockLarge heading={heading} card={card} />;
+  return (
+    <FeatureCardBlockLarge
+      eyebrow={eyebrow}
+      heading={heading}
+      copy={copy}
+      cta={cta}
+      image={image}
+    />
+  );
 }
 ReactDOM.render(<App />, document.querySelector('#app'));
 ```

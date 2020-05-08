@@ -20,19 +20,28 @@ storiesOf('Patterns (Blocks)|FeatureCardBlockLarge', module)
     },
   })
   .add('Default', () => {
-    const cardheading = text(
+    const eyebrow = text(
+      'Card eyebrow(required) (eyebrow):',
+      'this is an eyebrow'
+    );
+    const heading = text(
       'Card heading(required) (heading):',
       'Explore AI use cases in all industries'
     );
-    const eyebrow = text('Eyebrow(required) (eyebrow):', 'this is an eyebrow');
     const copy = text(
-      'Copy: (copy)',
+      'Card copy: (copy)',
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
     );
     const cardhref = text(
       'Card href(required) (cta.href):',
       'https://www.example.com'
     );
+    const cta = {
+      href: cardhref,
+      icon: {
+        src: ArrowRight20,
+      },
+    };
     const image = object('Card image(required) (image):', {
       defaultSrc: 'https://dummyimage.com/600x300/ee5396/161616&text=2:1',
       alt: 'Image alt text',
@@ -43,18 +52,11 @@ storiesOf('Patterns (Blocks)|FeatureCardBlockLarge', module)
         <div className="bx--row">
           <div className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-2">
             <FeatureCardBlockLarge
-              card={{
-                heading: cardheading,
-                image: image,
-                eyebrow: eyebrow,
-                copy: copy,
-                cta: {
-                  href: cardhref,
-                  icon: {
-                    src: ArrowRight20,
-                  },
-                },
-              }}
+              eyebrow={eyebrow}
+              heading={heading}
+              copy={copy}
+              cta={cta}
+              image={image}
             />
           </div>
         </div>

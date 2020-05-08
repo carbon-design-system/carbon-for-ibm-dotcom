@@ -19357,24 +19357,24 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockLarge Default 1`] = `
                     className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-2"
                   >
                     <FeatureCardBlockLarge
-                      card={
+                      copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                      cta={
                         Object {
-                          "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                          "cta": Object {
-                            "href": "https://www.example.com",
-                            "icon": Object {
-                              "src": Object {
-                                "$$typeof": Symbol(react.forward_ref),
-                                "render": [Function],
-                              },
+                          "href": "https://www.example.com",
+                          "icon": Object {
+                            "src": Object {
+                              "$$typeof": Symbol(react.forward_ref),
+                              "render": [Function],
                             },
                           },
-                          "eyebrow": "this is an eyebrow",
-                          "heading": "Explore AI use cases in all industries",
-                          "image": Object {
-                            "alt": "Image alt text",
-                            "defaultSrc": "https://dummyimage.com/600x300/ee5396/161616&amp;text=2:1",
-                          },
+                        }
+                      }
+                      eyebrow="this is an eyebrow"
+                      heading="Explore AI use cases in all industries"
+                      image={
+                        Object {
+                          "alt": "Image alt text",
+                          "defaultSrc": "https://dummyimage.com/600x300/ee5396/161616&amp;text=2:1",
                         }
                       }
                     />
@@ -19418,24 +19418,24 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockLarge Default 1`] = `
                     className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-2"
                   >
                     <FeatureCardBlockLarge
-                      card={
+                      copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                      cta={
                         Object {
-                          "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                          "cta": Object {
-                            "href": "https://www.example.com",
-                            "icon": Object {
-                              "src": Object {
-                                "$$typeof": Symbol(react.forward_ref),
-                                "render": [Function],
-                              },
+                          "href": "https://www.example.com",
+                          "icon": Object {
+                            "src": Object {
+                              "$$typeof": Symbol(react.forward_ref),
+                              "render": [Function],
                             },
                           },
-                          "eyebrow": "this is an eyebrow",
-                          "heading": "Explore AI use cases in all industries",
-                          "image": Object {
-                            "alt": "Image alt text",
-                            "defaultSrc": "https://dummyimage.com/600x300/ee5396/161616&amp;text=2:1",
-                          },
+                        }
+                      }
+                      eyebrow="this is an eyebrow"
+                      heading="Explore AI use cases in all industries"
+                      image={
+                        Object {
+                          "alt": "Image alt text",
+                          "defaultSrc": "https://dummyimage.com/600x300/ee5396/161616&amp;text=2:1",
                         }
                       }
                     >
