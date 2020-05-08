@@ -61,7 +61,6 @@ storiesOf('Patterns (Blocks)|CalloutWithMedia', module)
             <CalloutWithMedia
               mediaData={mediaData}
               mediaType={mediaType}
-              image={image}
               heading={heading}
               copy={copy}
             />

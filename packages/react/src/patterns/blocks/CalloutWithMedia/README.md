@@ -30,8 +30,11 @@ import 'yourapplication.scss';
 function App() {
   const copy = 'lorum ipsum dolor sit ameet';
   const heading = 'lorum ipsum dolor sit amet';
+  const image = 'image';
+  const mediaData = .... image data json...
+  const mediaType = 'image';
 
-  return <CalloutWithMedia heading={heading} copy={copy} />;
+  return <CalloutWithMedia heading={heading} copy={copy} mediaType={mediaType} mediaData={mediaData}  />;
 }
 ReactDOM.render(<App />, document.querySelector('#app'));
 ```
