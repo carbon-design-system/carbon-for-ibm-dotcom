@@ -2517,6 +2517,7 @@ exports[`Storyshots Components|Footer Default 1`] = `
               <Footer
                 disableLocaleButton={false}
                 footerProps={null}
+                langCode={null}
                 languageCallback={[Function]}
                 languageInitialItem={
                   Object {
@@ -2560,6 +2561,7 @@ exports[`Storyshots Components|Footer Default 1`] = `
               <Footer
                 disableLocaleButton={false}
                 footerProps={null}
+                langCode={null}
                 languageCallback={[Function]}
                 languageInitialItem={
                   Object {

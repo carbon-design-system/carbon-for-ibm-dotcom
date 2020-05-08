@@ -21,6 +21,9 @@ storiesOf('Components|VideoPlayer', module)
     readme: {
       sidebar: readme,
     },
+    percy: {
+      skip: true,
+    },
   })
   .add('Default', () => {
     const inverse = boolean('inverse', false);
