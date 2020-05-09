@@ -5829,6 +5829,365 @@ exports[`Storyshots Patterns (Blocks)|CalloutQuote Default 1`] = `
 </Container>
 `;
 
+exports[`Storyshots Patterns (Blocks)|CalloutWithMedia Default 1`] = `
+<Container
+  story={[Function]}
+>
+  <div
+    data-floating-menu-container=""
+    role="main"
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+      }
+    }
+  >
+    <ReadmeContent
+      codeTheme="github"
+      layout={
+        Array [
+          Object {
+            "content": <React.Fragment>
+              <div
+                className="bx--grid"
+              >
+                <div
+                  className="bx--row"
+                >
+                  <div
+                    className="bx--offset-lg-4 bx--col-lg-12"
+                  >
+                    <CalloutWithMedia
+                      copy="Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+      Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
+      nulla quis, *consequat* libero. Here are
+      some common categories:
+
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
+                      heading="Curabitur malesuada varius mi eu posuere"
+                      mediaData={
+                        Object {
+                          "heading": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                          "image": Object {
+                            "alt": "Image alt text",
+                            "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
+                            "sources": Array [
+                              Object {
+                                "breakpoint": 320,
+                                "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
+                              },
+                              Object {
+                                "breakpoint": 400,
+                                "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
+                              },
+                              Object {
+                                "breakpoint": 672,
+                                "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
+                              },
+                            ],
+                          },
+                        }
+                      }
+                      mediaType="image"
+                    />
+                  </div>
+                </div>
+              </div>
+            </React.Fragment>,
+            "type": "STORY",
+          },
+        ]
+      }
+      theme={Object {}}
+      types={
+        Array [
+          "MD",
+          "STORY",
+          "STORY_SOURCE",
+          "PROPS",
+          "FOOTER_MD",
+          "HEADER_MD",
+        ]
+      }
+    >
+      <div
+        className="storybook-readme-story"
+      >
+        <_default
+          key="0"
+        >
+          <div
+            style={Object {}}
+          >
+            <div>
+              <div
+                className="bx--grid"
+              >
+                <div
+                  className="bx--row"
+                >
+                  <div
+                    className="bx--offset-lg-4 bx--col-lg-12"
+                  >
+                    <CalloutWithMedia
+                      copy="Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+      Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
+      nulla quis, *consequat* libero. Here are
+      some common categories:
+
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
+                      heading="Curabitur malesuada varius mi eu posuere"
+                      mediaData={
+                        Object {
+                          "heading": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                          "image": Object {
+                            "alt": "Image alt text",
+                            "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
+                            "sources": Array [
+                              Object {
+                                "breakpoint": 320,
+                                "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
+                              },
+                              Object {
+                                "breakpoint": 400,
+                                "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
+                              },
+                              Object {
+                                "breakpoint": 672,
+                                "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
+                              },
+                            ],
+                          },
+                        }
+                      }
+                      mediaType="image"
+                    >
+                      <div
+                        className="bx--callout-with-media"
+                        data-autoid="dds--callout-with-media"
+                      >
+                        <Callout>
+                          <section
+                            className="bx--callout__container"
+                            data-autoid="dds--callout__container"
+                          >
+                            <div
+                              className="bx--callout__column"
+                              data-autoid="dds--callout__column"
+                            >
+                              <div
+                                className="bx--callout__content"
+                                data-autoid="dds--callout__content"
+                              >
+                                <ContentBlockSimple
+                                  copy="Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+      Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
+      nulla quis, *consequat* libero. Here are
+      some common categories:
+
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
+                                  heading="Curabitur malesuada varius mi eu posuere"
+                                  inverse={true}
+                                  mediaData={
+                                    Object {
+                                      "heading": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                                      "image": Object {
+                                        "alt": "Image alt text",
+                                        "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
+                                        "sources": Array [
+                                          Object {
+                                            "breakpoint": 320,
+                                            "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
+                                          },
+                                          Object {
+                                            "breakpoint": 400,
+                                            "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
+                                          },
+                                          Object {
+                                            "breakpoint": 672,
+                                            "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
+                                          },
+                                        ],
+                                      },
+                                    }
+                                  }
+                                  mediaType="image"
+                                >
+                                  <div
+                                    className="bx--content-block-simple"
+                                    data-autoid="dds--content-block-simple"
+                                  >
+                                    <ContentBlock
+                                      heading="Curabitur malesuada varius mi eu posuere"
+                                      inverse={true}
+                                    >
+                                      <div
+                                        className="bx--content-block bx--content-block--inverse"
+                                        data-autoid="dds--content-block"
+                                      >
+                                        <div>
+                                          <h2
+                                            className="bx--content-block__heading"
+                                            data-autoid="dds--content-block__heading"
+                                          >
+                                            Curabitur malesuada varius mi eu posuere
+                                          </h2>
+                                        </div>
+                                        <div
+                                          className="bx--content-block__children"
+                                          data-autoid="dds--content-block__children"
+                                        >
+                                          <div
+                                            className="bx--content-block-simple__content"
+                                          >
+                                            <ContentItem
+                                              copy="Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+      Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
+      nulla quis, *consequat* libero. Here are
+      some common categories:
+
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
+                                              inverse={true}
+                                            >
+                                              <div
+                                                className="bx--content-item bx--content-item--inverse"
+                                                data-autoid="dds--content-item"
+                                              >
+                                                <div
+                                                  className="bx--content-item__copy"
+                                                  dangerouslySetInnerHTML={
+                                                    Object {
+                                                      "__html": "<p>Lorem ipsum <em class=\\"bx--type-light\\">dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est.  Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales  nulla quis, <em class=\\"bx--type-light\\">consequat</em> libero. Here are  some common categories:</p><p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p><p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
+                                                    }
+                                                  }
+                                                  data-autoid="dds--content-item__copy"
+                                                />
+                                              </div>
+                                            </ContentItem>
+                                            <div
+                                              data-autoid="dds--content-block-simple__media"
+                                            >
+                                              <ImageWithCaption
+                                                heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                                                image={
+                                                  Object {
+                                                    "alt": "Image alt text",
+                                                    "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
+                                                    "sources": Array [
+                                                      Object {
+                                                        "breakpoint": 320,
+                                                        "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
+                                                      },
+                                                      Object {
+                                                        "breakpoint": 400,
+                                                        "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
+                                                      },
+                                                      Object {
+                                                        "breakpoint": 672,
+                                                        "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
+                                                      },
+                                                    ],
+                                                  }
+                                                }
+                                                inverse={true}
+                                              >
+                                                <div
+                                                  className="bx--image-with-caption bx--image-with-caption--inverse"
+                                                  data-autoid="dds--image-with-caption"
+                                                >
+                                                  <Image
+                                                    alt="Image alt text"
+                                                    defaultSrc="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
+                                                    sources={
+                                                      Array [
+                                                        Object {
+                                                          "breakpoint": 320,
+                                                          "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
+                                                        },
+                                                        Object {
+                                                          "breakpoint": 400,
+                                                          "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
+                                                        },
+                                                        Object {
+                                                          "breakpoint": 672,
+                                                          "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
+                                                        },
+                                                      ]
+                                                    }
+                                                  >
+                                                    <picture
+                                                      className="bx--image"
+                                                      data-autoid="dds--image__longdescription-"
+                                                    >
+                                                      <source
+                                                        key="0"
+                                                        media="(min-width: 672px )"
+                                                        srcSet="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
+                                                      />
+                                                      <source
+                                                        key="1"
+                                                        media="(min-width: 400px )"
+                                                        srcSet="https://dummyimage.com/400x225/ee5396/161616&text=16:9"
+                                                      />
+                                                      <source
+                                                        key="2"
+                                                        media="(min-width: 320px )"
+                                                        srcSet="https://dummyimage.com/320x180/ee5396/161616&text=16:9"
+                                                      />
+                                                      <img
+                                                        alt="Image alt text"
+                                                        aria-describedby=""
+                                                        className="bx--image__img"
+                                                        src="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
+                                                      />
+                                                    </picture>
+                                                  </Image>
+                                                  <p
+                                                    className="bx--image__caption--inverse"
+                                                    data-autoid="dds--image__caption"
+                                                  >
+                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                                  </p>
+                                                </div>
+                                              </ImageWithCaption>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </ContentBlock>
+                                  </div>
+                                </ContentBlockSimple>
+                              </div>
+                            </div>
+                          </section>
+                        </Callout>
+                      </div>
+                    </CalloutWithMedia>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </_default>
+      </div>
+    </ReadmeContent>
+  </div>
+  <input
+    aria-label="input-text-offleft"
+    className="bx--visually-hidden"
+    type="text"
+  />
+</Container>
+`;
+
 exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
 <Container
   story={[Function]}
