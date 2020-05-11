@@ -116,7 +116,6 @@ module.exports = ({ config, mode }) => {
       ],
       data: `
         $feature-flags: (
-          ui-shell: true,
           enable-css-custom-properties: ${useCarbonExpressive}
         );
         $dds-feature-flags: (
@@ -136,7 +135,6 @@ module.exports = ({ config, mode }) => {
       ],
       data: `
       $feature-flags: (
-        ui-shell: true,
         enable-css-custom-properties: ${useCarbonExpressive}
       );
       $dds-feature-flags: (
