@@ -4,7 +4,9 @@
 
 Here's a quick example to get you started.
 
-```scss
+##### CSS
+
+```css
 // yourapplication.scss
 @import '@carbon/type/scss/font-face/mono';
 @import '@carbon/type/scss/font-face/sans';
@@ -16,6 +18,8 @@ Here's a quick example to get you started.
 > 💡 Only import fonts once per usage. Don't forget to import the ContentItem
 > styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
+
+##### JS
 
 ```javascript
 import React from 'react';
@@ -58,6 +62,7 @@ function App() {
 
   return (
     <ContentItem
+      inverse={false}
       heading={heading}
       copy={copy}
       mediaType={mediaType}
@@ -70,8 +75,8 @@ function App() {
 ReactDOM.render(<App />, document.querySelector('#app'));
 ```
 
-Add the following line on your `.env` file at the root of your project,
-[see more details](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/styles#usage)
+Add the following line in your `.env` file at the root of your project.
+[See more details](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/styles#usage).
 
 ```
   SASS_PATH=node_modules:src
@@ -89,6 +94,7 @@ Add the following line on your `.env` file at the root of your project,
 | `cta`       | NO       | object    | null          | CTA object. See `cta` below.                                                                                                                                                                                                                                                                                                                                     |
 | `mediaType` | NO       | String    | n/a           | Determines media type (image or video).                                                                                                                                                                                                                                                                                                                          |
 | `mediaData` | NO       | Object    | n/a           | Media Data for either image or video. See the [`ImageWithCaption`](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/components/ImageWithCaption) or [`VideoPlayer`](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/components/VideoPlayer) component for full usage details. |
+| `inverse`   | NO       | Boolean   | `false`       | Changes theme to inverse/default                                                                                                                                                                                                                                                                                                                                 |
 
 ### cta (optional)
 

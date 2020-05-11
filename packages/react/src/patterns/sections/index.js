@@ -5,9 +5,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-export * from './CardSection';
 export * from './CardSectionImages';
 export * from './CardSectionSimple';
+export * from './CTASection';
 export * from './LeadSpace';
 export * from './SimpleBenefits';
 export * from './SimpleOverview';
