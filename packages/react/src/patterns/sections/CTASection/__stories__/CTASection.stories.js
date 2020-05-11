@@ -43,7 +43,7 @@ storiesOf('Patterns (Sections)|CTASection', module)
           `,
         cta: {
           copy: 'Find a partner',
-          type: select('ContentItem left | type:', types, types[0]),
+          type: types[0],
           href: 'https://example.com/',
         },
       },
@@ -53,7 +53,7 @@ storiesOf('Patterns (Sections)|CTASection', module)
           'Dig into more self-directed learning about DevOps methodologies.',
         cta: {
           copy: 'Browse tutorials',
-          type: select('ContentItem right | type:', types, types[0]),
+          type: types[0],
           href: 'https://example.com/',
         },
       },

@@ -15,12 +15,8 @@
 
       &__heading,
       &__copy {
-        color: $text-01;
-        @include carbon--make-col-ready;
-
-        @include carbon--breakpoint(sm) {
-          padding: 0;
-        }
+        width: 90%;
+        max-width: 640px;
       }
 
       &__heading {
@@ -29,88 +25,87 @@
 
       &__copy {
         p {
+          margin-bottom: 0;
           @include carbon--type-style('expressive-heading-03', true);
-
-          margin-bottom: $spacing-05;
         }
       }
 
       &__cta-col {
         margin-top: 0;
-
-        .#{$prefix}--buttongroup {
-          padding-top: 0;
-        }
       }
 
-      &__cta-row {
-        margin-right: 0;
-        @include carbon--make-col(4, 4);
-        @include carbon--make-col-ready;
-
-        @include carbon--breakpoint(sm) {
-          padding: 0;
-        }
-      }
-
-      @include carbon--breakpoint(md) {
+      @include carbon--breakpoint('md') {
         padding-bottom: $layout-05;
       }
 
-      @include carbon--breakpoint(lg) {
+      @include carbon--breakpoint('lg') {
+        padding-bottom: $layout-06;
+        @include carbon--make-col(8, 16);
+        @include carbon--make-col-offset(4, 16);
+      }
+    }
+
+    .#{$prefix}--horizontal-line {
+      border-color: $ui-03;
+      margin: 0;
+
+      @include carbon--breakpoint('lg') {
         @include carbon--make-col(12, 16);
         @include carbon--make-col-offset(4, 16);
       }
     }
 
     .#{$prefix}--helper-wrapper {
-      @include carbon--make-col-ready;
+      margin-bottom: $layout-05;
 
-      .#{$prefix}--horizontal-line {
-        border-color: $ui-03;
-        margin: 0;
+      @include carbon--breakpoint('lg') {
+        @include carbon--make-col(12, 16);
+        @include carbon--make-col-offset(4, 16);
       }
 
       .#{$prefix}--content-item-wrapper {
         display: flex;
-        margin-bottom: $layout-05;
-
-        @include carbon--breakpoint(sm) {
-          flex-wrap: wrap;
-        }
+        flex-wrap: wrap;
+        justify-content: space-between;
+        @include carbon--make-col-ready;
 
         .#{$prefix}--content-item {
+          width: 100%;
+          margin-bottom: 0;
+          padding-bottom: $layout-01;
           position: relative;
-          box-sizing: border-box;
-          padding-bottom: $spacing-05;
 
-          &__cta {
-            position: absolute;
-            bottom: 0;
+          &__heading {
+            width: 100%;
+            @include carbon--type-style('expressive-heading-02', true);
           }
 
-          @include carbon--breakpoint(sm) {
-            margin: $layout-02 0 0 0;
-
-            &__copy {
+          &__copy {
+            width: 100%;
+            p {
               width: 100%;
+              @include carbon--type-style('body-long-02', true);
             }
           }
 
-          @include carbon--breakpoint(md) {
-            @include carbon--make-col(4, 8);
-            @include carbon--make-col-ready;
+          &__cta {
+            position: absolute;
+            left: 0;
+            bottom: 0;
           }
 
-          @include carbon--breakpoint(lg) {
-            @include carbon--make-col(6, 12);
+          @include carbon--breakpoint('md') {
+            width: 50%;
+
+            &__heading {
+              width: 90%;
+            }
+
+            &__copy {
+              width: 90%;
+            }
           }
         }
-      }
-
-      @include carbon--breakpoint(lg) {
-        @include carbon--make-col(12, 16);
-        @include carbon--make-col-offset(4, 16);
       }
     }
   }

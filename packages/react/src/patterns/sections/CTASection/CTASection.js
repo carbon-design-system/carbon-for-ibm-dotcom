@@ -23,8 +23,8 @@ const CTASection = ({ heading, copy, cta, items }) => (
     data-autoid={`${stablePrefix}--cta-section`}
     className={`${prefix}--cta-section`}>
     <ContentBlock heading={heading} copy={copy} cta={cta} />
+    <hr className={`${prefix}--horizontal-line`} />
     <div className={`${prefix}--helper-wrapper`}>
-      <hr className={`${prefix}--horizontal-line`} />
       <div className={`${prefix}--content-item-wrapper`}>
         {items.map((item, index) => (
           <ContentItem
