@@ -3,6 +3,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const rtlcss = require('rtlcss');
 
+const NODE_ENV = 'development';
+
 /**
  * Flag to enable the expressive theme
  *
@@ -49,25 +51,6 @@ const styleLoaders = [
         });
         return !useRtl ? [autoPrefixer] : [autoPrefixer, rtlcss];
       },
-      sourceMap: useStyleSourceMap,
-    },
-  },
-  {
-    loader: 'sass-loader',
-    options: {
-      includePaths: [
-        path.resolve(__dirname, '..', 'node_modules'),
-        path.resolve(__dirname, '../../../', 'node_modules'),
-      ],
-      data: `
-        $feature-flags: (
-          ui-shell: true,
-          enable-css-custom-properties: ${useCarbonExpressive}
-        );
-        $dds-feature-flags: (
-          carbon-expressive: ${useCarbonExpressive},
-        );
-      `,
       sourceMap: useStyleSourceMap,
     },
   },
@@ -124,12 +107,52 @@ module.exports = ({ config, mode }) => {
     use: ['@svgr/webpack', 'url-loader'],
   });
 
+  const sassLoader = {
+    loader: 'sass-loader',
+    options: {
+      includePaths: [
+        path.resolve(__dirname, '..', 'node_modules'),
+        path.resolve(__dirname, '../../../', 'node_modules'),
+      ],
+      data: `
+        $feature-flags: (
+          ui-shell: true,
+          enable-css-custom-properties: ${useCarbonExpressive}
+        );
+        $dds-feature-flags: (
+          carbon-expressive: ${useCarbonExpressive},
+        );
+      `,
+      sourceMap: useStyleSourceMap,
+    },
+  };
+
+  const fastSassLoader = {
+    loader: 'fast-sass-loader',
+    options: {
+      includePaths: [
+        path.resolve(__dirname, '..', 'node_modules'),
+        path.resolve(__dirname, '../../../', 'node_modules'),
+      ],
+      data: `
+      $feature-flags: (
+        ui-shell: true,
+        enable-css-custom-properties: ${useCarbonExpressive}
+      );
+      $dds-feature-flags: (
+        carbon-expressive: ${useCarbonExpressive},
+      );
+    `,
+    },
+  };
+
   config.module.rules.push({
     test: /\.scss$/,
     sideEffects: true,
     use: [
       { loader: useExternalCss ? MiniCssExtractPlugin.loader : 'style-loader' },
       ...styleLoaders,
+      NODE_ENV === 'production' ? sassLoader : fastSassLoader,
     ],
   });
 
