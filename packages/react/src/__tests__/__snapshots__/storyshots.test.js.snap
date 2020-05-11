@@ -20229,7 +20229,7 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
                   Object {
                     "buttons": Array [
                       Object {
-                        "copy": "Contact sales GUILHERME",
+                        "copy": "Contact sales",
                         "href": "https://example.com/",
                         "iconDescription": "right arrow icon",
                         "onClick": [Function],
@@ -20305,7 +20305,7 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
                   Object {
                     "buttons": Array [
                       Object {
-                        "copy": "Contact sales GUILHERME",
+                        "copy": "Contact sales",
                         "href": "https://example.com/",
                         "iconDescription": "right arrow icon",
                         "onClick": [Function],
@@ -20358,7 +20358,7 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
                       Object {
                         "buttons": Array [
                           Object {
-                            "copy": "Contact sales GUILHERME",
+                            "copy": "Contact sales",
                             "href": "https://example.com/",
                             "iconDescription": "right arrow icon",
                             "onClick": [Function],
@@ -20408,7 +20408,7 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
                           buttons={
                             Array [
                               Object {
-                                "copy": "Contact sales GUILHERME",
+                                "copy": "Contact sales",
                                 "href": "https://example.com/",
                                 "iconDescription": "right arrow icon",
                                 "onClick": [Function],
@@ -20432,7 +20432,7 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
                               buttons={
                                 Array [
                                   Object {
-                                    "copy": "Contact sales GUILHERME",
+                                    "copy": "Contact sales",
                                     "href": "https://example.com/",
                                     "iconDescription": "right arrow icon",
                                     "onClick": [Function],
@@ -20462,7 +20462,7 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
                                 buttons={
                                   Array [
                                     Object {
-                                      "copy": "Contact sales GUILHERME",
+                                      "copy": "Contact sales",
                                       "href": "https://example.com/",
                                       "iconDescription": "right arrow icon",
                                       "onClick": [Function],
@@ -20485,7 +20485,7 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
                                     key="0"
                                   >
                                     <ForwardRef(Button)
-                                      copy="Contact sales GUILHERME"
+                                      copy="Contact sales"
                                       data-autoid="dds--button-group-0"
                                       disabled={false}
                                       href="https://example.com/"
@@ -20504,14 +20504,14 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
                                     >
                                       <a
                                         className="bx--btn bx--btn--primary"
-                                        copy="Contact sales GUILHERME"
+                                        copy="Contact sales"
                                         data-autoid="dds--button-group-0"
                                         href="https://example.com/"
                                         onClick={[Function]}
                                         tabIndex={2}
                                         target={null}
                                       >
-                                        Contact sales GUILHERME
+                                        Contact sales
                                         <ForwardRef(ArrowRight20)
                                           aria-hidden="true"
                                           aria-label="right arrow icon"

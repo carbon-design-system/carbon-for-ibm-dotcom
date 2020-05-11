@@ -20,7 +20,7 @@ storiesOf('Patterns (Sections)|CTASection', module)
       buttons: [
         {
           type: select('ContentBlock | CTA type', types, types[0]),
-          copy: text('ContentBlock | CTA copy', 'Contact sales GUILHERME'),
+          copy: text('ContentBlock | CTA copy', 'Contact sales'),
           href: 'https://example.com/',
         },
       ],
