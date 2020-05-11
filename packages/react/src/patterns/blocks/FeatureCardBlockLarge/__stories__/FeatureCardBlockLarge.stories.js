@@ -30,7 +30,7 @@ storiesOf('Patterns (Blocks)|FeatureCardBlockLarge', module)
     );
     const copy = text(
       'Card copy: (copy)',
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..'
     );
     const cardhref = text(
       'Card href(required) (cta.href):',
