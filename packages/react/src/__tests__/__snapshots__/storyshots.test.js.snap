@@ -20317,7 +20317,7 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockLarge Default 1`] = `
                     className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-2"
                   >
                     <FeatureCardBlockLarge
-                      copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                      copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magnaa aliqua."
                       cta={
                         Object {
                           "href": "https://www.example.com",
@@ -20378,7 +20378,7 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockLarge Default 1`] = `
                     className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-2"
                   >
                     <FeatureCardBlockLarge
-                      copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                      copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magnaa aliqua."
                       cta={
                         Object {
                           "href": "https://www.example.com",
@@ -20404,7 +20404,7 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockLarge Default 1`] = `
                         data-autoid="dds--feature-card-block-large"
                       >
                         <Card
-                          copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                          copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magnaa aliqua."
                           cta={
                             Object {
                               "href": "https://www.example.com",
@@ -20478,7 +20478,7 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockLarge Default 1`] = `
                                   className="bx--card__copy"
                                   dangerouslySetInnerHTML={
                                     Object {
-                                      "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
+                                      "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magnaa aliqua.</p>",
                                     }
                                   }
                                 />
