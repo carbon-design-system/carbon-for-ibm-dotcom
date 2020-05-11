@@ -17,6 +17,10 @@
       &__copy {
         width: 90%;
         max-width: 640px;
+
+        @include carbon--breakpoint('sm') {
+          width: 100%;
+        }
       }
 
       &__heading {
