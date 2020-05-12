@@ -34,7 +34,7 @@ const TOCDesktop = ({ menuItems, selectedId }) => {
   const renderMenuItems = (items, activeId) => {
     return items.map((item, index) => {
       if (item && item.id !== 'menuLabel') {
-        const isActive = isActiveItem(activeId, item.id);
+        const isActive = activeId === item.id;
         return (
           <li
             key={index}
@@ -80,19 +80,6 @@ const TOCDesktop = ({ menuItems, selectedId }) => {
     element.focus({ preventScroll: true });
     element.removeAttribute('tabindex');
   }
-
-  /**
-   * Get active state for menu item
-   *
-   * @param {string} activeId selected menu item id
-   * @param {string} menuId menu item id
-   * @returns {boolean} boolean for active state
-   */
-  const isActiveItem = (activeId, menuId) => {
-    let active = activeId === menuId ? true : false;
-
-    return active;
-  };
 
   return (
     <div
