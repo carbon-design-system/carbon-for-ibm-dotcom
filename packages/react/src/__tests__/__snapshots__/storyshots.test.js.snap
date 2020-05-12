@@ -18486,6 +18486,18 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                           },
                           Object {
                             "copy": "Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.",
+                            "cta": Array [
+                              Object {
+                                "copy": "Link text",
+                                "href": "https://example.com",
+                                "type": "local",
+                              },
+                              Object {
+                                "copy": "External link text",
+                                "href": "https://example.com",
+                                "type": "external",
+                              },
+                            ],
                             "eyebrow": "Lorem ipsum",
                             "heading": "Aliquam condimentum",
                           },
@@ -18566,6 +18578,18 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                           },
                           Object {
                             "copy": "Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.",
+                            "cta": Array [
+                              Object {
+                                "copy": "Link text",
+                                "href": "https://example.com",
+                                "type": "local",
+                              },
+                              Object {
+                                "copy": "External link text",
+                                "href": "https://example.com",
+                                "type": "external",
+                              },
+                            ],
                             "eyebrow": "Lorem ipsum",
                             "heading": "Aliquam condimentum",
                           },
@@ -18623,6 +18647,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                               }
                               eyebrow="Lorem ipsum"
                               heading="Aliquam condimentum"
+                              key="0"
                             >
                               <div
                                 className="bx--content-item-horizontal__item bx"
@@ -18831,8 +18856,23 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                             </ContentItemHorizontal>
                             <ContentItemHorizontal
                               copy="Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin."
+                              cta={
+                                Array [
+                                  Object {
+                                    "copy": "Link text",
+                                    "href": "https://example.com",
+                                    "type": "local",
+                                  },
+                                  Object {
+                                    "copy": "External link text",
+                                    "href": "https://example.com",
+                                    "type": "external",
+                                  },
+                                ]
+                              }
                               eyebrow="Lorem ipsum"
                               heading="Aliquam condimentum"
+                              key="1"
                             >
                               <div
                                 className="bx--content-item-horizontal__item bx"
@@ -18869,6 +18909,172 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                       }
                                       data-autoid="dds--content-item-horizontal__item--copy"
                                     />
+                                    <div
+                                      className="bx--content-item-horizontal__item--cta"
+                                      data-autoid="dds--content-item-horizontal__item--cta"
+                                    >
+                                      <CTA
+                                        copy="Link text"
+                                        customClassName="bx--card__cta"
+                                        href="https://example.com"
+                                        key="0"
+                                        style="text"
+                                        type="local"
+                                      >
+                                        <div
+                                          className="bx--card__cta"
+                                        >
+                                          <TextCTA
+                                            copy="Link text"
+                                            href="https://example.com"
+                                            openLightBox={[Function]}
+                                            renderLightBox={false}
+                                            style="text"
+                                            type="local"
+                                            videoTitle={
+                                              Array [
+                                                Object {
+                                                  "key": 0,
+                                                  "title": "",
+                                                },
+                                              ]
+                                            }
+                                          >
+                                            <LinkWithIcon
+                                              href="https://example.com"
+                                              onClick={[Function]}
+                                              target={null}
+                                            >
+                                              <div
+                                                className="bx--link-with-icon__container"
+                                                data-autoid="dds--link-with-icon"
+                                              >
+                                                <Link
+                                                  className="bx--link-with-icon"
+                                                  href="https://example.com"
+                                                  onClick={[Function]}
+                                                  target={null}
+                                                >
+                                                  <a
+                                                    className="bx--link bx--link-with-icon"
+                                                    href="https://example.com"
+                                                    onClick={[Function]}
+                                                    target={null}
+                                                  >
+                                                    Link text
+                                                    <ForwardRef(ArrowRight20)>
+                                                      <Icon
+                                                        height={20}
+                                                        preserveAspectRatio="xMidYMid meet"
+                                                        viewBox="0 0 20 20"
+                                                        width={20}
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                      >
+                                                        <svg
+                                                          aria-hidden={true}
+                                                          focusable="false"
+                                                          height={20}
+                                                          preserveAspectRatio="xMidYMid meet"
+                                                          viewBox="0 0 20 20"
+                                                          width={20}
+                                                          xmlns="http://www.w3.org/2000/svg"
+                                                        >
+                                                          <polygon
+                                                            points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
+                                                          />
+                                                        </svg>
+                                                      </Icon>
+                                                    </ForwardRef(ArrowRight20)>
+                                                  </a>
+                                                </Link>
+                                              </div>
+                                            </LinkWithIcon>
+                                          </TextCTA>
+                                        </div>
+                                      </CTA>
+                                      <CTA
+                                        copy="External link text"
+                                        customClassName="bx--card__cta"
+                                        href="https://example.com"
+                                        key="1"
+                                        style="text"
+                                        type="external"
+                                      >
+                                        <div
+                                          className="bx--card__cta"
+                                        >
+                                          <TextCTA
+                                            copy="External link text"
+                                            href="https://example.com"
+                                            openLightBox={[Function]}
+                                            renderLightBox={false}
+                                            style="text"
+                                            type="external"
+                                            videoTitle={
+                                              Array [
+                                                Object {
+                                                  "key": 0,
+                                                  "title": "",
+                                                },
+                                              ]
+                                            }
+                                          >
+                                            <LinkWithIcon
+                                              href="https://example.com"
+                                              onClick={[Function]}
+                                              target="_blank"
+                                            >
+                                              <div
+                                                className="bx--link-with-icon__container"
+                                                data-autoid="dds--link-with-icon"
+                                              >
+                                                <Link
+                                                  className="bx--link-with-icon"
+                                                  href="https://example.com"
+                                                  onClick={[Function]}
+                                                  target="_blank"
+                                                >
+                                                  <a
+                                                    className="bx--link bx--link-with-icon"
+                                                    href="https://example.com"
+                                                    onClick={[Function]}
+                                                    target="_blank"
+                                                  >
+                                                    External link text
+                                                    <ForwardRef(Launch20)>
+                                                      <Icon
+                                                        height={20}
+                                                        preserveAspectRatio="xMidYMid meet"
+                                                        viewBox="0 0 32 32"
+                                                        width={20}
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                      >
+                                                        <svg
+                                                          aria-hidden={true}
+                                                          focusable="false"
+                                                          height={20}
+                                                          preserveAspectRatio="xMidYMid meet"
+                                                          viewBox="0 0 32 32"
+                                                          width={20}
+                                                          xmlns="http://www.w3.org/2000/svg"
+                                                        >
+                                                          <path
+                                                            d="M26,28H6a2,2,0,0,1-2-2V6A2,2,0,0,1,6,4h9V6H6V26H26V17h2v9A2,2,0,0,1,26,28Z"
+                                                          />
+                                                          <polygon
+                                                            points="21 2 21 4 26.59 4 18 12.59 19.41 14 28 5.41 28 11 30 11 30 2 21 2"
+                                                          />
+                                                        </svg>
+                                                      </Icon>
+                                                    </ForwardRef(Launch20)>
+                                                  </a>
+                                                </Link>
+                                              </div>
+                                            </LinkWithIcon>
+                                          </TextCTA>
+                                        </div>
+                                      </CTA>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
@@ -18886,6 +19092,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                               }
                               eyebrow="Lorem ipsum"
                               heading="Aliquam condimentum"
+                              key="2"
                             >
                               <div
                                 className="bx--content-item-horizontal__item bx"
