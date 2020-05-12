@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const rtlcss = require('rtlcss');
@@ -132,6 +133,14 @@ module.exports = ({ config, mode }) => {
       ...styleLoaders,
     ],
   });
+
+  config.plugins.push(
+    new webpack.EnvironmentPlugin({
+      TRANSLATION_HOST: '',
+      CORS_PROXY: '',
+      REACT_STORYBOOK_USE_RTL: 'false',
+    })
+  );
 
   if (useExternalCss) {
     config.plugins.push(
