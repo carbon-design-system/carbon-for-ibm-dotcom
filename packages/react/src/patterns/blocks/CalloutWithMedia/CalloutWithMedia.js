@@ -8,7 +8,6 @@
 import { Callout } from '../../sub-patterns';
 import { ContentBlockSimple } from '../ContentBlockSimple';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
-import PropTypes from 'prop-types';
 import React from 'react';
 import { settings } from 'carbon-components';
 
@@ -32,8 +31,6 @@ const CalloutWithMedia = ({ ...ContentBlockSimpleProps }) => {
   );
 };
 
-CalloutWithMedia.propTypes = PropTypes.oneOf(
-  PropTypes.shape(ContentBlockSimple.propTypes)
-);
+CalloutWithMedia.propTypes = ContentBlockSimple.propTypes;
 
 export default CalloutWithMedia;

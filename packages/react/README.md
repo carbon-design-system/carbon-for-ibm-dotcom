@@ -35,10 +35,6 @@ yarn add @carbon/ibmdotcom-react
 2. Components do not import any of the styles themselves, use the scss or css
    from `@carbon/ibmdotcom-styles` to bring in styling.
 
-3. For older browsers (e.g. IE11), polyfills listed in
-   [`packages/react/.storybook/polyfills.js` file](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/.storybook/polyfills.js)
-   is required.
-
 ## Usage
 
 ### List of Available Components
