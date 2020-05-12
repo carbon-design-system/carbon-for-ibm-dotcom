@@ -5,7 +5,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import './index.scss';
 import { boolean, select, text, withKnobs } from '@storybook/addon-knobs';
 import { DDS_SIMPLE_OVERVIEW } from '../../../../internal/FeatureFlags';
 import React from 'react';
