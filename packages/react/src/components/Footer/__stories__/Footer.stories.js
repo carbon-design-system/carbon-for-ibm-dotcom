@@ -31,12 +31,12 @@ storiesOf('Components|Footer', module)
 
     let isCustom = boolean('show custom navigation (not a prop)', inPercy());
 
-    let navigation =
-      isCustom &&
-      object('custom navigation data (navigation)', {
-        footerMenu,
-        footerThin,
-      });
+    let navigation = isCustom
+      ? object('custom navigation data (navigation)', {
+          footerMenu,
+          footerThin,
+        })
+      : null;
 
     let disableLocaleButton = boolean(
       'hide the locale button (disableLocaleButton)',
@@ -62,12 +62,12 @@ storiesOf('Components|Footer', module)
 
     return (
       <Footer
-        navigation={isCustom && navigation}
+        navigation={isCustom ? navigation : null}
         type={type}
         disableLocaleButton={disableLocaleButton}
         langCode={inPercy() ? { lc: 'en', cc: 'us' } : null}
         languageOnly={languageOnly}
-        languageItems={items}
+        languageItems={languageOnly ? items : null}
         languageInitialItem={{ id: 'en', text: 'English' }}
         languageCallback={languageCallback}
       />
