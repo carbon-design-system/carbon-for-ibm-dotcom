@@ -48,9 +48,10 @@ const LocaleModal = ({ isOpen, setIsOpen, localeData, localeDisplay }) => {
         list = Object.assign({}, localeData);
         getLangDisplay = localeDisplay;
       } else {
-        const locale = await LocaleAPI.getLocale();
+        const pair = await Promise.all([LocaleAPI.getLocale(), LocaleAPI.getLangDisplay()]);
+        const locale = pair[0];
         list = locale && (await LocaleAPI.getList(locale));
-        getLangDisplay = await LocaleAPI.getLangDisplay();
+        getLangDisplay = pair[1];
       }
 
       setLangDisplay(getLangDisplay);
