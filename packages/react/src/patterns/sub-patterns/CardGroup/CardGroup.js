@@ -123,7 +123,7 @@ const _renderCards = (cards, containerRef, cta) => (
 
 CardGroup.propTypes = {
   cards: PropTypes.arrayOf(PropTypes.shape(Card.propTypes)),
-  cta: PropTypes.oneOfType(PropTypes.shape(Card.propTypes)),
+  cta: PropTypes.shape(Card.propTypes),
 };
 
 export default CardGroup;
