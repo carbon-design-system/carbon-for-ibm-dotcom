@@ -30,12 +30,13 @@ const ContentGroupHorizontal = ({ heading, items }) => {
       heading={heading}
       autoid={`${stablePrefix}--content-group-horizontal`}
       className={`${prefix}--content-group-horizontal`}>
-      {items.map(item => (
+      {items.map((item, index) => (
         <ContentItemHorizontal
           eyebrow={item.eyebrow}
           heading={item.heading}
           copy={item.copy}
           cta={item.cta}
+          key={index}
         />
       ))}
     </ContentBlock>
