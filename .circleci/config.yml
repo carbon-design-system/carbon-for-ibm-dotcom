@@ -32,6 +32,15 @@ jobs:
       - image: circleci/node:12-browsers
     working_directory: ~/repo
     steps:
+      - run:
+          name: Check for Percy Token
+          command: |
+            if [ -z "$PERCY_TOKEN_REACT_CANARY" ]; then
+              echo "No PERCY_TOKEN_REACT_CANARY is set! Skipping..."
+              circleci-agent step halt
+            else
+              echo "Percy token is set! Continuing..."
+            fi
       - checkout
       - yarn_install
       - yarn_build
