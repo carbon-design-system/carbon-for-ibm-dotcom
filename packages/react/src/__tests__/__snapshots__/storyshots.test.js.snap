@@ -213,7 +213,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                     },
                     "languageItems": null,
                     "languageOnly": false,
-                    "navigation": false,
+                    "navigation": null,
                     "type": "",
                   }
                 }
@@ -626,7 +626,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                     },
                     "languageItems": null,
                     "languageOnly": false,
-                    "navigation": false,
+                    "navigation": null,
                     "type": "",
                   }
                 }
@@ -1760,7 +1760,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                   languageItems={null}
                   languageOnly={false}
                   mastheadProps={null}
-                  navigation={false}
+                  navigation={null}
                   type=""
                 >
                   <footer
@@ -2525,10 +2525,10 @@ exports[`Storyshots Components|Footer Default 1`] = `
                     "text": "English",
                   }
                 }
-                languageItems={false}
+                languageItems={null}
                 languageOnly={false}
                 mastheadProps={null}
-                navigation={false}
+                navigation={null}
                 type=""
               />
             </React.Fragment>,
@@ -2569,10 +2569,10 @@ exports[`Storyshots Components|Footer Default 1`] = `
                     "text": "English",
                   }
                 }
-                languageItems={false}
+                languageItems={null}
                 languageOnly={false}
                 mastheadProps={null}
-                navigation={false}
+                navigation={null}
                 type=""
               >
                 <footer
@@ -3829,6 +3829,9 @@ exports[`Storyshots Components|Locale Modal Default 1`] = `
             "content": <React.Fragment>
               <LocaleModal
                 isOpen={true}
+                localeData={null}
+                localeDisplay={null}
+                setIsOpen={[Function]}
               />
             </React.Fragment>,
             "type": "STORY",
@@ -3859,6 +3862,9 @@ exports[`Storyshots Components|Locale Modal Default 1`] = `
             <div>
               <LocaleModal
                 isOpen={true}
+                localeData={null}
+                localeDisplay={null}
+                setIsOpen={[Function]}
               >
                 <ComposedModal
                   className="bx--locale-modal-container"
