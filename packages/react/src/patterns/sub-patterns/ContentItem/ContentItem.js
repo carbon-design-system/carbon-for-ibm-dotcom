@@ -97,7 +97,7 @@ const _renderMedia = (type, data, inverse) => {
 };
 
 ContentItem.propTypes = {
-  cta: PropTypes.oneOfType(PropTypes.shape(CTA.propTypes)),
+  cta: PropTypes.shape(CTA.propTypes),
   customClassName: PropTypes.string,
   copy: PropTypes.string,
   heading: PropTypes.string,
