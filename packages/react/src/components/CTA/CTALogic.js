@@ -7,6 +7,7 @@
 import {
   ArrowDown20,
   ArrowRight20,
+  Download20,
   Launch20,
   PlayOutline20,
 } from '@carbon/icons-react';
@@ -76,6 +77,8 @@ class CTALogic {
    */
   static iconSelector(type) {
     switch (type) {
+      case 'download':
+        return Download20;
       case 'external':
         return Launch20;
       case 'jump':

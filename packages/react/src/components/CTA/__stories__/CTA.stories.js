@@ -15,11 +15,13 @@ storiesOf('Components|CTA', module)
   .add('Default', () => {
     let cta, type;
     const copy = ['Lorem ipsum dolor sit amet', 'Consectetur adipisicing elit'];
-    const types = ['local', 'jump', 'external', 'video'];
+    const types = ['local', 'download', 'jump', 'external', 'video'];
     const styles = ['text', 'card', 'feature', 'button'];
     const style = select('style', styles, styles[0]);
 
     const urlBy = {
+      download:
+        'https://www.ibm.com/annualreport/assets/downloads/IBM_Annual_Report_2019.pdf',
       jump: '#example',
       local: 'https://www.example.com',
       external: 'https://www.example.com',
