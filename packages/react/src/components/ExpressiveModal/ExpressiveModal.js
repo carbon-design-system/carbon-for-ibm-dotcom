@@ -36,9 +36,8 @@ const ExpressiveModal = ({
   ...props
 }) => {
   const [isOpen, setIsOpen] = useState(open);
-  const [prevOpen, setPrevOpen] = useState(open);
 
-  useEffect(manageOpenState);
+  useEffect(manageOpenState, [open]);
 
   return (
     <ComposedModal
@@ -82,10 +81,7 @@ const ExpressiveModal = ({
    * Manage open prop and isOpen state
    */
   function manageOpenState() {
-    if (prevOpen !== open) {
-      setIsOpen(open);
-      setPrevOpen(open);
-    }
+    setIsOpen(open);
   }
 };
 
