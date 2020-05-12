@@ -10,8 +10,9 @@ import {
   settings as ddsSettings,
   decodeString,
 } from '@carbon/ibmdotcom-utilities';
-import { HorizontalRule, LinkWithIcon } from '@carbon/ibmdotcom-react';
 import classnames from 'classnames';
+import { HorizontalRule } from '../../../components/HorizontalRule';
+import { LinkWithIcon } from '../../../components/LinkWithIcon';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { settings } from 'carbon-components';

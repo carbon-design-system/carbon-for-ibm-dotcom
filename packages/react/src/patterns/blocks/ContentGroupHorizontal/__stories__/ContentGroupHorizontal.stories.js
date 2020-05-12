@@ -5,7 +5,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import './index.scss';
 import { object, text, withKnobs } from '@storybook/addon-knobs';
 import ContentGroupHorizontal from '../ContentGroupHorizontal';
 import items from './data/items.json';
