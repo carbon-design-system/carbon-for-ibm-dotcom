@@ -38,7 +38,7 @@ storiesOf('Components|VideoPlayer', module)
             <VideoPlayer
               inverse={inverse}
               videoId="0_uka1msg4"
-              showDescription={boolean('Show description', true)}
+              showCaption={boolean('Show caption', true)}
             />
           </div>
         </div>

@@ -5355,7 +5355,7 @@ exports[`Storyshots Components|VideoPlayer Default 1`] = `
                   >
                     <VideoPlayer
                       inverse={false}
-                      showDescription={true}
+                      showCaption={true}
                       videoId="0_uka1msg4"
                     />
                   </div>
@@ -5399,7 +5399,7 @@ exports[`Storyshots Components|VideoPlayer Default 1`] = `
                   >
                     <VideoPlayer
                       inverse={false}
-                      showDescription={true}
+                      showCaption={true}
                       videoId="0_uka1msg4"
                     >
                       <div
@@ -5416,7 +5416,7 @@ exports[`Storyshots Components|VideoPlayer Default 1`] = `
                           />
                         </div>
                         <div
-                          className="bx--video-player__video-description"
+                          className="bx--video-player__video-caption"
                         >
                            
                         </div>
