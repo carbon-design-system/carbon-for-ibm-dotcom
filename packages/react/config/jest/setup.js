@@ -15,8 +15,6 @@ global.window.location = {
   href: 'http://localhost',
 };
 
-require('../polyfills');
-
 const enzyme = require.requireActual('enzyme');
 const Adapter = require.requireActual('enzyme-adapter-react-16');
 
