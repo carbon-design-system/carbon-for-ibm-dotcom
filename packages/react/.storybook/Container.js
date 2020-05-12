@@ -6,7 +6,7 @@ import { settings } from 'carbon-components';
 const { prefix } = settings;
 export default class Container extends Component {
   componentDidMount() {
-    if (process.env.CARBON_REACT_STORYBOOK_USE_RTL === 'true') {
+    if (process.env.REACT_STORYBOOK_USE_RTL === 'true') {
       document.documentElement.dir = 'rtl';
     }
   }
