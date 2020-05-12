@@ -37,7 +37,7 @@ jobs:
           command: |
             if [ -z "$PERCY_TOKEN_REACT_CANARY" ]; then
               echo "No PERCY_TOKEN_REACT_CANARY is set! Skipping..."
-              circleci-agent step halt
+              exit 1
             else
               echo "Percy token is set! Continuing..."
             fi
