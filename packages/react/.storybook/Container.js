@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './polyfills';
 import './_container.scss';
 import { settings } from 'carbon-components';
 
