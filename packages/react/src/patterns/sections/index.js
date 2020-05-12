@@ -7,6 +7,7 @@
 
 export * from './CardSectionImages';
 export * from './CardSectionSimple';
+export * from './CTASection';
 export * from './LeadSpace';
 export * from './SimpleBenefits';
 export * from './SimpleOverview';

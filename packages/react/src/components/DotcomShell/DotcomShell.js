@@ -50,8 +50,8 @@ DotcomShell.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]).isRequired,
-  footerProps: PropTypes.oneOf(PropTypes.shape(Footer.propTypes)),
-  mastheadProps: PropTypes.oneOf(PropTypes.shape(Masthead.propTypes)),
+  footerProps: PropTypes.shape(Footer.propTypes),
+  mastheadProps: PropTypes.shape(Masthead.propTypes),
 };
 
 /**

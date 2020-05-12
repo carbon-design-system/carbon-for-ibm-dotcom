@@ -1,4 +1,10 @@
-import './index.scss';
+/**
+ * Copyright IBM Corp. 2016, 2018
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 import { text, withKnobs, object } from '@storybook/addon-knobs';
 import LinkList from '../LinkList';
 import React from 'react';

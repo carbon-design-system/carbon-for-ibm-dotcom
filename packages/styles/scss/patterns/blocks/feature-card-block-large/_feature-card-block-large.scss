@@ -1,0 +1,146 @@
+//
+// Copyright IBM Corp. 2016, 2018
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+@import '../../../globals/imports';
+@import '../../../components/image/image';
+@import '../../sub-patterns/card/index';
+@import '../../../globals/utils/aspect-ratio';
+@import '../../../globals/utils/hang';
+
+$fcb-large-custom-bp-copy: 992px;
+$fcb-large-custom-bp-nocopy: 752px;
+
+@mixin feature-card-block-large {
+  .#{$prefix}--feature-card-block-large {
+    color: $text-01;
+    background: $ui-background;
+    position: relative;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    height: 100%;
+
+    @include carbon--breakpoint-between($fcb-large-custom-bp-copy, 'lg') {
+      padding-top: aspect-ratio(2, 1);
+    }
+    @include carbon--breakpoint('xlg') {
+      padding-top: aspect-ratio(2, 1);
+    }
+
+    &__card.#{$prefix}--card--inverse .#{$prefix}--card__cta,
+    &__card.#{$prefix}--card--inverse .#{$prefix}--card__cta:visited {
+      float: none;
+      color: $inverse-link;
+      @include carbon--type-style('productive-heading-05');
+    }
+
+    .#{$prefix}--card {
+      background: none;
+      height: 100%;
+
+      @include carbon--breakpoint-between($fcb-large-custom-bp-copy, 'lg') {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        flex-direction: row;
+      }
+      @include carbon--breakpoint('xlg') {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        flex-direction: row;
+      }
+
+      &__wrapper,
+      .#{$prefix}--image {
+        @include carbon--breakpoint-between($fcb-large-custom-bp-copy, 'lg') {
+          width: 50%;
+          height: 100%;
+        }
+        @include carbon--breakpoint('xlg') {
+          width: 50%;
+          height: 100%;
+        }
+      }
+
+      .#{$prefix}--image {
+        overflow-y: hidden;
+      }
+
+      &__wrapper {
+        background: $inverse-02;
+        min-height: 50%;
+        height: auto;
+
+        @include carbon--breakpoint('xlg') {
+          padding: $layout-03;
+        }
+
+        @include carbon--breakpoint('max') {
+          padding: $layout-05;
+        }
+
+        .#{$prefix}--card__eyebrow {
+          margin-bottom: $spacing-05;
+          color: $inverse-01;
+          @include carbon--type-style('body-long-02');
+
+          @include carbon--breakpoint-down('md') {
+            margin-top: $spacing-07;
+            margin-bottom: $spacing-05;
+          }
+        }
+
+        .#{$prefix}--card__heading {
+          @include carbon--type-style('expressive-heading-04', true);
+
+          margin-bottom: $spacing-07;
+        }
+
+        .#{$prefix}--card__copy {
+          p {
+            @include carbon--type-style('body-long-02');
+          }
+          @include carbon--breakpoint-down('md') {
+            margin-bottom: $spacing-07;
+          }
+        }
+      }
+    }
+
+    // special breakpoint for no copy present
+    &.#{$prefix}--feature-card-block-large_no-copy-text {
+      @include carbon--breakpoint-between($fcb-large-custom-bp-nocopy, 'lg') {
+        padding-top: aspect-ratio(2, 1);
+      }
+
+      .#{$prefix}--card {
+        @include carbon--breakpoint-between($fcb-large-custom-bp-nocopy, 'lg') {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          flex-direction: row;
+        }
+      }
+
+      .#{$prefix}--card__wrapper,
+      .#{$prefix}--image {
+        @include carbon--breakpoint-between($fcb-large-custom-bp-nocopy, 'lg') {
+          width: 50%;
+          height: 100%;
+        }
+      }
+    }
+  }
+}
+@include exports('feature-card-block-large') {
+  @include feature-card-block-large;
+}

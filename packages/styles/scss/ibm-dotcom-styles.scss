@@ -27,10 +27,12 @@
 @import 'patterns/sections/card-section-simple/card-section-simple';
 @import 'patterns/sections/leadspace/leadspace';
 @import 'patterns/sections/simplebenefits/simplebenefits';
+@import 'patterns/sections/ctasection/index';
 @import 'patterns/sections/simpleoverview/simpleoverview';
 
 // Patterns - Blocks
 @import 'patterns/blocks/callout-quote/index';
+@import 'patterns/blocks/callout-with-media/index';
 @import 'patterns/blocks/content-block-media/index';
 @import 'patterns/blocks/content-block-mixed/index';
 @import 'patterns/blocks/content-block-segmented/index';
@@ -49,7 +51,7 @@
 @import 'patterns/sub-patterns/card-group/card-group';
 @import 'patterns/sub-patterns/content-block/content-block';
 @import 'patterns/sub-patterns/content-item/content-item';
-@import 'patterns/sub-patterns/content-item/content-item-horizontal';
+@import 'patterns/sub-patterns/content-item-horizontal/content-item-horizontal';
 @import 'patterns/sub-patterns/content-group/content-group';
 @import 'patterns/sub-patterns/content-section/content-section';
 @import 'patterns/sub-patterns/layout/layout';
