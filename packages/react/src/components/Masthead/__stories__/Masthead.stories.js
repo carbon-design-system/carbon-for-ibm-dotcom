@@ -1,4 +1,10 @@
-import './index.scss';
+/**
+ * Copyright IBM Corp. 2016, 2018
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 import { boolean, select, text, withKnobs } from '@storybook/addon-knobs';
 import { DDS_MASTHEAD_L1 } from '../../../internal/FeatureFlags';
 import inPercy from '@percy-io/in-percy';
