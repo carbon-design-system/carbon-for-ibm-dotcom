@@ -30091,6 +30091,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|Table of Contents Manually define Me
                                     key="0"
                                   >
                                     <a
+                                      aria-current="location"
                                       href="#8"
                                       onClick={[Function]}
                                     >
