@@ -39,7 +39,7 @@ jobs:
           name: Run visual test
           command: |
             cd packages/react
-            echo "export PERCY_TOKEN=$PERCY_TOKEN_REACT_CANARY" >> $BASH_ENV
+            echo "PERCY_TOKEN=$PERCY_TOKEN_REACT_CANARY" >> .env
             yarn visual-snapshot
 
 workflows:
