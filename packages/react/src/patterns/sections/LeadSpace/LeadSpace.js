@@ -147,7 +147,7 @@ LeadSpace.propTypes = {
   buttons: PropTypes.array,
   copy: PropTypes.string,
   gradient: PropTypes.bool,
-  image: PropTypes.oneOfType(PropTypes.shape(Image.propTypes)),
+  image: PropTypes.shape(Image.propTypes),
   theme: PropTypes.string,
   title: PropTypes.string.isRequired,
   type: PropTypes.oneOf(['small', 'left', 'centered']),
