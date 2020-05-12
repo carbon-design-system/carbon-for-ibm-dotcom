@@ -101,6 +101,7 @@
     "doctoc": "^1.4.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
+    "fast-sass-loader": "1.5.0",
     "gzip-size": "^5.0.0",
     "jest": "24.0.0",
     "jest-circus": "^24.0.0",
