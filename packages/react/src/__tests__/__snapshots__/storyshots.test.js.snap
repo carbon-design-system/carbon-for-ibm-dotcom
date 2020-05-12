@@ -149,17 +149,12 @@ exports[`Storyshots Components|CTA Default 1`] = `
                                         focusable="false"
                                         height={20}
                                         preserveAspectRatio="xMidYMid meet"
-                                        style={
-                                          Object {
-                                            "willChange": "transform",
-                                          }
-                                        }
                                         viewBox="0 0 20 20"
                                         width={20}
                                         xmlns="http://www.w3.org/2000/svg"
                                       >
-                                        <path
-                                          d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                        <polygon
+                                          points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
                                         />
                                       </svg>
                                     </Icon>
@@ -273,7 +268,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                       </h1>
                       <StructuredListWrapper
                         ariaLabel="Structured list section"
-                        border={false}
                         selection={false}
                       >
                         <StructuredListHead>
@@ -682,7 +676,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                               aria-label="IBM"
                               className="bx--header"
                               data-autoid="dds--masthead"
-                              role="banner"
                             >
                               <SkipToContent
                                 href="#main-content"
@@ -723,17 +716,33 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                         focusable="false"
                                         height={20}
                                         preserveAspectRatio="xMidYMid meet"
-                                        style={
-                                          Object {
-                                            "willChange": "transform",
-                                          }
-                                        }
                                         viewBox="0 0 20 20"
                                         width={20}
                                         xmlns="http://www.w3.org/2000/svg"
                                       >
-                                        <path
-                                          d="M2 14.8H18V16H2zM2 11.2H18V12.399999999999999H2zM2 7.6H18V8.799999999999999H2zM2 4H18V5.2H2z"
+                                        <rect
+                                          height="1.2"
+                                          width="16"
+                                          x="2"
+                                          y="14.8"
+                                        />
+                                        <rect
+                                          height="1.2"
+                                          width="16"
+                                          x="2"
+                                          y="11.2"
+                                        />
+                                        <rect
+                                          height="1.2"
+                                          width="16"
+                                          x="2"
+                                          y="7.6"
+                                        />
+                                        <rect
+                                          height="1.2"
+                                          width="16"
+                                          x="2"
+                                          y="4"
                                         />
                                       </svg>
                                     </Icon>
@@ -841,11 +850,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                 focusable="false"
                                                 height={20}
                                                 preserveAspectRatio="xMidYMid meet"
-                                                style={
-                                                  Object {
-                                                    "willChange": "transform",
-                                                  }
-                                                }
                                                 viewBox="0 0 32 32"
                                                 width={20}
                                                 xmlns="http://www.w3.org/2000/svg"
@@ -884,17 +888,12 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                 focusable="false"
                                                 height={20}
                                                 preserveAspectRatio="xMidYMid meet"
-                                                style={
-                                                  Object {
-                                                    "willChange": "transform",
-                                                  }
-                                                }
                                                 viewBox="0 0 32 32"
                                                 width={20}
                                                 xmlns="http://www.w3.org/2000/svg"
                                               >
-                                                <path
-                                                  d="M24 9.4L22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16 24 9.4z"
+                                                <polygon
+                                                  points="24 9.4 22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16 24 9.4"
                                                 />
                                               </svg>
                                             </Icon>
@@ -1006,17 +1005,15 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                     focusable="false"
                                                     height={20}
                                                     preserveAspectRatio="xMidYMid meet"
-                                                    style={
-                                                      Object {
-                                                        "willChange": "transform",
-                                                      }
-                                                    }
                                                     viewBox="0 0 32 32"
                                                     width={20}
                                                     xmlns="http://www.w3.org/2000/svg"
                                                   >
                                                     <path
-                                                      d="M16 4a5 5 0 1 1-5 5 5 5 0 0 1 5-5m0-2a7 7 0 1 0 7 7A7 7 0 0 0 16 2zM26 30H24V25a5 5 0 0 0-5-5H13a5 5 0 0 0-5 5v5H6V25a7 7 0 0 1 7-7h6a7 7 0 0 1 7 7z"
+                                                      d="M16,4a5,5,0,1,1-5,5,5,5,0,0,1,5-5m0-2a7,7,0,1,0,7,7A7,7,0,0,0,16,2Z"
+                                                    />
+                                                    <path
+                                                      d="M26,30H24V25a5,5,0,0,0-5-5H13a5,5,0,0,0-5,5v5H6V25a7,7,0,0,1,7-7h6a7,7,0,0,1,7,7Z"
                                                     />
                                                   </svg>
                                                 </Icon>
@@ -1053,8 +1050,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                     className="bx--side-nav__navigation bx--side-nav bx--side-nav--ux bx--side-nav--hidden"
                                     onBlur={[Function]}
                                     onFocus={[Function]}
-                                    onMouseEnter={[Function]}
-                                    onMouseLeave={[Function]}
                                   >
                                     <nav
                                       data-autoid="dds--masthead__l0-sidenav"
@@ -1131,7 +1126,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                           </h1>
                           <StructuredListWrapper
                             ariaLabel="Structured list section"
-                            border={false}
                             selection={false}
                           >
                             <section
@@ -1327,144 +1321,222 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                             rowCount={5}
                             zebra={false}
                           >
-                            <table
-                              className="bx--skeleton bx--data-table"
+                            <div
+                              className="bx--skeleton bx--data-table-container"
                             >
-                              <thead>
-                                <tr>
-                                  <th
-                                    key="0"
-                                  >
-                                    Name
-                                  </th>
-                                  <th
-                                    key="1"
-                                  >
-                                    Protocol
-                                  </th>
-                                  <th
-                                    key="2"
-                                  >
-                                    Port
-                                  </th>
-                                  <th
-                                    key="3"
-                                  >
-                                    Rule
-                                  </th>
-                                  <th
-                                    key="4"
-                                  >
-                                    Attached Groups
-                                  </th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr>
-                                  <td
-                                    key="0"
-                                  >
-                                    <span />
-                                  </td>
-                                  <td
-                                    key="1"
-                                  >
-                                    <span />
-                                  </td>
-                                  <td
-                                    key="2"
-                                  >
-                                    <span />
-                                  </td>
-                                  <td
-                                    key="3"
-                                  >
-                                    <span />
-                                  </td>
-                                  <td
-                                    key="4"
-                                  >
-                                    <span />
-                                  </td>
-                                </tr>
-                                <tr
-                                  key="0"
+                              <div
+                                className="bx--data-table-header"
+                              >
+                                <div
+                                  className="bx--data-table-header__title"
+                                />
+                                <div
+                                  className="bx--data-table-header__description"
+                                />
+                              </div>
+                              <section
+                                aria-label="data table toolbar"
+                                className="bx--table-toolbar"
+                              >
+                                <div
+                                  className="bx--toolbar-content"
                                 >
-                                  <td
+                                  <button
+                                    className="bx--skeleton bx--btn bx--btn--sm"
+                                    type="button"
+                                  />
+                                </div>
+                              </section>
+                              <table
+                                className="bx--skeleton bx--data-table"
+                                headers={
+                                  Array [
+                                    "Name",
+                                    "Protocol",
+                                    "Port",
+                                    "Rule",
+                                    "Attached Groups",
+                                  ]
+                                }
+                              >
+                                <thead>
+                                  <tr>
+                                    <th
+                                      key="0"
+                                    >
+                                      <span />
+                                    </th>
+                                    <th
+                                      key="1"
+                                    >
+                                      <span />
+                                    </th>
+                                    <th
+                                      key="2"
+                                    >
+                                      <span />
+                                    </th>
+                                    <th
+                                      key="3"
+                                    >
+                                      <span />
+                                    </th>
+                                    <th
+                                      key="4"
+                                    >
+                                      <span />
+                                    </th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr
                                     key="0"
-                                  />
-                                  <td
+                                  >
+                                    <td
+                                      key="0"
+                                    >
+                                      <span />
+                                    </td>
+                                    <td
+                                      key="1"
+                                    >
+                                      <span />
+                                    </td>
+                                    <td
+                                      key="2"
+                                    >
+                                      <span />
+                                    </td>
+                                    <td
+                                      key="3"
+                                    >
+                                      <span />
+                                    </td>
+                                    <td
+                                      key="4"
+                                    >
+                                      <span />
+                                    </td>
+                                  </tr>
+                                  <tr
                                     key="1"
-                                  />
-                                  <td
+                                  >
+                                    <td
+                                      key="0"
+                                    >
+                                      <span />
+                                    </td>
+                                    <td
+                                      key="1"
+                                    >
+                                      <span />
+                                    </td>
+                                    <td
+                                      key="2"
+                                    >
+                                      <span />
+                                    </td>
+                                    <td
+                                      key="3"
+                                    >
+                                      <span />
+                                    </td>
+                                    <td
+                                      key="4"
+                                    >
+                                      <span />
+                                    </td>
+                                  </tr>
+                                  <tr
                                     key="2"
-                                  />
-                                  <td
+                                  >
+                                    <td
+                                      key="0"
+                                    >
+                                      <span />
+                                    </td>
+                                    <td
+                                      key="1"
+                                    >
+                                      <span />
+                                    </td>
+                                    <td
+                                      key="2"
+                                    >
+                                      <span />
+                                    </td>
+                                    <td
+                                      key="3"
+                                    >
+                                      <span />
+                                    </td>
+                                    <td
+                                      key="4"
+                                    >
+                                      <span />
+                                    </td>
+                                  </tr>
+                                  <tr
                                     key="3"
-                                  />
-                                  <td
+                                  >
+                                    <td
+                                      key="0"
+                                    >
+                                      <span />
+                                    </td>
+                                    <td
+                                      key="1"
+                                    >
+                                      <span />
+                                    </td>
+                                    <td
+                                      key="2"
+                                    >
+                                      <span />
+                                    </td>
+                                    <td
+                                      key="3"
+                                    >
+                                      <span />
+                                    </td>
+                                    <td
+                                      key="4"
+                                    >
+                                      <span />
+                                    </td>
+                                  </tr>
+                                  <tr
                                     key="4"
-                                  />
-                                </tr>
-                                <tr
-                                  key="1"
-                                >
-                                  <td
-                                    key="0"
-                                  />
-                                  <td
-                                    key="1"
-                                  />
-                                  <td
-                                    key="2"
-                                  />
-                                  <td
-                                    key="3"
-                                  />
-                                  <td
-                                    key="4"
-                                  />
-                                </tr>
-                                <tr
-                                  key="2"
-                                >
-                                  <td
-                                    key="0"
-                                  />
-                                  <td
-                                    key="1"
-                                  />
-                                  <td
-                                    key="2"
-                                  />
-                                  <td
-                                    key="3"
-                                  />
-                                  <td
-                                    key="4"
-                                  />
-                                </tr>
-                                <tr
-                                  key="3"
-                                >
-                                  <td
-                                    key="0"
-                                  />
-                                  <td
-                                    key="1"
-                                  />
-                                  <td
-                                    key="2"
-                                  />
-                                  <td
-                                    key="3"
-                                  />
-                                  <td
-                                    key="4"
-                                  />
-                                </tr>
-                              </tbody>
-                            </table>
+                                  >
+                                    <td
+                                      key="0"
+                                    >
+                                      <span />
+                                    </td>
+                                    <td
+                                      key="1"
+                                    >
+                                      <span />
+                                    </td>
+                                    <td
+                                      key="2"
+                                    >
+                                      <span />
+                                    </td>
+                                    <td
+                                      key="3"
+                                    >
+                                      <span />
+                                    </td>
+                                    <td
+                                      key="4"
+                                    >
+                                      <span />
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
                           </DataTableSkeleton>
                         </div>
                       </div>
@@ -1789,11 +1861,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
                                       role="img"
-                                      style={
-                                        Object {
-                                          "willChange": "transform",
-                                        }
-                                      }
                                       viewBox="0 0 32 32"
                                       width={20}
                                       xmlns="http://www.w3.org/2000/svg"
@@ -1939,10 +2006,17 @@ exports[`Storyshots Components|Expressive Modal Default 1`] = `
                     onTransitionEnd={[Function]}
                     open={true}
                     role="presentation"
-                    tabIndex={-1}
                   >
+                    <span
+                      className="bx--visually-hidden"
+                      role="link"
+                      tabIndex="0"
+                    >
+                      Focus sentinel
+                    </span>
                     <div
                       className="bx--modal-container"
+                      tabIndex={-1}
                     >
                       <ExpressiveModalCloseBtn
                         iconDescription="Close"
@@ -1976,17 +2050,12 @@ exports[`Storyshots Components|Expressive Modal Default 1`] = `
                                 height={20}
                                 preserveAspectRatio="xMidYMid meet"
                                 role="img"
-                                style={
-                                  Object {
-                                    "willChange": "transform",
-                                  }
-                                }
                                 viewBox="0 0 32 32"
                                 width={20}
                                 xmlns="http://www.w3.org/2000/svg"
                               >
-                                <path
-                                  d="M24 9.4L22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16 24 9.4z"
+                                <polygon
+                                  points="24 9.4 22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16 24 9.4"
                                 />
                               </svg>
                             </Icon>
@@ -2083,17 +2152,12 @@ exports[`Storyshots Components|Expressive Modal Default 1`] = `
                                             focusable="false"
                                             height={20}
                                             preserveAspectRatio="xMidYMid meet"
-                                            style={
-                                              Object {
-                                                "willChange": "transform",
-                                              }
-                                            }
                                             viewBox="0 0 20 20"
                                             width={20}
                                             xmlns="http://www.w3.org/2000/svg"
                                           >
-                                            <path
-                                              d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                            <polygon
+                                              points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
                                             />
                                           </svg>
                                         </Icon>
@@ -2107,6 +2171,13 @@ exports[`Storyshots Components|Expressive Modal Default 1`] = `
                         </div>
                       </ModalBody>
                     </div>
+                    <span
+                      className="bx--visually-hidden"
+                      role="link"
+                      tabIndex="0"
+                    >
+                      Focus sentinel
+                    </span>
                   </div>
                 </ComposedModal>
               </ExpressiveModal>
@@ -2235,10 +2306,17 @@ exports[`Storyshots Components|Expressive Modal Expanded 1`] = `
                     onTransitionEnd={[Function]}
                     open={true}
                     role="presentation"
-                    tabIndex={-1}
                   >
+                    <span
+                      className="bx--visually-hidden"
+                      role="link"
+                      tabIndex="0"
+                    >
+                      Focus sentinel
+                    </span>
                     <div
                       className="bx--modal-container"
+                      tabIndex={-1}
                     >
                       <ExpressiveModalCloseBtn
                         iconDescription="Close"
@@ -2272,17 +2350,12 @@ exports[`Storyshots Components|Expressive Modal Expanded 1`] = `
                                 height={20}
                                 preserveAspectRatio="xMidYMid meet"
                                 role="img"
-                                style={
-                                  Object {
-                                    "willChange": "transform",
-                                  }
-                                }
                                 viewBox="0 0 32 32"
                                 width={20}
                                 xmlns="http://www.w3.org/2000/svg"
                               >
-                                <path
-                                  d="M24 9.4L22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16 24 9.4z"
+                                <polygon
+                                  points="24 9.4 22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16 24 9.4"
                                 />
                               </svg>
                             </Icon>
@@ -2379,17 +2452,12 @@ exports[`Storyshots Components|Expressive Modal Expanded 1`] = `
                                             focusable="false"
                                             height={20}
                                             preserveAspectRatio="xMidYMid meet"
-                                            style={
-                                              Object {
-                                                "willChange": "transform",
-                                              }
-                                            }
                                             viewBox="0 0 20 20"
                                             width={20}
                                             xmlns="http://www.w3.org/2000/svg"
                                           >
-                                            <path
-                                              d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                            <polygon
+                                              points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
                                             />
                                           </svg>
                                         </Icon>
@@ -2403,6 +2471,13 @@ exports[`Storyshots Components|Expressive Modal Expanded 1`] = `
                         </div>
                       </ModalBody>
                     </div>
+                    <span
+                      className="bx--visually-hidden"
+                      role="link"
+                      tabIndex="0"
+                    >
+                      Focus sentinel
+                    </span>
                   </div>
                 </ComposedModal>
               </ExpressiveModal>
@@ -2598,11 +2673,6 @@ exports[`Storyshots Components|Footer Default 1`] = `
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
                                     role="img"
-                                    style={
-                                      Object {
-                                        "willChange": "transform",
-                                      }
-                                    }
                                     viewBox="0 0 32 32"
                                     width={20}
                                     xmlns="http://www.w3.org/2000/svg"
@@ -3245,10 +3315,17 @@ exports[`Storyshots Components|LightboxMediaViewer Default 1`] = `
                         onTransitionEnd={[Function]}
                         open={true}
                         role="presentation"
-                        tabIndex={-1}
                       >
+                        <span
+                          className="bx--visually-hidden"
+                          role="link"
+                          tabIndex="0"
+                        >
+                          Focus sentinel
+                        </span>
                         <div
                           className="bx--modal-container"
+                          tabIndex={-1}
                         >
                           <ExpressiveModalCloseBtn
                             iconDescription="Close"
@@ -3282,17 +3359,12 @@ exports[`Storyshots Components|LightboxMediaViewer Default 1`] = `
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
                                     role="img"
-                                    style={
-                                      Object {
-                                        "willChange": "transform",
-                                      }
-                                    }
                                     viewBox="0 0 32 32"
                                     width={20}
                                     xmlns="http://www.w3.org/2000/svg"
                                   >
-                                    <path
-                                      d="M24 9.4L22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16 24 9.4z"
+                                    <polygon
+                                      points="24 9.4 22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16 24 9.4"
                                     />
                                   </svg>
                                 </Icon>
@@ -3356,6 +3428,13 @@ exports[`Storyshots Components|LightboxMediaViewer Default 1`] = `
                             </div>
                           </ModalBody>
                         </div>
+                        <span
+                          className="bx--visually-hidden"
+                          role="link"
+                          tabIndex="0"
+                        >
+                          Focus sentinel
+                        </span>
                       </div>
                     </ComposedModal>
                   </ExpressiveModal>
@@ -3463,10 +3542,17 @@ exports[`Storyshots Components|LightboxMediaViewer Embedded Video Player 1`] = `
                         onTransitionEnd={[Function]}
                         open={true}
                         role="presentation"
-                        tabIndex={-1}
                       >
+                        <span
+                          className="bx--visually-hidden"
+                          role="link"
+                          tabIndex="0"
+                        >
+                          Focus sentinel
+                        </span>
                         <div
                           className="bx--modal-container"
+                          tabIndex={-1}
                         >
                           <ExpressiveModalCloseBtn
                             iconDescription="Close"
@@ -3500,17 +3586,12 @@ exports[`Storyshots Components|LightboxMediaViewer Embedded Video Player 1`] = `
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
                                     role="img"
-                                    style={
-                                      Object {
-                                        "willChange": "transform",
-                                      }
-                                    }
                                     viewBox="0 0 32 32"
                                     width={20}
                                     xmlns="http://www.w3.org/2000/svg"
                                   >
-                                    <path
-                                      d="M24 9.4L22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16 24 9.4z"
+                                    <polygon
+                                      points="24 9.4 22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16 24 9.4"
                                     />
                                   </svg>
                                 </Icon>
@@ -3563,6 +3644,13 @@ exports[`Storyshots Components|LightboxMediaViewer Embedded Video Player 1`] = `
                             </div>
                           </ModalBody>
                         </div>
+                        <span
+                          className="bx--visually-hidden"
+                          role="link"
+                          tabIndex="0"
+                        >
+                          Focus sentinel
+                        </span>
                       </div>
                     </ComposedModal>
                   </ExpressiveModal>
@@ -3691,17 +3779,12 @@ exports[`Storyshots Components|Link with Icon Default 1`] = `
                               focusable="false"
                               height={20}
                               preserveAspectRatio="xMidYMid meet"
-                              style={
-                                Object {
-                                  "willChange": "transform",
-                                }
-                              }
                               viewBox="0 0 20 20"
                               width={20}
                               xmlns="http://www.w3.org/2000/svg"
                             >
-                              <path
-                                d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                              <polygon
+                                points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
                               />
                             </svg>
                           </Icon>
@@ -3795,10 +3878,17 @@ exports[`Storyshots Components|Locale Modal Default 1`] = `
                     onTransitionEnd={[Function]}
                     open={true}
                     role="presentation"
-                    tabIndex={-1}
                   >
+                    <span
+                      className="bx--visually-hidden"
+                      role="link"
+                      tabIndex="0"
+                    >
+                      Focus sentinel
+                    </span>
                     <div
                       className="bx--modal-container"
+                      tabIndex={-1}
                     >
                       <ModalHeader
                         buttonOnClick={[Function]}
@@ -3838,11 +3928,6 @@ exports[`Storyshots Components|Locale Modal Default 1`] = `
                                   focusable="false"
                                   height={20}
                                   preserveAspectRatio="xMidYMid meet"
-                                  style={
-                                    Object {
-                                      "willChange": "transform",
-                                    }
-                                  }
                                   viewBox="0 0 32 32"
                                   width={20}
                                   xmlns="http://www.w3.org/2000/svg"
@@ -3878,17 +3963,12 @@ exports[`Storyshots Components|Locale Modal Default 1`] = `
                                   focusable="false"
                                   height={20}
                                   preserveAspectRatio="xMidYMid meet"
-                                  style={
-                                    Object {
-                                      "willChange": "transform",
-                                    }
-                                  }
                                   viewBox="0 0 32 32"
                                   width={20}
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
-                                  <path
-                                    d="M24 9.4L22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16 24 9.4z"
+                                  <polygon
+                                    points="24 9.4 22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16 24 9.4"
                                   />
                                 </svg>
                               </Icon>
@@ -3938,7 +4018,9 @@ exports[`Storyshots Components|Locale Modal Default 1`] = `
                                   type="text"
                                 >
                                   <div
+                                    aria-labelledby="bx--locale-modal__filter-search"
                                     className="bx--search bx--search--xl"
+                                    role="search"
                                   >
                                     <ForwardRef(Search16)
                                       className="bx--search-magnifier"
@@ -3957,11 +4039,6 @@ exports[`Storyshots Components|Locale Modal Default 1`] = `
                                           focusable="false"
                                           height={16}
                                           preserveAspectRatio="xMidYMid meet"
-                                          style={
-                                            Object {
-                                              "willChange": "transform",
-                                            }
-                                          }
                                           viewBox="0 0 16 16"
                                           width={16}
                                           xmlns="http://www.w3.org/2000/svg"
@@ -3975,10 +4052,12 @@ exports[`Storyshots Components|Locale Modal Default 1`] = `
                                     <label
                                       className="bx--label"
                                       htmlFor="bx--locale-modal__filter"
+                                      id="bx--locale-modal__filter-search"
                                     >
                                       Search by location or language
                                     </label>
                                     <input
+                                      autoComplete="off"
                                       className="bx--search-input"
                                       data-autoid="dds--locale-modal__filter"
                                       id="bx--locale-modal__filter"
@@ -4006,17 +4085,12 @@ exports[`Storyshots Components|Locale Modal Default 1`] = `
                                             focusable="false"
                                             height={20}
                                             preserveAspectRatio="xMidYMid meet"
-                                            style={
-                                              Object {
-                                                "willChange": "transform",
-                                              }
-                                            }
                                             viewBox="0 0 32 32"
                                             width={20}
                                             xmlns="http://www.w3.org/2000/svg"
                                           >
-                                            <path
-                                              d="M24 9.4L22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16 24 9.4z"
+                                            <polygon
+                                              points="24 9.4 22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16 24 9.4"
                                             />
                                           </svg>
                                         </Icon>
@@ -4039,6 +4113,13 @@ exports[`Storyshots Components|Locale Modal Default 1`] = `
                         </div>
                       </ModalBody>
                     </div>
+                    <span
+                      className="bx--visually-hidden"
+                      role="link"
+                      tabIndex="0"
+                    >
+                      Focus sentinel
+                    </span>
                   </div>
                 </ComposedModal>
               </LocaleModal>
@@ -4148,7 +4229,6 @@ exports[`Storyshots Components|Masthead Default 1`] = `
                             aria-label="IBM"
                             className="bx--header"
                             data-autoid="dds--masthead"
-                            role="banner"
                           >
                             <SkipToContent
                               href="#main-content"
@@ -4189,17 +4269,33 @@ exports[`Storyshots Components|Masthead Default 1`] = `
                                       focusable="false"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
-                                      style={
-                                        Object {
-                                          "willChange": "transform",
-                                        }
-                                      }
                                       viewBox="0 0 20 20"
                                       width={20}
                                       xmlns="http://www.w3.org/2000/svg"
                                     >
-                                      <path
-                                        d="M2 14.8H18V16H2zM2 11.2H18V12.399999999999999H2zM2 7.6H18V8.799999999999999H2zM2 4H18V5.2H2z"
+                                      <rect
+                                        height="1.2"
+                                        width="16"
+                                        x="2"
+                                        y="14.8"
+                                      />
+                                      <rect
+                                        height="1.2"
+                                        width="16"
+                                        x="2"
+                                        y="11.2"
+                                      />
+                                      <rect
+                                        height="1.2"
+                                        width="16"
+                                        x="2"
+                                        y="7.6"
+                                      />
+                                      <rect
+                                        height="1.2"
+                                        width="16"
+                                        x="2"
+                                        y="4"
                                       />
                                     </svg>
                                   </Icon>
@@ -4307,11 +4403,6 @@ exports[`Storyshots Components|Masthead Default 1`] = `
                                               focusable="false"
                                               height={20}
                                               preserveAspectRatio="xMidYMid meet"
-                                              style={
-                                                Object {
-                                                  "willChange": "transform",
-                                                }
-                                              }
                                               viewBox="0 0 32 32"
                                               width={20}
                                               xmlns="http://www.w3.org/2000/svg"
@@ -4350,17 +4441,12 @@ exports[`Storyshots Components|Masthead Default 1`] = `
                                               focusable="false"
                                               height={20}
                                               preserveAspectRatio="xMidYMid meet"
-                                              style={
-                                                Object {
-                                                  "willChange": "transform",
-                                                }
-                                              }
                                               viewBox="0 0 32 32"
                                               width={20}
                                               xmlns="http://www.w3.org/2000/svg"
                                             >
-                                              <path
-                                                d="M24 9.4L22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16 24 9.4z"
+                                              <polygon
+                                                points="24 9.4 22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16 24 9.4"
                                               />
                                             </svg>
                                           </Icon>
@@ -4472,17 +4558,15 @@ exports[`Storyshots Components|Masthead Default 1`] = `
                                                   focusable="false"
                                                   height={20}
                                                   preserveAspectRatio="xMidYMid meet"
-                                                  style={
-                                                    Object {
-                                                      "willChange": "transform",
-                                                    }
-                                                  }
                                                   viewBox="0 0 32 32"
                                                   width={20}
                                                   xmlns="http://www.w3.org/2000/svg"
                                                 >
                                                   <path
-                                                    d="M16 4a5 5 0 1 1-5 5 5 5 0 0 1 5-5m0-2a7 7 0 1 0 7 7A7 7 0 0 0 16 2zM26 30H24V25a5 5 0 0 0-5-5H13a5 5 0 0 0-5 5v5H6V25a7 7 0 0 1 7-7h6a7 7 0 0 1 7 7z"
+                                                    d="M16,4a5,5,0,1,1-5,5,5,5,0,0,1,5-5m0-2a7,7,0,1,0,7,7A7,7,0,0,0,16,2Z"
+                                                  />
+                                                  <path
+                                                    d="M26,30H24V25a5,5,0,0,0-5-5H13a5,5,0,0,0-5,5v5H6V25a7,7,0,0,1,7-7h6a7,7,0,0,1,7,7Z"
                                                   />
                                                 </svg>
                                               </Icon>
@@ -4519,8 +4603,6 @@ exports[`Storyshots Components|Masthead Default 1`] = `
                                   className="bx--side-nav__navigation bx--side-nav bx--side-nav--ux bx--side-nav--hidden"
                                   onBlur={[Function]}
                                   onFocus={[Function]}
-                                  onMouseEnter={[Function]}
-                                  onMouseLeave={[Function]}
                                 >
                                   <nav
                                     data-autoid="dds--masthead__l0-sidenav"
@@ -4656,7 +4738,6 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
                             aria-label="IBM"
                             className="bx--header"
                             data-autoid="dds--masthead"
-                            role="banner"
                           >
                             <SkipToContent
                               href="#main-content"
@@ -4697,17 +4778,33 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
                                       focusable="false"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
-                                      style={
-                                        Object {
-                                          "willChange": "transform",
-                                        }
-                                      }
                                       viewBox="0 0 20 20"
                                       width={20}
                                       xmlns="http://www.w3.org/2000/svg"
                                     >
-                                      <path
-                                        d="M2 14.8H18V16H2zM2 11.2H18V12.399999999999999H2zM2 7.6H18V8.799999999999999H2zM2 4H18V5.2H2z"
+                                      <rect
+                                        height="1.2"
+                                        width="16"
+                                        x="2"
+                                        y="14.8"
+                                      />
+                                      <rect
+                                        height="1.2"
+                                        width="16"
+                                        x="2"
+                                        y="11.2"
+                                      />
+                                      <rect
+                                        height="1.2"
+                                        width="16"
+                                        x="2"
+                                        y="7.6"
+                                      />
+                                      <rect
+                                        height="1.2"
+                                        width="16"
+                                        x="2"
+                                        y="4"
                                       />
                                     </svg>
                                   </Icon>
@@ -4985,11 +5082,6 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
                                               focusable="false"
                                               height={20}
                                               preserveAspectRatio="xMidYMid meet"
-                                              style={
-                                                Object {
-                                                  "willChange": "transform",
-                                                }
-                                              }
                                               viewBox="0 0 32 32"
                                               width={20}
                                               xmlns="http://www.w3.org/2000/svg"
@@ -5028,17 +5120,12 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
                                               focusable="false"
                                               height={20}
                                               preserveAspectRatio="xMidYMid meet"
-                                              style={
-                                                Object {
-                                                  "willChange": "transform",
-                                                }
-                                              }
                                               viewBox="0 0 32 32"
                                               width={20}
                                               xmlns="http://www.w3.org/2000/svg"
                                             >
-                                              <path
-                                                d="M24 9.4L22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16 24 9.4z"
+                                              <polygon
+                                                points="24 9.4 22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16 24 9.4"
                                               />
                                             </svg>
                                           </Icon>
@@ -5150,17 +5237,15 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
                                                   focusable="false"
                                                   height={20}
                                                   preserveAspectRatio="xMidYMid meet"
-                                                  style={
-                                                    Object {
-                                                      "willChange": "transform",
-                                                    }
-                                                  }
                                                   viewBox="0 0 32 32"
                                                   width={20}
                                                   xmlns="http://www.w3.org/2000/svg"
                                                 >
                                                   <path
-                                                    d="M16 4a5 5 0 1 1-5 5 5 5 0 0 1 5-5m0-2a7 7 0 1 0 7 7A7 7 0 0 0 16 2zM26 30H24V25a5 5 0 0 0-5-5H13a5 5 0 0 0-5 5v5H6V25a7 7 0 0 1 7-7h6a7 7 0 0 1 7 7z"
+                                                    d="M16,4a5,5,0,1,1-5,5,5,5,0,0,1,5-5m0-2a7,7,0,1,0,7,7A7,7,0,0,0,16,2Z"
+                                                  />
+                                                  <path
+                                                    d="M26,30H24V25a5,5,0,0,0-5-5H13a5,5,0,0,0-5,5v5H6V25a7,7,0,0,1,7-7h6a7,7,0,0,1,7,7Z"
                                                   />
                                                 </svg>
                                               </Icon>
@@ -5197,8 +5282,6 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
                                   className="bx--side-nav__navigation bx--side-nav bx--side-nav--ux bx--side-nav--hidden"
                                   onBlur={[Function]}
                                   onFocus={[Function]}
-                                  onMouseEnter={[Function]}
-                                  onMouseLeave={[Function]}
                                 >
                                   <nav
                                     data-autoid="dds--masthead__l0-sidenav"
@@ -5335,7 +5418,7 @@ exports[`Storyshots Components|VideoPlayer Default 1`] = `
                         <div
                           className="bx--video-player__video-description"
                         >
-
+                           
                         </div>
                       </div>
                     </VideoPlayer>
@@ -9847,7 +9930,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                                       target={null}
                                                     >
                                                       <a
-                                                        className="bx--link bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                                        className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
                                                         data-autoid="dds--card"
                                                         href="https://ibm.com"
                                                         onClick={[Function]}
@@ -9904,17 +9987,12 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                                                       "render": [Function],
                                                                     }
                                                                   }
-                                                                  style={
-                                                                    Object {
-                                                                      "willChange": "transform",
-                                                                    }
-                                                                  }
                                                                   viewBox="0 0 20 20"
                                                                   width={20}
                                                                   xmlns="http://www.w3.org/2000/svg"
                                                                 >
-                                                                  <path
-                                                                    d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                                                  <polygon
+                                                                    points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
                                                                   />
                                                                 </svg>
                                                               </Icon>
@@ -9994,7 +10072,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                                       target="_blank"
                                                     >
                                                       <a
-                                                        className="bx--link bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                                        className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
                                                         data-autoid="dds--card"
                                                         href="https://ibm.com"
                                                         onClick={[Function]}
@@ -10051,11 +10129,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                                                       "render": [Function],
                                                                     }
                                                                   }
-                                                                  style={
-                                                                    Object {
-                                                                      "willChange": "transform",
-                                                                    }
-                                                                  }
                                                                   viewBox="0 0 32 32"
                                                                   width={20}
                                                                   xmlns="http://www.w3.org/2000/svg"
@@ -10063,8 +10136,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                                                   <path
                                                                     d="M26,28H6a2,2,0,0,1-2-2V6A2,2,0,0,1,6,4h9V6H6V26H26V17h2v9A2,2,0,0,1,26,28Z"
                                                                   />
-                                                                  <path
-                                                                    d="M21 2L21 4 26.59 4 18 12.59 19.41 14 28 5.41 28 11 30 11 30 2 21 2z"
+                                                                  <polygon
+                                                                    points="21 2 21 4 26.59 4 18 12.59 19.41 14 28 5.41 28 11 30 11 30 2 21 2"
                                                                   />
                                                                 </svg>
                                                               </Icon>
@@ -10609,7 +10682,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                                 >
                                                   <a
                                                     aria-label="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt"
-                                                    className="bx--link bx--tile bx--tile--clickable bx--card bx--card--link bx--content-group-cards-item"
+                                                    className="bx--tile bx--tile--clickable bx--card bx--card--link bx--content-group-cards-item"
                                                     data-autoid="dds--card"
                                                     href="https://www.example.com"
                                                     onClick={[Function]}
@@ -10669,17 +10742,12 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                                                   "render": [Function],
                                                                 }
                                                               }
-                                                              style={
-                                                                Object {
-                                                                  "willChange": "transform",
-                                                                }
-                                                              }
                                                               viewBox="0 0 20 20"
                                                               width={20}
                                                               xmlns="http://www.w3.org/2000/svg"
                                                             >
-                                                              <path
-                                                                d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                                              <polygon
+                                                                points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
                                                               />
                                                             </svg>
                                                           </Icon>
@@ -10726,7 +10794,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                                 >
                                                   <a
                                                     aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-                                                    className="bx--link bx--tile bx--tile--clickable bx--card bx--card--link bx--content-group-cards-item"
+                                                    className="bx--tile bx--tile--clickable bx--card bx--card--link bx--content-group-cards-item"
                                                     data-autoid="dds--card"
                                                     href="https://www.example.com"
                                                     onClick={[Function]}
@@ -10786,17 +10854,12 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                                                   "render": [Function],
                                                                 }
                                                               }
-                                                              style={
-                                                                Object {
-                                                                  "willChange": "transform",
-                                                                }
-                                                              }
                                                               viewBox="0 0 20 20"
                                                               width={20}
                                                               xmlns="http://www.w3.org/2000/svg"
                                                             >
-                                                              <path
-                                                                d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                                              <polygon
+                                                                points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
                                                               />
                                                             </svg>
                                                           </Icon>
@@ -10843,7 +10906,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                                 >
                                                   <a
                                                     aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-                                                    className="bx--link bx--tile bx--tile--clickable bx--card bx--card--link bx--content-group-cards-item"
+                                                    className="bx--tile bx--tile--clickable bx--card bx--card--link bx--content-group-cards-item"
                                                     data-autoid="dds--card"
                                                     href="https://www.example.com"
                                                     onClick={[Function]}
@@ -10903,17 +10966,12 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                                                   "render": [Function],
                                                                 }
                                                               }
-                                                              style={
-                                                                Object {
-                                                                  "willChange": "transform",
-                                                                }
-                                                              }
                                                               viewBox="0 0 20 20"
                                                               width={20}
                                                               xmlns="http://www.w3.org/2000/svg"
                                                             >
-                                                              <path
-                                                                d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                                              <polygon
+                                                                points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
                                                               />
                                                             </svg>
                                                           </Icon>
@@ -10960,7 +11018,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                                 >
                                                   <a
                                                     aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-                                                    className="bx--link bx--tile bx--tile--clickable bx--card bx--card--link bx--content-group-cards-item"
+                                                    className="bx--tile bx--tile--clickable bx--card bx--card--link bx--content-group-cards-item"
                                                     data-autoid="dds--card"
                                                     href="https://www.example.com"
                                                     onClick={[Function]}
@@ -11020,17 +11078,12 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                                                   "render": [Function],
                                                                 }
                                                               }
-                                                              style={
-                                                                Object {
-                                                                  "willChange": "transform",
-                                                                }
-                                                              }
                                                               viewBox="0 0 20 20"
                                                               width={20}
                                                               xmlns="http://www.w3.org/2000/svg"
                                                             >
-                                                              <path
-                                                                d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                                              <polygon
+                                                                points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
                                                               />
                                                             </svg>
                                                           </Icon>
@@ -11181,11 +11234,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                                       height={48}
                                                       preserveAspectRatio="xMidYMid meet"
                                                       role="img"
-                                                      style={
-                                                        Object {
-                                                          "willChange": "transform",
-                                                        }
-                                                      }
                                                       viewBox="0 0 48 48"
                                                       width={48}
                                                       xmlns="http://www.w3.org/2000/svg"
@@ -11298,17 +11346,12 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                                                         focusable="false"
                                                                         height={20}
                                                                         preserveAspectRatio="xMidYMid meet"
-                                                                        style={
-                                                                          Object {
-                                                                            "willChange": "transform",
-                                                                          }
-                                                                        }
                                                                         viewBox="0 0 20 20"
                                                                         width={20}
                                                                         xmlns="http://www.w3.org/2000/svg"
                                                                       >
-                                                                        <path
-                                                                          d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                                                        <polygon
+                                                                          points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
                                                                         />
                                                                       </svg>
                                                                     </Icon>
@@ -11381,11 +11424,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                                       height={48}
                                                       preserveAspectRatio="xMidYMid meet"
                                                       role="img"
-                                                      style={
-                                                        Object {
-                                                          "willChange": "transform",
-                                                        }
-                                                      }
                                                       viewBox="0 0 48 48"
                                                       width={48}
                                                       xmlns="http://www.w3.org/2000/svg"
@@ -11499,17 +11537,12 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                                                         focusable="false"
                                                                         height={20}
                                                                         preserveAspectRatio="xMidYMid meet"
-                                                                        style={
-                                                                          Object {
-                                                                            "willChange": "transform",
-                                                                          }
-                                                                        }
                                                                         viewBox="0 0 20 20"
                                                                         width={20}
                                                                         xmlns="http://www.w3.org/2000/svg"
                                                                       >
-                                                                        <path
-                                                                          d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                                                        <polygon
+                                                                          points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
                                                                         />
                                                                       </svg>
                                                                     </Icon>
@@ -11582,11 +11615,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                                       height={48}
                                                       preserveAspectRatio="xMidYMid meet"
                                                       role="img"
-                                                      style={
-                                                        Object {
-                                                          "willChange": "transform",
-                                                        }
-                                                      }
                                                       viewBox="0 0 48 48"
                                                       width={48}
                                                       xmlns="http://www.w3.org/2000/svg"
@@ -11699,17 +11727,12 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                                                         focusable="false"
                                                                         height={20}
                                                                         preserveAspectRatio="xMidYMid meet"
-                                                                        style={
-                                                                          Object {
-                                                                            "willChange": "transform",
-                                                                          }
-                                                                        }
                                                                         viewBox="0 0 20 20"
                                                                         width={20}
                                                                         xmlns="http://www.w3.org/2000/svg"
                                                                       >
-                                                                        <path
-                                                                          d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                                                        <polygon
+                                                                          points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
                                                                         />
                                                                       </svg>
                                                                     </Icon>
@@ -12009,7 +12032,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                         target={null}
                                       >
                                         <a
-                                          className="bx--link bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                          className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
                                           data-autoid="dds--card"
                                           href="https://www.ibm.com"
                                           onClick={[Function]}
@@ -12066,17 +12089,12 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                                         "render": [Function],
                                                       }
                                                     }
-                                                    style={
-                                                      Object {
-                                                        "willChange": "transform",
-                                                      }
-                                                    }
                                                     viewBox="0 0 20 20"
                                                     width={20}
                                                     xmlns="http://www.w3.org/2000/svg"
                                                   >
-                                                    <path
-                                                      d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                                    <polygon
+                                                      points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
                                                     />
                                                   </svg>
                                                 </Icon>
@@ -21107,8 +21125,8 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
                                               width={20}
                                               xmlns="http://www.w3.org/2000/svg"
                                             >
-                                              <path
-                                                d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                              <polygon
+                                                points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
                                               />
                                             </svg>
                                           </Icon>
@@ -21502,11 +21520,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                                   "render": [Function],
                                                 }
                                               }
-                                              style={
-                                                Object {
-                                                  "willChange": "transform",
-                                                }
-                                              }
                                               viewBox="0 0 20 20"
                                               width={20}
                                               xmlns="http://www.w3.org/2000/svg"
@@ -21635,11 +21648,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                                 Object {
                                                   "$$typeof": Symbol(react.forward_ref),
                                                   "render": [Function],
-                                                }
-                                              }
-                                              style={
-                                                Object {
-                                                  "willChange": "transform",
                                                 }
                                               }
                                               viewBox="0 0 20 20"
@@ -21772,11 +21780,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                                   "render": [Function],
                                                 }
                                               }
-                                              style={
-                                                Object {
-                                                  "willChange": "transform",
-                                                }
-                                              }
                                               viewBox="0 0 20 20"
                                               width={20}
                                               xmlns="http://www.w3.org/2000/svg"
@@ -21907,11 +21910,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                                   "render": [Function],
                                                 }
                                               }
-                                              style={
-                                                Object {
-                                                  "willChange": "transform",
-                                                }
-                                              }
                                               viewBox="0 0 20 20"
                                               width={20}
                                               xmlns="http://www.w3.org/2000/svg"
@@ -22040,11 +22038,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                                 Object {
                                                   "$$typeof": Symbol(react.forward_ref),
                                                   "render": [Function],
-                                                }
-                                              }
-                                              style={
-                                                Object {
-                                                  "willChange": "transform",
                                                 }
                                               }
                                               viewBox="0 0 20 20"
@@ -22533,17 +22526,12 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                                     "render": [Function],
                                                   }
                                                 }
-                                                style={
-                                                  Object {
-                                                    "willChange": "transform",
-                                                  }
-                                                }
                                                 viewBox="0 0 20 20"
                                                 width={20}
                                                 xmlns="http://www.w3.org/2000/svg"
                                               >
-                                                <path
-                                                  d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                                <polygon
+                                                  points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
                                                 />
                                               </svg>
                                             </Icon>
@@ -22648,17 +22636,12 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                                     "render": [Function],
                                                   }
                                                 }
-                                                style={
-                                                  Object {
-                                                    "willChange": "transform",
-                                                  }
-                                                }
                                                 viewBox="0 0 20 20"
                                                 width={20}
                                                 xmlns="http://www.w3.org/2000/svg"
                                               >
-                                                <path
-                                                  d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                                <polygon
+                                                  points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
                                                 />
                                               </svg>
                                             </Icon>
@@ -22763,17 +22746,12 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                                     "render": [Function],
                                                   }
                                                 }
-                                                style={
-                                                  Object {
-                                                    "willChange": "transform",
-                                                  }
-                                                }
                                                 viewBox="0 0 20 20"
                                                 width={20}
                                                 xmlns="http://www.w3.org/2000/svg"
                                               >
-                                                <path
-                                                  d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                                <polygon
+                                                  points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
                                                 />
                                               </svg>
                                             </Icon>
@@ -22878,17 +22856,12 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                                     "render": [Function],
                                                   }
                                                 }
-                                                style={
-                                                  Object {
-                                                    "willChange": "transform",
-                                                  }
-                                                }
                                                 viewBox="0 0 20 20"
                                                 width={20}
                                                 xmlns="http://www.w3.org/2000/svg"
                                               >
-                                                <path
-                                                  d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                                <polygon
+                                                  points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
                                                 />
                                               </svg>
                                             </Icon>
@@ -22980,17 +22953,12 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                                     "render": [Function],
                                                   }
                                                 }
-                                                style={
-                                                  Object {
-                                                    "willChange": "transform",
-                                                  }
-                                                }
                                                 viewBox="0 0 20 20"
                                                 width={20}
                                                 xmlns="http://www.w3.org/2000/svg"
                                               >
-                                                <path
-                                                  d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                                <polygon
+                                                  points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
                                                 />
                                               </svg>
                                             </Icon>
@@ -25810,7 +25778,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock Default 1`] = `
                                     target="_blank"
                                   >
                                     <a
-                                      className="bx--link bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                      className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
                                       data-autoid="dds--card"
                                       href="https://www.example.com"
                                       onClick={[Function]}
@@ -25867,11 +25835,6 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock Default 1`] = `
                                                     "render": [Function],
                                                   }
                                                 }
-                                                style={
-                                                  Object {
-                                                    "willChange": "transform",
-                                                  }
-                                                }
                                                 viewBox="0 0 32 32"
                                                 width={20}
                                                 xmlns="http://www.w3.org/2000/svg"
@@ -25879,8 +25842,8 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock Default 1`] = `
                                                 <path
                                                   d="M26,28H6a2,2,0,0,1-2-2V6A2,2,0,0,1,6,4h9V6H6V26H26V17h2v9A2,2,0,0,1,26,28Z"
                                                 />
-                                                <path
-                                                  d="M21 2L21 4 26.59 4 18 12.59 19.41 14 28 5.41 28 11 30 11 30 2 21 2z"
+                                                <polygon
+                                                  points="21 2 21 4 26.59 4 18 12.59 19.41 14 28 5.41 28 11 30 11 30 2 21 2"
                                                 />
                                               </svg>
                                             </Icon>
@@ -26207,7 +26170,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock With aside elements 1`]
                                             target="_blank"
                                           >
                                             <a
-                                              className="bx--link bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                              className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
                                               data-autoid="dds--card"
                                               href="https://www.example.com"
                                               onClick={[Function]}
@@ -26264,11 +26227,6 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock With aside elements 1`]
                                                             "render": [Function],
                                                           }
                                                         }
-                                                        style={
-                                                          Object {
-                                                            "willChange": "transform",
-                                                          }
-                                                        }
                                                         viewBox="0 0 32 32"
                                                         width={20}
                                                         xmlns="http://www.w3.org/2000/svg"
@@ -26276,8 +26234,8 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock With aside elements 1`]
                                                         <path
                                                           d="M26,28H6a2,2,0,0,1-2-2V6A2,2,0,0,1,6,4h9V6H6V26H26V17h2v9A2,2,0,0,1,26,28Z"
                                                         />
-                                                        <path
-                                                          d="M21 2L21 4 26.59 4 18 12.59 19.41 14 28 5.41 28 11 30 11 30 2 21 2z"
+                                                        <polygon
+                                                          points="21 2 21 4 26.59 4 18 12.59 19.41 14 28 5.41 28 11 30 11 30 2 21 2"
                                                         />
                                                       </svg>
                                                     </Icon>
@@ -26395,7 +26353,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock With aside elements 1`]
                                                   target={null}
                                                 >
                                                   <a
-                                                    className="bx--link bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                                    className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
                                                     data-autoid="dds--card"
                                                     href="https://ibm.com"
                                                     onClick={[Function]}
@@ -26452,17 +26410,12 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock With aside elements 1`]
                                                                   "render": [Function],
                                                                 }
                                                               }
-                                                              style={
-                                                                Object {
-                                                                  "willChange": "transform",
-                                                                }
-                                                              }
                                                               viewBox="0 0 20 20"
                                                               width={20}
                                                               xmlns="http://www.w3.org/2000/svg"
                                                             >
-                                                              <path
-                                                                d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                                              <polygon
+                                                                points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
                                                               />
                                                             </svg>
                                                           </Icon>
@@ -26542,7 +26495,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock With aside elements 1`]
                                                   target="_blank"
                                                 >
                                                   <a
-                                                    className="bx--link bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                                    className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
                                                     data-autoid="dds--card"
                                                     href="https://ibm.com"
                                                     onClick={[Function]}
@@ -26599,11 +26552,6 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock With aside elements 1`]
                                                                   "render": [Function],
                                                                 }
                                                               }
-                                                              style={
-                                                                Object {
-                                                                  "willChange": "transform",
-                                                                }
-                                                              }
                                                               viewBox="0 0 32 32"
                                                               width={20}
                                                               xmlns="http://www.w3.org/2000/svg"
@@ -26611,8 +26559,8 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock With aside elements 1`]
                                                               <path
                                                                 d="M26,28H6a2,2,0,0,1-2-2V6A2,2,0,0,1,6,4h9V6H6V26H26V17h2v9A2,2,0,0,1,26,28Z"
                                                               />
-                                                              <path
-                                                                d="M21 2L21 4 26.59 4 18 12.59 19.41 14 28 5.41 28 11 30 11 30 2 21 2z"
+                                                              <polygon
+                                                                points="21 2 21 4 26.59 4 18 12.59 19.41 14 28 5.41 28 11 30 11 30 2 21 2"
                                                               />
                                                             </svg>
                                                           </Icon>
@@ -26826,7 +26774,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentGroup Default 1`] = `
                                     target={null}
                                   >
                                     <a
-                                      className="bx--link bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                      className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
                                       data-autoid="dds--card"
                                       href="https://www.example.com"
                                       onClick={[Function]}
@@ -26883,17 +26831,12 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentGroup Default 1`] = `
                                                     "render": [Function],
                                                   }
                                                 }
-                                                style={
-                                                  Object {
-                                                    "willChange": "transform",
-                                                  }
-                                                }
                                                 viewBox="0 0 20 20"
                                                 width={20}
                                                 xmlns="http://www.w3.org/2000/svg"
                                               >
-                                                <path
-                                                  d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                                <polygon
+                                                  points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
                                                 />
                                               </svg>
                                             </Icon>
@@ -28458,7 +28401,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|LinkList Default 1`] = `
                                       target={null}
                                     >
                                       <a
-                                        className="bx--link bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                        className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
                                         data-autoid="dds--card"
                                         href="https://ibm.com"
                                         onClick={[Function]}
@@ -28515,17 +28458,12 @@ exports[`Storyshots Patterns (Sub-Patterns)|LinkList Default 1`] = `
                                                       "render": [Function],
                                                     }
                                                   }
-                                                  style={
-                                                    Object {
-                                                      "willChange": "transform",
-                                                    }
-                                                  }
                                                   viewBox="0 0 20 20"
                                                   width={20}
                                                   xmlns="http://www.w3.org/2000/svg"
                                                 >
-                                                  <path
-                                                    d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                                  <polygon
+                                                    points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
                                                   />
                                                 </svg>
                                               </Icon>
@@ -28605,7 +28543,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|LinkList Default 1`] = `
                                       target={null}
                                     >
                                       <a
-                                        className="bx--link bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                        className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
                                         data-autoid="dds--card"
                                         href="https://ibm.com"
                                         onClick={[Function]}
@@ -28662,17 +28600,12 @@ exports[`Storyshots Patterns (Sub-Patterns)|LinkList Default 1`] = `
                                                       "render": [Function],
                                                     }
                                                   }
-                                                  style={
-                                                    Object {
-                                                      "willChange": "transform",
-                                                    }
-                                                  }
                                                   viewBox="0 0 20 20"
                                                   width={20}
                                                   xmlns="http://www.w3.org/2000/svg"
                                                 >
-                                                  <path
-                                                    d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                                  <polygon
+                                                    points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
                                                   />
                                                 </svg>
                                               </Icon>
@@ -28749,7 +28682,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|LinkList Default 1`] = `
                                         light={false}
                                       >
                                         <a
-                                          className="bx--link bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                          className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
                                           data-autoid="dds--card"
                                           href="#"
                                           onClick={[Function]}
@@ -28794,11 +28727,6 @@ exports[`Storyshots Patterns (Sub-Patterns)|LinkList Default 1`] = `
                                                       Object {
                                                         "$$typeof": Symbol(react.forward_ref),
                                                         "render": [Function],
-                                                      }
-                                                    }
-                                                    style={
-                                                      Object {
-                                                        "willChange": "transform",
                                                       }
                                                     }
                                                     viewBox="0 0 32 32"
@@ -28983,11 +28911,6 @@ exports[`Storyshots Patterns (Sub-Patterns)|PictogramItem Default 1`] = `
                                   height={48}
                                   preserveAspectRatio="xMidYMid meet"
                                   role="img"
-                                  style={
-                                    Object {
-                                      "willChange": "transform",
-                                    }
-                                  }
                                   viewBox="0 0 48 48"
                                   width={48}
                                   xmlns="http://www.w3.org/2000/svg"
@@ -29100,17 +29023,12 @@ exports[`Storyshots Patterns (Sub-Patterns)|PictogramItem Default 1`] = `
                                                     focusable="false"
                                                     height={20}
                                                     preserveAspectRatio="xMidYMid meet"
-                                                    style={
-                                                      Object {
-                                                        "willChange": "transform",
-                                                      }
-                                                    }
                                                     viewBox="0 0 20 20"
                                                     width={20}
                                                     xmlns="http://www.w3.org/2000/svg"
                                                   >
-                                                    <path
-                                                      d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                                    <polygon
+                                                      points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
                                                     />
                                                   </svg>
                                                 </Icon>
@@ -29652,17 +29570,57 @@ exports[`Storyshots Patterns (Sub-Patterns)|Table of Contents Dynamic Items 1`] 
                                         height={20}
                                         preserveAspectRatio="xMidYMid meet"
                                         role="img"
-                                        style={
-                                          Object {
-                                            "willChange": "transform",
-                                          }
-                                        }
                                         viewBox="0 0 32 32"
                                         width={20}
                                         xmlns="http://www.w3.org/2000/svg"
                                       >
-                                        <path
-                                          d="M4 6H22V8H4zM4 12H22V14H4zM4 18H22V20H4zM4 24H22V26H4zM26 6H28V8H26zM26 12H28V14H26zM26 18H28V20H26zM26 24H28V26H26z"
+                                        <rect
+                                          height="2"
+                                          width="18"
+                                          x="4"
+                                          y="6"
+                                        />
+                                        <rect
+                                          height="2"
+                                          width="18"
+                                          x="4"
+                                          y="12"
+                                        />
+                                        <rect
+                                          height="2"
+                                          width="18"
+                                          x="4"
+                                          y="18"
+                                        />
+                                        <rect
+                                          height="2"
+                                          width="18"
+                                          x="4"
+                                          y="24"
+                                        />
+                                        <rect
+                                          height="2"
+                                          width="2"
+                                          x="26"
+                                          y="6"
+                                        />
+                                        <rect
+                                          height="2"
+                                          width="2"
+                                          x="26"
+                                          y="12"
+                                        />
+                                        <rect
+                                          height="2"
+                                          width="2"
+                                          x="26"
+                                          y="18"
+                                        />
+                                        <rect
+                                          height="2"
+                                          width="2"
+                                          x="26"
+                                          y="24"
                                         />
                                         <title>
                                           menu icon
@@ -30300,17 +30258,57 @@ exports[`Storyshots Patterns (Sub-Patterns)|Table of Contents Manually define Me
                                         height={20}
                                         preserveAspectRatio="xMidYMid meet"
                                         role="img"
-                                        style={
-                                          Object {
-                                            "willChange": "transform",
-                                          }
-                                        }
                                         viewBox="0 0 32 32"
                                         width={20}
                                         xmlns="http://www.w3.org/2000/svg"
                                       >
-                                        <path
-                                          d="M4 6H22V8H4zM4 12H22V14H4zM4 18H22V20H4zM4 24H22V26H4zM26 6H28V8H26zM26 12H28V14H26zM26 18H28V20H26zM26 24H28V26H26z"
+                                        <rect
+                                          height="2"
+                                          width="18"
+                                          x="4"
+                                          y="6"
+                                        />
+                                        <rect
+                                          height="2"
+                                          width="18"
+                                          x="4"
+                                          y="12"
+                                        />
+                                        <rect
+                                          height="2"
+                                          width="18"
+                                          x="4"
+                                          y="18"
+                                        />
+                                        <rect
+                                          height="2"
+                                          width="18"
+                                          x="4"
+                                          y="24"
+                                        />
+                                        <rect
+                                          height="2"
+                                          width="2"
+                                          x="26"
+                                          y="6"
+                                        />
+                                        <rect
+                                          height="2"
+                                          width="2"
+                                          x="26"
+                                          y="12"
+                                        />
+                                        <rect
+                                          height="2"
+                                          width="2"
+                                          x="26"
+                                          y="18"
+                                        />
+                                        <rect
+                                          height="2"
+                                          width="2"
+                                          x="26"
+                                          y="24"
                                         />
                                         <title>
                                           menu icon
