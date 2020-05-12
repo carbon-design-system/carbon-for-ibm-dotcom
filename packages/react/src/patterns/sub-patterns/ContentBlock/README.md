@@ -7,7 +7,9 @@
 
 Here's a quick example to get you started.
 
-```scss
+##### CSS
+
+```css
 // yourapplication.scss
 @import '@carbon/type/scss/font-face/mono';
 @import '@carbon/type/scss/font-face/sans';
@@ -23,6 +25,8 @@ Here's a quick example to get you started.
 ### Base example
 
 This is the base example of 'ContentBlock'.
+
+##### JS
 
 ```javascript
 import React from 'react';
@@ -44,7 +48,7 @@ function App() {
   };
 
   return (
-    <ContentBlock heading={heading} copy={copy} cta={cta}>
+    <ContentBlock inverse={false} heading={heading} copy={copy} cta={cta}>
       {content}
     </ContentBlock>
   );
@@ -52,8 +56,8 @@ function App() {
 ReactDOM.render(<App />, document.querySelector('#app'));
 ```
 
-Add the following line on your `.env` file at the root of your project,
-[see more details](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/styles#usage)
+Add the following line in your `.env` file at the root of your project.
+[See more details](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/styles#usage).
 
 ```
   SASS_PATH=node_modules:src
@@ -132,6 +136,7 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 | `cta`             | NO       | Object    | null          | CTA object.                                                                                                |
 | `customClassName` | NO       | String    | null          | Custom className to wrap the `ContentBlock` component.                                                     |
 | `heading`         | NO       | String    | null          | Heading text.                                                                                              |
+| `inverse`         | NO       | Boolean   | `false`       | Changes theme to inverse/default                                                                           |
 
 ### aside
 

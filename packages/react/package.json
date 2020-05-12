@@ -37,7 +37,8 @@
     "storybook": "start-storybook -p 9000",
     "test": "jest",
     "test:updateSnapshot": "jest -u",
-    "test-ssr": "yarn build && node ssr-tests/*.js"
+    "test-ssr": "yarn build && node ssr-tests/*.js",
+    "visual-snapshot": "build-storybook && percy-storybook --widths=320,1280"
   },
   "peerDependencies": {
     "react": "16.9.0",
@@ -70,6 +71,8 @@
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
     "@carbon/pictograms-react": "10.10.2",
+    "@percy-io/in-percy": "^0.1.11",
+    "@percy/storybook": "^3.3.0",
     "@storybook/addon-a11y": "5.1.3",
     "@storybook/addon-actions": "5.1.3",
     "@storybook/addon-info": "5.1.3",

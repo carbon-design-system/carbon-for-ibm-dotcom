@@ -61,6 +61,15 @@
       }
     }
 
+    .#{$prefix}--legal-nav__list
+      .#{$prefix}--legal-nav__list-item
+      .#{$prefix}--link {
+      color: $text-02;
+      &:hover {
+        color: $text-01;
+      }
+    }
+
     .#{$prefix}--modal-content {
       .#{$prefix}--link {
         &,
