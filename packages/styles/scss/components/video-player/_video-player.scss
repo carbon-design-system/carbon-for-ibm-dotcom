@@ -29,7 +29,7 @@
       }
     }
 
-    &__video-description {
+    &__video-caption {
       padding-top: $spacing-05;
       color: $text-05;
       max-width: 90%;
@@ -38,8 +38,7 @@
   .#{$prefix}--video-player--inverse {
     background-color: $inverse-02;
   }
-  .#{$prefix}--video-player--inverse
-    .#{$prefix}--video-player__video-description {
+  .#{$prefix}--video-player--inverse .#{$prefix}--video-player__video-caption {
     color: $text-04;
   }
 }

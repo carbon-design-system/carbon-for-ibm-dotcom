@@ -23,16 +23,11 @@ const { prefix } = settings;
  *
  * @param {object} props props object
  * @param {boolean} props.inverse theming options
- * @param {string} props.showDescription video caption
+ * @param {string} props.showCaption video caption
  * @param {string} props.videoId Kaltura video id
  * @returns {*} VideoPlayer component
  */
-const VideoPlayer = ({
-  inverse,
-  showDescription,
-  videoId,
-  customClassName,
-}) => {
+const VideoPlayer = ({ inverse, showCaption, videoId, customClassName }) => {
   const [videoData, setVideoData] = useState({});
   const videoPlayerId = `video-player__video-${videoId}`;
   const videoDuration = VideoPlayerAPI.getVideoDuration(videoData.msDuration);
@@ -61,8 +56,8 @@ const VideoPlayer = ({
           className={`${prefix}--video-player__video`}
           id={`${prefix}--${videoPlayerId}`}></div>
       </div>
-      {showDescription && (
-        <div className={`${prefix}--video-player__video-description`}>
+      {showCaption && (
+        <div className={`${prefix}--video-player__video-caption`}>
           {videoData.description &&
             markdownToHtml(videoData.description, {
               textOnly: true,
@@ -78,12 +73,12 @@ const VideoPlayer = ({
 /**
  * @property {object} propTypes VideoPlayer propTypes
  * @description Defined property types for component
- * @type {{videoId: string, showDescription: boolean}}
+ * @type {{videoId: string, showCaption: boolean}}
  */
 VideoPlayer.propTypes = {
   customClassName: PropTypes.string,
   videoId: PropTypes.string.isRequired,
-  showDescription: PropTypes.bool,
+  showCaption: PropTypes.bool,
   inverse: PropTypes.bool,
 };
 
