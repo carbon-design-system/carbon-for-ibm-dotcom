@@ -42,28 +42,4 @@ describe('MastheadSearch', () => {
     input.simulate('focus');
     expect(SearchTypeaheadAPI.getResults).toHaveBeenCalled();
   });
-
-  // it('should redirect to the results page when a user clicks a suggestion', async () => {
-  //   const masthead = mount(<MastheadSearch searchOpenOnload />);
-  //   const input = masthead.find(
-  //     `[data-autoid="${stablePrefix}--header__search--input"]`
-  //   );
-
-  //   input.simulate('change', {
-  //     target: {
-  //       value: 'IBM',
-  //     },
-  //   });
-  //   input.simulate('focus');
-  //   masthead.update();
-
-  //   const suggestion = masthead
-  //   .find(`[data-autoid="${stablePrefix}--masthead__searchresults--suggestion"]`)
-  //   .first();
-  //   suggestion.simulate('click');
-
-  //   expect(global.window.location.href).toEqual(
-  //     'https://www.ibm.com/search?lnk=mhsrch&q=red%20hat&lang=en&cc=us'
-  //   );
-  // });
 });

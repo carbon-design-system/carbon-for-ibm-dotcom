@@ -7,11 +7,18 @@
 
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import MastheadTopNav from '../MastheadTopNav';
+import mockData from './data/response.json';
 import { mount } from 'enzyme';
 import React from 'react';
 import { TranslationAPI } from '@carbon/ibmdotcom-services';
 
 const { stablePrefix } = ddsSettings;
+
+jest.mock('@carbon/ibmdotcom-services', () => ({
+  TranslationAPI: {
+    getTranslation: jest.fn(() => Promise.resolve(mockData)),
+  },
+}));
 
 describe('MastheadTopNav', () => {
   it('renders one MastheadTopNav', () => {
@@ -22,7 +29,7 @@ describe('MastheadTopNav', () => {
 
   it('renders all the itens based in the `navigation` prop', async () => {
     const data = await TranslationAPI.getTranslation();
-    const { links } = data.mastheadNav;
+    const { links } = data;
     const wrapper = mount(<MastheadTopNav navigation={links} />);
     const menuItems = links.map((_itens, index) => {
       return wrapper.find(
@@ -31,7 +38,7 @@ describe('MastheadTopNav', () => {
     });
 
     expect(menuItems).toHaveLength(links.length);
-  }, 15000);
+  });
 
   it('uses the platform name and link correctly', () => {
     const platform = {
