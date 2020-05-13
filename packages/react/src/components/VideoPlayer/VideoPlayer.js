@@ -59,9 +59,11 @@ const VideoPlayer = ({
           id={`${prefix}--${videoPlayerId}`}></div>
       </div>
       {showDescription && (
-        <div className={`${prefix}--video-player__video-description`}>
-          {videoData.description} {videoDuration}
-        </div>
+        <div
+          className={`${prefix}--video-player__video-description`}
+          dangerouslySetInnerHTML={{
+            __html: `${videoData.description} ${videoDuration}`,
+          }}></div>
       )}
     </div>
   );
