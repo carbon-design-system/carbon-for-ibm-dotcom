@@ -42,6 +42,8 @@ const LocaleModal = ({ isOpen, setIsOpen, localeData, localeDisplay }) => {
   });
 
   useEffect(() => {
+    let stale = false;
+
     (async () => {
       let list, getLangDisplay;
       if (localeData && localeDisplay) {
@@ -52,9 +54,15 @@ const LocaleModal = ({ isOpen, setIsOpen, localeData, localeDisplay }) => {
           LocaleAPI.getLocale(),
           LocaleAPI.getLangDisplay(),
         ]);
+        if (stale) {
+          return;
+        }
         const locale = pair[0];
-        list = locale && (await LocaleAPI.getList(locale));
         getLangDisplay = pair[1];
+        list = locale && (await LocaleAPI.getList(locale));
+        if (stale) {
+          return;
+        }
       }
 
       setLangDisplay(getLangDisplay);
@@ -90,6 +98,10 @@ const LocaleModal = ({ isOpen, setIsOpen, localeData, localeDisplay }) => {
         item.classList.remove(localeHidden);
       });
     }
+
+    return () => {
+      stale = true;
+    };
   }, [clearResults, localeData, localeDisplay]);
 
   /**
