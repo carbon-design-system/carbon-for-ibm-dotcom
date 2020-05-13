@@ -5,6 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import './index.scss';
 import { object, text, withKnobs } from '@storybook/addon-knobs';
 import { ArrowRight20 } from '@carbon/icons-react';
 import FeatureCard from '../FeatureCard';
@@ -12,7 +13,7 @@ import React from 'react';
 import readme from '../README.md';
 import { storiesOf } from '@storybook/react';
 
-storiesOf('Patterns (Blocks)|FeatureCard', module)
+storiesOf('Patterns (Sub-Patterns)|FeatureCard', module)
   .addDecorator(withKnobs)
   .addParameters({
     readme: {
@@ -20,11 +21,6 @@ storiesOf('Patterns (Blocks)|FeatureCard', module)
     },
   })
   .add('Default', () => {
-    const heading = text(
-      'Pattern heading(required):',
-      'How is artificial intelligence used today in your industry?'
-    );
-
     const cardheading = text(
       'Card Heading:',
       'Explore AI use cases in all industries'
@@ -40,7 +36,6 @@ storiesOf('Patterns (Blocks)|FeatureCard', module)
         <div className="bx--row">
           <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
             <FeatureCard
-              heading={heading}
               card={{
                 heading: cardheading,
                 image: image,
