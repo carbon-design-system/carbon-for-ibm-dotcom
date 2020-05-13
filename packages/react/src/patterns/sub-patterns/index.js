@@ -11,6 +11,7 @@ export * from './ContentBlock';
 export * from './ContentItem';
 export * from './ContentGroup';
 export * from './ContentSection';
+export * from './FeatureCard';
 export * from './Layout';
 export * from './LinkList';
 export * from './PictogramItem';

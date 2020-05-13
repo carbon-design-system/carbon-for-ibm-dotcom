@@ -1634,29 +1634,42 @@ Array [
         style={Object {}}
       >
         <div>
-          <picture
-            alt="Image alt text"
-            className="bx--image"
-            data-autoid="dds--image"
+          <div
+            className="bx--grid"
           >
-            <source
-              media="(min-width: 672px )"
-              srcSet="https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1"
-            />
-            <source
-              media="(min-width: 400px )"
-              srcSet="https://dummyimage.com/400x400/ee5396/161616&amp;text=1x1"
-            />
-            <source
-              media="(min-width: 320px )"
-              srcSet="https://dummyimage.com/320x160/ee5396/161616&amp;text=2x1"
-            />
-            <img
-              alt="Image alt text"
-              className="bx--image__img"
-              src="https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1"
-            />
-          </picture>
+            <div
+              class="bx--row"
+            >
+              <div
+                class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
+              >
+                <picture
+                  alt="Image alt text"
+                  className="bx--image"
+                  data-autoid="dds--image__longdescription-"
+                >
+                  <source
+                    media="(min-width: 672px )"
+                    srcSet="https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1"
+                  />
+                  <source
+                    media="(min-width: 400px )"
+                    srcSet="https://dummyimage.com/400x400/ee5396/161616&amp;text=1x1"
+                  />
+                  <source
+                    media="(min-width: 320px )"
+                    srcSet="https://dummyimage.com/320x160/ee5396/161616&amp;text=2x1"
+                  />
+                  <img
+                    alt="Image alt text"
+                    aria-describedby=""
+                    className="bx--image__img"
+                    src="https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1"
+                  />
+                </picture>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -1703,7 +1716,7 @@ Array [
                   <picture
                     alt="image with caption image"
                     className="bx--image"
-                    data-autoid="dds--image"
+                    data-autoid="dds--image__longdescription-"
                   >
                     <source
                       media="(min-width: 672px )"
@@ -1715,6 +1728,7 @@ Array [
                     />
                     <img
                       alt="image with caption image"
+                      aria-describedby=""
                       className="bx--image__img"
                       src="https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1"
                     />
@@ -2415,20 +2429,22 @@ Array [
                 class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
               >
                 <div
-                  className="bx--video-player__container"
-                  data-autoid="dds--video-player__video-0_uka1msg4"
+                  className="bx--video-player"
                 >
                   <div
-                    className="bx--video-player__video"
-                    id="bx--video-player__video-0_uka1msg4"
-                  />
-                </div>
-                <div
-                  className="bx--video-player__description"
-                >
-                   (
-                  0
-                  )
+                    className="bx--video-player__video-container"
+                    data-autoid="dds--video-player__video-0_uka1msg4"
+                  >
+                    <div
+                      className="bx--video-player__video"
+                      id="bx--video-player__video-0_uka1msg4"
+                    />
+                  </div>
+                  <div
+                    className="bx--video-player__video-description"
+                  >
+                     
+                  </div>
                 </div>
               </div>
             </div>
@@ -2576,7 +2592,7 @@ Array [
                                 <picture
                                   alt="Image alt text"
                                   className="bx--image"
-                                  data-autoid="dds--image"
+                                  data-autoid="dds--image__longdescription-"
                                 >
                                   <source
                                     media="(min-width: 672px )"
@@ -2592,6 +2608,7 @@ Array [
                                   />
                                   <img
                                     alt="Image alt text"
+                                    aria-describedby=""
                                     className="bx--image__img"
                                     src="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                   />
@@ -2657,6 +2674,7 @@ Array [
                                 href="https://www.example.com"
                                 onClick={[Function]}
                                 onKeyDown={[Function]}
+                                role="region"
                                 target={null}
                               >
                                 <div
@@ -2670,7 +2688,7 @@ Array [
                                       }
                                     }
                                   />
-                                  <footer
+                                  <div
                                     className="bx--card__footer"
                                   >
                                     <svg
@@ -2698,7 +2716,7 @@ Array [
                                         d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
                                       />
                                     </svg>
-                                  </footer>
+                                  </div>
                                 </div>
                               </a>
                             </div>
@@ -2733,7 +2751,7 @@ Array [
                                 <picture
                                   alt="Image alt text"
                                   className="bx--image"
-                                  data-autoid="dds--image"
+                                  data-autoid="dds--image__longdescription-"
                                 >
                                   <source
                                     media="(min-width: 672px )"
@@ -2749,6 +2767,7 @@ Array [
                                   />
                                   <img
                                     alt="Image alt text"
+                                    aria-describedby=""
                                     className="bx--image__img"
                                     src="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                   />
@@ -2814,6 +2833,7 @@ Array [
                                 href="https://www.example.com"
                                 onClick={[Function]}
                                 onKeyDown={[Function]}
+                                role="region"
                                 target={null}
                               >
                                 <div
@@ -2827,7 +2847,7 @@ Array [
                                       }
                                     }
                                   />
-                                  <footer
+                                  <div
                                     className="bx--card__footer"
                                   >
                                     <svg
@@ -2855,7 +2875,7 @@ Array [
                                         d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
                                       />
                                     </svg>
-                                  </footer>
+                                  </div>
                                 </div>
                               </a>
                             </div>
@@ -2867,8 +2887,8 @@ Array [
                       className="bx--content-block__cta"
                     >
                       <section
-                        className="bx--feature-card"
-                        data-autoid="dds--feature-card"
+                        className="bx--feature-card-block-medium"
+                        data-autoid="dds--feature-card--feature-card-block-medium"
                       >
                         <div
                           className="bx--content-group"
@@ -2884,70 +2904,76 @@ Array [
                             className="bx--content-group__col bx--content-group__children"
                             data-autoid="dds--content-group__children"
                           >
-                            <a
-                              className="bx--link bx--tile bx--tile--clickable bx--card bx--card--inverse bx--card--link bx--feature-card__card"
-                              data-autoid="dds--card"
-                              href="https://www.example.com"
-                              icon={
-                                Object {
-                                  "$$typeof": Symbol(react.forward_ref),
-                                  "render": [Function],
-                                }
-                              }
-                              onClick={[Function]}
-                              onKeyDown={[Function]}
-                              target={null}
+                            <div
+                              className="bx--feature-card"
+                              data-autoid="dds--feature-card"
                             >
-                              <picture
-                                alt="Image alt text"
-                                className="bx--image"
-                                data-autoid="dds--image"
+                              <a
+                                className="bx--link bx--tile bx--tile--clickable bx--card bx--card--inverse bx--card--link bx--feature-card__card"
+                                data-autoid="dds--card"
+                                href="https://www.example.com"
+                                icon={
+                                  Object {
+                                    "$$typeof": Symbol(react.forward_ref),
+                                    "render": [Function],
+                                  }
+                                }
+                                onClick={[Function]}
+                                onKeyDown={[Function]}
+                                target={null}
                               >
-                                <img
+                                <picture
                                   alt="Image alt text"
-                                  className="bx--image__img bx--card__img"
-                                  src="https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1"
-                                />
-                              </picture>
-                              <div
-                                className="bx--card__wrapper"
-                              >
-                                <h3
-                                  className="bx--card__heading"
+                                  className="bx--image"
+                                  data-autoid="dds--image__longdescription-"
                                 >
-                                  Consectetur adipisicing elit
-                                </h3>
-                                <footer
-                                  className="bx--card__footer"
+                                  <img
+                                    alt="Image alt text"
+                                    aria-describedby=""
+                                    className="bx--image__img bx--card__img"
+                                    src="https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1"
+                                  />
+                                </picture>
+                                <div
+                                  className="bx--card__wrapper"
                                 >
-                                  <svg
-                                    aria-hidden={true}
-                                    className="bx--card__cta"
-                                    focusable="false"
-                                    height={20}
-                                    preserveAspectRatio="xMidYMid meet"
-                                    src={
-                                      Object {
-                                        "$$typeof": Symbol(react.forward_ref),
-                                        "render": [Function],
-                                      }
-                                    }
-                                    style={
-                                      Object {
-                                        "willChange": "transform",
-                                      }
-                                    }
-                                    viewBox="0 0 20 20"
-                                    width={20}
-                                    xmlns="http://www.w3.org/2000/svg"
+                                  <h3
+                                    className="bx--card__heading"
                                   >
-                                    <path
-                                      d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
-                                    />
-                                  </svg>
-                                </footer>
-                              </div>
-                            </a>
+                                    Consectetur adipisicing elit
+                                  </h3>
+                                  <div
+                                    className="bx--card__footer"
+                                  >
+                                    <svg
+                                      aria-hidden={true}
+                                      className="bx--card__cta"
+                                      focusable="false"
+                                      height={20}
+                                      preserveAspectRatio="xMidYMid meet"
+                                      src={
+                                        Object {
+                                          "$$typeof": Symbol(react.forward_ref),
+                                          "render": [Function],
+                                        }
+                                      }
+                                      style={
+                                        Object {
+                                          "willChange": "transform",
+                                        }
+                                      }
+                                      viewBox="0 0 20 20"
+                                      width={20}
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <path
+                                        d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                      />
+                                    </svg>
+                                  </div>
+                                </div>
+                              </a>
+                            </div>
                           </div>
                         </div>
                       </section>
@@ -3052,7 +3078,7 @@ Array [
                                   data-autoid="dds--content-group-cards-item"
                                 >
                                   <a
-                                    aria-labelledby="region0"
+                                    aria-label="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt"
                                     className="bx--link bx--tile bx--tile--clickable bx--card bx--card--link bx--content-group-cards-item"
                                     data-autoid="dds--card"
                                     href="https://www.example.com"
@@ -3076,7 +3102,7 @@ Array [
                                           }
                                         }
                                       />
-                                      <footer
+                                      <div
                                         className="bx--card__footer"
                                       >
                                         <svg
@@ -3104,7 +3130,7 @@ Array [
                                             d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
                                           />
                                         </svg>
-                                      </footer>
+                                      </div>
                                     </div>
                                   </a>
                                 </div>
@@ -3113,7 +3139,7 @@ Array [
                                   data-autoid="dds--content-group-cards-item"
                                 >
                                   <a
-                                    aria-labelledby="region1"
+                                    aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
                                     className="bx--link bx--tile bx--tile--clickable bx--card bx--card--link bx--content-group-cards-item"
                                     data-autoid="dds--card"
                                     href="https://www.example.com"
@@ -3137,7 +3163,7 @@ Array [
                                           }
                                         }
                                       />
-                                      <footer
+                                      <div
                                         className="bx--card__footer"
                                       >
                                         <svg
@@ -3165,7 +3191,7 @@ Array [
                                             d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
                                           />
                                         </svg>
-                                      </footer>
+                                      </div>
                                     </div>
                                   </a>
                                 </div>
@@ -3174,7 +3200,7 @@ Array [
                                   data-autoid="dds--content-group-cards-item"
                                 >
                                   <a
-                                    aria-labelledby="region2"
+                                    aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
                                     className="bx--link bx--tile bx--tile--clickable bx--card bx--card--link bx--content-group-cards-item"
                                     data-autoid="dds--card"
                                     href="https://www.example.com"
@@ -3198,7 +3224,7 @@ Array [
                                           }
                                         }
                                       />
-                                      <footer
+                                      <div
                                         className="bx--card__footer"
                                       >
                                         <svg
@@ -3226,7 +3252,7 @@ Array [
                                             d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
                                           />
                                         </svg>
-                                      </footer>
+                                      </div>
                                     </div>
                                   </a>
                                 </div>
@@ -3235,7 +3261,7 @@ Array [
                                   data-autoid="dds--content-group-cards-item"
                                 >
                                   <a
-                                    aria-labelledby="region3"
+                                    aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
                                     className="bx--link bx--tile bx--tile--clickable bx--card bx--card--link bx--content-group-cards-item"
                                     data-autoid="dds--card"
                                     href="https://www.example.com"
@@ -3259,7 +3285,7 @@ Array [
                                           }
                                         }
                                       />
-                                      <footer
+                                      <div
                                         className="bx--card__footer"
                                       >
                                         <svg
@@ -3287,7 +3313,7 @@ Array [
                                             d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
                                           />
                                         </svg>
-                                      </footer>
+                                      </div>
                                     </div>
                                   </a>
                                 </div>
@@ -3382,7 +3408,7 @@ Array [
                                       >
                                         <a
                                           className="bx--link bx--link-with-icon"
-                                          href=""
+                                          href="https://www.ibm.com"
                                           onClick={[Function]}
                                           target={null}
                                         >
@@ -3481,7 +3507,7 @@ Array [
                                       >
                                         <a
                                           className="bx--link bx--link-with-icon"
-                                          href=""
+                                          href="https://www.ibm.com"
                                           onClick={[Function]}
                                           target={null}
                                         >
@@ -3579,7 +3605,7 @@ Array [
                                       >
                                         <a
                                           className="bx--link bx--link-with-icon"
-                                          href=""
+                                          href="https://www.ibm.com"
                                           onClick={[Function]}
                                           target={null}
                                         >
@@ -3640,7 +3666,7 @@ Array [
                                 <picture
                                   alt="Image alt text"
                                   className="bx--image"
-                                  data-autoid="dds--image"
+                                  data-autoid="dds--image__longdescription-"
                                 >
                                   <source
                                     media="(min-width: 672px )"
@@ -3656,6 +3682,7 @@ Array [
                                   />
                                   <img
                                     alt="Image alt text"
+                                    aria-describedby=""
                                     className="bx--image__img"
                                     src="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                   />
@@ -3722,9 +3749,10 @@ Array [
                         <a
                           className="bx--link bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
                           data-autoid="dds--card"
-                          href="https://www.example.com"
+                          href="https://www.ibm.com"
                           onClick={[Function]}
                           onKeyDown={[Function]}
+                          role="region"
                           target={null}
                         >
                           <div
@@ -3738,7 +3766,7 @@ Array [
                                 }
                               }
                             />
-                            <footer
+                            <div
                               className="bx--card__footer"
                             >
                               <svg
@@ -3766,7 +3794,7 @@ Array [
                                   d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
                                 />
                               </svg>
-                            </footer>
+                            </div>
                           </div>
                         </a>
                       </div>
@@ -3848,7 +3876,7 @@ Array [
                         <picture
                           alt="Image alt text"
                           className="bx--image"
-                          data-autoid="dds--image"
+                          data-autoid="dds--image__longdescription-"
                         >
                           <source
                             media="(min-width: 672px )"
@@ -3864,6 +3892,7 @@ Array [
                           />
                           <img
                             alt="Image alt text"
+                            aria-describedby=""
                             className="bx--image__img"
                             src="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                           />
@@ -3950,7 +3979,7 @@ Array [
                                 <picture
                                   alt="Image alt text"
                                   className="bx--image"
-                                  data-autoid="dds--image"
+                                  data-autoid="dds--image__longdescription-"
                                 >
                                   <source
                                     media="(min-width: 672px )"
@@ -3966,6 +3995,7 @@ Array [
                                   />
                                   <img
                                     alt="Image alt text"
+                                    aria-describedby=""
                                     className="bx--image__img"
                                     src="https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9"
                                   />
@@ -3995,6 +4025,7 @@ Array [
                           href="https://www.example.com"
                           onClick={[Function]}
                           onKeyDown={[Function]}
+                          role="region"
                           target={null}
                         >
                           <div
@@ -4008,7 +4039,7 @@ Array [
                                 }
                               }
                             />
-                            <footer
+                            <div
                               className="bx--card__footer"
                             >
                               <svg
@@ -4036,7 +4067,7 @@ Array [
                                   d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
                                 />
                               </svg>
-                            </footer>
+                            </div>
                           </div>
                         </a>
                       </div>
@@ -4127,7 +4158,7 @@ Array [
                           <picture
                             alt="Image alt text"
                             className="bx--image"
-                            data-autoid="dds--image"
+                            data-autoid="dds--image__longdescription-"
                           >
                             <source
                               media="(min-width: 672px )"
@@ -4143,6 +4174,7 @@ Array [
                             />
                             <img
                               alt="Image alt text"
+                              aria-describedby=""
                               className="bx--image__img"
                               src="https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9"
                             />
@@ -4169,7 +4201,8 @@ Array [
                           href="https://www.ibm.com"
                           onClick={[Function]}
                           onKeyDown={[Function]}
-                          target="_blank"
+                          role="region"
+                          target={null}
                         >
                           <div
                             className="bx--card__wrapper"
@@ -4182,7 +4215,7 @@ Array [
                                 }
                               }
                             />
-                            <footer
+                            <div
                               className="bx--card__footer"
                             >
                               <svg
@@ -4202,18 +4235,15 @@ Array [
                                     "willChange": "transform",
                                   }
                                 }
-                                viewBox="0 0 32 32"
+                                viewBox="0 0 20 20"
                                 width={20}
                                 xmlns="http://www.w3.org/2000/svg"
                               >
                                 <path
-                                  d="M26,28H6a2,2,0,0,1-2-2V6A2,2,0,0,1,6,4h9V6H6V26H26V17h2v9A2,2,0,0,1,26,28Z"
-                                />
-                                <path
-                                  d="M21 2L21 4 26.59 4 18 12.59 19.41 14 28 5.41 28 11 30 11 30 2 21 2z"
+                                  d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
                                 />
                               </svg>
-                            </footer>
+                            </div>
                           </div>
                         </a>
                       </div>
@@ -4292,7 +4322,7 @@ Array [
                             data-autoid="dds--content-group-cards-item"
                           >
                             <a
-                              aria-labelledby="region0"
+                              aria-label="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt"
                               className="bx--link bx--tile bx--tile--clickable bx--card bx--card--link bx--content-group-cards-item"
                               data-autoid="dds--card"
                               href="https://www.example.com"
@@ -4316,7 +4346,7 @@ Array [
                                     }
                                   }
                                 />
-                                <footer
+                                <div
                                   className="bx--card__footer"
                                 >
                                   <svg
@@ -4344,7 +4374,7 @@ Array [
                                       d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
                                     />
                                   </svg>
-                                </footer>
+                                </div>
                               </div>
                             </a>
                           </div>
@@ -4353,7 +4383,7 @@ Array [
                             data-autoid="dds--content-group-cards-item"
                           >
                             <a
-                              aria-labelledby="region1"
+                              aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
                               className="bx--link bx--tile bx--tile--clickable bx--card bx--card--link bx--content-group-cards-item"
                               data-autoid="dds--card"
                               href="https://www.example.com"
@@ -4377,7 +4407,7 @@ Array [
                                     }
                                   }
                                 />
-                                <footer
+                                <div
                                   className="bx--card__footer"
                                 >
                                   <svg
@@ -4405,7 +4435,7 @@ Array [
                                       d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
                                     />
                                   </svg>
-                                </footer>
+                                </div>
                               </div>
                             </a>
                           </div>
@@ -4414,7 +4444,7 @@ Array [
                             data-autoid="dds--content-group-cards-item"
                           >
                             <a
-                              aria-labelledby="region2"
+                              aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
                               className="bx--link bx--tile bx--tile--clickable bx--card bx--card--link bx--content-group-cards-item"
                               data-autoid="dds--card"
                               href="https://www.example.com"
@@ -4438,7 +4468,7 @@ Array [
                                     }
                                   }
                                 />
-                                <footer
+                                <div
                                   className="bx--card__footer"
                                 >
                                   <svg
@@ -4466,7 +4496,7 @@ Array [
                                       d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
                                     />
                                   </svg>
-                                </footer>
+                                </div>
                               </div>
                             </a>
                           </div>
@@ -4475,7 +4505,7 @@ Array [
                             data-autoid="dds--content-group-cards-item"
                           >
                             <a
-                              aria-labelledby="region3"
+                              aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
                               className="bx--link bx--tile bx--tile--clickable bx--card bx--card--link bx--content-group-cards-item"
                               data-autoid="dds--card"
                               href="https://www.example.com"
@@ -4499,7 +4529,7 @@ Array [
                                     }
                                   }
                                 />
-                                <footer
+                                <div
                                   className="bx--card__footer"
                                 >
                                   <svg
@@ -4527,7 +4557,7 @@ Array [
                                       d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
                                     />
                                   </svg>
-                                </footer>
+                                </div>
                               </div>
                             </a>
                           </div>
@@ -4854,7 +4884,7 @@ Array [
                           <picture
                             alt="Image alt text"
                             className="bx--image"
-                            data-autoid="dds--image"
+                            data-autoid="dds--image__longdescription-"
                           >
                             <source
                               media="(min-width: 672px )"
@@ -4870,6 +4900,7 @@ Array [
                             />
                             <img
                               alt="Image alt text"
+                              aria-describedby=""
                               className="bx--image__img"
                               src="https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9"
                             />
@@ -4935,6 +4966,7 @@ Array [
                           href="https://www.example.com"
                           onClick={[Function]}
                           onKeyDown={[Function]}
+                          role="region"
                           target={null}
                         >
                           <div
@@ -4948,7 +4980,7 @@ Array [
                                 }
                               }
                             />
-                            <footer
+                            <div
                               className="bx--card__footer"
                             >
                               <svg
@@ -4976,7 +5008,7 @@ Array [
                                   d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
                                 />
                               </svg>
-                            </footer>
+                            </div>
                           </div>
                         </a>
                       </div>
@@ -4998,7 +5030,7 @@ Array [
 ]
 `;
 
-exports[`Storyshots Patterns (Blocks)|FeatureCard Default 1`] = `
+exports[`Storyshots Patterns (Blocks)|FeatureCardBlockMedium Default 1`] = `
 Array [
   <div
     data-floating-menu-container=""
@@ -5026,8 +5058,8 @@ Array [
                 className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
               >
                 <section
-                  className="bx--feature-card"
-                  data-autoid="dds--feature-card"
+                  className="bx--feature-card-block-medium"
+                  data-autoid="dds--feature-card--feature-card-block-medium"
                 >
                   <div
                     className="bx--content-group"
@@ -5043,63 +5075,69 @@ Array [
                       className="bx--content-group__col bx--content-group__children"
                       data-autoid="dds--content-group__children"
                     >
-                      <a
-                        className="bx--link bx--tile bx--tile--clickable bx--card bx--card--inverse bx--card--link bx--feature-card__card"
-                        data-autoid="dds--card"
-                        href="https://www.example.com"
-                        onClick={[Function]}
-                        onKeyDown={[Function]}
+                      <div
+                        className="bx--feature-card"
+                        data-autoid="dds--feature-card"
                       >
-                        <picture
-                          alt="Image alt text"
-                          className="bx--image"
-                          data-autoid="dds--image"
+                        <a
+                          className="bx--link bx--tile bx--tile--clickable bx--card bx--card--inverse bx--card--link bx--feature-card__card"
+                          data-autoid="dds--card"
+                          href="https://www.example.com"
+                          onClick={[Function]}
+                          onKeyDown={[Function]}
                         >
-                          <img
+                          <picture
                             alt="Image alt text"
-                            className="bx--image__img bx--card__img"
-                            src="https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1"
-                          />
-                        </picture>
-                        <div
-                          className="bx--card__wrapper"
-                        >
-                          <h3
-                            className="bx--card__heading"
+                            className="bx--image"
+                            data-autoid="dds--image__longdescription-"
                           >
-                            Explore AI use cases in all industries
-                          </h3>
-                          <footer
-                            className="bx--card__footer"
+                            <img
+                              alt="Image alt text"
+                              aria-describedby=""
+                              className="bx--image__img bx--card__img"
+                              src="https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1"
+                            />
+                          </picture>
+                          <div
+                            className="bx--card__wrapper"
                           >
-                            <svg
-                              aria-hidden={true}
-                              className="bx--card__cta"
-                              focusable="false"
-                              height={20}
-                              preserveAspectRatio="xMidYMid meet"
-                              src={
-                                Object {
-                                  "$$typeof": Symbol(react.forward_ref),
-                                  "render": [Function],
-                                }
-                              }
-                              style={
-                                Object {
-                                  "willChange": "transform",
-                                }
-                              }
-                              viewBox="0 0 20 20"
-                              width={20}
-                              xmlns="http://www.w3.org/2000/svg"
+                            <h3
+                              className="bx--card__heading"
                             >
-                              <path
-                                d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
-                              />
-                            </svg>
-                          </footer>
-                        </div>
-                      </a>
+                              Explore AI use cases in all industries
+                            </h3>
+                            <div
+                              className="bx--card__footer"
+                            >
+                              <svg
+                                aria-hidden={true}
+                                className="bx--card__cta"
+                                focusable="false"
+                                height={20}
+                                preserveAspectRatio="xMidYMid meet"
+                                src={
+                                  Object {
+                                    "$$typeof": Symbol(react.forward_ref),
+                                    "render": [Function],
+                                  }
+                                }
+                                style={
+                                  Object {
+                                    "willChange": "transform",
+                                  }
+                                }
+                                viewBox="0 0 20 20"
+                                width={20}
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                />
+                              </svg>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </section>
@@ -5190,7 +5228,7 @@ Array [
                               }
                             }
                           />
-                          <footer
+                          <div
                             className="bx--card__footer"
                           >
                             <svg
@@ -5218,7 +5256,7 @@ Array [
                                 d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
                               />
                             </svg>
-                          </footer>
+                          </div>
                         </div>
                       </a>
                     </div>
@@ -5250,7 +5288,7 @@ Array [
                               }
                             }
                           />
-                          <footer
+                          <div
                             className="bx--card__footer"
                           >
                             <svg
@@ -5278,7 +5316,7 @@ Array [
                                 d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
                               />
                             </svg>
-                          </footer>
+                          </div>
                         </div>
                       </a>
                     </div>
@@ -5310,7 +5348,7 @@ Array [
                               }
                             }
                           />
-                          <footer
+                          <div
                             className="bx--card__footer"
                           >
                             <svg
@@ -5338,7 +5376,7 @@ Array [
                                 d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
                               />
                             </svg>
-                          </footer>
+                          </div>
                         </div>
                       </a>
                     </div>
@@ -5370,7 +5408,7 @@ Array [
                               }
                             }
                           />
-                          <footer
+                          <div
                             className="bx--card__footer"
                           >
                             <svg
@@ -5398,7 +5436,7 @@ Array [
                                 d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
                               />
                             </svg>
-                          </footer>
+                          </div>
                         </div>
                       </a>
                     </div>
@@ -5430,7 +5468,7 @@ Array [
                               }
                             }
                           />
-                          <footer
+                          <div
                             className="bx--card__footer"
                           >
                             <svg
@@ -5458,7 +5496,7 @@ Array [
                                 d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
                               />
                             </svg>
-                          </footer>
+                          </div>
                         </div>
                       </a>
                     </div>
@@ -5480,7 +5518,7 @@ Array [
                           >
                             Top level card link
                           </h3>
-                          <footer
+                          <div
                             className="bx--card__footer"
                           >
                             <svg
@@ -5508,7 +5546,7 @@ Array [
                                 d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
                               />
                             </svg>
-                          </footer>
+                          </div>
                         </div>
                       </a>
                     </div>
@@ -5549,7 +5587,7 @@ Array [
         <div>
           <section
             className="bx--content-section bx--card-section"
-            data-autoid="dds--content-section"
+            data-autoid="dds--card-section-images-section"
           >
             <div
               className="bx--content-section__grid"
@@ -5588,12 +5626,13 @@ Array [
                         <picture
                           alt="Image alt text"
                           className="bx--image"
-                          data-autoid="dds--image"
+                          data-autoid="dds--image__longdescription-"
                         >
                           <img
                             alt="Image alt text"
+                            aria-describedby=""
                             className="bx--image__img bx--card__img"
-                            src="https://dummyimage.com/1056x480/ee5396/161616"
+                            src="https://dummyimage.com/1056x792/ee5396/161616%26text=4:3"
                           />
                         </picture>
                         <div
@@ -5609,7 +5648,7 @@ Array [
                           >
                             Natural language processing.
                           </h3>
-                          <footer
+                          <div
                             className="bx--card__footer"
                           >
                             <svg
@@ -5637,7 +5676,7 @@ Array [
                                 d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
                               />
                             </svg>
-                          </footer>
+                          </div>
                         </div>
                       </a>
                     </div>
@@ -5656,12 +5695,13 @@ Array [
                         <picture
                           alt="Image alt text"
                           className="bx--image"
-                          data-autoid="dds--image"
+                          data-autoid="dds--image__longdescription-"
                         >
                           <img
                             alt="Image alt text"
+                            aria-describedby=""
                             className="bx--image__img bx--card__img"
-                            src="https://dummyimage.com/1056x480/ee5396/161616"
+                            src="https://dummyimage.com/792x1056/ee5396/161616%26text=3:4"
                           />
                         </picture>
                         <div
@@ -5677,7 +5717,7 @@ Array [
                           >
                             Natural language processing.
                           </h3>
-                          <footer
+                          <div
                             className="bx--card__footer"
                           >
                             <svg
@@ -5705,7 +5745,7 @@ Array [
                                 d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
                               />
                             </svg>
-                          </footer>
+                          </div>
                         </div>
                       </a>
                     </div>
@@ -5724,12 +5764,13 @@ Array [
                         <picture
                           alt="Image alt text"
                           className="bx--image"
-                          data-autoid="dds--image"
+                          data-autoid="dds--image__longdescription-"
                         >
                           <img
                             alt="Image alt text"
+                            aria-describedby=""
                             className="bx--image__img bx--card__img"
-                            src="https://dummyimage.com/1056x480/ee5396/161616"
+                            src="https://dummyimage.com/1056x1056/ee5396/161616%26text=1:1"
                           />
                         </picture>
                         <div
@@ -5745,7 +5786,7 @@ Array [
                           >
                             Natural language processing.
                           </h3>
-                          <footer
+                          <div
                             className="bx--card__footer"
                           >
                             <svg
@@ -5773,7 +5814,7 @@ Array [
                                 d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
                               />
                             </svg>
-                          </footer>
+                          </div>
                         </div>
                       </a>
                     </div>
@@ -5792,12 +5833,13 @@ Array [
                         <picture
                           alt="Image alt text"
                           className="bx--image"
-                          data-autoid="dds--image"
+                          data-autoid="dds--image__longdescription-"
                         >
                           <img
                             alt="Image alt text"
+                            aria-describedby=""
                             className="bx--image__img bx--card__img"
-                            src="https://dummyimage.com/1056x480/ee5396/161616"
+                            src="https://dummyimage.com/1056x528/ee5396/161616%26text=2:1"
                           />
                         </picture>
                         <div
@@ -5813,7 +5855,7 @@ Array [
                           >
                             Serving society ethically in the age of Artificial Intelligence.
                           </h3>
-                          <footer
+                          <div
                             className="bx--card__footer"
                           >
                             <svg
@@ -5841,7 +5883,7 @@ Array [
                                 d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
                               />
                             </svg>
-                          </footer>
+                          </div>
                         </div>
                       </a>
                     </div>
@@ -5860,12 +5902,13 @@ Array [
                         <picture
                           alt="Image alt text"
                           className="bx--image"
-                          data-autoid="dds--image"
+                          data-autoid="dds--image__longdescription-"
                         >
                           <img
                             alt="Image alt text"
+                            aria-describedby=""
                             className="bx--image__img bx--card__img"
-                            src="https://dummyimage.com/1056x480/ee5396/161616"
+                            src="https://dummyimage.com/1056x594/ee5396/161616%26text=16:9"
                           />
                         </picture>
                         <div
@@ -5881,7 +5924,7 @@ Array [
                           >
                             Serving society ethically in the age of Artificial Intelligence.
                           </h3>
-                          <footer
+                          <div
                             className="bx--card__footer"
                           >
                             <svg
@@ -5909,7 +5952,7 @@ Array [
                                 d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
                               />
                             </svg>
-                          </footer>
+                          </div>
                         </div>
                       </a>
                     </div>
@@ -5950,7 +5993,7 @@ Array [
         <div>
           <section
             className="bx--content-section bx--card-section"
-            data-autoid="dds--content-section"
+            data-autoid="dds--card-section-simple-section"
           >
             <div
               className="bx--content-section__grid"
@@ -6002,7 +6045,7 @@ Array [
                               }
                             }
                           />
-                          <footer
+                          <div
                             className="bx--card__footer"
                           >
                             <svg
@@ -6030,7 +6073,7 @@ Array [
                                 d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
                               />
                             </svg>
-                          </footer>
+                          </div>
                         </div>
                       </a>
                     </div>
@@ -6062,7 +6105,7 @@ Array [
                               }
                             }
                           />
-                          <footer
+                          <div
                             className="bx--card__footer"
                           >
                             <svg
@@ -6090,7 +6133,7 @@ Array [
                                 d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
                               />
                             </svg>
-                          </footer>
+                          </div>
                         </div>
                       </a>
                     </div>
@@ -6122,7 +6165,7 @@ Array [
                               }
                             }
                           />
-                          <footer
+                          <div
                             className="bx--card__footer"
                           >
                             <svg
@@ -6150,7 +6193,7 @@ Array [
                                 d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
                               />
                             </svg>
-                          </footer>
+                          </div>
                         </div>
                       </a>
                     </div>
@@ -6182,7 +6225,7 @@ Array [
                               }
                             }
                           />
-                          <footer
+                          <div
                             className="bx--card__footer"
                           >
                             <svg
@@ -6210,7 +6253,7 @@ Array [
                                 d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
                               />
                             </svg>
-                          </footer>
+                          </div>
                         </div>
                       </a>
                     </div>
@@ -6242,7 +6285,7 @@ Array [
                               }
                             }
                           />
-                          <footer
+                          <div
                             className="bx--card__footer"
                           >
                             <svg
@@ -6270,7 +6313,7 @@ Array [
                                 d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
                               />
                             </svg>
-                          </footer>
+                          </div>
                         </div>
                       </a>
                     </div>
@@ -6292,7 +6335,7 @@ Array [
                           >
                             Top level card link
                           </h3>
-                          <footer
+                          <div
                             className="bx--card__footer"
                           >
                             <svg
@@ -6320,7 +6363,7 @@ Array [
                                 d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
                               />
                             </svg>
-                          </footer>
+                          </div>
                         </div>
                       </a>
                     </div>
@@ -6364,7 +6407,7 @@ Array [
             data-autoid="dds--leadspace"
             style={
               Object {
-                "backgroundImage": "url(https://dummyimage.com/1056x480/ee5396/161616)",
+                "backgroundImage": "url(https://picsum.photos/id/1076/1056/480)",
               }
             }
           >
@@ -6408,14 +6451,14 @@ Array [
                       >
                         <a
                           className="bx--btn bx--btn--primary"
-                          copy="Primary action button"
+                          copy="Button 1"
                           data-autoid="dds--button-group-0"
                           href="https://www.example.com"
                           link=""
                           role="button"
-                          tabIndex={0}
+                          tabIndex={2}
                         >
-                          Primary action button
+                          Button 1
                           <svg
                             aria-hidden={true}
                             className="bx--btn__icon"
@@ -6442,14 +6485,14 @@ Array [
                       >
                         <a
                           className="bx--btn bx--btn--tertiary"
-                          copy="Secondary action button"
+                          copy="Button 2"
                           data-autoid="dds--button-group-1"
                           href="https://www.example.com"
                           link=""
                           role="button"
-                          tabIndex={0}
+                          tabIndex={1}
                         >
-                          Secondary action button
+                          Button 2
                           <svg
                             aria-hidden={true}
                             className="bx--btn__icon"
@@ -6476,22 +6519,23 @@ Array [
                 </div>
               </div>
               <picture
-                alt="Image alt text"
+                alt="lead space image"
                 className="bx--image"
-                data-autoid="dds--image"
+                data-autoid="dds--image__longdescription-"
               >
                 <source
                   media="(min-width: 672px )"
-                  srcSet="https://dummyimage.com/672x400/ee5396/161616"
+                  srcSet="https://picsum.photos/id/1076/672/400"
                 />
                 <source
                   media="(min-width: 320px )"
-                  srcSet="https://dummyimage.com/320x370/ee5396/161616"
+                  srcSet="https://picsum.photos/id/1076/320/370"
                 />
                 <img
-                  alt="Image alt text"
+                  alt="lead space image"
+                  aria-describedby=""
                   className="bx--image__img"
-                  src="https://dummyimage.com/1056x480/ee5396/161616"
+                  src="https://picsum.photos/id/1076/1056/480"
                 />
               </picture>
             </div>
@@ -6570,14 +6614,14 @@ Array [
                       >
                         <a
                           className="bx--btn bx--btn--primary"
-                          copy="Primary action button"
+                          copy="Button 1"
                           data-autoid="dds--button-group-0"
                           href="https://www.example.com"
                           link=""
                           role="button"
-                          tabIndex={0}
+                          tabIndex={2}
                         >
-                          Primary action button
+                          Button 1
                           <svg
                             aria-hidden={true}
                             className="bx--btn__icon"
@@ -6604,14 +6648,14 @@ Array [
                       >
                         <a
                           className="bx--btn bx--btn--tertiary"
-                          copy="Secondary action button"
+                          copy="Button 2"
                           data-autoid="dds--button-group-1"
                           href="https://www.example.com"
                           link=""
                           role="button"
-                          tabIndex={0}
+                          tabIndex={1}
                         >
-                          Secondary action button
+                          Button 2
                           <svg
                             aria-hidden={true}
                             className="bx--btn__icon"
@@ -6706,7 +6750,7 @@ Array [
                       data-autoid="dds--button-group-0"
                       disabled={false}
                       link="https://example.com"
-                      tabIndex={0}
+                      tabIndex={2}
                       type="button"
                     >
                       Button 1
@@ -6740,7 +6784,7 @@ Array [
                       data-autoid="dds--button-group-1"
                       disabled={false}
                       link="https://example.com"
-                      tabIndex={0}
+                      tabIndex={1}
                       type="button"
                     >
                       Button 2
@@ -6791,7 +6835,7 @@ Array [
                   data-autoid="dds--button-group-0"
                   disabled={false}
                   link="https://example.com"
-                  tabIndex={0}
+                  tabIndex={2}
                   type="button"
                 >
                   Button 1
@@ -6825,7 +6869,7 @@ Array [
                   data-autoid="dds--button-group-1"
                   disabled={false}
                   link="https://example.com"
-                  tabIndex={0}
+                  tabIndex={1}
                   type="button"
                 >
                   Button 2
@@ -6914,7 +6958,7 @@ Array [
                       >
                         Lorem ipsum dolor sit amet
                       </h3>
-                      <footer
+                      <div
                         className="bx--card__footer"
                       >
                         <svg
@@ -6942,7 +6986,7 @@ Array [
                             d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
                           />
                         </svg>
-                      </footer>
+                      </div>
                     </div>
                   </a>
                 </div>
@@ -7009,7 +7053,7 @@ Array [
                       >
                         Lorem ipsum dolor sit amet
                       </h3>
-                      <footer
+                      <div
                         className="bx--card__footer"
                       >
                         <div
@@ -7047,7 +7091,7 @@ Array [
                             </a>
                           </div>
                         </div>
-                      </footer>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -7130,6 +7174,7 @@ Array [
                         href="https://www.example.com"
                         onClick={[Function]}
                         onKeyDown={[Function]}
+                        role="region"
                         target="_blank"
                       >
                         <div
@@ -7143,7 +7188,7 @@ Array [
                               }
                             }
                           />
-                          <footer
+                          <div
                             className="bx--card__footer"
                           >
                             <svg
@@ -7174,7 +7219,7 @@ Array [
                                 d="M21 2L21 4 26.59 4 18 12.59 19.41 14 28 5.41 28 11 30 11 30 2 21 2z"
                               />
                             </svg>
-                          </footer>
+                          </div>
                         </div>
                       </a>
                     </div>
@@ -7250,6 +7295,7 @@ Array [
                         href="https://www.example.com"
                         onClick={[Function]}
                         onKeyDown={[Function]}
+                        role="region"
                         target={null}
                       >
                         <div
@@ -7263,7 +7309,7 @@ Array [
                               }
                             }
                           />
-                          <footer
+                          <div
                             className="bx--card__footer"
                           >
                             <svg
@@ -7291,7 +7337,7 @@ Array [
                                 d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
                               />
                             </svg>
-                          </footer>
+                          </div>
                         </div>
                       </a>
                     </div>
@@ -7356,7 +7402,7 @@ Array [
                     <picture
                       alt="content item image"
                       className="bx--image"
-                      data-autoid="dds--image"
+                      data-autoid="dds--image__longdescription-"
                     >
                       <source
                         media="(min-width: 1056px )"
@@ -7372,6 +7418,7 @@ Array [
                       />
                       <img
                         alt="content item image"
+                        aria-describedby=""
                         className="bx--image__img"
                         src="https://dummyimage.com/352x176/ee5396/161616&amp;text=2:1"
                       />
@@ -7500,6 +7547,111 @@ Array [
 ]
 `;
 
+exports[`Storyshots Patterns (Sub-Patterns)|FeatureCard Default 1`] = `
+Array [
+  <div
+    data-floating-menu-container=""
+    role="main"
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+      }
+    }
+  >
+    <div
+      className="storybook-readme-story"
+    >
+      <div
+        style={Object {}}
+      >
+        <div>
+          <div
+            className="bx--grid"
+          >
+            <div
+              className="bx--row"
+            >
+              <div
+                className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
+              >
+                <div
+                  className="bx--feature-card"
+                  data-autoid="dds--feature-card"
+                >
+                  <a
+                    className="bx--link bx--tile bx--tile--clickable bx--card bx--card--inverse bx--card--link bx--feature-card__card"
+                    data-autoid="dds--card"
+                    href="https://www.example.com"
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                  >
+                    <picture
+                      alt="Image alt text"
+                      className="bx--image"
+                      data-autoid="dds--image__longdescription-"
+                    >
+                      <img
+                        alt="Image alt text"
+                        aria-describedby=""
+                        className="bx--image__img bx--card__img"
+                        src="https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1"
+                      />
+                    </picture>
+                    <div
+                      className="bx--card__wrapper"
+                    >
+                      <h3
+                        className="bx--card__heading"
+                      >
+                        Explore AI use cases in all industries
+                      </h3>
+                      <div
+                        className="bx--card__footer"
+                      >
+                        <svg
+                          aria-hidden={true}
+                          className="bx--card__cta"
+                          focusable="false"
+                          height={20}
+                          preserveAspectRatio="xMidYMid meet"
+                          src={
+                            Object {
+                              "$$typeof": Symbol(react.forward_ref),
+                              "render": [Function],
+                            }
+                          }
+                          style={
+                            Object {
+                              "willChange": "transform",
+                            }
+                          }
+                          viewBox="0 0 20 20"
+                          width={20}
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <input
+    aria-label="input-text-offleft"
+    className="bx--visually-hidden"
+    type="text"
+  />,
+]
+`;
+
 exports[`Storyshots Patterns (Sub-Patterns)|Layout Default 1`] = `
 Array [
   <div
@@ -7544,7 +7696,7 @@ Array [
               className="bx--row"
             >
               <div
-                className="bx--col-lg-4 bx--layout--sticky"
+                className="bx--col-lg-4 bx--layout--sticky-mobile"
                 style={
                   Object {
                     "top": 0,
@@ -7552,7 +7704,7 @@ Array [
                 }
               >
                 <div
-                  className="bx--layout--sticky"
+                  className="bx--layout--sticky-desktop"
                   data-sticky="true"
                   style={
                     Object {
@@ -7667,7 +7819,7 @@ Array [
                       </p>
                     </div>
                     <div
-                      className="bx--layout-1-3 bx--layout--sticky"
+                      className="bx--layout-1-3 bx--layout--sticky-mobile"
                       style={
                         Object {
                           "top": 0,
@@ -7675,7 +7827,7 @@ Array [
                       }
                     >
                       <div
-                        className="bx--layout--sticky"
+                        className="bx--layout--sticky-desktop"
                         data-sticky="true"
                         style={
                           Object {
@@ -7829,6 +7981,7 @@ Array [
                           href="https://ibm.com"
                           onClick={[Function]}
                           onKeyDown={[Function]}
+                          role="region"
                           target={null}
                         >
                           <div
@@ -7842,7 +7995,7 @@ Array [
                                 }
                               }
                             />
-                            <footer
+                            <div
                               className="bx--card__footer"
                             >
                               <svg
@@ -7870,7 +8023,7 @@ Array [
                                   d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
                                 />
                               </svg>
-                            </footer>
+                            </div>
                           </div>
                         </a>
                       </div>
@@ -7885,6 +8038,7 @@ Array [
                           href="https://ibm.com"
                           onClick={[Function]}
                           onKeyDown={[Function]}
+                          role="region"
                           target={null}
                         >
                           <div
@@ -7898,7 +8052,7 @@ Array [
                                 }
                               }
                             />
-                            <footer
+                            <div
                               className="bx--card__footer"
                             >
                               <svg
@@ -7926,7 +8080,7 @@ Array [
                                   d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
                                 />
                               </svg>
-                            </footer>
+                            </div>
                           </div>
                         </a>
                       </div>
@@ -8118,7 +8272,7 @@ Array [
                 className="bx--row"
               >
                 <div
-                  className="bx--col-lg-4 bx--layout--sticky"
+                  className="bx--col-lg-4 bx--layout--sticky-mobile"
                   style={
                     Object {
                       "top": 0,
@@ -8126,7 +8280,7 @@ Array [
                   }
                 >
                   <div
-                    className="bx--tableofcontents__sidebar bx--layout--sticky"
+                    className="bx--tableofcontents__sidebar bx--layout--sticky-desktop"
                     data-sticky="true"
                     style={
                       Object {
@@ -8361,7 +8515,7 @@ Array [
                 className="bx--row"
               >
                 <div
-                  className="bx--col-lg-4 bx--layout--sticky"
+                  className="bx--col-lg-4 bx--layout--sticky-mobile"
                   style={
                     Object {
                       "top": 0,
@@ -8369,7 +8523,7 @@ Array [
                   }
                 >
                   <div
-                    className="bx--tableofcontents__sidebar bx--layout--sticky"
+                    className="bx--tableofcontents__sidebar bx--layout--sticky-desktop"
                     data-sticky="true"
                     style={
                       Object {

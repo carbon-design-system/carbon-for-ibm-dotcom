@@ -7,6 +7,7 @@
 import { Card } from '../../sub-patterns/Card';
 import { ContentGroup } from '../../sub-patterns/ContentGroup';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import { FeatureCard } from '../../sub-patterns/FeatureCard';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { settings } from 'carbon-components';
@@ -22,29 +23,24 @@ const { prefix } = settings;
  * @param {object} props.card section card object
  * @returns {*} FeatureCard JSX component
  */
-const FeatureCard = ({ heading, card }) => {
+const FeatureCardBlockMedium = ({ heading, card }) => {
   return (
     heading &&
     card.cta && (
       <section
-        className={`${prefix}--feature-card`}
-        data-autoid={`${stablePrefix}--feature-card`}>
+        className={`${prefix}--feature-card-block-medium`}
+        data-autoid={`${stablePrefix}--feature-card--feature-card-block-medium`}>
         <ContentGroup heading={heading}>
-          <Card
-            customClassName={`${prefix}--feature-card__card`}
-            {...card}
-            type="link"
-            inverse={true}
-          />
+          <FeatureCard card={card} />
         </ContentGroup>
       </section>
     )
   );
 };
 
-FeatureCard.propTypes = {
+FeatureCardBlockMedium.propTypes = {
   heading: PropTypes.string.isRequired,
   card: PropTypes.instanceOf(Card).isRequired,
 };
 
-export default FeatureCard;
+export default FeatureCardBlockMedium;
