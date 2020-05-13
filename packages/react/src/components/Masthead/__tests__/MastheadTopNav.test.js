@@ -10,15 +10,8 @@ import MastheadTopNav from '../MastheadTopNav';
 import mockData from './data/response.json';
 import { mount } from 'enzyme';
 import React from 'react';
-import { TranslationAPI } from '@carbon/ibmdotcom-services';
 
 const { stablePrefix } = ddsSettings;
-
-jest.mock('@carbon/ibmdotcom-services', () => ({
-  TranslationAPI: {
-    getTranslation: jest.fn(() => Promise.resolve(mockData)),
-  },
-}));
 
 describe('MastheadTopNav', () => {
   it('renders one MastheadTopNav', () => {
@@ -27,17 +20,15 @@ describe('MastheadTopNav', () => {
     expect(wrapper).toHaveLength(1);
   });
 
-  it('renders all the itens based in the `navigation` prop', async () => {
-    const data = await TranslationAPI.getTranslation();
-    const { links } = data;
-    const wrapper = mount(<MastheadTopNav navigation={links} />);
-    const menuItems = links.map((_itens, index) => {
+  it('renders all the itens based in the `navigation` prop', () => {
+    const wrapper = mount(<MastheadTopNav navigation={mockData.links} />);
+    const menuItems = mockData.links.map((_itens, index) => {
       return wrapper.find(
         `a[data-autoid="${stablePrefix}--masthead__l0-nav--nav-${index}"]`
       );
     });
 
-    expect(menuItems).toHaveLength(links.length);
+    expect(menuItems).toHaveLength(mockData.links.length);
   });
 
   it('uses the platform name and link correctly', () => {
