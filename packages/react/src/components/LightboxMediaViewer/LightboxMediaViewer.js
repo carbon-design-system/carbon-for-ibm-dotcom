@@ -54,6 +54,11 @@ const LightboxMediaViewer = ({ media, ...modalProps }) => {
     })();
   }, [media, media.src]);
 
+  const videoDesc = markdownToHtml(videoData.description, {
+    createParagraphs: false,
+    cleanString: true,
+  });
+
   return (
     <section
       data-autoid={`${stablePrefix}--lightbox-media-viewer`}
@@ -84,11 +89,7 @@ const LightboxMediaViewer = ({ media, ...modalProps }) => {
                     <div
                       data-autoid={`${stablePrefix}--lightbox-media-viewer__content__desc`}
                       className={`${prefix}--lightbox-media-viewer__content__desc`}>
-                      {videoData.description &&
-                        markdownToHtml(videoData.description, {
-                          createParagraphs: false,
-                          cleanString: true,
-                        })}
+                      {videoDesc}
                     </div>
                   )}
                 </div>

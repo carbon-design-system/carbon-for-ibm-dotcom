@@ -28,7 +28,7 @@ const { prefix } = settings;
  * @returns {*} VideoPlayer component
  */
 const VideoPlayer = ({ inverse, showCaption, videoId, customClassName }) => {
-  const [videoData, setVideoData] = useState({});
+  const [videoData, setVideoData] = useState({ description: '' });
   const videoPlayerId = `video-player__video-${videoId}`;
   const videoDuration = VideoPlayerAPI.getVideoDuration(videoData.msDuration);
 
@@ -45,6 +45,11 @@ const VideoPlayer = ({ inverse, showCaption, videoId, customClassName }) => {
     customClassName
   );
 
+  const videoDesc = markdownToHtml(videoData.description, {
+    createParagraphs: false,
+    cleanString: true,
+  });
+
   return (
     <div
       aria-label={`${videoData.description} ${videoDuration}`}
@@ -58,12 +63,7 @@ const VideoPlayer = ({ inverse, showCaption, videoId, customClassName }) => {
       </div>
       {showCaption && (
         <div className={`${prefix}--video-player__video-caption`}>
-          {videoData.description &&
-            markdownToHtml(videoData.description, {
-              createParagraphs: false,
-              cleanString: true,
-            })}
-          {` ${videoDuration}`}
+          {videoDesc} {videoDuration}
         </div>
       )}
     </div>
