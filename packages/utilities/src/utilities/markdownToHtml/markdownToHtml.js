@@ -44,6 +44,8 @@ const _cleanString = str => str.replace(_cleanStringRegex, ' ');
  * @param {boolean} [options.bold=true] Defines if should convert bold
  * @param {boolean} [options.useCarbonClasses=true] Defines if should use carbon typography classes
  * @param {boolean} [options.allowHtml=false] Defines if should allow or remove html tags
+ * @param {boolean} [options.cleanString=false] Defines if string should be cleaned of multiple spaces, html entities, or single new lines
+ * @param {boolean} [options.createParagraphs=true] Defines if paragraphs should be rendered wrapped in <p> tags
  * @returns {string} String converted to html
  * @example
  * import { markdownToHtml } from '@carbon/ibmdotcom-utilities';
@@ -59,7 +61,7 @@ function markdownToHtml(
     useCarbonClasses = true,
     allowHtml = false,
     cleanString = false,
-    textOnly = false,
+    createParagraphs = true,
   } = {}
 ) {
   let paraList = '';
@@ -90,7 +92,7 @@ function markdownToHtml(
       });
     }
 
-    paraList += textOnly ? para : `<p>${para}</p>`;
+    paraList += createParagraphs ? `<p>${para}</p>` : para;
   });
 
   return paraList;
