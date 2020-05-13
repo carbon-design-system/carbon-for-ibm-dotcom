@@ -60,7 +60,7 @@ const VideoPlayer = ({ inverse, showCaption, videoId, customClassName }) => {
         <div className={`${prefix}--video-player__video-caption`}>
           {videoData.description &&
             markdownToHtml(videoData.description, {
-              textOnly: true,
+              createParagraphs: false,
               cleanString: true,
             })}
           {` ${videoDuration}`}

@@ -2,7 +2,7 @@ import { settings } from 'carbon-components';
 const { prefix } = settings;
 
 const _htmlTagRegex = /<.*?>/g;
-const _cleanStringRegex = /\n|\s{2,}|(&.+;)/g;
+const _cleanStringRegex = /\n|\s{2,}|&([a-zA-Z]+);/g;
 const _italicRegex = /[_*](.*?)[_*]/g;
 const _boldRegex = /[_*]{2}(.*?)[_*]{2}/g;
 const _paraRegex = /\n\n/g;

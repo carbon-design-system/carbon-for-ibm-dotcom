@@ -86,7 +86,7 @@ const LightboxMediaViewer = ({ media, ...modalProps }) => {
                       className={`${prefix}--lightbox-media-viewer__content__desc`}>
                       {videoData.description &&
                         markdownToHtml(videoData.description, {
-                          textOnly: true,
+                          createParagraphs: false,
                           cleanString: true,
                         })}
                     </div>
