@@ -47,6 +47,13 @@ const VideoPlayer = ({
     customClassName
   );
 
+  let videoDesc = '';
+  if (videoData.description) {
+    videoDesc = videoData.description
+      .replace(/(&nbsp;)/gi, ' ')
+      .replace(/(<([^>]+)>)/gi, '');
+  }
+
   return (
     <div
       aria-label={`${videoData.description} ${videoDuration}`}
@@ -59,11 +66,9 @@ const VideoPlayer = ({
           id={`${prefix}--${videoPlayerId}`}></div>
       </div>
       {showDescription && (
-        <div
-          className={`${prefix}--video-player__video-description`}
-          dangerouslySetInnerHTML={{
-            __html: `${videoData.description} ${videoDuration}`,
-          }}></div>
+        <div className={`${prefix}--video-player__video-description`}>
+          {videoDesc} {videoDuration}
+        </div>
       )}
     </div>
   );
