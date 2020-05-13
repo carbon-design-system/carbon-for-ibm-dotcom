@@ -2,7 +2,7 @@ import { settings } from 'carbon-components';
 const { prefix } = settings;
 
 const _htmlTagRegex = /<.*?>/g;
-const _cleanStringRegex = /\n|\s{2,}/g;
+const _cleanStringRegex = /\n|\s{2,}|(&nbsp;)/g;
 const _italicRegex = /[_*](.*?)[_*]/g;
 const _boldRegex = /[_*]{2}(.*?)[_*]{2}/g;
 const _paraRegex = /\n\n/g;
@@ -58,10 +58,13 @@ function markdownToHtml(
     bold = true,
     useCarbonClasses = true,
     allowHtml = false,
+    cleanString = false,
+    textOnly = false,
   } = {}
 ) {
   let paraList = '';
   let converted = allowHtml ? str : _removeHtmlTags(str);
+  converted = cleanString ? _cleanString(converted) : converted;
   const paras = converted.split(_paraRegex);
 
   paras.map(para => {
@@ -87,7 +90,7 @@ function markdownToHtml(
       });
     }
 
-    paraList += `<p>${para}</p>`;
+    paraList += textOnly ? para : `<p>${para}</p>`;
   });
 
   return paraList;
