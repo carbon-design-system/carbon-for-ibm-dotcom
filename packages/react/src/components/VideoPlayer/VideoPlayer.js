@@ -51,9 +51,7 @@ const VideoPlayer = ({ inverse, showCaption, videoId, customClassName }) => {
   });
 
   return (
-    <div
-      aria-label={`${videoData.description} ${videoDuration}`}
-      className={classnames}>
+    <div aria-label={`${videoDesc} ${videoDuration}`} className={classnames}>
       <div
         className={`${prefix}--video-player__video-container`}
         data-autoid={`${stablePrefix}--${videoPlayerId}`}>
