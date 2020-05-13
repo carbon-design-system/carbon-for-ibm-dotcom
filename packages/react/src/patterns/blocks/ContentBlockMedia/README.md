@@ -7,7 +7,9 @@
 
 Here's a quick example to get you started.
 
-```scss
+##### CSS
+
+```css
 // yourapplication.scss
 @import '@carbon/type/scss/font-face/mono';
 @import '@carbon/type/scss/font-face/sans';
@@ -20,6 +22,8 @@ Here's a quick example to get you started.
 > 💡 Only import fonts once per usage. Don't forget to import the
 > ContentBlockMedia styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
+
+##### JS
 
 ```javascript
 import React from 'react';
@@ -108,8 +112,8 @@ function App() {
 ReactDOM.render(<App />, document.querySelector('#app'));
 ```
 
-Add the following line on your `.env` file at the root of your project,
-[see more details](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/styles#usage)
+Add the following line in your `.env` file at the root of your project.
+[See more details](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/styles#usage).
 
 ```
   SASS_PATH=node_modules:src
@@ -126,6 +130,7 @@ Add the following line on your `.env` file at the root of your project,
 | `heading` | YES      | String    | n/a           | Main title of ContentBlockWithMedia pattern.                                                                                                                                                      |
 | `items`   | YES      | Array     | n/a           | Array of content items objects to render. See `items` below.                                                                                                                                      |
 | `cta`     | NO       | Object    | null          | Optional CTA. Must be `Feature Link`. See the [`CTA`](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/components/CTA) component for full usage details. |
+| `aside`   | NO       | Object    | n/a           | Elements to be rendered on right panel of the content block. See `ContentBlock` README for more info.                                                                                             |
 
 ### items
 

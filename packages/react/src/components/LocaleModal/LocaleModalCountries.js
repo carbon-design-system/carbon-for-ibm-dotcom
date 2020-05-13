@@ -5,8 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import {
+  settings as ddsSettings,
+  ipcinfoCookie,
+} from '@carbon/ibmdotcom-utilities';
 import React, { useEffect } from 'react';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
 import { Search } from 'carbon-components-react';
 import { settings } from 'carbon-components';
@@ -31,9 +34,6 @@ const LocaleModalCountries = ({
     const localeFilter = document.getElementById(
       `${prefix}--locale-modal__filter`
     );
-    // const localeItems = document.querySelectorAll(
-    //   `.${prefix}--locale-modal__locales`
-    // );
     const localeText = document.querySelector(
       `.${prefix}--locale-modal__search-text`
     );
@@ -42,7 +42,9 @@ const LocaleModalCountries = ({
     );
     const localeHidden = `${prefix}--locale-modal__locales-hidden`;
 
-    localeFilter.addEventListener('keyup', filterLocale);
+    if (localeFilter) {
+      localeFilter.addEventListener('keyup', filterLocale);
+    }
 
     /**
      * Filter locale links based on search input
@@ -84,13 +86,45 @@ const LocaleModalCountries = ({
     }
 
     /**
+     * Function to be added to eventListener and cleaned later on
+     */
+    const handleClear = () => {
+      setClearResults(true);
+    };
+
+    /**
      * Show all links when close button clicked
      *
      */
-    closeBtn.addEventListener('click', () => {
-      setClearResults(true);
-    });
+    if (closeBtn) {
+      closeBtn.addEventListener('click', handleClear);
+    }
+
+    return () => {
+      if (closeBtn) {
+        closeBtn.removeEventListener('click', handleClear);
+      }
+      if (localeFilter) {
+        localeFilter.removeEventListener('keyup', filterLocale);
+      }
+    };
   });
+
+  /**
+   * method to handle when country/region has been selected
+   * sets the ipcInfo cookie with selected locale
+   *
+   * @param {object} locale selected country/region
+   * @private
+   */
+  function _setCookie(locale) {
+    const localeSplit = locale.split('-');
+    const localeObj = {
+      cc: localeSplit[1],
+      lc: localeSplit[0],
+    };
+    ipcinfoCookie.set(localeObj);
+  }
 
   return (
     <div className={`${prefix}--locale-modal__filter`}>
@@ -106,13 +140,18 @@ const LocaleModalCountries = ({
           {modalLabels.availabilityText}
         </p>
       </div>
-      <div className={`${prefix}--locale-modal__list`}>
+      <div
+        role="listbox"
+        tabIndex="0"
+        aria-labelledby={`${prefix}--locale-modal__filter`}
+        className={`${prefix}--locale-modal__list`}>
         {regionList &&
           regionList.map(region =>
             region.countries.map((country, index) => (
               <a
                 key={index}
                 className={`${prefix}--locale-modal__locales`}
+                onClick={() => _setCookie(country.locale)}
                 href={country.href}
                 data-region={country.region}>
                 <div className={`${prefix}--locale-modal__locales__name`}>
@@ -130,13 +169,17 @@ const LocaleModalCountries = ({
 };
 
 /**
- * @property propTypes
+ * @property {object} propTypes LocaleModalCountries propTypes
  * @description Defined property types for component
  * @type {{regionList: Array, availabilityText: string, unavailabilityText: string, placeHolderText: string, labelText: string}}
  */
 LocaleModalCountries.propTypes = {
   regionList: PropTypes.array,
   setClearResults: PropTypes.func,
+};
+
+LocaleModalCountries.defaultProps = {
+  searchLabel: 'Search by location or language',
 };
 
 export default LocaleModalCountries;

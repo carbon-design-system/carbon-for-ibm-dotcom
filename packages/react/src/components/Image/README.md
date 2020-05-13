@@ -7,7 +7,9 @@
 
 Here's a quick example to get you started.
 
-```scss
+##### CSS
+
+```css
 // yourapplication.scss
 @import '@carbon/type/scss/font-face/mono';
 @import '@carbon/type/scss/font-face/sans';
@@ -19,6 +21,8 @@ Here's a quick example to get you started.
 > 💡 Only import fonts once per usage. Don't forget to import the Image styles
 > from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
+
+##### JS
 
 ```javascript
 import React from 'react';
@@ -41,14 +45,25 @@ function App() {
     },
   ];
 
-  return <Image sources={image} defaultSrc={image.default} alt={image.alt} />;
+  const defaultSrc = 'https://dummyimage.com/672x672';
+  const alt = 'Lorem Ipsum';
+  const longDescription = 'Lorem Ipsum Dolor';
+
+  return (
+    <Image
+      sources={sources}
+      defaultSrc={defaultSrc}
+      alt={alt}
+      longDescription={longDescription}
+    />
+  );
 }
 
 ReactDOM.render(<App />, document.querySelector('#app'));
 ```
 
-Add the following line on your `.env` file at the root of your project,
-[see more details](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/styles#usage)
+Add the following line in your `.env` file at the root of your project.
+[See more details](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/styles#usage).
 
 ```
   SASS_PATH=node_modules:src

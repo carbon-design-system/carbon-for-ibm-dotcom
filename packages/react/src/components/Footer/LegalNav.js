@@ -46,7 +46,6 @@ const LegalNav = ({ links }) => {
       <nav className={`${prefix}--legal-nav`}>
         <ul className={`${prefix}--legal-nav__list`}>
           {renderListItems(links)}
-          {renderTrusteItem()}
         </ul>
       </nav>
     </aside>
@@ -60,7 +59,7 @@ const LegalNav = ({ links }) => {
  * @returns {object} JSX object
  */
 function renderListItems(links) {
-  return links.map(({ title, url }, index) => {
+  const renderedLinks = links.map(({ title, url }, index) => {
     if (!title || !url) {
       return null;
     }
@@ -69,10 +68,31 @@ function renderListItems(links) {
       <li className={`${prefix}--legal-nav__list-item`} key={index}>
         <Link
           data-autoid={`${stablePrefix}--footer-legal-nav__link`}
+          className={`${prefix}--footer__link`}
           href={url}>
           {title}
         </Link>
       </li>
+    );
+  });
+
+  renderedLinks.push(renderTrusteItem());
+
+  const chunked_arr = [];
+  let index = 0;
+
+  while (index < renderedLinks.length) {
+    chunked_arr.push(
+      renderedLinks.slice(index, Math.ceil(renderedLinks.length / 3) + index)
+    );
+    index += Math.ceil(renderedLinks.length / 3);
+  }
+
+  return chunked_arr.map((elem, index) => {
+    return (
+      <ul className={`${prefix}--legal-nav__holder`} key={index}>
+        {elem}
+      </ul>
     );
   });
 }
@@ -87,7 +107,7 @@ LegalNav.propTypes = {
 };
 
 /**
- * @property defaultProps
+ * @property {object} defaultProps default LegalNav props
  * @type {{groups: Array}}
  */
 LegalNav.defaultProps = {

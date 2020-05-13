@@ -15,7 +15,7 @@ const { prefix } = settings;
 const footerLegalItemTemplate = ({ url, label }) => {
   return `
   <li class="${prefix}--legal-nav__list-item">
-    <a href="${url}" class="${prefix}--link" data-autoid="${stablePrefix}--footer-legal-nav__link">${label}</a>
+    <a href="${url}" class="${prefix}--link ${prefix}--footer__link" data-autoid="${stablePrefix}--footer-legal-nav__link">${label}</a>
   </li>
   `;
 };

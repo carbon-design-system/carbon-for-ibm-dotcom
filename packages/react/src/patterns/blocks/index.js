@@ -5,11 +5,16 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+export * from './CalloutWithMedia';
+export * from './ContentBlockCards';
 export * from './ContentBlockMedia';
 export * from './ContentBlockMixed';
 export * from './ContentBlockSegmented';
 export * from './ContentBlockSimple';
 export * from './ContentGroupCards';
+export * from './ContentGroupHorizontal';
 export * from './ContentGroupPictograms';
+export * from './ContentGroupSimple';
 export * from './FeatureCard';
+export * from './FeatureCardBlockLarge';
 export * from './LogoGrid';

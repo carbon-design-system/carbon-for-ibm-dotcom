@@ -25,7 +25,7 @@ const { prefix } = settings;
  * @param {object} props react proptypes
  * @returns {object} JSX object
  */
-const Card = ({
+export const Card = ({
   type,
   inverse,
   image,
@@ -50,7 +50,7 @@ const Card = ({
       )}
       href={cta.href}
       {...props}>
-      <Image {...image} classname={`${prefix}--card__img`} />
+      {image && <Image {...image} classname={`${prefix}--card__img`} />}
       <div className={`${prefix}--card__wrapper`}>
         {eyebrow && <p className={`${prefix}--card__eyebrow`}>{eyebrow}</p>}
         {heading && <h3 className={`${prefix}--card__heading`}>{heading}</h3>}
@@ -100,7 +100,12 @@ function renderFooter(cta, type) {
   );
 }
 
-Card.propTypes = {
+/**
+ * Defining Card proptypes
+ *
+ * @type {object}
+ */
+export const cardPropTypes = {
   heading: PropTypes.string,
   eyebrow: PropTypes.string,
   copy: PropTypes.string,
@@ -111,4 +116,4 @@ Card.propTypes = {
   type: PropTypes.string,
 };
 
-export default Card;
+Card.propTypes = cardPropTypes;

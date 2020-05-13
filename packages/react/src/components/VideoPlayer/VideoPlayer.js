@@ -6,6 +6,7 @@
  */
 
 import React, { useEffect, useState } from 'react';
+import cx from 'classnames';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
 import { settings } from 'carbon-components';
@@ -17,10 +18,18 @@ const { prefix } = settings;
 /**
  * VideoPlayer component
  *
- * @param {string} videoId Kaltura video id
+ * @param {object} props props object
+ * @param {boolean} props.inverse theming options
+ * @param {string} props.showDescription video caption
+ * @param {string} props.videoId Kaltura video id
  * @returns {*} VideoPlayer component
  */
-const VideoPlayer = ({ videoId, showDescription }) => {
+const VideoPlayer = ({
+  inverse,
+  showDescription,
+  videoId,
+  customClassName,
+}) => {
   const [videoData, setVideoData] = useState({});
   const videoPlayerId = `video-player__video-${videoId}`;
   const videoDuration = VideoPlayerAPI.getVideoDuration(videoData.msDuration);
@@ -32,8 +41,16 @@ const VideoPlayer = ({ videoId, showDescription }) => {
     })();
   }, [videoId, videoPlayerId]);
 
+  const classnames = cx(
+    `${prefix}--video-player`,
+    { [`${prefix}--video-player--inverse`]: inverse },
+    customClassName
+  );
+
   return (
-    <div className={`${prefix}--video-player`}>
+    <div
+      aria-label={`${videoData.description} ${videoDuration}`}
+      className={classnames}>
       <div
         className={`${prefix}--video-player__video-container`}
         data-autoid={`${stablePrefix}--${videoPlayerId}`}>
@@ -51,14 +68,15 @@ const VideoPlayer = ({ videoId, showDescription }) => {
 };
 
 /**
- * @property propTypes
+ * @property {object} propTypes VideoPlayer propTypes
  * @description Defined property types for component
- *
- * @type {{videoId: string, showDescription: bool}}
+ * @type {{videoId: string, showDescription: boolean}}
  */
 VideoPlayer.propTypes = {
+  customClassName: PropTypes.string,
   videoId: PropTypes.string.isRequired,
   showDescription: PropTypes.bool,
+  inverse: PropTypes.bool,
 };
 
 export default VideoPlayer;

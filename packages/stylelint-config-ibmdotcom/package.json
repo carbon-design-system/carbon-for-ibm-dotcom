@@ -1,7 +1,7 @@
 {
   "name": "@carbon/stylelint-config-ibmdotcom",
   "private": true,
-  "version": "1.5.0",
+  "version": "1.6.0",
   "description": "Stylelint configuration for the IBM.com Library",
   "license": "Apache-2.0",
   "main": "index.js",
@@ -17,14 +17,14 @@
     "react"
   ],
   "peerDependencies": {
-    "stylelint": "^9.10.1"
+    "stylelint": "^13.3.3"
   },
   "dependencies": {
-    "stylelint-config-prettier": "^4.0.0",
-    "stylelint-prettier": "^1.0.6",
-    "stylelint-scss": "^3.5.3"
+    "stylelint-config-prettier": "^7.0.0",
+    "stylelint-prettier": "^1.1.2",
+    "stylelint-scss": "^3.17.1"
   },
   "devDependencies": {
-    "stylelint": "^9.10.1"
+    "stylelint": "^13.3.3"
   }
 }

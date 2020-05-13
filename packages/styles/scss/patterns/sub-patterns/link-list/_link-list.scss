@@ -36,9 +36,15 @@
       max-width: none;
       &__wrapper {
         min-height: 116px;
+
         .#{$prefix}--card__copy p {
           color: $link-01;
           @include carbon--type-style('body-short-02');
+        }
+
+        @include carbon--breakpoint('sm') {
+          padding-left: $carbon--spacing-07;
+          padding-right: $carbon--spacing-07;
         }
       }
       &:not(:hover) {

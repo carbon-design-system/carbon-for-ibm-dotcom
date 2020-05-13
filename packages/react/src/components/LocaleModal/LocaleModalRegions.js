@@ -20,9 +20,10 @@ const { prefix } = settings;
  *
  * @param {object} props props object
  * @param {object} props.regionList object of regions
- * @param {string} props.setCurrentRegion state for region name
+ * @param {Function} props.setCurrentRegion sets state for region name
  * @param {boolean} props.setIsFiltering true when search filter is visible
  * @param {Function} props.setClearResults set flag to determine whether to reset the filtered results
+ * @param {string} props.returnButtonLabel label for the return button
  * @returns {*} LocaleModalRegions component
  */
 const LocaleModalRegions = ({
@@ -30,6 +31,7 @@ const LocaleModalRegions = ({
   setCurrentRegion,
   setIsFiltering,
   setClearResults,
+  returnButtonLabel,
 }) => {
   useEffect(() => {
     const regionLink = document.querySelectorAll(`.${prefix}--card`);
@@ -40,6 +42,11 @@ const LocaleModalRegions = ({
     [...regionLink].forEach(link => {
       link.setAttribute('tabindex', '1');
       link.addEventListener('click', () => {
+        const searchInput = document.getElementById(
+          `${prefix}--locale-modal__filter`
+        );
+        searchInput.focus();
+
         const region = link.dataset.region;
         setCurrentRegion(link.getElementsByTagName('h3')[0].innerHTML);
 
@@ -63,6 +70,7 @@ const LocaleModalRegions = ({
 
         /**
          * Removes tabindex and role as it goes back
+         *
          * @param {*} btn btn element
          */
         const localeBackActive = btn => {
@@ -71,11 +79,13 @@ const LocaleModalRegions = ({
           document.getElementById(`${prefix}--locale-modal__filter`).value = '';
           btn.removeAttribute('tabindex');
           btn.removeAttribute('role');
+          btn.removeAttribute('aria-label');
         };
 
         [...localeBackBtn].forEach(btn => {
           btn.setAttribute('tabindex', '1');
           btn.setAttribute('role', 'button');
+          btn.setAttribute('aria-label', returnButtonLabel);
 
           btn.addEventListener('click', function click() {
             localeBackActive(btn);
@@ -110,8 +120,9 @@ const LocaleModalRegions = ({
                   key={region.key}
                   heading={region.name}
                   type="link"
+                  handleClick={e => e.preventDefault()}
                   cta={{
-                    href: hasCountries ? 'javascript:void(0);' : null,
+                    href: hasCountries ? '#' : null,
                     icon: {
                       src: hasCountries ? ArrowRight20 : Error20,
                     },
@@ -126,15 +137,16 @@ const LocaleModalRegions = ({
 };
 
 /**
- * @property propTypes
+ * @property {object} propTypes LocaleModalRegions propTypes
  * @description Defined property types for component
  * @type {{}}
  */
 LocaleModalRegions.propTypes = {
   regionList: PropTypes.array,
-  setCurrentRegion: PropTypes.string,
+  setCurrentRegion: PropTypes.func,
   setIsFiltering: PropTypes.func,
   setClearResults: PropTypes.func,
+  returnButtonLabel: PropTypes.string,
 };
 
 export default LocaleModalRegions;

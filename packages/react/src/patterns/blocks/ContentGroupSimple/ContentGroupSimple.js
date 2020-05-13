@@ -12,6 +12,7 @@ import { ImageWithCaption } from '../../../components/ImageWithCaption';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { settings } from 'carbon-components';
+import { VideoPlayer } from '../../../components/VideoPlayer';
 
 const { prefix } = settings;
 const { stablePrefix } = ddsSettings;
@@ -39,29 +40,30 @@ const ContentGroupSimple = ({ heading, mediaType, mediaData, items, cta }) => (
 
 /**
  *
- * @param {string} mediaType Media type, video or image
- * @param {object} mediaData Data for renderimg the media
- * @returns {*} JSX Component with the media
- */
-const _renderMedia = (mediaType, mediaData) => {
-  if (mediaData) {
-    if (mediaType === 'image') {
-      return (
-        <div data-autoid={`${stablePrefix}--content-group-simple__media`}>
-          <ImageWithCaption {...mediaData} />
-        </div>
-      );
-    }
-  }
-};
-
-/**
- *
  * @param {Array} items Array of data for ContentItems to be rendered
  * @returns {*} Array of ContentItem Components
  */
 const _renderContent = items =>
   items.map((item, index) => <ContentItem {...item} key={index} />);
+
+/**
+ * renders either video or image content
+ *
+ * @param {string} type cta type ( external | jump | local)
+ * @param {object} data cta type ( external | jump | local)
+ * @private
+ * @returns {*} media component
+ */
+const _renderMedia = (type, data) => {
+  if (data) {
+    return (
+      <div data-autoid={`${stablePrefix}--content-group-simple__media`}>
+        {type === 'image' && <ImageWithCaption {...data} />}
+        {type === 'video' && <VideoPlayer {...data} />}
+      </div>
+    );
+  }
+};
 
 ContentGroupSimple.propTypes = {
   heading: PropTypes.string.isRequired,

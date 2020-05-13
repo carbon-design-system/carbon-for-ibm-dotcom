@@ -25,9 +25,10 @@ const { prefix } = settings;
  * @param {string} props.copy Content block description
  * @param {object} props.cta cta object
  * @param {Array} props.items Content block mixed group patterns
+ * @param {object} props.aside elements to render on right panel
  * @returns {*} ContentBlockMixed JSX Object
  */
-const ContentBlockMixed = ({ heading, copy, cta, items }) => {
+const ContentBlockMixed = ({ heading, copy, cta, items, aside }) => {
   const patterns = {
     ContentGroupCards,
     ContentGroupSimple,
@@ -42,7 +43,7 @@ const ContentBlockMixed = ({ heading, copy, cta, items }) => {
     <div
       data-autoid={`${stablePrefix}--content-block-mixed`}
       className={`${prefix}--content-block-mixed`}>
-      <ContentBlock heading={heading} copy={copy} cta={cta}>
+      <ContentBlock heading={heading} copy={copy} cta={cta} aside={aside}>
         {groups}
       </ContentBlock>
     </div>
@@ -56,6 +57,7 @@ ContentBlockMixed.propTypes = {
   cta: PropTypes.shape({
     style: PropTypes.oneOf(['card']),
   }),
+  aside: PropTypes.object,
 };
 
 export default ContentBlockMixed;

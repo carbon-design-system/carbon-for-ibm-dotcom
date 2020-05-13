@@ -51,7 +51,7 @@ const _renderItems = items =>
 
 ContentGroupPictograms.propTypes = {
   heading: PropTypes.string.isRequired,
-  items: PropTypes.arrayOf(PropTypes.instanceOf(PictogramItem)).isRequired,
+  items: PropTypes.arrayOf(PropTypes.shape(PictogramItem.propTypes)).isRequired,
   className: PropTypes.string,
 };
 

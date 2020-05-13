@@ -1,5 +1,6 @@
 import { geolocation, ipcinfoCookie } from '@carbon/ibmdotcom-utilities';
 import axios from 'axios';
+import DDOAPI from '../DDO/DDO';
 import root from 'window-or-global';
 
 /**
@@ -18,7 +19,7 @@ const _proxy = (process && process.env.CORS_PROXY) || '';
 /**
  * Sets the default location if nothing is returned
  *
- * @type {string}
+ * @type {object}
  * @private
  */
 const _localeDefault = {
@@ -32,7 +33,7 @@ const _localeDefault = {
  * @type {string}
  * @private
  */
-const _localeNameDefault = 'United States - English';
+const _localeNameDefault = 'United States — English';
 
 /**
  * Locale API endpoint
@@ -44,6 +45,7 @@ const _endpoint = `${_proxy}${_host}/common/js/dynamicnav/www/countrylist/jsonon
 
 /**
  * Tracking of the country list fetch
+ *
  * @type {{}}
  * @private
  */
@@ -67,6 +69,7 @@ let _attempt = 0;
 
 /**
  * Configuration for axios
+ *
  * @type {{headers: {'Content-Type': string}}}
  * @private
  */
@@ -83,6 +86,75 @@ const _axiosConfig = {
  * @private
  */
 const _sessionListKey = 'dds-countrylist';
+
+/**
+ * Use the <html> lang attr to determine a return locale object
+ *
+ * @type {object}
+ * @private
+ */
+const _getLocaleByLangAttr = () => {
+  if (root.document.documentElement.lang) {
+    const lang = root.document.documentElement.lang.toLowerCase();
+    if (lang.indexOf('-') === -1) {
+      return _localeDefault;
+    } else {
+      const codes = lang.split('-');
+      return { cc: codes[1], lc: codes[0] };
+    }
+  } else {
+    return _localeDefault;
+  }
+};
+
+/**
+ * Return a locale object based on the DDO API, or "false"
+ * so the consumer can decide what to do next
+ *
+ * @type {(object | boolean)}
+ * @private
+ */
+async function _getLocaleFromDDO() {
+  const ddoLocal = await DDOAPI.getAll();
+
+  if (ddoLocal && ddoLocal.page && ddoLocal.page.pageInfo) {
+    let pageInfoIBM = ddoLocal.page.pageInfo.ibm;
+
+    // Set proper LC for us to use.
+    if (ddoLocal.page.pageInfo.language) {
+      pageInfoIBM.lc = ddoLocal.page.pageInfo.language
+        .substring(0, 2)
+        .toLowerCase();
+    }
+
+    if (pageInfoIBM) {
+      // Set proper CC for us to use.
+      if (pageInfoIBM.country) {
+        pageInfoIBM.cc = pageInfoIBM.country.toLowerCase().trim();
+
+        // If there are multiple countries use just the first one for the CC value
+        if (pageInfoIBM.cc.indexOf(',') > -1)
+          pageInfoIBM.cc = pageInfoIBM.cc
+            .substring(0, pageInfoIBM.cc.indexOf(','))
+            .trim();
+
+        // Gb will be uk elsewhere
+        if (pageInfoIBM.cc === 'gb') pageInfoIBM.cc = 'uk';
+
+        // Map worldwide (ZZ) pages to US
+        if (pageInfoIBM.cc === 'zz') pageInfoIBM.cc = 'us';
+      }
+    }
+
+    if (!pageInfoIBM.lc || !pageInfoIBM.cc) return false;
+
+    return {
+      cc: pageInfoIBM.cc,
+      lc: pageInfoIBM.lc,
+    };
+  }
+  return false;
+}
 
 /**
  * Locale API class with method of fetching user's locale for
@@ -109,7 +181,7 @@ class LocaleAPI {
    */
   static async getLocale() {
     const cookie = ipcinfoCookie.get();
-    const lang = this.getLang();
+    const lang = await this.getLang();
     // grab locale from the html lang attribute
     if (lang) {
       await this.getList(lang);
@@ -141,7 +213,8 @@ class LocaleAPI {
   }
 
   /**
-   * Gets the `lang` html attribute containing the cc and lc
+   * Checks for DDO object to return the correct cc and lc
+   * Otherwise gets those values from the <html> lang attribute
    *
    * @returns {object} locale object
    *
@@ -152,18 +225,12 @@ class LocaleAPI {
    *    const locale = await LocaleAPI.getLang();
    * }
    */
-  static getLang() {
-    if (root.document.documentElement.lang) {
-      const lang = root.document.documentElement.lang.toLowerCase();
-      if (lang.indexOf('-') === -1) {
-        return _localeDefault;
-      } else {
-        const codes = lang.split('-');
-        return { cc: codes[1], lc: codes[0] };
-      }
-    } else {
-      return _localeDefault;
-    }
+  static async getLang() {
+    const getLocaleFromDDO = await _getLocaleFromDDO();
+
+    if (getLocaleFromDDO) {
+      return getLocaleFromDDO;
+    } else return _getLocaleByLangAttr();
   }
 
   /**
@@ -174,7 +241,7 @@ class LocaleAPI {
    * @returns {Promise<string>} Display name of locale/language
    */
   static async getLangDisplay(langCode) {
-    const lang = langCode ? langCode : this.getLang();
+    const lang = langCode ? langCode : await this.getLang();
     const list = await this.getList(lang);
     // combines the countryList arrays
     let countries = [];
@@ -198,7 +265,7 @@ class LocaleAPI {
     });
 
     if (location.length) {
-      return `${location[0].name} - ${location[0].locale[0][1]}`;
+      return `${location[0].name} — ${location[0].locale[0][1]}`;
     } else {
       return _localeNameDefault;
     }

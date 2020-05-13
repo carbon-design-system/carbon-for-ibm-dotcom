@@ -1,4 +1,5 @@
 /* eslint-disable */
+/* istanbul ignore file */
 
 /**
  * Copyright IBM Corp. 2016, 2018
@@ -7,7 +8,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { ChevronDownGlyph } from '@carbon/icons-react';
+import { ChevronDown20 } from '@carbon/icons-react';
 import { settings } from 'carbon-components';
 import cx from 'classnames';
 import React from 'react';
@@ -18,7 +19,7 @@ import { AriaLabelPropType } from '../../../prop-types/AriaPropTypes';
 const { prefix } = settings;
 
 const defaultRenderMenuContent = () => (
-  <ChevronDownGlyph className={`${prefix}--header__menu-arrow`} />
+  <ChevronDown20 className={`${prefix}--header__menu-arrow`} />
 );
 
 /**
@@ -180,7 +181,8 @@ class HeaderMenu extends React.Component {
           aria-haspopup="menu" // eslint-disable-line jsx-a11y/aria-proptypes
           aria-expanded={this.state.expanded}
           className={`${prefix}--header__menu-item ${prefix}--header__menu-title`}
-          href="javascript:void(0)"
+          href="#"
+          onClick={event => event.preventDefault()}
           onKeyDown={this.handleOnKeyDown}
           ref={this.handleMenuButtonRef}
           role="menuitem"

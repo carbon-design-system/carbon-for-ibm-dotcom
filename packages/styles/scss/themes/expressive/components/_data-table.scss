@@ -15,21 +15,41 @@
 /// @access private
 /// @group data-table-expressive
 @mixin data-table-expressive {
-  .bx--data-table--compact td {
+  .#{$prefix}--data-table--compact td {
     height: rem(32px);
   }
-  .bx--data-table--short td {
+  .#{$prefix}--data-table--short td {
     height: rem(40px);
   }
-  .bx--data-table--tall td {
+  .#{$prefix}--data-table--tall td {
     height: rem(70px);
   }
-  .bx--table-expand__svg {
+  .#{$prefix}--table-expand__svg {
     height: rem(20px);
     width: rem(20px);
   }
-  .bx--btn__icon {
+  .#{$prefix}--btn__icon {
     height: rem(20px);
     width: rem(20px);
+  }
+  .#{$prefix}--toolbar-search-container-expandable
+    .#{$prefix}--search
+    .#{$prefix}--search-magnifier {
+    height: var(--cds-layout-04, 3.25rem);
+    width: var(--cds-layout-04, 3.25rem);
+  }
+  .#{$prefix}--btn .#{$prefix}--btn__icon {
+    height: rem(20px);
+    width: rem(20px);
+  }
+  th.#{$prefix}--table-expand + th.#{$prefix}--table-column-checkbox {
+    padding-left: 0.75rem;
+  }
+  .#{$prefix}--overflow-menu__icon {
+    height: 1.25rem;
+    width: 1.25rem;
+  }
+  .#{$prefix}--overflow-menu.#{$prefix}--toolbar-action {
+    padding: 0.875rem;
   }
 }

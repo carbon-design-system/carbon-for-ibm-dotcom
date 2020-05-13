@@ -1,14 +1,8 @@
 import React, { useCallback, useEffect, useRef } from 'react';
-import { Close20 } from '@carbon/icons-react';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
-import { HeaderGlobalAction } from 'carbon-components-react';
 import PropTypes from 'prop-types';
-import root from 'window-or-global';
-import { Search20 } from '@carbon/icons-react';
-import { settings } from 'carbon-components';
 
 const { stablePrefix } = ddsSettings;
-const { prefix } = settings;
 
 /**
  * Renders the input bar with the search icon
@@ -19,12 +13,7 @@ const { prefix } = settings;
  * @param {Function} props.searchIconClick executes when the search icon is clicked
  * @returns {*} The rendered component
  */
-const MastheadSearchInput = ({
-  componentInputProps,
-  dispatch,
-  isActive,
-  searchIconClick,
-}) => {
+const MastheadSearchInput = ({ componentInputProps, dispatch, isActive }) => {
   const searchRef = useRef();
 
   /**
@@ -37,17 +26,6 @@ const MastheadSearchInput = ({
       payload: { val: '' },
     });
   }, [dispatch]);
-
-  /**
-   * closeBtnAction resets and sets focus after search is closed
-   */
-  function closeBtnAction() {
-    resetSearch();
-    const searchIconRef = root.document.querySelectorAll(
-      `[data-autoid="${stablePrefix}--header__search--search"]`
-    );
-    searchIconRef && searchIconRef[0].focus();
-  }
 
   useEffect(() => {
     if (isActive) {
@@ -64,26 +42,12 @@ const MastheadSearchInput = ({
         name="q"
         tabIndex={isActive ? null : '-1'}
       />
-      <HeaderGlobalAction
-        onClick={searchIconClick}
-        aria-label="Search all of IBM"
-        className={`${prefix}--header__search--search`}
-        data-autoid={`${stablePrefix}--header__search--search`}>
-        <Search20 />
-      </HeaderGlobalAction>
-      <HeaderGlobalAction
-        onClick={closeBtnAction}
-        aria-label="Close"
-        className={`${prefix}--header__search--close`}
-        data-autoid={`${stablePrefix}--header__search--close`}>
-        <Close20 />
-      </HeaderGlobalAction>
     </>
   );
 };
 
 /**
- * @property propTypes
+ * @property {object} propTypes MastheadSearchInput propTypes
  * @description Defined property types for component
  * @type {{dispatch: Function, componentInputProps: object, isActive: boolean}}
  */
@@ -95,7 +59,7 @@ MastheadSearchInput.propTypes = {
 };
 
 /**
- * @property defaultProps
+ * @property {object} defaultProps default MastheadSearchInput props
  * @type {{placeHolderText: string, renderValue: number}}
  */
 MastheadSearchInput.defaultProps = {

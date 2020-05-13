@@ -12,6 +12,7 @@ import { ImageWithCaption } from '../../../components/ImageWithCaption';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { settings } from 'carbon-components';
+import { VideoPlayer } from '../../../components/VideoPlayer';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
@@ -22,28 +23,61 @@ const { prefix } = settings;
  * @param {object} props props object
  * @param {string} props.copy multiple paragraphs to support the heading
  * @param {string} props.heading Content block simple heading
- * @param {object} props.image Content item image
+ * @param {string} props.mediaType Determines the media type (image or video)
+ * @param {object} props.mediaData Data properties for image or video
  * @param {object} props.cta cta object
+ * @param {object} props.aside elements to render on right panel
  * @returns {*} Content block simple pattern
  */
-const ContentBlockSimple = ({ copy, heading, image, cta }) => (
+const ContentBlockSimple = ({
+  copy,
+  heading,
+  mediaType,
+  mediaData,
+  cta,
+  aside,
+  inverse,
+}) => (
   <div
     data-autoid={`${stablePrefix}--content-block-simple`}
     className={`${prefix}--content-block-simple`}>
-    <ContentBlock heading={heading} cta={cta}>
+    <ContentBlock inverse={inverse} heading={heading} cta={cta} aside={aside}>
       <div className={`${prefix}--content-block-simple__content`}>
-        <ContentItem copy={copy} />
-        {image && <ImageWithCaption {...image} />}
+        <ContentItem inverse={inverse} copy={copy} />
+        {_renderMedia(mediaType, mediaData, inverse)}
       </div>
     </ContentBlock>
   </div>
 );
 
+/**
+ * renders either video or image content
+ *
+ * @param {string} type cta type ( external | jump | local)
+ * @param {object} data cta type ( external | jump | local)
+ * @param {boolean} inverse inverse theme
+ * @private
+ * @returns {*} media component
+ */
+const _renderMedia = (type, data, inverse) => {
+  if (data) {
+    return (
+      <div data-autoid={`${stablePrefix}--content-block-simple__media`}>
+        {type === 'image' && <ImageWithCaption inverse={inverse} {...data} />}
+        {type === 'video' && <VideoPlayer inverse={inverse} {...data} />}
+      </div>
+    );
+  }
+};
+
 ContentBlockSimple.propTypes = {
   copy: PropTypes.string.isRequired,
   heading: PropTypes.string.isRequired,
-  image: PropTypes.instanceOf(ImageWithCaption),
+  mediaType: PropTypes.string,
+  mediaData: PropTypes.object,
   cta: PropTypes.object,
+  aside: PropTypes.object,
+  inverse: PropTypes.bool,
 };
 
 export default ContentBlockSimple;

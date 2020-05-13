@@ -7,7 +7,9 @@
 
 Here's a quick example to get you started.
 
-```scss
+##### CSS
+
+```css
 // yourapplication.scss
 @import '@carbon/type/scss/font-face/mono';
 @import '@carbon/type/scss/font-face/sans';
@@ -18,6 +20,8 @@ Here's a quick example to get you started.
 > 💡 Only import fonts once per usage. Don't forget to import the Footer styles
 > from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
+
+##### JS
 
 ```javascript
 import React from 'react';
@@ -33,8 +37,8 @@ function App() {
 ReactDOM.render(<App />, document.querySelector('#app'));
 ```
 
-Add the following line on your `.env` file at the root of your project,
-[see more details](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/styles#usage)
+Add the following line in your `.env` file at the root of your project.
+[See more details](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/styles#usage).
 
 ```
   SASS_PATH=node_modules:src
@@ -43,13 +47,66 @@ Add the following line on your `.env` file at the root of your project,
 > 💡 Don't forget to import the footer styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
-#### Feature Flags
+## Props
 
-To utilize the following features, set the following variable's to `true` within
-your `.env` file or your application build settings.
+| Name                  | Required | Data Type | Default Value | Description                                                                                                                                                  |
+| --------------------- | -------- | --------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `type`                | NO       | String    | null          | Type of Footer. See below `Types`.                                                                                                                           |
+| `navigation`          | NO       | Object    | null          | Navigation data object for Footer, used for server-side rendering                                                                                            |
+| `langCode`            | NO       | Object    | null          | Language code for fetching the display name                                                                                                                  |
+| `disableLocaleButton` | NO       | Boolean   | false         | Disables the Locale button                                                                                                                                   |
+| `languageOnly`        | NO       | Boolean   | false         | Switches the locale button with a language dropdown (experimental)                                                                                           |
+| `languageItems`       | NO       | Array     | null          | Array of items for the language dropdown, utilizes the [Carbon ComboBox](https://react.carbondesignsystem.com/?path=/story/combobox--default) (experimental) |
+| `languageInitialItem` | NO       | Object    | first item    | Sets the initial value when the component is loaded (experimental)                                                                                           |
+| `languageCallback`    | NO       | Function  | null          | Callback function onChange of the language dropdown (experimental)                                                                                           |
 
+### Types (optional)
+
+| Name    | Description                                                                 |
+| ------- | --------------------------------------------------------------------------- |
+| `tall`  | Default footer variant includes additional navigation taking up more space. |
+| `short` | Short footer variant reduces space by removing any additional navigation.   |
+
+### Navigation data
+
+If setting the navigation data manually, examples can be seen here based on
+type:
+
+- [Tall](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/src/components/Footer/__data__/footer-menu.json)
+- [Short](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/src/components/Footer/__data__/footer-thin.json)
+
+### Language Dropdown (experimental)
+
+The option to use a language dropdown is available in lieu of the locale
+button/selector. This can be activated using the following feature flag:
+
+```bash
+DDS_LANGUAGE_SELECTOR=true
 ```
-DDS_FOOTER_LOCALE_BUTTON=true
+
+Example implementation:
+
+```javascript
+const items = [
+  { id: 'da', text: 'Danish / Dansk' },
+  { id: 'nl', text: 'Dutch / Nederlands' },
+  { id: 'en', text: 'English' },
+];
+
+function myLanguageCallback(selectedItem) {
+  console.log(selectedItem); // { "id": "en", "text": "English" }
+}
+
+function App() {
+  return (
+    <Footer
+      languageOnly={true}
+      languageItems={items}
+      languageInitialItem={items[2]}
+      languageCallback={myLanguageCallback}
+    />
+  );
+}
 ```
 
 > See
@@ -57,28 +114,6 @@ DDS_FOOTER_LOCALE_BUTTON=true
 > and
 > [.env.example](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/.env.example)
 > for more information
-
-## Props
-
-| Name         | Required | Data Type | Default Value | Description                        |
-| ------------ | -------- | --------- | ------------- | ---------------------------------- |
-| `navigation` | NO       | Object    | null          | Navigation data object for Footer  |
-| `type`       | NO       | String    | null          | Type of Footer. See below `types`. |
-
-### types (optional)
-
-| Name    | Description                                                                 |
-| ------- | --------------------------------------------------------------------------- |
-| `tall`  | Default footer variant includes additional navigation taking up more space. |
-| `short` | Short footer variant reduces space by removing any additional navigation.   |
-
-### navigation data
-
-If setting the navigation data manually, examples can be seen here based on
-type:
-
-- [Tall](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/src/components/Footer/__data__/footer-menu.json)
-- [Short](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/src/components/Footer/__data__/footer-thin.json)
 
 ## Stable selectors
 
@@ -94,6 +129,7 @@ type:
 | `dds--legal-nav`              | Component   |
 | `dds--legal-nav__link`        | Interactive |
 | `dds--locale-modal`           | Component   |
+| `dds--language-selector`      | Component   |
 
 ## CORS Proxy
 
@@ -104,6 +140,10 @@ A cors proxy can be configured using the following
 [environment variable](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/docs/environment-variables.md):
 
 `CORS_PROXY=https://myproxy.com/`
+
+> NOTE: The `CORS_PROXY` is not necessary when publishing to production
+> (www.ibm.com). Be sure to either set `CORS_PROXY` as blank or leave it
+> unconfigured when pushing your application to production.
 
 ## Server Side Rendering
 

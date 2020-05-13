@@ -1,7 +1,10 @@
 const path = require('path');
+const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const rtlcss = require('rtlcss');
+
+const NODE_ENV = 'development';
 
 /**
  * Flag to enable the expressive theme
@@ -25,19 +28,12 @@ const useExternalCss = process.env.REACT_STORYBOOK_USE_EXTERNAL_CSS === 'true';
  */
 const useStyleSourceMap = process.env.REACT_STORYBOOK_SOURCEMAPS === 'true';
 
-const useControlledStateWithEventListener =
-  process.env.CARBON_REACT_USE_CONTROLLED_STATE_WITH_EVENT_LISTENER === 'true';
-
 /**
  * Sets the document direction (https://developer.mozilla.org/en-US/docs/Web/API/Document/dir)
  *
  * @type {boolean}
  */
-const useRtl = process.env.CARBON_REACT_STORYBOOK_USE_RTL === 'true';
-
-const replaceTable = {
-  useControlledStateWithEventListener,
-};
+const useRtl = process.env.REACT_STORYBOOK_USE_RTL === 'true';
 
 const styleLoaders = [
   {
@@ -59,46 +55,7 @@ const styleLoaders = [
       sourceMap: useStyleSourceMap,
     },
   },
-  {
-    loader: 'sass-loader',
-    options: {
-      includePaths: [
-        path.resolve(__dirname, '..', 'node_modules'),
-        path.resolve(__dirname, '../../../', 'node_modules'),
-      ],
-      data: `
-        $feature-flags: (
-          ui-shell: true,
-          grid-columns-16: true,
-          enable-css-custom-properties: ${useCarbonExpressive}
-        );
-        $dds-feature-flags: (
-          carbon-expressive: ${useCarbonExpressive},
-        );
-      `,
-      sourceMap: useStyleSourceMap,
-    },
-  },
 ];
-
-class FeatureFlagProxyPlugin {
-  /**
-   * A WebPack resolver plugin that proxies module request
-   * for `carbon-components/es/globals/js/settings` to `./settings`.
-   */
-  constructor() {
-    this.source = 'before-described-relative';
-  }
-
-  apply(resolver) {
-    resolver.plugin(this.source, (request, callback) => {
-      if (/[\\/]globals[\\/]js[\\/]settings$/.test(request.path)) {
-        request.path = path.resolve(__dirname, './settings');
-      }
-      callback();
-    });
-  }
-}
 
 module.exports = ({ config, mode }) => {
   config.devtool = useStyleSourceMap ? 'source-map' : '';
@@ -113,18 +70,6 @@ module.exports = ({ config, mode }) => {
       }),
     ],
   };
-
-  config.module.rules.push({
-    test: /(\/|\\)FeatureFlags\.js$/,
-    loader: 'string-replace-loader',
-    options: {
-      multiple: Object.keys(replaceTable).map(key => ({
-        search: `export\\s+const\\s+${key}\\s*=\\s*false`,
-        replace: `export const ${key} = ${replaceTable[key]}`,
-        flags: 'i',
-      })),
-    },
-  });
 
   config.module.rules.push({
     test: /.stories\.jsx?$/,
@@ -163,14 +108,60 @@ module.exports = ({ config, mode }) => {
     use: ['@svgr/webpack', 'url-loader'],
   });
 
+  const sassLoader = {
+    loader: 'sass-loader',
+    options: {
+      includePaths: [
+        path.resolve(__dirname, '..', 'node_modules'),
+        path.resolve(__dirname, '../../../', 'node_modules'),
+      ],
+      data: `
+        $feature-flags: (
+          enable-css-custom-properties: ${useCarbonExpressive}
+        );
+        $dds-feature-flags: (
+          carbon-expressive: ${useCarbonExpressive},
+        );
+      `,
+      sourceMap: useStyleSourceMap,
+    },
+  };
+
+  const fastSassLoader = {
+    loader: 'fast-sass-loader',
+    options: {
+      includePaths: [
+        path.resolve(__dirname, '..', 'node_modules'),
+        path.resolve(__dirname, '../../../', 'node_modules'),
+      ],
+      data: `
+      $feature-flags: (
+        enable-css-custom-properties: ${useCarbonExpressive}
+      );
+      $dds-feature-flags: (
+        carbon-expressive: ${useCarbonExpressive},
+      );
+    `,
+    },
+  };
+
   config.module.rules.push({
     test: /\.scss$/,
     sideEffects: true,
     use: [
       { loader: useExternalCss ? MiniCssExtractPlugin.loader : 'style-loader' },
       ...styleLoaders,
+      NODE_ENV === 'production' ? sassLoader : fastSassLoader,
     ],
   });
+
+  config.plugins.push(
+    new webpack.EnvironmentPlugin({
+      TRANSLATION_HOST: '',
+      CORS_PROXY: '',
+      REACT_STORYBOOK_USE_RTL: 'false',
+    })
+  );
 
   if (useExternalCss) {
     config.plugins.push(
@@ -182,7 +173,6 @@ module.exports = ({ config, mode }) => {
 
   config.resolve = {
     modules: ['node_modules'],
-    plugins: [new FeatureFlagProxyPlugin()],
   };
 
   return config;

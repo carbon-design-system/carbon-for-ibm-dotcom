@@ -71,7 +71,10 @@ const ContentSection = ({
 ContentSection.propTypes = {
   heading: PropTypes.string.isRequired,
   theme: PropTypes.string,
-  children: PropTypes.element,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]),
   customClassName: PropTypes.string,
 };
 

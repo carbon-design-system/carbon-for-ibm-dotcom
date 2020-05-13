@@ -6,7 +6,8 @@
 //
 
 @import '../../globals/imports';
-@import '.././expressive-modal/expressive-modal';
+@import '../expressive-modal/expressive-modal';
+@import '../video-player/video-player';
 
 @mixin lightbox-media-viewer {
   .#{$prefix}--modal--expressive--fullwidth
@@ -14,8 +15,20 @@
     .#{$prefix}--modal-content {
     min-height: 100%;
   }
+
   .#{$prefix}--lightbox-media-viewer {
     color: $text-01;
+
+    .#{$prefix}--modal-container {
+      @include carbon--breakpoint-down('md') {
+        padding: $carbon--layout-04 $carbon--layout-01 $carbon--layout-01
+          $carbon--layout-01;
+      }
+    }
+
+    .#{$prefix}--modal-container .#{$prefix}--modal-content {
+      padding-right: 0;
+    }
 
     .#{$prefix}--video-player {
       width: 100%;
@@ -23,24 +36,38 @@
 
     &__container {
       display: flex;
+      width: 100%;
       padding-bottom: 0;
     }
 
     &__row {
       @include carbon--make-row(0);
 
-      flex-direction: column;
-      flex-wrap: nowrap;
+      flex-flow: column nowrap;
+      width: 100%;
 
       @include carbon--breakpoint('lg') {
         flex-direction: row;
       }
     }
     &__media {
+      @include carbon--breakpoint-down('lg') {
+        position: relative;
+        height: 100%;
+      }
+
       img {
         width: auto;
         max-width: 100%;
         height: auto;
+        max-height: 100%;
+
+        @include carbon--breakpoint-down('lg') {
+          position: absolute;
+          margin: auto;
+          top: 0;
+          bottom: 0;
+        }
       }
 
       @include carbon--breakpoint-down('lg') {
@@ -58,8 +85,10 @@
 
     &__content {
       max-width: 95%;
-
       @include carbon--type-style('body-long-02');
+      @include carbon--breakpoint('lg') {
+        overflow: auto;
+      }
 
       &__title {
         padding-top: $carbon--spacing-05;
@@ -84,9 +113,6 @@
       .#{$prefix}--model-container {
         padding-top: $carbon--layout-05;
         padding-bottom: 0;
-      }
-      &__container {
-        padding-top: $carbon--spacing-07;
       }
     }
     @include carbon--breakpoint('lg') {

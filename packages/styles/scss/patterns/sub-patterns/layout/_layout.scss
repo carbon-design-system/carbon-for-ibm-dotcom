@@ -41,6 +41,22 @@
     }
 
     &--border {
+      @include carbon--breakpoint('md') {
+        margin-left: -2rem;
+        margin-right: -2rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      @include carbon--breakpoint('lg') {
+        padding-left: 0;
+        margin-left: -1rem;
+      }
+
+      @include carbon--breakpoint('max') {
+        margin-right: -1rem;
+      }
+
       border-bottom: solid 1px $ui-04;
     }
 

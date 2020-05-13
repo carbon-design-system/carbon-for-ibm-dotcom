@@ -1,4 +1,10 @@
-import './index.scss';
+/**
+ * Copyright IBM Corp. 2016, 2018
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 import { boolean, text, withKnobs } from '@storybook/addon-knobs';
 import ContentGroup from '../ContentGroup';
 import React from 'react';
@@ -29,7 +35,7 @@ storiesOf('Patterns (Sub-Patterns)|ContentGroup', module)
       <div className="bx--grid bx--content-group-story">
         <div className="bx--row">
           <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
-            <ContentGroup heading={heading} cta={renderCTA && cta}>
+            <ContentGroup heading={heading} cta={renderCTA ? cta : null}>
               This is the Content Group children.
             </ContentGroup>
           </div>

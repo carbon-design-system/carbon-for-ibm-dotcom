@@ -4,7 +4,7 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import './index.scss';
+
 import { object, text, withKnobs } from '@storybook/addon-knobs';
 import Image from '../Image';
 import React from 'react';
@@ -44,9 +44,9 @@ storiesOf('Components|Image', module)
 
     return (
       <div className={`${prefix}--grid`}>
-        <div class="bx--row">
-          <div class="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
-            <Image sources={image} defaultSrc={defaultSrc} alt={alt}></Image>
+        <div className="bx--row">
+          <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
+            <Image sources={image} defaultSrc={defaultSrc} alt={alt} />
           </div>
         </div>
       </div>

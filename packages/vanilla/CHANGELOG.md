@@ -3,6 +3,56 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-vanilla@0.6.0-rc.1...@carbon/ibmdotcom-vanilla@0.6.0) (2020-04-28)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-vanilla
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [0.6.0-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-vanilla@0.6.0-rc.0...@carbon/ibmdotcom-vanilla@0.6.0-rc.1) (2020-04-22)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-vanilla
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [0.6.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-vanilla@0.5.1...@carbon/ibmdotcom-vanilla@0.6.0-rc.0) (2020-04-17)
+
+### Bug Fixes
+
+- **accessibility:** add aria-label to IBM logo; fixes
+  [#2055](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2055)
+  ([c463449](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c463449))
+- **nodesass:** adding node-sass in offline mirror
+  ([8aa9d86](https://github.com/carbon-design-system/ibm-dotcom-library/commit/8aa9d86))
+- **storybook:** alignment of storybook package versions
+  ([45e30df](https://github.com/carbon-design-system/ibm-dotcom-library/commit/45e30df))
+- **storybook:** yarn offline mirror dependencies
+  ([4826baf](https://github.com/carbon-design-system/ibm-dotcom-library/commit/4826baf))
+- **unittesting:** aligning jest versions across packages
+  ([c4e8ac0](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c4e8ac0))
+- **unittesting:** aligning storybook version across packages
+  ([766161f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/766161f))
+- **vanilla:** added new style class for the vanilla footer
+  ([348ab47](https://github.com/carbon-design-system/ibm-dotcom-library/commit/348ab47))
+
+### Features
+
+- **cloud:** adding manifest files for canary deployments
+  ([828f4cd](https://github.com/carbon-design-system/ibm-dotcom-library/commit/828f4cd))
+- **node:** updating to node 12
+  ([951989b](https://github.com/carbon-design-system/ibm-dotcom-library/commit/951989b))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [0.5.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-vanilla@0.5.1-rc.1...@carbon/ibmdotcom-vanilla@0.5.1) (2020-03-30)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-vanilla

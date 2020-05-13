@@ -51,7 +51,7 @@ function renderListItems(links) {
     return (
       <li className={`${prefix}--footer-nav-group__item`} key={index}>
         <Link
-          className={`${prefix}--footer-nav-group__link`}
+          className={`${prefix}--footer-nav-group__link ${prefix}--footer__link`}
           data-autoid={`${stablePrefix}--footer-nav-group__link`}
           href={url}>
           {title}
@@ -62,7 +62,7 @@ function renderListItems(links) {
 }
 
 /**
- * @property propTypes
+ * @property {object} propTypes FooterNavGroup propTypes
  * @description Defined property types for component
  * @type {{links: Array, title: string}}
  */
@@ -77,7 +77,7 @@ FooterNavGroup.propTypes = {
 };
 
 /**
- * @property defaultProps
+ * @property {object} defaultProps default FooterNavGroup props
  * @type {{links: Array, title: null}}
  */
 FooterNavGroup.defaultProps = {

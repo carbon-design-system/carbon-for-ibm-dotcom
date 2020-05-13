@@ -5,16 +5,19 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, { useEffect, useReducer } from 'react';
+import React, { useCallback, useEffect, useReducer, useRef } from 'react';
 import Autosuggest from 'react-autosuggest';
+import { Close20 } from '@carbon/icons-react';
 import cx from 'classnames';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { escapeRegExp } from '@carbon/ibmdotcom-utilities';
+import { HeaderGlobalAction } from 'carbon-components-react';
 import { LocaleAPI } from '@carbon/ibmdotcom-services';
 import MastheadSearchInput from './MastheadSearchInput';
 import MastheadSearchSuggestion from './MastheadSearchSuggestion';
 import PropTypes from 'prop-types';
 import root from 'window-or-global';
+import { Search20 } from '@carbon/icons-react';
 import { SearchTypeaheadAPI } from '@carbon/ibmdotcom-services';
 import { settings } from 'carbon-components';
 
@@ -98,6 +101,8 @@ function _reducer(state, action) {
  * @class
  */
 const MastheadSearch = ({ placeHolderText, renderValue, searchOpenOnload }) => {
+  const { ref } = useSearchVisible(false);
+
   /**
    * Initial state of the autocomplete component
    *
@@ -117,14 +122,63 @@ const MastheadSearch = ({ placeHolderText, renderValue, searchOpenOnload }) => {
   const [state, dispatch] = useReducer(_reducer, _initialState);
 
   useEffect(() => {
+    const abortController = new AbortController();
     (async () => {
       const response = await LocaleAPI.getLang();
-      if (response) {
+      if (!abortController.signal && response) {
         dispatch({ type: 'setLc', payload: { lc: response.lc } });
         dispatch({ type: 'setCc', payload: { cc: response.cc } });
       }
     })();
+    return () => {
+      abortController.abort();
+    };
   }, []);
+
+  /**
+   * Event handlers to toggle visiblity of search
+   *
+   * @returns {*} search ref
+   */
+  function useSearchVisible() {
+    const ref = useRef(null);
+    /**
+     * Close search entirely if autosuggestions collapsed
+     *
+     * @param {*} event Escape keypress
+     */
+    const handleHideSearch = event => {
+      if (event.key === 'Escape') {
+        if (!state.suggestionContainerVisible) {
+          dispatch({ type: 'setSearchClosed' });
+        }
+      }
+    };
+
+    /**
+     * Close search when click detected outside of component.
+     * This is necessary otherwise search stays open even when
+     * elements other than the close button are clicked.
+     *
+     * @param {*} event Click event outside search component
+     */
+    const handleClickOutside = event => {
+      if (ref.current && !ref.current.contains(event.target)) {
+        dispatch({ type: 'setSearchClosed' });
+      }
+    };
+
+    useEffect(() => {
+      root.document.addEventListener('keydown', handleHideSearch, true);
+      root.document.addEventListener('click', handleClickOutside, true);
+      return () => {
+        root.document.removeEventListener('keydown', handleHideSearch, true);
+        root.document.removeEventListener('click', handleClickOutside, true);
+      };
+    });
+
+    return { ref };
+  }
 
   const className = cx({
     [`${prefix}--masthead__search`]: true,
@@ -142,43 +196,22 @@ const MastheadSearch = ({ placeHolderText, renderValue, searchOpenOnload }) => {
   }
 
   /**
-   * Close search and suggestions only when search container blurs
-   *
-   * @param {event} event The callback event
-   */
-  function onBlur(event) {
-    if (
-      !searchOpenOnload &&
-      !event.currentTarget.contains(event.relatedTarget)
-    ) {
-      dispatch({ type: 'setSearchClosed' });
-    }
-  }
-
-  /**
    * Autosuggest will pass through all these props to the input.
    *
-   * @type {{placeholder: string, value: string, onChange: Function, className: string, onKeyDown: Function}}
+   * @type {{placeholder: string, value: string, onChange: Function, className: string}}
    */
   const inputProps = {
     placeholder: placeHolderText,
     value: state.val,
     onChange,
     className: `${prefix}--header__search--input`,
-    onKeyDown: event => {
-      switch (event.key) {
-        case 'Escape':
-          return dispatch({ type: 'setSearchClosed' });
-        default:
-          break;
-      }
-    },
   };
 
   /**
    * Executes the logic for the search icon depending on search input state.
    * This will execute the search if the search is open, or will open the
    * search field if closed.
+   *
    */
   function searchIconClick() {
     if (state.isSearchOpen) {
@@ -186,6 +219,28 @@ const MastheadSearch = ({ placeHolderText, renderValue, searchOpenOnload }) => {
     } else {
       dispatch({ type: 'setSearchOpen' });
     }
+  }
+
+  /**
+   * Clear search and clear input when called
+   */
+  const resetSearch = useCallback(() => {
+    dispatch({ type: 'setSearchClosed' });
+    dispatch({
+      type: 'setVal',
+      payload: { val: '' },
+    });
+  }, [dispatch]);
+
+  /**
+   * closeBtnAction resets and sets focus after search is closed
+   */
+  function closeBtnAction() {
+    resetSearch();
+    const searchIconRef = root.document.querySelectorAll(
+      `[data-autoid="${stablePrefix}--header__search--search"]`
+    );
+    searchIconRef && searchIconRef[0].focus();
   }
 
   /**
@@ -264,6 +319,8 @@ const MastheadSearch = ({ placeHolderText, renderValue, searchOpenOnload }) => {
         dispatch({ type: 'setSuggestionsToPrevious' });
         dispatch({ type: 'showSuggestionsContainer' });
       }
+    } else if (request.reason === 'escape-pressed') {
+      onSuggestionsClearedRequested();
     } else {
       dispatch({ type: 'setSuggestionsToPrevious' });
       dispatch({ type: 'showSuggestionsContainer' });
@@ -303,30 +360,54 @@ const MastheadSearch = ({ placeHolderText, renderValue, searchOpenOnload }) => {
     <div
       data-autoid={`${stablePrefix}--masthead__search`}
       className={className}
-      onBlur={onBlur}>
-      <form action={_redirectUrl} method="get">
-        <input type="hidden" name="lang" value={state.lc} />
-        <input type="hidden" name="cc" value={state.cc} />
-        <input type="hidden" name="lnk" value="mhsrch" />
-        <Autosuggest
-          suggestions={state.suggestions} // The state value of suggestion
-          onSuggestionsFetchRequested={onSuggestionsFetchRequest} // Method to fetch data (should be async call)
-          onSuggestionsClearRequested={onSuggestionsClearedRequested} // When input bar loses focus
-          getSuggestionValue={_getSuggestionValue} // Name of suggestion
-          renderSuggestion={renderSuggestion} // How to display a suggestion
-          onSuggestionSelected={onSuggestionSelected} // When a suggestion is selected
-          highlightFirstSuggestion // First suggestion is highlighted by default
-          inputProps={inputProps}
-          renderInputComponent={renderInputComponent}
-          shouldRenderSuggestions={shouldRenderSuggestions}
-        />
-      </form>
+      ref={ref}>
+      {state.isSearchOpen && (
+        <form
+          id={`${prefix}--masthead__search--form`}
+          action={_redirectUrl}
+          method="get">
+          <input type="hidden" name="lang" value={state.lc} />
+          <input type="hidden" name="cc" value={state.cc} />
+          <input type="hidden" name="lnk" value="mhsrch" />
+          <Autosuggest
+            suggestions={state.suggestions} // The state value of suggestion
+            onSuggestionsFetchRequested={onSuggestionsFetchRequest} // Method to fetch data (should be async call)
+            onSuggestionsClearRequested={onSuggestionsClearedRequested} // When input bar loses focus
+            getSuggestionValue={_getSuggestionValue} // Name of suggestion
+            renderSuggestion={renderSuggestion} // How to display a suggestion
+            onSuggestionSelected={onSuggestionSelected} // When a suggestion is selected
+            highlightFirstSuggestion // First suggestion is highlighted by default
+            inputProps={inputProps}
+            renderInputComponent={renderInputComponent}
+            shouldRenderSuggestions={shouldRenderSuggestions}
+          />
+        </form>
+      )}
+      <div className={`${prefix}--header__search--actions`}>
+        <HeaderGlobalAction
+          onClick={searchIconClick}
+          aria-label={
+            state.isSearchOpen ? 'Search all of IBM' : 'Open IBM search field'
+          }
+          className={`${prefix}--header__search--search`}
+          data-autoid={`${stablePrefix}--header__search--search`}
+          tabIndex="0">
+          <Search20 />
+        </HeaderGlobalAction>
+        <HeaderGlobalAction
+          onClick={closeBtnAction}
+          aria-label="Close"
+          className={`${prefix}--header__search--close`}
+          data-autoid={`${stablePrefix}--header__search--close`}>
+          <Close20 />
+        </HeaderGlobalAction>
+      </div>
     </div>
   );
 };
 
 /**
- * @property propTypes
+ * @property {object} propTypes MastheadSearch propTypes
  * @description Defined property types for component
  * @type {{placeHolderText: string, renderValue: number}}
  */
@@ -337,7 +418,7 @@ MastheadSearch.propTypes = {
 };
 
 /**
- * @property defaultProps
+ * @property {object} defaultProps default MastheadSearch props
  * @type {{placeHolderText: string, renderValue: number}}
  */
 MastheadSearch.defaultProps = {

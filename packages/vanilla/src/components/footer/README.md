@@ -95,6 +95,10 @@ A cors proxy can be configured using the following
 
 `CORS_PROXY=https://myproxy.com/`
 
+> NOTE: The `CORS_PROXY` is not necessary when publishing to production
+> (www.ibm.com). Be sure to either set `CORS_PROXY` as blank or leave it
+> unconfigured when pushing your application to production.
+
 ## 🙌 Contributing
 
 We're always looking for contributors to help us fix bugs, build new features,

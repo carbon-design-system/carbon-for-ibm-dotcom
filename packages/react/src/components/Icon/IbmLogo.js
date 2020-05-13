@@ -24,6 +24,7 @@ const IbmLogo = () => (
     data-autoid={`${stablePrefix}--masthead-logo`}
     className={`${prefix}--header__logo`}>
     <a
+      aria-label="IBM®"
       data-autoid={`${stablePrefix}--masthead-logo__link`}
       href="https://www.ibm.com/">
       <MastheadLogo />

@@ -4,7 +4,7 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import { Card } from '../../sub-patterns/Card';
+import { Card, cardPropTypes } from '../../sub-patterns/Card';
 import { ContentGroup } from '../../sub-patterns/ContentGroup';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
@@ -46,7 +46,7 @@ const FeatureCard = ({ heading, card, onClick }) => {
 
 FeatureCard.propTypes = {
   heading: PropTypes.string.isRequired,
-  card: PropTypes.instanceOf(Card).isRequired,
+  card: PropTypes.shape(cardPropTypes).isRequired,
   onClick: PropTypes.func,
 };
 

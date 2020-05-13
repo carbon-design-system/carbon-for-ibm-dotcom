@@ -3,6 +3,201 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-styles@1.6.0-rc.1...@carbon/ibmdotcom-styles@1.6.0) (2020-04-28)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.6.0-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-styles@1.6.0-rc.0...@carbon/ibmdotcom-styles@1.6.0-rc.1) (2020-04-22)
+
+### Bug Fixes
+
+- **content-block:** have list link hang on lg breakpoint
+  ([d719c84](https://github.com/carbon-design-system/ibm-dotcom-library/commit/d719c84))
+- **css:** fix lightbox content overflow; fixes
+  [#2125](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2125)
+  ([920e36a](https://github.com/carbon-design-system/ibm-dotcom-library/commit/920e36a))
+- **lightbox:** add back absolute positioning to prevent overlay
+  ([b25ecdb](https://github.com/carbon-design-system/ibm-dotcom-library/commit/b25ecdb))
+- **lightbox:** display video player and description without squishing
+  ([9ff4260](https://github.com/carbon-design-system/ibm-dotcom-library/commit/9ff4260))
+- **linklist:** add padding for mobile linklist
+  ([c96c4d5](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c96c4d5))
+- **locale:** fix locale scroll on mobile landscape;
+  [#1764](https://github.com/carbon-design-system/ibm-dotcom-library/issues/1764)
+  ([bad1006](https://github.com/carbon-design-system/ibm-dotcom-library/commit/bad1006))
+- **react:** fix react masthead console errors
+  ([a4e401e](https://github.com/carbon-design-system/ibm-dotcom-library/commit/a4e401e))
+- **react:** remove javascript:void fixes react errors
+  ([c9e9431](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c9e9431))
+- **token:** use carbon spacing token instead
+  ([abc3726](https://github.com/carbon-design-system/ibm-dotcom-library/commit/abc3726))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.6.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-styles@1.5.1...@carbon/ibmdotcom-styles@1.6.0-rc.0) (2020-04-17)
+
+### Bug Fixes
+
+- **accessibility:** added long-description to image component
+  ([b494a53](https://github.com/carbon-design-system/ibm-dotcom-library/commit/b494a53))
+- **content-block:** remove bottom margin from last child
+  ([9b09e43](https://github.com/carbon-design-system/ibm-dotcom-library/commit/9b09e43))
+- **content-block:** use layout to include linklist
+  ([ce18629](https://github.com/carbon-design-system/ibm-dotcom-library/commit/ce18629))
+- **css:** fix footer visited link hover color; fixes
+  [#2048](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2048)
+  ([3d5f3ac](https://github.com/carbon-design-system/ibm-dotcom-library/commit/3d5f3ac))
+- **css:** fix layout with carbon-col
+  ([f87aa8c](https://github.com/carbon-design-system/ibm-dotcom-library/commit/f87aa8c))
+- **css:** fix logo padding for md breakpoint; fixes
+  [#1761](https://github.com/carbon-design-system/ibm-dotcom-library/issues/1761)
+  ([8ed3b6a](https://github.com/carbon-design-system/ibm-dotcom-library/commit/8ed3b6a))
+- **css:** fix profile menu item height: fixes
+  [#2065](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2065)
+  ([171b91e](https://github.com/carbon-design-system/ibm-dotcom-library/commit/171b91e))
+- **css:** fixes IBM logo hover color
+  ([abea7c5](https://github.com/carbon-design-system/ibm-dotcom-library/commit/abea7c5))
+- **css:** fixes profile menu scroll; fixes
+  [#1960](https://github.com/carbon-design-system/ibm-dotcom-library/issues/1960)
+  ([3c4f2e0](https://github.com/carbon-design-system/ibm-dotcom-library/commit/3c4f2e0))
+- **css:** masthead platform hover color; fixes
+  [#2066](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2066)
+  ([f535a70](https://github.com/carbon-design-system/ibm-dotcom-library/commit/f535a70))
+- **css:** update lightboxmedia css for responsive
+  ([759b142](https://github.com/carbon-design-system/ibm-dotcom-library/commit/759b142))
+- **docs:** documented work-around for styling imports issue
+  ([b7ca866](https://github.com/carbon-design-system/ibm-dotcom-library/commit/b7ca866))
+- **docs:** documented work-around for styling imports issue
+  ([9052a0d](https://github.com/carbon-design-system/ibm-dotcom-library/commit/9052a0d))
+- **docs:** removed rej file
+  ([45c6525](https://github.com/carbon-design-system/ibm-dotcom-library/commit/45c6525))
+- **expressive:** bump up invalid icon size for number input
+  ([7640cef](https://github.com/carbon-design-system/ibm-dotcom-library/commit/7640cef))
+- **expressivemodal:** changed fullwidth to expanded and max-height to height
+  ([#1658](https://github.com/carbon-design-system/ibm-dotcom-library/issues/1658))
+  ([6f1c933](https://github.com/carbon-design-system/ibm-dotcom-library/commit/6f1c933))
+- **fileuploader:** added copyright
+  ([f17a594](https://github.com/carbon-design-system/ibm-dotcom-library/commit/f17a594))
+- **fileuploader:** fixes invalid state styling
+  ([2dee305](https://github.com/carbon-design-system/ibm-dotcom-library/commit/2dee305))
+- **fileuploader:** modified to decrease amount of styling
+  ([fa92b2b](https://github.com/carbon-design-system/ibm-dotcom-library/commit/fa92b2b))
+- **grid:** adding grid classes by default in global import
+  ([9c1a2cc](https://github.com/carbon-design-system/ibm-dotcom-library/commit/9c1a2cc))
+- **image-with-caption:** undoing margin change
+  ([41c765b](https://github.com/carbon-design-system/ibm-dotcom-library/commit/41c765b))
+- **imports:** bunch of import fixes for styles
+  ([7a10229](https://github.com/carbon-design-system/ibm-dotcom-library/commit/7a10229))
+- **issue-1600-type-token:** updated content block
+  ([19e2fd8](https://github.com/carbon-design-system/ibm-dotcom-library/commit/19e2fd8))
+- **issue-1687-learn-page-footer:** no bottom padding, per suggestion
+  ([1f6ccb2](https://github.com/carbon-design-system/ibm-dotcom-library/commit/1f6ccb2))
+- **leadspace:** added max width
+  ([06a1761](https://github.com/carbon-design-system/ibm-dotcom-library/commit/06a1761))
+- **leadspace:** fixed spacing above buttongroup
+  ([493c939](https://github.com/carbon-design-system/ibm-dotcom-library/commit/493c939))
+- **leadspace:** fixed spacing between buttons on buttongroup
+  ([7dbafa1](https://github.com/carbon-design-system/ibm-dotcom-library/commit/7dbafa1))
+- **leadspace:** fixed sub copy columns on all breakpoints
+  ([a896e1d](https://github.com/carbon-design-system/ibm-dotcom-library/commit/a896e1d))
+- **leadspace:** switched to carbon-mini-units
+  ([d7f5cb8](https://github.com/carbon-design-system/ibm-dotcom-library/commit/d7f5cb8))
+- **lightbox-media-viewer:** fixed linting error
+  ([b91197b](https://github.com/carbon-design-system/ibm-dotcom-library/commit/b91197b))
+- **link-with-icon:** fixed type size
+  ([1486d97](https://github.com/carbon-design-system/ibm-dotcom-library/commit/1486d97))
+- **localemodal:** fixes styling/imports on locale modal for nextjs
+  ([14d45cc](https://github.com/carbon-design-system/ibm-dotcom-library/commit/14d45cc))
+- **masthead:** move search actions out of combobox
+  ([12b6e11](https://github.com/carbon-design-system/ibm-dotcom-library/commit/12b6e11))
+- **pattern:** change spacements to match specs
+  ([1f38bb4](https://github.com/carbon-design-system/ibm-dotcom-library/commit/1f38bb4))
+- **pattern:** fixed image overlapping text on mobile
+  ([05420cc](https://github.com/carbon-design-system/ibm-dotcom-library/commit/05420cc))
+- **pattern:** fixed image overlapping text on mobile
+  ([4227e29](https://github.com/carbon-design-system/ibm-dotcom-library/commit/4227e29))
+- **pattern:** fixed image overlapping text on mobile
+  ([47bda6f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/47bda6f))
+- **pattern:** fixed layout on 1056px resolution
+  ([6dd0237](https://github.com/carbon-design-system/ibm-dotcom-library/commit/6dd0237))
+- **pattern:** reduced heading margin on content-group
+  ([3d810b3](https://github.com/carbon-design-system/ibm-dotcom-library/commit/3d810b3))
+- **pattern:** undoing spacing change
+  ([ad70ffc](https://github.com/carbon-design-system/ibm-dotcom-library/commit/ad70ffc))
+- **progressive-indicator:** bump up progressive indicator svg to 20
+  ([d5a390d](https://github.com/carbon-design-system/ibm-dotcom-library/commit/d5a390d))
+- **scss:** added max-width to card content
+  ([b561f0e](https://github.com/carbon-design-system/ibm-dotcom-library/commit/b561f0e))
+- **scss:** added max-width to card content
+  ([e8e2437](https://github.com/carbon-design-system/ibm-dotcom-library/commit/e8e2437))
+- **scss:** added max-width to dotcom-shell content
+  ([2d9176e](https://github.com/carbon-design-system/ibm-dotcom-library/commit/2d9176e))
+- **scss:** added max-width to video-player description
+  ([e83aed6](https://github.com/carbon-design-system/ibm-dotcom-library/commit/e83aed6))
+- **scss:** changed footer link selector and added new class to links
+  ([ba086d2](https://github.com/carbon-design-system/ibm-dotcom-library/commit/ba086d2))
+- **scss:** changed scss to use content-width scss mixin
+  ([4c12641](https://github.com/carbon-design-system/ibm-dotcom-library/commit/4c12641))
+- **scss:** changed scss to use content-width scss mixin
+  ([815d264](https://github.com/carbon-design-system/ibm-dotcom-library/commit/815d264))
+- **scss:** fixed border size for layout pattern
+  ([44c6632](https://github.com/carbon-design-system/ibm-dotcom-library/commit/44c6632))
+- **scss:** fixed centering for medium resolutions
+  ([a69c62b](https://github.com/carbon-design-system/ibm-dotcom-library/commit/a69c62b))
+- **scss:** fixed content not fully showing scroll bug
+  ([1f28c75](https://github.com/carbon-design-system/ibm-dotcom-library/commit/1f28c75))
+- **scss:** fixed footer styles overriding locale-modal
+  ([db9689e](https://github.com/carbon-design-system/ibm-dotcom-library/commit/db9689e))
+- **scss:** fixed modal padding on mobile
+  ([b76e741](https://github.com/carbon-design-system/ibm-dotcom-library/commit/b76e741))
+- **scss:** force gpu acceleration rendering on ios
+  ([8545e99](https://github.com/carbon-design-system/ibm-dotcom-library/commit/8545e99))
+- **scss:** hover now fits the whole width
+  ([0ebc7b3](https://github.com/carbon-design-system/ibm-dotcom-library/commit/0ebc7b3))
+- **scss:** image centering issue fixed
+  ([daf6fa4](https://github.com/carbon-design-system/ibm-dotcom-library/commit/daf6fa4))
+- **scss:** image now scale down on medium and smaller devices
+  ([6843a7d](https://github.com/carbon-design-system/ibm-dotcom-library/commit/6843a7d))
+- **scss:** leadspace can now fill wider resolutions
+  ([0af0823](https://github.com/carbon-design-system/ibm-dotcom-library/commit/0af0823))
+- **scss:** lightbox video now fills the whole container height
+  ([502fc9a](https://github.com/carbon-design-system/ibm-dotcom-library/commit/502fc9a))
+- **select:** fixed inline select when invalid
+  ([c38f2ee](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c38f2ee))
+- **storybook:** alignment of storybook package versions
+  ([45e30df](https://github.com/carbon-design-system/ibm-dotcom-library/commit/45e30df))
+- **storybook:** fixes to carbon expressive storybook output
+  ([659a7bc](https://github.com/carbon-design-system/ibm-dotcom-library/commit/659a7bc))
+- **styles:** set width for video player in lightbox
+  ([975d20a](https://github.com/carbon-design-system/ibm-dotcom-library/commit/975d20a))
+- **styling:** added gutter between left menu and content
+  ([7cc192c](https://github.com/carbon-design-system/ibm-dotcom-library/commit/7cc192c))
+- **styling:** changed arrow color on locale-modal card
+  ([857a1dd](https://github.com/carbon-design-system/ibm-dotcom-library/commit/857a1dd))
+- **tabs:** fixed active state styling
+  ([440f6f0](https://github.com/carbon-design-system/ibm-dotcom-library/commit/440f6f0))
+- **tabs:** fixed padding for selected tabs
+  ([04f2103](https://github.com/carbon-design-system/ibm-dotcom-library/commit/04f2103))
+- **tabs:** fixes mobile version of tab styling
+  ([22bbd15](https://github.com/carbon-design-system/ibm-dotcom-library/commit/22bbd15))
+- **tabs:** fixes tabs mobile state styling
+  ([eaa4b32](https://github.com/carbon-design-system/ibm-dotcom-library/commit/eaa4b32))
+- **unittesting:** aligning storybook version across packages
+  ([766161f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/766161f))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.5.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-styles@1.5.1-rc.1...@carbon/ibmdotcom-styles@1.5.1) (2020-03-30)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-styles

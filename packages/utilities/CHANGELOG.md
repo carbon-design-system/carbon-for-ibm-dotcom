@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-utilities@1.6.0-rc.0...@carbon/ibmdotcom-utilities@1.6.0) (2020-04-28)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.6.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-utilities@1.5.1...@carbon/ibmdotcom-utilities@1.6.0-rc.0) (2020-04-17)
+
+### Bug Fixes
+
+- **unittesting:** aligning jest versions across packages
+  ([c4e8ac0](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c4e8ac0))
+- **util:** added offset to the smooth-scroll util
+  ([09e5056](https://github.com/carbon-design-system/ibm-dotcom-library/commit/09e5056))
+- **util:** added offset to the smooth-scroll util
+  ([e78e94e](https://github.com/carbon-design-system/ibm-dotcom-library/commit/e78e94e))
+- **util:** added optional offset parameter
+  ([1305062](https://github.com/carbon-design-system/ibm-dotcom-library/commit/1305062))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.5.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-utilities@1.5.1-rc.0...@carbon/ibmdotcom-utilities@1.5.1) (2020-03-30)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-utilities

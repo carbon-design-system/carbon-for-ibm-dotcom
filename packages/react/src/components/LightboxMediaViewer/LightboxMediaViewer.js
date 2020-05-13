@@ -4,19 +4,15 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-
-import {
-  settings as ddsSettings,
-  featureFlag,
-} from '@carbon/ibmdotcom-utilities';
-import { DDS_LIGHTBOX_MEDIA_VIEWER } from '../../internal/FeatureFlags';
+import React, { useEffect, useState } from 'react';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { ExpressiveModal } from '../ExpressiveModal';
 import { Image } from '../Image';
 import { ModalBody } from 'carbon-components-react';
 import PropTypes from 'prop-types';
-import React from 'react';
 import { settings } from 'carbon-components';
 import { VideoPlayer } from '../VideoPlayer';
+import { VideoPlayerAPI } from '@carbon/ibmdotcom-services';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
@@ -30,8 +26,32 @@ const { prefix } = settings;
  * @returns {*} JSX Object
  */
 const LightboxMediaViewer = ({ media, ...modalProps }) => {
-  return featureFlag(
-    DDS_LIGHTBOX_MEDIA_VIEWER,
+  const [videoData, setVideoData] = useState({
+    title: '',
+    alt: '',
+    description: '',
+  });
+
+  useEffect(() => {
+    (async () => {
+      if (media.type === 'video') {
+        const data = await VideoPlayerAPI.api(media.src);
+        setVideoData({
+          title: data.name,
+          alt: data.name,
+          description: data.description,
+        });
+      } else {
+        setVideoData({
+          title: media.title,
+          alt: media.alt,
+          description: media.description,
+        });
+      }
+    })();
+  }, [media, media.src]);
+
+  return (
     <section
       data-autoid={`${stablePrefix}--lightbox-media-viewer`}
       className={`${prefix}--lightbox-media-viewer`}>
@@ -44,24 +64,24 @@ const LightboxMediaViewer = ({ media, ...modalProps }) => {
                 {media.type === 'video' ? (
                   <VideoPlayer videoId={media.src} />
                 ) : (
-                  <Image defaultSrc={media.src} alt={media.alt} />
+                  <Image defaultSrc={media.src} alt={videoData.alt} />
                 )}
               </div>
               <div
                 className={`${prefix}--lightbox-media-viewer__media-description ${prefix}--no-gutter`}>
                 <div className={`${prefix}--lightbox-media-viewer__content`}>
-                  {media.title && (
+                  {videoData.title && (
                     <div
                       data-autoid={`${stablePrefix}--lightbox-media-viewer__content__title`}
                       className={`${prefix}--lightbox-media-viewer__content__title`}>
-                      {media.title}
+                      {videoData.title}
                     </div>
                   )}
-                  {media.description && (
+                  {videoData.description && (
                     <div
                       data-autoid={`${stablePrefix}--lightbox-media-viewer__content__desc`}
                       className={`${prefix}--lightbox-media-viewer__content__desc`}>
-                      {media.description}
+                      {videoData.description}
                     </div>
                   )}
                 </div>

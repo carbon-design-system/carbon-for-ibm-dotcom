@@ -1,4 +1,5 @@
 /* eslint-disable */
+/* istanbul ignore file */
 
 /**
  * Copyright IBM Corp. 2016, 2018
@@ -65,7 +66,7 @@ export class SideNavMenu extends React.Component {
     /**
      * For submenu back button to toggle expand/collapse
      */
-    isBackButton: PropTypes.bool,
+    isbackbutton: PropTypes.string,
   };
 
   static defaultProps = {
@@ -116,7 +117,7 @@ export class SideNavMenu extends React.Component {
       isActive,
       title,
       large,
-      isBackButton,
+      isbackbutton,
     } = this.props;
     const { isExpanded } = this.state;
 
@@ -176,7 +177,7 @@ export class SideNavMenu extends React.Component {
     if (item) {
       return React.cloneElement(item, {
         onClick:
-          item.props.isBackButton === true
+          item.props.isbackbutton === 'true'
             ? this.handleToggleExpand.bind(this)
             : null,
       });

@@ -79,9 +79,13 @@ class DDOAPI {
    * @returns {Promise<*>} Promise object
    */
   static async getAll() {
-    return await this.isReady().then(() => {
-      return root.digitalData;
-    });
+    return await this.isReady()
+      .then(() => {
+        return root.digitalData;
+      })
+      .catch(() => {
+        return null;
+      });
   }
 
   /**

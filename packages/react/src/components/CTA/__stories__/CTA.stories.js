@@ -15,11 +15,13 @@ storiesOf('Components|CTA', module)
   .add('Default', () => {
     let cta, type;
     const copy = ['Lorem ipsum dolor sit amet', 'Consectetur adipisicing elit'];
-    const types = ['local', 'jump', 'external', 'video'];
+    const types = ['local', 'download', 'jump', 'external', 'video'];
     const styles = ['text', 'card', 'feature', 'button'];
     const style = select('style', styles, styles[0]);
 
     const urlBy = {
+      download:
+        'https://www.ibm.com/annualreport/assets/downloads/IBM_Annual_Report_2019.pdf',
       jump: '#example',
       local: 'https://www.example.com',
       external: 'https://www.example.com',
@@ -34,13 +36,7 @@ storiesOf('Components|CTA', module)
           copy: copy[0],
           media: {
             src: '0_uka1msg4',
-            alt: 'Image alt text',
-            title: 'Curabitur malesuada varius mi eu posuere',
-            description:
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Here are some common categories:',
             type: 'video',
-            active: false,
-            srcThumb: '',
           },
         };
         break;
@@ -53,13 +49,7 @@ storiesOf('Components|CTA', module)
           },
           media: {
             src: '0_uka1msg4',
-            alt: 'Image alt text',
-            title: 'Curabitur malesuada varius mi eu posuere',
-            description:
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Here are some common categories:',
             type: 'video',
-            active: false,
-            srcThumb: '',
           },
         };
         break;
@@ -77,13 +67,7 @@ storiesOf('Components|CTA', module)
               },
               media: {
                 src: '0_uka1msg4',
-                alt: 'Image alt text',
-                title: 'Curabitur malesuada varius mi eu posuere',
-                description:
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Here are some common categories:',
                 type: 'video',
-                active: false,
-                srcThumb: '',
               },
             },
             image: {
@@ -107,13 +91,7 @@ storiesOf('Components|CTA', module)
               copy: copy[0],
               media: {
                 src: '0_uka1msg4',
-                alt: 'Image alt text',
-                title: 'Curabitur malesuada varius mi eu posuere',
-                description:
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Here are some common categories:',
                 type: 'video',
-                active: false,
-                srcThumb: '',
               },
             },
             {
@@ -122,13 +100,7 @@ storiesOf('Components|CTA', module)
               copy: copy[1],
               media: {
                 src: '1_sf5ovm7u',
-                alt: 'Image alt text',
-                title: 'Curabitur malesuada varius mi eu posuere',
-                description:
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Here are some common categories:',
                 type: 'video',
-                active: false,
-                srcThumb: '',
               },
             },
           ],

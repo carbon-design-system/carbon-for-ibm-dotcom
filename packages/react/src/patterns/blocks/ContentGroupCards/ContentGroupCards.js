@@ -29,25 +29,29 @@ const ContentGroupCards = ({ heading, items }) => {
 
   useEffect(() => {
     setSameHeight();
-    window.addEventListener('resize', () => {
-      window.requestAnimationFrame(() => {
-        setSameHeight();
-      });
-    });
+    window.addEventListener('resize', setSameHeight);
+
+    return () => window.removeEventListener('resize', setSameHeight);
   }, []);
 
   /**
    * Function that activates the sameHeight utility
    */
   const setSameHeight = () => {
-    sameHeight(
-      containerRef.current.getElementsByClassName(`${prefix}--card__heading`),
-      'md'
-    );
-    sameHeight(
-      containerRef.current.getElementsByClassName(`${prefix}--card__copy`),
-      'md'
-    );
+    window.requestAnimationFrame(() => {
+      if (containerRef && containerRef.current) {
+        sameHeight(
+          containerRef.current.getElementsByClassName(
+            `${prefix}--card__heading`
+          ),
+          'md'
+        );
+        sameHeight(
+          containerRef.current.getElementsByClassName(`${prefix}--card__copy`),
+          'md'
+        );
+      }
+    });
   };
 
   return (

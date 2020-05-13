@@ -44,7 +44,9 @@ const ContentGroup = ({ children, heading, customClassName, cta }) => {
         {children}
       </div>
       {cta && (
-        <div className={`${prefix}--content-group__cta-row`}>
+        <div
+          data-autoid={`${stablePrefix}--content-group__cta`}
+          className={`${prefix}--content-group__cta-row`}>
           <CTA
             customClassName={`${prefix}--content-group__cta`}
             style="card"
@@ -58,7 +60,10 @@ const ContentGroup = ({ children, heading, customClassName, cta }) => {
 
 ContentGroup.propTypes = {
   heading: PropTypes.string,
-  children: PropTypes.object,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]),
   customClassName: PropTypes.string,
   cta: PropTypes.object,
 };

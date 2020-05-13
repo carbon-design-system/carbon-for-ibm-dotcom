@@ -1,4 +1,5 @@
 import initStoryshots from '@storybook/addon-storyshots';
+import { mount } from 'enzyme';
 import path from 'path';
 
 /**
@@ -7,6 +8,8 @@ import path from 'path';
  * and create additional tests in there.
  */
 initStoryshots({
+  renderer: mount,
+
   /* configuration options */
   configPath: path.resolve(__dirname, '../../.storybook'),
 

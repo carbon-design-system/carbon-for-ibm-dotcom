@@ -6,7 +6,9 @@
 
 Here's a quick example to get you started.
 
-```scss
+##### CSS
+
+```css
 // yourapplication.scss
 @import '@carbon/type/scss/font-face/mono';
 @import '@carbon/type/scss/font-face/sans';
@@ -18,6 +20,10 @@ Here's a quick example to get you started.
 > 💡 Only import fonts once per usage. Don't forget to import the CTA styles
 > from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
+
+##### JS
+
+##### Text Link
 
 ```javascript
 import React from 'react';
@@ -39,8 +45,140 @@ function App() {
 ReactDOM.render(<App />, document.querySelector('#app'));
 ```
 
-Add the following line on your `.env` file at the root of your project,
-[see more details](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/styles#usage)
+##### Video Link
+
+```javascript
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { CTA } from '@carbon/ibmdotcom-react';
+import 'yourapplication.scss';
+
+function App() {
+  return (
+    <CTA
+      style="text"
+      type="video"
+      media={{
+        src: '0_uka1msg4',
+        type: 'video',
+      }}
+    />
+  );
+}
+
+ReactDOM.render(<App />, document.querySelector('#app'));
+```
+
+##### Feature Card
+
+```javascript
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { CTA } from '@carbon/ibmdotcom-react';
+import { ArrowRight20 } from '@carbon/icons-react';
+import 'yourapplication.scss';
+
+function App() {
+  return (
+    <CTA
+      style="feature"
+      type="local"
+      heading="Lorem Ipsum"
+      image: {{
+        defaultSrc: 'https://dummyimage.com/672x672/ee5396/161616&text=1x1',
+        alt: 'Image alt text'
+      }}
+      cta={{
+        href: 'https://www.example.com',
+        icon: {
+          src: ArrowRight20
+        }
+      }}
+    />
+  );
+}
+
+ReactDOM.render(<App />, document.querySelector('#app'));
+```
+
+##### Button(s)
+
+```javascript
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { CTA } from '@carbon/ibmdotcom-react';
+import { ArrowRight20 } from '@carbon/icons-react';
+import 'yourapplication.scss';
+
+function App() {
+  return (
+    <CTA
+      style="feature"
+      type="local"
+      heading="Lorem Ipsum"
+      buttons={[
+        {
+          type: 'video',
+          href: 'https://www.example.com',
+          copy: 'Lorem Ipsum',
+          media: {
+            src: '0_uka1msg4',
+            type: 'video',
+          },
+        },
+        {
+          type: 'external',
+          href: 'https://www.example.com',
+          copy: 'Lorem Ipsum',
+          renderIcon: ArrowRight20,
+        },
+      ]}
+    />
+  );
+}
+```
+
+##### Card
+
+```javascript
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { CTA } from '@carbon/ibmdotcom-react';
+import { ArrowRight20 } from '@carbon/icons-react';
+import 'yourapplication.scss';
+
+function App() {
+  return (
+    <CTA
+      style="card"
+      type="local"
+      copy="Lorem Ipsum"
+      cta={{
+        href: 'https://www.example.com',
+      }}
+    />
+  );
+}
+
+function AppVideo() {
+  return (
+    <CTA
+      style="card"
+      type="video"
+      copy="Lorem Ipsum"
+      media={{
+        src: '0_uka1msg4',
+        type: 'video',
+      }}
+    />
+  );
+}
+```
+
+## Resolving Dependencies
+
+Add the following line in your `.env` file at the root of your project.
+[See more details](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/styles#usage).
 
 ```
   SASS_PATH=node_modules:src
@@ -67,11 +205,12 @@ Add the following line on your `.env` file at the root of your project,
 
 ## Types
 
-| Type       | SVG element Name | Description                                                                                      |
-| ---------- | ---------------- | ------------------------------------------------------------------------------------------------ |
-| `local`    | ArrowRight20     | Describes right arrow onClick which loads in self page. For more details click `Icons` below.    |
-| `jump`     | ArrowDown20      | Describes down arrow onClick which scrollToView of target. For more details click `Icons` below. |
-| `external` | Launch20         | Describes launch arrow onClick which loads in new tab. For more details click `Icons` below.     |
+| Type       | SVG element Name | Description                                                                                            |
+| ---------- | ---------------- | ------------------------------------------------------------------------------------------------------ |
+| `local`    | ArrowRight20     | Describes right arrow onClick which loads in self page. For more details click `Icons` below.          |
+| `jump`     | ArrowDown20      | Describes down arrow onClick which scrollToView of target. For more details click `Icons` below.       |
+| `external` | Launch20         | Describes launch arrow onClick which loads in new tab. For more details click `Icons` below.           |
+| `video`    | PlayOutline20    | Describes play icon onClick which loads the video in a lightbox. For more details click `Icons` below. |
 
 ## Icons
 

@@ -34,6 +34,7 @@ const ButtonGroup = ({ buttons }) => (
             tabIndex={key === 0 ? 2 : 1}
             data-autoid={`${stablePrefix}--button-group-${key}`}
             {...button}
+            type="button"
             kind={key === 0 ? 'primary' : 'tertiary'}>
             {button.copy}
           </Button>
@@ -48,7 +49,7 @@ ButtonGroup.propTypes = {
     PropTypes.shape({
       copy: PropTypes.string.isRequired,
       href: PropTypes.string.isRequired,
-      renderIcon: PropTypes.element,
+      renderIcon: PropTypes.object,
     })
   ),
 };

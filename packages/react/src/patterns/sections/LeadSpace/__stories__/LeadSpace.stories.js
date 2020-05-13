@@ -1,4 +1,10 @@
-import './index.scss';
+/**
+ * Copyright IBM Corp. 2016, 2018
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 import { ArrowDown20, ArrowRight20, Pdf20 } from '@carbon/icons-react';
 import {
   boolean,
@@ -52,7 +58,6 @@ storiesOf('Patterns (Sections)|LeadSpace', module)
 
     for (let i = 0; i < buttonCount; i++) {
       buttons.push({
-        link: '',
         copy: text(`Button ${i + 1}`, `Button ${i + 1}`),
         renderIcon:
           iconMap[
@@ -68,15 +73,13 @@ storiesOf('Patterns (Sections)|LeadSpace', module)
     };
 
     return (
-      <div className="bx--grid">
-        <LeadSpace
-          type={select('type', type, type.small)}
-          theme={select('theme', themes, themes.g100)}
-          title={title}
-          copy={copy}
-          buttons={buttons}
-        />
-      </div>
+      <LeadSpace
+        type={select('type', type, type.small)}
+        theme={select('theme', themes, themes.g100)}
+        title={title}
+        copy={copy}
+        buttons={buttons}
+      />
     );
   })
   .add('Default with image', () => {
@@ -98,7 +101,7 @@ storiesOf('Patterns (Sections)|LeadSpace', module)
         { src: 'https://picsum.photos/id/1076/320/370', breakpoint: 'sm' },
         { src: 'https://picsum.photos/id/1076/672/400', breakpoint: 'md' },
       ],
-      default: 'https://picsum.photos/id/1076/1056/480',
+      defaultSrc: 'https://picsum.photos/id/1076/1056/480',
       alt: 'lead space image',
     };
 
@@ -138,16 +141,14 @@ storiesOf('Patterns (Sections)|LeadSpace', module)
     const gradient = boolean('gradient overlay', true);
 
     return (
-      <div className="bx--grid">
-        <LeadSpace
-          type={select('type', type, type.small)}
-          theme={select('theme', themes, themes.g100)}
-          title={title}
-          copy={copy}
-          gradient={gradient}
-          buttons={buttons}
-          image={object('image', images)}
-        />
-      </div>
+      <LeadSpace
+        type={select('type', type, type.small)}
+        theme={select('theme', themes, themes.g100)}
+        title={title}
+        copy={copy}
+        gradient={gradient}
+        buttons={buttons}
+        image={object('image', images)}
+      />
     );
   });

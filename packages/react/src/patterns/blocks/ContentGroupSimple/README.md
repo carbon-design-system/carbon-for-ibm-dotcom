@@ -7,7 +7,9 @@
 
 Here's a quick example to get you started.
 
-```scss
+##### CSS
+
+```css
 // yourapplication.scss
 @import '@carbon/type/scss/font-face/mono';
 @import '@carbon/type/scss/font-face/sans';
@@ -20,6 +22,8 @@ Here's a quick example to get you started.
 > 💡 Only import fonts once per usage. Don't forget to import the
 > ContentGroupSimple styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
+
+##### JS
 
 ```javascript
 import React from 'react';
@@ -93,8 +97,8 @@ function App() {
 ReactDOM.render(<App />, document.querySelector('#app'));
 ```
 
-Add the following line on your `.env` file at the root of your project,
-[see more details](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/styles#usage)
+Add the following line in your `.env` file at the root of your project.
+[See more details](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/styles#usage).
 
 ```
   SASS_PATH=node_modules:src
@@ -105,13 +109,13 @@ Add the following line on your `.env` file at the root of your project,
 
 ## Props
 
-| Name        | Required | Data Type | Default Value | Description                                                                                                                                                                                   |
-| ----------- | -------- | --------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `heading`   | YES      | String    | n/a           | Main heading of the pattern.                                                                                                                                                                  |
-| `items`     | YES      | Array     | n/a           | Data to be used on ContentItems. Check [ContentItem](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/src/patterns/sub-patterns/ContentItem/README.md)👀 |
-| `cta`       | No       | Object    | n/a           | Data to be used on CTA. Check [CTA](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/src/components/CTA/README.md)👀                                     |
-| `mediaData` | NO       | Object    | n/a           | Data for the media, check [Image](hhttps://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/src/components/Image/README.md)👀                                    |
-| `mediaType` | NO       | String    | n/a           | Type of media to be shown, 'image' or 'video'.                                                                                                                                                |
+| Name        | Required | Data Type | Default Value | Description                                                                                                                                                                                                                                                                                                                                                      |
+| ----------- | -------- | --------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `heading`   | YES      | String    | n/a           | Main heading of the pattern.                                                                                                                                                                                                                                                                                                                                     |
+| `items`     | YES      | Array     | n/a           | Data to be used on ContentItems. Check [ContentItem](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/src/patterns/sub-patterns/ContentItem/README.md)👀                                                                                                                                                                    |
+| `cta`       | No       | Object    | n/a           | Data to be used on CTA. Check [CTA](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/src/components/CTA/README.md)👀                                                                                                                                                                                                        |
+| `mediaType` | NO       | String    | n/a           | Determines media type (image or video).                                                                                                                                                                                                                                                                                                                          |
+| `mediaData` | NO       | Object    | n/a           | Media Data for either image or video. See the [`ImageWithCaption`](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/components/ImageWithCaption) or [`VideoPlayer`](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/components/VideoPlayer) component for full usage details. |
 
 ## Stable selectors
 

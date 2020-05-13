@@ -1,4 +1,10 @@
-import './index.scss';
+/**
+ * Copyright IBM Corp. 2016, 2018
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 import { boolean, text, withKnobs } from '@storybook/addon-knobs';
 import { ArrowRight20 } from '@carbon/icons-react';
 import { ButtonGroup } from '../../../patterns/sub-patterns/ButtonGroup';
@@ -54,10 +60,6 @@ storiesOf('Components|Expressive Modal', module)
           className="bx--modal--expressive">
           <ModalBody>{dummyContent()}</ModalBody>
         </ExpressiveModal>
-        <a href="JavaScript:Void(0);" style={{ opacity: 0 }}>
-          Testing trapped focus. For some reason it appears focusing out of the
-          iFrame messes this up.
-        </a>
       </>
     );
   })
@@ -70,10 +72,6 @@ storiesOf('Components|Expressive Modal', module)
           className="bx--modal--expressive">
           <ModalBody>{dummyContent()}</ModalBody>
         </ExpressiveModal>
-        <a href="JavaScript:Void(0);" style={{ opacity: 0 }}>
-          Testing trapped focus. For some reason it appears focusing out of the
-          iFrame messes this up.
-        </a>
       </>
     );
   });

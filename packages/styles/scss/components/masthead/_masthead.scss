@@ -70,7 +70,7 @@ $search-transition-timing: 95ms;
         outline: none;
 
         &:hover {
-          background-color: $ui-01;
+          background-color: $hover-ui;
         }
 
         &:active,
@@ -101,14 +101,19 @@ $search-transition-timing: 95ms;
       flex: 0;
     }
 
+    &__nav-container {
+      height: 100%;
+    }
+
     &__nav {
-      a.#{$prefix}--header__menu-item[role='menuitem'] {
+      a.#{$prefix}--header__menu-item {
         @include carbon--type-style(body-short-02, true);
 
         color: $text-01;
 
         &:hover {
           background-color: $hover-ui;
+          cursor: pointer;
           > svg {
             fill: $text-01;
           }
@@ -214,7 +219,7 @@ $search-transition-timing: 95ms;
         }
       }
       &:hover {
-        background-color: $ui-01;
+        background-color: $hover-ui;
         transition-duration: $search-transition-timing;
         > {
           svg {
@@ -226,7 +231,7 @@ $search-transition-timing: 95ms;
       &:focus,
       &:active {
         border-color: $focus;
-        background-color: $ui-01;
+        background-color: $hover-ui;
       }
 
       .#{$prefix}--overflow-menu {
@@ -251,7 +256,7 @@ $search-transition-timing: 95ms;
 
       &--active {
         border: 2px solid $interactive-01;
-        background-color: $ui-01;
+        background-color: $hover-ui;
 
         @include carbon--breakpoint-up(sm) {
           position: absolute;
@@ -324,6 +329,7 @@ $search-transition-timing: 95ms;
     }
 
     &__option {
+      height: $layout-04;
       &:hover {
         background-color: $ui-01;
       }
@@ -337,6 +343,7 @@ $search-transition-timing: 95ms;
   }
   .#{$prefix}--overflow-menu.#{$prefix}--overflow-menu--open {
     box-shadow: none;
+    background-color: $hover-ui;
   }
   .#{$prefix}--header__action.#{$prefix}--overflow-menu {
     height: $spacing-09;

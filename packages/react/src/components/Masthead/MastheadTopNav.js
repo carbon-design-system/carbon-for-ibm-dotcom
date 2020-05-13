@@ -14,8 +14,10 @@ import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import HeaderMenu from '../carbon-components-react/UIShell/HeaderMenu';
 import PropTypes from 'prop-types';
 import React from 'react';
+import { settings } from 'carbon-components';
 
 const { stablePrefix } = ddsSettings;
+const { prefix } = settings;
 
 /**
  * Masthead top nav component
@@ -53,7 +55,7 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
   });
 
   return (
-    <>
+    <div className={`${prefix}--header__nav-container`}>
       {topNavProps.platform && (
         <HeaderName
           prefix=""
@@ -67,7 +69,7 @@ const MastheadTopNav = ({ navigation, ...topNavProps }) => {
         data-autoid={`${stablePrefix}--masthead__l0-nav`}>
         {mastheadLinks}
       </HeaderNavigation>
-    </>
+    </div>
   );
 };
 
@@ -95,7 +97,7 @@ function renderNav(sections) {
 }
 
 /**
- * @property propTypes
+ * @property {object} propTypes MastheadTopNav propTypes
  * @description Defined property types for component
  * @type {{navigation: {}}}
  */

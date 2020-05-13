@@ -1,7 +1,11 @@
 import { geolocation, ipcinfoCookie } from '@carbon/ibmdotcom-utilities';
+import digitalDataResponse from '../../DDO/__tests__/data/response.json';
 import LocaleAPI from '../Locale';
 import mockAxios from 'axios';
 import response from './data/response.json';
+import root from 'window-or-global';
+
+const mockDigitalDataResponse = digitalDataResponse;
 
 jest.mock('@carbon/ibmdotcom-utilities', () => ({
   ipcinfoCookie: {
@@ -24,6 +28,8 @@ describe('LocaleAPI', () => {
         data: response,
       })
     );
+
+    root.digitalData = mockDigitalDataResponse;
   });
 
   afterEach(() => {
@@ -31,13 +37,13 @@ describe('LocaleAPI', () => {
     sessionStorage.clear();
   });
 
-  it('should fetch the lang from the html attribute', () => {
+  it('should fetch the lang from the html attribute', async () => {
     Object.defineProperty(window.document.documentElement, 'lang', {
       value: 'fr-ca',
       configurable: true,
     });
 
-    const lang = LocaleAPI.getLang();
+    const lang = await LocaleAPI.getLang();
 
     expect(lang).toEqual({
       cc: 'ca',
@@ -45,13 +51,13 @@ describe('LocaleAPI', () => {
     });
   });
 
-  it('should default to en-us from the html attribute if cc and lc are not defined', () => {
+  it('should default to en-us from the html attribute if cc and lc are not defined', async () => {
     Object.defineProperty(window.document.documentElement, 'lang', {
       value: 'it',
       configurable: true,
     });
 
-    const lang = LocaleAPI.getLang();
+    const lang = await LocaleAPI.getLang();
 
     expect(lang).toEqual({
       cc: 'us',
@@ -59,8 +65,8 @@ describe('LocaleAPI', () => {
     });
   });
 
-  it('should default to en-us if lang is not defined', () => {
-    const lang = LocaleAPI.getLang();
+  it('should default to en-us if lang is not defined', async () => {
+    const lang = await LocaleAPI.getLang();
 
     expect(lang).toEqual({
       cc: 'us',
@@ -70,7 +76,7 @@ describe('LocaleAPI', () => {
 
   it('should fetch the display name based on language/locale combination', async () => {
     const data = await LocaleAPI.getLangDisplay();
-    expect(data).toEqual('United States - English');
+    expect(data).toEqual('United States — English');
   });
 
   it('should fetch locale from cookie if availiable', async () => {

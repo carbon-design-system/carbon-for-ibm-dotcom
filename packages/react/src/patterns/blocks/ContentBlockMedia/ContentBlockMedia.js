@@ -23,9 +23,10 @@ const { prefix } = settings;
  * @param {string} props.heading pattern heading
  * @param {Array} props.items items array with heading, image and lists
  * @param {object} props.cta cta object
+ * @param {object} props.aside elements to render on right panel
  * @returns {object} JSX Object
  */
-const ContentBlockMedia = ({ copy, heading, items, cta }) => {
+const ContentBlockMedia = ({ copy, heading, items, cta, aside }) => {
   if (cta) cta.style = 'feature';
 
   const content = items.map((item, index) => {
@@ -36,7 +37,7 @@ const ContentBlockMedia = ({ copy, heading, items, cta }) => {
     <div
       data-autoid={`${stablePrefix}--content-block-media`}
       className={`${prefix}--content-block-media`}>
-      <ContentBlock heading={heading} copy={copy} cta={cta}>
+      <ContentBlock heading={heading} copy={copy} cta={cta} aside={aside}>
         {content}
       </ContentBlock>
     </div>
@@ -48,6 +49,7 @@ ContentBlockMedia.propTypes = {
   heading: PropTypes.string.isRequired,
   items: PropTypes.array.isRequired,
   cta: PropTypes.object,
+  aside: PropTypes.object,
 };
 
 export default ContentBlockMedia;

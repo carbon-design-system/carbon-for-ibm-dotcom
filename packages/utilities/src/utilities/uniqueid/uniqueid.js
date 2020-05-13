@@ -1,5 +1,6 @@
 /**
  * Stores the latast id to increment
+ *
  * @type {number} Number stored for the next ID
  * @private
  */

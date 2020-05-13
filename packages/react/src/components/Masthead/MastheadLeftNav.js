@@ -25,8 +25,9 @@ const { prefix } = settings;
 /**
  * Masthead left nav component
  *
- * @typedef {object} navigation Object containing left navigation elements
- * @param {boolean} isSideNavExpanded Is side nav expanded
+ * @param {object} props react proptypes
+ * @param {object} props.navigation Object containing left navigation elements
+ * @param {boolean} props.isSideNavExpanded Is sidenav expanded
  * @returns {*} Masthead left nav component
  */
 const MastheadLeftNav = ({
@@ -44,10 +45,10 @@ const MastheadLeftNav = ({
       return (
         <SideNavMenu title={link.title} key={i}>
           <SideNavMenuItem
-            href="javascript:void(0);"
+            onClick={event => event.preventDefault()}
             className={`${prefix}--masthead__side-nav--submemu-back`}
             data-autoid={`${stablePrefix}--masthead__l0-sidenav--subnav-back-${i}`}
-            isBackButton
+            isbackbutton="true"
             key={i}>
             <ArrowLeft16 />
             Back
@@ -117,7 +118,7 @@ function renderNav(sections) {
 }
 
 /**
- * @property propTypes
+ * @property {object} propTypes MastheadLeftNav propTypes
  * @description Defined property types for component
  * @type {{isSideNavExpanded: boolean, navigation: []}}
  */

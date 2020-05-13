@@ -3,6 +3,70 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.6.0-rc.1...@carbon/ibmdotcom-services@1.6.0) (2020-04-28)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-services
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.6.0-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.6.0-rc.0...@carbon/ibmdotcom-services@1.6.0-rc.1) (2020-04-22)
+
+### Bug Fixes
+
+- **service:** cache video data in an object within service
+  ([606969c](https://github.com/carbon-design-system/ibm-dotcom-library/commit/606969c))
+- **services:** set associative array for cache object
+  ([f61adc2](https://github.com/carbon-design-system/ibm-dotcom-library/commit/f61adc2))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.6.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.5.1...@carbon/ibmdotcom-services@1.6.0-rc.0) (2020-04-17)
+
+### Bug Fixes
+
+- **analytics:** add documentation to vp analytics method
+  ([b6a6d36](https://github.com/carbon-design-system/ibm-dotcom-library/commit/b6a6d36))
+- **analytics:** unit tests
+  ([154bd9c](https://github.com/carbon-design-system/ibm-dotcom-library/commit/154bd9c))
+- **issue-1695:** edit locale.js/update tests
+  ([a475210](https://github.com/carbon-design-system/ibm-dotcom-library/commit/a475210))
+- **issue-1695:** refactoring
+  ([3129d2f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/3129d2f))
+- **issue-1695:** using DDO to get language
+  ([32ef879](https://github.com/carbon-design-system/ibm-dotcom-library/commit/32ef879))
+- **issue-2103:** getfromddo returns false
+  ([4d75802](https://github.com/carbon-design-system/ibm-dotcom-library/commit/4d75802))
+- **issue-2103:** isReady() catch, new test
+  ([a9a0777](https://github.com/carbon-design-system/ibm-dotcom-library/commit/a9a0777))
+- **locale:** setting default host to www.ibm.com
+  ([5e8f4f5](https://github.com/carbon-design-system/ibm-dotcom-library/commit/5e8f4f5))
+- **locale-service:** changed dash to em-dash in location string
+  ([5003965](https://github.com/carbon-design-system/ibm-dotcom-library/commit/5003965))
+- **translation:** fixes multiple translation api fetches
+  ([959c8de](https://github.com/carbon-design-system/ibm-dotcom-library/commit/959c8de))
+- **unittesting:** aligning jest versions across packages
+  ([c4e8ac0](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c4e8ac0))
+- **video-player:** import analytics api using relative path
+  ([f4aa71c](https://github.com/carbon-design-system/ibm-dotcom-library/commit/f4aa71c))
+
+### Features
+
+- **analytics:** metrics for kaltura video player
+  ([0b5e2a5](https://github.com/carbon-design-system/ibm-dotcom-library/commit/0b5e2a5))
+- **videoplayerAPI:** adding VideoPlayerAPI test coverage
+  ([b1253db](https://github.com/carbon-design-system/ibm-dotcom-library/commit/b1253db))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [1.5.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.5.1-rc.0...@carbon/ibmdotcom-services@1.5.1) (2020-03-30)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-services

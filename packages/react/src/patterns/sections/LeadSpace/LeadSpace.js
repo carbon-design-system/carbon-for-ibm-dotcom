@@ -79,17 +79,10 @@ function imageClassname(type, image) {
       <div
         data-autoid={`${stablePrefix}--leadspace--centered--mobile__image`}
         className={`${prefix}--leadspace--centered--mobile__image`}>
-        <img src={image.default} alt={image.alt} />
+        <img src={image.defaultSrc} alt={image.alt} />
       </div>
     );
-  } else
-    return (
-      <Image
-        sources={image.sources}
-        defaultSrc={image.default}
-        alt={image.alt}
-      />
-    );
+  } else return <Image {...image} />;
 }
 
 /**
@@ -107,7 +100,7 @@ function imageClassname(type, image) {
  */
 const LeadSpace = ({ buttons, copy, gradient, image, theme, title, type }) => {
   const background = image && {
-    backgroundImage: `url(${image.default})`,
+    backgroundImage: `url(${image.defaultSrc})`,
   };
 
   return (
@@ -154,7 +147,7 @@ LeadSpace.propTypes = {
   buttons: PropTypes.array,
   copy: PropTypes.string,
   gradient: PropTypes.bool,
-  image: PropTypes.instanceOf(Image),
+  image: PropTypes.shape(Image.propTypes),
   theme: PropTypes.string,
   title: PropTypes.string.isRequired,
   type: PropTypes.oneOf(['small', 'left', 'centered']),

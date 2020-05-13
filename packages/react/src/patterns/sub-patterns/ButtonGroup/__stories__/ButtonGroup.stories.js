@@ -1,4 +1,10 @@
-import './index.scss';
+/**
+ * Copyright IBM Corp. 2016, 2018
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 import { ArrowDown20, ArrowRight20, Pdf20 } from '@carbon/icons-react';
 import { number, select, text, withKnobs } from '@storybook/addon-knobs';
 import ButtonGroup from '../ButtonGroup';
@@ -32,7 +38,7 @@ storiesOf('Patterns (Sub-Patterns)|ButtonGroup', module)
 
     for (let i = 0; i < buttonCount; i++) {
       buttons.push({
-        link: text(`Link ${i + 1}`, `https://example.com`),
+        href: text(`Link ${i + 1}`, `https://example.com`),
         copy: text(`Button ${i + 1}`, `Button ${i + 1}`),
         renderIcon:
           iconMap[

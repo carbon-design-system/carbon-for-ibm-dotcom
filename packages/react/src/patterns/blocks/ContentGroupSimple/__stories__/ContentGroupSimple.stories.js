@@ -1,4 +1,10 @@
-import './index.scss';
+/**
+ * Copyright IBM Corp. 2016, 2018
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 import { text, object, withKnobs, select } from '@storybook/addon-knobs';
 import ContentGroupSimple from '../ContentGroupSimple';
 import ContentGroupSimpleKnobs from './data/ContentGroupSimple.knobs';
@@ -15,9 +21,12 @@ storiesOf('Patterns (Blocks)|ContentGroupSimple', module)
   })
   .add('Default', () => {
     const heading = text('Heading', ContentGroupSimpleKnobs.heading);
-    const mediaData = object('Media Data:', ContentGroupSimpleKnobs.mediaData);
     const types = ContentGroupSimpleKnobs.types;
     const mediaType = select('Media type:', types, types.image);
+    const mediaData =
+      mediaType === 'image'
+        ? ContentGroupSimpleKnobs.mediaData.image
+        : ContentGroupSimpleKnobs.mediaData.video;
     const items = object('Content Items:', ContentGroupSimpleKnobs.items);
     const cta = object('CTA Data:', ContentGroupSimpleKnobs.cta);
 

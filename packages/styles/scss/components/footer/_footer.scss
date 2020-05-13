@@ -41,9 +41,10 @@
       }
     }
 
-    .#{$prefix}--link {
+    .#{$prefix}--footer__link.#{$prefix}--link {
       &,
-      &:visited {
+      &:visited,
+      &:visited:hover {
         color: $text-02;
       }
 
@@ -55,6 +56,15 @@
         color: $text-04;
       }
 
+      &:hover {
+        color: $text-01;
+      }
+    }
+
+    .#{$prefix}--legal-nav__list
+      .#{$prefix}--legal-nav__list-item
+      .#{$prefix}--link {
+      color: $text-02;
       &:hover {
         color: $text-01;
       }

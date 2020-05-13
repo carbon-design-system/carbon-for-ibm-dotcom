@@ -17,6 +17,10 @@
 @mixin content-block-media {
   .#{$prefix}--content-block-media {
     @include themed-items;
+
+    .#{$prefix}--content-group:last-child {
+      margin-bottom: 0;
+    }
   }
 
   .#{$prefix}--content-block-media--g100 {

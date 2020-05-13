@@ -7,7 +7,9 @@
 
 Here's a quick example to get you started.
 
-```scss
+##### CSS
+
+```css
 // yourapplication.scss
 @import '@carbon/type/scss/font-face/mono';
 @import '@carbon/type/scss/font-face/sans';
@@ -20,6 +22,8 @@ Here's a quick example to get you started.
 > ImageWithCaption styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
+##### JS
+
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -30,16 +34,30 @@ function App() {
   const image = {
     defaultSrc: 'https://dummyimage.com/672x672',
     alt: 'image with caption alt text',
+    sources: [
+      {
+        src: 'https://dummyimage.com/320x160',
+        breakpoint: 320,
+      },
+      {
+        src: 'https://dummyimage.com/400x400',
+        breakpoint: 400,
+      },
+      {
+        src: 'https://dummyimage.com/672x672',
+        breakpoint: 672,
+      },
+    ],
   };
 
-  return <ImageWithCaption image={image} heading={heading} />;
+  return <ImageWithCaption inverse={false} image={image} heading={heading} />;
 }
 
 ReactDOM.render(<App />, document.querySelector('#app'));
 ```
 
-Add the following line on your `.env` file at the root of your project,
-[see more details](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/styles#usage)
+Add the following line in your `.env` file at the root of your project.
+[See more details](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/styles#usage).
 
 ```
   SASS_PATH=node_modules:src
@@ -56,6 +74,7 @@ Add the following line on your `.env` file at the root of your project,
 | ------- | -------- | --------- | ------------- | ---------------------------------------------------------------------- |
 | image   | YES      | Object    | n/a           | Image object needed for ImageWithCaption component. See `image` below. |
 | heading | YES      | string    | n/a           | Caption text for ImageWithCaption component.                           |
+| inverse | No       | Boolean   | `false`       | Changes theme to inverse/default                                       |
 
 ### image
 
