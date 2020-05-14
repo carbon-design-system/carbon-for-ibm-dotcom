@@ -5,12 +5,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import {
-  settings as ddsSettings,
-  markdownToHtml,
-} from '@carbon/ibmdotcom-utilities';
 import React, { useEffect, useState } from 'react';
 import cx from 'classnames';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
 import { settings } from 'carbon-components';
 import { VideoPlayerAPI } from '@carbon/ibmdotcom-services';
@@ -45,13 +42,10 @@ const VideoPlayer = ({ inverse, showCaption, videoId, customClassName }) => {
     customClassName
   );
 
-  const videoDesc = markdownToHtml(videoData.description, {
-    createParagraphs: false,
-    cleanString: true,
-  });
-
   return (
-    <div aria-label={`${videoDesc} ${videoDuration}`} className={classnames}>
+    <div
+      aria-label={`${videoData.name} ${videoDuration}`}
+      className={classnames}>
       <div
         className={`${prefix}--video-player__video-container`}
         data-autoid={`${stablePrefix}--${videoPlayerId}`}>
@@ -61,7 +55,7 @@ const VideoPlayer = ({ inverse, showCaption, videoId, customClassName }) => {
       </div>
       {showCaption && (
         <div className={`${prefix}--video-player__video-caption`}>
-          {videoDesc} {videoDuration}
+          {videoData.name} {videoDuration}
         </div>
       )}
     </div>
