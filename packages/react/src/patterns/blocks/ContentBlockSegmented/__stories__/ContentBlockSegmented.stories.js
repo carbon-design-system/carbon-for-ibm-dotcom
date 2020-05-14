@@ -61,7 +61,7 @@ storiesOf('Patterns (Blocks)|ContentBlockSegmented', module)
 
     const video = {
       videoId: '0_uka1msg4',
-      showDescription: true,
+      showCaption: true,
     };
 
     const mediaData = mediaType === 'image' ? image : video;
@@ -156,7 +156,7 @@ storiesOf('Patterns (Blocks)|ContentBlockSegmented', module)
 
     const video = {
       videoId: '0_uka1msg4',
-      showDescription: true,
+      showCaption: true,
     };
 
     const mediaData = mediaType === 'image' ? image : video;

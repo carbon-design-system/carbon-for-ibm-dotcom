@@ -81,7 +81,7 @@ storiesOf('Patterns (Blocks)|ContentBlockSimple', module)
 
     const video = {
       videoId: '0_uka1msg4',
-      showDescription: true,
+      showCaption: true,
     };
 
     const mediaData = mediaType === 'image' ? image : video;
@@ -172,8 +172,8 @@ storiesOf('Patterns (Blocks)|ContentBlockSimple', module)
     };
 
     const video = {
-      videoId: '0_uka1msg4',
-      showDescription: true,
+      videoId: '1_r1eanmna',
+      showCaption: true,
     };
 
     const mediaData = mediaType === 'image' ? image : video;

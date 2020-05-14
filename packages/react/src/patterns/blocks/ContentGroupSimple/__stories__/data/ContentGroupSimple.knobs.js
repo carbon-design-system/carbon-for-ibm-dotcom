@@ -30,7 +30,7 @@ const ContentGroupSimpleKnobs = {
     },
     video: {
       videoId: '0_uka1msg4',
-      showDescription: true,
+      showCaption: true,
     },
   },
   types: {

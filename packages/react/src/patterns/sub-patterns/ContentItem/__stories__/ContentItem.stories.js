@@ -80,7 +80,7 @@ storiesOf('Patterns (Sub-Patterns)|ContentItem', module)
 
     const video = {
       videoId: '0_uka1msg4',
-      showDescription: true,
+      showCaption: true,
     };
 
     const mediaData = mediaType === 'image' ? image : video;
