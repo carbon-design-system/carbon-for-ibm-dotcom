@@ -72,7 +72,7 @@ const ExpressiveModal = ({
    * Close modal
    */
   function closeModal() {
-    if (!onClose || onClose() !== false) {
+    if (onClose?.() !== false) {
       setIsOpen(false);
     }
   }
