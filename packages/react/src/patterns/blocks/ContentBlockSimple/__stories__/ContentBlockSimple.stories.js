@@ -1,4 +1,10 @@
-import './index.scss';
+/**
+ * Copyright IBM Corp. 2016, 2018
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 import {
   select,
   text,
@@ -7,10 +13,14 @@ import {
   boolean,
 } from '@storybook/addon-knobs';
 import ContentBlockSimple from '../ContentBlockSimple';
+import cx from 'classnames';
 import { LinkList } from '../../../sub-patterns/LinkList';
 import React from 'react';
 import readme from '../README.md';
+import { settings } from 'carbon-components';
 import { storiesOf } from '@storybook/react';
+
+const { prefix } = settings;
 
 storiesOf('Patterns (Blocks)|ContentBlockSimple', module)
   .addDecorator(withKnobs)
@@ -71,7 +81,7 @@ storiesOf('Patterns (Blocks)|ContentBlockSimple', module)
 
     const video = {
       videoId: '0_uka1msg4',
-      showDescription: true,
+      showCaption: true,
     };
 
     const mediaData = mediaType === 'image' ? image : video;
@@ -86,11 +96,17 @@ storiesOf('Patterns (Blocks)|ContentBlockSimple', module)
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
       `;
 
+    const inverse = boolean('inverse', false);
+
     return (
-      <div className="bx--grid">
+      <div
+        className={cx('bx--grid', {
+          [`${prefix}--content-block-simple--inverse`]: inverse,
+        })}>
         <div className="bx--row">
           <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4 content-block-story">
             <ContentBlockSimple
+              inverse={inverse}
               copy={copy}
               heading={text(
                 'Heading (required)',
@@ -156,8 +172,8 @@ storiesOf('Patterns (Blocks)|ContentBlockSimple', module)
     };
 
     const video = {
-      videoId: '0_uka1msg4',
-      showDescription: true,
+      videoId: '1_r1eanmna',
+      showCaption: true,
     };
 
     const mediaData = mediaType === 'image' ? image : video;

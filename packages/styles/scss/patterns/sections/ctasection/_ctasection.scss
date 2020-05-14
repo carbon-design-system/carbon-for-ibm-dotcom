@@ -1,0 +1,120 @@
+//
+// Copyright IBM Corp. 2016, 2018
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@mixin cta-section--pattern {
+  .#{$prefix}--cta-section {
+    background-color: $ui-background;
+
+    .#{$prefix}--content-block {
+      padding-bottom: $layout-01;
+      @include carbon--make-col-ready;
+
+      &__heading,
+      &__copy {
+        width: 90%;
+        max-width: 640px;
+
+        @include carbon--breakpoint('sm') {
+          width: 100%;
+        }
+      }
+
+      &__heading {
+        @include carbon--type-style('expressive-heading-05', true);
+      }
+
+      &__copy {
+        p {
+          margin-bottom: 0;
+          @include carbon--type-style('expressive-heading-03', true);
+        }
+      }
+
+      &__cta-col {
+        margin-top: 0;
+      }
+
+      @include carbon--breakpoint('md') {
+        padding-bottom: $layout-05;
+      }
+
+      @include carbon--breakpoint('lg') {
+        padding-bottom: $layout-06;
+        @include carbon--make-col(8, 16);
+        @include carbon--make-col-offset(4, 16);
+      }
+    }
+
+    .#{$prefix}--horizontal-line {
+      border-color: $ui-03;
+      margin: 0;
+
+      @include carbon--breakpoint('lg') {
+        @include carbon--make-col(12, 16);
+        @include carbon--make-col-offset(4, 16);
+      }
+    }
+
+    .#{$prefix}--helper-wrapper {
+      margin-bottom: $layout-05;
+
+      @include carbon--breakpoint('lg') {
+        @include carbon--make-col(12, 16);
+        @include carbon--make-col-offset(4, 16);
+      }
+
+      .#{$prefix}--content-item-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        @include carbon--make-col-ready;
+
+        .#{$prefix}--content-item {
+          width: 100%;
+          margin-bottom: 0;
+          padding-bottom: $layout-01;
+          position: relative;
+
+          &__heading {
+            width: 100%;
+            @include carbon--type-style('expressive-heading-02', true);
+          }
+
+          &__copy {
+            width: 100%;
+            p {
+              width: 100%;
+              @include carbon--type-style('body-long-02', true);
+            }
+          }
+
+          &__cta {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+          }
+
+          @include carbon--breakpoint('md') {
+            width: 50%;
+
+            &__heading {
+              width: 90%;
+            }
+
+            &__copy {
+              width: 90%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@include exports('cta-section--pattern') {
+  @include cta-section--pattern;
+}

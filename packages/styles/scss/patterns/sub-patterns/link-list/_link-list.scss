@@ -19,6 +19,16 @@
     &__list {
       @include hang;
       &__CTA {
+        div .#{$prefix}--tile {
+          margin-left: 0;
+          margin-right: 0;
+
+          .#{$prefix}--card__wrapper {
+            padding-left: 1rem;
+            padding-right: 1rem;
+          }
+        }
+
         border-top: 1px solid $ui-03;
         &:first-child {
           border-top: 1px solid $ui-03;

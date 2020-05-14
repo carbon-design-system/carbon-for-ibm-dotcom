@@ -21,7 +21,7 @@ const { prefix } = settings;
  * @returns {object} JSX object
  */
 const FooterNavGroup = ({ title, links }) => {
-  if (!title || !links || !links.length) {
+  if (!title || !links?.length) {
     return null;
   }
 

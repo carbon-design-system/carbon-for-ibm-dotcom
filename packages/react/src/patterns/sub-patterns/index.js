@@ -10,6 +10,8 @@ export * from './Callout';
 export * from './Card';
 export * from './CardGroup';
 export * from './ContentBlock';
+export * from './ContentItem';
+export * from './ContentItemHorizontal';
 export * from './ContentGroup';
 export * from './ContentItem';
 export * from './ContentSection';

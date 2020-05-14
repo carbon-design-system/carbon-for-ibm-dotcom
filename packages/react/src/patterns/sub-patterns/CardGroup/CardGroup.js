@@ -37,25 +37,22 @@ const CardGroup = ({ cards, cta }) => {
    */
   const setCardHeight = () => {
     root.requestAnimationFrame(() => {
-      if (containerRef && containerRef.current) {
+      const { current: containerNode } = containerRef;
+      if (containerNode) {
         sameHeight(
-          containerRef.current.getElementsByClassName(
-            `${prefix}--card__heading`
-          ),
+          containerNode.getElementsByClassName(`${prefix}--card__heading`),
           'md'
         );
         sameHeight(
-          containerRef.current.getElementsByClassName(`${prefix}--card__copy`),
+          containerNode.getElementsByClassName(`${prefix}--card__copy`),
           'md'
         );
         sameHeight(
-          containerRef.current.getElementsByClassName(
-            `${prefix}--card__eyebrow`
-          ),
+          containerNode.getElementsByClassName(`${prefix}--card__eyebrow`),
           'md'
         );
         sameHeight(
-          containerRef.current.getElementsByClassName(`${prefix}--card--link`),
+          containerNode.getElementsByClassName(`${prefix}--card--link`),
           'md'
         );
       }
@@ -123,7 +120,7 @@ const _renderCards = (cards, containerRef, cta) => (
 
 CardGroup.propTypes = {
   cards: PropTypes.arrayOf(PropTypes.shape(Card.propTypes)),
-  cta: PropTypes.oneOfType(PropTypes.shape(Card.propTypes)),
+  cta: PropTypes.shape(Card.propTypes),
 };
 
 export default CardGroup;

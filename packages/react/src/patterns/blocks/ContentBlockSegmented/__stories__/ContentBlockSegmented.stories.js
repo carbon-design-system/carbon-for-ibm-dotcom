@@ -1,4 +1,10 @@
-import './index.scss';
+/**
+ * Copyright IBM Corp. 2016, 2018
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 import {
   select,
   object,
@@ -55,7 +61,7 @@ storiesOf('Patterns (Blocks)|ContentBlockSegmented', module)
 
     const video = {
       videoId: '0_uka1msg4',
-      showDescription: true,
+      showCaption: true,
     };
 
     const mediaData = mediaType === 'image' ? image : video;
@@ -150,7 +156,7 @@ storiesOf('Patterns (Blocks)|ContentBlockSegmented', module)
 
     const video = {
       videoId: '0_uka1msg4',
-      showDescription: true,
+      showCaption: true,
     };
 
     const mediaData = mediaType === 'image' ? image : video;

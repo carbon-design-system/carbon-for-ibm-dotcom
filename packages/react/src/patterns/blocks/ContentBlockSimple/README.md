@@ -57,6 +57,7 @@ function App() {
 
   return (
     <ContentBlockSimple
+      inverse={false}
       heading={heading}
       copy={copy}
       mediaType={mediaType}
@@ -69,8 +70,8 @@ function App() {
 ReactDOM.render(<App />, document.querySelector('#app'));
 ```
 
-Add the following line on your `.env` file at the root of your project,
-[see more details](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/styles#usage)
+Add the following line in your `.env` file at the root of your project.
+[See more details](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/styles#usage).
 
 ```
   SASS_PATH=node_modules:src
@@ -89,6 +90,7 @@ Add the following line on your `.env` file at the root of your project,
 | `mediaData` | NO       | Object    | n/a           | Media Data for either image or video. See the [`ImageWithCaption`](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/components/ImageWithCaption) or [`VideoPlayer`](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/components/VideoPlayer) component for full usage details. |
 | `cta`       | NO       | Object    | n/a           | CTA used at the end of content body. `Text` and `Card` styles supported.                                                                                                                                                                                                                                                                                         |
 | `aside`     | NO       | Object    | n/a           | Elements to be rendered on right panel of the content block. See `ContentBlock` README for more info.                                                                                                                                                                                                                                                            |
+| `inverse`   | NO       | Boolean   | `false`       | Changes theme to inverse/default                                                                                                                                                                                                                                                                                                                                 |
 
 ## Stable selectors
 

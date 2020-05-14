@@ -1,4 +1,10 @@
-import './index.scss';
+/**
+ * Copyright IBM Corp. 2016, 2018
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 import { boolean, object, select, withKnobs } from '@storybook/addon-knobs';
 import { DDS_LANGUAGE_SELECTOR } from '../../../internal/FeatureFlags';
 import { Footer } from '../';
@@ -31,12 +37,12 @@ storiesOf('Components|Footer', module)
 
     let isCustom = boolean('show custom navigation (not a prop)', inPercy());
 
-    let navigation =
-      isCustom &&
-      object('custom navigation data (navigation)', {
-        footerMenu,
-        footerThin,
-      });
+    let navigation = isCustom
+      ? object('custom navigation data (navigation)', {
+          footerMenu,
+          footerThin,
+        })
+      : null;
 
     let disableLocaleButton = boolean(
       'hide the locale button (disableLocaleButton)',
@@ -62,12 +68,12 @@ storiesOf('Components|Footer', module)
 
     return (
       <Footer
-        navigation={isCustom && navigation}
+        navigation={isCustom ? navigation : null}
         type={type}
         disableLocaleButton={disableLocaleButton}
         langCode={inPercy() ? { lc: 'en', cc: 'us' } : null}
         languageOnly={languageOnly}
-        languageItems={items}
+        languageItems={languageOnly ? items : null}
         languageInitialItem={{ id: 'en', text: 'English' }}
         languageCallback={languageCallback}
       />
