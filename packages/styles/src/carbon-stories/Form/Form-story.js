@@ -26,6 +26,8 @@ import {
   Toggle,
 } from 'carbon-components-react';
 
+import './form-story.scss';
+
 const additionalProps = {
   className: 'some-class',
   onSubmit: e => {
@@ -140,14 +142,12 @@ storiesOf('Form', module)
   .add(
     'Default',
     () => (
-      <Form {...additionalProps}>
+      <Form {...additionalProps} className="dds-story--form">
         <FormGroup {...fieldsetCheckboxProps()}>
           <Checkbox defaultChecked {...checkboxEvents} id="checkbox-0" />
           <Checkbox {...checkboxEvents} id="checkbox-1" />
           <Checkbox disabled {...checkboxEvents} id="checkbox-2" />
         </FormGroup>
-
-        <NumberInput {...numberInputProps} />
 
         <FormGroup {...fieldsetToggleProps}>
           <Toggle {...toggleProps} id="toggle-1" />
@@ -195,6 +195,10 @@ storiesOf('Form', module)
           </RadioButtonGroup>
         </FormGroup>
 
+        <FormGroup className="dds-story--form__number-input-group">
+          <NumberInput {...numberInputProps} />
+        </FormGroup>
+
         <FormGroup {...fieldsetSearchProps}>
           <Search
             {...searchProps}
@@ -204,17 +208,19 @@ storiesOf('Form', module)
           />
         </FormGroup>
 
-        <Select {...selectProps} id="select-1" defaultValue="placeholder-item">
-          <SelectItem
-            disabled
-            hidden
-            value="placeholder-item"
-            text="Choose an option"
-          />
-          <SelectItem value="option-1" text="Option 1" />
-          <SelectItem value="option-2" text="Option 2" />
-          <SelectItem value="option-3" text="Option 3" />
-        </Select>
+        <FormGroup className="dds-story--form__select-group">
+          <Select {...selectProps} id="select-1" defaultValue="placeholder-item">
+            <SelectItem
+              disabled
+              hidden
+              value="placeholder-item"
+              text="Choose an option"
+            />
+            <SelectItem value="option-1" text="Option 1" />
+            <SelectItem value="option-2" text="Option 2" />
+            <SelectItem value="option-3" text="Option 3" />
+          </Select>
+        </FormGroup>
 
         <TextInput {...TextInputProps} />
 

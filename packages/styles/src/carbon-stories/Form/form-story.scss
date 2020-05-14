@@ -1,0 +1,30 @@
+//
+// Copyright IBM Corp. 2020
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import '~carbon-components/scss/globals/scss/vars';
+
+.dds-story--form__number-input-group,
+.dds-story--form__select-group {
+  .#{$prefix}--form-item {
+    align-items: stretch;
+  }
+}
+
+.dds-story--form__select-group {
+  .#{$prefix}--select {
+    align-items: stretch;
+  }
+
+  .#{$prefix}--select-input__wrapper {
+    justify-content: stretch;
+  }
+
+  .#{$prefix}--select-input {
+    flex: 1;
+    max-width: none;
+  }
+}
