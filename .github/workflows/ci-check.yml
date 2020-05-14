@@ -20,5 +20,7 @@ jobs:
         run: sudo apt-get install xvfb
       - name: Build
         run: yarn build
-      - name: Run checks
+      - name: Run a11y compliance tests
+        run: xvfb-run --auto-servernum yarn test:a11y || true
+      - name: Run build integration tests
         run: xvfb-run --auto-servernum yarn test:integration:build

@@ -31,7 +31,8 @@
     "lint:scripts:staged": "eslint",
     "lint:license:staged": "tasks/check-license.js -w",
     "lint:styles": "stylelint '**/*.{css,scss}' --config ./packages/stylelint-config-ibmdotcom",
-    "test": "yarn test:unit && yarn test:integration:build",
+    "test": "yarn test:unit && yarn test:a11y && yarn test:integration:build",
+    "test:a11y": "yarn lerna run --stream --prefix test:a11y",
     "test:unit": "cross-env BABEL_ENV=test jest",
     "test:integration:build": "yarn lerna run --stream --prefix test:integration:build"
   },
