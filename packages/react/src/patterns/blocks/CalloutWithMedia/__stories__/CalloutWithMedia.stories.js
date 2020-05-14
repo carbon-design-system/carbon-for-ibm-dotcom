@@ -49,7 +49,7 @@ storiesOf('Patterns (Blocks)|CalloutWithMedia', module)
 
     const video = {
       videoId: '0_uka1msg4',
-      showDescription: true,
+      showCaption: true,
     };
 
     const copy = text(

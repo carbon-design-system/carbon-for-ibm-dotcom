@@ -25,7 +25,7 @@ const { prefix } = settings;
  * @returns {*} VideoPlayer component
  */
 const VideoPlayer = ({ inverse, showCaption, videoId, customClassName }) => {
-  const [videoData, setVideoData] = useState({});
+  const [videoData, setVideoData] = useState({ description: '' });
   const videoPlayerId = `video-player__video-${videoId}`;
   const videoDuration = VideoPlayerAPI.getVideoDuration(videoData.msDuration);
 
@@ -44,7 +44,7 @@ const VideoPlayer = ({ inverse, showCaption, videoId, customClassName }) => {
 
   return (
     <div
-      aria-label={`${videoData.description} ${videoDuration}`}
+      aria-label={`${videoData.name} ${videoDuration}`}
       className={classnames}>
       <div
         className={`${prefix}--video-player__video-container`}
