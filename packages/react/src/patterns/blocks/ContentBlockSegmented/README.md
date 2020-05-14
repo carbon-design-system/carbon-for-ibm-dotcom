@@ -95,6 +95,7 @@ Add the following line in your `.env` file at the root of your project.
 | --------- | -------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `heading` | YES      | String    | Short copy describing content item.                                                                                                                             |
 | `image`   | NO       | Object    | See the [`Image`](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/components/Image) component for full usage details. |
+| `cta`     | NO       | Object    | See the [`CTA`](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/components/CTA) component for full usage details.     |
 | `copy`    | YES      | String    | Item content.                                                                                                                                                   |
 
 ## Stable selectors
