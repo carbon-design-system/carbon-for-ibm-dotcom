@@ -195,7 +195,7 @@ class VideoPlayerAPI {
         return videoData[videoId];
       } else {
         return new Promise(resolve => {
-          return new root.kWidget.api({ wid: _partnerId }).doRequest(
+          return new root.kWidget.api({ wid: '_' + _partnerId }).doRequest(
             {
               service: 'media',
               action: 'get',
