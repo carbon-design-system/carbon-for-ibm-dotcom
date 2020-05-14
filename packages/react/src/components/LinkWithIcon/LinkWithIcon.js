@@ -5,6 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import CTALogic from '../CTA/CTALogic';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { Link } from 'carbon-components-react';
 import PropTypes from 'prop-types';
@@ -20,14 +21,25 @@ const { prefix } = settings;
  * @param {object} props react proptypes
  * @param {object} props.children User content
  * @param {string} props.href Link url
+ * @param {string} props.type Link type
  * @returns {*} LinkWithIcon component
  */
-const LinkWithIcon = ({ children, href, ...props }) => {
+const LinkWithIcon = ({ children, href, type, ...props }) => {
   return (
     <div
       className={`${prefix}--link-with-icon__container`}
       data-autoid={`${stablePrefix}--link-with-icon`}>
-      <Link href={href} className={`${prefix}--link-with-icon`} {...props}>
+      <Link
+        href={href}
+        className={`${prefix}--link-with-icon`}
+        onClick={e => {
+          if (type === 'jump') {
+            e.preventDefault();
+            CTALogic.jump(e, type);
+          }
+        }}
+        target={CTALogic.external(type)}
+        {...props}>
         {children}
       </Link>
     </div>
@@ -43,6 +55,7 @@ const LinkWithIcon = ({ children, href, ...props }) => {
 LinkWithIcon.propTypes = {
   children: PropTypes.array,
   href: PropTypes.string,
+  type: PropTypes.string,
 };
 
 /**
@@ -52,6 +65,7 @@ LinkWithIcon.propTypes = {
 LinkWithIcon.defaultProps = {
   children: [],
   href: '',
+  type: '',
 };
 
 export default LinkWithIcon;
