@@ -20767,6 +20767,828 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockLarge Default 1`] = `
 </Container>
 `;
 
+exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
+<Container
+  story={[Function]}
+>
+  <div
+    data-floating-menu-container=""
+    role="main"
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+      }
+    }
+  >
+    <ReadmeContent
+      codeTheme="github"
+      layout={
+        Array [
+          Object {
+            "content": <React.Fragment>
+              <div
+                className="bx--grid"
+              >
+                <div
+                  className="bx--row"
+                >
+                  <div
+                    className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
+                  >
+                    <LeadSpaceBlock
+                      button="Contact Sales"
+                      copy="Automate your software release process with continuous delivery (CD)—the most 
+    critical part of adopting DevOps. Build, test, and deploy code changes quickly, 
+    ensuring software is always ready for deployment."
+                      heading="Innovate like a startup and scale for the enterprise "
+                      items={
+                        Object {
+                          "heading": "Featured products",
+                          "items": Array [
+                            Object {
+                              "copy": "IBM Cloud Continuous Delivery",
+                              "cta": Object {
+                                "href": "https://ibm.com",
+                              },
+                              "type": "local",
+                            },
+                            Object {
+                              "copy": "UrbanCode",
+                              "cta": Object {
+                                "href": "https://ibm.com",
+                              },
+                              "type": "local",
+                            },
+                            Object {
+                              "copy": "View all products",
+                              "cta": Object {
+                                "href": "https://ibm.com",
+                              },
+                              "type": "local",
+                            },
+                          ],
+                        }
+                      }
+                      mediaData={
+                        Object {
+                          "heading": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                          "image": Object {
+                            "alt": "Image alt text",
+                            "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
+                            "sources": Array [
+                              Object {
+                                "breakpoint": 320,
+                                "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
+                              },
+                              Object {
+                                "breakpoint": 400,
+                                "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
+                              },
+                              Object {
+                                "breakpoint": 672,
+                                "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
+                              },
+                            ],
+                          },
+                        }
+                      }
+                      mediaType="image"
+                      title="Continuous delivery"
+                    />
+                  </div>
+                </div>
+              </div>
+            </React.Fragment>,
+            "type": "STORY",
+          },
+        ]
+      }
+      theme={Object {}}
+      types={
+        Array [
+          "MD",
+          "STORY",
+          "STORY_SOURCE",
+          "PROPS",
+          "FOOTER_MD",
+          "HEADER_MD",
+        ]
+      }
+    >
+      <div
+        className="storybook-readme-story"
+      >
+        <_default
+          key="0"
+        >
+          <div
+            style={Object {}}
+          >
+            <div>
+              <div
+                className="bx--grid"
+              >
+                <div
+                  className="bx--row"
+                >
+                  <div
+                    className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
+                  >
+                    <LeadSpaceBlock
+                      button="Contact Sales"
+                      copy="Automate your software release process with continuous delivery (CD)—the most 
+    critical part of adopting DevOps. Build, test, and deploy code changes quickly, 
+    ensuring software is always ready for deployment."
+                      heading="Innovate like a startup and scale for the enterprise "
+                      items={
+                        Object {
+                          "heading": "Featured products",
+                          "items": Array [
+                            Object {
+                              "copy": "IBM Cloud Continuous Delivery",
+                              "cta": Object {
+                                "href": "https://ibm.com",
+                              },
+                              "type": "local",
+                            },
+                            Object {
+                              "copy": "UrbanCode",
+                              "cta": Object {
+                                "href": "https://ibm.com",
+                              },
+                              "type": "local",
+                            },
+                            Object {
+                              "copy": "View all products",
+                              "cta": Object {
+                                "href": "https://ibm.com",
+                              },
+                              "type": "local",
+                            },
+                          ],
+                        }
+                      }
+                      mediaData={
+                        Object {
+                          "heading": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                          "image": Object {
+                            "alt": "Image alt text",
+                            "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
+                            "sources": Array [
+                              Object {
+                                "breakpoint": 320,
+                                "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
+                              },
+                              Object {
+                                "breakpoint": 400,
+                                "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
+                              },
+                              Object {
+                                "breakpoint": 672,
+                                "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
+                              },
+                            ],
+                          },
+                        }
+                      }
+                      mediaType="image"
+                      title="Continuous delivery"
+                    >
+                      <div
+                        className="bx--lead-space-block"
+                        data-autoid="dds--lead-space-block"
+                      >
+                        <div>
+                          <h1
+                            className="bx--lead-space-block__title"
+                            data-autoid="dds--lead-space-block__title"
+                          >
+                            Continuous delivery
+                          </h1>
+                        </div>
+                        <ContentBlock
+                          copy="Automate your software release process with continuous delivery (CD)—the most 
+    critical part of adopting DevOps. Build, test, and deploy code changes quickly, 
+    ensuring software is always ready for deployment."
+                          heading="Innovate like a startup and scale for the enterprise "
+                        >
+                          <div
+                            className="bx--content-block"
+                            data-autoid="dds--content-block"
+                          >
+                            <div>
+                              <h2
+                                className="bx--content-block__heading"
+                                data-autoid="dds--content-block__heading"
+                              >
+                                Innovate like a startup and scale for the enterprise 
+                              </h2>
+                            </div>
+                            <div
+                              className="bx--content-block__copy"
+                              dangerouslySetInnerHTML={
+                                Object {
+                                  "__html": "<p>Automate your software release process with continuous delivery (CD)—the most critical part of adopting DevOps. Build, test, and deploy code changes quickly, ensuring software is always ready for deployment.</p>",
+                                }
+                              }
+                            />
+                            <div
+                              className="bx--content-block__children"
+                              data-autoid="dds--content-block__children"
+                            >
+                              <div
+                                data-autoid="dds--content-block-simple__media"
+                              >
+                                <ImageWithCaption
+                                  heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                                  image={
+                                    Object {
+                                      "alt": "Image alt text",
+                                      "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
+                                      "sources": Array [
+                                        Object {
+                                          "breakpoint": 320,
+                                          "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
+                                        },
+                                        Object {
+                                          "breakpoint": 400,
+                                          "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
+                                        },
+                                        Object {
+                                          "breakpoint": 672,
+                                          "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
+                                        },
+                                      ],
+                                    }
+                                  }
+                                >
+                                  <div
+                                    className="bx--image-with-caption"
+                                    data-autoid="dds--image-with-caption"
+                                  >
+                                    <Image
+                                      alt="Image alt text"
+                                      defaultSrc="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
+                                      sources={
+                                        Array [
+                                          Object {
+                                            "breakpoint": 320,
+                                            "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
+                                          },
+                                          Object {
+                                            "breakpoint": 400,
+                                            "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
+                                          },
+                                          Object {
+                                            "breakpoint": 672,
+                                            "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
+                                          },
+                                        ]
+                                      }
+                                    >
+                                      <picture
+                                        className="bx--image"
+                                        data-autoid="dds--image__longdescription-"
+                                      >
+                                        <source
+                                          key="0"
+                                          media="(min-width: 672px )"
+                                          srcSet="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
+                                        />
+                                        <source
+                                          key="1"
+                                          media="(min-width: 400px )"
+                                          srcSet="https://dummyimage.com/400x225/ee5396/161616&text=16:9"
+                                        />
+                                        <source
+                                          key="2"
+                                          media="(min-width: 320px )"
+                                          srcSet="https://dummyimage.com/320x180/ee5396/161616&text=16:9"
+                                        />
+                                        <img
+                                          alt="Image alt text"
+                                          aria-describedby=""
+                                          className="bx--image__img"
+                                          src="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
+                                        />
+                                      </picture>
+                                    </Image>
+                                    <p
+                                      className="bx--image__caption--inverse"
+                                      data-autoid="dds--image__caption"
+                                    >
+                                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    </p>
+                                  </div>
+                                </ImageWithCaption>
+                              </div>
+                              <LinkList
+                                heading="Featured products"
+                                items={
+                                  Array [
+                                    Object {
+                                      "copy": "IBM Cloud Continuous Delivery",
+                                      "cta": Object {
+                                        "href": "https://ibm.com",
+                                      },
+                                      "type": "local",
+                                    },
+                                    Object {
+                                      "copy": "UrbanCode",
+                                      "cta": Object {
+                                        "href": "https://ibm.com",
+                                      },
+                                      "type": "local",
+                                    },
+                                    Object {
+                                      "copy": "View all products",
+                                      "cta": Object {
+                                        "href": "https://ibm.com",
+                                      },
+                                      "type": "local",
+                                    },
+                                  ]
+                                }
+                              >
+                                <div
+                                  className="bx--link-list"
+                                  data-autoid="dds--link-list"
+                                >
+                                  <h4
+                                    className="bx--link-list__heading"
+                                  >
+                                    Featured products
+                                  </h4>
+                                  <ul
+                                    className="bx--link-list__list"
+                                  >
+                                    <li
+                                      className="bx--link-list__list__CTA"
+                                      key="0"
+                                    >
+                                      <CTA
+                                        copy="IBM Cloud Continuous Delivery"
+                                        cta={
+                                          Object {
+                                            "href": "https://ibm.com",
+                                          }
+                                        }
+                                        style="card"
+                                        type="local"
+                                      >
+                                        <div>
+                                          <CardCTA
+                                            copy="IBM Cloud Continuous Delivery"
+                                            cta={
+                                              Object {
+                                                "href": "https://ibm.com",
+                                              }
+                                            }
+                                            openLightBox={[Function]}
+                                            renderLightBox={false}
+                                            style="card"
+                                            type="local"
+                                            videoTitle={
+                                              Array [
+                                                Object {
+                                                  "key": 0,
+                                                  "title": "",
+                                                },
+                                              ]
+                                            }
+                                          >
+                                            <Card
+                                              copy="IBM Cloud Continuous Delivery"
+                                              cta={
+                                                Object {
+                                                  "href": "https://ibm.com",
+                                                  "icon": Object {
+                                                    "src": Object {
+                                                      "$$typeof": Symbol(react.forward_ref),
+                                                      "render": [Function],
+                                                    },
+                                                  },
+                                                }
+                                              }
+                                              customClassName="bx--card__CTA"
+                                              handleClick={[Function]}
+                                              role="region"
+                                              target={null}
+                                              type="link"
+                                            >
+                                              <ClickableTile
+                                                className="bx--card bx--card--link bx--card__CTA"
+                                                clicked={false}
+                                                data-autoid="dds--card"
+                                                handleClick={[Function]}
+                                                handleKeyDown={[Function]}
+                                                href="https://ibm.com"
+                                                light={false}
+                                                role="region"
+                                                target={null}
+                                              >
+                                                <a
+                                                  className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                                  data-autoid="dds--card"
+                                                  href="https://ibm.com"
+                                                  onClick={[Function]}
+                                                  onKeyDown={[Function]}
+                                                  role="region"
+                                                  target={null}
+                                                >
+                                                  <div
+                                                    className="bx--card__wrapper"
+                                                  >
+                                                    <div
+                                                      className="bx--card__copy"
+                                                      dangerouslySetInnerHTML={
+                                                        Object {
+                                                          "__html": "<p>IBM Cloud Continuous Delivery</p>",
+                                                        }
+                                                      }
+                                                    />
+                                                    <div
+                                                      className="bx--card__footer"
+                                                    >
+                                                      <ForwardRef(ArrowRight20)
+                                                        className="bx--card__cta"
+                                                        src={
+                                                          Object {
+                                                            "$$typeof": Symbol(react.forward_ref),
+                                                            "render": [Function],
+                                                          }
+                                                        }
+                                                      >
+                                                        <Icon
+                                                          className="bx--card__cta"
+                                                          height={20}
+                                                          preserveAspectRatio="xMidYMid meet"
+                                                          src={
+                                                            Object {
+                                                              "$$typeof": Symbol(react.forward_ref),
+                                                              "render": [Function],
+                                                            }
+                                                          }
+                                                          viewBox="0 0 20 20"
+                                                          width={20}
+                                                          xmlns="http://www.w3.org/2000/svg"
+                                                        >
+                                                          <svg
+                                                            aria-hidden={true}
+                                                            className="bx--card__cta"
+                                                            focusable="false"
+                                                            height={20}
+                                                            preserveAspectRatio="xMidYMid meet"
+                                                            src={
+                                                              Object {
+                                                                "$$typeof": Symbol(react.forward_ref),
+                                                                "render": [Function],
+                                                              }
+                                                            }
+                                                            viewBox="0 0 20 20"
+                                                            width={20}
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                          >
+                                                            <polygon
+                                                              points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
+                                                            />
+                                                          </svg>
+                                                        </Icon>
+                                                      </ForwardRef(ArrowRight20)>
+                                                    </div>
+                                                  </div>
+                                                </a>
+                                              </ClickableTile>
+                                            </Card>
+                                          </CardCTA>
+                                        </div>
+                                      </CTA>
+                                    </li>
+                                    <li
+                                      className="bx--link-list__list__CTA"
+                                      key="1"
+                                    >
+                                      <CTA
+                                        copy="UrbanCode"
+                                        cta={
+                                          Object {
+                                            "href": "https://ibm.com",
+                                          }
+                                        }
+                                        style="card"
+                                        type="local"
+                                      >
+                                        <div>
+                                          <CardCTA
+                                            copy="UrbanCode"
+                                            cta={
+                                              Object {
+                                                "href": "https://ibm.com",
+                                              }
+                                            }
+                                            openLightBox={[Function]}
+                                            renderLightBox={false}
+                                            style="card"
+                                            type="local"
+                                            videoTitle={
+                                              Array [
+                                                Object {
+                                                  "key": 0,
+                                                  "title": "",
+                                                },
+                                              ]
+                                            }
+                                          >
+                                            <Card
+                                              copy="UrbanCode"
+                                              cta={
+                                                Object {
+                                                  "href": "https://ibm.com",
+                                                  "icon": Object {
+                                                    "src": Object {
+                                                      "$$typeof": Symbol(react.forward_ref),
+                                                      "render": [Function],
+                                                    },
+                                                  },
+                                                }
+                                              }
+                                              customClassName="bx--card__CTA"
+                                              handleClick={[Function]}
+                                              role="region"
+                                              target={null}
+                                              type="link"
+                                            >
+                                              <ClickableTile
+                                                className="bx--card bx--card--link bx--card__CTA"
+                                                clicked={false}
+                                                data-autoid="dds--card"
+                                                handleClick={[Function]}
+                                                handleKeyDown={[Function]}
+                                                href="https://ibm.com"
+                                                light={false}
+                                                role="region"
+                                                target={null}
+                                              >
+                                                <a
+                                                  className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                                  data-autoid="dds--card"
+                                                  href="https://ibm.com"
+                                                  onClick={[Function]}
+                                                  onKeyDown={[Function]}
+                                                  role="region"
+                                                  target={null}
+                                                >
+                                                  <div
+                                                    className="bx--card__wrapper"
+                                                  >
+                                                    <div
+                                                      className="bx--card__copy"
+                                                      dangerouslySetInnerHTML={
+                                                        Object {
+                                                          "__html": "<p>UrbanCode</p>",
+                                                        }
+                                                      }
+                                                    />
+                                                    <div
+                                                      className="bx--card__footer"
+                                                    >
+                                                      <ForwardRef(ArrowRight20)
+                                                        className="bx--card__cta"
+                                                        src={
+                                                          Object {
+                                                            "$$typeof": Symbol(react.forward_ref),
+                                                            "render": [Function],
+                                                          }
+                                                        }
+                                                      >
+                                                        <Icon
+                                                          className="bx--card__cta"
+                                                          height={20}
+                                                          preserveAspectRatio="xMidYMid meet"
+                                                          src={
+                                                            Object {
+                                                              "$$typeof": Symbol(react.forward_ref),
+                                                              "render": [Function],
+                                                            }
+                                                          }
+                                                          viewBox="0 0 20 20"
+                                                          width={20}
+                                                          xmlns="http://www.w3.org/2000/svg"
+                                                        >
+                                                          <svg
+                                                            aria-hidden={true}
+                                                            className="bx--card__cta"
+                                                            focusable="false"
+                                                            height={20}
+                                                            preserveAspectRatio="xMidYMid meet"
+                                                            src={
+                                                              Object {
+                                                                "$$typeof": Symbol(react.forward_ref),
+                                                                "render": [Function],
+                                                              }
+                                                            }
+                                                            viewBox="0 0 20 20"
+                                                            width={20}
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                          >
+                                                            <polygon
+                                                              points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
+                                                            />
+                                                          </svg>
+                                                        </Icon>
+                                                      </ForwardRef(ArrowRight20)>
+                                                    </div>
+                                                  </div>
+                                                </a>
+                                              </ClickableTile>
+                                            </Card>
+                                          </CardCTA>
+                                        </div>
+                                      </CTA>
+                                    </li>
+                                    <li
+                                      className="bx--link-list__list__CTA"
+                                      key="2"
+                                    >
+                                      <CTA
+                                        copy="View all products"
+                                        cta={
+                                          Object {
+                                            "href": "https://ibm.com",
+                                          }
+                                        }
+                                        style="card"
+                                        type="local"
+                                      >
+                                        <div>
+                                          <CardCTA
+                                            copy="View all products"
+                                            cta={
+                                              Object {
+                                                "href": "https://ibm.com",
+                                              }
+                                            }
+                                            openLightBox={[Function]}
+                                            renderLightBox={false}
+                                            style="card"
+                                            type="local"
+                                            videoTitle={
+                                              Array [
+                                                Object {
+                                                  "key": 0,
+                                                  "title": "",
+                                                },
+                                              ]
+                                            }
+                                          >
+                                            <Card
+                                              copy="View all products"
+                                              cta={
+                                                Object {
+                                                  "href": "https://ibm.com",
+                                                  "icon": Object {
+                                                    "src": Object {
+                                                      "$$typeof": Symbol(react.forward_ref),
+                                                      "render": [Function],
+                                                    },
+                                                  },
+                                                }
+                                              }
+                                              customClassName="bx--card__CTA"
+                                              handleClick={[Function]}
+                                              role="region"
+                                              target={null}
+                                              type="link"
+                                            >
+                                              <ClickableTile
+                                                className="bx--card bx--card--link bx--card__CTA"
+                                                clicked={false}
+                                                data-autoid="dds--card"
+                                                handleClick={[Function]}
+                                                handleKeyDown={[Function]}
+                                                href="https://ibm.com"
+                                                light={false}
+                                                role="region"
+                                                target={null}
+                                              >
+                                                <a
+                                                  className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                                  data-autoid="dds--card"
+                                                  href="https://ibm.com"
+                                                  onClick={[Function]}
+                                                  onKeyDown={[Function]}
+                                                  role="region"
+                                                  target={null}
+                                                >
+                                                  <div
+                                                    className="bx--card__wrapper"
+                                                  >
+                                                    <div
+                                                      className="bx--card__copy"
+                                                      dangerouslySetInnerHTML={
+                                                        Object {
+                                                          "__html": "<p>View all products</p>",
+                                                        }
+                                                      }
+                                                    />
+                                                    <div
+                                                      className="bx--card__footer"
+                                                    >
+                                                      <ForwardRef(ArrowRight20)
+                                                        className="bx--card__cta"
+                                                        src={
+                                                          Object {
+                                                            "$$typeof": Symbol(react.forward_ref),
+                                                            "render": [Function],
+                                                          }
+                                                        }
+                                                      >
+                                                        <Icon
+                                                          className="bx--card__cta"
+                                                          height={20}
+                                                          preserveAspectRatio="xMidYMid meet"
+                                                          src={
+                                                            Object {
+                                                              "$$typeof": Symbol(react.forward_ref),
+                                                              "render": [Function],
+                                                            }
+                                                          }
+                                                          viewBox="0 0 20 20"
+                                                          width={20}
+                                                          xmlns="http://www.w3.org/2000/svg"
+                                                        >
+                                                          <svg
+                                                            aria-hidden={true}
+                                                            className="bx--card__cta"
+                                                            focusable="false"
+                                                            height={20}
+                                                            preserveAspectRatio="xMidYMid meet"
+                                                            src={
+                                                              Object {
+                                                                "$$typeof": Symbol(react.forward_ref),
+                                                                "render": [Function],
+                                                              }
+                                                            }
+                                                            viewBox="0 0 20 20"
+                                                            width={20}
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                          >
+                                                            <polygon
+                                                              points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
+                                                            />
+                                                          </svg>
+                                                        </Icon>
+                                                      </ForwardRef(ArrowRight20)>
+                                                    </div>
+                                                  </div>
+                                                </a>
+                                              </ClickableTile>
+                                            </Card>
+                                          </CardCTA>
+                                        </div>
+                                      </CTA>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </LinkList>
+                              <ForwardRef(Button)
+                                disabled={false}
+                                kind="primary"
+                                tabIndex={0}
+                                type="button"
+                              >
+                                <button
+                                  className="bx--btn bx--btn--primary"
+                                  disabled={false}
+                                  tabIndex={0}
+                                  type="button"
+                                >
+                                  Contact Sales
+                                </button>
+                              </ForwardRef(Button)>
+                            </div>
+                          </div>
+                        </ContentBlock>
+                      </div>
+                      <hr />
+                    </LeadSpaceBlock>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </_default>
+      </div>
+    </ReadmeContent>
+  </div>
+  <input
+    aria-label="input-text-offleft"
+    className="bx--visually-hidden"
+    type="text"
+  />
+</Container>
+`;
+
 exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
 <Container
   story={[Function]}

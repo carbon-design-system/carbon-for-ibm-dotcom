@@ -1,0 +1,61 @@
+@import '../../../globals/imports';
+@import '../../../globals/utils/content-width';
+@import '../../../globals/utils/hang';
+
+
+@mixin leadspace-block {
+
+  .#{$prefix}--lead-space-block {
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    &__title {
+      width: 90%;
+      color: $text-01;
+      padding-top: 2rem;
+      @include carbon--type-style('expressive-heading-06', true);
+    }
+
+    &__heading {
+      @include carbon--type-style('expressive-heading-05', true);
+    }
+
+    .#{$prefix}--content-block {
+      padding-top: 0;
+      padding-bottom: 1rem;
+    }
+
+    @include carbon--breakpoint('lg') {
+      &__title {
+        padding-top: 4rem;
+      }
+
+      .#{$prefix}--content-block {
+        padding-bottom: 4rem;
+      }
+    }
+  }
+
+  .#{$prefix}--link-list{
+    padding-top: 3rem !important;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .#{$prefix}--leadspace-block__media {
+    padding-top: 1rem;
+
+    .#{$prefix}--image-with-caption {
+      margin-top: 0;
+    }
+  }
+
+  .#{$prefix}--horizontal-line {
+    border-color: $ui-04;
+    margin-top: 4rem;
+  }
+}
+
+@include exports('leadspace-block') {
+  @include leadspace-block;
+}
