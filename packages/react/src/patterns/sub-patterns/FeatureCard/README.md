@@ -14,7 +14,7 @@ Here's a quick example to get you started.
 @import '@carbon/type/scss/font-face/sans';
 @include carbon--font-face-mono();
 @include carbon--font-face-sans();
-@import '@carbon/ibmdotcom-styles/scss/patterns/blocks/feature-card/feature-card.scss';
+@import '@carbon/ibmdotcom-styles/scss/patterns/sub-patterns/feature-card/feature-card.scss';
 ```
 
 > 💡 Only import fonts once per usage. Don't forget to import the FeatureCard
@@ -28,21 +28,17 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { FeatureCard } from '@carbon/ibmdotcom-react';
 import 'yourapplication.scss';
-const heading = 'Lorem ipsum dolor sit amet.';
-const card = [
-  {
-    heading: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-    cta: {
-      href: 'https://www.example.com',
-    },
-    image: {
-      defaultSrc: 'https://dummyimage.com/672x672/ee5396/161616&text=1x1',
-      alt: 'Image alt text',
-    },
+const card = {
+  cta: {
+    href: 'https://www.example.com',
   },
-];
+  image: {
+    defaultSrc: 'https://dummyimage.com/672x672/ee5396/161616&text=1x1',
+    alt: 'Image alt text',
+  },
+};
 function App() {
-  return <FeatureCard heading={heading} card={card} />;
+  return <FeatureCard card={card} />;
 }
 ReactDOM.render(<App />, document.querySelector('#app'));
 ```
