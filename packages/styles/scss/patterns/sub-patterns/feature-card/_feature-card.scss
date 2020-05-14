@@ -15,18 +15,26 @@
     color: $text-01;
     background: $ui-background;
 
+    padding-top: aspect-ratio(1, 1);
+    position: relative;
+    @include carbon--breakpoint('md') {
+      padding-top: aspect-ratio(2, 1);
+    }
+
+    @include carbon--breakpoint('md') {
+      margin-right: $spacing-05;
+      margin-left: $spacing-05;
+    }
+
+    @include carbon--breakpoint-down('md') {
+      margin-right: -$spacing-05;
+      margin-left: -$spacing-05;
+    }
+
     &__card.#{$prefix}--card--inverse .#{$prefix}--card__cta,
     &__card.#{$prefix}--card--inverse .#{$prefix}--card__cta:visited {
       float: right;
-      color: $inverse-01;
-    }
-
-    .#{$prefix}--content-group__children {
-      padding-top: aspect-ratio(1, 1);
-      position: relative;
-      @include carbon--breakpoint('md') {
-        padding-top: aspect-ratio(2, 1);
-      }
+      color: $inverse-link;
     }
 
     .#{$prefix}--card {
@@ -38,6 +46,11 @@
       @include carbon--breakpoint('md') {
         flex-direction: row;
         @include hang;
+      }
+
+      &__heading {
+        margin-bottom: $layout-03;
+        @include carbon--type-style(expressive-heading-02, true);
       }
 
       &__wrapper,
