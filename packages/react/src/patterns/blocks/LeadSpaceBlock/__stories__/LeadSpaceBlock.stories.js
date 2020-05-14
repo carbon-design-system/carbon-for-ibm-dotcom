@@ -38,7 +38,7 @@ storiesOf('Patterns (Blocks)|LeadSpaceBlock', module)
 
     const video = {
       videoId: '0_uka1msg4',
-      showDescription: true,
+      showCaption: true,
     };
 
     const image = {

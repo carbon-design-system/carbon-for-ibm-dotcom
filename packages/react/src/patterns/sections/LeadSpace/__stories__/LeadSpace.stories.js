@@ -55,7 +55,6 @@ storiesOf('Patterns (Sections)|LeadSpace', module)
 
     const buttonCount = number('Number of buttons', 2);
     const buttons = [];
-    console.log('buttons', buttons)
 
     for (let i = 0; i < buttonCount; i++) {
       buttons.push({
