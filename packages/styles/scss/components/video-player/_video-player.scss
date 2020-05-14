@@ -33,9 +33,6 @@
       padding-top: $spacing-05;
       color: $text-05;
       max-width: 90%;
-      @include carbon--breakpoint('lg') {
-        max-width: 496px;
-      }
     }
   }
   .#{$prefix}--video-player--inverse {
