@@ -22,7 +22,7 @@ const { prefix } = settings;
  * @returns {object} JSX object
  */
 const FooterNav = ({ groups }) => {
-  if (!groups || !groups.length) {
+  if (!groups?.length) {
     return null;
   }
 
