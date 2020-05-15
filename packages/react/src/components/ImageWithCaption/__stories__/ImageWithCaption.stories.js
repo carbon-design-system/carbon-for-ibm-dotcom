@@ -53,6 +53,7 @@ storiesOf('Components|ImageWithCaption', module)
               inverse={inverse}
               image={image}
               heading={heading}
+              lightbox={boolean('lightbox', true)}
             />
           </div>
         </div>
