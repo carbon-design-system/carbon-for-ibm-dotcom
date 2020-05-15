@@ -10,50 +10,53 @@ import { ArrowRight20 } from '@carbon/icons-react';
 import FeatureCardBlockMedium from '../FeatureCardBlockMedium';
 import React from 'react';
 import readme from '../README.md';
-import { storiesOf } from '@storybook/react';
 
-storiesOf('Patterns (Blocks)|FeatureCardBlockMedium', module)
-  .addDecorator(withKnobs)
-  .addParameters({
+export default {
+  title: 'Patterns (Blocks)|FeatureCardBlockMedium',
+  decorators: [withKnobs],
+
+  parameters: {
     readme: {
       sidebar: readme,
     },
-  })
-  .add('Default', () => {
-    const heading = text(
-      'Pattern heading(required):',
-      'How is artificial intelligence used today in your industry?'
-    );
+  },
+};
 
-    const cardheading = text(
-      'Card Heading:',
-      'Explore AI use cases in all industries'
-    );
-    const cardhref = text('Card href:', 'https://www.example.com');
-    const image = object('card image', {
-      defaultSrc: 'https://dummyimage.com/672x672/ee5396/161616&text=1x1',
-      alt: 'Image alt text',
-    });
+export const Default = () => {
+  const heading = text(
+    'Pattern heading(required):',
+    'How is artificial intelligence used today in your industry?'
+  );
 
-    return (
-      <div className="bx--grid">
-        <div className="bx--row">
-          <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
-            <FeatureCardBlockMedium
-              heading={heading}
-              card={{
-                heading: cardheading,
-                image: image,
-                cta: {
-                  href: cardhref,
-                  icon: {
-                    src: ArrowRight20,
-                  },
+  const cardheading = text(
+    'Card Heading:',
+    'Explore AI use cases in all industries'
+  );
+  const cardhref = text('Card href:', 'https://www.example.com');
+  const image = object('card image', {
+    defaultSrc: 'https://dummyimage.com/672x672/ee5396/161616&text=1x1',
+    alt: 'Image alt text',
+  });
+
+  return (
+    <div className="bx--grid">
+      <div className="bx--row">
+        <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
+          <FeatureCardBlockMedium
+            heading={heading}
+            card={{
+              heading: cardheading,
+              image: image,
+              cta: {
+                href: cardhref,
+                icon: {
+                  src: ArrowRight20,
                 },
-              }}
-            />
-          </div>
+              },
+            }}
+          />
         </div>
       </div>
-    );
-  });
+    </div>
+  );
+};

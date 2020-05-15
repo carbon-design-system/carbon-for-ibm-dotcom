@@ -10,22 +10,25 @@ import localeData from '../__data__/locale-data.json';
 import LocaleModal from '../LocaleModal';
 import React from 'react';
 import readme from '../README.md';
-import { storiesOf } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
 
-storiesOf('Components|Locale Modal', module)
-  .addDecorator(withKnobs)
-  .addParameters({
+export default {
+  title: 'Components|Locale Modal',
+  decorators: [withKnobs],
+
+  parameters: {
     readme: {
       sidebar: readme,
     },
-  })
-  .add('Default', () => {
-    return (
-      <LocaleModal
-        isOpen={true}
-        localeData={inPercy() ? localeData : null}
-        localeDisplay={inPercy() ? 'United States - English' : null}
-      />
-    );
-  });
+  },
+};
+
+export const Default = () => {
+  return (
+    <LocaleModal
+      isOpen={true}
+      localeData={inPercy() ? localeData : null}
+      localeDisplay={inPercy() ? 'United States - English' : null}
+    />
+  );
+};

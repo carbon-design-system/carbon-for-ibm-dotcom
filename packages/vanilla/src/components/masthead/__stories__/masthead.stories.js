@@ -10,96 +10,104 @@ import { boolean, select, text, withKnobs } from '@storybook/addon-knobs';
 import Masthead from '../masthead';
 import mastheadKnobs from './data/Masthead.stories.knobs.js';
 import readme from '../README.md';
-import { storiesOf } from '@storybook/html';
 
-storiesOf('Components|Masthead', module)
-  .addDecorator(withKnobs)
-  .addParameters({
+export default {
+  title: 'Components|Masthead',
+  decorators: [withKnobs],
+
+  parameters: {
     readme: {
       sidebar: readme,
     },
-  })
-  .add('Default', () => {
-    const standardProps = {
-      searchProps: {
-        hasSearch: boolean('Has search', true),
-        placeHolderText: text('Search placeholder', 'Search all of IBM'),
-        searchOpenOnload: false,
-      },
-    };
+  },
+};
 
-    /**
-     * renders the masthead
-     *
-     * @returns {string} string
-     */
-    async function _getMasthead() {
-      const template = await Masthead.getMastheadWithData(
-        select(
-          'Navigation',
-          mastheadKnobs.navigation,
-          mastheadKnobs.navigation.default
-        ),
-        select(
-          'Platform name',
-          mastheadKnobs.platform,
-          mastheadKnobs.platform.none
-        ),
-        boolean('Has navigation', true),
-        boolean('Has profile', true),
-        standardProps.searchProps
-      );
+export const Default = () => {
+  const standardProps = {
+    searchProps: {
+      hasSearch: boolean('Has search', true),
+      placeHolderText: text('Search placeholder', 'Search all of IBM'),
+      searchOpenOnload: false,
+    },
+  };
 
-      return template;
-    }
+  /**
+   * renders the masthead
+   *
+   * @returns {string} string
+   */
+  async function _getMasthead() {
+    const template = await Masthead.getMastheadWithData(
+      select(
+        'Navigation',
+        mastheadKnobs.navigation,
+        mastheadKnobs.navigation.default
+      ),
+      select(
+        'Platform name',
+        mastheadKnobs.platform,
+        mastheadKnobs.platform.none
+      ),
+      boolean('Has navigation', true),
+      boolean('Has profile', true),
+      standardProps.searchProps
+    );
 
-    const element = document.createElement('div');
-    element.textContent = 'Loading...';
-    _getMasthead().then(html => {
-      element.innerHTML = html;
-      Masthead.init();
-    });
-    return element;
-  })
-  .add('Search open by default', () => {
-    const standardProps = {
-      searchProps: {
-        hasSearch: boolean('Has search', true),
-        placeHolderText: text('Search placeholder', 'Search all of IBM'),
-        searchOpenOnload: true,
-      },
-    };
+    return template;
+  }
 
-    /**
-     * renders the masthead
-     *
-     * @returns {string} string
-     */
-    async function _getMasthead() {
-      const template = await Masthead.getMastheadWithData(
-        select(
-          'Navigation',
-          mastheadKnobs.navigation,
-          mastheadKnobs.navigation.default
-        ),
-        select(
-          'Platform name',
-          mastheadKnobs.platform,
-          mastheadKnobs.platform.none
-        ),
-        boolean('Has navigation', true),
-        boolean('Has profile', true),
-        standardProps.searchProps
-      );
-
-      return template;
-    }
-
-    const element = document.createElement('div');
-    element.textContent = 'Loading...';
-    _getMasthead().then(html => {
-      element.innerHTML = html;
-      Masthead.init();
-    });
-    return element;
+  const element = document.createElement('div');
+  element.textContent = 'Loading...';
+  _getMasthead().then(html => {
+    element.innerHTML = html;
+    Masthead.init();
   });
+  return element;
+};
+
+export const SearchOpenByDefault = () => {
+  const standardProps = {
+    searchProps: {
+      hasSearch: boolean('Has search', true),
+      placeHolderText: text('Search placeholder', 'Search all of IBM'),
+      searchOpenOnload: true,
+    },
+  };
+
+  /**
+   * renders the masthead
+   *
+   * @returns {string} string
+   */
+  async function _getMasthead() {
+    const template = await Masthead.getMastheadWithData(
+      select(
+        'Navigation',
+        mastheadKnobs.navigation,
+        mastheadKnobs.navigation.default
+      ),
+      select(
+        'Platform name',
+        mastheadKnobs.platform,
+        mastheadKnobs.platform.none
+      ),
+      boolean('Has navigation', true),
+      boolean('Has profile', true),
+      standardProps.searchProps
+    );
+
+    return template;
+  }
+
+  const element = document.createElement('div');
+  element.textContent = 'Loading...';
+  _getMasthead().then(html => {
+    element.innerHTML = html;
+    Masthead.init();
+  });
+  return element;
+};
+
+SearchOpenByDefault.story = {
+  name: 'Search open by default',
+};

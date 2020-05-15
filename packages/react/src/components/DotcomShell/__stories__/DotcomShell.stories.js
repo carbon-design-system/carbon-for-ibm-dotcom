@@ -25,127 +25,127 @@ import languageItems from '../../Footer/__data__/language-items.json';
 import mastheadKnobs from '../../Masthead/__stories__/data/Masthead.stories.knobs.js';
 import React from 'react';
 import readme from '../README.md';
-import { storiesOf } from '@storybook/react';
 
-storiesOf('Components|Dotcom Shell', module)
-  .addDecorator(withKnobs)
-  .addParameters({
+export default {
+  title: 'Components|Dotcom Shell',
+  decorators: [withKnobs],
+
+  parameters: {
     readme: {
       sidebar: readme,
     },
-  })
-  .add('Default', () => {
-    let navigation = select(
-      'Masthead (mastheadProps): navigation data (navigation)',
-      mastheadKnobs.navigation,
-      inPercy()
-        ? mastheadKnobs.navigation.custom
-        : mastheadKnobs.navigation.default
-    );
+  },
+};
 
-    let platform = select(
-      'Masthead (mastheadProps): platform name (platform)',
-      mastheadKnobs.platform,
-      mastheadKnobs.platform.none
-    );
+export const Default = () => {
+  let navigation = select(
+    'Masthead (mastheadProps): navigation data (navigation)',
+    mastheadKnobs.navigation,
+    inPercy()
+      ? mastheadKnobs.navigation.custom
+      : mastheadKnobs.navigation.default
+  );
 
-    let hasProfile = boolean(
-      'Masthead (mastheadProps): show the profile functionality (hasProfile)',
-      true
-    );
+  let platform = select(
+    'Masthead (mastheadProps): platform name (platform)',
+    mastheadKnobs.platform,
+    mastheadKnobs.platform.none
+  );
 
-    let hasSearch = boolean(
-      'Masthead (mastheadProps): show the search functionality (hasSearch)',
-      true
-    );
+  let hasProfile = boolean(
+    'Masthead (mastheadProps): show the profile functionality (hasProfile)',
+    true
+  );
 
-    let title = DDS_MASTHEAD_L1
-      ? text('Masthead (mastheadProps): L1 Title (title)', 'Stock Charts')
-      : null;
+  let hasSearch = boolean(
+    'Masthead (mastheadProps): show the search functionality (hasSearch)',
+    true
+  );
 
-    let eyebrowText = DDS_MASTHEAD_L1
-      ? text(
-          'Masthead (mastheadProps): L1 Eyebrow text (eyebrowText)',
-          'Eyebrow'
-        )
-      : null;
+  let title = DDS_MASTHEAD_L1
+    ? text('Masthead (mastheadProps): L1 Title (title)', 'Stock Charts')
+    : null;
 
-    let eyebrowLink = DDS_MASTHEAD_L1
-      ? text('Masthead (mastheadProps): Eyebrow link (eyebrowLink)', '#')
-      : null;
+  let eyebrowText = DDS_MASTHEAD_L1
+    ? text('Masthead (mastheadProps): L1 Eyebrow text (eyebrowText)', 'Eyebrow')
+    : null;
 
-    const footerTypeOptions = {
-      tall: '',
-      short: 'short',
-    };
+  let eyebrowLink = DDS_MASTHEAD_L1
+    ? text('Masthead (mastheadProps): Eyebrow link (eyebrowLink)', '#')
+    : null;
 
-    let type = select(
-      'Footer (footerProps): sets the type of footer (type)',
-      footerTypeOptions,
-      footerTypeOptions.tall
-    );
+  const footerTypeOptions = {
+    tall: '',
+    short: 'short',
+  };
 
-    let isCustom = boolean(
-      'Footer (footerProps): show custom navigation (not a prop)',
-      inPercy()
-    );
+  let type = select(
+    'Footer (footerProps): sets the type of footer (type)',
+    footerTypeOptions,
+    footerTypeOptions.tall
+  );
 
-    let footerNav = isCustom
-      ? object('Footer (footerProps): custom navigation data (navigation)', {
-          footerMenu,
-          footerThin,
-        })
-      : null;
+  let isCustom = boolean(
+    'Footer (footerProps): show custom navigation (not a prop)',
+    inPercy()
+  );
 
-    let disableLocaleButton = boolean(
-      'Footer (footerProps): hide the locale button (disableLocaleButton)',
+  let footerNav = isCustom
+    ? object('Footer (footerProps): custom navigation data (navigation)', {
+        footerMenu,
+        footerThin,
+      })
+    : null;
+
+  let disableLocaleButton = boolean(
+    'Footer (footerProps): hide the locale button (disableLocaleButton)',
+    false
+  );
+
+  let languageOnly =
+    DDS_LANGUAGE_SELECTOR &&
+    boolean(
+      'Footer (footerProps): switch to the language selector (languageOnly)',
       false
     );
 
-    let languageOnly =
-      DDS_LANGUAGE_SELECTOR &&
-      boolean(
-        'Footer (footerProps): switch to the language selector (languageOnly)',
-        false
-      );
+  let items = languageOnly
+    ? object(
+        'Footer (footerProps): language dropdown items (languageItems)',
+        languageItems
+      )
+    : null;
 
-    let items = languageOnly
-      ? object(
-          'Footer (footerProps): language dropdown items (languageItems)',
-          languageItems
-        )
-      : null;
+  /**
+   * Language callback demo function
+   *
+   * @param {string} selectedItem Selected item
+   */
+  const languageCallback = selectedItem => {
+    console.log('footer (language selector) selected item:', selectedItem);
+  };
 
-    /**
-     * Language callback demo function
-     *
-     * @param {string} selectedItem Selected item
-     */
-    const languageCallback = selectedItem => {
-      console.log('footer (language selector) selected item:', selectedItem);
-    };
-
-    return (
-      <DotcomShell
-        mastheadProps={{
-          navigation,
-          platform,
-          hasProfile,
-          hasSearch,
-          title,
-          eyebrowText,
-          eyebrowLink,
-        }}
-        footerProps={{
-          navigation: isCustom ? footerNav : null,
-          type,
-          disableLocaleButton,
-          languageOnly,
-          languageItems: items,
-          languageInitialItem: { id: 'en', text: 'English' },
-          languageCallback,
-        }}>
-        {content}
-      </DotcomShell>
-    );
-  });
+  return (
+    <DotcomShell
+      mastheadProps={{
+        navigation,
+        platform,
+        hasProfile,
+        hasSearch,
+        title,
+        eyebrowText,
+        eyebrowLink,
+      }}
+      footerProps={{
+        navigation: isCustom ? footerNav : null,
+        type,
+        disableLocaleButton,
+        languageOnly,
+        languageItems: items,
+        languageInitialItem: { id: 'en', text: 'English' },
+        languageCallback,
+      }}>
+      {content}
+    </DotcomShell>
+  );
+};
