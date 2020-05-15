@@ -9,6 +9,10 @@
   color: $text-01;
   background: $ui-background;
 
+  .#{$prefix}--horizontal-line {
+    border-color: $ui-03;
+  }
+
   .#{$prefix}--content-item {
     &__heading {
       color: $text-01;
@@ -70,8 +74,9 @@
     }
 
     .#{$prefix}--horizontal-line {
-      border-color: $ui-03;
       margin: 0;
+      margin-right: $carbon--grid-gutter;
+      @include carbon--make-col-offset(16, 16);
 
       @include carbon--breakpoint('lg') {
         @include carbon--make-col(12, 16);
