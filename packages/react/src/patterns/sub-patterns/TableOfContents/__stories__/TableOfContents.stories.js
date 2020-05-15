@@ -5,7 +5,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { object, select, text, withKnobs } from '@storybook/addon-knobs';
+import {
+  object,
+  select,
+  text,
+  withKnobs,
+  boolean,
+} from '@storybook/addon-knobs';
 import dataContent from './data/dataContent';
 import React from 'react';
 import readme from '../README.md';
@@ -57,7 +63,9 @@ export const ManuallyDefineMenuItems = () => {
     <TableOfContents
       theme={select('theme', _themes, _themes.white)}
       menuItems={object('menuItems', menuItems)}
-      menuLabel={_menuLabel}>
+      menuLabel={_menuLabel}
+      menuRule={boolean('Optional Rule', false)}>
+      <div style={{ background: 'red', height: '200px' }}></div>
       {dataContent}
     </TableOfContents>
   );

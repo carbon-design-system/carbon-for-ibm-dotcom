@@ -48,6 +48,7 @@ const _findMenuItems = () => {
  * @param {string} props.menuLabel mobile menu label
  * @param {string} props.theme theme [g100/white]
  * @param {number} props.stickyOffset offset amount for Layout (in pixels)
+ * @param {boolean} props.menuRule optional rule for menu
  * @param {*} props.children children property of component
  * @returns {*} JSX Object
  */
@@ -57,6 +58,7 @@ const TableOfContents = ({
   menuLabel,
   theme,
   stickyOffset,
+  menuRule,
 }) => {
   const [useMenuItems, setUseMenuItems] = useState([]);
   const [selectedId, setSelectedId] = useState('');
@@ -194,6 +196,7 @@ const TableOfContents = ({
    * menuItems: Array,
    * selectedTitle: string,
    * menuLabel: string
+   * children: object
    * }}
    */
   const props = {
@@ -202,6 +205,7 @@ const TableOfContents = ({
     selectedTitle,
     menuLabel,
     updateState,
+    children: children.length > 1 ? children[0] : false,
   };
 
   /**
@@ -219,12 +223,21 @@ const TableOfContents = ({
           className={`${prefix}--tableofcontents__sidebar`}
           data-sticky="true">
           <div className={`${prefix}--tableofcontents__mobile-top`}></div>
-          <TOCDesktop {...props} />
+          <TOCDesktop menuRule={menuRule} {...props} />
           <TOCMobile {...props} />
         </div>
         <div className={`${prefix}--tableofcontents__content`}>
           <div className={`${prefix}--tableofcontents__content-wrapper`}>
-            {children}
+            {children.length > 1 ? (
+              <>
+                <div className={`${prefix}--tableofcontents__children__mobile`}>
+                  {children[0]}
+                </div>
+                {children[1]}
+              </>
+            ) : (
+              children
+            )}
           </div>
         </div>
       </Layout>
@@ -246,6 +259,7 @@ TableOfContents.propTypes = {
   menuLabel: PropTypes.string,
   theme: PropTypes.string,
   stickyOffset: PropTypes.number,
+  menuRule: PropTypes.bool,
 };
 
 /**

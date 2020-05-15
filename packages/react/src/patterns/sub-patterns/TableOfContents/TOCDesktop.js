@@ -21,9 +21,11 @@ const { prefix } = settings;
  * @param {object} props props object
  * @param {Array} props.menuItems menu items object
  * @param {string} props.selectedId id of a menu item
+ * @param {boolean} props.menuRule optional rule
+ * @param {*} props.children children JSX Object
  * @returns {*} JSX Object
  */
-const TOCDesktop = ({ menuItems, selectedId }) => {
+const TOCDesktop = ({ menuItems, selectedId, menuRule, children }) => {
   /**
    * Render menu items
    *
@@ -85,6 +87,18 @@ const TOCDesktop = ({ menuItems, selectedId }) => {
     <div
       className={`${prefix}--tableofcontents__desktop`}
       data-autoid={`${stablePrefix}--tableofcontents__desktop`}>
+      {children ? (
+        <div className={`${prefix}--tableofcontents__desktop__children`}>
+          {children}
+        </div>
+      ) : (
+        false
+      )}
+      {menuRule ? (
+        <hr className={`${prefix}--tableofcontents__desktop__rule`} />
+      ) : (
+        false
+      )}
       <ul>{renderMenuItems(menuItems, selectedId)}</ul>
     </div>
   );
@@ -93,6 +107,8 @@ const TOCDesktop = ({ menuItems, selectedId }) => {
 TOCDesktop.propTypes = {
   menuItems: PropTypes.array,
   selectedId: PropTypes.string,
+  menuRule: PropTypes.bool,
+  children: PropTypes.any,
 };
 
 export default TOCDesktop;

@@ -35,6 +35,13 @@
 
 @mixin tableofcontents {
   .#{$prefix}--tableofcontents {
+    &__children__mobile {
+      @include carbon--breakpoint('lg') {
+        display: none;
+      }
+
+      margin-top: $layout-03;
+    }
     &__mobile {
       margin-left: -$carbon--spacing-05;
       margin-right: -$carbon--spacing-05;
@@ -98,6 +105,15 @@
           z-index: 1;
           position: relative;
         }
+      }
+
+      &__rule {
+        margin-left: $spacing-05;
+        margin-bottom: $layout-03;
+      }
+
+      &__children {
+        margin-bottom: $layout-03;
       }
     }
     @include carbon--breakpoint('sm') {
