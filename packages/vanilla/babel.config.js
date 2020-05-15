@@ -2,7 +2,6 @@ module.exports = {
   presets: ['./scripts/env'],
   plugins: [
     'dev-expression',
-    'macros',
     '@babel/plugin-syntax-dynamic-import',
     '@babel/plugin-syntax-import-meta',
     '@babel/plugin-proposal-class-properties',

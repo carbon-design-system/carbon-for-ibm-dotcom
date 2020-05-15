@@ -1,5 +1,13 @@
 {
   "extends": [
     "./packages/eslint-config-ibmdotcom"
+  ],
+  "overrides": [
+    {
+      "files": ["**/overview.js", "**/*.stories.js"],
+      "rules": {
+        "jsdoc/require-jsdoc": 0
+      }
+    }
   ]
 }

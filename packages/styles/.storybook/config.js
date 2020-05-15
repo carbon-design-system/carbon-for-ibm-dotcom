@@ -1,5 +1,4 @@
 import React from 'react';
-import requireContext from 'require-context.macro';
 import { configure, addParameters, addDecorator } from '@storybook/react';
 // import { addReadme } from 'storybook-readme';
 import { configureActions } from '@storybook/addon-actions';
@@ -10,6 +9,16 @@ addParameters({
   options: {
     name: `Carbon Design System with Expressive`,
     url: 'https://github.com/carbon-design-system/ibm-dotcom-library',
+    storySort(lhs, rhs) {
+      const [lhsId] = lhs;
+      const [rhsId] = rhs;
+      if (lhsId === 'overview--get-started') {
+        return -1;
+      } else if (rhsId === 'overview--get-started') {
+        return 1;
+      }
+      return 0;
+    },
   },
 });
 
@@ -33,10 +42,5 @@ addDecorator(
 
 addDecorator(story => <Container story={story} />);
 
-function loadStories() {
-  require('../src/carbon-stories/overview');
-  const req = requireContext('../src/carbon-stories', true, /-story\.js$/);
-  req.keys().forEach(filename => req(filename));
-}
-
-configure(loadStories, module);
+const components = require.context('../src', true, /(overview|-story)\.js$/);
+configure(components, module);

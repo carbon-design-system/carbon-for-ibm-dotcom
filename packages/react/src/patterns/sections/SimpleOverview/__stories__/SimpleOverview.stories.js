@@ -10,60 +10,58 @@ import { DDS_SIMPLE_OVERVIEW } from '../../../../internal/FeatureFlags';
 import React from 'react';
 import readme from '../README.md';
 import SimpleOverview from '../SimpleOverview';
-import { storiesOf } from '@storybook/react';
 
-if (DDS_SIMPLE_OVERVIEW) {
-  storiesOf('Patterns (Sections)|Simple Overview', module)
-    .addDecorator(withKnobs)
-    .addParameters({
-      readme: {
-        sidebar: readme,
+export default !DDS_SIMPLE_OVERVIEW
+  ? undefined
+  : {
+      title: 'Patterns (Sections)|Simple Overview',
+      decorators: [withKnobs],
+
+      parameters: {
+        readme: {
+          sidebar: readme,
+        },
       },
-    })
-    .add('Default', () => {
-      const label = text(
-        'Label (required):',
-        'Lorem ipsum dolor sit amet, consectetur'
-      );
-      const heading = text(
-        'Heading (required):',
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod'
-      );
-      const copy = text(
-        'Copy (required):',
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-      );
+    };
 
-      const targets = {
-        self: '_self',
-        blank: '_blank',
+export const Default = () => {
+  const label = text(
+    'Label (required):',
+    'Lorem ipsum dolor sit amet, consectetur'
+  );
+  const heading = text(
+    'Heading (required):',
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod'
+  );
+  const copy = text(
+    'Copy (required):',
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+  );
+
+  const targets = {
+    self: '_self',
+    blank: '_blank',
+  };
+
+  const linkActive = boolean('Link');
+
+  /**
+   * Enables the link if linkActive is true
+   *
+   * @returns {object} Link object
+   */
+  const link = () => {
+    if (linkActive) {
+      return {
+        copy: text('Link copy:', 'Lorem Ipsum'),
+        href: text('Link href:', 'https://www.example.com'),
+        target: select('Link target:', targets, targets.blank),
       };
-
-      const linkActive = boolean('Link');
-
-      /**
-       * Enables the link if linkActive is true
-       *
-       * @returns {object} Link object
-       */
-      const link = () => {
-        if (linkActive) {
-          return {
-            copy: text('Link copy:', 'Lorem Ipsum'),
-            href: text('Link href:', 'https://www.example.com'),
-            target: select('Link target:', targets, targets.blank),
-          };
-        } else {
-          return false;
-        }
-      };
-      return (
-        <SimpleOverview
-          label={label}
-          heading={heading}
-          copy={copy}
-          link={link()}
-        />
-      );
-    });
-}
+    } else {
+      return false;
+    }
+  };
+  return (
+    <SimpleOverview label={label} heading={heading} copy={copy} link={link()} />
+  );
+};

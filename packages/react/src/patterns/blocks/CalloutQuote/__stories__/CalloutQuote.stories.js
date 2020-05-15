@@ -9,65 +9,64 @@ import { text, withKnobs, select, object } from '@storybook/addon-knobs';
 import CalloutQuote from '../CalloutQuote';
 import React from 'react';
 import readme from '../README.md';
-import { storiesOf } from '@storybook/react';
 
-storiesOf('Patterns (Blocks)|CalloutQuote', module)
-  .addDecorator(withKnobs)
-  .addParameters({
+export default {
+  title: 'Patterns (Blocks)|CalloutQuote',
+  decorators: [withKnobs],
+
+  parameters: {
     readme: {
       sidebar: readme,
     },
-  })
-  .add('Default', () => {
-    const copy = text(
-      'Quote (copy): ',
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus est purus, posuere at est vitae, ornare rhoncus sem. Suspendisse vitae tellus fermentum, hendrerit augue eu, placerat magna.'
-    );
+  },
+};
 
-    const types = {
-      singleCurved: 'singleCurved',
-      doubleCurved: 'doubleCurved',
-      doubleAngle: 'doubleAngle',
-      singleAngle: 'singleAngle',
-      lowHighReversedDoubleCurved: 'lowHighReversedDoubleCurved',
-    };
-    const markType = select(
-      'Quote Mark (markType):',
-      types,
-      types.doubleCurved
-    );
+export const Default = () => {
+  const copy = text(
+    'Quote (copy): ',
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus est purus, posuere at est vitae, ornare rhoncus sem. Suspendisse vitae tellus fermentum, hendrerit augue eu, placerat magna.'
+  );
 
-    const source = {
-      heading: text(
-        'Quote Source Heading (source.heading): ',
-        'Lorem ipsum dolor sit amet'
-      ),
-      copy: text(
-        'Quote Source Copy (source.copy): ',
-        'consectetur adipiscing elit'
-      ),
-    };
+  const types = {
+    singleCurved: 'singleCurved',
+    doubleCurved: 'doubleCurved',
+    doubleAngle: 'doubleAngle',
+    singleAngle: 'singleAngle',
+    lowHighReversedDoubleCurved: 'lowHighReversedDoubleCurved',
+  };
+  const markType = select('Quote Mark (markType):', types, types.doubleCurved);
 
-    const cta = object('CTA Object:', {
-      copy: 'Link with Icon',
-      type: 'local',
-      href: 'https://example.com',
-    });
+  const source = {
+    heading: text(
+      'Quote Source Heading (source.heading): ',
+      'Lorem ipsum dolor sit amet'
+    ),
+    copy: text(
+      'Quote Source Copy (source.copy): ',
+      'consectetur adipiscing elit'
+    ),
+  };
 
-    const quote = {
-      copy,
-      markType,
-      source,
-      cta,
-    };
+  const cta = object('CTA Object:', {
+    copy: 'Link with Icon',
+    type: 'local',
+    href: 'https://example.com',
+  });
 
-    return (
-      <div className="bx--grid">
-        <div className="bx--row">
-          <div className="bx--offset-lg-4 bx--col-lg-12">
-            <CalloutQuote quote={quote} />
-          </div>
+  const quote = {
+    copy,
+    markType,
+    source,
+    cta,
+  };
+
+  return (
+    <div className="bx--grid">
+      <div className="bx--row">
+        <div className="bx--offset-lg-4 bx--col-lg-12">
+          <CalloutQuote quote={quote} />
         </div>
       </div>
-    );
-  });
+    </div>
+  );
+};
