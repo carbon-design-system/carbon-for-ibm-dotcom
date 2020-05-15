@@ -20918,6 +20918,7 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
                     },
                   ]
                 }
+                theme="g10"
               />
             </React.Fragment>,
             "type": "STORY",
@@ -20994,9 +20995,10 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
                     },
                   ]
                 }
+                theme="g10"
               >
                 <section
-                  className="bx--cta-section"
+                  className="bx--cta-section bx--cta-section--g10"
                   data-autoid="dds--cta-section"
                 >
                   <ContentBlock

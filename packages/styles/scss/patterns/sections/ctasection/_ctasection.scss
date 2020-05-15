@@ -5,10 +5,30 @@
 // LICENSE file in the root directory of this source tree.
 //
 
+@mixin themed-items {
+  color: $text-01;
+  background: $ui-background;
+
+  .#{$prefix}--content-item {
+    &__heading {
+      color: $text-01;
+    }
+
+    &__copy {
+      p {
+        color: $text-01;
+      }
+    }
+
+    &__cta {
+      color: $link-01;
+    }
+  }
+}
+
 @mixin cta-section--pattern {
   .#{$prefix}--cta-section {
-    background-color: $ui-background;
-
+    padding-bottom: $layout-05;
     .#{$prefix}--content-block {
       padding-bottom: $layout-01;
       @include carbon--make-col-ready;
@@ -60,8 +80,6 @@
     }
 
     .#{$prefix}--helper-wrapper {
-      margin-bottom: $layout-05;
-
       @include carbon--breakpoint('lg') {
         @include carbon--make-col(12, 16);
         @include carbon--make-col-offset(4, 16);
@@ -111,6 +129,28 @@
           }
         }
       }
+    }
+
+    @include carbon--breakpoint(lg) {
+      padding-bottom: $layout-06;
+    }
+  }
+
+  .#{$prefix}--cta-section--g10 {
+    @include carbon--theme($carbon--theme--g10) {
+      @include themed-items;
+    }
+  }
+
+  .#{$prefix}--cta-section--g90 {
+    @include carbon--theme($carbon--theme--g90) {
+      @include themed-items;
+    }
+  }
+
+  .#{$prefix}--cta-section--g100 {
+    @include carbon--theme($carbon--theme--g100) {
+      @include themed-items;
     }
   }
 }
