@@ -1,15 +1,21 @@
 import React from 'react';
 import README from '../../README.md';
-import { storiesOf } from '@storybook/react';
 import { withDocs } from 'storybook-readme';
 
-storiesOf('Overview|Get Started', module)
-  .addParameters({
+export default {
+  title: 'Overview|Get Started',
+  parameters: {
     percy: {
       skip: true,
     },
-  })
-  .addDecorator(storyFn => (
-    <div className="storybook-center-container">{storyFn()}</div>
-  ))
-  .add('Read Me', withDocs(README, () => <div />));
+  },
+  decorators: [
+    storyFn => <div className="storybook-center-container">{storyFn()}</div>,
+  ],
+};
+
+export const Default = withDocs(README, () => <div />);
+
+Default.story = {
+  title: 'Read Me',
+};

@@ -30,10 +30,21 @@ const VideoPlayer = ({ inverse, showCaption, videoId, customClassName }) => {
   const videoDuration = VideoPlayerAPI.getVideoDuration(videoData.msDuration);
 
   useEffect(() => {
+    let stale = false;
     (async () => {
       await VideoPlayerAPI.embedVideo(videoId, `${prefix}--${videoPlayerId}`);
-      setVideoData(await VideoPlayerAPI.api(videoId));
+      if (stale) {
+        return;
+      }
+      const newVideoData = await VideoPlayerAPI.api(videoId);
+      if (stale) {
+        return;
+      }
+      setVideoData(newVideoData);
     })();
+    return () => {
+      stale = true;
+    };
   }, [videoId, videoPlayerId]);
 
   const classnames = cx(
