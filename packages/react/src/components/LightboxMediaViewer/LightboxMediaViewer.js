@@ -4,8 +4,11 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
+import {
+  settings as ddsSettings,
+  markdownToHtml,
+} from '@carbon/ibmdotcom-utilities';
 import React, { useEffect, useState } from 'react';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { ExpressiveModal } from '../ExpressiveModal';
 import { Image } from '../Image';
 import { ModalBody } from 'carbon-components-react';
@@ -57,6 +60,11 @@ const LightboxMediaViewer = ({ media, ...modalProps }) => {
     };
   }, [media]);
 
+  const videoDesc = markdownToHtml(videoData.description, {
+    createParagraphs: false,
+    cleanString: true,
+  });
+
   return (
     <section
       data-autoid={`${stablePrefix}--lightbox-media-viewer`}
@@ -87,7 +95,7 @@ const LightboxMediaViewer = ({ media, ...modalProps }) => {
                     <div
                       data-autoid={`${stablePrefix}--lightbox-media-viewer__content__desc`}
                       className={`${prefix}--lightbox-media-viewer__content__desc`}>
-                      {videoData.description}
+                      {videoDesc}
                     </div>
                   )}
                 </div>

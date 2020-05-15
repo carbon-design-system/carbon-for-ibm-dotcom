@@ -2,7 +2,7 @@ import { settings } from 'carbon-components';
 const { prefix } = settings;
 
 const _htmlTagRegex = /<.*?>/g;
-const _cleanStringRegex = /\n|\s{2,}/g;
+const _cleanStringRegex = /\n|\s{2,}|&([a-zA-Z]+);/g;
 const _italicRegex = /[_*](.*?)[_*]/g;
 const _boldRegex = /[_*]{2}(.*?)[_*]{2}/g;
 const _paraRegex = /\n\n/g;
@@ -44,6 +44,8 @@ const _cleanString = str => str.replace(_cleanStringRegex, ' ');
  * @param {boolean} [options.bold=true] Defines if should convert bold
  * @param {boolean} [options.useCarbonClasses=true] Defines if should use carbon typography classes
  * @param {boolean} [options.allowHtml=false] Defines if should allow or remove html tags
+ * @param {boolean} [options.cleanString=false] Defines if string should be cleaned of multiple spaces, html entities, or single new lines
+ * @param {boolean} [options.createParagraphs=true] Defines if paragraphs should be rendered wrapped in <p> tags
  * @returns {string} String converted to html
  * @example
  * import { markdownToHtml } from '@carbon/ibmdotcom-utilities';
@@ -58,10 +60,13 @@ function markdownToHtml(
     bold = true,
     useCarbonClasses = true,
     allowHtml = false,
+    cleanString = false,
+    createParagraphs = true,
   } = {}
 ) {
   let paraList = '';
   let converted = allowHtml ? str : _removeHtmlTags(str);
+  converted = cleanString ? _cleanString(converted) : converted;
   const paras = converted.split(_paraRegex);
 
   paras.map(para => {
@@ -87,7 +92,7 @@ function markdownToHtml(
       });
     }
 
-    paraList += `<p>${para}</p>`;
+    paraList += createParagraphs ? `<p>${para}</p>` : para;
   });
 
   return paraList;

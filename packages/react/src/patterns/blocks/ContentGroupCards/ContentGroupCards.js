@@ -39,15 +39,14 @@ const ContentGroupCards = ({ heading, items }) => {
    */
   const setSameHeight = () => {
     window.requestAnimationFrame(() => {
-      if (containerRef && containerRef.current) {
+      const { current: containerNode } = containerRef;
+      if (containerNode) {
         sameHeight(
-          containerRef.current.getElementsByClassName(
-            `${prefix}--card__heading`
-          ),
+          containerNode.getElementsByClassName(`${prefix}--card__heading`),
           'md'
         );
         sameHeight(
-          containerRef.current.getElementsByClassName(`${prefix}--card__copy`),
+          containerNode.getElementsByClassName(`${prefix}--card__copy`),
           'md'
         );
       }

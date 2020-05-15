@@ -129,6 +129,8 @@
       &__media-description {
         @include carbon--make-col-ready;
         @include carbon--make-col(4, 16);
+
+        display: flex;
       }
       .#{$prefix}--modal-close {
         top: 0;

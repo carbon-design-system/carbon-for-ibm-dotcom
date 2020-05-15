@@ -69,13 +69,9 @@ const LocaleModal = ({ isOpen, setIsOpen, localeData, localeDisplay }) => {
       setList(list);
       setModalLabels(list.localeModal);
 
-      if (
-        document.querySelector(`.${prefix}--modal-header__heading`) !== null
-      ) {
-        document
-          .querySelector(`.${prefix}--modal-header__heading`)
-          .setAttribute('tabindex', '1');
-      }
+      document
+        .querySelector(`.${prefix}--modal-header__heading`)
+        ?.setAttribute('tabindex', '1');
 
       const localeModalContainer = document.querySelector(
         `.${prefix}--locale-modal-container .${prefix}--modal-container`
@@ -206,7 +202,7 @@ const LocaleModal = ({ isOpen, setIsOpen, localeData, localeDisplay }) => {
       `.${prefix}--locale-btn__container .${prefix}--btn--secondary`
     );
     setTimeout(() => {
-      footerBtn.focus();
+      footerBtn?.focus();
     }, 100);
   }
 };
