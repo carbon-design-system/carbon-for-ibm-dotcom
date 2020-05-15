@@ -1,4 +1,5 @@
 import './_container.scss';
+import requireContext from 'require-context.macro';
 import { configure, addParameters, addDecorator } from '@storybook/html';
 import { addReadme } from 'storybook-readme/html';
 
@@ -25,5 +26,5 @@ addParameters({
 
 addDecorator(addReadme);
 
-const components = require.context('../src', true, /(overview|\.stories)\.js$/);
+const components = requireContext('../src', true, /(overview|\.stories)\.js$/);
 configure(components, module);

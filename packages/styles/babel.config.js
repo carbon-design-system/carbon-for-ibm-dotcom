@@ -2,6 +2,7 @@ module.exports = {
   presets: ['./scripts/env', '@babel/preset-react'],
   plugins: [
     'dev-expression',
+    'macros',
     '@babel/plugin-proposal-class-properties',
     /*'@babel/plugin-syntax-dynamic-import',
     '@babel/plugin-syntax-import-meta',

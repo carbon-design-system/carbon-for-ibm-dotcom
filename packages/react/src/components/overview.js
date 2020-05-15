@@ -15,3 +15,7 @@ export default {
 };
 
 export const Default = withDocs(README, () => <div />);
+
+Default.story = {
+  title: 'Read Me',
+};

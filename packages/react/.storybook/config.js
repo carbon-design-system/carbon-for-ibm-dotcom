@@ -1,4 +1,5 @@
 import React from 'react';
+import requireContext from 'require-context.macro';
 import { configure, addParameters, addDecorator } from '@storybook/react';
 import { addReadme } from 'storybook-readme';
 import Container from './Container';
@@ -34,5 +35,5 @@ addDecorator(addReadme);
 
 addDecorator(story => <Container story={story} />);
 
-const components = require.context('../src', true, /(overview|\.stories)\.js$/);
+const components = requireContext('../src', true, /(overview|\.stories)\.js$/);
 configure(components, module);
