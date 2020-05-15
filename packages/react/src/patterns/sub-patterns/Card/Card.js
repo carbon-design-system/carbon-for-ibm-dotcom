@@ -101,7 +101,12 @@ function renderFooter(cta, type) {
     cta && (
       <div className={`${prefix}--card__footer`}>
         {type !== 'link' ? (
-          <LinkWithIcon type={cta.type} href={cta.href}>
+          <LinkWithIcon
+            href={cta.href}
+            target={CTALogic.external(cta.type)}
+            onClick={e => {
+              cta.type === 'jump' ? CTALogic.jump(e, cta.type) : false;
+            }}>
             <span>{cta.copy}</span> <Icon />
           </LinkWithIcon>
         ) : (
