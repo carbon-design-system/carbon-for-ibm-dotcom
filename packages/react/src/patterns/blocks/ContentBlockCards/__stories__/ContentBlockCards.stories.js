@@ -10,34 +10,36 @@ import cards from '../../../sub-patterns/CardGroup/__stories__/data/cards.json';
 import ContentBlockCards from '../ContentBlockCards';
 import React from 'react';
 import readme from '../README.md';
-import { storiesOf } from '@storybook/react';
 
-storiesOf('Patterns (Blocks)|ContentBlockCards', module)
-  .addDecorator(withKnobs)
-  .addParameters({
+export default {
+  title: 'Patterns (Blocks)|ContentBlockCards',
+  decorators: [withKnobs],
+
+  parameters: {
     readme: {
       sidebar: readme,
     },
-  })
+  },
+};
 
-  .add('Default', () => {
-    const cardTypes = Object.keys(cards);
-    const type = select('Card (type)', cardTypes, cardTypes[0]);
-    const data = object(`Data (${type})`, cards[type]);
+export const Default = () => {
+  const cardTypes = Object.keys(cards);
+  const type = select('Card (type)', cardTypes, cardTypes[0]);
+  const data = object(`Data (${type})`, cards[type]);
 
-    return (
-      <div className="bx--grid">
-        <div className="bx--row">
-          <div className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-2 content-block-story">
-            <ContentBlockCards
-              heading={text(
-                'Heading (required):',
-                'Aliquam condimentum interdum'
-              )}
-              cards={data}
-            />
-          </div>
+  return (
+    <div className="bx--grid">
+      <div className="bx--row">
+        <div className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-2 content-block-story">
+          <ContentBlockCards
+            heading={text(
+              'Heading (required):',
+              'Aliquam condimentum interdum'
+            )}
+            cards={data}
+          />
         </div>
       </div>
-    );
-  });
+    </div>
+  );
+};
