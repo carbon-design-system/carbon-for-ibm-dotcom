@@ -18,7 +18,7 @@ describe('TranslationAPI', () => {
   });
 
   it('should fetch the i18n data', async () => {
-    const endpoint = `${process.env.TRANSLATION_HOST}/common/v18/js/data/jsononly`;
+    const endpoint = `${process.env.CORS_PROXY}${process.env.TRANSLATION_HOST}/common/v18/js/data/jsononly`;
     const fetchUrl = `${endpoint}/usen.json`;
 
     const response = await TranslationAPI.getTranslation({
