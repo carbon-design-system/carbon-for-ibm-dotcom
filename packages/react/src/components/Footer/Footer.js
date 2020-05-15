@@ -78,6 +78,9 @@ const Footer = ({
     let stale = false;
     (async () => {
       const response = await LocaleAPI.getLangDisplay(langCode);
+      if (stale) {
+         return;
+      }
       setDisplayLang(response);
 
       const locale = await LocaleAPI.getLocale();
