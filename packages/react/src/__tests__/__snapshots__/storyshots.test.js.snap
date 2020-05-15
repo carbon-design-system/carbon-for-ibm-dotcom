@@ -5445,7 +5445,7 @@ exports[`Storyshots Components|VideoPlayer Default 1`] = `
 </Container>
 `;
 
-exports[`Storyshots Overview|Get Started Read Me 1`] = `
+exports[`Storyshots Overview|Get Started Default 1`] = `
 <Container
   story={[Function]}
 >
