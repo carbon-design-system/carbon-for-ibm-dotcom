@@ -24,43 +24,52 @@
       height: 100%;
       padding: 0;
       position: relative;
-    }
-
-    &__image,
-    &__zoom-button {
-      transition: $duration--moderate-01 motion(standard, productive);
+      pointer-events: none;
     }
 
     &__zoom-button {
-      width: $carbon--spacing-09;
-      height: $carbon--spacing-09;
-      display: flex;
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      background-color: rgba(0, 0, 0, 0.5);
-
-      svg {
-        margin: auto;
-        fill: $icon-03;
-      }
+      display: none;
     }
 
-    &__image:hover {
-      cursor: pointer;
-
-      .#{$prefix}--image__img {
-        filter: brightness(80%);
+    // only have lightbox functionality on bigger breakpoints
+    @include carbon--breakpoint(md) {
+      &__image,
+      &__zoom-button {
+        transition: $duration--moderate-01 motion(standard, productive);
+        pointer-events: auto;
       }
 
-      .#{$prefix}--image-with-caption__zoom-button {
-        background-color: rgba(0, 0, 0, 1);
-      }
-    }
+      &__zoom-button {
+        width: $carbon--spacing-09;
+        height: $carbon--spacing-09;
+        display: flex;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
 
-    &__image:hover,
-    &__image:focus {
-      outline: 2px solid $focus;
+        svg {
+          margin: auto;
+          fill: $icon-03;
+        }
+      }
+
+      &__image:hover {
+        cursor: pointer;
+
+        .#{$prefix}--image__img {
+          filter: brightness(80%);
+        }
+
+        .#{$prefix}--image-with-caption__zoom-button {
+          background-color: rgba(0, 0, 0, 1);
+        }
+      }
+
+      &__image:hover,
+      &__image:focus {
+        outline: 2px solid $focus;
+      }
     }
   }
 
