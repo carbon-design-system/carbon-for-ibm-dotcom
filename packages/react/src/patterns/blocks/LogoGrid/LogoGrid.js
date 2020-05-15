@@ -5,9 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 import classNames from 'classnames';
-import { DDS_LOGO_GRID } from '../../../internal/FeatureFlags';
+import ContentBlock from '../../sub-patterns/ContentBlock/ContentBlock';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
-import { featureFlag } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { settings } from 'carbon-components';
@@ -34,32 +33,28 @@ const LogoGrid = ({ theme, title, logosGroup }) => {
     return theme && `${prefix}--logo-grid--${theme}`;
   };
 
-  return featureFlag(
-    DDS_LOGO_GRID,
-    <section
-      data-autoid={`${stablePrefix}--logo-grid`}
-      className={classNames(`${prefix}--logo-grid`, setTheme(theme))}>
-      <div className={`${prefix}--logo-grid__container`}>
-        <div className={`${prefix}--logo-grid__row`}>
-          <div className={`${prefix}--logo-grid__col`}>
-            <h3 className={`${prefix}--logo-grid__title`}>{title}</h3>
-          </div>
-        </div>
-        <div className={`${prefix}--logo-grid__row`}>
-          <div className={`${prefix}--logo-grid__col`}>
-            <div className={`${prefix}--logo-grid__wrapper`}>
-              {logosGroup.map(placeholder => (
-                <div
-                  className={`${prefix}--logo-grid__logo`}
-                  key={placeholder.label}>
-                  <img src={placeholder.imgSrc} alt={placeholder.altText} />
-                </div>
-              ))}
+  return (
+    <ContentBlock heading={title}>
+      <section
+        data-autoid={`${stablePrefix}--logo-grid`}
+        className={classNames(`${prefix}--logo-grid`, setTheme(theme))}>
+        <div className={`${prefix}--logo-grid__container`}>
+          <div className={`${prefix}--logo-grid__row`}>
+            <div className={`${prefix}--logo-grid__col`}>
+              <div className={`${prefix}--logo-grid__wrapper`}>
+                {logosGroup.map(placeholder => (
+                  <div
+                    className={`${prefix}--logo-grid__logo`}
+                    key={placeholder.label}>
+                    <img src={placeholder.imgSrc} alt={placeholder.altText} />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </ContentBlock>
   );
 };
 
