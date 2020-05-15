@@ -36,14 +36,17 @@ const LightboxMediaViewer = ({ media, ...modalProps }) => {
   });
 
   useEffect(() => {
+    let stale = false;
     (async () => {
       if (media.type === 'video') {
         const data = await VideoPlayerAPI.api(media.src);
-        setVideoData({
-          title: data.name,
-          alt: data.name,
-          description: data.description,
-        });
+        if (!stale) {
+          setVideoData({
+            title: data.name,
+            alt: data.name,
+            description: data.description,
+          });
+        }
       } else {
         setVideoData({
           title: media.title,
@@ -52,7 +55,10 @@ const LightboxMediaViewer = ({ media, ...modalProps }) => {
         });
       }
     })();
-  }, [media, media.src]);
+    return () => {
+      stale = true;
+    };
+  }, [media]);
 
   const videoDesc = markdownToHtml(videoData.description, {
     createParagraphs: false,
