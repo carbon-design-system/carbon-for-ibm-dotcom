@@ -32,3 +32,9 @@
 .bx--visually-hidden {
   display: none;
 }
+
+@media only percy {
+  #truste_cookie_prefs {
+    display: none;
+  }
+}
