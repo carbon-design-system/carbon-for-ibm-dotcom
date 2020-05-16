@@ -24,7 +24,7 @@ export default {
 export const Default = () => {
   const copy = text(
     'Quote (copy): ',
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus est purus, posuere at est vitae, ornare rhoncus sem. Suspendisse vitae tellus fermentum, hendrerit augue eu, placerat magna.'
+    'Lorem ipsum dolor sit amet amet, consectetur adipiscing elit. Vivamus est purus, posuere at est vitae, ornare rhoncus sem. Suspendisse vitae tellus fermentum, hendrerit augue eu, placerat magna.'
   );
 
   const types = {

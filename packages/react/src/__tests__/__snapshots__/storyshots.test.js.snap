@@ -5613,7 +5613,7 @@ exports[`Storyshots Patterns (Blocks)|CalloutQuote Default 1`] = `
                     <CalloutQuote
                       quote={
                         Object {
-                          "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus est purus, posuere at est vitae, ornare rhoncus sem. Suspendisse vitae tellus fermentum, hendrerit augue eu, placerat magna.",
+                          "copy": "Lorem ipsum dolor sit amet amet, consectetur adipiscing elit. Vivamus est purus, posuere at est vitae, ornare rhoncus sem. Suspendisse vitae tellus fermentum, hendrerit augue eu, placerat magna.",
                           "cta": Object {
                             "copy": "Link with Icon",
                             "href": "https://example.com",
@@ -5669,7 +5669,7 @@ exports[`Storyshots Patterns (Blocks)|CalloutQuote Default 1`] = `
                     <CalloutQuote
                       quote={
                         Object {
-                          "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus est purus, posuere at est vitae, ornare rhoncus sem. Suspendisse vitae tellus fermentum, hendrerit augue eu, placerat magna.",
+                          "copy": "Lorem ipsum dolor sit amet amet, consectetur adipiscing elit. Vivamus est purus, posuere at est vitae, ornare rhoncus sem. Suspendisse vitae tellus fermentum, hendrerit augue eu, placerat magna.",
                           "cta": Object {
                             "copy": "Link with Icon",
                             "href": "https://example.com",
@@ -5701,7 +5701,7 @@ exports[`Storyshots Patterns (Blocks)|CalloutQuote Default 1`] = `
                                 data-autoid="dds--callout__content"
                               >
                                 <Quote
-                                  copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus est purus, posuere at est vitae, ornare rhoncus sem. Suspendisse vitae tellus fermentum, hendrerit augue eu, placerat magna."
+                                  copy="Lorem ipsum dolor sit amet amet, consectetur adipiscing elit. Vivamus est purus, posuere at est vitae, ornare rhoncus sem. Suspendisse vitae tellus fermentum, hendrerit augue eu, placerat magna."
                                   cta={
                                     Object {
                                       "copy": "Link with Icon",
@@ -5737,7 +5737,7 @@ exports[`Storyshots Patterns (Blocks)|CalloutQuote Default 1`] = `
                                         <blockquote
                                           className="bx--quote__copy"
                                         >
-                                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus est purus, posuere at est vitae, ornare rhoncus sem. Suspendisse vitae tellus fermentum, hendrerit augue eu, placerat magna.
+                                          Lorem ipsum dolor sit amet amet, consectetur adipiscing elit. Vivamus est purus, posuere at est vitae, ornare rhoncus sem. Suspendisse vitae tellus fermentum, hendrerit augue eu, placerat magna.
                                           ”
                                         </blockquote>
                                       </div>
