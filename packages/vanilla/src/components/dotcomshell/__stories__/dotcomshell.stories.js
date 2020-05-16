@@ -11,70 +11,73 @@ import content from './data/content';
 import DotcomShell from '../dotcomshell';
 import mastheadKnobs from '../../masthead/__stories__/data/Masthead.stories.knobs.js';
 import readme from '../README.md';
-import { storiesOf } from '@storybook/html';
 
-storiesOf('Components|Dotcom Shell', module)
-  .addDecorator(withKnobs)
-  .addParameters({
+export default {
+  title: 'Components|Dotcom Shell',
+  decorators: [withKnobs],
+
+  parameters: {
     readme: {
       sidebar: readme,
     },
-  })
-  .add('Default', () => {
-    const footerTypeOptions = {
-      default: 'default',
-      short: 'short',
-    };
+  },
+};
 
-    const dotcomShellProps = {
-      masthead: {
-        navigation: select(
-          'Navigation',
-          mastheadKnobs.navigation,
-          mastheadKnobs.navigation.default
-        ),
-        platform: select(
-          'Platform name',
-          mastheadKnobs.platform,
-          mastheadKnobs.platform.none
-        ),
-        hasNavigation: boolean('Has navigation', true),
-        hasProfile: boolean('Has profile', true),
-        searchProps: {
-          hasSearch: boolean('Has search', true),
-          placeHolderText: text('Search placeholder', 'Search all of IBM'),
-          searchOpenOnoad: false,
-        },
+export const Default = () => {
+  const footerTypeOptions = {
+    default: 'default',
+    short: 'short',
+  };
+
+  const dotcomShellProps = {
+    masthead: {
+      navigation: select(
+        'Navigation',
+        mastheadKnobs.navigation,
+        mastheadKnobs.navigation.default
+      ),
+      platform: select(
+        'Platform name',
+        mastheadKnobs.platform,
+        mastheadKnobs.platform.none
+      ),
+      hasNavigation: boolean('Has navigation', true),
+      hasProfile: boolean('Has profile', true),
+      searchProps: {
+        hasSearch: boolean('Has search', true),
+        placeHolderText: text('Search placeholder', 'Search all of IBM'),
+        searchOpenOnoad: false,
       },
-      footer: {
-        footerType: select(
-          'Footer',
-          footerTypeOptions,
-          footerTypeOptions.default
-        ),
-      },
-    };
+    },
+    footer: {
+      footerType: select(
+        'Footer',
+        footerTypeOptions,
+        footerTypeOptions.default
+      ),
+    },
+  };
 
-    /**
-     * renders the dotcom shell
-     *
-     * @returns {string} string
-     */
-    async function _getDotcomShell() {
-      const template = await DotcomShell.getDotcomShellWithData({
-        content,
-        ...dotcomShellProps,
-      });
-
-      return template;
-    }
-
-    const dotcomshellContainer = document.createElement('div');
-    dotcomshellContainer.textContent = 'Loading...';
-    _getDotcomShell().then(html => {
-      dotcomshellContainer.innerHTML = html;
-      DotcomShell.init(dotcomshellContainer);
+  /**
+   * renders the dotcom shell
+   *
+   * @returns {string} string
+   */
+  async function _getDotcomShell() {
+    const template = await DotcomShell.getDotcomShellWithData({
+      content,
+      ...dotcomShellProps,
     });
 
-    return dotcomshellContainer;
+    return template;
+  }
+
+  const dotcomshellContainer = document.createElement('div');
+  dotcomshellContainer.textContent = 'Loading...';
+  _getDotcomShell().then(html => {
+    dotcomshellContainer.innerHTML = html;
+    DotcomShell.init(dotcomshellContainer);
   });
+
+  return dotcomshellContainer;
+};

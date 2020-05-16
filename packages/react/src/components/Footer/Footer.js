@@ -59,24 +59,43 @@ const Footer = ({
   }, []);
 
   useEffect(() => {
+    let stale = false;
     if (!navigation) {
       (async () => {
         const response = await TranslationAPI.getTranslation();
-        setFooterMenuData(response.footerMenu);
-        setFooterLegalData(response.footerThin);
+        if (!stale) {
+          setFooterMenuData(response.footerMenu);
+          setFooterLegalData(response.footerThin);
+        }
       })();
     }
+    return () => {
+      stale = true;
+    };
   }, [navigation]);
 
   useEffect(() => {
+    let stale = false;
     (async () => {
       const response = await LocaleAPI.getLangDisplay(langCode);
+      if (stale) {
+        return;
+      }
       setDisplayLang(response);
 
       const locale = await LocaleAPI.getLocale();
+      if (stale) {
+        return;
+      }
       const list = await LocaleAPI.getList(locale);
+      if (stale) {
+        return;
+      }
       setLocaleButtonAria(list.localeModal.headerTitle);
     })();
+    return () => {
+      stale = true;
+    };
   }, [langCode]);
 
   if (navigation) {
