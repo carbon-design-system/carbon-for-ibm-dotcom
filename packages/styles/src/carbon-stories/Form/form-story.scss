@@ -7,14 +7,21 @@
 
 @import '~carbon-components/scss/globals/scss/vars';
 
-.dds-story--form__number-input-group,
-.dds-story--form__select-group {
+.dds-story--form-group--button,
+.dds-story--form-group--toggle-small {
+  .bx--form-item {
+    align-items: flex-end;
+  }
+}
+
+.dds-story--form-group--number-input,
+.dds-story--form-group--select {
   .#{$prefix}--form-item {
     align-items: stretch;
   }
 }
 
-.dds-story--form__select-group {
+.dds-story--form-group--select {
   .#{$prefix}--select {
     align-items: stretch;
   }
@@ -27,4 +34,8 @@
     flex: 1;
     max-width: none;
   }
+}
+
+.dds-story--form-group--toggle-small legend {
+  text-align: right;
 }

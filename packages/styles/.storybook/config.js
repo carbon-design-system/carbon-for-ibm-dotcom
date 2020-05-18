@@ -6,6 +6,11 @@ import { configureActions } from '@storybook/addon-actions';
 import { withInfo } from '@storybook/addon-info';
 import Container from './Container';
 
+const SORT_ORDER_STORY = [
+  'overview--get-started',
+  'component-icons-kitchen-sink--default',
+];
+
 addParameters({
   options: {
     name: `Carbon Design System with Expressive`,
@@ -13,12 +18,9 @@ addParameters({
     storySort(lhs, rhs) {
       const [lhsId] = lhs;
       const [rhsId] = rhs;
-      if (lhsId === 'overview--get-started') {
-        return -1;
-      } else if (rhsId === 'overview--get-started') {
-        return 1;
-      }
-      return 0;
+      const lhsSortOrder = SORT_ORDER_STORY.concat([lhsId]).indexOf(lhsId);
+      const rhsSortOrder = SORT_ORDER_STORY.concat([rhsId]).indexOf(rhsId);
+      return lhsSortOrder - rhsSortOrder;
     },
   },
 });

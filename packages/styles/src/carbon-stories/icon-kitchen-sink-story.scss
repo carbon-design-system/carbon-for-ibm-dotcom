@@ -1,0 +1,55 @@
+//
+// Copyright IBM Corp. 2020
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import '~carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/grid/vendor/@carbon/layout/convert';
+
+.dds-story--icon-kitchen-sink__item {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin-bottom: carbon--rem(16px);
+
+  .bx--snippet--single {
+    max-width: none;
+    padding-right: 0;
+  }
+
+  .bx--date-picker--single {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-end;
+
+    .bx--date-picker-container {
+      flex: 1;
+    }
+  }
+
+  .bx--file-browse-btn,
+  .bx--file__selected-file {
+    max-width: none;
+  }
+
+  .bx--inline-loading {
+    justify-content: flex-end;
+
+    .bx--inline-loading__animation {
+      order: 1;
+    }
+  }
+
+  .bx--inline-notification,
+  .bx--toast-notification {
+    margin-right: 0;
+    max-width: none;
+    width: auto;
+  }
+}
+
+.dds-story--icon-kitchen-sink__item--tag,
+.dds-story--icon-kitchen-sink__item--tooltip-icon {
+  align-items: flex-end;
+}

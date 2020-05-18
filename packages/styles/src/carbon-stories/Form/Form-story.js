@@ -195,7 +195,7 @@ storiesOf('Form', module)
           </RadioButtonGroup>
         </FormGroup>
 
-        <FormGroup className="dds-story--form__number-input-group">
+        <FormGroup className="dds-story--form-group--number-input">
           <NumberInput {...numberInputProps} />
         </FormGroup>
 
@@ -208,7 +208,7 @@ storiesOf('Form', module)
           />
         </FormGroup>
 
-        <FormGroup className="dds-story--form__select-group">
+        <FormGroup className="dds-story--form-group--select">
           <Select {...selectProps} id="select-1" defaultValue="placeholder-item">
             <SelectItem
               disabled
