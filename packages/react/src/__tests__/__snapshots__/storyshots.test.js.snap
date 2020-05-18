@@ -8167,7 +8167,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                                     ]
                                   }
                                 >
-                                  <FeatureCard
+                                  <FeatureCardBlockMedium
                                     card={
                                       Object {
                                         "cta": Object {
@@ -8192,8 +8192,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                                     heading="Lorem ipsum dolor sit amet"
                                   >
                                     <section
-                                      className="bx--feature-card"
-                                      data-autoid="dds--feature-card"
+                                      className="bx--feature-card-block-medium"
+                                      data-autoid="dds--feature-card-block-medium"
                                     >
                                       <ContentGroup
                                         heading="Lorem ipsum dolor sit amet"
@@ -8212,131 +8212,160 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                                             className="bx--content-group__col bx--content-group__children"
                                             data-autoid="dds--content-group__children"
                                           >
-                                            <Card
-                                              cta={
+                                            <FeatureCard
+                                              card={
                                                 Object {
-                                                  "href": "https://www.example.com",
-                                                  "icon": Object {
-                                                    "src": Object {
-                                                      "$$typeof": Symbol(react.forward_ref),
-                                                      "render": [Function],
+                                                  "cta": Object {
+                                                    "href": "https://www.example.com",
+                                                    "icon": Object {
+                                                      "src": Object {
+                                                        "$$typeof": Symbol(react.forward_ref),
+                                                        "render": [Function],
+                                                      },
                                                     },
                                                   },
+                                                  "handleClick": [Function],
+                                                  "heading": "Consectetur adipisicing elit",
+                                                  "image": Object {
+                                                    "alt": "Image alt text",
+                                                    "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1",
+                                                  },
+                                                  "target": null,
+                                                  "type": "link",
                                                 }
                                               }
-                                              customClassName="bx--feature-card__card"
-                                              heading="Consectetur adipisicing elit"
-                                              image={
-                                                Object {
-                                                  "alt": "Image alt text",
-                                                  "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1",
-                                                }
-                                              }
-                                              inverse={true}
-                                              target={null}
-                                              type="link"
                                             >
-                                              <ClickableTile
-                                                className="bx--card bx--card--inverse bx--card--link bx--feature-card__card"
-                                                clicked={false}
-                                                data-autoid="dds--card"
-                                                handleClick={[Function]}
-                                                handleKeyDown={[Function]}
-                                                href="https://www.example.com"
-                                                light={false}
-                                                target={null}
+                                              <div
+                                                className="bx--feature-card"
+                                                data-autoid="dds--feature-card"
                                               >
-                                                <a
-                                                  className="bx--tile bx--tile--clickable bx--card bx--card--inverse bx--card--link bx--feature-card__card"
-                                                  data-autoid="dds--card"
-                                                  href="https://www.example.com"
-                                                  onClick={[Function]}
-                                                  onKeyDown={[Function]}
+                                                <Card
+                                                  cta={
+                                                    Object {
+                                                      "href": "https://www.example.com",
+                                                      "icon": Object {
+                                                        "src": Object {
+                                                          "$$typeof": Symbol(react.forward_ref),
+                                                          "render": [Function],
+                                                        },
+                                                      },
+                                                    }
+                                                  }
+                                                  customClassName="bx--feature-card__card"
+                                                  heading="Consectetur adipisicing elit"
+                                                  image={
+                                                    Object {
+                                                      "alt": "Image alt text",
+                                                      "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1",
+                                                    }
+                                                  }
+                                                  inverse={true}
                                                   target={null}
+                                                  type="link"
                                                 >
-                                                  <Image
-                                                    alt="Image alt text"
-                                                    classname="bx--card__img"
-                                                    defaultSrc="https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1"
+                                                  <ClickableTile
+                                                    className="bx--card bx--card--inverse bx--card--link bx--feature-card__card"
+                                                    clicked={false}
+                                                    data-autoid="dds--card"
+                                                    handleClick={[Function]}
+                                                    handleKeyDown={[Function]}
+                                                    href="https://www.example.com"
+                                                    light={false}
+                                                    target={null}
                                                   >
-                                                    <picture
-                                                      className="bx--image"
-                                                      data-autoid="dds--image__longdescription-"
+                                                    <a
+                                                      className="bx--tile bx--tile--clickable bx--card bx--card--inverse bx--card--link bx--feature-card__card"
+                                                      data-autoid="dds--card"
+                                                      href="https://www.example.com"
+                                                      onClick={[Function]}
+                                                      onKeyDown={[Function]}
+                                                      target={null}
                                                     >
-                                                      <img
+                                                      <Image
                                                         alt="Image alt text"
-                                                        aria-describedby=""
-                                                        className="bx--image__img bx--card__img"
-                                                        src="https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1"
-                                                      />
-                                                    </picture>
-                                                  </Image>
-                                                  <div
-                                                    className="bx--card__wrapper"
-                                                  >
-                                                    <h3
-                                                      className="bx--card__heading"
-                                                    >
-                                                      Consectetur adipisicing elit
-                                                    </h3>
-                                                    <div
-                                                      className="bx--card__footer"
-                                                    >
-                                                      <ForwardRef(ArrowRight20)
-                                                        className="bx--card__cta"
-                                                        src={
-                                                          Object {
-                                                            "$$typeof": Symbol(react.forward_ref),
-                                                            "render": [Function],
-                                                          }
-                                                        }
+                                                        classname="bx--card__img"
+                                                        defaultSrc="https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1"
                                                       >
-                                                        <Icon
-                                                          className="bx--card__cta"
-                                                          height={20}
-                                                          preserveAspectRatio="xMidYMid meet"
-                                                          src={
-                                                            Object {
-                                                              "$$typeof": Symbol(react.forward_ref),
-                                                              "render": [Function],
-                                                            }
-                                                          }
-                                                          viewBox="0 0 20 20"
-                                                          width={20}
-                                                          xmlns="http://www.w3.org/2000/svg"
+                                                        <picture
+                                                          className="bx--image"
+                                                          data-autoid="dds--image__longdescription-"
                                                         >
-                                                          <svg
-                                                            aria-hidden={true}
+                                                          <img
+                                                            alt="Image alt text"
+                                                            aria-describedby=""
+                                                            className="bx--image__img bx--card__img"
+                                                            src="https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1"
+                                                          />
+                                                        </picture>
+                                                      </Image>
+                                                      <div
+                                                        className="bx--card__wrapper"
+                                                      >
+                                                        <h3
+                                                          className="bx--card__heading"
+                                                        >
+                                                          Consectetur adipisicing elit
+                                                        </h3>
+                                                        <div
+                                                          className="bx--card__footer"
+                                                        >
+                                                          <ForwardRef(ArrowRight20)
                                                             className="bx--card__cta"
-                                                            focusable="false"
-                                                            height={20}
-                                                            preserveAspectRatio="xMidYMid meet"
                                                             src={
                                                               Object {
                                                                 "$$typeof": Symbol(react.forward_ref),
                                                                 "render": [Function],
                                                               }
                                                             }
-                                                            viewBox="0 0 20 20"
-                                                            width={20}
-                                                            xmlns="http://www.w3.org/2000/svg"
                                                           >
-                                                            <polygon
-                                                              points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
-                                                            />
-                                                          </svg>
-                                                        </Icon>
-                                                      </ForwardRef(ArrowRight20)>
-                                                    </div>
-                                                  </div>
-                                                </a>
-                                              </ClickableTile>
-                                            </Card>
+                                                            <Icon
+                                                              className="bx--card__cta"
+                                                              height={20}
+                                                              preserveAspectRatio="xMidYMid meet"
+                                                              src={
+                                                                Object {
+                                                                  "$$typeof": Symbol(react.forward_ref),
+                                                                  "render": [Function],
+                                                                }
+                                                              }
+                                                              viewBox="0 0 20 20"
+                                                              width={20}
+                                                              xmlns="http://www.w3.org/2000/svg"
+                                                            >
+                                                              <svg
+                                                                aria-hidden={true}
+                                                                className="bx--card__cta"
+                                                                focusable="false"
+                                                                height={20}
+                                                                preserveAspectRatio="xMidYMid meet"
+                                                                src={
+                                                                  Object {
+                                                                    "$$typeof": Symbol(react.forward_ref),
+                                                                    "render": [Function],
+                                                                  }
+                                                                }
+                                                                viewBox="0 0 20 20"
+                                                                width={20}
+                                                                xmlns="http://www.w3.org/2000/svg"
+                                                              >
+                                                                <polygon
+                                                                  points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
+                                                                />
+                                                              </svg>
+                                                            </Icon>
+                                                          </ForwardRef(ArrowRight20)>
+                                                        </div>
+                                                      </div>
+                                                    </a>
+                                                  </ClickableTile>
+                                                </Card>
+                                              </div>
+                                            </FeatureCard>
                                           </div>
                                         </div>
                                       </ContentGroup>
                                     </section>
-                                  </FeatureCard>
+                                  </FeatureCardBlockMedium>
                                 </FeatureCTA>
                               </div>
                             </CTA>
@@ -9659,7 +9688,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                             ]
                                           }
                                         >
-                                          <FeatureCard
+                                          <FeatureCardBlockMedium
                                             card={
                                               Object {
                                                 "cta": Object {
@@ -9684,8 +9713,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                             heading="Lorem ipsum dolor sit amet"
                                           >
                                             <section
-                                              className="bx--feature-card"
-                                              data-autoid="dds--feature-card"
+                                              className="bx--feature-card-block-medium"
+                                              data-autoid="dds--feature-card-block-medium"
                                             >
                                               <ContentGroup
                                                 heading="Lorem ipsum dolor sit amet"
@@ -9704,131 +9733,160 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                                     className="bx--content-group__col bx--content-group__children"
                                                     data-autoid="dds--content-group__children"
                                                   >
-                                                    <Card
-                                                      cta={
+                                                    <FeatureCard
+                                                      card={
                                                         Object {
-                                                          "href": "https://www.example.com",
-                                                          "icon": Object {
-                                                            "src": Object {
-                                                              "$$typeof": Symbol(react.forward_ref),
-                                                              "render": [Function],
+                                                          "cta": Object {
+                                                            "href": "https://www.example.com",
+                                                            "icon": Object {
+                                                              "src": Object {
+                                                                "$$typeof": Symbol(react.forward_ref),
+                                                                "render": [Function],
+                                                              },
                                                             },
                                                           },
+                                                          "handleClick": [Function],
+                                                          "heading": "Consectetur adipisicing elit",
+                                                          "image": Object {
+                                                            "alt": "Image alt text",
+                                                            "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&text=1x1",
+                                                          },
+                                                          "target": null,
+                                                          "type": "link",
                                                         }
                                                       }
-                                                      customClassName="bx--feature-card__card"
-                                                      heading="Consectetur adipisicing elit"
-                                                      image={
-                                                        Object {
-                                                          "alt": "Image alt text",
-                                                          "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&text=1x1",
-                                                        }
-                                                      }
-                                                      inverse={true}
-                                                      target={null}
-                                                      type="link"
                                                     >
-                                                      <ClickableTile
-                                                        className="bx--card bx--card--inverse bx--card--link bx--feature-card__card"
-                                                        clicked={false}
-                                                        data-autoid="dds--card"
-                                                        handleClick={[Function]}
-                                                        handleKeyDown={[Function]}
-                                                        href="https://www.example.com"
-                                                        light={false}
-                                                        target={null}
+                                                      <div
+                                                        className="bx--feature-card"
+                                                        data-autoid="dds--feature-card"
                                                       >
-                                                        <a
-                                                          className="bx--tile bx--tile--clickable bx--card bx--card--inverse bx--card--link bx--feature-card__card"
-                                                          data-autoid="dds--card"
-                                                          href="https://www.example.com"
-                                                          onClick={[Function]}
-                                                          onKeyDown={[Function]}
+                                                        <Card
+                                                          cta={
+                                                            Object {
+                                                              "href": "https://www.example.com",
+                                                              "icon": Object {
+                                                                "src": Object {
+                                                                  "$$typeof": Symbol(react.forward_ref),
+                                                                  "render": [Function],
+                                                                },
+                                                              },
+                                                            }
+                                                          }
+                                                          customClassName="bx--feature-card__card"
+                                                          heading="Consectetur adipisicing elit"
+                                                          image={
+                                                            Object {
+                                                              "alt": "Image alt text",
+                                                              "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&text=1x1",
+                                                            }
+                                                          }
+                                                          inverse={true}
                                                           target={null}
+                                                          type="link"
                                                         >
-                                                          <Image
-                                                            alt="Image alt text"
-                                                            classname="bx--card__img"
-                                                            defaultSrc="https://dummyimage.com/672x672/ee5396/161616&text=1x1"
+                                                          <ClickableTile
+                                                            className="bx--card bx--card--inverse bx--card--link bx--feature-card__card"
+                                                            clicked={false}
+                                                            data-autoid="dds--card"
+                                                            handleClick={[Function]}
+                                                            handleKeyDown={[Function]}
+                                                            href="https://www.example.com"
+                                                            light={false}
+                                                            target={null}
                                                           >
-                                                            <picture
-                                                              className="bx--image"
-                                                              data-autoid="dds--image__longdescription-"
+                                                            <a
+                                                              className="bx--tile bx--tile--clickable bx--card bx--card--inverse bx--card--link bx--feature-card__card"
+                                                              data-autoid="dds--card"
+                                                              href="https://www.example.com"
+                                                              onClick={[Function]}
+                                                              onKeyDown={[Function]}
+                                                              target={null}
                                                             >
-                                                              <img
+                                                              <Image
                                                                 alt="Image alt text"
-                                                                aria-describedby=""
-                                                                className="bx--image__img bx--card__img"
-                                                                src="https://dummyimage.com/672x672/ee5396/161616&text=1x1"
-                                                              />
-                                                            </picture>
-                                                          </Image>
-                                                          <div
-                                                            className="bx--card__wrapper"
-                                                          >
-                                                            <h3
-                                                              className="bx--card__heading"
-                                                            >
-                                                              Consectetur adipisicing elit
-                                                            </h3>
-                                                            <div
-                                                              className="bx--card__footer"
-                                                            >
-                                                              <ForwardRef(ArrowRight20)
-                                                                className="bx--card__cta"
-                                                                src={
-                                                                  Object {
-                                                                    "$$typeof": Symbol(react.forward_ref),
-                                                                    "render": [Function],
-                                                                  }
-                                                                }
+                                                                classname="bx--card__img"
+                                                                defaultSrc="https://dummyimage.com/672x672/ee5396/161616&text=1x1"
                                                               >
-                                                                <Icon
-                                                                  className="bx--card__cta"
-                                                                  height={20}
-                                                                  preserveAspectRatio="xMidYMid meet"
-                                                                  src={
-                                                                    Object {
-                                                                      "$$typeof": Symbol(react.forward_ref),
-                                                                      "render": [Function],
-                                                                    }
-                                                                  }
-                                                                  viewBox="0 0 20 20"
-                                                                  width={20}
-                                                                  xmlns="http://www.w3.org/2000/svg"
+                                                                <picture
+                                                                  className="bx--image"
+                                                                  data-autoid="dds--image__longdescription-"
                                                                 >
-                                                                  <svg
-                                                                    aria-hidden={true}
+                                                                  <img
+                                                                    alt="Image alt text"
+                                                                    aria-describedby=""
+                                                                    className="bx--image__img bx--card__img"
+                                                                    src="https://dummyimage.com/672x672/ee5396/161616&text=1x1"
+                                                                  />
+                                                                </picture>
+                                                              </Image>
+                                                              <div
+                                                                className="bx--card__wrapper"
+                                                              >
+                                                                <h3
+                                                                  className="bx--card__heading"
+                                                                >
+                                                                  Consectetur adipisicing elit
+                                                                </h3>
+                                                                <div
+                                                                  className="bx--card__footer"
+                                                                >
+                                                                  <ForwardRef(ArrowRight20)
                                                                     className="bx--card__cta"
-                                                                    focusable="false"
-                                                                    height={20}
-                                                                    preserveAspectRatio="xMidYMid meet"
                                                                     src={
                                                                       Object {
                                                                         "$$typeof": Symbol(react.forward_ref),
                                                                         "render": [Function],
                                                                       }
                                                                     }
-                                                                    viewBox="0 0 20 20"
-                                                                    width={20}
-                                                                    xmlns="http://www.w3.org/2000/svg"
                                                                   >
-                                                                    <polygon
-                                                                      points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
-                                                                    />
-                                                                  </svg>
-                                                                </Icon>
-                                                              </ForwardRef(ArrowRight20)>
-                                                            </div>
-                                                          </div>
-                                                        </a>
-                                                      </ClickableTile>
-                                                    </Card>
+                                                                    <Icon
+                                                                      className="bx--card__cta"
+                                                                      height={20}
+                                                                      preserveAspectRatio="xMidYMid meet"
+                                                                      src={
+                                                                        Object {
+                                                                          "$$typeof": Symbol(react.forward_ref),
+                                                                          "render": [Function],
+                                                                        }
+                                                                      }
+                                                                      viewBox="0 0 20 20"
+                                                                      width={20}
+                                                                      xmlns="http://www.w3.org/2000/svg"
+                                                                    >
+                                                                      <svg
+                                                                        aria-hidden={true}
+                                                                        className="bx--card__cta"
+                                                                        focusable="false"
+                                                                        height={20}
+                                                                        preserveAspectRatio="xMidYMid meet"
+                                                                        src={
+                                                                          Object {
+                                                                            "$$typeof": Symbol(react.forward_ref),
+                                                                            "render": [Function],
+                                                                          }
+                                                                        }
+                                                                        viewBox="0 0 20 20"
+                                                                        width={20}
+                                                                        xmlns="http://www.w3.org/2000/svg"
+                                                                      >
+                                                                        <polygon
+                                                                          points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
+                                                                        />
+                                                                      </svg>
+                                                                    </Icon>
+                                                                  </ForwardRef(ArrowRight20)>
+                                                                </div>
+                                                              </div>
+                                                            </a>
+                                                          </ClickableTile>
+                                                        </Card>
+                                                      </div>
+                                                    </FeatureCard>
                                                   </div>
                                                 </div>
                                               </ContentGroup>
                                             </section>
-                                          </FeatureCard>
+                                          </FeatureCardBlockMedium>
                                         </FeatureCTA>
                                       </div>
                                     </CTA>
@@ -20232,275 +20290,6 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupSimple Default 1`] = `
 </Container>
 `;
 
-exports[`Storyshots Patterns (Blocks)|FeatureCard Default 1`] = `
-<Container
-  story={[Function]}
->
-  <div
-    data-floating-menu-container=""
-    role="main"
-    style={
-      Object {
-        "backgroundColor": "#ffffff",
-      }
-    }
-  >
-    <ReadmeContent
-      codeTheme="github"
-      layout={
-        Array [
-          Object {
-            "content": <React.Fragment>
-              <div
-                className="bx--grid"
-              >
-                <div
-                  className="bx--row"
-                >
-                  <div
-                    className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
-                  >
-                    <FeatureCard
-                      card={
-                        Object {
-                          "cta": Object {
-                            "href": "https://www.example.com",
-                            "icon": Object {
-                              "src": Object {
-                                "$$typeof": Symbol(react.forward_ref),
-                                "render": [Function],
-                              },
-                            },
-                          },
-                          "heading": "Explore AI use cases in all industries",
-                          "image": Object {
-                            "alt": "Image alt text",
-                            "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1",
-                          },
-                        }
-                      }
-                      heading="How is artificial intelligence used today in your industry?"
-                    />
-                  </div>
-                </div>
-              </div>
-            </React.Fragment>,
-            "type": "STORY",
-          },
-        ]
-      }
-      theme={Object {}}
-      types={
-        Array [
-          "MD",
-          "STORY",
-          "STORY_SOURCE",
-          "PROPS",
-          "FOOTER_MD",
-          "HEADER_MD",
-        ]
-      }
-    >
-      <div
-        className="storybook-readme-story"
-      >
-        <_default
-          key="0"
-        >
-          <div
-            style={Object {}}
-          >
-            <div>
-              <div
-                className="bx--grid"
-              >
-                <div
-                  className="bx--row"
-                >
-                  <div
-                    className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
-                  >
-                    <FeatureCard
-                      card={
-                        Object {
-                          "cta": Object {
-                            "href": "https://www.example.com",
-                            "icon": Object {
-                              "src": Object {
-                                "$$typeof": Symbol(react.forward_ref),
-                                "render": [Function],
-                              },
-                            },
-                          },
-                          "heading": "Explore AI use cases in all industries",
-                          "image": Object {
-                            "alt": "Image alt text",
-                            "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1",
-                          },
-                        }
-                      }
-                      heading="How is artificial intelligence used today in your industry?"
-                    >
-                      <section
-                        className="bx--feature-card"
-                        data-autoid="dds--feature-card"
-                      >
-                        <ContentGroup
-                          heading="How is artificial intelligence used today in your industry?"
-                        >
-                          <div
-                            className="bx--content-group"
-                            data-autoid="dds--content-group"
-                          >
-                            <h3
-                              className="bx--content-group__title"
-                              data-autoid="dds--content-group__title"
-                            >
-                              How is artificial intelligence used today in your industry?
-                            </h3>
-                            <div
-                              className="bx--content-group__col bx--content-group__children"
-                              data-autoid="dds--content-group__children"
-                            >
-                              <Card
-                                cta={
-                                  Object {
-                                    "href": "https://www.example.com",
-                                    "icon": Object {
-                                      "src": Object {
-                                        "$$typeof": Symbol(react.forward_ref),
-                                        "render": [Function],
-                                      },
-                                    },
-                                  }
-                                }
-                                customClassName="bx--feature-card__card"
-                                heading="Explore AI use cases in all industries"
-                                image={
-                                  Object {
-                                    "alt": "Image alt text",
-                                    "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1",
-                                  }
-                                }
-                                inverse={true}
-                                type="link"
-                              >
-                                <ClickableTile
-                                  className="bx--card bx--card--inverse bx--card--link bx--feature-card__card"
-                                  clicked={false}
-                                  data-autoid="dds--card"
-                                  handleClick={[Function]}
-                                  handleKeyDown={[Function]}
-                                  href="https://www.example.com"
-                                  light={false}
-                                >
-                                  <a
-                                    className="bx--tile bx--tile--clickable bx--card bx--card--inverse bx--card--link bx--feature-card__card"
-                                    data-autoid="dds--card"
-                                    href="https://www.example.com"
-                                    onClick={[Function]}
-                                    onKeyDown={[Function]}
-                                  >
-                                    <Image
-                                      alt="Image alt text"
-                                      classname="bx--card__img"
-                                      defaultSrc="https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1"
-                                    >
-                                      <picture
-                                        className="bx--image"
-                                        data-autoid="dds--image__longdescription-"
-                                      >
-                                        <img
-                                          alt="Image alt text"
-                                          aria-describedby=""
-                                          className="bx--image__img bx--card__img"
-                                          src="https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1"
-                                        />
-                                      </picture>
-                                    </Image>
-                                    <div
-                                      className="bx--card__wrapper"
-                                    >
-                                      <h3
-                                        className="bx--card__heading"
-                                      >
-                                        Explore AI use cases in all industries
-                                      </h3>
-                                      <div
-                                        className="bx--card__footer"
-                                      >
-                                        <ForwardRef(ArrowRight20)
-                                          className="bx--card__cta"
-                                          src={
-                                            Object {
-                                              "$$typeof": Symbol(react.forward_ref),
-                                              "render": [Function],
-                                            }
-                                          }
-                                        >
-                                          <Icon
-                                            className="bx--card__cta"
-                                            height={20}
-                                            preserveAspectRatio="xMidYMid meet"
-                                            src={
-                                              Object {
-                                                "$$typeof": Symbol(react.forward_ref),
-                                                "render": [Function],
-                                              }
-                                            }
-                                            viewBox="0 0 20 20"
-                                            width={20}
-                                            xmlns="http://www.w3.org/2000/svg"
-                                          >
-                                            <svg
-                                              aria-hidden={true}
-                                              className="bx--card__cta"
-                                              focusable="false"
-                                              height={20}
-                                              preserveAspectRatio="xMidYMid meet"
-                                              src={
-                                                Object {
-                                                  "$$typeof": Symbol(react.forward_ref),
-                                                  "render": [Function],
-                                                }
-                                              }
-                                              viewBox="0 0 20 20"
-                                              width={20}
-                                              xmlns="http://www.w3.org/2000/svg"
-                                            >
-                                              <polygon
-                                                points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
-                                              />
-                                            </svg>
-                                          </Icon>
-                                        </ForwardRef(ArrowRight20)>
-                                      </div>
-                                    </div>
-                                  </a>
-                                </ClickableTile>
-                              </Card>
-                            </div>
-                          </div>
-                        </ContentGroup>
-                      </section>
-                    </FeatureCard>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </_default>
-      </div>
-    </ReadmeContent>
-  </div>
-  <input
-    aria-label="input-text-offleft"
-    className="bx--visually-hidden"
-    type="text"
-  />
-</Container>
-`;
-
 exports[`Storyshots Patterns (Blocks)|FeatureCardBlockLarge Default 1`] = `
 <Container
   story={[Function]}
@@ -20750,6 +20539,301 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockLarge Default 1`] = `
                         </Card>
                       </section>
                     </FeatureCardBlockLarge>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </_default>
+      </div>
+    </ReadmeContent>
+  </div>
+  <input
+    aria-label="input-text-offleft"
+    className="bx--visually-hidden"
+    type="text"
+  />
+</Container>
+`;
+
+exports[`Storyshots Patterns (Blocks)|FeatureCardBlockMedium Default 1`] = `
+<Container
+  story={[Function]}
+>
+  <div
+    data-floating-menu-container=""
+    role="main"
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+      }
+    }
+  >
+    <ReadmeContent
+      codeTheme="github"
+      layout={
+        Array [
+          Object {
+            "content": <React.Fragment>
+              <div
+                className="bx--grid"
+              >
+                <div
+                  className="bx--row"
+                >
+                  <div
+                    className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
+                  >
+                    <FeatureCardBlockMedium
+                      card={
+                        Object {
+                          "cta": Object {
+                            "href": "https://www.example.com",
+                            "icon": Object {
+                              "src": Object {
+                                "$$typeof": Symbol(react.forward_ref),
+                                "render": [Function],
+                              },
+                            },
+                          },
+                          "heading": "Explore AI use cases in all industries",
+                          "image": Object {
+                            "alt": "Image alt text",
+                            "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1",
+                          },
+                        }
+                      }
+                      heading="How is artificial intelligence used today in your industry?"
+                    />
+                  </div>
+                </div>
+              </div>
+            </React.Fragment>,
+            "type": "STORY",
+          },
+        ]
+      }
+      theme={Object {}}
+      types={
+        Array [
+          "MD",
+          "STORY",
+          "STORY_SOURCE",
+          "PROPS",
+          "FOOTER_MD",
+          "HEADER_MD",
+        ]
+      }
+    >
+      <div
+        className="storybook-readme-story"
+      >
+        <_default
+          key="0"
+        >
+          <div
+            style={Object {}}
+          >
+            <div>
+              <div
+                className="bx--grid"
+              >
+                <div
+                  className="bx--row"
+                >
+                  <div
+                    className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
+                  >
+                    <FeatureCardBlockMedium
+                      card={
+                        Object {
+                          "cta": Object {
+                            "href": "https://www.example.com",
+                            "icon": Object {
+                              "src": Object {
+                                "$$typeof": Symbol(react.forward_ref),
+                                "render": [Function],
+                              },
+                            },
+                          },
+                          "heading": "Explore AI use cases in all industries",
+                          "image": Object {
+                            "alt": "Image alt text",
+                            "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1",
+                          },
+                        }
+                      }
+                      heading="How is artificial intelligence used today in your industry?"
+                    >
+                      <section
+                        className="bx--feature-card-block-medium"
+                        data-autoid="dds--feature-card-block-medium"
+                      >
+                        <ContentGroup
+                          heading="How is artificial intelligence used today in your industry?"
+                        >
+                          <div
+                            className="bx--content-group"
+                            data-autoid="dds--content-group"
+                          >
+                            <h3
+                              className="bx--content-group__title"
+                              data-autoid="dds--content-group__title"
+                            >
+                              How is artificial intelligence used today in your industry?
+                            </h3>
+                            <div
+                              className="bx--content-group__col bx--content-group__children"
+                              data-autoid="dds--content-group__children"
+                            >
+                              <FeatureCard
+                                card={
+                                  Object {
+                                    "cta": Object {
+                                      "href": "https://www.example.com",
+                                      "icon": Object {
+                                        "src": Object {
+                                          "$$typeof": Symbol(react.forward_ref),
+                                          "render": [Function],
+                                        },
+                                      },
+                                    },
+                                    "heading": "Explore AI use cases in all industries",
+                                    "image": Object {
+                                      "alt": "Image alt text",
+                                      "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1",
+                                    },
+                                  }
+                                }
+                              >
+                                <div
+                                  className="bx--feature-card"
+                                  data-autoid="dds--feature-card"
+                                >
+                                  <Card
+                                    cta={
+                                      Object {
+                                        "href": "https://www.example.com",
+                                        "icon": Object {
+                                          "src": Object {
+                                            "$$typeof": Symbol(react.forward_ref),
+                                            "render": [Function],
+                                          },
+                                        },
+                                      }
+                                    }
+                                    customClassName="bx--feature-card__card"
+                                    heading="Explore AI use cases in all industries"
+                                    image={
+                                      Object {
+                                        "alt": "Image alt text",
+                                        "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1",
+                                      }
+                                    }
+                                    inverse={true}
+                                    type="link"
+                                  >
+                                    <ClickableTile
+                                      className="bx--card bx--card--inverse bx--card--link bx--feature-card__card"
+                                      clicked={false}
+                                      data-autoid="dds--card"
+                                      handleClick={[Function]}
+                                      handleKeyDown={[Function]}
+                                      href="https://www.example.com"
+                                      light={false}
+                                    >
+                                      <a
+                                        className="bx--tile bx--tile--clickable bx--card bx--card--inverse bx--card--link bx--feature-card__card"
+                                        data-autoid="dds--card"
+                                        href="https://www.example.com"
+                                        onClick={[Function]}
+                                        onKeyDown={[Function]}
+                                      >
+                                        <Image
+                                          alt="Image alt text"
+                                          classname="bx--card__img"
+                                          defaultSrc="https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1"
+                                        >
+                                          <picture
+                                            className="bx--image"
+                                            data-autoid="dds--image__longdescription-"
+                                          >
+                                            <img
+                                              alt="Image alt text"
+                                              aria-describedby=""
+                                              className="bx--image__img bx--card__img"
+                                              src="https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1"
+                                            />
+                                          </picture>
+                                        </Image>
+                                        <div
+                                          className="bx--card__wrapper"
+                                        >
+                                          <h3
+                                            className="bx--card__heading"
+                                          >
+                                            Explore AI use cases in all industries
+                                          </h3>
+                                          <div
+                                            className="bx--card__footer"
+                                          >
+                                            <ForwardRef(ArrowRight20)
+                                              className="bx--card__cta"
+                                              src={
+                                                Object {
+                                                  "$$typeof": Symbol(react.forward_ref),
+                                                  "render": [Function],
+                                                }
+                                              }
+                                            >
+                                              <Icon
+                                                className="bx--card__cta"
+                                                height={20}
+                                                preserveAspectRatio="xMidYMid meet"
+                                                src={
+                                                  Object {
+                                                    "$$typeof": Symbol(react.forward_ref),
+                                                    "render": [Function],
+                                                  }
+                                                }
+                                                viewBox="0 0 20 20"
+                                                width={20}
+                                                xmlns="http://www.w3.org/2000/svg"
+                                              >
+                                                <svg
+                                                  aria-hidden={true}
+                                                  className="bx--card__cta"
+                                                  focusable="false"
+                                                  height={20}
+                                                  preserveAspectRatio="xMidYMid meet"
+                                                  src={
+                                                    Object {
+                                                      "$$typeof": Symbol(react.forward_ref),
+                                                      "render": [Function],
+                                                    }
+                                                  }
+                                                  viewBox="0 0 20 20"
+                                                  width={20}
+                                                  xmlns="http://www.w3.org/2000/svg"
+                                                >
+                                                  <polygon
+                                                    points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
+                                                  />
+                                                </svg>
+                                              </Icon>
+                                            </ForwardRef(ArrowRight20)>
+                                          </div>
+                                        </div>
+                                      </a>
+                                    </ClickableTile>
+                                  </Card>
+                                </div>
+                              </FeatureCard>
+                            </div>
+                          </div>
+                        </ContentGroup>
+                      </section>
+                    </FeatureCardBlockMedium>
                   </div>
                 </div>
               </div>
@@ -28659,6 +28743,253 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentSection Default 1`] = `
                   </div>
                 </section>
               </ContentSection>
+            </div>
+          </div>
+        </_default>
+      </div>
+    </ReadmeContent>
+  </div>
+  <input
+    aria-label="input-text-offleft"
+    className="bx--visually-hidden"
+    type="text"
+  />
+</Container>
+`;
+
+exports[`Storyshots Patterns (Sub-Patterns)|FeatureCard Default 1`] = `
+<Container
+  story={[Function]}
+>
+  <div
+    data-floating-menu-container=""
+    role="main"
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+      }
+    }
+  >
+    <ReadmeContent
+      codeTheme="github"
+      layout={
+        Array [
+          Object {
+            "content": <React.Fragment>
+              <div
+                className="bx--grid"
+              >
+                <div
+                  className="bx--row"
+                >
+                  <div
+                    className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
+                  >
+                    <FeatureCard
+                      card={
+                        Object {
+                          "cta": Object {
+                            "href": "https://www.example.com",
+                            "icon": Object {
+                              "src": Object {
+                                "$$typeof": Symbol(react.forward_ref),
+                                "render": [Function],
+                              },
+                            },
+                          },
+                          "heading": "Explore AI use cases in all industries",
+                          "image": Object {
+                            "alt": "Image alt text",
+                            "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1",
+                          },
+                        }
+                      }
+                    />
+                  </div>
+                </div>
+              </div>
+            </React.Fragment>,
+            "type": "STORY",
+          },
+        ]
+      }
+      theme={Object {}}
+      types={
+        Array [
+          "MD",
+          "STORY",
+          "STORY_SOURCE",
+          "PROPS",
+          "FOOTER_MD",
+          "HEADER_MD",
+        ]
+      }
+    >
+      <div
+        className="storybook-readme-story"
+      >
+        <_default
+          key="0"
+        >
+          <div
+            style={Object {}}
+          >
+            <div>
+              <div
+                className="bx--grid"
+              >
+                <div
+                  className="bx--row"
+                >
+                  <div
+                    className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
+                  >
+                    <FeatureCard
+                      card={
+                        Object {
+                          "cta": Object {
+                            "href": "https://www.example.com",
+                            "icon": Object {
+                              "src": Object {
+                                "$$typeof": Symbol(react.forward_ref),
+                                "render": [Function],
+                              },
+                            },
+                          },
+                          "heading": "Explore AI use cases in all industries",
+                          "image": Object {
+                            "alt": "Image alt text",
+                            "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1",
+                          },
+                        }
+                      }
+                    >
+                      <div
+                        className="bx--feature-card"
+                        data-autoid="dds--feature-card"
+                      >
+                        <Card
+                          cta={
+                            Object {
+                              "href": "https://www.example.com",
+                              "icon": Object {
+                                "src": Object {
+                                  "$$typeof": Symbol(react.forward_ref),
+                                  "render": [Function],
+                                },
+                              },
+                            }
+                          }
+                          customClassName="bx--feature-card__card"
+                          heading="Explore AI use cases in all industries"
+                          image={
+                            Object {
+                              "alt": "Image alt text",
+                              "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1",
+                            }
+                          }
+                          inverse={true}
+                          type="link"
+                        >
+                          <ClickableTile
+                            className="bx--card bx--card--inverse bx--card--link bx--feature-card__card"
+                            clicked={false}
+                            data-autoid="dds--card"
+                            handleClick={[Function]}
+                            handleKeyDown={[Function]}
+                            href="https://www.example.com"
+                            light={false}
+                          >
+                            <a
+                              className="bx--tile bx--tile--clickable bx--card bx--card--inverse bx--card--link bx--feature-card__card"
+                              data-autoid="dds--card"
+                              href="https://www.example.com"
+                              onClick={[Function]}
+                              onKeyDown={[Function]}
+                            >
+                              <Image
+                                alt="Image alt text"
+                                classname="bx--card__img"
+                                defaultSrc="https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1"
+                              >
+                                <picture
+                                  className="bx--image"
+                                  data-autoid="dds--image__longdescription-"
+                                >
+                                  <img
+                                    alt="Image alt text"
+                                    aria-describedby=""
+                                    className="bx--image__img bx--card__img"
+                                    src="https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1"
+                                  />
+                                </picture>
+                              </Image>
+                              <div
+                                className="bx--card__wrapper"
+                              >
+                                <h3
+                                  className="bx--card__heading"
+                                >
+                                  Explore AI use cases in all industries
+                                </h3>
+                                <div
+                                  className="bx--card__footer"
+                                >
+                                  <ForwardRef(ArrowRight20)
+                                    className="bx--card__cta"
+                                    src={
+                                      Object {
+                                        "$$typeof": Symbol(react.forward_ref),
+                                        "render": [Function],
+                                      }
+                                    }
+                                  >
+                                    <Icon
+                                      className="bx--card__cta"
+                                      height={20}
+                                      preserveAspectRatio="xMidYMid meet"
+                                      src={
+                                        Object {
+                                          "$$typeof": Symbol(react.forward_ref),
+                                          "render": [Function],
+                                        }
+                                      }
+                                      viewBox="0 0 20 20"
+                                      width={20}
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <svg
+                                        aria-hidden={true}
+                                        className="bx--card__cta"
+                                        focusable="false"
+                                        height={20}
+                                        preserveAspectRatio="xMidYMid meet"
+                                        src={
+                                          Object {
+                                            "$$typeof": Symbol(react.forward_ref),
+                                            "render": [Function],
+                                          }
+                                        }
+                                        viewBox="0 0 20 20"
+                                        width={20}
+                                        xmlns="http://www.w3.org/2000/svg"
+                                      >
+                                        <polygon
+                                          points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
+                                        />
+                                      </svg>
+                                    </Icon>
+                                  </ForwardRef(ArrowRight20)>
+                                </div>
+                              </div>
+                            </a>
+                          </ClickableTile>
+                        </Card>
+                      </div>
+                    </FeatureCard>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </_default>

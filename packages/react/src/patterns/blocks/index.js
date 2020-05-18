@@ -15,7 +15,7 @@ export * from './ContentGroupCards';
 export * from './ContentGroupHorizontal';
 export * from './ContentGroupPictograms';
 export * from './ContentGroupSimple';
-export * from './FeatureCard';
+export * from './FeatureCardBlockMedium';
 export * from './FeatureCardBlockLarge';
 export * from './LeadSpaceBlock';
 export * from './LogoGrid';
