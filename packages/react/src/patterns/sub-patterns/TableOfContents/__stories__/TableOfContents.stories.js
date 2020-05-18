@@ -65,7 +65,20 @@ export const ManuallyDefineMenuItems = () => {
       menuItems={object('menuItems', menuItems)}
       menuLabel={_menuLabel}
       menuRule={boolean('Optional Rule', false)}>
-      <div style={{ background: 'red', height: '200px' }}></div>
+      {boolean('Optional children', false) ? (
+        <div
+          style={{
+            background: '#f4f4f4',
+            height: '200px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}>
+          <h4>Example children</h4>
+        </div>
+      ) : (
+        false
+      )}
       {dataContent}
     </TableOfContents>
   );

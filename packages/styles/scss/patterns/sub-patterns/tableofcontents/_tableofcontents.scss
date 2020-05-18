@@ -23,11 +23,20 @@
     a {
       border-left: carbon--rem(4px) solid $ui-01;
       color: $text-02;
+
+      &:hover {
+        border-left-color: $hover-selected-ui;
+      }
     }
+
     &--active {
       a {
         color: $text-01;
         border-left-color: $interactive-04;
+
+        &:hover {
+          border-left-color: $interactive-04;
+        }
       }
     }
   }
@@ -142,6 +151,12 @@
 
   .#{$prefix}--tableofcontents--g100 {
     @include carbon--theme($carbon--theme--g100) {
+      @include themed-items;
+    }
+  }
+
+  .#{$prefix}--tableofcontents--g10 {
+    @include carbon--theme($carbon--theme--g10) {
       @include themed-items;
     }
   }
