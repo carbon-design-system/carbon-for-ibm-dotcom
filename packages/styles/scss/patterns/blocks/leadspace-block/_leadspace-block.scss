@@ -5,14 +5,14 @@
 
 @mixin leadspace-block {
 
-  .#{$prefix}--lead-space-block {
-    padding-left: 1rem;
-    padding-right: 1rem;
+  .#{$prefix}--leadspace-block {
+    padding-left: $spacing-05;
+    padding-right: $spacing-05;
 
     &__title {
       width: 90%;
       color: $text-01;
-      padding-top: 2rem;
+      padding-top: $spacing-07;
       @include carbon--type-style('expressive-heading-06', true);
     }
 
@@ -22,28 +22,30 @@
 
     .#{$prefix}--content-block {
       padding-top: 0;
-      padding-bottom: 1rem;
+      padding-bottom: $spacing-05;
+
+      .#{$prefix}--image-with-caption {
+        margin-bottom: 0;
+      }
+
+      .#{$prefix}--link-list {
+        padding-top: $spacing-09;
+      }
     }
 
     @include carbon--breakpoint('lg') {
       &__title {
-        padding-top: 4rem;
+        padding-top: $layout-05;
       }
 
       .#{$prefix}--content-block {
-        padding-bottom: 4rem;
+        padding-bottom: $layout-05;
       }
     }
   }
 
-  .#{$prefix}--link-list{
-    padding-top: 3rem !important;
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-
   .#{$prefix}--leadspace-block__media {
-    padding-top: 1rem;
+    padding-top: $spacing-05;
 
     .#{$prefix}--image-with-caption {
       margin-top: 0;
@@ -52,7 +54,7 @@
 
   .#{$prefix}--horizontal-line {
     border-color: $ui-04;
-    margin-top: 4rem;
+    margin-top: $layout-05;
   }
 }
 

@@ -12,7 +12,7 @@ Here's a quick example to get you started.
 
 ```css
 
-@import '@carbon/ibmdotcom-styles/scss/patterns/blocks/leadspace-block/index';
+@import '@carbon/ibmdotcom-styles/scss/patterns/blocks/leadspace-block/leadspace-block';
 ```
 
 ##### JS
@@ -69,7 +69,12 @@ function App() {
       };
   
       const mediaData = mediaType === 'image' ? image : video;
-  
+      
+      const buttonprops = {
+        copy: text(`Button`, `Contact Sales`),
+        href: text('Primary button link', 'https://www.example.com'),
+      }; 
+ 
       const linkListProps = {
         heading: text('link list heading:', 'Featured products'),
         items: object('link list items array', [
@@ -104,6 +109,7 @@ function App() {
                     mediaType={mediaType}
                     mediaData={mediaData} 
                     items={linkListProps}
+                    button={buttonprops}
                 />
   );
 }

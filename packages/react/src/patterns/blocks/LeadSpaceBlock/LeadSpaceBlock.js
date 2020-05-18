@@ -7,6 +7,7 @@ import { LinkList } from '../../sub-patterns/LinkList';
 import { Button} from 'carbon-components-react';
 import { ContentBlock } from '../../sub-patterns/ContentBlock';
 import {ImageWithCaption} from "../../../components/ImageWithCaption";
+import Layout from "../../sub-patterns/Layout/Layout";
 
 
 const { stablePrefix } = ddsSettings;
@@ -30,8 +31,8 @@ const LeadSpaceBlock = ({copy, title, heading, mediaType, mediaData, items, butt
     <div>
       {title && (
         <h1
-          data-autoid={`${stablePrefix}--lead-space-block__title`}
-          className={`${prefix}--lead-space-block__title`}>
+          data-autoid={`${stablePrefix}--leadspace-block__title`}
+          className={`${prefix}--leadspace-block__title`}>
           {title}
         </h1>
       )}
@@ -40,8 +41,8 @@ const LeadSpaceBlock = ({copy, title, heading, mediaType, mediaData, items, butt
 
   return (
     <div
-      data-autoid={`${stablePrefix}--lead-space-block`}
-      className={`${prefix}--lead-space-block`}>
+      data-autoid={`${stablePrefix}--leadspace-block`}
+      className={`${prefix}--leadspace-block`}>
       {pageTitle}
       <ContentBlock  heading={heading} copy={copy}>
         {_renderMedia(mediaType, mediaData)}
@@ -54,12 +55,15 @@ const LeadSpaceBlock = ({copy, title, heading, mediaType, mediaData, items, butt
 
 LeadSpaceBlock.propTypes = {
   title: PropTypes.string.isRequired,
-  copy: PropTypes.string,
   heading: PropTypes.string.isRequired,
   items: PropTypes.object.isRequired,
+};
+
+LeadSpaceBlock.defaultProps = {
+  copy: PropTypes.string,
   mediaType: PropTypes.string,
   mediaData: PropTypes.object,
-  button: PropTypes.string
+  button: PropTypes.object
 };
 
 export default LeadSpaceBlock;
