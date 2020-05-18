@@ -7,9 +7,9 @@
 
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import MastheadLeftNav from '../MastheadLeftNav';
+import mockData from './data/response.json';
 import { mount } from 'enzyme';
 import React from 'react';
-import { TranslationAPI } from '@carbon/ibmdotcom-services';
 
 const { stablePrefix } = ddsSettings;
 
@@ -19,13 +19,10 @@ describe('MastheadLeftNav', () => {
     expect(wrapper).toHaveLength(1);
   });
 
-  it('receives the `navigation` prop correctly', async () => {
-    const data = await TranslationAPI.getTranslation();
-    const wrapper = mount(
-      <MastheadLeftNav navigation={data.mastheadNav.links} />
-    );
+  it('receives the `navigation` prop correctly', () => {
+    const wrapper = mount(<MastheadLeftNav navigation={mockData.links} />);
     expect(wrapper.prop('navigation')).not.toBeUndefined();
-  }, 10000);
+  });
 
   it('receives the `platform` prop correctly', () => {
     const platform = {
