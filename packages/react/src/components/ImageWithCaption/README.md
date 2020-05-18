@@ -70,11 +70,13 @@ Add the following line in your `.env` file at the root of your project.
 
 ## Props
 
-| Name    | Required | Data Type | Default Value | Description                                                            |
-| ------- | -------- | --------- | ------------- | ---------------------------------------------------------------------- |
-| image   | YES      | Object    | n/a           | Image object needed for ImageWithCaption component. See `image` below. |
-| heading | YES      | string    | n/a           | Caption text for ImageWithCaption component.                           |
-| inverse | No       | Boolean   | `false`       | Changes theme to inverse/default                                       |
+| Name     | Required | Data Type | Default Value | Description                                                            |
+| -------- | -------- | --------- | ------------- | ---------------------------------------------------------------------- |
+| copy     | NO       | String    | n/a           | More detailed description of the image.                                |
+| image    | YES      | Object    | n/a           | Image object needed for ImageWithCaption component. See `image` below. |
+| heading  | YES      | String    | n/a           | Caption text for ImageWithCaption component.                           |
+| lightbox | NO       | Boolean   | `false`       | Enables lightbox functionality, allowing user to see enlarged image.   |
+| inverse  | No       | Boolean   | `false`       | Changes theme to inverse/default                                       |
 
 ### image
 
