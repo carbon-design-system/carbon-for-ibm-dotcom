@@ -33,8 +33,7 @@
   display: none;
 }
 
-@media only percy {
-  #teconsent {
-    display: none;
-  }
+// hide the cookie button
+#teconsent {
+  display: none;
 }
