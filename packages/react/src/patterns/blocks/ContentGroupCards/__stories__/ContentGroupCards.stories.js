@@ -9,11 +9,9 @@ import ContentGroupCards from '../ContentGroupCards';
 import ContentGroupCardsKnobs from './data/ContentGroupCards.knobs';
 import React from 'react';
 import readme from '../README.stories.mdx';
-import { withKnobs } from '@storybook/addon-knobs';
 
 export default {
   title: 'Patterns (Blocks)|ContentGroupCards',
-  decorators: [withKnobs],
 
   parameters: {
     ...readme.parameters,
