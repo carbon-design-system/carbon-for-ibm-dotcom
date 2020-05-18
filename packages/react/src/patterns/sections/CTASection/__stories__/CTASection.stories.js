@@ -61,9 +61,17 @@ export const Default = () => {
     },
   ];
 
+  const themes = {
+    g10: 'g10',
+    g90: 'g90',
+    g100: 'g100',
+    white: '',
+  };
+
   return (
     <CTASection
       {...contentBlockProps}
+      theme={select('theme', themes, themes.g10)}
       cta={ctaProps}
       items={object('ContentItems | Data', contentItemsProps)}
     />
