@@ -96,7 +96,6 @@ function optionalContent(copy) {
  * @returns {object} JSX object
  */
 function renderFooter(cta, type) {
-  const Icon = CTALogic.iconSelector(cta.type);
   return (
     cta && (
       <div className={`${prefix}--card__footer`}>
@@ -107,10 +106,10 @@ function renderFooter(cta, type) {
             onClick={e => {
               cta.type === 'jump' ? CTALogic.jump(e, cta.type) : false;
             }}>
-            <span>{cta.copy}</span> <Icon />
+            <span>{cta.copy}</span> <cta.icon.src />
           </LinkWithIcon>
         ) : (
-          <Icon />
+          <cta.icon.src />
         )}
       </div>
     )
