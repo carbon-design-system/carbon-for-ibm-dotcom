@@ -74,7 +74,7 @@ Add the following line in your `.env` file at the root of your project.
 | -------- | -------- | --------- | ------------- | ---------------------------------------------------------------------- |
 | copy     | NO       | String    | n/a           | More detailed description of the image.                                |
 | image    | YES      | Object    | n/a           | Image object needed for ImageWithCaption component. See `image` below. |
-| heading  | YES      | String    | n/a           | Caption text for ImageWithCaption component.                           |
+| heading  | NO       | String    | n/a           | Caption text for ImageWithCaption component.                           |
 | lightbox | NO       | Boolean   | `false`       | Enables lightbox functionality, allowing user to see enlarged image.   |
 | inverse  | No       | Boolean   | `false`       | Changes theme to inverse/default                                       |
 

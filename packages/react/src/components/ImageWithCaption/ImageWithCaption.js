@@ -86,7 +86,7 @@ ImageWithCaption.propTypes = {
   inverse: PropTypes.bool,
   image: PropTypes.shape(Image.propTypes).isRequired,
   lightbox: PropTypes.bool,
-  heading: PropTypes.string.isRequired,
+  heading: PropTypes.string,
   copy: PropTypes.string,
   customClassName: PropTypes.string,
 };
