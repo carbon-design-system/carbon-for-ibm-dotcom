@@ -37,3 +37,9 @@
 #teconsent {
   display: none;
 }
+
+@media only percy {
+  [data-autoid='dds--privacy-cp'] {
+    visibility: hidden;
+  }
+}
