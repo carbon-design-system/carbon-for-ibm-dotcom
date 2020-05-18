@@ -29036,6 +29036,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|Table of Contents Manually define Me
                   ]
                 }
                 menuLabel="Jump to"
+                menuRule={false}
                 stickyOffset={null}
                 theme=""
               >
@@ -29210,6 +29211,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|Table of Contents Manually define Me
                   ]
                 }
                 menuLabel="Jump to"
+                menuRule={false}
                 stickyOffset={null}
                 theme=""
               >
@@ -29386,6 +29388,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|Table of Contents Manually define Me
                                 ]
                               }
                               menuLabel="Jump to"
+                              menuRule={false}
                               selectedId="8"
                               selectedTitle="Cras molestie condimentum"
                               updateState={[Function]}
@@ -29542,6 +29545,9 @@ exports[`Storyshots Patterns (Sub-Patterns)|Table of Contents Manually define Me
                           <div
                             className="bx--tableofcontents__content-wrapper"
                           >
+                            <div
+                              className="bx--tableofcontents__children__mobile"
+                            />
                             <div>
                               <a
                                 data-title="Cras molestie condimentum"
