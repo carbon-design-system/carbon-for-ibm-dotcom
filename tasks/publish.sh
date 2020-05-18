@@ -87,25 +87,11 @@ fi
 PS3='Select an option and press Enter: '
 
 # Check if logged into npm
-echo "Did you log into npm (npm login) with a user with publishing rights?"
-options_npm=(
-  "Yes"
-  "No"
-)
-select npm in "${options_npm[@]}"
-do
-    case "$npm" in
-        "Yes")
-          echo "Great!"
-          break
-          ;;
-        "No")
-          echo -e "${RED}Please log into npm first then re-run this script.${NC}"
-          exit 1
-          ;;
-        *) echo "${RED}invalid option $REPLY${NC}";;
-    esac
-done
+check_npm=$(npm whoami)
+if [ "$check_npm" != "carbon-bot" ]; then
+  echo -e "${RED}Please log into npm first then re-run this script. Aborting.${NC}";
+  exit 1;
+fi
 
 # Check if logged into Github
 echo "Did you add a Github auth token for pushing changes? (only necessary for release managers)"
