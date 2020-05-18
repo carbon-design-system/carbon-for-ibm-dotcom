@@ -12,6 +12,7 @@ import {
   boolean,
   object,
 } from '@storybook/addon-knobs';
+import { ArrowRight20 } from '@carbon/icons-react';
 import { Card } from '../';
 import React from 'react';
 import readme from '../README.md';
@@ -26,6 +27,9 @@ const knobProps = {
       type: 'local',
       copy: 'click here',
       href: 'https://example.com',
+      icon: {
+        src: ArrowRight20,
+      },
     }),
     inverse: boolean('inverse', false),
   }),
