@@ -140,9 +140,8 @@ change_logs () {
   fi
 
   body=$(printf "%s\n" "$react$patterns$vanilla$services$styles$utilities") > TEMP_RELEASENOTES.md
-  url="$repo?access_token=$token"
 
-response=$(curl -i -X POST $url \
+response=$(curl -i -H "Authorization: token $token" -X POST $repo \
 -d @- << EOF
 {
   "tag_name":"$tagname",
