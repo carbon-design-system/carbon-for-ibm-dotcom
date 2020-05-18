@@ -3076,7 +3076,7 @@ exports[`Storyshots Components|ImageWithCaption Default 1`] = `
                     className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
                   >
                     <ImageWithCaption
-                      copy=""
+                      copy="This is a description of the image."
                       heading="this is a caption"
                       image={
                         Object {
@@ -3137,7 +3137,7 @@ exports[`Storyshots Components|ImageWithCaption Default 1`] = `
                     className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
                   >
                     <ImageWithCaption
-                      copy=""
+                      copy="This is a description of the image."
                       heading="this is a caption"
                       image={
                         Object {
