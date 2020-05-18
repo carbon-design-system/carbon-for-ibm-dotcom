@@ -35,5 +35,11 @@
 
 // hide the cookie button
 #teconsent {
-  display: none;
+  visibility: hidden;
+}
+
+@media only percy {
+  [data-autoid='dds--privacy-cp'] {
+    visibility: hidden;
+  }
 }
