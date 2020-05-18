@@ -3076,6 +3076,7 @@ exports[`Storyshots Components|ImageWithCaption Default 1`] = `
                     className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
                   >
                     <ImageWithCaption
+                      copy="This is a description of the image."
                       heading="this is a caption"
                       image={
                         Object {
@@ -3094,6 +3095,7 @@ exports[`Storyshots Components|ImageWithCaption Default 1`] = `
                         }
                       }
                       inverse={false}
+                      lightbox={true}
                     />
                   </div>
                 </div>
@@ -3135,6 +3137,7 @@ exports[`Storyshots Components|ImageWithCaption Default 1`] = `
                     className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
                   >
                     <ImageWithCaption
+                      copy="This is a description of the image."
                       heading="this is a caption"
                       image={
                         Object {
@@ -3153,49 +3156,90 @@ exports[`Storyshots Components|ImageWithCaption Default 1`] = `
                         }
                       }
                       inverse={false}
+                      lightbox={true}
                     >
                       <div
                         className="bx--image-with-caption"
                         data-autoid="dds--image-with-caption"
                       >
-                        <Image
-                          alt="image with caption image"
-                          defaultSrc="https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1"
-                          sources={
-                            Array [
-                              Object {
-                                "breakpoint": "sm",
-                                "src": "https://dummyimage.com/320x160/ee5396/161616&amp;text=2x1",
-                              },
-                              Object {
-                                "breakpoint": "md",
-                                "src": "https://dummyimage.com/400x200/ee5396/161616&amp;text=2x1",
-                              },
-                            ]
-                          }
+                        <button
+                          aria-label="launch light box media viewer"
+                          className="bx--image-with-caption__image"
+                          onClick={[Function]}
                         >
-                          <picture
-                            className="bx--image"
-                            data-autoid="dds--image__longdescription-"
+                          <Image
+                            alt="image with caption image"
+                            defaultSrc="https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1"
+                            sources={
+                              Array [
+                                Object {
+                                  "breakpoint": "sm",
+                                  "src": "https://dummyimage.com/320x160/ee5396/161616&amp;text=2x1",
+                                },
+                                Object {
+                                  "breakpoint": "md",
+                                  "src": "https://dummyimage.com/400x200/ee5396/161616&amp;text=2x1",
+                                },
+                              ]
+                            }
                           >
-                            <source
-                              key="0"
-                              media="(min-width: 672px )"
-                              srcSet="https://dummyimage.com/400x200/ee5396/161616&amp;text=2x1"
-                            />
-                            <source
-                              key="1"
-                              media="(min-width: 320px )"
-                              srcSet="https://dummyimage.com/320x160/ee5396/161616&amp;text=2x1"
-                            />
-                            <img
-                              alt="image with caption image"
-                              aria-describedby=""
-                              className="bx--image__img"
-                              src="https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1"
-                            />
-                          </picture>
-                        </Image>
+                            <picture
+                              className="bx--image"
+                              data-autoid="dds--image__longdescription-"
+                            >
+                              <source
+                                key="0"
+                                media="(min-width: 672px )"
+                                srcSet="https://dummyimage.com/400x200/ee5396/161616&amp;text=2x1"
+                              />
+                              <source
+                                key="1"
+                                media="(min-width: 320px )"
+                                srcSet="https://dummyimage.com/320x160/ee5396/161616&amp;text=2x1"
+                              />
+                              <img
+                                alt="image with caption image"
+                                aria-describedby=""
+                                className="bx--image__img"
+                                src="https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1"
+                              />
+                            </picture>
+                          </Image>
+                          <div
+                            className="bx--image-with-caption__zoom-button"
+                          >
+                            <ForwardRef(ZoomIn20)
+                              aria-label="Zoom In Icon"
+                            >
+                              <Icon
+                                aria-label="Zoom In Icon"
+                                height={20}
+                                preserveAspectRatio="xMidYMid meet"
+                                viewBox="0 0 32 32"
+                                width={20}
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <svg
+                                  aria-label="Zoom In Icon"
+                                  focusable="false"
+                                  height={20}
+                                  preserveAspectRatio="xMidYMid meet"
+                                  role="img"
+                                  viewBox="0 0 32 32"
+                                  width={20}
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <polygon
+                                    points="19 13 15 13 15 9 13 9 13 13 9 13 9 15 13 15 13 19 15 19 15 15 19 15 19 13"
+                                  />
+                                  <path
+                                    d="M22.45,21A10.87,10.87,0,0,0,25,14,11,11,0,1,0,14,25a10.87,10.87,0,0,0,7-2.55L28.59,30,30,28.59ZM14,23a9,9,0,1,1,9-9A9,9,0,0,1,14,23Z"
+                                  />
+                                </svg>
+                              </Icon>
+                            </ForwardRef(ZoomIn20)>
+                          </div>
+                        </button>
                         <p
                           className="bx--image__caption--inverse"
                           data-autoid="dds--image__caption"
@@ -6082,6 +6126,7 @@ exports[`Storyshots Patterns (Blocks)|CalloutWithMedia Default 1`] = `
                                               data-autoid="dds--content-block-simple__media"
                                             >
                                               <ImageWithCaption
+                                                copy=""
                                                 heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
                                                 image={
                                                   Object {
@@ -6104,6 +6149,7 @@ exports[`Storyshots Patterns (Blocks)|CalloutWithMedia Default 1`] = `
                                                   }
                                                 }
                                                 inverse={true}
+                                                lightbox={false}
                                               >
                                                 <div
                                                   className="bx--image-with-caption bx--image-with-caption--inverse"
@@ -7352,6 +7398,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                                           data-autoid="dds--content-group-simple__media"
                                         >
                                           <ImageWithCaption
+                                            copy=""
                                             heading="Lorem ipsum dolor sit amet."
                                             image={
                                               Object {
@@ -7373,6 +7420,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                                                 ],
                                               }
                                             }
+                                            inverse={false}
+                                            lightbox={false}
                                           >
                                             <div
                                               className="bx--image-with-caption"
@@ -7700,6 +7749,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                                           data-autoid="dds--content-group-simple__media"
                                         >
                                           <ImageWithCaption
+                                            copy=""
                                             heading="Lorem ipsum dolor sit amet."
                                             image={
                                               Object {
@@ -7721,6 +7771,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                                                 ],
                                               }
                                             }
+                                            inverse={false}
+                                            lightbox={false}
                                           >
                                             <div
                                               className="bx--image-with-caption"
@@ -8810,6 +8862,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                                   data-autoid="dds--content-group-simple__media"
                                                 >
                                                   <ImageWithCaption
+                                                    copy=""
                                                     heading="Lorem ipsum dolor sit amet."
                                                     image={
                                                       Object {
@@ -8831,6 +8884,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                                         ],
                                                       }
                                                     }
+                                                    inverse={false}
+                                                    lightbox={false}
                                                   >
                                                     <div
                                                       className="bx--image-with-caption"
@@ -9158,6 +9213,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                                   data-autoid="dds--content-group-simple__media"
                                                 >
                                                   <ImageWithCaption
+                                                    copy=""
                                                     heading="Lorem ipsum dolor sit amet."
                                                     image={
                                                       Object {
@@ -9179,6 +9235,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                                         ],
                                                       }
                                                     }
+                                                    inverse={false}
+                                                    lightbox={false}
                                                   >
                                                     <div
                                                       className="bx--image-with-caption"
@@ -11543,6 +11601,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                           data-autoid="dds--content-group-simple__media"
                                         >
                                           <ImageWithCaption
+                                            copy=""
                                             heading="Lorem ipsum dolor sit amet."
                                             image={
                                               Object {
@@ -11564,6 +11623,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                                 ],
                                               }
                                             }
+                                            inverse={false}
+                                            lightbox={false}
                                           >
                                             <div
                                               className="bx--image-with-caption"
@@ -13518,6 +13579,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                   data-autoid="dds--content-group-simple__media"
                                                 >
                                                   <ImageWithCaption
+                                                    copy=""
                                                     heading="Lorem ipsum dolor sit amet."
                                                     image={
                                                       Object {
@@ -13539,6 +13601,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                         ],
                                                       }
                                                     }
+                                                    inverse={false}
+                                                    lightbox={false}
                                                   >
                                                     <div
                                                       className="bx--image-with-caption"
@@ -14381,6 +14445,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                 data-autoid="dds--content-block-segmented__media"
                               >
                                 <ImageWithCaption
+                                  copy=""
                                   heading="Mauris iaculis eget dolor nec hendrerit."
                                   image={
                                     Object {
@@ -14402,6 +14467,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                       ],
                                     }
                                   }
+                                  inverse={false}
+                                  lightbox={false}
                                 >
                                   <div
                                     className="bx--image-with-caption"
@@ -14654,6 +14721,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                         data-autoid="dds--content-block-segmented__media"
                                       >
                                         <ImageWithCaption
+                                          copy=""
                                           heading="Mauris iaculis eget dolor nec hendrerit."
                                           image={
                                             Object {
@@ -14675,6 +14743,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                               ],
                                             }
                                           }
+                                          inverse={false}
+                                          lightbox={false}
                                         >
                                           <div
                                             className="bx--image-with-caption"
@@ -15360,6 +15430,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                         data-autoid="dds--content-block-segmented__media"
                                       >
                                         <ImageWithCaption
+                                          copy=""
                                           heading="Mauris iaculis eget dolor nec hendrerit."
                                           image={
                                             Object {
@@ -15381,6 +15452,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                               ],
                                             }
                                           }
+                                          inverse={false}
+                                          lightbox={false}
                                         >
                                           <div
                                             className="bx--image-with-caption"
@@ -15536,6 +15609,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                                 data-autoid="dds--content-block-segmented__media"
                                               >
                                                 <ImageWithCaption
+                                                  copy=""
                                                   heading="Mauris iaculis eget dolor nec hendrerit."
                                                   image={
                                                     Object {
@@ -15557,6 +15631,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                                       ],
                                                     }
                                                   }
+                                                  inverse={false}
+                                                  lightbox={false}
                                                 >
                                                   <div
                                                     className="bx--image-with-caption"
@@ -16287,6 +16363,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                                   data-autoid="dds--content-block-simple__media"
                                 >
                                   <ImageWithCaption
+                                    copy=""
                                     heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
                                     image={
                                       Object {
@@ -16309,6 +16386,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                                       }
                                     }
                                     inverse={false}
+                                    lightbox={false}
                                   >
                                     <div
                                       className="bx--image-with-caption"
@@ -16869,6 +16947,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                           data-autoid="dds--content-block-simple__media"
                                         >
                                           <ImageWithCaption
+                                            copy=""
                                             heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
                                             image={
                                               Object {
@@ -16890,6 +16969,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                                 ],
                                               }
                                             }
+                                            inverse={false}
+                                            lightbox={false}
                                           >
                                             <div
                                               className="bx--image-with-caption"
@@ -19438,6 +19519,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupSimple Default 1`] = `
                                 data-autoid="dds--content-group-simple__media"
                               >
                                 <ImageWithCaption
+                                  copy=""
                                   heading="Lorem ipsum dolor sit amet."
                                   image={
                                     Object {
@@ -19459,6 +19541,8 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupSimple Default 1`] = `
                                       ],
                                     }
                                   }
+                                  inverse={false}
+                                  lightbox={false}
                                 >
                                   <div
                                     className="bx--image-with-caption"
@@ -26187,6 +26271,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentItem Default 1`] = `
                           data-autoid="dds--content-item__media"
                         >
                           <ImageWithCaption
+                            copy=""
                             heading="this is an image caption"
                             image={
                               Object {
@@ -26209,6 +26294,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentItem Default 1`] = `
                               }
                             }
                             inverse={false}
+                            lightbox={false}
                           >
                             <div
                               className="bx--image-with-caption"

@@ -45,6 +45,8 @@ export const Default = () => {
 
   const inverse = boolean('inverse', false);
 
+  const copy = text('copy', 'This is a description of the image.');
+
   return (
     <div
       className={cx('bx--grid', {
@@ -52,7 +54,13 @@ export const Default = () => {
       })}>
       <div className="bx--row">
         <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
-          <ImageWithCaption inverse={inverse} image={image} heading={heading} />
+          <ImageWithCaption
+            copy={copy}
+            inverse={inverse}
+            image={image}
+            heading={heading}
+            lightbox={boolean('lightbox', true)}
+          />
         </div>
       </div>
     </div>
