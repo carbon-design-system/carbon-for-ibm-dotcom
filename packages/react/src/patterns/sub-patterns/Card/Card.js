@@ -109,7 +109,9 @@ function renderFooter(cta, type) {
             <span>{cta.copy}</span> <cta.icon.src />
           </LinkWithIcon>
         ) : (
-          <cta.icon.src />
+          cta.icon.src && (
+            <cta.icon.src className={`${prefix}--card__cta`} {...cta.icon} />
+          )
         )}
       </div>
     )
