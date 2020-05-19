@@ -78,8 +78,6 @@
         }
 
         .#{$prefix}--link-list__list--card & {
-          @include hang;
-
           div .#{$prefix}--tile {
             margin-left: 0;
             margin-right: 0;
@@ -101,6 +99,10 @@
             border-bottom: 1px solid $ui-03;
           }
         }
+      }
+
+      &.#{$prefix}--link-list__list--card {
+        @include hang;
       }
     }
 
