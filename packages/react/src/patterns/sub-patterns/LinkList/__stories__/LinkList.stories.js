@@ -21,7 +21,7 @@ export default {
   },
 };
 
-const heading = text('heading (required):', 'Tutorials');
+const heading = text('Heading (heading):', 'Tutorials');
 const headlines = [
   'Learn more',
   'Containerization A Complete Guide',
@@ -114,7 +114,7 @@ export const Vertical = () => {
           <LinkList
             style="vertical"
             heading={heading}
-            items={object('Items array ', items)}
+            items={object('Items (items):', items)}
           />
         </div>
       </div>
@@ -130,12 +130,12 @@ export const VerticalWithCards = () => {
           <LinkList
             style="vertical"
             heading={heading}
-            items={object('Items array ', items)}
+            items={object('Items (items):', items)}
           />
           <LinkList
             style="card"
             heading={heading}
-            items={object('Items array ', items)}
+            items={object('Items (items):', items)}
           />
         </div>
       </div>
@@ -151,7 +151,7 @@ export const EndOfSection = () => {
           <LinkList
             style="vertical-end"
             heading={heading}
-            items={object('Items array ', items)}
+            items={object('Items (items):', items)}
           />
         </div>
       </div>
