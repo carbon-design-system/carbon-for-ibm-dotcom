@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { object, select, text, withKnobs } from '@storybook/addon-knobs';
+import { object, text, withKnobs } from '@storybook/addon-knobs';
 import LogoGrid from '../LogoGrid';
 import logos from './data/logos.json';
 import React from 'react';
@@ -20,19 +20,14 @@ storiesOf('Patterns (Blocks)|LogoGrid', module)
     },
   })
   .add('Default', () => {
-    const title = text(
-      'Pattern title',
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-    );
-    const themes = {
-      g10: 'g10',
-      white: '',
-    };
+    const title = text('Pattern title', 'Lorem ipsum dolor sit amet.');
     return (
-      <LogoGrid
-        title={title}
-        logosGroup={object('Data', logos)}
-        theme={select('theme', themes, themes.g10)}
-      />
+      <div className="bx--grid">
+        <div className="bx--row">
+          <div className="bx--col-sm-4 bx--col-lg-12">
+            <LogoGrid title={title} logosGroup={object('Data', logos)} />
+          </div>
+        </div>
+      </div>
     );
   });
