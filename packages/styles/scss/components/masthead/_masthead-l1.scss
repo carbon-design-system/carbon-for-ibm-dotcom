@@ -180,7 +180,9 @@ $search-transition-timing: 95ms;
   }
 
   @include carbon--breakpoint-down(lg) {
-    display: none;
+    .#{$prefix}--masthead__l1 {
+      display: none;
+    }
   }
 }
 
