@@ -12,8 +12,20 @@
     &__title {
       width: 90%;
       color: $text-01;
-      padding-top: $spacing-07;
+      padding-top: $layout-05;
       @include carbon--type-style('expressive-heading-06', true);
+
+      @include carbon--breakpoint('lg') {
+          padding-top: $layout-05;
+      }
+
+      @include carbon--breakpoint('md') {
+          padding-top: $layout-03;
+      }
+
+      @include carbon--breakpoint('sm') {
+          padding-top: $layout-03;
+      }
     }
 
     &__heading {
@@ -22,7 +34,14 @@
 
     .#{$prefix}--content-block {
       padding-top: 0;
-      padding-bottom: $spacing-05;
+      padding-bottom: $layout-05;
+
+      @include carbon--breakpoint('sm') {
+        padding-bottom: $layout-01;
+      }
+      @include carbon--breakpoint('md') {
+        padding-bottom: $layout-06;
+      }
 
       .#{$prefix}--image-with-caption {
         margin-bottom: 0;
@@ -30,16 +49,6 @@
 
       .#{$prefix}--link-list {
         padding-top: $spacing-09;
-      }
-    }
-
-    @include carbon--breakpoint('lg') {
-      &__title {
-        padding-top: $layout-05;
-      }
-
-      .#{$prefix}--content-block {
-        padding-bottom: $layout-05;
       }
     }
   }
@@ -52,9 +61,9 @@
     }
   }
 
-  .#{$prefix}--horizontal-line {
+  .#{$prefix}--hr {
     border-color: $ui-04;
-    margin-top: $layout-05;
+    margin-top: 0;
   }
 }
 

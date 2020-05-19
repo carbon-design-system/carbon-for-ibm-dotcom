@@ -26,20 +26,14 @@ import 'yourapplication.scss';
 function App() {
   const title = 'Continuous delivery';
   
-      const heading= text(
-        'Heading (required)',
-        'Innovate like a startup and scale for the enterprise '
-      );
+      const heading= 'Innovate like a startup and scale for the enterprise'
   
       const copy = `Automate your software release process with continuous delivery (CD)—the most 
       critical part of adopting DevOps. Build, test, and deploy code changes quickly, 
       ensuring software is always ready for deployment.`;
   
-      const mediaType = select(
-        'mediaType (optional)',
-        ['image', 'video', 'none'],
-        'image'
-      );
+      const mediaType = 'image';
+        
   
       const video = {
         videoId: '0_uka1msg4',
@@ -71,13 +65,13 @@ function App() {
       const mediaData = mediaType === 'image' ? image : video;
       
       const buttonprops = {
-        copy: text(`Button`, `Contact Sales`),
-        href: text('Primary button link', 'https://www.example.com'),
+        copy: `Contact Sales`,
+        href: 'https://www.example.com',
       }; 
  
       const linkListProps = {
-        heading: text('link list heading:', 'Featured products'),
-        items: object('link list items array', [
+        heading: 'Featured products',
+        items: [
           {
             type: 'local',
             copy: 'IBM Cloud Continuous Delivery',
@@ -99,7 +93,7 @@ function App() {
               href: 'https://ibm.com',
             },
           },
-        ]),
+        ],
       };
 
   return (
@@ -133,7 +127,7 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 | Name                             | Description |
 | -------------------------------- | ----------- |
-| `dds--lead-space-block`          | Pattern     |
+| `dds--leadspace-block`           | Pattern     |
 
 ## 🙌 Contributing
 

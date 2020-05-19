@@ -25,6 +25,20 @@ const _renderMedia = (type, data) => {
   }
 };
 
+/**
+ * Lead space block component (left-aligned)
+ *
+ * @param {string} props.title lead space main-heading to support the title.
+ * @param {string} props.heading lead space sub-heading to support the title.
+ * @param {string} props.copy lead space short copy to support the description.
+ * @param {string} props.mediaType media type.
+ * @param {object} props.mediaData contains media source and description.
+ * @param {object} props.items contains data for link list item.
+ * @param {object} props.items contains button data.
+
+ * @returns {*} Lead space block component
+ */
+
 const LeadSpaceBlock = ({copy, title, heading, mediaType, mediaData, items, button }) => {
 
   const pageTitle = (
