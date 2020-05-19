@@ -6,36 +6,36 @@
  */
 
 import dataContent from '../../../../../es/patterns/sub-patterns/TableOfContents/__stories__/data/dataContent';
+import { mount } from 'enzyme';
 import React from 'react';
-import { shallow } from 'enzyme';
 import TableOfContents from '../TableOfContents';
+
+const menuItems = [
+  {
+    title: 'Cras molestie condimentum',
+    id: '8',
+  },
+  {
+    title: 'Praesent fermentum sodales',
+    id: '7',
+  },
+  {
+    title: 'Nulla tristique lacinia',
+    id: '2',
+  },
+  {
+    title: 'Morbi id nibh metus',
+    id: '3',
+  },
+  {
+    title: 'Integer non scelerisque',
+    id: '14',
+  },
+];
 
 describe('TableOfContents', () => {
   it('renders as expected', () => {
-    const menuItems = [
-      {
-        title: 'Cras molestie condimentum',
-        id: '8',
-      },
-      {
-        title: 'Praesent fermentum sodales',
-        id: '7',
-      },
-      {
-        title: 'Nulla tristique lacinia',
-        id: '2',
-      },
-      {
-        title: 'Morbi id nibh metus',
-        id: '3',
-      },
-      {
-        title: 'Integer non scelerisque',
-        id: '14',
-      },
-    ];
-
-    const toc = shallow(
+    const toc = mount(
       <TableOfContents
         menuItems={menuItems}
         menuRule={true}
@@ -43,7 +43,6 @@ describe('TableOfContents', () => {
         {dataContent}
       </TableOfContents>
     );
-
     expect(toc.find('.bx--tableofcontents__desktop__item')).toHaveLength(
       menuItems.length
     );
@@ -51,9 +50,5 @@ describe('TableOfContents', () => {
       toc.find('.bx--tableofcontents__desktop__item--active')
     ).toHaveLength(1);
     menuItems.forEach(item => expect(toc.find(`[name='${item.id}']`)));
-
-    // let spy = jest.spyOn(TableOfContents.prototype, 'triggerFocus');
-
-    toc.find('[href="#2"]').simulate('click');
   });
 });

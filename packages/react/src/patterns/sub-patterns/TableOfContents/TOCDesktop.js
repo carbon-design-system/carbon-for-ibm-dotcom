@@ -66,7 +66,6 @@ const TOCDesktop = ({ menuItems, selectedId, menuRule, children }) => {
   const handleOnClick = (e, id) => {
     e.preventDefault();
     const selector = `a[name="${id}"]`;
-    triggerFocus(selector);
     smoothScroll(null, selector);
     triggerFocus(selector);
   };
@@ -91,14 +90,10 @@ const TOCDesktop = ({ menuItems, selectedId, menuRule, children }) => {
         <div className={`${prefix}--tableofcontents__desktop__children`}>
           {children}
         </div>
-      ) : (
-        false
-      )}
+      ) : null}
       {menuRule ? (
         <hr className={`${prefix}--tableofcontents__desktop__rule`} />
-      ) : (
-        false
-      )}
+      ) : null}
       <ul>{renderMenuItems(menuItems, selectedId)}</ul>
     </div>
   );

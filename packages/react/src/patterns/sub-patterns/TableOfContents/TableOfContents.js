@@ -205,7 +205,7 @@ const TableOfContents = ({
     selectedTitle,
     menuLabel,
     updateState,
-    children: children.length > 1 ? children[0] : false,
+    children: children.length > 1 ? children[0] : null,
   };
 
   /**
