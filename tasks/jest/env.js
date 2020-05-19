@@ -1,6 +1,7 @@
 const _host = 'https://ibm.com';
 const _version = 'v1';
 
+process.env.CORS_PROXY = process.env.CORS_PROXY || 'https://myproxy.com/';
 process.env.SEARCH_TYPEAHEAD_HOST = process.env.SEARCH_TYPEAHEAD_HOST || _host;
 process.env.SEARCH_TYPEAHEAD_VERSION =
   process.env.SEARCH_TYPEAHEAD_VERSION || _version;

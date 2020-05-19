@@ -10,8 +10,9 @@ import {
   markdownToHtml,
 } from '@carbon/ibmdotcom-utilities';
 import classNames from 'classnames';
-import { CTA } from '../../../components/CTA';
+import CTALogic from '../../../components/CTA/CTALogic';
 import { Image } from '../../../components/Image';
+import { LinkWithIcon } from '../../../components/LinkWithIcon';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { settings } from 'carbon-components';
@@ -37,6 +38,15 @@ export const Card = ({
   ...props
 }) => {
   const CardTile = type === 'link' ? ClickableTile : Tile;
+  const linkProps =
+    type === 'link'
+      ? {
+          target: CTALogic.external(cta.type),
+          onClick: e => {
+            cta.type === 'jump' ? CTALogic.jump(e, cta.type) : false;
+          },
+        }
+      : {};
   return (
     <CardTile
       data-autoid={`${stablePrefix}--card`}
@@ -49,6 +59,7 @@ export const Card = ({
         customClassName
       )}
       href={cta.href}
+      {...linkProps}
       {...props}>
       {image && <Image {...image} classname={`${prefix}--card__img`} />}
       <div className={`${prefix}--card__wrapper`}>
@@ -89,7 +100,14 @@ function renderFooter(cta, type) {
     cta && (
       <div className={`${prefix}--card__footer`}>
         {type !== 'link' ? (
-          <CTA style="text" {...cta} customClassName={`${prefix}--card__cta`} />
+          <LinkWithIcon
+            href={cta.href}
+            target={CTALogic.external(cta.type)}
+            onClick={e => {
+              cta.type === 'jump' ? CTALogic.jump(e, cta.type) : false;
+            }}>
+            <span>{cta.copy}</span> <cta.icon.src />
+          </LinkWithIcon>
         ) : (
           cta.icon.src && (
             <cta.icon.src className={`${prefix}--card__cta`} {...cta.icon} />
@@ -109,7 +127,11 @@ export const cardPropTypes = {
   heading: PropTypes.string,
   eyebrow: PropTypes.string,
   copy: PropTypes.string,
-  cta: PropTypes.object,
+  cta: PropTypes.shape({
+    copy: PropTypes.string,
+    href: PropTypes.string,
+    type: PropTypes.string,
+  }),
   image: PropTypes.object,
   inverse: PropTypes.bool,
   customClassName: PropTypes.string,

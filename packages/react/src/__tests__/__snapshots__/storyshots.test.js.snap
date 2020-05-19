@@ -3076,6 +3076,7 @@ exports[`Storyshots Components|ImageWithCaption Default 1`] = `
                     className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
                   >
                     <ImageWithCaption
+                      copy="This is a description of the image."
                       heading="this is a caption"
                       image={
                         Object {
@@ -3094,6 +3095,7 @@ exports[`Storyshots Components|ImageWithCaption Default 1`] = `
                         }
                       }
                       inverse={false}
+                      lightbox={true}
                     />
                   </div>
                 </div>
@@ -3135,6 +3137,7 @@ exports[`Storyshots Components|ImageWithCaption Default 1`] = `
                     className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
                   >
                     <ImageWithCaption
+                      copy="This is a description of the image."
                       heading="this is a caption"
                       image={
                         Object {
@@ -3153,49 +3156,90 @@ exports[`Storyshots Components|ImageWithCaption Default 1`] = `
                         }
                       }
                       inverse={false}
+                      lightbox={true}
                     >
                       <div
                         className="bx--image-with-caption"
                         data-autoid="dds--image-with-caption"
                       >
-                        <Image
-                          alt="image with caption image"
-                          defaultSrc="https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1"
-                          sources={
-                            Array [
-                              Object {
-                                "breakpoint": "sm",
-                                "src": "https://dummyimage.com/320x160/ee5396/161616&amp;text=2x1",
-                              },
-                              Object {
-                                "breakpoint": "md",
-                                "src": "https://dummyimage.com/400x200/ee5396/161616&amp;text=2x1",
-                              },
-                            ]
-                          }
+                        <button
+                          aria-label="launch light box media viewer"
+                          className="bx--image-with-caption__image"
+                          onClick={[Function]}
                         >
-                          <picture
-                            className="bx--image"
-                            data-autoid="dds--image__longdescription-"
+                          <Image
+                            alt="image with caption image"
+                            defaultSrc="https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1"
+                            sources={
+                              Array [
+                                Object {
+                                  "breakpoint": "sm",
+                                  "src": "https://dummyimage.com/320x160/ee5396/161616&amp;text=2x1",
+                                },
+                                Object {
+                                  "breakpoint": "md",
+                                  "src": "https://dummyimage.com/400x200/ee5396/161616&amp;text=2x1",
+                                },
+                              ]
+                            }
                           >
-                            <source
-                              key="0"
-                              media="(min-width: 672px )"
-                              srcSet="https://dummyimage.com/400x200/ee5396/161616&amp;text=2x1"
-                            />
-                            <source
-                              key="1"
-                              media="(min-width: 320px )"
-                              srcSet="https://dummyimage.com/320x160/ee5396/161616&amp;text=2x1"
-                            />
-                            <img
-                              alt="image with caption image"
-                              aria-describedby=""
-                              className="bx--image__img"
-                              src="https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1"
-                            />
-                          </picture>
-                        </Image>
+                            <picture
+                              className="bx--image"
+                              data-autoid="dds--image__longdescription-"
+                            >
+                              <source
+                                key="0"
+                                media="(min-width: 672px )"
+                                srcSet="https://dummyimage.com/400x200/ee5396/161616&amp;text=2x1"
+                              />
+                              <source
+                                key="1"
+                                media="(min-width: 320px )"
+                                srcSet="https://dummyimage.com/320x160/ee5396/161616&amp;text=2x1"
+                              />
+                              <img
+                                alt="image with caption image"
+                                aria-describedby=""
+                                className="bx--image__img"
+                                src="https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1"
+                              />
+                            </picture>
+                          </Image>
+                          <div
+                            className="bx--image-with-caption__zoom-button"
+                          >
+                            <ForwardRef(ZoomIn20)
+                              aria-label="Zoom In Icon"
+                            >
+                              <Icon
+                                aria-label="Zoom In Icon"
+                                height={20}
+                                preserveAspectRatio="xMidYMid meet"
+                                viewBox="0 0 32 32"
+                                width={20}
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <svg
+                                  aria-label="Zoom In Icon"
+                                  focusable="false"
+                                  height={20}
+                                  preserveAspectRatio="xMidYMid meet"
+                                  role="img"
+                                  viewBox="0 0 32 32"
+                                  width={20}
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <polygon
+                                    points="19 13 15 13 15 9 13 9 13 13 9 13 9 15 13 15 13 19 15 19 15 15 19 15 19 13"
+                                  />
+                                  <path
+                                    d="M22.45,21A10.87,10.87,0,0,0,25,14,11,11,0,1,0,14,25a10.87,10.87,0,0,0,7-2.55L28.59,30,30,28.59ZM14,23a9,9,0,1,1,9-9A9,9,0,0,1,14,23Z"
+                                  />
+                                </svg>
+                              </Icon>
+                            </ForwardRef(ZoomIn20)>
+                          </div>
+                        </button>
                         <p
                           className="bx--image__caption--inverse"
                           data-autoid="dds--image__caption"
@@ -5445,7 +5489,7 @@ exports[`Storyshots Components|VideoPlayer Default 1`] = `
 </Container>
 `;
 
-exports[`Storyshots Overview|Get Started Read Me 1`] = `
+exports[`Storyshots Overview|Get Started Default 1`] = `
 <Container
   story={[Function]}
 >
@@ -6082,6 +6126,7 @@ exports[`Storyshots Patterns (Blocks)|CalloutWithMedia Default 1`] = `
                                               data-autoid="dds--content-block-simple__media"
                                             >
                                               <ImageWithCaption
+                                                copy=""
                                                 heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
                                                 image={
                                                   Object {
@@ -6104,6 +6149,7 @@ exports[`Storyshots Patterns (Blocks)|CalloutWithMedia Default 1`] = `
                                                   }
                                                 }
                                                 inverse={true}
+                                                lightbox={false}
                                               >
                                                 <div
                                                   className="bx--image-with-caption bx--image-with-caption--inverse"
@@ -6448,6 +6494,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                           handleKeyDown={[Function]}
                                           href="https://www.example.com"
                                           light={false}
+                                          onClick={[Function]}
+                                          target={null}
                                         >
                                           <a
                                             className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
@@ -6455,6 +6503,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                             href="https://www.example.com"
                                             onClick={[Function]}
                                             onKeyDown={[Function]}
+                                            target={null}
                                           >
                                             <div
                                               className="bx--card__wrapper"
@@ -6558,6 +6607,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                           handleKeyDown={[Function]}
                                           href="https://www.example.com"
                                           light={false}
+                                          onClick={[Function]}
+                                          target={null}
                                         >
                                           <a
                                             className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
@@ -6565,6 +6616,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                             href="https://www.example.com"
                                             onClick={[Function]}
                                             onKeyDown={[Function]}
+                                            target={null}
                                           >
                                             <div
                                               className="bx--card__wrapper"
@@ -6668,6 +6720,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                           handleKeyDown={[Function]}
                                           href="https://www.example.com"
                                           light={false}
+                                          onClick={[Function]}
+                                          target={null}
                                         >
                                           <a
                                             className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
@@ -6675,6 +6729,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                             href="https://www.example.com"
                                             onClick={[Function]}
                                             onKeyDown={[Function]}
+                                            target={null}
                                           >
                                             <div
                                               className="bx--card__wrapper"
@@ -6778,6 +6833,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                           handleKeyDown={[Function]}
                                           href="https://www.example.com"
                                           light={false}
+                                          onClick={[Function]}
+                                          target={null}
                                         >
                                           <a
                                             className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
@@ -6785,6 +6842,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                             href="https://www.example.com"
                                             onClick={[Function]}
                                             onKeyDown={[Function]}
+                                            target={null}
                                           >
                                             <div
                                               className="bx--card__wrapper"
@@ -6888,6 +6946,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                           handleKeyDown={[Function]}
                                           href="https://www.example.com"
                                           light={false}
+                                          onClick={[Function]}
+                                          target={null}
                                         >
                                           <a
                                             className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
@@ -6895,6 +6955,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                             href="https://www.example.com"
                                             onClick={[Function]}
                                             onKeyDown={[Function]}
+                                            target={null}
                                           >
                                             <div
                                               className="bx--card__wrapper"
@@ -7447,6 +7508,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                                           data-autoid="dds--content-group-simple__media"
                                         >
                                           <ImageWithCaption
+                                            copy=""
                                             heading="Lorem ipsum dolor sit amet."
                                             image={
                                               Object {
@@ -7468,6 +7530,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                                                 ],
                                               }
                                             }
+                                            inverse={false}
+                                            lightbox={false}
                                           >
                                             <div
                                               className="bx--image-with-caption"
@@ -7647,6 +7711,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                                                   handleKeyDown={[Function]}
                                                   href="https://www.example.com"
                                                   light={false}
+                                                  onClick={[Function]}
                                                   role="region"
                                                   target={null}
                                                 >
@@ -7816,6 +7881,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                                           data-autoid="dds--content-group-simple__media"
                                         >
                                           <ImageWithCaption
+                                            copy=""
                                             heading="Lorem ipsum dolor sit amet."
                                             image={
                                               Object {
@@ -7837,6 +7903,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                                                 ],
                                               }
                                             }
+                                            inverse={false}
+                                            lightbox={false}
                                           >
                                             <div
                                               className="bx--image-with-caption"
@@ -8016,6 +8084,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                                                   handleKeyDown={[Function]}
                                                   href="https://www.example.com"
                                                   light={false}
+                                                  onClick={[Function]}
                                                   role="region"
                                                   target={null}
                                                 >
@@ -8271,6 +8340,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                                                     handleKeyDown={[Function]}
                                                     href="https://www.example.com"
                                                     light={false}
+                                                    onClick={[Function]}
                                                     target={null}
                                                   >
                                                     <a
@@ -8968,6 +9038,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                                   data-autoid="dds--content-group-simple__media"
                                                 >
                                                   <ImageWithCaption
+                                                    copy=""
                                                     heading="Lorem ipsum dolor sit amet."
                                                     image={
                                                       Object {
@@ -8989,6 +9060,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                                         ],
                                                       }
                                                     }
+                                                    inverse={false}
+                                                    lightbox={false}
                                                   >
                                                     <div
                                                       className="bx--image-with-caption"
@@ -9168,6 +9241,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                                           handleKeyDown={[Function]}
                                                           href="https://www.example.com"
                                                           light={false}
+                                                          onClick={[Function]}
                                                           role="region"
                                                           target={null}
                                                         >
@@ -9337,6 +9411,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                                   data-autoid="dds--content-group-simple__media"
                                                 >
                                                   <ImageWithCaption
+                                                    copy=""
                                                     heading="Lorem ipsum dolor sit amet."
                                                     image={
                                                       Object {
@@ -9358,6 +9433,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                                         ],
                                                       }
                                                     }
+                                                    inverse={false}
+                                                    lightbox={false}
                                                   >
                                                     <div
                                                       className="bx--image-with-caption"
@@ -9537,6 +9614,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                                           handleKeyDown={[Function]}
                                                           href="https://www.example.com"
                                                           light={false}
+                                                          onClick={[Function]}
                                                           role="region"
                                                           target={null}
                                                         >
@@ -9792,6 +9870,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                                             handleKeyDown={[Function]}
                                                             href="https://www.example.com"
                                                             light={false}
+                                                            onClick={[Function]}
                                                             target={null}
                                                           >
                                                             <a
@@ -9990,6 +10069,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                                       handleKeyDown={[Function]}
                                                       href="https://ibm.com"
                                                       light={false}
+                                                      onClick={[Function]}
                                                       role="region"
                                                       target={null}
                                                     >
@@ -10132,6 +10212,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                                       handleKeyDown={[Function]}
                                                       href="https://ibm.com"
                                                       light={false}
+                                                      onClick={[Function]}
                                                       role="region"
                                                       target="_blank"
                                                     >
@@ -10743,6 +10824,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                                   handleKeyDown={[Function]}
                                                   href="https://www.example.com"
                                                   light={false}
+                                                  onClick={[Function]}
+                                                  target={null}
                                                 >
                                                   <a
                                                     aria-label="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt"
@@ -10751,6 +10834,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                                     href="https://www.example.com"
                                                     onClick={[Function]}
                                                     onKeyDown={[Function]}
+                                                    target={null}
                                                   >
                                                     <div
                                                       className="bx--card__wrapper"
@@ -10855,6 +10939,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                                   handleKeyDown={[Function]}
                                                   href="https://www.example.com"
                                                   light={false}
+                                                  onClick={[Function]}
+                                                  target={null}
                                                 >
                                                   <a
                                                     aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
@@ -10863,6 +10949,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                                     href="https://www.example.com"
                                                     onClick={[Function]}
                                                     onKeyDown={[Function]}
+                                                    target={null}
                                                   >
                                                     <div
                                                       className="bx--card__wrapper"
@@ -10967,6 +11054,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                                   handleKeyDown={[Function]}
                                                   href="https://www.example.com"
                                                   light={false}
+                                                  onClick={[Function]}
+                                                  target={null}
                                                 >
                                                   <a
                                                     aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
@@ -10975,6 +11064,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                                     href="https://www.example.com"
                                                     onClick={[Function]}
                                                     onKeyDown={[Function]}
+                                                    target={null}
                                                   >
                                                     <div
                                                       className="bx--card__wrapper"
@@ -11079,6 +11169,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                                   handleKeyDown={[Function]}
                                                   href="https://www.example.com"
                                                   light={false}
+                                                  onClick={[Function]}
+                                                  target={null}
                                                 >
                                                   <a
                                                     aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
@@ -11087,6 +11179,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                                     href="https://www.example.com"
                                                     onClick={[Function]}
                                                     onKeyDown={[Function]}
+                                                    target={null}
                                                   >
                                                     <div
                                                       className="bx--card__wrapper"
@@ -11885,6 +11978,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                           data-autoid="dds--content-group-simple__media"
                                         >
                                           <ImageWithCaption
+                                            copy=""
                                             heading="Lorem ipsum dolor sit amet."
                                             image={
                                               Object {
@@ -11906,6 +12000,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                                 ],
                                               }
                                             }
+                                            inverse={false}
+                                            lightbox={false}
                                           >
                                             <div
                                               className="bx--image-with-caption"
@@ -12092,6 +12188,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                         handleKeyDown={[Function]}
                                         href="https://www.ibm.com"
                                         light={false}
+                                        onClick={[Function]}
                                         role="region"
                                         target={null}
                                       >
@@ -12815,6 +12912,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                           handleKeyDown={[Function]}
                                                           href="https://www.example.com"
                                                           light={false}
+                                                          onClick={[Function]}
+                                                          target={null}
                                                         >
                                                           <a
                                                             aria-label="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt"
@@ -12823,6 +12922,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                             href="https://www.example.com"
                                                             onClick={[Function]}
                                                             onKeyDown={[Function]}
+                                                            target={null}
                                                           >
                                                             <div
                                                               className="bx--card__wrapper"
@@ -12927,6 +13027,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                           handleKeyDown={[Function]}
                                                           href="https://www.example.com"
                                                           light={false}
+                                                          onClick={[Function]}
+                                                          target={null}
                                                         >
                                                           <a
                                                             aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
@@ -12935,6 +13037,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                             href="https://www.example.com"
                                                             onClick={[Function]}
                                                             onKeyDown={[Function]}
+                                                            target={null}
                                                           >
                                                             <div
                                                               className="bx--card__wrapper"
@@ -13039,6 +13142,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                           handleKeyDown={[Function]}
                                                           href="https://www.example.com"
                                                           light={false}
+                                                          onClick={[Function]}
+                                                          target={null}
                                                         >
                                                           <a
                                                             aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
@@ -13047,6 +13152,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                             href="https://www.example.com"
                                                             onClick={[Function]}
                                                             onKeyDown={[Function]}
+                                                            target={null}
                                                           >
                                                             <div
                                                               className="bx--card__wrapper"
@@ -13151,6 +13257,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                           handleKeyDown={[Function]}
                                                           href="https://www.example.com"
                                                           light={false}
+                                                          onClick={[Function]}
+                                                          target={null}
                                                         >
                                                           <a
                                                             aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
@@ -13159,6 +13267,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                             href="https://www.example.com"
                                                             onClick={[Function]}
                                                             onKeyDown={[Function]}
+                                                            target={null}
                                                           >
                                                             <div
                                                               className="bx--card__wrapper"
@@ -13957,6 +14066,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                   data-autoid="dds--content-group-simple__media"
                                                 >
                                                   <ImageWithCaption
+                                                    copy=""
                                                     heading="Lorem ipsum dolor sit amet."
                                                     image={
                                                       Object {
@@ -13978,6 +14088,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                         ],
                                                       }
                                                     }
+                                                    inverse={false}
+                                                    lightbox={false}
                                                   >
                                                     <div
                                                       className="bx--image-with-caption"
@@ -14164,6 +14276,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                 handleKeyDown={[Function]}
                                                 href="https://www.ibm.com"
                                                 light={false}
+                                                onClick={[Function]}
                                                 role="region"
                                                 target={null}
                                               >
@@ -14344,6 +14457,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                       handleKeyDown={[Function]}
                                                       href="https://ibm.com"
                                                       light={false}
+                                                      onClick={[Function]}
                                                       role="region"
                                                       target={null}
                                                     >
@@ -14486,6 +14600,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                       handleKeyDown={[Function]}
                                                       href="https://ibm.com"
                                                       light={false}
+                                                      onClick={[Function]}
                                                       role="region"
                                                       target="_blank"
                                                     >
@@ -14646,12 +14761,22 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                             "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.
 
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.",
+                            "cta": Object {
+                              "copy": "Lorem Ipsum dolor sit",
+                              "href": "https://example.com",
+                              "type": "local",
+                            },
                             "heading": "Lorem ipsum dolor sit amet.",
                           },
                           Object {
                             "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.
 
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.",
+                            "cta": Object {
+                              "copy": "Lorem Ipsum dolor sit",
+                              "href": "https://example.com",
+                              "type": "local",
+                            },
                             "heading": "Lorem ipsum dolor sit amet.",
                             "image": Object {
                               "heading": "Mauris iaculis eget dolor nec hendrerit.",
@@ -14762,12 +14887,22 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                             "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.
 
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.",
+                            "cta": Object {
+                              "copy": "Lorem Ipsum dolor sit",
+                              "href": "https://example.com",
+                              "type": "local",
+                            },
                             "heading": "Lorem ipsum dolor sit amet.",
                           },
                           Object {
                             "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.
 
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.",
+                            "cta": Object {
+                              "copy": "Lorem Ipsum dolor sit",
+                              "href": "https://example.com",
+                              "type": "local",
+                            },
                             "heading": "Lorem ipsum dolor sit amet.",
                             "image": Object {
                               "heading": "Mauris iaculis eget dolor nec hendrerit.",
@@ -14866,6 +15001,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                 data-autoid="dds--content-block-segmented__media"
                               >
                                 <ImageWithCaption
+                                  copy=""
                                   heading="Mauris iaculis eget dolor nec hendrerit."
                                   image={
                                     Object {
@@ -14887,6 +15023,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                       ],
                                     }
                                   }
+                                  inverse={false}
+                                  lightbox={false}
                                 >
                                   <div
                                     className="bx--image-with-caption"
@@ -14949,6 +15087,14 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                 </ImageWithCaption>
                               </div>
                               <ContentGroup
+                                cta={
+                                  Object {
+                                    "copy": "Lorem Ipsum dolor sit",
+                                    "href": "https://example.com",
+                                    "style": "text",
+                                    "type": "local",
+                                  }
+                                }
                                 heading="Lorem ipsum dolor sit amet."
                                 key="0"
                               >
@@ -14992,9 +15138,100 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                       </ContentItem>
                                     </div>
                                   </div>
+                                  <div
+                                    className="bx--content-group__cta-row"
+                                    data-autoid="dds--content-group__cta"
+                                  >
+                                    <CTA
+                                      copy="Lorem Ipsum dolor sit"
+                                      customClassName="bx--content-group__cta"
+                                      href="https://example.com"
+                                      style="text"
+                                      type="local"
+                                    >
+                                      <div
+                                        className="bx--content-group__cta"
+                                      >
+                                        <TextCTA
+                                          copy="Lorem Ipsum dolor sit"
+                                          href="https://example.com"
+                                          openLightBox={[Function]}
+                                          renderLightBox={false}
+                                          style="text"
+                                          type="local"
+                                          videoTitle={
+                                            Array [
+                                              Object {
+                                                "key": 0,
+                                                "title": "",
+                                              },
+                                            ]
+                                          }
+                                        >
+                                          <LinkWithIcon
+                                            href="https://example.com"
+                                            onClick={[Function]}
+                                            target={null}
+                                          >
+                                            <div
+                                              className="bx--link-with-icon__container"
+                                              data-autoid="dds--link-with-icon"
+                                            >
+                                              <Link
+                                                className="bx--link-with-icon"
+                                                href="https://example.com"
+                                                onClick={[Function]}
+                                                target={null}
+                                              >
+                                                <a
+                                                  className="bx--link bx--link-with-icon"
+                                                  href="https://example.com"
+                                                  onClick={[Function]}
+                                                  target={null}
+                                                >
+                                                  Lorem Ipsum dolor sit
+                                                  <ForwardRef(ArrowRight20)>
+                                                    <Icon
+                                                      height={20}
+                                                      preserveAspectRatio="xMidYMid meet"
+                                                      viewBox="0 0 20 20"
+                                                      width={20}
+                                                      xmlns="http://www.w3.org/2000/svg"
+                                                    >
+                                                      <svg
+                                                        aria-hidden={true}
+                                                        focusable="false"
+                                                        height={20}
+                                                        preserveAspectRatio="xMidYMid meet"
+                                                        viewBox="0 0 20 20"
+                                                        width={20}
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                      >
+                                                        <polygon
+                                                          points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
+                                                        />
+                                                      </svg>
+                                                    </Icon>
+                                                  </ForwardRef(ArrowRight20)>
+                                                </a>
+                                              </Link>
+                                            </div>
+                                          </LinkWithIcon>
+                                        </TextCTA>
+                                      </div>
+                                    </CTA>
+                                  </div>
                                 </div>
                               </ContentGroup>
                               <ContentGroup
+                                cta={
+                                  Object {
+                                    "copy": "Lorem Ipsum dolor sit",
+                                    "href": "https://example.com",
+                                    "style": "text",
+                                    "type": "local",
+                                  }
+                                }
                                 heading="Lorem ipsum dolor sit amet."
                                 key="1"
                               >
@@ -15040,6 +15277,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                         data-autoid="dds--content-block-segmented__media"
                                       >
                                         <ImageWithCaption
+                                          copy=""
                                           heading="Mauris iaculis eget dolor nec hendrerit."
                                           image={
                                             Object {
@@ -15061,6 +15299,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                               ],
                                             }
                                           }
+                                          inverse={false}
+                                          lightbox={false}
                                         >
                                           <div
                                             className="bx--image-with-caption"
@@ -15123,6 +15363,89 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                         </ImageWithCaption>
                                       </div>
                                     </div>
+                                  </div>
+                                  <div
+                                    className="bx--content-group__cta-row"
+                                    data-autoid="dds--content-group__cta"
+                                  >
+                                    <CTA
+                                      copy="Lorem Ipsum dolor sit"
+                                      customClassName="bx--content-group__cta"
+                                      href="https://example.com"
+                                      style="text"
+                                      type="local"
+                                    >
+                                      <div
+                                        className="bx--content-group__cta"
+                                      >
+                                        <TextCTA
+                                          copy="Lorem Ipsum dolor sit"
+                                          href="https://example.com"
+                                          openLightBox={[Function]}
+                                          renderLightBox={false}
+                                          style="text"
+                                          type="local"
+                                          videoTitle={
+                                            Array [
+                                              Object {
+                                                "key": 0,
+                                                "title": "",
+                                              },
+                                            ]
+                                          }
+                                        >
+                                          <LinkWithIcon
+                                            href="https://example.com"
+                                            onClick={[Function]}
+                                            target={null}
+                                          >
+                                            <div
+                                              className="bx--link-with-icon__container"
+                                              data-autoid="dds--link-with-icon"
+                                            >
+                                              <Link
+                                                className="bx--link-with-icon"
+                                                href="https://example.com"
+                                                onClick={[Function]}
+                                                target={null}
+                                              >
+                                                <a
+                                                  className="bx--link bx--link-with-icon"
+                                                  href="https://example.com"
+                                                  onClick={[Function]}
+                                                  target={null}
+                                                >
+                                                  Lorem Ipsum dolor sit
+                                                  <ForwardRef(ArrowRight20)>
+                                                    <Icon
+                                                      height={20}
+                                                      preserveAspectRatio="xMidYMid meet"
+                                                      viewBox="0 0 20 20"
+                                                      width={20}
+                                                      xmlns="http://www.w3.org/2000/svg"
+                                                    >
+                                                      <svg
+                                                        aria-hidden={true}
+                                                        focusable="false"
+                                                        height={20}
+                                                        preserveAspectRatio="xMidYMid meet"
+                                                        viewBox="0 0 20 20"
+                                                        width={20}
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                      >
+                                                        <polygon
+                                                          points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
+                                                        />
+                                                      </svg>
+                                                    </Icon>
+                                                  </ForwardRef(ArrowRight20)>
+                                                </a>
+                                              </Link>
+                                            </div>
+                                          </LinkWithIcon>
+                                        </TextCTA>
+                                      </div>
+                                    </CTA>
                                   </div>
                                 </div>
                               </ContentGroup>
@@ -15192,6 +15515,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                         handleKeyDown={[Function]}
                                         href="https://www.example.com"
                                         light={false}
+                                        onClick={[Function]}
                                         role="region"
                                         target={null}
                                       >
@@ -15684,6 +16008,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                         data-autoid="dds--content-block-segmented__media"
                                       >
                                         <ImageWithCaption
+                                          copy=""
                                           heading="Mauris iaculis eget dolor nec hendrerit."
                                           image={
                                             Object {
@@ -15705,6 +16030,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                               ],
                                             }
                                           }
+                                          inverse={false}
+                                          lightbox={false}
                                         >
                                           <div
                                             className="bx--image-with-caption"
@@ -15767,6 +16094,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                         </ImageWithCaption>
                                       </div>
                                       <ContentGroup
+                                        cta={false}
                                         heading="Lorem ipsum dolor sit amet."
                                         key="0"
                                       >
@@ -15813,6 +16141,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                         </div>
                                       </ContentGroup>
                                       <ContentGroup
+                                        cta={false}
                                         heading="Lorem ipsum dolor sit amet."
                                         key="1"
                                       >
@@ -15858,6 +16187,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                                 data-autoid="dds--content-block-segmented__media"
                                               >
                                                 <ImageWithCaption
+                                                  copy=""
                                                   heading="Mauris iaculis eget dolor nec hendrerit."
                                                   image={
                                                     Object {
@@ -15879,6 +16209,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                                       ],
                                                     }
                                                   }
+                                                  inverse={false}
+                                                  lightbox={false}
                                                 >
                                                   <div
                                                     className="bx--image-with-caption"
@@ -16010,6 +16342,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                                 handleKeyDown={[Function]}
                                                 href="https://www.example.com"
                                                 light={false}
+                                                onClick={[Function]}
                                                 role="region"
                                                 target={null}
                                               >
@@ -16190,6 +16523,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                                       handleKeyDown={[Function]}
                                                       href="https://ibm.com"
                                                       light={false}
+                                                      onClick={[Function]}
                                                       role="region"
                                                       target={null}
                                                     >
@@ -16332,6 +16666,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                                       handleKeyDown={[Function]}
                                                       href="https://ibm.com"
                                                       light={false}
+                                                      onClick={[Function]}
                                                       role="region"
                                                       target="_blank"
                                                     >
@@ -16675,6 +17010,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                                   data-autoid="dds--content-block-simple__media"
                                 >
                                   <ImageWithCaption
+                                    copy=""
                                     heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
                                     image={
                                       Object {
@@ -16697,6 +17033,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                                       }
                                     }
                                     inverse={false}
+                                    lightbox={false}
                                   >
                                     <div
                                       className="bx--image-with-caption"
@@ -16827,6 +17164,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                                         handleKeyDown={[Function]}
                                         href="https://www.ibm.com"
                                         light={false}
+                                        onClick={[Function]}
                                         role="region"
                                         target={null}
                                       >
@@ -17278,6 +17616,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                           data-autoid="dds--content-block-simple__media"
                                         >
                                           <ImageWithCaption
+                                            copy=""
                                             heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
                                             image={
                                               Object {
@@ -17299,6 +17638,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                                 ],
                                               }
                                             }
+                                            inverse={false}
+                                            lightbox={false}
                                           >
                                             <div
                                               className="bx--image-with-caption"
@@ -17429,6 +17770,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                                 handleKeyDown={[Function]}
                                                 href="https://www.ibm.com"
                                                 light={false}
+                                                onClick={[Function]}
                                                 role="region"
                                                 target={null}
                                               >
@@ -17609,6 +17951,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                                       handleKeyDown={[Function]}
                                                       href="https://ibm.com"
                                                       light={false}
+                                                      onClick={[Function]}
                                                       role="region"
                                                       target={null}
                                                     >
@@ -17751,6 +18094,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                                       handleKeyDown={[Function]}
                                                       href="https://ibm.com"
                                                       light={false}
+                                                      onClick={[Function]}
                                                       role="region"
                                                       target="_blank"
                                                     >
@@ -18060,6 +18404,8 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
                                         handleKeyDown={[Function]}
                                         href="https://www.example.com"
                                         light={false}
+                                        onClick={[Function]}
+                                        target={null}
                                       >
                                         <a
                                           aria-label="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt"
@@ -18068,6 +18414,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
                                           href="https://www.example.com"
                                           onClick={[Function]}
                                           onKeyDown={[Function]}
+                                          target={null}
                                         >
                                           <div
                                             className="bx--card__wrapper"
@@ -18172,6 +18519,8 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
                                         handleKeyDown={[Function]}
                                         href="https://www.example.com"
                                         light={false}
+                                        onClick={[Function]}
+                                        target={null}
                                       >
                                         <a
                                           aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
@@ -18180,6 +18529,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
                                           href="https://www.example.com"
                                           onClick={[Function]}
                                           onKeyDown={[Function]}
+                                          target={null}
                                         >
                                           <div
                                             className="bx--card__wrapper"
@@ -18284,6 +18634,8 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
                                         handleKeyDown={[Function]}
                                         href="https://www.example.com"
                                         light={false}
+                                        onClick={[Function]}
+                                        target={null}
                                       >
                                         <a
                                           aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
@@ -18292,6 +18644,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
                                           href="https://www.example.com"
                                           onClick={[Function]}
                                           onKeyDown={[Function]}
+                                          target={null}
                                         >
                                           <div
                                             className="bx--card__wrapper"
@@ -18396,6 +18749,8 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
                                         handleKeyDown={[Function]}
                                         href="https://www.example.com"
                                         light={false}
+                                        onClick={[Function]}
+                                        target={null}
                                       >
                                         <a
                                           aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
@@ -18404,6 +18759,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
                                           href="https://www.example.com"
                                           onClick={[Function]}
                                           onKeyDown={[Function]}
+                                          target={null}
                                         >
                                           <div
                                             className="bx--card__wrapper"
@@ -19989,6 +20345,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupSimple Default 1`] = `
                                 data-autoid="dds--content-group-simple__media"
                               >
                                 <ImageWithCaption
+                                  copy=""
                                   heading="Lorem ipsum dolor sit amet."
                                   image={
                                     Object {
@@ -20010,6 +20367,8 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupSimple Default 1`] = `
                                       ],
                                     }
                                   }
+                                  inverse={false}
+                                  lightbox={false}
                                 >
                                   <div
                                     className="bx--image-with-caption"
@@ -20189,6 +20548,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupSimple Default 1`] = `
                                         handleKeyDown={[Function]}
                                         href="https://www.example.com"
                                         light={false}
+                                        onClick={[Function]}
                                         role="region"
                                         target={null}
                                       >
@@ -20438,6 +20798,8 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockLarge Default 1`] = `
                             handleKeyDown={[Function]}
                             href="https://www.example.com"
                             light={false}
+                            onClick={[Function]}
+                            target={null}
                           >
                             <a
                               className="bx--tile bx--tile--clickable bx--card bx--card--inverse bx--card--link bx--feature-card-block-large__card"
@@ -20445,6 +20807,7 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockLarge Default 1`] = `
                               href="https://www.example.com"
                               onClick={[Function]}
                               onKeyDown={[Function]}
+                              target={null}
                             >
                               <Image
                                 alt="Image alt text"
@@ -20741,6 +21104,8 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockMedium Default 1`] = `
                                       handleKeyDown={[Function]}
                                       href="https://www.example.com"
                                       light={false}
+                                      onClick={[Function]}
+                                      target={null}
                                     >
                                       <a
                                         className="bx--tile bx--tile--clickable bx--card bx--card--inverse bx--card--link bx--feature-card__card"
@@ -20748,6 +21113,7 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockMedium Default 1`] = `
                                         href="https://www.example.com"
                                         onClick={[Function]}
                                         onKeyDown={[Function]}
+                                        target={null}
                                       >
                                         <Image
                                           alt="Image alt text"
@@ -21740,6 +22106,7 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
                     },
                   ]
                 }
+                theme="g10"
               />
             </React.Fragment>,
             "type": "STORY",
@@ -21816,9 +22183,10 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
                     },
                   ]
                 }
+                theme="g10"
               >
                 <section
-                  className="bx--cta-section"
+                  className="bx--cta-section bx--cta-section--g10"
                   data-autoid="dds--cta-section"
                 >
                   <ContentBlock
@@ -22579,6 +22947,8 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                     handleKeyDown={[Function]}
                                     href="https://www.example.com"
                                     light={false}
+                                    onClick={[Function]}
+                                    target={null}
                                   >
                                     <a
                                       className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
@@ -22586,6 +22956,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                       href="https://www.example.com"
                                       onClick={[Function]}
                                       onKeyDown={[Function]}
+                                      target={null}
                                     >
                                       <Image
                                         alt="Image alt text"
@@ -22709,6 +23080,8 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                     handleKeyDown={[Function]}
                                     href="https://www.example.com"
                                     light={false}
+                                    onClick={[Function]}
+                                    target={null}
                                   >
                                     <a
                                       className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
@@ -22716,6 +23089,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                       href="https://www.example.com"
                                       onClick={[Function]}
                                       onKeyDown={[Function]}
+                                      target={null}
                                     >
                                       <Image
                                         alt="Image alt text"
@@ -22839,6 +23213,8 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                     handleKeyDown={[Function]}
                                     href="https://www.example.com"
                                     light={false}
+                                    onClick={[Function]}
+                                    target={null}
                                   >
                                     <a
                                       className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
@@ -22846,6 +23222,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                       href="https://www.example.com"
                                       onClick={[Function]}
                                       onKeyDown={[Function]}
+                                      target={null}
                                     >
                                       <Image
                                         alt="Image alt text"
@@ -22969,6 +23346,8 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                     handleKeyDown={[Function]}
                                     href="https://www.example.com"
                                     light={false}
+                                    onClick={[Function]}
+                                    target={null}
                                   >
                                     <a
                                       className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
@@ -22976,6 +23355,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                       href="https://www.example.com"
                                       onClick={[Function]}
                                       onKeyDown={[Function]}
+                                      target={null}
                                     >
                                       <Image
                                         alt="Image alt text"
@@ -23099,6 +23479,8 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                     handleKeyDown={[Function]}
                                     href="https://www.example.com"
                                     light={false}
+                                    onClick={[Function]}
+                                    target={null}
                                   >
                                     <a
                                       className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
@@ -23106,6 +23488,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                       href="https://www.example.com"
                                       onClick={[Function]}
                                       onKeyDown={[Function]}
+                                      target={null}
                                     >
                                       <Image
                                         alt="Image alt text"
@@ -23473,6 +23856,8 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                     handleKeyDown={[Function]}
                                     href="https://www.example.com"
                                     light={false}
+                                    onClick={[Function]}
+                                    target={null}
                                   >
                                     <a
                                       className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
@@ -23480,6 +23865,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                       href="https://www.example.com"
                                       onClick={[Function]}
                                       onKeyDown={[Function]}
+                                      target={null}
                                     >
                                       <div
                                         className="bx--card__wrapper"
@@ -23583,6 +23969,8 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                     handleKeyDown={[Function]}
                                     href="https://www.example.com"
                                     light={false}
+                                    onClick={[Function]}
+                                    target={null}
                                   >
                                     <a
                                       className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
@@ -23590,6 +23978,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                       href="https://www.example.com"
                                       onClick={[Function]}
                                       onKeyDown={[Function]}
+                                      target={null}
                                     >
                                       <div
                                         className="bx--card__wrapper"
@@ -23693,6 +24082,8 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                     handleKeyDown={[Function]}
                                     href="https://www.example.com"
                                     light={false}
+                                    onClick={[Function]}
+                                    target={null}
                                   >
                                     <a
                                       className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
@@ -23700,6 +24091,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                       href="https://www.example.com"
                                       onClick={[Function]}
                                       onKeyDown={[Function]}
+                                      target={null}
                                     >
                                       <div
                                         className="bx--card__wrapper"
@@ -23803,6 +24195,8 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                     handleKeyDown={[Function]}
                                     href="https://www.example.com"
                                     light={false}
+                                    onClick={[Function]}
+                                    target={null}
                                   >
                                     <a
                                       className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
@@ -23810,6 +24204,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                       href="https://www.example.com"
                                       onClick={[Function]}
                                       onKeyDown={[Function]}
+                                      target={null}
                                     >
                                       <div
                                         className="bx--card__wrapper"
@@ -23913,6 +24308,8 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                     handleKeyDown={[Function]}
                                     href="https://www.example.com"
                                     light={false}
+                                    onClick={[Function]}
+                                    target={null}
                                   >
                                     <a
                                       className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
@@ -23920,6 +24317,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                       href="https://www.example.com"
                                       onClick={[Function]}
                                       onKeyDown={[Function]}
+                                      target={null}
                                     >
                                       <div
                                         className="bx--card__wrapper"
@@ -24018,6 +24416,8 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                     handleKeyDown={[Function]}
                                     href="https://www.example.com"
                                     light={false}
+                                    onClick={[Function]}
+                                    target={null}
                                   >
                                     <a
                                       className="bx--tile bx--tile--clickable bx--card bx--card--inverse bx--card--link"
@@ -24025,6 +24425,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                       href="https://www.example.com"
                                       onClick={[Function]}
                                       onKeyDown={[Function]}
+                                      target={null}
                                     >
                                       <div
                                         className="bx--card__wrapper"
@@ -25510,6 +25911,8 @@ exports[`Storyshots Patterns (Sub-Patterns)|Card Link/Clickable 1`] = `
                           handleKeyDown={[Function]}
                           href="https://example.com"
                           light={false}
+                          onClick={[Function]}
+                          target={null}
                         >
                           <a
                             className="bx--tile bx--tile--clickable bx--card bx--card--link"
@@ -25517,6 +25920,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|Card Link/Clickable 1`] = `
                             href="https://example.com"
                             onClick={[Function]}
                             onKeyDown={[Function]}
+                            target={null}
                           >
                             <div
                               className="bx--card__wrapper"
@@ -25745,100 +26149,58 @@ exports[`Storyshots Patterns (Sub-Patterns)|Card Static 1`] = `
                               <div
                                 className="bx--card__footer"
                               >
-                                <CTA
-                                  copy="click here"
-                                  customClassName="bx--card__cta"
+                                <LinkWithIcon
                                   href="https://example.com"
-                                  icon={
-                                    Object {
-                                      "src": Object {
-                                        "$$typeof": Symbol(react.forward_ref),
-                                        "render": [Function],
-                                      },
-                                    }
-                                  }
-                                  style="text"
-                                  type="local"
+                                  onClick={[Function]}
+                                  target={null}
                                 >
                                   <div
-                                    className="bx--card__cta"
+                                    className="bx--link-with-icon__container"
+                                    data-autoid="dds--link-with-icon"
                                   >
-                                    <TextCTA
-                                      copy="click here"
+                                    <Link
+                                      className="bx--link-with-icon"
                                       href="https://example.com"
-                                      icon={
-                                        Object {
-                                          "src": Object {
-                                            "$$typeof": Symbol(react.forward_ref),
-                                            "render": [Function],
-                                          },
-                                        }
-                                      }
-                                      openLightBox={[Function]}
-                                      renderLightBox={false}
-                                      style="text"
-                                      type="local"
-                                      videoTitle={
-                                        Array [
-                                          Object {
-                                            "key": 0,
-                                            "title": "",
-                                          },
-                                        ]
-                                      }
+                                      onClick={[Function]}
+                                      target={null}
                                     >
-                                      <LinkWithIcon
+                                      <a
+                                        className="bx--link bx--link-with-icon"
                                         href="https://example.com"
                                         onClick={[Function]}
                                         target={null}
                                       >
-                                        <div
-                                          className="bx--link-with-icon__container"
-                                          data-autoid="dds--link-with-icon"
-                                        >
-                                          <Link
-                                            className="bx--link-with-icon"
-                                            href="https://example.com"
-                                            onClick={[Function]}
-                                            target={null}
+                                        <span>
+                                          click here
+                                        </span>
+                                         
+                                        <ForwardRef(ArrowRight20)>
+                                          <Icon
+                                            height={20}
+                                            preserveAspectRatio="xMidYMid meet"
+                                            viewBox="0 0 20 20"
+                                            width={20}
+                                            xmlns="http://www.w3.org/2000/svg"
                                           >
-                                            <a
-                                              className="bx--link bx--link-with-icon"
-                                              href="https://example.com"
-                                              onClick={[Function]}
-                                              target={null}
+                                            <svg
+                                              aria-hidden={true}
+                                              focusable="false"
+                                              height={20}
+                                              preserveAspectRatio="xMidYMid meet"
+                                              viewBox="0 0 20 20"
+                                              width={20}
+                                              xmlns="http://www.w3.org/2000/svg"
                                             >
-                                              click here
-                                              <ForwardRef(ArrowRight20)>
-                                                <Icon
-                                                  height={20}
-                                                  preserveAspectRatio="xMidYMid meet"
-                                                  viewBox="0 0 20 20"
-                                                  width={20}
-                                                  xmlns="http://www.w3.org/2000/svg"
-                                                >
-                                                  <svg
-                                                    aria-hidden={true}
-                                                    focusable="false"
-                                                    height={20}
-                                                    preserveAspectRatio="xMidYMid meet"
-                                                    viewBox="0 0 20 20"
-                                                    width={20}
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                  >
-                                                    <polygon
-                                                      points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
-                                                    />
-                                                  </svg>
-                                                </Icon>
-                                              </ForwardRef(ArrowRight20)>
-                                            </a>
-                                          </Link>
-                                        </div>
-                                      </LinkWithIcon>
-                                    </TextCTA>
+                                              <polygon
+                                                points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
+                                              />
+                                            </svg>
+                                          </Icon>
+                                        </ForwardRef(ArrowRight20)>
+                                      </a>
+                                    </Link>
                                   </div>
-                                </CTA>
+                                </LinkWithIcon>
                               </div>
                             </div>
                           </div>
@@ -26063,6 +26425,8 @@ exports[`Storyshots Patterns (Sub-Patterns)|CardGroup default 1`] = `
                               handleKeyDown={[Function]}
                               href="https://www.example.com"
                               light={false}
+                              onClick={[Function]}
+                              target={null}
                             >
                               <a
                                 className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
@@ -26070,6 +26434,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|CardGroup default 1`] = `
                                 href="https://www.example.com"
                                 onClick={[Function]}
                                 onKeyDown={[Function]}
+                                target={null}
                               >
                                 <div
                                   className="bx--card__wrapper"
@@ -26173,6 +26538,8 @@ exports[`Storyshots Patterns (Sub-Patterns)|CardGroup default 1`] = `
                               handleKeyDown={[Function]}
                               href="https://www.example.com"
                               light={false}
+                              onClick={[Function]}
+                              target={null}
                             >
                               <a
                                 className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
@@ -26180,6 +26547,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|CardGroup default 1`] = `
                                 href="https://www.example.com"
                                 onClick={[Function]}
                                 onKeyDown={[Function]}
+                                target={null}
                               >
                                 <div
                                   className="bx--card__wrapper"
@@ -26283,6 +26651,8 @@ exports[`Storyshots Patterns (Sub-Patterns)|CardGroup default 1`] = `
                               handleKeyDown={[Function]}
                               href="https://www.example.com"
                               light={false}
+                              onClick={[Function]}
+                              target={null}
                             >
                               <a
                                 className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
@@ -26290,6 +26660,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|CardGroup default 1`] = `
                                 href="https://www.example.com"
                                 onClick={[Function]}
                                 onKeyDown={[Function]}
+                                target={null}
                               >
                                 <div
                                   className="bx--card__wrapper"
@@ -26393,6 +26764,8 @@ exports[`Storyshots Patterns (Sub-Patterns)|CardGroup default 1`] = `
                               handleKeyDown={[Function]}
                               href="https://www.example.com"
                               light={false}
+                              onClick={[Function]}
+                              target={null}
                             >
                               <a
                                 className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
@@ -26400,6 +26773,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|CardGroup default 1`] = `
                                 href="https://www.example.com"
                                 onClick={[Function]}
                                 onKeyDown={[Function]}
+                                target={null}
                               >
                                 <div
                                   className="bx--card__wrapper"
@@ -26503,6 +26877,8 @@ exports[`Storyshots Patterns (Sub-Patterns)|CardGroup default 1`] = `
                               handleKeyDown={[Function]}
                               href="https://www.example.com"
                               light={false}
+                              onClick={[Function]}
+                              target={null}
                             >
                               <a
                                 className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
@@ -26510,6 +26886,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|CardGroup default 1`] = `
                                 href="https://www.example.com"
                                 onClick={[Function]}
                                 onKeyDown={[Function]}
+                                target={null}
                               >
                                 <div
                                   className="bx--card__wrapper"
@@ -26608,6 +26985,8 @@ exports[`Storyshots Patterns (Sub-Patterns)|CardGroup default 1`] = `
                               handleKeyDown={[Function]}
                               href="https://www.example.com"
                               light={false}
+                              onClick={[Function]}
+                              target={null}
                             >
                               <a
                                 className="bx--tile bx--tile--clickable bx--card bx--card--inverse bx--card--link"
@@ -26615,6 +26994,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|CardGroup default 1`] = `
                                 href="https://www.example.com"
                                 onClick={[Function]}
                                 onKeyDown={[Function]}
+                                target={null}
                               >
                                 <div
                                   className="bx--card__wrapper"
@@ -26893,6 +27273,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock Default 1`] = `
                                     handleKeyDown={[Function]}
                                     href="https://www.example.com"
                                     light={false}
+                                    onClick={[Function]}
                                     role="region"
                                     target="_blank"
                                   >
@@ -27285,6 +27666,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock With aside elements 1`]
                                             handleKeyDown={[Function]}
                                             href="https://www.example.com"
                                             light={false}
+                                            onClick={[Function]}
                                             role="region"
                                             target="_blank"
                                           >
@@ -27468,6 +27850,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock With aside elements 1`]
                                                   handleKeyDown={[Function]}
                                                   href="https://ibm.com"
                                                   light={false}
+                                                  onClick={[Function]}
                                                   role="region"
                                                   target={null}
                                                 >
@@ -27610,6 +27993,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock With aside elements 1`]
                                                   handleKeyDown={[Function]}
                                                   href="https://ibm.com"
                                                   light={false}
+                                                  onClick={[Function]}
                                                   role="region"
                                                   target="_blank"
                                                 >
@@ -27889,6 +28273,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentGroup Default 1`] = `
                                     handleKeyDown={[Function]}
                                     href="https://www.example.com"
                                     light={false}
+                                    onClick={[Function]}
                                     role="region"
                                     target={null}
                                   >
@@ -28141,6 +28526,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentItem Default 1`] = `
                           data-autoid="dds--content-item__media"
                         >
                           <ImageWithCaption
+                            copy=""
                             heading="this is an image caption"
                             image={
                               Object {
@@ -28163,6 +28549,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentItem Default 1`] = `
                               }
                             }
                             inverse={false}
+                            lightbox={false}
                           >
                             <div
                               className="bx--image-with-caption"
@@ -28899,6 +29286,8 @@ exports[`Storyshots Patterns (Sub-Patterns)|FeatureCard Default 1`] = `
                             handleKeyDown={[Function]}
                             href="https://www.example.com"
                             light={false}
+                            onClick={[Function]}
+                            target={null}
                           >
                             <a
                               className="bx--tile bx--tile--clickable bx--card bx--card--inverse bx--card--link bx--feature-card__card"
@@ -28906,6 +29295,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|FeatureCard Default 1`] = `
                               href="https://www.example.com"
                               onClick={[Function]}
                               onKeyDown={[Function]}
+                              target={null}
                             >
                               <Image
                                 alt="Image alt text"
@@ -29763,6 +30153,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|LinkList Default 1`] = `
                                       handleKeyDown={[Function]}
                                       href="https://ibm.com"
                                       light={false}
+                                      onClick={[Function]}
                                       role="region"
                                       target={null}
                                     >
@@ -29905,6 +30296,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|LinkList Default 1`] = `
                                       handleKeyDown={[Function]}
                                       href="https://ibm.com"
                                       light={false}
+                                      onClick={[Function]}
                                       role="region"
                                       target={null}
                                     >
@@ -30046,6 +30438,8 @@ exports[`Storyshots Patterns (Sub-Patterns)|LinkList Default 1`] = `
                                         handleKeyDown={[Function]}
                                         href="#"
                                         light={false}
+                                        onClick={[Function]}
+                                        target={null}
                                       >
                                         <a
                                           className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
@@ -30053,6 +30447,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|LinkList Default 1`] = `
                                           href="#"
                                           onClick={[Function]}
                                           onKeyDown={[Function]}
+                                          target={null}
                                         >
                                           <div
                                             className="bx--card__wrapper"
