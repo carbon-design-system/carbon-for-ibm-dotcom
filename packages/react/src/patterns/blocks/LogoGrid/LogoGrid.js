@@ -4,7 +4,6 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import classNames from 'classnames';
 import ContentBlock from '../../sub-patterns/ContentBlock/ContentBlock';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
@@ -22,44 +21,34 @@ const { prefix } = settings;
  * @param {Array} props.logosGroup Array of object with label, imgSrc and altText properties
  * @returns {*} Logo Grid Pattern JSX object
  */
-const LogoGrid = ({ theme, title, logosGroup }) => {
+const LogoGrid = ({ title, logosGroup }) => {
   /**
    * sets the class name based on theme type
    *
    * @param {string} theme theme type ( g10 | white/default )
    * @returns {string} theme css class names
    */
-  const setTheme = theme => {
-    return theme && `${prefix}--logo-grid--${theme}`;
-  };
 
   return (
-    <ContentBlock heading={title}>
-      <section
-        data-autoid={`${stablePrefix}--logo-grid`}
-        className={classNames(`${prefix}--logo-grid`, setTheme(theme))}>
+    <section data-autoid={`${stablePrefix}--logo-grid ${prefix}--logo-grid`}>
+      <ContentBlock heading={title}>
         <div className={`${prefix}--logo-grid__container`}>
-          <div className={`${prefix}--logo-grid__row`}>
-            <div className={`${prefix}--logo-grid__col`}>
-              <div className={`${prefix}--logo-grid__wrapper`}>
-                {logosGroup.map(placeholder => (
-                  <div
-                    className={`${prefix}--logo-grid__logo`}
-                    key={placeholder.label}>
-                    <img src={placeholder.imgSrc} alt={placeholder.altText} />
-                  </div>
-                ))}
+          <div className={`${prefix}--logo-grid__wrapper`}>
+            {logosGroup.map(placeholder => (
+              <div
+                className={`${prefix}--logo-grid__logo`}
+                key={placeholder.label}>
+                <img src={placeholder.imgSrc} alt={placeholder.altText} />
               </div>
-            </div>
+            ))}
           </div>
         </div>
-      </section>
-    </ContentBlock>
+      </ContentBlock>
+    </section>
   );
 };
 
 LogoGrid.propTypes = {
-  theme: PropTypes.string,
   title: PropTypes.string,
   logosGroup: PropTypes.arrayOf(
     PropTypes.shape({

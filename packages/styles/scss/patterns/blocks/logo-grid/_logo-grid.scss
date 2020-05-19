@@ -5,6 +5,8 @@
 // LICENSE file in the root directory of this source tree.
 //
 @import '../../../globals/imports';
+@import '../../../globals/utils/hang';
+@import '../../../globals/utils/aspect-ratio';
 
 @mixin themed-items {
   color: $text-01;
@@ -13,32 +15,47 @@
 
 @mixin logo-grid {
   .#{$prefix}--logo-grid {
+    /*
     &__container {
       @include carbon--make-container;
+      @include hang;
     }
     &__row {
       @include carbon--make-row;
     }
-    &__title {
-      @include carbon--type-style('expressive-heading-03');
+    */
+
+    &__heading {
+      @include carbon--type-style('expressive-heading-05');
 
       margin-top: $carbon--spacing-07;
       margin-bottom: $carbon--spacing-07;
     }
 
     &__wrapper {
+      width: 100%;
       display: flex;
-      flex-wrap: wrap;
-
+      flex-flow: row wrap;
+      /*
       &__col {
         @include carbon--make-col-ready;
-        @include carbon--make-col-offset(1, 16);
+        @include carbon--make-col(4, 12); 
+
       }
+      */
     }
+
     &__logo {
-      display: flex;
-      margin: 0 $carbon--spacing-03 $carbon--spacing-03;
-      margin-left: 0;
+      position: relative;
+      width: 30%;
+      height: auto;
+      margin: 0 auto $spacing-07;
+
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
     }
 
     @include carbon--breakpoint('sm') {
@@ -63,23 +80,17 @@
       }
     }
     @include carbon--breakpoint('lg') {
+      /*
       &__col {
         @include carbon--make-col-offset(4, 16);
         @include carbon--make-col(8, 16);
       }
+      */
     }
     @include carbon--breakpoint('max') {
       &__col {
         max-width: carbon--rem(640px);
       }
-    }
-
-    @include themed-items;
-  }
-
-  .#{$prefix}--logo-grid--g10 {
-    @include carbon--theme($carbon--theme--g10) {
-      @include themed-items;
     }
   }
 }
