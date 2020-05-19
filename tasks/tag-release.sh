@@ -108,11 +108,11 @@ change_logs () {
   CR=$(printf '\n')
   return="\n\n"
 
-  react="$(git diff HEAD~10 --unified=0 packages/react/CHANGELOG.md | sed -e '1,5d' | sed -e :a -e '$d;N;2,5ba' -e 'P;D' | sed -e 's/^\+/\\n/' | sed -e 's/# \[/# React \[/g')$return$return"
-  vanilla="$(git diff HEAD~10 --unified=0 packages/vanilla/CHANGELOG.md | sed -e '1,5d' | sed -e :a -e '$d;N;2,5ba' -e 'P;D' | sed -e 's/^\+/\\n/' | sed -e 's/# \[/# Vanilla \[/g')$return$return"
-  services="$(git diff HEAD~10 --unified=0 packages/services/CHANGELOG.md | sed -e '1,5d' | sed -e :a -e '$d;N;2,5ba' -e 'P;D' | sed -e 's/^\+/\\n/' | sed -e 's/# \[/# Services \[/g')$return$return"
-  styles="$(git diff HEAD~10 --unified=0 packages/styles/CHANGELOG.md | sed -e '1,5d' | sed -e :a -e '$d;N;2,5ba' -e 'P;D' | sed -e 's/^\+/\\n/' | sed -e 's/# \[/# Styles \[/g')$return$return"
-  utilities="$(git diff HEAD~10 --unified=0 packages/utilities/CHANGELOG.md | sed -e '1,5d' | sed -e :a -e '$d;N;2,5ba' -e 'P;D' | sed -e 's/^\+/\\n/' | sed -e 's/# \[/# Utilities \[/g')$return$return"
+  react="$(git diff HEAD~1 --unified=0 packages/react/CHANGELOG.md | sed -e '1,5d' | sed -e :a -e '$d;N;2,5ba' -e 'P;D' | sed -e 's/^\+/\\n/' | sed -e 's/# \[/# React \[/g')$return$return"
+  vanilla="$(git diff HEAD~1 --unified=0 packages/vanilla/CHANGELOG.md | sed -e '1,5d' | sed -e :a -e '$d;N;2,5ba' -e 'P;D' | sed -e 's/^\+/\\n/' | sed -e 's/# \[/# Vanilla \[/g')$return$return"
+  services="$(git diff HEAD~1 --unified=0 packages/services/CHANGELOG.md | sed -e '1,5d' | sed -e :a -e '$d;N;2,5ba' -e 'P;D' | sed -e 's/^\+/\\n/' | sed -e 's/# \[/# Services \[/g')$return$return"
+  styles="$(git diff HEAD~1 --unified=0 packages/styles/CHANGELOG.md | sed -e '1,5d' | sed -e :a -e '$d;N;2,5ba' -e 'P;D' | sed -e 's/^\+/\\n/' | sed -e 's/# \[/# Styles \[/g')$return$return"
+  utilities="$(git diff HEAD~1 --unified=0 packages/utilities/CHANGELOG.md | sed -e '1,5d' | sed -e :a -e '$d;N;2,5ba' -e 'P;D' | sed -e 's/^\+/\\n/' | sed -e 's/# \[/# Utilities \[/g')$return$return"
 
   if [[ ${react} == *"Version bump only"* ]]; then
     react=''
