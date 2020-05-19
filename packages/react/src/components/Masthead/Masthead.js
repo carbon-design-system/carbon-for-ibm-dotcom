@@ -117,6 +117,7 @@ const Masthead = ({
       `.${prefix}--masthead__profile-item`
     );
     profileMenuList.closest('ul').style.position = 'fixed';
+    profileMenuList.closest('ul').style.top = '48px';
   };
 
   const [isMastheadSticky, setIsMastheadSticky] = useState(false);
