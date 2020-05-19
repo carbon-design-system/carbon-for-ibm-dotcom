@@ -59,14 +59,11 @@
       &--cta {
         margin-top: auto;
 
-        .#{$prefix}--card__cta {
-          margin-bottom: $spacing-05;
-          @include carbon--breakpoint(md) {
-            display: inline-block;
-            margin-bottom: 0;
-            &:first-of-type {
-              margin-right: $spacing-07;
-            }
+        .#{$prefix}--link-list {
+          padding: 0;
+
+          &:first-of-type {
+            padding: 0;
           }
         }
       }
