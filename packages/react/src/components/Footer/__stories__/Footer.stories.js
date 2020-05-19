@@ -14,68 +14,71 @@ import inPercy from '@percy-io/in-percy';
 import languageItems from '../__data__/language-items.json';
 import React from 'react';
 import readme from '../README.md';
-import { storiesOf } from '@storybook/react';
 
-storiesOf('Components|Footer', module)
-  .addDecorator(withKnobs)
-  .addParameters({
+export default {
+  title: 'Components|Footer',
+  decorators: [withKnobs],
+
+  parameters: {
     readme: {
       sidebar: readme,
     },
-  })
-  .add('Default', () => {
-    const footerTypeOptions = {
-      tall: '',
-      short: 'short',
-    };
+  },
+};
 
-    let type = select(
-      'sets the type of footer (type)',
-      footerTypeOptions,
-      footerTypeOptions.tall
-    );
+export const Default = () => {
+  const footerTypeOptions = {
+    tall: '',
+    short: 'short',
+  };
 
-    let isCustom = boolean('show custom navigation (not a prop)', inPercy());
+  let type = select(
+    'sets the type of footer (type)',
+    footerTypeOptions,
+    footerTypeOptions.tall
+  );
 
-    let navigation = isCustom
-      ? object('custom navigation data (navigation)', {
-          footerMenu,
-          footerThin,
-        })
-      : null;
+  let isCustom = boolean('show custom navigation (not a prop)', inPercy());
 
-    let disableLocaleButton = boolean(
-      'hide the locale button (disableLocaleButton)',
-      false
-    );
+  let navigation = isCustom
+    ? object('custom navigation data (navigation)', {
+        footerMenu,
+        footerThin,
+      })
+    : null;
 
-    let languageOnly =
-      DDS_LANGUAGE_SELECTOR &&
-      boolean('switch to the language selector (languageOnly)', false);
+  let disableLocaleButton = boolean(
+    'hide the locale button (disableLocaleButton)',
+    false
+  );
 
-    let items =
-      languageOnly &&
-      object('language dropdown items (languageItems)', languageItems);
+  let languageOnly =
+    DDS_LANGUAGE_SELECTOR &&
+    boolean('switch to the language selector (languageOnly)', false);
 
-    /**
-     * Language callback demo function
-     *
-     * @param {string} selectedItem Selected item
-     */
-    const languageCallback = selectedItem => {
-      console.log('footer (language selector) selected item:', selectedItem);
-    };
+  let items =
+    languageOnly &&
+    object('language dropdown items (languageItems)', languageItems);
 
-    return (
-      <Footer
-        navigation={isCustom ? navigation : null}
-        type={type}
-        disableLocaleButton={disableLocaleButton}
-        langCode={inPercy() ? { lc: 'en', cc: 'us' } : null}
-        languageOnly={languageOnly}
-        languageItems={languageOnly ? items : null}
-        languageInitialItem={{ id: 'en', text: 'English' }}
-        languageCallback={languageCallback}
-      />
-    );
-  });
+  /**
+   * Language callback demo function
+   *
+   * @param {string} selectedItem Selected item
+   */
+  const languageCallback = selectedItem => {
+    console.log('footer (language selector) selected item:', selectedItem);
+  };
+
+  return (
+    <Footer
+      navigation={isCustom ? navigation : null}
+      type={type}
+      disableLocaleButton={disableLocaleButton}
+      langCode={inPercy() ? { lc: 'en', cc: 'us' } : null}
+      languageOnly={languageOnly}
+      languageItems={languageOnly ? items : null}
+      languageInitialItem={{ id: 'en', text: 'English' }}
+      languageCallback={languageCallback}
+    />
+  );
+};

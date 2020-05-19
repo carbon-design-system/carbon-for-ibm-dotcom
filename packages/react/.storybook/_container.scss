@@ -32,3 +32,14 @@
 .bx--visually-hidden {
   display: none;
 }
+
+// hide the cookie button
+#teconsent {
+  visibility: hidden;
+}
+
+@media only percy {
+  [data-autoid='dds--privacy-cp'] {
+    visibility: hidden;
+  }
+}
