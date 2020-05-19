@@ -91,7 +91,18 @@ storiesOf('Patterns (Blocks)|LeadSpaceBlock', module)
         },
       ]),
     };
-
+    const types = ['local', 'external'];
+    const ctaProps = {
+      style: 'button',
+      type: 'local',
+      buttons: [
+        {
+          type: select('ContentBlock | CTA type', types, types[0]),
+          copy: text('ContentBlock | CTA copy', 'Contact sales'),
+          href: 'https://example.com/',
+        },
+      ],
+    };
 
     const buttonprops = {
       copy: text(`Button`, `Contact Sales`),
@@ -110,6 +121,7 @@ storiesOf('Patterns (Blocks)|LeadSpaceBlock', module)
               mediaData={mediaData}
               items={linkListProps}
               button={buttonprops}
+              cta={ctaProps}
             />
           </div>
         </div>

@@ -7,7 +7,7 @@ import { LinkList } from '../../sub-patterns/LinkList';
 import { Button} from 'carbon-components-react';
 import { ContentBlock } from '../../sub-patterns/ContentBlock';
 import {ImageWithCaption} from "../../../components/ImageWithCaption";
-import Layout from "../../sub-patterns/Layout/Layout";
+import { CTA } from '../../../components/CTA';
 
 
 const { stablePrefix } = ddsSettings;
@@ -39,7 +39,7 @@ const _renderMedia = (type, data) => {
  * @returns {*} Lead space block component
  */
 
-const LeadSpaceBlock = ({copy, title, heading, mediaType, mediaData, items, button }) => {
+const LeadSpaceBlock = ({copy, title, heading, mediaType, mediaData, items, button, cta }) => {
 
   const pageTitle = (
     <div>
@@ -61,7 +61,8 @@ const LeadSpaceBlock = ({copy, title, heading, mediaType, mediaData, items, butt
       <ContentBlock  heading={heading} copy={copy}>
         {_renderMedia(mediaType, mediaData)}
         <LinkList {...items}/>
-        <Button {...button} >{button.copy}</Button>
+        <CTA customClassName={`${prefix}--leadspace-block__cta ${prefix}--leadspace-block__cta-col`}
+             {...cta}/>
       </ContentBlock>
     </div>
   );
@@ -71,13 +72,17 @@ LeadSpaceBlock.propTypes = {
   title: PropTypes.string.isRequired,
   heading: PropTypes.string.isRequired,
   items: PropTypes.object.isRequired,
+  copy: PropTypes.string,
+  mediaType: PropTypes.oneOf('image','video'),
+  mediaData: PropTypes.object,
+  cta: PropTypes.shape(CTA.propTypes),
 };
 
 LeadSpaceBlock.defaultProps = {
-  copy: PropTypes.string,
-  mediaType: PropTypes.string,
-  mediaData: PropTypes.object,
-  button: PropTypes.object
+  copy: '',
+  mediaType: null,
+  mediaData: null,
+  cta: null,
 };
 
 export default LeadSpaceBlock;

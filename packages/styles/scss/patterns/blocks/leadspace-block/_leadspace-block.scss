@@ -49,6 +49,7 @@
 
       .#{$prefix}--link-list {
         padding-top: $spacing-09;
+        padding-bottom: $spacing-09;
       }
     }
   }
@@ -59,6 +60,22 @@
     .#{$prefix}--image-with-caption {
       margin-top: 0;
     }
+  }
+
+  .#{$prefix}--buttongroup {
+    padding-top: 0;
+
+    .#{$prefix}--buttongroup-item {
+      margin-top: 0;
+    }
+
+    .#{$prefix}--btn {
+      width: 60%;
+    }
+  }
+  .#{$prefix}--buttongroup-item {
+    margin-top: 0;
+    padding-top: 0;
   }
 
   .#{$prefix}--hr {
