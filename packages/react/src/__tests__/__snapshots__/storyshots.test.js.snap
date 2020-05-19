@@ -29285,6 +29285,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|Table of Contents Manually define Me
                                 ]
                               }
                               menuLabel="Jump to"
+                              menuRule={false}
                               selectedId="8"
                               selectedTitle="Cras molestie condimentum"
                               updateState={[Function]}
@@ -29388,7 +29389,6 @@ exports[`Storyshots Patterns (Sub-Patterns)|Table of Contents Manually define Me
                                 ]
                               }
                               menuLabel="Jump to"
-                              menuRule={false}
                               selectedId="8"
                               selectedTitle="Cras molestie condimentum"
                               updateState={[Function]}
