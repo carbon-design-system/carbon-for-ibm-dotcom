@@ -4,11 +4,11 @@ import {
   withKnobs,
   text
 } from '@storybook/addon-knobs';
+import {HorizontalRule} from "../../../../components/HorizontalRule";
 import LeadSpaceBlock from '../LeadSpaceBlock.js';
 import React from 'react';
 import readme from '../README.md';
 import { storiesOf } from '@storybook/react';
-import {HorizontalRule} from "../../../../components/HorizontalRule";
 
 storiesOf('Patterns (Blocks)|LeadSpaceBlock', module)
   .addDecorator(withKnobs)

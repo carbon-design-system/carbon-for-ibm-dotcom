@@ -1,17 +1,24 @@
+import { ContentBlock } from '../../sub-patterns/ContentBlock';
+import { CTA } from '../../../components/CTA';
+import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import {ImageWithCaption} from "../../../components/ImageWithCaption";
+import { LinkList } from '../../sub-patterns/LinkList';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { settings } from 'carbon-components';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import {VideoPlayer} from "../../../components/VideoPlayer";
-import { LinkList } from '../../sub-patterns/LinkList';
-import { ContentBlock } from '../../sub-patterns/ContentBlock';
-import {ImageWithCaption} from "../../../components/ImageWithCaption";
-import { CTA } from '../../../components/CTA';
 
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
+/**
+ * renders media either video or image content
+ *
+ * @param {string} type media type
+ * @param {object} data media data
+ * @returns {*} Image or Video
+ */
 const _renderMedia = (type, data) => {
   if (data) {
     return (
@@ -25,21 +32,19 @@ const _renderMedia = (type, data) => {
 };
 
 /**
- * Lead space block component (left-aligned)
+ * renders Lead space block component (left-aligned)
  *
- * @param {string} props.title lead space main-heading to support the title.
- * @param {string} props.heading lead space sub-heading to support the title.
- * @param {string} props.copy lead space short copy to support the description.
- * @param {string} props.mediaType media type.
- * @param {object} props.mediaData contains media source and description.
+ * @param {object} props props object
+ * @param {string} props.title heading of the page.
+ * @param {string} props.heading sub-heading.
+ * @param {string} props.copy lead space short copy to support the title.
+ * @param {string} props.mediaType type of media.
+ * @param {object} props.mediaData media object with media source.
  * @param {object} props.items contains data for link list item.
  * @param {object} props.cta contains button cta data.
-
  * @returns {*} Lead space block component
  */
-
-const LeadSpaceBlock = ({copy, title, heading, mediaType, mediaData, items, cta }) => {
-  console.log('cta props')
+const LeadSpaceBlock = ({title, heading, copy, mediaType, mediaData, items, cta }) => {
   const pageTitle = (
     <div>
       {title && (
