@@ -14783,12 +14783,22 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                             "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.
 
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.",
+                            "cta": Object {
+                              "copy": "Lorem Ipsum dolor sit",
+                              "href": "https://example.com",
+                              "type": "local",
+                            },
                             "heading": "Lorem ipsum dolor sit amet.",
                           },
                           Object {
                             "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.
 
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.",
+                            "cta": Object {
+                              "copy": "Lorem Ipsum dolor sit",
+                              "href": "https://example.com",
+                              "type": "local",
+                            },
                             "heading": "Lorem ipsum dolor sit amet.",
                             "image": Object {
                               "heading": "Mauris iaculis eget dolor nec hendrerit.",
@@ -14899,12 +14909,22 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                             "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.
 
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.",
+                            "cta": Object {
+                              "copy": "Lorem Ipsum dolor sit",
+                              "href": "https://example.com",
+                              "type": "local",
+                            },
                             "heading": "Lorem ipsum dolor sit amet.",
                           },
                           Object {
                             "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.
 
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.",
+                            "cta": Object {
+                              "copy": "Lorem Ipsum dolor sit",
+                              "href": "https://example.com",
+                              "type": "local",
+                            },
                             "heading": "Lorem ipsum dolor sit amet.",
                             "image": Object {
                               "heading": "Mauris iaculis eget dolor nec hendrerit.",
@@ -15089,6 +15109,14 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                 </ImageWithCaption>
                               </div>
                               <ContentGroup
+                                cta={
+                                  Object {
+                                    "copy": "Lorem Ipsum dolor sit",
+                                    "href": "https://example.com",
+                                    "style": "text",
+                                    "type": "local",
+                                  }
+                                }
                                 heading="Lorem ipsum dolor sit amet."
                                 key="0"
                               >
@@ -15132,9 +15160,100 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                       </ContentItem>
                                     </div>
                                   </div>
+                                  <div
+                                    className="bx--content-group__cta-row"
+                                    data-autoid="dds--content-group__cta"
+                                  >
+                                    <CTA
+                                      copy="Lorem Ipsum dolor sit"
+                                      customClassName="bx--content-group__cta"
+                                      href="https://example.com"
+                                      style="text"
+                                      type="local"
+                                    >
+                                      <div
+                                        className="bx--content-group__cta"
+                                      >
+                                        <TextCTA
+                                          copy="Lorem Ipsum dolor sit"
+                                          href="https://example.com"
+                                          openLightBox={[Function]}
+                                          renderLightBox={false}
+                                          style="text"
+                                          type="local"
+                                          videoTitle={
+                                            Array [
+                                              Object {
+                                                "key": 0,
+                                                "title": "",
+                                              },
+                                            ]
+                                          }
+                                        >
+                                          <LinkWithIcon
+                                            href="https://example.com"
+                                            onClick={[Function]}
+                                            target={null}
+                                          >
+                                            <div
+                                              className="bx--link-with-icon__container"
+                                              data-autoid="dds--link-with-icon"
+                                            >
+                                              <Link
+                                                className="bx--link-with-icon"
+                                                href="https://example.com"
+                                                onClick={[Function]}
+                                                target={null}
+                                              >
+                                                <a
+                                                  className="bx--link bx--link-with-icon"
+                                                  href="https://example.com"
+                                                  onClick={[Function]}
+                                                  target={null}
+                                                >
+                                                  Lorem Ipsum dolor sit
+                                                  <ForwardRef(ArrowRight20)>
+                                                    <Icon
+                                                      height={20}
+                                                      preserveAspectRatio="xMidYMid meet"
+                                                      viewBox="0 0 20 20"
+                                                      width={20}
+                                                      xmlns="http://www.w3.org/2000/svg"
+                                                    >
+                                                      <svg
+                                                        aria-hidden={true}
+                                                        focusable="false"
+                                                        height={20}
+                                                        preserveAspectRatio="xMidYMid meet"
+                                                        viewBox="0 0 20 20"
+                                                        width={20}
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                      >
+                                                        <polygon
+                                                          points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
+                                                        />
+                                                      </svg>
+                                                    </Icon>
+                                                  </ForwardRef(ArrowRight20)>
+                                                </a>
+                                              </Link>
+                                            </div>
+                                          </LinkWithIcon>
+                                        </TextCTA>
+                                      </div>
+                                    </CTA>
+                                  </div>
                                 </div>
                               </ContentGroup>
                               <ContentGroup
+                                cta={
+                                  Object {
+                                    "copy": "Lorem Ipsum dolor sit",
+                                    "href": "https://example.com",
+                                    "style": "text",
+                                    "type": "local",
+                                  }
+                                }
                                 heading="Lorem ipsum dolor sit amet."
                                 key="1"
                               >
@@ -15266,6 +15385,89 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                         </ImageWithCaption>
                                       </div>
                                     </div>
+                                  </div>
+                                  <div
+                                    className="bx--content-group__cta-row"
+                                    data-autoid="dds--content-group__cta"
+                                  >
+                                    <CTA
+                                      copy="Lorem Ipsum dolor sit"
+                                      customClassName="bx--content-group__cta"
+                                      href="https://example.com"
+                                      style="text"
+                                      type="local"
+                                    >
+                                      <div
+                                        className="bx--content-group__cta"
+                                      >
+                                        <TextCTA
+                                          copy="Lorem Ipsum dolor sit"
+                                          href="https://example.com"
+                                          openLightBox={[Function]}
+                                          renderLightBox={false}
+                                          style="text"
+                                          type="local"
+                                          videoTitle={
+                                            Array [
+                                              Object {
+                                                "key": 0,
+                                                "title": "",
+                                              },
+                                            ]
+                                          }
+                                        >
+                                          <LinkWithIcon
+                                            href="https://example.com"
+                                            onClick={[Function]}
+                                            target={null}
+                                          >
+                                            <div
+                                              className="bx--link-with-icon__container"
+                                              data-autoid="dds--link-with-icon"
+                                            >
+                                              <Link
+                                                className="bx--link-with-icon"
+                                                href="https://example.com"
+                                                onClick={[Function]}
+                                                target={null}
+                                              >
+                                                <a
+                                                  className="bx--link bx--link-with-icon"
+                                                  href="https://example.com"
+                                                  onClick={[Function]}
+                                                  target={null}
+                                                >
+                                                  Lorem Ipsum dolor sit
+                                                  <ForwardRef(ArrowRight20)>
+                                                    <Icon
+                                                      height={20}
+                                                      preserveAspectRatio="xMidYMid meet"
+                                                      viewBox="0 0 20 20"
+                                                      width={20}
+                                                      xmlns="http://www.w3.org/2000/svg"
+                                                    >
+                                                      <svg
+                                                        aria-hidden={true}
+                                                        focusable="false"
+                                                        height={20}
+                                                        preserveAspectRatio="xMidYMid meet"
+                                                        viewBox="0 0 20 20"
+                                                        width={20}
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                      >
+                                                        <polygon
+                                                          points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
+                                                        />
+                                                      </svg>
+                                                    </Icon>
+                                                  </ForwardRef(ArrowRight20)>
+                                                </a>
+                                              </Link>
+                                            </div>
+                                          </LinkWithIcon>
+                                        </TextCTA>
+                                      </div>
+                                    </CTA>
                                   </div>
                                 </div>
                               </ContentGroup>
@@ -15917,6 +16119,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                         </ImageWithCaption>
                                       </div>
                                       <ContentGroup
+                                        cta={false}
                                         heading="Lorem ipsum dolor sit amet."
                                         key="0"
                                       >
@@ -15963,6 +16166,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                         </div>
                                       </ContentGroup>
                                       <ContentGroup
+                                        cta={false}
                                         heading="Lorem ipsum dolor sit amet."
                                         key="1"
                                       >

@@ -149,7 +149,7 @@ ContentBlock.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]),
-  cta: PropTypes.object,
+  cta: PropTypes.shape(CTA.propTypes),
   customClassName: PropTypes.string,
   aside: PropTypes.shape({
     items: PropTypes.element,
