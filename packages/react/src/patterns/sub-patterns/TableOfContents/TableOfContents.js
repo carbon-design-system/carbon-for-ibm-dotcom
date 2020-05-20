@@ -63,7 +63,7 @@ const TableOfContents = ({
   const [selectedTitle, setSelectedTitle] = useState('');
 
   useEffect(() => {
-    if (menuItems && menuItems.length) {
+    if (menuItems?.length) {
       setUseMenuItems([...menuItems]);
     } else {
       setUseMenuItems(_findMenuItems());
@@ -107,8 +107,8 @@ const TableOfContents = ({
           return menu.id === id;
         }
       });
-      if (filteredItems.length > 0 && filteredItems[0].title !== undefined) {
-        const title = filteredItems[0].title;
+      const title = filteredItems[0]?.title;
+      if (title !== undefined) {
         setSelectedId(id);
         setSelectedTitle(title);
       }

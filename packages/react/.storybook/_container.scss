@@ -11,6 +11,8 @@
 
 @import '@carbon/layout/scss/breakpoint';
 
+@import '../../styles/scss/ibm-dotcom-styles.scss';
+
 // Storybook styles
 .storybook-center-container {
   padding: 1rem;
@@ -29,4 +31,15 @@
 
 .bx--visually-hidden {
   display: none;
+}
+
+// hide the cookie button
+#teconsent {
+  visibility: hidden;
+}
+
+@media only percy {
+  [data-autoid='dds--privacy-cp'] {
+    visibility: hidden;
+  }
 }

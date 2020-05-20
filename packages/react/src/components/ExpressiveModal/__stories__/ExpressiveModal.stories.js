@@ -1,4 +1,10 @@
-import './index.scss';
+/**
+ * Copyright IBM Corp. 2016, 2018
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 import { boolean, text, withKnobs } from '@storybook/addon-knobs';
 import { ArrowRight20 } from '@carbon/icons-react';
 import { ButtonGroup } from '../../../patterns/sub-patterns/ButtonGroup';
@@ -6,7 +12,6 @@ import { ExpressiveModal } from '../';
 import { ModalBody } from 'carbon-components-react';
 import React from 'react';
 import readme from '../README.md';
-import { storiesOf } from '@storybook/react';
 
 /**
  * Dummy content for the modal story
@@ -39,33 +44,39 @@ function dummyContent() {
     </div>
   );
 }
-storiesOf('Components|Expressive Modal', module)
-  .addDecorator(withKnobs)
-  .addParameters({
+
+export default {
+  title: 'Components|Expressive Modal',
+  decorators: [withKnobs],
+
+  parameters: {
     readme: {
       sidebar: readme,
     },
-  })
-  .add('Default', () => {
-    return (
-      <>
-        <ExpressiveModal
-          open={boolean('Toggle modal', true)}
-          className="bx--modal--expressive">
-          <ModalBody>{dummyContent()}</ModalBody>
-        </ExpressiveModal>
-      </>
-    );
-  })
-  .add('Expanded', () => {
-    return (
-      <>
-        <ExpressiveModal
-          open={boolean('Toggle modal', true)}
-          fullwidth={true}
-          className="bx--modal--expressive">
-          <ModalBody>{dummyContent()}</ModalBody>
-        </ExpressiveModal>
-      </>
-    );
-  });
+  },
+};
+
+export const Default = () => {
+  return (
+    <>
+      <ExpressiveModal
+        open={boolean('Toggle modal', true)}
+        className="bx--modal--expressive">
+        <ModalBody>{dummyContent()}</ModalBody>
+      </ExpressiveModal>
+    </>
+  );
+};
+
+export const Expanded = () => {
+  return (
+    <>
+      <ExpressiveModal
+        open={boolean('Toggle modal', true)}
+        fullwidth={true}
+        className="bx--modal--expressive">
+        <ModalBody>{dummyContent()}</ModalBody>
+      </ExpressiveModal>
+    </>
+  );
+};

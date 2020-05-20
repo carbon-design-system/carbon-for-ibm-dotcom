@@ -82,7 +82,7 @@ ContentItemHorizontal.propTypes = {
       href: PropTypes.string,
       copy: PropTypes.string,
     })
-  ),
+  ).isRequired,
 };
 
 export default ContentItemHorizontal;

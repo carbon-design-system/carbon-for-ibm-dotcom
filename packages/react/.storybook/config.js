@@ -4,10 +4,30 @@ import { configure, addParameters, addDecorator } from '@storybook/react';
 import { addReadme } from 'storybook-readme';
 import Container from './Container';
 
+const SORT_ORDER_GROUP = [
+  'Overview',
+  'Components',
+  'Patterns (Sections)',
+  'Patterns (Blocks)',
+  'Patterns (Sub-Patterns)',
+];
+
 addParameters({
   options: {
     name: `IBM.com Library React`,
     url: 'https://github.com/carbon-design-system/ibm-dotcom-library',
+    storySort(lhs, rhs) {
+      const { kind: lhsKind } = lhs[1];
+      const { kind: rhsKind } = rhs[1];
+      const lhsGroup = lhsKind.split('|')[0];
+      const rhsGroup = rhsKind.split('|')[0];
+      const lhsSortOrder = SORT_ORDER_GROUP.indexOf(lhsGroup);
+      const rhsSortOrder = SORT_ORDER_GROUP.indexOf(rhsGroup);
+      if (lhsSortOrder >= 0 && rhsSortOrder >= 0) {
+        return lhsSortOrder - rhsSortOrder;
+      }
+      return 0;
+    },
   },
 });
 
@@ -15,36 +35,5 @@ addDecorator(addReadme);
 
 addDecorator(story => <Container story={story} />);
 
-function loadStories() {
-  require('../src/components/overview');
-
-  const components = requireContext(
-    '../src/components',
-    true,
-    /\.stories\.js$/
-  );
-  components.keys().forEach(filename => components(filename));
-
-  const sections = requireContext(
-    '../src/patterns/sections',
-    true,
-    /\.stories\.js$/
-  );
-  sections.keys().forEach(filename => sections(filename));
-
-  const blocks = requireContext(
-    '../src/patterns/blocks',
-    true,
-    /\.stories\.js$/
-  );
-  blocks.keys().forEach(filename => blocks(filename));
-
-  const subpatterns = requireContext(
-    '../src/patterns/sub-patterns',
-    true,
-    /\.stories\.js$/
-  );
-  subpatterns.keys().forEach(filename => subpatterns(filename));
-}
-
-configure(loadStories, module);
+const components = requireContext('../src', true, /(overview|\.stories)\.js$/);
+configure(components, module);

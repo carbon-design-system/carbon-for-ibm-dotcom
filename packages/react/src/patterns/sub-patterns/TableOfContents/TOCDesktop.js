@@ -33,16 +33,20 @@ const TOCDesktop = ({ menuItems, selectedId }) => {
    */
   const renderMenuItems = (items, activeId) => {
     return items.map((item, index) => {
-      if (item && item.id !== 'menuLabel') {
+      if (item?.id !== 'menuLabel') {
+        const isActive = activeId === item.id;
         return (
           <li
             key={index}
             data-autoid={`${stablePrefix}--tableofcontents__desktop__item-${item.id}`}
-            className={classNames(
-              `${prefix}--tableofcontents__desktop__item`,
-              setActiveClass(activeId, item.id)
-            )}>
-            <a onClick={e => handleOnClick(e, item.id)} href={`#${item.id}`}>
+            className={classNames({
+              [`${prefix}--tableofcontents__desktop__item`]: true,
+              [`${prefix}--tableofcontents__desktop__item--active`]: isActive,
+            })}>
+            <a
+              {...(isActive ? { 'aria-current': 'location' } : {})}
+              onClick={e => handleOnClick(e, item.id)}
+              href={`#${item.id}`}>
               {item.title}
             </a>
           </li>
@@ -76,22 +80,6 @@ const TOCDesktop = ({ menuItems, selectedId }) => {
     element.focus({ preventScroll: true });
     element.removeAttribute('tabindex');
   }
-
-  /**
-   * Set class name for active menu item
-   *
-   * @param {string} activeId selected menu item id
-   * @param {string} menuId menu item id
-   * @returns {string} css class name for active menu item
-   */
-  const setActiveClass = (activeId, menuId) => {
-    let active;
-    active =
-      activeId === menuId
-        ? `${prefix}--tableofcontents__desktop__item--active`
-        : '';
-    return active;
-  };
 
   return (
     <div

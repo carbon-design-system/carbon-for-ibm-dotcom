@@ -1,0 +1,25 @@
+//
+// Copyright IBM Corp. 2016, 2018
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import '@carbon/layout/scss/convert';
+
+//-----------------------------
+// Modal (expressive)
+//-----------------------------
+
+/// Modal styles (expressive)
+/// @access private
+/// @group modal-expressive
+@mixin modal-expressive {
+  .#{$prefix}--modal-content--overflow-indicator {
+    background-image: linear-gradient(
+      to bottom,
+      rgba(244, 244, 244, 0),
+      $ui-01
+    );
+  }
+}

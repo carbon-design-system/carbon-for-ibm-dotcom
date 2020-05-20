@@ -4,8 +4,11 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
+import {
+  settings as ddsSettings,
+  markdownToHtml,
+} from '@carbon/ibmdotcom-utilities';
 import React, { useEffect, useState } from 'react';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { ExpressiveModal } from '../ExpressiveModal';
 import { Image } from '../Image';
 import { ModalBody } from 'carbon-components-react';
@@ -33,14 +36,17 @@ const LightboxMediaViewer = ({ media, ...modalProps }) => {
   });
 
   useEffect(() => {
+    let stale = false;
     (async () => {
       if (media.type === 'video') {
         const data = await VideoPlayerAPI.api(media.src);
-        setVideoData({
-          title: data.name,
-          alt: data.name,
-          description: data.description,
-        });
+        if (!stale) {
+          setVideoData({
+            title: data.name,
+            alt: data.name,
+            description: data.description,
+          });
+        }
       } else {
         setVideoData({
           title: media.title,
@@ -49,7 +55,15 @@ const LightboxMediaViewer = ({ media, ...modalProps }) => {
         });
       }
     })();
-  }, [media, media.src]);
+    return () => {
+      stale = true;
+    };
+  }, [media]);
+
+  const videoDesc = markdownToHtml(videoData.description, {
+    createParagraphs: false,
+    cleanString: true,
+  });
 
   return (
     <section
@@ -81,7 +95,7 @@ const LightboxMediaViewer = ({ media, ...modalProps }) => {
                     <div
                       data-autoid={`${stablePrefix}--lightbox-media-viewer__content__desc`}
                       className={`${prefix}--lightbox-media-viewer__content__desc`}>
-                      {videoData.description}
+                      {videoDesc}
                     </div>
                   )}
                 </div>

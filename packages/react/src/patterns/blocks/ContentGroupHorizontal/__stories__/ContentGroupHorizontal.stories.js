@@ -5,32 +5,34 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import './index.scss';
 import { object, text, withKnobs } from '@storybook/addon-knobs';
 import ContentGroupHorizontal from '../ContentGroupHorizontal';
 import items from './data/items.json';
 import React from 'react';
 import readme from '../README.md';
-import { storiesOf } from '@storybook/react';
 
-storiesOf('Patterns (Blocks)|ContentGroupHorizontal', module)
-  .addDecorator(withKnobs)
-  .addParameters({
+export default {
+  title: 'Patterns (Blocks)|ContentGroupHorizontal',
+  decorators: [withKnobs],
+
+  parameters: {
     readme: {
       sidebar: readme,
     },
-  })
-  .add('Default', () => {
-    return (
-      <div className="bx--grid">
-        <div className="bx--row">
-          <div className="bx--col-sm-4 bx--col-lg-10 bx--offset-lg-4">
-            <ContentGroupHorizontal
-              heading={text('Heading', 'Aliquam condimentum')}
-              items={object('Items', items.items)}
-            />
-          </div>
+  },
+};
+
+export const Default = () => {
+  return (
+    <div className="bx--grid">
+      <div className="bx--row">
+        <div className="bx--col-sm-4 bx--col-lg-10 bx--offset-lg-4">
+          <ContentGroupHorizontal
+            heading={text('Heading', 'Aliquam condimentum')}
+            items={object('Items', items.items)}
+          />
         </div>
       </div>
-    );
-  });
+    </div>
+  );
+};

@@ -102,6 +102,16 @@ Add the following line in your `.env` file at the root of your project.
 | `items.heading` | YES      | String    | n/a           | The heading for the ContentItem sub-pattern                                                                                                                 |
 | `items.copy`    | YES      | Markdown  | n/a           | The copy for the ContentItem sub-pattern                                                                                                                    |
 | `items.cta`     | YES      | CTA       | n/a           | See [CTA](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/components/CTA#cta)                                     |
+| `theme`         | NO       | String    | 'g10'         | Color theme for pattern. See `themes` below                                                                                                                 |
+
+### themes (optional)
+
+| Name    | Data Type | Description           |
+| ------- | --------- | --------------------- |
+| `white` | String    | Carbon White theme    |
+| `g10`   | String    | Carbon Gray 10 theme  |
+| `g90`   | String    | Carbon Gray 90 theme  |
+| `g100`  | String    | Carbon Gray 100 theme |
 
 ## Stable selectors
 
