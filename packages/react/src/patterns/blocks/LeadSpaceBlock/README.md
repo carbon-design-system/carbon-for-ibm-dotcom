@@ -127,7 +127,7 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 | `mediaType` | NO       | string    | Media Type [image, video or none] |
 | `mediaData` | NO       | Object    | Media Data                        |
 | `items`     | YES      | Object    | Link list items                   |
-| `cta`       | NO       | Object    | cta props                       |
+| `cta`       | YES      | Object    | cta props                         |
 
 ### Stable selectors
 
