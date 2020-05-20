@@ -39,18 +39,24 @@ function App() {
       heading: 'Aliquam condimentum',
       copy:
         'Lorem ipsum dolor sit amet, _consectetur_ sellus at elit sollicitudin.',
-      cta: [
-        {
-          type: 'local',
-          copy: 'Link text',
-          href: 'https://example.com',
-        },
-        {
-          type: 'external',
-          copy: 'External link text',
-          href: 'https://example.com',
-        },
-      ],
+      cta: {
+        items: [
+          {
+            type: 'local',
+            copy: 'Link text',
+            cta: {
+              href: 'https://example.com',
+            },
+          },
+          {
+            type: 'external',
+            copy: 'External link text',
+            cta: {
+              href: 'https://example.com',
+            },
+          },
+        ],
+      },
     },
     {
       eyebrow: 'Lorem ipsum',

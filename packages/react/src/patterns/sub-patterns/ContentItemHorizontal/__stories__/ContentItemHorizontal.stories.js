@@ -28,18 +28,25 @@ export const Default = () => {
     'Copy',
     'Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.'
   );
-  const cta = object('cta', [
-    {
-      type: 'local',
-      copy: 'Link text',
-      href: 'https://example.com',
-    },
-    {
-      type: 'external',
-      copy: 'External link text',
-      href: 'https://example.com',
-    },
-  ]);
+
+  const cta = {
+    items: object('link list items array', [
+      {
+        type: 'local',
+        copy: 'Learn more',
+        cta: {
+          href: 'https://ibm.com',
+        },
+      },
+      {
+        type: 'external',
+        copy: 'Microservices and containers',
+        cta: {
+          href: 'https://ibm.com',
+        },
+      },
+    ]),
+  };
 
   return (
     <div className="bx--grid bx--content-group-story">
