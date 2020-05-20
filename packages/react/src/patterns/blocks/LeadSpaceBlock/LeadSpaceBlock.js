@@ -4,7 +4,6 @@ import { settings } from 'carbon-components';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import {VideoPlayer} from "../../../components/VideoPlayer";
 import { LinkList } from '../../sub-patterns/LinkList';
-import { Button} from 'carbon-components-react';
 import { ContentBlock } from '../../sub-patterns/ContentBlock';
 import {ImageWithCaption} from "../../../components/ImageWithCaption";
 import { CTA } from '../../../components/CTA';
@@ -34,13 +33,13 @@ const _renderMedia = (type, data) => {
  * @param {string} props.mediaType media type.
  * @param {object} props.mediaData contains media source and description.
  * @param {object} props.items contains data for link list item.
- * @param {object} props.items contains button data.
+ * @param {object} props.cta contains button cta data.
 
  * @returns {*} Lead space block component
  */
 
-const LeadSpaceBlock = ({copy, title, heading, mediaType, mediaData, items, button, cta }) => {
-
+const LeadSpaceBlock = ({copy, title, heading, mediaType, mediaData, items, cta }) => {
+  console.log('cta props')
   const pageTitle = (
     <div>
       {title && (

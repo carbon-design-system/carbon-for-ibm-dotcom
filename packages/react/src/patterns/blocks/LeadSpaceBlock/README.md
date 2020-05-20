@@ -64,10 +64,16 @@ function App() {
   
       const mediaData = mediaType === 'image' ? image : video;
       
-      const buttonprops = {
-        copy: `Contact Sales`,
-        href: 'https://www.example.com',
-      }; 
+      const ctaProps = {
+        style: 'button',
+        type: 'local',
+        buttons: [
+          {
+            type: 'local',
+            copy: ['Contact sales'],
+          },
+        ],
+      };
  
       const linkListProps = {
         heading: 'Featured products',
@@ -103,7 +109,7 @@ function App() {
                     mediaType={mediaType}
                     mediaData={mediaData} 
                     items={linkListProps}
-                    button={buttonprops}
+                    cta={ctaProps}
                 />
   );
 }
@@ -121,7 +127,7 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 | `mediaType` | NO       | string    | Media Type [image, video or none] |
 | `mediaData` | NO       | Object    | Media Data                        |
 | `items`     | YES      | Object    | Link list items                   |
-| `button`    | NO       | Object    | Button props                       |
+| `cta`       | NO       | Object    | cta props                       |
 
 ### Stable selectors
 

@@ -104,11 +104,6 @@ storiesOf('Patterns (Blocks)|LeadSpaceBlock', module)
       ],
     };
 
-    const buttonprops = {
-      copy: text(`Button`, `Contact Sales`),
-      href: text('Primary button link', 'https://www.example.com'),
-    };
-
     return (
       <div className="bx--grid">
         <div className="bx--row">
@@ -120,7 +115,6 @@ storiesOf('Patterns (Blocks)|LeadSpaceBlock', module)
               mediaType={mediaType}
               mediaData={mediaData}
               items={linkListProps}
-              button={buttonprops}
               cta={ctaProps}
             />
           </div>
