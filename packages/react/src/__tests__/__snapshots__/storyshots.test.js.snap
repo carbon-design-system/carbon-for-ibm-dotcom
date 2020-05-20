@@ -26625,6 +26625,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock With aside elements 1`]
                                 },
                               ]
                             }
+                            style="card"
                           />,
                         }
                       }
@@ -26709,6 +26710,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock With aside elements 1`]
                                 },
                               ]
                             }
+                            style="card"
                           />,
                         }
                       }
@@ -26972,6 +26974,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock With aside elements 1`]
                                       },
                                     ]
                                   }
+                                  style="card"
                                 >
                                   <div
                                     className="bx--link-list"
@@ -26983,7 +26986,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock With aside elements 1`]
                                       Tutorials
                                     </h4>
                                     <ul
-                                      className="bx--link-list__list bx--link-list__list--undefined"
+                                      className="bx--link-list__list bx--link-list__list--card"
                                     >
                                       <li
                                         className="bx--link-list__list__CTA bx--link-list__list--local"
@@ -26996,11 +26999,11 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock With aside elements 1`]
                                               "href": "https://ibm.com",
                                             }
                                           }
-                                          style="text"
+                                          style="card"
                                           type="local"
                                         >
                                           <div>
-                                            <TextCTA
+                                            <CardCTA
                                               copy="Containerization A Complete Guide"
                                               cta={
                                                 Object {
@@ -27009,7 +27012,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock With aside elements 1`]
                                               }
                                               openLightBox={[Function]}
                                               renderLightBox={false}
-                                              style="text"
+                                              style="card"
                                               type="local"
                                               videoTitle={
                                                 Array [
@@ -27020,58 +27023,111 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock With aside elements 1`]
                                                 ]
                                               }
                                             >
-                                              <LinkWithIcon
-                                                href="https://ibm.com"
-                                                onClick={[Function]}
+                                              <Card
+                                                copy="Containerization A Complete Guide"
+                                                cta={
+                                                  Object {
+                                                    "href": "https://ibm.com",
+                                                    "icon": Object {
+                                                      "src": Object {
+                                                        "$$typeof": Symbol(react.forward_ref),
+                                                        "render": [Function],
+                                                      },
+                                                    },
+                                                  }
+                                                }
+                                                customClassName="bx--card__CTA"
+                                                handleClick={[Function]}
+                                                role="region"
                                                 target={null}
+                                                type="link"
                                               >
-                                                <div
-                                                  className="bx--link-with-icon__container"
-                                                  data-autoid="dds--link-with-icon"
+                                                <ClickableTile
+                                                  className="bx--card bx--card--link bx--card__CTA"
+                                                  clicked={false}
+                                                  data-autoid="dds--card"
+                                                  handleClick={[Function]}
+                                                  handleKeyDown={[Function]}
+                                                  href="https://ibm.com"
+                                                  light={false}
+                                                  onClick={[Function]}
+                                                  role="region"
+                                                  target={null}
                                                 >
-                                                  <Link
-                                                    className="bx--link-with-icon"
+                                                  <a
+                                                    className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                                    data-autoid="dds--card"
                                                     href="https://ibm.com"
                                                     onClick={[Function]}
+                                                    onKeyDown={[Function]}
+                                                    role="region"
                                                     target={null}
                                                   >
-                                                    <a
-                                                      className="bx--link bx--link-with-icon"
-                                                      href="https://ibm.com"
-                                                      onClick={[Function]}
-                                                      target={null}
+                                                    <div
+                                                      className="bx--card__wrapper"
                                                     >
-                                                      <span>
-                                                        Containerization A Complete Guide
-                                                      </span>
-                                                      <ForwardRef(ArrowRight20)>
-                                                        <Icon
-                                                          height={20}
-                                                          preserveAspectRatio="xMidYMid meet"
-                                                          viewBox="0 0 20 20"
-                                                          width={20}
-                                                          xmlns="http://www.w3.org/2000/svg"
+                                                      <div
+                                                        className="bx--card__copy"
+                                                        dangerouslySetInnerHTML={
+                                                          Object {
+                                                            "__html": "<p>Containerization A Complete Guide</p>",
+                                                          }
+                                                        }
+                                                      />
+                                                      <div
+                                                        className="bx--card__footer"
+                                                      >
+                                                        <ForwardRef(ArrowRight20)
+                                                          className="bx--card__cta"
+                                                          src={
+                                                            Object {
+                                                              "$$typeof": Symbol(react.forward_ref),
+                                                              "render": [Function],
+                                                            }
+                                                          }
                                                         >
-                                                          <svg
-                                                            aria-hidden={true}
-                                                            focusable="false"
+                                                          <Icon
+                                                            className="bx--card__cta"
                                                             height={20}
                                                             preserveAspectRatio="xMidYMid meet"
+                                                            src={
+                                                              Object {
+                                                                "$$typeof": Symbol(react.forward_ref),
+                                                                "render": [Function],
+                                                              }
+                                                            }
                                                             viewBox="0 0 20 20"
                                                             width={20}
                                                             xmlns="http://www.w3.org/2000/svg"
                                                           >
-                                                            <polygon
-                                                              points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
-                                                            />
-                                                          </svg>
-                                                        </Icon>
-                                                      </ForwardRef(ArrowRight20)>
-                                                    </a>
-                                                  </Link>
-                                                </div>
-                                              </LinkWithIcon>
-                                            </TextCTA>
+                                                            <svg
+                                                              aria-hidden={true}
+                                                              className="bx--card__cta"
+                                                              focusable="false"
+                                                              height={20}
+                                                              preserveAspectRatio="xMidYMid meet"
+                                                              src={
+                                                                Object {
+                                                                  "$$typeof": Symbol(react.forward_ref),
+                                                                  "render": [Function],
+                                                                }
+                                                              }
+                                                              viewBox="0 0 20 20"
+                                                              width={20}
+                                                              xmlns="http://www.w3.org/2000/svg"
+                                                            >
+                                                              <polygon
+                                                                points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
+                                                              />
+                                                            </svg>
+                                                          </Icon>
+                                                        </ForwardRef(ArrowRight20)>
+                                                      </div>
+                                                    </div>
+                                                  </a>
+                                                </ClickableTile>
+                                              </Card>
+                                            </CardCTA>
                                           </div>
                                         </CTA>
                                       </li>
@@ -27086,11 +27142,11 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock With aside elements 1`]
                                               "href": "https://ibm.com",
                                             }
                                           }
-                                          style="text"
+                                          style="card"
                                           type="external"
                                         >
                                           <div>
-                                            <TextCTA
+                                            <CardCTA
                                               copy="Why should you use microservices and containers"
                                               cta={
                                                 Object {
@@ -27099,7 +27155,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock With aside elements 1`]
                                               }
                                               openLightBox={[Function]}
                                               renderLightBox={false}
-                                              style="text"
+                                              style="card"
                                               type="external"
                                               videoTitle={
                                                 Array [
@@ -27110,61 +27166,114 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock With aside elements 1`]
                                                 ]
                                               }
                                             >
-                                              <LinkWithIcon
-                                                href="https://ibm.com"
-                                                onClick={[Function]}
+                                              <Card
+                                                copy="Why should you use microservices and containers"
+                                                cta={
+                                                  Object {
+                                                    "href": "https://ibm.com",
+                                                    "icon": Object {
+                                                      "src": Object {
+                                                        "$$typeof": Symbol(react.forward_ref),
+                                                        "render": [Function],
+                                                      },
+                                                    },
+                                                  }
+                                                }
+                                                customClassName="bx--card__CTA"
+                                                handleClick={[Function]}
+                                                role="region"
                                                 target="_blank"
+                                                type="link"
                                               >
-                                                <div
-                                                  className="bx--link-with-icon__container"
-                                                  data-autoid="dds--link-with-icon"
+                                                <ClickableTile
+                                                  className="bx--card bx--card--link bx--card__CTA"
+                                                  clicked={false}
+                                                  data-autoid="dds--card"
+                                                  handleClick={[Function]}
+                                                  handleKeyDown={[Function]}
+                                                  href="https://ibm.com"
+                                                  light={false}
+                                                  onClick={[Function]}
+                                                  role="region"
+                                                  target="_blank"
                                                 >
-                                                  <Link
-                                                    className="bx--link-with-icon"
+                                                  <a
+                                                    className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                                    data-autoid="dds--card"
                                                     href="https://ibm.com"
                                                     onClick={[Function]}
+                                                    onKeyDown={[Function]}
+                                                    role="region"
                                                     target="_blank"
                                                   >
-                                                    <a
-                                                      className="bx--link bx--link-with-icon"
-                                                      href="https://ibm.com"
-                                                      onClick={[Function]}
-                                                      target="_blank"
+                                                    <div
+                                                      className="bx--card__wrapper"
                                                     >
-                                                      <span>
-                                                        Why should you use microservices and containers
-                                                      </span>
-                                                      <ForwardRef(Launch20)>
-                                                        <Icon
-                                                          height={20}
-                                                          preserveAspectRatio="xMidYMid meet"
-                                                          viewBox="0 0 32 32"
-                                                          width={20}
-                                                          xmlns="http://www.w3.org/2000/svg"
+                                                      <div
+                                                        className="bx--card__copy"
+                                                        dangerouslySetInnerHTML={
+                                                          Object {
+                                                            "__html": "<p>Why should you use microservices and containers</p>",
+                                                          }
+                                                        }
+                                                      />
+                                                      <div
+                                                        className="bx--card__footer"
+                                                      >
+                                                        <ForwardRef(Launch20)
+                                                          className="bx--card__cta"
+                                                          src={
+                                                            Object {
+                                                              "$$typeof": Symbol(react.forward_ref),
+                                                              "render": [Function],
+                                                            }
+                                                          }
                                                         >
-                                                          <svg
-                                                            aria-hidden={true}
-                                                            focusable="false"
+                                                          <Icon
+                                                            className="bx--card__cta"
                                                             height={20}
                                                             preserveAspectRatio="xMidYMid meet"
+                                                            src={
+                                                              Object {
+                                                                "$$typeof": Symbol(react.forward_ref),
+                                                                "render": [Function],
+                                                              }
+                                                            }
                                                             viewBox="0 0 32 32"
                                                             width={20}
                                                             xmlns="http://www.w3.org/2000/svg"
                                                           >
-                                                            <path
-                                                              d="M26,28H6a2,2,0,0,1-2-2V6A2,2,0,0,1,6,4h9V6H6V26H26V17h2v9A2,2,0,0,1,26,28Z"
-                                                            />
-                                                            <polygon
-                                                              points="21 2 21 4 26.59 4 18 12.59 19.41 14 28 5.41 28 11 30 11 30 2 21 2"
-                                                            />
-                                                          </svg>
-                                                        </Icon>
-                                                      </ForwardRef(Launch20)>
-                                                    </a>
-                                                  </Link>
-                                                </div>
-                                              </LinkWithIcon>
-                                            </TextCTA>
+                                                            <svg
+                                                              aria-hidden={true}
+                                                              className="bx--card__cta"
+                                                              focusable="false"
+                                                              height={20}
+                                                              preserveAspectRatio="xMidYMid meet"
+                                                              src={
+                                                                Object {
+                                                                  "$$typeof": Symbol(react.forward_ref),
+                                                                  "render": [Function],
+                                                                }
+                                                              }
+                                                              viewBox="0 0 32 32"
+                                                              width={20}
+                                                              xmlns="http://www.w3.org/2000/svg"
+                                                            >
+                                                              <path
+                                                                d="M26,28H6a2,2,0,0,1-2-2V6A2,2,0,0,1,6,4h9V6H6V26H26V17h2v9A2,2,0,0,1,26,28Z"
+                                                              />
+                                                              <polygon
+                                                                points="21 2 21 4 26.59 4 18 12.59 19.41 14 28 5.41 28 11 30 11 30 2 21 2"
+                                                              />
+                                                            </svg>
+                                                          </Icon>
+                                                        </ForwardRef(Launch20)>
+                                                      </div>
+                                                    </div>
+                                                  </a>
+                                                </ClickableTile>
+                                              </Card>
+                                            </CardCTA>
                                           </div>
                                         </CTA>
                                       </li>
