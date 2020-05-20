@@ -26,7 +26,7 @@
   "scripts": {
     "build": "yarn clean && node scripts/build.js",
     "build-storybook": "cross-env BABEL_ENV=es build-storybook",
-    "ci-check": "yarn test-ssr && yarn build && yarn test",
+    "ci-check": "yarn test-ssr && yarn test:unit",
     "clean": "rimraf es lib umd storybook-static",
     "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate",
