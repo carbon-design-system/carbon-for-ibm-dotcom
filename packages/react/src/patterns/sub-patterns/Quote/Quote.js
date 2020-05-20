@@ -5,17 +5,18 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { ArrowRight20, Launch20 } from '@carbon/icons-react';
 import {
   settings as ddsSettings,
   decodeString,
 } from '@carbon/ibmdotcom-utilities';
+import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
 import classnames from 'classnames';
 import { HorizontalRule } from '../../../components/HorizontalRule';
+import Launch20 from '@carbon/icons-react/es/launch/20';
 import { LinkWithIcon } from '../../../components/LinkWithIcon';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { settings } from 'carbon-components';
+import settings from 'carbon-components/es/globals/js/settings';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;

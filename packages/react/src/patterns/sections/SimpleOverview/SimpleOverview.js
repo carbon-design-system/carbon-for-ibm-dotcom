@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { ArrowRight20 } from '@carbon/icons-react';
+import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
 import classNames from 'classnames';
 import { DDS_SIMPLE_OVERVIEW } from '../../../internal/FeatureFlags';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
@@ -13,7 +13,7 @@ import { featureFlag } from '@carbon/ibmdotcom-utilities';
 import { LinkWithIcon } from '../../../components/LinkWithIcon';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { settings } from 'carbon-components';
+import settings from 'carbon-components/es/globals/js/settings';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;

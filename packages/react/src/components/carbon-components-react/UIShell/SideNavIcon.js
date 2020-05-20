@@ -8,7 +8,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { settings } from 'carbon-components';
+import settings from 'carbon-components/es/globals/js/settings';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';

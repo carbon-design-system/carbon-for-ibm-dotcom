@@ -24,7 +24,7 @@
     "access": "public"
   },
   "scripts": {
-    "build": "yarn clean && node scripts/build.js",
+    "build": "yarn clean && gulp vendor:carbon-components-react && node scripts/build.js",
     "build-storybook": "cross-env BABEL_ENV=es build-storybook",
     "ci-check": "yarn test-ssr && yarn test",
     "clean": "rimraf es lib umd storybook-static",
@@ -70,6 +70,7 @@
     "@babel/plugin-transform-runtime": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
+    "@carbon/icons-react": "^10.11.0",
     "@carbon/pictograms-react": "10.10.2",
     "@percy-io/in-percy": "^0.1.11",
     "@percy/storybook": "^3.3.0",
@@ -83,6 +84,10 @@
     "@storybook/addon-storysource": "^5.3.0",
     "@storybook/addons": "^5.3.0",
     "@storybook/react": "^5.3.0",
+    "acorn": "^7.1.0",
+    "acorn-jsx": "^5.2.0",
+    "acorn-jsx-walk": "^2.0.0",
+    "acorn-walk": "^7.1.0",
     "all-contributors-cli": "^5.2.1",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "23.6.0",
@@ -102,10 +107,12 @@
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "fast-sass-loader": "1.5.0",
+    "gulp": "^4.0.0",
     "gzip-size": "^5.0.0",
     "jest": "24.0.0",
     "jest-circus": "^24.0.0",
     "lcov2badge": "^0.1.0",
+    "magic-string": "^0.25.0",
     "mini-css-extract-plugin": "^0.4.4",
     "node-sass": "4.13.0",
     "object-assign": "^4.1.1",
@@ -137,8 +144,12 @@
     "string-replace-loader": "^2.1.0",
     "style-loader": "^1.0.0",
     "terser-webpack-plugin": "^2.3.5",
+    "through2": "^3.0.0",
     "webpack": "^4.25.1",
     "whatwg-fetch": "^2.0.3"
+  },
+  "resolutions": {
+    "@carbon/icons-react": "^10.11.0"
   },
   "sideEffects": false,
   "bundleSizeThreshold": 300000,

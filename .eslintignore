@@ -9,6 +9,7 @@ packages/react/lib
 packages/react/node_modules
 packages/react/storybook-static
 packages/react/ssr-tests/nextjs/.next
+packages/react/src/internal/vendor
 
 # local carbon-components-react
 packages/react/src/components/carbon-components-react

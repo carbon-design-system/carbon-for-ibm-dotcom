@@ -9,7 +9,7 @@ import { select, text, withKnobs } from '@storybook/addon-knobs';
 import ContentSection from '../ContentSection';
 import React from 'react';
 import readme from '../README.md';
-import { settings } from 'carbon-components';
+import settings from 'carbon-components/es/globals/js/settings';
 
 const { prefix } = settings;
 
