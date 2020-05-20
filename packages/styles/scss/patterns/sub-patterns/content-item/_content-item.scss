@@ -51,8 +51,8 @@
     }
 
     .#{$prefix}--video-player {
-      margin-top: 2rem;
-      margin-bottom: 2rem;
+      margin-top: $carbon--$spacing-07;
+      margin-bottom: $carbon--$spacing-07;
     }
   }
 }
