@@ -37,9 +37,9 @@ tag_repo () {
   do
       case "$tagconfirm" in
           "Yes")
-            echo -e "${GREEN}Tagging the repo with $tagname...${NC}"
+            echo -e "${GREEN}Tagging the repo with ${tagname}...${NC}"
             pwd
-            git tag -a $tagname -m "Release $tagname"
+            git tag -a ${tagname} -m "Release ${tagname}"
             git push --tags
             create_release
             break
@@ -49,7 +49,7 @@ tag_repo () {
             create_release
             break
             ;;
-          *) echo "${RED}invalid option $REPLY${NC}";;
+          *) echo "${RED}invalid option ${REPLY}${NC}";;
       esac
   done
 }
@@ -108,40 +108,36 @@ change_logs () {
   CR=$(printf '\n')
   return="\n\n"
 
-  react="$(git diff HEAD~ --unified=0 packages/react/CHANGELOG.md | sed -e '1,5d' | sed -e :a -e '$d;N;2,5ba' -e 'P;D' | sed -e 's/^\+/\\n/' | sed -e 's/# \[/# React \[/g')$return$return"
-  patterns="$(git diff HEAD~ --unified=0 packages/patterns-react/CHANGELOG.md | sed -e '1,5d' | sed -e :a -e '$d;N;2,5ba' -e 'P;D' | sed -e 's/^\+/\\n/' | sed -e 's/# \[/# Patterns \[/g')$return$return"
-  vanilla="$(git diff HEAD~ --unified=0 packages/vanilla/CHANGELOG.md | sed -e '1,5d' | sed -e :a -e '$d;N;2,5ba' -e 'P;D' | sed -e 's/^\+/\\n/' | sed -e 's/# \[/# Vanilla \[/g')$return$return"
-  services="$(git diff HEAD~ --unified=0 packages/services/CHANGELOG.md | sed -e '1,5d' | sed -e :a -e '$d;N;2,5ba' -e 'P;D' | sed -e 's/^\+/\\n/' | sed -e 's/# \[/# Services \[/g')$return$return"
-  styles="$(git diff HEAD~ --unified=0 packages/styles/CHANGELOG.md | sed -e '1,5d' | sed -e :a -e '$d;N;2,5ba' -e 'P;D' | sed -e 's/^\+/\\n/' | sed -e 's/# \[/# Styles \[/g')$return$return"
-  utilities="$(git diff HEAD~ --unified=0 packages/utilities/CHANGELOG.md | sed -e '1,5d' | sed -e :a -e '$d;N;2,5ba' -e 'P;D' | sed -e 's/^\+/\\n/' | sed -e 's/# \[/# Utilities \[/g')$return$return"
+  react="$(git diff HEAD~1 --unified=0 packages/react/CHANGELOG.md | sed -e '1,5d' | sed -e :a -e '$d;N;2,5ba' -e 'P;D' | sed -e 's/^\+/\\n/' | sed -e 's/# \[/# React \[/g')$return$return"
+  vanilla="$(git diff HEAD~1 --unified=0 packages/vanilla/CHANGELOG.md | sed -e '1,5d' | sed -e :a -e '$d;N;2,5ba' -e 'P;D' | sed -e 's/^\+/\\n/' | sed -e 's/# \[/# Vanilla \[/g')$return$return"
+  services="$(git diff HEAD~1 --unified=0 packages/services/CHANGELOG.md | sed -e '1,5d' | sed -e :a -e '$d;N;2,5ba' -e 'P;D' | sed -e 's/^\+/\\n/' | sed -e 's/# \[/# Services \[/g')$return$return"
+  styles="$(git diff HEAD~1 --unified=0 packages/styles/CHANGELOG.md | sed -e '1,5d' | sed -e :a -e '$d;N;2,5ba' -e 'P;D' | sed -e 's/^\+/\\n/' | sed -e 's/# \[/# Styles \[/g')$return$return"
+  utilities="$(git diff HEAD~1 --unified=0 packages/utilities/CHANGELOG.md | sed -e '1,5d' | sed -e :a -e '$d;N;2,5ba' -e 'P;D' | sed -e 's/^\+/\\n/' | sed -e 's/# \[/# Utilities \[/g')$return$return"
 
-  if [[ $react == *"Version bump only"* ]]; then
+  if [[ ${react} == *"Version bump only"* ]]; then
     react=''
   fi
 
-  if [[ $patterns == *"Version bump only"* ]]; then
-    patterns=''
-  fi
-
-  if [[ $vanilla == *"Version bump only"* ]]; then
+  if [[ ${vanilla} == *"Version bump only"* ]]; then
     vanilla=''
   fi
 
-  if [[ $services == *"Version bump only"* ]]; then
+  if [[ ${services} == *"Version bump only"* ]]; then
     services=''
   fi
 
-  if [[ $styles == *"Version bump only"* ]]; then
+  if [[ ${styles} == *"Version bump only"* ]]; then
     styles=''
   fi
 
-  if [[ $utilities == *"Version bump only"* ]]; then
+  if [[ ${utilities} == *"Version bump only"* ]]; then
     utilities=''
   fi
 
-  body=$(printf "%s\n" "$react$patterns$vanilla$services$styles$utilities") > TEMP_RELEASENOTES.md
+  body=$(printf "%s\n" "${react}${vanilla}${services}${styles}${utilities}" | sed "s/\"/'/g" | sed "s/\\_//g")
+  echo ${body} > TEMP_RELEASENOTES.md
 
-response=$(curl -i -H "Authorization: token $token" -X POST $repo \
+response=$(curl -H "Authorization: token ${token}" -X POST ${repo} \
 -d @- << EOF
 {
   "tag_name":"$tagname",
@@ -154,7 +150,16 @@ response=$(curl -i -H "Authorization: token $token" -X POST $repo \
 EOF
 )
 
-  if [[ -z ${response}.id ]]
+response_message=$(jq '.message' <<< "${response}")
+response_id=$(jq 'has("id")' <<< "${response}")
+
+  if [[ ${response_message} == "Problems parsing JSON" ]]
+  then
+    echo -e "${RED}Error parsing JSON, check to see if there are issues with the body copy.${NC}"
+    echo -e "${RED}Temporary release notes have been generated if creating the release manually (TEMP_RELEASENOTES.md)${NC}"
+    echo -e "${RED}Tag: https://github.com/carbon-design-system/ibm-dotcom-library/releases/tag/${tagname}${NC}"
+    echo ${response}
+  elif [[ ${response_id} != "true" ]]
   then
     echo -e "${RED}Error creating the release! Check if the Github token is set correctly (e.g. 'git config --global github.token YOUR_TOKEN')${NC}"
     echo -e "${RED}Temporary release notes have been generated if creating the release manually (TEMP_RELEASENOTES.md)${NC}"
