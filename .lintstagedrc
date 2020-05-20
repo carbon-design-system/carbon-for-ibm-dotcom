@@ -1,11 +1,13 @@
 {
   "**/*.js": [
     "prettier --write",
+    "yarn lint:license:staged",
     "eslint packages",
     "git add"
   ],
   "**/*.scss": [
     "prettier --write",
+    "yarn lint:license:staged",
     "stylelint '**/*.scss' --config ./packages/stylelint-config-ibmdotcom",
     "git add"
   ],
