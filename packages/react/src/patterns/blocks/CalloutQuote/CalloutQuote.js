@@ -26,6 +26,7 @@ const { prefix } = settings;
  * @param {string} props.quote.cta.copy cta copy
  * @param {string} props.quote.cta.type type 'local' or 'external'
  * @param {string} props.quote.cta.href cta href
+ * @returns {*} JSX CalloutQuote component
  */
 const CalloutQuote = ({ quote }) => {
   return (

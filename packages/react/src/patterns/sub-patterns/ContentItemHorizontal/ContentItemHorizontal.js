@@ -5,8 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { CTA } from '../../../components/CTA';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import { LinkList } from '../../../patterns/sub-patterns/LinkList';
 import { markdownToHtml } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -57,14 +57,7 @@ const ContentItemHorizontal = ({ eyebrow, heading, copy, cta }) => (
           <div
             className={`${prefix}--content-item-horizontal__item--cta`}
             data-autoid={`${stablePrefix}--content-item-horizontal__item--cta`}>
-            {cta.map((cta, index) => (
-              <CTA
-                style="text"
-                {...cta}
-                customClassName={`${prefix}--card__cta`}
-                key={index}
-              />
-            ))}
+            <LinkList style="horizontal" {...cta} />
           </div>
         )}
       </div>

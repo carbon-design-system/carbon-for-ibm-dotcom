@@ -35,13 +35,17 @@ function App() {
       heading: 'Containerization: A Complete Guide',
       type: 'local',
       copy: 'Lorem ipsum dolor sit amet',
-      href: 'https://ibm.com',
+      cta: {
+        href: 'https://ibm.com',
+      },
     },
     {
       heading: 'Why should you use microservices and containers?',
       type: 'external',
       copy: 'Lorem ipsum dolor sit amet',
-      href: 'https://ibm.com',
+      cta: {
+        href: 'https://ibm.com',
+      },
     },
     {
       type: 'video',
@@ -51,7 +55,13 @@ function App() {
       },
     },
   ];
-  return <LinkList heading={heading} items={items} />;
+  return (
+    <LinkList
+      style="card|horizontal|vertical"
+      heading={heading}
+      items={items}
+    />
+  );
 }
 
 ReactDOM.render(<App />, document.querySelector('#app'));
@@ -69,10 +79,11 @@ Add the following line in your `.env` file at the root of your project.
 
 ## Props
 
-| Name      | Required | Data Type | Default Value | Description                                          |
-| --------- | -------- | --------- | ------------- | ---------------------------------------------------- |
-| `heading` | YES      | String    | text          | Describes heading of LinkList.                       |
-| `items`   | YES      | Array     | null          | Describes the list of CTA. For more See below `CTA`. |
+| Name      | Required | Data Type | Default Value | Description                                                            |
+| --------- | -------- | --------- | ------------- | ---------------------------------------------------------------------- |
+| `heading` | YES      | String    | text          | Describes heading of LinkList.                                         |
+| `items`   | YES      | Array     | null          | Describes the list of CTA. For more See below `CTA`.                   |
+| `style`   | YES      | String    | null          | Orientation of LinkList. Supports `card`, `horizontal`, and `vertical` |
 
 ### CTA
 
