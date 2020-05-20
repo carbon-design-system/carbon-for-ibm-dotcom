@@ -6,10 +6,22 @@ import { configureActions } from '@storybook/addon-actions';
 import { withInfo } from '@storybook/addon-info';
 import Container from './Container';
 
+const SORT_ORDER_STORY = [
+  'overview--get-started',
+  'component-icons-kitchen-sink--default',
+];
+
 addParameters({
   options: {
     name: `Carbon Design System with Expressive`,
     url: 'https://github.com/carbon-design-system/ibm-dotcom-library',
+    storySort(lhs, rhs) {
+      const [lhsId] = lhs;
+      const [rhsId] = rhs;
+      const lhsSortOrder = SORT_ORDER_STORY.concat([lhsId]).indexOf(lhsId);
+      const rhsSortOrder = SORT_ORDER_STORY.concat([rhsId]).indexOf(rhsId);
+      return lhsSortOrder - rhsSortOrder;
+    },
   },
 });
 
@@ -33,10 +45,5 @@ addDecorator(
 
 addDecorator(story => <Container story={story} />);
 
-function loadStories() {
-  require('../src/carbon-stories/overview');
-  const req = requireContext('../src/carbon-stories', true, /-story\.js$/);
-  req.keys().forEach(filename => req(filename));
-}
-
-configure(loadStories, module);
+const components = requireContext('../src', true, /(overview|-story)\.js$/);
+configure(components, module);

@@ -25,15 +25,26 @@ const { prefix } = settings;
  * @returns {*} VideoPlayer component
  */
 const VideoPlayer = ({ inverse, showCaption, videoId, customClassName }) => {
-  const [videoData, setVideoData] = useState({});
+  const [videoData, setVideoData] = useState({ description: '' });
   const videoPlayerId = `video-player__video-${videoId}`;
   const videoDuration = VideoPlayerAPI.getVideoDuration(videoData.msDuration);
 
   useEffect(() => {
+    let stale = false;
     (async () => {
       await VideoPlayerAPI.embedVideo(videoId, `${prefix}--${videoPlayerId}`);
-      setVideoData(await VideoPlayerAPI.api(videoId));
+      if (stale) {
+        return;
+      }
+      const newVideoData = await VideoPlayerAPI.api(videoId);
+      if (stale) {
+        return;
+      }
+      setVideoData(newVideoData);
     })();
+    return () => {
+      stale = true;
+    };
   }, [videoId, videoPlayerId]);
 
   const classnames = cx(
@@ -44,7 +55,7 @@ const VideoPlayer = ({ inverse, showCaption, videoId, customClassName }) => {
 
   return (
     <div
-      aria-label={`${videoData.description} ${videoDuration}`}
+      aria-label={`${videoData.name} ${videoDuration}`}
       className={classnames}>
       <div
         className={`${prefix}--video-player__video-container`}

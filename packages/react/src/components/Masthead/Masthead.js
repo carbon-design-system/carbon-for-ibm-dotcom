@@ -76,16 +76,16 @@ const Masthead = ({
   }, []);
 
   useEffect(() => {
-    /**
-     *  Login Status of user
-     *
-     *  @returns {*} User authentication status
-     */
-    async function loginStatus() {
-      return await ProfileAPI.getUserStatus();
-    }
-    const status = loginStatus();
-    status.then(result => setStatus(result.user === 'Authenticated'));
+    let unmounted = false;
+    (async () => {
+      const status = await ProfileAPI.getUserStatus();
+      if (!unmounted) {
+        setStatus(status.user === 'Authenticated');
+      }
+    })();
+    return () => {
+      unmounted = true;
+    };
   }, []);
 
   let [mastheadData, setMastheadData] = useState([]);
@@ -95,19 +95,17 @@ const Masthead = ({
   });
 
   useEffect(() => {
-    /**
-     * Page data including masthead, footer, profile links
-     *
-     * @returns {*} Page data object
-     */
-    async function getPageData() {
-      return await TranslationAPI.getTranslation();
-    }
-    const pageData = getPageData();
-    pageData.then(result => {
-      setMastheadData(result.mastheadNav.links);
-      setProfileData(result.profileMenu);
-    });
+    let unmounted = false;
+    (async () => {
+      const pageData = await TranslationAPI.getTranslation();
+      if (!unmounted) {
+        setMastheadData(pageData.mastheadNav.links);
+        setProfileData(pageData.profileMenu);
+      }
+    })();
+    return () => {
+      unmounted = true;
+    };
   }, []);
 
   /**
@@ -119,6 +117,7 @@ const Masthead = ({
       `.${prefix}--masthead__profile-item`
     );
     profileMenuList.closest('ul').style.position = 'fixed';
+    profileMenuList.closest('ul').style.top = '48px';
   };
 
   const [isMastheadSticky, setIsMastheadSticky] = useState(false);

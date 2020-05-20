@@ -19,4 +19,4 @@ const mastheadKnobs = {
   },
 };
 
-module.exports = mastheadKnobs;
+export default mastheadKnobs;

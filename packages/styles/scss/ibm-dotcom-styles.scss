@@ -41,7 +41,8 @@
 @import 'patterns/blocks/content-group-horizontal/content-group-horizontal';
 @import 'patterns/blocks/content-group-pictograms/index';
 @import 'patterns/blocks/content-group-simple/index';
-@import 'patterns/blocks/feature-card/feature-card';
+@import 'patterns/blocks/feature-card-block-medium/feature-card-block-medium';
+@import 'patterns/blocks/feature-card-block-large/feature-card-block-large';
 @import 'patterns/blocks/logo-grid/logo-grid';
 
 // Patterns - Sub-Patterns
@@ -54,6 +55,7 @@
 @import 'patterns/sub-patterns/content-item-horizontal/content-item-horizontal';
 @import 'patterns/sub-patterns/content-group/content-group';
 @import 'patterns/sub-patterns/content-section/content-section';
+@import 'patterns/sub-patterns/feature-card/feature-card';
 @import 'patterns/sub-patterns/layout/layout';
 @import 'patterns/sub-patterns/link-list/index';
 @import 'patterns/sub-patterns/pictogram-item/pictogram-item';

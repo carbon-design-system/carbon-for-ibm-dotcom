@@ -63,7 +63,7 @@ const TableOfContents = ({
   const [selectedTitle, setSelectedTitle] = useState('');
 
   useEffect(() => {
-    if (menuItems && menuItems.length) {
+    if (menuItems?.length) {
       setUseMenuItems([...menuItems]);
     } else {
       setUseMenuItems(_findMenuItems());
@@ -100,15 +100,15 @@ const TableOfContents = ({
    */
   const setSelectedItem = () => {
     const elems = getElemsInView();
-    if (elems.length > 0) {
-      const id = elems[0] || useMenuItems[0].id;
+    if (elems) {
+      const id = elems || useMenuItems[0].id;
       const filteredItems = useMenuItems.filter(menu => {
         if (id !== 'undefined') {
           return menu.id === id;
         }
       });
-      if (filteredItems.length > 0 && filteredItems[0].title !== undefined) {
-        const title = filteredItems[0].title;
+      const title = filteredItems[0]?.title;
+      if (title !== undefined) {
         setSelectedId(id);
         setSelectedTitle(title);
       }
@@ -118,25 +118,13 @@ const TableOfContents = ({
   /**
    * Check whether provided anchor tags are in visible viewport
    *
-   * @returns {Array} array of name attributes
+   * @returns {string} name attribute
    */
   const getElemsInView = () => {
-    const eles = document.querySelectorAll('a[name]');
-    let elesInView = [];
-    eles.forEach(element => {
-      const bounding = element.getBoundingClientRect();
-      if (
-        bounding.top >= 0 &&
-        bounding.left >= 0 &&
-        bounding.bottom <=
-          (root.innerHeight || document.documentElement.clientHeight) &&
-        bounding.right <=
-          (root.innerWidth || document.documentElement.clientWidth)
-      ) {
-        elesInView.push(element.getAttribute('name'));
-      }
-    });
-    return elesInView;
+    const items = [...document.querySelectorAll('a[name]')].filter(
+      elem => elem.getBoundingClientRect().y <= root.innerHeight / 2
+    );
+    return items[items.length - 1].getAttribute('name');
   };
 
   /**
