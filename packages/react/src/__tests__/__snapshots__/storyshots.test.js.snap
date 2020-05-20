@@ -15211,7 +15211,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                                   onClick={[Function]}
                                                   target={null}
                                                 >
-                                                  Lorem Ipsum dolor sit
+                                                  <span>
+                                                    Lorem Ipsum dolor sit
+                                                  </span>
                                                   <ForwardRef(ArrowRight20)>
                                                     <Icon
                                                       height={20}
@@ -15437,7 +15439,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                                   onClick={[Function]}
                                                   target={null}
                                                 >
-                                                  Lorem Ipsum dolor sit
+                                                  <span>
+                                                    Lorem Ipsum dolor sit
+                                                  </span>
                                                   <ForwardRef(ArrowRight20)>
                                                     <Icon
                                                       height={20}
