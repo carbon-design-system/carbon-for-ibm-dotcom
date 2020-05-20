@@ -66,21 +66,27 @@
             padding: 0;
           }
         }
+
+        .#{$prefix}--link-list li {
+          @include carbon--breakpoint(md) {
+            padding-bottom: $carbon--spacing-05;
+          }
+        }
       }
 
       @include carbon--breakpoint(sm) {
-        padding-top: $carbon--layout-03;
-        padding-bottom: $carbon--layout-03;
+        padding-top: $carbon--spacing-07;
+        padding-bottom: $carbon--spacing-07;
       }
 
       @include carbon--breakpoint(md) {
-        padding-top: $carbon--layout-03;
-        padding-bottom: $carbon--layout-05;
+        padding-top: $carbon--spacing-07;
+        padding-bottom: $carbon--spacing-09;
       }
 
       @include carbon--breakpoint(lg) {
-        padding-top: $carbon--layout-03;
-        padding-bottom: $carbon--layout-05;
+        padding-top: $carbon--spacing-07;
+        padding-bottom: $carbon--spacing-09;
       }
 
       padding-left: $carbon--spacing-05;
