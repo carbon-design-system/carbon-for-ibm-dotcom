@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-styles@1.7.0-rc.0...@carbon/ibmdotcom-styles@1.7.0-rc.1) (2020-05-20)
+
+### Bug Fixes
+
+- **featurecardblocklarge:** missing line in dotcom-styles
+  ([#2439](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2439))
+  ([f4d24a7](https://github.com/carbon-design-system/ibm-dotcom-library/commit/f4d24a7))
+- **image-with-caption:** set button border style to none"
+  ([#2450](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2450))
+  ([e9c80c9](https://github.com/carbon-design-system/ibm-dotcom-library/commit/e9c80c9))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.7.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-styles@1.6.0...@carbon/ibmdotcom-styles@1.7.0-rc.0) (2020-05-18)
 
 ### Bug Fixes
