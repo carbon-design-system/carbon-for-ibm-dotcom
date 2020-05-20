@@ -210,6 +210,7 @@ Add the following line in your `.env` file at the root of your project.
 | `local`    | ArrowRight20     | Describes right arrow onClick which loads in self page. For more details click `Icons` below.          |
 | `jump`     | ArrowDown20      | Describes down arrow onClick which scrollToView of target. For more details click `Icons` below.       |
 | `external` | Launch20         | Describes launch arrow onClick which loads in new tab. For more details click `Icons` below.           |
+| `download` | Download20       | Describes download arrow onClick for downloading files. For more details click `Icons` below.          |
 | `video`    | PlayOutline20    | Describes play icon onClick which loads the video in a lightbox. For more details click `Icons` below. |
 
 ## Icons

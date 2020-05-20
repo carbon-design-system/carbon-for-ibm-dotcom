@@ -78,7 +78,17 @@ const _renderMedia = (type, data) => {
  */
 const _renderGroup = items =>
   items.map((item, index) => (
-    <ContentGroup heading={item.heading} key={index}>
+    <ContentGroup
+      heading={item.heading}
+      key={index}
+      cta={
+        item.cta && (item.cta.type === 'jump' || item.cta.type === 'local')
+          ? {
+              style: 'text',
+              ...item.cta,
+            }
+          : false
+      }>
       <div
         data-autoid={`${stablePrefix}--content-block-segmented__content-group`}>
         <ContentItem copy={item.copy} key={index} />
