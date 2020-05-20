@@ -2,9 +2,7 @@
 @import '../../../globals/utils/content-width';
 @import '../../../globals/utils/hang';
 
-
 @mixin leadspace-block {
-
   .#{$prefix}--leadspace-block {
     padding-left: $spacing-05;
     padding-right: $spacing-05;
@@ -16,15 +14,15 @@
       @include carbon--type-style('expressive-heading-06', true);
 
       @include carbon--breakpoint('lg') {
-          padding-top: $layout-05;
+        padding-top: $layout-05;
       }
 
       @include carbon--breakpoint('md') {
-          padding-top: $layout-03;
+        padding-top: $layout-03;
       }
 
       @include carbon--breakpoint('sm') {
-          padding-top: $layout-03;
+        padding-top: $layout-03;
       }
     }
 
@@ -51,36 +49,35 @@
         padding-top: $spacing-09;
         padding-bottom: $spacing-09;
       }
+
+      .#{$prefix}--leadspace-block__media {
+        padding-top: $spacing-05;
+
+        .#{$prefix}--image-with-caption {
+          margin-top: 0;
+        }
+      }
+
+      .#{$prefix}--buttongroup {
+        padding-top: 0;
+
+        .#{$prefix}--buttongroup-item {
+          margin-top: 0;
+        }
+
+        .#{$prefix}--btn {
+          width: 60%;
+        }
+      }
+      .#{$prefix}--buttongroup-item {
+        margin-top: 0;
+        padding-top: 0;
+      }
     }
-  }
-
-  .#{$prefix}--leadspace-block__media {
-    padding-top: $spacing-05;
-
-    .#{$prefix}--image-with-caption {
+    .#{$prefix}--hr {
+      border-color: $ui-04;
       margin-top: 0;
     }
-  }
-
-  .#{$prefix}--buttongroup {
-    padding-top: 0;
-
-    .#{$prefix}--buttongroup-item {
-      margin-top: 0;
-    }
-
-    .#{$prefix}--btn {
-      width: 60%;
-    }
-  }
-  .#{$prefix}--buttongroup-item {
-    margin-top: 0;
-    padding-top: 0;
-  }
-
-  .#{$prefix}--hr {
-    border-color: $ui-04;
-    margin-top: 0;
   }
 }
 
