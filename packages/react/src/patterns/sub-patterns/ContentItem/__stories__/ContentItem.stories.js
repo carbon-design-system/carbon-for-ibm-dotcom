@@ -16,7 +16,7 @@ import ContentItem from '../ContentItem';
 import cx from 'classnames';
 import React from 'react';
 import readme from '../README.md';
-import { settings } from 'carbon-components';
+import settings from 'carbon-components/es/globals/js/settings';
 
 const { prefix } = settings;
 

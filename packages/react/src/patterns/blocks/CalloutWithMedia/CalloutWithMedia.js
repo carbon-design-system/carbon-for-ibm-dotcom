@@ -9,7 +9,7 @@ import { Callout } from '../../sub-patterns';
 import { ContentBlockSimple } from '../ContentBlockSimple';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import React from 'react';
-import { settings } from 'carbon-components';
+import settings from 'carbon-components/es/globals/js/settings';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;

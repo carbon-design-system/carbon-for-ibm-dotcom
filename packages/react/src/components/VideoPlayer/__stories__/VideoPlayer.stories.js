@@ -9,7 +9,7 @@ import { boolean, withKnobs } from '@storybook/addon-knobs';
 import cx from 'classnames';
 import React from 'react';
 import readme from '../README.md';
-import { settings } from 'carbon-components';
+import settings from 'carbon-components/es/globals/js/settings';
 import VideoPlayer from '../VideoPlayer';
 
 const { prefix } = settings;
