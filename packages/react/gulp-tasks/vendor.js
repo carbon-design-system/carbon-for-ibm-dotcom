@@ -190,7 +190,11 @@ const carbonComponetsReactVendorSrc = async () => {
   const table = await generateTable();
   await promisifyStream(() =>
     gulp
-      .src(`${carbonComponetsReactESSrcDir}/**/*`)
+      .src([
+        `${carbonComponetsReactESSrcDir}/**/*`,
+        '!**/*-{test,story}.js',
+        '!**/stories/*',
+      ])
       .pipe(convert({ table }))
       .pipe(gulp.dest(carbonComponetsReactVendorSrcDir))
   );
@@ -203,7 +207,11 @@ const carbonComponetsReactVendorESDst = async () => {
   const table = await generateTable();
   await promisifyStream(() =>
     gulp
-      .src(`${carbonComponetsReactESSrcDir}/**/*`)
+      .src([
+        `${carbonComponetsReactESSrcDir}/**/*`,
+        '!**/*-{test,story}.js',
+        '!**/stories/*',
+      ])
       .pipe(convert({ table }))
       .pipe(gulp.dest(carbonComponetsReactVendorESDstDir))
   );
@@ -214,7 +222,11 @@ const carbonComponetsReactVendorESDst = async () => {
  */
 const carbonComponetsReactVendorCJSDst = () =>
   gulp
-    .src(`${carbonComponetsReactCJSSrcDir}/**/*`)
+    .src([
+      `${carbonComponetsReactCJSSrcDir}/**/*`,
+      '!**/*-{test,story}.js',
+      '!**/stories/*',
+    ])
     .pipe(gulp.dest(carbonComponetsReactVendorCJSDstDir));
 
 module.exports = {

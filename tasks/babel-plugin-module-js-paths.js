@@ -8,6 +8,7 @@
 'use strict';
 
 const replaceTable = {
+  '@carbon/icons/es': '@carbon/icons/lib',
   '@carbon/icons-react/es': '@carbon/icons-react/lib',
   'carbon-components/es': 'carbon-components/umd',
   'carbon-components-react/es': 'carbon-components-react/lib',

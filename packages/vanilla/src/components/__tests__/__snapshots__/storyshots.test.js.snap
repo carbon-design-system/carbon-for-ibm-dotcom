@@ -1,6 +1,44 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots HorizontalRule Default 1`] = `
+exports[`Storyshots Components|Dotcom Shell Default 1`] = `
+<div>
+  Loading...
+</div>
+`;
+
+exports[`Storyshots Components|Footer Default 1`] = `
+<div>
+  Loading...
+</div>
+`;
+
+exports[`Storyshots Components|Horizontal Rule Default 1`] = `
 
   
+`;
+
+exports[`Storyshots Components|Masthead Default 1`] = `
+<div>
+  Loading...
+</div>
+`;
+
+exports[`Storyshots Components|Masthead Search open by default 1`] = `
+<div>
+  Loading...
+</div>
+`;
+
+exports[`Storyshots Overview|Get Started Default 1`] = `
+<div
+  class="storybook-center-container"
+>
+  <div
+    class="markdown-body"
+  >
+    <p>
+      README.md
+    </p>
+  </div>
+</div>
 `;

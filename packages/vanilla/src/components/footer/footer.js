@@ -1,9 +1,16 @@
+/**
+ * Copyright IBM Corp. 2020
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 import {
   LocaleAPI,
   TranslationAPI,
   globalInit,
 } from '@carbon/ibmdotcom-services';
-import { Accordion } from 'carbon-components';
+import Accordion from 'carbon-components/es/components/accordion/accordion';
 import footerTemplate from './footer.template';
 
 /**

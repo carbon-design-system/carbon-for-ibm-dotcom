@@ -27,7 +27,7 @@
     "build": "yarn clean && gulp vendor:carbon-components-react && node scripts/build.js",
     "build-storybook": "cross-env BABEL_ENV=es build-storybook",
     "ci-check": "yarn test-ssr && yarn test",
-    "clean": "rimraf es lib umd storybook-static",
+    "clean": "rimraf src/internal/vendor es lib umd storybook-static",
     "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate",
     "doctoc": "doctoc --title '## Table of Contents' docs",
