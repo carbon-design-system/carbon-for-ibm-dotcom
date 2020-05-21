@@ -21466,13 +21466,32 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                   className="bx--row"
                 >
                   <div
-                    className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
+                    className="bx--col-sm-4 bx--col-lg-8"
                   >
                     <LeadSpaceBlock
-                      button="Contact Sales"
                       copy="Automate your software release process with continuous delivery (CD)—the most 
     critical part of adopting DevOps. Build, test, and deploy code changes quickly, 
     ensuring software is always ready for deployment."
+                      cta={
+                        Object {
+                          "buttons": Array [
+                            Object {
+                              "copy": "Contact sales",
+                              "href": "https://example.com/",
+                              "iconDescription": "right arrow icon",
+                              "onClick": [Function],
+                              "renderIcon": Object {
+                                "$$typeof": Symbol(react.forward_ref),
+                                "render": [Function],
+                              },
+                              "target": null,
+                              "type": "local",
+                            },
+                          ],
+                          "style": "button",
+                          "type": "local",
+                        }
+                      }
                       heading="Innovate like a startup and scale for the enterprise "
                       items={
                         Object {
@@ -21530,6 +21549,7 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                     />
                   </div>
                 </div>
+                <HorizontalRule />
               </div>
             </React.Fragment>,
             "type": "STORY",
@@ -21565,13 +21585,32 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                   className="bx--row"
                 >
                   <div
-                    className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
+                    className="bx--col-sm-4 bx--col-lg-8"
                   >
                     <LeadSpaceBlock
-                      button="Contact Sales"
                       copy="Automate your software release process with continuous delivery (CD)—the most 
     critical part of adopting DevOps. Build, test, and deploy code changes quickly, 
     ensuring software is always ready for deployment."
+                      cta={
+                        Object {
+                          "buttons": Array [
+                            Object {
+                              "copy": "Contact sales",
+                              "href": "https://example.com/",
+                              "iconDescription": "right arrow icon",
+                              "onClick": [Function],
+                              "renderIcon": Object {
+                                "$$typeof": Symbol(react.forward_ref),
+                                "render": [Function],
+                              },
+                              "target": null,
+                              "type": "local",
+                            },
+                          ],
+                          "style": "button",
+                          "type": "local",
+                        }
+                      }
                       heading="Innovate like a startup and scale for the enterprise "
                       items={
                         Object {
@@ -21628,13 +21667,13 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                       title="Continuous delivery"
                     >
                       <div
-                        className="bx--lead-space-block"
-                        data-autoid="dds--lead-space-block"
+                        className="bx--leadspace-block"
+                        data-autoid="dds--leadspace-block"
                       >
                         <div>
                           <h1
-                            className="bx--lead-space-block__title"
-                            data-autoid="dds--lead-space-block__title"
+                            className="bx--leadspace-block__title"
+                            data-autoid="dds--leadspace-block__title"
                           >
                             Continuous delivery
                           </h1>
@@ -21670,9 +21709,11 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                               data-autoid="dds--content-block__children"
                             >
                               <div
-                                data-autoid="dds--content-block-simple__media"
+                                className="bx--leadspace-block__media"
+                                data-autoid="dds--leadspace-block__media"
                               >
                                 <ImageWithCaption
+                                  copy=""
                                   heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
                                   image={
                                     Object {
@@ -21694,6 +21735,8 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                       ],
                                     }
                                   }
+                                  inverse={false}
+                                  lightbox={false}
                                 >
                                   <div
                                     className="bx--image-with-caption"
@@ -21793,10 +21836,10 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                     Featured products
                                   </h4>
                                   <ul
-                                    className="bx--link-list__list"
+                                    className="bx--link-list__list bx--link-list__list--undefined"
                                   >
                                     <li
-                                      className="bx--link-list__list__CTA"
+                                      className="bx--link-list__list__CTA bx--link-list__list--local"
                                       key="0"
                                     >
                                       <CTA
@@ -21806,11 +21849,11 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                             "href": "https://ibm.com",
                                           }
                                         }
-                                        style="card"
+                                        style="text"
                                         type="local"
                                       >
                                         <div>
-                                          <CardCTA
+                                          <TextCTA
                                             copy="IBM Cloud Continuous Delivery"
                                             cta={
                                               Object {
@@ -21819,7 +21862,7 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                             }
                                             openLightBox={[Function]}
                                             renderLightBox={false}
-                                            style="card"
+                                            style="text"
                                             type="local"
                                             videoTitle={
                                               Array [
@@ -21830,115 +21873,63 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                               ]
                                             }
                                           >
-                                            <Card
-                                              copy="IBM Cloud Continuous Delivery"
-                                              cta={
-                                                Object {
-                                                  "href": "https://ibm.com",
-                                                  "icon": Object {
-                                                    "src": Object {
-                                                      "$$typeof": Symbol(react.forward_ref),
-                                                      "render": [Function],
-                                                    },
-                                                  },
-                                                }
-                                              }
-                                              customClassName="bx--card__CTA"
-                                              handleClick={[Function]}
-                                              role="region"
+                                            <LinkWithIcon
+                                              href="https://ibm.com"
+                                              onClick={[Function]}
                                               target={null}
-                                              type="link"
                                             >
-                                              <ClickableTile
-                                                className="bx--card bx--card--link bx--card__CTA"
-                                                clicked={false}
-                                                data-autoid="dds--card"
-                                                handleClick={[Function]}
-                                                handleKeyDown={[Function]}
-                                                href="https://ibm.com"
-                                                light={false}
-                                                role="region"
-                                                target={null}
+                                              <div
+                                                className="bx--link-with-icon__container"
+                                                data-autoid="dds--link-with-icon"
                                               >
-                                                <a
-                                                  className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
-                                                  data-autoid="dds--card"
+                                                <Link
+                                                  className="bx--link-with-icon"
                                                   href="https://ibm.com"
                                                   onClick={[Function]}
-                                                  onKeyDown={[Function]}
-                                                  role="region"
                                                   target={null}
                                                 >
-                                                  <div
-                                                    className="bx--card__wrapper"
+                                                  <a
+                                                    className="bx--link bx--link-with-icon"
+                                                    href="https://ibm.com"
+                                                    onClick={[Function]}
+                                                    target={null}
                                                   >
-                                                    <div
-                                                      className="bx--card__copy"
-                                                      dangerouslySetInnerHTML={
-                                                        Object {
-                                                          "__html": "<p>IBM Cloud Continuous Delivery</p>",
-                                                        }
-                                                      }
-                                                    />
-                                                    <div
-                                                      className="bx--card__footer"
-                                                    >
-                                                      <ForwardRef(ArrowRight20)
-                                                        className="bx--card__cta"
-                                                        src={
-                                                          Object {
-                                                            "$$typeof": Symbol(react.forward_ref),
-                                                            "render": [Function],
-                                                          }
-                                                        }
+                                                    <span>
+                                                      IBM Cloud Continuous Delivery
+                                                    </span>
+                                                    <ForwardRef(ArrowRight20)>
+                                                      <Icon
+                                                        height={20}
+                                                        preserveAspectRatio="xMidYMid meet"
+                                                        viewBox="0 0 20 20"
+                                                        width={20}
+                                                        xmlns="http://www.w3.org/2000/svg"
                                                       >
-                                                        <Icon
-                                                          className="bx--card__cta"
+                                                        <svg
+                                                          aria-hidden={true}
+                                                          focusable="false"
                                                           height={20}
                                                           preserveAspectRatio="xMidYMid meet"
-                                                          src={
-                                                            Object {
-                                                              "$$typeof": Symbol(react.forward_ref),
-                                                              "render": [Function],
-                                                            }
-                                                          }
                                                           viewBox="0 0 20 20"
                                                           width={20}
                                                           xmlns="http://www.w3.org/2000/svg"
                                                         >
-                                                          <svg
-                                                            aria-hidden={true}
-                                                            className="bx--card__cta"
-                                                            focusable="false"
-                                                            height={20}
-                                                            preserveAspectRatio="xMidYMid meet"
-                                                            src={
-                                                              Object {
-                                                                "$$typeof": Symbol(react.forward_ref),
-                                                                "render": [Function],
-                                                              }
-                                                            }
-                                                            viewBox="0 0 20 20"
-                                                            width={20}
-                                                            xmlns="http://www.w3.org/2000/svg"
-                                                          >
-                                                            <polygon
-                                                              points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
-                                                            />
-                                                          </svg>
-                                                        </Icon>
-                                                      </ForwardRef(ArrowRight20)>
-                                                    </div>
-                                                  </div>
-                                                </a>
-                                              </ClickableTile>
-                                            </Card>
-                                          </CardCTA>
+                                                          <polygon
+                                                            points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
+                                                          />
+                                                        </svg>
+                                                      </Icon>
+                                                    </ForwardRef(ArrowRight20)>
+                                                  </a>
+                                                </Link>
+                                              </div>
+                                            </LinkWithIcon>
+                                          </TextCTA>
                                         </div>
                                       </CTA>
                                     </li>
                                     <li
-                                      className="bx--link-list__list__CTA"
+                                      className="bx--link-list__list__CTA bx--link-list__list--local"
                                       key="1"
                                     >
                                       <CTA
@@ -21948,11 +21939,11 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                             "href": "https://ibm.com",
                                           }
                                         }
-                                        style="card"
+                                        style="text"
                                         type="local"
                                       >
                                         <div>
-                                          <CardCTA
+                                          <TextCTA
                                             copy="UrbanCode"
                                             cta={
                                               Object {
@@ -21961,7 +21952,7 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                             }
                                             openLightBox={[Function]}
                                             renderLightBox={false}
-                                            style="card"
+                                            style="text"
                                             type="local"
                                             videoTitle={
                                               Array [
@@ -21972,115 +21963,63 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                               ]
                                             }
                                           >
-                                            <Card
-                                              copy="UrbanCode"
-                                              cta={
-                                                Object {
-                                                  "href": "https://ibm.com",
-                                                  "icon": Object {
-                                                    "src": Object {
-                                                      "$$typeof": Symbol(react.forward_ref),
-                                                      "render": [Function],
-                                                    },
-                                                  },
-                                                }
-                                              }
-                                              customClassName="bx--card__CTA"
-                                              handleClick={[Function]}
-                                              role="region"
+                                            <LinkWithIcon
+                                              href="https://ibm.com"
+                                              onClick={[Function]}
                                               target={null}
-                                              type="link"
                                             >
-                                              <ClickableTile
-                                                className="bx--card bx--card--link bx--card__CTA"
-                                                clicked={false}
-                                                data-autoid="dds--card"
-                                                handleClick={[Function]}
-                                                handleKeyDown={[Function]}
-                                                href="https://ibm.com"
-                                                light={false}
-                                                role="region"
-                                                target={null}
+                                              <div
+                                                className="bx--link-with-icon__container"
+                                                data-autoid="dds--link-with-icon"
                                               >
-                                                <a
-                                                  className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
-                                                  data-autoid="dds--card"
+                                                <Link
+                                                  className="bx--link-with-icon"
                                                   href="https://ibm.com"
                                                   onClick={[Function]}
-                                                  onKeyDown={[Function]}
-                                                  role="region"
                                                   target={null}
                                                 >
-                                                  <div
-                                                    className="bx--card__wrapper"
+                                                  <a
+                                                    className="bx--link bx--link-with-icon"
+                                                    href="https://ibm.com"
+                                                    onClick={[Function]}
+                                                    target={null}
                                                   >
-                                                    <div
-                                                      className="bx--card__copy"
-                                                      dangerouslySetInnerHTML={
-                                                        Object {
-                                                          "__html": "<p>UrbanCode</p>",
-                                                        }
-                                                      }
-                                                    />
-                                                    <div
-                                                      className="bx--card__footer"
-                                                    >
-                                                      <ForwardRef(ArrowRight20)
-                                                        className="bx--card__cta"
-                                                        src={
-                                                          Object {
-                                                            "$$typeof": Symbol(react.forward_ref),
-                                                            "render": [Function],
-                                                          }
-                                                        }
+                                                    <span>
+                                                      UrbanCode
+                                                    </span>
+                                                    <ForwardRef(ArrowRight20)>
+                                                      <Icon
+                                                        height={20}
+                                                        preserveAspectRatio="xMidYMid meet"
+                                                        viewBox="0 0 20 20"
+                                                        width={20}
+                                                        xmlns="http://www.w3.org/2000/svg"
                                                       >
-                                                        <Icon
-                                                          className="bx--card__cta"
+                                                        <svg
+                                                          aria-hidden={true}
+                                                          focusable="false"
                                                           height={20}
                                                           preserveAspectRatio="xMidYMid meet"
-                                                          src={
-                                                            Object {
-                                                              "$$typeof": Symbol(react.forward_ref),
-                                                              "render": [Function],
-                                                            }
-                                                          }
                                                           viewBox="0 0 20 20"
                                                           width={20}
                                                           xmlns="http://www.w3.org/2000/svg"
                                                         >
-                                                          <svg
-                                                            aria-hidden={true}
-                                                            className="bx--card__cta"
-                                                            focusable="false"
-                                                            height={20}
-                                                            preserveAspectRatio="xMidYMid meet"
-                                                            src={
-                                                              Object {
-                                                                "$$typeof": Symbol(react.forward_ref),
-                                                                "render": [Function],
-                                                              }
-                                                            }
-                                                            viewBox="0 0 20 20"
-                                                            width={20}
-                                                            xmlns="http://www.w3.org/2000/svg"
-                                                          >
-                                                            <polygon
-                                                              points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
-                                                            />
-                                                          </svg>
-                                                        </Icon>
-                                                      </ForwardRef(ArrowRight20)>
-                                                    </div>
-                                                  </div>
-                                                </a>
-                                              </ClickableTile>
-                                            </Card>
-                                          </CardCTA>
+                                                          <polygon
+                                                            points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
+                                                          />
+                                                        </svg>
+                                                      </Icon>
+                                                    </ForwardRef(ArrowRight20)>
+                                                  </a>
+                                                </Link>
+                                              </div>
+                                            </LinkWithIcon>
+                                          </TextCTA>
                                         </div>
                                       </CTA>
                                     </li>
                                     <li
-                                      className="bx--link-list__list__CTA"
+                                      className="bx--link-list__list__CTA bx--link-list__list--local"
                                       key="2"
                                     >
                                       <CTA
@@ -22090,11 +22029,11 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                             "href": "https://ibm.com",
                                           }
                                         }
-                                        style="card"
+                                        style="text"
                                         type="local"
                                       >
                                         <div>
-                                          <CardCTA
+                                          <TextCTA
                                             copy="View all products"
                                             cta={
                                               Object {
@@ -22103,7 +22042,7 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                             }
                                             openLightBox={[Function]}
                                             renderLightBox={false}
-                                            style="card"
+                                            style="text"
                                             type="local"
                                             videoTitle={
                                               Array [
@@ -22114,139 +22053,226 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                               ]
                                             }
                                           >
-                                            <Card
-                                              copy="View all products"
-                                              cta={
-                                                Object {
-                                                  "href": "https://ibm.com",
-                                                  "icon": Object {
-                                                    "src": Object {
-                                                      "$$typeof": Symbol(react.forward_ref),
-                                                      "render": [Function],
-                                                    },
-                                                  },
-                                                }
-                                              }
-                                              customClassName="bx--card__CTA"
-                                              handleClick={[Function]}
-                                              role="region"
+                                            <LinkWithIcon
+                                              href="https://ibm.com"
+                                              onClick={[Function]}
                                               target={null}
-                                              type="link"
                                             >
-                                              <ClickableTile
-                                                className="bx--card bx--card--link bx--card__CTA"
-                                                clicked={false}
-                                                data-autoid="dds--card"
-                                                handleClick={[Function]}
-                                                handleKeyDown={[Function]}
-                                                href="https://ibm.com"
-                                                light={false}
-                                                role="region"
-                                                target={null}
+                                              <div
+                                                className="bx--link-with-icon__container"
+                                                data-autoid="dds--link-with-icon"
                                               >
-                                                <a
-                                                  className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
-                                                  data-autoid="dds--card"
+                                                <Link
+                                                  className="bx--link-with-icon"
                                                   href="https://ibm.com"
                                                   onClick={[Function]}
-                                                  onKeyDown={[Function]}
-                                                  role="region"
                                                   target={null}
                                                 >
-                                                  <div
-                                                    className="bx--card__wrapper"
+                                                  <a
+                                                    className="bx--link bx--link-with-icon"
+                                                    href="https://ibm.com"
+                                                    onClick={[Function]}
+                                                    target={null}
                                                   >
-                                                    <div
-                                                      className="bx--card__copy"
-                                                      dangerouslySetInnerHTML={
-                                                        Object {
-                                                          "__html": "<p>View all products</p>",
-                                                        }
-                                                      }
-                                                    />
-                                                    <div
-                                                      className="bx--card__footer"
-                                                    >
-                                                      <ForwardRef(ArrowRight20)
-                                                        className="bx--card__cta"
-                                                        src={
-                                                          Object {
-                                                            "$$typeof": Symbol(react.forward_ref),
-                                                            "render": [Function],
-                                                          }
-                                                        }
+                                                    <span>
+                                                      View all products
+                                                    </span>
+                                                    <ForwardRef(ArrowRight20)>
+                                                      <Icon
+                                                        height={20}
+                                                        preserveAspectRatio="xMidYMid meet"
+                                                        viewBox="0 0 20 20"
+                                                        width={20}
+                                                        xmlns="http://www.w3.org/2000/svg"
                                                       >
-                                                        <Icon
-                                                          className="bx--card__cta"
+                                                        <svg
+                                                          aria-hidden={true}
+                                                          focusable="false"
                                                           height={20}
                                                           preserveAspectRatio="xMidYMid meet"
-                                                          src={
-                                                            Object {
-                                                              "$$typeof": Symbol(react.forward_ref),
-                                                              "render": [Function],
-                                                            }
-                                                          }
                                                           viewBox="0 0 20 20"
                                                           width={20}
                                                           xmlns="http://www.w3.org/2000/svg"
                                                         >
-                                                          <svg
-                                                            aria-hidden={true}
-                                                            className="bx--card__cta"
-                                                            focusable="false"
-                                                            height={20}
-                                                            preserveAspectRatio="xMidYMid meet"
-                                                            src={
-                                                              Object {
-                                                                "$$typeof": Symbol(react.forward_ref),
-                                                                "render": [Function],
-                                                              }
-                                                            }
-                                                            viewBox="0 0 20 20"
-                                                            width={20}
-                                                            xmlns="http://www.w3.org/2000/svg"
-                                                          >
-                                                            <polygon
-                                                              points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
-                                                            />
-                                                          </svg>
-                                                        </Icon>
-                                                      </ForwardRef(ArrowRight20)>
-                                                    </div>
-                                                  </div>
-                                                </a>
-                                              </ClickableTile>
-                                            </Card>
-                                          </CardCTA>
+                                                          <polygon
+                                                            points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
+                                                          />
+                                                        </svg>
+                                                      </Icon>
+                                                    </ForwardRef(ArrowRight20)>
+                                                  </a>
+                                                </Link>
+                                              </div>
+                                            </LinkWithIcon>
+                                          </TextCTA>
                                         </div>
                                       </CTA>
                                     </li>
                                   </ul>
                                 </div>
                               </LinkList>
-                              <ForwardRef(Button)
-                                disabled={false}
-                                kind="primary"
-                                tabIndex={0}
-                                type="button"
+                              <CTA
+                                buttons={
+                                  Array [
+                                    Object {
+                                      "copy": "Contact sales",
+                                      "href": "https://example.com/",
+                                      "iconDescription": "right arrow icon",
+                                      "onClick": [Function],
+                                      "renderIcon": Object {
+                                        "$$typeof": Symbol(react.forward_ref),
+                                        "render": [Function],
+                                      },
+                                      "target": null,
+                                      "type": "local",
+                                    },
+                                  ]
+                                }
+                                customClassName="bx--leadspace-block__cta bx--leadspace-block__cta-col"
+                                style="button"
+                                type="local"
                               >
-                                <button
-                                  className="bx--btn bx--btn--primary"
-                                  disabled={false}
-                                  tabIndex={0}
-                                  type="button"
+                                <div
+                                  className="bx--leadspace-block__cta bx--leadspace-block__cta-col"
                                 >
-                                  Contact Sales
-                                </button>
-                              </ForwardRef(Button)>
+                                  <ButtonCTA
+                                    buttons={
+                                      Array [
+                                        Object {
+                                          "copy": "Contact sales",
+                                          "href": "https://example.com/",
+                                          "iconDescription": "right arrow icon",
+                                          "onClick": [Function],
+                                          "renderIcon": Object {
+                                            "$$typeof": Symbol(react.forward_ref),
+                                            "render": [Function],
+                                          },
+                                          "target": null,
+                                          "type": "local",
+                                        },
+                                      ]
+                                    }
+                                    openLightBox={[Function]}
+                                    renderLightBox={false}
+                                    style="button"
+                                    type="local"
+                                    videoTitle={
+                                      Array [
+                                        Object {
+                                          "key": 0,
+                                          "title": "",
+                                        },
+                                      ]
+                                    }
+                                  >
+                                    <ButtonGroup
+                                      buttons={
+                                        Array [
+                                          Object {
+                                            "copy": "Contact sales",
+                                            "href": "https://example.com/",
+                                            "iconDescription": "right arrow icon",
+                                            "onClick": [Function],
+                                            "renderIcon": Object {
+                                              "$$typeof": Symbol(react.forward_ref),
+                                              "render": [Function],
+                                            },
+                                            "target": null,
+                                            "type": "local",
+                                          },
+                                        ]
+                                      }
+                                    >
+                                      <ol
+                                        className="bx--buttongroup"
+                                        data-autoid="dds--button-group"
+                                      >
+                                        <li
+                                          className="bx--buttongroup-item"
+                                          key="0"
+                                        >
+                                          <ForwardRef(Button)
+                                            copy="Contact sales"
+                                            data-autoid="dds--button-group-0"
+                                            disabled={false}
+                                            href="https://example.com/"
+                                            iconDescription="right arrow icon"
+                                            kind="primary"
+                                            onClick={[Function]}
+                                            renderIcon={
+                                              Object {
+                                                "$$typeof": Symbol(react.forward_ref),
+                                                "render": [Function],
+                                              }
+                                            }
+                                            tabIndex={2}
+                                            target={null}
+                                            type="button"
+                                          >
+                                            <a
+                                              className="bx--btn bx--btn--primary"
+                                              copy="Contact sales"
+                                              data-autoid="dds--button-group-0"
+                                              href="https://example.com/"
+                                              onClick={[Function]}
+                                              tabIndex={2}
+                                              target={null}
+                                            >
+                                              Contact sales
+                                              <ForwardRef(ArrowRight20)
+                                                aria-hidden="true"
+                                                aria-label="right arrow icon"
+                                                className="bx--btn__icon"
+                                              >
+                                                <Icon
+                                                  aria-hidden="true"
+                                                  aria-label="right arrow icon"
+                                                  className="bx--btn__icon"
+                                                  height={20}
+                                                  preserveAspectRatio="xMidYMid meet"
+                                                  viewBox="0 0 20 20"
+                                                  width={20}
+                                                  xmlns="http://www.w3.org/2000/svg"
+                                                >
+                                                  <svg
+                                                    aria-hidden="true"
+                                                    aria-label="right arrow icon"
+                                                    className="bx--btn__icon"
+                                                    focusable="false"
+                                                    height={20}
+                                                    preserveAspectRatio="xMidYMid meet"
+                                                    role="img"
+                                                    viewBox="0 0 20 20"
+                                                    width={20}
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                  >
+                                                    <polygon
+                                                      points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
+                                                    />
+                                                  </svg>
+                                                </Icon>
+                                              </ForwardRef(ArrowRight20)>
+                                            </a>
+                                          </ForwardRef(Button)>
+                                        </li>
+                                      </ol>
+                                    </ButtonGroup>
+                                  </ButtonCTA>
+                                </div>
+                              </CTA>
                             </div>
                           </div>
                         </ContentBlock>
                       </div>
-                      <hr />
                     </LeadSpaceBlock>
                   </div>
                 </div>
+                <HorizontalRule>
+                  <hr
+                    className="bx--hr"
+                    data-autoid="dds--hr"
+                  />
+                </HorizontalRule>
               </div>
             </div>
           </div>

@@ -72,7 +72,11 @@ const LeadSpaceBlock = ({
       {pageTitle}
       <ContentBlock heading={heading} copy={copy}>
         {_renderMedia(mediaType, mediaData)}
-        <LinkList {...items} />
+        <LinkList
+          style="vertical-end"
+          heading={items.heading}
+          items={items.items}
+        />
         <CTA
           customClassName={`${prefix}--leadspace-block__cta ${prefix}--leadspace-block__cta-col`}
           {...cta}
