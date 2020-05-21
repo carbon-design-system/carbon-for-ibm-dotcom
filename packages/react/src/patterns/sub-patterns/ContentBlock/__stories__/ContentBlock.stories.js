@@ -17,7 +17,7 @@ import cx from 'classnames';
 import { LinkList } from '../../LinkList';
 import React from 'react';
 import readme from '../README.md';
-import { settings } from 'carbon-components';
+import settings from 'carbon-components/es/globals/js/settings';
 
 const { prefix } = settings;
 

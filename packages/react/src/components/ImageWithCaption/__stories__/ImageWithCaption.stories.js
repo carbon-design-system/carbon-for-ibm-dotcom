@@ -10,7 +10,7 @@ import cx from 'classnames';
 import ImageWithCaption from '../ImageWithCaption';
 import React from 'react';
 import readme from '../README.md';
-import { settings } from 'carbon-components';
+import settings from 'carbon-components/es/globals/js/settings';
 
 const { prefix } = settings;
 

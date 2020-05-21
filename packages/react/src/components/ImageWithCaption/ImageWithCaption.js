@@ -10,8 +10,8 @@ import cx from 'classnames';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { Image } from '../Image';
 import PropTypes from 'prop-types';
-import { settings } from 'carbon-components';
-import { ZoomIn20 } from '@carbon/icons-react';
+import settings from 'carbon-components/es/globals/js/settings';
+import ZoomIn20 from '@carbon/icons-react/es/zoom--in/20';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;

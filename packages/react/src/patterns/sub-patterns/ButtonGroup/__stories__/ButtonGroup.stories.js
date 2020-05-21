@@ -5,9 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { ArrowDown20, ArrowRight20, Pdf20 } from '@carbon/icons-react';
 import { number, select, text, withKnobs } from '@storybook/addon-knobs';
+import ArrowDown20 from '@carbon/icons-react/es/arrow--down/20';
+import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
 import ButtonGroup from '../ButtonGroup';
+import Pdf20 from '@carbon/icons-react/es/PDF/20';
 import React from 'react';
 import readme from '../README.md';
 

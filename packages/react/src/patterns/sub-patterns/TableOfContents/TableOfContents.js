@@ -12,7 +12,7 @@ import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import Layout from '../Layout/Layout';
 import PropTypes from 'prop-types';
 import root from 'window-or-global';
-import { settings } from 'carbon-components';
+import settings from 'carbon-components/es/globals/js/settings';
 
 import TOCDesktop from './TOCDesktop';
 import TOCMobile from './TOCMobile';

@@ -12,7 +12,7 @@ import {
   boolean,
   object,
 } from '@storybook/addon-knobs';
-import { ArrowRight20 } from '@carbon/icons-react';
+import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
 import { Card } from '../';
 import React from 'react';
 import readme from '../README.md';

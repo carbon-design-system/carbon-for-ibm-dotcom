@@ -1,14 +1,14 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import eventMatches from 'carbon-components/src/globals/js/misc/event-matches';
-import on from 'carbon-components/src/globals/js/misc/on';
-import { settings } from 'carbon-components';
-import { SideNav } from 'carbon-components';
+import eventMatches from 'carbon-components/es/globals/js/misc/event-matches';
+import on from 'carbon-components/es/globals/js/misc/on';
+import settings from 'carbon-components/es/globals/js/settings';
+import SideNav from 'carbon-components/es/components/ui-shell/side-nav';
 
 const { prefix } = settings;
 

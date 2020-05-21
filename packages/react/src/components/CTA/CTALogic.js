@@ -4,14 +4,12 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import {
-  ArrowDown20,
-  ArrowRight20,
-  Download20,
-  Launch20,
-  PlayOutline20,
-} from '@carbon/icons-react';
+import ArrowDown20 from '@carbon/icons-react/es/arrow--down/20';
+import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
+import Download20 from '@carbon/icons-react/es/download/20';
+import Launch20 from '@carbon/icons-react/es/launch/20';
 import { LightboxMediaViewer } from '../LightboxMediaViewer';
+import PlayOutline20 from '@carbon/icons-react/es/play--outline/20';
 import React from 'react';
 import { smoothScroll } from '@carbon/ibmdotcom-utilities';
 

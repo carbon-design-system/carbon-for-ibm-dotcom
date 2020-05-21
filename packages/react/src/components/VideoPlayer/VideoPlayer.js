@@ -9,7 +9,7 @@ import React, { useEffect, useState } from 'react';
 import cx from 'classnames';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
-import { settings } from 'carbon-components';
+import settings from 'carbon-components/es/globals/js/settings';
 import { VideoPlayerAPI } from '@carbon/ibmdotcom-services';
 
 const { stablePrefix } = ddsSettings;
