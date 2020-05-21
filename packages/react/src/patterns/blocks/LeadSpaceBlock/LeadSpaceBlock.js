@@ -5,7 +5,7 @@ import { ImageWithCaption } from '../../../components/ImageWithCaption';
 import { LinkList } from '../../sub-patterns/LinkList';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { settings } from 'carbon-components';
+import settings from 'carbon-components/es/globals/js/settings';
 import { VideoPlayer } from '../../../components/VideoPlayer';
 
 const { stablePrefix } = ddsSettings;
