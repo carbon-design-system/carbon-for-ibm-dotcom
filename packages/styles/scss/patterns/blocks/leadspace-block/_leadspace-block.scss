@@ -4,9 +4,6 @@
 
 @mixin leadspace-block {
   .#{$prefix}--leadspace-block {
-    padding-left: $spacing-05;
-    padding-right: $spacing-05;
-
     &__title {
       width: 90%;
       color: $text-01;
