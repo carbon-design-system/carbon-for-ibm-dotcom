@@ -1,4 +1,4 @@
-import { select, withKnobs, text, array } from '@storybook/addon-knobs';
+import { object, select, withKnobs, text } from '@storybook/addon-knobs';
 import { HorizontalRule } from '../../../../components/HorizontalRule';
 import LeadSpaceBlock from '../LeadSpaceBlock.js';
 import React from 'react';
@@ -61,7 +61,7 @@ storiesOf('Patterns (Blocks)|LeadSpaceBlock', module)
 
     const linkListProps = {
       heading: text('link list heading:', 'Featured products'),
-      items: array('link list items array', [
+      items: object('link list items array', [
         {
           type: 'local',
           copy: 'IBM Cloud Continuous Delivery',
