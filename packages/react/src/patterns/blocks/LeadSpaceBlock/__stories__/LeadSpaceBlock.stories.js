@@ -102,7 +102,7 @@ storiesOf('Patterns (Blocks)|LeadSpaceBlock', module)
     return (
       <div className="bx--grid">
         <div className="bx--row">
-          <div className="bx--col-sm-4 bx--col-lg-8">
+          <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
             <LeadSpaceBlock
               title={title}
               copy={copy}

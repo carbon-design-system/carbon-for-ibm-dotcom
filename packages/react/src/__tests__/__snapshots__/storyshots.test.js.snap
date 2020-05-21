@@ -21394,7 +21394,7 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                   className="bx--row"
                 >
                   <div
-                    className="bx--col-sm-4 bx--col-lg-8"
+                    className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
                   >
                     <LeadSpaceBlock
                       copy="Automate your software release process with continuous delivery (CD)—the most 
@@ -21513,7 +21513,7 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                   className="bx--row"
                 >
                   <div
-                    className="bx--col-sm-4 bx--col-lg-8"
+                    className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
                   >
                     <LeadSpaceBlock
                       copy="Automate your software release process with continuous delivery (CD)—the most 
