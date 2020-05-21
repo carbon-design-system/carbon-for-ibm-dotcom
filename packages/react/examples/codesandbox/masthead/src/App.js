@@ -8,11 +8,9 @@
 import React from 'react';
 import './styles.scss';
 import { Masthead } from '@carbon/ibmdotcom-react';
-import nav from './data/nav';
 
 export default function App() {
   const mastheadProps = {
-    navigation: nav,
     hasProfile: true,
     hasSearch: true
   };
