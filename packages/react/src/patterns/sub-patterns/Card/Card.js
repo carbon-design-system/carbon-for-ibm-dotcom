@@ -1,21 +1,24 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import { ClickableTile, Tile } from 'carbon-components-react';
 import {
   settings as ddsSettings,
   markdownToHtml,
 } from '@carbon/ibmdotcom-utilities';
+import {
+  Tile,
+  ClickableTile,
+} from '../../../internal/vendor/carbon-components-react/components/Tile/Tile';
 import classNames from 'classnames';
 import CTALogic from '../../../components/CTA/CTALogic';
 import { Image } from '../../../components/Image';
 import { LinkWithIcon } from '../../../components/LinkWithIcon';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { settings } from 'carbon-components';
+import settings from 'carbon-components/es/globals/js/settings';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;

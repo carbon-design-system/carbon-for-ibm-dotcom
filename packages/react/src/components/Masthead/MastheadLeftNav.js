@@ -1,23 +1,21 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import {
-  HeaderSideNavItems,
-  SideNav,
-  SideNavItems,
-  SideNavLink,
-  SideNavMenuItem,
-} from 'carbon-components-react';
-import { ArrowLeft16 } from '@carbon/icons-react';
+import ArrowLeft16 from '@carbon/icons-react/es/arrow--left/16';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import HeaderSideNavItems from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderSideNavItems';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { settings } from 'carbon-components';
+import settings from 'carbon-components/es/globals/js/settings';
+import SideNav from '../../internal/vendor/carbon-components-react/components/UIShell/SideNav';
+import SideNavItems from '../../internal/vendor/carbon-components-react/components/UIShell/SideNavItems';
+import SideNavLink from '../../internal/vendor/carbon-components-react/components/UIShell/SideNavLink';
 import SideNavMenu from '../carbon-components-react/UIShell/SideNavMenu';
+import SideNavMenuItem from '../../internal/vendor/carbon-components-react/components/UIShell/SideNavMenuItem';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;

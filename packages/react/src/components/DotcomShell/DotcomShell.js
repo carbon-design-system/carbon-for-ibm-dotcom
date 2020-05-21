@@ -10,7 +10,7 @@ import { Footer } from '../Footer';
 import { Masthead } from '../Masthead';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { settings } from 'carbon-components';
+import settings from 'carbon-components/es/globals/js/settings';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
