@@ -144,7 +144,7 @@ export const WithHeadingContent = () => {
       theme={select('theme', _themes, _themes.white)}
       menuItems={object('menuItems', menuItems)}
       menuLabel={_menuLabel}
-      menuRule={boolean('Optional Rule', false)}
+      menuRule={boolean('Optional Rule (menuRule)', false)}
       headingContent={headingContent}>
       {dataContent}
     </TableOfContents>
