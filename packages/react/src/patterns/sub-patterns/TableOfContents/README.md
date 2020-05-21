@@ -94,7 +94,7 @@ Add the following line in your `.env` file at the root of your project.
 | `menuLabel`      | NO       | String    | `Jump to`     | Placeholder value for menu label                                                 |
 | `theme`          | NO       | String    | `white`       | Defines the color theme for the pattern (See `Theme` bellow)                     |
 | `stickyOffset`   | NO       | Number    | null          | Defines the offset for the sticky column                                         |
-| `menurule`       | NO       | Boolean   | null          | Defines if the menu ruler will be rendered                                       |
+| `menuRule`       | NO       | Boolean   | null          | Defines if the menu ruler will be rendered                                       |
 
 ## menuItems
 
