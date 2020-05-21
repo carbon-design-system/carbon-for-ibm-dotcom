@@ -122,7 +122,7 @@ export const WithAsideElements = () => {
   };
 
   const aside = {
-    items: <LinkList {...linkListProps} />,
+    items: <LinkList style="card" {...linkListProps} />,
     border: boolean('border', false),
   };
 

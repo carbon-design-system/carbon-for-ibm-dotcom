@@ -49,6 +49,11 @@
     &__cta {
       margin-top: $carbon--spacing-05;
     }
+
+    .#{$prefix}--video-player {
+      margin-top: $carbon--spacing-07;
+      margin-bottom: $carbon--spacing-07;
+    }
   }
 }
 
