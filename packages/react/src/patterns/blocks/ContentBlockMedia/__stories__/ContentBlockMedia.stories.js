@@ -12,7 +12,7 @@ import {
   text,
   boolean,
 } from '@storybook/addon-knobs';
-import { ArrowRight20 } from '@carbon/icons-react';
+import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
 import ContentBlockMedia from '../ContentBlockMedia';
 import ContentGroupSimpleKnobs from '../../ContentGroupSimple/__stories__/data/ContentGroupSimple.knobs';
 import { LinkList } from '../../../sub-patterns/LinkList';

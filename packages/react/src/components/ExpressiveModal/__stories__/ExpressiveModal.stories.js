@@ -6,7 +6,7 @@
  */
 
 import { boolean, text, withKnobs } from '@storybook/addon-knobs';
-import { ArrowRight20 } from '@carbon/icons-react';
+import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
 import { ButtonGroup } from '../../../patterns/sub-patterns/ButtonGroup';
 import { ExpressiveModal } from '../';
 import { ModalBody } from 'carbon-components-react';

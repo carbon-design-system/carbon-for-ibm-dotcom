@@ -1,17 +1,18 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { HeaderMenuItem, HeaderNavigation } from 'carbon-components-react';
-import { ArrowLeft16 } from '@carbon/icons-react';
+import ArrowLeft16 from '@carbon/icons-react/es/arrow--left/16';
 import cx from 'classnames';
 import HeaderMenu from '../carbon-components-react/UIShell/HeaderMenu';
+import HeaderMenuItem from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderMenuItem';
+import HeaderNavigation from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderNavigation';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { settings } from 'carbon-components';
+import settings from 'carbon-components/es/globals/js/settings';
 
 const { prefix } = settings;
 
