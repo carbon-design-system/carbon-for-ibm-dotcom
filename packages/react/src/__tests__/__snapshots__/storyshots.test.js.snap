@@ -21843,8 +21843,8 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                                           width={20}
                                                           xmlns="http://www.w3.org/2000/svg"
                                                         >
-                                                          <polygon
-                                                            points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
+                                                          <path
+                                                            d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
                                                           />
                                                         </svg>
                                                       </Icon>
@@ -21933,8 +21933,8 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                                           width={20}
                                                           xmlns="http://www.w3.org/2000/svg"
                                                         >
-                                                          <polygon
-                                                            points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
+                                                          <path
+                                                            d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
                                                           />
                                                         </svg>
                                                       </Icon>
@@ -22023,8 +22023,8 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                                           width={20}
                                                           xmlns="http://www.w3.org/2000/svg"
                                                         >
-                                                          <polygon
-                                                            points="26 15 24.59 13.59 17 21.17 17 2 15 2 15 21.17 7.41 13.59 6 15 16 25 26 15"
+                                                          <path
+                                                            d="M26 15L24.59 13.59 17 21.17 17 2 15 2 15 21.17 7.41 13.59 6 15 16 25 26 15z"
                                                           />
                                                           <path
                                                             d="M26,24v4H6V24H4v4H4a2,2,0,0,0,2,2H26a2,2,0,0,0,2-2h0V24Z"
@@ -22178,8 +22178,8 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                                     width={20}
                                                     xmlns="http://www.w3.org/2000/svg"
                                                   >
-                                                    <polygon
-                                                      points="11.8,2.8 10.8,3.8 16.2,9.3 1,9.3 1,10.7 16.2,10.7 10.8,16.2 11.8,17.2 19,10"
+                                                    <path
+                                                      d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
                                                     />
                                                   </svg>
                                                 </Icon>
