@@ -1,13 +1,12 @@
 import { ContentBlock } from '../../sub-patterns/ContentBlock';
 import { CTA } from '../../../components/CTA';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
-import {ImageWithCaption} from "../../../components/ImageWithCaption";
+import { ImageWithCaption } from '../../../components/ImageWithCaption';
 import { LinkList } from '../../sub-patterns/LinkList';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { settings } from 'carbon-components';
-import {VideoPlayer} from "../../../components/VideoPlayer";
-
+import { VideoPlayer } from '../../../components/VideoPlayer';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
@@ -22,8 +21,9 @@ const { prefix } = settings;
 const _renderMedia = (type, data) => {
   if (data) {
     return (
-      <div data-autoid={`${stablePrefix}--leadspace-block__media`}
-           className={`${prefix}--leadspace-block__media`}>
+      <div
+        data-autoid={`${stablePrefix}--leadspace-block__media`}
+        className={`${prefix}--leadspace-block__media`}>
         {type === 'image' && <ImageWithCaption {...data} />}
         {type === 'video' && <VideoPlayer {...data} />}
       </div>
@@ -44,7 +44,15 @@ const _renderMedia = (type, data) => {
  * @param {object} props.cta contains button cta data.
  * @returns {*} Lead space block component
  */
-const LeadSpaceBlock = ({title, heading, copy, mediaType, mediaData, items, cta }) => {
+const LeadSpaceBlock = ({
+  title,
+  heading,
+  copy,
+  mediaType,
+  mediaData,
+  items,
+  cta,
+}) => {
   const pageTitle = (
     <div>
       {title && (
@@ -62,11 +70,13 @@ const LeadSpaceBlock = ({title, heading, copy, mediaType, mediaData, items, cta 
       data-autoid={`${stablePrefix}--leadspace-block`}
       className={`${prefix}--leadspace-block`}>
       {pageTitle}
-      <ContentBlock  heading={heading} copy={copy}>
+      <ContentBlock heading={heading} copy={copy}>
         {_renderMedia(mediaType, mediaData)}
-        <LinkList {...items}/>
-        <CTA customClassName={`${prefix}--leadspace-block__cta ${prefix}--leadspace-block__cta-col`}
-             {...cta}/>
+        <LinkList {...items} />
+        <CTA
+          customClassName={`${prefix}--leadspace-block__cta ${prefix}--leadspace-block__cta-col`}
+          {...cta}
+        />
       </ContentBlock>
     </div>
   );
@@ -77,7 +87,7 @@ LeadSpaceBlock.propTypes = {
   heading: PropTypes.string.isRequired,
   items: PropTypes.object.isRequired,
   copy: PropTypes.string,
-  mediaType: PropTypes.oneOf('image','video'),
+  mediaType: PropTypes.oneOf('image', 'video'),
   mediaData: PropTypes.object,
   cta: PropTypes.shape(CTA.propTypes),
 };

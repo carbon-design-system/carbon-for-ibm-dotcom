@@ -1,8 +1,7 @@
 # Lead Space Block
 
-> The "Lead Space Block" pattern leverages the Content Block as the
-> container of this pattern, and allows to select media with link lists 
-> followed by a button.
+> The "Lead Space Block" pattern leverages the Content Block as the container of
+> this pattern, and allows to select media with link lists followed by a button.
 
 ## Getting started
 
@@ -11,7 +10,6 @@ Here's a quick example to get you started.
 ##### CSS
 
 ```css
-
 @import '@carbon/ibmdotcom-styles/scss/patterns/blocks/leadspace-block/leadspace-block';
 ```
 
@@ -25,92 +23,92 @@ import 'yourapplication.scss';
 
 function App() {
   const title = 'Continuous delivery';
-  
-      const heading= 'Innovate like a startup and scale for the enterprise'
-  
-      const copy = `Automate your software release process with continuous delivery (CD)—the most 
+
+  const heading = 'Innovate like a startup and scale for the enterprise';
+
+  const copy = `Automate your software release process with continuous delivery (CD)—the most 
       critical part of adopting DevOps. Build, test, and deploy code changes quickly, 
       ensuring software is always ready for deployment.`;
-  
-      const mediaType = 'image';
-        
-  
-      const video = {
-        videoId: '0_uka1msg4',
-        showDescription: true,
-      };
-  
-      const image = {
-        heading: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-        image: {
-          sources: [
-            {
-              src: 'https://dummyimage.com/320x180/ee5396/161616&text=16:9',
-              breakpoint: 320,
-            },
-            {
-              src: 'https://dummyimage.com/400x225/ee5396/161616&text=16:9',
-              breakpoint: 400,
-            },
-            {
-              src: 'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
-              breakpoint: 672,
-            },
-          ],
-          alt: 'Image alt text',
-          defaultSrc: 'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
+
+  const mediaType = 'image';
+
+  const video = {
+    videoId: '0_uka1msg4',
+    showDescription: true,
+  };
+
+  const image = {
+    heading: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    image: {
+      sources: [
+        {
+          src: 'https://dummyimage.com/320x180/ee5396/161616&text=16:9',
+          breakpoint: 320,
         },
-      };
-  
-      const mediaData = mediaType === 'image' ? image : video;
-      
-      const ctaProps = {
-        style: 'button',
+        {
+          src: 'https://dummyimage.com/400x225/ee5396/161616&text=16:9',
+          breakpoint: 400,
+        },
+        {
+          src: 'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
+          breakpoint: 672,
+        },
+      ],
+      alt: 'Image alt text',
+      defaultSrc: 'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
+    },
+  };
+
+  const mediaData = mediaType === 'image' ? image : video;
+
+  const ctaProps = {
+    style: 'button',
+    type: 'local',
+    buttons: [
+      {
         type: 'local',
-        buttons: [
-          {
-            type: 'local',
-            copy: ['Contact sales'],
-          },
-        ],
-      };
- 
-      const linkListProps = {
-        heading: 'Featured products',
-        items: [
-          {
-            type: 'local',
-            copy: 'IBM Cloud Continuous Delivery',
-            cta: {
-              href: 'https://ibm.com',
-            },
-          },
-          {
-            type: 'local',
-            copy: 'UrbanCode',
-            cta: {
-              href: 'https://ibm.com',
-            },
-          },
-          {
-            type: 'local',
-            copy: 'View all products',
-            cta: {
-              href: 'https://ibm.com',
-            },
-          },
-        ],
-      };
+        copy: ['Contact sales'],
+      },
+    ],
+  };
+
+  const linkListProps = {
+    heading: 'Featured products',
+    items: [
+      {
+        type: 'local',
+        copy: 'IBM Cloud Continuous Delivery',
+        cta: {
+          href: 'https://ibm.com',
+        },
+      },
+      {
+        type: 'local',
+        copy: 'UrbanCode',
+        cta: {
+          href: 'https://ibm.com',
+        },
+      },
+      {
+        type: 'local',
+        copy: 'View all products',
+        cta: {
+          href: 'https://ibm.com',
+        },
+      },
+    ],
+  };
 
   return (
-    <LeadSpaceBlock title={title} 
-                    heading={heading}
-                    copy={copy}
-                    mediaType={mediaType}
-                    mediaData={mediaData} 
-                    items={linkListProps}
-                    cta={ctaProps}
-                />
+    <LeadSpaceBlock
+      title={title}
+      heading={heading}
+      copy={copy}
+      mediaType={mediaType}
+      mediaData={mediaData}
+      items={linkListProps}
+      cta={ctaProps}
+    />
   );
 }
 
@@ -120,8 +118,8 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 ## Props
 
 | Name        | Required | Data Type | Description                       |
-| ---------   | -------- | --------- | ----------------------------------|
-| `title  `   | YES      | String    | heading of the content block.     |
+| ----------- | -------- | --------- | --------------------------------- |
+| `title`     | YES      | String    | heading of the content block.     |
 | `heading`   | YES      | String    | subheading of the content block.  |
 | `copy`      | YES      | String    | Simple content item.              |
 | `mediaType` | NO       | string    | Media Type [image, video or none] |
@@ -131,9 +129,9 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 ### Stable selectors
 
-| Name                             | Description |
-| -------------------------------- | ----------- |
-| `dds--leadspace-block`           | Pattern     |
+| Name                   | Description |
+| ---------------------- | ----------- |
+| `dds--leadspace-block` | Pattern     |
 
 ## 🙌 Contributing
 

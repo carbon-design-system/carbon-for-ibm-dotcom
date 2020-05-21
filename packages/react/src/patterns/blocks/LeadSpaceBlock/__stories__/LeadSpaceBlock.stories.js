@@ -1,10 +1,5 @@
-import {
-  object,
-  select,
-  withKnobs,
-  text
-} from '@storybook/addon-knobs';
-import {HorizontalRule} from "../../../../components/HorizontalRule";
+import { object, select, withKnobs, text } from '@storybook/addon-knobs';
+import { HorizontalRule } from '../../../../components/HorizontalRule';
 import LeadSpaceBlock from '../LeadSpaceBlock.js';
 import React from 'react';
 import readme from '../README.md';
@@ -18,10 +13,9 @@ storiesOf('Patterns (Blocks)|LeadSpaceBlock', module)
     },
   })
   .add('Default', () => {
-
     const title = 'Continuous delivery';
 
-    const heading= text(
+    const heading = text(
       'Heading (required)',
       'Innovate like a startup and scale for the enterprise '
     );
@@ -123,4 +117,3 @@ storiesOf('Patterns (Blocks)|LeadSpaceBlock', module)
       </div>
     );
   });
-
