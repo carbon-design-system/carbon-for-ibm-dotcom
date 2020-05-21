@@ -8,7 +8,7 @@ import { Card } from '../../patterns/sub-patterns/Card';
 import CTALogic from './CTALogic';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { settings } from 'carbon-components';
+import settings from 'carbon-components/es/globals/js/settings';
 
 const { prefix } = settings;
 

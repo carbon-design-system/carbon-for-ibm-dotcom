@@ -9,7 +9,7 @@ import { Callout, Quote } from '../../sub-patterns';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { settings } from 'carbon-components';
+import settings from 'carbon-components/es/globals/js/settings';
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
@@ -26,6 +26,7 @@ const { prefix } = settings;
  * @param {string} props.quote.cta.copy cta copy
  * @param {string} props.quote.cta.type type 'local' or 'external'
  * @param {string} props.quote.cta.href cta href
+ * @returns {*} JSX CalloutQuote component
  */
 const CalloutQuote = ({ quote }) => {
   return (

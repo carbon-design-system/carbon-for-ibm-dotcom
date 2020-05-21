@@ -19,7 +19,7 @@ import LanguageSelector from './LanguageSelector';
 import LegalNav from './LegalNav';
 import LocaleButton from './LocaleButton';
 import PropTypes from 'prop-types';
-import { settings } from 'carbon-components';
+import settings from 'carbon-components/es/globals/js/settings';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;

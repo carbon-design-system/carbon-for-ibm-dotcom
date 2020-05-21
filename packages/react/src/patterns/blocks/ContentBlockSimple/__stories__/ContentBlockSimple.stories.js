@@ -17,7 +17,7 @@ import cx from 'classnames';
 import { LinkList } from '../../../sub-patterns/LinkList';
 import React from 'react';
 import readme from '../README.md';
-import { settings } from 'carbon-components';
+import settings from 'carbon-components/es/globals/js/settings';
 
 const { prefix } = settings;
 
@@ -213,7 +213,7 @@ export const WithAsideElements = () => {
   };
 
   const aside = {
-    items: <LinkList {...linkListProps} />,
+    items: <LinkList style="card" {...linkListProps} />,
     border: boolean('border', false),
   };
 
