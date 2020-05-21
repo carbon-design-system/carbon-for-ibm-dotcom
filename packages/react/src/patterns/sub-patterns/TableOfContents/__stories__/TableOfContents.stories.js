@@ -101,7 +101,7 @@ export const DynamicItems = () => {
 };
 
 export const WithHeadingContent = () => {
-  const _menuLabel = text('menu label', 'Jump to');
+  const _menuLabel = text('menu label (menuLabel)', 'Jump to');
 
   const menuItems = [
     {
