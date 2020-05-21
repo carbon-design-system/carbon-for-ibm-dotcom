@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -49,6 +49,7 @@ const _findMenuItems = () => {
  * @param {string} props.theme theme [g100/white]
  * @param {number} props.stickyOffset offset amount for Layout (in pixels)
  * @param {boolean} props.menuRule optional rule for menu
+ * @param {*} props.headingContent heading content component
  * @param {*} props.children children property of component
  * @returns {*} JSX Object
  */
@@ -59,6 +60,7 @@ const TableOfContents = ({
   theme,
   stickyOffset,
   menuRule,
+  headingContent,
 }) => {
   const [useMenuItems, setUseMenuItems] = useState([]);
   const [selectedId, setSelectedId] = useState('');
@@ -211,17 +213,21 @@ const TableOfContents = ({
           className={`${prefix}--tableofcontents__sidebar`}
           data-sticky="true">
           <div className={`${prefix}--tableofcontents__mobile-top`}></div>
-          <TOCDesktop menuRule={menuRule} {...props} />
+          <TOCDesktop
+            menuRule={menuRule}
+            headingContent={headingContent}
+            {...props}
+          />
           <TOCMobile {...props} />
         </div>
         <div className={`${prefix}--tableofcontents__content`}>
           <div className={`${prefix}--tableofcontents__content-wrapper`}>
-            {children.length > 1 ? (
+            {headingContent !== undefined ? (
               <>
                 <div className={`${prefix}--tableofcontents__children__mobile`}>
-                  {children[0]}
+                  {headingContent}
                 </div>
-                {children[1]}
+                {children}
               </>
             ) : (
               children
@@ -248,6 +254,7 @@ TableOfContents.propTypes = {
   theme: PropTypes.string,
   stickyOffset: PropTypes.number,
   menuRule: PropTypes.bool,
+  headingContent: PropTypes.node,
 };
 
 /**

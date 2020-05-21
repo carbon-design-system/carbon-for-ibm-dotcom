@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -22,10 +22,9 @@ const { prefix } = settings;
  * @param {Array} props.menuItems menu items object
  * @param {string} props.selectedId id of a menu item
  * @param {boolean} props.menuRule optional rule
- * @param {*} props.children children JSX Object
  * @returns {*} JSX Object
  */
-const TOCDesktop = ({ menuItems, selectedId, menuRule, children }) => {
+const TOCDesktop = ({ menuItems, selectedId, menuRule, headingContent }) => {
   /**
    * Render menu items
    *
@@ -86,9 +85,9 @@ const TOCDesktop = ({ menuItems, selectedId, menuRule, children }) => {
     <div
       className={`${prefix}--tableofcontents__desktop`}
       data-autoid={`${stablePrefix}--tableofcontents__desktop`}>
-      {children ? (
+      {headingContent ? (
         <div className={`${prefix}--tableofcontents__desktop__children`}>
-          {children}
+          {headingContent}
         </div>
       ) : null}
       {menuRule ? (
@@ -103,7 +102,7 @@ TOCDesktop.propTypes = {
   menuItems: PropTypes.array,
   selectedId: PropTypes.string,
   menuRule: PropTypes.bool,
-  children: PropTypes.any,
+  headingContent: PropTypes.node,
 };
 
 export default TOCDesktop;

@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -95,6 +95,57 @@ export const DynamicItems = () => {
     <TableOfContents
       theme={select('theme', _themes, _themes.white)}
       menuLabel={_menuLabel}>
+      {dataContent}
+    </TableOfContents>
+  );
+};
+
+export const WithHeadingContent = () => {
+  const _menuLabel = text('menu label', 'Jump to');
+
+  const menuItems = [
+    {
+      title: 'Cras molestie condimentum',
+      id: '8',
+    },
+    {
+      title: 'Praesent fermentum sodales',
+      id: '7',
+    },
+    {
+      title: 'Nulla tristique lacinia',
+      id: '2',
+    },
+    {
+      title: 'Morbi id nibh metus',
+      id: '3',
+    },
+    {
+      title: 'Integer non scelerisque',
+      id: '14',
+    },
+  ];
+
+  const headingContent = (
+    <div
+      style={{
+        background: '#f4f4f4',
+        height: '200px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}>
+      <h4>Example children</h4>
+    </div>
+  );
+
+  return (
+    <TableOfContents
+      theme={select('theme', _themes, _themes.white)}
+      menuItems={object('menuItems', menuItems)}
+      menuLabel={_menuLabel}
+      menuRule={boolean('Optional Rule', false)}
+      headingContent={headingContent}>
       {dataContent}
     </TableOfContents>
   );

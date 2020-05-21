@@ -42,9 +42,14 @@ const menuItems = [
   },
 ];
 
+const headingContent = <div>Lorem ipsum dolor sit amet</div>;
+
 function App() {
   return (
-    <TableOfContents theme={theme} menuItems={menuItems}>
+    <TableOfContents
+      headingContent={headingContent}
+      theme={theme}
+      menuItems={menuItems}>
       <a name="8"></a>
       <h3 style={{ paddingBottom: '1rem', paddingTop: '2rem' }}>
         Cras molestie condimentum
@@ -81,28 +86,15 @@ Add the following line in your `.env` file at the root of your project.
 
 ## Props
 
-| Name           | Required | Data Type | Default Value | Description                                                                      |
-| -------------- | -------- | --------- | ------------- | -------------------------------------------------------------------------------- |
-| `children`     | NO       | Array     | null          | Content to display next to the side nav. (See `Children` bellow)                 |
-| `menuItems`    | NO       | Array     | null          | Array of menu item objects to render within the side nav. See `menuItems` below. |
-| `menuLabel`    | NO       | String    | `Jump to`     | Placeholder value for menu label                                                 |
-| `theme`        | NO       | String    | `white`       | Defines the color theme for the pattern (See `Theme` bellow)                     |
-| `stickyOffset` | NO       | Number    | null          | Defines the offset for the sticky column                                         |
-| `menurule`     | NO       | Boolean   | null          | Defines if the menu ruler will be rendered                                       |
-
-##Children
-
-`TableOfContents` supports an aditional `children` prop, that is rendered above
-the menu links, in order to use it, pass two elements inside of
-`TableOfContents` and the first one will be rendered on the menu.
-
-```javascript
-<TableOfContents>
-  <div>This will be rendered above the menu links</div>
-
-  <div>//Usual TableOfContents children</div>
-</TableOfContents>
-```
+| Name             | Required | Data Type | Default Value | Description                                                                      |
+| ---------------- | -------- | --------- | ------------- | -------------------------------------------------------------------------------- |
+| `children`       | NO       | Array     | null          | Content to display next to the side nav.                                         |
+| `headingContent` | NO       | Component | null          | Content to be displayed above the navigation menu.                               |
+| `menuItems`      | NO       | Array     | null          | Array of menu item objects to render within the side nav. See `menuItems` below. |
+| `menuLabel`      | NO       | String    | `Jump to`     | Placeholder value for menu label                                                 |
+| `theme`          | NO       | String    | `white`       | Defines the color theme for the pattern (See `Theme` bellow)                     |
+| `stickyOffset`   | NO       | Number    | null          | Defines the offset for the sticky column                                         |
+| `menurule`       | NO       | Boolean   | null          | Defines if the menu ruler will be rendered                                       |
 
 ## menuItems
 
