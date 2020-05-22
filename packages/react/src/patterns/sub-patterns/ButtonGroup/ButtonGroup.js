@@ -4,10 +4,11 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
+import React, { useRef, useLayoutEffect } from 'react';
 import Button from '../../../internal/vendor/carbon-components-react/components/Button/Button';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
-import React from 'react';
+import root from 'window-or-global';
 import settings from 'carbon-components/es/globals/js/settings';
 
 const { stablePrefix } = ddsSettings;
@@ -23,26 +24,93 @@ const { prefix } = settings;
  * @param {object} props.buttons[].renderIcon Optional icon type
  * @returns {*} button components
  */
-const ButtonGroup = ({ buttons }) => (
-  <ol
-    className={`${prefix}--buttongroup`}
-    data-autoid={`${stablePrefix}--button-group`}>
-    {buttons.map((button, key) => {
-      return (
-        <li key={key} className={`${prefix}--buttongroup-item`}>
-          <Button
-            tabIndex={key === 0 ? 2 : 1}
-            data-autoid={`${stablePrefix}--button-group-${key}`}
-            {...button}
-            type="button"
-            kind={key === 0 ? 'primary' : 'tertiary'}>
-            {button.copy}
-          </Button>
-        </li>
+const ButtonGroup = ({ buttons }) => {
+  const orderedList = useRef(null);
+
+  useLayoutEffect(() => {
+    const { current } = orderedList;
+
+    /**
+     * Sets the same width to all the elements inside an specific node passed as parameter
+     *
+     * @param {Node} parentNode the container of the elements to set the same width
+     */
+    const setSameWidth = parentNode => {
+      const elements = Array.from(parentNode.childNodes);
+      const getAllWidths = elements.map(element => element.offsetWidth);
+      const biggestElement = Math.max.apply(null, getAllWidths);
+
+      elements.forEach(
+        element => (element.style.width = `${biggestElement}px`)
       );
-    })}
-  </ol>
-);
+    };
+
+    /**
+     * Sets the container direction between `row-reverse` and `column-reverse` depending on the child elements size
+     *
+     * @param {Node} parentNode the element to choose between `row-reverse` or `column-reverse`
+     */
+    const _stackElementsVertically = parentNode => {
+      const containerWidth = parentNode.offsetWidth;
+      const elements = Array.from(parentNode.childNodes);
+      const getAllWidths = elements.map(element => {
+        const marginRight = parseFloat(
+          root.window.getComputedStyle(element)['margin-right']
+        );
+        return element.offsetWidth + marginRight;
+      });
+      const sumElementsWidth = getAllWidths.reduce(
+        (prevEl, nextEl) => prevEl + nextEl
+      );
+      if (sumElementsWidth === containerWidth) {
+        parentNode.style.flexDirection = 'column-reverse';
+      }
+      if (sumElementsWidth < containerWidth) {
+        parentNode.style.flexDirection = 'row-reverse';
+      }
+    };
+
+    setSameWidth(current);
+    _stackElementsVertically(current);
+
+    root.window.addEventListener(
+      'resize',
+      () => {
+        root.window.requestAnimationFrame(() => {
+          _stackElementsVertically(current);
+        });
+      },
+      true
+    );
+
+    return () =>
+      root.window.removeEventListener('resize', () =>
+        _stackElementsVertically(current)
+      );
+  }, []);
+
+  return (
+    <ol
+      className={`${prefix}--buttongroup`}
+      data-autoid={`${stablePrefix}--button-group`}
+      ref={orderedList}>
+      {buttons.map((button, key) => {
+        return (
+          <li key={key} className={`${prefix}--buttongroup-item`}>
+            <Button
+              tabIndex={key === 0 ? 2 : 1}
+              data-autoid={`${stablePrefix}--button-group-${key}`}
+              {...button}
+              type="button"
+              kind={key === 0 ? 'primary' : 'tertiary'}>
+              {button.copy}
+            </Button>
+          </li>
+        );
+      })}
+    </ol>
+  );
+};
 
 ButtonGroup.propTypes = {
   buttons: PropTypes.arrayOf(
