@@ -1,20 +1,24 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { altlangs, settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
-import { ArrowLeft20, EarthFilled20 } from '@carbon/icons-react';
-import { ComposedModal, ModalBody, ModalHeader } from 'carbon-components-react';
+import ComposedModal, {
+  ModalBody,
+  ModalHeader,
+} from '../../internal/vendor/carbon-components-react/components/ComposedModal/ComposedModal';
 import React, { useEffect, useState } from 'react';
+import ArrowLeft20 from '@carbon/icons-react/es/arrow--left/20';
 import cx from 'classnames';
+import EarthFilled20 from '@carbon/icons-react/es/earth--filled/20';
 import { LocaleAPI } from '@carbon/ibmdotcom-services';
 import LocaleModalCountries from './LocaleModalCountries';
 import LocaleModalRegions from './LocaleModalRegions';
 import PropTypes from 'prop-types';
-import { settings } from 'carbon-components';
+import settings from 'carbon-components/es/globals/js/settings';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
@@ -42,6 +46,8 @@ const LocaleModal = ({ isOpen, setIsOpen, localeData, localeDisplay }) => {
   });
 
   useEffect(() => {
+    let stale = false;
+
     (async () => {
       let list, getLangDisplay;
       if (localeData && localeDisplay) {
@@ -52,9 +58,15 @@ const LocaleModal = ({ isOpen, setIsOpen, localeData, localeDisplay }) => {
           LocaleAPI.getLocale(),
           LocaleAPI.getLangDisplay(),
         ]);
+        if (stale) {
+          return;
+        }
         const locale = pair[0];
-        list = locale && (await LocaleAPI.getList(locale));
         getLangDisplay = pair[1];
+        list = locale && (await LocaleAPI.getList(locale));
+        if (stale) {
+          return;
+        }
       }
 
       setLangDisplay(getLangDisplay);
@@ -86,6 +98,10 @@ const LocaleModal = ({ isOpen, setIsOpen, localeData, localeDisplay }) => {
         item.classList.remove(localeHidden);
       });
     }
+
+    return () => {
+      stale = true;
+    };
   }, [clearResults, localeData, localeDisplay]);
 
   /**

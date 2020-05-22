@@ -14,7 +14,7 @@ import cx from 'classnames';
 import { Layout } from '../Layout';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { settings } from 'carbon-components';
+import settings from 'carbon-components/es/globals/js/settings';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
@@ -149,7 +149,7 @@ ContentBlock.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]),
-  cta: PropTypes.object,
+  cta: PropTypes.shape(CTA.propTypes),
   customClassName: PropTypes.string,
   aside: PropTypes.shape({
     items: PropTypes.element,

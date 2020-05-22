@@ -12,7 +12,7 @@ import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { ImageWithCaption } from '../../../components/ImageWithCaption';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { settings } from 'carbon-components';
+import settings from 'carbon-components/es/globals/js/settings';
 import { VideoPlayer } from '../../../components/VideoPlayer';
 
 const { stablePrefix } = ddsSettings;
@@ -78,7 +78,17 @@ const _renderMedia = (type, data) => {
  */
 const _renderGroup = items =>
   items.map((item, index) => (
-    <ContentGroup heading={item.heading} key={index}>
+    <ContentGroup
+      heading={item.heading}
+      key={index}
+      cta={
+        item.cta && (item.cta.type === 'jump' || item.cta.type === 'local')
+          ? {
+              style: 'text',
+              ...item.cta,
+            }
+          : false
+      }>
       <div
         data-autoid={`${stablePrefix}--content-block-segmented__content-group`}>
         <ContentItem copy={item.copy} key={index} />

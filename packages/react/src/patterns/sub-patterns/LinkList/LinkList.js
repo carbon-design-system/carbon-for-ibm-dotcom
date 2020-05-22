@@ -9,7 +9,7 @@ import { CTA } from '../../../components/CTA';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { settings } from 'carbon-components';
+import settings from 'carbon-components/es/globals/js/settings';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
@@ -22,17 +22,24 @@ const { prefix } = settings;
  * @param {Array} props.items array of item
  * @returns {*} JSX LinkList component
  */
-const LinkList = ({ heading, items }) => {
+const LinkList = ({ heading, items, style }) => {
+  const linkStyle = style === 'card' ? 'card' : 'text';
   return (
     <div
       className={`${prefix}--link-list`}
       data-autoid={`${stablePrefix}--link-list`}>
-      <h4 className={`${prefix}--link-list__heading`}>{heading}</h4>
-      <ul className={`${prefix}--link-list__list`}>
+      {heading && (
+        <h4 className={`${prefix}--link-list__heading`}>{heading}</h4>
+      )}
+
+      <ul
+        className={`${prefix}--link-list__list ${prefix}--link-list__list--${style}`}>
         {items.map((cta, index) => {
           return (
-            <li className={`${prefix}--link-list__list__CTA`} key={index}>
-              <CTA style="card" {...cta} />
+            <li
+              className={`${prefix}--link-list__list__CTA ${prefix}--link-list__list--${cta.type}`}
+              key={index}>
+              <CTA style={linkStyle} {...cta} />
             </li>
           );
         })}
@@ -44,6 +51,7 @@ const LinkList = ({ heading, items }) => {
 LinkList.propTypes = {
   heading: PropTypes.string.isRequired,
   items: PropTypes.arrayOf(PropTypes.shape(CTA.propTypes)).isRequired,
+  style: PropTypes.string.isRequired,
 };
 
 export default LinkList;

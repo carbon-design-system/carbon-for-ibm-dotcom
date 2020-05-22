@@ -1,27 +1,23 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import {
-  Header,
-  HeaderContainer,
-  HeaderGlobalBar,
-  HeaderMenuButton,
-  SkipToContent,
-} from 'carbon-components-react';
-import {
   ProfileAPI,
   TranslationAPI,
   globalInit,
 } from '@carbon/ibmdotcom-services';
 import React, { useEffect, useRef, useState } from 'react';
-import { User20, UserOnline20 } from '@carbon/icons-react';
 import cx from 'classnames';
 import { DDS_MASTHEAD_L1 } from '../../internal/FeatureFlags';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import Header from '../../internal/vendor/carbon-components-react/components/UIShell/Header';
+import HeaderContainer from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderContainer';
+import HeaderGlobalBar from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderGlobalBar';
+import HeaderMenuButton from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderMenuButton';
 import { IbmLogo } from '../Icon';
 import MastheadL1 from './MastheadL1';
 import MastheadLeftNav from './MastheadLeftNav';
@@ -30,7 +26,10 @@ import MastheadSearch from './MastheadSearch';
 import MastheadTopNav from './MastheadTopNav';
 import PropTypes from 'prop-types';
 import root from 'window-or-global';
-import { settings } from 'carbon-components';
+import settings from 'carbon-components/es/globals/js/settings';
+import SkipToContent from '../../internal/vendor/carbon-components-react/components/UIShell/SkipToContent';
+import User20 from '@carbon/icons-react/es/user/20';
+import UserOnline20 from '@carbon/icons-react/es/user--online/20';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
@@ -76,16 +75,16 @@ const Masthead = ({
   }, []);
 
   useEffect(() => {
-    /**
-     *  Login Status of user
-     *
-     *  @returns {*} User authentication status
-     */
-    async function loginStatus() {
-      return await ProfileAPI.getUserStatus();
-    }
-    const status = loginStatus();
-    status.then(result => setStatus(result.user === 'Authenticated'));
+    let unmounted = false;
+    (async () => {
+      const status = await ProfileAPI.getUserStatus();
+      if (!unmounted) {
+        setStatus(status.user === 'Authenticated');
+      }
+    })();
+    return () => {
+      unmounted = true;
+    };
   }, []);
 
   let [mastheadData, setMastheadData] = useState([]);
@@ -95,19 +94,17 @@ const Masthead = ({
   });
 
   useEffect(() => {
-    /**
-     * Page data including masthead, footer, profile links
-     *
-     * @returns {*} Page data object
-     */
-    async function getPageData() {
-      return await TranslationAPI.getTranslation();
-    }
-    const pageData = getPageData();
-    pageData.then(result => {
-      setMastheadData(result.mastheadNav.links);
-      setProfileData(result.profileMenu);
-    });
+    let unmounted = false;
+    (async () => {
+      const pageData = await TranslationAPI.getTranslation();
+      if (!unmounted) {
+        setMastheadData(pageData.mastheadNav.links);
+        setProfileData(pageData.profileMenu);
+      }
+    })();
+    return () => {
+      unmounted = true;
+    };
   }, []);
 
   /**
@@ -119,6 +116,7 @@ const Masthead = ({
       `.${prefix}--masthead__profile-item`
     );
     profileMenuList.closest('ul').style.position = 'fixed';
+    profileMenuList.closest('ul').style.top = '48px';
   };
 
   const [isMastheadSticky, setIsMastheadSticky] = useState(false);

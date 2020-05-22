@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.7.0-rc.0...@carbon/ibmdotcom-services@1.7.0-rc.1) (2020-05-20)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-services
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.7.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.6.0...@carbon/ibmdotcom-services@1.7.0-rc.0) (2020-05-18)
+
+### Bug Fixes
+
+- **jest:** accounting for CORS_PROXY in service unit tests
+  ([2d5d154](https://github.com/carbon-design-system/ibm-dotcom-library/commit/2d5d154))
+- **video-player:** set different partner and uiconf ids for vp
+  ([523d45c](https://github.com/carbon-design-system/ibm-dotcom-library/commit/523d45c))
+- **videoplayer:** format partnerid and handle html in desc
+  ([6708a1c](https://github.com/carbon-design-system/ibm-dotcom-library/commit/6708a1c))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.6.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.6.0-rc.1...@carbon/ibmdotcom-services@1.6.0) (2020-04-28)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-services

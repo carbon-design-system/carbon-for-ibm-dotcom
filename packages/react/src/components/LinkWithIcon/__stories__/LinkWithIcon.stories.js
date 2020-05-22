@@ -6,34 +6,37 @@
  */
 
 import { boolean, withKnobs } from '@storybook/addon-knobs';
-import { ArrowRight20 } from '@carbon/icons-react';
+import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
 import LinkWithIcon from '../LinkWithIcon';
 import React from 'react';
 import readme from '../README.md';
-import { storiesOf } from '@storybook/react';
 
-storiesOf('Components|Link with Icon', module)
-  .addDecorator(withKnobs)
-  .addParameters({
+export default {
+  title: 'Components|Link with Icon',
+  decorators: [withKnobs],
+
+  parameters: {
     readme: {
       sidebar: readme,
     },
-  })
-  .add('Default', () => {
-    return (
-      <div
-        style={{
-          padding: 2 + `rem`,
-          display: 'flex',
-          alignItems: 'center',
-          flexDirection: 'column',
-        }}>
-        <LinkWithIcon
-          href="https://www.example.com"
-          disabled={boolean('Disabled', false)}>
-          <span>Link text</span>
-          <ArrowRight20 />
-        </LinkWithIcon>
-      </div>
-    );
-  });
+  },
+};
+
+export const Default = () => {
+  return (
+    <div
+      style={{
+        padding: 2 + `rem`,
+        display: 'flex',
+        alignItems: 'center',
+        flexDirection: 'column',
+      }}>
+      <LinkWithIcon
+        href="https://www.example.com"
+        disabled={boolean('Disabled', false)}>
+        <span>Link text</span>
+        <ArrowRight20 />
+      </LinkWithIcon>
+    </div>
+  );
+};

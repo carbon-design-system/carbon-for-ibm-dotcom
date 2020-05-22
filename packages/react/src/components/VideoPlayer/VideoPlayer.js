@@ -9,7 +9,7 @@ import React, { useEffect, useState } from 'react';
 import cx from 'classnames';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
-import { settings } from 'carbon-components';
+import settings from 'carbon-components/es/globals/js/settings';
 import { VideoPlayerAPI } from '@carbon/ibmdotcom-services';
 
 const { stablePrefix } = ddsSettings;
@@ -30,10 +30,21 @@ const VideoPlayer = ({ inverse, showCaption, videoId, customClassName }) => {
   const videoDuration = VideoPlayerAPI.getVideoDuration(videoData.msDuration);
 
   useEffect(() => {
+    let stale = false;
     (async () => {
       await VideoPlayerAPI.embedVideo(videoId, `${prefix}--${videoPlayerId}`);
-      setVideoData(await VideoPlayerAPI.api(videoId));
+      if (stale) {
+        return;
+      }
+      const newVideoData = await VideoPlayerAPI.api(videoId);
+      if (stale) {
+        return;
+      }
+      setVideoData(newVideoData);
     })();
+    return () => {
+      stale = true;
+    };
   }, [videoId, videoPlayerId]);
 
   const classnames = cx(

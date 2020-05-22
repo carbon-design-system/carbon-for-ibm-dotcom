@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-utilities@1.7.0-rc.0...@carbon/ibmdotcom-utilities@1.7.0-rc.1) (2020-05-20)
+
+### Bug Fixes
+
+- **release:** various fixes to tag/release script
+  ([#2451](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2451))
+  ([ad388c0](https://github.com/carbon-design-system/ibm-dotcom-library/commit/ad388c0))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.7.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-utilities@1.6.0...@carbon/ibmdotcom-utilities@1.7.0-rc.0) (2020-05-18)
+
+### Bug Fixes
+
+- **markdown:** check for all html entities
+  ([635a654](https://github.com/carbon-design-system/ibm-dotcom-library/commit/635a654))
+- **markdown:** jsdocs to markdown util
+  ([50d9da2](https://github.com/carbon-design-system/ibm-dotcom-library/commit/50d9da2))
+- **markdown:** pass in false for createParagraphs
+  ([38cf5da](https://github.com/carbon-design-system/ibm-dotcom-library/commit/38cf5da))
+- **videoplayer:** add markdown utility to remove html
+  ([3b50514](https://github.com/carbon-design-system/ibm-dotcom-library/commit/3b50514))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.6.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-utilities@1.6.0-rc.0...@carbon/ibmdotcom-utilities@1.6.0) (2020-04-28)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-utilities

@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -11,9 +11,9 @@ import {
 import React, { useEffect, useState } from 'react';
 import { ExpressiveModal } from '../ExpressiveModal';
 import { Image } from '../Image';
-import { ModalBody } from 'carbon-components-react';
+import { ModalBody } from '../../internal/vendor/carbon-components-react/components/ComposedModal/ComposedModal';
 import PropTypes from 'prop-types';
-import { settings } from 'carbon-components';
+import settings from 'carbon-components/es/globals/js/settings';
 import { VideoPlayer } from '../VideoPlayer';
 import { VideoPlayerAPI } from '@carbon/ibmdotcom-services';
 
@@ -36,14 +36,17 @@ const LightboxMediaViewer = ({ media, ...modalProps }) => {
   });
 
   useEffect(() => {
+    let stale = false;
     (async () => {
       if (media.type === 'video') {
         const data = await VideoPlayerAPI.api(media.src);
-        setVideoData({
-          title: data.name,
-          alt: data.name,
-          description: data.description,
-        });
+        if (!stale) {
+          setVideoData({
+            title: data.name,
+            alt: data.name,
+            description: data.description,
+          });
+        }
       } else {
         setVideoData({
           title: media.title,
@@ -52,7 +55,10 @@ const LightboxMediaViewer = ({ media, ...modalProps }) => {
         });
       }
     })();
-  }, [media, media.src]);
+    return () => {
+      stale = true;
+    };
+  }, [media]);
 
   const videoDesc = markdownToHtml(videoData.description, {
     createParagraphs: false,

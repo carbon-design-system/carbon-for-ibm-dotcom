@@ -3,6 +3,180 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-styles@1.7.0-rc.0...@carbon/ibmdotcom-styles@1.7.0-rc.1) (2020-05-20)
+
+### Bug Fixes
+
+- **featurecardblocklarge:** missing line in dotcom-styles
+  ([#2439](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2439))
+  ([f4d24a7](https://github.com/carbon-design-system/ibm-dotcom-library/commit/f4d24a7))
+- **image-with-caption:** set button border style to none"
+  ([#2450](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2450))
+  ([e9c80c9](https://github.com/carbon-design-system/ibm-dotcom-library/commit/e9c80c9))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.7.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-styles@1.6.0...@carbon/ibmdotcom-styles@1.7.0-rc.0) (2020-05-18)
+
+### Bug Fixes
+
+- **callout:** changed object classname to content
+  ([bc2ac5b](https://github.com/carbon-design-system/ibm-dotcom-library/commit/bc2ac5b))
+- **card-section:** adding style imports for cardsection patterns
+  ([f1a01b9](https://github.com/carbon-design-system/ibm-dotcom-library/commit/f1a01b9))
+- **contentblock:** added inverse to grid and changed type to inverse
+  ([c175fab](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c175fab))
+- **contentblock:** changed function to only apply token styles
+  ([a63553e](https://github.com/carbon-design-system/ibm-dotcom-library/commit/a63553e))
+- **contentblock:** deleted content-inverse mixin and fixed function
+  ([b6776a5](https://github.com/carbon-design-system/ibm-dotcom-library/commit/b6776a5))
+- **contentblock:** updated readme with inverse
+  ([6fda091](https://github.com/carbon-design-system/ibm-dotcom-library/commit/6fda091))
+- **css:** add videoplayer styles
+  ([67ea45e](https://github.com/carbon-design-system/ibm-dotcom-library/commit/67ea45e))
+- **css:** fix masthead button hover/active colors; fixes
+  [#2204](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2204)
+  ([61ebe65](https://github.com/carbon-design-system/ibm-dotcom-library/commit/61ebe65))
+- **css:** update CardGroup/CardSection css imports
+  ([eca7c1d](https://github.com/carbon-design-system/ibm-dotcom-library/commit/eca7c1d))
+- **cta-section:** adding themes support to the cta-section
+  ([#2409](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2409))
+  ([a11bb1d](https://github.com/carbon-design-system/ibm-dotcom-library/commit/a11bb1d))
+- **cta-section:** fixing css layout and removed useless knob
+  ([6543ba3](https://github.com/carbon-design-system/ibm-dotcom-library/commit/6543ba3))
+- **datatable:** updated data table to expressive styling
+  ([d185f3b](https://github.com/carbon-design-system/ibm-dotcom-library/commit/d185f3b))
+- **datatable:** upgraded expressive styling
+  ([45dd620](https://github.com/carbon-design-system/ibm-dotcom-library/commit/45dd620))
+- **docs:** moved fix documentation to the styles main readme
+  ([eca9516](https://github.com/carbon-design-system/ibm-dotcom-library/commit/eca9516))
+- **expressive-theme:** removing \_\_docgenInfo references
+  ([d551325](https://github.com/carbon-design-system/ibm-dotcom-library/commit/d551325))
+- **footer:** adjusting spacing to use tokens
+  ([550e887](https://github.com/carbon-design-system/ibm-dotcom-library/commit/550e887))
+- **imagewithcaption:** changed functions for better logic
+  ([1f3d403](https://github.com/carbon-design-system/ibm-dotcom-library/commit/1f3d403))
+- **imagewithcaption:** changed type to bolean inverse update color token
+  ([d4ee7f8](https://github.com/carbon-design-system/ibm-dotcom-library/commit/d4ee7f8))
+- **imagewithcaption:** deleted text function and replaced with scss
+  ([e6df412](https://github.com/carbon-design-system/ibm-dotcom-library/commit/e6df412))
+- **issue-1852:** copy overflow fix
+  ([1c754d9](https://github.com/carbon-design-system/ibm-dotcom-library/commit/1c754d9))
+- **issue-1852:** css fixes
+  ([32faed9](https://github.com/carbon-design-system/ibm-dotcom-library/commit/32faed9))
+- **issue-1852:** cta color
+  ([97eafe8](https://github.com/carbon-design-system/ibm-dotcom-library/commit/97eafe8))
+- **issue-1852:** cta size, no pattern heading
+  ([40ae8cb](https://github.com/carbon-design-system/ibm-dotcom-library/commit/40ae8cb))
+- **issue-1852:** featcardlarge story
+  ([5f6db8f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/5f6db8f))
+- **issue-1852:** missing wrapper css
+  ([19f24cf](https://github.com/carbon-design-system/ibm-dotcom-library/commit/19f24cf))
+- **issue-1852:** no-copy token
+  ([21fd968](https://github.com/carbon-design-system/ibm-dotcom-library/commit/21fd968))
+- **issue-1852:** renaming
+  ([857e9f5](https://github.com/carbon-design-system/ibm-dotcom-library/commit/857e9f5))
+- **issue-1852:** revet featcard
+  ([ccabc3e](https://github.com/carbon-design-system/ibm-dotcom-library/commit/ccabc3e))
+- **issue-1857:** "no-desc" breakpoints
+  ([f453e51](https://github.com/carbon-design-system/ibm-dotcom-library/commit/f453e51))
+- **issue-1857:** more style/storybook fixes
+  ([40849ac](https://github.com/carbon-design-system/ibm-dotcom-library/commit/40849ac))
+- **issue-1857:** styles readme fixed
+  ([b2659d5](https://github.com/carbon-design-system/ibm-dotcom-library/commit/b2659d5))
+- **issue-1857:** taking care of the breakpoints
+  ([2027816](https://github.com/carbon-design-system/ibm-dotcom-library/commit/2027816))
+- **issue-1857:** tokens, other fixes
+  ([458239e](https://github.com/carbon-design-system/ibm-dotcom-library/commit/458239e))
+- **lightbox:** set desc to align with bottom of media
+  ([f236793](https://github.com/carbon-design-system/ibm-dotcom-library/commit/f236793))
+- **locale:** remove scroll on vertical media query; fixes
+  [#2279](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2279)
+  ([8d9537d](https://github.com/carbon-design-system/ibm-dotcom-library/commit/8d9537d))
+- **masthead:** update masthead nav chevron size; fixes
+  [#2069](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2069)
+  ([159e49f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/159e49f))
+- **modal:** added missing gradient to overflow of modal
+  ([47ce834](https://github.com/carbon-design-system/ibm-dotcom-library/commit/47ce834))
+- **modal:** fixed color token
+  ([1734ac4](https://github.com/carbon-design-system/ibm-dotcom-library/commit/1734ac4))
+- **pattern:** layout updated according to design specs
+  ([7dac7c1](https://github.com/carbon-design-system/ibm-dotcom-library/commit/7dac7c1))
+- **pattern:** updated legal nav link color for cookie preferences
+  ([8d7858b](https://github.com/carbon-design-system/ibm-dotcom-library/commit/8d7858b))
+- **scss:** corrected cookie link color
+  ([85607a0](https://github.com/carbon-design-system/ibm-dotcom-library/commit/85607a0))
+- **scss:** fixed wrong background width on hover
+  ([dd0a171](https://github.com/carbon-design-system/ibm-dotcom-library/commit/dd0a171))
+- **style-imports:** updating global style imports
+  ([87cac66](https://github.com/carbon-design-system/ibm-dotcom-library/commit/87cac66))
+- **textarea:** updated invalid icon to expressive sizing
+  ([7b59c71](https://github.com/carbon-design-system/ibm-dotcom-library/commit/7b59c71))
+- **tooltip:** fixed tooltip link fontsize
+  ([463fba5](https://github.com/carbon-design-system/ibm-dotcom-library/commit/463fba5))
+- **tooltip:** moved scss to correct filee
+  ([393c638](https://github.com/carbon-design-system/ibm-dotcom-library/commit/393c638))
+- **tooltip:** moved styles to correct file
+  ([8732127](https://github.com/carbon-design-system/ibm-dotcom-library/commit/8732127))
+- **videoplayer:** got rid of text function and switched to scss
+  ([1e2a81a](https://github.com/carbon-design-system/ibm-dotcom-library/commit/1e2a81a))
+- **videoplayer:** added text color token
+  ([434ec70](https://github.com/carbon-design-system/ibm-dotcom-library/commit/434ec70))
+- **videoplayer:** format partnerid and handle html in desc
+  ([6708a1c](https://github.com/carbon-design-system/ibm-dotcom-library/commit/6708a1c))
+
+### Features
+
+- **callout:** added readme and storysnapshot
+  ([deda9ea](https://github.com/carbon-design-system/ibm-dotcom-library/commit/deda9ea))
+- **callout:** first commit
+  ([f68c33a](https://github.com/carbon-design-system/ibm-dotcom-library/commit/f68c33a))
+- **callout:** fixed grid spacing and added empty story example
+  ([c4abbdb](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c4abbdb))
+- **calloutwithmedia:** created callout with media block
+  ([18482b0](https://github.com/carbon-design-system/ibm-dotcom-library/commit/18482b0))
+- **component:** add ContentItemHorizontal sub-pattern
+  ([12afacc](https://github.com/carbon-design-system/ibm-dotcom-library/commit/12afacc))
+- **contentblock:** added inverse theme
+  ([ba1fbb4](https://github.com/carbon-design-system/ibm-dotcom-library/commit/ba1fbb4))
+- **contentblocksimple:** added inverse theme to contentblocksimple
+  ([2db5e26](https://github.com/carbon-design-system/ibm-dotcom-library/commit/2db5e26))
+- **contentitem:** added inverse to content item
+  ([908b2b7](https://github.com/carbon-design-system/ibm-dotcom-library/commit/908b2b7))
+- **image-with-caption:** launch lightbox for image with caption
+  ([#2413](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2413))
+  ([ede324f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/ede324f))
+- **imagewithcaption-inverse:** added inverse theme
+  ([9a21f76](https://github.com/carbon-design-system/ibm-dotcom-library/commit/9a21f76))
+- **languageselector:** adding language selector option for the footer
+  ([a3e9c35](https://github.com/carbon-design-system/ibm-dotcom-library/commit/a3e9c35))
+- **pattern:** add ContentBlockCards pattern
+  ([8b7d23e](https://github.com/carbon-design-system/ibm-dotcom-library/commit/8b7d23e))
+- **pattern:** added new layout for lg and above resolutions
+  ([c0cab2c](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c0cab2c))
+- **pattern:** callout-quote pattern created
+  ([c458929](https://github.com/carbon-design-system/ibm-dotcom-library/commit/c458929))
+- **pattern:** feature-card sub-pattern created
+  ([a61f933](https://github.com/carbon-design-system/ibm-dotcom-library/commit/a61f933))
+- **pattern:** quote pattern created
+  ([04417cc](https://github.com/carbon-design-system/ibm-dotcom-library/commit/04417cc))
+- **scss:** updated colors based on new design specs
+  ([cde4131](https://github.com/carbon-design-system/ibm-dotcom-library/commit/cde4131))
+- **style:** add ContentItemHorizontal styles and story
+  ([8aa3c22](https://github.com/carbon-design-system/ibm-dotcom-library/commit/8aa3c22))
+- **videoplayer:** added inverse theme
+  ([9d55807](https://github.com/carbon-design-system/ibm-dotcom-library/commit/9d55807))
+- **videoplayer:** added inverse theme with better logic
+  ([3ae9396](https://github.com/carbon-design-system/ibm-dotcom-library/commit/3ae9396))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.6.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-styles@1.6.0-rc.1...@carbon/ibmdotcom-styles@1.6.0) (2020-04-28)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-styles

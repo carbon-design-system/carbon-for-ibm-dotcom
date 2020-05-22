@@ -6,3 +6,6 @@ storybook-static
 
 # rollup
 stats.html
+
+# Generated vendor files
+src/internal/vendor

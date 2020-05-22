@@ -1,5 +1,31 @@
 {
   "extends": [
     "./packages/eslint-config-ibmdotcom"
+  ],
+  "overrides": [
+    {
+      "files": ["**/overview.js", "**/*.stories.js"],
+      "rules": {
+        "jsdoc/require-jsdoc": 0
+      }
+    },
+    {
+      "files": ["**/*_steps.js"],
+      "globals": {
+        "describe": true,
+        "beforeAll": true,
+        "beforeEach": true,
+        "afterAll": true,
+        "afterEach": true,
+        "it": true,
+        "expect": true,
+        "page": true
+      },
+      "rules": {
+        "no-new": 0,
+        "no-underscore-dangle": 0,
+        "no-unused-expressions": 0
+      }
+    }
   ]
 }
