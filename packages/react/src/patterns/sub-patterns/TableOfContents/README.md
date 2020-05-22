@@ -42,9 +42,14 @@ const menuItems = [
   },
 ];
 
+const headingContent = <div>Lorem ipsum dolor sit amet</div>;
+
 function App() {
   return (
-    <TableOfContents theme={theme} menuItems={menuItems}>
+    <TableOfContents
+      headingContent={headingContent}
+      theme={theme}
+      menuItems={menuItems}>
       <a name="8"></a>
       <h3 style={{ paddingBottom: '1rem', paddingTop: '2rem' }}>
         Cras molestie condimentum
@@ -81,13 +86,15 @@ Add the following line in your `.env` file at the root of your project.
 
 ## Props
 
-| Name           | Required | Data Type | Default Value | Description                                                                      |
-| -------------- | -------- | --------- | ------------- | -------------------------------------------------------------------------------- |
-| `children`     | NO       | Array     | null          | Content to display next to the side nav.                                         |
-| `menuItems`    | NO       | Array     | null          | Array of menu item objects to render within the side nav. See `menuItems` below. |
-| `menuLabel`    | NO       | String    | `Jump to`     | Placeholder value for menu label                                                 |
-| `theme`        | NO       | String    | `white`       | Defines the color theme for the pattern (See `Theme` bellow)                     |
-| `stickyOffset` | NO       | Number    | null          | Defines the offset for the sticky column                                         |
+| Name             | Required | Data Type | Default Value | Description                                                                      |
+| ---------------- | -------- | --------- | ------------- | -------------------------------------------------------------------------------- |
+| `children`       | NO       | Array     | null          | Content to display next to the side nav.                                         |
+| `headingContent` | NO       | Component | null          | Content to be displayed above the navigation menu.                               |
+| `menuItems`      | NO       | Array     | null          | Array of menu item objects to render within the side nav. See `menuItems` below. |
+| `menuLabel`      | NO       | String    | `Jump to`     | Placeholder value for menu label                                                 |
+| `theme`          | NO       | String    | `white`       | Defines the color theme for the pattern (See `Theme` bellow)                     |
+| `stickyOffset`   | NO       | Number    | null          | Defines the offset for the sticky column                                         |
+| `menuRule`       | NO       | Boolean   | null          | Defines if the menu ruler will be rendered                                       |
 
 ## menuItems
 
@@ -111,6 +118,7 @@ follow the following format:
 | Name            | Description                              |
 | --------------- | ---------------------------------------- |
 | white / default | White theme applied to pattern           |
+| g10             | Gray 10 (g10) theme applied to pattern   |
 | g100            | Gray 100 (g100) theme applied to pattern |
 
 ## Stable selectors
