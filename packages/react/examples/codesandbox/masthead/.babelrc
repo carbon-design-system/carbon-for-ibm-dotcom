@@ -1,0 +1,16 @@
+{
+  "presets": [
+    "@babel/preset-react",
+    [
+      "@babel/preset-env",
+      {
+        "modules": false,
+        "targets": [
+          "last 1 version",
+          "Firefox ESR"
+        ]
+      }
+    ]
+  ],
+  "plugins": [["@babel/plugin-transform-runtime", { "version": "7.3.0" }]]
+}
