@@ -16,48 +16,50 @@ import LogoGrid from '../LogoGrid';
 import logos from './data/logos.json';
 import React from 'react';
 import readme from '../README.md';
-import { storiesOf } from '@storybook/react';
 
-storiesOf('Patterns (Blocks)|LogoGrid', module)
-  .addDecorator(withKnobs)
-  .addParameters({
+export default {
+  title: 'Patterns (Blocks)|LogoGrid',
+  decorators: [withKnobs],
+  parameters: {
     readme: {
       sidebar: readme,
     },
-  })
-  .add('Default', () => {
-    const heading = text('Heading (heading)', 'Our customers');
-    const ctaProps = {
-      style: 'card',
-      type: 'local',
-      copy: 'See all customers.',
-      cta: {
-        href: 'https://www.example.com',
-      },
-    };
+  },
+};
 
-    const cta = {
-      cta: ctaProps,
-      none: null,
-    };
+export const Default = () => {
+  const heading = text('Heading (heading)', 'Our customers');
+  const ctaProps = {
+    style: 'card',
+    type: 'local',
+    copy: 'See all customers.',
+    cta: {
+      href: 'https://www.example.com',
+    },
+  };
 
-    let hideBorder = boolean(
-      'Hide border (hideBorder): Hide the bottom border',
-      false
-    );
+  const cta = {
+    cta: ctaProps,
+    none: null,
+  };
 
-    return (
-      <div className="bx--grid">
-        <div className="bx--row">
-          <div className="bx--col-sm-4 bx--col-md-8 bx--col-lg-12 bx--offset-lg-2">
-            <LogoGrid
-              heading={heading}
-              logosGroup={object('Data', logos)}
-              cta={select('CTA (optional)', cta, cta.cta)}
-              hideBorder={hideBorder}
-            />
-          </div>
+  let hideBorder = boolean(
+    'Hide border (hideBorder): Hide the bottom border',
+    false
+  );
+
+  return (
+    <div className="bx--grid">
+      <div className="bx--row">
+        <div className="bx--col-sm-4 bx--col-md-8 bx--col-lg-12 bx--offset-lg-2">
+          <LogoGrid
+            heading={heading}
+            logosGroup={object('Data', logos)}
+            cta={select('CTA (optional)', cta, cta.cta)}
+            hideBorder={hideBorder}
+          />
         </div>
       </div>
-    );
-  });
+    </div>
+  );
+};
