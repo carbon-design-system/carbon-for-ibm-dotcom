@@ -22,6 +22,7 @@ const { prefix } = settings;
  * @param {Array} props.menuItems menu items object
  * @param {string} props.selectedId id of a menu item
  * @param {boolean} props.menuRule optional rule
+ * @param {*} props.headingContent JSX component to be displayed above menu
  * @returns {*} JSX Object
  */
 const TOCDesktop = ({ menuItems, selectedId, menuRule, headingContent }) => {
