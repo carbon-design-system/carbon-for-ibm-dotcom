@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -21,9 +21,11 @@ const { prefix } = settings;
  * @param {object} props props object
  * @param {Array} props.menuItems menu items object
  * @param {string} props.selectedId id of a menu item
+ * @param {boolean} props.menuRule optional rule
+ * @param {*} props.headingContent JSX component to be displayed above menu
  * @returns {*} JSX Object
  */
-const TOCDesktop = ({ menuItems, selectedId }) => {
+const TOCDesktop = ({ menuItems, selectedId, menuRule, headingContent }) => {
   /**
    * Render menu items
    *
@@ -64,7 +66,6 @@ const TOCDesktop = ({ menuItems, selectedId }) => {
   const handleOnClick = (e, id) => {
     e.preventDefault();
     const selector = `a[name="${id}"]`;
-    triggerFocus(selector);
     smoothScroll(null, selector);
     triggerFocus(selector);
   };
@@ -85,6 +86,14 @@ const TOCDesktop = ({ menuItems, selectedId }) => {
     <div
       className={`${prefix}--tableofcontents__desktop`}
       data-autoid={`${stablePrefix}--tableofcontents__desktop`}>
+      {headingContent ? (
+        <div className={`${prefix}--tableofcontents__desktop__children`}>
+          {headingContent}
+        </div>
+      ) : null}
+      {menuRule ? (
+        <hr className={`${prefix}--tableofcontents__desktop__rule`} />
+      ) : null}
       <ul>{renderMenuItems(menuItems, selectedId)}</ul>
     </div>
   );
@@ -93,6 +102,8 @@ const TOCDesktop = ({ menuItems, selectedId }) => {
 TOCDesktop.propTypes = {
   menuItems: PropTypes.array,
   selectedId: PropTypes.string,
+  menuRule: PropTypes.bool,
+  headingContent: PropTypes.node,
 };
 
 export default TOCDesktop;
