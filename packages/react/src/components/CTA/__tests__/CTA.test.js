@@ -5,6 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import ButtonCTA from '../ButtonCTA';
 import CardCTA from '../CardCTA';
 import CTALogic from '../CTALogic';
 import FeatureCTA from '../FeatureCTA';
@@ -78,5 +79,62 @@ describe('CTA', () => {
     );
     cta.find('a').simulate('click');
     expect(CTALogic.jump).toHaveBeenCalled();
+  });
+
+  it('Renders ButtonCTA | type video', () => {
+    CTALogic.setLightBox = jest.fn();
+    const cta = mount(
+      <ButtonCTA
+        buttons={[
+          {
+            type: 'video',
+            href: 'https://www.example.com',
+            copy: 'Lorem Ipsum',
+            media: {
+              src: '0_uka1msg4',
+              type: 'video',
+            },
+          },
+        ]}
+        type="video"
+        videoTitle={[{ title: 'Lorem Ipsum' }]}
+      />
+    );
+    cta.find('a').simulate('click');
+    expect(CTALogic.setLightBox).toHaveBeenCalled();
+  });
+
+  it('Renders ButtonCTA | type jump', () => {
+    CTALogic.jump = jest.fn();
+    const cta = mount(
+      <ButtonCTA
+        buttons={[
+          {
+            type: 'jump',
+            href: 'https://www.example.com',
+            copy: 'Lorem Ipsum',
+          },
+        ]}
+        type="jump"
+      />
+    );
+    cta.find('a').simulate('click');
+    expect(CTALogic.jump).toHaveBeenCalled();
+  });
+
+  it('Renders ButtonCTA | type external', () => {
+    const cta = mount(
+      <ButtonCTA
+        buttons={[
+          {
+            type: 'external',
+            href: 'https://www.example.com',
+            copy: 'Lorem Ipsum',
+          },
+        ]}
+        type="external"
+      />
+    );
+    expect(cta.find('svg[aria-label="external launch icon"]')).toHaveLength(1);
   });
 });
