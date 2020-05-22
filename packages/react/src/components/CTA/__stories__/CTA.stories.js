@@ -9,16 +9,14 @@ import { select, withKnobs } from '@storybook/addon-knobs';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
 import CTA from '../CTA';
 import React from 'react';
-import readme from '../README.md';
+import readme from '../README.stories.mdx';
 
 export default {
   title: 'Components|CTA',
   decorators: [withKnobs],
 
   parameters: {
-    readme: {
-      sidebar: readme,
-    },
+    ...readme.parameters,
   },
 };
 
