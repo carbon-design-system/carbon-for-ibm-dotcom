@@ -137,4 +137,18 @@ describe('CTA', () => {
     );
     expect(cta.find('svg[aria-label="external launch icon"]')).toHaveLength(1);
   });
+
+  it('Tests CTALogic', () => {
+    expect(
+      CTALogic.getVideoId('feature', {
+        card: {
+          cta: {
+            media: {
+              src: 'https://example.com',
+            },
+          },
+        },
+      })
+    ).toEqual([{ src: 'https://example.com' }]);
+  });
 });
