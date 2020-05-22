@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -22,7 +22,7 @@ storiesOf('Patterns (Blocks)|LogoGrid', module)
   .add('Default', () => {
     const heading = text('Heading (heading)', 'Our customers');
     const ctaHref = text('Card href (cta.href):', 'https://www.example.com');
-    const ctaCopy = text('Card copy (copy):', 'Lorem ipsum dolor sit amet');
+    const ctaCopy = text('Card copy (copy):', 'Lorem ipsum dolor sit amet.');
     const ctaProps = {
       style: 'card',
       type: 'local',
