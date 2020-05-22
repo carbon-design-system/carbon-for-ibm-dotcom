@@ -25,7 +25,7 @@ const { prefix } = settings;
  * @param {boolean} props.hideBorder Set to true to hide the grid bottom border
  * @returns {*} Logo Grid Pattern JSX object
  */
-const LogoGrid = props => {
+const LogoGrid = ({ heading, logosGroup, cta, hideBorder }) => {
   /**
    * sets the class name based on theme type
    *
@@ -37,14 +37,14 @@ const LogoGrid = props => {
     <section
       data-autoid={`${stablePrefix}--logo-grid ${prefix}--logo-grid`}
       className={classNames(`${prefix}--logo-grid`, {
-        [`${prefix}--logo-grid__no-border`]: props.hideBorder,
+        [`${prefix}--logo-grid__no-border`]: hideBorder,
       })}>
       <div className={`${prefix}--logo-grid__container`}>
         <div
           className={`${prefix}--logo-grid__wrapper ${prefix}--grid ${prefix}--grid--full-width`}>
-          <ContentBlock heading={props.heading} cta={props.cta}>
+          <ContentBlock heading={heading} cta={cta}>
             <div className={`${prefix}--logo-grid__row`}>
-              {props.logosGroup.map((placeholder, index) => (
+              {logosGroup.map((placeholder, index) => (
                 <div className={`${prefix}--logo-grid__col`} key={index}>
                   <a
                     href={placeholder.href}
