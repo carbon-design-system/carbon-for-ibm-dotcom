@@ -4,6 +4,7 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
+import { breakpoints, baseFontSize } from '@carbon/layout';
 import React, { useRef, useLayoutEffect } from 'react';
 import Button from '../../../internal/vendor/carbon-components-react/components/Button/Button';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
@@ -29,7 +30,6 @@ const ButtonGroup = ({ buttons }) => {
 
   useLayoutEffect(() => {
     const { current } = orderedList;
-
     /**
      * Sets the same width to all the elements inside an specific node passed as parameter
      *
@@ -40,9 +40,17 @@ const ButtonGroup = ({ buttons }) => {
       const getAllWidths = elements.map(element => element.offsetWidth);
       const biggestElement = Math.max.apply(null, getAllWidths);
 
-      elements.forEach(
-        element => (element.style.width = `${biggestElement}px`)
-      );
+      const smBreakpoint = parseFloat(breakpoints.sm.width) * baseFontSize;
+
+      if (root.window.innerWidth <= smBreakpoint) {
+        elements.forEach(element => (element.style.width = '100%'));
+      }
+
+      if (root.window.innerWidth > smBreakpoint) {
+        elements.forEach(
+          element => (element.style.width = `${biggestElement}px`)
+        );
+      }
     };
 
     /**
@@ -78,15 +86,17 @@ const ButtonGroup = ({ buttons }) => {
       () => {
         root.window.requestAnimationFrame(() => {
           _stackElementsVertically(current);
+          setSameWidth(current);
         });
       },
       true
     );
 
     return () =>
-      root.window.removeEventListener('resize', () =>
-        _stackElementsVertically(current)
-      );
+      root.window.removeEventListener('resize', () => {
+        _stackElementsVertically(current);
+        setSameWidth(current);
+      });
   }, []);
 
   return (
