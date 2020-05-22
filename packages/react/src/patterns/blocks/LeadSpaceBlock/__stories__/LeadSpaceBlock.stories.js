@@ -1,5 +1,4 @@
 import { object, select, withKnobs, text } from '@storybook/addon-knobs';
-import { HorizontalRule } from '../../../../components/HorizontalRule';
 import LeadSpaceBlock from '../LeadSpaceBlock.js';
 import React from 'react';
 import readme from '../README.md';
@@ -100,21 +99,14 @@ storiesOf('Patterns (Blocks)|LeadSpaceBlock', module)
     };
 
     return (
-      <div className="bx--grid">
-        <div className="bx--row">
-          <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
-            <LeadSpaceBlock
-              title={title}
-              copy={copy}
-              heading={heading}
-              mediaType={mediaType}
-              mediaData={mediaData}
-              items={linkListProps}
-              cta={ctaProps}
-            />
-          </div>
-        </div>
-        <HorizontalRule />
-      </div>
+      <LeadSpaceBlock
+        title={title}
+        copy={copy}
+        heading={heading}
+        mediaType={mediaType}
+        mediaData={mediaData}
+        items={linkListProps}
+        cta={ctaProps}
+      />
     );
   });

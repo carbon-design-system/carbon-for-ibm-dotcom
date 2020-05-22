@@ -1,6 +1,7 @@
 import { ContentBlock } from '../../sub-patterns/ContentBlock';
 import { CTA } from '../../../components/CTA';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import { HorizontalRule } from '../../../components/HorizontalRule';
 import { ImageWithCaption } from '../../../components/ImageWithCaption';
 import { LinkList } from '../../sub-patterns/LinkList';
 import PropTypes from 'prop-types';
@@ -66,22 +67,29 @@ const LeadSpaceBlock = ({
   );
 
   return (
-    <div
-      data-autoid={`${stablePrefix}--leadspace-block`}
-      className={`${prefix}--leadspace-block`}>
-      {pageTitle}
-      <ContentBlock heading={heading} copy={copy}>
-        {_renderMedia(mediaType, mediaData)}
-        <LinkList
-          style="vertical-end"
-          heading={items.heading}
-          items={items.items}
-        />
-        <CTA
-          customClassName={`${prefix}--leadspace-block__cta ${prefix}--leadspace-block__cta-col`}
-          {...cta}
-        />
-      </ContentBlock>
+    <div className="bx--grid">
+      <div className="bx--row">
+        <div className="bx--col-sm-4 bx--col-lg-8">
+          <div
+            data-autoid={`${stablePrefix}--leadspace-block`}
+            className={`${prefix}--leadspace-block`}>
+            {pageTitle}
+            <ContentBlock heading={heading} copy={copy}>
+              {_renderMedia(mediaType, mediaData)}
+              <LinkList
+                style="vertical-end"
+                heading={items.heading}
+                items={items.items}
+              />
+              <CTA
+                customClassName={`${prefix}--leadspace-block__cta ${prefix}--leadspace-block__cta-col`}
+                {...cta}
+              />
+            </ContentBlock>
+          </div>
+        </div>
+      </div>
+      <HorizontalRule />
     </div>
   );
 };
