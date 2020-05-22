@@ -27,6 +27,7 @@
     "format": "prettier --write '**/*.{js,md,scss}'",
     "format:diff": "prettier --list-different '**/*.{js,md,scss}'",
     "lint": "eslint packages",
+    "lint:scripts:staged": "eslint",
     "lint:license:staged": "tasks/check-license.js -w",
     "lint:styles": "stylelint '**/*.{css,scss}' --config ./packages/stylelint-config-ibmdotcom",
     "test": "yarn test:unit && yarn test:integration:build",

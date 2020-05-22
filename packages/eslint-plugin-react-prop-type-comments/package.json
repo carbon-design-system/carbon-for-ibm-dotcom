@@ -1,0 +1,23 @@
+{
+  "name": "@carbon/eslint-plugin-react-prop-type-comments",
+  "private": true,
+  "version": "1.7.0-rc.1",
+  "description": "ESLint plugin for the IBM.com Library checking React prop type comments",
+  "license": "Apache-2.0",
+  "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
+  "repository": "https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/eslint-plugin-react-prop-type-comments",
+  "bugs": "https://github.com/carbon-design-system/ibm-dotcom-library/issues",
+  "keywords": [
+    "ibm",
+    "carbon",
+    "carbon-design-system",
+    "components",
+    "react"
+  ],
+  "peerDependencies": {
+    "eslint": "^6.8.0"
+  }
+}
