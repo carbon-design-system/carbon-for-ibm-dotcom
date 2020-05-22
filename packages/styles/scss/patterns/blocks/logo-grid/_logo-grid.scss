@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2016, 2018
+// Copyright IBM Corp. 2016, 2020
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -39,7 +39,8 @@
     .#{$prefix}--content-block__cta {
       margin-top: $layout-01;
       margin-bottom: $layout-07;
-      @include carbon--make-col(2, 1);
+      @include carbon--make-col-ready;
+      @include carbon--make-col(1, 3);
 
       .#{$prefix}--card__heading {
         @include carbon--type-style('productive-heading-01');
