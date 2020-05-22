@@ -4,8 +4,10 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
+import classNames from 'classnames';
 import ContentBlock from '../../sub-patterns/ContentBlock/ContentBlock';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import { Image } from '../../../components/Image';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { settings } from 'carbon-components';
@@ -21,7 +23,7 @@ const { prefix } = settings;
  * @param {Array} props.logosGroup Array of object with label, imgSrc and altText properties
  * @returns {*} Logo Grid Pattern JSX object
  */
-const LogoGrid = ({ title, logosGroup }) => {
+const LogoGrid = ({ heading, logosGroup, cta, hideBorder }) => {
   /**
    * sets the class name based on theme type
    *
@@ -30,33 +32,53 @@ const LogoGrid = ({ title, logosGroup }) => {
    */
 
   return (
-    <section data-autoid={`${stablePrefix}--logo-grid ${prefix}--logo-grid`}>
-      <ContentBlock heading={title}>
-        <div className={`${prefix}--logo-grid__container`}>
-          <div className={`${prefix}--logo-grid__wrapper`}>
-            {logosGroup.map(placeholder => (
-              <div
-                className={`${prefix}--logo-grid__logo`}
-                key={placeholder.label}>
-                <img src={placeholder.imgSrc} alt={placeholder.altText} />
-              </div>
-            ))}
-          </div>
+    <section
+      data-autoid={`${stablePrefix}--logo-grid ${prefix}--logo-grid`}
+      className={classNames(`${prefix}--logo-grid`, {
+        [`${prefix}--logo-grid__no-border`]: hideBorder,
+      })}>
+      <div className={`${prefix}--logo-grid__container`}>
+        <div
+          className={`${prefix}--logo-grid__wrapper ${prefix}--grid ${prefix}--grid--full-width`}>
+          <ContentBlock heading={heading} cta={cta}>
+            <div className={`${prefix}--logo-grid__row`}>
+              {logosGroup.map((placeholder, index) => (
+                <div className={`${prefix}--logo-grid__col`} key={index}>
+                  <a
+                    href={placeholder.href}
+                    className={`${prefix}--logo-grid__link`}>
+                    <div
+                      className={`${prefix}--logo-grid__logo`}
+                      key={placeholder.label}>
+                      <Image
+                        defaultSrc={placeholder.imgSrc}
+                        classname={`${prefix}--logo-grid_img`}
+                        alt={placeholder.altText}
+                      />
+                    </div>
+                  </a>
+                </div>
+              ))}
+            </div>
+          </ContentBlock>
         </div>
-      </ContentBlock>
+      </div>
     </section>
   );
 };
 
 LogoGrid.propTypes = {
-  title: PropTypes.string,
+  heading: PropTypes.string,
   logosGroup: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string,
       imgSrc: PropTypes.string,
       altText: PropTypes.string,
+      href: PropTypes.string,
     })
   ),
+  cta: PropTypes.object,
+  hideBorder: PropTypes.bool,
 };
 
 export default LogoGrid;
