@@ -8,88 +8,102 @@
 @import '../../../globals/utils/hang';
 @import '../../../globals/utils/aspect-ratio';
 
-@mixin themed-items {
-  color: $text-01;
-  background: $ui-background;
-}
-
 @mixin logo-grid {
   .#{$prefix}--logo-grid {
-    /*
-    &__container {
-      @include carbon--make-container;
-      @include hang;
+    padding: $spacing-03;
+
+    .#{$prefix}--content-block {
+      padding-top: 0;
+      padding-bottom: 0;
+      background: $inverse-01;
     }
+
+    .#{$prefix}--content-block__heading {
+      margin: $layout-05 0;
+      color: $text-01;
+    }
+    &__container {
+      border-bottom: 1px $ui-04 solid;
+    }
+
+    &__no-border {
+      .#{$prefix}--logo-grid__container {
+        border-bottom: none;
+      }
+    }
+
+    .#{$prefix}--card__wrapper {
+      width: 100%;
+    }
+
+    .#{$prefix}--content-block__cta {
+      margin-top: $layout-01;
+      margin-bottom: $layout-07;
+      @include carbon--make-col(2, 1);
+
+      .#{$prefix}--card__heading {
+        @include carbon--type-style('productive-heading-01');
+      }
+    }
+
+    &__link {
+      display: block;
+      &:hover .#{$prefix}--logo-grid__logo {
+        box-shadow: inset 0 0 0 1px $ui-04;
+      }
+      &:active .#{$prefix}--logo-grid__logo {
+        box-shadow: inset 0 0 0 1px $ui-03;
+      }
+    }
+
     &__row {
       @include carbon--make-row;
     }
-    */
+
+    &__col {
+      @include carbon--make-col-ready;
+      @include carbon--make-col(1, 2);
+
+      margin-bottom: $spacing-07;
+
+      @include carbon--breakpoint('md') {
+        @include carbon--make-col(1, 3);
+      }
+    }
 
     &__heading {
       @include carbon--type-style('expressive-heading-05');
 
+      width: 90%;
       margin-top: $carbon--spacing-07;
       margin-bottom: $carbon--spacing-07;
     }
 
     &__wrapper {
       width: 100%;
-      display: flex;
-      flex-flow: row wrap;
-      /*
-      &__col {
-        @include carbon--make-col-ready;
-        @include carbon--make-col(4, 12); 
-
-      }
-      */
     }
 
-    &__logo {
+    .#{$prefix}--image {
+      display: block;
+      background: #ffffff;
+      overflow-y: hidden;
+      padding-top: aspect-ratio(288px, 216px);
       position: relative;
-      width: 30%;
-      height: auto;
-      margin: 0 auto $spacing-07;
+
+      &:hover img {
+        border: 1px $ui-04 solid;
+      }
+      &:active img {
+        border: 1px $ui-03 solid;
+      }
 
       img {
+        position: absolute;
+        top: 0;
         display: block;
         width: 100%;
         height: auto;
-      }
-    }
-
-    @include carbon--breakpoint('sm') {
-      &__col {
-        @include carbon--make-col(4, 4);
-
-        padding-left: $carbon--layout-01;
-        padding-right: $carbon--layout-01;
-      }
-    }
-
-    @include carbon--breakpoint('md') {
-      &__title {
-        margin-top: $carbon--layout-05;
-        margin-bottom: $carbon--spacing-09;
-      }
-      &__col {
-        @include carbon--make-col(7, 8);
-
-        padding-left: $carbon--layout-01;
-        padding-right: $carbon--layout-01;
-      }
-    }
-    @include carbon--breakpoint('lg') {
-      /*
-      &__col {
-        @include carbon--make-col-offset(4, 16);
-        @include carbon--make-col(8, 16);
-      }
-      */
-    }
-    @include carbon--breakpoint('max') {
-      &__col {
-        max-width: carbon--rem(640px);
+        object-fit: contain;
       }
     }
   }
