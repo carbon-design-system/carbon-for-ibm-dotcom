@@ -21399,7 +21399,7 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                     <LogoGrid
                       cta={
                         Object {
-                          "copy": "Lorem ipsum dolor sit amet",
+                          "copy": "See all customers.",
                           "cta": Object {
                             "href": "https://www.example.com",
                           },
@@ -21510,7 +21510,7 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                     <LogoGrid
                       cta={
                         Object {
-                          "copy": "Lorem ipsum dolor sit amet",
+                          "copy": "See all customers.",
                           "cta": Object {
                             "href": "https://www.example.com",
                           },
@@ -21592,7 +21592,7 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                             <ContentBlock
                               cta={
                                 Object {
-                                  "copy": "Lorem ipsum dolor sit amet",
+                                  "copy": "See all customers.",
                                   "cta": Object {
                                     "href": "https://www.example.com",
                                   },
@@ -21916,7 +21916,7 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                   data-autoid="dds--content-block__cta"
                                 >
                                   <CTA
-                                    copy="Lorem ipsum dolor sit amet"
+                                    copy="See all customers."
                                     cta={
                                       Object {
                                         "href": "https://www.example.com",
@@ -21930,7 +21930,7 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                       className="bx--content-block__cta bx--content-block__cta-col"
                                     >
                                       <CardCTA
-                                        copy="Lorem ipsum dolor sit amet"
+                                        copy="See all customers."
                                         cta={
                                           Object {
                                             "href": "https://www.example.com",
@@ -21950,7 +21950,7 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                         }
                                       >
                                         <Card
-                                          copy="Lorem ipsum dolor sit amet"
+                                          copy="See all customers."
                                           cta={
                                             Object {
                                               "href": "https://www.example.com",
@@ -21996,7 +21996,7 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                                   className="bx--card__copy"
                                                   dangerouslySetInnerHTML={
                                                     Object {
-                                                      "__html": "<p>Lorem ipsum dolor sit amet</p>",
+                                                      "__html": "<p>See all customers.</p>",
                                                     }
                                                   }
                                                 />

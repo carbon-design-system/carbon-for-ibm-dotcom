@@ -5,7 +5,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { boolean, object, text, withKnobs } from '@storybook/addon-knobs';
+import {
+  boolean,
+  object,
+  select,
+  text,
+  withKnobs,
+} from '@storybook/addon-knobs';
 import LogoGrid from '../LogoGrid';
 import logos from './data/logos.json';
 import React from 'react';
@@ -21,16 +27,20 @@ storiesOf('Patterns (Blocks)|LogoGrid', module)
   })
   .add('Default', () => {
     const heading = text('Heading (heading)', 'Our customers');
-    const ctaHref = text('Card href (cta.href):', 'https://www.example.com');
-    const ctaCopy = text('Card copy (copy):', 'Lorem ipsum dolor sit amet');
     const ctaProps = {
       style: 'card',
       type: 'local',
-      copy: ctaCopy,
+      copy: 'See all customers.',
       cta: {
-        href: ctaHref,
+        href: 'https://www.example.com',
       },
     };
+
+    const cta = {
+      cta: ctaProps,
+      none: null,
+    };
+
     let hideBorder = boolean(
       'Hide border (hideBorder): Hide the bottom border',
       false
@@ -43,7 +53,7 @@ storiesOf('Patterns (Blocks)|LogoGrid', module)
             <LogoGrid
               heading={heading}
               logosGroup={object('Data', logos)}
-              cta={ctaProps}
+              cta={select('CTA (optional)', cta, cta.cta)}
               hideBorder={hideBorder}
             />
           </div>

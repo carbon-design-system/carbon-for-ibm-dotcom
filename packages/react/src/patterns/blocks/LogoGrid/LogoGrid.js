@@ -6,6 +6,7 @@
  */
 import classNames from 'classnames';
 import ContentBlock from '../../sub-patterns/ContentBlock/ContentBlock';
+import { CTA } from '../../../components/CTA';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { Image } from '../../../components/Image';
 import PropTypes from 'prop-types';
@@ -78,7 +79,7 @@ LogoGrid.propTypes = {
       href: PropTypes.string,
     })
   ),
-  cta: PropTypes.object,
+  cta: PropTypes.shape(CTA.propTypes),
   hideBorder: PropTypes.bool,
 };
 
