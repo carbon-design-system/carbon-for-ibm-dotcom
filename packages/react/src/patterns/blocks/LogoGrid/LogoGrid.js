@@ -18,12 +18,13 @@ const { prefix } = settings;
  * Logo Grid
  *
  * @param {object} props Props object
- * @param {string} props.title Title for the Logo Grid Pattern
- * @param {string} props.theme theme name
+ * @param {string} props.heading Heading for the Logo Grid Pattern
  * @param {Array} props.logosGroup Array of object with label, imgSrc and altText properties
+ * @param {object} props.cta CTA object
+ * @param {boolean} props.hideBorder Set to true to hide the grid bottom border
  * @returns {*} Logo Grid Pattern JSX object
  */
-const LogoGrid = ({ heading, logosGroup, cta, hideBorder }) => {
+const LogoGrid = props => {
   /**
    * sets the class name based on theme type
    *
@@ -35,14 +36,14 @@ const LogoGrid = ({ heading, logosGroup, cta, hideBorder }) => {
     <section
       data-autoid={`${stablePrefix}--logo-grid ${prefix}--logo-grid`}
       className={classNames(`${prefix}--logo-grid`, {
-        [`${prefix}--logo-grid__no-border`]: hideBorder,
+        [`${prefix}--logo-grid__no-border`]: props.hideBorder,
       })}>
       <div className={`${prefix}--logo-grid__container`}>
         <div
           className={`${prefix}--logo-grid__wrapper ${prefix}--grid ${prefix}--grid--full-width`}>
-          <ContentBlock heading={heading} cta={cta}>
+          <ContentBlock heading={props.heading} cta={props.cta}>
             <div className={`${prefix}--logo-grid__row`}>
-              {logosGroup.map((placeholder, index) => (
+              {props.logosGroup.map((placeholder, index) => (
                 <div className={`${prefix}--logo-grid__col`} key={index}>
                   <a
                     href={placeholder.href}

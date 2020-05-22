@@ -30,24 +30,34 @@ import ReactDOM from 'react-dom';
 import { LogoGrid } from '@carbon/ibmdotcom-react';
 import 'yourapplication.scss';
 
-const title =
-  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.';
+const heading = 'Our customers.';
 
 const logosGroup = [
   {
     title: 'Company A',
     imgSrc: 'https://dummyimage.com/140x140',
     altText: 'Image alt text',
+    href: 'http://example.com/',
   },
   {
     title: 'Company B',
     imgSrc: 'https://dummyimage.com/140x140',
     altText: 'Image alt text',
+    href: 'http://example.com/',
   },
 ];
 
+const ctaProps = {
+  style: 'card',
+  type: 'local',
+  copy: 'Lorem ipsum dolor sit amet',
+  cta: {
+    href: 'http://local.url.com/',
+  },
+};
+
 function App() {
-  return <LogoGrid title={title} logosGroup={logosGroup} />;
+  return <LogoGrid title={title} logosGroup={logosGroup} cta={ctaProps} />;
 }
 
 ReactDOM.render(<App />, document.querySelector('#app'));
@@ -63,35 +73,30 @@ Add the following line in your `.env` file at the root of your project.
 > 💡 Don't forget to import the logogrid styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
-#### Feature Flags
-
-To utilize the following features, set the following variable's to `true` within
-your `.env` file or your application build settings.
-
-```
-DDS_LOGO_GRID=true
-```
-
-> See
-> [feature-flags.md](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/patterns-react/docs/feature-flags.md)
-> and
-> [.env.example](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/patterns-react/.env.example)
-> for more information
-
 ## Props
 
-| Name         | Required | Data Type | Default Value | Description                                       |
-| ------------ | -------- | --------- | ------------- | ------------------------------------------------- |
-| `title`      | NO       | String    | n/a           | title for Logo Grid pattern                       |
-| `logosGroup` | NO       | Array     | n/a           | LogosGroup array of Objects for Logo Grid pattern |
+| Name         | Required | Data Type | Default Value | Description                                                 |
+| ------------ | -------- | --------- | ------------- | ----------------------------------------------------------- |
+| `heading`    | NO       | String    | n/a           | heading for Logo Grid pattern                               |
+| `logosGroup` | NO       | Array     | n/a           | LogosGroup array of Objects for Logo Grid pattern           |
+| `cta`        | NO       | Object    | n/a           | Object containing target and href of link. See `cta` below. |
+| `hideBorder` | NO       | Boolean   | false         | Hide the default bottom border                              |
 
 ### logosGroup
 
-| Name      | Data Type | Description                         |
-| --------- | --------- | ----------------------------------- |
-| `label`   | String    | Label for logo placeholder.         |
-| `imgSrc`  | String    | image source for logo placeholder.  |
-| `altText` | String    | alternate text for ogo placeholder. |
+| Name      | Data Type | Description                          |
+| --------- | --------- | ------------------------------------ |
+| `label`   | String    | Label for logo placeholder.          |
+| `imgSrc`  | String    | image source for logo placeholder.   |
+| `altText` | String    | alternate text for logo placeholder. |
+| `href`    | String    | Url of the logo.                     |
+
+### cta
+
+| Name   | Data Type | Description            |
+| ------ | --------- | ---------------------- |
+| `copy` | String    | Optional text for CTA. |
+| `href` | String    | Url of the CTA.        |
 
 ## Stable selectors
 
