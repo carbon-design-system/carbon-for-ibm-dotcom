@@ -42,7 +42,7 @@
       @include carbon--make-col-ready;
       @include carbon--make-col(1, 1);
 
-      padding-left: 1rem;
+      padding-left: $spacing-05;
 
       @include carbon--breakpoint('md') {
         @include carbon--make-col(1, 3);
