@@ -99,14 +99,20 @@ storiesOf('Patterns (Blocks)|LeadSpaceBlock', module)
     };
 
     return (
-      <LeadSpaceBlock
-        title={title}
-        copy={copy}
-        heading={heading}
-        mediaType={mediaType}
-        mediaData={mediaData}
-        items={linkListProps}
-        cta={ctaProps}
-      />
+      <div className="bx--grid">
+        <div className="bx--row">
+          <div className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4">
+            <LeadSpaceBlock
+              title={title}
+              copy={copy}
+              heading={heading}
+              mediaType={mediaType}
+              mediaData={mediaData}
+              items={linkListProps}
+              cta={ctaProps}
+            />
+          </div>
+        </div>
+      </div>
     );
   });

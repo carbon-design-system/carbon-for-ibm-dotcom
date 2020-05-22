@@ -21387,85 +21387,97 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
         Array [
           Object {
             "content": <React.Fragment>
-              <LeadSpaceBlock
-                copy="Automate your software release process with continuous delivery (CD)—the most 
+              <div
+                className="bx--grid"
+              >
+                <div
+                  className="bx--row"
+                >
+                  <div
+                    className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4"
+                  >
+                    <LeadSpaceBlock
+                      copy="Automate your software release process with continuous delivery (CD)—the most 
     critical part of adopting DevOps. Build, test, and deploy code changes quickly, 
     ensuring software is always ready for deployment."
-                cta={
-                  Object {
-                    "buttons": Array [
-                      Object {
-                        "copy": "Contact sales",
-                        "href": "https://example.com/",
-                        "iconDescription": "right arrow icon",
-                        "onClick": [Function],
-                        "renderIcon": Object {
-                          "$$typeof": Symbol(react.forward_ref),
-                          "render": [Function],
-                        },
-                        "target": null,
-                        "type": "local",
-                      },
-                    ],
-                    "style": "button",
-                    "type": "local",
-                  }
-                }
-                heading="Innovate like a startup and scale for the enterprise "
-                items={
-                  Object {
-                    "heading": "Featured products",
-                    "items": Array [
-                      Object {
-                        "copy": "IBM Cloud Continuous Delivery",
-                        "cta": Object {
-                          "href": "https://ibm.com",
-                        },
-                        "type": "local",
-                      },
-                      Object {
-                        "copy": "UrbanCode",
-                        "cta": Object {
-                          "href": "https://ibm.com",
-                        },
-                        "type": "local",
-                      },
-                      Object {
-                        "copy": "View all products",
-                        "cta": Object {
-                          "href": "https://ibm.com",
-                        },
-                        "type": "download",
-                      },
-                    ],
-                  }
-                }
-                mediaData={
-                  Object {
-                    "heading": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-                    "image": Object {
-                      "alt": "Image alt text",
-                      "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
-                      "sources": Array [
+                      cta={
                         Object {
-                          "breakpoint": 320,
-                          "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
-                        },
+                          "buttons": Array [
+                            Object {
+                              "copy": "Contact sales",
+                              "href": "https://example.com/",
+                              "iconDescription": "right arrow icon",
+                              "onClick": [Function],
+                              "renderIcon": Object {
+                                "$$typeof": Symbol(react.forward_ref),
+                                "render": [Function],
+                              },
+                              "target": null,
+                              "type": "local",
+                            },
+                          ],
+                          "style": "button",
+                          "type": "local",
+                        }
+                      }
+                      heading="Innovate like a startup and scale for the enterprise "
+                      items={
                         Object {
-                          "breakpoint": 400,
-                          "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
-                        },
+                          "heading": "Featured products",
+                          "items": Array [
+                            Object {
+                              "copy": "IBM Cloud Continuous Delivery",
+                              "cta": Object {
+                                "href": "https://ibm.com",
+                              },
+                              "type": "local",
+                            },
+                            Object {
+                              "copy": "UrbanCode",
+                              "cta": Object {
+                                "href": "https://ibm.com",
+                              },
+                              "type": "local",
+                            },
+                            Object {
+                              "copy": "View all products",
+                              "cta": Object {
+                                "href": "https://ibm.com",
+                              },
+                              "type": "download",
+                            },
+                          ],
+                        }
+                      }
+                      mediaData={
                         Object {
-                          "breakpoint": 672,
-                          "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
-                        },
-                      ],
-                    },
-                  }
-                }
-                mediaType="image"
-                title="Continuous delivery"
-              />
+                          "heading": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                          "image": Object {
+                            "alt": "Image alt text",
+                            "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
+                            "sources": Array [
+                              Object {
+                                "breakpoint": 320,
+                                "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
+                              },
+                              Object {
+                                "breakpoint": 400,
+                                "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
+                              },
+                              Object {
+                                "breakpoint": 672,
+                                "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
+                              },
+                            ],
+                          },
+                        }
+                      }
+                      mediaType="image"
+                      title="Continuous delivery"
+                    />
+                  </div>
+                </div>
+              </div>
             </React.Fragment>,
             "type": "STORY",
           },
@@ -21493,93 +21505,93 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
             style={Object {}}
           >
             <div>
-              <LeadSpaceBlock
-                copy="Automate your software release process with continuous delivery (CD)—the most 
-    critical part of adopting DevOps. Build, test, and deploy code changes quickly, 
-    ensuring software is always ready for deployment."
-                cta={
-                  Object {
-                    "buttons": Array [
-                      Object {
-                        "copy": "Contact sales",
-                        "href": "https://example.com/",
-                        "iconDescription": "right arrow icon",
-                        "onClick": [Function],
-                        "renderIcon": Object {
-                          "$$typeof": Symbol(react.forward_ref),
-                          "render": [Function],
-                        },
-                        "target": null,
-                        "type": "local",
-                      },
-                    ],
-                    "style": "button",
-                    "type": "local",
-                  }
-                }
-                heading="Innovate like a startup and scale for the enterprise "
-                items={
-                  Object {
-                    "heading": "Featured products",
-                    "items": Array [
-                      Object {
-                        "copy": "IBM Cloud Continuous Delivery",
-                        "cta": Object {
-                          "href": "https://ibm.com",
-                        },
-                        "type": "local",
-                      },
-                      Object {
-                        "copy": "UrbanCode",
-                        "cta": Object {
-                          "href": "https://ibm.com",
-                        },
-                        "type": "local",
-                      },
-                      Object {
-                        "copy": "View all products",
-                        "cta": Object {
-                          "href": "https://ibm.com",
-                        },
-                        "type": "download",
-                      },
-                    ],
-                  }
-                }
-                mediaData={
-                  Object {
-                    "heading": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-                    "image": Object {
-                      "alt": "Image alt text",
-                      "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
-                      "sources": Array [
-                        Object {
-                          "breakpoint": 320,
-                          "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
-                        },
-                        Object {
-                          "breakpoint": 400,
-                          "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
-                        },
-                        Object {
-                          "breakpoint": 672,
-                          "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
-                        },
-                      ],
-                    },
-                  }
-                }
-                mediaType="image"
-                title="Continuous delivery"
+              <div
+                className="bx--grid"
               >
                 <div
-                  className="bx--grid"
+                  className="bx--row"
                 >
                   <div
-                    className="bx--row"
+                    className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4"
                   >
-                    <div
-                      className="bx--col-sm-4 bx--col-lg-8"
+                    <LeadSpaceBlock
+                      copy="Automate your software release process with continuous delivery (CD)—the most 
+    critical part of adopting DevOps. Build, test, and deploy code changes quickly, 
+    ensuring software is always ready for deployment."
+                      cta={
+                        Object {
+                          "buttons": Array [
+                            Object {
+                              "copy": "Contact sales",
+                              "href": "https://example.com/",
+                              "iconDescription": "right arrow icon",
+                              "onClick": [Function],
+                              "renderIcon": Object {
+                                "$$typeof": Symbol(react.forward_ref),
+                                "render": [Function],
+                              },
+                              "target": null,
+                              "type": "local",
+                            },
+                          ],
+                          "style": "button",
+                          "type": "local",
+                        }
+                      }
+                      heading="Innovate like a startup and scale for the enterprise "
+                      items={
+                        Object {
+                          "heading": "Featured products",
+                          "items": Array [
+                            Object {
+                              "copy": "IBM Cloud Continuous Delivery",
+                              "cta": Object {
+                                "href": "https://ibm.com",
+                              },
+                              "type": "local",
+                            },
+                            Object {
+                              "copy": "UrbanCode",
+                              "cta": Object {
+                                "href": "https://ibm.com",
+                              },
+                              "type": "local",
+                            },
+                            Object {
+                              "copy": "View all products",
+                              "cta": Object {
+                                "href": "https://ibm.com",
+                              },
+                              "type": "download",
+                            },
+                          ],
+                        }
+                      }
+                      mediaData={
+                        Object {
+                          "heading": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                          "image": Object {
+                            "alt": "Image alt text",
+                            "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
+                            "sources": Array [
+                              Object {
+                                "breakpoint": 320,
+                                "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
+                              },
+                              Object {
+                                "breakpoint": 400,
+                                "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
+                              },
+                              Object {
+                                "breakpoint": 672,
+                                "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
+                              },
+                            ],
+                          },
+                        }
+                      }
+                      mediaType="image"
+                      title="Continuous delivery"
                     >
                       <div
                         className="bx--leadspace-block"
@@ -22182,17 +22194,17 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                             </div>
                           </div>
                         </ContentBlock>
+                        <HorizontalRule>
+                          <hr
+                            className="bx--hr"
+                            data-autoid="dds--hr"
+                          />
+                        </HorizontalRule>
                       </div>
-                    </div>
+                    </LeadSpaceBlock>
                   </div>
-                  <HorizontalRule>
-                    <hr
-                      className="bx--hr"
-                      data-autoid="dds--hr"
-                    />
-                  </HorizontalRule>
                 </div>
-              </LeadSpaceBlock>
+              </div>
             </div>
           </div>
         </_default>

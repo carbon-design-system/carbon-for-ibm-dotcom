@@ -67,28 +67,22 @@ const LeadSpaceBlock = ({
   );
 
   return (
-    <div className="bx--grid">
-      <div className="bx--row">
-        <div className="bx--col-sm-4 bx--col-lg-8">
-          <div
-            data-autoid={`${stablePrefix}--leadspace-block`}
-            className={`${prefix}--leadspace-block`}>
-            {pageTitle}
-            <ContentBlock heading={heading} copy={copy}>
-              {_renderMedia(mediaType, mediaData)}
-              <LinkList
-                style="vertical-end"
-                heading={items.heading}
-                items={items.items}
-              />
-              <CTA
-                customClassName={`${prefix}--leadspace-block__cta ${prefix}--leadspace-block__cta-col`}
-                {...cta}
-              />
-            </ContentBlock>
-          </div>
-        </div>
-      </div>
+    <div
+      data-autoid={`${stablePrefix}--leadspace-block`}
+      className={`${prefix}--leadspace-block`}>
+      {pageTitle}
+      <ContentBlock heading={heading} copy={copy}>
+        {_renderMedia(mediaType, mediaData)}
+        <LinkList
+          style="vertical-end"
+          heading={items.heading}
+          items={items.items}
+        />
+        <CTA
+          customClassName={`${prefix}--leadspace-block__cta ${prefix}--leadspace-block__cta-col`}
+          {...cta}
+        />
+      </ContentBlock>
       <HorizontalRule />
     </div>
   );
