@@ -150,5 +150,20 @@ describe('CTA', () => {
         },
       })
     ).toEqual([{ src: 'https://example.com' }]);
+
+    expect(
+      CTALogic.getVideoId('button', {
+        buttons: [
+          {
+            type: 'video',
+            media: {
+              src: 'test',
+            },
+          },
+        ],
+      })
+    ).toEqual([{ src: 'test', key: 0 }]);
+
+    expect(CTALogic.getVideoId('invalid', {})).toEqual([]);
   });
 });
