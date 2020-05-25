@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -51,7 +51,9 @@ const FeatureCTA = ({
     <FeatureCardBlockMedium
       heading={otherProps.heading}
       card={_renderFeatureCard({
-        card: otherProps.card,
+        card: {
+          ...otherProps.card,
+        },
       })}
     />
   );
@@ -67,9 +69,9 @@ const FeatureCTA = ({
  * @returns {*} object
  */
 const _renderFeatureCard = ({ card }) => {
+  if (card.type === 'jump') card.cta.type = 'jump';
   if (card.type === 'video') card.cta.href = '#';
   card.cta.icon.src = CTALogic.iconSelector(card.type);
-  card.handleClick = e => CTALogic.jump(e, card.type);
   card.target = CTALogic.external(card.type);
   card.type = 'link';
   return card;
