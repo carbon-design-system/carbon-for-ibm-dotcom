@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2018, 2018
+ * Copyright IBM Corp. 2018, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -97,6 +97,15 @@ module.exports = {
       ],
       rules: {
         'tree-shaking/no-side-effects-in-initialization': 2,
+      },
+    },
+    {
+      files: ['packages/react/src/*.js', '!*.stories.js', '!*.test.js'],
+      plugins: ['@carbon/eslint-plugin-react-prop-type-comments'],
+      rules: {
+        'jsdoc/require-jsdoc': 0,
+        'jsdoc/require-returns': 0,
+        '@carbon/react-prop-type-comments/require-proptype-comment': 1,
       },
     },
   ],
