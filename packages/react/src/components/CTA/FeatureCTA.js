@@ -70,7 +70,7 @@ const FeatureCTA = ({
  */
 const _renderFeatureCard = ({ card }) => {
   if (card.type === 'jump') card.cta.type = 'jump';
-  if (card.type === 'video') card.cta.href = '#';
+  else if (card.type === 'video') card.cta.href = '#';
   card.cta.icon.src = CTALogic.iconSelector(card.type);
   card.target = CTALogic.external(card.type);
   card.type = 'link';
