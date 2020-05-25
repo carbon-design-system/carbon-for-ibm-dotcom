@@ -121,8 +121,12 @@ MastheadLeftNav.propTypes = {
       url: PropTypes.string,
       menuSections: PropTypes.arrayOf(
         PropTypes.shape({
-          title: PropTypes.string,
-          url: PropTypes.string,
+          menuItems: PropTypes.arrayOf(
+            PropTypes.shape({
+              title: PropTypes.string,
+              url: PropTypes.string,
+            })
+          ),
         })
       ),
     })

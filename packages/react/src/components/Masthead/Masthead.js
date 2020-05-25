@@ -268,7 +268,26 @@ Masthead.propTypes = {
    * `Custom` navigation data must follow the same structure and key names as `default`.
    * See [this](https://www.ibm.com/common/v18/js/data/jsononly/usen.json) for an example.
    */
-  navigation: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
+  navigation: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.arrayOf(
+      PropTypes.shape({
+        hasMenu: PropTypes.bool,
+        title: PropTypes.string,
+        url: PropTypes.string,
+        menuSections: PropTypes.arrayOf(
+          PropTypes.shape({
+            menuItems: PropTypes.arrayOf(
+              PropTypes.shape({
+                title: PropTypes.string,
+                url: PropTypes.string,
+              })
+            ),
+          })
+        ),
+      })
+    ),
+  ]),
 
   /**
    * `true` to render IBM Profile Menu component.
