@@ -1,3 +1,6 @@
+import { Props } from '@storybook/addon-docs/blocks';
+import Footer from './Footer';
+
 # Footer
 
 > The footer component is a required navigational pattern for IBM.com that
@@ -49,23 +52,7 @@ Add the following line in your `.env` file at the root of your project.
 
 ## Props
 
-| Name                  | Required | Data Type | Default Value | Description                                                                                                                                                  |
-| --------------------- | -------- | --------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `type`                | NO       | String    | null          | Type of Footer. See below `Types`.                                                                                                                           |
-| `navigation`          | NO       | Object    | null          | Navigation data object for Footer, used for server-side rendering                                                                                            |
-| `langCode`            | NO       | Object    | null          | Language code for fetching the display name                                                                                                                  |
-| `disableLocaleButton` | NO       | Boolean   | false         | Disables the Locale button                                                                                                                                   |
-| `languageOnly`        | NO       | Boolean   | false         | Switches the locale button with a language dropdown (experimental)                                                                                           |
-| `languageItems`       | NO       | Array     | null          | Array of items for the language dropdown, utilizes the [Carbon ComboBox](https://react.carbondesignsystem.com/?path=/story/combobox--default) (experimental) |
-| `languageInitialItem` | NO       | Object    | first item    | Sets the initial value when the component is loaded (experimental)                                                                                           |
-| `languageCallback`    | NO       | Function  | null          | Callback function onChange of the language dropdown (experimental)                                                                                           |
-
-### Types (optional)
-
-| Name    | Description                                                                 |
-| ------- | --------------------------------------------------------------------------- |
-| `tall`  | Default footer variant includes additional navigation taking up more space. |
-| `short` | Short footer variant reduces space by removing any additional navigation.   |
+<Props of={Footer} />
 
 ### Navigation data
 

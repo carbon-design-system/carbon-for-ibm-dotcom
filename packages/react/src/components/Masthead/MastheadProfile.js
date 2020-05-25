@@ -14,10 +14,7 @@ import settings from 'carbon-components/es/globals/js/settings';
 const { prefix } = settings;
 
 /**
- * MastHead Profile component
- *
- * @param {object} props Incoming props
- * @returns {*} Masthead Profile component
+ * MastHead Profile component.
  */
 const MastheadProfile = ({
   overflowMenuProps,
@@ -52,9 +49,25 @@ const MastheadProfile = ({
 };
 
 MastheadProfile.propTypes = {
+  /**
+   * The props for Carbon `<OverflowMenu>`.
+   */
   overflowMenuProps: PropTypes.object,
+
+  /**
+   * The props for Carbon `<OverflowMenuItem>`.
+   */
   overflowMenuItemProps: PropTypes.object,
-  profileMenu: PropTypes.array,
+
+  /**
+   * The data to generate the Carbon `<OverflowMenuItem>`s from.
+   */
+  profileMenu: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      url: PropTypes.string,
+    })
+  ),
 };
 
 export default MastheadProfile;

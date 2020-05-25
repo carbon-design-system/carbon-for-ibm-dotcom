@@ -17,13 +17,7 @@ const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
- * Renders the locale button
- *
- * @param {object} props props object
- * @param {string} props.displayLang display language for locale button
- * @param {string} props.aria aria-label value
- *
- * @returns {object} JSX object
+ * Renders the locale button.
  */
 const LocaleButton = ({ displayLang, aria }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -55,7 +49,14 @@ const LocaleButton = ({ displayLang, aria }) => {
 };
 
 LocaleButton.propTypes = {
+  /**
+   * Display language for locale button.
+   */
   displayLang: PropTypes.string,
+
+  /**
+   * `aria-label`` value.
+   */
   aria: PropTypes.string,
 };
 

@@ -255,29 +255,68 @@ const Masthead = ({
   );
 };
 
-/**
- * @property {object} propTypes Masthead propTypes
- * @description Defined property types for component
- *
- * @type {{mastheadProps: object, navigation: object, hasProfile: boolean, hasSearch: boolean}}
- */
 Masthead.propTypes = {
+  /**
+   * Navigation data object/string for Masthead. Use one from below:
+   *
+   * | Behavior           | Data Type | Description                                 | Example                             |
+   * | ------------------ | --------- | ------------------------------------------- | ----------------------------------- |
+   * | default navigation | String    | Default navigation data from IBM.com        | `<Masthead navigation="default" />` |
+   * | custom navigation  | Object    | Pass in custom navigation data as an object | `<Masthead navigation={myNavObj}/>` |
+   * | none               | null      | No navigation                               | `<Masthead />`                      |
+   *
+   * `Custom` navigation data must follow the same structure and key names as `default`.
+   * See [this](https://www.ibm.com/common/v18/js/data/jsononly/usen.json) for an example.
+   */
   navigation: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
+
+  /**
+   * `true` to render IBM Profile Menu component.
+   */
   hasProfile: PropTypes.bool,
+
+  /**
+   * `true` to render SearchBar component.
+   */
   hasSearch: PropTypes.bool,
+
+  /**
+   * `true` to have search field open on page load.
+   */
   searchOpenOnload: PropTypes.bool,
-  platform: PropTypes.object,
+
+  /**
+   * Platform name that appears on L0.
+   * Includes platform name (only available with `default` and `custom navigation`).
+   * Object requires `name` and `url`.
+   * See [docs](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-masthead--default#platform) for more details.
+   */
+  platform: PropTypes.shape({
+    name: PropTypes.string,
+    url: PropTypes.string,
+  }),
+
+  /**
+   * Placeholder value for search input.
+   */
   placeHolderText: PropTypes.string,
+
+  /**
+   * Title for the masthead L1 (experimental).
+   */
   title: PropTypes.string,
+
+  /**
+   * Text for the eyebrow link in masthead L1 (experimental).
+   */
   eyebrowText: PropTypes.string,
+
+  /**
+   * URL for the eyebrow link in masthead L1 (experimental).
+   */
   eyebrowLink: PropTypes.string,
-  mastheadProps: PropTypes.object,
 };
 
-/**
- * @property {object} defaultProps default Masthead props
- * @type {{hasProfile: boolean, hasSearch: boolean}}
- */
 Masthead.defaultProps = {
   hasProfile: true,
   hasSearch: true,
@@ -287,7 +326,6 @@ Masthead.defaultProps = {
   title: null,
   eyebrowText: null,
   eyebrowLink: null,
-  mastheadProps: null,
 };
 
 export default Masthead;

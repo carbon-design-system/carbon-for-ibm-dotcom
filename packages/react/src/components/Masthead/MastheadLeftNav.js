@@ -21,12 +21,7 @@ const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
- * Masthead left nav component
- *
- * @param {object} props react proptypes
- * @param {object} props.navigation Object containing left navigation elements
- * @param {boolean} props.isSideNavExpanded Is sidenav expanded
- * @returns {*} Masthead left nav component
+ * Masthead left nav component.
  */
 const MastheadLeftNav = ({
   navigation,
@@ -115,13 +110,27 @@ function renderNav(sections) {
   return navItems;
 }
 
-/**
- * @property {object} propTypes MastheadLeftNav propTypes
- * @description Defined property types for component
- * @type {{isSideNavExpanded: boolean, navigation: []}}
- */
 MastheadLeftNav.propTypes = {
-  navigation: PropTypes.array,
+  /**
+   * Object containing left navigation elements.
+   */
+  navigation: PropTypes.arrayOf(
+    PropTypes.shape({
+      hasMenu: PropTypes.bool,
+      title: PropTypes.string,
+      url: PropTypes.string,
+      menuSections: PropTypes.arrayOf(
+        PropTypes.shape({
+          title: PropTypes.string,
+          url: PropTypes.string,
+        })
+      ),
+    })
+  ),
+
+  /**
+   * `true` to make the sidenav expanded.
+   */
   isSideNavExpanded: PropTypes.bool,
 };
 

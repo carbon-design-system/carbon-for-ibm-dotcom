@@ -1,3 +1,6 @@
+import { Props } from '@storybook/addon-docs/blocks';
+import ImageWithCaption from './ImageWithCaption';
+
 # Image With Caption
 
 > The ImageWithCaption component will be used as the primary way of embedding
@@ -68,21 +71,7 @@ Add the following line in your `.env` file at the root of your project.
 
 ## Props
 
-## Props
-
-| Name     | Required | Data Type | Default Value | Description                                                            |
-| -------- | -------- | --------- | ------------- | ---------------------------------------------------------------------- |
-| copy     | NO       | String    | n/a           | More detailed description of the image.                                |
-| image    | YES      | Object    | n/a           | Image object needed for ImageWithCaption component. See `image` below. |
-| heading  | NO       | String    | n/a           | Caption text for ImageWithCaption component.                           |
-| lightbox | NO       | Boolean   | `false`       | Enables lightbox functionality, allowing user to see enlarged image.   |
-| inverse  | No       | Boolean   | `false`       | Changes theme to inverse/default                                       |
-
-### image
-
-Visit the
-[Image storybook](https://ibmdotcom-react.mybluemix.net/?path=/story/components-image--default)
-for more details on the Image component.
+<Props of={ImageWithCaption} />
 
 ## Stable selectors
 

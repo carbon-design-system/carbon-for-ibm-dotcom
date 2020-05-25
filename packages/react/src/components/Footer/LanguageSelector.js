@@ -15,13 +15,7 @@ const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
- * Footer language selector component
- *
- * @param {object} props JSX props
- * @param {Array} props.items Array of items to pass into ComboBox
- * @param {object} props.initialSelectedItem initial selected item for the ComboBox
- * @param {Function} props.callback Callback function when an item is selected
- * @returns {*} JSX component
+ * Footer language selector component.
  */
 const LanguageSelector = ({ items, initialSelectedItem, callback }) => {
   const [selectedItem, setSelectedItem] = useState(
@@ -57,23 +51,30 @@ const LanguageSelector = ({ items, initialSelectedItem, callback }) => {
 };
 
 LanguageSelector.propTypes = {
+  /**
+   * Array of items to pass into ComboBox.
+   */
   items: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string,
       text: PropTypes.string,
     })
   ),
+
+  /**
+   * Initial selected item for the ComboBox.
+   */
   initialSelectedItem: PropTypes.shape({
     id: PropTypes.string,
     text: PropTypes.string,
   }),
+
+  /**
+   * Callback function when an item is selected.
+   */
   callback: PropTypes.func,
 };
 
-/**
- * @property {object} defaultProps default LanguageSelector props
- * @type {{groups: Array}}
- */
 LanguageSelector.defaultProps = {
   items: null,
   initialSelectedItem: null,

@@ -18,10 +18,7 @@ const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
- * Masthead top nav component
- *
- * @param {object} navigation Object containing top navigation elements
- * @returns {*} Masthead top nav component
+ * Masthead top nav component.
  */
 const MastheadTopNav = ({ navigation, ...topNavProps }) => {
   /**
@@ -94,13 +91,23 @@ function renderNav(sections) {
   return navItems;
 }
 
-/**
- * @property {object} propTypes MastheadTopNav propTypes
- * @description Defined property types for component
- * @type {{navigation: {}}}
- */
 MastheadTopNav.propTypes = {
-  navigation: PropTypes.array,
+  /**
+   * Object containing top navigation elements.
+   */
+  navigation: PropTypes.arrayOf(
+    PropTypes.shape({
+      hasMenu: PropTypes.bool,
+      title: PropTypes.string,
+      url: PropTypes.string,
+      menuSections: PropTypes.arrayOf(
+        PropTypes.shape({
+          title: PropTypes.string,
+          url: PropTypes.string,
+        })
+      ),
+    })
+  ),
 };
 
 export default MastheadTopNav;
