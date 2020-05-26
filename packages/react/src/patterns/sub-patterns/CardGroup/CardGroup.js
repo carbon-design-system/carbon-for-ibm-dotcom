@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -17,12 +17,7 @@ import settings from 'carbon-components/es/globals/js/settings';
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 /**
- * CardGroup sub-pattern
- *
- * @param {object} props props object
- * @param {object} props.cta cta object
- * @param {Array} props.cards Array of cards
- * @returns {object} JSX object
+ * CardGroup sub-pattern.
  */
 const CardGroup = ({ cards, cta }) => {
   const containerRef = useRef();
@@ -63,7 +58,7 @@ const CardGroup = ({ cards, cta }) => {
 };
 
 /**
- * Renders the cards based on the CardGroup entries
+ * Renders the cards based on the CardGroup entries.
  *
  * @param {Array} cards objects array
  * @param {object} containerRef ref of elements
@@ -119,8 +114,66 @@ const _renderCards = (cards, containerRef, cta) => (
 );
 
 CardGroup.propTypes = {
-  cards: PropTypes.arrayOf(PropTypes.shape(Card.propTypes)),
-  cta: PropTypes.shape(Card.propTypes),
+  /**
+   * Array of card objects.
+   * Uses a sub-scheme of `<Card>`'s props for each items.
+   *
+   * Simple:
+   *
+   * | Name       | Required | Data Type | Description                            |
+   * | ---------- | -------- | --------- | -------------------------------------- |
+   * | `copy`     | YES      | String    | Copy of the card.                      |
+   * | `heading`  | YES      | String    | Heading of the card.                   |
+   * | `cta.href` | YES      | String    | URI for internal or external resource. |
+   *
+   * Image:
+   *
+   * | Name       | Required | Data Type | Description                              |
+   * | ---------- | -------- | --------- | ---------------------------------------- |
+   * | `image`    | YES      | Object    | Contains source and alt text properties. |
+   * | `eyebrow`  | YES      | String    | Eyebrow of the card.                     |
+   * | `heading`  | YES      | String    | Heading of the card.                     |
+   * | `cta.href` | YES      | String    | URI for internal or external resource.   |
+   *
+   * See [`<Card>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/patterns-sub-patterns-card--static#props) for full usage details.
+   */
+  cards: PropTypes.arrayOf(
+    PropTypes.shape({
+      heading: PropTypes.string,
+      eyebrow: PropTypes.string,
+      copy: PropTypes.string,
+      image: PropTypes.shape({
+        classname: PropTypes.string,
+        sources: PropTypes.arrayOf(
+          PropTypes.shape({
+            src: PropTypes.string,
+            breakpoint: PropTypes.oneOfType([
+              PropTypes.string,
+              PropTypes.number,
+            ]),
+          })
+        ),
+        defaultSrc: PropTypes.string.isRequired,
+        alt: PropTypes.string.isRequired,
+        longDescription: PropTypes.string,
+      }),
+      cta: PropTypes.shape({
+        href: PropTypes.string,
+      }),
+    })
+  ),
+
+  /**
+   * Optional CTA card for group. Always displays as last item.
+   * Uses a sub-scheme of `<Card>`'s props.
+   * See [`<Card>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/patterns-sub-patterns-card--static#props) for full usage details.
+   */
+  cta: PropTypes.shape({
+    heading: PropTypes.string,
+    cta: PropTypes.shape({
+      href: PropTypes.string,
+    }),
+  }),
 };
 
 export default CardGroup;

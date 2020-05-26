@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -49,9 +49,41 @@ const LinkList = ({ heading, items, style }) => {
 };
 
 LinkList.propTypes = {
+  /**
+   * Describes heading of LinkList.
+   */
   heading: PropTypes.string.isRequired,
-  items: PropTypes.arrayOf(PropTypes.shape(CTA.propTypes)).isRequired,
-  style: PropTypes.string.isRequired,
+
+  /**
+   * Describes the list of CTA.
+   * The summary of the structure of each items are:
+   *
+   * | Name      | Description                                                                             |
+   * | --------- | --------------------------------------------------------------------------------------- |
+   * | `heading` | Describing the resource with added detail.                                              |
+   * | `type`    | Describes after onClick where to load. It has `external`, `local`, and `video` options. |
+   *
+   * See the [`<CTA>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-cta--default#props) for full usage details.
+   */
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      style: PropTypes.oneOf(['text', 'card', 'button', 'feature']),
+      type: PropTypes.oneOfType([
+        PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video']),
+        PropTypes.arrayOf(
+          PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video'])
+        ),
+      ]),
+      copy: PropTypes.string,
+      href: PropTypes.string,
+      customClassName: PropTypes.string,
+    })
+  ).isRequired,
+
+  /**
+   * Orientation of LinkList.
+   */
+  style: PropTypes.oneOf(['card', 'horizontal', 'vertical']).isRequired,
 };
 
 export default LinkList;

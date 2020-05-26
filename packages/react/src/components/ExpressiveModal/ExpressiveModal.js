@@ -17,15 +17,7 @@ const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
- * Expressive Modal
- *
- * @param {object} props react proptypes
- * @param {boolean} props.fullwidth sets whether the modal is fulldiwth or not
- * @param {boolean} props.open sets whether the modal is open/close
- * @param {Function} props.onClose do something on close in addition, return false to completely replace
- * @param {string|string[]} props.className allows custom classes to be added in addition
- * @param {*} props.children any type of content to be rendered inside modal
- * @returns {object} JSX object
+ * Expressive Modal.
  */
 const ExpressiveModal = ({
   open,
@@ -86,10 +78,29 @@ const ExpressiveModal = ({
 };
 
 ExpressiveModal.propTypes = {
+  /**
+   * Sets whether the Modal is fullwidth or not.
+   */
   fullwidth: PropTypes.bool,
+
+  /**
+   * Sets whether the Modal is open/close.
+   */
   open: PropTypes.bool,
+
+  /**
+   * Custom classname(s) for the Modal.
+   */
   className: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
+
+  /**
+   * Components/Elements to be rendered within the Modal.
+   */
   children: PropTypes.node,
+
+  /**
+   * Function to be triggered on close of Modal.
+   */
   onClose: PropTypes.func,
 };
 

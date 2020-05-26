@@ -27,9 +27,12 @@
     "format": "prettier --write '**/*.{js,md,scss}'",
     "format:diff": "prettier --list-different '**/*.{js,md,scss}'",
     "lint": "eslint packages",
+    "lint:scripts:staged": "eslint",
     "lint:license:staged": "tasks/check-license.js -w",
     "lint:styles": "stylelint '**/*.{css,scss}' --config ./packages/stylelint-config-ibmdotcom",
-    "test": "cross-env BABEL_ENV=test jest"
+    "test": "yarn test:unit && yarn test:integration:build",
+    "test:unit": "cross-env BABEL_ENV=test jest",
+    "test:integration:build": "yarn lerna run --stream --prefix test:integration:build"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",

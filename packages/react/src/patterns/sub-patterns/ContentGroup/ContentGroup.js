@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -59,13 +59,34 @@ const ContentGroup = ({ children, heading, customClassName, cta }) => {
 };
 
 ContentGroup.propTypes = {
+  /**
+   * Heading text.
+   */
   heading: PropTypes.string,
+
+  /**
+   * Container for other components.
+   */
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]),
+
+  /**
+   * Class to be applied to the containing node.
+   */
   customClassName: PropTypes.string,
-  cta: PropTypes.object,
+
+  /**
+   * CTA. Allowed style is `card` and type is `local`.
+   * See the [`<CTA>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-cta--default#props) for full usage details.
+   */
+  cta: PropTypes.shape({
+    style: PropTypes.oneOf(['card']),
+    type: PropTypes.oneOf(['local']),
+    copy: PropTypes.string,
+    customClassName: PropTypes.string,
+  }),
 };
 
 export default ContentGroup;
