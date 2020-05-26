@@ -14,9 +14,16 @@ import React from 'react';
 import TextCTA from '../TextCTA';
 
 describe('CTA', () => {
+  beforeAll(() => {
+    const div = document.createElement('div');
+    div.innerHTML = `<div id="test"></test>`;
+    window.domNode = div;
+    document.body.appendChild(div);
+  });
+
   it('Renders TextCTA | type jump', () => {
     jest.spyOn(CTALogic, 'jump');
-    const cta = mount(<TextCTA type="jump" href="#" copy="Lorem Ipsum" />);
+    const cta = mount(<TextCTA type="jump" href="#test" copy="Lorem Ipsum" />);
     cta.find('a').simulate('click');
     expect(CTALogic.jump).toHaveBeenCalled();
   });
@@ -67,13 +74,13 @@ describe('CTA', () => {
     expect(CTALogic.setLightBox).toHaveBeenCalled();
   });
 
-  it('Renders CardCTA | type video', () => {
+  it('Renders CardCTA | type jump', () => {
     jest.spyOn(CTALogic, 'jump');
     const cta = mount(
       <CardCTA
         type="jump"
         cta={{
-          href: '#',
+          href: '#test',
         }}
       />
     );
@@ -111,7 +118,7 @@ describe('CTA', () => {
         buttons={[
           {
             type: 'jump',
-            href: 'https://www.example.com',
+            href: '#test',
             copy: 'Lorem Ipsum',
           },
         ]}
