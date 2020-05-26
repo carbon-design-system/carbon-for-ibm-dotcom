@@ -31,7 +31,12 @@ describe('CTA', () => {
   it('Renders TextCTA | type video', () => {
     jest.spyOn(CTALogic, 'setLightBox');
     const cta = mount(
-      <TextCTA type="video" href="#" videoTitle={[{ title: 'Lorem Ipsum' }]} />
+      <TextCTA
+        type="video"
+        href="#"
+        openLightBox={jest.fn()}
+        videoTitle={[{ title: 'Lorem Ipsum' }]}
+      />
     );
     cta.find('a').simulate('click');
     expect(CTALogic.setLightBox).toHaveBeenCalled();
@@ -53,6 +58,7 @@ describe('CTA', () => {
             },
           },
         }}
+        openLightBox={jest.fn()}
         type="video"
         renderLightBox={false}
         heading="lorem ipsum"
@@ -67,7 +73,11 @@ describe('CTA', () => {
     jest.spyOn(CTALogic, 'setLightBox');
     jest.spyOn(CTALogic, 'launchLightBox');
     const cta = mount(
-      <CardCTA type="video" videoTitle={[{ title: 'Lorem Ipsum' }]} />
+      <CardCTA
+        type="video"
+        openLightBox={jest.fn()}
+        videoTitle={[{ title: 'Lorem Ipsum' }]}
+      />
     );
     expect(CTALogic.launchLightBox).toHaveBeenCalled();
     cta.find('a').simulate('click');
@@ -105,6 +115,7 @@ describe('CTA', () => {
         ]}
         type="video"
         videoTitle={[{ title: 'Lorem Ipsum' }]}
+        openLightBox={jest.fn()}
       />
     );
     cta.find('a').simulate('click');
@@ -157,7 +168,6 @@ describe('CTA', () => {
         },
       })
     ).toEqual([{ src: 'https://example.com' }]);
-
     expect(
       CTALogic.getVideoId('button', {
         buttons: [
@@ -170,7 +180,6 @@ describe('CTA', () => {
         ],
       })
     ).toEqual([{ src: 'test', key: 0 }]);
-
     expect(CTALogic.getVideoId('invalid', {})).toEqual([]);
   });
 });
