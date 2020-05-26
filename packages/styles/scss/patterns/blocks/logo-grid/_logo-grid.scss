@@ -19,8 +19,12 @@
     }
 
     .#{$prefix}--content-block__heading {
-      margin: $layout-05 0;
+      margin: $layout-03 0;
       color: $text-01;
+
+      @include carbon--breakpoint('md') {
+        margin: $layout-05 0;
+      }
     }
     &__container {
       border-bottom: 1px $ui-04 solid;
