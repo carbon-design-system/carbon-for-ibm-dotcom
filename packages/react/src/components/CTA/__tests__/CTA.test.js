@@ -31,8 +31,8 @@ describe('CTA', () => {
   });
 
   it('Renders FeatureCTA | type video', () => {
-    CTALogic.setLightBox = jest.fn();
-    CTALogic.launchLightBox = jest.fn();
+    jest.spyOn(CTALogic, 'setLightBox');
+    jest.spyOn(CTALogic, 'launchLightBox');
     const cta = mount(
       <FeatureCTA
         card={{
