@@ -216,7 +216,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                     "languageItems": null,
                     "languageOnly": false,
                     "navigation": null,
-                    "type": "",
+                    "type": undefined,
                   }
                 }
                 mastheadProps={
@@ -629,7 +629,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                     "languageItems": null,
                     "languageOnly": false,
                     "navigation": null,
-                    "type": "",
+                    "type": undefined,
                   }
                 }
                 mastheadProps={
@@ -649,7 +649,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                   eyebrowText={null}
                   hasProfile={true}
                   hasSearch={true}
-                  mastheadProps={null}
                   navigation="default"
                   placeHolderText="Search all of IBM"
                   platform={null}
@@ -766,7 +765,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                 className="bx--header__search "
                               >
                                 <MastheadTopNav
-                                  mastheadProps={null}
                                   navigation={Array []}
                                   platform={null}
                                 >
@@ -1006,7 +1004,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                               </HeaderGlobalBar>
                               <MastheadLeftNav
                                 isSideNavExpanded={false}
-                                mastheadProps={null}
                                 navigation={Array []}
                               >
                                 <ForwardRef(SideNav)
@@ -1739,7 +1736,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                   languageOnly={false}
                   mastheadProps={null}
                   navigation={null}
-                  type=""
                 >
                   <footer
                     className="bx--footer"
@@ -2915,12 +2911,7 @@ exports[`Storyshots Components|HorizontalRule Default 1`] = `
                     <div
                       className="bx--col"
                     >
-                      <HorizontalRule
-                        contrast=""
-                        size=""
-                        style=""
-                        weight=""
-                      />
+                      <HorizontalRule />
                     </div>
                   </div>
                 </div>
@@ -2941,12 +2932,7 @@ exports[`Storyshots Components|HorizontalRule Default 1`] = `
                       <h4>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                       </h4>
-                      <HorizontalRule
-                        contrast=""
-                        size=""
-                        style=""
-                        weight=""
-                      />
+                      <HorizontalRule />
                       <h4>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                       </h4>
@@ -3001,12 +2987,7 @@ exports[`Storyshots Components|HorizontalRule Default 1`] = `
                     <div
                       className="bx--col"
                     >
-                      <HorizontalRule
-                        contrast=""
-                        size=""
-                        style=""
-                        weight=""
-                      >
+                      <HorizontalRule>
                         <hr
                           className="bx--hr"
                           data-autoid="dds--hr"
@@ -3032,12 +3013,7 @@ exports[`Storyshots Components|HorizontalRule Default 1`] = `
                       <h4>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                       </h4>
-                      <HorizontalRule
-                        contrast=""
-                        size=""
-                        style=""
-                        weight=""
-                      >
+                      <HorizontalRule>
                         <hr
                           className="bx--hr"
                           data-autoid="dds--hr"
@@ -4379,7 +4355,6 @@ exports[`Storyshots Components|Masthead Default 1`] = `
                 eyebrowText={null}
                 hasProfile={true}
                 hasSearch={true}
-                mastheadProps={null}
                 navigation="default"
                 placeHolderText="Search all of IBM"
                 platform={null}
@@ -4418,7 +4393,6 @@ exports[`Storyshots Components|Masthead Default 1`] = `
                 eyebrowText={null}
                 hasProfile={true}
                 hasSearch={true}
-                mastheadProps={null}
                 navigation="default"
                 placeHolderText="Search all of IBM"
                 platform={null}
@@ -4535,7 +4509,6 @@ exports[`Storyshots Components|Masthead Default 1`] = `
                               className="bx--header__search "
                             >
                               <MastheadTopNav
-                                mastheadProps={null}
                                 navigation={Array []}
                                 platform={null}
                               >
@@ -4775,7 +4748,6 @@ exports[`Storyshots Components|Masthead Default 1`] = `
                             </HeaderGlobalBar>
                             <MastheadLeftNav
                               isSideNavExpanded={false}
-                              mastheadProps={null}
                               navigation={Array []}
                             >
                               <ForwardRef(SideNav)
@@ -4864,7 +4836,6 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
                 eyebrowText={null}
                 hasProfile={true}
                 hasSearch={true}
-                mastheadProps={null}
                 navigation="default"
                 placeHolderText="Search all of IBM"
                 platform={null}
@@ -4903,7 +4874,6 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
                 eyebrowText={null}
                 hasProfile={true}
                 hasSearch={true}
-                mastheadProps={null}
                 navigation="default"
                 placeHolderText="Search all of IBM"
                 platform={null}
@@ -5020,7 +4990,6 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
                               className="bx--header__search "
                             >
                               <MastheadTopNav
-                                mastheadProps={null}
                                 navigation={Array []}
                                 platform={null}
                               >
@@ -5430,7 +5399,6 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
                             </HeaderGlobalBar>
                             <MastheadLeftNav
                               isSideNavExpanded={false}
-                              mastheadProps={null}
                               navigation={Array []}
                             >
                               <ForwardRef(SideNav)
@@ -7216,14 +7184,11 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                                 },
                               },
                             },
-                            "handleClick": [Function],
                             "heading": "Consectetur adipisicing elit",
                             "image": Object {
                               "alt": "Image alt text",
                               "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1",
                             },
-                            "target": null,
-                            "type": "link",
                           },
                           "heading": "Lorem ipsum dolor sit amet",
                           "style": "feature",
@@ -7377,14 +7342,11 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                                 },
                               },
                             },
-                            "handleClick": [Function],
                             "heading": "Consectetur adipisicing elit",
                             "image": Object {
                               "alt": "Image alt text",
                               "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1",
                             },
-                            "target": null,
-                            "type": "link",
                           },
                           "heading": "Lorem ipsum dolor sit amet",
                           "style": "feature",
@@ -7503,14 +7465,11 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                                     },
                                   },
                                 },
-                                "handleClick": [Function],
                                 "heading": "Consectetur adipisicing elit",
                                 "image": Object {
                                   "alt": "Image alt text",
                                   "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1",
                                 },
-                                "target": null,
-                                "type": "link",
                               },
                               "heading": "Lorem ipsum dolor sit amet",
                               "style": "feature",
@@ -7815,10 +7774,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                                                         "render": [Function],
                                                       },
                                                     },
+                                                    "type": "local",
                                                   }
                                                 }
                                                 customClassName="bx--card__CTA"
-                                                handleClick={[Function]}
                                                 role="region"
                                                 target={null}
                                                 type="link"
@@ -8188,10 +8147,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                                                         "render": [Function],
                                                       },
                                                     },
+                                                    "type": "local",
                                                   }
                                                 }
                                                 customClassName="bx--card__CTA"
-                                                handleClick={[Function]}
                                                 role="region"
                                                 target={null}
                                                 type="link"
@@ -8302,14 +8261,11 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                                       },
                                     },
                                   },
-                                  "handleClick": [Function],
                                   "heading": "Consectetur adipisicing elit",
                                   "image": Object {
                                     "alt": "Image alt text",
                                     "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1",
                                   },
-                                  "target": null,
-                                  "type": "link",
                                 }
                               }
                               customClassName="bx--content-block__cta"
@@ -8332,14 +8288,11 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                                           },
                                         },
                                       },
-                                      "handleClick": [Function],
                                       "heading": "Consectetur adipisicing elit",
                                       "image": Object {
                                         "alt": "Image alt text",
                                         "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1",
                                       },
-                                      "target": null,
-                                      "type": "link",
                                     }
                                   }
                                   heading="Lorem ipsum dolor sit amet"
@@ -8368,7 +8321,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                                             },
                                           },
                                         },
-                                        "handleClick": [Function],
                                         "heading": "Consectetur adipisicing elit",
                                         "image": Object {
                                           "alt": "Image alt text",
@@ -8413,7 +8365,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                                                       },
                                                     },
                                                   },
-                                                  "handleClick": [Function],
                                                   "heading": "Consectetur adipisicing elit",
                                                   "image": Object {
                                                     "alt": "Image alt text",
@@ -8651,14 +8602,11 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                 },
                               },
                             },
-                            "handleClick": [Function],
                             "heading": "Consectetur adipisicing elit",
                             "image": Object {
                               "alt": "Image alt text",
                               "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&text=1x1",
                             },
-                            "target": null,
-                            "type": "link",
                           },
                           "heading": "Lorem ipsum dolor sit amet",
                           "style": "feature",
@@ -8839,14 +8787,11 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                 },
                               },
                             },
-                            "handleClick": [Function],
                             "heading": "Consectetur adipisicing elit",
                             "image": Object {
                               "alt": "Image alt text",
                               "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&text=1x1",
                             },
-                            "target": null,
-                            "type": "link",
                           },
                           "heading": "Lorem ipsum dolor sit amet",
                           "style": "feature",
@@ -8992,14 +8937,11 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                     },
                                   },
                                 },
-                                "handleClick": [Function],
                                 "heading": "Consectetur adipisicing elit",
                                 "image": Object {
                                   "alt": "Image alt text",
                                   "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&text=1x1",
                                 },
-                                "target": null,
-                                "type": "link",
                               },
                               "heading": "Lorem ipsum dolor sit amet",
                               "style": "feature",
@@ -9348,10 +9290,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                                                 "render": [Function],
                                                               },
                                                             },
+                                                            "type": "local",
                                                           }
                                                         }
                                                         customClassName="bx--card__CTA"
-                                                        handleClick={[Function]}
                                                         role="region"
                                                         target={null}
                                                         type="link"
@@ -9721,10 +9663,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                                                 "render": [Function],
                                                               },
                                                             },
+                                                            "type": "local",
                                                           }
                                                         }
                                                         customClassName="bx--card__CTA"
-                                                        handleClick={[Function]}
                                                         role="region"
                                                         target={null}
                                                         type="link"
@@ -9835,14 +9777,11 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                               },
                                             },
                                           },
-                                          "handleClick": [Function],
                                           "heading": "Consectetur adipisicing elit",
                                           "image": Object {
                                             "alt": "Image alt text",
                                             "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&text=1x1",
                                           },
-                                          "target": null,
-                                          "type": "link",
                                         }
                                       }
                                       customClassName="bx--content-block__cta"
@@ -9865,14 +9804,11 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                                   },
                                                 },
                                               },
-                                              "handleClick": [Function],
                                               "heading": "Consectetur adipisicing elit",
                                               "image": Object {
                                                 "alt": "Image alt text",
                                                 "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&text=1x1",
                                               },
-                                              "target": null,
-                                              "type": "link",
                                             }
                                           }
                                           heading="Lorem ipsum dolor sit amet"
@@ -9901,7 +9837,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                                     },
                                                   },
                                                 },
-                                                "handleClick": [Function],
                                                 "heading": "Consectetur adipisicing elit",
                                                 "image": Object {
                                                   "alt": "Image alt text",
@@ -9946,7 +9881,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                                               },
                                                             },
                                                           },
-                                                          "handleClick": [Function],
                                                           "heading": "Consectetur adipisicing elit",
                                                           "image": Object {
                                                             "alt": "Image alt text",
@@ -10177,10 +10111,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                                             "render": [Function],
                                                           },
                                                         },
+                                                        "type": "local",
                                                       }
                                                     }
                                                     customClassName="bx--card__CTA"
-                                                    handleClick={[Function]}
                                                     role="region"
                                                     target={null}
                                                     type="link"
@@ -10320,10 +10254,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                                             "render": [Function],
                                                           },
                                                         },
+                                                        "type": "external",
                                                       }
                                                     }
                                                     customClassName="bx--card__CTA"
-                                                    handleClick={[Function]}
                                                     role="region"
                                                     target="_blank"
                                                     type="link"
@@ -12302,10 +12236,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                               "render": [Function],
                                             },
                                           },
+                                          "type": "local",
                                         }
                                       }
                                       customClassName="bx--card__CTA"
-                                      handleClick={[Function]}
                                       role="region"
                                       target={null}
                                       type="link"
@@ -14399,10 +14333,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                       "render": [Function],
                                                     },
                                                   },
+                                                  "type": "local",
                                                 }
                                               }
                                               customClassName="bx--card__CTA"
-                                              handleClick={[Function]}
                                               role="region"
                                               target={null}
                                               type="link"
@@ -14581,10 +14515,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                             "render": [Function],
                                                           },
                                                         },
+                                                        "type": "local",
                                                       }
                                                     }
                                                     customClassName="bx--card__CTA"
-                                                    handleClick={[Function]}
                                                     role="region"
                                                     target={null}
                                                     type="link"
@@ -14724,10 +14658,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                             "render": [Function],
                                                           },
                                                         },
+                                                        "type": "external",
                                                       }
                                                     }
                                                     customClassName="bx--card__CTA"
-                                                    handleClick={[Function]}
                                                     role="region"
                                                     target="_blank"
                                                     type="link"
@@ -15643,10 +15577,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                               "render": [Function],
                                             },
                                           },
+                                          "type": "local",
                                         }
                                       }
                                       customClassName="bx--card__CTA"
-                                      handleClick={[Function]}
                                       role="region"
                                       target={null}
                                       type="link"
@@ -16473,10 +16407,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                                       "render": [Function],
                                                     },
                                                   },
+                                                  "type": "local",
                                                 }
                                               }
                                               customClassName="bx--card__CTA"
-                                              handleClick={[Function]}
                                               role="region"
                                               target={null}
                                               type="link"
@@ -16655,10 +16589,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                                             "render": [Function],
                                                           },
                                                         },
+                                                        "type": "local",
                                                       }
                                                     }
                                                     customClassName="bx--card__CTA"
-                                                    handleClick={[Function]}
                                                     role="region"
                                                     target={null}
                                                     type="link"
@@ -16798,10 +16732,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                                             "render": [Function],
                                                           },
                                                         },
+                                                        "type": "external",
                                                       }
                                                     }
                                                     customClassName="bx--card__CTA"
-                                                    handleClick={[Function]}
                                                     role="region"
                                                     target="_blank"
                                                     type="link"
@@ -17296,10 +17230,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                                               "render": [Function],
                                             },
                                           },
+                                          "type": "local",
                                         }
                                       }
                                       customClassName="bx--card__CTA"
-                                      handleClick={[Function]}
                                       role="region"
                                       target={null}
                                       type="link"
@@ -17905,10 +17839,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                                       "render": [Function],
                                                     },
                                                   },
+                                                  "type": "local",
                                                 }
                                               }
                                               customClassName="bx--card__CTA"
-                                              handleClick={[Function]}
                                               role="region"
                                               target={null}
                                               type="link"
@@ -18087,10 +18021,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                                             "render": [Function],
                                                           },
                                                         },
+                                                        "type": "local",
                                                       }
                                                     }
                                                     customClassName="bx--card__CTA"
-                                                    handleClick={[Function]}
                                                     role="region"
                                                     target={null}
                                                     type="link"
@@ -18230,10 +18164,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                                             "render": [Function],
                                                           },
                                                         },
+                                                        "type": "external",
                                                       }
                                                     }
                                                     customClassName="bx--card__CTA"
-                                                    handleClick={[Function]}
                                                     role="region"
                                                     target="_blank"
                                                     type="link"
@@ -20873,10 +20807,10 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupSimple Default 1`] = `
                                               "render": [Function],
                                             },
                                           },
+                                          "type": "local",
                                         }
                                       }
                                       customClassName="bx--card__CTA"
-                                      handleClick={[Function]}
                                       role="region"
                                       target={null}
                                       type="link"
@@ -27631,10 +27565,10 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock Default 1`] = `
                                           "render": [Function],
                                         },
                                       },
+                                      "type": "external",
                                     }
                                   }
                                   customClassName="bx--card__CTA"
-                                  handleClick={[Function]}
                                   role="region"
                                   target="_blank"
                                   type="link"
@@ -28026,10 +27960,10 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock With aside elements 1`]
                                                   "render": [Function],
                                                 },
                                               },
+                                              "type": "external",
                                             }
                                           }
                                           customClassName="bx--card__CTA"
-                                          handleClick={[Function]}
                                           role="region"
                                           target="_blank"
                                           type="link"
@@ -28211,10 +28145,10 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock With aside elements 1`]
                                                         "render": [Function],
                                                       },
                                                     },
+                                                    "type": "local",
                                                   }
                                                 }
                                                 customClassName="bx--card__CTA"
-                                                handleClick={[Function]}
                                                 role="region"
                                                 target={null}
                                                 type="link"
@@ -28354,10 +28288,10 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock With aside elements 1`]
                                                         "render": [Function],
                                                       },
                                                     },
+                                                    "type": "external",
                                                   }
                                                 }
                                                 customClassName="bx--card__CTA"
-                                                handleClick={[Function]}
                                                 role="region"
                                                 target="_blank"
                                                 type="link"
@@ -28634,10 +28568,10 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentGroup Default 1`] = `
                                           "render": [Function],
                                         },
                                       },
+                                      "type": undefined,
                                     }
                                   }
                                   customClassName="bx--card__CTA"
-                                  handleClick={[Function]}
                                   role="region"
                                   target={null}
                                   type="link"
@@ -30597,10 +30531,10 @@ exports[`Storyshots Patterns (Sub-Patterns)|LinkList Default 1`] = `
                                             "render": [Function],
                                           },
                                         },
+                                        "type": "local",
                                       }
                                     }
                                     customClassName="bx--card__CTA"
-                                    handleClick={[Function]}
                                     role="region"
                                     target={null}
                                     type="link"
@@ -30740,10 +30674,10 @@ exports[`Storyshots Patterns (Sub-Patterns)|LinkList Default 1`] = `
                                             "render": [Function],
                                           },
                                         },
+                                        "type": "download",
                                       }
                                     }
                                     customClassName="bx--card__CTA"
-                                    handleClick={[Function]}
                                     role="region"
                                     target={null}
                                     type="link"
@@ -30886,10 +30820,10 @@ exports[`Storyshots Patterns (Sub-Patterns)|LinkList Default 1`] = `
                                             "render": [Function],
                                           },
                                         },
+                                        "type": "external",
                                       }
                                     }
                                     customClassName="bx--card__CTA"
-                                    handleClick={[Function]}
                                     role="region"
                                     target="_blank"
                                     type="link"
@@ -33192,10 +33126,10 @@ exports[`Storyshots Patterns (Sub-Patterns)|LinkList Vertical With Cards 1`] = `
                                             "render": [Function],
                                           },
                                         },
+                                        "type": "local",
                                       }
                                     }
                                     customClassName="bx--card__CTA"
-                                    handleClick={[Function]}
                                     role="region"
                                     target={null}
                                     type="link"
@@ -33335,10 +33269,10 @@ exports[`Storyshots Patterns (Sub-Patterns)|LinkList Vertical With Cards 1`] = `
                                             "render": [Function],
                                           },
                                         },
+                                        "type": "download",
                                       }
                                     }
                                     customClassName="bx--card__CTA"
-                                    handleClick={[Function]}
                                     role="region"
                                     target={null}
                                     type="link"
@@ -33481,10 +33415,10 @@ exports[`Storyshots Patterns (Sub-Patterns)|LinkList Vertical With Cards 1`] = `
                                             "render": [Function],
                                           },
                                         },
+                                        "type": "external",
                                       }
                                     }
                                     customClassName="bx--card__CTA"
-                                    handleClick={[Function]}
                                     role="region"
                                     target="_blank"
                                     type="link"

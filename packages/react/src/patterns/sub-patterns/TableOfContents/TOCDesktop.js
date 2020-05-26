@@ -16,14 +16,7 @@ const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
- * DesktopMenu Component
- *
- * @param {object} props props object
- * @param {Array} props.menuItems menu items object
- * @param {string} props.selectedId id of a menu item
- * @param {boolean} props.menuRule optional rule
- * @param {*} props.headingContent JSX component to be displayed above menu
- * @returns {*} JSX Object
+ * DesktopMenu Component.
  */
 const TOCDesktop = ({ menuItems, selectedId, menuRule, headingContent }) => {
   /**
@@ -100,9 +93,30 @@ const TOCDesktop = ({ menuItems, selectedId, menuRule, headingContent }) => {
 };
 
 TOCDesktop.propTypes = {
+  /**
+   * Array of menu item objects to render within the side nav.
+   * Each items has the following structure:
+   *
+   * | Properties Name | Data Type | Description     |
+   * | --------------- | --------- | --------------- |
+   * | title           | String    | Menu title text |
+   * | id              | String    | Menu id         |
+   */
   menuItems: PropTypes.array,
+
+  /**
+   * Id of a menu item.
+   */
   selectedId: PropTypes.string,
+
+  /**
+   * `true` to use the rule
+   */
   menuRule: PropTypes.bool,
+
+  /**
+   * Content to be displayed above the navigation menu.
+   */
   headingContent: PropTypes.node,
 };
 

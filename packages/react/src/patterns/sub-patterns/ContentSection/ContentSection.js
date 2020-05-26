@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -15,14 +15,7 @@ const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
- * ContentSection Component, for use with cardSection
- *
- * @param {object} props props object
- * @param {string} props.heading  Heading
- * @param {string} props.theme theme name
- * @param {*} props.children JSX Components
- * @param {string} props.customClassName optional class to be applied to the containing node
- * @returns {*} JSX ContentSection component
+ * ContentSection Component, for use with cardSection.
  */
 const ContentSection = ({
   heading,
@@ -69,12 +62,27 @@ const ContentSection = ({
 };
 
 ContentSection.propTypes = {
+  /**
+   * Heading text.
+   */
   heading: PropTypes.string.isRequired,
-  theme: PropTypes.string,
+
+  /**
+   * Theme name.
+   */
+  theme: PropTypes.oneOf(['white', 'g10', 'g90', 'g100']),
+
+  /**
+   * Container for other components.
+   */
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]),
+
+  /**
+   * Optional class to be applied to the containing node.
+   */
   customClassName: PropTypes.string,
 };
 

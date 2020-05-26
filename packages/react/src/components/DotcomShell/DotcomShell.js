@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -16,13 +16,7 @@ const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
- * DotcomShell component
- *
- * @param {object} props react proptypes
- * @param {object} props.children Children of the Dotcom Shell
- * @param {object} props.footerProps Properties passed into the Footer
- * @param {object} props.mastheadProps Properties passed into the Masthead
- * @returns {*} JSX component for the Dotcom Shell
+ * DotcomShell component.
  */
 const DotcomShell = ({ children, footerProps, mastheadProps }) => {
   return (
@@ -44,20 +38,59 @@ const DotcomShell = ({ children, footerProps, mastheadProps }) => {
 
 DotcomShell.propTypes = {
   /**
-   * User content
+   * Component(s) to render within the UI shell.
    */
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]).isRequired,
-  footerProps: PropTypes.shape(Footer.propTypes),
+
+  /**
+   * Props for the Masthead.
+   * See [`<Footer>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-footer--default) for more details.
+   */
+  footerProps: PropTypes.shape({
+    navigation: PropTypes.shape({
+      footerMenu: PropTypes.arrayOf(
+        PropTypes.shape({
+          title: PropTypes.string,
+          links: PropTypes.arrayOf(
+            PropTypes.shape({
+              title: PropTypes.string,
+              url: PropTypes.string,
+            })
+          ),
+        })
+      ),
+      footerThin: PropTypes.arrayOf(
+        PropTypes.shape({
+          title: PropTypes.string,
+          url: PropTypes.string,
+        })
+      ),
+    }),
+    type: PropTypes.oneOf(['tall', 'short']),
+    langCode: PropTypes.shape({
+      cc: PropTypes.string,
+      lc: PropTypes.string,
+    }),
+    disableLocaleButton: PropTypes.bool,
+    languageOnly: PropTypes.bool,
+    languageItems: PropTypes.arrayOf(PropTypes.shape({})),
+    languageInitialItem: PropTypes.shape({
+      id: PropTypes.string,
+      text: PropTypes.string,
+    }),
+    languageCallback: PropTypes.func,
+  }),
+
+  /**
+   * Props for the Masthead.
+   * See [`<Masthead>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-masthead--default) for more details.
+   */
   mastheadProps: PropTypes.shape(Masthead.propTypes),
 };
 
-/**
- * @property {object} defaultProps default DotcomShell props
- * @type {{footerProps: null, mastheadProps: null}}
- */
 Footer.defaultProps = {
   footerProps: null,
   mastheadProps: null,

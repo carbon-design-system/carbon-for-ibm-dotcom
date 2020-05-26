@@ -1,4 +1,15 @@
-# Content Section
+import { Props } from '@storybook/addon-docs/blocks';
+import ExpressiveModal from './ExpressiveModal';
+
+# Expressive modal
+
+> The expressive modal is based on
+> [Carbon's Modal component](https://www.carbondesignsystem.com/components/modal/code)
+> with slight styling updates to increase readability and reduce strain.
+
+> 💡 Check out
+> [Carbon's Modal component](https://www.carbondesignsystem.com/components/modal/code)
+> for props and other usage documentation.
 
 ## Getting started
 
@@ -12,11 +23,11 @@ Here's a quick example to get you started.
 @import '@carbon/type/scss/font-face/sans';
 @include carbon--font-face-mono();
 @include carbon--font-face-sans();
-@import '@carbon/ibmdotcom-styles/scss/patterns/sub-patterns/content-group';
+@import '@carbon/ibmdotcom-styles/scss/components/expressive-modal/expressive-modal.scss';
 ```
 
-> 💡 Only import fonts once per usage. Don't forget to import the ContentSection
-> styles from
+> 💡 Only import fonts once per usage. Don't forget to import the
+> ExpressiveModal styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
 ##### JS
@@ -24,14 +35,14 @@ Here's a quick example to get you started.
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { ContentSection } from '@carbon/ibmdotcom-react';
+import { ExpressiveModal } from '@carbon/ibmdotcom-react';
 import 'yourapplication.scss';
 
 function App() {
-  const heading = 'Lorem ipsum dolor sit amet.';
-
   return (
-    <ContentSection heading={heading}>//Children goes here</ContentSection>
+    <>
+      <ExpressiveModal open={true}>Hello world!</ExpressiveModal>
+    </>
   );
 }
 
@@ -45,21 +56,26 @@ Add the following line in your `.env` file at the root of your project.
   SASS_PATH=node_modules:src
 ```
 
-> 💡 Don't forget to import the content group styles from
+> 💡 Don't forget to import the expressive modal styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
 ## Props
 
-| Name       | Required | Data Type | Default Value | Description                     |
-| ---------- | -------- | --------- | ------------- | ------------------------------- |
-| `heading`  | YES      | String    | null          | Heading text                    |
-| `children` | NO       | Object    | null          | Container for other components. |
+<Props of={ExpressiveModal} />
 
 ## Stable selectors
 
-| Name                   | Description                   |
-| ---------------------- | ----------------------------- |
-| `dds--content-section` | Content group wrapper element |
+| Name                           | Description |
+| ------------------------------ | ----------- |
+| `dds--expressive-modal`        | Component   |
+| `dds--expressive-modal__close` | Interactive |
+
+## Stable selectors
+
+| Name                           | Description |
+| ------------------------------ | ----------- |
+| `dds--expressive-modal`        | Component   |
+| `dds--expressive-modal__close` | Interactive |
 
 ## 🙌 Contributing
 

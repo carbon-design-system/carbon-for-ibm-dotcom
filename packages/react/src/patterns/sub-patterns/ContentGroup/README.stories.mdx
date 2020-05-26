@@ -1,3 +1,6 @@
+import { Props } from '@storybook/addon-docs/blocks';
+import ContentGroup from './ContentGroup';
+
 # Content Group
 
 ## Getting started
@@ -56,18 +59,7 @@ Add the following line in your `.env` file at the root of your project.
 
 ## Props
 
-| Name        | Required | Data Type | Default Value | Description                                 |
-| ----------- | -------- | --------- | ------------- | ------------------------------------------- |
-| `heading`   | NO       | String    | null          | Heading text                                |
-| `children`  | NO       | Object    | null          | Container for other components.             |
-| `cta`       | NO       | CTA       | Card          | CTA type for more details see `CTA` below.  |
-| `className` | NO       | String    | null          | class to be applied to the containing node. |
-
-## CTA
-
-| Name  | Style | Type  | Description                                                                                                                                                     |
-| ----- | ----- | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `CTA` | Card  | local | Allowed style is Card and type is local for more details [see here](https://ibmdotcom-react-experimental.mybluemix.net/?path=/story/components-cta--default)!👀 |
+<Props of={ContentGroup} />
 
 ## Stable selectors
 

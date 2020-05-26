@@ -16,14 +16,7 @@ const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
- * renders the buttons
- *
- * @param {object} props props object
- * @param {Array.<{copy: string}>} props.buttons array of buttons
- * @param {string} props.buttons[].copy Button copy
- * @param {string} props.buttons[].href URL for the button item
- * @param {object} props.buttons[].renderIcon Optional icon type
- * @returns {*} button components
+ * Button group.
  */
 const ButtonGroup = ({ buttons }) => {
   const orderedList = useRef(null);
@@ -123,11 +116,24 @@ const ButtonGroup = ({ buttons }) => {
 };
 
 ButtonGroup.propTypes = {
+  /**
+   * Array of button objects to render.
+   * Use the following for each items:
+   *
+   * | Name         | Data Type | Description                                                                                                                    |
+   * | ------------ | --------- | ------------------------------------------------------------------------------------------------------------------------------ |
+   * | `href`       | String    | URL for the button item                                                                                                        |
+   * | `copy`       | String    | Button copy                                                                                                                    |
+   * | `renderIcon` | Object    | Provide an optional icon for the CTA from [Carbon's icon library](https://www.carbondesignsystem.com/guidelines/icons/library) |
+   *
+   * Visit the [Button documentation](http://react.carbondesignsystem.com/?path=/story/buttons--default)
+   * from Carbon for a full list of available props.
+   */
   buttons: PropTypes.arrayOf(
     PropTypes.shape({
       copy: PropTypes.string.isRequired,
       href: PropTypes.string.isRequired,
-      renderIcon: PropTypes.object,
+      renderIcon: PropTypes.elementType,
     })
   ),
 };

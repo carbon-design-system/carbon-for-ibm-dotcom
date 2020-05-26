@@ -14,7 +14,7 @@ import {
 } from '@storybook/addon-knobs';
 import dataContent from './data/dataContent';
 import React from 'react';
-import readme from '../README.md';
+import readme from '../README.stories.mdx';
 import TableOfContents from '../TableOfContents';
 
 const _themes = {
@@ -27,9 +27,7 @@ export default {
   decorators: [withKnobs],
 
   parameters: {
-    readme: {
-      sidebar: readme,
-    },
+    ...readme.parameters,
   },
 };
 
