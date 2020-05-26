@@ -15,12 +15,7 @@ const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
- * LinkWithIcon component
- *
- * @param {object} props react proptypes
- * @param {object} props.children User content
- * @param {string} props.href Link url
- * @returns {*} LinkWithIcon component
+ * LinkWithIcon component.
  */
 const LinkWithIcon = ({ children, href, ...props }) => {
   return (
@@ -34,21 +29,18 @@ const LinkWithIcon = ({ children, href, ...props }) => {
   );
 };
 
-/**
- * @property {object} propTypes LinkWithIcon propTypes
- * @description Defined property types for component
- *
- * @type {{children: Array, href: string}}
- */
 LinkWithIcon.propTypes = {
-  children: PropTypes.array,
+  /**
+   * Array containing Link text and icon elements.
+   */
+  children: PropTypes.arrayOf(PropTypes.node),
+
+  /**
+   * Url of link.
+   */
   href: PropTypes.string,
 };
 
-/**
- * @property {object} defaultProps LinkWithIcon default props
- * @type {{children: [], href: string}}
- */
 LinkWithIcon.defaultProps = {
   children: [],
   href: '',

@@ -1,3 +1,6 @@
+import { Props } from '@storybook/addon-docs/blocks';
+import Image from './Image';
+
 # Image
 
 > The Image component will be used as the primary way of embedding images on
@@ -74,21 +77,7 @@ Add the following line in your `.env` file at the root of your project.
 
 ## Props
 
-## Props
-
-| Name              | Required | Data Type | Default Value  | Description                                   |
-| ----------------- | -------- | --------- | -------------- | --------------------------------------------- |
-| `defaultSrc`      | YES      | String    | n/a            | Featured                                      |
-| `alt`             | YES      | String    | 'sample image' | Alternate text for image component            |
-| `longDescription` | NO       | String    | null           | Visible to screen readers, hidden from users. |
-| `sources`         | NO       | Array     | null           | Array of image objects. See `sources` below.  |
-
-### sources
-
-| Name         | Data Type     | Description                                  |
-| ------------ | ------------- | -------------------------------------------- |
-| `src`        | String        | Url of Image.                                |
-| `breakpoint` | Num OR String | min-width breakpoint to render the image src |
+<Props of={Image} />
 
 ## Stable selectors
 

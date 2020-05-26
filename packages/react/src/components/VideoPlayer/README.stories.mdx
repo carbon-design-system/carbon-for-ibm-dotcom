@@ -1,3 +1,6 @@
+import { Props } from '@storybook/addon-docs/blocks';
+import VideoPlayer from './VideoPlayer';
+
 # Video Player
 
 > The Video Player component plays embedded videos using the Kaltura video
@@ -66,11 +69,7 @@ KALTURA_UICONF_ID=12905712
 
 ## Props
 
-| Name              | Required | Data Type | Default Value | Description                                    |
-| ----------------- | -------- | --------- | ------------- | ---------------------------------------------- |
-| `videoId`         | YES      | String    | n/a           | Video ID from Kaltura video platform.          |
-| `showDescription` | NO       | Boolean   | `true`        | Determines whether to show description or not. |
-| `inverse`         | NO       | Boolean   | `false`       | Changes theme to inverse/default               |
+<Props of={VideoPlayer} />
 
 ## Stable selectors
 

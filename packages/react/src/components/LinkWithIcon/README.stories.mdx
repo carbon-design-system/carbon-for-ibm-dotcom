@@ -1,3 +1,6 @@
+import { Props } from '@storybook/addon-docs/blocks';
+import LinkWithIcon from './LinkWithIcon';
+
 # LinkWithIcon
 
 > The LinkWithIcon component should be used primarily as a navigational element,
@@ -51,10 +54,7 @@ Add the following line in your `.env` file at the root of your project.
 
 ## Props
 
-| Name       | Required | Data Type | Default Value | Description                                   |
-| ---------- | -------- | --------- | ------------- | --------------------------------------------- |
-| `children` | NO       | Array     | null          | Array containing Link text and icon elements. |
-| `href`     | NO       | String    | null          | Url of link.                                  |
+<Props of={LinkWithIcon} />
 
 > 💡 See the
 > [Carbon link](https://www.carbondesignsystem.com/components/link/code) for a
