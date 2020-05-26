@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -66,14 +66,36 @@ const ContentItemHorizontal = ({ eyebrow, heading, copy, cta }) => (
 );
 
 ContentItemHorizontal.propTypes = {
+  /**
+   * Optional text displayed above the heading.
+   */
   eyebrow: PropTypes.string,
+
+  /**
+   * Heading of the content item.
+   */
   heading: PropTypes.string.isRequired,
+
+  /**
+   * Copy of the content item. Accepts _italic_ markdown formatting.
+   */
   copy: PropTypes.string.isRequired,
+
+  /**
+   * Optional CTA links displayed below the copy.
+   * Each item has the following structure:
+   *
+   * | Name   | Required | Data Type | Description                                |
+   * | ------ | -------- | --------- | ------------------------------------------ |
+   * | `type` | YES      | Object    | Link type. Accepts `local` and `external`. |
+   * | `copy` | YES      | String    | Link text.                                 |
+   * | `href` | YES      | String    | URI for internal or external resource.     |
+   */
   cta: PropTypes.arrayOf(
     PropTypes.shape({
-      type: PropTypes.oneOf(['local', 'external']),
-      href: PropTypes.string,
-      copy: PropTypes.string,
+      type: PropTypes.oneOf(['local', 'external']).isRequired,
+      href: PropTypes.string.isRequired,
+      copy: PropTypes.string.isRequired,
     })
   ).isRequired,
 };

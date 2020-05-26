@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -94,15 +94,6 @@ function _spacingClass(position, modifier) {
  * This is an abstract layout component that can be reutilized for multiple
  * patterns. This autocreates the proper grid classes, along with the optional
  * sticky attribute to the child elements (columns).
- *
- * @param {object} props props object
- * @param {string} props.type layout type (1-3)
- * @param {string=} props.marginTop top margin layout class (layout-01 - layout-07)
- * @param {string=} props.marginBottom top margin layout class (layout-01 - layout-07)
- * @param {number=} props.stickyOffset offset amount for sticky columns
- * @param {boolean=} props.border toggles the optional border
- * @param {boolean=} props.nested toggles the nested styling
- * @returns {*} Layout component
  */
 const Layout = ({
   type,
@@ -131,19 +122,71 @@ const Layout = ({
 );
 
 Layout.propTypes = {
-  type: PropTypes.string.isRequired,
-  marginTop: PropTypes.string,
-  marginBottom: PropTypes.string,
+  /**
+   * Layout type. Choose from:
+   *
+   * | Name  | Description             |
+   * | ----- | ----------------------- |
+   * | `1-3` | 1/4 - 3/4 column layout |
+   * | `2-1` | 2/3 - 1/3 column layout |
+   */
+  type: PropTypes.oneOf(['1-3', '2-1']).isRequired,
+
+  /**
+   * Top Margin value for Layout. Choose from:
+   *
+   * | Name                    | Description                            |
+   * | ----------------------- | -------------------------------------- |
+   * | `layout-01 - layout-07` | Layout token values for the top margin |
+   */
+  marginTop: PropTypes.oneOf([
+    'layout-01',
+    'layout-02',
+    'layout-03',
+    'layout-04',
+    'layout-05',
+    'layout-06',
+    'layout-07',
+  ]),
+
+  /**
+   * Bottom Margin value for Layout. Choose from:
+   *
+   * | Name                    | Description                               |
+   * | ----------------------- | ----------------------------------------- |
+   * | `layout-01 - layout-07` | Layout token values for the bottom margin |
+   */
+  marginBottom: PropTypes.oneOf([
+    'layout-01',
+    'layout-02',
+    'layout-03',
+    'layout-04',
+    'layout-05',
+    'layout-06',
+    'layout-07',
+  ]),
+
+  /**
+   * Component/Element to render within `<Layout>`.
+   */
   children: PropTypes.node,
+
+  /**
+   * Defines the offset for the sticky column(s).
+   */
   stickyOffset: PropTypes.number,
+
+  /**
+   * `true` to use the optional border at the bottom of pattern.
+   */
   border: PropTypes.bool,
+
+  /**
+   * `true` to make the pattern fits inside a grid.
+   */
   nested: PropTypes.bool,
 };
 
-/**
- * @property {object} defaultProps default Layout props
- * @type {{marginBottom: null, stickyOffset: number, marginTop: null}}
- */
 Layout.defaultProps = {
   marginTop: null,
   marginBottom: null,

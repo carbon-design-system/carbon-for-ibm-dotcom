@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -97,12 +97,86 @@ const _renderMedia = (type, data, inverse) => {
 };
 
 ContentItem.propTypes = {
-  cta: PropTypes.shape(CTA.propTypes),
+  /**
+   * CTA object.
+   * See the [`<CTA>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-cta--default#props) for full usage details.
+   */
+  cta: PropTypes.shape({
+    style: PropTypes.oneOf(['text', 'card', 'button', 'feature']),
+    type: PropTypes.oneOfType([
+      PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video']),
+      PropTypes.arrayOf(
+        PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video'])
+      ),
+    ]),
+    copy: PropTypes.string,
+    href: PropTypes.string,
+    customClassName: PropTypes.string,
+  }),
+
+  /**
+   * Allows user to pass in custom class name.
+   */
   customClassName: PropTypes.string,
+
+  /**
+   * Copy text.
+   */
   copy: PropTypes.string,
+
+  /**
+   * Heading text.
+   */
   heading: PropTypes.string,
-  mediaType: PropTypes.string,
-  mediaData: PropTypes.object,
+
+  /**
+   * Determines media type (image or video).
+   */
+  mediaType: PropTypes.oneOf(['image', 'video']),
+
+  /**
+   * Media Data for either image or video.
+   * See the following components' README for more details:
+   *
+   * * `mediaType="image"`: [`<ImageWithCaption>`](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-imagewithcaption--default#props)
+   * * `mediaType="video"`: [`<VideoPlayer>`](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-videoplayer--default#props)
+   */
+  mediaData: PropTypes.oneOfType([
+    PropTypes.shape({
+      inverse: PropTypes.bool,
+      image: PropTypes.shape(
+        PropTypes.shape({
+          classname: PropTypes.string,
+          sources: PropTypes.arrayOf(
+            PropTypes.shape({
+              src: PropTypes.string,
+              breakpoint: PropTypes.oneOfType([
+                PropTypes.string,
+                PropTypes.number,
+              ]),
+            })
+          ),
+          defaultSrc: PropTypes.string.isRequired,
+          alt: PropTypes.string.isRequired,
+          longDescription: PropTypes.string,
+        })
+      ).isRequired,
+      lightbox: PropTypes.bool,
+      heading: PropTypes.string,
+      copy: PropTypes.string,
+      customClassName: PropTypes.string,
+    }),
+    PropTypes.shape({
+      customClassName: PropTypes.string,
+      videoId: PropTypes.string.isRequired,
+      showCaption: PropTypes.bool,
+      inverse: PropTypes.bool,
+    }),
+  ]),
+
+  /**
+   * `true` to changes theme to inverse.
+   */
   inverse: PropTypes.bool,
 };
 

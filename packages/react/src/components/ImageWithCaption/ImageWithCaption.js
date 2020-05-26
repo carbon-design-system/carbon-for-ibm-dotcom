@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -17,16 +17,7 @@ const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
- * renders background image
- *
- * @param {boolean} props props object
- * @param {boolean} props.inverse inverse
- * @param {object} props.image image object
- * @param {string} props.lightbox launch lightbox on click
- * @param {string} props.heading image caption
- * @param {string} props.copy more detailed description of image
- * @param {string} props.customClassName custom classname
- * @returns {*} picture element
+ * Picture element.
  */
 const ImageWithCaption = ({
   inverse,
@@ -83,11 +74,47 @@ const ImageWithCaption = ({
 };
 
 ImageWithCaption.propTypes = {
+  /**
+   * `true` to change theme to inverse.
+   */
   inverse: PropTypes.bool,
-  image: PropTypes.shape(Image.propTypes).isRequired,
+
+  /**
+   * Image object needed for ImageWithCaption component.
+   * Visit the [Image storybook](https://ibmdotcom-react.mybluemix.net/?path=/story/components-image--default)
+   * for more details on the Image component.
+   */
+  image: PropTypes.shape({
+    classname: PropTypes.string,
+    sources: PropTypes.arrayOf(
+      PropTypes.shape({
+        src: PropTypes.string,
+        breakpoint: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+      })
+    ),
+    defaultSrc: PropTypes.string.isRequired,
+    alt: PropTypes.string.isRequired,
+    longDescription: PropTypes.string,
+  }).isRequired,
+
+  /**
+   * `true` to enable lightbox functionality, allowing user to see enlarged image.
+   */
   lightbox: PropTypes.bool,
+
+  /**
+   * Caption text.
+   */
   heading: PropTypes.string,
+
+  /**
+   * More detailed description of the image.
+   */
   copy: PropTypes.string,
+
+  /**
+   * The CSS class name to apply.
+   */
   customClassName: PropTypes.string,
 };
 

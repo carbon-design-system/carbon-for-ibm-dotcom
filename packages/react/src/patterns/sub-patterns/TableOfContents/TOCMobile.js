@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -16,14 +16,7 @@ const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
- * Mobile Component
- *
- * @param {object} props props object
- * @param {object} props.menuItems menu items object
- * @param {string} props.selectedId id of a menu item
- * @param {string} props.menuLabel menu label for mobile menu
- * @param {*} props.updateState function to update parent state.
- * @returns {*} JSX Object
+ * Mobile Component.
  */
 const TOCMobile = ({ menuItems, selectedId, menuLabel, updateState }) => {
   const [selectedOption, setSelectedOption] = useState('menuLabel');
@@ -110,9 +103,30 @@ const renderOptions = (options, label) => {
 };
 
 TOCMobile.propTypes = {
+  /**
+   * Array of menu item objects to render within the side nav.
+   * Each items has the following structure:
+   *
+   * | Properties Name | Data Type | Description     |
+   * | --------------- | --------- | --------------- |
+   * | title           | String    | Menu title text |
+   * | id              | String    | Menu id         |
+   */
   menuItems: PropTypes.array,
+
+  /**
+   * Id of a menu item.
+   */
   selectedId: PropTypes.string,
+
+  /**
+   * Menu label for mobile menu.
+   */
   menuLabel: PropTypes.string,
+
+  /**
+   * Function to update parent state.
+   */
   updateState: PropTypes.func,
 };
 
