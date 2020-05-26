@@ -22612,6 +22612,7 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                             alt="Image alt text"
                                             classname="bx--logo-grid_img"
                                             defaultSrc="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
+                                            longDescription="Company A"
                                           >
                                             <picture
                                               className="bx--image"
@@ -22619,11 +22620,17 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                             >
                                               <img
                                                 alt="Image alt text"
-                                                aria-describedby=""
+                                                aria-describedby="bx--image-23"
                                                 className="bx--image__img bx--logo-grid_img"
                                                 src="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
                                               />
                                             </picture>
+                                            <div
+                                              className="bx--image__longdescription"
+                                              id="bx--image-23"
+                                            >
+                                              Company A
+                                            </div>
                                           </Image>
                                         </div>
                                       </a>
@@ -22644,6 +22651,7 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                             alt="Image alt text"
                                             classname="bx--logo-grid_img"
                                             defaultSrc="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
+                                            longDescription="Company B"
                                           >
                                             <picture
                                               className="bx--image"
@@ -22651,11 +22659,17 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                             >
                                               <img
                                                 alt="Image alt text"
-                                                aria-describedby=""
+                                                aria-describedby="bx--image-24"
                                                 className="bx--image__img bx--logo-grid_img"
                                                 src="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
                                               />
                                             </picture>
+                                            <div
+                                              className="bx--image__longdescription"
+                                              id="bx--image-24"
+                                            >
+                                              Company B
+                                            </div>
                                           </Image>
                                         </div>
                                       </a>
@@ -22676,6 +22690,7 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                             alt="Image alt text"
                                             classname="bx--logo-grid_img"
                                             defaultSrc="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
+                                            longDescription="Company C"
                                           >
                                             <picture
                                               className="bx--image"
@@ -22683,11 +22698,17 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                             >
                                               <img
                                                 alt="Image alt text"
-                                                aria-describedby=""
+                                                aria-describedby="bx--image-25"
                                                 className="bx--image__img bx--logo-grid_img"
                                                 src="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
                                               />
                                             </picture>
+                                            <div
+                                              className="bx--image__longdescription"
+                                              id="bx--image-25"
+                                            >
+                                              Company C
+                                            </div>
                                           </Image>
                                         </div>
                                       </a>
@@ -22708,6 +22729,7 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                             alt="Image alt text"
                                             classname="bx--logo-grid_img"
                                             defaultSrc="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
+                                            longDescription="Company D"
                                           >
                                             <picture
                                               className="bx--image"
@@ -22715,11 +22737,17 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                             >
                                               <img
                                                 alt="Image alt text"
-                                                aria-describedby=""
+                                                aria-describedby="bx--image-26"
                                                 className="bx--image__img bx--logo-grid_img"
                                                 src="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
                                               />
                                             </picture>
+                                            <div
+                                              className="bx--image__longdescription"
+                                              id="bx--image-26"
+                                            >
+                                              Company D
+                                            </div>
                                           </Image>
                                         </div>
                                       </a>
@@ -22740,6 +22768,7 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                             alt="Image alt text"
                                             classname="bx--logo-grid_img"
                                             defaultSrc="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
+                                            longDescription="Company E"
                                           >
                                             <picture
                                               className="bx--image"
@@ -22747,11 +22776,17 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                             >
                                               <img
                                                 alt="Image alt text"
-                                                aria-describedby=""
+                                                aria-describedby="bx--image-27"
                                                 className="bx--image__img bx--logo-grid_img"
                                                 src="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
                                               />
                                             </picture>
+                                            <div
+                                              className="bx--image__longdescription"
+                                              id="bx--image-27"
+                                            >
+                                              Company E
+                                            </div>
                                           </Image>
                                         </div>
                                       </a>
@@ -22772,6 +22807,7 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                             alt="Image alt text"
                                             classname="bx--logo-grid_img"
                                             defaultSrc="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
+                                            longDescription="Company F"
                                           >
                                             <picture
                                               className="bx--image"
@@ -22779,11 +22815,17 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                             >
                                               <img
                                                 alt="Image alt text"
-                                                aria-describedby=""
+                                                aria-describedby="bx--image-28"
                                                 className="bx--image__img bx--logo-grid_img"
                                                 src="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
                                               />
                                             </picture>
+                                            <div
+                                              className="bx--image__longdescription"
+                                              id="bx--image-28"
+                                            >
+                                              Company F
+                                            </div>
                                           </Image>
                                         </div>
                                       </a>
@@ -22804,6 +22846,7 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                             alt="Image alt text"
                                             classname="bx--logo-grid_img"
                                             defaultSrc="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
+                                            longDescription="Company G"
                                           >
                                             <picture
                                               className="bx--image"
@@ -22811,11 +22854,17 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                             >
                                               <img
                                                 alt="Image alt text"
-                                                aria-describedby=""
+                                                aria-describedby="bx--image-29"
                                                 className="bx--image__img bx--logo-grid_img"
                                                 src="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
                                               />
                                             </picture>
+                                            <div
+                                              className="bx--image__longdescription"
+                                              id="bx--image-29"
+                                            >
+                                              Company G
+                                            </div>
                                           </Image>
                                         </div>
                                       </a>
@@ -22836,6 +22885,7 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                             alt="Image alt text"
                                             classname="bx--logo-grid_img"
                                             defaultSrc="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
+                                            longDescription="Company H"
                                           >
                                             <picture
                                               className="bx--image"
@@ -22843,11 +22893,17 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                             >
                                               <img
                                                 alt="Image alt text"
-                                                aria-describedby=""
+                                                aria-describedby="bx--image-30"
                                                 className="bx--image__img bx--logo-grid_img"
                                                 src="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
                                               />
                                             </picture>
+                                            <div
+                                              className="bx--image__longdescription"
+                                              id="bx--image-30"
+                                            >
+                                              Company H
+                                            </div>
                                           </Image>
                                         </div>
                                       </a>
@@ -22868,6 +22924,7 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                             alt="Image alt text"
                                             classname="bx--logo-grid_img"
                                             defaultSrc="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
+                                            longDescription="Company I"
                                           >
                                             <picture
                                               className="bx--image"
@@ -22875,11 +22932,17 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                             >
                                               <img
                                                 alt="Image alt text"
-                                                aria-describedby=""
+                                                aria-describedby="bx--image-31"
                                                 className="bx--image__img bx--logo-grid_img"
                                                 src="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
                                               />
                                             </picture>
+                                            <div
+                                              className="bx--image__longdescription"
+                                              id="bx--image-31"
+                                            >
+                                              Company I
+                                            </div>
                                           </Image>
                                         </div>
                                       </a>
