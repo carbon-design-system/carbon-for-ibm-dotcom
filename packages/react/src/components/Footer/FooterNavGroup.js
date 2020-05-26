@@ -16,10 +16,7 @@ const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
- * Footer nav group component
- *
- * @param {object} props react proptypes
- * @returns {object} JSX object
+ * Footer nav group component.
  */
 const FooterNavGroup = ({ title, links }) => {
   if (!title || !links?.length) {
@@ -62,13 +59,15 @@ function renderListItems(links) {
   });
 }
 
-/**
- * @property {object} propTypes FooterNavGroup propTypes
- * @description Defined property types for component
- * @type {{links: Array, title: string}}
- */
 FooterNavGroup.propTypes = {
+  /**
+   * The title.
+   */
   title: PropTypes.string,
+
+  /**
+   * A list of links to be rendered.
+   */
   links: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
@@ -77,10 +76,6 @@ FooterNavGroup.propTypes = {
   ),
 };
 
-/**
- * @property {object} defaultProps default FooterNavGroup props
- * @type {{links: Array, title: null}}
- */
 FooterNavGroup.defaultProps = {
   title: null,
   links: null,

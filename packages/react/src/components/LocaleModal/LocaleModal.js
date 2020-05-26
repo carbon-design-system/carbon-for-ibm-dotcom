@@ -24,14 +24,7 @@ const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
- * LocaleModal component
- *
- * @param {object} props props object
- * @param {boolean} props.isOpen Opens modal
- * @param {Function} props.setIsOpen isOpen state of modal
- * @param {object} props.localeData Locale/Language data to bypass the service call
- * @param {string} props.localeDisplay display text for current locale/language to bypass service call
- * @returns {*} LocaleModal component
+ * LocaleModal component.
  */
 const LocaleModal = ({ isOpen, setIsOpen, localeData, localeDisplay }) => {
   const [list, setList] = useState({});
@@ -211,15 +204,45 @@ const LocaleModal = ({ isOpen, setIsOpen, localeData, localeDisplay }) => {
   }
 };
 
-/**
- * @property {object} propTypes LocaleModal propTypes
- * @description Defined property types for component
- * @type {{isOpen: boolean, setIsOpen: Function, localeData: object, localeDisplay: string}}
- */
 LocaleModal.propTypes = {
+  /**
+   * `true` to open modal in its initial state.
+   */
   isOpen: PropTypes.bool,
+
+  /**
+   * The setter for `isOpen`.
+   */
   setIsOpen: PropTypes.func,
-  localeData: PropTypes.object,
+
+  /**
+   * Locale/Language data to bypass the service call.
+   */
+  localeData: PropTypes.shape({
+    regionList: PropTypes.arrayOf(
+      PropTypes.shape({
+        name: PropTypes.string,
+        key: PropTypes.string,
+        countryList: PropTypes.shape({
+          name: PropTypes.string,
+          locale: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)),
+        }),
+      })
+    ),
+    localeModal: PropTypes.shape({
+      headerTitle: PropTypes.string,
+      modalClose: PropTypes.string,
+      searchLabel: PropTypes.string,
+      searchClearText: PropTypes.string,
+      searchPlaceholder: PropTypes.string,
+      availabilityText: PropTypes.string,
+      unavailabilityText: PropTypes.string,
+    }),
+  }),
+
+  /**
+   * Display text for current locale/language to bypass service call.
+   */
   localeDisplay: PropTypes.string,
 };
 

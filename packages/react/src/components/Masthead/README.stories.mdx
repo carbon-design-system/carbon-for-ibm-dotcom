@@ -1,3 +1,6 @@
+import { Props } from '@storybook/addon-docs/blocks';
+import Masthead from './Masthead';
+
 # Masthead
 
 > The masthead component is a required navigational pattern for IBM.com that
@@ -63,30 +66,7 @@ DDS_MASTHEAD_L1=true
 
 ## Props
 
-| Name               | Required | Data Type        | Default Value       | Description                                                         |
-| ------------------ | -------- | ---------------- | ------------------- | ------------------------------------------------------------------- |
-| `navigation`       | NO       | String OR Object | null                | Navigation data object/string for Masthead. See `navigation` below. |
-| `hasProfile`       | NO       | Boolean          | true                | Determines whether to render IBM Profile Menu component.            |
-| `hasSearch`        | NO       | Boolean          | true                | Determines whether to render SearchBar component.                   |
-| `placeHolderText`  | NO       | String           | `Search all of IBM` | Placeholder value for search input.                                 |
-| `platform`         | NO       | Object           | null                | Platform name that appears on L0. See `platform` below.             |
-| `searchOpenOnload` | NO       | Boolean          | false               | Determines if the search field is open on page load.                |
-| `title`            | NO       | String           | null                | Title for the masthead L1 (experimental).                           |
-| `eyebrowText`      | NO       | String           | null                | Text for the eyebrow link in masthead L1 (experimental).            |
-| `eyebrowLink`      | NO       | String           | null                | URL for the eyebrow link in masthead L1 (experimental).             |
-
-## navigation
-
-| Behavior           | Data Type | Description                                 | Example                             |
-| ------------------ | --------- | ------------------------------------------- | ----------------------------------- |
-| default navigation | String    | Default navigation data from IBM.com        | `<Masthead navigation="default" />` |
-| custom navigation  | Object    | Pass in custom navigation data as an object | `<Masthead navigation={myNavObj}/>` |
-| none               | null      | No navigation                               | `<Masthead />`                      |
-
-> 💡 `Custom` navigation data must follow the same structure and key names as
-> `default`. See
-> [this](https://www.ibm.com/common/v18/js/data/jsononly/usen.json) for an
-> example.
+<Props of={Masthead} />
 
 ## platform
 

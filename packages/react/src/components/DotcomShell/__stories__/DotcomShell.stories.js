@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -24,16 +24,14 @@ import inPercy from '@percy-io/in-percy';
 import languageItems from '../../Footer/__data__/language-items.json';
 import mastheadKnobs from '../../Masthead/__stories__/data/Masthead.stories.knobs.js';
 import React from 'react';
-import readme from '../README.md';
+import readme from '../README.stories.mdx';
 
 export default {
   title: 'Components|Dotcom Shell',
   decorators: [withKnobs],
 
   parameters: {
-    readme: {
-      sidebar: readme,
-    },
+    ...readme.parameters,
   },
 };
 
@@ -75,7 +73,7 @@ export const Default = () => {
     : null;
 
   const footerTypeOptions = {
-    tall: '',
+    tall: undefined,
     short: 'short',
   };
 
