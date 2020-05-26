@@ -7774,10 +7774,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                                                         "render": [Function],
                                                       },
                                                     },
+                                                    "type": "local",
                                                   }
                                                 }
                                                 customClassName="bx--card__CTA"
-                                                handleClick={[Function]}
                                                 role="region"
                                                 target={null}
                                                 type="link"
@@ -8147,10 +8147,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                                                         "render": [Function],
                                                       },
                                                     },
+                                                    "type": "local",
                                                   }
                                                 }
                                                 customClassName="bx--card__CTA"
-                                                handleClick={[Function]}
                                                 role="region"
                                                 target={null}
                                                 type="link"
@@ -9290,10 +9290,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                                                 "render": [Function],
                                                               },
                                                             },
+                                                            "type": "local",
                                                           }
                                                         }
                                                         customClassName="bx--card__CTA"
-                                                        handleClick={[Function]}
                                                         role="region"
                                                         target={null}
                                                         type="link"
@@ -9663,10 +9663,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                                                 "render": [Function],
                                                               },
                                                             },
+                                                            "type": "local",
                                                           }
                                                         }
                                                         customClassName="bx--card__CTA"
-                                                        handleClick={[Function]}
                                                         role="region"
                                                         target={null}
                                                         type="link"
@@ -10111,10 +10111,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                                             "render": [Function],
                                                           },
                                                         },
+                                                        "type": "local",
                                                       }
                                                     }
                                                     customClassName="bx--card__CTA"
-                                                    handleClick={[Function]}
                                                     role="region"
                                                     target={null}
                                                     type="link"
@@ -10254,10 +10254,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                                             "render": [Function],
                                                           },
                                                         },
+                                                        "type": "external",
                                                       }
                                                     }
                                                     customClassName="bx--card__CTA"
-                                                    handleClick={[Function]}
                                                     role="region"
                                                     target="_blank"
                                                     type="link"
@@ -12236,10 +12236,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                               "render": [Function],
                                             },
                                           },
+                                          "type": "local",
                                         }
                                       }
                                       customClassName="bx--card__CTA"
-                                      handleClick={[Function]}
                                       role="region"
                                       target={null}
                                       type="link"
@@ -14333,10 +14333,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                       "render": [Function],
                                                     },
                                                   },
+                                                  "type": "local",
                                                 }
                                               }
                                               customClassName="bx--card__CTA"
-                                              handleClick={[Function]}
                                               role="region"
                                               target={null}
                                               type="link"
@@ -14515,10 +14515,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                             "render": [Function],
                                                           },
                                                         },
+                                                        "type": "local",
                                                       }
                                                     }
                                                     customClassName="bx--card__CTA"
-                                                    handleClick={[Function]}
                                                     role="region"
                                                     target={null}
                                                     type="link"
@@ -14658,10 +14658,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                             "render": [Function],
                                                           },
                                                         },
+                                                        "type": "external",
                                                       }
                                                     }
                                                     customClassName="bx--card__CTA"
-                                                    handleClick={[Function]}
                                                     role="region"
                                                     target="_blank"
                                                     type="link"
@@ -15577,10 +15577,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                               "render": [Function],
                                             },
                                           },
+                                          "type": "local",
                                         }
                                       }
                                       customClassName="bx--card__CTA"
-                                      handleClick={[Function]}
                                       role="region"
                                       target={null}
                                       type="link"
@@ -16407,10 +16407,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                                       "render": [Function],
                                                     },
                                                   },
+                                                  "type": "local",
                                                 }
                                               }
                                               customClassName="bx--card__CTA"
-                                              handleClick={[Function]}
                                               role="region"
                                               target={null}
                                               type="link"
@@ -16589,10 +16589,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                                             "render": [Function],
                                                           },
                                                         },
+                                                        "type": "local",
                                                       }
                                                     }
                                                     customClassName="bx--card__CTA"
-                                                    handleClick={[Function]}
                                                     role="region"
                                                     target={null}
                                                     type="link"
@@ -16732,10 +16732,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                                             "render": [Function],
                                                           },
                                                         },
+                                                        "type": "external",
                                                       }
                                                     }
                                                     customClassName="bx--card__CTA"
-                                                    handleClick={[Function]}
                                                     role="region"
                                                     target="_blank"
                                                     type="link"
@@ -17230,10 +17230,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                                               "render": [Function],
                                             },
                                           },
+                                          "type": "local",
                                         }
                                       }
                                       customClassName="bx--card__CTA"
-                                      handleClick={[Function]}
                                       role="region"
                                       target={null}
                                       type="link"
@@ -17839,10 +17839,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                                       "render": [Function],
                                                     },
                                                   },
+                                                  "type": "local",
                                                 }
                                               }
                                               customClassName="bx--card__CTA"
-                                              handleClick={[Function]}
                                               role="region"
                                               target={null}
                                               type="link"
@@ -18021,10 +18021,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                                             "render": [Function],
                                                           },
                                                         },
+                                                        "type": "local",
                                                       }
                                                     }
                                                     customClassName="bx--card__CTA"
-                                                    handleClick={[Function]}
                                                     role="region"
                                                     target={null}
                                                     type="link"
@@ -18164,10 +18164,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                                             "render": [Function],
                                                           },
                                                         },
+                                                        "type": "external",
                                                       }
                                                     }
                                                     customClassName="bx--card__CTA"
-                                                    handleClick={[Function]}
                                                     role="region"
                                                     target="_blank"
                                                     type="link"
@@ -20807,10 +20807,10 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupSimple Default 1`] = `
                                               "render": [Function],
                                             },
                                           },
+                                          "type": "local",
                                         }
                                       }
                                       customClassName="bx--card__CTA"
-                                      handleClick={[Function]}
                                       role="region"
                                       target={null}
                                       type="link"
@@ -27565,10 +27565,10 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock Default 1`] = `
                                           "render": [Function],
                                         },
                                       },
+                                      "type": "external",
                                     }
                                   }
                                   customClassName="bx--card__CTA"
-                                  handleClick={[Function]}
                                   role="region"
                                   target="_blank"
                                   type="link"
@@ -27960,10 +27960,10 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock With aside elements 1`]
                                                   "render": [Function],
                                                 },
                                               },
+                                              "type": "external",
                                             }
                                           }
                                           customClassName="bx--card__CTA"
-                                          handleClick={[Function]}
                                           role="region"
                                           target="_blank"
                                           type="link"
@@ -28145,10 +28145,10 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock With aside elements 1`]
                                                         "render": [Function],
                                                       },
                                                     },
+                                                    "type": "local",
                                                   }
                                                 }
                                                 customClassName="bx--card__CTA"
-                                                handleClick={[Function]}
                                                 role="region"
                                                 target={null}
                                                 type="link"
@@ -28288,10 +28288,10 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock With aside elements 1`]
                                                         "render": [Function],
                                                       },
                                                     },
+                                                    "type": "external",
                                                   }
                                                 }
                                                 customClassName="bx--card__CTA"
-                                                handleClick={[Function]}
                                                 role="region"
                                                 target="_blank"
                                                 type="link"
@@ -28568,10 +28568,10 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentGroup Default 1`] = `
                                           "render": [Function],
                                         },
                                       },
+                                      "type": undefined,
                                     }
                                   }
                                   customClassName="bx--card__CTA"
-                                  handleClick={[Function]}
                                   role="region"
                                   target={null}
                                   type="link"
@@ -30531,10 +30531,10 @@ exports[`Storyshots Patterns (Sub-Patterns)|LinkList Default 1`] = `
                                             "render": [Function],
                                           },
                                         },
+                                        "type": "local",
                                       }
                                     }
                                     customClassName="bx--card__CTA"
-                                    handleClick={[Function]}
                                     role="region"
                                     target={null}
                                     type="link"
@@ -30674,10 +30674,10 @@ exports[`Storyshots Patterns (Sub-Patterns)|LinkList Default 1`] = `
                                             "render": [Function],
                                           },
                                         },
+                                        "type": "download",
                                       }
                                     }
                                     customClassName="bx--card__CTA"
-                                    handleClick={[Function]}
                                     role="region"
                                     target={null}
                                     type="link"
@@ -30820,10 +30820,10 @@ exports[`Storyshots Patterns (Sub-Patterns)|LinkList Default 1`] = `
                                             "render": [Function],
                                           },
                                         },
+                                        "type": "external",
                                       }
                                     }
                                     customClassName="bx--card__CTA"
-                                    handleClick={[Function]}
                                     role="region"
                                     target="_blank"
                                     type="link"
@@ -33126,10 +33126,10 @@ exports[`Storyshots Patterns (Sub-Patterns)|LinkList Vertical With Cards 1`] = `
                                             "render": [Function],
                                           },
                                         },
+                                        "type": "local",
                                       }
                                     }
                                     customClassName="bx--card__CTA"
-                                    handleClick={[Function]}
                                     role="region"
                                     target={null}
                                     type="link"
@@ -33269,10 +33269,10 @@ exports[`Storyshots Patterns (Sub-Patterns)|LinkList Vertical With Cards 1`] = `
                                             "render": [Function],
                                           },
                                         },
+                                        "type": "download",
                                       }
                                     }
                                     customClassName="bx--card__CTA"
-                                    handleClick={[Function]}
                                     role="region"
                                     target={null}
                                     type="link"
@@ -33415,10 +33415,10 @@ exports[`Storyshots Patterns (Sub-Patterns)|LinkList Vertical With Cards 1`] = `
                                             "render": [Function],
                                           },
                                         },
+                                        "type": "external",
                                       }
                                     }
                                     customClassName="bx--card__CTA"
-                                    handleClick={[Function]}
                                     role="region"
                                     target="_blank"
                                     type="link"
