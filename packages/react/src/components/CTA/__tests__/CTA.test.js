@@ -22,7 +22,7 @@ describe('CTA', () => {
   });
 
   it('Renders TextCTA | type video', () => {
-    CTALogic.setLightBox = jest.fn();
+    jest.spyOn(CTALogic, 'setLightBox');
     const cta = mount(
       <TextCTA type="video" href="#" videoTitle={[{ title: 'Lorem Ipsum' }]} />
     );
