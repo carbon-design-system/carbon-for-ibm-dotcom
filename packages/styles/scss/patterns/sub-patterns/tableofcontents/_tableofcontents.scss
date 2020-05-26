@@ -23,11 +23,20 @@
     a {
       border-left: carbon--rem(4px) solid $ui-01;
       color: $text-02;
+
+      &:hover {
+        border-left-color: $hover-selected-ui;
+      }
     }
+
     &--active {
       a {
         color: $text-01;
         border-left-color: $interactive-04;
+
+        &:hover {
+          border-left-color: $interactive-04;
+        }
       }
     }
   }
@@ -35,6 +44,13 @@
 
 @mixin tableofcontents {
   .#{$prefix}--tableofcontents {
+    &__children__mobile {
+      @include carbon--breakpoint('lg') {
+        display: none;
+      }
+
+      margin-top: $layout-03;
+    }
     &__mobile {
       margin-left: -$carbon--spacing-05;
       margin-right: -$carbon--spacing-05;
@@ -99,6 +115,15 @@
           position: relative;
         }
       }
+
+      &__rule {
+        margin-left: $spacing-05;
+        margin-bottom: $layout-03;
+      }
+
+      &__children {
+        margin-bottom: $layout-03;
+      }
     }
     @include carbon--breakpoint('sm') {
       &__desktop {
@@ -126,6 +151,12 @@
 
   .#{$prefix}--tableofcontents--g100 {
     @include carbon--theme($carbon--theme--g100) {
+      @include themed-items;
+    }
+  }
+
+  .#{$prefix}--tableofcontents--g10 {
+    @include carbon--theme($carbon--theme--g10) {
       @include themed-items;
     }
   }
