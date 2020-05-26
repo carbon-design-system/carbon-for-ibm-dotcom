@@ -82,7 +82,7 @@ describe('CTA', () => {
   });
 
   it('Renders ButtonCTA | type video', () => {
-    CTALogic.setLightBox = jest.fn();
+    jest.spyOn(CTALogic, 'setLightBox');
     const cta = mount(
       <ButtonCTA
         buttons={[
