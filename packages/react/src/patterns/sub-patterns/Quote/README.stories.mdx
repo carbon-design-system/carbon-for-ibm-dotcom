@@ -1,3 +1,6 @@
+import { Props } from '@storybook/addon-docs/blocks';
+import Quote from './Quote';
+
 # Quote
 
 ## Getting started
@@ -60,30 +63,7 @@ Add the following line in your `.env` file at the root of your project.
 
 ## Props
 
-| Name      | Required | Data Type | Default Value  | Description                                                                                                                                             |
-| --------- | -------- | --------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `copy`    | YES      | String    | null           | Main Quote                                                                                                                                              |
-| `type`    | NO       | String    | `doubleCurved` | See `Types` bellow.                                                                                                                                     |
-| `source`  | NO       | Object    | null           | See `Source` bellow.                                                                                                                                    |
-| `cta`     | NO       | Object    | null           | Object with CTA data, check [CTA](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/components/CTA/README.md)👀 |
-| `inverse` | NO       | Boolean   | false          | Toggles the invese colors                                                                                                                               |
-
-## Types
-
-| Name                          | Description |
-| ----------------------------- | ----------- |
-| `singleCurved`                | ‘ ’         |
-| `doubleCurved`                | “ ”         |
-| `singleAngle`                 | ‹ ›         |
-| `doubleAngle`                 | « »         |
-| `lowHighReversedDoubleCurved` | „ “         |
-
-## Source
-
-| Name      | Required | Data Type | Default Value | Description      |
-| --------- | -------- | --------- | ------------- | ---------------- |
-| `heading` | YES      | String    | null          | Source heading   |
-| `copy`    | YES      | String    | null          | Source body text |
+<Props of={Quote} />
 
 ## Stable selectors
 

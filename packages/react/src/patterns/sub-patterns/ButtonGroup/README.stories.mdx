@@ -1,3 +1,6 @@
+import { Props } from '@storybook/addon-docs/blocks';
+import ButtonGroup from './ButtonGroup';
+
 # Button Group
 
 > The button group component is to be utilized within IBM.com for grouping two
@@ -110,21 +113,7 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 ## Props
 
-| Name      | Required | Data Type | Default Value | Description                                                 |
-| --------- | -------- | --------- | ------------- | ----------------------------------------------------------- |
-| `buttons` | NO       | Array     | null          | Array of button objects to render. See `Button Item` below. |
-
-### Button Item
-
-| Name         | Data Type | Description                                                                                                                    |
-| ------------ | --------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| `href`       | String    | URL for the button item                                                                                                        |
-| `copy`       | String    | Button copy                                                                                                                    |
-| `renderIcon` | Object    | Provide an optional icon for the CTA from [Carbon's icon library](https://www.carbondesignsystem.com/guidelines/icons/library) |
-
-Visit the
-[Button documentation](http://react.carbondesignsystem.com/?path=/story/buttons--default)
-from Carbon for a full list of available props.
+<Props of={ButtonGroup} />
 
 ## Stable selectors
 

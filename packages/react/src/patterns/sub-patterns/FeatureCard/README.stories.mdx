@@ -1,3 +1,6 @@
+import { Props } from '@storybook/addon-docs/blocks';
+import FeatureCard from './FeatureCard';
+
 # Feature Card
 
 > The Feature Card pattern is to be utilized within IBM.com.
@@ -55,30 +58,7 @@ Add the following line in your `.env` file at the root of your project.
 
 ## Props
 
-| Name      | Required | Data Type | Default Value | Description                                               |
-| --------- | -------- | --------- | ------------- | --------------------------------------------------------- |
-| `heading` | YES      | String    | n/a           | Main title of the pattern.                                |
-| `card`    | YES      | Object    | null          | Object containing Feature Card details. See `card` below. |
-
-### card
-
-| Name      | Data Type | Description                                                        |
-| --------- | --------- | ------------------------------------------------------------------ |
-| `heading` | String    | Title of the Card item.                                            |
-| `image`   | Object    | Image object used in the FeatureCard component. See `image` below. |
-| `cta`     | Object    | Object containing target and href of link. See `cta` below.        |
-
-### cta
-
-| Name   | Data Type | Description                       |
-| ------ | --------- | --------------------------------- |
-| `href` | String    | Url of the FeatureCard component. |
-
-### image
-
-Visit the
-[Image storybook](https://ibmdotcom-react.mybluemix.net/?path=/story/components-image--default)
-for more details on the Image component.
+<Props of={FeatureCard} />
 
 ## Stable selectors
 

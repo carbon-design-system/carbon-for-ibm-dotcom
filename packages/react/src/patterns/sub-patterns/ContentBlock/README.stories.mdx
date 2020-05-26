@@ -1,3 +1,6 @@
+import { Props } from '@storybook/addon-docs/blocks';
+import ContentBlock from './ContentBlock';
+
 # Content Block
 
 > The Content Block is a core sub-pattern used to help you build more complex
@@ -128,26 +131,7 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 ## Props
 
-| Name              | Required | Data Type | Default Value | Description                                                                                                |
-| ----------------- | -------- | --------- | ------------- | ---------------------------------------------------------------------------------------------------------- |
-| `aside`           | NO       | Object    | null          | Object containing elements to be rendered within `<aside>` html element on right panel. See `aside` below. |
-| `copy`            | NO       | String    | null          | Copy text.                                                                                                 |
-| `children`        | YES      | Element   | null          | Children elements passed into `ContentBlock` to be rendered.                                               |
-| `cta`             | NO       | Object    | null          | CTA object.                                                                                                |
-| `customClassName` | NO       | String    | null          | Custom className to wrap the `ContentBlock` component.                                                     |
-| `heading`         | NO       | String    | null          | Heading text.                                                                                              |
-| `inverse`         | NO       | Boolean   | `false`       | Changes theme to inverse/default                                                                           |
-
-### aside
-
-| Name     | Data Type | Description                                                |
-| -------- | --------- | ---------------------------------------------------------- |
-| `items`  | Element   | Elements/Components to be rendered on the right panel.     |
-| `border` | Boolean   | Determines whether bottom border of `ContentBlock` is set. |
-
-Visit the
-[CTA documentation](https://ibmdotcom-react.mybluemix.net/?path=/story/components-cta--default)
-to for more details on the CTA props.
+<Props of={ContentBlock} />
 
 ## Stable selectors
 

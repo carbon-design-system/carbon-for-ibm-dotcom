@@ -41,17 +41,7 @@ const _findMenuItems = () => {
 };
 
 /**
- * Table of Contents pattern
- *
- * @param {object} props props object
- * @param {object} props.menuItems menu items object
- * @param {string} props.menuLabel mobile menu label
- * @param {string} props.theme theme [g100/white]
- * @param {number} props.stickyOffset offset amount for Layout (in pixels)
- * @param {boolean} props.menuRule optional rule for menu
- * @param {*} props.headingContent heading content component
- * @param {*} props.children children property of component
- * @returns {*} JSX Object
+ * Table of Contents pattern.
  */
 const TableOfContents = ({
   menuItems,
@@ -240,27 +230,70 @@ const TableOfContents = ({
 };
 
 TableOfContents.propTypes = {
+  /**
+   * Array of menu item objects to render within the side nav.
+   * Each items has the following structure:
+   *
+   * | Properties Name | Data Type | Description     |
+   * | --------------- | --------- | --------------- |
+   * | title           | String    | Menu title text |
+   * | id              | String    | Menu id         |
+   *
+   * If `menuItems` is not passed in as a prop, the menu items are dynamically
+   * generated based on anchor links that exist on the page. The anchor links should
+   * follow the following format:
+   *
+   * ```html
+   * <a name="name-of-section" data-title="Lorem Ipsum"></a>
+   * ```
+   */
   menuItems: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string.isRequired,
       id: PropTypes.string.isRequired,
     })
   ),
+
+  /**
+   * Content to display next to the side nav.
+   */
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]),
+
+  /**
+   * Placeholder value for menu label.
+   */
   menuLabel: PropTypes.string,
-  theme: PropTypes.string,
+
+  /**
+   * Defines the color theme for the pattern. Choose from:
+   *
+   * | Name            | Description                              |
+   * | --------------- | ---------------------------------------- |
+   * | white / default | White theme applied to pattern           |
+   * | g10             | Gray 10 (g10) theme applied to pattern   |
+   * | g100            | Gray 100 (g100) theme applied to pattern |
+   */
+  theme: PropTypes.oneOf(['white', 'g10', 'g100']),
+
+  /**
+   * Defines the offset for the sticky column.
+   */
   stickyOffset: PropTypes.number,
+
+  /**
+   * Defines if the menu ruler will be rendered.
+   */
   menuRule: PropTypes.bool,
+
+  /**
+   * Content to be displayed above the navigation menu.
+   */
   headingContent: PropTypes.node,
 };
 
-/**
- * @property {object} defaultProps default TableOfContents props
- * @type {{marginBottom: null, stickyOffset: number, marginTop: null}}
- */
 TableOfContents.defaultProps = {
   menuItems: null,
   menuLabel: 'Jump to',
