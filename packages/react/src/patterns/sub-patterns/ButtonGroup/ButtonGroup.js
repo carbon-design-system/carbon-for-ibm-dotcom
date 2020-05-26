@@ -34,16 +34,21 @@ const ButtonGroup = ({ buttons }) => {
       const biggestElement = Math.max.apply(null, getAllWidths);
 
       const smBreakpoint = parseFloat(breakpoints.sm.width) * baseFontSize;
+      const resizeObserver = new ResizeObserver(entries => {
+        for (let entry of entries) {
+          if (entry.contentRect.width <= smBreakpoint) {
+            elements.forEach(element => (element.style.width = '100%'));
+          }
 
-      if (root.window.innerWidth <= smBreakpoint) {
-        elements.forEach(element => (element.style.width = '100%'));
-      }
+          if (entry.contentRect.width > smBreakpoint) {
+            elements.forEach(
+              element => (element.style.width = `${biggestElement}px`)
+            );
+          }
+        }
+      });
 
-      if (root.window.innerWidth > smBreakpoint) {
-        elements.forEach(
-          element => (element.style.width = `${biggestElement}px`)
-        );
-      }
+      resizeObserver.observe(parentNode);
     };
 
     /**
@@ -73,23 +78,6 @@ const ButtonGroup = ({ buttons }) => {
 
     setSameWidth(current);
     _stackElementsVertically(current);
-
-    root.window.addEventListener(
-      'resize',
-      () => {
-        root.window.requestAnimationFrame(() => {
-          _stackElementsVertically(current);
-          setSameWidth(current);
-        });
-      },
-      true
-    );
-
-    return () =>
-      root.window.removeEventListener('resize', () => {
-        _stackElementsVertically(current);
-        setSameWidth(current);
-      });
   }, []);
 
   return (
