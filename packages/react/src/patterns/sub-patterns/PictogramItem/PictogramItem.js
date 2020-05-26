@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -15,15 +15,7 @@ const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
- * Content with pictogram component
- *
- * @param {object} props props object {title, copy, pictogram, link}
- * @param {string} props.heading Content with pictogram component title property
- * @param {string} props.copy Content with pictogram component copy property
- * @param {string} props.className Pictogram Item className prop
- * @param {object} props.pictogram pictogram data object
- * @param {object} props.pictogram.src Pictogram component from the carbon library
- * @returns {*} Content array with pictograms item JSX Component
+ * Content with pictogram component.
  */
 const PictogramItem = ({
   heading,
@@ -55,12 +47,48 @@ const PictogramItem = ({
 );
 
 PictogramItem.propTypes = {
+  /**
+   * Content with pictogram component title property.
+   */
   heading: PropTypes.string.isRequired,
+
+  /**
+   * Content with pictogram component copy property.
+   */
   copy: PropTypes.string.isRequired,
-  cta: PropTypes.object,
+
+  /**
+   * Object with CTA data.
+   * See the [`<CTA>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-cta--default#props) for full usage details.
+   */
+  cta: PropTypes.shape({
+    style: PropTypes.oneOf(['text', 'card', 'button', 'feature']),
+    type: PropTypes.oneOfType([
+      PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video']),
+      PropTypes.arrayOf(
+        PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video'])
+      ),
+    ]),
+    copy: PropTypes.string,
+    href: PropTypes.string,
+    customClassName: PropTypes.string,
+  }),
+
+  /**
+   * Pictogram data object.
+   * The structure is:
+   *
+   * | Name  | Required | Data Type | Default Value | Description                                                  |
+   * | ----- | -------- | --------- | ------------- | ------------------------------------------------------------ |
+   * | `src` | YES      | Component | null          | Pictogram component imported from `@carbon/pictograms-react` |
+   */
   pictogram: PropTypes.shape({
     src: PropTypes.object.isRequired,
   }),
+
+  /**
+   * Pictogram Item `className`` prop.
+   */
   className: PropTypes.string,
 };
 

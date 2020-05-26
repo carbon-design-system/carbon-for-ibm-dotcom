@@ -29,10 +29,7 @@ const renderTrusteItem = () => {
 };
 
 /**
- * Footer legal nav component
- *
- * @param {object} props react proptypes
- * @returns {object} JSX object
+ * Footer legal nav component.
  */
 const LegalNav = ({ links }) => {
   if (!links || !links.length) {
@@ -98,6 +95,9 @@ function renderListItems(links) {
 }
 
 LegalNav.propTypes = {
+  /**
+   * A list of links to be rendered.
+   */
   links: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
@@ -106,10 +106,6 @@ LegalNav.propTypes = {
   ),
 };
 
-/**
- * @property {object} defaultProps default LegalNav props
- * @type {{groups: Array}}
- */
 LegalNav.defaultProps = {
   links: null,
 };

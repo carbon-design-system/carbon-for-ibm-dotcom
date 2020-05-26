@@ -89,16 +89,11 @@ function _reducer(state, action) {
 
 /**
  * MastheadSearch component which includes autosuggestion results from the
- * SearchTypeaheadAPI
+ * SearchTypeaheadAPI.
  *
  * The search field utilizes "react-autosuggest". Documentation available here:
  * http://react-autosuggest.js.org/
  * https://github.com/moroshko/react-autosuggest
- *
- * @param {object} props Incoming props
- * @param {string} props.placeHolderText Placeholder text for the search field
- * @param {number} props.renderValue Number of characters to begin showing suggestions
- * @class
  */
 const MastheadSearch = ({ placeHolderText, renderValue, searchOpenOnload }) => {
   const { ref } = useSearchVisible(false);
@@ -406,21 +401,23 @@ const MastheadSearch = ({ placeHolderText, renderValue, searchOpenOnload }) => {
   );
 };
 
-/**
- * @property {object} propTypes MastheadSearch propTypes
- * @description Defined property types for component
- * @type {{placeHolderText: string, renderValue: number}}
- */
 MastheadSearch.propTypes = {
+  /**
+   * Placeholder text for the search field.
+   */
   placeHolderText: PropTypes.string,
+
+  /**
+   * Number of characters to begin showing suggestions.
+   */
   renderValue: PropTypes.number,
+
+  /**
+   * `true` to make the search field open in the initial state.
+   */
   searchOpenOnload: PropTypes.bool,
 };
 
-/**
- * @property {object} defaultProps default MastheadSearch props
- * @type {{placeHolderText: string, renderValue: number}}
- */
 MastheadSearch.defaultProps = {
   placeHolderText: 'Search all of IBM',
   renderValue: 3,

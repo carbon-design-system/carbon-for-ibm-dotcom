@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -16,13 +16,7 @@ const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
- * VideoPlayer component
- *
- * @param {object} props props object
- * @param {boolean} props.inverse theming options
- * @param {string} props.showCaption video caption
- * @param {string} props.videoId Kaltura video id
- * @returns {*} VideoPlayer component
+ * VideoPlayer component.
  */
 const VideoPlayer = ({ inverse, showCaption, videoId, customClassName }) => {
   const [videoData, setVideoData] = useState({ description: '' });
@@ -73,15 +67,25 @@ const VideoPlayer = ({ inverse, showCaption, videoId, customClassName }) => {
   );
 };
 
-/**
- * @property {object} propTypes VideoPlayer propTypes
- * @description Defined property types for component
- * @type {{videoId: string, showCaption: boolean}}
- */
 VideoPlayer.propTypes = {
+  /**
+   * The CSS class name to apply.
+   */
   customClassName: PropTypes.string,
+
+  /**
+   * Video ID from Kaltura video platform.
+   */
   videoId: PropTypes.string.isRequired,
+
+  /**
+   * `true` to show the description.
+   */
   showCaption: PropTypes.bool,
+
+  /**
+   * `true` to use the inverse theme.
+   */
   inverse: PropTypes.bool,
 };
 

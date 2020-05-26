@@ -1,3 +1,10 @@
+/**
+ * Copyright IBM Corp. 2020
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 import React, { useCallback, useEffect, useRef } from 'react';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
@@ -5,13 +12,7 @@ import PropTypes from 'prop-types';
 const { stablePrefix } = ddsSettings;
 
 /**
- * Renders the input bar with the search icon
- *
- * @param {object} props Incoming props
- * @param {object} props.componentInputProps contains the input props
- * @param {boolean} props.isActive flag to determine if the search is active
- * @param {Function} props.searchIconClick executes when the search icon is clicked
- * @returns {*} The rendered component
+ * Renders the input bar with the search icon.
  */
 const MastheadSearchInput = ({ componentInputProps, dispatch, isActive }) => {
   const searchRef = useRef();
@@ -46,22 +47,28 @@ const MastheadSearchInput = ({ componentInputProps, dispatch, isActive }) => {
   );
 };
 
-/**
- * @property {object} propTypes MastheadSearchInput propTypes
- * @description Defined property types for component
- * @type {{dispatch: Function, componentInputProps: object, isActive: boolean}}
- */
 MastheadSearchInput.propTypes = {
+  /**
+   * The input props.
+   */
   componentInputProps: PropTypes.object,
+
+  /**
+   * The Redux action dispatcher to control `<MastheadSearch>`.
+   */
   dispatch: PropTypes.func,
+
+  /**
+   * `true` to make the search active.
+   */
   isActive: PropTypes.bool,
+
+  /**
+   * Executes when the search icon is clicked.
+   */
   searchIconClick: PropTypes.func,
 };
 
-/**
- * @property {object} defaultProps default MastheadSearchInput props
- * @type {{placeHolderText: string, renderValue: number}}
- */
 MastheadSearchInput.defaultProps = {
   componentInputProps: {},
   dispatch: () => {},
