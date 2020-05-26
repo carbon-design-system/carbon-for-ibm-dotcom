@@ -57,8 +57,8 @@ describe('CTA', () => {
   });
 
   it('Renders CardCTA | type video', () => {
-    CTALogic.setLightBox = jest.fn();
-    CTALogic.launchLightBox = jest.fn();
+    jest.spyOn(CTALogic, 'setLightBox');
+    jest.spyOn(CTALogic, 'launchLightBox');
     const cta = mount(
       <CardCTA type="video" videoTitle={[{ title: 'Lorem Ipsum' }]} />
     );
