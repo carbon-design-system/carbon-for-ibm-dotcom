@@ -7184,14 +7184,11 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                                 },
                               },
                             },
-                            "handleClick": [Function],
                             "heading": "Consectetur adipisicing elit",
                             "image": Object {
                               "alt": "Image alt text",
                               "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1",
                             },
-                            "target": null,
-                            "type": "link",
                           },
                           "heading": "Lorem ipsum dolor sit amet",
                           "style": "feature",
@@ -7345,14 +7342,11 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                                 },
                               },
                             },
-                            "handleClick": [Function],
                             "heading": "Consectetur adipisicing elit",
                             "image": Object {
                               "alt": "Image alt text",
                               "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1",
                             },
-                            "target": null,
-                            "type": "link",
                           },
                           "heading": "Lorem ipsum dolor sit amet",
                           "style": "feature",
@@ -7471,14 +7465,11 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                                     },
                                   },
                                 },
-                                "handleClick": [Function],
                                 "heading": "Consectetur adipisicing elit",
                                 "image": Object {
                                   "alt": "Image alt text",
                                   "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1",
                                 },
-                                "target": null,
-                                "type": "link",
                               },
                               "heading": "Lorem ipsum dolor sit amet",
                               "style": "feature",
@@ -8270,14 +8261,11 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                                       },
                                     },
                                   },
-                                  "handleClick": [Function],
                                   "heading": "Consectetur adipisicing elit",
                                   "image": Object {
                                     "alt": "Image alt text",
                                     "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1",
                                   },
-                                  "target": null,
-                                  "type": "link",
                                 }
                               }
                               customClassName="bx--content-block__cta"
@@ -8300,14 +8288,11 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                                           },
                                         },
                                       },
-                                      "handleClick": [Function],
                                       "heading": "Consectetur adipisicing elit",
                                       "image": Object {
                                         "alt": "Image alt text",
                                         "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1",
                                       },
-                                      "target": null,
-                                      "type": "link",
                                     }
                                   }
                                   heading="Lorem ipsum dolor sit amet"
@@ -8336,7 +8321,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                                             },
                                           },
                                         },
-                                        "handleClick": [Function],
                                         "heading": "Consectetur adipisicing elit",
                                         "image": Object {
                                           "alt": "Image alt text",
@@ -8381,7 +8365,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                                                       },
                                                     },
                                                   },
-                                                  "handleClick": [Function],
                                                   "heading": "Consectetur adipisicing elit",
                                                   "image": Object {
                                                     "alt": "Image alt text",
@@ -8619,14 +8602,11 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                 },
                               },
                             },
-                            "handleClick": [Function],
                             "heading": "Consectetur adipisicing elit",
                             "image": Object {
                               "alt": "Image alt text",
                               "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&text=1x1",
                             },
-                            "target": null,
-                            "type": "link",
                           },
                           "heading": "Lorem ipsum dolor sit amet",
                           "style": "feature",
@@ -8807,14 +8787,11 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                 },
                               },
                             },
-                            "handleClick": [Function],
                             "heading": "Consectetur adipisicing elit",
                             "image": Object {
                               "alt": "Image alt text",
                               "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&text=1x1",
                             },
-                            "target": null,
-                            "type": "link",
                           },
                           "heading": "Lorem ipsum dolor sit amet",
                           "style": "feature",
@@ -8960,14 +8937,11 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                     },
                                   },
                                 },
-                                "handleClick": [Function],
                                 "heading": "Consectetur adipisicing elit",
                                 "image": Object {
                                   "alt": "Image alt text",
                                   "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&text=1x1",
                                 },
-                                "target": null,
-                                "type": "link",
                               },
                               "heading": "Lorem ipsum dolor sit amet",
                               "style": "feature",
@@ -9803,14 +9777,11 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                               },
                                             },
                                           },
-                                          "handleClick": [Function],
                                           "heading": "Consectetur adipisicing elit",
                                           "image": Object {
                                             "alt": "Image alt text",
                                             "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&text=1x1",
                                           },
-                                          "target": null,
-                                          "type": "link",
                                         }
                                       }
                                       customClassName="bx--content-block__cta"
@@ -9833,14 +9804,11 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                                   },
                                                 },
                                               },
-                                              "handleClick": [Function],
                                               "heading": "Consectetur adipisicing elit",
                                               "image": Object {
                                                 "alt": "Image alt text",
                                                 "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&text=1x1",
                                               },
-                                              "target": null,
-                                              "type": "link",
                                             }
                                           }
                                           heading="Lorem ipsum dolor sit amet"
@@ -9869,7 +9837,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                                     },
                                                   },
                                                 },
-                                                "handleClick": [Function],
                                                 "heading": "Consectetur adipisicing elit",
                                                 "image": Object {
                                                   "alt": "Image alt text",
@@ -9914,7 +9881,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                                               },
                                                             },
                                                           },
-                                                          "handleClick": [Function],
                                                           "heading": "Consectetur adipisicing elit",
                                                           "image": Object {
                                                             "alt": "Image alt text",
