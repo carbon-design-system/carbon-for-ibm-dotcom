@@ -44,6 +44,7 @@ const CardCTA = ({
     <Card
       customClassName={`${prefix}--card__CTA`}
       cta={{
+        type,
         href: otherProps.cta.href,
         icon: {
           src: CTALogic.iconSelector(type),
@@ -52,7 +53,6 @@ const CardCTA = ({
       copy={otherProps.copy}
       type="link"
       target={CTALogic.external(type)}
-      handleClick={e => CTALogic.jump(e, type)}
       role="region"
     />
   );
