@@ -17,15 +17,7 @@ const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
- * The rendered suggestion in the suggestion list
- *
- * @param {object} props Incoming props
- * @param {object} props.suggestion The individual object from the data
- * @param {string} props.query The query being searched for
- * @param {boolean} props.isHighlighted Whether the suggestion is currently highlighted by the user
- * @param {Function} props.getSuggestionValue Gets the suggestion value
- * @returns {*} The individual suggested item with styles
- * @class
+ * The rendered suggestion in the suggestion list.
  */
 const MastheadSearchSuggestion = ({
   suggestion,
@@ -57,22 +49,28 @@ const MastheadSearchSuggestion = ({
   );
 };
 
-/**
- * @property {object} propTypes MastheadSearchSuggestion propTypes
- * @description Defined property types for component
- * @type {{isHighlighted: boolean, suggestion: Array, query: string, getSuggestionValue: Function}}
- */
 MastheadSearchSuggestion.propTypes = {
-  suggestion: PropTypes.array,
+  /**
+   * The individual object from the data.
+   */
+  suggestion: PropTypes.arrayOf(PropTypes.string),
+
+  /**
+   * The query being searched for.
+   */
   query: PropTypes.string,
+
+  /**
+   * `true` to make the suggestion currently highlighted by the user.
+   */
   isHighlighted: PropTypes.bool,
+
+  /**
+   * A funciton ot get the suggestion value.
+   */
   getSuggestionValue: PropTypes.func,
 };
 
-/**
- * @property {object} defaultProps default MastheadSearchSuggestion props
- * @type {{isHighlighted: boolean, suggestion: {}, query: string, getSuggestionValue: MastheadSearchSuggestion.defaultProps.getSuggestionValue}}
- */
 MastheadSearchSuggestion.defaultProps = {
   suggestion: [],
   query: '',

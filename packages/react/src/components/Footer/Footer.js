@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -25,18 +25,7 @@ const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
- * Footer component
- *
- * @param {object} props react proptypes
- * @param {string=} props.type Determines the type of footer to render
- * @param {object=} props.navigation Navigation object for SSR
- * @param {object=} props.langCode lc/cc object, e.g. { lc: 'en', cc: 'us' }
- * @param {boolean=} props.disableLocaleButton Flag to disable to locale button
- * @param {boolean=} props.languageOnly Switches to the language selector
- * @param {Array=} props.languageItems Array of language items for the dropdown
- * @param {object=} props.languageInitialItem Initial language selected
- * @param {Function=} props.languageCallback Callback function when language is selected
- * @returns {*} Footer JSX
+ * Footer component.
  */
 const Footer = ({
   type,
@@ -196,16 +185,75 @@ function _setFooterType(type) {
 }
 
 Footer.propTypes = {
-  navigation: PropTypes.object,
-  type: PropTypes.string,
-  langCode: PropTypes.object,
+  /**
+   * Navigation data object for Footer, used for server-side rendering.
+   */
+  navigation: PropTypes.shape({
+    footerMenu: PropTypes.arrayOf(
+      PropTypes.shape({
+        title: PropTypes.string,
+        links: PropTypes.arrayOf(
+          PropTypes.shape({
+            title: PropTypes.string,
+            url: PropTypes.string,
+          })
+        ),
+      })
+    ),
+    footerThin: PropTypes.arrayOf(
+      PropTypes.shape({
+        title: PropTypes.string,
+        url: PropTypes.string,
+      })
+    ),
+  }),
+
+  /**
+   * Type of Footer. Choose from:
+   *
+   * | Name    | Description                                                                 |
+   * | ------- | --------------------------------------------------------------------------- |
+   * | `tall`  | Default footer variant includes additional navigation taking up more space. |
+   * | `short` | Short footer variant reduces space by removing any additional navigation.   |
+   */
+  type: PropTypes.oneOf(['tall', 'short']),
+
+  /**
+   * Language code for fetching the display name.
+   */
+  langCode: PropTypes.shape({
+    cc: PropTypes.string,
+    lc: PropTypes.string,
+  }),
+
+  /**
+   * `true` to disable the Locale button.
+   */
   disableLocaleButton: PropTypes.bool,
+
+  /**
+   * `true` to switch the locale button with a language dropdown (experimental).
+   */
   languageOnly: PropTypes.bool,
+
+  /**
+   * Array of items for the language dropdown,
+   * utilizes the [Carbon ComboBox](https://react.carbondesignsystem.com/?path=/story/combobox--default) (experimental).
+   */
   languageItems: PropTypes.arrayOf(PropTypes.object),
+
+  /**
+   * Sets the initial value when the component is loaded (experimental).
+   * The default is the first item.
+   */
   languageInitialItem: PropTypes.shape({
     id: PropTypes.string,
     text: PropTypes.string,
   }),
+
+  /**
+   * Callback function onChange of the language dropdown (experimental).
+   */
   languageCallback: PropTypes.func,
 };
 

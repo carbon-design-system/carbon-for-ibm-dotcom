@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -39,15 +39,7 @@ const sortSources = sources => {
 };
 
 /**
- * renders background image
- *
- * @param {object} props props object
- * @param {object} props.classname classname
- * @param {Array} props.sources array of images used for diff breakpoints
- * @param {string} props.defaultSrc default image (usually image for largest breakpoint)
- * @param {string} props.alt alt of the image
- * @param {string} props.longDescription optional long description for infographics.
- * @returns {*} picture element
+ * Picture element.
  */
 const Image = ({ classname, sources, defaultSrc, alt, longDescription }) => {
   if (!defaultSrc || !alt) {
@@ -87,15 +79,39 @@ const Image = ({ classname, sources, defaultSrc, alt, longDescription }) => {
 };
 
 Image.propTypes = {
+  /**
+   * The CSS class names.
+   */
   classname: PropTypes.string,
+
+  /**
+   * Array of image objects. Use below object structure for each items:
+   *
+   * | Name         | Data Type     | Description                                  |
+   * | ------------ | ------------- | -------------------------------------------- |
+   * | `src`        | String        | Url of Image.                                |
+   * | `breakpoint` | Num OR String | min-width breakpoint to render the image src |
+   */
   sources: PropTypes.arrayOf(
     PropTypes.shape({
       src: PropTypes.string,
-      breakpoint: PropTypes.any,
+      breakpoint: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     })
   ),
+
+  /**
+   * Default image (usually image for largest breakpoint).
+   */
   defaultSrc: PropTypes.string.isRequired,
+
+  /**
+   * Alternate text for image component.
+   */
   alt: PropTypes.string.isRequired,
+
+  /**
+   * Visible to screen readers, hidden from users.
+   */
   longDescription: PropTypes.string,
 };
 

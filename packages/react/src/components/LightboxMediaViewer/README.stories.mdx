@@ -1,3 +1,6 @@
+import { Props } from '@storybook/addon-docs/blocks';
+import LightboxMediaViewer from './LightboxMediaViewer';
+
 # Lightbox Media Viewer
 
 > The LightboxMediaViewer component is to be utilized within IBM.com.
@@ -92,24 +95,11 @@ Add the following line in your `.env` file at the root of your project.
 
 ## Props
 
-| Name    | Required | Data Type | Default Value | Description                                                    |
-| ------- | -------- | --------- | ------------- | -------------------------------------------------------------- |
-| `title` | NO       | String    | null          | Title text for LightboxMediaViewer image                       |
-| `copy`  | NO       | String    | null          | Short description text for LightboxMediaViewer image           |
-| `media` | YES      | Object    | null          | Object containing media info. See `media` below                |
-| `open`  | YES      | Boolean   | null          | sets `true | false` whether the LightboxMediaViewer open/close |
+<Props of={LightboxMediaViewer} />
 
 > 💡 See uri object structure above in `Getting started` section.
 
-## media
-
-| Name          | Data Type | Description                                                           |
-| ------------- | --------- | --------------------------------------------------------------------- |
-| `type`        | String    | Determines whether to render `image` or `video`                       |
-| `src`         | String    | Image link or video id                                                |
-| `alt`         | String    | Alternate text for image. For video, this is generated from api call. |
-| `title`       | String    | Title copy. For video, this is generated from api call.               |
-| `description` | String    | Description copy. For video, this is generated from api call.         |
+> 💡 Also refer to [`<ExpressiveModal>`](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-expressive-modal--default) and Carbon's [`<ComposedModal>`](https://react.carbondesignsystem.com/?path=/story/composedmodal--using-child-nodes) for other props.
 
 ## Stable selectors
 

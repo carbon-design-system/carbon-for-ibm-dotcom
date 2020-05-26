@@ -216,7 +216,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                     "languageItems": null,
                     "languageOnly": false,
                     "navigation": null,
-                    "type": "",
+                    "type": undefined,
                   }
                 }
                 mastheadProps={
@@ -629,7 +629,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                     "languageItems": null,
                     "languageOnly": false,
                     "navigation": null,
-                    "type": "",
+                    "type": undefined,
                   }
                 }
                 mastheadProps={
@@ -649,7 +649,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                   eyebrowText={null}
                   hasProfile={true}
                   hasSearch={true}
-                  mastheadProps={null}
                   navigation="default"
                   placeHolderText="Search all of IBM"
                   platform={null}
@@ -766,7 +765,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                 className="bx--header__search "
                               >
                                 <MastheadTopNav
-                                  mastheadProps={null}
                                   navigation={Array []}
                                   platform={null}
                                 >
@@ -1006,7 +1004,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                               </HeaderGlobalBar>
                               <MastheadLeftNav
                                 isSideNavExpanded={false}
-                                mastheadProps={null}
                                 navigation={Array []}
                               >
                                 <ForwardRef(SideNav)
@@ -1739,7 +1736,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                   languageOnly={false}
                   mastheadProps={null}
                   navigation={null}
-                  type=""
                 >
                   <footer
                     className="bx--footer"
@@ -2915,12 +2911,7 @@ exports[`Storyshots Components|HorizontalRule Default 1`] = `
                     <div
                       className="bx--col"
                     >
-                      <HorizontalRule
-                        contrast=""
-                        size=""
-                        style=""
-                        weight=""
-                      />
+                      <HorizontalRule />
                     </div>
                   </div>
                 </div>
@@ -2941,12 +2932,7 @@ exports[`Storyshots Components|HorizontalRule Default 1`] = `
                       <h4>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                       </h4>
-                      <HorizontalRule
-                        contrast=""
-                        size=""
-                        style=""
-                        weight=""
-                      />
+                      <HorizontalRule />
                       <h4>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                       </h4>
@@ -3001,12 +2987,7 @@ exports[`Storyshots Components|HorizontalRule Default 1`] = `
                     <div
                       className="bx--col"
                     >
-                      <HorizontalRule
-                        contrast=""
-                        size=""
-                        style=""
-                        weight=""
-                      >
+                      <HorizontalRule>
                         <hr
                           className="bx--hr"
                           data-autoid="dds--hr"
@@ -3032,12 +3013,7 @@ exports[`Storyshots Components|HorizontalRule Default 1`] = `
                       <h4>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                       </h4>
-                      <HorizontalRule
-                        contrast=""
-                        size=""
-                        style=""
-                        weight=""
-                      >
+                      <HorizontalRule>
                         <hr
                           className="bx--hr"
                           data-autoid="dds--hr"
@@ -4379,7 +4355,6 @@ exports[`Storyshots Components|Masthead Default 1`] = `
                 eyebrowText={null}
                 hasProfile={true}
                 hasSearch={true}
-                mastheadProps={null}
                 navigation="default"
                 placeHolderText="Search all of IBM"
                 platform={null}
@@ -4418,7 +4393,6 @@ exports[`Storyshots Components|Masthead Default 1`] = `
                 eyebrowText={null}
                 hasProfile={true}
                 hasSearch={true}
-                mastheadProps={null}
                 navigation="default"
                 placeHolderText="Search all of IBM"
                 platform={null}
@@ -4535,7 +4509,6 @@ exports[`Storyshots Components|Masthead Default 1`] = `
                               className="bx--header__search "
                             >
                               <MastheadTopNav
-                                mastheadProps={null}
                                 navigation={Array []}
                                 platform={null}
                               >
@@ -4775,7 +4748,6 @@ exports[`Storyshots Components|Masthead Default 1`] = `
                             </HeaderGlobalBar>
                             <MastheadLeftNav
                               isSideNavExpanded={false}
-                              mastheadProps={null}
                               navigation={Array []}
                             >
                               <ForwardRef(SideNav)
@@ -4864,7 +4836,6 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
                 eyebrowText={null}
                 hasProfile={true}
                 hasSearch={true}
-                mastheadProps={null}
                 navigation="default"
                 placeHolderText="Search all of IBM"
                 platform={null}
@@ -4903,7 +4874,6 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
                 eyebrowText={null}
                 hasProfile={true}
                 hasSearch={true}
-                mastheadProps={null}
                 navigation="default"
                 placeHolderText="Search all of IBM"
                 platform={null}
@@ -5020,7 +4990,6 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
                               className="bx--header__search "
                             >
                               <MastheadTopNav
-                                mastheadProps={null}
                                 navigation={Array []}
                                 platform={null}
                               >
@@ -5430,7 +5399,6 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
                             </HeaderGlobalBar>
                             <MastheadLeftNav
                               isSideNavExpanded={false}
-                              mastheadProps={null}
                               navigation={Array []}
                             >
                               <ForwardRef(SideNav)
