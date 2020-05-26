@@ -16,14 +16,7 @@ import settings from 'carbon-components/es/globals/js/settings';
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 /**
- * Logo Grid
- *
- * @param {object} props Props object
- * @param {string} props.heading Heading for the Logo Grid Pattern
- * @param {Array} props.logosGroup Array of object with label, imgSrc and altText properties
- * @param {object} props.cta CTA object
- * @param {boolean} props.hideBorder Set to true to hide the grid bottom border
- * @returns {*} Logo Grid Pattern JSX object
+ * Logo Grid component.
  */
 const LogoGrid = ({ heading, logosGroup, cta, hideBorder }) => {
   /**
@@ -56,6 +49,7 @@ const LogoGrid = ({ heading, logosGroup, cta, hideBorder }) => {
                         defaultSrc={placeholder.imgSrc}
                         classname={`${prefix}--logo-grid_img`}
                         alt={placeholder.altText}
+                        longDescription={placeholder.label}
                       />
                     </div>
                   </a>
@@ -70,7 +64,20 @@ const LogoGrid = ({ heading, logosGroup, cta, hideBorder }) => {
 };
 
 LogoGrid.propTypes = {
+  /**
+   * Heading text.
+   */
   heading: PropTypes.string,
+  /**
+   * An array of logo objects to be rendered as Image components surrounded by hypertext links:
+   *
+   * | Name     | Data Type | Description                                                |
+   * | -------- | --------- | ---------------------------------------------------------- |
+   * | `label`  | String    | Visible to screen readers, hidden from users.              |
+   * | `imgSrc` | String    | Image source for logo placeholder.                         |
+   * | `altText`| String    | Alternate text for logo placeholder.                       |
+   * | `href`   | String    | Url of that the logo will link to.                         |
+   */
   logosGroup: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string,
@@ -79,7 +86,14 @@ LogoGrid.propTypes = {
       href: PropTypes.string,
     })
   ),
+  /**
+   * CTA object.
+   * See [`<CTA>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/patterns-sub-patterns-card--static#cta-required) for full usage details.
+   */
   cta: PropTypes.shape(CTA.propTypes),
+  /**
+   * Set to true to hide the default bottom border.
+   */
   hideBorder: PropTypes.bool,
 };
 

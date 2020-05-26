@@ -89,7 +89,7 @@ Add the following line in your `.env` file at the root of your project.
 | `label`   | String    | Label for logo placeholder.          |
 | `imgSrc`  | String    | image source for logo placeholder.   |
 | `altText` | String    | alternate text for logo placeholder. |
-| `href`    | String    | Url of the logo.                     |
+| `href`    | String    | Url of that the logo will link to.   |
 
 ### cta
 
