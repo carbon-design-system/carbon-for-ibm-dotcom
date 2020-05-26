@@ -68,7 +68,7 @@ describe('CTA', () => {
   });
 
   it('Renders CardCTA | type video', () => {
-    CTALogic.jump = jest.fn();
+    jest.spyOn(CTALogic, 'jump');
     const cta = mount(
       <CardCTA
         type="jump"
