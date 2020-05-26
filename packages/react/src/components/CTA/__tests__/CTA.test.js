@@ -105,7 +105,7 @@ describe('CTA', () => {
   });
 
   it('Renders ButtonCTA | type jump', () => {
-    CTALogic.jump = jest.fn();
+    jest.spyOn(CTALogic, 'jump');
     const cta = mount(
       <ButtonCTA
         buttons={[
