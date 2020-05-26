@@ -43,7 +43,9 @@ const FeatureCTA = ({
     <FeatureCardBlockMedium
       heading={otherProps.heading}
       card={_renderFeatureCard({
-        card: otherProps.card,
+        card: {
+          ...otherProps.card,
+        },
       })}
     />
   );
@@ -59,9 +61,9 @@ const FeatureCTA = ({
  * @returns {*} object
  */
 const _renderFeatureCard = ({ card }) => {
-  if (card.type === 'video') card.cta.href = '#';
+  if (card.type === 'jump') card.cta.type = 'jump';
+  else if (card.type === 'video') card.cta.href = '#';
   card.cta.icon.src = CTALogic.iconSelector(card.type);
-  card.handleClick = e => CTALogic.jump(e, card.type);
   card.target = CTALogic.external(card.type);
   card.type = 'link';
   return card;
