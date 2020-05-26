@@ -15,7 +15,7 @@ import TextCTA from '../TextCTA';
 
 describe('CTA', () => {
   it('Renders TextCTA | type jump', () => {
-    CTALogic.jump = jest.fn();
+    jest.spyOn(CTALogic, 'jump');
     const cta = mount(<TextCTA type="jump" href="#" copy="Lorem Ipsum" />);
     cta.find('a').simulate('click');
     expect(CTALogic.jump).toHaveBeenCalled();
