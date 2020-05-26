@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -14,9 +14,7 @@ const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
- *
- * @param {object} children jsx component
- * @returns {*} callout with child object
+ * Callout with child object.
  */
 const Callout = ({ children }) => (
   <section
@@ -35,6 +33,9 @@ const Callout = ({ children }) => (
 );
 
 Callout.propTypes = {
+  /**
+   * The component being imported into the callout container.
+   */
   children: PropTypes.object,
 };
 

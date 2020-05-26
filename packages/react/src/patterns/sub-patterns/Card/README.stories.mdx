@@ -1,3 +1,6 @@
+import { Props } from '@storybook/addon-docs/blocks';
+import { Card } from './Card';
+
 # Card Link
 
 > The card link component uses
@@ -50,16 +53,7 @@ Add the following line in your `.env` file at the root of your project.
 
 ## Props
 
-| Name              | Required | Data Type | Default Value | Description                                                                                                     |
-| ----------------- | -------- | --------- | ------------- | --------------------------------------------------------------------------------------------------------------- |
-| `copy`            | NO       | String    | null          | Paragraph of text that further describing the resource with added detail.                                       |
-| `customClassName` | NO       | String    | null          | Classname to be assigned to the Card component                                                                  |
-| `heading`         | NO       | String    | n/a           | Concise yet descriptive string of text describing the linked resource.                                          |
-| `type`            | NO       | String    | n/a           | Determines whether card is clickable or static.                                                                 |
-| `image`           | NO       | String    | null          | Image source to be passed as a property to the to the Card component. See link to Image component below.        |
-| `inverse`         | NO       | Boolean   | false         | Sets the high contrast for Card                                                                                 |
-| `eyebrow`         | NO       | String    | null          | Eyebrow text to be passed as a property to the Card component. Style for Card component has been set to "text". |
-| `cta`             | YES      | Object    | n/a           | Cta options. See 'cta' below.                                                                                   |
+<Props of={console.log('Card:', Card), Card} />
 
 ### cta (required)
 
