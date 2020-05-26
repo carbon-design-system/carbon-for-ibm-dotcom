@@ -13,16 +13,14 @@ import footerThin from '../__data__/footer-thin.json';
 import inPercy from '@percy-io/in-percy';
 import languageItems from '../__data__/language-items.json';
 import React from 'react';
-import readme from '../README.md';
+import readme from '../README.stories.mdx';
 
 export default {
   title: 'Components|Footer',
   decorators: [withKnobs],
 
   parameters: {
-    readme: {
-      sidebar: readme,
-    },
+    ...readme.parameters,
   },
 };
 

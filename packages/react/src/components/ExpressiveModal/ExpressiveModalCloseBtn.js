@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -16,13 +16,7 @@ const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
- * Expressive Modal
- *
- * @param {object} props react proptypes
- * @param {string} props.iconDescription accessible description that describes icon action
- * @param {string|string[]} props.btnClassName pass a custom class name to the button
- * @param {string|string[]} props.iconClassName pass a custom class name to the icon
- * @returns {object} JSX object
+ * Close button for Expressive Modal.
  */
 const ExpressiveModalCloseBtn = ({
   btnClassName,
@@ -46,8 +40,19 @@ const ExpressiveModalCloseBtn = ({
 };
 
 ExpressiveModalCloseBtn.propTypes = {
+  /**
+   * A custom class name to the button.
+   */
   btnClassName: PropTypes.string,
+
+  /**
+   * A custom class name to the icon.
+   */
   iconClassName: PropTypes.string,
+
+  /**
+   * Accessible description that describes icon action.
+   */
   iconDescription: PropTypes.string,
 };
 

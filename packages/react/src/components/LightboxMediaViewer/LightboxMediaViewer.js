@@ -21,12 +21,7 @@ const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
- * LightboxMediaViewer Component
- *
- * @param {object} modalProps props object
- * @param {object} modalProps.media LightboxMediaViewer media object
- * @param {boolean} modalProps.open sets whether the modal is open/close
- * @returns {*} JSX Object
+ * LightboxMediaViewer Component.
  */
 const LightboxMediaViewer = ({ media, ...modalProps }) => {
   const [videoData, setVideoData] = useState({
@@ -109,6 +104,23 @@ const LightboxMediaViewer = ({ media, ...modalProps }) => {
 };
 
 LightboxMediaViewer.propTypes = {
-  media: PropTypes.object.isRequired,
+  /**
+   * Object containing media info. The structure is:
+   *
+   * | Name          | Data Type | Description                                                           |
+   * | ------------- | --------- | --------------------------------------------------------------------- |
+   * | `type`        | String    | Determines whether to render `image` or `video`                       |
+   * | `src`         | String    | Image link or video id                                                |
+   * | `alt`         | String    | Alternate text for image. For video, this is generated from api call. |
+   * | `title`       | String    | Title copy. For video, this is generated from api call.               |
+   * | `description` | String    | Description copy. For video, this is generated from api call.         |
+   */
+  media: PropTypes.shape({
+    type: PropTypes.string,
+    src: PropTypes.string,
+    title: PropTypes.string,
+    alt: PropTypes.string,
+    description: PropTypes.string,
+  }).isRequired,
 };
 export default LightboxMediaViewer;

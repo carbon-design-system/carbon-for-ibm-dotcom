@@ -17,14 +17,7 @@ import settings from 'carbon-components/es/globals/js/settings';
 const { prefix } = settings;
 
 /**
- * MastHead L1 component
- *
- * @param {object} props React props
- * @param {boolean} props.isShort Flag on whether L1 is short or tall
- * @param {string} props.title Title for the L1
- * @param {string} props.eyebrowText Eyebrow text
- * @param {string} props.eyebrowLink URL for the Eyebrow
- * @returns {*} MastheadL1 JSX component
+ * MastHead L1 component.
  */
 const MastheadL1 = ({ isShort, title, eyebrowText, eyebrowLink }) => {
   const className = cx({
@@ -54,16 +47,25 @@ const MastheadL1 = ({ isShort, title, eyebrowText, eyebrowLink }) => {
   );
 };
 
-/**
- * @property {object} propTypes MastheadL1 propTypes
- * @description Defined property types for component
- *
- * @type {{isShort: boolean, title: string, eyebrowText: string, eyebrowLink: string}}
- */
 MastheadL1.propTypes = {
+  /**
+   * `true` to make this L1 short.
+   */
   isShort: PropTypes.bool,
+
+  /**
+   * The title (experimental).
+   */
   title: PropTypes.string,
+
+  /**
+   * Text for the eyebrow link (experimental).
+   */
   eyebrowText: PropTypes.string,
+
+  /**
+   * URL for the eyebrow link (experimental).
+   */
   eyebrowLink: PropTypes.string,
 };
 

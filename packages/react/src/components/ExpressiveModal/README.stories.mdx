@@ -1,3 +1,6 @@
+import { Props } from '@storybook/addon-docs/blocks';
+import ExpressiveModal from './ExpressiveModal';
+
 # Expressive modal
 
 > The expressive modal is based on
@@ -58,13 +61,7 @@ Add the following line in your `.env` file at the root of your project.
 
 ## Props
 
-| Name        | Required | Data Type       | Default Value | Description                                         |
-| ----------- | -------- | --------------- | ------------- | --------------------------------------------------- |
-| `children`  | NO       | Node            | null          | Components/Elements to be rendered within the Modal |
-| `className` | NO       | String OR Array | null          | Custom classname(s) for the Modal                   |
-| `fullwidth` | NO       | Boolean         | false         | Sets whether the Modal is fullwidth or not          |
-| `onClose`   | NO       | Function        | null          | Function to be triggered on close of Modal          |
-| `open`      | NO       | Boolean         | false         | Sets whether the Modal is open/close                |
+<Props of={ExpressiveModal} />
 
 ## Stable selectors
 
