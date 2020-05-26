@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -18,14 +18,7 @@ const { prefix } = settings;
 const { stablePrefix } = ddsSettings;
 
 /**
- *
- * @param {object} props ContentGroupSimple props object
- * @param {string} props.heading ContentGroupSimple heading title string
- * @param {string} props.mediaType Media type, video or image
- * @param {object} props.mediaData Data for renderimg the media
- * @param {Array} props.items Array of objects with data for ContentItems
- * @param {object} props.cta  Object with data for the CTA inside ContentGroup
- * @returns {*} ContentGroupSimple JSX object
+ * ContentGroupSimple.
  */
 const ContentGroupSimple = ({ heading, mediaType, mediaData, items, cta }) => (
   <div
@@ -66,11 +59,130 @@ const _renderMedia = (type, data) => {
 };
 
 ContentGroupSimple.propTypes = {
+  /**
+   * Main heading of the pattern.
+   */
   heading: PropTypes.string.isRequired,
-  mediaType: PropTypes.string,
-  mediaData: PropTypes.object,
-  items: PropTypes.arrayOf(PropTypes.object).isRequired,
-  cta: PropTypes.object,
+
+  /**
+   * Determines media type (image or video).
+   */
+  mediaType: PropTypes.oneOf(['image', 'video']),
+
+  /**
+   * Media Data for either image or video.
+   * See the following components' README for more details:
+   *
+   * * `mediaType="image"`: [`<ImageWithCaption>`](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-imagewithcaption--default#props)
+   * * `mediaType="video"`: [`<VideoPlayer>`](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-videoplayer--default#props)
+   */
+  mediaData: PropTypes.oneOfType([
+    PropTypes.shape({
+      inverse: PropTypes.bool,
+      image: PropTypes.shape(
+        PropTypes.shape({
+          classname: PropTypes.string,
+          sources: PropTypes.arrayOf(
+            PropTypes.shape({
+              src: PropTypes.string,
+              breakpoint: PropTypes.oneOfType([
+                PropTypes.string,
+                PropTypes.number,
+              ]),
+            })
+          ),
+          defaultSrc: PropTypes.string.isRequired,
+          alt: PropTypes.string.isRequired,
+          longDescription: PropTypes.string,
+        })
+      ).isRequired,
+      lightbox: PropTypes.bool,
+      heading: PropTypes.string,
+      copy: PropTypes.string,
+      customClassName: PropTypes.string,
+    }),
+    PropTypes.shape({
+      customClassName: PropTypes.string,
+      videoId: PropTypes.string.isRequired,
+      showCaption: PropTypes.bool,
+      inverse: PropTypes.bool,
+    }),
+  ]),
+
+  /**
+   * Data to be used on `<ContentItem>`s.
+   * See [`<ContentItem>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/patterns-sub-patterns-contentitem--default#props) for full usage details.
+   */
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      cta: PropTypes.shape({
+        style: PropTypes.oneOf(['text', 'card', 'button', 'feature']),
+        type: PropTypes.oneOfType([
+          PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video']),
+          PropTypes.arrayOf(
+            PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video'])
+          ),
+        ]),
+        copy: PropTypes.string,
+        href: PropTypes.string,
+        customClassName: PropTypes.string,
+      }),
+      customClassName: PropTypes.string,
+      copy: PropTypes.string,
+      heading: PropTypes.string,
+      mediaType: PropTypes.oneOf(['image', 'video']),
+      mediaData: PropTypes.oneOfType([
+        PropTypes.shape({
+          inverse: PropTypes.bool,
+          image: PropTypes.shape(
+            PropTypes.shape({
+              classname: PropTypes.string,
+              sources: PropTypes.arrayOf(
+                PropTypes.shape({
+                  src: PropTypes.string,
+                  breakpoint: PropTypes.oneOfType([
+                    PropTypes.string,
+                    PropTypes.number,
+                  ]),
+                })
+              ),
+              defaultSrc: PropTypes.string.isRequired,
+              alt: PropTypes.string.isRequired,
+              longDescription: PropTypes.string,
+            })
+          ).isRequired,
+          lightbox: PropTypes.bool,
+          heading: PropTypes.string,
+          copy: PropTypes.string,
+          customClassName: PropTypes.string,
+        }),
+        PropTypes.shape({
+          customClassName: PropTypes.string,
+          videoId: PropTypes.string.isRequired,
+          showCaption: PropTypes.bool,
+          inverse: PropTypes.bool,
+        }),
+      ]),
+      inverse: PropTypes.bool,
+    })
+  ).isRequired,
+
+  /**
+   * Data to be used on CTA.
+   * See the [`<CTA>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-cta--default#props) for full usage details.
+   */
+  cta: PropTypes.shape({
+    style: PropTypes.oneOf(['text', 'card', 'button', 'feature']),
+    type: PropTypes.oneOfType([
+      PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video']),
+      PropTypes.arrayOf(
+        PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video'])
+      ),
+    ]),
+    copy: PropTypes.string,
+    href: PropTypes.string,
+    customClassName: PropTypes.string,
+  }),
 };
 
 export default ContentGroupSimple;

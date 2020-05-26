@@ -1,3 +1,6 @@
+import { Props } from '@storybook/addon-docs/blocks';
+import SimpleBenefits from './SimpleBenefits';
+
 # Simple Benefits
 
 > The Simple Benefits pattern is to be utilized within IBM.com.
@@ -119,26 +122,7 @@ DDS_SIMPLEBENEFITS=true
 
 ## Props
 
-| Name      | Required | Data Type | Default Value | Description                                          |
-| --------- | -------- | --------- | ------------- | ---------------------------------------------------- |
-| `title`   | YES      | String    | n/a           | Main title of the pattern.                           |
-| `content` | NO       | Array     | null          | Array of content group objects. See `content` below. |
-
-### content
-
-| Name    | Data Type | Description                                                  |
-| ------- | --------- | ------------------------------------------------------------ |
-| `title` | String    | Title of the Content Card item.                              |
-| `copy`  | String    | Copy of the Content Card item.                               |
-| `link`  | Object    | Object containing target and href of link. See `link` below. |
-
-### link
-
-| Name     | Data Type | Description                                                |
-| -------- | --------- | ---------------------------------------------------------- |
-| `href`   | String    | Url of link.                                               |
-| `text`   | String    | Link text.                                                 |
-| `target` | String    | Open within current tab or new tab ('\_self' or '\_blank') |
+<Props of={SimpleBenefits} />
 
 ## Stable selectors
 

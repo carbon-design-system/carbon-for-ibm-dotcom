@@ -1,3 +1,6 @@
+import { Props } from '@storybook/addon-docs/blocks';
+import ContentGroupCards from './ContentGroupCards';
+
 # Content Group Cards
 
 > The Content Group Cards pattern is to be utilized within IBM.com.
@@ -86,24 +89,7 @@ Add the following line in your `.env` file at the root of your project.
 
 ## Props
 
-| Name      | Required | Data Type | Default Value | Description                                          |
-| --------- | -------- | --------- | ------------- | ---------------------------------------------------- |
-| `heading` | YES      | String    | n/a           | Main heading of the pattern.                         |
-| `items`   | NO       | Array     | null          | Array of content group objects. See `content` below. |
-
-### content
-
-| Name      | Data Type | Description                                                |
-| --------- | --------- | ---------------------------------------------------------- |
-| `heading` | String    | Title for the Card.                                        |
-| `copy`    | String    | Copy for the Card.                                         |
-| `cta`     | Object    | Object containing target and href of cta. See `cta` below. |
-
-### cta
-
-| Name   | Data Type | Description                       |
-| ------ | --------- | --------------------------------- |
-| `href` | String    | Url of the Content Card item cta. |
+<Props of={ContentGroupCards} />
 
 ## Stable selectors
 

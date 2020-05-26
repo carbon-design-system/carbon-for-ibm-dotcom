@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -144,12 +144,71 @@ const LeadSpace = ({ buttons, copy, gradient, image, theme, title, type }) => {
 };
 
 LeadSpace.propTypes = {
-  buttons: PropTypes.array,
+  /**
+   * Array of button objects to render (max 2).
+   * See [`<ButtonGroup>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/patterns-sub-patterns-buttongroup--default#button-item) for full usage details.
+   */
+  buttons: PropTypes.arrayOf(
+    PropTypes.shape({
+      copy: PropTypes.string.isRequired,
+      href: PropTypes.string.isRequired,
+      renderIcon: PropTypes.elementType,
+    })
+  ),
+
+  /**
+   * Short copy of LeadSpace.
+   */
   copy: PropTypes.string,
+
+  /**
+   * `true` to render overlay gradient.
+   */
   gradient: PropTypes.bool,
-  image: PropTypes.shape(Image.propTypes),
-  theme: PropTypes.string,
+
+  /**
+   * Object with different ratio options for corresponding breakpoints.
+   * See [`<Image>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-image--default#props) for full usage details.
+   */
+  image: PropTypes.shape(
+    PropTypes.shape({
+      classname: PropTypes.string,
+      sources: PropTypes.arrayOf(
+        PropTypes.shape({
+          src: PropTypes.string,
+          breakpoint: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+        })
+      ),
+      defaultSrc: PropTypes.string.isRequired,
+      alt: PropTypes.string.isRequired,
+      longDescription: PropTypes.string,
+    })
+  ),
+
+  /**
+   * Color theme of LeadSpace. Choose from:
+   *
+   * | Name    | Data Type | Description           |
+   * | ------- | --------- | --------------------- |
+   * | `white` | String    | Carbon White theme    |
+   * | `g100`  | String    | Carbon Gray 100 theme |
+   */
+  theme: PropTypes.oneOf(['white', 'g100']),
+
+  /**
+   * Title of LeadSpace.
+   */
   title: PropTypes.string.isRequired,
+
+  /**
+   * Sets the type of Leadspace layout. Choose from:
+   *
+   * | Name              | Data Type | Description                                       |
+   * | ----------------- | --------- | ------------------------------------------------- |
+   * | `small`/`default` | String    | Left-aligned - small style of the leadspace title |
+   * | `left`            | String    | Left-aligned - large style of the leadspace title |
+   * | `centered`        | String    | Centered type of the LeadSpace                    |
+   */
   type: PropTypes.oneOf(['small', 'left', 'centered']),
 };
 
