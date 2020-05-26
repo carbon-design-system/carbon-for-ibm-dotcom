@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2016, 2018
+// Copyright IBM Corp. 2016, 2020
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -20,10 +20,12 @@
   }
   .#{$prefix}--content-item {
     margin-top: $carbon--spacing-07;
-    margin-bottom: $carbon--spacing-07;
+    margin-bottom: $carbon--spacing-09;
     &__heading,
     &__copy {
-      @include content-width;
+      @include carbon--breakpoint(md) {
+        @include content-width;
+      }
     }
 
     &__heading {

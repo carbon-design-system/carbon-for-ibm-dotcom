@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2016, 2018
+// Copyright IBM Corp. 2016, 2020
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -30,6 +30,8 @@
     }
 
     &__video-caption {
+      @include carbon--type-style(body-long-01, true);
+
       padding-top: $spacing-05;
       color: $text-05;
       max-width: 90%;
