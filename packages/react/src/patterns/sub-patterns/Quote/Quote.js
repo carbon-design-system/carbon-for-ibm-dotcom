@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -137,10 +137,56 @@ const Quote = ({ markType = 'doubleCurved', copy, source, cta, inverse }) => {
 };
 
 Quote.propTypes = {
-  markType: PropTypes.string,
+  /**
+   * Type of the quote marks. Choose from:
+   *
+   * | Name                          | Description |
+   * | ----------------------------- | ----------- |
+   * | `singleCurved`                | ‘ ’         |
+   * | `doubleCurved`                | “ ”         |
+   * | `singleAngle`                 | ‹ ›         |
+   * | `doubleAngle`                 | « »         |
+   * | `lowHighReversedDoubleCurved` | „ “         |
+   */
+  markType: PropTypes.oneOf([
+    'doubleCurved',
+    'singleCurved',
+    'doubleAngle',
+    'singleAngle',
+    'lowHighReversedDoubleCurved',
+  ]),
+
+  /**
+   * Main Quote.
+   */
   copy: PropTypes.string.isRequired,
-  source: PropTypes.object,
-  cta: PropTypes.object,
+
+  /**
+   * Source object. The structure is:
+   *
+   * | Name      | Required | Data Type | Default Value | Description      |
+   * | --------- | -------- | --------- | ------------- | ---------------- |
+   * | `heading` | YES      | String    | null          | Source heading   |
+   * | `copy`    | YES      | String    | null          | Source body text |
+   */
+  source: PropTypes.shape({
+    heading: PropTypes.string.isRequired,
+    copy: PropTypes.string.isRequired,
+  }),
+
+  /**
+   * Object with a sub-scheme of CTA data.
+   * See the [`<CTA>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-cta--default#props) for full usage details.
+   */
+  cta: PropTypes.shape({
+    copy: PropTypes.string,
+    type: PropTypes.oneOf(['local', 'external']),
+    href: PropTypes.string,
+  }),
+
+  /**
+   * `true` to use the invese colors.
+   */
   inverse: PropTypes.bool,
 };
 

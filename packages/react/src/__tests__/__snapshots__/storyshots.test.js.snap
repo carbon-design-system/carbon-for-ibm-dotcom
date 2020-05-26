@@ -216,7 +216,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                     "languageItems": null,
                     "languageOnly": false,
                     "navigation": null,
-                    "type": "",
+                    "type": undefined,
                   }
                 }
                 mastheadProps={
@@ -629,7 +629,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                     "languageItems": null,
                     "languageOnly": false,
                     "navigation": null,
-                    "type": "",
+                    "type": undefined,
                   }
                 }
                 mastheadProps={
@@ -649,7 +649,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                   eyebrowText={null}
                   hasProfile={true}
                   hasSearch={true}
-                  mastheadProps={null}
                   navigation="default"
                   placeHolderText="Search all of IBM"
                   platform={null}
@@ -766,7 +765,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                 className="bx--header__search "
                               >
                                 <MastheadTopNav
-                                  mastheadProps={null}
                                   navigation={Array []}
                                   platform={null}
                                 >
@@ -1006,7 +1004,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                               </HeaderGlobalBar>
                               <MastheadLeftNav
                                 isSideNavExpanded={false}
-                                mastheadProps={null}
                                 navigation={Array []}
                               >
                                 <ForwardRef(SideNav)
@@ -1739,7 +1736,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                   languageOnly={false}
                   mastheadProps={null}
                   navigation={null}
-                  type=""
                 >
                   <footer
                     className="bx--footer"
@@ -2507,7 +2503,6 @@ exports[`Storyshots Components|Footer Default 1`] = `
                 languageOnly={false}
                 mastheadProps={null}
                 navigation={null}
-                type=""
               />
             </React.Fragment>,
             "type": "STORY",
@@ -2551,7 +2546,6 @@ exports[`Storyshots Components|Footer Default 1`] = `
                 languageOnly={false}
                 mastheadProps={null}
                 navigation={null}
-                type=""
               >
                 <footer
                   className="bx--footer"
@@ -2686,6 +2680,198 @@ exports[`Storyshots Components|Footer Default 1`] = `
 </Container>
 `;
 
+exports[`Storyshots Components|Footer Short 1`] = `
+<Container
+  story={[Function]}
+>
+  <div
+    data-floating-menu-container=""
+    role="main"
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+      }
+    }
+  >
+    <ReadmeContent
+      codeTheme="github"
+      layout={
+        Array [
+          Object {
+            "content": <React.Fragment>
+              <Footer
+                disableLocaleButton={false}
+                footerProps={null}
+                langCode={null}
+                mastheadProps={null}
+                navigation={null}
+                type="short"
+              />
+            </React.Fragment>,
+            "type": "STORY",
+          },
+        ]
+      }
+      theme={Object {}}
+      types={
+        Array [
+          "MD",
+          "STORY",
+          "STORY_SOURCE",
+          "PROPS",
+          "FOOTER_MD",
+          "HEADER_MD",
+        ]
+      }
+    >
+      <div
+        className="storybook-readme-story"
+      >
+        <_default
+          key="0"
+        >
+          <div
+            style={Object {}}
+          >
+            <div>
+              <Footer
+                disableLocaleButton={false}
+                footerProps={null}
+                langCode={null}
+                mastheadProps={null}
+                navigation={null}
+                type="short"
+              >
+                <footer
+                  className="bx--footer bx--footer--short"
+                  data-autoid="dds--footer"
+                >
+                  <section
+                    className="bx--footer__main"
+                  >
+                    <div
+                      className="bx--footer__main-container"
+                    >
+                      <Logo>
+                        <div
+                          className="bx--footer-logo"
+                          data-autoid="dds--footer-logo"
+                        >
+                          <a
+                            className="bx--footer-logo__link"
+                            data-autoid="dds--footer-logo__link"
+                            href="https://www.ibm.com/"
+                          >
+                            <FooterLogo
+                              className="bx--footer-logo__logo"
+                              viewBox="0 0 157 65"
+                            >
+                              <svg
+                                className="bx--footer-logo__logo"
+                                viewBox="0 0 157 65"
+                              >
+                                <title>
+                                  IBM Logo
+                                </title>
+                                <path
+                                  d="M30.444 60.208v4.03H0v-4.03h30.444zm78.291-.001v4.03H86.983v-4.03h21.752zm47.858 0v4.03H134.84v-4.03h21.753zm-33.416 0l-1.398 4.03-1.38-4.03h2.778zm-88.384 0h42.775c-2.797 2.426-6.39 3.925-10.327 4.025l-.423.006H34.793v-4.03h42.775zm-4.35-8.46v4.03H0v-4.03h30.444zm52.402 0c-.332 1.248-.8 2.44-1.389 3.555l-.259.474H34.793v-4.029h48.052zm73.748-.005v4.031H134.84v-4.03h21.753zm-47.858 0v4.031H86.983v-4.03h21.752zm17.375 0l-1.398 4.031h-5.85l-1.395-4.03h8.643zM21.745 43.285v4.03H8.698v-4.03h13.047zm61.195 0a17.32 17.32 0 0 1 .476 3.51l.008.52H68.796v-4.03H82.94zm-26.401 0v4.03H43.491v-4.03H56.54zm72.502-.007l-1.396 4.03H115.93l-1.397-4.03h14.507zm18.85 0v4.03h-13.05v-4.03h13.05zm-39.156 0v4.03H95.684v-4.03h13.051zm-86.99-8.454v4.03H8.698v-4.03h13.047zm56.117 0a16.945 16.945 0 0 1 2.926 3.582l.264.447h-37.56v-4.03h34.37zm30.873-.01v4.03H95.684v-4.03h13.051zm39.157 0v4.03H134.84v-4.03h13.052zm-15.919 0l-1.396 4.03h-17.579l-1.396-4.03h20.371zm-50.778-8.452a16.963 16.963 0 0 1-2.82 3.674l-.37.355H43.49v-4.029h37.704zm-59.45 0v4.03H8.698v-4.03h13.047zm126.147-.013v4.031H134.84v-3.839l-1.33 3.839h-11.456l1.373-4.03h24.465zm-27.743 0l1.372 4.031h-11.456l-1.33-3.839v3.84H95.684v-4.032h24.465zm-98.404-8.448v4.03H8.698V17.9h13.047zm61.68 0c0 1.215-.134 2.399-.375 3.542l-.11.487H68.796V17.9h14.628zM56.538 17.9v4.03H43.491V17.9H56.54zm91.352-.015v4.03h-22.954l1.37-4.03h21.584zm-30.624 0l1.372 4.03H95.684v-4.03h21.583zM30.444 9.437v4.03H0v-4.03h30.444zm50.753 0a17.048 17.048 0 0 1 1.498 3.499l.15.531H34.794v-4.03h46.403zm75.396-.018v4.03h-28.776l1.373-4.03h27.403zm-42.207 0l1.372 4.031H86.982V9.42h27.404zM30.444.978v4.03H0V.977h30.444zm36.374 0c3.96 0 7.594 1.415 10.448 3.772l.303.257H34.794V.977h32.024zm89.775-.022v4.031h-25.894l1.372-4.03h24.522zm-45.098 0l1.372 4.03H86.982V.955h24.513z"
+                                />
+                              </svg>
+                            </FooterLogo>
+                          </a>
+                        </div>
+                      </Logo>
+                      <LocaleButton
+                        aria=""
+                        displayLang=""
+                      >
+                        <div
+                          className="bx--locale-btn__container"
+                        >
+                          <ForwardRef(Button)
+                            aria-label=""
+                            className="bx--locale-btn"
+                            data-autoid="dds--locale-btn"
+                            disabled={false}
+                            iconDescription="Earth Filled Icon"
+                            kind="secondary"
+                            onClick={[Function]}
+                            renderIcon={
+                              Object {
+                                "$$typeof": Symbol(react.forward_ref),
+                                "render": [Function],
+                              }
+                            }
+                            tabIndex={0}
+                            type="button"
+                          >
+                            <button
+                              aria-label=""
+                              className="bx--locale-btn bx--btn bx--btn--secondary"
+                              data-autoid="dds--locale-btn"
+                              disabled={false}
+                              onClick={[Function]}
+                              tabIndex={0}
+                              type="button"
+                            >
+                              <ForwardRef(EarthFilled20)
+                                aria-hidden="true"
+                                aria-label="Earth Filled Icon"
+                                className="bx--btn__icon"
+                              >
+                                <Icon
+                                  aria-hidden="true"
+                                  aria-label="Earth Filled Icon"
+                                  className="bx--btn__icon"
+                                  height={20}
+                                  preserveAspectRatio="xMidYMid meet"
+                                  viewBox="0 0 32 32"
+                                  width={20}
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    aria-label="Earth Filled Icon"
+                                    className="bx--btn__icon"
+                                    focusable="false"
+                                    height={20}
+                                    preserveAspectRatio="xMidYMid meet"
+                                    role="img"
+                                    viewBox="0 0 32 32"
+                                    width={20}
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      d="M16,2A14,14,0,1,0,30,16,14.0158,14.0158,0,0,0,16,2ZM4.02,16.394l1.3384.4458L7,19.3027v1.2831a1,1,0,0,0,.2929.7071L10,24v2.3765A11.9941,11.9941,0,0,1,4.02,16.394ZM16,28a11.9682,11.9682,0,0,1-2.5718-.2847L14,26l1.8046-4.5116a1,1,0,0,0-.0964-.9261l-1.4113-2.117A1,1,0,0,0,13.4648,18h-4.93L7.2866,16.1274,9.4141,14H11v2h2V13.2656l3.8682-6.7695-1.7364-.9922L14.2769,7H11.5352l-1.086-1.6289A11.861,11.861,0,0,1,20,4.7V8a1,1,0,0,0,1,1h1.4648a1,1,0,0,0,.8321-.4453l.8769-1.3154A12.0331,12.0331,0,0,1,26.8945,11H22.82a1,1,0,0,0-.9806.8039l-.7221,4.4708a1,1,0,0,0,.54,1.0539L25,19l.6851,4.0557A11.9793,11.9793,0,0,1,16,28Z"
+                                    />
+                                  </svg>
+                                </Icon>
+                              </ForwardRef(EarthFilled20)>
+                            </button>
+                          </ForwardRef(Button)>
+                        </div>
+                      </LocaleButton>
+                    </div>
+                  </section>
+                  <LegalNav
+                    links={Array []}
+                  />
+                </footer>
+              </Footer>
+            </div>
+          </div>
+        </_default>
+      </div>
+    </ReadmeContent>
+  </div>
+  <input
+    aria-label="input-text-offleft"
+    className="bx--visually-hidden"
+    type="text"
+  />
+</Container>
+`;
+
 exports[`Storyshots Components|HorizontalRule Default 1`] = `
 <Container
   story={[Function]}
@@ -2725,12 +2911,7 @@ exports[`Storyshots Components|HorizontalRule Default 1`] = `
                     <div
                       className="bx--col"
                     >
-                      <HorizontalRule
-                        contrast=""
-                        size=""
-                        style=""
-                        weight=""
-                      />
+                      <HorizontalRule />
                     </div>
                   </div>
                 </div>
@@ -2751,12 +2932,7 @@ exports[`Storyshots Components|HorizontalRule Default 1`] = `
                       <h4>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                       </h4>
-                      <HorizontalRule
-                        contrast=""
-                        size=""
-                        style=""
-                        weight=""
-                      />
+                      <HorizontalRule />
                       <h4>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                       </h4>
@@ -2811,12 +2987,7 @@ exports[`Storyshots Components|HorizontalRule Default 1`] = `
                     <div
                       className="bx--col"
                     >
-                      <HorizontalRule
-                        contrast=""
-                        size=""
-                        style=""
-                        weight=""
-                      >
+                      <HorizontalRule>
                         <hr
                           className="bx--hr"
                           data-autoid="dds--hr"
@@ -2842,12 +3013,7 @@ exports[`Storyshots Components|HorizontalRule Default 1`] = `
                       <h4>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                       </h4>
-                      <HorizontalRule
-                        contrast=""
-                        size=""
-                        style=""
-                        weight=""
-                      >
+                      <HorizontalRule>
                         <hr
                           className="bx--hr"
                           data-autoid="dds--hr"
@@ -4189,7 +4355,6 @@ exports[`Storyshots Components|Masthead Default 1`] = `
                 eyebrowText={null}
                 hasProfile={true}
                 hasSearch={true}
-                mastheadProps={null}
                 navigation="default"
                 placeHolderText="Search all of IBM"
                 platform={null}
@@ -4228,7 +4393,6 @@ exports[`Storyshots Components|Masthead Default 1`] = `
                 eyebrowText={null}
                 hasProfile={true}
                 hasSearch={true}
-                mastheadProps={null}
                 navigation="default"
                 placeHolderText="Search all of IBM"
                 platform={null}
@@ -4345,7 +4509,6 @@ exports[`Storyshots Components|Masthead Default 1`] = `
                               className="bx--header__search "
                             >
                               <MastheadTopNav
-                                mastheadProps={null}
                                 navigation={Array []}
                                 platform={null}
                               >
@@ -4585,7 +4748,6 @@ exports[`Storyshots Components|Masthead Default 1`] = `
                             </HeaderGlobalBar>
                             <MastheadLeftNav
                               isSideNavExpanded={false}
-                              mastheadProps={null}
                               navigation={Array []}
                             >
                               <ForwardRef(SideNav)
@@ -4674,7 +4836,6 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
                 eyebrowText={null}
                 hasProfile={true}
                 hasSearch={true}
-                mastheadProps={null}
                 navigation="default"
                 placeHolderText="Search all of IBM"
                 platform={null}
@@ -4713,7 +4874,6 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
                 eyebrowText={null}
                 hasProfile={true}
                 hasSearch={true}
-                mastheadProps={null}
                 navigation="default"
                 placeHolderText="Search all of IBM"
                 platform={null}
@@ -4830,7 +4990,6 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
                               className="bx--header__search "
                             >
                               <MastheadTopNav
-                                mastheadProps={null}
                                 navigation={Array []}
                                 platform={null}
                               >
@@ -5240,7 +5399,6 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
                             </HeaderGlobalBar>
                             <MastheadLeftNav
                               isSideNavExpanded={false}
-                              mastheadProps={null}
                               navigation={Array []}
                             >
                               <ForwardRef(SideNav)
@@ -7026,14 +7184,11 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                                 },
                               },
                             },
-                            "handleClick": [Function],
                             "heading": "Consectetur adipisicing elit",
                             "image": Object {
                               "alt": "Image alt text",
                               "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1",
                             },
-                            "target": null,
-                            "type": "link",
                           },
                           "heading": "Lorem ipsum dolor sit amet",
                           "style": "feature",
@@ -7187,14 +7342,11 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                                 },
                               },
                             },
-                            "handleClick": [Function],
                             "heading": "Consectetur adipisicing elit",
                             "image": Object {
                               "alt": "Image alt text",
                               "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1",
                             },
-                            "target": null,
-                            "type": "link",
                           },
                           "heading": "Lorem ipsum dolor sit amet",
                           "style": "feature",
@@ -7313,14 +7465,11 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                                     },
                                   },
                                 },
-                                "handleClick": [Function],
                                 "heading": "Consectetur adipisicing elit",
                                 "image": Object {
                                   "alt": "Image alt text",
                                   "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1",
                                 },
-                                "target": null,
-                                "type": "link",
                               },
                               "heading": "Lorem ipsum dolor sit amet",
                               "style": "feature",
@@ -7625,10 +7774,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                                                         "render": [Function],
                                                       },
                                                     },
+                                                    "type": "local",
                                                   }
                                                 }
                                                 customClassName="bx--card__CTA"
-                                                handleClick={[Function]}
                                                 role="region"
                                                 target={null}
                                                 type="link"
@@ -7998,10 +8147,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                                                         "render": [Function],
                                                       },
                                                     },
+                                                    "type": "local",
                                                   }
                                                 }
                                                 customClassName="bx--card__CTA"
-                                                handleClick={[Function]}
                                                 role="region"
                                                 target={null}
                                                 type="link"
@@ -8112,14 +8261,11 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                                       },
                                     },
                                   },
-                                  "handleClick": [Function],
                                   "heading": "Consectetur adipisicing elit",
                                   "image": Object {
                                     "alt": "Image alt text",
                                     "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1",
                                   },
-                                  "target": null,
-                                  "type": "link",
                                 }
                               }
                               customClassName="bx--content-block__cta"
@@ -8142,14 +8288,11 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                                           },
                                         },
                                       },
-                                      "handleClick": [Function],
                                       "heading": "Consectetur adipisicing elit",
                                       "image": Object {
                                         "alt": "Image alt text",
                                         "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1",
                                       },
-                                      "target": null,
-                                      "type": "link",
                                     }
                                   }
                                   heading="Lorem ipsum dolor sit amet"
@@ -8178,7 +8321,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                                             },
                                           },
                                         },
-                                        "handleClick": [Function],
                                         "heading": "Consectetur adipisicing elit",
                                         "image": Object {
                                           "alt": "Image alt text",
@@ -8223,7 +8365,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
                                                       },
                                                     },
                                                   },
-                                                  "handleClick": [Function],
                                                   "heading": "Consectetur adipisicing elit",
                                                   "image": Object {
                                                     "alt": "Image alt text",
@@ -8461,14 +8602,11 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                 },
                               },
                             },
-                            "handleClick": [Function],
                             "heading": "Consectetur adipisicing elit",
                             "image": Object {
                               "alt": "Image alt text",
                               "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&text=1x1",
                             },
-                            "target": null,
-                            "type": "link",
                           },
                           "heading": "Lorem ipsum dolor sit amet",
                           "style": "feature",
@@ -8649,14 +8787,11 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                 },
                               },
                             },
-                            "handleClick": [Function],
                             "heading": "Consectetur adipisicing elit",
                             "image": Object {
                               "alt": "Image alt text",
                               "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&text=1x1",
                             },
-                            "target": null,
-                            "type": "link",
                           },
                           "heading": "Lorem ipsum dolor sit amet",
                           "style": "feature",
@@ -8802,14 +8937,11 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                     },
                                   },
                                 },
-                                "handleClick": [Function],
                                 "heading": "Consectetur adipisicing elit",
                                 "image": Object {
                                   "alt": "Image alt text",
                                   "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&text=1x1",
                                 },
-                                "target": null,
-                                "type": "link",
                               },
                               "heading": "Lorem ipsum dolor sit amet",
                               "style": "feature",
@@ -9158,10 +9290,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                                                 "render": [Function],
                                                               },
                                                             },
+                                                            "type": "local",
                                                           }
                                                         }
                                                         customClassName="bx--card__CTA"
-                                                        handleClick={[Function]}
                                                         role="region"
                                                         target={null}
                                                         type="link"
@@ -9531,10 +9663,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                                                 "render": [Function],
                                                               },
                                                             },
+                                                            "type": "local",
                                                           }
                                                         }
                                                         customClassName="bx--card__CTA"
-                                                        handleClick={[Function]}
                                                         role="region"
                                                         target={null}
                                                         type="link"
@@ -9645,14 +9777,11 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                               },
                                             },
                                           },
-                                          "handleClick": [Function],
                                           "heading": "Consectetur adipisicing elit",
                                           "image": Object {
                                             "alt": "Image alt text",
                                             "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&text=1x1",
                                           },
-                                          "target": null,
-                                          "type": "link",
                                         }
                                       }
                                       customClassName="bx--content-block__cta"
@@ -9675,14 +9804,11 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                                   },
                                                 },
                                               },
-                                              "handleClick": [Function],
                                               "heading": "Consectetur adipisicing elit",
                                               "image": Object {
                                                 "alt": "Image alt text",
                                                 "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&text=1x1",
                                               },
-                                              "target": null,
-                                              "type": "link",
                                             }
                                           }
                                           heading="Lorem ipsum dolor sit amet"
@@ -9711,7 +9837,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                                     },
                                                   },
                                                 },
-                                                "handleClick": [Function],
                                                 "heading": "Consectetur adipisicing elit",
                                                 "image": Object {
                                                   "alt": "Image alt text",
@@ -9756,7 +9881,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                                               },
                                                             },
                                                           },
-                                                          "handleClick": [Function],
                                                           "heading": "Consectetur adipisicing elit",
                                                           "image": Object {
                                                             "alt": "Image alt text",
@@ -9987,10 +10111,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                                             "render": [Function],
                                                           },
                                                         },
+                                                        "type": "local",
                                                       }
                                                     }
                                                     customClassName="bx--card__CTA"
-                                                    handleClick={[Function]}
                                                     role="region"
                                                     target={null}
                                                     type="link"
@@ -10130,10 +10254,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
                                                             "render": [Function],
                                                           },
                                                         },
+                                                        "type": "external",
                                                       }
                                                     }
                                                     customClassName="bx--card__CTA"
-                                                    handleClick={[Function]}
                                                     role="region"
                                                     target="_blank"
                                                     type="link"
@@ -12112,10 +12236,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                               "render": [Function],
                                             },
                                           },
+                                          "type": "local",
                                         }
                                       }
                                       customClassName="bx--card__CTA"
-                                      handleClick={[Function]}
                                       role="region"
                                       target={null}
                                       type="link"
@@ -14209,10 +14333,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                       "render": [Function],
                                                     },
                                                   },
+                                                  "type": "local",
                                                 }
                                               }
                                               customClassName="bx--card__CTA"
-                                              handleClick={[Function]}
                                               role="region"
                                               target={null}
                                               type="link"
@@ -14391,10 +14515,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                             "render": [Function],
                                                           },
                                                         },
+                                                        "type": "local",
                                                       }
                                                     }
                                                     customClassName="bx--card__CTA"
-                                                    handleClick={[Function]}
                                                     role="region"
                                                     target={null}
                                                     type="link"
@@ -14534,10 +14658,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                             "render": [Function],
                                                           },
                                                         },
+                                                        "type": "external",
                                                       }
                                                     }
                                                     customClassName="bx--card__CTA"
-                                                    handleClick={[Function]}
                                                     role="region"
                                                     target="_blank"
                                                     type="link"
@@ -15453,10 +15577,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                               "render": [Function],
                                             },
                                           },
+                                          "type": "local",
                                         }
                                       }
                                       customClassName="bx--card__CTA"
-                                      handleClick={[Function]}
                                       role="region"
                                       target={null}
                                       type="link"
@@ -16283,10 +16407,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                                       "render": [Function],
                                                     },
                                                   },
+                                                  "type": "local",
                                                 }
                                               }
                                               customClassName="bx--card__CTA"
-                                              handleClick={[Function]}
                                               role="region"
                                               target={null}
                                               type="link"
@@ -16465,10 +16589,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                                             "render": [Function],
                                                           },
                                                         },
+                                                        "type": "local",
                                                       }
                                                     }
                                                     customClassName="bx--card__CTA"
-                                                    handleClick={[Function]}
                                                     role="region"
                                                     target={null}
                                                     type="link"
@@ -16608,10 +16732,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                                             "render": [Function],
                                                           },
                                                         },
+                                                        "type": "external",
                                                       }
                                                     }
                                                     customClassName="bx--card__CTA"
-                                                    handleClick={[Function]}
                                                     role="region"
                                                     target="_blank"
                                                     type="link"
@@ -17106,10 +17230,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                                               "render": [Function],
                                             },
                                           },
+                                          "type": "local",
                                         }
                                       }
                                       customClassName="bx--card__CTA"
-                                      handleClick={[Function]}
                                       role="region"
                                       target={null}
                                       type="link"
@@ -17715,10 +17839,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                                       "render": [Function],
                                                     },
                                                   },
+                                                  "type": "local",
                                                 }
                                               }
                                               customClassName="bx--card__CTA"
-                                              handleClick={[Function]}
                                               role="region"
                                               target={null}
                                               type="link"
@@ -17897,10 +18021,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                                             "render": [Function],
                                                           },
                                                         },
+                                                        "type": "local",
                                                       }
                                                     }
                                                     customClassName="bx--card__CTA"
-                                                    handleClick={[Function]}
                                                     role="region"
                                                     target={null}
                                                     type="link"
@@ -18040,10 +18164,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                                             "render": [Function],
                                                           },
                                                         },
+                                                        "type": "external",
                                                       }
                                                     }
                                                     customClassName="bx--card__CTA"
-                                                    handleClick={[Function]}
                                                     role="region"
                                                     target="_blank"
                                                     type="link"
@@ -20683,10 +20807,10 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupSimple Default 1`] = `
                                               "render": [Function],
                                             },
                                           },
+                                          "type": "local",
                                         }
                                       }
                                       customClassName="bx--card__CTA"
-                                      handleClick={[Function]}
                                       role="region"
                                       target={null}
                                       type="link"
@@ -21351,6 +21475,857 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockMedium Default 1`] = `
                         </ContentGroup>
                       </section>
                     </FeatureCardBlockMedium>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </_default>
+      </div>
+    </ReadmeContent>
+  </div>
+  <input
+    aria-label="input-text-offleft"
+    className="bx--visually-hidden"
+    type="text"
+  />
+</Container>
+`;
+
+exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
+<Container
+  story={[Function]}
+>
+  <div
+    data-floating-menu-container=""
+    role="main"
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+      }
+    }
+  >
+    <ReadmeContent
+      codeTheme="github"
+      layout={
+        Array [
+          Object {
+            "content": <React.Fragment>
+              <div
+                className="bx--grid"
+              >
+                <div
+                  className="bx--row"
+                >
+                  <div
+                    className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4"
+                  >
+                    <LeadSpaceBlock
+                      copy="Automate your software release process with continuous delivery (CD)—the most 
+    critical part of adopting DevOps. Build, test, and deploy code changes quickly, 
+    ensuring software is always ready for deployment."
+                      cta={
+                        Object {
+                          "buttons": Array [
+                            Object {
+                              "copy": "Contact sales",
+                              "href": "https://example.com/",
+                              "iconDescription": "right arrow icon",
+                              "onClick": [Function],
+                              "renderIcon": Object {
+                                "$$typeof": Symbol(react.forward_ref),
+                                "render": [Function],
+                              },
+                              "target": null,
+                              "type": "local",
+                            },
+                          ],
+                          "style": "button",
+                          "type": "local",
+                        }
+                      }
+                      heading="Innovate like a startup and scale for the enterprise "
+                      items={
+                        Object {
+                          "heading": "Featured products",
+                          "items": Array [
+                            Object {
+                              "copy": "IBM Cloud Continuous Delivery",
+                              "cta": Object {
+                                "href": "https://ibm.com",
+                              },
+                              "type": "local",
+                            },
+                            Object {
+                              "copy": "UrbanCode",
+                              "cta": Object {
+                                "href": "https://ibm.com",
+                              },
+                              "type": "local",
+                            },
+                            Object {
+                              "copy": "View all products",
+                              "cta": Object {
+                                "href": "https://ibm.com",
+                              },
+                              "type": "download",
+                            },
+                          ],
+                        }
+                      }
+                      mediaData={
+                        Object {
+                          "heading": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                          "image": Object {
+                            "alt": "Image alt text",
+                            "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
+                            "sources": Array [
+                              Object {
+                                "breakpoint": 320,
+                                "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
+                              },
+                              Object {
+                                "breakpoint": 400,
+                                "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
+                              },
+                              Object {
+                                "breakpoint": 672,
+                                "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
+                              },
+                            ],
+                          },
+                        }
+                      }
+                      mediaType="image"
+                      title="Continuous delivery"
+                    />
+                  </div>
+                </div>
+              </div>
+            </React.Fragment>,
+            "type": "STORY",
+          },
+        ]
+      }
+      theme={Object {}}
+      types={
+        Array [
+          "MD",
+          "STORY",
+          "STORY_SOURCE",
+          "PROPS",
+          "FOOTER_MD",
+          "HEADER_MD",
+        ]
+      }
+    >
+      <div
+        className="storybook-readme-story"
+      >
+        <_default
+          key="0"
+        >
+          <div
+            style={Object {}}
+          >
+            <div>
+              <div
+                className="bx--grid"
+              >
+                <div
+                  className="bx--row"
+                >
+                  <div
+                    className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4"
+                  >
+                    <LeadSpaceBlock
+                      copy="Automate your software release process with continuous delivery (CD)—the most 
+    critical part of adopting DevOps. Build, test, and deploy code changes quickly, 
+    ensuring software is always ready for deployment."
+                      cta={
+                        Object {
+                          "buttons": Array [
+                            Object {
+                              "copy": "Contact sales",
+                              "href": "https://example.com/",
+                              "iconDescription": "right arrow icon",
+                              "onClick": [Function],
+                              "renderIcon": Object {
+                                "$$typeof": Symbol(react.forward_ref),
+                                "render": [Function],
+                              },
+                              "target": null,
+                              "type": "local",
+                            },
+                          ],
+                          "style": "button",
+                          "type": "local",
+                        }
+                      }
+                      heading="Innovate like a startup and scale for the enterprise "
+                      items={
+                        Object {
+                          "heading": "Featured products",
+                          "items": Array [
+                            Object {
+                              "copy": "IBM Cloud Continuous Delivery",
+                              "cta": Object {
+                                "href": "https://ibm.com",
+                              },
+                              "type": "local",
+                            },
+                            Object {
+                              "copy": "UrbanCode",
+                              "cta": Object {
+                                "href": "https://ibm.com",
+                              },
+                              "type": "local",
+                            },
+                            Object {
+                              "copy": "View all products",
+                              "cta": Object {
+                                "href": "https://ibm.com",
+                              },
+                              "type": "download",
+                            },
+                          ],
+                        }
+                      }
+                      mediaData={
+                        Object {
+                          "heading": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                          "image": Object {
+                            "alt": "Image alt text",
+                            "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
+                            "sources": Array [
+                              Object {
+                                "breakpoint": 320,
+                                "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
+                              },
+                              Object {
+                                "breakpoint": 400,
+                                "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
+                              },
+                              Object {
+                                "breakpoint": 672,
+                                "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
+                              },
+                            ],
+                          },
+                        }
+                      }
+                      mediaType="image"
+                      title="Continuous delivery"
+                    >
+                      <div
+                        className="bx--leadspace-block"
+                        data-autoid="dds--leadspace-block"
+                      >
+                        <div>
+                          <h1
+                            className="bx--leadspace-block__title"
+                            data-autoid="dds--leadspace-block__title"
+                          >
+                            Continuous delivery
+                          </h1>
+                        </div>
+                        <ContentBlock
+                          copy="Automate your software release process with continuous delivery (CD)—the most 
+    critical part of adopting DevOps. Build, test, and deploy code changes quickly, 
+    ensuring software is always ready for deployment."
+                          heading="Innovate like a startup and scale for the enterprise "
+                        >
+                          <div
+                            className="bx--content-block"
+                            data-autoid="dds--content-block"
+                          >
+                            <div>
+                              <h2
+                                className="bx--content-block__heading"
+                                data-autoid="dds--content-block__heading"
+                              >
+                                Innovate like a startup and scale for the enterprise 
+                              </h2>
+                            </div>
+                            <div
+                              className="bx--content-block__copy"
+                              dangerouslySetInnerHTML={
+                                Object {
+                                  "__html": "<p>Automate your software release process with continuous delivery (CD)—the most critical part of adopting DevOps. Build, test, and deploy code changes quickly, ensuring software is always ready for deployment.</p>",
+                                }
+                              }
+                            />
+                            <div
+                              className="bx--content-block__children"
+                              data-autoid="dds--content-block__children"
+                            >
+                              <div
+                                className="bx--leadspace-block__media"
+                                data-autoid="dds--leadspace-block__media"
+                              >
+                                <ImageWithCaption
+                                  copy=""
+                                  heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                                  image={
+                                    Object {
+                                      "alt": "Image alt text",
+                                      "defaultSrc": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
+                                      "sources": Array [
+                                        Object {
+                                          "breakpoint": 320,
+                                          "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
+                                        },
+                                        Object {
+                                          "breakpoint": 400,
+                                          "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
+                                        },
+                                        Object {
+                                          "breakpoint": 672,
+                                          "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
+                                        },
+                                      ],
+                                    }
+                                  }
+                                  inverse={false}
+                                  lightbox={false}
+                                >
+                                  <div
+                                    className="bx--image-with-caption"
+                                    data-autoid="dds--image-with-caption"
+                                  >
+                                    <Image
+                                      alt="Image alt text"
+                                      defaultSrc="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
+                                      sources={
+                                        Array [
+                                          Object {
+                                            "breakpoint": 320,
+                                            "src": "https://dummyimage.com/320x180/ee5396/161616&text=16:9",
+                                          },
+                                          Object {
+                                            "breakpoint": 400,
+                                            "src": "https://dummyimage.com/400x225/ee5396/161616&text=16:9",
+                                          },
+                                          Object {
+                                            "breakpoint": 672,
+                                            "src": "https://dummyimage.com/672x378/ee5396/161616&text=16:9",
+                                          },
+                                        ]
+                                      }
+                                    >
+                                      <picture
+                                        className="bx--image"
+                                        data-autoid="dds--image__longdescription-"
+                                      >
+                                        <source
+                                          key="0"
+                                          media="(min-width: 672px )"
+                                          srcSet="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
+                                        />
+                                        <source
+                                          key="1"
+                                          media="(min-width: 400px )"
+                                          srcSet="https://dummyimage.com/400x225/ee5396/161616&text=16:9"
+                                        />
+                                        <source
+                                          key="2"
+                                          media="(min-width: 320px )"
+                                          srcSet="https://dummyimage.com/320x180/ee5396/161616&text=16:9"
+                                        />
+                                        <img
+                                          alt="Image alt text"
+                                          aria-describedby=""
+                                          className="bx--image__img"
+                                          src="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
+                                        />
+                                      </picture>
+                                    </Image>
+                                    <p
+                                      className="bx--image__caption--inverse"
+                                      data-autoid="dds--image__caption"
+                                    >
+                                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    </p>
+                                  </div>
+                                </ImageWithCaption>
+                              </div>
+                              <LinkList
+                                heading="Featured products"
+                                items={
+                                  Array [
+                                    Object {
+                                      "copy": "IBM Cloud Continuous Delivery",
+                                      "cta": Object {
+                                        "href": "https://ibm.com",
+                                      },
+                                      "type": "local",
+                                    },
+                                    Object {
+                                      "copy": "UrbanCode",
+                                      "cta": Object {
+                                        "href": "https://ibm.com",
+                                      },
+                                      "type": "local",
+                                    },
+                                    Object {
+                                      "copy": "View all products",
+                                      "cta": Object {
+                                        "href": "https://ibm.com",
+                                      },
+                                      "type": "download",
+                                    },
+                                  ]
+                                }
+                                style="vertical-end"
+                              >
+                                <div
+                                  className="bx--link-list"
+                                  data-autoid="dds--link-list"
+                                >
+                                  <h4
+                                    className="bx--link-list__heading"
+                                  >
+                                    Featured products
+                                  </h4>
+                                  <ul
+                                    className="bx--link-list__list bx--link-list__list--vertical-end"
+                                  >
+                                    <li
+                                      className="bx--link-list__list__CTA bx--link-list__list--local"
+                                      key="0"
+                                    >
+                                      <CTA
+                                        copy="IBM Cloud Continuous Delivery"
+                                        cta={
+                                          Object {
+                                            "href": "https://ibm.com",
+                                          }
+                                        }
+                                        style="text"
+                                        type="local"
+                                      >
+                                        <div>
+                                          <TextCTA
+                                            copy="IBM Cloud Continuous Delivery"
+                                            cta={
+                                              Object {
+                                                "href": "https://ibm.com",
+                                              }
+                                            }
+                                            openLightBox={[Function]}
+                                            renderLightBox={false}
+                                            style="text"
+                                            type="local"
+                                            videoTitle={
+                                              Array [
+                                                Object {
+                                                  "key": 0,
+                                                  "title": "",
+                                                },
+                                              ]
+                                            }
+                                          >
+                                            <LinkWithIcon
+                                              href="https://ibm.com"
+                                              onClick={[Function]}
+                                              target={null}
+                                            >
+                                              <div
+                                                className="bx--link-with-icon__container"
+                                                data-autoid="dds--link-with-icon"
+                                              >
+                                                <Link
+                                                  className="bx--link-with-icon"
+                                                  href="https://ibm.com"
+                                                  onClick={[Function]}
+                                                  target={null}
+                                                >
+                                                  <a
+                                                    className="bx--link bx--link-with-icon"
+                                                    href="https://ibm.com"
+                                                    onClick={[Function]}
+                                                    target={null}
+                                                  >
+                                                    <span>
+                                                      IBM Cloud Continuous Delivery
+                                                    </span>
+                                                    <ForwardRef(ArrowRight20)>
+                                                      <Icon
+                                                        height={20}
+                                                        preserveAspectRatio="xMidYMid meet"
+                                                        viewBox="0 0 20 20"
+                                                        width={20}
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                      >
+                                                        <svg
+                                                          aria-hidden={true}
+                                                          focusable="false"
+                                                          height={20}
+                                                          preserveAspectRatio="xMidYMid meet"
+                                                          viewBox="0 0 20 20"
+                                                          width={20}
+                                                          xmlns="http://www.w3.org/2000/svg"
+                                                        >
+                                                          <path
+                                                            d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                                          />
+                                                        </svg>
+                                                      </Icon>
+                                                    </ForwardRef(ArrowRight20)>
+                                                  </a>
+                                                </Link>
+                                              </div>
+                                            </LinkWithIcon>
+                                          </TextCTA>
+                                        </div>
+                                      </CTA>
+                                    </li>
+                                    <li
+                                      className="bx--link-list__list__CTA bx--link-list__list--local"
+                                      key="1"
+                                    >
+                                      <CTA
+                                        copy="UrbanCode"
+                                        cta={
+                                          Object {
+                                            "href": "https://ibm.com",
+                                          }
+                                        }
+                                        style="text"
+                                        type="local"
+                                      >
+                                        <div>
+                                          <TextCTA
+                                            copy="UrbanCode"
+                                            cta={
+                                              Object {
+                                                "href": "https://ibm.com",
+                                              }
+                                            }
+                                            openLightBox={[Function]}
+                                            renderLightBox={false}
+                                            style="text"
+                                            type="local"
+                                            videoTitle={
+                                              Array [
+                                                Object {
+                                                  "key": 0,
+                                                  "title": "",
+                                                },
+                                              ]
+                                            }
+                                          >
+                                            <LinkWithIcon
+                                              href="https://ibm.com"
+                                              onClick={[Function]}
+                                              target={null}
+                                            >
+                                              <div
+                                                className="bx--link-with-icon__container"
+                                                data-autoid="dds--link-with-icon"
+                                              >
+                                                <Link
+                                                  className="bx--link-with-icon"
+                                                  href="https://ibm.com"
+                                                  onClick={[Function]}
+                                                  target={null}
+                                                >
+                                                  <a
+                                                    className="bx--link bx--link-with-icon"
+                                                    href="https://ibm.com"
+                                                    onClick={[Function]}
+                                                    target={null}
+                                                  >
+                                                    <span>
+                                                      UrbanCode
+                                                    </span>
+                                                    <ForwardRef(ArrowRight20)>
+                                                      <Icon
+                                                        height={20}
+                                                        preserveAspectRatio="xMidYMid meet"
+                                                        viewBox="0 0 20 20"
+                                                        width={20}
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                      >
+                                                        <svg
+                                                          aria-hidden={true}
+                                                          focusable="false"
+                                                          height={20}
+                                                          preserveAspectRatio="xMidYMid meet"
+                                                          viewBox="0 0 20 20"
+                                                          width={20}
+                                                          xmlns="http://www.w3.org/2000/svg"
+                                                        >
+                                                          <path
+                                                            d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                                          />
+                                                        </svg>
+                                                      </Icon>
+                                                    </ForwardRef(ArrowRight20)>
+                                                  </a>
+                                                </Link>
+                                              </div>
+                                            </LinkWithIcon>
+                                          </TextCTA>
+                                        </div>
+                                      </CTA>
+                                    </li>
+                                    <li
+                                      className="bx--link-list__list__CTA bx--link-list__list--download"
+                                      key="2"
+                                    >
+                                      <CTA
+                                        copy="View all products"
+                                        cta={
+                                          Object {
+                                            "href": "https://ibm.com",
+                                          }
+                                        }
+                                        style="text"
+                                        type="download"
+                                      >
+                                        <div>
+                                          <TextCTA
+                                            copy="View all products"
+                                            cta={
+                                              Object {
+                                                "href": "https://ibm.com",
+                                              }
+                                            }
+                                            openLightBox={[Function]}
+                                            renderLightBox={false}
+                                            style="text"
+                                            type="download"
+                                            videoTitle={
+                                              Array [
+                                                Object {
+                                                  "key": 0,
+                                                  "title": "",
+                                                },
+                                              ]
+                                            }
+                                          >
+                                            <LinkWithIcon
+                                              href="https://ibm.com"
+                                              onClick={[Function]}
+                                              target={null}
+                                            >
+                                              <div
+                                                className="bx--link-with-icon__container"
+                                                data-autoid="dds--link-with-icon"
+                                              >
+                                                <Link
+                                                  className="bx--link-with-icon"
+                                                  href="https://ibm.com"
+                                                  onClick={[Function]}
+                                                  target={null}
+                                                >
+                                                  <a
+                                                    className="bx--link bx--link-with-icon"
+                                                    href="https://ibm.com"
+                                                    onClick={[Function]}
+                                                    target={null}
+                                                  >
+                                                    <span>
+                                                      View all products
+                                                    </span>
+                                                    <ForwardRef(Download20)>
+                                                      <Icon
+                                                        height={20}
+                                                        preserveAspectRatio="xMidYMid meet"
+                                                        viewBox="0 0 32 32"
+                                                        width={20}
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                      >
+                                                        <svg
+                                                          aria-hidden={true}
+                                                          focusable="false"
+                                                          height={20}
+                                                          preserveAspectRatio="xMidYMid meet"
+                                                          viewBox="0 0 32 32"
+                                                          width={20}
+                                                          xmlns="http://www.w3.org/2000/svg"
+                                                        >
+                                                          <path
+                                                            d="M26 15L24.59 13.59 17 21.17 17 2 15 2 15 21.17 7.41 13.59 6 15 16 25 26 15z"
+                                                          />
+                                                          <path
+                                                            d="M26,24v4H6V24H4v4H4a2,2,0,0,0,2,2H26a2,2,0,0,0,2-2h0V24Z"
+                                                          />
+                                                        </svg>
+                                                      </Icon>
+                                                    </ForwardRef(Download20)>
+                                                  </a>
+                                                </Link>
+                                              </div>
+                                            </LinkWithIcon>
+                                          </TextCTA>
+                                        </div>
+                                      </CTA>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </LinkList>
+                              <CTA
+                                buttons={
+                                  Array [
+                                    Object {
+                                      "copy": "Contact sales",
+                                      "href": "https://example.com/",
+                                      "iconDescription": "right arrow icon",
+                                      "onClick": [Function],
+                                      "renderIcon": Object {
+                                        "$$typeof": Symbol(react.forward_ref),
+                                        "render": [Function],
+                                      },
+                                      "target": null,
+                                      "type": "local",
+                                    },
+                                  ]
+                                }
+                                customClassName="bx--leadspace-block__cta bx--leadspace-block__cta-col"
+                                style="button"
+                                type="local"
+                              >
+                                <div
+                                  className="bx--leadspace-block__cta bx--leadspace-block__cta-col"
+                                >
+                                  <ButtonCTA
+                                    buttons={
+                                      Array [
+                                        Object {
+                                          "copy": "Contact sales",
+                                          "href": "https://example.com/",
+                                          "iconDescription": "right arrow icon",
+                                          "onClick": [Function],
+                                          "renderIcon": Object {
+                                            "$$typeof": Symbol(react.forward_ref),
+                                            "render": [Function],
+                                          },
+                                          "target": null,
+                                          "type": "local",
+                                        },
+                                      ]
+                                    }
+                                    openLightBox={[Function]}
+                                    renderLightBox={false}
+                                    style="button"
+                                    type="local"
+                                    videoTitle={
+                                      Array [
+                                        Object {
+                                          "key": 0,
+                                          "title": "",
+                                        },
+                                      ]
+                                    }
+                                  >
+                                    <ButtonGroup
+                                      buttons={
+                                        Array [
+                                          Object {
+                                            "copy": "Contact sales",
+                                            "href": "https://example.com/",
+                                            "iconDescription": "right arrow icon",
+                                            "onClick": [Function],
+                                            "renderIcon": Object {
+                                              "$$typeof": Symbol(react.forward_ref),
+                                              "render": [Function],
+                                            },
+                                            "target": null,
+                                            "type": "local",
+                                          },
+                                        ]
+                                      }
+                                    >
+                                      <ol
+                                        className="bx--buttongroup"
+                                        data-autoid="dds--button-group"
+                                      >
+                                        <li
+                                          className="bx--buttongroup-item"
+                                          key="0"
+                                        >
+                                          <ForwardRef(Button)
+                                            copy="Contact sales"
+                                            data-autoid="dds--button-group-0"
+                                            disabled={false}
+                                            href="https://example.com/"
+                                            iconDescription="right arrow icon"
+                                            kind="primary"
+                                            onClick={[Function]}
+                                            renderIcon={
+                                              Object {
+                                                "$$typeof": Symbol(react.forward_ref),
+                                                "render": [Function],
+                                              }
+                                            }
+                                            tabIndex={2}
+                                            target={null}
+                                            type="button"
+                                          >
+                                            <a
+                                              className="bx--btn bx--btn--primary"
+                                              copy="Contact sales"
+                                              data-autoid="dds--button-group-0"
+                                              href="https://example.com/"
+                                              onClick={[Function]}
+                                              tabIndex={2}
+                                              target={null}
+                                            >
+                                              Contact sales
+                                              <ForwardRef(ArrowRight20)
+                                                aria-hidden="true"
+                                                aria-label="right arrow icon"
+                                                className="bx--btn__icon"
+                                              >
+                                                <Icon
+                                                  aria-hidden="true"
+                                                  aria-label="right arrow icon"
+                                                  className="bx--btn__icon"
+                                                  height={20}
+                                                  preserveAspectRatio="xMidYMid meet"
+                                                  viewBox="0 0 20 20"
+                                                  width={20}
+                                                  xmlns="http://www.w3.org/2000/svg"
+                                                >
+                                                  <svg
+                                                    aria-hidden="true"
+                                                    aria-label="right arrow icon"
+                                                    className="bx--btn__icon"
+                                                    focusable="false"
+                                                    height={20}
+                                                    preserveAspectRatio="xMidYMid meet"
+                                                    role="img"
+                                                    viewBox="0 0 20 20"
+                                                    width={20}
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                  >
+                                                    <path
+                                                      d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                                    />
+                                                  </svg>
+                                                </Icon>
+                                              </ForwardRef(ArrowRight20)>
+                                            </a>
+                                          </ForwardRef(Button)>
+                                        </li>
+                                      </ol>
+                                    </ButtonGroup>
+                                  </ButtonCTA>
+                                </div>
+                              </CTA>
+                            </div>
+                          </div>
+                        </ContentBlock>
+                        <HorizontalRule>
+                          <hr
+                            className="bx--hr"
+                            data-autoid="dds--hr"
+                          />
+                        </HorizontalRule>
+                      </div>
+                    </LeadSpaceBlock>
                   </div>
                 </div>
               </div>
@@ -26590,10 +27565,10 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock Default 1`] = `
                                           "render": [Function],
                                         },
                                       },
+                                      "type": "external",
                                     }
                                   }
                                   customClassName="bx--card__CTA"
-                                  handleClick={[Function]}
                                   role="region"
                                   target="_blank"
                                   type="link"
@@ -26985,10 +27960,10 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock With aside elements 1`]
                                                   "render": [Function],
                                                 },
                                               },
+                                              "type": "external",
                                             }
                                           }
                                           customClassName="bx--card__CTA"
-                                          handleClick={[Function]}
                                           role="region"
                                           target="_blank"
                                           type="link"
@@ -27170,10 +28145,10 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock With aside elements 1`]
                                                         "render": [Function],
                                                       },
                                                     },
+                                                    "type": "local",
                                                   }
                                                 }
                                                 customClassName="bx--card__CTA"
-                                                handleClick={[Function]}
                                                 role="region"
                                                 target={null}
                                                 type="link"
@@ -27313,10 +28288,10 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentBlock With aside elements 1`]
                                                         "render": [Function],
                                                       },
                                                     },
+                                                    "type": "external",
                                                   }
                                                 }
                                                 customClassName="bx--card__CTA"
-                                                handleClick={[Function]}
                                                 role="region"
                                                 target="_blank"
                                                 type="link"
@@ -27593,10 +28568,10 @@ exports[`Storyshots Patterns (Sub-Patterns)|ContentGroup Default 1`] = `
                                           "render": [Function],
                                         },
                                       },
+                                      "type": undefined,
                                     }
                                   }
                                   customClassName="bx--card__CTA"
-                                  handleClick={[Function]}
                                   role="region"
                                   target={null}
                                   type="link"
@@ -29556,10 +30531,10 @@ exports[`Storyshots Patterns (Sub-Patterns)|LinkList Default 1`] = `
                                             "render": [Function],
                                           },
                                         },
+                                        "type": "local",
                                       }
                                     }
                                     customClassName="bx--card__CTA"
-                                    handleClick={[Function]}
                                     role="region"
                                     target={null}
                                     type="link"
@@ -29699,10 +30674,10 @@ exports[`Storyshots Patterns (Sub-Patterns)|LinkList Default 1`] = `
                                             "render": [Function],
                                           },
                                         },
+                                        "type": "download",
                                       }
                                     }
                                     customClassName="bx--card__CTA"
-                                    handleClick={[Function]}
                                     role="region"
                                     target={null}
                                     type="link"
@@ -29845,10 +30820,10 @@ exports[`Storyshots Patterns (Sub-Patterns)|LinkList Default 1`] = `
                                             "render": [Function],
                                           },
                                         },
+                                        "type": "external",
                                       }
                                     }
                                     customClassName="bx--card__CTA"
-                                    handleClick={[Function]}
                                     role="region"
                                     target="_blank"
                                     type="link"
@@ -32151,10 +33126,10 @@ exports[`Storyshots Patterns (Sub-Patterns)|LinkList Vertical With Cards 1`] = `
                                             "render": [Function],
                                           },
                                         },
+                                        "type": "local",
                                       }
                                     }
                                     customClassName="bx--card__CTA"
-                                    handleClick={[Function]}
                                     role="region"
                                     target={null}
                                     type="link"
@@ -32294,10 +33269,10 @@ exports[`Storyshots Patterns (Sub-Patterns)|LinkList Vertical With Cards 1`] = `
                                             "render": [Function],
                                           },
                                         },
+                                        "type": "download",
                                       }
                                     }
                                     customClassName="bx--card__CTA"
-                                    handleClick={[Function]}
                                     role="region"
                                     target={null}
                                     type="link"
@@ -32440,10 +33415,10 @@ exports[`Storyshots Patterns (Sub-Patterns)|LinkList Vertical With Cards 1`] = `
                                             "render": [Function],
                                           },
                                         },
+                                        "type": "external",
                                       }
                                     }
                                     customClassName="bx--card__CTA"
-                                    handleClick={[Function]}
                                     role="region"
                                     target="_blank"
                                     type="link"
@@ -33764,6 +34739,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|Table of Contents Manually define Me
                   ]
                 }
                 menuLabel="Jump to"
+                menuRule={false}
                 stickyOffset={null}
                 theme=""
               >
@@ -33968,6 +34944,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|Table of Contents Manually define Me
                   ]
                 }
                 menuLabel="Jump to"
+                menuRule={false}
                 stickyOffset={null}
                 theme=""
               >
@@ -34041,6 +35018,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|Table of Contents Manually define Me
                                 ]
                               }
                               menuLabel="Jump to"
+                              menuRule={false}
                               selectedId="8"
                               selectedTitle="Cras molestie condimentum"
                               updateState={[Function]}
@@ -34255,6 +35233,802 @@ exports[`Storyshots Patterns (Sub-Patterns)|Table of Contents Manually define Me
                           <div
                             className="bx--tableofcontents__content-wrapper"
                           >
+                            <div>
+                              <a
+                                data-title="Cras molestie condimentum"
+                                name="8"
+                                style={
+                                  Object {
+                                    "color": "#000",
+                                  }
+                                }
+                              >
+                                <h3
+                                  style={
+                                    Object {
+                                      "paddingBottom": "1rem",
+                                      "paddingTop": "2rem",
+                                    }
+                                  }
+                                >
+                                  Cras molestie condimentum
+                                </h3>
+                              </a>
+                              <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie condimentum consectetur. Nulla tristique lacinia elit, at elementum dui gravida non. Mauris et nisl semper, elementum quam non, lacinia purus. Vivamus aliquam vitae sapien volutpat efficitur. Curabitur sagittis neque facilisis magna posuere consectetur. Praesent fermentum sodales facilisis. Mauris a efficitur sem. Aliquam vehicula sapien libero, a viverra felis scelerisque vel. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec fringilla dui tellus, a pretium diam vehicula et. Etiam non vulputate augue. Morbi laoreet diam dapibus sapien pellentesque tristique. Morbi id nibh metus. Integer non scelerisque nisl.
+                              </p>
+                              <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie condimentum consectetur. Nulla tristique lacinia elit, at elementum dui gravida non. Mauris et nisl semper, elementum quam non, lacinia purus. Vivamus aliquam vitae sapien volutpat efficitur. Curabitur sagittis neque facilisis magna posuere consectetur. Praesent fermentum sodales facilisis. Mauris a efficitur sem. Aliquam vehicula sapien libero, a viverra felis scelerisque vel. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec fringilla dui tellus, a pretium diam vehicula et. Etiam non vulputate augue. Morbi laoreet diam dapibus sapien pellentesque tristique. Morbi id nibh metus. Integer non scelerisque nisl.
+                              </p>
+                              <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie condimentum consectetur. Nulla tristique lacinia elit, at elementum dui gravida non. Mauris et nisl semper, elementum quam non, lacinia purus. Vivamus aliquam vitae sapien volutpat efficitur. Curabitur sagittis neque facilisis magna posuere consectetur. Praesent fermentum sodales facilisis. Mauris a efficitur sem. Aliquam vehicula sapien libero, a viverra felis scelerisque vel. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec fringilla dui tellus, a pretium diam vehicula et. Etiam non vulputate augue. Morbi laoreet diam dapibus sapien pellentesque tristique. Morbi id nibh metus. Integer non scelerisque nisl.
+                              </p>
+                              <a
+                                data-title="Praesent fermentum sodales"
+                                name="7"
+                                style={
+                                  Object {
+                                    "color": "#000",
+                                  }
+                                }
+                              >
+                                <h3
+                                  style={
+                                    Object {
+                                      "paddingBottom": "1rem",
+                                      "paddingTop": "2rem",
+                                    }
+                                  }
+                                >
+                                  Praesent fermentum sodales
+                                </h3>
+                              </a>
+                              <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie condimentum consectetur. Nulla tristique lacinia elit, at elementum dui gravida non. Mauris et nisl semper, elementum quam non, lacinia purus. Vivamus aliquam vitae sapien volutpat efficitur. Curabitur sagittis neque facilisis magna posuere consectetur. Praesent fermentum sodales facilisis. Mauris a efficitur sem. Aliquam vehicula sapien libero, a viverra felis scelerisque vel. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec fringilla dui tellus, a pretium diam vehicula et. Etiam non vulputate augue. Morbi laoreet diam dapibus sapien pellentesque tristique. Morbi id nibh metus. Integer non scelerisque nisl.
+                              </p>
+                              <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie condimentum consectetur. Nulla tristique lacinia elit, at elementum dui gravida non. Mauris et nisl semper, elementum quam non, lacinia purus. Vivamus aliquam vitae sapien volutpat efficitur. Curabitur sagittis neque facilisis magna posuere consectetur. Praesent fermentum sodales facilisis. Mauris a efficitur sem. Aliquam vehicula sapien libero, a viverra felis scelerisque vel. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec fringilla dui tellus, a pretium diam vehicula et. Etiam non vulputate augue. Morbi laoreet diam dapibus sapien pellentesque tristique. Morbi id nibh metus. Integer non scelerisque nisl.
+                              </p>
+                              <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie condimentum consectetur. Nulla tristique lacinia elit, at elementum dui gravida non. Mauris et nisl semper, elementum quam non, lacinia purus. Vivamus aliquam vitae sapien volutpat efficitur. Curabitur sagittis neque facilisis magna posuere consectetur. Praesent fermentum sodales facilisis. Mauris a efficitur sem. Aliquam vehicula sapien libero, a viverra felis scelerisque vel. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec fringilla dui tellus, a pretium diam vehicula et. Etiam non vulputate augue. Morbi laoreet diam dapibus sapien pellentesque tristique. Morbi id nibh metus. Integer non scelerisque nisl.
+                              </p>
+                              <a
+                                data-title="Nulla tristique lacinia"
+                                name="2"
+                                style={
+                                  Object {
+                                    "color": "#000",
+                                  }
+                                }
+                              >
+                                <h3
+                                  style={
+                                    Object {
+                                      "paddingBottom": "1rem",
+                                      "paddingTop": "2rem",
+                                    }
+                                  }
+                                >
+                                  Nulla tristique lacinia
+                                </h3>
+                              </a>
+                              <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie condimentum consectetur. Nulla tristique lacinia elit, at elementum dui gravida non. Mauris et nisl semper, elementum quam non, lacinia purus. Vivamus aliquam vitae sapien volutpat efficitur. Curabitur sagittis neque facilisis magna posuere consectetur. Praesent fermentum sodales facilisis. Mauris a efficitur sem. Aliquam vehicula sapien libero, a viverra felis scelerisque vel. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec fringilla dui tellus, a pretium diam vehicula et. Etiam non vulputate augue. Morbi laoreet diam dapibus sapien pellentesque tristique. Morbi id nibh metus. Integer non scelerisque nisl.
+                              </p>
+                              <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie condimentum consectetur. Nulla tristique lacinia elit, at elementum dui gravida non. Mauris et nisl semper, elementum quam non, lacinia purus. Vivamus aliquam vitae sapien volutpat efficitur. Curabitur sagittis neque facilisis magna posuere consectetur. Praesent fermentum sodales facilisis. Mauris a efficitur sem. Aliquam vehicula sapien libero, a viverra felis scelerisque vel. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec fringilla dui tellus, a pretium diam vehicula et. Etiam non vulputate augue. Morbi laoreet diam dapibus sapien pellentesque tristique. Morbi id nibh metus. Integer non scelerisque nisl.
+                              </p>
+                              <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie condimentum consectetur. Nulla tristique lacinia elit, at elementum dui gravida non. Mauris et nisl semper, elementum quam non, lacinia purus. Vivamus aliquam vitae sapien volutpat efficitur. Curabitur sagittis neque facilisis magna posuere consectetur. Praesent fermentum sodales facilisis. Mauris a efficitur sem. Aliquam vehicula sapien libero, a viverra felis scelerisque vel. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec fringilla dui tellus, a pretium diam vehicula et. Etiam non vulputate augue. Morbi laoreet diam dapibus sapien pellentesque tristique. Morbi id nibh metus. Integer non scelerisque nisl.
+                              </p>
+                              <a
+                                data-title="Morbi id nibh metus"
+                                name="3"
+                                style={
+                                  Object {
+                                    "color": "#000",
+                                  }
+                                }
+                              >
+                                <h3
+                                  style={
+                                    Object {
+                                      "paddingBottom": "1rem",
+                                      "paddingTop": "2rem",
+                                    }
+                                  }
+                                >
+                                  Morbi id nibh metus
+                                </h3>
+                              </a>
+                              <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie condimentum consectetur. Nulla tristique lacinia elit, at elementum dui gravida non. Mauris et nisl semper, elementum quam non, lacinia purus. Vivamus aliquam vitae sapien volutpat efficitur. Curabitur sagittis neque facilisis magna posuere consectetur. Praesent fermentum sodales facilisis. Mauris a efficitur sem. Aliquam vehicula sapien libero, a viverra felis scelerisque vel. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec fringilla dui tellus, a pretium diam vehicula et. Etiam non vulputate augue. Morbi laoreet diam dapibus sapien pellentesque tristique. Morbi id nibh metus. Integer non scelerisque nisl.
+                              </p>
+                              <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie condimentum consectetur. Nulla tristique lacinia elit, at elementum dui gravida non. Mauris et nisl semper, elementum quam non, lacinia purus. Vivamus aliquam vitae sapien volutpat efficitur. Curabitur sagittis neque facilisis magna posuere consectetur. Praesent fermentum sodales facilisis. Mauris a efficitur sem. Aliquam vehicula sapien libero, a viverra felis scelerisque vel. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec fringilla dui tellus, a pretium diam vehicula et. Etiam non vulputate augue. Morbi laoreet diam dapibus sapien pellentesque tristique. Morbi id nibh metus. Integer non scelerisque nisl.
+                              </p>
+                              <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie condimentum consectetur. Nulla tristique lacinia elit, at elementum dui gravida non. Mauris et nisl semper, elementum quam non, lacinia purus. Vivamus aliquam vitae sapien volutpat efficitur. Curabitur sagittis neque facilisis magna posuere consectetur. Praesent fermentum sodales facilisis. Mauris a efficitur sem. Aliquam vehicula sapien libero, a viverra felis scelerisque vel. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec fringilla dui tellus, a pretium diam vehicula et. Etiam non vulputate augue. Morbi laoreet diam dapibus sapien pellentesque tristique. Morbi id nibh metus. Integer non scelerisque nisl.
+                              </p>
+                              <a
+                                data-title="Integer non scelerisque"
+                                name="14"
+                                style={
+                                  Object {
+                                    "color": "#000",
+                                  }
+                                }
+                              >
+                                <h3
+                                  style={
+                                    Object {
+                                      "paddingBottom": "1rem",
+                                      "paddingTop": "2rem",
+                                    }
+                                  }
+                                >
+                                  Integer non scelerisque
+                                </h3>
+                              </a>
+                              <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie condimentum consectetur. Nulla tristique lacinia elit, at elementum dui gravida non. Mauris et nisl semper, elementum quam non, lacinia purus. Vivamus aliquam vitae sapien volutpat efficitur. Curabitur sagittis neque facilisis magna posuere consectetur. Praesent fermentum sodales facilisis. Mauris a efficitur sem. Aliquam vehicula sapien libero, a viverra felis scelerisque vel. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec fringilla dui tellus, a pretium diam vehicula et. Etiam non vulputate augue. Morbi laoreet diam dapibus sapien pellentesque tristique. Morbi id nibh metus. Integer non scelerisque nisl.
+                              </p>
+                              <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie condimentum consectetur. Nulla tristique lacinia elit, at elementum dui gravida non. Mauris et nisl semper, elementum quam non, lacinia purus. Vivamus aliquam vitae sapien volutpat efficitur. Curabitur sagittis neque facilisis magna posuere consectetur. Praesent fermentum sodales facilisis. Mauris a efficitur sem. Aliquam vehicula sapien libero, a viverra felis scelerisque vel. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec fringilla dui tellus, a pretium diam vehicula et. Etiam non vulputate augue. Morbi laoreet diam dapibus sapien pellentesque tristique. Morbi id nibh metus. Integer non scelerisque nisl.
+                              </p>
+                              <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie condimentum consectetur. Nulla tristique lacinia elit, at elementum dui gravida non. Mauris et nisl semper, elementum quam non, lacinia purus. Vivamus aliquam vitae sapien volutpat efficitur. Curabitur sagittis neque facilisis magna posuere consectetur. Praesent fermentum sodales facilisis. Mauris a efficitur sem. Aliquam vehicula sapien libero, a viverra felis scelerisque vel. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec fringilla dui tellus, a pretium diam vehicula et. Etiam non vulputate augue. Morbi laoreet diam dapibus sapien pellentesque tristique. Morbi id nibh metus. Integer non scelerisque nisl.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+                  </Layout>
+                </section>
+              </TableOfContents>
+            </div>
+          </div>
+        </_default>
+      </div>
+    </ReadmeContent>
+  </div>
+  <input
+    aria-label="input-text-offleft"
+    className="bx--visually-hidden"
+    type="text"
+  />
+</Container>
+`;
+
+exports[`Storyshots Patterns (Sub-Patterns)|Table of Contents With Heading Content 1`] = `
+<Container
+  story={[Function]}
+>
+  <div
+    data-floating-menu-container=""
+    role="main"
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+      }
+    }
+  >
+    <ReadmeContent
+      codeTheme="github"
+      layout={
+        Array [
+          Object {
+            "content": <React.Fragment>
+              <TableOfContents
+                headingContent={
+                  <div
+                    style={
+                      Object {
+                        "alignItems": "center",
+                        "background": "#f4f4f4",
+                        "display": "flex",
+                        "height": "200px",
+                        "justifyContent": "center",
+                      }
+                    }
+                  >
+                    <h4>
+                      Example children
+                    </h4>
+                  </div>
+                }
+                menuItems={
+                  Array [
+                    Object {
+                      "id": "8",
+                      "title": "Cras molestie condimentum",
+                    },
+                    Object {
+                      "id": "7",
+                      "title": "Praesent fermentum sodales",
+                    },
+                    Object {
+                      "id": "2",
+                      "title": "Nulla tristique lacinia",
+                    },
+                    Object {
+                      "id": "3",
+                      "title": "Morbi id nibh metus",
+                    },
+                    Object {
+                      "id": "14",
+                      "title": "Integer non scelerisque",
+                    },
+                  ]
+                }
+                menuLabel="Jump to"
+                menuRule={false}
+                stickyOffset={null}
+                theme=""
+              >
+                <div>
+                  <a
+                    data-title="Cras molestie condimentum"
+                    name="8"
+                    style={
+                      Object {
+                        "color": "#000",
+                      }
+                    }
+                  >
+                    <h3
+                      style={
+                        Object {
+                          "paddingBottom": "1rem",
+                          "paddingTop": "2rem",
+                        }
+                      }
+                    >
+                      Cras molestie condimentum
+                    </h3>
+                  </a>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie condimentum consectetur. Nulla tristique lacinia elit, at elementum dui gravida non. Mauris et nisl semper, elementum quam non, lacinia purus. Vivamus aliquam vitae sapien volutpat efficitur. Curabitur sagittis neque facilisis magna posuere consectetur. Praesent fermentum sodales facilisis. Mauris a efficitur sem. Aliquam vehicula sapien libero, a viverra felis scelerisque vel. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec fringilla dui tellus, a pretium diam vehicula et. Etiam non vulputate augue. Morbi laoreet diam dapibus sapien pellentesque tristique. Morbi id nibh metus. Integer non scelerisque nisl.
+                  </p>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie condimentum consectetur. Nulla tristique lacinia elit, at elementum dui gravida non. Mauris et nisl semper, elementum quam non, lacinia purus. Vivamus aliquam vitae sapien volutpat efficitur. Curabitur sagittis neque facilisis magna posuere consectetur. Praesent fermentum sodales facilisis. Mauris a efficitur sem. Aliquam vehicula sapien libero, a viverra felis scelerisque vel. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec fringilla dui tellus, a pretium diam vehicula et. Etiam non vulputate augue. Morbi laoreet diam dapibus sapien pellentesque tristique. Morbi id nibh metus. Integer non scelerisque nisl.
+                  </p>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie condimentum consectetur. Nulla tristique lacinia elit, at elementum dui gravida non. Mauris et nisl semper, elementum quam non, lacinia purus. Vivamus aliquam vitae sapien volutpat efficitur. Curabitur sagittis neque facilisis magna posuere consectetur. Praesent fermentum sodales facilisis. Mauris a efficitur sem. Aliquam vehicula sapien libero, a viverra felis scelerisque vel. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec fringilla dui tellus, a pretium diam vehicula et. Etiam non vulputate augue. Morbi laoreet diam dapibus sapien pellentesque tristique. Morbi id nibh metus. Integer non scelerisque nisl.
+                  </p>
+                  <a
+                    data-title="Praesent fermentum sodales"
+                    name="7"
+                    style={
+                      Object {
+                        "color": "#000",
+                      }
+                    }
+                  >
+                    <h3
+                      style={
+                        Object {
+                          "paddingBottom": "1rem",
+                          "paddingTop": "2rem",
+                        }
+                      }
+                    >
+                      Praesent fermentum sodales
+                    </h3>
+                  </a>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie condimentum consectetur. Nulla tristique lacinia elit, at elementum dui gravida non. Mauris et nisl semper, elementum quam non, lacinia purus. Vivamus aliquam vitae sapien volutpat efficitur. Curabitur sagittis neque facilisis magna posuere consectetur. Praesent fermentum sodales facilisis. Mauris a efficitur sem. Aliquam vehicula sapien libero, a viverra felis scelerisque vel. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec fringilla dui tellus, a pretium diam vehicula et. Etiam non vulputate augue. Morbi laoreet diam dapibus sapien pellentesque tristique. Morbi id nibh metus. Integer non scelerisque nisl.
+                  </p>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie condimentum consectetur. Nulla tristique lacinia elit, at elementum dui gravida non. Mauris et nisl semper, elementum quam non, lacinia purus. Vivamus aliquam vitae sapien volutpat efficitur. Curabitur sagittis neque facilisis magna posuere consectetur. Praesent fermentum sodales facilisis. Mauris a efficitur sem. Aliquam vehicula sapien libero, a viverra felis scelerisque vel. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec fringilla dui tellus, a pretium diam vehicula et. Etiam non vulputate augue. Morbi laoreet diam dapibus sapien pellentesque tristique. Morbi id nibh metus. Integer non scelerisque nisl.
+                  </p>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie condimentum consectetur. Nulla tristique lacinia elit, at elementum dui gravida non. Mauris et nisl semper, elementum quam non, lacinia purus. Vivamus aliquam vitae sapien volutpat efficitur. Curabitur sagittis neque facilisis magna posuere consectetur. Praesent fermentum sodales facilisis. Mauris a efficitur sem. Aliquam vehicula sapien libero, a viverra felis scelerisque vel. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec fringilla dui tellus, a pretium diam vehicula et. Etiam non vulputate augue. Morbi laoreet diam dapibus sapien pellentesque tristique. Morbi id nibh metus. Integer non scelerisque nisl.
+                  </p>
+                  <a
+                    data-title="Nulla tristique lacinia"
+                    name="2"
+                    style={
+                      Object {
+                        "color": "#000",
+                      }
+                    }
+                  >
+                    <h3
+                      style={
+                        Object {
+                          "paddingBottom": "1rem",
+                          "paddingTop": "2rem",
+                        }
+                      }
+                    >
+                      Nulla tristique lacinia
+                    </h3>
+                  </a>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie condimentum consectetur. Nulla tristique lacinia elit, at elementum dui gravida non. Mauris et nisl semper, elementum quam non, lacinia purus. Vivamus aliquam vitae sapien volutpat efficitur. Curabitur sagittis neque facilisis magna posuere consectetur. Praesent fermentum sodales facilisis. Mauris a efficitur sem. Aliquam vehicula sapien libero, a viverra felis scelerisque vel. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec fringilla dui tellus, a pretium diam vehicula et. Etiam non vulputate augue. Morbi laoreet diam dapibus sapien pellentesque tristique. Morbi id nibh metus. Integer non scelerisque nisl.
+                  </p>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie condimentum consectetur. Nulla tristique lacinia elit, at elementum dui gravida non. Mauris et nisl semper, elementum quam non, lacinia purus. Vivamus aliquam vitae sapien volutpat efficitur. Curabitur sagittis neque facilisis magna posuere consectetur. Praesent fermentum sodales facilisis. Mauris a efficitur sem. Aliquam vehicula sapien libero, a viverra felis scelerisque vel. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec fringilla dui tellus, a pretium diam vehicula et. Etiam non vulputate augue. Morbi laoreet diam dapibus sapien pellentesque tristique. Morbi id nibh metus. Integer non scelerisque nisl.
+                  </p>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie condimentum consectetur. Nulla tristique lacinia elit, at elementum dui gravida non. Mauris et nisl semper, elementum quam non, lacinia purus. Vivamus aliquam vitae sapien volutpat efficitur. Curabitur sagittis neque facilisis magna posuere consectetur. Praesent fermentum sodales facilisis. Mauris a efficitur sem. Aliquam vehicula sapien libero, a viverra felis scelerisque vel. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec fringilla dui tellus, a pretium diam vehicula et. Etiam non vulputate augue. Morbi laoreet diam dapibus sapien pellentesque tristique. Morbi id nibh metus. Integer non scelerisque nisl.
+                  </p>
+                  <a
+                    data-title="Morbi id nibh metus"
+                    name="3"
+                    style={
+                      Object {
+                        "color": "#000",
+                      }
+                    }
+                  >
+                    <h3
+                      style={
+                        Object {
+                          "paddingBottom": "1rem",
+                          "paddingTop": "2rem",
+                        }
+                      }
+                    >
+                      Morbi id nibh metus
+                    </h3>
+                  </a>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie condimentum consectetur. Nulla tristique lacinia elit, at elementum dui gravida non. Mauris et nisl semper, elementum quam non, lacinia purus. Vivamus aliquam vitae sapien volutpat efficitur. Curabitur sagittis neque facilisis magna posuere consectetur. Praesent fermentum sodales facilisis. Mauris a efficitur sem. Aliquam vehicula sapien libero, a viverra felis scelerisque vel. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec fringilla dui tellus, a pretium diam vehicula et. Etiam non vulputate augue. Morbi laoreet diam dapibus sapien pellentesque tristique. Morbi id nibh metus. Integer non scelerisque nisl.
+                  </p>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie condimentum consectetur. Nulla tristique lacinia elit, at elementum dui gravida non. Mauris et nisl semper, elementum quam non, lacinia purus. Vivamus aliquam vitae sapien volutpat efficitur. Curabitur sagittis neque facilisis magna posuere consectetur. Praesent fermentum sodales facilisis. Mauris a efficitur sem. Aliquam vehicula sapien libero, a viverra felis scelerisque vel. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec fringilla dui tellus, a pretium diam vehicula et. Etiam non vulputate augue. Morbi laoreet diam dapibus sapien pellentesque tristique. Morbi id nibh metus. Integer non scelerisque nisl.
+                  </p>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie condimentum consectetur. Nulla tristique lacinia elit, at elementum dui gravida non. Mauris et nisl semper, elementum quam non, lacinia purus. Vivamus aliquam vitae sapien volutpat efficitur. Curabitur sagittis neque facilisis magna posuere consectetur. Praesent fermentum sodales facilisis. Mauris a efficitur sem. Aliquam vehicula sapien libero, a viverra felis scelerisque vel. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec fringilla dui tellus, a pretium diam vehicula et. Etiam non vulputate augue. Morbi laoreet diam dapibus sapien pellentesque tristique. Morbi id nibh metus. Integer non scelerisque nisl.
+                  </p>
+                  <a
+                    data-title="Integer non scelerisque"
+                    name="14"
+                    style={
+                      Object {
+                        "color": "#000",
+                      }
+                    }
+                  >
+                    <h3
+                      style={
+                        Object {
+                          "paddingBottom": "1rem",
+                          "paddingTop": "2rem",
+                        }
+                      }
+                    >
+                      Integer non scelerisque
+                    </h3>
+                  </a>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie condimentum consectetur. Nulla tristique lacinia elit, at elementum dui gravida non. Mauris et nisl semper, elementum quam non, lacinia purus. Vivamus aliquam vitae sapien volutpat efficitur. Curabitur sagittis neque facilisis magna posuere consectetur. Praesent fermentum sodales facilisis. Mauris a efficitur sem. Aliquam vehicula sapien libero, a viverra felis scelerisque vel. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec fringilla dui tellus, a pretium diam vehicula et. Etiam non vulputate augue. Morbi laoreet diam dapibus sapien pellentesque tristique. Morbi id nibh metus. Integer non scelerisque nisl.
+                  </p>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie condimentum consectetur. Nulla tristique lacinia elit, at elementum dui gravida non. Mauris et nisl semper, elementum quam non, lacinia purus. Vivamus aliquam vitae sapien volutpat efficitur. Curabitur sagittis neque facilisis magna posuere consectetur. Praesent fermentum sodales facilisis. Mauris a efficitur sem. Aliquam vehicula sapien libero, a viverra felis scelerisque vel. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec fringilla dui tellus, a pretium diam vehicula et. Etiam non vulputate augue. Morbi laoreet diam dapibus sapien pellentesque tristique. Morbi id nibh metus. Integer non scelerisque nisl.
+                  </p>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras molestie condimentum consectetur. Nulla tristique lacinia elit, at elementum dui gravida non. Mauris et nisl semper, elementum quam non, lacinia purus. Vivamus aliquam vitae sapien volutpat efficitur. Curabitur sagittis neque facilisis magna posuere consectetur. Praesent fermentum sodales facilisis. Mauris a efficitur sem. Aliquam vehicula sapien libero, a viverra felis scelerisque vel. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec fringilla dui tellus, a pretium diam vehicula et. Etiam non vulputate augue. Morbi laoreet diam dapibus sapien pellentesque tristique. Morbi id nibh metus. Integer non scelerisque nisl.
+                  </p>
+                </div>
+              </TableOfContents>
+            </React.Fragment>,
+            "type": "STORY",
+          },
+        ]
+      }
+      theme={Object {}}
+      types={
+        Array [
+          "MD",
+          "STORY",
+          "STORY_SOURCE",
+          "PROPS",
+          "FOOTER_MD",
+          "HEADER_MD",
+        ]
+      }
+    >
+      <div
+        className="storybook-readme-story"
+      >
+        <_default
+          key="0"
+        >
+          <div
+            style={Object {}}
+          >
+            <div>
+              <TableOfContents
+                headingContent={
+                  <div
+                    style={
+                      Object {
+                        "alignItems": "center",
+                        "background": "#f4f4f4",
+                        "display": "flex",
+                        "height": "200px",
+                        "justifyContent": "center",
+                      }
+                    }
+                  >
+                    <h4>
+                      Example children
+                    </h4>
+                  </div>
+                }
+                menuItems={
+                  Array [
+                    Object {
+                      "id": "8",
+                      "title": "Cras molestie condimentum",
+                    },
+                    Object {
+                      "id": "7",
+                      "title": "Praesent fermentum sodales",
+                    },
+                    Object {
+                      "id": "2",
+                      "title": "Nulla tristique lacinia",
+                    },
+                    Object {
+                      "id": "3",
+                      "title": "Morbi id nibh metus",
+                    },
+                    Object {
+                      "id": "14",
+                      "title": "Integer non scelerisque",
+                    },
+                  ]
+                }
+                menuLabel="Jump to"
+                menuRule={false}
+                stickyOffset={null}
+                theme=""
+              >
+                <section
+                  className="bx--tableofcontents"
+                  data-autoid="dds--tableofcontents"
+                >
+                  <Layout
+                    border={false}
+                    marginBottom="none"
+                    marginTop="none"
+                    nested={false}
+                    stickyOffset={null}
+                    type="1-3"
+                  >
+                    <section
+                      className="bx--grid bx--layout--top-none bx--layout--bottom-none"
+                      data-autoid="dds--layout"
+                    >
+                      <div
+                        className="bx--row"
+                      >
+                        <div
+                          className="bx--col-lg-4 bx--layout--sticky-mobile"
+                          key="0"
+                          style={
+                            Object {
+                              "top": 0,
+                            }
+                          }
+                        >
+                          <div
+                            className="bx--tableofcontents__sidebar bx--layout--sticky-desktop"
+                            data-sticky="true"
+                            style={
+                              Object {
+                                "top": 0,
+                              }
+                            }
+                          >
+                            <div
+                              className="bx--tableofcontents__mobile-top"
+                            />
+                            <TOCDesktop
+                              headingContent={
+                                <div
+                                  style={
+                                    Object {
+                                      "alignItems": "center",
+                                      "background": "#f4f4f4",
+                                      "display": "flex",
+                                      "height": "200px",
+                                      "justifyContent": "center",
+                                    }
+                                  }
+                                >
+                                  <h4>
+                                    Example children
+                                  </h4>
+                                </div>
+                              }
+                              menuItems={
+                                Array [
+                                  Object {
+                                    "id": "menuLabel",
+                                    "title": "Jump to ...",
+                                  },
+                                  Object {
+                                    "id": "8",
+                                    "title": "Cras molestie condimentum",
+                                  },
+                                  Object {
+                                    "id": "7",
+                                    "title": "Praesent fermentum sodales",
+                                  },
+                                  Object {
+                                    "id": "2",
+                                    "title": "Nulla tristique lacinia",
+                                  },
+                                  Object {
+                                    "id": "3",
+                                    "title": "Morbi id nibh metus",
+                                  },
+                                  Object {
+                                    "id": "14",
+                                    "title": "Integer non scelerisque",
+                                  },
+                                ]
+                              }
+                              menuLabel="Jump to"
+                              menuRule={false}
+                              selectedId="8"
+                              selectedTitle="Cras molestie condimentum"
+                              updateState={[Function]}
+                            >
+                              <div
+                                className="bx--tableofcontents__desktop"
+                                data-autoid="dds--tableofcontents__desktop"
+                              >
+                                <div
+                                  className="bx--tableofcontents__desktop__children"
+                                >
+                                  <div
+                                    style={
+                                      Object {
+                                        "alignItems": "center",
+                                        "background": "#f4f4f4",
+                                        "display": "flex",
+                                        "height": "200px",
+                                        "justifyContent": "center",
+                                      }
+                                    }
+                                  >
+                                    <h4>
+                                      Example children
+                                    </h4>
+                                  </div>
+                                </div>
+                                <ul>
+                                  <li
+                                    className="bx--tableofcontents__desktop__item bx--tableofcontents__desktop__item--active"
+                                    data-autoid="dds--tableofcontents__desktop__item-8"
+                                    key="0"
+                                  >
+                                    <a
+                                      aria-current="location"
+                                      href="#8"
+                                      onClick={[Function]}
+                                    >
+                                      Cras molestie condimentum
+                                    </a>
+                                  </li>
+                                  <li
+                                    className="bx--tableofcontents__desktop__item"
+                                    data-autoid="dds--tableofcontents__desktop__item-7"
+                                    key="1"
+                                  >
+                                    <a
+                                      href="#7"
+                                      onClick={[Function]}
+                                    >
+                                      Praesent fermentum sodales
+                                    </a>
+                                  </li>
+                                  <li
+                                    className="bx--tableofcontents__desktop__item"
+                                    data-autoid="dds--tableofcontents__desktop__item-2"
+                                    key="2"
+                                  >
+                                    <a
+                                      href="#2"
+                                      onClick={[Function]}
+                                    >
+                                      Nulla tristique lacinia
+                                    </a>
+                                  </li>
+                                  <li
+                                    className="bx--tableofcontents__desktop__item"
+                                    data-autoid="dds--tableofcontents__desktop__item-3"
+                                    key="3"
+                                  >
+                                    <a
+                                      href="#3"
+                                      onClick={[Function]}
+                                    >
+                                      Morbi id nibh metus
+                                    </a>
+                                  </li>
+                                  <li
+                                    className="bx--tableofcontents__desktop__item"
+                                    data-autoid="dds--tableofcontents__desktop__item-14"
+                                    key="4"
+                                  >
+                                    <a
+                                      href="#14"
+                                      onClick={[Function]}
+                                    >
+                                      Integer non scelerisque
+                                    </a>
+                                  </li>
+                                </ul>
+                              </div>
+                            </TOCDesktop>
+                            <TOCMobile
+                              menuItems={
+                                Array [
+                                  Object {
+                                    "id": "menuLabel",
+                                    "title": "Jump to ...",
+                                  },
+                                  Object {
+                                    "id": "8",
+                                    "title": "Cras molestie condimentum",
+                                  },
+                                  Object {
+                                    "id": "7",
+                                    "title": "Praesent fermentum sodales",
+                                  },
+                                  Object {
+                                    "id": "2",
+                                    "title": "Nulla tristique lacinia",
+                                  },
+                                  Object {
+                                    "id": "3",
+                                    "title": "Morbi id nibh metus",
+                                  },
+                                  Object {
+                                    "id": "14",
+                                    "title": "Integer non scelerisque",
+                                  },
+                                ]
+                              }
+                              menuLabel="Jump to"
+                              selectedId="8"
+                              selectedTitle="Cras molestie condimentum"
+                              updateState={[Function]}
+                            >
+                              <div
+                                className="bx--tableofcontents__mobile"
+                                data-autoid="dds--tableofcontents__mobile"
+                              >
+                                <div
+                                  className="bx--tableofcontents__mobile__select__wrapper"
+                                >
+                                  <select
+                                    className="bx--tableofcontents__mobile__select"
+                                    onBlur={[Function]}
+                                    onChange={[Function]}
+                                    value="8"
+                                  >
+                                    <option
+                                      className="bx--tableofcontents__mobile__select__option"
+                                      data-autoid="dds}--tableofcontents__mobile__select__option-menuLabel"
+                                      key="0"
+                                      value="menuLabel"
+                                    >
+                                      Jump to ...
+                                    </option>
+                                    <option
+                                      className="bx--tableofcontents__mobile__select__option"
+                                      data-autoid="dds}--tableofcontents__mobile__select__option-8"
+                                      key="1"
+                                      value="8"
+                                    >
+                                      Cras molestie condimentum
+                                    </option>
+                                    <option
+                                      className="bx--tableofcontents__mobile__select__option"
+                                      data-autoid="dds}--tableofcontents__mobile__select__option-7"
+                                      key="2"
+                                      value="7"
+                                    >
+                                      Praesent fermentum sodales
+                                    </option>
+                                    <option
+                                      className="bx--tableofcontents__mobile__select__option"
+                                      data-autoid="dds}--tableofcontents__mobile__select__option-2"
+                                      key="3"
+                                      value="2"
+                                    >
+                                      Nulla tristique lacinia
+                                    </option>
+                                    <option
+                                      className="bx--tableofcontents__mobile__select__option"
+                                      data-autoid="dds}--tableofcontents__mobile__select__option-3"
+                                      key="4"
+                                      value="3"
+                                    >
+                                      Morbi id nibh metus
+                                    </option>
+                                    <option
+                                      className="bx--tableofcontents__mobile__select__option"
+                                      data-autoid="dds}--tableofcontents__mobile__select__option-14"
+                                      key="5"
+                                      value="14"
+                                    >
+                                      Integer non scelerisque
+                                    </option>
+                                  </select>
+                                  <ForwardRef(TableOfContents20)
+                                    aria-label="menu icon"
+                                    className="bx--tableofcontents__mobile__select__icon"
+                                  >
+                                    <Icon
+                                      aria-label="menu icon"
+                                      className="bx--tableofcontents__mobile__select__icon"
+                                      height={20}
+                                      preserveAspectRatio="xMidYMid meet"
+                                      viewBox="0 0 32 32"
+                                      width={20}
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <svg
+                                        aria-label="menu icon"
+                                        className="bx--tableofcontents__mobile__select__icon"
+                                        focusable="false"
+                                        height={20}
+                                        preserveAspectRatio="xMidYMid meet"
+                                        role="img"
+                                        viewBox="0 0 32 32"
+                                        width={20}
+                                        xmlns="http://www.w3.org/2000/svg"
+                                      >
+                                        <path
+                                          d="M4 6H22V8H4zM4 12H22V14H4zM4 18H22V20H4zM4 24H22V26H4zM26 6H28V8H26zM26 12H28V14H26zM26 18H28V20H26zM26 24H28V26H26z"
+                                        />
+                                        <title>
+                                          menu icon
+                                        </title>
+                                      </svg>
+                                    </Icon>
+                                  </ForwardRef(TableOfContents20)>
+                                </div>
+                              </div>
+                            </TOCMobile>
+                          </div>
+                        </div>
+                        <div
+                          className="bx--tableofcontents__content bx--col-lg-12"
+                          key="1"
+                        >
+                          <div
+                            className="bx--tableofcontents__content-wrapper"
+                          >
+                            <div
+                              className="bx--tableofcontents__children__mobile"
+                            >
+                              <div
+                                style={
+                                  Object {
+                                    "alignItems": "center",
+                                    "background": "#f4f4f4",
+                                    "display": "flex",
+                                    "height": "200px",
+                                    "justifyContent": "center",
+                                  }
+                                }
+                              >
+                                <h4>
+                                  Example children
+                                </h4>
+                              </div>
+                            </div>
                             <div>
                               <a
                                 data-title="Cras molestie condimentum"

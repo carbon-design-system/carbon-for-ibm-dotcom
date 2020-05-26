@@ -24,10 +24,7 @@ const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
- * Card Link Component
- *
- * @param {object} props react proptypes
- * @returns {object} JSX object
+ * Card Link Component.
  */
 export const Card = ({
   type,
@@ -121,24 +118,69 @@ function renderFooter(cta, type) {
   );
 }
 
-/**
- * Defining Card proptypes
- *
- * @type {object}
- */
 export const cardPropTypes = {
+  /**
+   * Concise yet descriptive string of text describing the linked resource.
+   */
   heading: PropTypes.string,
+
+  /**
+   * Eyebrow text to be passed as a property to the Card component.
+   * Style for Card component has been set to "text".
+   */
   eyebrow: PropTypes.string,
+
+  /**
+   * Paragraph of text that further describing the resource with added detail.
+   */
   copy: PropTypes.string,
+
+  /**
+   * CTA options.
+   * See [`<CTA>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/patterns-sub-patterns-card--static#cta-required) for full usage details.
+   */
   cta: PropTypes.shape({
     copy: PropTypes.string,
     href: PropTypes.string,
-    type: PropTypes.string,
+    type: PropTypes.oneOfType([
+      PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video']),
+      PropTypes.arrayOf(
+        PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video'])
+      ),
+    ]),
   }),
-  image: PropTypes.object,
+
+  /**
+   * Contains source and alt text properties.
+   * See [`<Image>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-image--default#props) for full usage details.
+   */
+  image: PropTypes.shape({
+    classname: PropTypes.string,
+    sources: PropTypes.arrayOf(
+      PropTypes.shape({
+        src: PropTypes.string,
+        breakpoint: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+      })
+    ),
+    defaultSrc: PropTypes.string.isRequired,
+    alt: PropTypes.string.isRequired,
+    longDescription: PropTypes.string,
+  }),
+
+  /**
+   * `true` to sets the high contrast for Card.
+   */
   inverse: PropTypes.bool,
+
+  /**
+   * Classname to be assigned to the Card component.
+   */
   customClassName: PropTypes.string,
-  type: PropTypes.string,
+
+  /**
+   * Determines whether card is clickable or static.
+   */
+  type: PropTypes.oneOf(['link']),
 };
 
 Card.propTypes = cardPropTypes;

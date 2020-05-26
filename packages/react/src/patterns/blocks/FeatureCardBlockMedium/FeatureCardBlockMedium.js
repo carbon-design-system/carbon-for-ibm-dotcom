@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -23,7 +23,7 @@ const { prefix } = settings;
  * @param {object} props.card section card object
  * @returns {*} FeatureCardBlockMedium JSX component
  */
-const FeatureCardBlockMedium = ({ heading, card }) => {
+const FeatureCardBlockMedium = ({ heading, card, ...otherProps }) => {
   return (
     heading &&
     card.cta && (
@@ -31,7 +31,7 @@ const FeatureCardBlockMedium = ({ heading, card }) => {
         className={`${prefix}--feature-card-block-medium`}
         data-autoid={`${stablePrefix}--feature-card-block-medium`}>
         <ContentGroup heading={heading}>
-          <FeatureCard card={card} />
+          <FeatureCard card={card} {...otherProps} />
         </ContentGroup>
       </section>
     )
