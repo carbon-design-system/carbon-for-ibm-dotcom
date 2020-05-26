@@ -1,3 +1,6 @@
+import { Props } from '@storybook/addon-docs/blocks';
+import LinkList from './LinkList';
+
 # Link List
 
 > The Link List component will be used to have list of different cta types.
@@ -79,21 +82,7 @@ Add the following line in your `.env` file at the root of your project.
 
 ## Props
 
-| Name      | Required | Data Type | Default Value | Description                                                            |
-| --------- | -------- | --------- | ------------- | ---------------------------------------------------------------------- |
-| `heading` | YES      | String    | text          | Describes heading of LinkList.                                         |
-| `items`   | YES      | Array     | null          | Describes the list of CTA. For more See below `CTA`.                   |
-| `style`   | YES      | String    | null          | Orientation of LinkList. Supports `card`, `horizontal`, and `vertical` |
-
-### CTA
-
-| Name      | Description                                                                             |
-| --------- | --------------------------------------------------------------------------------------- |
-| `heading` | Describing the resource with added detail.                                              |
-| `type`    | Describes after onClick where to load. It has `external`, `local`, and `video` options. |
-
-> 👀 See more here
-> [CTA](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/src/components/CTA/README.md)
+<Props of={LinkList} />
 
 ## 🙌 Contributing
 

@@ -1,3 +1,6 @@
+import { Props } from '@storybook/addon-docs/blocks';
+import PictogramItem from './PictogramItem';
+
 # Pictogram Item
 
 ## Getting started
@@ -68,17 +71,7 @@ Add the following line in your `.env` file at the root of your project.
 
 ## Props
 
-| Name        | Required | Data Type | Default Value | Description                                                                                                                                             |
-| ----------- | -------- | --------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `heading`   | YES      | String    | null          | Heading text                                                                                                                                            |
-| `copy`      | YES      | String    | null          | Copy text                                                                                                                                               |
-| `pictogram` | YES      | Object    | null          | See `Pictogram` bellow. package                                                                                                                         |
-| `cta`       | NO       | Object    | null          | Object with CTA data, check [CTA](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/components/CTA/README.md)👀 |
-
-## pictogram
-
-| Name | Required | Data Type | Default Value | Description | | `src` | YES |
-Component | null | Pictogram component imported from `@carbon/pictograms-react`
+<Props of={PictogramItem} />
 
 ## Accessibility
 

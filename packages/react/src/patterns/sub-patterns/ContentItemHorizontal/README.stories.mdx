@@ -1,3 +1,6 @@
+import { Props } from '@storybook/addon-docs/blocks';
+import ContentItemHorizontal from './ContentItemHorizontal';
+
 # Content Item - Horizontal
 
 > The ContentItemHorizontal sub-pattern displays information in a horizontal
@@ -71,20 +74,7 @@ Add the following line in your `.env` file at the root of your project.
 
 ## Props
 
-| Name      | Required | Data Type | Default Value | Description                                                                                                                                                                                                    |
-| --------- | -------- | --------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `eyebrow` | NO       | String    | null          | Optional text displayed above the heading.                                                                                                                                                                     |
-| `heading` | YES      | String    | null          | Heading of the content item.                                                                                                                                                                                   |
-| `copy`    | YES      | String    | null          | Copy of the content item. Accepts _italic_ markdown formatting.                                                                                                                                                |
-| `cta`     | NO       | Array     | null          | Optional CTA links displayed below the copy. See [CTA props](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/patterns/sub-patterns/ContentItemHorizontal#cta-props). |
-
-### CTA Props
-
-| Name   | Required | Data Type | Description                                |
-| ------ | -------- | --------- | ------------------------------------------ |
-| `type` | YES      | Object    | Link type. Accepts `local` and `external`. |
-| `copy` | YES      | String    | Link text.                                 |
-| `href` | YES      | String    | URI for internal or external resource.     |
+<Props of={ContentItemHorizontal} />
 
 ## Stable selectors
 
