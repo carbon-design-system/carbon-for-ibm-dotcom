@@ -1,3 +1,6 @@
+import { Props } from '@storybook/addon-docs/blocks';
+import SimpleOverview from './SimpleOverview';
+
 # Simple Overview
 
 > The Simple Overview pattern is to be utilized within IBM.com.
@@ -77,20 +80,7 @@ DDS_SIMPLE_OVERVIEW=true
 
 ## Props
 
-| Name      | Required | Data Type | Default Value | Description                             |
-| --------- | -------- | --------- | ------------- | --------------------------------------- |
-| `label`   | YES      | String    | n/a           | Side label for Simple Overview pattern  |
-| `heading` | YES      | String    | n/a           | Heading for Simple Overview pattern     |
-| `copy`    | YES      | String    | n/a           | Copy for Simple Overview pattern        |
-| `link`    | NO       | Object    | n/a           | Link Object for Simple Overview pattern |
-
-### link
-
-| Name     | Data Type | Description                                                |
-| -------- | --------- | ---------------------------------------------------------- |
-| `href`   | String    | Url of link.                                               |
-| `copy`   | String    | Link copy.                                                 |
-| `target` | String    | Open within current tab or new tab ('\_self' or '\_blank') |
+<Props of={SimpleOverview} />
 
 ## Stable selectors
 

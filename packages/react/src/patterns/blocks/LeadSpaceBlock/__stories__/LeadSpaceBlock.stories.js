@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -8,15 +8,13 @@
 import { object, select, withKnobs, text } from '@storybook/addon-knobs';
 import LeadSpaceBlock from '../LeadSpaceBlock.js';
 import React from 'react';
-import readme from '../README.md';
+import readme from '../README.stories.mdx';
 import { storiesOf } from '@storybook/react';
 
 storiesOf('Patterns (Blocks)|LeadSpaceBlock', module)
   .addDecorator(withKnobs)
   .addParameters({
-    readme: {
-      sidebar: readme,
-    },
+    ...readme.parameters,
   })
   .add('Default', () => {
     const title = 'Continuous delivery';

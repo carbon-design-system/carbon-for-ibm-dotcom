@@ -1,3 +1,6 @@
+import { Props } from '@storybook/addon-docs/blocks';
+import ContentGroupHorizontal from './ContentGroupHorizontal';
+
 # Content Group - Horizontal
 
 > The ContentGroupHorizontal block pattern contains a collection of
@@ -81,10 +84,7 @@ Add the following line in your `.env` file at the root of your project.
 
 ## Props
 
-| Name      | Required | Data Type | Default Value | Description                                                                                                                                                                                                   |
-| --------- | -------- | --------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `heading` | YES      | String    | null          | Heading of the content group.                                                                                                                                                                                 |
-| `items`   | YES      | Array     | null          | Array of content items. See [ContentItemHorizontal](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/patterns/sub-patterns/ContentItemHorizontal) for usage details. |
+<Props of={ContentGroupHorizontal} />
 
 ## Stable selectors
 

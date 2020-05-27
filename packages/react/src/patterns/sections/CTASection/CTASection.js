@@ -17,15 +17,7 @@ const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
- * CTASection pattern
- *
- * @param {object} props props object
- * @param {string} props.heading heading string
- * @param {string} props.copy pattern copy
- * @param {object} props.cta CTA component
- * @param {string} props.theme theme name
- * @ param {Array} props.items CTA items to the ContentItem
- * @returns {object} JSX Object
+ * CTASection pattern.
  */
 const CTASection = ({ heading, copy, cta, items, theme }) => {
   /**
@@ -62,10 +54,42 @@ const CTASection = ({ heading, copy, cta, items, theme }) => {
 };
 
 CTASection.propTypes = {
+  /**
+   * The heading for the CTA Section pattern.
+   */
   heading: PropTypes.string.isRequired,
+
+  /**
+   * The copy for the CTA Section pattern.
+   */
   copy: PropTypes.string.isRequired,
-  cta: PropTypes.object,
-  theme: PropTypes.string,
+
+  /**
+   * CTA object.
+   * See the [`<CTA>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-cta--default#props) for full usage details.
+   */
+  cta: PropTypes.shape({
+    style: PropTypes.oneOf(['text', 'card', 'button', 'feature']),
+    type: PropTypes.oneOfType([
+      PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video']),
+      PropTypes.arrayOf(
+        PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video'])
+      ),
+    ]),
+    copy: PropTypes.string,
+    href: PropTypes.string,
+    customClassName: PropTypes.string,
+  }),
+
+  /**
+   * Color theme for pattern.
+   */
+  theme: PropTypes.oneOf(['white', 'g10', 'g90', 'g100']),
+
+  /**
+   * The `<ContentItem>` data to render.
+   * See the [`<ContentItem>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/patterns-sub-patterms-contentitem--default#props) for full usage details.
+   */
   items: PropTypes.arrayOf(
     PropTypes.shape({
       heading: PropTypes.string,
@@ -73,7 +97,24 @@ CTASection.propTypes = {
       cta: PropTypes.shape({
         heading: PropTypes.string,
         copy: PropTypes.string,
-        cta: PropTypes.object,
+        cta: PropTypes.shape({
+          style: PropTypes.oneOf(['text', 'card', 'button', 'feature']),
+          type: PropTypes.oneOfType([
+            PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video']),
+            PropTypes.arrayOf(
+              PropTypes.oneOf([
+                'jump',
+                'local',
+                'external',
+                'download',
+                'video',
+              ])
+            ),
+          ]),
+          copy: PropTypes.string,
+          href: PropTypes.string,
+          customClassName: PropTypes.string,
+        }),
       }),
     })
   ),

@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -17,13 +17,7 @@ const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
- * Content group — with pictograms
- *
- * @param {object} props props object
- * @param {object} props.className class Name prop
- * @param {Array} props.items Pictogram item content array
- * @param {string} props.heading Content group — with pictograms title
- * @returns {*}  Content group — with pictograms JSX Component
+ * Content group — with pictograms.
  */
 const ContentGroupPictograms = ({ heading, items, className }) => (
   <div
@@ -50,8 +44,41 @@ const _renderItems = items =>
   ));
 
 ContentGroupPictograms.propTypes = {
+  /**
+   * Main title of Content Group — with Pictograms pattern.
+   */
   heading: PropTypes.string.isRequired,
-  items: PropTypes.arrayOf(PropTypes.shape(PictogramItem.propTypes)).isRequired,
+
+  /**
+   * Array of PictogramItems.
+   * See [`<PictogramItem>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/patterns-sub-patterns-pictogramitem--default#props) for full usage details.
+   */
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      heading: PropTypes.string.isRequired,
+      copy: PropTypes.string.isRequired,
+      cta: PropTypes.shape({
+        style: PropTypes.oneOf(['text', 'card', 'button', 'feature']),
+        type: PropTypes.oneOfType([
+          PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video']),
+          PropTypes.arrayOf(
+            PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video'])
+          ),
+        ]),
+        copy: PropTypes.string,
+        href: PropTypes.string,
+        customClassName: PropTypes.string,
+      }),
+      pictogram: PropTypes.shape({
+        src: PropTypes.object.isRequired,
+      }),
+      className: PropTypes.string,
+    })
+  ).isRequired,
+
+  /**
+   * The CSS class name to apply to the top-level element.
+   */
   className: PropTypes.string,
 };
 

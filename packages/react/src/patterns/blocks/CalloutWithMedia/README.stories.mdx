@@ -1,3 +1,6 @@
+import { Props } from '@storybook/addon-docs/blocks';
+import ContentBlockSimple from '../ContentBlockSimple/ContentBlockSimple';
+
 # Callout With Media
 
 > The "Callout With Media" is a decorator of `Callout`, which includes
@@ -74,9 +77,7 @@ Add the following line in your `.env` file at the root of your project.
 
 ## Props
 
-| Name                           | Required | Data Type | Default Value | Description                                                                                                                                                                            |
-| ------------------------------ | -------- | --------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `props for ContentBlockSimple` | YES      | Object    | null          | Content Block Simple. See [ContentBlockSimple](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/src/patterns/blocks/ContentBlockSimple/README.md) |
+<Props of={ContentBlockSimple} />
 
 ## Stable selectors
 

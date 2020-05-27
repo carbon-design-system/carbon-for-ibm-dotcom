@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -19,17 +19,7 @@ const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
- * Content Block - Segmented pattern
- *
- * @param {object} props props object
- * @param {string} props.heading content block heading
- * @param {string} props.copy content block short copy to support the heading
- * @param {object} props.cta content block cta
- * @param {string} props.mediaType Determines the media type (image or video)
- * @param {object} props.mediaData Data properties for image or video
- * @param {Array} props.items content block content items
- * @param {object} props.aside elements to render on right panel
- * @returns {*} Content Block - Segmented pattern
+ * Content Block - Segmented pattern.
  */
 const ContentBlockSegmented = ({
   copy,
@@ -102,13 +92,131 @@ const _renderGroup = items =>
   ));
 
 ContentBlockSegmented.propTypes = {
+  /**
+   * Main title of pattern.
+   */
   heading: PropTypes.string.isRequired,
+
+  /**
+   * Short copy to suppport title.
+   */
   copy: PropTypes.string.isRequired,
-  cta: PropTypes.object,
-  mediaType: PropTypes.string,
-  mediaData: PropTypes.object,
-  items: PropTypes.array.isRequired,
-  aside: PropTypes.object,
+
+  /**
+   * Supports `text` and `card` styles.
+   * See the [`<CTA>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-cta--default#props) for full usage details.
+   */
+  cta: PropTypes.shape({
+    style: PropTypes.oneOf(['text', 'card']),
+    type: PropTypes.oneOfType([
+      PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video']),
+      PropTypes.arrayOf(
+        PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video'])
+      ),
+    ]),
+    copy: PropTypes.string,
+    href: PropTypes.string,
+    customClassName: PropTypes.string,
+  }),
+
+  /**
+   * Determines media type (image or video).
+   */
+  mediaType: PropTypes.oneOf(['image', 'video']),
+
+  /**
+   * Media Data for either image or video.
+   * See the following components' README for more details:
+   *
+   * * `mediaType="image"`: [`<ImageWithCaption>`](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-imagewithcaption--default#props)
+   * * `mediaType="video"`: [`<VideoPlayer>`](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-videoplayer--default#props)
+   */
+  mediaData: PropTypes.oneOfType([
+    PropTypes.shape({
+      inverse: PropTypes.bool,
+      image: PropTypes.shape(
+        PropTypes.shape({
+          classname: PropTypes.string,
+          sources: PropTypes.arrayOf(
+            PropTypes.shape({
+              src: PropTypes.string,
+              breakpoint: PropTypes.oneOfType([
+                PropTypes.string,
+                PropTypes.number,
+              ]),
+            })
+          ),
+          defaultSrc: PropTypes.string.isRequired,
+          alt: PropTypes.string.isRequired,
+          longDescription: PropTypes.string,
+        })
+      ).isRequired,
+      lightbox: PropTypes.bool,
+      heading: PropTypes.string,
+      copy: PropTypes.string,
+      customClassName: PropTypes.string,
+    }),
+    PropTypes.shape({
+      customClassName: PropTypes.string,
+      videoId: PropTypes.string.isRequired,
+      showCaption: PropTypes.bool,
+      inverse: PropTypes.bool,
+    }),
+  ]),
+
+  /**
+   * Array of content items to render. Has the following structure for each items:
+   *
+   * | Name      | Required | Data Type | Description                                                                                                                                                                                                             |
+   * | --------- | -------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+   * | `heading` | YES      | String    | Short copy describing content item.                                                                                                                                                                                     |
+   * | `image`   | NO       | Object    | See the [`Image`](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/components/Image) component for full usage details.                                                         |
+   * | `cta`     | NO       | Object    | `jump` and `local` types are allowed, for more information, see the [`CTA`](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/components/CTA) component for full usage details. |
+   * | `copy`    | YES      | String    | Item content.                                                                                                                                                                                                           |
+   */
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      heading: PropTypes.string,
+      copy: PropTypes.string,
+      image: PropTypes.shape({
+        inverse: PropTypes.bool,
+        image: PropTypes.shape({
+          classname: PropTypes.string,
+          sources: PropTypes.arrayOf(
+            PropTypes.shape({
+              src: PropTypes.string,
+              breakpoint: PropTypes.oneOfType([
+                PropTypes.string,
+                PropTypes.number,
+              ]),
+            })
+          ),
+          defaultSrc: PropTypes.string.isRequired,
+          alt: PropTypes.string.isRequired,
+          longDescription: PropTypes.string,
+        }).isRequired,
+        lightbox: PropTypes.bool,
+        heading: PropTypes.string,
+        copy: PropTypes.string,
+        customClassName: PropTypes.string,
+      }),
+      cta: PropTypes.shape({
+        style: PropTypes.oneOf(['card']),
+        type: PropTypes.oneOf(['local']),
+        copy: PropTypes.string,
+        customClassName: PropTypes.string,
+      }),
+    })
+  ).isRequired,
+
+  /**
+   * Elements to be rendered on right panel of the content block.
+   * See [`<ContentBlock>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/patterns-sub-patterns-contentblock--default#aside) for full usage details.
+   */
+  aside: PropTypes.shape({
+    items: PropTypes.element,
+    border: PropTypes.bool,
+  }),
 };
 
 export default ContentBlockSegmented;
