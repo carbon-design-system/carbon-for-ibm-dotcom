@@ -89,6 +89,18 @@ CTA.propTypes = {
   ]),
 
   /**
+   * Optional text for CTA.
+   * Used for ones except `style="feature"`.
+   */
+  copy: PropTypes.string,
+
+  /**
+   * Valid URL for a the location of an internal or external resource.
+   * Used for `style="text"`.
+   */
+  href: PropTypes.string,
+
+  /**
    * Custom classname from parent.
    */
   customClassName: PropTypes.string,

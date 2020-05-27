@@ -1,3 +1,6 @@
+import { Props } from '@storybook/addon-docs/blocks';
+import LeadSpace from './LeadSpace';
+
 # Lead Space
 
 > The Lead Space pattern is to be utilized within IBM.com.
@@ -77,42 +80,7 @@ Add the following line in your `.env` file at the root of your project.
 
 ## Props
 
-| Name       | Required | Data Type | Default Value | Description                                                                           |
-| ---------- | -------- | --------- | ------------- | ------------------------------------------------------------------------------------- |
-| `buttons`  | NO       | Array     | null          | Array of button objects to render (max 2). See `buttons` below.                       |
-| `copy`     | NO       | String    | null          | Short copy of LeadSpace.                                                              |
-| `gradient` | NO       | Boolean   | false         | Determines whether to render overlay gradient.                                        |
-| `image`    | NO       | Object    | null          | Object with different ratio options for corresponding breakpoints. See `image` below. |
-| `theme`    | NO       | String    | 'white'       | Color theme of LeadSpace. See `themes` below.                                         |
-| `title`    | YES      | String    | n/a           | Title of LeadSpace.                                                                   |
-| `type`     | NO       | String    | 'small'       | Sets the type of Leadspace layout. See `types` below.                                 |
-
-### buttons (optional)
-
-Visit the
-[ButtonGroup storybook](https://ibmdotcom-react.mybluemix.net/?path=/story/patterns-sub-patterns-buttongroup--default)
-for more details on the ButtonGroup component.
-
-### image (optional)
-
-Visit the
-[Image storybook](https://ibmdotcom-react.mybluemix.net/?path=/story/components-imagewithcaption--default)
-for more details on the ImageWithCaption component.
-
-### themes (optional)
-
-| Name    | Data Type | Description           |
-| ------- | --------- | --------------------- |
-| `white` | String    | Carbon White theme    |
-| `g100`  | String    | Carbon Gray 100 theme |
-
-### type (optional)
-
-| Name              | Data Type | Description                                       |
-| ----------------- | --------- | ------------------------------------------------- |
-| `small`/`default` | String    | Left-aligned - small style of the leadspace title |
-| `left`            | String    | Left-aligned - large style of the leadspace title |
-| `centered`        | String    | Centered type of the LeadSpace                    |
+<Props of={LeadSpace} />
 
 ## Stable selectors
 

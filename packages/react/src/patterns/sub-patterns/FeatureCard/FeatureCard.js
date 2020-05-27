@@ -55,6 +55,8 @@ FeatureCard.propTypes = {
    * | Name   | Data Type | Description                       |
    * | ------ | --------- | --------------------------------- |
    * | `href` | String    | Url of the FeatureCard component. |
+   *
+   * See [`<Card>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/patterns-sub-patterns-card--static#props) for full usage details.
    */
   card: PropTypes.shape({
     heading: PropTypes.string,

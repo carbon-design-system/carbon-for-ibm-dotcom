@@ -1,3 +1,6 @@
+import { Props } from '@storybook/addon-docs/blocks';
+import CalloutQuote from './CalloutQuote';
+
 # Callout Quote
 
 > The "Callout Quote" is a decorator of `Callout`, which includes a `Quote`.
@@ -58,9 +61,7 @@ Add the following line in your `.env` file at the root of your project.
 
 ## Props
 
-| Name    | Required | Data Type | Default Value | Description                                                                                                                                                     |
-| ------- | -------- | --------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `quote` | YES      | Object    | null          | Quote object. See [Quote](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/src/patterns/sub-patterns/Quote/README.md)! 👀. |
+<Props of={CalloutQuote} />
 
 ## Stable selectors
 

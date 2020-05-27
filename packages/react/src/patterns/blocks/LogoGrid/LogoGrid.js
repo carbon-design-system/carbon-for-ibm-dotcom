@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -15,13 +15,7 @@ import settings from 'carbon-components/es/globals/js/settings';
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 /**
- * Logo Grid
- *
- * @param {object} props Props object
- * @param {string} props.title Title for the Logo Grid Pattern
- * @param {string} props.theme theme name
- * @param {Array} props.logosGroup Array of object with label, imgSrc and altText properties
- * @returns {*} Logo Grid Pattern JSX object
+ * Logo Grid.
  */
 const LogoGrid = ({ theme, title, logosGroup }) => {
   /**
@@ -64,8 +58,25 @@ const LogoGrid = ({ theme, title, logosGroup }) => {
 };
 
 LogoGrid.propTypes = {
-  theme: PropTypes.string,
+  /**
+   * The theme name.
+   */
+  theme: PropTypes.oneOf('g10'),
+
+  /**
+   * Title for the Logo Grid Pattern.
+   */
   title: PropTypes.string,
+
+  /**
+   * LogosGroup array of Objects for Logo Grid pattern. Each items have the following structure:
+   *
+   * | Name      | Data Type | Description                         |
+   * | --------- | --------- | ----------------------------------- |
+   * | `label`   | String    | Label for logo placeholder.         |
+   * | `imgSrc`  | String    | image source for logo placeholder.  |
+   * | `altText` | String    | alternate text for ogo placeholder. |
+   */
   logosGroup: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string,
