@@ -5,43 +5,24 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import {
-  boolean,
-  object,
-  select,
-  text,
-  withKnobs,
-} from '@storybook/addon-knobs';
+import { boolean, object, text, withKnobs } from '@storybook/addon-knobs';
 import LogoGrid from '../LogoGrid';
 import logos from './data/logos.json';
 import React from 'react';
-import readme from '../README.md';
+import readme from '../README.stories.mdx';
 
 export default {
   title: 'Patterns (Blocks)|LogoGrid',
   decorators: [withKnobs],
   parameters: {
-    readme: {
-      sidebar: readme,
-    },
+    ...readme.parameters,
   },
 };
 
 export const Default = () => {
   const heading = text('Heading (heading)', 'Our customers');
-  const ctaProps = {
-    style: 'card',
-    type: 'local',
-    copy: 'See all customers.',
-    cta: {
-      href: 'https://www.example.com',
-    },
-  };
-
-  const cta = {
-    cta: ctaProps,
-    none: null,
-  };
+  const ctaCopy = text('CTA Copy (ctaCopy)', 'Lorem ipsum dolor sit amet');
+  const ctaHref = text('CTA Href (ctaHref)', 'http://local.url.com/');
 
   let hideBorder = boolean(
     'Hide border (hideBorder): Hide the bottom border',
@@ -55,7 +36,8 @@ export const Default = () => {
           <LogoGrid
             heading={heading}
             logosGroup={object('Data', logos)}
-            cta={select('CTA (optional)', cta, cta.cta)}
+            ctaCopy={ctaCopy}
+            ctaHref={ctaHref}
             hideBorder={hideBorder}
           />
         </div>

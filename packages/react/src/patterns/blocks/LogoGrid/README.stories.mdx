@@ -47,17 +47,12 @@ const logosGroup = [
   },
 ];
 
-const ctaProps = {
-  style: 'card',
-  type: 'local',
-  copy: 'Lorem ipsum dolor sit amet',
-  cta: {
-    href: 'http://local.url.com/',
-  },
-};
+const ctaCopy = 'Lorem ipsum dolor sit amet';
+const ctaHref = 'http://local.url.com/';
+
 
 function App() {
-  return <LogoGrid title={title} logosGroup={logosGroup} cta={ctaProps} />;
+  return <LogoGrid title={title} logosGroup={logosGroup} ctaCopy={ctaCopy} ctaHref={ctaHref} />;
 }
 
 ReactDOM.render(<App />, document.querySelector('#app'));
@@ -79,7 +74,8 @@ Add the following line in your `.env` file at the root of your project.
 | ------------ | -------- | --------- | ------------- | ----------------------------------------------------------- |
 | `heading`    | NO       | String    | n/a           | heading for Logo Grid pattern                               |
 | `logosGroup` | NO       | Array     | n/a           | LogosGroup array of Objects for Logo Grid pattern           |
-| `cta`        | NO       | Object    | n/a           | Object containing target and href of link. See `cta` below. |
+| `ctaCopy`    | NO       | String    | n/a           | Optional copy for the CTA                                   |
+| `ctaHref`    | NO       | String    | n/a           | Link address for the CTA. If omitted, CTA doesn't render.   |
 | `hideBorder` | NO       | Boolean   | false         | Hide the default bottom border                              |
 
 ### logosGroup
@@ -90,13 +86,6 @@ Add the following line in your `.env` file at the root of your project.
 | `imgSrc`  | String    | image source for logo placeholder.   |
 | `altText` | String    | alternate text for logo placeholder. |
 | `href`    | String    | Url of that the logo will link to.   |
-
-### cta
-
-| Name   | Data Type | Description            |
-| ------ | --------- | ---------------------- |
-| `copy` | String    | Optional text for CTA. |
-| `href` | String    | Url of the CTA.        |
 
 ## Stable selectors
 

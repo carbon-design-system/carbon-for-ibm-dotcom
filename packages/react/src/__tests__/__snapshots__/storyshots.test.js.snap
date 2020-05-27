@@ -22372,16 +22372,8 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                     className="bx--col-sm-4 bx--col-md-8 bx--col-lg-12 bx--offset-lg-2"
                   >
                     <LogoGrid
-                      cta={
-                        Object {
-                          "copy": "See all customers.",
-                          "cta": Object {
-                            "href": "https://www.example.com",
-                          },
-                          "style": "card",
-                          "type": "local",
-                        }
-                      }
+                      ctaCopy="Lorem ipsum dolor sit amet"
+                      ctaHref="http://local.url.com/"
                       heading="Our customers"
                       hideBorder={false}
                       logosGroup={
@@ -22483,16 +22475,8 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                     className="bx--col-sm-4 bx--col-md-8 bx--col-lg-12 bx--offset-lg-2"
                   >
                     <LogoGrid
-                      cta={
-                        Object {
-                          "copy": "See all customers.",
-                          "cta": Object {
-                            "href": "https://www.example.com",
-                          },
-                          "style": "card",
-                          "type": "local",
-                        }
-                      }
+                      ctaCopy="Lorem ipsum dolor sit amet"
+                      ctaHref="http://local.url.com/"
                       heading="Our customers"
                       hideBorder={false}
                       logosGroup={
@@ -22567,9 +22551,9 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                             <ContentBlock
                               cta={
                                 Object {
-                                  "copy": "See all customers.",
+                                  "copy": "Lorem ipsum dolor sit amet",
                                   "cta": Object {
-                                    "href": "https://www.example.com",
+                                    "href": "http://local.url.com/",
                                   },
                                   "style": "card",
                                   "type": "local",
@@ -22954,10 +22938,10 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                   data-autoid="dds--content-block__cta"
                                 >
                                   <CTA
-                                    copy="See all customers."
+                                    copy="Lorem ipsum dolor sit amet"
                                     cta={
                                       Object {
-                                        "href": "https://www.example.com",
+                                        "href": "http://local.url.com/",
                                       }
                                     }
                                     customClassName="bx--content-block__cta bx--content-block__cta-col"
@@ -22968,10 +22952,10 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                       className="bx--content-block__cta bx--content-block__cta-col"
                                     >
                                       <CardCTA
-                                        copy="See all customers."
+                                        copy="Lorem ipsum dolor sit amet"
                                         cta={
                                           Object {
-                                            "href": "https://www.example.com",
+                                            "href": "http://local.url.com/",
                                           }
                                         }
                                         openLightBox={[Function]}
@@ -22988,10 +22972,10 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                         }
                                       >
                                         <Card
-                                          copy="See all customers."
+                                          copy="Lorem ipsum dolor sit amet"
                                           cta={
                                             Object {
-                                              "href": "https://www.example.com",
+                                              "href": "http://local.url.com/",
                                               "icon": Object {
                                                 "src": Object {
                                                   "$$typeof": Symbol(react.forward_ref),
@@ -23012,7 +22996,7 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                             data-autoid="dds--card"
                                             handleClick={[Function]}
                                             handleKeyDown={[Function]}
-                                            href="https://www.example.com"
+                                            href="http://local.url.com/"
                                             light={false}
                                             onClick={[Function]}
                                             role="region"
@@ -23021,7 +23005,7 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                             <a
                                               className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
                                               data-autoid="dds--card"
-                                              href="https://www.example.com"
+                                              href="http://local.url.com/"
                                               onClick={[Function]}
                                               onKeyDown={[Function]}
                                               role="region"
@@ -23034,7 +23018,7 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                                   className="bx--card__copy"
                                                   dangerouslySetInnerHTML={
                                                     Object {
-                                                      "__html": "<p>See all customers.</p>",
+                                                      "__html": "<p>Lorem ipsum dolor sit amet</p>",
                                                     }
                                                   }
                                                 />

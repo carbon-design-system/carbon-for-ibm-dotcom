@@ -6,7 +6,6 @@
  */
 import classNames from 'classnames';
 import ContentBlock from '../../sub-patterns/ContentBlock/ContentBlock';
-import { CTA } from '../../../components/CTA';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { Image } from '../../../components/Image';
 import PropTypes from 'prop-types';
@@ -18,13 +17,26 @@ const { prefix } = settings;
 /**
  * Logo Grid component.
  */
-const LogoGrid = ({ heading, logosGroup, cta, hideBorder }) => {
+const LogoGrid = ({ heading, logosGroup, ctaCopy, ctaHref, hideBorder }) => {
   /**
    * sets the class name based on theme type
    *
    * @param {string} theme theme type ( g10 | white/default )
    * @returns {string} theme css class names
    */
+
+  let cta = null;
+
+  if (ctaHref) {
+    cta = {
+      style: 'card',
+      type: 'local',
+      copy: ctaCopy,
+      cta: {
+        href: ctaHref,
+      },
+    };
+  }
 
   return (
     <section
@@ -87,10 +99,13 @@ LogoGrid.propTypes = {
     })
   ),
   /**
-   * CTA object.
-   * See [`<CTA>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/patterns-sub-patterns-card--static#cta-required) for full usage details.
+   * Optional copy for the CTA
    */
-  cta: PropTypes.shape(CTA.propTypes),
+  ctaCopy: PropTypes.string,
+  /**
+   * Link address for the CTA. If omitted, CTA doesn't render.
+   */
+  ctaHref: PropTypes.string,
   /**
    * Set to true to hide the default bottom border.
    */
