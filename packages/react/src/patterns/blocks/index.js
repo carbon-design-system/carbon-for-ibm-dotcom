@@ -17,4 +17,5 @@ export * from './ContentGroupPictograms';
 export * from './ContentGroupSimple';
 export * from './FeatureCardBlockMedium';
 export * from './FeatureCardBlockLarge';
+export * from './LeadSpaceBlock';
 export * from './LogoGrid';

@@ -78,7 +78,7 @@
     "@percy/storybook": "^3.3.0",
     "@storybook/addon-a11y": "^5.3.0",
     "@storybook/addon-actions": "^5.3.0",
-    "@storybook/addon-info": "^5.3.0",
+    "@storybook/addon-docs": "^5.3.0",
     "@storybook/addon-knobs": "^5.3.0",
     "@storybook/addon-links": "^5.3.0",
     "@storybook/addon-options": "^5.3.0",

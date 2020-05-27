@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -20,17 +20,7 @@ const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
- * ContentBlock Sub-pattern
- *
- * @param {object} props props object
- * @param {boolean} props.inverse inverse class
- * @param {string} props.heading Heading text
- * @param {string} props.copy copy text
- * @param {*} props.children JSX Components
- * @param {string} props.customClassName allows user to pass in custom class name
- * @param {*} props.cta CTA props object
- * @param {object} props.aside components to be passed into the right panel
- * @returns {*} JSX ContentBlock component
+ * ContentBlock Sub-pattern.
  */
 const ContentBlock = ({
   heading,
@@ -142,15 +132,60 @@ function _renderCTA(cta) {
 }
 
 ContentBlock.propTypes = {
+  /**
+   * `true` to use the inverse theme.
+   */
   inverse: PropTypes.bool,
+
+  /**
+   * Heading text.
+   */
   heading: PropTypes.string,
+
+  /**
+   * Copy text.
+   */
   copy: PropTypes.string,
+
+  /**
+   * Children elements passed into `ContentBlock` to be rendered.
+   */
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]),
-  cta: PropTypes.shape(CTA.propTypes),
+
+  /**
+   * CTA object.
+   * See [`<CTA>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/patterns-sub-patterns-card--static#cta-required) for full usage details.
+   */
+  cta: PropTypes.shape({
+    style: PropTypes.oneOf(['text', 'card', 'button', 'feature']),
+    type: PropTypes.oneOfType([
+      PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video']),
+      PropTypes.arrayOf(
+        PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video'])
+      ),
+    ]),
+    copy: PropTypes.string,
+    href: PropTypes.string,
+    customClassName: PropTypes.string,
+  }),
+
+  /**
+   * Custom className to wrap the `<ContentBlock>` component.
+   */
   customClassName: PropTypes.string,
+
+  /**
+   * Object containing elements to be rendered within `<aside>` html element on right panel.
+   * The structure is:
+   *
+   * | Name     | Data Type | Description                                                |
+   * | -------- | --------- | ---------------------------------------------------------- |
+   * | `items`  | Element   | Elements/Components to be rendered on the right panel.     |
+   * | `border` | Boolean   | Determines whether bottom border of `ContentBlock` is set. |
+   */
   aside: PropTypes.shape({
     items: PropTypes.element,
     border: PropTypes.bool,

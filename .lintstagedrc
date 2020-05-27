@@ -2,7 +2,7 @@
   "**/*.js": [
     "prettier --write",
     "yarn lint:license:staged",
-    "eslint packages",
+    "yarn lint:scripts:staged",
     "git add"
   ],
   "**/*.scss": [
