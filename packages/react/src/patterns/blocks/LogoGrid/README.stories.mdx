@@ -1,3 +1,6 @@
+import { Props } from '@storybook/addon-docs/blocks';
+import LogoGrid  from './LogoGrid';
+
 # Logo Grid
 
 > The Logo Grid pattern is to be utilized within IBM.com.
@@ -70,22 +73,7 @@ Add the following line in your `.env` file at the root of your project.
 
 ## Props
 
-| Name         | Required | Data Type | Default Value | Description                                                 |
-| ------------ | -------- | --------- | ------------- | ----------------------------------------------------------- |
-| `heading`    | NO       | String    | n/a           | heading for Logo Grid pattern                               |
-| `logosGroup` | NO       | Array     | n/a           | LogosGroup array of Objects for Logo Grid pattern           |
-| `ctaCopy`    | NO       | String    | n/a           | Optional copy for the CTA                                   |
-| `ctaHref`    | NO       | String    | n/a           | Link address for the CTA. If omitted, CTA doesn't render.   |
-| `hideBorder` | NO       | Boolean   | false         | Hide the default bottom border                              |
-
-### logosGroup
-
-| Name      | Data Type | Description                          |
-| --------- | --------- | ------------------------------------ |
-| `label`   | String    | Label for logo placeholder.          |
-| `imgSrc`  | String    | image source for logo placeholder.   |
-| `altText` | String    | alternate text for logo placeholder. |
-| `href`    | String    | Url of that the logo will link to.   |
+<Props of={LogoGrid} />
 
 ## Stable selectors
 
