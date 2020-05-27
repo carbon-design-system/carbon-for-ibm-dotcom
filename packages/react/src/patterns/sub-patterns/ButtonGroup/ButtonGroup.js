@@ -4,12 +4,10 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import { breakpoints, baseFontSize } from '@carbon/layout';
 import React, { useRef, useLayoutEffect } from 'react';
 import Button from '../../../internal/vendor/carbon-components-react/components/Button/Button';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
-import root from 'window-or-global';
 import settings from 'carbon-components/es/globals/js/settings';
 
 const { stablePrefix } = ddsSettings;
@@ -23,61 +21,26 @@ const ButtonGroup = ({ buttons }) => {
 
   useLayoutEffect(() => {
     const { current } = orderedList;
-    /**
-     * Sets the same width to all the elements inside an specific node passed as parameter
-     *
-     * @param {Node} parentNode the container of the elements to set the same width
-     */
-    const setSameWidth = parentNode => {
-      const elements = Array.from(parentNode.childNodes);
-      const getAllWidths = elements.map(element => element.offsetWidth);
-      const biggestElement = Math.max.apply(null, getAllWidths);
-
-      const smBreakpoint = parseFloat(breakpoints.sm.width) * baseFontSize;
-      const resizeObserver = new ResizeObserver(entries => {
-        for (let entry of entries) {
-          if (entry.contentRect.width <= smBreakpoint) {
-            elements.forEach(element => (element.style.width = '100%'));
-          }
-
-          if (entry.contentRect.width > smBreakpoint) {
-            elements.forEach(
-              element => (element.style.width = `${biggestElement}px`)
-            );
-          }
-        }
-      });
-
-      resizeObserver.observe(parentNode);
-    };
 
     /**
-     * Sets the container direction between `row-reverse` and `column-reverse` depending on the child elements size
+     * Utility to give all the elements the same width, using the wilder one as reference for the others
      *
-     * @param {Node} parentNode the element to choose between `row-reverse` or `column-reverse`
+     * @param {Node} parentNode - the element
      */
-    const _stackElementsVertically = parentNode => {
-      const containerWidth = parentNode.offsetWidth;
+    const sameWidth = parentNode => {
       const elements = Array.from(parentNode.childNodes);
-      const getAllWidths = elements.map(element => {
-        const marginRight = parseFloat(
-          root.window.getComputedStyle(element)['margin-right']
+      const elementsObserver = new ResizeObserver(entries => {
+        const getWidths = entries.map(entry => entry.contentRect.width);
+        const wilderButton = Math.max.apply(null, getWidths);
+        elements.forEach(
+          element => (element.style.width = `${wilderButton}px`)
         );
-        return element.offsetWidth + marginRight;
       });
-      const sumElementsWidth = getAllWidths.reduce(
-        (prevEl, nextEl) => prevEl + nextEl
-      );
-      if (sumElementsWidth === containerWidth) {
-        parentNode.style.flexDirection = 'column-reverse';
-      }
-      if (sumElementsWidth < containerWidth) {
-        parentNode.style.flexDirection = 'row-reverse';
-      }
+
+      elements.map(element => elementsObserver.observe(element));
     };
 
-    setSameWidth(current);
-    _stackElementsVertically(current);
+    sameWidth(current);
   }, []);
 
   return (
