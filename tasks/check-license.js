@@ -32,8 +32,8 @@ const {
  * @param {boolean} options.writeCurrentYear `true` to update the given file with the current year for the license text.
  * @returns {Promise<void>} The promise that is fulfilled when the check finishes.
  */
-const check = (paths, { testCurrentYear, writeCurrentYear }) =>
-  Promise.all(
+const check = async (paths, { testCurrentYear, writeCurrentYear }) => {
+  const filesWithErrors = (await Promise.all(
     paths.map(async item => {
       const contents = await readFile(item, 'utf8');
       const result = (testCurrentYear || writeCurrentYear
@@ -52,15 +52,21 @@ const check = (paths, { testCurrentYear, writeCurrentYear }) =>
               (match, token) => `${token}${currentYear}`
             );
           if (!reLicenseTextCurrentYear.test(newContents)) {
-            throw new Error(`Could not find license text in: ${item}`);
+            return item;
           }
           await writeFile(item, newContents, 'utf8');
         } else {
-          throw new Error(`Could not find license text in: ${item}`);
+          return item;
         }
       }
     })
-  );
+  )).filter(Boolean);
+  if (filesWithErrors.length > 0) {
+    throw new Error(
+      `Cannot find license text in: ${filesWithErrors.join(', ')}`
+    );
+  }
+};
 
 const { args, ...options } = commander
   .option(
