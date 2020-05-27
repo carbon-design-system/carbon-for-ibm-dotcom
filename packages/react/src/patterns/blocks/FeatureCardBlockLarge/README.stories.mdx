@@ -1,3 +1,6 @@
+import { Props } from '@storybook/addon-docs/blocks';
+import FeatureCardBlockLarge from './FeatureCardBlockLarge';
+
 # Feature Card Block Large
 
 > The Feature Card Block Large pattern is to be utilized within IBM.com.
@@ -62,31 +65,7 @@ Add the following line on your `.env` file at the root of your project,
 
 ## Props
 
-| Name   | Required | Data Type | Default Value | Description                                                           |
-| ------ | -------- | --------- | ------------- | --------------------------------------------------------------------- |
-| `card` | YES      | Object    | null          | Object containing Feature Card Block Large details. See `card` below. |
-
-### card
-
-| Name      | Data Type | Description                                                                  |
-| --------- | --------- | ---------------------------------------------------------------------------- |
-| `heading` | String    | Title of the Card item.                                                      |
-| `eyebrow` | String    | "Eyebrow" text above copy and CTA.                                           |
-| `copy`    | String    | Body text for the card.                                                      |
-| `image`   | Object    | Image object used in the FeatureCardBlockLarge component. See `image` below. |
-| `cta`     | Object    | Object containing target and href of link. See `cta` below.                  |
-
-### cta
-
-| Name   | Data Type | Description                                 |
-| ------ | --------- | ------------------------------------------- |
-| `href` | String    | Url of the FeatureCardBlockLarge component. |
-
-### image
-
-Visit the
-[Image storybook](https://ibmdotcom-react.mybluemix.net/?path=/story/components-image--default)
-for more details on the Image component.
+<Props of={FeatureCardBlockLarge} />
 
 ## Stable selectors
 

@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -17,12 +17,7 @@ import settings from 'carbon-components/es/globals/js/settings';
 const { prefix } = settings;
 const { stablePrefix } = ddsSettings;
 /**
- * Card Array Component
- *
- * @param {object} props props object
- * @param {string} props.title CardArray section title
- * @param {Array} props.content CardArray section content object array
- * @returns {*} CardArray JSX component
+ * Card Array Component.
  */
 const ContentGroupCards = ({ heading, items }) => {
   const containerRef = useRef();
@@ -101,12 +96,33 @@ const _renderCards = items =>
   ));
 
 ContentGroupCards.propTypes = {
+  /**
+   * Main heading of the pattern.
+   */
   heading: PropTypes.string.isRequired,
+
+  /**
+   * Array of content group objects. Has the following structure:
+   *
+   * | Name      | Data Type | Description                                                |
+   * | --------- | --------- | ---------------------------------------------------------- |
+   * | `heading` | String    | Title for the Card.                                        |
+   * | `copy`    | String    | Copy for the Card.                                         |
+   * | `cta`     | Object    | Object containing target and href of cta. See `cta` below. |
+   *
+   * `cta`:
+   *
+   * | Name   | Data Type | Description                       |
+   * | ------ | --------- | --------------------------------- |
+   * | `href` | String    | Url of the Content Card item cta. |
+   */
   items: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
       copy: PropTypes.string,
-      href: PropTypes.string,
+      cta: PropTypes.shape({
+        href: PropTypes.string,
+      }),
     })
   ),
 };

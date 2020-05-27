@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -17,12 +17,7 @@ const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
- * CardSectionImages pattern it is Cards with images
- *
- * @param {object} props props object
- * @param {Array} props.cards array of card
- * @param {string} props.theme theme of cards
- * @returns {object} JSX Object
+ * CardSectionImages pattern it is Cards with images.
  */
 const CardSectionImages = ({ cards, theme, ...otherProps }) => {
   const cardsWithImages = cards.filter(
@@ -52,14 +47,58 @@ const CardSectionImages = ({ cards, theme, ...otherProps }) => {
 };
 
 CardSectionImages.propTypes = {
-  theme: PropTypes.string,
+  /**
+   * Color theme for pattern. Choose from:
+   *
+   * | Name    | Data Type | Description                  |
+   * | ------- | --------- | ---------------------------- |
+   * | `white` | String    | Carbon White theme           |
+   * | `g10`   | String    | Carbon Gray 10 (g10) theme   |
+   * | `g90`   | String    | Carbon Gray 90 (g90) theme   |
+   * | `g100`  | String    | Carbon Gray 100 (g100) theme |
+   */
+  theme: PropTypes.oneOf(['white', 'g10', 'g90', 'g100']),
+
+  /**
+   * Section heading.
+   */
   heading: PropTypes.string.isRequired,
+
+  /**
+   * Cards data. Has the following structure for each items:
+   *
+   * | Name       | Required | Data Type | Description                              |
+   * | ---------- | -------- | --------- | ---------------------------------------- |
+   * | `image`    | YES      | Object    | Contains source and alt text properties. |
+   * | `eyebrow`  | YES      | String    | Eyebrow of the card.                     |
+   * | `heading`  | YES      | String    | Heading of the card.                     |
+   * | `cta.href` | YES      | String    | URI for internal or external resource.   |
+   *
+   * See example
+   * [card data](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/src/patterns/sub-patterns/CardGroup/__stories__/data/cards.json).
+   */
   cards: PropTypes.arrayOf(
     PropTypes.exact({
-      image: PropTypes.object,
+      image: PropTypes.shape({
+        classname: PropTypes.string,
+        sources: PropTypes.arrayOf(
+          PropTypes.shape({
+            src: PropTypes.string,
+            breakpoint: PropTypes.oneOfType([
+              PropTypes.string,
+              PropTypes.number,
+            ]),
+          })
+        ),
+        defaultSrc: PropTypes.string.isRequired,
+        alt: PropTypes.string.isRequired,
+        longDescription: PropTypes.string,
+      }),
       eyebrow: PropTypes.string,
       heading: PropTypes.string,
-      cta: PropTypes.object,
+      cta: PropTypes.shape({
+        href: PropTypes.string,
+      }),
     })
   ),
 };

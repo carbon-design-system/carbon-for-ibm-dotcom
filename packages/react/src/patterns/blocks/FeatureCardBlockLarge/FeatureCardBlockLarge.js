@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -15,15 +15,7 @@ const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
- * Featured Card Component
- *
- * @param {object} props props object
- * @param {string} props.eyebrow card eyebrow text
- * @param {string} props.heading card heading text
- * @param {string} props.copy card heading text
- * @param {object} props.image card image object
- * @param {object} props.cta card cta object
- * @returns {*} FeatureCardBlockLarge JSX component
+ * Featured Card Component.
  */
 const FeatureCardBlockLarge = props => {
   return (
@@ -48,11 +40,57 @@ const FeatureCardBlockLarge = props => {
 };
 
 FeatureCardBlockLarge.propTypes = {
+  /**
+   * "Eyebrow" text above copy and CTA.
+   */
   eyebrow: PropTypes.string.isRequired,
+
+  /**
+   * Title of the Card item.
+   */
   heading: PropTypes.string.isRequired,
+
+  /**
+   * Body text for the card.
+   */
   copy: PropTypes.string,
-  cta: PropTypes.object.isRequired,
-  image: PropTypes.object.isRequired,
+
+  /**
+   * Object containing target and href of link. Has the following structure in summary:
+   *
+   * | Name   | Data Type | Description                                 |
+   * | ------ | --------- | ------------------------------------------- |
+   * | `href` | String    | Url of the FeatureCardBlockLarge component. |
+   *
+   * See [`<Card>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/patterns-sub-patterns-card--static#props) for full usage details.
+   */
+  cta: PropTypes.shape({
+    copy: PropTypes.string,
+    href: PropTypes.string,
+    type: PropTypes.oneOfType([
+      PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video']),
+      PropTypes.arrayOf(
+        PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video'])
+      ),
+    ]),
+  }),
+
+  /**
+   * Contains source and alt text properties.
+   * See [`<Image>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-image--default#props) for full usage details.
+   */
+  image: PropTypes.shape({
+    classname: PropTypes.string,
+    sources: PropTypes.arrayOf(
+      PropTypes.shape({
+        src: PropTypes.string,
+        breakpoint: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+      })
+    ),
+    defaultSrc: PropTypes.string.isRequired,
+    alt: PropTypes.string.isRequired,
+    longDescription: PropTypes.string,
+  }).isRequired,
 };
 
 export default FeatureCardBlockLarge;

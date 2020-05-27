@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -16,13 +16,7 @@ const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
- * ContentGroupHorizontal pattern
- *
- * @param {object} props props object
- * @param {string} props.heading heading text
- * @param {Array} props.items array of content items
- *
- * @returns {*} JSX ContentGroupHorizontal pattern
+ * ContentGroupHorizontal pattern.
  */
 const ContentGroupHorizontal = ({ heading, items }) => {
   return (
@@ -44,8 +38,29 @@ const ContentGroupHorizontal = ({ heading, items }) => {
 };
 
 ContentGroupHorizontal.propTypes = {
+  /**
+   * Heading of the content group.
+   */
   heading: PropTypes.string.isRequired,
-  items: PropTypes.array,
+
+  /**
+   * Array of content items.
+   * See [`<ContentItemHorizontal>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/patterns-sub-patterns-contentitemhorizontal--default#props) for full usage details.
+   */
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      eyebrow: PropTypes.string,
+      heading: PropTypes.string.isRequired,
+      copy: PropTypes.string.isRequired,
+      cta: PropTypes.arrayOf(
+        PropTypes.shape({
+          type: PropTypes.oneOf(['local', 'external']).isRequired,
+          href: PropTypes.string.isRequired,
+          copy: PropTypes.string.isRequired,
+        })
+      ).isRequired,
+    })
+  ),
 };
 
 export default ContentGroupHorizontal;

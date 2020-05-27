@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -14,19 +14,7 @@ const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
- *
- * @param {object} props Props object
- * @param {object} props.quote Quote object
- * @param {string} props.quote.markType type of the quote marks
- * @param {string} props.quote.copy quote copy
- * @param {object} props.quote.source source object
- * @param {string} props.quote.source.heading name heading for quote source
- * @param {string} props.quote.source.copy title copy for quote source
- * @param {object} props.quote.cta cta props object
- * @param {string} props.quote.cta.copy cta copy
- * @param {string} props.quote.cta.type type 'local' or 'external'
- * @param {string} props.quote.cta.href cta href
- * @returns {*} JSX CalloutQuote component
+ * CalloutQuote component.
  */
 const CalloutQuote = ({ quote }) => {
   return (
@@ -41,14 +29,29 @@ const CalloutQuote = ({ quote }) => {
 };
 
 CalloutQuote.propTypes = {
+  /**
+   * Quote object.
+   * See [`<Quote>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/patterns-sub-patterns-quote--default#props) for full usage details.
+   */
   quote: PropTypes.shape({
-    markType: PropTypes.string,
+    markType: PropTypes.oneOf([
+      'doubleCurved',
+      'singleCurved',
+      'doubleAngle',
+      'singleAngle',
+      'lowHighReversedDoubleCurved',
+    ]),
     copy: PropTypes.string.isRequired,
     source: PropTypes.shape({
       heading: PropTypes.string,
       copy: PropTypes.string,
     }),
-    cta: PropTypes.object,
+    cta: PropTypes.shape({
+      copy: PropTypes.string,
+      type: PropTypes.oneOf(['local', 'external']),
+      href: PropTypes.string,
+    }),
+    inverse: PropTypes.bool,
   }),
 };
 

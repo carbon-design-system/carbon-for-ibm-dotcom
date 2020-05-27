@@ -1,11 +1,10 @@
 import { Props } from '@storybook/addon-docs/blocks';
-import { Card } from './Card';
+import CardSectionImages from './CardSectionImages';
 
-# Card Link
+# Card Section - Images
 
-> The card link component uses
-> [Carbon's Clickable Tile component](https://www.carbondesignsystem.com/components/tile/code#clickable-tile)
-> while presenting content in a concise and readable style.
+> The Card Section - Images pattern is a collection of cards with images
+> presented in a section with a left-column header.
 
 ## Getting started
 
@@ -19,47 +18,41 @@ Here's a quick example to get you started.
 @import '@carbon/type/scss/font-face/sans';
 @include carbon--font-face-mono();
 @include carbon--font-face-sans();
-@import '@carbon/ibmdotcom-styles/scss/patterns/sub-patterns/card/index.scss';
-```
 
-> 💡 Only import fonts once per usage. Don't forget to import the Card styles
-> from
-> [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
+@include '@carbon/ibmdotcom-styles/scss/patterns/sections/card-section-images/card-section-images';
+```
 
 ##### JS
 
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Card } from '@carbon/ibmdotcom-react';
+import { CardSectionImages } from '@carbon/ibmdotcom-react';
 import 'yourapplication.scss';
 
 function App() {
-  return <Card title="Lorem ipsum dolor sit amet" href="https://example.com" />;
+  return (
+    <CardSectionImages
+      cards={cards}
+      heading="Aliquam condimentum interdum"
+      theme={theme}
+    />
+  );
 }
 
 ReactDOM.render(<App />, document.querySelector('#app'));
 ```
 
 Add the following line in your `.env` file at the root of your project.
-[See more details](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/styles#usage).
+[See more details](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/styles#usage)..
 
 ```
   SASS_PATH=node_modules:src
 ```
 
-> 💡 Don't forget to import the card link styles from
-> [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
-
 ## Props
 
-<Props of={Card} />
-
-## Stable selectors
-
-| Name        | Description |
-| ----------- | ----------- |
-| `dds--card` | Interactive |
+<Props of={CardSectionImages} />
 
 ## 🙌 Contributing
 
