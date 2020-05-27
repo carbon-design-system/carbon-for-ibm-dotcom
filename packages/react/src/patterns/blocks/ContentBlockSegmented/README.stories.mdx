@@ -1,7 +1,10 @@
 import { Props } from '@storybook/addon-docs/blocks';
-import ContentItem from './ContentItem';
+import ContentBlockSegmented from './ContentBlockSegmented';
 
-# Content Item
+# Content Block - Segmented
+
+> The Content Block - Segmented pattern allows for larger groups of content to
+> be presented at once.
 
 ## Getting started
 
@@ -15,11 +18,12 @@ Here's a quick example to get you started.
 @import '@carbon/type/scss/font-face/sans';
 @include carbon--font-face-mono();
 @include carbon--font-face-sans();
-@import '@carbon/ibmdotcom-styles/scss/patterns/sub-patterns/content-item';
+
+@import '@carbon/ibmdotcom-styles/scss/patterns/blocks/content-block-segmented/index';
 ```
 
-> 💡 Only import fonts once per usage. Don't forget to import the ContentItem
-> styles from
+> 💡 Only import fonts once per usage. Don't forget to import the
+> ContentBlockSegmented styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
 
 ##### JS
@@ -27,13 +31,10 @@ Here's a quick example to get you started.
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { ContentItem } from '@carbon/ibmdotcom-react';
+import { ContentBlockSegmented } from '@carbon/ibmdotcom-react';
 import 'yourapplication.scss';
 
 function App() {
-  const heading = 'Lorem ipsum dolor sit amet.';
-  const copy = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
-
   const mediaType = 'image';
   const mediaData = {
     heading: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
@@ -57,20 +58,14 @@ function App() {
     },
   };
 
-  const cta = {
-    type: 'jump',
-    copy: 'Click here',
-    href: 'www.ibm.com',
-  };
-
   return (
-    <ContentItem
-      inverse={false}
-      heading={heading}
+    <ContentBlockSegmented
       copy={copy}
+      cta={cta}
+      heading={heading}
       mediaType={mediaType}
       mediaData={mediaData}
-      cta={cta}
+      items={items}
     />
   );
 }
@@ -85,27 +80,16 @@ Add the following line in your `.env` file at the root of your project.
   SASS_PATH=node_modules:src
 ```
 
-> 💡 Don't forget to import the content group styles from
-> [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
-
 ## Props
 
-<Props of={ContentItem} />
-
-### image (optional)
-
-Visit the
-[ImageWithCaption documentation](https://ibmdotcom-react.mybluemix.net/?path=/story/components-imagewithcaption--default)
-for more details on the ImageWithCaption options.
+<Props of={ContentBlockSegmented} />
 
 ## Stable selectors
 
-| Name                         | Description                   |
-| ---------------------------- | ----------------------------- |
-| `dds--content-item`          | Content item wrapper element. |
-| `dds--content-item__heading` | Content item heading element. |
-| `dds--content-item__copy`    | Content item copy element.    |
-| `dds--content-item__media`   | Content item media element.   |
+| Name                                  | Description   |
+| ------------------------------------- | ------------- |
+| `dds--content-block-segmented`        | Pattern       |
+| `dds--content-block-segmented__media` | Media element |
 
 ## 🙌 Contributing
 

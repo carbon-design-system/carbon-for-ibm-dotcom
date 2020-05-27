@@ -136,8 +136,16 @@ export const cardPropTypes = {
   copy: PropTypes.string,
 
   /**
-   * CTA options.
-   * See [`<CTA>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/patterns-sub-patterns-card--static#cta-required) for full usage details.
+   * CTA options. Has the following structure in summary:
+   *
+   * | Name   | Data Type | Description                                                                                                                      |
+   * | ------ | --------- | -------------------------------------------------------------------------------------------------------------------------------- |
+   * | `href` | String    | Valid URL for a the location of an internal or external resource                                                                 |
+   * | `icon` | String    | Provide an optional icon to the footer from [Carbon's icon library](https://www.carbondesignsystem.com/guidelines/icons/library) |
+   * | `copy` | String    | Optional text for CTA                                                                                                            |
+   * | `type` | String    | type of CTA (local or external) when Card type is static                                                                         |
+   *
+   * See the [`<CTA>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-cta--default#props) for full usage details.
    */
   cta: PropTypes.shape({
     copy: PropTypes.string,

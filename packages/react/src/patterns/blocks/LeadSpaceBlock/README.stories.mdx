@@ -1,3 +1,6 @@
+import { Props } from '@storybook/addon-docs/blocks';
+import LeadSpaceBlock from './LeadSpaceBlock';
+
 # Lead Space Block
 
 > The "Lead Space Block" pattern leverages the Content Block as the container of
@@ -117,15 +120,7 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 
 ## Props
 
-| Name        | Required | Data Type | Description                       |
-| ----------- | -------- | --------- | --------------------------------- |
-| `title`     | YES      | String    | heading of the content block.     |
-| `heading`   | YES      | String    | subheading of the content block.  |
-| `copy`      | YES      | String    | Simple content item.              |
-| `mediaType` | NO       | string    | Media Type [image, video or none] |
-| `mediaData` | NO       | Object    | Media Data                        |
-| `items`     | YES      | Object    | Link list items                   |
-| `cta`       | YES      | Object    | cta props                         |
+<Props of={LeadSpaceBlock} />
 
 ### Stable selectors
 

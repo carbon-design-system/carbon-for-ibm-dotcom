@@ -1,47 +1,56 @@
 [
   {
     "label": "Company A",
-    "imgSrc": "https://dummyimage.com/140x140/ee5396/161616&text=1:1",
-    "altText": "Image alt text"
+    "imgSrc": "https://dummyimage.com/288x216/ee5396/161616&text=1:1",
+    "altText": "Image alt text",
+    "href": "http://example.com/"
   },
   {
     "label": "Company B",
-    "imgSrc": "https://dummyimage.com/140x140/ee5396/161616&text=1:1",
-    "altText": "Image alt text"
+    "imgSrc": "https://dummyimage.com/288x216/ee5396/161616&text=1:1",
+    "altText": "Image alt text",
+    "href": "http://example.com/"
   },
   {
     "label": "Company C",
-    "imgSrc": "https://dummyimage.com/140x140/ee5396/161616&text=1:1",
-    "altText": "Image alt text"
+    "imgSrc": "https://dummyimage.com/288x216/ee5396/161616&text=1:1",
+    "altText": "Image alt text",
+    "href": "http://example.com/"
   },
   {
     "label": "Company D",
-    "imgSrc": "https://dummyimage.com/140x140/ee5396/161616&text=1:1",
-    "altText": "Image alt text"
+    "imgSrc": "https://dummyimage.com/288x216/ee5396/161616&text=1:1",
+    "altText": "Image alt text",
+    "href": "http://example.com/"
   },
   {
     "label": "Company E",
-    "imgSrc": "https://dummyimage.com/140x140/ee5396/161616&text=1:1",
-    "altText": "Image alt text"
+    "imgSrc": "https://dummyimage.com/288x216/ee5396/161616&text=1:1",
+    "altText": "Image alt text",
+    "href": "http://example.com/"
   },
   {
     "label": "Company F",
-    "imgSrc": "https://dummyimage.com/140x140/ee5396/161616&text=1:1",
-    "altText": "Image alt text"
+    "imgSrc": "https://dummyimage.com/288x216/ee5396/161616&text=1:1",
+    "altText": "Image alt text",
+    "href": "http://example.com/"
   },
   {
     "label": "Company G",
-    "imgSrc": "https://dummyimage.com/140x140/ee5396/161616&text=1:1",
-    "altText": "Image alt text"
+    "imgSrc": "https://dummyimage.com/288x216/ee5396/161616&text=1:1",
+    "altText": "Image alt text",
+    "href": "http://example.com/"
   },
   {
     "label": "Company H",
-    "imgSrc": "https://dummyimage.com/140x140/ee5396/161616&text=1:1",
-    "altText": "Image alt text"
+    "imgSrc": "https://dummyimage.com/288x216/ee5396/161616&text=1:1",
+    "altText": "Image alt text",
+    "href": "http://example.com/"
   },
   {
     "label": "Company I",
-    "imgSrc": "https://dummyimage.com/140x140/ee5396/161616&text=1:1",
-    "altText": "Image alt text"
+    "imgSrc": "https://dummyimage.com/288x216/ee5396/161616&text=1:1",
+    "altText": "Image alt text",
+    "href": "http://example.com/"
   }
 ]
