@@ -1,3 +1,6 @@
+import { Props } from '@storybook/addon-docs/blocks'; import LogoGrid from
+'./LogoGrid';
+
 # Logo Grid
 
 > The Logo Grid pattern is to be utilized within IBM.com.
@@ -80,18 +83,7 @@ DDS_LOGO_GRID=true
 
 ## Props
 
-| Name         | Required | Data Type | Default Value | Description                                       |
-| ------------ | -------- | --------- | ------------- | ------------------------------------------------- |
-| `title`      | NO       | String    | n/a           | title for Logo Grid pattern                       |
-| `logosGroup` | NO       | Array     | n/a           | LogosGroup array of Objects for Logo Grid pattern |
-
-### logosGroup
-
-| Name      | Data Type | Description                         |
-| --------- | --------- | ----------------------------------- |
-| `label`   | String    | Label for logo placeholder.         |
-| `imgSrc`  | String    | image source for logo placeholder.  |
-| `altText` | String    | alternate text for ogo placeholder. |
+<Props of={LogoGrid} />
 
 ## Stable selectors
 

@@ -104,8 +104,9 @@ module.exports = {
       plugins: ['@carbon/eslint-plugin-react-prop-type-comments'],
       rules: {
         'jsdoc/require-jsdoc': 0,
+        'jsdoc/require-param': 0,
         'jsdoc/require-returns': 0,
-        '@carbon/react-prop-type-comments/require-proptype-comment': 1,
+        '@carbon/react-prop-type-comments/require-proptype-comment': 2,
       },
     },
   ],

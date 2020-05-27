@@ -1,3 +1,10 @@
+/**
+ * Copyright IBM Corp. 2020
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 import { ContentBlock } from '../../sub-patterns/ContentBlock';
 import { CTA } from '../../../components/CTA';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
@@ -33,17 +40,7 @@ const _renderMedia = (type, data) => {
 };
 
 /**
- * renders Lead space block component (left-aligned)
- *
- * @param {object} props props object
- * @param {string} props.title heading of the page.
- * @param {string} props.heading sub-heading.
- * @param {string} props.copy lead space short copy to support the title.
- * @param {string} props.mediaType type of media.
- * @param {object} props.mediaData media object with media source.
- * @param {object} props.items contains data for link list item.
- * @param {object} props.cta contains button cta data.
- * @returns {*} Lead space block component
+ * Lead space block component (left-aligned).
  */
 const LeadSpaceBlock = ({
   title,
@@ -89,13 +86,105 @@ const LeadSpaceBlock = ({
 };
 
 LeadSpaceBlock.propTypes = {
+  /**
+   * Heading of the content block.
+   */
   title: PropTypes.string.isRequired,
+
+  /**
+   * Subheading of the content block.
+   */
   heading: PropTypes.string.isRequired,
-  items: PropTypes.object.isRequired,
+
+  /**
+   * Link list items.
+   */
+  items: PropTypes.shape({
+    heading: PropTypes.string,
+    items: PropTypes.arrayOf(
+      PropTypes.shape({
+        style: PropTypes.oneOf(['text', 'card', 'button', 'feature']),
+        type: PropTypes.oneOfType([
+          PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video']),
+          PropTypes.arrayOf(
+            PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video'])
+          ),
+        ]),
+        copy: PropTypes.string,
+        href: PropTypes.string,
+        customClassName: PropTypes.string,
+      })
+    ),
+  }).isRequired,
+
+  /**
+   * Simple content item.
+   */
   copy: PropTypes.string,
-  mediaType: PropTypes.oneOf('image', 'video'),
-  mediaData: PropTypes.object,
-  cta: PropTypes.shape(CTA.propTypes),
+
+  /**
+   * Media Type [image, video or none].
+   */
+  mediaType: PropTypes.oneOf(['image', 'video']),
+
+  /**
+   * Media Data for either image or video.
+   * See the following components' README for more details:
+   *
+   * * `mediaType="image"`: [`<ImageWithCaption>`](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-imagewithcaption--default#props)
+   * * `mediaType="video"`: [`<VideoPlayer>`](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-videoplayer--default#props)
+   */
+  mediaData: PropTypes.oneOfType([
+    PropTypes.shape({
+      inverse: PropTypes.bool,
+      image: PropTypes.shape(
+        PropTypes.shape({
+          classname: PropTypes.string,
+          sources: PropTypes.arrayOf(
+            PropTypes.shape({
+              src: PropTypes.string,
+              breakpoint: PropTypes.oneOfType([
+                PropTypes.string,
+                PropTypes.number,
+              ]),
+            })
+          ),
+          defaultSrc: PropTypes.string.isRequired,
+          alt: PropTypes.string.isRequired,
+          longDescription: PropTypes.string,
+        })
+      ).isRequired,
+      lightbox: PropTypes.bool,
+      heading: PropTypes.string,
+      copy: PropTypes.string,
+      customClassName: PropTypes.string,
+    }),
+    PropTypes.shape({
+      customClassName: PropTypes.string,
+      videoId: PropTypes.string.isRequired,
+      showCaption: PropTypes.bool,
+      inverse: PropTypes.bool,
+    }),
+  ]),
+
+  /**
+   * CTA props.
+   * See the [`<CTA>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-cta--default#props) for full usage details.
+   */
+  cta: PropTypes.shape(
+    PropTypes.shape({
+      style: PropTypes.oneOf(['text', 'card', 'button', 'feature']),
+      type: PropTypes.oneOfType([
+        PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video']),
+        PropTypes.arrayOf(
+          PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video'])
+        ),
+      ]),
+      copy: PropTypes.string,
+      href: PropTypes.string,
+      customClassName: PropTypes.string,
+    })
+  ),
 };
 
 LeadSpaceBlock.defaultProps = {

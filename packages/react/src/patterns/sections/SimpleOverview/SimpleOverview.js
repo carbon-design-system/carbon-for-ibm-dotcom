@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -78,9 +78,30 @@ const SimpleOverview = ({ label, heading, copy, link }) => {
 };
 
 SimpleOverview.propTypes = {
+  /**
+   * Side label for Simple Overview pattern.
+   */
   label: PropTypes.string.isRequired,
+
+  /**
+   * Heading for Simple Overview pattern.
+   */
   heading: PropTypes.string.isRequired,
+
+  /**
+   * Copy for Simple Overview pattern.
+   */
   copy: PropTypes.string.isRequired,
+
+  /**
+   * Link Object for Simple Overview pattern. Has the following structure:
+   *
+   * | Name     | Data Type | Description                                                |
+   * | -------- | --------- | ---------------------------------------------------------- |
+   * | `href`   | String    | Url of link.                                               |
+   * | `copy`   | String    | Link copy.                                                 |
+   * | `target` | String    | Open within current tab or new tab ('\_self' or '\_blank') |
+   */
   link: PropTypes.shape({
     href: PropTypes.string,
     target: PropTypes.string,

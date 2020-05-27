@@ -1,3 +1,6 @@
+import { Props } from '@storybook/addon-docs/blocks';
+import CTASection from './CTASection';
+
 # CTA Section
 
 > The CTASection pattern is to be utilized within IBM.com. See
@@ -93,25 +96,7 @@ Add the following line in your `.env` file at the root of your project.
 
 ## Props
 
-| Name            | Required | Data Type | Default Value | Description                                                                                                                                                 |
-| --------------- | -------- | --------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `heading`       | YES      | String    | n/a           | The heading for the CTA Section pattern                                                                                                                     |
-| `copy`          | YES      | Markdown  | n/a           | The copy for the CTA Section pattern                                                                                                                        |
-| `cta`           | YES      | CTA       | n/a           | See [CTA](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/components/CTA#cta)                                     |
-| `items`         | YES      | Array     | n/a           | See [ContentItem](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/patterns/sub-patterns/ContentItem#content-item) |
-| `items.heading` | YES      | String    | n/a           | The heading for the ContentItem sub-pattern                                                                                                                 |
-| `items.copy`    | YES      | Markdown  | n/a           | The copy for the ContentItem sub-pattern                                                                                                                    |
-| `items.cta`     | YES      | CTA       | n/a           | See [CTA](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/components/CTA#cta)                                     |
-| `theme`         | NO       | String    | 'g10'         | Color theme for pattern. See `themes` below                                                                                                                 |
-
-### themes (optional)
-
-| Name    | Data Type | Description           |
-| ------- | --------- | --------------------- |
-| `white` | String    | Carbon White theme    |
-| `g10`   | String    | Carbon Gray 10 theme  |
-| `g90`   | String    | Carbon Gray 90 theme  |
-| `g100`  | String    | Carbon Gray 100 theme |
+<Props of={CTASection} />
 
 ## Stable selectors
 

@@ -146,7 +146,6 @@
     "rollup-plugin-visualizer": "^2.5.4",
     "rtlcss": "^2.4.0",
     "sass-loader": "^7.1.0",
-    "storybook-readme": "^5.0.8",
     "string-replace-loader": "^2.1.0",
     "style-loader": "^1.0.0",
     "temp": "^0.9.0",

@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -19,12 +19,7 @@ const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
- * Simple benefits pattern
- *
- * @param {object} props props object
- * @param {string} props.title Section title
- * @param {Array} props.content Array of objects with content data
- * @returns {*} Simple benefits item
+ * Simple benefits pattern.
  */
 const SimpleBenefits = ({ content, theme, title }) => {
   useEffect(() => {
@@ -119,6 +114,23 @@ const _setTheme = theme => {
 };
 
 SimpleBenefits.propTypes = {
+  /**
+   * Array of content group objects. Has the following structure for each items:
+   *
+   * | Name    | Data Type | Description                                                  |
+   * | ------- | --------- | ------------------------------------------------------------ |
+   * | `title` | String    | Title of the Content Card item.                              |
+   * | `copy`  | String    | Copy of the Content Card item.                               |
+   * | `link`  | Object    | Object containing target and href of link. See `link` below. |
+   *
+   * `link`:
+   *
+   * | Name     | Data Type | Description                                                |
+   * | -------- | --------- | ---------------------------------------------------------- |
+   * | `href`   | String    | Url of link.                                               |
+   * | `text`   | String    | Link text.                                                 |
+   * | `target` | String    | Open within current tab or new tab ('\_self' or '\_blank') |
+   */
   content: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
@@ -130,6 +142,10 @@ SimpleBenefits.propTypes = {
       }),
     })
   ),
+
+  /**
+   * Main title of the pattern.
+   */
   title: PropTypes.string.isRequired,
 };
 

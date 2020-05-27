@@ -1,7 +1,13 @@
+/**
+ * Copyright IBM Corp. 2020
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 import React from 'react';
 import requireContext from 'require-context.macro';
 import { configure, addParameters, addDecorator } from '@storybook/react';
-import { addReadme } from 'storybook-readme';
 import Container from './Container';
 
 const SORT_ORDER_GROUP = [
@@ -30,8 +36,6 @@ addParameters({
     },
   },
 });
-
-addDecorator(addReadme);
 
 addDecorator(story => <Container story={story} />);
 
