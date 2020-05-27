@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { Callout, Quote } from '../../sub-patterns';
+import { Callout, Quote } from '../../../components';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
 import React from 'react';

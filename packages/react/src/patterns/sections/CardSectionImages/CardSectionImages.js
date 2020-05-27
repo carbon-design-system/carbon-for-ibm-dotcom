@@ -5,9 +5,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { CardGroup } from '../../sub-patterns/CardGroup';
+import { CardGroup } from '../../../components/CardGroup';
 import classNames from 'classnames';
-import { ContentSection } from '../../sub-patterns/ContentSection';
+import ContentSection from '../../../internal/components/ContentSection/ContentSection';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
 import React from 'react';

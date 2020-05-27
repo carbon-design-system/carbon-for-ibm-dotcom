@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { ContentBlock } from '../../sub-patterns/ContentBlock';
+import ContentBlock from '../../../internal/components/ContentBlock/ContentBlock';
 import { ContentGroupCards } from '../ContentGroupCards';
 import { ContentGroupPictograms } from '../ContentGroupPictograms';
 import { ContentGroupSimple } from '../ContentGroupSimple';

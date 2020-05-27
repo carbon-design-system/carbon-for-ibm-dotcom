@@ -5,9 +5,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { ContentBlock } from '../../sub-patterns/ContentBlock';
-import { ContentGroup } from '../../sub-patterns/ContentGroup';
-import { ContentItem } from '../../sub-patterns/ContentItem';
+import ContentBlock from '../../../internal/components/ContentBlock/ContentBlock';
+import ContentGroup from '../../../internal/components/ContentGroup/ContentGroup';
+import ContentItem from '../../../internal/components/ContentItem/ContentItem';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { ImageWithCaption } from '../../../components/ImageWithCaption';
 import PropTypes from 'prop-types';

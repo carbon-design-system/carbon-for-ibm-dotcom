@@ -5,8 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { ContentBlock } from '../../sub-patterns/ContentBlock';
-import { ContentItemHorizontal } from '../../sub-patterns/ContentItemHorizontal';
+import ContentBlock from '../../../internal/components/ContentBlock/ContentBlock';
+import { ContentItemHorizontal } from '../../../components/ContentItemHorizontal';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
 import React from 'react';

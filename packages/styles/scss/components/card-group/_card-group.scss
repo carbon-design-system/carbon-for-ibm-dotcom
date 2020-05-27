@@ -1,0 +1,114 @@
+/**
+ * Copyright IBM Corp. 2016, 2020
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+@import '../link-with-icon/link-with-icon';
+@import '../../internal/content-section/content-section';
+@import '../card/index.scss';
+@import '../../globals/imports';
+@import '../../globals/utils/ratio-base';
+
+@mixin themed-items {
+  color: $text-01;
+  background: $ui-background;
+  .#{$prefix}--card {
+    background-color: $ui-01;
+    &__heading {
+      color: $text-01;
+    }
+    &__copy,
+    &__eyebrow {
+      color: $text-02;
+    }
+    &:hover {
+      background: $hover-ui;
+    }
+  }
+  .#{$prefix}--card--inverse {
+    background-color: $inverse-02;
+    height: 100%;
+
+    .#{$prefix}--card__heading {
+      color: $inverse-01;
+    }
+
+    &.#{$prefix}--card--link:hover {
+      background-color: $inverse-hover-ui;
+    }
+    .#{$prefix}--card__cta,
+    .#{$prefix}--card__cta a,
+    .#{$prefix}--card__cta a:visited {
+      color: $inverse-link;
+    }
+  }
+}
+
+@mixin card-group {
+  .#{$prefix}--card-group {
+    &__card {
+      .#{$prefix}--image {
+        &__img {
+          height: carbon--mini-units(30);
+        }
+
+        @include carbon--breakpoint('lg') {
+          @include ratio-base(4, 3, true);
+
+          &__img {
+            position: absolute;
+            height: 100%;
+            top: 0;
+          }
+        }
+      }
+    }
+    &__row {
+      @include carbon--make-row;
+    }
+    &__cards {
+      @include carbon--make-col-ready;
+
+      @include carbon--breakpoint('lg') {
+        @include carbon--make-col(12, 16);
+      }
+      &__row {
+        @include carbon--make-row;
+      }
+      &__col {
+        @include carbon--make-col-ready;
+
+        @include carbon--breakpoint('md') {
+          @include carbon--make-col(4, 8);
+        }
+        @include carbon--breakpoint('lg') {
+          @include carbon--make-col(1, 3);
+        }
+
+        margin-top: $carbon--grid-gutter--condensed / 2;
+        margin-bottom: $carbon--grid-gutter--condensed / 2;
+      }
+    }
+    @include themed-items;
+  }
+  .#{$prefix}--card-group.#{$prefix}--card-group--g10 {
+    @include carbon--theme($carbon--theme--g10) {
+      @include themed-items;
+    }
+  }
+  .#{$prefix}--card-group.#{$prefix}--card-group--g90 {
+    @include carbon--theme($carbon--theme--g90) {
+      @include themed-items;
+    }
+  }
+  .#{$prefix}--card-group.#{$prefix}--card-group--g100 {
+    @include carbon--theme($carbon--theme--g100) {
+      @include themed-items;
+    }
+  }
+}
+@include exports('card-group') {
+  @include card-group;
+}
