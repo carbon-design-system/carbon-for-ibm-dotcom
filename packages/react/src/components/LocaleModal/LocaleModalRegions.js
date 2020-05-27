@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -7,7 +7,7 @@
 
 import React, { useEffect } from 'react';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
-import { Card } from '../../patterns/sub-patterns/Card';
+import { Card } from '../Card';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import Error20 from '@carbon/icons-react/es/error/20';
 import PropTypes from 'prop-types';

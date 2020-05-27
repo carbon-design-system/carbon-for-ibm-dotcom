@@ -1,11 +1,11 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { ContentBlock } from '../../sub-patterns/ContentBlock';
+import ContentBlock from '../../../internal/components/ContentBlock/ContentBlock';
 import { ContentGroupCards } from '../ContentGroupCards';
 import { ContentGroupPictograms } from '../ContentGroupPictograms';
 import { ContentGroupSimple } from '../ContentGroupSimple';

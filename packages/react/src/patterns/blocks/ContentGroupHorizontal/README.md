@@ -1,7 +1,7 @@
 # Content Group - Horizontal
 
 > The ContentGroupHorizontal block pattern contains a collection of
-> [ContentItemHorizontal](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/patterns/sub-patterns/ContentItemHorizontal)
+> [ContentItemHorizontal](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/components/ContentItemHorizontal)
 > content items.
 
 ## Getting started
@@ -17,7 +17,7 @@ Here's a quick example to get you started.
 @include carbon--font-face-mono();
 @include carbon--font-face-sans();
 
-@import '@carbon/ibmdotcom-styles/scss/patterns/sub-patterns/content-group-horizontal/content-group-horizontal';
+@import '@carbon/ibmdotcom-styles/scss/components/content-group-horizontal/content-group-horizontal';
 ```
 
 > 💡 Only import fonts once per usage. Don't forget to import the
@@ -81,16 +81,16 @@ Add the following line in your `.env` file at the root of your project.
 
 ## Props
 
-| Name      | Required | Data Type | Default Value | Description                                                                                                                                                                                                   |
-| --------- | -------- | --------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `heading` | YES      | String    | null          | Heading of the content group.                                                                                                                                                                                 |
-| `items`   | YES      | Array     | null          | Array of content items. See [ContentItemHorizontal](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/patterns/sub-patterns/ContentItemHorizontal) for usage details. |
+| Name      | Required | Data Type | Default Value | Description                                                                                                                                                                                        |
+| --------- | -------- | --------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `heading` | YES      | String    | null          | Heading of the content group.                                                                                                                                                                      |
+| `items`   | YES      | Array     | null          | Array of content items. See [ContentItemHorizontal](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/components/ContentItemHorizontal) for usage details. |
 
 ## Stable selectors
 
 | Name                            | Description |
 | ------------------------------- | ----------- |
-| `dds--content-group-horizontal` | Pattern     |
+| `dds--content-group-horizontal` | Component   |
 
 ## 🙌 Contributing
 

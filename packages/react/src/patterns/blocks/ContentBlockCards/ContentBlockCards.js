@@ -1,12 +1,12 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { CardGroup } from '../../sub-patterns/CardGroup';
-import { ContentBlock } from '../../sub-patterns/ContentBlock';
+import { CardGroup } from '../../../components/CardGroup';
+import ContentBlock from '../../../internal/components/ContentBlock/ContentBlock';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
 import React from 'react';

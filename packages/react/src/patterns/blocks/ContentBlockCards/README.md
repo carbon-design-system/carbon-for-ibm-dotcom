@@ -63,7 +63,7 @@ Add the following line in your `.env` file at the root of your project.
 
 > See
 > [Card](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/patterns/blocks/Card)
-> sub-pattern for all card options. 👀
+> component for all card options. 👀
 
 ## Stable selectors
 

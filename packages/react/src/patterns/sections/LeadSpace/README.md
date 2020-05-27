@@ -90,7 +90,7 @@ Add the following line in your `.env` file at the root of your project.
 ### buttons (optional)
 
 Visit the
-[ButtonGroup storybook](https://ibmdotcom-react.mybluemix.net/?path=/story/patterns-sub-patterns-buttongroup--default)
+[ButtonGroup storybook](https://ibmdotcom-react.mybluemix.net/?path=/story/components-buttongroup--default)
 for more details on the ButtonGroup component.
 
 ### image (optional)

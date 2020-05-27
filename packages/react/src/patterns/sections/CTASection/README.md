@@ -93,16 +93,16 @@ Add the following line in your `.env` file at the root of your project.
 
 ## Props
 
-| Name            | Required | Data Type | Default Value | Description                                                                                                                                                 |
-| --------------- | -------- | --------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `heading`       | YES      | String    | n/a           | The heading for the CTA Section pattern                                                                                                                     |
-| `copy`          | YES      | Markdown  | n/a           | The copy for the CTA Section pattern                                                                                                                        |
-| `cta`           | YES      | CTA       | n/a           | See [CTA](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/components/CTA#cta)                                     |
-| `items`         | YES      | Array     | n/a           | See [ContentItem](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/patterns/sub-patterns/ContentItem#content-item) |
-| `items.heading` | YES      | String    | n/a           | The heading for the ContentItem sub-pattern                                                                                                                 |
-| `items.copy`    | YES      | Markdown  | n/a           | The copy for the ContentItem sub-pattern                                                                                                                    |
-| `items.cta`     | YES      | CTA       | n/a           | See [CTA](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/components/CTA#cta)                                     |
-| `theme`         | NO       | String    | 'g10'         | Color theme for pattern. See `themes` below                                                                                                                 |
+| Name            | Required | Data Type | Default Value | Description                                                                                                                                               |
+| --------------- | -------- | --------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `heading`       | YES      | String    | n/a           | The heading for the CTA Section pattern                                                                                                                   |
+| `copy`          | YES      | Markdown  | n/a           | The copy for the CTA Section pattern                                                                                                                      |
+| `cta`           | YES      | CTA       | n/a           | See [CTA](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/components/CTA#cta)                                   |
+| `items`         | YES      | Array     | n/a           | See [ContentItem](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/internal/components/ContentItem#content-item) |
+| `items.heading` | YES      | String    | n/a           | The heading for the content item                                                                                                                          |
+| `items.copy`    | YES      | Markdown  | n/a           | The copy for the content item                                                                                                                             |
+| `items.cta`     | YES      | CTA       | n/a           | See [CTA](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/src/components/CTA#cta)                                   |
+| `theme`         | NO       | String    | 'g10'         | Color theme for pattern. See `themes` below                                                                                                               |
 
 ### themes (optional)
 

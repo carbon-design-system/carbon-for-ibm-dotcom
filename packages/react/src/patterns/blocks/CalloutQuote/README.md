@@ -58,9 +58,9 @@ Add the following line in your `.env` file at the root of your project.
 
 ## Props
 
-| Name    | Required | Data Type | Default Value | Description                                                                                                                                                     |
-| ------- | -------- | --------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `quote` | YES      | Object    | null          | Quote object. See [Quote](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/src/patterns/sub-patterns/Quote/README.md)! 👀. |
+| Name    | Required | Data Type | Default Value | Description                                                                                                                                          |
+| ------- | -------- | --------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `quote` | YES      | Object    | null          | Quote object. See [Quote](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/src/components/Quote/README.md)! 👀. |
 
 ## Stable selectors
 

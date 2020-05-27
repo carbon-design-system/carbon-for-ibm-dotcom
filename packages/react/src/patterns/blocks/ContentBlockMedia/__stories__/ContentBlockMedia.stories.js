@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -15,7 +15,7 @@ import {
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
 import ContentBlockMedia from '../ContentBlockMedia';
 import ContentGroupSimpleKnobs from '../../ContentGroupSimple/__stories__/data/ContentGroupSimple.knobs';
-import { LinkList } from '../../../sub-patterns/LinkList';
+import { LinkList } from '../../../../components/LinkList';
 import React from 'react';
 import readme from '../README.md';
 

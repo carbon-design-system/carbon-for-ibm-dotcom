@@ -115,10 +115,10 @@ _Lorem_ ipsum _dolor_ sit amet.
 
 ## Props
 
-| Name      | Required | Data Type | Default Value | Description                                                                                                                                                                             |
-| --------- | -------- | --------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `heading` | YES      | String    | null          | Main title of Content Group — with Pictograms pattern                                                                                                                                   |
-| `items`   | YES      | Array     | null          | Array of PictogramItems, check [PictogramItem](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/src/patterns/sub-patterns/PictogramItem/README.md) |
+| Name      | Required | Data Type | Default Value | Description                                                                                                                                                                  |
+| --------- | -------- | --------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `heading` | YES      | String    | null          | Main title of Content Group — with Pictograms pattern                                                                                                                        |
+| `items`   | YES      | Array     | null          | Array of PictogramItems, check [PictogramItem](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/src/components/PictogramItem/README.md) |
 | 👀        |
 
 ## Stable selectors
