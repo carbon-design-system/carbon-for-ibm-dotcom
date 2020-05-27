@@ -15,6 +15,7 @@
       display: inline-block;
 
       .#{$prefix}--video-player__video {
+        padding-top: $spacing-05;
         position: absolute;
         top: 0;
         left: 0;
