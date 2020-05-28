@@ -11,11 +11,19 @@
 
 @mixin quote {
   .#{$prefix}--quote {
+    padding-bottom: $layout-03;
     &__container {
       @include carbon--make-row;
     }
 
     &__wrapper {
+      @include carbon--breakpoint(sm) {
+        padding-top: $layout-03;
+      }
+      @include carbon--breakpoint(md) {
+        padding-top: $layout-05;
+      }
+
       position: relative;
     }
 
