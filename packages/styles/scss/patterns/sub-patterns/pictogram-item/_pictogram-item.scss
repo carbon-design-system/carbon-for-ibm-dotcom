@@ -7,4 +7,5 @@
 
 /// @deprecated Remap import to "@carbon/ibmdotcom-styles/scss/components/pictogram-item/pictogram-item"
 
+@warn 'Deprecated scss import for `pictogram-item`, remap to `@carbon/ibmdotcom-styles/scss/components/pictogram-item/pictogram-item`';
 @import '../../../components/pictogram-item/pictogram-item';

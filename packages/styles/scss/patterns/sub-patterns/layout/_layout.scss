@@ -7,4 +7,5 @@
 
 /// @deprecated Remap import to "@carbon/ibmdotcom-styles/scss/components/layout/layout"
 
+@warn 'Deprecated scss import for `layout`, remap to `@carbon/ibmdotcom-styles/scss/components/layout/layout`';
 @import '../../../components/layout/layout';
