@@ -97,7 +97,7 @@ FeatureCard.propTypes = {
   onClick: PropTypes,
 
   /**
-   * Inverse paremether for pattern theming
+   * Toggles inverse theming.
    */
   inverse: PropTypes.bool,
 };
