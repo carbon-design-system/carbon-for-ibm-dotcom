@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { Callout, Quote } from '../../sub-patterns';
+import { Callout, Quote } from '../../../components';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -31,7 +31,7 @@ const CalloutQuote = ({ quote }) => {
 CalloutQuote.propTypes = {
   /**
    * Quote object.
-   * See [`<Quote>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/patterns-sub-patterns-quote--default#props) for full usage details.
+   * See [`<Quote>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-quote--default#props) for full usage details.
    */
   quote: PropTypes.shape({
     markType: PropTypes.oneOf([
