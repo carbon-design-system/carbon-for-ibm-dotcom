@@ -34,6 +34,10 @@
       *:last-child {
         padding-bottom: 0;
       }
+
+      h1 {
+        @include carbon--type-style('expressive-heading-04');
+      }
     }
 
     #{$modal}-close {
