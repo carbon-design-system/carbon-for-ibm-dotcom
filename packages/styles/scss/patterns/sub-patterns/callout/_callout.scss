@@ -7,4 +7,5 @@
 
 /// @deprecated Remap import to "@carbon/ibmdotcom-styles/scss/components/callout/callout"
 
+@warn 'Deprecated scss import for `callout`, remap to `@carbon/ibmdotcom-styles/scss/components/callout/callout`';
 @import '../../../components/callout/callout';

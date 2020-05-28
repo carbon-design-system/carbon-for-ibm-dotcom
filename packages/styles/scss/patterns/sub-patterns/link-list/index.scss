@@ -7,4 +7,5 @@
 
 /// @deprecated Remap import to "@carbon/ibmdotcom-styles/scss/components/link-list/index"
 
+@warn 'Deprecated scss import for `link-list`, remap to `@carbon/ibmdotcom-styles/scss/components/link-list/index`';
 @import '../../../components/link-list/index';

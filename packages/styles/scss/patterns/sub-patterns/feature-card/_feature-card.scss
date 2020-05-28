@@ -7,4 +7,5 @@
 
 /// @deprecated Remap import to "@carbon/ibmdotcom-styles/scss/components/feature-card/feature-card"
 
+@warn 'Deprecated scss import for `feature-card`, remap to `@carbon/ibmdotcom-styles/scss/components/feature-card/feature-card`';
 @import '../../../components/feature-card/feature-card';

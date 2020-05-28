@@ -7,4 +7,5 @@
 
 /// @deprecated Remap import to "@carbon/ibmdotcom-styles/scss/components/card/index"
 
+@warn 'Deprecated scss import for `card`, remap to `@carbon/ibmdotcom-styles/scss/components/card/index`';
 @import '../../../components/card/index';
