@@ -1,11 +1,12 @@
-//
-// Copyright IBM Corp. 2016, 2018
-//
-// This source code is licensed under the Apache-2.0 license found in the
-// LICENSE file in the root directory of this source tree.
-//
+/**
+ * Copyright IBM Corp. 2016, 2020
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 @import '../../../globals/imports';
-@import '../../sub-patterns/content-block/content-block';
-@import '../../sub-patterns/content-item/content-item';
+@import '../../../internal/content-block/content-block';
+@import '../../../internal/content-item/content-item';
 @import '../../../components/image/image';
 @import 'content-block-simple';

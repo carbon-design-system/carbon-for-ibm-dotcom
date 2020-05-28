@@ -6,9 +6,9 @@
  */
 
 import classNames from 'classnames';
-import { ContentGroup } from '../../sub-patterns/ContentGroup';
+import ContentGroup from '../../../internal/components/ContentGroup/ContentGroup';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
-import { PictogramItem } from '../../sub-patterns/PictogramItem';
+import { PictogramItem } from '../../../components/PictogramItem';
 import PropTypes from 'prop-types';
 import React from 'react';
 import settings from 'carbon-components/es/globals/js/settings';
@@ -51,7 +51,7 @@ ContentGroupPictograms.propTypes = {
 
   /**
    * Array of PictogramItems.
-   * See [`<PictogramItem>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/patterns-sub-patterns-pictogramitem--default#props) for full usage details.
+   * See [`<PictogramItem>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-pictogramitem--default#props) for full usage details.
    */
   items: PropTypes.arrayOf(
     PropTypes.shape({

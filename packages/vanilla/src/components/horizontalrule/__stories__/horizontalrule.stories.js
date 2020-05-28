@@ -1,6 +1,15 @@
+/**
+ * Copyright IBM Corp. 2020
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 import '../../../../../styles/scss/components/horizontalrule/_horizontalrule.scss';
 import '@carbon/grid/scss/grid.scss';
 import { select, text, withKnobs } from '@storybook/addon-knobs';
+import { createElement } from 'react';
+import { Description } from '@storybook/addon-docs/blocks';
 import horizontalrule from '../horizontalrule.template';
 import readme from '../README.md';
 import wrapper from './templates/wrapper.template';
@@ -10,8 +19,8 @@ export default {
   decorators: [withKnobs],
 
   parameters: {
-    readme: {
-      sidebar: readme,
+    docs: {
+      page: () => createElement(Description, { markdown: readme }),
     },
   },
 };

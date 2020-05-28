@@ -16,7 +16,7 @@ import {
 import ContentBlockMixed from '../ContentBlockMixed';
 import ContentGroupCardsKnobs from '../../ContentGroupCards/__stories__/data/ContentGroupCards.knobs';
 import ContentGroupSimpleKnobs from '../../ContentGroupSimple/__stories__/data/ContentGroupSimple.knobs';
-import { LinkList } from '../../../sub-patterns/LinkList';
+import { LinkList } from '../../../../components/LinkList';
 import React from 'react';
 import readme from '../README.stories.mdx';
 

@@ -5,8 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { ContentGroup } from '../../sub-patterns/ContentGroup';
-import { ContentItem } from '../../sub-patterns/ContentItem';
+import ContentGroup from '../../../internal/components/ContentGroup/ContentGroup';
+import ContentItem from '../../../internal/components/ContentItem/ContentItem';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { ImageWithCaption } from '../../../components/ImageWithCaption';
 import PropTypes from 'prop-types';
@@ -111,7 +111,6 @@ ContentGroupSimple.propTypes = {
 
   /**
    * Data to be used on `<ContentItem>`s.
-   * See [`<ContentItem>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/patterns-sub-patterns-contentitem--default#props) for full usage details.
    */
   items: PropTypes.arrayOf(
     PropTypes.shape({
@@ -127,10 +126,34 @@ ContentGroupSimple.propTypes = {
         href: PropTypes.string,
         customClassName: PropTypes.string,
       }),
+
+      /**
+       * Allows user to pass in custom class name.
+       */
       customClassName: PropTypes.string,
+
+      /**
+       * Copy text.
+       */
       copy: PropTypes.string,
+
+      /**
+       * Heading text.
+       */
       heading: PropTypes.string,
+
+      /**
+       * Determines media type (image or video).
+       */
       mediaType: PropTypes.oneOf(['image', 'video']),
+
+      /**
+       * Media Data for either image or video.
+       * See the following components' README for more details:
+       *
+       * * `mediaType="image"`: [`<ImageWithCaption>`](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-imagewithcaption--default#props)
+       * * `mediaType="video"`: [`<VideoPlayer>`](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-videoplayer--default#props)
+       */
       mediaData: PropTypes.oneOfType([
         PropTypes.shape({
           inverse: PropTypes.bool,
@@ -163,6 +186,10 @@ ContentGroupSimple.propTypes = {
           inverse: PropTypes.bool,
         }),
       ]),
+
+      /**
+       * `true` to changes theme to inverse.
+       */
       inverse: PropTypes.bool,
     })
   ).isRequired,

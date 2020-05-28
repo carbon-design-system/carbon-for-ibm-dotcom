@@ -1,0 +1,79 @@
+/**
+ * Copyright IBM Corp. 2016, 2020
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+@import '../../globals/imports';
+@import '../../globals/utils/content-width';
+@import '../../globals/utils/hang';
+@import '../../patterns/blocks/feature-card-block-medium/feature-card-block-medium';
+
+@mixin content-block {
+  .#{$prefix}--content-block--inverse {
+    background-color: $inverse-02;
+    color: $text-04;
+  }
+  .#{$prefix}--content-block {
+    padding-top: $carbon--layout-03;
+    padding-bottom: $carbon--layout-05;
+    @include carbon--breakpoint('md') {
+      padding-top: $carbon--layout-05;
+      padding-bottom: $carbon--layout-06;
+    }
+    @include carbon--breakpoint('max') {
+      padding-bottom: $carbon--layout-07;
+    }
+    &__heading,
+    &__copy {
+      @include content-width;
+    }
+    &__heading {
+      @include carbon--type-style('expressive-heading-05', true);
+
+      margin-bottom: $carbon--spacing-07;
+      @include carbon--breakpoint('lg') {
+        margin-bottom: $carbon--spacing-09;
+      }
+    }
+    &__copy {
+      p {
+        @include carbon--type-style('expressive-paragraph-01', true);
+
+        margin-bottom: $carbon--spacing-07;
+      }
+    }
+    &__cta {
+      margin-top: $carbon--layout-04;
+      @include carbon--breakpoint('md') {
+        margin-top: $carbon--layout-05;
+      }
+      &-row {
+        @include carbon--make-row;
+        // allows for margin collapsing
+        display: block;
+      }
+      &-col {
+        @include carbon--make-col-ready;
+        @include carbon--breakpoint('md') {
+          @include carbon--make-col(4, 8);
+        }
+      }
+    }
+    .#{$prefix}--card__CTA {
+      // TO DO: aspect ratio 2x1
+      @include hang;
+    }
+    @include carbon--breakpoint('lg') {
+      .#{$prefix}--link-list {
+        padding-top: 0;
+        margin-right: -$carbon--spacing-05;
+      }
+    }
+  }
+}
+
+@include exports('content-block') {
+  @include content-block;
+}
