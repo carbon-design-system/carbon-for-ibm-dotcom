@@ -5,8 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { ContentBlock } from '../../sub-patterns/ContentBlock';
-import { ContentItem } from '../../sub-patterns/ContentItem';
+import ContentBlock from '../../../internal/components/ContentBlock/ContentBlock';
+import ContentItem from '../../../internal/components/ContentItem/ContentItem';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { ImageWithCaption } from '../../../components/ImageWithCaption';
 import PropTypes from 'prop-types';
@@ -137,8 +137,13 @@ ContentBlockSimple.propTypes = {
   }),
 
   /**
-   * Elements to be rendered on right panel of the content block.
-   * See [`ContentBlock` README](http://ibmdotcom-react.mybluemix.net/?path=/docs/patterns-sub-patterns-contentblock--default) for more info.
+   * Object containing elements to be rendered within <aside> html element on right panel.
+   * The structure is:
+   *
+   * | Name     | Data Type | Description                                                |
+   * | -------- | --------- | ---------------------------------------------------------- |
+   * | `items`  | Element   | Elements/Components to be rendered on the right panel.     |
+   * | `border` | Boolean   | Determines whether bottom border of `ContentBlock` is set. |
    */
   aside: PropTypes.object,
 

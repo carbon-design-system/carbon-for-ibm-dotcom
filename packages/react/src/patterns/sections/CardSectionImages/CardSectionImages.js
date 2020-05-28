@@ -5,9 +5,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { CardGroup } from '../../sub-patterns/CardGroup';
+import { CardGroup } from '../../../components/CardGroup';
 import classNames from 'classnames';
-import { ContentSection } from '../../sub-patterns/ContentSection';
+import ContentSection from '../../../internal/components/ContentSection/ContentSection';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -75,7 +75,7 @@ CardSectionImages.propTypes = {
    * | `cta.href` | YES      | String    | URI for internal or external resource.   |
    *
    * See example
-   * [card data](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/src/patterns/sub-patterns/CardGroup/__stories__/data/cards.json).
+   * [card data](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/src/components/CardGroup/__stories__/data/cards.json).
    */
   cards: PropTypes.arrayOf(
     PropTypes.exact({

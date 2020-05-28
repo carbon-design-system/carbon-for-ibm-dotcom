@@ -13,7 +13,7 @@ import {
   boolean,
 } from '@storybook/addon-knobs';
 import ContentBlockSegmented from '../ContentBlockSegmented';
-import { LinkList } from '../../../sub-patterns/LinkList';
+import { LinkList } from '../../../../components/LinkList';
 import React from 'react';
 import readme from '../README.stories.mdx';
 import settings from 'carbon-components/es/globals/js/settings';

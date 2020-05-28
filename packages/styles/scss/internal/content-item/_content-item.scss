@@ -1,0 +1,62 @@
+/**
+ * Copyright IBM Corp. 2016, 2020
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+@import '../../globals/imports';
+@import '../../globals/utils/content-width';
+
+@mixin content-item {
+  .#{$prefix}--content-item--inverse {
+    background-color: $inverse-02;
+  }
+  .#{$prefix}--content-item--inverse .#{$prefix}--content-item__heading {
+    color: $text-04;
+  }
+  .#{$prefix}--content-item--inverse .#{$prefix}--content-item__copy p {
+    color: $text-04;
+  }
+  .#{$prefix}--content-item {
+    margin-top: $carbon--spacing-07;
+    margin-bottom: $carbon--spacing-07;
+    &__heading,
+    &__copy {
+      @include content-width;
+    }
+
+    &__heading {
+      @include carbon--type-style('expressive-heading-02');
+
+      color: $text-01;
+    }
+
+    &__image {
+      margin-top: $carbon--spacing-05;
+      margin-bottom: $carbon--spacing-07;
+    }
+
+    &__copy {
+      p {
+        @include carbon--type-style('body-long-02');
+
+        color: $text-01;
+        margin-bottom: $carbon--spacing-06;
+      }
+    }
+
+    &__cta {
+      margin-top: $carbon--spacing-05;
+    }
+
+    .#{$prefix}--video-player {
+      margin-top: $carbon--spacing-07;
+      margin-bottom: $carbon--spacing-07;
+    }
+  }
+}
+
+@include exports('content-item') {
+  @include content-item;
+}
