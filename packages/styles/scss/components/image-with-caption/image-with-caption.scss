@@ -6,7 +6,7 @@
  */
 
 @import '../../globals/imports';
-@import '@carbon/motion/scss/motion.scss';
+@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/motion/motion.scss';
 
 @mixin image-with-caption {
   .#{$prefix}--image-with-caption {
