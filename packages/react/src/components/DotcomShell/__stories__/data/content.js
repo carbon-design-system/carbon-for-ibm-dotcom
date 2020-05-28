@@ -1,3 +1,10 @@
+/**
+ * Copyright IBM Corp. 2020
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 import 'carbon-components/scss/components/button/_button.scss';
 import 'carbon-components/scss/components/data-table/_data-table.scss';
 import 'carbon-components/scss/components/structured-list/_structured-list.scss';
