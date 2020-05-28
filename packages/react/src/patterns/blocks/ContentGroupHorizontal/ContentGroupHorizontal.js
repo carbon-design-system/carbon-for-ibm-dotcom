@@ -8,7 +8,7 @@
 import ContentBlock from '../../../internal/components/ContentBlock/ContentBlock';
 import { ContentItemHorizontal } from '../../../components/ContentItemHorizontal';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
-import {HorizontalRule} from "../../../components/HorizontalRule";
+import { HorizontalRule } from '../../../components/HorizontalRule';
 import PropTypes from 'prop-types';
 import React from 'react';
 import settings from 'carbon-components/es/globals/js/settings';
@@ -24,9 +24,7 @@ const ContentGroupHorizontal = ({ heading, items }) => {
     <div
       data-autoid={`${stablePrefix}--content-group-horizontal`}
       className={`${prefix}--content-group-horizontal`}>
-      <ContentBlock
-        heading={heading}
-        >
+      <ContentBlock heading={heading}>
         {items.map((item, index) => (
           <ContentItemHorizontal
             eyebrow={item.eyebrow}
