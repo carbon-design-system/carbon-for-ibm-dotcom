@@ -22148,10 +22148,9 @@ exports[`Storyshots Patterns (Sub-Patterns)|ButtonGroup Default 1`] = `
     }
   >
     <div
-      className="bx-grid"
+      className="bx--grid bx--buttongroup-grid--regular"
       style={
         Object {
-          "backgroundColor": "black",
           "padding": "2rem",
         }
       }
@@ -22192,6 +22191,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ButtonGroup Default 1`] = `
                 },
               ]
             }
+            inverse={false}
           >
             <ol
               className="bx--buttongroup"
@@ -22350,6 +22350,7 @@ exports[`Storyshots Patterns (Sub-Patterns)|ButtonGroup Default 1`] = `
             },
           ]
         }
+        inverse={false}
       >
         <ol
           className="bx--buttongroup"
