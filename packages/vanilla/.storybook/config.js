@@ -33,7 +33,7 @@ addParameters({
 
 addDecorator(addReadme);
 
-const reqDocs = require.context('../docs', true, /\.stories\.mdx$/);
+const reqDocs = requireContext('../docs', true, /\.stories\.mdx$/);
 configure(reqDocs, module);
 
 const components = requireContext('../src', true, /(overview|\.stories)\.js$/);

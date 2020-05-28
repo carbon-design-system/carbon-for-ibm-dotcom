@@ -28,17 +28,3 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
   Loading...
 </div>
 `;
-
-exports[`Storyshots Overview|Get Started Default 1`] = `
-<div
-  class="storybook-center-container"
->
-  <div
-    class="markdown-body"
-  >
-    <p>
-      README.md
-    </p>
-  </div>
-</div>
-`;
