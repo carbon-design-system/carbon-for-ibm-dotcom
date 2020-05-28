@@ -3630,6 +3630,7 @@ exports[`Storyshots Components|FeatureCard Default 1`] = `
                 },
               }
             }
+            inverse={false}
           >
             <div
               className="bx--feature-card"
