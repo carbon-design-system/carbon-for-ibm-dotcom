@@ -7,7 +7,7 @@
 
 import React, { useEffect } from 'react';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
-import { Card } from '../Card';
+import { CardLink } from '../CardLink';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import Error20 from '@carbon/icons-react/es/error/20';
 import PropTypes from 'prop-types';
@@ -115,18 +115,20 @@ const LocaleModalRegions = ({
               <div
                 key={`${region.name}`}
                 className={`${prefix}--col-sm-4 ${prefix}--col-md-8 ${prefix}--col-lg-8 ${prefix}--col-xlg-8 ${prefix}--no-gutter`}>
-                <Card
+                <CardLink
                   data-autoid={`${stablePrefix}--locale-modal__geo-btn-${region.key}`}
-                  data-region={region.key}
                   key={region.key}
-                  heading={region.name}
-                  type="link"
-                  handleClick={e => e.preventDefault()}
-                  cta={{
-                    href: hasCountries ? '#' : null,
-                    icon: {
-                      src: hasCountries ? ArrowRight20 : Error20,
+                  card={{
+                    'data-region': region.key,
+                    heading: region.name,
+                    cta: {
+                      type: 'local',
+                      href: hasCountries ? '#' : null,
+                      icon: {
+                        src: hasCountries ? ArrowRight20 : Error20,
+                      },
                     },
+                    handleClick: e => e.preventDefault(),
                   }}
                 />
               </div>
