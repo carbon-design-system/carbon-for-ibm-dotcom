@@ -1,0 +1,82 @@
+import { Props } from '@storybook/addon-docs/blocks';
+import { Card } from '../Card';
+
+# CardLink
+
+> The cardlink component uses
+> [Carbon's Clickable Tile component](https://www.carbondesignsystem.com/components/tile/code#clickable-tile)
+> while presenting content in a concise and readable style.
+
+## Getting started
+
+Here's a quick example to get you started.
+
+##### CSS
+
+```css
+// yourapplication.scss
+@import '@carbon/type/scss/font-face/mono';
+@import '@carbon/type/scss/font-face/sans';
+@include carbon--font-face-mono();
+@include carbon--font-face-sans();
+@import '@carbon/ibmdotcom-styles/scss/patterns/sub-patterns/card/index.scss';
+```
+
+> 💡 Only import fonts once per usage. Don't forget to import the Card styles
+> from
+> [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
+
+##### JS
+
+```javascript
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { CardLink } from '@carbon/ibmdotcom-react';
+import 'yourapplication.scss';
+
+function App() {
+  return (
+    <CardLink
+      card={{
+        heading: 'Heading',
+        copy: 'Lorem ipsum dolor sit amet',
+        cta: {
+          href: 'http://www.example.com',
+          icon: {
+            src: ArrowRight20,
+          },
+        },
+      }}
+    />
+  );
+}
+
+ReactDOM.render(<App />, document.querySelector('#app'));
+```
+
+Add the following line in your `.env` file at the root of your project.
+[See more details](https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/styles#usage).
+
+```
+  SASS_PATH=node_modules:src
+```
+
+> 💡 Don't forget to import the card styles from
+> [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
+
+## Props
+
+<Props of={Card} />
+
+## 🙌 Contributing
+
+We're always looking for contributors to help us fix bugs, build new features,
+or help us improve the project documentation. If you're interested, definitely
+check out our
+[Contributing Guide](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/.github/CONTRIBUTING.md)!
+👀
+
+## 📝 License
+
+Licensed under the
+[Apache 2.0 License](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/LICENSE).
