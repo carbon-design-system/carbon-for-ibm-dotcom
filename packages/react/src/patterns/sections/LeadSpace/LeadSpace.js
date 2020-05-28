@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { ButtonGroup } from '../../sub-patterns/ButtonGroup';
+import { ButtonGroup } from '../../../components/ButtonGroup';
 import classnames from 'classnames';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { Image } from '../../../components/Image';
@@ -146,7 +146,7 @@ const LeadSpace = ({ buttons, copy, gradient, image, theme, title, type }) => {
 LeadSpace.propTypes = {
   /**
    * Array of button objects to render (max 2).
-   * See [`<ButtonGroup>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/patterns-sub-patterns-buttongroup--default#button-item) for full usage details.
+   * See [`<ButtonGroup>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-buttongroup--default#button-item) for full usage details.
    */
   buttons: PropTypes.arrayOf(
     PropTypes.shape({
