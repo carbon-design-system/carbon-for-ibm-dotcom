@@ -45,7 +45,7 @@ ContentGroupHorizontal.propTypes = {
 
   /**
    * Array of content items.
-   * See [`<ContentItemHorizontal>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/patterns-sub-patterns-contentitemhorizontal--default#props) for full usage details.
+   * See [`<ContentItemHorizontal>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-contentitemhorizontal--default#props) for full usage details.
    */
   items: PropTypes.arrayOf(
     PropTypes.shape({

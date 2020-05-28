@@ -57,7 +57,7 @@ ContentBlockCards.propTypes = {
    * | `heading`  | YES      | String    | Heading of the card.                     |
    * | `cta.href` | YES      | String    | URI for internal or external resource.   |
    *
-   * See [`<CardGroup>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/patterns-sub-patterns-cardgroup--default#props) for full usage details.
+   * See [`<CardGroup>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-cardgroup--default#props) for full usage details.
    */
   cards: PropTypes.arrayOf(
     PropTypes.shape({

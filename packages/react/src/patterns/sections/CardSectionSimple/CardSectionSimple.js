@@ -74,7 +74,7 @@ CardSectionSimple.propTypes = {
    * | `cta.href` | YES      | String    | URI for internal or external resource. |
    *
    * See example
-   * [card data](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/src/patterns/sub-patterns/CardGroup/__stories__/data/cards.json).
+   * [card data](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/src/components/CardGroup/__stories__/data/cards.json).
    */
   cards: PropTypes.arrayOf(
     PropTypes.exact({
@@ -88,7 +88,7 @@ CardSectionSimple.propTypes = {
 
   /**
    * Optional CTA card for group. Always displays as last item.
-   * See [`<CardGroup>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/patterns-sub-patterns-cardgroup--default#props) for full usage details.
+   * See [`<CardGroup>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-cardgroup--default#props) for full usage details.
    */
   cta: PropTypes.shape({
     heading: PropTypes.string,

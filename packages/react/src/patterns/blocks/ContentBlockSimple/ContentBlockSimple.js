@@ -137,8 +137,13 @@ ContentBlockSimple.propTypes = {
   }),
 
   /**
-   * Elements to be rendered on right panel of the content block.
-   * See [`ContentBlock` README](http://ibmdotcom-react.mybluemix.net/?path=/docs/patterns-sub-patterns-contentblock--default) for more info.
+   * Object containing elements to be rendered within <aside> html element on right panel.
+   * The structure is:
+   *
+   * | Name     | Data Type | Description                                                |
+   * | -------- | --------- | ---------------------------------------------------------- |
+   * | `items`  | Element   | Elements/Components to be rendered on the right panel.     |
+   * | `border` | Boolean   | Determines whether bottom border of `ContentBlock` is set. |
    */
   aside: PropTypes.object,
 

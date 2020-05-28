@@ -75,7 +75,7 @@ CardSectionImages.propTypes = {
    * | `cta.href` | YES      | String    | URI for internal or external resource.   |
    *
    * See example
-   * [card data](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/src/patterns/sub-patterns/CardGroup/__stories__/data/cards.json).
+   * [card data](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/react/src/components/CardGroup/__stories__/data/cards.json).
    */
   cards: PropTypes.arrayOf(
     PropTypes.exact({

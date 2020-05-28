@@ -146,7 +146,7 @@ const LeadSpace = ({ buttons, copy, gradient, image, theme, title, type }) => {
 LeadSpace.propTypes = {
   /**
    * Array of button objects to render (max 2).
-   * See [`<ButtonGroup>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/patterns-sub-patterns-buttongroup--default#button-item) for full usage details.
+   * See [`<ButtonGroup>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-buttongroup--default#button-item) for full usage details.
    */
   buttons: PropTypes.arrayOf(
     PropTypes.shape({

@@ -252,8 +252,13 @@ ContentBlockMixed.propTypes = {
   }),
 
   /**
-   * Object containing elements to be rendered within `<aside>` html element on right panel.
-   * See [`<ContentBlock>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/patterns-sub-patterns-contentblock--default#props) for full usage details.
+   * Object containing elements to be rendered within <aside> html element on right panel.
+   * The structure is:
+   *
+   * | Name     | Data Type | Description                                                |
+   * | -------- | --------- | ---------------------------------------------------------- |
+   * | `items`  | Element   | Elements/Components to be rendered on the right panel.     |
+   * | `border` | Boolean   | Determines whether bottom border of `ContentBlock` is set. |
    */
   aside: PropTypes.shape({
     items: PropTypes.element,

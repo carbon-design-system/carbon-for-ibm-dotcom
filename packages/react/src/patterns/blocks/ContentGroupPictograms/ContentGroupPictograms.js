@@ -51,7 +51,7 @@ ContentGroupPictograms.propTypes = {
 
   /**
    * Array of PictogramItems.
-   * See [`<PictogramItem>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/patterns-sub-patterns-pictogramitem--default#props) for full usage details.
+   * See [`<PictogramItem>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-pictogramitem--default#props) for full usage details.
    */
   items: PropTypes.arrayOf(
     PropTypes.shape({
