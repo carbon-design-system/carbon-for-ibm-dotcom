@@ -1,16 +1,16 @@
 /**
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { ContentBlock } from '../../sub-patterns/ContentBlock';
+import ContentBlock from '../../../internal/components/ContentBlock/ContentBlock';
 import { CTA } from '../../../components/CTA';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { HorizontalRule } from '../../../components/HorizontalRule';
 import { ImageWithCaption } from '../../../components/ImageWithCaption';
-import { LinkList } from '../../sub-patterns/LinkList';
+import { LinkList } from '../../../components/LinkList';
 import PropTypes from 'prop-types';
 import React from 'react';
 import settings from 'carbon-components/es/globals/js/settings';

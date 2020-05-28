@@ -1,0 +1,60 @@
+/**
+ * Copyright IBM Corp. 2016, 2020
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+@import '../../globals/imports';
+@import '../../globals/utils/content-width';
+@import '../../globals/utils/hang';
+
+@mixin themed-items {
+  .#{$prefix}--content-group__title {
+    color: $text-01;
+  }
+}
+@mixin content-group {
+  .#{$prefix}--content-group {
+    margin-top: $carbon--layout-05;
+    margin-bottom: $carbon--layout-05;
+
+    @include carbon--breakpoint('lg') {
+      margin-top: $carbon--layout-06;
+      margin-bottom: $carbon--layout-06;
+    }
+
+    &__title {
+      @include carbon--type-style('expressive-heading-04', true);
+      @include content-width;
+
+      margin-bottom: $carbon--spacing-07;
+    }
+
+    &__cta {
+      @include carbon--make-col-ready;
+
+      margin-top: $carbon--layout-04;
+
+      @include carbon--breakpoint('md') {
+        @include carbon--make-col(4, 8);
+      }
+
+      &-row {
+        @include carbon--make-row;
+
+        // allows for margin collapsing
+        display: block;
+      }
+    }
+
+    .#{$prefix}--card__CTA {
+      // TO DO: aspect ratio 2x1
+      @include hang;
+    }
+  }
+}
+
+@include exports('content-group') {
+  @include content-group;
+}

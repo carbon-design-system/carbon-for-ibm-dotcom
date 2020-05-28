@@ -5,8 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { ContentBlock } from '../../sub-patterns/ContentBlock';
-import { ContentItemHorizontal } from '../../sub-patterns/ContentItemHorizontal';
+import ContentBlock from '../../../internal/components/ContentBlock/ContentBlock';
+import { ContentItemHorizontal } from '../../../components/ContentItemHorizontal';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import {HorizontalRule} from "../../../components/HorizontalRule";
 import PropTypes from 'prop-types';
@@ -50,7 +50,7 @@ ContentGroupHorizontal.propTypes = {
 
   /**
    * Array of content items.
-   * See [`<ContentItemHorizontal>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/patterns-sub-patterns-contentitemhorizontal--default#props) for full usage details.
+   * See [`<ContentItemHorizontal>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-contentitemhorizontal--default#props) for full usage details.
    */
   items: PropTypes.arrayOf(
     PropTypes.shape({
