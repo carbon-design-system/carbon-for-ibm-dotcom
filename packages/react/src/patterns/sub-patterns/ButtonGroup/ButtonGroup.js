@@ -5,6 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 import Button from '../../../internal/vendor/carbon-components-react/components/Button/Button';
+import cx from 'classnames';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -16,26 +17,30 @@ const { prefix } = settings;
 /**
  * Button group.
  */
-const ButtonGroup = ({ buttons }) => (
-  <ol
-    className={`${prefix}--buttongroup`}
-    data-autoid={`${stablePrefix}--button-group`}>
-    {buttons.map((button, key) => {
-      return (
-        <li key={key} className={`${prefix}--buttongroup-item`}>
-          <Button
-            tabIndex={key === 0 ? 2 : 1}
-            data-autoid={`${stablePrefix}--button-group-${key}`}
-            {...button}
-            type="button"
-            kind={key === 0 ? 'primary' : 'tertiary'}>
-            {button.copy}
-          </Button>
-        </li>
-      );
-    })}
-  </ol>
-);
+const ButtonGroup = ({ buttons, inverse }) => {
+  const classnames = cx(`${prefix}--buttongroup`, {
+    [`${prefix}--buttongroup--inverse`]: inverse,
+  });
+
+  return (
+    <ol className={classnames} data-autoid={`${stablePrefix}--button-group`}>
+      {buttons.map((button, key) => {
+        return (
+          <li key={key} className={`${prefix}--buttongroup-item`}>
+            <Button
+              tabIndex={key === 0 ? 2 : 1}
+              data-autoid={`${stablePrefix}--button-group-${key}`}
+              {...button}
+              type="button"
+              kind={key === 0 ? 'primary' : 'tertiary'}>
+              {button.copy}
+            </Button>
+          </li>
+        );
+      })}
+    </ol>
+  );
+};
 
 ButtonGroup.propTypes = {
   /**
@@ -58,6 +63,10 @@ ButtonGroup.propTypes = {
       renderIcon: PropTypes.elementType,
     })
   ),
+  /**
+   * inverse: theme option, `true` to use the inverse theme.
+   */
+  inverse: PropTypes.bool,
 };
 
 export default ButtonGroup;

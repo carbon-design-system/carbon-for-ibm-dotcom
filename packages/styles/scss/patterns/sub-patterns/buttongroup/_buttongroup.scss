@@ -16,6 +16,7 @@
   .#{$prefix}--buttongroup {
     display: flex;
     flex-direction: column-reverse;
+    background-color: black;
 
     @include carbon--breakpoint(lg) {
       justify-content: flex-end;
@@ -32,6 +33,20 @@
         height: auto;
       }
     }
+  }
+
+  .#{$prefix}--buttongroup-grid--inverse {
+    background-color: $inverse-02;
+    padding: $carbon--spacing-07;
+  }
+
+  .#{$prefix}--buttongroup-grid--regular {
+    background-color: black;
+    padding: $carbon--spacing-07;
+  }
+
+  .#{$prefix}--buttongroup--inverse {
+    background-color: $inverse-02;
   }
 
   .#{$prefix}--buttongroup-item {

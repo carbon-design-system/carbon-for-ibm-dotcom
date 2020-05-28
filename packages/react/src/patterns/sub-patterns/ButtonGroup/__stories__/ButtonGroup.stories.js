@@ -5,13 +5,23 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { number, select, text, withKnobs } from '@storybook/addon-knobs';
+import {
+  boolean,
+  number,
+  select,
+  text,
+  withKnobs,
+} from '@storybook/addon-knobs';
 import ArrowDown20 from '@carbon/icons-react/es/arrow--down/20';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
 import ButtonGroup from '../ButtonGroup';
+import cx from 'classnames';
 import Pdf20 from '@carbon/icons-react/es/PDF/20';
 import React from 'react';
 import readme from '../README.stories.mdx';
+import { settings } from 'carbon-components';
+
+const { prefix } = settings;
 
 export default {
   title: 'Patterns (Sub-Patterns)|ButtonGroup',
@@ -50,12 +60,17 @@ export const Default = () => {
     });
   }
 
+  const inverse = boolean('inverse', false);
+  const isInverseClass = inverse ? 'inverse' : 'regular';
+
   return (
     <div
-      className="bx-grid"
+      className={cx(
+        'bx--grid',
+        `${prefix}--buttongroup-grid--${isInverseClass}`
+      )}
       style={{
         padding: 2 + `rem`,
-        backgroundColor: 'black',
       }}>
       <div style={{ color: 'white' }}>
         This button group is wrapped within the grid to let the buttons shrink
@@ -63,14 +78,14 @@ export const Default = () => {
       </div>
       <div className="bx--row">
         <div className="bx--col-lg-16 bx--col-md-6 bx--col-sm-16">
-          <ButtonGroup buttons={buttons} />
+          <ButtonGroup buttons={buttons} inverse={inverse} />
         </div>
       </div>
       <div style={{ color: 'white', paddingTop: '20px' }}>
         This button group is not using the grid, so the buttons won't shrink
         according to the text size
       </div>
-      <ButtonGroup buttons={buttons} />
+      <ButtonGroup buttons={buttons} inverse={inverse} />
     </div>
   );
 };
