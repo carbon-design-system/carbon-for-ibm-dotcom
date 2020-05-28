@@ -8,10 +8,11 @@
 'use strict';
 
 const gulp = require('gulp');
+const lint = require('./gulp-tasks/lint');
 
-/**
- * Gulp task export
- *
- * @module dev
- */
-module.exports = gulp.task('dev', gulp.series('default', 'watch'));
+gulp.task('lint:license:src', lint.license.src);
+gulp.task('lint:license', gulp.task('lint:license:src'));
+
+process.once('SIGINT', () => {
+  process.exit(0);
+});
