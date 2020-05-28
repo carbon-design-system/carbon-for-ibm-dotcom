@@ -7,4 +7,5 @@
 
 /// @deprecated Remap import to "@carbon/ibmdotcom-styles/scss/components/tableofcontents/tableofcontents"
 
+@warn 'Deprecated scss import for `tableofcontents`, remap to `@carbon/ibmdotcom-styles/scss/components/tableofcontents/tableofcontents`';
 @import '../../../components/tableofcontents/tableofcontents';

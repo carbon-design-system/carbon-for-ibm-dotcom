@@ -7,4 +7,5 @@
 
 /// @deprecated Remap import to "@carbon/ibmdotcom-styles/scss/components/quote/quote"
 
+@warn 'Deprecated scss import for `quote`, remap to `@carbon/ibmdotcom-styles/scss/components/quote/quote`';
 @import '../../../components/quote/quote';
