@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -7,6 +7,8 @@
 
 import '../../../../../styles/scss/components/masthead/index.scss';
 import { boolean, select, text, withKnobs } from '@storybook/addon-knobs';
+import { createElement } from 'react';
+import { Description } from '@storybook/addon-docs/blocks';
 import Masthead from '../masthead';
 import mastheadKnobs from './data/Masthead.stories.knobs.js';
 import readme from '../README.md';
@@ -16,8 +18,8 @@ export default {
   decorators: [withKnobs],
 
   parameters: {
-    readme: {
-      sidebar: readme,
+    docs: {
+      page: () => createElement(Description, { markdown: readme }),
     },
   },
 };
