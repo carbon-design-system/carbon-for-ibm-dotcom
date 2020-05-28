@@ -20,9 +20,10 @@ const { prefix } = settings;
  * @param {object} props props object
  * @param {object} props.card section card object
  * @param {Function} props.onClick onClick function
+ * @param {boolean} props.inverse inverse prop
  * @returns {*} FeatureCard JSX component
  */
-const FeatureCard = ({ card, onClick }) => {
+const FeatureCard = ({ card, onClick, inverse }) => {
   return (
     card.cta && (
       <div
@@ -31,7 +32,7 @@ const FeatureCard = ({ card, onClick }) => {
         <Card
           customClassName={`${prefix}--feature-card__card`}
           type="link"
-          inverse={true}
+          inverse={!inverse}
           handleClick={onClick}
           {...card}
         />
@@ -93,7 +94,12 @@ FeatureCard.propTypes = {
   /**
    * The handler for `onclick` event.
    */
-  onClick: PropTypes.func,
+  onClick: PropTypes,
+
+  /**
+   * Inverse paremether for pattern theming
+   */
+  inverse: PropTypes.bool,
 };
 
 export default FeatureCard;

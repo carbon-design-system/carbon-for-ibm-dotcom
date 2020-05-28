@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { object, text, withKnobs } from '@storybook/addon-knobs';
+import { object, text, withKnobs, boolean } from '@storybook/addon-knobs';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
 import FeatureCard from '../FeatureCard';
 import React from 'react';
@@ -46,6 +46,7 @@ export const Default = () => {
                 },
               },
             }}
+            inverse={boolean('Inverse theming(inverse):', false)}
           />
         </div>
       </div>

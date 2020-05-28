@@ -33,7 +33,9 @@
     }
 
     &__card.#{$prefix}--card--inverse .#{$prefix}--card__cta,
-    &__card.#{$prefix}--card--inverse .#{$prefix}--card__cta:visited {
+    &__card.#{$prefix}--card--inverse .#{$prefix}--card__cta:visited,
+    &__card.#{$prefix}--card .#{$prefix}--card__cta,
+    &__card.#{$prefix}--card .#{$prefix}--card__cta:visited {
       float: right;
       color: $inverse-link;
     }
