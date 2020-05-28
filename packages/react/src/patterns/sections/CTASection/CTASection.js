@@ -6,8 +6,8 @@
  */
 
 import classNames from 'classnames';
-import { ContentBlock } from '../../sub-patterns/ContentBlock';
-import { ContentItem } from '../../sub-patterns/ContentItem';
+import ContentBlock from '../../../internal/components/ContentBlock/ContentBlock';
+import ContentItem from '../../../internal/components/ContentItem/ContentItem';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
 import React from 'react';
