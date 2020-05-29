@@ -20,13 +20,13 @@ export default {
 };
 
 export const Default = () => {
-  const types = ['local', 'external'];
+  const types = ['local', 'external', 'default'];
   const ctaProps = {
     style: 'button',
-    type: types[0],
+    type: types[2],
     buttons: [
       {
-        type: select('ContentBlock | CTA type', types, types[0]),
+        type: select('ContentBlock | CTA type', types, types[2]),
         copy: text('ContentBlock | CTA copy', 'Contact sales'),
         href: 'https://example.com/',
       },

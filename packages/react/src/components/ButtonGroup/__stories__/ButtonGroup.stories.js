@@ -30,7 +30,7 @@ export const Default = () => {
   };
 
   const iconOptions = {
-    None: null,
+    Default: null,
     'Arrow Right': 'ArrowRight20',
     'Arrow Down': 'ArrowDown20',
     PDF: 'Pdf20',
@@ -45,7 +45,7 @@ export const Default = () => {
       copy: text(`Button ${i + 1}`, `Button ${i + 1}`),
       renderIcon:
         iconMap[
-          select(`Icon ${i + 1}`, iconOptions, iconOptions['Arrow Right'])
+          select(`Icon ${i + 1}`, iconOptions, iconOptions[0])
         ],
     });
   }

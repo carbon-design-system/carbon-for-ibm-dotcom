@@ -23,7 +23,7 @@ export default {
 export const Default = () => {
   let cta, type;
   const copy = ['Lorem ipsum dolor sit amet', 'Consectetur adipisicing elit'];
-  const types = ['local', 'download', 'jump', 'external', 'video'];
+  const types = ['local', 'download', 'jump', 'external', 'video', 'default'];
   const styles = ['text', 'card', 'feature', 'button'];
   const style = select('style', styles, styles[0]);
 

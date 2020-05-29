@@ -43,18 +43,12 @@ exports[`Storyshots Components|ButtonGroup Default 1`] = `
                 Object {
                   "copy": "Button 1",
                   "href": "https://example.com",
-                  "renderIcon": Object {
-                    "$$typeof": Symbol(react.forward_ref),
-                    "render": [Function],
-                  },
+                  "renderIcon": undefined,
                 },
                 Object {
                   "copy": "Button 2",
                   "href": "https://example.com",
-                  "renderIcon": Object {
-                    "$$typeof": Symbol(react.forward_ref),
-                    "render": [Function],
-                  },
+                  "renderIcon": undefined,
                 },
               ]
             }
@@ -73,12 +67,6 @@ exports[`Storyshots Components|ButtonGroup Default 1`] = `
                   disabled={false}
                   href="https://example.com"
                   kind="primary"
-                  renderIcon={
-                    Object {
-                      "$$typeof": Symbol(react.forward_ref),
-                      "render": [Function],
-                    }
-                  }
                   tabIndex={2}
                   type="button"
                 >
@@ -90,35 +78,6 @@ exports[`Storyshots Components|ButtonGroup Default 1`] = `
                     tabIndex={2}
                   >
                     Button 1
-                    <ForwardRef(ArrowRight20)
-                      aria-hidden="true"
-                      className="bx--btn__icon"
-                    >
-                      <Icon
-                        aria-hidden="true"
-                        className="bx--btn__icon"
-                        height={20}
-                        preserveAspectRatio="xMidYMid meet"
-                        viewBox="0 0 20 20"
-                        width={20}
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <svg
-                          aria-hidden={true}
-                          className="bx--btn__icon"
-                          focusable="false"
-                          height={20}
-                          preserveAspectRatio="xMidYMid meet"
-                          viewBox="0 0 20 20"
-                          width={20}
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
-                          />
-                        </svg>
-                      </Icon>
-                    </ForwardRef(ArrowRight20)>
                   </a>
                 </ForwardRef(Button)>
               </li>
@@ -132,12 +91,6 @@ exports[`Storyshots Components|ButtonGroup Default 1`] = `
                   disabled={false}
                   href="https://example.com"
                   kind="tertiary"
-                  renderIcon={
-                    Object {
-                      "$$typeof": Symbol(react.forward_ref),
-                      "render": [Function],
-                    }
-                  }
                   tabIndex={1}
                   type="button"
                 >
@@ -149,35 +102,6 @@ exports[`Storyshots Components|ButtonGroup Default 1`] = `
                     tabIndex={1}
                   >
                     Button 2
-                    <ForwardRef(ArrowRight20)
-                      aria-hidden="true"
-                      className="bx--btn__icon"
-                    >
-                      <Icon
-                        aria-hidden="true"
-                        className="bx--btn__icon"
-                        height={20}
-                        preserveAspectRatio="xMidYMid meet"
-                        viewBox="0 0 20 20"
-                        width={20}
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <svg
-                          aria-hidden={true}
-                          className="bx--btn__icon"
-                          focusable="false"
-                          height={20}
-                          preserveAspectRatio="xMidYMid meet"
-                          viewBox="0 0 20 20"
-                          width={20}
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
-                          />
-                        </svg>
-                      </Icon>
-                    </ForwardRef(ArrowRight20)>
                   </a>
                 </ForwardRef(Button)>
               </li>
@@ -201,18 +125,12 @@ exports[`Storyshots Components|ButtonGroup Default 1`] = `
             Object {
               "copy": "Button 1",
               "href": "https://example.com",
-              "renderIcon": Object {
-                "$$typeof": Symbol(react.forward_ref),
-                "render": [Function],
-              },
+              "renderIcon": undefined,
             },
             Object {
               "copy": "Button 2",
               "href": "https://example.com",
-              "renderIcon": Object {
-                "$$typeof": Symbol(react.forward_ref),
-                "render": [Function],
-              },
+              "renderIcon": undefined,
             },
           ]
         }
@@ -231,12 +149,6 @@ exports[`Storyshots Components|ButtonGroup Default 1`] = `
               disabled={false}
               href="https://example.com"
               kind="primary"
-              renderIcon={
-                Object {
-                  "$$typeof": Symbol(react.forward_ref),
-                  "render": [Function],
-                }
-              }
               tabIndex={2}
               type="button"
             >
@@ -248,35 +160,6 @@ exports[`Storyshots Components|ButtonGroup Default 1`] = `
                 tabIndex={2}
               >
                 Button 1
-                <ForwardRef(ArrowRight20)
-                  aria-hidden="true"
-                  className="bx--btn__icon"
-                >
-                  <Icon
-                    aria-hidden="true"
-                    className="bx--btn__icon"
-                    height={20}
-                    preserveAspectRatio="xMidYMid meet"
-                    viewBox="0 0 20 20"
-                    width={20}
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <svg
-                      aria-hidden={true}
-                      className="bx--btn__icon"
-                      focusable="false"
-                      height={20}
-                      preserveAspectRatio="xMidYMid meet"
-                      viewBox="0 0 20 20"
-                      width={20}
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
-                      />
-                    </svg>
-                  </Icon>
-                </ForwardRef(ArrowRight20)>
               </a>
             </ForwardRef(Button)>
           </li>
@@ -290,12 +173,6 @@ exports[`Storyshots Components|ButtonGroup Default 1`] = `
               disabled={false}
               href="https://example.com"
               kind="tertiary"
-              renderIcon={
-                Object {
-                  "$$typeof": Symbol(react.forward_ref),
-                  "render": [Function],
-                }
-              }
               tabIndex={1}
               type="button"
             >
@@ -307,35 +184,6 @@ exports[`Storyshots Components|ButtonGroup Default 1`] = `
                 tabIndex={1}
               >
                 Button 2
-                <ForwardRef(ArrowRight20)
-                  aria-hidden="true"
-                  className="bx--btn__icon"
-                >
-                  <Icon
-                    aria-hidden="true"
-                    className="bx--btn__icon"
-                    height={20}
-                    preserveAspectRatio="xMidYMid meet"
-                    viewBox="0 0 20 20"
-                    width={20}
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <svg
-                      aria-hidden={true}
-                      className="bx--btn__icon"
-                      focusable="false"
-                      height={20}
-                      preserveAspectRatio="xMidYMid meet"
-                      viewBox="0 0 20 20"
-                      width={20}
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
-                      />
-                    </svg>
-                  </Icon>
-                </ForwardRef(ArrowRight20)>
               </a>
             </ForwardRef(Button)>
           </li>
@@ -26900,16 +26748,13 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
               "href": "https://example.com/",
               "iconDescription": "right arrow icon",
               "onClick": [Function],
-              "renderIcon": Object {
-                "$$typeof": Symbol(react.forward_ref),
-                "render": [Function],
-              },
+              "renderIcon": null,
               "target": null,
-              "type": "local",
+              "type": "default",
             },
           ],
           "style": "button",
-          "type": "local",
+          "type": "default",
         }
       }
       heading="Take the next step"
@@ -26954,16 +26799,13 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
                   "href": "https://example.com/",
                   "iconDescription": "right arrow icon",
                   "onClick": [Function],
-                  "renderIcon": Object {
-                    "$$typeof": Symbol(react.forward_ref),
-                    "render": [Function],
-                  },
+                  "renderIcon": null,
                   "target": null,
-                  "type": "local",
+                  "type": "default",
                 },
               ],
               "style": "button",
-              "type": "local",
+              "type": "default",
             }
           }
           heading="Take the next step"
@@ -27004,18 +26846,15 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
                       "href": "https://example.com/",
                       "iconDescription": "right arrow icon",
                       "onClick": [Function],
-                      "renderIcon": Object {
-                        "$$typeof": Symbol(react.forward_ref),
-                        "render": [Function],
-                      },
+                      "renderIcon": null,
                       "target": null,
-                      "type": "local",
+                      "type": "default",
                     },
                   ]
                 }
                 customClassName="bx--content-block__cta bx--content-block__cta-col"
                 style="button"
-                type="local"
+                type="default"
               >
                 <div
                   className="bx--content-block__cta bx--content-block__cta-col"
@@ -27028,19 +26867,16 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
                           "href": "https://example.com/",
                           "iconDescription": "right arrow icon",
                           "onClick": [Function],
-                          "renderIcon": Object {
-                            "$$typeof": Symbol(react.forward_ref),
-                            "render": [Function],
-                          },
+                          "renderIcon": null,
                           "target": null,
-                          "type": "local",
+                          "type": "default",
                         },
                       ]
                     }
                     openLightBox={[Function]}
                     renderLightBox={false}
                     style="button"
-                    type="local"
+                    type="default"
                     videoTitle={
                       Array [
                         Object {
@@ -27058,12 +26894,9 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
                             "href": "https://example.com/",
                             "iconDescription": "right arrow icon",
                             "onClick": [Function],
-                            "renderIcon": Object {
-                              "$$typeof": Symbol(react.forward_ref),
-                              "render": [Function],
-                            },
+                            "renderIcon": null,
                             "target": null,
-                            "type": "local",
+                            "type": "default",
                           },
                         ]
                       }
@@ -27084,12 +26917,7 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
                             iconDescription="right arrow icon"
                             kind="primary"
                             onClick={[Function]}
-                            renderIcon={
-                              Object {
-                                "$$typeof": Symbol(react.forward_ref),
-                                "render": [Function],
-                              }
-                            }
+                            renderIcon={null}
                             tabIndex={2}
                             target={null}
                             type="button"
@@ -27104,39 +26932,6 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
                               target={null}
                             >
                               Contact sales
-                              <ForwardRef(ArrowRight20)
-                                aria-hidden="true"
-                                aria-label="right arrow icon"
-                                className="bx--btn__icon"
-                              >
-                                <Icon
-                                  aria-hidden="true"
-                                  aria-label="right arrow icon"
-                                  className="bx--btn__icon"
-                                  height={20}
-                                  preserveAspectRatio="xMidYMid meet"
-                                  viewBox="0 0 20 20"
-                                  width={20}
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    aria-label="right arrow icon"
-                                    className="bx--btn__icon"
-                                    focusable="false"
-                                    height={20}
-                                    preserveAspectRatio="xMidYMid meet"
-                                    role="img"
-                                    viewBox="0 0 20 20"
-                                    width={20}
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
-                                    />
-                                  </svg>
-                                </Icon>
-                              </ForwardRef(ArrowRight20)>
                             </a>
                           </ForwardRef(Button)>
                         </li>
