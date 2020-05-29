@@ -9,20 +9,24 @@ import { AnalyticsAPI } from '../Analytics';
 import root from 'window-or-global';
 
 /**
- * These IDs for production use of IBM.com
+ * Sets the Kaltura Partner ID, set by environment variable "KALTURA_PARTNER_ID"
  *
- * @type {number} _partnerId The ID of your Kaltura account (aka partnerId)
- * @type {number} _uiConfId The ID of the Kaltura player to use
- * @private
+ * @type {number}
  */
-const _partnerId = process.env.KALTURA_PARTNER_ID || 1773841;
-const _uiConfId = process.env.KALTURA_UICONF_ID || 27941801;
+const partnerId = process.env.KALTURA_PARTNER_ID || 1773841;
+
+/**
+ * Sets the Kaltura UIConf ID, set by environment variable "KALTURA_UICONF_ID"
+ *
+ * @type {number}
+ */
+const uiConfId = process.env.KALTURA_UICONF_ID || 27941801;
 
 /**
  * @type {string} _embedUrl The API URL to call
  * @private
  */
-const _embedUrl = `https://cdnapisec.kaltura.com/p/${_partnerId}/sp/${_partnerId}00/embedIframeJs/uiconf_id/${_uiConfId}/partner_id/${_partnerId}`;
+const _embedUrl = `https://cdnapisec.kaltura.com/p/${partnerId}/sp/${partnerId}00/embedIframeJs/uiconf_id/${uiConfId}/partner_id/${partnerId}`;
 
 /**
  * Number of times to retry the script ready loop before failing
@@ -30,8 +34,8 @@ const _embedUrl = `https://cdnapisec.kaltura.com/p/${_partnerId}/sp/${_partnerId
  * @type {number}
  * @private
  */
-
 const _timeoutRetries = 50;
+
 /**
  * Tracks the number of attempts for the script ready loop
  *
@@ -131,8 +135,8 @@ class VideoPlayerAPI {
     return await this.checkScript().then(() => {
       root.kWidget.embed({
         targetId: targetId,
-        wid: '_' + _partnerId,
-        uiconf_id: _uiConfId,
+        wid: '_' + partnerId,
+        uiconf_id: uiConfId,
         entry_id: videoId,
         flashvars: {
           autoPlay: false,
@@ -202,7 +206,7 @@ class VideoPlayerAPI {
         return videoData[videoId];
       } else {
         return new Promise(resolve => {
-          return new root.kWidget.api({ wid: '_' + _partnerId }).doRequest(
+          return new root.kWidget.api({ wid: '_' + partnerId }).doRequest(
             {
               service: 'media',
               action: 'get',
