@@ -12,21 +12,23 @@ import root from 'window-or-global';
  * Sets the Kaltura Partner ID, set by environment variable "KALTURA_PARTNER_ID"
  *
  * @type {number}
+ * @private
  */
-const partnerId = process.env.KALTURA_PARTNER_ID || 1773841;
+const _partnerId = process.env.KALTURA_PARTNER_ID || 1773841;
 
 /**
  * Sets the Kaltura UIConf ID, set by environment variable "KALTURA_UICONF_ID"
  *
  * @type {number}
+ * @private
  */
-const uiConfId = process.env.KALTURA_UICONF_ID || 27941801;
+const _uiConfId = process.env.KALTURA_UICONF_ID || 27941801;
 
 /**
  * @type {string} _embedUrl The API URL to call
  * @private
  */
-const _embedUrl = `https://cdnapisec.kaltura.com/p/${partnerId}/sp/${partnerId}00/embedIframeJs/uiconf_id/${uiConfId}/partner_id/${partnerId}`;
+const _embedUrl = `https://cdnapisec.kaltura.com/p/${_partnerId}/sp/${_partnerId}00/embedIframeJs/uiconf_id/${_uiConfId}/partner_id/${_partnerId}`;
 
 /**
  * Number of times to retry the script ready loop before failing
@@ -105,10 +107,14 @@ function _loadScript() {
 let videoData = {};
 
 /**
- *
  * VideoPlayerAPI class with methods of checking script state and
  * embed video meta data and api data
- * ibm.com
+ *
+ * In order to set the Partner ID/UIConf ID, set the following environment
+ * variables:
+ *
+ * - KALTURA_PARTNER_ID
+ * - KALTURA_UICONF_ID
  */
 class VideoPlayerAPI {
   /**
@@ -129,14 +135,23 @@ class VideoPlayerAPI {
    * @param {string} videoId  The videoId we're embedding the placeholder for.
    * @param {string} targetId The targetId the ID where we're putting the placeholder.
    * @returns {object}  object
+   *
+   * @example
+   * import { VideoPlayerAPI } from '@carbon/ibmdotcom-services';
+   *
+   * function embedMyVideo() {
+   *   const elem = document.getElementById('foo');
+   *   const videoid = '12345';
+   *   VideoPlayerAPI.embedVideo(videoid, elem);
+   * }
    */
   static async embedVideo(videoId, targetId) {
     const fireEvent = this.fireEvent;
     return await this.checkScript().then(() => {
       root.kWidget.embed({
         targetId: targetId,
-        wid: '_' + partnerId,
-        uiconf_id: uiConfId,
+        wid: '_' + _partnerId,
+        uiconf_id: _uiConfId,
         entry_id: videoId,
         flashvars: {
           autoPlay: false,
@@ -199,6 +214,14 @@ class VideoPlayerAPI {
    *
    * @param {string} videoId  The videoId we're embedding the placeholder for.
    * @returns {object}  object
+   *
+   * @example
+   * import { VideoPlayerAPI } from '@carbon/ibmdotcom-services';
+   *
+   * async function getMyVideoInfo(id) {
+   *   const data = await VideoPlayerAPI.api(id);
+   *   console.log(data);
+   * }
    */
   static async api(videoId) {
     return await this.checkScript().then(() => {
@@ -206,7 +229,7 @@ class VideoPlayerAPI {
         return videoData[videoId];
       } else {
         return new Promise(resolve => {
-          return new root.kWidget.api({ wid: '_' + partnerId }).doRequest(
+          return new root.kWidget.api({ wid: '_' + _partnerId }).doRequest(
             {
               service: 'media',
               action: 'get',
