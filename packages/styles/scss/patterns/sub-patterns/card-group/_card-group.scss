@@ -7,4 +7,5 @@
 
 /// @deprecated Remap import to "@carbon/ibmdotcom-styles/scss/components/card-group/card-group"
 
+@warn 'Deprecated scss import for `card-group`, remap to `@carbon/ibmdotcom-styles/scss/components/card-group/card-group`';
 @import '../../../components/card-group/card-group';
