@@ -88,6 +88,36 @@ export const SearchOpenByDefault = () => {
   );
 };
 
+export const WithPlatform = () => {
+  const standardProps = {
+    navigation: select(
+      'navigation data (navigation)',
+      mastheadKnobs.navigation,
+      inPercy()
+        ? mastheadKnobs.navigation.custom
+        : mastheadKnobs.navigation.default
+    ),
+    platform: mastheadKnobs.platform.platform,
+    hasProfile: boolean('show the profile functionality (hasProfile)', true),
+    hasSearch: boolean('show the search functionality (hasSearch)', true),
+    placeHolderText: text(
+      'search placeholder (placeHolderText)',
+      'Search all of IBM'
+    ),
+  };
+
+  const mastheadL1Props = DDS_MASTHEAD_L1 && {
+    title: text('L1 title (title) (experimental)', 'Stock Charts'),
+    eyebrowText: text(
+      'L1 eyebrow text (eyebrowText) (experimental)',
+      'Eyebrow'
+    ),
+    eyebrowLink: text('L1 eyebrow link (eyebrowLink) (experimental)', '#'),
+  };
+
+  return <Masthead {...mastheadL1Props} {...standardProps} />;
+};
+
 SearchOpenByDefault.story = {
   name: 'Search open by default',
 };
