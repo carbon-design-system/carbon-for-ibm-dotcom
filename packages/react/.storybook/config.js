@@ -67,6 +67,8 @@ addDecorator((story, { parameters }) => {
   return story();
 });
 
+addDecorator(story => <Container story={story} />);
+
 const reqDocs = requireContext('../docs', true, /\.stories\.mdx$/);
 configure(reqDocs, module);
 

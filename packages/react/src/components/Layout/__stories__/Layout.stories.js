@@ -75,7 +75,7 @@ export const Default = ({ parameters }) => {
     parameters?.props?.['Story content 2-2'] ?? {};
 
   return (
-    <div>
+    <>
       <p style={{ paddingBottom: '1rem' }}>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ac turpis egestas
@@ -243,6 +243,6 @@ export const Default = ({ parameters }) => {
         iaculis urna id volutpat lacus. Rhoncus aenean vel elit scelerisque
         mauris.
       </p>
-    </div>
+    </>
   );
 };
