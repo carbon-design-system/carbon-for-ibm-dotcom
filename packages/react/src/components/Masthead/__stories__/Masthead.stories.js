@@ -18,6 +18,15 @@ export default {
 
   parameters: {
     ...readme.parameters,
+  },
+};
+
+export const Default = ({ parameters }) => (
+  <Masthead {...(parameters?.props?.Masthead ?? {})} />
+);
+
+Default.story = {
+  parameters: {
     knobs: {
       Masthead: ({ groupId }) => {
         const standardProps = {
@@ -77,14 +86,73 @@ export default {
   },
 };
 
-export const Default = ({ parameters }) => (
-  <Masthead {...(parameters?.props?.Masthead ?? {})} />
-);
-
 export const SearchOpenByDefault = ({ parameters }) => (
   <Masthead {...(parameters?.props?.Masthead ?? {})} searchOpenOnload={true} />
 );
 
 SearchOpenByDefault.story = {
   name: 'Search open by default',
+  parameters: {
+    knobs: Default.story.parameters.knobs,
+  },
+};
+
+export const WithPlatform = ({ parameters }) => (
+  <Default parameters={parameters} />
+);
+
+WithPlatform.story = {
+  parameters: {
+    knobs: {
+      Masthead: ({ groupId }) => {
+        const standardProps = {
+          navigation: select(
+            'navigation data (navigation)',
+            mastheadKnobs.navigation,
+            inPercy()
+              ? mastheadKnobs.navigation.custom
+              : mastheadKnobs.navigation.default,
+            groupId
+          ),
+          platform: mastheadKnobs.platform.platform,
+          hasProfile: boolean(
+            'show the profile functionality (hasProfile)',
+            true,
+            groupId
+          ),
+          hasSearch: boolean(
+            'show the search functionality (hasSearch)',
+            true,
+            groupId
+          ),
+          placeHolderText: text(
+            'search placeholder (placeHolderText)',
+            'Search all of IBM',
+            groupId
+          ),
+        };
+        const mastheadL1Props = DDS_MASTHEAD_L1 && {
+          title: text(
+            'L1 title (title) (experimental)',
+            'Stock Charts',
+            groupId
+          ),
+          eyebrowText: text(
+            'L1 eyebrow text (eyebrowText) (experimental)',
+            'Eyebrow',
+            groupId
+          ),
+          eyebrowLink: text(
+            'L1 eyebrow link (eyebrowLink) (experimental)',
+            '#',
+            groupId
+          ),
+        };
+        return {
+          ...standardProps,
+          ...mastheadL1Props,
+        };
+      },
+    },
+  },
 };

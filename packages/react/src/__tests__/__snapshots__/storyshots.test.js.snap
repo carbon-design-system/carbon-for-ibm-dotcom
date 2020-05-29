@@ -9693,6 +9693,501 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
 </Container>
 `;
 
+exports[`Storyshots Components|Masthead With Platform 1`] = `
+<Container
+  story={[Function]}
+>
+  <div
+    data-floating-menu-container=""
+    role="main"
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+      }
+    }
+  >
+    <Default
+      parameters={
+        Object {
+          "__id": "components-masthead--with-platform",
+          "component": undefined,
+          "docs": Object {},
+          "fileName": null,
+          "framework": "react",
+          "knobs": Object {
+            "Masthead": [Function],
+          },
+          "options": Object {
+            "name": "IBM.com Library React",
+            "storySort": [Function],
+            "url": "https://github.com/carbon-design-system/ibm-dotcom-library",
+          },
+          "props": Object {
+            "Masthead": Object {
+              "hasProfile": true,
+              "hasSearch": true,
+              "navigation": "default",
+              "placeHolderText": "Search all of IBM",
+              "platform": Object {
+                "name": "IBM Cloud",
+                "url": "https://www.ibm.com/cloud",
+              },
+            },
+          },
+          "subcomponents": undefined,
+        }
+      }
+    >
+      <Masthead
+        eyebrowLink={null}
+        eyebrowText={null}
+        hasProfile={true}
+        hasSearch={true}
+        navigation="default"
+        placeHolderText="Search all of IBM"
+        platform={
+          Object {
+            "name": "IBM Cloud",
+            "url": "https://www.ibm.com/cloud",
+          }
+        }
+        searchOpenOnload={false}
+        title={null}
+      >
+        <HeaderContainer
+          isSideNavExpanded={false}
+          render={[Function]}
+        >
+          <render
+            isSideNavExpanded={false}
+            onClickSideNavExpand={[Function]}
+          >
+            <div
+              className="bx--masthead "
+            >
+              <div
+                className="bx--masthead__l0"
+              >
+                <Header
+                  aria-label="IBM"
+                  data-autoid="dds--masthead"
+                >
+                  <header
+                    aria-label="IBM"
+                    className="bx--header"
+                    data-autoid="dds--masthead"
+                  >
+                    <SkipToContent
+                      href="#main-content"
+                      tabIndex="0"
+                    >
+                      <a
+                        className="bx--skip-to-content"
+                        href="#main-content"
+                        tabIndex="0"
+                      >
+                        Skip to main content
+                      </a>
+                    </SkipToContent>
+                    <HeaderMenuButton
+                      aria-label="Open menu"
+                      data-autoid="dds--masthead__hamburger"
+                      isActive={false}
+                      onClick={[Function]}
+                    >
+                      <button
+                        aria-label="Open menu"
+                        className="bx--header__action bx--header__menu-trigger bx--header__menu-toggle bx--header__menu-toggle__hidden"
+                        data-autoid="dds--masthead__hamburger"
+                        onClick={[Function]}
+                        title="Open menu"
+                        type="button"
+                      >
+                        <ForwardRef(Menu20)>
+                          <Icon
+                            height={20}
+                            preserveAspectRatio="xMidYMid meet"
+                            viewBox="0 0 20 20"
+                            width={20}
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <svg
+                              aria-hidden={true}
+                              focusable="false"
+                              height={20}
+                              preserveAspectRatio="xMidYMid meet"
+                              viewBox="0 0 20 20"
+                              width={20}
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M2 14.8H18V16H2zM2 11.2H18V12.399999999999999H2zM2 7.6H18V8.799999999999999H2zM2 4H18V5.2H2z"
+                              />
+                            </svg>
+                          </Icon>
+                        </ForwardRef(Menu20)>
+                      </button>
+                    </HeaderMenuButton>
+                    <IbmLogo>
+                      <div
+                        className="bx--header__logo"
+                        data-autoid="dds--masthead-logo"
+                      >
+                        <a
+                          aria-label="IBM®"
+                          data-autoid="dds--masthead-logo__link"
+                          href="https://www.ibm.com/"
+                        >
+                          <MastheadLogo
+                            height="23"
+                            viewBox="0 0 58 23"
+                            width="58"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <svg
+                              height="23"
+                              viewBox="0 0 58 23"
+                              width="58"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M58 21.467V23h-7.632v-1.533H58zm-18.316 0V23h-7.631v-1.533h7.631zm5.955 0L45.025 23l-.606-1.533h1.22zm-17.097 0A6.285 6.285 0 0 1 24.391 23H12.21v-1.533zm-17.858 0V23H0v-1.533h10.684zm29-3.067v1.533h-7.631V18.4h7.631zm7.148 0l-.594 1.533H43.82l-.598-1.533h3.609zm-16.764 0a5.719 5.719 0 0 1-.64 1.533H12.21V18.4zm-19.384 0v1.533H0V18.4h10.684zM58 18.4v1.533h-7.632V18.4H58zm-3.053-3.067v1.534h-4.579v-1.534h4.58zm-15.263 0v1.534h-4.579v-1.534h4.58zm8.345 0l-.6 1.534h-4.806l-.604-1.534h6.01zm-18.174 0c.137.49.213 1.003.213 1.534h-5.647v-1.534zm-10.013 0v1.534h-4.579v-1.534h4.58zm-12.21 0v1.534h-4.58v-1.534h4.58zm47.315-3.066V13.8h-4.579v-1.533h4.58zm-15.263 0V13.8h-4.579v-1.533h4.58zm9.541 0l-.597 1.533h-7.22l-.591-1.533h8.408zm-21.248 0c.527.432.98.951 1.328 1.533H15.263v-1.533zm-20.345 0V13.8h-4.58v-1.533h4.58zM44.599 9.2l.427 1.24.428-1.24h9.493v1.533h-4.579V9.324l-.519 1.41h-9.661l-.504-1.41v1.41h-4.579V9.2H44.6zm-36.967 0v1.533h-4.58V9.2h4.58zm21.673 0a5.95 5.95 0 0 1-1.328 1.533H15.263V9.2zm25.642-3.067v1.534h-8.964l.54-1.534h8.424zm-11.413 0l.54 1.534h-8.969V6.133h8.43zm-13.466 0c0 .531-.076 1.045-.213 1.534H24.42V6.133zm-10.226 0v1.534h-4.579V6.133h4.58zm-12.21 0v1.534h-4.58V6.133h4.58zm34.845-3.066l.53 1.533H32.054V3.067h10.424zm15.523 0V4.6H47.04l.55-1.533H58zm-28.573 0c.284.473.504.988.641 1.533H12.211V3.067zm-18.743 0V4.6H0V3.067h10.684zM41.406 0l.54 1.533h-9.893V0h9.353zM58 0v1.533h-9.881L48.647 0H58zM24.39 0c1.601 0 3.057.581 4.152 1.533H12.211V0zM10.685 0v1.533H0V0h10.684z"
+                                fill="#161616"
+                                fillRule="evenodd"
+                              />
+                            </svg>
+                          </MastheadLogo>
+                        </a>
+                      </div>
+                    </IbmLogo>
+                    <div
+                      className="bx--header__search bx--masthead__platform"
+                    >
+                      <MastheadTopNav
+                        navigation={Array []}
+                        platform={
+                          Object {
+                            "name": "IBM Cloud",
+                            "url": "https://www.ibm.com/cloud",
+                          }
+                        }
+                      >
+                        <div
+                          className="bx--header__nav-container"
+                        >
+                          <HeaderName
+                            data-autoid="dds--masthead__platform-name"
+                            href="https://www.ibm.com/cloud"
+                            prefix=""
+                          >
+                            <Link
+                              className="bx--header__name"
+                              data-autoid="dds--masthead__platform-name"
+                              element="a"
+                              href="https://www.ibm.com/cloud"
+                            >
+                              <a
+                                className="bx--header__name"
+                                data-autoid="dds--masthead__platform-name"
+                                href="https://www.ibm.com/cloud"
+                              >
+                                IBM Cloud
+                              </a>
+                            </Link>
+                          </HeaderName>
+                          <HeaderNavigation
+                            aria-label="IBM"
+                            data-autoid="dds--masthead__l0-nav"
+                          >
+                            <nav
+                              aria-label="IBM"
+                              className="bx--header__nav"
+                              data-autoid="dds--masthead__l0-nav"
+                            >
+                              <ul
+                                aria-label="IBM"
+                                className="bx--header__menu-bar"
+                                role="menubar"
+                              />
+                            </nav>
+                          </HeaderNavigation>
+                        </div>
+                      </MastheadTopNav>
+                      <MastheadSearch
+                        placeHolderText="Search all of IBM"
+                        renderValue={3}
+                        searchOpenOnload={false}
+                      >
+                        <div
+                          className="bx--masthead__search"
+                          data-autoid="dds--masthead__search"
+                        >
+                          <div
+                            className="bx--header__search--actions"
+                          >
+                            <HeaderGlobalAction
+                              aria-label="Open IBM search field"
+                              className="bx--header__search--search"
+                              data-autoid="dds--header__search--search"
+                              onClick={[Function]}
+                              tabIndex="0"
+                            >
+                              <button
+                                aria-label="Open IBM search field"
+                                className="bx--header__search--search bx--header__action"
+                                data-autoid="dds--header__search--search"
+                                onClick={[Function]}
+                                tabIndex="0"
+                                type="button"
+                              >
+                                <ForwardRef(Search20)>
+                                  <Icon
+                                    height={20}
+                                    preserveAspectRatio="xMidYMid meet"
+                                    viewBox="0 0 32 32"
+                                    width={20}
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <svg
+                                      aria-hidden={true}
+                                      focusable="false"
+                                      height={20}
+                                      preserveAspectRatio="xMidYMid meet"
+                                      viewBox="0 0 32 32"
+                                      width={20}
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <path
+                                        d="M30,28.59,22.45,21A11,11,0,1,0,21,22.45L28.59,30ZM5,14a9,9,0,1,1,9,9A9,9,0,0,1,5,14Z"
+                                      />
+                                    </svg>
+                                  </Icon>
+                                </ForwardRef(Search20)>
+                              </button>
+                            </HeaderGlobalAction>
+                            <HeaderGlobalAction
+                              aria-label="Close"
+                              className="bx--header__search--close"
+                              data-autoid="dds--header__search--close"
+                              onClick={[Function]}
+                            >
+                              <button
+                                aria-label="Close"
+                                className="bx--header__search--close bx--header__action"
+                                data-autoid="dds--header__search--close"
+                                onClick={[Function]}
+                                type="button"
+                              >
+                                <ForwardRef(Close20)>
+                                  <Icon
+                                    height={20}
+                                    preserveAspectRatio="xMidYMid meet"
+                                    viewBox="0 0 32 32"
+                                    width={20}
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <svg
+                                      aria-hidden={true}
+                                      focusable="false"
+                                      height={20}
+                                      preserveAspectRatio="xMidYMid meet"
+                                      viewBox="0 0 32 32"
+                                      width={20}
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <path
+                                        d="M24 9.4L22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16 24 9.4z"
+                                      />
+                                    </svg>
+                                  </Icon>
+                                </ForwardRef(Close20)>
+                              </button>
+                            </HeaderGlobalAction>
+                          </div>
+                        </div>
+                      </MastheadSearch>
+                    </div>
+                    <HeaderGlobalBar>
+                      <div
+                        className="bx--header__global"
+                      >
+                        <MastheadProfile
+                          overflowMenuItemProps={
+                            Object {
+                              "wrapperClassName": "bx--masthead__profile-item",
+                            }
+                          }
+                          overflowMenuProps={
+                            Object {
+                              "ariaLabel": "User Profile",
+                              "data-autoid": "dds--masthead__profile",
+                              "flipped": true,
+                              "onOpen": [Function],
+                              "renderIcon": [Function],
+                              "style": Object {
+                                "width": "3rem",
+                              },
+                            }
+                          }
+                          profileMenu={Array []}
+                        >
+                          <ForwardRef(OverflowMenu)
+                            ariaLabel="User Profile"
+                            className="bx--header__action"
+                            data-autoid="dds--masthead__profile"
+                            flipped={true}
+                            onOpen={[Function]}
+                            renderIcon={[Function]}
+                            style={
+                              Object {
+                                "width": "3rem",
+                              }
+                            }
+                          >
+                            <OverflowMenu
+                              ariaLabel="User Profile"
+                              className="bx--header__action"
+                              data-autoid="dds--masthead__profile"
+                              direction="bottom"
+                              flipped={true}
+                              iconDescription="open and close list of options"
+                              innerRef={null}
+                              light={false}
+                              menuOffset={[Function]}
+                              menuOffsetFlip={[Function]}
+                              onClick={[Function]}
+                              onClose={[Function]}
+                              onKeyDown={[Function]}
+                              onOpen={[Function]}
+                              open={false}
+                              renderIcon={[Function]}
+                              style={
+                                Object {
+                                  "width": "3rem",
+                                }
+                              }
+                              tabIndex={0}
+                            >
+                              <ClickListener
+                                onClickOutside={[Function]}
+                              >
+                                <button
+                                  aria-expanded={false}
+                                  aria-haspopup={true}
+                                  aria-label="User Profile"
+                                  className="bx--header__action bx--overflow-menu"
+                                  data-autoid="dds--masthead__profile"
+                                  onClick={[Function]}
+                                  onClose={[Function]}
+                                  onKeyDown={[Function]}
+                                  open={false}
+                                  style={
+                                    Object {
+                                      "width": "3rem",
+                                    }
+                                  }
+                                  tabIndex={0}
+                                >
+                                  <renderIcon
+                                    aria-label="open and close list of options"
+                                    className="bx--overflow-menu__icon"
+                                    focusable="false"
+                                    onClick={[Function]}
+                                    onKeyDown={[Function]}
+                                  >
+                                    <ForwardRef(User20)>
+                                      <Icon
+                                        height={20}
+                                        preserveAspectRatio="xMidYMid meet"
+                                        viewBox="0 0 32 32"
+                                        width={20}
+                                        xmlns="http://www.w3.org/2000/svg"
+                                      >
+                                        <svg
+                                          aria-hidden={true}
+                                          focusable="false"
+                                          height={20}
+                                          preserveAspectRatio="xMidYMid meet"
+                                          viewBox="0 0 32 32"
+                                          width={20}
+                                          xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                          <path
+                                            d="M16 4a5 5 0 11-5 5 5 5 0 015-5m0-2a7 7 0 107 7A7 7 0 0016 2zM26 30H24V25a5 5 0 00-5-5H13a5 5 0 00-5 5v5H6V25a7 7 0 017-7h6a7 7 0 017 7z"
+                                          />
+                                        </svg>
+                                      </Icon>
+                                    </ForwardRef(User20)>
+                                  </renderIcon>
+                                </button>
+                              </ClickListener>
+                            </OverflowMenu>
+                          </ForwardRef(OverflowMenu)>
+                        </MastheadProfile>
+                      </div>
+                    </HeaderGlobalBar>
+                    <MastheadLeftNav
+                      isSideNavExpanded={false}
+                      navigation={Array []}
+                    >
+                      <ForwardRef(SideNav)
+                        addFocusListeners={true}
+                        addMouseListeners={true}
+                        aria-label="Side navigation"
+                        defaultExpanded={false}
+                        expanded={false}
+                        isChildOfHeader={true}
+                        isFixedNav={false}
+                        isPersistent={false}
+                        translateById={[Function]}
+                      >
+                        <div
+                          className="bx--side-nav__overlay"
+                        />
+                        <nav
+                          aria-label="Side navigation"
+                          className="bx--side-nav__navigation bx--side-nav bx--side-nav--ux bx--side-nav--hidden"
+                          onBlur={[Function]}
+                          onFocus={[Function]}
+                        >
+                          <nav
+                            data-autoid="dds--masthead__l0-sidenav"
+                          >
+                            <SideNavItems>
+                              <ul
+                                className="bx--side-nav__items"
+                              >
+                                <HeaderSideNavItems
+                                  hasDivider={false}
+                                  key=".0"
+                                >
+                                  <div
+                                    className="bx--side-nav__header-navigation"
+                                  />
+                                </HeaderSideNavItems>
+                              </ul>
+                            </SideNavItems>
+                          </nav>
+                        </nav>
+                      </ForwardRef(SideNav)>
+                    </MastheadLeftNav>
+                  </header>
+                </Header>
+              </div>
+            </div>
+          </render>
+        </HeaderContainer>
+      </Masthead>
+    </Default>
+  </div>
+  <input
+    aria-label="input-text-offleft"
+    className="bx--visually-hidden"
+    type="text"
+  />
+</Container>
+`;
+
 exports[`Storyshots Components|PictogramItem Default 1`] = `
 <Container
   story={[Function]}
