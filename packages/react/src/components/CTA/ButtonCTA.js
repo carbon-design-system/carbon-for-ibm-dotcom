@@ -120,9 +120,9 @@ ButtonCTA.propTypes = {
    * - [carbon-icons](https://www.npmjs.com/package/carbon-icons)!👀
    */
   type: PropTypes.oneOfType([
-    PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video', 'none']),
+    PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video', 'default']),
     PropTypes.arrayOf(
-      PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video', 'none'])
+      PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video', 'default'])
     ),
   ]),
 
