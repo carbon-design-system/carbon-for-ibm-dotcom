@@ -19,45 +19,45 @@ export default {
   },
 };
 
-const heading = text('Heading (heading):', 'Tutorials');
-const headlines = [
-  'Learn more',
-  'Containerization A Complete Guide',
-  'Microservices and containers',
-];
-const types = ['download', 'local', 'external', 'video'];
-const items = [
-  {
-    type: types[1],
-    copy: headlines[0],
-    cta: {
-      href: 'https://ibm.com',
-    },
-  },
-  {
-    type: types[0],
-    copy: headlines[1],
-    cta: {
-      href: 'https://ibm.com',
-    },
-  },
-  {
-    type: types[2],
-    copy: headlines[2],
-    cta: {
-      href: 'https://ibm.com',
-    },
-  },
-  {
-    type: types[3],
-    media: {
-      src: '0_uka1msg4',
-      type: 'video',
-    },
-  },
-];
-
 export const Default = () => {
+  const heading = text('Heading (heading):', 'Tutorials');
+  const headlines = [
+    'Learn more',
+    'Containerization A Complete Guide',
+    'Microservices and containers',
+  ];
+  const types = ['download', 'local', 'external', 'video'];
+  const items = [
+    {
+      type: types[1],
+      copy: headlines[0],
+      cta: {
+        href: 'https://ibm.com',
+      },
+    },
+    {
+      type: types[0],
+      copy: headlines[1],
+      cta: {
+        href: 'https://ibm.com',
+      },
+    },
+    {
+      type: types[2],
+      copy: headlines[2],
+      cta: {
+        href: 'https://ibm.com',
+      },
+    },
+    {
+      type: types[3],
+      media: {
+        src: '0_uka1msg4',
+        type: 'video',
+      },
+    },
+  ];
+
   return (
     <div className="bx--grid">
       <div className="bx--row">
@@ -74,6 +74,14 @@ export const Default = () => {
 };
 
 export const Horizontal = () => {
+  const heading = text('Heading (heading):', 'Tutorials');
+  const headlines = [
+    'Learn more',
+    'Containerization A Complete Guide',
+    'Microservices and containers',
+  ];
+  const types = ['download', 'local', 'external', 'video'];
+
   return (
     <div className="bx--grid">
       <div className="bx--row">
@@ -105,6 +113,44 @@ export const Horizontal = () => {
 };
 
 export const Vertical = () => {
+  const heading = text('Heading (heading):', 'Tutorials');
+  const headlines = [
+    'Learn more',
+    'Containerization A Complete Guide',
+    'Microservices and containers',
+  ];
+  const types = ['download', 'local', 'external', 'video'];
+  const items = [
+    {
+      type: types[1],
+      copy: headlines[0],
+      cta: {
+        href: 'https://ibm.com',
+      },
+    },
+    {
+      type: types[0],
+      copy: headlines[1],
+      cta: {
+        href: 'https://ibm.com',
+      },
+    },
+    {
+      type: types[2],
+      copy: headlines[2],
+      cta: {
+        href: 'https://ibm.com',
+      },
+    },
+    {
+      type: types[3],
+      media: {
+        src: '0_uka1msg4',
+        type: 'video',
+      },
+    },
+  ];
+
   return (
     <div className="bx--grid">
       <div className="bx--row">
@@ -121,6 +167,44 @@ export const Vertical = () => {
 };
 
 export const VerticalWithCards = () => {
+  const heading = text('Heading (heading):', 'Tutorials');
+  const headlines = [
+    'Learn more',
+    'Containerization A Complete Guide',
+    'Microservices and containers',
+  ];
+  const types = ['download', 'local', 'external', 'video'];
+  const items = [
+    {
+      type: types[1],
+      copy: headlines[0],
+      cta: {
+        href: 'https://ibm.com',
+      },
+    },
+    {
+      type: types[0],
+      copy: headlines[1],
+      cta: {
+        href: 'https://ibm.com',
+      },
+    },
+    {
+      type: types[2],
+      copy: headlines[2],
+      cta: {
+        href: 'https://ibm.com',
+      },
+    },
+    {
+      type: types[3],
+      media: {
+        src: '0_uka1msg4',
+        type: 'video',
+      },
+    },
+  ];
+
   return (
     <div className="bx--grid">
       <div className="bx--row">
@@ -142,6 +226,44 @@ export const VerticalWithCards = () => {
 };
 
 export const EndOfSection = () => {
+  const heading = text('Heading (heading):', 'Tutorials');
+  const headlines = [
+    'Learn more',
+    'Containerization A Complete Guide',
+    'Microservices and containers',
+  ];
+  const types = ['download', 'local', 'external', 'video'];
+  const items = [
+    {
+      type: types[1],
+      copy: headlines[0],
+      cta: {
+        href: 'https://ibm.com',
+      },
+    },
+    {
+      type: types[0],
+      copy: headlines[1],
+      cta: {
+        href: 'https://ibm.com',
+      },
+    },
+    {
+      type: types[2],
+      copy: headlines[2],
+      cta: {
+        href: 'https://ibm.com',
+      },
+    },
+    {
+      type: types[3],
+      media: {
+        src: '0_uka1msg4',
+        type: 'video',
+      },
+    },
+  ];
+
   return (
     <div className="bx--grid">
       <div className="bx--row">
