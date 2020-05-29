@@ -8,7 +8,7 @@
 import content from './data/content';
 import DotcomShell from '../DotcomShell';
 import { Default as footerStory } from '../../Footer/__stories__/Footer.stories.js';
-import mastheadStoriesMetadata from '../../Masthead/__stories__/Masthead.stories.js';
+import { Default as mastheadStory } from '../../Masthead/__stories__/Masthead.stories.js';
 import React from 'react';
 import readme from '../README.stories.mdx';
 import { select } from '@storybook/addon-knobs';
@@ -27,7 +27,7 @@ export default {
       DotcomShell: () => {
         const {
           Masthead: mastheadKnobs,
-        } = mastheadStoriesMetadata.parameters.knobs;
+        } = mastheadStory.story.parameters.knobs;
         const { Footer: footerKnobs } = footerStory.story.parameters.knobs;
         return {
           mastheadProps: mastheadKnobs({ groupId: 'Masthead' }),
