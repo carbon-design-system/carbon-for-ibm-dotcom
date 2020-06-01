@@ -129,26 +129,24 @@ $fcb-breakpoint-up--lg: map-get(
 
     // special breakpoint for no copy present
     &.#{$prefix}--feature-card-block-large_no-copy-text {
-      @include carbon--breakpoint-between($fcb-large-custom-bp-nocopy, 'lg') {
+      @include carbon--breakpoint($fcb-large-custom-bp-nocopy) {
         padding-top: aspect-ratio(2, 1);
       }
 
       .#{$prefix}--card {
-        @include carbon--breakpoint-between($fcb-large-custom-bp-nocopy, 'lg') {
+        @include carbon--breakpoint($fcb-large-custom-bp-nocopy) {
           position: absolute;
           top: 0;
           left: 0;
           right: 0;
           bottom: 0;
           flex-direction: row;
-        }
-      }
 
-      .#{$prefix}--card__wrapper,
-      .#{$prefix}--image {
-        @include carbon--breakpoint-between($fcb-large-custom-bp-nocopy, 'lg') {
-          width: 50%;
-          height: 100%;
+          &__wrapper,
+          .#{$prefix}--image {
+            width: 50%;
+            height: 100%;
+          }
         }
       }
     }
