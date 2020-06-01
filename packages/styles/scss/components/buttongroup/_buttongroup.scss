@@ -28,6 +28,8 @@
       width: 100%;
       height: 100%;
       word-break: break-word;
+      transition: all $duration--fast-01 motion(entrance, productive), width 0s,
+        height 0s;
       &__icon {
         width: auto;
         height: auto;
@@ -42,7 +44,15 @@
 
     @include carbon--breakpoint(md) {
       padding-right: $carbon--layout-01;
-      flex: 1 1 0;
+    }
+  }
+
+  .#{$prefix}--buttongroup-item--pseudo {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+
+    .#{$prefix}--btn {
+      width: auto;
     }
   }
 }
