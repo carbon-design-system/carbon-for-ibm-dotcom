@@ -8,6 +8,7 @@
 import React from 'react';
 import requireContext from 'require-context.macro';
 import { configure, addParameters, addDecorator } from '@storybook/react';
+import { withKnobs } from '@storybook/addon-knobs';
 import Container from './Container';
 
 const SORT_ORDER_GROUP = [
@@ -47,6 +48,23 @@ addParameters({
       return 0;
     },
   },
+});
+
+addDecorator(withKnobs);
+
+addDecorator((story, { parameters }) => {
+  const { knobs } = parameters;
+  if (Object(knobs) === knobs) {
+    if (!parameters.props) {
+      parameters.props = {};
+    }
+    Object.keys(knobs).forEach(name => {
+      if (typeof knobs[name] === 'function') {
+        parameters.props[name] = knobs[name]({ groupId: name });
+      }
+    });
+  }
+  return story();
 });
 
 addDecorator(story => <Container story={story} />);

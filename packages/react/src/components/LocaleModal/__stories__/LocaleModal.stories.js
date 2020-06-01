@@ -10,11 +10,9 @@ import localeData from '../__data__/locale-data.json';
 import LocaleModal from '../LocaleModal';
 import React from 'react';
 import readme from '../README.stories.mdx';
-import { withKnobs } from '@storybook/addon-knobs';
 
 export default {
   title: 'Components|Locale Modal',
-  decorators: [withKnobs],
 
   parameters: {
     ...readme.parameters,
