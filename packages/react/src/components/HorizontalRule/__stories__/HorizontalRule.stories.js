@@ -5,48 +5,64 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { select, text, withKnobs } from '@storybook/addon-knobs';
+import { select, text } from '@storybook/addon-knobs';
 import HorizontalRule from '../HorizontalRule';
 import React from 'react';
 import readme from '../README.stories.mdx';
 
+const styles = {
+  solid: undefined,
+  dashed: 'dashed',
+};
+
+const sizes = {
+  small: 'small',
+  medium: 'medium',
+  large: 'large',
+  fluid: undefined,
+};
+
+const contrasts = {
+  'low-contrast': 'low-contrast',
+  'medium-contrast': undefined,
+  'high-contrast': 'high-contrast',
+};
+
+const weights = {
+  thin: undefined,
+  thick: 'thick',
+};
+
 export default {
   title: 'Components|HorizontalRule',
-  decorators: [withKnobs],
 
   parameters: {
     ...readme.parameters,
+    knobs: {
+      HorizontalRule: ({ groupId }) => ({
+        style: select('style', styles, styles.solid, groupId),
+        size: select('size', sizes, sizes.fluid, groupId),
+        contrast: select(
+          'contrast',
+          contrasts,
+          contrasts['medium-contrast'],
+          groupId
+        ),
+      }),
+      Other: ({ groupId }) => ({
+        words: text(
+          'text',
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+          groupId
+        ),
+      }),
+    },
   },
 };
 
-export const Default = () => {
-  const styles = {
-    solid: undefined,
-    dashed: 'dashed',
-  };
-
-  const sizes = {
-    small: 'small',
-    medium: 'medium',
-    large: 'large',
-    fluid: undefined,
-  };
-
-  const contrasts = {
-    'low-contrast': 'low-contrast',
-    'medium-contrast': undefined,
-    'high-contrast': 'high-contrast',
-  };
-
-  const weights = {
-    thin: undefined,
-    thick: 'thick',
-  };
-
-  const words = text(
-    'text',
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-  );
+export const Default = ({ parameters }) => {
+  const { style, size, contrast } = parameters?.props?.HorizontalRule ?? {};
+  const { words } = parameters?.props?.Other ?? {};
 
   return (
     <div>
@@ -57,13 +73,9 @@ export const Default = () => {
         <div className="bx--row bx--no-gutter">
           <div className="bx--col">
             <HorizontalRule
-              style={select('style', styles, styles.solid)}
-              size={select('size', sizes, sizes.fluid)}
-              contrast={select(
-                'contrast',
-                contrasts,
-                contrasts['medium-contrast']
-              )}
+              style={style}
+              size={size}
+              contrast={contrast}
               weight={select('weight', weights, weights.thin)}
             />
           </div>
@@ -78,13 +90,9 @@ export const Default = () => {
           <div className="bx--col">
             <h4>{words}</h4>
             <HorizontalRule
-              style={select('style', styles, styles.solid)}
-              size={select('size', sizes, sizes.fluid)}
-              contrast={select(
-                'contrast',
-                contrasts,
-                contrasts['medium-contrast']
-              )}
+              style={style}
+              size={size}
+              contrast={contrast}
               weight={select('weight', weights, weights.thin)}
             />
             <h4>{words}</h4>
