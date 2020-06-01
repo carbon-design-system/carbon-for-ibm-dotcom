@@ -28,6 +28,7 @@ export default {
               ? ContentGroupSimpleKnobs.mediaData.image
               : ContentGroupSimpleKnobs.mediaData.video,
           heading: text('Heading', ContentGroupSimpleKnobs.heading, groupId),
+          copy: text('Copy (optional):', ContentGroupSimpleKnobs.copy, groupId),
           items: object(
             'Content Items:',
             ContentGroupSimpleKnobs.items,
@@ -41,7 +42,7 @@ export default {
 };
 
 export const Default = ({ parameters }) => {
-  const { mediaType, mediaData, heading, items, cta } =
+  const { mediaType, mediaData, heading, items, cta, copy } =
     parameters?.props?.ContentGroupSimple ?? {};
   return (
     <div className="bx--grid">
@@ -52,6 +53,7 @@ export const Default = ({ parameters }) => {
             mediaData={mediaData}
             heading={heading}
             items={items}
+            copy={copy}
             cta={cta}
           />
         </div>

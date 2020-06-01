@@ -100,6 +100,11 @@ export default {
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
             groupId
           ),
+          copy: text(
+            'Copy (optional)',
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            groupId
+          ),
           items,
         };
       },
@@ -108,7 +113,8 @@ export default {
 };
 
 export const Default = ({ parameters }) => {
-  const { heading, items } = parameters?.props?.ContentGroupPictograms ?? {};
+  const { heading, copy, items } =
+    parameters?.props?.ContentGroupPictograms ?? {};
   return (
     <div className="bx--grid">
       <div className="bx--row">
@@ -119,6 +125,7 @@ export const Default = ({ parameters }) => {
             `bx--offset-lg-4`
           )}
           heading={heading}
+          copy={copy}
           items={items}
         />
       </div>
