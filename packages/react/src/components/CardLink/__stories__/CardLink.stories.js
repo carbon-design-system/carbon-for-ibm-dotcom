@@ -5,9 +5,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { text, withKnobs } from '@storybook/addon-knobs';
+import { boolean, text, withKnobs } from '@storybook/addon-knobs';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
 import CardLink from '../CardLink';
+import Error20 from '@carbon/icons-react/es/error/20';
 import React from 'react';
 import readme from '../README.stories.mdx';
 
@@ -26,6 +27,8 @@ export const Default = () => {
     'Explore AI use cases in all industries'
   );
   const cardhref = text('Card href:', 'https://www.example.com');
+  const disabled = boolean('disabled', false);
+  const iconStyle = disabled ? Error20 : ArrowRight20;
 
   return (
     <div className="bx--grid">
@@ -37,10 +40,11 @@ export const Default = () => {
               cta: {
                 href: cardhref,
                 icon: {
-                  src: ArrowRight20,
+                  src: iconStyle,
                 },
               },
             }}
+            disabled={disabled}
           />
         </div>
       </div>
