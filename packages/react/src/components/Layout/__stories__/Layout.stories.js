@@ -5,31 +5,74 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { select, number, withKnobs, boolean } from '@storybook/addon-knobs';
+import { select, number, boolean } from '@storybook/addon-knobs';
 import Layout from '../Layout';
 import React from 'react';
 import readme from '../README.stories.mdx';
 
+const layoutOptions = {
+  none: null,
+  'layout-01': 'layout-01',
+  'layout-02': 'layout-02',
+  'layout-03': 'layout-03',
+  'layout-04': 'layout-04',
+  'layout-05': 'layout-05',
+  'layout-06': 'layout-06',
+  'layout-07': 'layout-07',
+};
+
 export default {
   title: 'Components|Layout',
-  decorators: [withKnobs],
 
   parameters: {
     ...readme.parameters,
+    knobs: {
+      'Layout 1-3': ({ groupId }) => ({
+        marginTop: select(
+          'Top Margin (marginTop)',
+          layoutOptions,
+          layoutOptions['layout-03'],
+          groupId
+        ),
+        marginBottom: select(
+          'Bottom Margin (marginBottom)',
+          layoutOptions,
+          layoutOptions['layout-06'],
+          groupId
+        ),
+        stickyOffset: number('Sticky offset (in pixels)', 0, {}, groupId),
+      }),
+      'Layout 2-1': ({ groupId }) => ({
+        border: boolean('Optional border:', false, groupId),
+      }),
+      'Story content 1-3': ({ groupId }) => ({
+        'data-sticky': select(
+          'Sticky left column',
+          ['true', 'false'],
+          'true',
+          groupId
+        ),
+      }),
+      'Story content 2-2': ({ groupId }) => ({
+        'data-sticky': select(
+          'Sticky right column',
+          ['true', 'false'],
+          'true',
+          groupId
+        ),
+      }),
+    },
   },
 };
 
-export const Default = () => {
-  const layoutOptions = {
-    none: null,
-    'layout-01': 'layout-01',
-    'layout-02': 'layout-02',
-    'layout-03': 'layout-03',
-    'layout-04': 'layout-04',
-    'layout-05': 'layout-05',
-    'layout-06': 'layout-06',
-    'layout-07': 'layout-07',
-  };
+export const Default = ({ parameters }) => {
+  const { marginTop, marginBottom, stickyOffset } =
+    parameters?.props?.['Layout 1-3'] ?? {};
+  const { border } = parameters?.props?.['Layout 2-1'] ?? {};
+  const { 'data-sticky': stickyLeft } =
+    parameters?.props?.['Story content 1-3'] ?? {};
+  const { 'data-sticky': stickyRight } =
+    parameters?.props?.['Story content 2-2'] ?? {};
 
   return (
     <>
@@ -48,20 +91,12 @@ export const Default = () => {
 
       <Layout
         type="1-3"
-        marginTop={select(
-          'Top Margin (marginTop)',
-          layoutOptions,
-          layoutOptions['layout-03']
-        )}
-        marginBottom={select(
-          'Bottom Margin (marginBottom)',
-          layoutOptions,
-          layoutOptions['layout-06']
-        )}
-        stickyOffset={number('Sticky offset (in pixels)', 0)}
+        marginTop={marginTop}
+        marginBottom={marginBottom}
+        stickyOffset={stickyOffset}
         nested={false}>
         <div
-          data-sticky={select('Sticky left column', ['true', 'false'], 'true')}
+          data-sticky={stickyLeft}
           style={{
             backgroundColor: 'white',
           }}>
@@ -79,10 +114,7 @@ export const Default = () => {
         </div>
 
         <div className="bx--col">
-          <Layout
-            border={boolean('Optional border:', false)}
-            type={'2-1'}
-            nested={true}>
+          <Layout border={border} type={'2-1'} nested={true}>
             <div>
               <h3>Column 2.1</h3>
               <p style={{ paddingBottom: '1rem' }}>
@@ -154,11 +186,7 @@ export const Default = () => {
               </p>
             </div>
             <div
-              data-sticky={select(
-                'Sticky right column',
-                ['true', 'false'],
-                'true'
-              )}
+              data-sticky={stickyRight}
               style={{
                 backgroundColor: 'white',
               }}>
