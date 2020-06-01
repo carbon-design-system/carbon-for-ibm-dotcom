@@ -19,8 +19,6 @@ $fcb-large-custom-bp-nocopy: 752px;
     color: $text-01;
     background: $ui-background;
     position: relative;
-    padding-top: 20px;
-    padding-bottom: 20px;
     height: 100%;
 
     @include carbon--breakpoint-between($fcb-large-custom-bp-copy, 'lg') {
@@ -81,8 +79,9 @@ $fcb-large-custom-bp-nocopy: 752px;
         background: $inverse-02;
         min-height: 50%;
         height: auto;
+        padding: $spacing-07 $spacing-05;
 
-        @include carbon--breakpoint('xlg') {
+        @include carbon--breakpoint('md') {
           padding: $layout-03;
         }
 
@@ -91,14 +90,9 @@ $fcb-large-custom-bp-nocopy: 752px;
         }
 
         .#{$prefix}--card__eyebrow {
-          margin-bottom: $spacing-05;
+          margin: 0 0 $spacing-05 0;
           color: $inverse-01;
           @include carbon--type-style('body-long-02');
-
-          @include carbon--breakpoint-down('md') {
-            margin-top: $spacing-07;
-            margin-bottom: $spacing-05;
-          }
         }
 
         .#{$prefix}--card__heading {
