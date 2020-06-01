@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { boolean, withKnobs } from '@storybook/addon-knobs';
+import { boolean } from '@storybook/addon-knobs';
 import cx from 'classnames';
 import React from 'react';
 import readme from '../README.stories.mdx';
@@ -16,18 +16,23 @@ const { prefix } = settings;
 
 export default {
   title: 'Components|VideoPlayer',
-  decorators: [withKnobs],
 
   parameters: {
     ...readme.parameters,
     percy: {
       skip: true,
     },
+    knobs: {
+      VideoPlayer: ({ groupId }) => ({
+        inverse: boolean('inverse', false, groupId),
+        showCaption: boolean('Show caption (showCaption)', true, groupId),
+      }),
+    },
   },
 };
 
-export const Default = () => {
-  const inverse = boolean('inverse', false);
+export const Default = ({ parameters }) => {
+  const { inverse, showCaption } = parameters?.props?.VideoPlayer ?? {};
 
   return (
     <div
@@ -39,7 +44,7 @@ export const Default = () => {
           <VideoPlayer
             inverse={inverse}
             videoId="0_uka1msg4"
-            showCaption={boolean('Show caption (showCaption)', true)}
+            showCaption={showCaption}
           />
         </div>
       </div>

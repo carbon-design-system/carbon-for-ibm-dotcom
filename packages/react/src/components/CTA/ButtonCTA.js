@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 import React, { useState } from 'react';
-import { ButtonGroup } from '../../patterns/sub-patterns/ButtonGroup';
+import { ButtonGroup } from '../ButtonGroup';
 import CTALogic from './CTALogic';
 import PropTypes from 'prop-types';
 

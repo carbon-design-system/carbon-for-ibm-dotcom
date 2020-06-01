@@ -1,12 +1,12 @@
-//
-// Copyright IBM Corp. 2016, 2018
-//
-// This source code is licensed under the Apache-2.0 license found in the
-// LICENSE file in the root directory of this source tree.
-//
+/**
+ * Copyright IBM Corp. 2016, 2020
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
 
 @import '../../globals/imports';
-@import '@carbon/motion/scss/motion.scss';
+@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/motion/motion.scss';
 
 @mixin image-with-caption {
   .#{$prefix}--image-with-caption {

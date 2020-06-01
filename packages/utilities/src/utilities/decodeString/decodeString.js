@@ -1,4 +1,11 @@
 /**
+ * Copyright IBM Corp. 2020
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+/**
  * Utility function to parse and decode text content.
  * Strings can become encoded for various reasons.
  * This utility decodes those strings.

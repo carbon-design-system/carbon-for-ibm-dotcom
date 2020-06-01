@@ -1,14 +1,27 @@
+/**
+ * Copyright IBM Corp. 2020
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 import { AnalyticsAPI } from '../Analytics';
 import root from 'window-or-global';
 
 /**
- * These IDs for production use of IBM.com
+ * Sets the Kaltura Partner ID, set by environment variable "KALTURA_PARTNER_ID"
  *
- * @type {number} _partnerId The ID of your Kaltura account (aka partnerId)
- * @type {number} _uiConfId The ID of the Kaltura player to use
+ * @type {number}
  * @private
  */
 const _partnerId = process.env.KALTURA_PARTNER_ID || 1773841;
+
+/**
+ * Sets the Kaltura UIConf ID, set by environment variable "KALTURA_UICONF_ID"
+ *
+ * @type {number}
+ * @private
+ */
 const _uiConfId = process.env.KALTURA_UICONF_ID || 27941801;
 
 /**
@@ -23,8 +36,8 @@ const _embedUrl = `https://cdnapisec.kaltura.com/p/${_partnerId}/sp/${_partnerId
  * @type {number}
  * @private
  */
-
 const _timeoutRetries = 50;
+
 /**
  * Tracks the number of attempts for the script ready loop
  *
@@ -94,10 +107,14 @@ function _loadScript() {
 let videoData = {};
 
 /**
- *
  * VideoPlayerAPI class with methods of checking script state and
  * embed video meta data and api data
- * ibm.com
+ *
+ * In order to set the Partner ID/UIConf ID, set the following environment
+ * variables:
+ *
+ * - KALTURA_PARTNER_ID
+ * - KALTURA_UICONF_ID
  */
 class VideoPlayerAPI {
   /**
@@ -118,6 +135,15 @@ class VideoPlayerAPI {
    * @param {string} videoId  The videoId we're embedding the placeholder for.
    * @param {string} targetId The targetId the ID where we're putting the placeholder.
    * @returns {object}  object
+   *
+   * @example
+   * import { VideoPlayerAPI } from '@carbon/ibmdotcom-services';
+   *
+   * function embedMyVideo() {
+   *   const elem = document.getElementById('foo');
+   *   const videoid = '12345';
+   *   VideoPlayerAPI.embedVideo(videoid, elem);
+   * }
    */
   static async embedVideo(videoId, targetId) {
     const fireEvent = this.fireEvent;
@@ -188,6 +214,14 @@ class VideoPlayerAPI {
    *
    * @param {string} videoId  The videoId we're embedding the placeholder for.
    * @returns {object}  object
+   *
+   * @example
+   * import { VideoPlayerAPI } from '@carbon/ibmdotcom-services';
+   *
+   * async function getMyVideoInfo(id) {
+   *   const data = await VideoPlayerAPI.api(id);
+   *   console.log(data);
+   * }
    */
   static async api(videoId) {
     return await this.checkScript().then(() => {

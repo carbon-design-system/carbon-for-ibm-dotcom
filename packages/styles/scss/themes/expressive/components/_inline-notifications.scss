@@ -1,10 +1,12 @@
-//
-// Copyright IBM Corp. 2016, 2018
-//
-// This source code is licensed under the Apache-2.0 license found in the
-// LICENSE file in the root directory of this source tree.
-//
-@import '@carbon/layout/scss/convert';
+/**
+ * Copyright IBM Corp. 2016, 2020
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/layout/convert';
+
 //-----------------------------
 // Inline Notifications  (expressive)
 //-----------------------------

@@ -1,12 +1,13 @@
-//
-// Copyright IBM Corp. 2016, 2020
-//
-// This source code is licensed under the Apache-2.0 license found in the
-// LICENSE file in the root directory of this source tree.
-//
+/**
+ * Copyright IBM Corp. 2016, 2020
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 @import '../../../globals/imports';
 @import '../../../components/image/image';
-@import '../../sub-patterns/card/index';
+@import '../../../components/card/index';
 @import '../../../globals/utils/aspect-ratio';
 @import '../../../globals/utils/hang';
 
@@ -22,8 +23,6 @@ $fcb-breakpoint-up--lg: map-get(
     color: $text-01;
     background: $ui-background;
     position: relative;
-    padding-top: 20px;
-    padding-bottom: 20px;
     height: 100%;
 
     @include carbon--breakpoint-between(
@@ -90,8 +89,9 @@ $fcb-breakpoint-up--lg: map-get(
         background: $inverse-02;
         min-height: 50%;
         height: auto;
+        padding: $spacing-07 $spacing-05;
 
-        @include carbon--breakpoint('xlg') {
+        @include carbon--breakpoint('md') {
           padding: $layout-03;
         }
 
@@ -100,14 +100,9 @@ $fcb-breakpoint-up--lg: map-get(
         }
 
         .#{$prefix}--card__eyebrow {
-          margin-bottom: $spacing-05;
+          margin: 0 0 $spacing-05 0;
           color: $inverse-01;
           @include carbon--type-style('body-long-02');
-
-          @include carbon--breakpoint-down('md') {
-            margin-top: $spacing-07;
-            margin-bottom: $spacing-05;
-          }
         }
 
         .#{$prefix}--card__heading {

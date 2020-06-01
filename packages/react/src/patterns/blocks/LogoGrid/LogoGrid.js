@@ -5,9 +5,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 import classNames from 'classnames';
-import { DDS_LOGO_GRID } from '../../../internal/FeatureFlags';
+import ContentBlock from '../../../internal/components/ContentBlock/ContentBlock';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
-import { featureFlag } from '@carbon/ibmdotcom-utilities';
+import { Image } from '../../../components/Image';
 import PropTypes from 'prop-types';
 import React from 'react';
 import settings from 'carbon-components/es/globals/js/settings';
@@ -15,42 +15,60 @@ import settings from 'carbon-components/es/globals/js/settings';
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 /**
- * Logo Grid.
+ * Logo Grid component.
  */
-const LogoGrid = ({ theme, title, logosGroup }) => {
+const LogoGrid = ({ heading, logosGroup, ctaCopy, ctaHref, hideBorder }) => {
   /**
    * sets the class name based on theme type
    *
    * @param {string} theme theme type ( g10 | white/default )
    * @returns {string} theme css class names
    */
-  const setTheme = theme => {
-    return theme && `${prefix}--logo-grid--${theme}`;
-  };
 
-  return featureFlag(
-    DDS_LOGO_GRID,
+  let cta = null;
+
+  if (ctaHref) {
+    cta = {
+      style: 'card',
+      type: 'local',
+      copy: ctaCopy,
+      cta: {
+        href: ctaHref,
+      },
+    };
+  }
+
+  return (
     <section
-      data-autoid={`${stablePrefix}--logo-grid`}
-      className={classNames(`${prefix}--logo-grid`, setTheme(theme))}>
+      data-autoid={`${stablePrefix}--logo-grid ${prefix}--logo-grid`}
+      className={classNames(`${prefix}--logo-grid`, {
+        [`${prefix}--logo-grid__no-border`]: hideBorder,
+      })}>
       <div className={`${prefix}--logo-grid__container`}>
-        <div className={`${prefix}--logo-grid__row`}>
-          <div className={`${prefix}--logo-grid__col`}>
-            <h3 className={`${prefix}--logo-grid__title`}>{title}</h3>
-          </div>
-        </div>
-        <div className={`${prefix}--logo-grid__row`}>
-          <div className={`${prefix}--logo-grid__col`}>
-            <div className={`${prefix}--logo-grid__wrapper`}>
-              {logosGroup.map(placeholder => (
-                <div
-                  className={`${prefix}--logo-grid__logo`}
-                  key={placeholder.label}>
-                  <img src={placeholder.imgSrc} alt={placeholder.altText} />
+        <div
+          className={`${prefix}--logo-grid__wrapper ${prefix}--grid ${prefix}--grid--full-width`}>
+          <ContentBlock heading={heading} cta={cta}>
+            <div className={`${prefix}--logo-grid__row`}>
+              {logosGroup.map((placeholder, index) => (
+                <div className={`${prefix}--logo-grid__col`} key={index}>
+                  <a
+                    href={placeholder.href}
+                    className={`${prefix}--logo-grid__link`}>
+                    <div
+                      className={`${prefix}--logo-grid__logo`}
+                      key={placeholder.label}>
+                      <Image
+                        defaultSrc={placeholder.imgSrc}
+                        classname={`${prefix}--logo-grid_img`}
+                        alt={placeholder.altText}
+                        longDescription={placeholder.label}
+                      />
+                    </div>
+                  </a>
                 </div>
               ))}
             </div>
-          </div>
+          </ContentBlock>
         </div>
       </div>
     </section>
@@ -59,31 +77,39 @@ const LogoGrid = ({ theme, title, logosGroup }) => {
 
 LogoGrid.propTypes = {
   /**
-   * The theme name.
+   * Heading text.
    */
-  theme: PropTypes.oneOf('g10'),
-
+  heading: PropTypes.string,
   /**
-   * Title for the Logo Grid Pattern.
-   */
-  title: PropTypes.string,
-
-  /**
-   * LogosGroup array of Objects for Logo Grid pattern. Each items have the following structure:
+   * An array of logo objects to be rendered as Image components surrounded by hypertext links:
    *
-   * | Name      | Data Type | Description                         |
-   * | --------- | --------- | ----------------------------------- |
-   * | `label`   | String    | Label for logo placeholder.         |
-   * | `imgSrc`  | String    | image source for logo placeholder.  |
-   * | `altText` | String    | alternate text for ogo placeholder. |
+   * | Name     | Data Type | Description                                                |
+   * | -------- | --------- | ---------------------------------------------------------- |
+   * | `label`  | String    | Visible to screen readers, hidden from users.              |
+   * | `imgSrc` | String    | Image source for logo placeholder.                         |
+   * | `altText`| String    | Alternate text for logo placeholder.                       |
+   * | `href`   | String    | Url of that the logo will link to.                         |
    */
   logosGroup: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string,
       imgSrc: PropTypes.string,
       altText: PropTypes.string,
+      href: PropTypes.string,
     })
   ),
+  /**
+   * Optional copy for the CTA
+   */
+  ctaCopy: PropTypes.string,
+  /**
+   * Link address for the CTA. If omitted, CTA doesn't render.
+   */
+  ctaHref: PropTypes.string,
+  /**
+   * Set to true to hide the default bottom border.
+   */
+  hideBorder: PropTypes.bool,
 };
 
 export default LogoGrid;

@@ -1,87 +1,11 @@
-//
-// Copyright IBM Corp. 2016, 2018
-//
-// This source code is licensed under the Apache-2.0 license found in the
-// LICENSE file in the root directory of this source tree.
-//
+/**
+ * Copyright IBM Corp. 2016, 2020
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
 
-@import '../../../globals/imports';
-@import '../../../components/horizontalrule/horizontalrule';
-@import '../../../components/link-with-icon/link-with-icon';
+/// @deprecated Remap import to "@carbon/ibmdotcom-styles/scss/components/quote/quote"
 
-@mixin quote {
-  .#{$prefix}--quote {
-    &__container {
-      @include carbon--make-row;
-    }
-
-    &__wrapper {
-      position: relative;
-    }
-
-    &__copy {
-      @include carbon--make-col-ready;
-      @include carbon--type-style(quotation-02, true);
-
-      padding: 0 2rem $carbon--layout-04 2rem;
-
-      @include carbon--breakpoint-down('md') {
-        padding-bottom: $carbon--layout-03;
-      }
-    }
-
-    &__mark {
-      @include carbon--type-style(quotation-02, true);
-
-      position: absolute;
-      left: 0.6rem;
-      color: $text-01;
-    }
-
-    .#{$prefix}--link-with-icon__container {
-      padding-left: 1rem;
-      max-width: 80%;
-    }
-
-    &__source {
-      @include carbon--make-col-ready;
-
-      max-width: 80%;
-      &-heading {
-        @include carbon--type-style(expressive-heading-02, true);
-
-        padding-left: 1rem;
-      }
-      &-body {
-        @include carbon--type-style(body-long-02, true);
-
-        padding-bottom: $carbon--layout-04;
-        padding-left: 1rem;
-
-        @include carbon--breakpoint-down('md') {
-          padding-bottom: $carbon--layout-03;
-        }
-      }
-    }
-
-    background: $ui-background;
-
-    &__inverse {
-      background: $inverse-02;
-      .#{$prefix}--quote__copy,
-      .#{$prefix}--quote__source-heading,
-      .#{$prefix}--quote__source-body,
-      .#{$prefix}--quote__mark {
-        color: $inverse-01;
-      }
-
-      .#{$prefix}--link-with-icon__container .#{$prefix}--link {
-        color: $inverse-link;
-      }
-    }
-  }
-}
-
-@include exports('quote') {
-  @include quote;
-}
+@warn 'Deprecated scss import for `quote`, remap to `@carbon/ibmdotcom-styles/scss/components/quote/quote`';
+@import '../../../components/quote/quote';

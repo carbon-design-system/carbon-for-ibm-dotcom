@@ -5,9 +5,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { ContentBlock } from '../../sub-patterns/ContentBlock';
-import { ContentGroup } from '../../sub-patterns/ContentGroup';
-import { ContentItem } from '../../sub-patterns/ContentItem';
+import ContentBlock from '../../../internal/components/ContentBlock/ContentBlock';
+import ContentGroup from '../../../internal/components/ContentGroup/ContentGroup';
+import ContentItem from '../../../internal/components/ContentItem/ContentItem';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { ImageWithCaption } from '../../../components/ImageWithCaption';
 import PropTypes from 'prop-types';
@@ -210,8 +210,13 @@ ContentBlockSegmented.propTypes = {
   ).isRequired,
 
   /**
-   * Elements to be rendered on right panel of the content block.
-   * See [`<ContentBlock>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/patterns-sub-patterns-contentblock--default#aside) for full usage details.
+   * Object containing elements to be rendered within <aside> html element on right panel.
+   * The structure is:
+   *
+   * | Name     | Data Type | Description                                                |
+   * | -------- | --------- | ---------------------------------------------------------- |
+   * | `items`  | Element   | Elements/Components to be rendered on the right panel.     |
+   * | `border` | Boolean   | Determines whether bottom border of `ContentBlock` is set. |
    */
   aside: PropTypes.shape({
     items: PropTypes.element,

@@ -1,25 +1,36 @@
-//
-// Copyright IBM Corp. 2016, 2018
-//
-// This source code is licensed under the Apache-2.0 license found in the
-// LICENSE file in the root directory of this source tree.
-//
+/**
+ * Copyright IBM Corp. 2016, 2020
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
 
 // Globals
 @import 'globals/feature-flags';
 @import 'globals/tokens';
 
 // Components
+@import 'components/buttongroup/buttongroup';
+@import 'components/callout/callout';
+@import 'components/card/index';
+@import 'components/card-group/card-group';
+@import 'components/content-item-horizontal/content-item-horizontal';
 @import 'components/dotcom-shell/dotcom-shell';
 @import 'components/expressive-modal/expressive-modal';
+@import 'components/feature-card/feature-card';
 @import 'components/footer/index';
 @import 'components/horizontalrule/horizontalrule';
 @import 'components/image/image';
 @import 'components/image-with-caption/image-with-caption';
+@import 'components/layout/layout';
 @import 'components/lightbox-media-viewer/lightbox-media-viewer';
 @import 'components/link-with-icon/link-with-icon';
+@import 'components/link-list/index';
 @import 'components/locale-modal/locale-modal';
 @import 'components/masthead/index';
+@import 'components/pictogram-item/pictogram-item';
+@import 'components/quote/quote';
+@import 'components/tableofcontents/tableofcontents';
 @import 'components/video-player/video-player';
 
 // Patterns - Sections
@@ -46,23 +57,6 @@
 @import 'patterns/blocks/logo-grid/logo-grid';
 @import 'patterns/blocks/leadspace-block/leadspace-block';
 
-// Patterns - Sub-Patterns
-@import 'patterns/sub-patterns/buttongroup/buttongroup';
-@import 'patterns/sub-patterns/callout/callout';
-@import 'patterns/sub-patterns/card/index';
-@import 'patterns/sub-patterns/card-group/card-group';
-@import 'patterns/sub-patterns/content-block/content-block';
-@import 'patterns/sub-patterns/content-item/content-item';
-@import 'patterns/sub-patterns/content-item-horizontal/content-item-horizontal';
-@import 'patterns/sub-patterns/content-group/content-group';
-@import 'patterns/sub-patterns/content-section/content-section';
-@import 'patterns/sub-patterns/feature-card/feature-card';
-@import 'patterns/sub-patterns/layout/layout';
-@import 'patterns/sub-patterns/link-list/index';
-@import 'patterns/sub-patterns/pictogram-item/pictogram-item';
-@import 'patterns/sub-patterns/quote/quote';
-@import 'patterns/sub-patterns/tableofcontents/tableofcontents';
-
 // Temporary Expressive
 @import 'temp-carbon-expressive/accordion/accordion-expressive';
 @import 'temp-carbon-expressive/button/button-expressive';
@@ -70,3 +64,9 @@
 
 // Expressive Theme
 @import 'themes/expressive/index';
+
+// Internal
+@import 'internal/content-block/content-block';
+@import 'internal/content-item/content-item';
+@import 'internal/content-group/content-group';
+@import 'internal/content-section/content-section';

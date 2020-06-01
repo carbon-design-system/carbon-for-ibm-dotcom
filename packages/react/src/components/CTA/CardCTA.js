@@ -4,13 +4,11 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import { Card } from '../../patterns/sub-patterns/Card';
+
+import { CardLink } from '../CardLink';
 import CTALogic from './CTALogic';
 import PropTypes from 'prop-types';
 import React from 'react';
-import settings from 'carbon-components/es/globals/js/settings';
-
-const { prefix } = settings;
 
 /**
  * Card subcomponent for CTA.
@@ -23,37 +21,36 @@ const CardCTA = ({
   ...otherProps
 }) => {
   return type === 'video' ? (
-    <div>
+    <>
       {CTALogic.launchLightBox(renderLightBox, openLightBox, otherProps.media)}
       {!renderLightBox && (
-        <Card
-          customClassName={`${prefix}--card__CTA`}
-          cta={{
-            href: '#',
-            icon: {
-              src: CTALogic.iconSelector(type),
+        <CardLink
+          card={{
+            cta: {
+              href: '#',
+              icon: {
+                src: CTALogic.iconSelector(type),
+              },
             },
+            copy: videoTitle[0].title,
+            handleClick: e => CTALogic.setLightBox(e, openLightBox),
           }}
-          copy={videoTitle[0].title}
-          type="link"
-          handleClick={e => CTALogic.setLightBox(e, openLightBox)}
         />
       )}
-    </div>
+    </>
   ) : (
-    <Card
-      customClassName={`${prefix}--card__CTA`}
-      cta={{
-        type,
-        href: otherProps.cta.href,
-        icon: {
-          src: CTALogic.iconSelector(type),
+    <CardLink
+      card={{
+        cta: {
+          type,
+          href: otherProps.cta.href,
+          icon: {
+            src: CTALogic.iconSelector(type),
+          },
         },
+        copy: otherProps.copy,
+        target: CTALogic.external(type),
       }}
-      copy={otherProps.copy}
-      type="link"
-      target={CTALogic.external(type)}
-      role="region"
     />
   );
 };

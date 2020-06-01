@@ -1,9 +1,9 @@
-//
-// Copyright IBM Corp. 2016, 2018
-//
-// This source code is licensed under the Apache-2.0 license found in the
-// LICENSE file in the root directory of this source tree.
-//
+/**
+ * Copyright IBM Corp. 2016, 2020
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
 
 @import '../../globals/imports';
 @import '../../temp-carbon-expressive/temp-carbon-expressive';
@@ -63,6 +63,7 @@
         min-height: rem(184px);
         outline: 1px solid $ui-02;
         outline-offset: -1px;
+        max-width: none;
 
         &--link {
           height: 100%;

@@ -5,8 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { CardGroup } from '../../sub-patterns/CardGroup';
-import { ContentBlock } from '../../sub-patterns/ContentBlock';
+import { CardGroup } from '../../../components/CardGroup';
+import ContentBlock from '../../../internal/components/ContentBlock/ContentBlock';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -57,7 +57,7 @@ ContentBlockCards.propTypes = {
    * | `heading`  | YES      | String    | Heading of the card.                     |
    * | `cta.href` | YES      | String    | URI for internal or external resource.   |
    *
-   * See [`<CardGroup>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/patterns-sub-patterns-cardgroup--default#props) for full usage details.
+   * See [`<CardGroup>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-cardgroup--default#props) for full usage details.
    */
   cards: PropTypes.arrayOf(
     PropTypes.shape({

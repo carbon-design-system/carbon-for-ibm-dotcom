@@ -1,9 +1,9 @@
-//
-// Copyright IBM Corp. 2016, 2018
-//
-// This source code is licensed under the Apache-2.0 license found in the
-// LICENSE file in the root directory of this source tree.
-//
+/**
+ * Copyright IBM Corp. 2016, 2020
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
 
 //-------------------------
 // 🌍 Global Imports
@@ -13,13 +13,13 @@
 // isolated as helper functions/mixins/utilities and should have minimal
 // effect on the final artifact size
 
-@import '@carbon/type/scss/type';
-@import '@carbon/themes/scss/themes';
+@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/type/type';
+@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/themes/themes';
 @import 'carbon-components/scss/globals/scss/vars';
 @import 'carbon-components/scss/globals/scss/helper-mixins';
 @import 'carbon-components/scss/globals/scss/layout';
-@import '@carbon/import-once/scss/import-once';
-@import '@carbon/grid/scss/index';
+@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/import-once/import-once';
+@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/grid/index';
 @import 'carbon-components/scss/globals/scss/css--reset';
 
 @import '../themes/expressive/index';

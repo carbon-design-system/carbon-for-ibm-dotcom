@@ -1,15 +1,15 @@
-//
-// Copyright IBM Corp. 2016, 2018
-//
-// This source code is licensed under the Apache-2.0 license found in the
-// LICENSE file in the root directory of this source tree.
-//
+/**
+ * Copyright IBM Corp. 2016, 2020
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
 
-@import '@carbon/type/scss/styles';
-@import '@carbon/type/scss/font-family';
-@import '@carbon/type/scss/scale';
-@import '@carbon/layout/scss/convert';
-@import '@carbon/themes/scss/mixins';
+@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/type/styles';
+@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/type/font-family';
+@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/type/scale';
+@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/layout/convert';
+@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/themes/mixins';
 
 /// Global token theme
 /// @access private

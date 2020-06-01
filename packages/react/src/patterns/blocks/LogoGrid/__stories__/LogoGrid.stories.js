@@ -1,43 +1,56 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { object, select, text, withKnobs } from '@storybook/addon-knobs';
-import { DDS_LOGO_GRID } from '../../../../internal/FeatureFlags';
+import { boolean, object, text } from '@storybook/addon-knobs';
 import LogoGrid from '../LogoGrid';
 import logos from './data/logos.json';
 import React from 'react';
-import readme from '../README.md';
+import readme from '../README.stories.mdx';
 
-export default !DDS_LOGO_GRID
-  ? undefined
-  : {
-      title: 'Patterns (Blocks)|LogoGrid',
-      decorators: [withKnobs],
-      parameters: {
-        readme: {
-          sidebar: readme,
-        },
-      },
-    };
+export default {
+  title: 'Patterns (Blocks)|LogoGrid',
+  parameters: {
+    ...readme.parameters,
+    knobs: {
+      LogoGrid: ({ groupId }) => ({
+        heading: text('Heading (heading)', 'Our customers', groupId),
+        logosGroup: object('Data', logos, groupId),
+        ctaCopy: text(
+          'CTA Copy (ctaCopy)',
+          'Lorem ipsum dolor sit amet',
+          groupId
+        ),
+        ctaHref: text('CTA Href (ctaHref)', 'http://local.url.com/', groupId),
+        hideBorder: boolean(
+          'Hide border (hideBorder): Hide the bottom border',
+          false,
+          groupId
+        ),
+      }),
+    },
+  },
+};
 
-export const Default = () => {
-  const title = text(
-    'Pattern title',
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-  );
-  const themes = {
-    g10: 'g10',
-    white: '',
-  };
+export const Default = ({ parameters }) => {
+  const { heading, logosGroup, ctaCopy, ctaHref, hideBorder } =
+    parameters?.props?.LogoGrid ?? {};
   return (
-    <LogoGrid
-      title={title}
-      logosGroup={object('Data', logos)}
-      theme={select('theme', themes, themes.g10)}
-    />
+    <div className="bx--grid">
+      <div className="bx--row">
+        <div className="bx--col-sm-4 bx--col-md-8 bx--col-lg-12 bx--offset-lg-2">
+          <LogoGrid
+            heading={heading}
+            logosGroup={logosGroup}
+            ctaCopy={ctaCopy}
+            ctaHref={ctaHref}
+            hideBorder={hideBorder}
+          />
+        </div>
+      </div>
+    </div>
   );
 };

@@ -1,85 +1,127 @@
-//
-// Copyright IBM Corp. 2016, 2018
-//
-// This source code is licensed under the Apache-2.0 license found in the
-// LICENSE file in the root directory of this source tree.
-//
-@import '../../../globals/imports';
+/**
+ * Copyright IBM Corp. 2016, 2020
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
 
-@mixin themed-items {
-  color: $text-01;
-  background: $ui-background;
-}
+@import '../../../globals/imports';
+@import '../../../globals/utils/hang';
+@import '../../../globals/utils/aspect-ratio';
 
 @mixin logo-grid {
   .#{$prefix}--logo-grid {
-    &__container {
-      @include carbon--make-container;
+    padding: $spacing-03;
+
+    .#{$prefix}--content-block {
+      padding-top: 0;
+      padding-bottom: 0;
+      background: $inverse-01;
     }
+
+    .#{$prefix}--content-block__heading {
+      margin: $layout-03 0;
+      color: $text-01;
+
+      @include carbon--breakpoint('md') {
+        margin: $layout-05 0;
+      }
+    }
+    &__container {
+      border-bottom: 1px $ui-04 solid;
+    }
+
+    &__no-border {
+      .#{$prefix}--logo-grid__container {
+        border-bottom: none;
+      }
+    }
+
+    .#{$prefix}--card__wrapper {
+      width: 100%;
+    }
+
+    .#{$prefix}--content-block__cta {
+      margin-top: $layout-01;
+      margin-bottom: $layout-07;
+      @include carbon--make-col-ready;
+      @include carbon--make-col(1, 1);
+
+      padding-left: $spacing-05;
+
+      @include carbon--breakpoint('md') {
+        @include carbon--make-col(1, 3);
+      }
+
+      .#{$prefix}--card__heading {
+        @include carbon--type-style('productive-heading-01');
+      }
+    }
+
+    a.#{$prefix}--card__CTA {
+      max-width: 100%;
+      margin-left: 0;
+    }
+
+    &__link {
+      display: block;
+      &:hover .#{$prefix}--logo-grid__logo {
+        box-shadow: inset 0 0 0 1px $ui-04;
+      }
+      &:active .#{$prefix}--logo-grid__logo {
+        box-shadow: inset 0 0 0 1px $ui-03;
+      }
+    }
+
     &__row {
       @include carbon--make-row;
     }
-    &__title {
-      @include carbon--type-style('expressive-heading-03');
 
+    &__col {
+      @include carbon--make-col-ready;
+      @include carbon--make-col(1, 2);
+
+      margin-bottom: $spacing-07;
+
+      @include carbon--breakpoint('md') {
+        @include carbon--make-col(1, 3);
+      }
+    }
+
+    &__heading {
+      @include carbon--type-style('expressive-heading-05');
+
+      width: 90%;
       margin-top: $carbon--spacing-07;
       margin-bottom: $carbon--spacing-07;
     }
 
     &__wrapper {
-      display: flex;
-      flex-wrap: wrap;
-
-      &__col {
-        @include carbon--make-col-ready;
-        @include carbon--make-col-offset(1, 16);
-      }
-    }
-    &__logo {
-      display: flex;
-      margin: 0 $carbon--spacing-03 $carbon--spacing-03;
-      margin-left: 0;
+      width: 100%;
     }
 
-    @include carbon--breakpoint('sm') {
-      &__col {
-        @include carbon--make-col(4, 4);
+    .#{$prefix}--image {
+      display: block;
+      background: $inverse-01;
+      overflow-y: hidden;
+      padding-top: aspect-ratio(288px, 216px);
+      position: relative;
 
-        padding-left: $carbon--layout-01;
-        padding-right: $carbon--layout-01;
+      &:hover img {
+        border: 1px $ui-04 solid;
       }
-    }
+      &:active img {
+        border: 1px $ui-03 solid;
+      }
 
-    @include carbon--breakpoint('md') {
-      &__title {
-        margin-top: $carbon--layout-05;
-        margin-bottom: $carbon--spacing-09;
+      img {
+        position: absolute;
+        top: 0;
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
       }
-      &__col {
-        @include carbon--make-col(7, 8);
-
-        padding-left: $carbon--layout-01;
-        padding-right: $carbon--layout-01;
-      }
-    }
-    @include carbon--breakpoint('lg') {
-      &__col {
-        @include carbon--make-col-offset(4, 16);
-        @include carbon--make-col(8, 16);
-      }
-    }
-    @include carbon--breakpoint('max') {
-      &__col {
-        max-width: carbon--rem(640px);
-      }
-    }
-
-    @include themed-items;
-  }
-
-  .#{$prefix}--logo-grid--g10 {
-    @include carbon--theme($carbon--theme--g10) {
-      @include themed-items;
     }
   }
 }
