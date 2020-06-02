@@ -3624,6 +3624,11 @@ exports[`Storyshots Components|FeatureCard Default 1`] = `
       >
         <div
           className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
+          style={
+            Object {
+              "paddingTop": "20px",
+            }
+          }
         >
           <FeatureCard
             card={
