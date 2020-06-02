@@ -588,6 +588,7 @@ exports[`Storyshots Components|Card Link/Clickable 1`] = `
                 href="https://example.com"
                 light={false}
                 onClick={[Function]}
+                role="region"
                 target={null}
               >
                 <a
@@ -596,6 +597,7 @@ exports[`Storyshots Components|Card Link/Clickable 1`] = `
                   href="https://example.com"
                   onClick={[Function]}
                   onKeyDown={[Function]}
+                  role="region"
                   target={null}
                 >
                   <div
@@ -727,11 +729,13 @@ exports[`Storyshots Components|Card Static 1`] = `
                 data-autoid="dds--card"
                 href="https://example.com"
                 light={false}
+                role="region"
               >
                 <div
                   className="bx--tile bx--card"
                   data-autoid="dds--card"
                   href="https://example.com"
+                  role="region"
                 >
                   <div
                     className="bx--card__wrapper"
@@ -927,6 +931,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                     href="https://www.example.com"
                     light={false}
                     onClick={[Function]}
+                    role="region"
                     target={null}
                   >
                     <a
@@ -935,6 +940,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                       href="https://www.example.com"
                       onClick={[Function]}
                       onKeyDown={[Function]}
+                      role="region"
                       target={null}
                     >
                       <div
@@ -1040,6 +1046,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                     href="https://www.example.com"
                     light={false}
                     onClick={[Function]}
+                    role="region"
                     target={null}
                   >
                     <a
@@ -1048,6 +1055,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                       href="https://www.example.com"
                       onClick={[Function]}
                       onKeyDown={[Function]}
+                      role="region"
                       target={null}
                     >
                       <div
@@ -1153,6 +1161,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                     href="https://www.example.com"
                     light={false}
                     onClick={[Function]}
+                    role="region"
                     target={null}
                   >
                     <a
@@ -1161,6 +1170,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                       href="https://www.example.com"
                       onClick={[Function]}
                       onKeyDown={[Function]}
+                      role="region"
                       target={null}
                     >
                       <div
@@ -1266,6 +1276,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                     href="https://www.example.com"
                     light={false}
                     onClick={[Function]}
+                    role="region"
                     target={null}
                   >
                     <a
@@ -1274,6 +1285,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                       href="https://www.example.com"
                       onClick={[Function]}
                       onKeyDown={[Function]}
+                      role="region"
                       target={null}
                     >
                       <div
@@ -1379,6 +1391,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                     href="https://www.example.com"
                     light={false}
                     onClick={[Function]}
+                    role="region"
                     target={null}
                   >
                     <a
@@ -1387,6 +1400,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                       href="https://www.example.com"
                       onClick={[Function]}
                       onKeyDown={[Function]}
+                      role="region"
                       target={null}
                     >
                       <div
@@ -1487,6 +1501,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                     href="https://www.example.com"
                     light={false}
                     onClick={[Function]}
+                    role="region"
                     target={null}
                   >
                     <a
@@ -1495,6 +1510,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                       href="https://www.example.com"
                       onClick={[Function]}
                       onKeyDown={[Function]}
+                      role="region"
                       target={null}
                     >
                       <div
@@ -3829,6 +3845,7 @@ exports[`Storyshots Components|FeatureCard Default 1`] = `
                   href="https://www.example.com"
                   light={false}
                   onClick={[Function]}
+                  role="region"
                   target={null}
                 >
                   <a
@@ -3837,6 +3854,7 @@ exports[`Storyshots Components|FeatureCard Default 1`] = `
                     href="https://www.example.com"
                     onClick={[Function]}
                     onKeyDown={[Function]}
+                    role="region"
                     target={null}
                   >
                     <Image
@@ -5415,7 +5433,9 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                     style="card"
                     type="local"
                   >
-                    <div>
+                    <div
+                      aria-label="Learn more"
+                    >
                       <CardCTA
                         copy="Learn more"
                         cta={
@@ -5577,7 +5597,9 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                     style="card"
                     type="download"
                   >
-                    <div>
+                    <div
+                      aria-label="Containerization A Complete Guide"
+                    >
                       <CardCTA
                         copy="Containerization A Complete Guide"
                         cta={
@@ -5742,7 +5764,9 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                     style="card"
                     type="external"
                   >
-                    <div>
+                    <div
+                      aria-label="Microservices and containers"
+                    >
                       <CardCTA
                         copy="Microservices and containers"
                         cta={
@@ -5907,7 +5931,9 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                     style="card"
                     type="video"
                   >
-                    <div>
+                    <div
+                      aria-label=""
+                    >
                       <CardCTA
                         media={
                           Object {
@@ -7720,7 +7746,9 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                     style="card"
                     type="local"
                   >
-                    <div>
+                    <div
+                      aria-label="Learn more"
+                    >
                       <CardCTA
                         copy="Learn more"
                         cta={
@@ -7882,7 +7910,9 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                     style="card"
                     type="download"
                   >
-                    <div>
+                    <div
+                      aria-label="Containerization A Complete Guide"
+                    >
                       <CardCTA
                         copy="Containerization A Complete Guide"
                         cta={
@@ -8047,7 +8077,9 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                     style="card"
                     type="external"
                   >
-                    <div>
+                    <div
+                      aria-label="Microservices and containers"
+                    >
                       <CardCTA
                         copy="Microservices and containers"
                         cta={
@@ -8212,7 +8244,9 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                     style="card"
                     type="video"
                   >
-                    <div>
+                    <div
+                      aria-label=""
+                    >
                       <CardCTA
                         media={
                           Object {
@@ -12716,6 +12750,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                 href="https://www.example.com"
                                 light={false}
                                 onClick={[Function]}
+                                role="region"
                                 target={null}
                               >
                                 <a
@@ -12724,6 +12759,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                   href="https://www.example.com"
                                   onClick={[Function]}
                                   onKeyDown={[Function]}
+                                  role="region"
                                   target={null}
                                 >
                                   <div
@@ -12829,6 +12865,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                 href="https://www.example.com"
                                 light={false}
                                 onClick={[Function]}
+                                role="region"
                                 target={null}
                               >
                                 <a
@@ -12837,6 +12874,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                   href="https://www.example.com"
                                   onClick={[Function]}
                                   onKeyDown={[Function]}
+                                  role="region"
                                   target={null}
                                 >
                                   <div
@@ -12942,6 +12980,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                 href="https://www.example.com"
                                 light={false}
                                 onClick={[Function]}
+                                role="region"
                                 target={null}
                               >
                                 <a
@@ -12950,6 +12989,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                   href="https://www.example.com"
                                   onClick={[Function]}
                                   onKeyDown={[Function]}
+                                  role="region"
                                   target={null}
                                 >
                                   <div
@@ -13055,6 +13095,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                 href="https://www.example.com"
                                 light={false}
                                 onClick={[Function]}
+                                role="region"
                                 target={null}
                               >
                                 <a
@@ -13063,6 +13104,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                   href="https://www.example.com"
                                   onClick={[Function]}
                                   onKeyDown={[Function]}
+                                  role="region"
                                   target={null}
                                 >
                                   <div
@@ -13168,6 +13210,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                 href="https://www.example.com"
                                 light={false}
                                 onClick={[Function]}
+                                role="region"
                                 target={null}
                               >
                                 <a
@@ -13176,6 +13219,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                   href="https://www.example.com"
                                   onClick={[Function]}
                                   onKeyDown={[Function]}
+                                  role="region"
                                   target={null}
                                 >
                                   <div
@@ -13705,6 +13749,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                 type="local"
                               >
                                 <div
+                                  aria-label="Lorem ipsum dolor sit ametttt"
                                   className="bx--content-group__cta"
                                 >
                                   <CardCTA
@@ -14097,6 +14142,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                 type="local"
                               >
                                 <div
+                                  aria-label="Lorem ipsum dolor sit ametttt"
                                   className="bx--content-group__cta"
                                 >
                                   <CardCTA
@@ -14414,6 +14460,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                           href="https://www.example.com"
                                           light={false}
                                           onClick={[Function]}
+                                          role="region"
                                           target={null}
                                         >
                                           <a
@@ -14422,6 +14469,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                             href="https://www.example.com"
                                             onClick={[Function]}
                                             onKeyDown={[Function]}
+                                            role="region"
                                             target={null}
                                           >
                                             <Image
@@ -15063,6 +15111,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                         type="local"
                                       >
                                         <div
+                                          aria-label="Lorem ipsum dolor sit ametttt"
                                           className="bx--content-group__cta"
                                         >
                                           <CardCTA
@@ -15455,6 +15504,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                         type="local"
                                       >
                                         <div
+                                          aria-label="Lorem ipsum dolor sit ametttt"
                                           className="bx--content-group__cta"
                                         >
                                           <CardCTA
@@ -15772,6 +15822,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                                   href="https://www.example.com"
                                                   light={false}
                                                   onClick={[Function]}
+                                                  role="region"
                                                   target={null}
                                                 >
                                                   <a
@@ -15780,6 +15831,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                                     href="https://www.example.com"
                                                     onClick={[Function]}
                                                     onKeyDown={[Function]}
+                                                    role="region"
                                                     target={null}
                                                   >
                                                     <Image
@@ -15923,7 +15975,9 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                     style="card"
                                     type="local"
                                   >
-                                    <div>
+                                    <div
+                                      aria-label="Containerization A Complete Guide"
+                                    >
                                       <CardCTA
                                         copy="Containerization A Complete Guide"
                                         cta={
@@ -16085,7 +16139,9 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                     style="card"
                                     type="external"
                                   >
-                                    <div>
+                                    <div
+                                      aria-label="Why should you use microservices and containers"
+                                    >
                                       <CardCTA
                                         copy="Why should you use microservices and containers"
                                         cta={
@@ -16570,6 +16626,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                         href="https://www.example.com"
                                         light={false}
                                         onClick={[Function]}
+                                        role="region"
                                         target={null}
                                       >
                                         <a
@@ -16579,6 +16636,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                           href="https://www.example.com"
                                           onClick={[Function]}
                                           onKeyDown={[Function]}
+                                          role="region"
                                           target={null}
                                         >
                                           <div
@@ -16685,6 +16743,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                         href="https://www.example.com"
                                         light={false}
                                         onClick={[Function]}
+                                        role="region"
                                         target={null}
                                       >
                                         <a
@@ -16694,6 +16753,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                           href="https://www.example.com"
                                           onClick={[Function]}
                                           onKeyDown={[Function]}
+                                          role="region"
                                           target={null}
                                         >
                                           <div
@@ -16800,6 +16860,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                         href="https://www.example.com"
                                         light={false}
                                         onClick={[Function]}
+                                        role="region"
                                         target={null}
                                       >
                                         <a
@@ -16809,6 +16870,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                           href="https://www.example.com"
                                           onClick={[Function]}
                                           onKeyDown={[Function]}
+                                          role="region"
                                           target={null}
                                         >
                                           <div
@@ -16915,6 +16977,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                         href="https://www.example.com"
                                         light={false}
                                         onClick={[Function]}
+                                        role="region"
                                         target={null}
                                       >
                                         <a
@@ -16924,6 +16987,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                           href="https://www.example.com"
                                           onClick={[Function]}
                                           onKeyDown={[Function]}
+                                          role="region"
                                           target={null}
                                         >
                                           <div
@@ -17889,6 +17953,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                       type="local"
                     >
                       <div
+                        aria-label="Lorem ipsum dolor sit ametttt"
                         className="bx--content-block__cta bx--content-block__cta-col"
                       >
                         <CardCTA
@@ -18464,6 +18529,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                 href="https://www.example.com"
                                                 light={false}
                                                 onClick={[Function]}
+                                                role="region"
                                                 target={null}
                                               >
                                                 <a
@@ -18473,6 +18539,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                   href="https://www.example.com"
                                                   onClick={[Function]}
                                                   onKeyDown={[Function]}
+                                                  role="region"
                                                   target={null}
                                                 >
                                                   <div
@@ -18579,6 +18646,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                 href="https://www.example.com"
                                                 light={false}
                                                 onClick={[Function]}
+                                                role="region"
                                                 target={null}
                                               >
                                                 <a
@@ -18588,6 +18656,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                   href="https://www.example.com"
                                                   onClick={[Function]}
                                                   onKeyDown={[Function]}
+                                                  role="region"
                                                   target={null}
                                                 >
                                                   <div
@@ -18694,6 +18763,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                 href="https://www.example.com"
                                                 light={false}
                                                 onClick={[Function]}
+                                                role="region"
                                                 target={null}
                                               >
                                                 <a
@@ -18703,6 +18773,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                   href="https://www.example.com"
                                                   onClick={[Function]}
                                                   onKeyDown={[Function]}
+                                                  role="region"
                                                   target={null}
                                                 >
                                                   <div
@@ -18809,6 +18880,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                 href="https://www.example.com"
                                                 light={false}
                                                 onClick={[Function]}
+                                                role="region"
                                                 target={null}
                                               >
                                                 <a
@@ -18818,6 +18890,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                   href="https://www.example.com"
                                                   onClick={[Function]}
                                                   onKeyDown={[Function]}
+                                                  role="region"
                                                   target={null}
                                                 >
                                                   <div
@@ -19783,6 +19856,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                               type="local"
                             >
                               <div
+                                aria-label="Lorem ipsum dolor sit ametttt"
                                 className="bx--content-block__cta bx--content-block__cta-col"
                               >
                                 <CardCTA
@@ -19986,7 +20060,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                     style="card"
                                     type="local"
                                   >
-                                    <div>
+                                    <div
+                                      aria-label="Containerization A Complete Guide"
+                                    >
                                       <CardCTA
                                         copy="Containerization A Complete Guide"
                                         cta={
@@ -20148,7 +20224,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                     style="card"
                                     type="external"
                                   >
-                                    <div>
+                                    <div
+                                      aria-label="Why should you use microservices and containers"
+                                    >
                                       <CardCTA
                                         copy="Why should you use microservices and containers"
                                         cta={
@@ -20948,6 +21026,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                       type="local"
                     >
                       <div
+                        aria-label="Lorem ipsum dolor"
                         className="bx--content-block__cta bx--content-block__cta-col"
                       >
                         <CardCTA
@@ -21644,6 +21723,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                               type="local"
                             >
                               <div
+                                aria-label="Lorem ipsum dolor"
                                 className="bx--content-block__cta bx--content-block__cta-col"
                               >
                                 <CardCTA
@@ -21846,7 +21926,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                     style="card"
                                     type="local"
                                   >
-                                    <div>
+                                    <div
+                                      aria-label="Containerization A Complete Guide"
+                                    >
                                       <CardCTA
                                         copy="Containerization A Complete Guide"
                                         cta={
@@ -22008,7 +22090,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                     style="card"
                                     type="external"
                                   >
-                                    <div>
+                                    <div
+                                      aria-label="Why should you use microservices and containers"
+                                    >
                                       <CardCTA
                                         copy="Why should you use microservices and containers"
                                         cta={
@@ -22425,6 +22509,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                       type="local"
                     >
                       <div
+                        aria-label="Lorem ipsum dolor sit ametttt"
                         className="bx--content-block__cta bx--content-block__cta-col"
                       >
                         <CardCTA
@@ -22929,6 +23014,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                               type="local"
                             >
                               <div
+                                aria-label="Lorem ipsum dolor sit ametttt"
                                 className="bx--content-block__cta bx--content-block__cta-col"
                               >
                                 <CardCTA
@@ -23132,7 +23218,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                     style="card"
                                     type="local"
                                   >
-                                    <div>
+                                    <div
+                                      aria-label="Containerization A Complete Guide"
+                                    >
                                       <CardCTA
                                         copy="Containerization A Complete Guide"
                                         cta={
@@ -23294,7 +23382,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                     style="card"
                                     type="external"
                                   >
-                                    <div>
+                                    <div
+                                      aria-label="Why should you use microservices and containers"
+                                    >
                                       <CardCTA
                                         copy="Why should you use microservices and containers"
                                         cta={
@@ -23587,6 +23677,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
                               href="https://www.example.com"
                               light={false}
                               onClick={[Function]}
+                              role="region"
                               target={null}
                             >
                               <a
@@ -23596,6 +23687,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
                                 href="https://www.example.com"
                                 onClick={[Function]}
                                 onKeyDown={[Function]}
+                                role="region"
                                 target={null}
                               >
                                 <div
@@ -23702,6 +23794,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
                               href="https://www.example.com"
                               light={false}
                               onClick={[Function]}
+                              role="region"
                               target={null}
                             >
                               <a
@@ -23711,6 +23804,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
                                 href="https://www.example.com"
                                 onClick={[Function]}
                                 onKeyDown={[Function]}
+                                role="region"
                                 target={null}
                               >
                                 <div
@@ -23817,6 +23911,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
                               href="https://www.example.com"
                               light={false}
                               onClick={[Function]}
+                              role="region"
                               target={null}
                             >
                               <a
@@ -23826,6 +23921,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
                                 href="https://www.example.com"
                                 onClick={[Function]}
                                 onKeyDown={[Function]}
+                                role="region"
                                 target={null}
                               >
                                 <div
@@ -23932,6 +24028,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
                               href="https://www.example.com"
                               light={false}
                               onClick={[Function]}
+                              role="region"
                               target={null}
                             >
                               <a
@@ -23941,6 +24038,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
                                 href="https://www.example.com"
                                 onClick={[Function]}
                                 onKeyDown={[Function]}
+                                role="region"
                                 target={null}
                               >
                                 <div
@@ -25562,6 +25660,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupSimple Default 1`] = `
                       type="local"
                     >
                       <div
+                        aria-label="Lorem ipsum dolor sit ametttt"
                         className="bx--content-group__cta"
                       >
                         <CardCTA
@@ -25809,6 +25908,7 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockLarge Default 1`] = `
                   href="https://www.example.com"
                   light={false}
                   onClick={[Function]}
+                  role="region"
                   target={null}
                 >
                   <a
@@ -25817,6 +25917,7 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockLarge Default 1`] = `
                     href="https://www.example.com"
                     onClick={[Function]}
                     onKeyDown={[Function]}
+                    role="region"
                     target={null}
                   >
                     <Image
@@ -26044,6 +26145,7 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockMedium Default 1`] = `
                             href="https://www.example.com"
                             light={false}
                             onClick={[Function]}
+                            role="region"
                             target={null}
                           >
                             <a
@@ -26052,6 +26154,7 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockMedium Default 1`] = `
                               href="https://www.example.com"
                               onClick={[Function]}
                               onKeyDown={[Function]}
+                              role="region"
                               target={null}
                             >
                               <Image
@@ -27370,6 +27473,7 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                           type="local"
                         >
                           <div
+                            aria-label="Lorem ipsum dolor sit amet"
                             className="bx--content-block__cta bx--content-block__cta-col"
                           >
                             <CardCTA
@@ -28266,6 +28370,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                           href="https://www.example.com"
                           light={false}
                           onClick={[Function]}
+                          role="region"
                           target={null}
                         >
                           <a
@@ -28274,6 +28379,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                             href="https://www.example.com"
                             onClick={[Function]}
                             onKeyDown={[Function]}
+                            role="region"
                             target={null}
                           >
                             <Image
@@ -28399,6 +28505,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                           href="https://www.example.com"
                           light={false}
                           onClick={[Function]}
+                          role="region"
                           target={null}
                         >
                           <a
@@ -28407,6 +28514,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                             href="https://www.example.com"
                             onClick={[Function]}
                             onKeyDown={[Function]}
+                            role="region"
                             target={null}
                           >
                             <Image
@@ -28532,6 +28640,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                           href="https://www.example.com"
                           light={false}
                           onClick={[Function]}
+                          role="region"
                           target={null}
                         >
                           <a
@@ -28540,6 +28649,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                             href="https://www.example.com"
                             onClick={[Function]}
                             onKeyDown={[Function]}
+                            role="region"
                             target={null}
                           >
                             <Image
@@ -28665,6 +28775,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                           href="https://www.example.com"
                           light={false}
                           onClick={[Function]}
+                          role="region"
                           target={null}
                         >
                           <a
@@ -28673,6 +28784,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                             href="https://www.example.com"
                             onClick={[Function]}
                             onKeyDown={[Function]}
+                            role="region"
                             target={null}
                           >
                             <Image
@@ -28798,6 +28910,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                           href="https://www.example.com"
                           light={false}
                           onClick={[Function]}
+                          role="region"
                           target={null}
                         >
                           <a
@@ -28806,6 +28919,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                             href="https://www.example.com"
                             onClick={[Function]}
                             onKeyDown={[Function]}
+                            role="region"
                             target={null}
                           >
                             <Image
@@ -29086,6 +29200,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                           href="https://www.example.com"
                           light={false}
                           onClick={[Function]}
+                          role="region"
                           target={null}
                         >
                           <a
@@ -29094,6 +29209,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                             href="https://www.example.com"
                             onClick={[Function]}
                             onKeyDown={[Function]}
+                            role="region"
                             target={null}
                           >
                             <div
@@ -29199,6 +29315,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                           href="https://www.example.com"
                           light={false}
                           onClick={[Function]}
+                          role="region"
                           target={null}
                         >
                           <a
@@ -29207,6 +29324,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                             href="https://www.example.com"
                             onClick={[Function]}
                             onKeyDown={[Function]}
+                            role="region"
                             target={null}
                           >
                             <div
@@ -29312,6 +29430,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                           href="https://www.example.com"
                           light={false}
                           onClick={[Function]}
+                          role="region"
                           target={null}
                         >
                           <a
@@ -29320,6 +29439,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                             href="https://www.example.com"
                             onClick={[Function]}
                             onKeyDown={[Function]}
+                            role="region"
                             target={null}
                           >
                             <div
@@ -29425,6 +29545,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                           href="https://www.example.com"
                           light={false}
                           onClick={[Function]}
+                          role="region"
                           target={null}
                         >
                           <a
@@ -29433,6 +29554,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                             href="https://www.example.com"
                             onClick={[Function]}
                             onKeyDown={[Function]}
+                            role="region"
                             target={null}
                           >
                             <div
@@ -29538,6 +29660,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                           href="https://www.example.com"
                           light={false}
                           onClick={[Function]}
+                          role="region"
                           target={null}
                         >
                           <a
@@ -29546,6 +29669,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                             href="https://www.example.com"
                             onClick={[Function]}
                             onKeyDown={[Function]}
+                            role="region"
                             target={null}
                           >
                             <div
@@ -29646,6 +29770,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                           href="https://www.example.com"
                           light={false}
                           onClick={[Function]}
+                          role="region"
                           target={null}
                         >
                           <a
@@ -29654,6 +29779,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                             href="https://www.example.com"
                             onClick={[Function]}
                             onKeyDown={[Function]}
+                            role="region"
                             target={null}
                           >
                             <div
