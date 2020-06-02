@@ -63,6 +63,7 @@
         min-height: rem(184px);
         outline: 1px solid $ui-02;
         outline-offset: -1px;
+        max-width: none;
 
         &--link {
           height: 100%;

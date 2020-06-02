@@ -5,121 +5,129 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { select, withKnobs } from '@storybook/addon-knobs';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
 import CTA from '../CTA';
 import React from 'react';
 import readme from '../README.stories.mdx';
+import { select } from '@storybook/addon-knobs';
 
-export default {
-  title: 'Components|CTA',
-  decorators: [withKnobs],
+const styles = ['text', 'card', 'feature', 'button'];
+const types = ['local', 'download', 'jump', 'external', 'video'];
+const copy = ['Lorem ipsum dolor sit amet', 'Consectetur adipisicing elit'];
 
-  parameters: {
-    ...readme.parameters,
+const urlBy = {
+  download:
+    'https://www.ibm.com/annualreport/assets/downloads/IBM_Annual_Report_2019.pdf',
+  jump: '#example',
+  local: 'https://www.example.com',
+  external: 'https://www.example.com',
+};
+
+const miscCTAData = {
+  text({ type }) {
+    return {
+      type: type,
+      href: urlBy[type],
+      copy: copy[0],
+      media: {
+        src: '0_uka1msg4',
+        type: 'video',
+      },
+    };
+  },
+  card({ type }) {
+    return {
+      copy: copy[0],
+      cta: {
+        href: urlBy[type],
+      },
+      media: {
+        src: '0_uka1msg4',
+        type: 'video',
+      },
+    };
+  },
+  feature({ type }) {
+    return {
+      heading: copy[0],
+      card: {
+        type: type,
+        heading: copy[1],
+        cta: {
+          href: urlBy[type],
+          icon: {
+            src: ArrowRight20,
+          },
+          media: {
+            src: '0_uka1msg4',
+            type: 'video',
+          },
+        },
+        image: {
+          defaultSrc: 'https://dummyimage.com/672x672/ee5396/161616&text=1x1',
+          alt: 'Image alt text',
+        },
+      },
+    };
+  },
+  button({ type }) {
+    return {
+      buttons: [
+        {
+          type: type[0],
+          href: urlBy[type[0]],
+          copy: copy[0],
+          media: {
+            src: '0_uka1msg4',
+            type: 'video',
+          },
+        },
+        {
+          type: type[1],
+          href: urlBy[type[1]],
+          copy: copy[1],
+          media: {
+            src: '1_sf5ovm7u',
+            type: 'video',
+          },
+        },
+      ],
+    };
   },
 };
 
-export const Default = () => {
-  let cta, type;
-  const copy = ['Lorem ipsum dolor sit amet', 'Consectetur adipisicing elit'];
-  const types = ['local', 'download', 'jump', 'external', 'video'];
-  const styles = ['text', 'card', 'feature', 'button'];
-  const style = select('style', styles, styles[0]);
+export default {
+  title: 'Components|CTA',
 
-  const urlBy = {
-    download:
-      'https://www.ibm.com/annualreport/assets/downloads/IBM_Annual_Report_2019.pdf',
-    jump: '#example',
-    local: 'https://www.example.com',
-    external: 'https://www.example.com',
-  };
+  parameters: {
+    ...readme.parameters,
+    knobs: {
+      CTA: ({ groupId }) => {
+        const style = select('style', styles, styles[0], groupId);
+        const type =
+          style !== 'button'
+            ? select('type', types, types[0], groupId)
+            : [
+                select('button 1 type', types, types[0], groupId),
+                select('button 2 type', types, types[0], groupId),
+              ];
+        return {
+          style,
+          type,
+          ...miscCTAData[style]({ type }),
+        };
+      },
+    },
+  },
+};
 
-  switch (style) {
-    case 'text':
-      type = select('type', types, types[0]);
-      cta = {
-        type: type,
-        href: urlBy[type],
-        copy: copy[0],
-        media: {
-          src: '0_uka1msg4',
-          type: 'video',
-        },
-      };
-      break;
-    case 'card':
-      type = select('type', types, types[0]);
-      cta = {
-        copy: copy[0],
-        cta: {
-          href: urlBy[type],
-        },
-        media: {
-          src: '0_uka1msg4',
-          type: 'video',
-        },
-      };
-      break;
-    case 'feature':
-      type = select('type', types, types[0]);
-      cta = {
-        heading: copy[0],
-        card: {
-          type: type,
-          heading: copy[1],
-          cta: {
-            href: urlBy[type],
-            icon: {
-              src: ArrowRight20,
-            },
-            media: {
-              src: '0_uka1msg4',
-              type: 'video',
-            },
-          },
-          image: {
-            defaultSrc: 'https://dummyimage.com/672x672/ee5396/161616&text=1x1',
-            alt: 'Image alt text',
-          },
-        },
-      };
-      break;
-    case 'button':
-      type = [
-        select('button 1 type', types, types[0]),
-        select('button 2 type', types, types[0]),
-      ];
-      cta = {
-        buttons: [
-          {
-            type: type[0],
-            href: urlBy[type[0]],
-            copy: copy[0],
-            media: {
-              src: '0_uka1msg4',
-              type: 'video',
-            },
-          },
-          {
-            type: type[1],
-            href: urlBy[type[1]],
-            copy: copy[1],
-            media: {
-              src: '1_sf5ovm7u',
-              type: 'video',
-            },
-          },
-        ],
-      };
-      break;
-    default:
-  }
+export const Default = ({ parameters }) => {
+  const { type, ...rest } = parameters?.props?.CTA ?? {};
   return (
     <div className="bx--grid ">
       <div className="bx--row">
         <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
-          <CTA style={style} type={type} {...cta} />
+          <CTA type={type} {...rest} />
         </div>
       </div>
       {type === 'jump' || type[0] === 'jump' || type[1] === 'jump' ? (
