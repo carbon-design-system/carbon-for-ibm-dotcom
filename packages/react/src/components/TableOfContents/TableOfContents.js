@@ -207,7 +207,7 @@ const TableOfContents = ({
             </div>
           ) : null}
           <div className={`${prefix}--tableofcontents__mobile-top`}></div>
-          <div style={{ position: 'sticky', top: '0' }} data-sticky="true">
+          <div style={{ position: 'sticky', top: '0' }}>
             <TOCDesktop
               menuRule={menuRule}
               headingContent={headingContent}
