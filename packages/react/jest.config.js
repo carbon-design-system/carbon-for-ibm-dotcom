@@ -38,6 +38,7 @@ module.exports = {
     '/lib/',
     '/es/',
     '/cjs/',
+    '/gulp-tasks/',
   ],
   transformIgnorePatterns: [
     '[/\\\\]node_modules[/\\\\](?!(carbon-icons)).+\\.(js|jsx)$',
