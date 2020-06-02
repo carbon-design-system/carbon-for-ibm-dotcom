@@ -23,7 +23,9 @@ const _host =
 const _proxy =
   root.location && root.location.host && root.location.host === 'www.ibm.com'
     ? ''
-    : (process && process.env.CORS_PROXY) || '';
+    : (process && process.env.REACT_APP_CORS_PROXY) ||
+      (process && process.env.CORS_PROXY) ||
+      '';
 
 /**
  * Translation API endpoint
