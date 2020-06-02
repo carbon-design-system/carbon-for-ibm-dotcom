@@ -10625,7 +10625,6 @@ exports[`Storyshots Components|Table of Contents Dynamic Items 1`] = `
                     className="bx--tableofcontents__mobile-top"
                   />
                   <div
-                    data-sticky="true"
                     style={
                       Object {
                         "position": "sticky",
@@ -10969,7 +10968,6 @@ exports[`Storyshots Components|Table of Contents Manually define Menu Items 1`] 
                   className="bx--tableofcontents__mobile-top"
                 />
                 <div
-                  data-sticky="true"
                   style={
                     Object {
                       "position": "sticky",
@@ -11555,7 +11553,6 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
                     className="bx--tableofcontents__mobile-top"
                   />
                   <div
-                    data-sticky="true"
                     style={
                       Object {
                         "position": "sticky",
