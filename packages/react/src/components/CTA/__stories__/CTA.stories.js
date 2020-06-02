@@ -12,7 +12,7 @@ import readme from '../README.stories.mdx';
 import { select } from '@storybook/addon-knobs';
 
 const styles = ['text', 'card', 'feature', 'button'];
-const types = ['local', 'download', 'jump', 'external', 'video'];
+const types = ['local', 'download', 'jump', 'external', 'video', 'default'];
 const copy = ['Lorem ipsum dolor sit amet', 'Consectetur adipisicing elit'];
 
 const urlBy = {
@@ -21,6 +21,7 @@ const urlBy = {
   jump: '#example',
   local: 'https://www.example.com',
   external: 'https://www.example.com',
+  default: 'https://www.example.com',
 };
 
 const miscCTAData = {

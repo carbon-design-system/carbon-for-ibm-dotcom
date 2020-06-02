@@ -83,6 +83,8 @@ class CTALogic {
         return ArrowDown20;
       case 'video':
         return PlayOutline20;
+      case 'default':
+        return null;
       default:
         return ArrowRight20;
     }
