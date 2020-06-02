@@ -166,4 +166,8 @@ ButtonCTA.propTypes = {
   setMediaData: PropTypes.func,
 };
 
+ButtonCTA.defaultProps = {
+  type: 'default',
+};
+
 export default ButtonCTA;

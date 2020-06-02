@@ -131,4 +131,8 @@ FeatureCTA.propTypes = {
   ),
 };
 
+FeatureCTA.defaultProps = {
+  type: 'default',
+};
+
 export default FeatureCTA;

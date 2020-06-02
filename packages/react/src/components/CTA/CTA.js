@@ -121,4 +121,11 @@ CTA.propTypes = {
   customClassName: PropTypes.string,
 };
 
+CTA.defaultProps = {
+  style: 'text',
+  type: 'default',
+  copy: '',
+  href: '',
+};
+
 export default CTA;

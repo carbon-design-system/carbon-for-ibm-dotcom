@@ -116,4 +116,11 @@ CardCTA.propTypes = {
   ),
 };
 
+CardCTA.defaultProps = {
+  type: 'default',
+  copy: '',
+  cta: null,
+  media: null,
+};
+
 export default CardCTA;

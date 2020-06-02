@@ -110,4 +110,8 @@ TextCTA.propTypes = {
   ),
 };
 
+TextCTA.defaultProps = {
+  type: 'default',
+};
+
 export default TextCTA;
