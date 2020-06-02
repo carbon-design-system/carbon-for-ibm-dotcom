@@ -66,7 +66,7 @@ const Image = ({ classname, sources, defaultSrc, alt, longDescription }) => {
           className={classnames(`${prefix}--image__img`, classname)}
           src={defaultSrc}
           alt={alt}
-          aria-describedby={longDescription ? `${id}` : ''}
+          aria-describedby={longDescription ? `${id}` : undefined}
         />
       </picture>
       {longDescription ? (
