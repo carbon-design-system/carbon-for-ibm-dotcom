@@ -22748,6 +22748,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
           className="bx--col-sm-4 bx--col-lg-10 bx--offset-lg-4"
         >
           <ContentGroupHorizontal
+            border={false}
             heading="Aliquam condimentum"
             items={
               Array [
@@ -23587,12 +23588,6 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                   </div>
                 </div>
               </ContentBlock>
-              <HorizontalRule>
-                <hr
-                  className="bx--hr"
-                  data-autoid="dds--hr"
-                />
-              </HorizontalRule>
             </div>
           </ContentGroupHorizontal>
         </div>

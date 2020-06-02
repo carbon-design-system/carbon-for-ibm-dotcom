@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { object, text, withKnobs } from '@storybook/addon-knobs';
+import {boolean, object, text, withKnobs} from '@storybook/addon-knobs';
 import ContentGroupHorizontal from '../ContentGroupHorizontal';
 import items from './data/items.json';
 import React from 'react';
@@ -28,6 +28,7 @@ export const Default = () => {
           <ContentGroupHorizontal
             heading={text('Heading', 'Aliquam condimentum')}
             items={object('Items', items.items)}
+            border={boolean('Optional border:', false)}
           />
         </div>
       </div>

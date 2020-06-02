@@ -7,3 +7,15 @@
 
 @import '../../../internal/content-block/content-block';
 @import '../../../components/content-item-horizontal/content-item-horizontal';
+
+@mixin content-group-horizontal {
+  .#{$prefix}--content-group-horizontal {
+    &--border {
+      border-bottom: solid 1px $ui-04;
+    }
+  }
+}
+
+@include exports('content-group-horizontal') {
+  @include content-group-horizontal;
+}
