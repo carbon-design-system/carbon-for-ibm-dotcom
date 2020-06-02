@@ -21,7 +21,7 @@ const _host =
  * @private
  */
 const _proxy =
-  root.location.host === 'www.ibm.com'
+  root.location && root.location.host && root.location.host === 'www.ibm.com'
     ? ''
     : (process && process.env.CORS_PROXY) || '';
 
