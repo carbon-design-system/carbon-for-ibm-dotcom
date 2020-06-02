@@ -17,7 +17,7 @@ const themes = {
   white: '',
 };
 
-const types = ['local', 'external'];
+const types = ['local', 'external', 'default'];
 
 const contentItemsProps = [
   {
@@ -62,7 +62,7 @@ export default {
           type: types[0],
           buttons: [
             {
-              type: select('ContentBlock | CTA type', types, types[0], groupId),
+              type: select('ContentBlock | CTA type', types, types[2], groupId),
               copy: text('ContentBlock | CTA copy', 'Contact sales', groupId),
               href: 'https://example.com/',
             },
