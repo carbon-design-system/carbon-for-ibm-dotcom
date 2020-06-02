@@ -51,7 +51,6 @@
 
       &__heading {
         margin-bottom: $layout-03;
-        @include carbon--type-style(expressive-heading-02, true);
       }
 
       &__wrapper,

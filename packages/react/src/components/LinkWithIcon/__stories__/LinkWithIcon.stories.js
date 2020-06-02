@@ -5,22 +5,27 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { boolean, withKnobs } from '@storybook/addon-knobs';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
+import { boolean } from '@storybook/addon-knobs';
 import LinkWithIcon from '../LinkWithIcon';
 import React from 'react';
 import readme from '../README.stories.mdx';
 
 export default {
   title: 'Components|Link with Icon',
-  decorators: [withKnobs],
 
   parameters: {
     ...readme.parameters,
+    knobs: {
+      LinkWithIcon: ({ groupId }) => ({
+        disabled: boolean('Disabled', false, groupId),
+      }),
+    },
   },
 };
 
-export const Default = () => {
+export const Default = ({ parameters }) => {
+  const { disabled } = parameters?.props?.LinkWithIcon ?? {};
   return (
     <div
       style={{
@@ -29,9 +34,7 @@ export const Default = () => {
         alignItems: 'center',
         flexDirection: 'column',
       }}>
-      <LinkWithIcon
-        href="https://www.example.com"
-        disabled={boolean('Disabled', false)}>
+      <LinkWithIcon href="https://www.example.com" disabled={disabled}>
         <span>Link text</span>
         <ArrowRight20 />
       </LinkWithIcon>
