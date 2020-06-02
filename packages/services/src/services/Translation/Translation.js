@@ -13,19 +13,16 @@ import root from 'window-or-global';
  * @constant {string | string} Host for the Translation API call
  * @private
  */
-const _host =
-  (process && process.env.TRANSLATION_HOST) || 'https://www.ibm.com';
+const _host = process?.env.TRANSLATION_HOST || 'https://www.ibm.com';
 
 /**
  * @constant {string | string} CORS proxy for lower environment calls
  * @private
  */
 const _proxy =
-  root.location && root.location.host && root.location.host === 'www.ibm.com'
+  root.location?.host === 'www.ibm.com'
     ? ''
-    : (process && process.env.REACT_APP_CORS_PROXY) ||
-      (process && process.env.CORS_PROXY) ||
-      '';
+    : process?.env.REACT_APP_CORS_PROXY || process?.env.CORS_PROXY || '';
 
 /**
  * Translation API endpoint

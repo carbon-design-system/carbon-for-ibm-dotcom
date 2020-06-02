@@ -26,7 +26,7 @@ describe('LocaleAPI', () => {
   const _cc = 'us';
   const _lc = 'en';
 
-  const endpoint = `${process.env.CORS_PROXY}${process.env.TRANSLATION_HOST}/common/js/dynamicnav/www/countrylist/jsononly`;
+  const endpoint = `${process.env.REACT_APP_CORS_PROXY}${process.env.TRANSLATION_HOST}/common/js/dynamicnav/www/countrylist/jsononly`;
   const fetchUrl = `${endpoint}/${_cc}${_lc}-utf8.json`;
 
   beforeEach(function() {
