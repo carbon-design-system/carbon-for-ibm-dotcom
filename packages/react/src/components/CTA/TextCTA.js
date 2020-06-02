@@ -33,7 +33,7 @@ const TextCTA = ({
         <LinkWithIcon
           href="#"
           onClick={e => CTALogic.setLightBox(e, openLightBox)}>
-          <span>{videoTitle[0].title}</span>
+          <span>{`${videoTitle[0].title} ${videoTitle[0].duration}`}</span>
           <Icon />
         </LinkWithIcon>
       )}
@@ -90,6 +90,7 @@ TextCTA.propTypes = {
   videoTitle: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
+      duration: PropTypes.string,
       key: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     })
   ),

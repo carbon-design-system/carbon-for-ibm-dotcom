@@ -67,7 +67,9 @@ const _renderButtons = ({
       let title = videoTitle.filter(name => {
         return name.key === key;
       });
-      button.copy = !title[0] ? button.copy : title[0].title;
+      button.copy = !title[0]
+        ? button.copy
+        : `${title[0].title} ${title[0].duration}`;
       button.href = '#';
     } else {
       button.onClick = e => CTALogic.jump(e, button.type);
@@ -141,6 +143,7 @@ ButtonCTA.propTypes = {
   videoTitle: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
+      duration: PropTypes.string,
       key: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     })
   ),

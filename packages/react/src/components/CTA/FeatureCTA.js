@@ -19,7 +19,6 @@ const FeatureCTA = ({
   videoTitle,
   ...otherProps
 }) => {
-  console.log(otherProps);
   return type === 'video' ? (
     <div>
       {CTALogic.launchLightBox(
@@ -33,7 +32,7 @@ const FeatureCTA = ({
           card={_renderFeatureCard({
             card: {
               ...otherProps.card,
-              heading: videoTitle[0].title,
+              heading: `${videoTitle[0].title} ${videoTitle[0].duration}`,
             },
           })}
           onClick={e => CTALogic.setLightBox(e, openLightBox)}
@@ -111,6 +110,7 @@ FeatureCTA.propTypes = {
   videoTitle: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
+      duration: PropTypes.string,
       key: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     })
   ),
