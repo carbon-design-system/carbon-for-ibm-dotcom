@@ -3772,6 +3772,11 @@ exports[`Storyshots Components|FeatureCard Default 1`] = `
       >
         <div
           className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
+          style={
+            Object {
+              "paddingTop": "20px",
+            }
+          }
         >
           <FeatureCard
             card={
@@ -3850,7 +3855,6 @@ exports[`Storyshots Components|FeatureCard Default 1`] = `
                       >
                         <img
                           alt="Image alt text"
-                          aria-describedby=""
                           className="bx--image__img bx--card__img"
                           src="https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1"
                         />
@@ -4408,7 +4412,6 @@ exports[`Storyshots Components|Image Default 1`] = `
               />
               <img
                 alt="Image alt text"
-                aria-describedby=""
                 className="bx--image__img"
                 src="https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1"
               />
@@ -4511,7 +4514,6 @@ exports[`Storyshots Components|ImageWithCaption Default 1`] = `
                     />
                     <img
                       alt="image with caption image"
-                      aria-describedby=""
                       className="bx--image__img"
                       src="https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1"
                     />
@@ -4996,7 +4998,6 @@ exports[`Storyshots Components|LightboxMediaViewer Default 1`] = `
                             >
                               <img
                                 alt="Image alt text"
-                                aria-describedby=""
                                 className="bx--image__img"
                                 src="https://dummyimage.com/1280x720/ee5396/161616&amp;text=16:9"
                               />
@@ -12509,7 +12510,6 @@ exports[`Storyshots Patterns (Blocks)|CalloutWithMedia Default 1`] = `
                                             />
                                             <img
                                               alt="Image alt text"
-                                              aria-describedby=""
                                               className="bx--image__img"
                                               src="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                             />
@@ -13621,7 +13621,6 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                         />
                                         <img
                                           alt="Image alt text"
-                                          aria-describedby=""
                                           className="bx--image__img"
                                           src="https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9"
                                         />
@@ -14013,7 +14012,6 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                         />
                                         <img
                                           alt="Image alt text"
-                                          aria-describedby=""
                                           className="bx--image__img"
                                           src="https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9"
                                         />
@@ -14435,7 +14433,6 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                               >
                                                 <img
                                                   alt="Image alt text"
-                                                  aria-describedby=""
                                                   className="bx--image__img bx--card__img"
                                                   src="https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1"
                                                 />
@@ -14979,7 +14976,6 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                                 />
                                                 <img
                                                   alt="Image alt text"
-                                                  aria-describedby=""
                                                   className="bx--image__img"
                                                   src="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                                 />
@@ -15371,7 +15367,6 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                                 />
                                                 <img
                                                   alt="Image alt text"
-                                                  aria-describedby=""
                                                   className="bx--image__img"
                                                   src="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                                 />
@@ -15793,7 +15788,6 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                                       >
                                                         <img
                                                           alt="Image alt text"
-                                                          aria-describedby=""
                                                           className="bx--image__img bx--card__img"
                                                           src="https://dummyimage.com/672x672/ee5396/161616&text=1x1"
                                                         />
@@ -17799,7 +17793,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                         />
                                         <img
                                           alt="Image alt text"
-                                          aria-describedby=""
                                           className="bx--image__img"
                                           src="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                         />
@@ -19693,7 +19686,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                 />
                                                 <img
                                                   alt="Image alt text"
-                                                  aria-describedby=""
                                                   className="bx--image__img"
                                                   src="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                                 />
@@ -20549,7 +20541,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                               />
                               <img
                                 alt="Image alt text"
-                                aria-describedby=""
                                 className="bx--image__img"
                                 src="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                               />
@@ -20827,7 +20818,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                       />
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby=""
                                         className="bx--image__img"
                                         src="https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9"
                                       />
@@ -21429,7 +21419,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                       />
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby=""
                                         className="bx--image__img"
                                         src="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                       />
@@ -21608,7 +21597,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                               />
                                               <img
                                                 alt="Image alt text"
-                                                aria-describedby=""
                                                 className="bx--image__img"
                                                 src="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                               />
@@ -22391,7 +22379,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                                 />
                                 <img
                                   alt="Image alt text"
-                                  aria-describedby=""
                                   className="bx--image__img"
                                   src="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                 />
@@ -22895,7 +22882,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                         />
                                         <img
                                           alt="Image alt text"
-                                          aria-describedby=""
                                           className="bx--image__img"
                                           src="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                         />
@@ -25478,7 +25464,6 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupSimple Default 1`] = `
                               />
                               <img
                                 alt="Image alt text"
-                                aria-describedby=""
                                 className="bx--image__img"
                                 src="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                               />
@@ -25830,7 +25815,6 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockLarge Default 1`] = `
                       >
                         <img
                           alt="Image alt text"
-                          aria-describedby=""
                           className="bx--image__img bx--card__img"
                           src="https://dummyimage.com/600x300/ee5396/161616&amp;text=2:1"
                         />
@@ -26065,7 +26049,6 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockMedium Default 1`] = `
                                 >
                                   <img
                                     alt="Image alt text"
-                                    aria-describedby=""
                                     className="bx--image__img bx--card__img"
                                     src="https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1"
                                   />
@@ -26369,7 +26352,6 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                               />
                               <img
                                 alt="Image alt text"
-                                aria-describedby=""
                                 className="bx--image__img"
                                 src="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                               />
@@ -28287,7 +28269,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                               >
                                 <img
                                   alt="Image alt text"
-                                  aria-describedby=""
                                   className="bx--image__img bx--card__img"
                                   src="https://dummyimage.com/1056x792/ee5396/161616%26text=4:3"
                                 />
@@ -28420,7 +28401,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                               >
                                 <img
                                   alt="Image alt text"
-                                  aria-describedby=""
                                   className="bx--image__img bx--card__img"
                                   src="https://dummyimage.com/792x1056/ee5396/161616%26text=3:4"
                                 />
@@ -28553,7 +28533,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                               >
                                 <img
                                   alt="Image alt text"
-                                  aria-describedby=""
                                   className="bx--image__img bx--card__img"
                                   src="https://dummyimage.com/1056x1056/ee5396/161616%26text=1:1"
                                 />
@@ -28686,7 +28665,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                               >
                                 <img
                                   alt="Image alt text"
-                                  aria-describedby=""
                                   className="bx--image__img bx--card__img"
                                   src="https://dummyimage.com/1056x528/ee5396/161616%26text=2:1"
                                 />
@@ -28819,7 +28797,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                               >
                                 <img
                                   alt="Image alt text"
-                                  aria-describedby=""
                                   className="bx--image__img bx--card__img"
                                   src="https://dummyimage.com/1056x594/ee5396/161616%26text=16:9"
                                 />
@@ -30012,7 +29989,6 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with image 1`] = `
               />
               <img
                 alt="lead space image"
-                aria-describedby=""
                 className="bx--image__img"
                 src="https://picsum.photos/id/1076/1056/480"
               />
