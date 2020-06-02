@@ -39,6 +39,9 @@ $fcb-breakpoint-up--lg: map-get(
     &__card.#{$prefix}--card--inverse .#{$prefix}--card__cta:visited {
       float: none;
       color: $inverse-link;
+      width: $layout-03;
+      height: $layout-03;
+
       @include carbon--type-style('productive-heading-05');
     }
 
