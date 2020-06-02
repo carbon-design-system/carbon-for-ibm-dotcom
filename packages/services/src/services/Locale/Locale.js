@@ -21,7 +21,10 @@ const _host =
  * @constant {string | string} CORS proxy for lower environment calls
  * @private
  */
-const _proxy = (process && process.env.CORS_PROXY) || '';
+const _proxy =
+  root.location.host === 'www.ibm.com'
+    ? ''
+    : (process && process.env.CORS_PROXY) || '';
 
 /**
  * Sets the default location if nothing is returned
