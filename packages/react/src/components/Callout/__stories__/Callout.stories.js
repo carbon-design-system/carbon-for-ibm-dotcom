@@ -8,11 +8,9 @@
 import Callout from '../Callout';
 import React from 'react';
 import readme from '../README.stories.mdx';
-import { withKnobs } from '@storybook/addon-knobs';
 
 export default {
   title: 'Components|Callout',
-  decorators: [withKnobs],
 
   parameters: {
     ...readme.parameters,

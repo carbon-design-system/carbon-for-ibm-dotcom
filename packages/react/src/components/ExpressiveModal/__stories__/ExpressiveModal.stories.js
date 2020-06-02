@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { boolean, text, withKnobs } from '@storybook/addon-knobs';
+import { boolean, text } from '@storybook/addon-knobs';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
 import { ButtonGroup } from '../../ButtonGroup';
 import { ExpressiveModal } from '../';
@@ -18,14 +18,7 @@ import readme from '../README.stories.mdx';
  *
  * @returns {object} JSX object
  */
-function dummyContent() {
-  const title = text('Title (placeholder)', 'Lorem ipsum dolor sit amet');
-  const paragraph = text(
-    'Paragraph (placeholder)',
-    'Quisque felis odio, egestas vel tempus iaculis, interdum vel eros. Phasellus pharetra, purus et pretium posuere, ipsum risus pulvinar leo, non rutrum tortor risus vitae quam. Nulla sed nibh felis. Maecenas nec tincidunt eros. Fusce sollicitudin sit amet quam eu fringilla. Donec tincidunt ut nisi vitae pharetra. Curabitur imperdiet ante sit amet mi laoreet, vitae facilisis ante convallis. Aenean quis dapibus augue. Sed nisl dui, scelerisque et augue eget, pharetra commodo elit. In venenatis sapien eu nisl congue suscipit.'
-  );
-  const button = text('Button (placeholder)', 'Lorem ipsum dolor');
-
+function StoryContent({ title, paragraph, button }) {
   return (
     <div>
       {title ? <h1 style={{ marginBottom: '16px' }}>{title}</h1> : null}
@@ -47,34 +40,53 @@ function dummyContent() {
 
 export default {
   title: 'Components|Expressive Modal',
-  decorators: [withKnobs],
 
   parameters: {
     ...readme.parameters,
+    knobs: {
+      ExpressiveModal: ({ groupId }) => ({
+        open: boolean('Toggle modal', true, groupId),
+      }),
+      Other: ({ groupId }) => ({
+        title: text(
+          'Title (placeholder)',
+          'Lorem ipsum dolor sit amet',
+          groupId
+        ),
+        paragraph: text(
+          'Paragraph (placeholder)',
+          'Quisque felis odio, egestas vel tempus iaculis, interdum vel eros. Phasellus pharetra, purus et pretium posuere, ipsum risus pulvinar leo, non rutrum tortor risus vitae quam. Nulla sed nibh felis. Maecenas nec tincidunt eros. Fusce sollicitudin sit amet quam eu fringilla. Donec tincidunt ut nisi vitae pharetra. Curabitur imperdiet ante sit amet mi laoreet, vitae facilisis ante convallis. Aenean quis dapibus augue. Sed nisl dui, scelerisque et augue eget, pharetra commodo elit. In venenatis sapien eu nisl congue suscipit.',
+          groupId
+        ),
+        button: text('Button (placeholder)', 'Lorem ipsum dolor', groupId),
+      }),
+    },
   },
 };
 
-export const Default = () => {
+export const Default = ({ parameters }) => {
+  const { open } = parameters?.props?.ExpressiveModal ?? {};
+  const { title, paragraph, button } = parameters?.props?.Other ?? {};
   return (
-    <>
-      <ExpressiveModal
-        open={boolean('Toggle modal', true)}
-        className="bx--modal--expressive">
-        <ModalBody>{dummyContent()}</ModalBody>
-      </ExpressiveModal>
-    </>
+    <ExpressiveModal open={open} className="bx--modal--expressive">
+      <ModalBody>
+        <StoryContent title={title} paragraph={paragraph} button={button} />
+      </ModalBody>
+    </ExpressiveModal>
   );
 };
 
-export const Expanded = () => {
+export const Expanded = ({ parameters }) => {
+  const { open } = parameters?.props?.ExpressiveModal ?? {};
+  const { title, paragraph, button } = parameters?.props?.Other ?? {};
   return (
-    <>
-      <ExpressiveModal
-        open={boolean('Toggle modal', true)}
-        fullwidth={true}
-        className="bx--modal--expressive">
-        <ModalBody>{dummyContent()}</ModalBody>
-      </ExpressiveModal>
-    </>
+    <ExpressiveModal
+      open={open}
+      fullwidth={true}
+      className="bx--modal--expressive">
+      <ModalBody>
+        <StoryContent title={title} paragraph={paragraph} button={button} />
+      </ModalBody>
+    </ExpressiveModal>
   );
 };

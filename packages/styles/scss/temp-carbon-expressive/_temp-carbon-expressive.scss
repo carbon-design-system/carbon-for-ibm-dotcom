@@ -5,10 +5,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import '@carbon/type/scss/styles';
-@import '@carbon/layout/scss/mini-unit';
-@import '@carbon/layout/scss/breakpoint';
-@import '@carbon/themes/scss/themes';
+@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/type/styles';
+@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/layout/mini-unit';
+@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/layout/breakpoint';
+@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/themes/themes';
 
 // Mixins
 @function temp--padding-diff(
