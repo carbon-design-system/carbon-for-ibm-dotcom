@@ -6,6 +6,7 @@
  */
 
 import { Card } from '../Card';
+import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 import settings from 'carbon-components/es/globals/js/settings';
@@ -15,10 +16,10 @@ const { prefix } = settings;
 /**
  * CardLink component
  */
-const CardLink = ({ card }) => {
+const CardLink = ({ card, customClassName }) => {
   return (
     <Card
-      customClassName={`${prefix}--card__CTA`}
+      customClassName={classnames(`${prefix}--card__CTA`, customClassName)}
       {...card}
       role="region"
       type="link"
@@ -32,6 +33,11 @@ CardLink.propTypes = {
    * See [`<Card>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-card--link-clickable#props) for full usage details.
    */
   card: PropTypes.shape(Card.propTypes).isRequired,
+
+  /**
+   * Custom className
+   */
+  customClassName: PropTypes.string,
 };
 
 export default CardLink;

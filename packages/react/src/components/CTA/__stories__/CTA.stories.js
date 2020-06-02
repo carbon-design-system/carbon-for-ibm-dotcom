@@ -41,6 +41,10 @@ const miscCTAData = {
       cta: {
         href: urlBy[type],
       },
+      image: {
+        defaultSrc: 'https://dummyimage.com/400x300/ee5396/161616&text=4:3',
+        alt: 'Card image alt text',
+      },
       media: {
         src: '0_uka1msg4',
         type: 'video',

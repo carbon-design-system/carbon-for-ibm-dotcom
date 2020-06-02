@@ -9,6 +9,9 @@ import { CardLink } from '../CardLink';
 import CTALogic from './CTALogic';
 import PropTypes from 'prop-types';
 import React from 'react';
+import settings from 'carbon-components/es/globals/js/settings';
+
+const { prefix } = settings;
 
 /**
  * Card subcomponent for CTA.
@@ -25,13 +28,16 @@ const CardCTA = ({
       {CTALogic.launchLightBox(renderLightBox, openLightBox, otherProps.media)}
       {!renderLightBox && (
         <CardLink
+          customClassName={`${prefix}--card__video`}
           card={{
             cta: {
               href: '#',
               icon: {
                 src: CTALogic.iconSelector(type),
               },
+              copy: videoTitle[0].duration.replace(/\(|\)/g, ''),
             },
+            image: otherProps.image,
             copy: videoTitle[0].title,
             handleClick: e => CTALogic.setLightBox(e, openLightBox),
           }}
@@ -96,6 +102,7 @@ CardCTA.propTypes = {
   videoTitle: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
+      duration: PropTypes.string,
       key: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     })
   ),

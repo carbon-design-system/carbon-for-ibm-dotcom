@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -16,7 +16,9 @@ import { VideoPlayerAPI } from '@carbon/ibmdotcom-services';
  * @returns {*} JSX Object
  */
 function useVideoData(type, videoId) {
-  const [videoTitle, setVideoTitle] = useState([{ title: '', key: 0 }]);
+  const [videoTitle, setVideoTitle] = useState([
+    { title: '', duration: '', key: 0 },
+  ]);
 
   useEffect(() => {
     getVideoData();
@@ -36,7 +38,8 @@ function useVideoData(type, videoId) {
           const video = await VideoPlayerAPI.api(vidId.src);
           const time = VideoPlayerAPI.getVideoDuration(video.msDuration);
           return {
-            title: `${video.name} ${time}`,
+            title: video.name,
+            duration: time,
             key: vidId.key,
           };
         })
