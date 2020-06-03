@@ -17,12 +17,16 @@ const getBaseKnobs = ({ groupId }) => {
   return {
     card: {
       copy: text(
-        'Card Heading:',
+        'Card Heading (card.copy):',
         'Explore AI use cases in all industries',
         groupId
       ),
       cta: {
-        href: text('Card href:', 'https://www.example.com', groupId),
+        href: text(
+          'Card href (card.cta.href):',
+          'https://www.example.com',
+          groupId
+        ),
         icon: {
           src: iconStyle,
         },

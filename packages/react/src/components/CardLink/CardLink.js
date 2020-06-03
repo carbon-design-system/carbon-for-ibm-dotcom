@@ -44,4 +44,8 @@ CardLink.propTypes = {
   disabled: PropTypes.bool,
 };
 
+CardLink.defaultProps = {
+  disabled: false,
+};
+
 export default CardLink;
