@@ -23,6 +23,8 @@ const CardCTA = ({
   videoTitle,
   ...otherProps
 }) => {
+  // eslint-disable-next-line no-unused-vars
+  const { style, ...cardProps } = otherProps;
   return type === 'video' ? (
     <>
       {CTALogic.launchLightBox(renderLightBox, openLightBox, otherProps.media)}
@@ -30,6 +32,7 @@ const CardCTA = ({
         <CardLink
           customClassName={`${prefix}--card__video`}
           card={{
+            ...cardProps,
             cta: {
               href: '#',
               icon: {
@@ -37,7 +40,7 @@ const CardCTA = ({
               },
               copy: videoTitle[0].duration.replace(/\(|\)/g, ''),
             },
-            image: otherProps.image,
+            image: cardProps.image,
             copy: videoTitle[0].title,
             handleClick: e => CTALogic.setLightBox(e, openLightBox),
           }}
@@ -47,6 +50,7 @@ const CardCTA = ({
   ) : (
     <CardLink
       card={{
+        ...cardProps,
         cta: {
           type,
           href: otherProps.cta.href,
