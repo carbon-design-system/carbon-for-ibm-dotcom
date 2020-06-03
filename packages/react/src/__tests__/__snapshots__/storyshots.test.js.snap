@@ -43,18 +43,12 @@ exports[`Storyshots Components|ButtonGroup Default 1`] = `
                 Object {
                   "copy": "Button 1",
                   "href": "https://example.com",
-                  "renderIcon": Object {
-                    "$$typeof": Symbol(react.forward_ref),
-                    "render": [Function],
-                  },
+                  "renderIcon": undefined,
                 },
                 Object {
                   "copy": "Button 2",
                   "href": "https://example.com",
-                  "renderIcon": Object {
-                    "$$typeof": Symbol(react.forward_ref),
-                    "render": [Function],
-                  },
+                  "renderIcon": undefined,
                 },
               ]
             }
@@ -73,12 +67,6 @@ exports[`Storyshots Components|ButtonGroup Default 1`] = `
                   disabled={false}
                   href="https://example.com"
                   kind="primary"
-                  renderIcon={
-                    Object {
-                      "$$typeof": Symbol(react.forward_ref),
-                      "render": [Function],
-                    }
-                  }
                   tabIndex={2}
                   type="button"
                 >
@@ -90,35 +78,6 @@ exports[`Storyshots Components|ButtonGroup Default 1`] = `
                     tabIndex={2}
                   >
                     Button 1
-                    <ForwardRef(ArrowRight20)
-                      aria-hidden="true"
-                      className="bx--btn__icon"
-                    >
-                      <Icon
-                        aria-hidden="true"
-                        className="bx--btn__icon"
-                        height={20}
-                        preserveAspectRatio="xMidYMid meet"
-                        viewBox="0 0 20 20"
-                        width={20}
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <svg
-                          aria-hidden={true}
-                          className="bx--btn__icon"
-                          focusable="false"
-                          height={20}
-                          preserveAspectRatio="xMidYMid meet"
-                          viewBox="0 0 20 20"
-                          width={20}
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
-                          />
-                        </svg>
-                      </Icon>
-                    </ForwardRef(ArrowRight20)>
                   </a>
                 </ForwardRef(Button)>
               </li>
@@ -132,12 +91,6 @@ exports[`Storyshots Components|ButtonGroup Default 1`] = `
                   disabled={false}
                   href="https://example.com"
                   kind="tertiary"
-                  renderIcon={
-                    Object {
-                      "$$typeof": Symbol(react.forward_ref),
-                      "render": [Function],
-                    }
-                  }
                   tabIndex={1}
                   type="button"
                 >
@@ -149,35 +102,6 @@ exports[`Storyshots Components|ButtonGroup Default 1`] = `
                     tabIndex={1}
                   >
                     Button 2
-                    <ForwardRef(ArrowRight20)
-                      aria-hidden="true"
-                      className="bx--btn__icon"
-                    >
-                      <Icon
-                        aria-hidden="true"
-                        className="bx--btn__icon"
-                        height={20}
-                        preserveAspectRatio="xMidYMid meet"
-                        viewBox="0 0 20 20"
-                        width={20}
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <svg
-                          aria-hidden={true}
-                          className="bx--btn__icon"
-                          focusable="false"
-                          height={20}
-                          preserveAspectRatio="xMidYMid meet"
-                          viewBox="0 0 20 20"
-                          width={20}
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
-                          />
-                        </svg>
-                      </Icon>
-                    </ForwardRef(ArrowRight20)>
                   </a>
                 </ForwardRef(Button)>
               </li>
@@ -201,18 +125,12 @@ exports[`Storyshots Components|ButtonGroup Default 1`] = `
             Object {
               "copy": "Button 1",
               "href": "https://example.com",
-              "renderIcon": Object {
-                "$$typeof": Symbol(react.forward_ref),
-                "render": [Function],
-              },
+              "renderIcon": undefined,
             },
             Object {
               "copy": "Button 2",
               "href": "https://example.com",
-              "renderIcon": Object {
-                "$$typeof": Symbol(react.forward_ref),
-                "render": [Function],
-              },
+              "renderIcon": undefined,
             },
           ]
         }
@@ -231,12 +149,6 @@ exports[`Storyshots Components|ButtonGroup Default 1`] = `
               disabled={false}
               href="https://example.com"
               kind="primary"
-              renderIcon={
-                Object {
-                  "$$typeof": Symbol(react.forward_ref),
-                  "render": [Function],
-                }
-              }
               tabIndex={2}
               type="button"
             >
@@ -248,35 +160,6 @@ exports[`Storyshots Components|ButtonGroup Default 1`] = `
                 tabIndex={2}
               >
                 Button 1
-                <ForwardRef(ArrowRight20)
-                  aria-hidden="true"
-                  className="bx--btn__icon"
-                >
-                  <Icon
-                    aria-hidden="true"
-                    className="bx--btn__icon"
-                    height={20}
-                    preserveAspectRatio="xMidYMid meet"
-                    viewBox="0 0 20 20"
-                    width={20}
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <svg
-                      aria-hidden={true}
-                      className="bx--btn__icon"
-                      focusable="false"
-                      height={20}
-                      preserveAspectRatio="xMidYMid meet"
-                      viewBox="0 0 20 20"
-                      width={20}
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
-                      />
-                    </svg>
-                  </Icon>
-                </ForwardRef(ArrowRight20)>
               </a>
             </ForwardRef(Button)>
           </li>
@@ -290,12 +173,6 @@ exports[`Storyshots Components|ButtonGroup Default 1`] = `
               disabled={false}
               href="https://example.com"
               kind="tertiary"
-              renderIcon={
-                Object {
-                  "$$typeof": Symbol(react.forward_ref),
-                  "render": [Function],
-                }
-              }
               tabIndex={1}
               type="button"
             >
@@ -307,35 +184,6 @@ exports[`Storyshots Components|ButtonGroup Default 1`] = `
                 tabIndex={1}
               >
                 Button 2
-                <ForwardRef(ArrowRight20)
-                  aria-hidden="true"
-                  className="bx--btn__icon"
-                >
-                  <Icon
-                    aria-hidden="true"
-                    className="bx--btn__icon"
-                    height={20}
-                    preserveAspectRatio="xMidYMid meet"
-                    viewBox="0 0 20 20"
-                    width={20}
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <svg
-                      aria-hidden={true}
-                      className="bx--btn__icon"
-                      focusable="false"
-                      height={20}
-                      preserveAspectRatio="xMidYMid meet"
-                      viewBox="0 0 20 20"
-                      width={20}
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
-                      />
-                    </svg>
-                  </Icon>
-                </ForwardRef(ArrowRight20)>
               </a>
             </ForwardRef(Button)>
           </li>
@@ -1851,6 +1699,7 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
                                   "href": "https://ibm.com",
                                 }
                               }
+                              href=""
                               style="text"
                               type="local"
                             >
@@ -1862,6 +1711,7 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
                                       "href": "https://ibm.com",
                                     }
                                   }
+                                  href=""
                                   openLightBox={[Function]}
                                   renderLightBox={false}
                                   style="text"
@@ -1941,6 +1791,7 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
                                   "href": "https://ibm.com",
                                 }
                               }
+                              href=""
                               style="text"
                               type="external"
                             >
@@ -1952,6 +1803,7 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
                                       "href": "https://ibm.com",
                                     }
                                   }
+                                  href=""
                                   openLightBox={[Function]}
                                   renderLightBox={false}
                                   style="text"
@@ -3772,6 +3624,11 @@ exports[`Storyshots Components|FeatureCard Default 1`] = `
       >
         <div
           className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
+          style={
+            Object {
+              "paddingTop": "20px",
+            }
+          }
         >
           <FeatureCard
             card={
@@ -3850,7 +3707,6 @@ exports[`Storyshots Components|FeatureCard Default 1`] = `
                       >
                         <img
                           alt="Image alt text"
-                          aria-describedby=""
                           className="bx--image__img bx--card__img"
                           src="https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1"
                         />
@@ -4408,7 +4264,6 @@ exports[`Storyshots Components|Image Default 1`] = `
               />
               <img
                 alt="Image alt text"
-                aria-describedby=""
                 className="bx--image__img"
                 src="https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1"
               />
@@ -4511,7 +4366,6 @@ exports[`Storyshots Components|ImageWithCaption Default 1`] = `
                     />
                     <img
                       alt="image with caption image"
-                      aria-describedby=""
                       className="bx--image__img"
                       src="https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1"
                     />
@@ -4996,7 +4850,6 @@ exports[`Storyshots Components|LightboxMediaViewer Default 1`] = `
                             >
                               <img
                                 alt="Image alt text"
-                                aria-describedby=""
                                 className="bx--image__img"
                                 src="https://dummyimage.com/1280x720/ee5396/161616&amp;text=16:9"
                               />
@@ -5412,6 +5265,7 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                         "href": "https://ibm.com",
                       }
                     }
+                    href=""
                     style="card"
                     type="local"
                   >
@@ -5423,6 +5277,8 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                             "href": "https://ibm.com",
                           }
                         }
+                        href=""
+                        media={null}
                         openLightBox={[Function]}
                         renderLightBox={false}
                         style="card"
@@ -5574,6 +5430,7 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                         "href": "https://ibm.com",
                       }
                     }
+                    href=""
                     style="card"
                     type="download"
                   >
@@ -5585,6 +5442,8 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                             "href": "https://ibm.com",
                           }
                         }
+                        href=""
+                        media={null}
                         openLightBox={[Function]}
                         renderLightBox={false}
                         style="card"
@@ -5739,6 +5598,7 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                         "href": "https://ibm.com",
                       }
                     }
+                    href=""
                     style="card"
                     type="external"
                   >
@@ -5750,6 +5610,8 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                             "href": "https://ibm.com",
                           }
                         }
+                        href=""
+                        media={null}
                         openLightBox={[Function]}
                         renderLightBox={false}
                         style="card"
@@ -5898,6 +5760,8 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                   key="3"
                 >
                   <CTA
+                    copy=""
+                    href=""
                     media={
                       Object {
                         "src": "0_uka1msg4",
@@ -5909,6 +5773,9 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                   >
                     <div>
                       <CardCTA
+                        copy=""
+                        cta={null}
+                        href=""
                         media={
                           Object {
                             "src": "0_uka1msg4",
@@ -6144,6 +6011,7 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                         "href": "https://ibm.com",
                       }
                     }
+                    href=""
                     style="text"
                     type="local"
                   >
@@ -6155,6 +6023,7 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                             "href": "https://ibm.com",
                           }
                         }
+                        href=""
                         openLightBox={[Function]}
                         renderLightBox={false}
                         style="text"
@@ -6234,6 +6103,7 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                         "href": "https://ibm.com",
                       }
                     }
+                    href=""
                     style="text"
                     type="download"
                   >
@@ -6245,6 +6115,7 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                             "href": "https://ibm.com",
                           }
                         }
+                        href=""
                         openLightBox={[Function]}
                         renderLightBox={false}
                         style="text"
@@ -6327,6 +6198,7 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                         "href": "https://ibm.com",
                       }
                     }
+                    href=""
                     style="text"
                     type="external"
                   >
@@ -6338,6 +6210,7 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                             "href": "https://ibm.com",
                           }
                         }
+                        href=""
                         openLightBox={[Function]}
                         renderLightBox={false}
                         style="text"
@@ -6414,6 +6287,8 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                   key="3"
                 >
                   <CTA
+                    copy=""
+                    href=""
                     media={
                       Object {
                         "src": "0_uka1msg4",
@@ -6425,6 +6300,8 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                   >
                     <div>
                       <TextCTA
+                        copy=""
+                        href=""
                         media={
                           Object {
                             "src": "0_uka1msg4",
@@ -6581,6 +6458,7 @@ exports[`Storyshots Components|LinkList Horizontal 1`] = `
                         "href": "https://ibm.com",
                       }
                     }
+                    href=""
                     style="text"
                     type="local"
                   >
@@ -6592,6 +6470,7 @@ exports[`Storyshots Components|LinkList Horizontal 1`] = `
                             "href": "https://ibm.com",
                           }
                         }
+                        href=""
                         openLightBox={[Function]}
                         renderLightBox={false}
                         style="text"
@@ -6671,6 +6550,7 @@ exports[`Storyshots Components|LinkList Horizontal 1`] = `
                         "href": "https://ibm.com",
                       }
                     }
+                    href=""
                     style="text"
                     type="download"
                   >
@@ -6682,6 +6562,7 @@ exports[`Storyshots Components|LinkList Horizontal 1`] = `
                             "href": "https://ibm.com",
                           }
                         }
+                        href=""
                         openLightBox={[Function]}
                         renderLightBox={false}
                         style="text"
@@ -6849,6 +6730,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                         "href": "https://ibm.com",
                       }
                     }
+                    href=""
                     style="text"
                     type="local"
                   >
@@ -6860,6 +6742,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                             "href": "https://ibm.com",
                           }
                         }
+                        href=""
                         openLightBox={[Function]}
                         renderLightBox={false}
                         style="text"
@@ -6939,6 +6822,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                         "href": "https://ibm.com",
                       }
                     }
+                    href=""
                     style="text"
                     type="download"
                   >
@@ -6950,6 +6834,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                             "href": "https://ibm.com",
                           }
                         }
+                        href=""
                         openLightBox={[Function]}
                         renderLightBox={false}
                         style="text"
@@ -7032,6 +6917,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                         "href": "https://ibm.com",
                       }
                     }
+                    href=""
                     style="text"
                     type="external"
                   >
@@ -7043,6 +6929,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                             "href": "https://ibm.com",
                           }
                         }
+                        href=""
                         openLightBox={[Function]}
                         renderLightBox={false}
                         style="text"
@@ -7119,6 +7006,8 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                   key="3"
                 >
                   <CTA
+                    copy=""
+                    href=""
                     media={
                       Object {
                         "src": "0_uka1msg4",
@@ -7130,6 +7019,8 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                   >
                     <div>
                       <TextCTA
+                        copy=""
+                        href=""
                         media={
                           Object {
                             "src": "0_uka1msg4",
@@ -7300,6 +7191,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                         "href": "https://ibm.com",
                       }
                     }
+                    href=""
                     style="text"
                     type="local"
                   >
@@ -7311,6 +7203,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                             "href": "https://ibm.com",
                           }
                         }
+                        href=""
                         openLightBox={[Function]}
                         renderLightBox={false}
                         style="text"
@@ -7390,6 +7283,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                         "href": "https://ibm.com",
                       }
                     }
+                    href=""
                     style="text"
                     type="download"
                   >
@@ -7401,6 +7295,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                             "href": "https://ibm.com",
                           }
                         }
+                        href=""
                         openLightBox={[Function]}
                         renderLightBox={false}
                         style="text"
@@ -7483,6 +7378,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                         "href": "https://ibm.com",
                       }
                     }
+                    href=""
                     style="text"
                     type="external"
                   >
@@ -7494,6 +7390,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                             "href": "https://ibm.com",
                           }
                         }
+                        href=""
                         openLightBox={[Function]}
                         renderLightBox={false}
                         style="text"
@@ -7570,6 +7467,8 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                   key="3"
                 >
                   <CTA
+                    copy=""
+                    href=""
                     media={
                       Object {
                         "src": "0_uka1msg4",
@@ -7581,6 +7480,8 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                   >
                     <div>
                       <TextCTA
+                        copy=""
+                        href=""
                         media={
                           Object {
                             "src": "0_uka1msg4",
@@ -7717,6 +7618,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                         "href": "https://ibm.com",
                       }
                     }
+                    href=""
                     style="card"
                     type="local"
                   >
@@ -7728,6 +7630,8 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                             "href": "https://ibm.com",
                           }
                         }
+                        href=""
+                        media={null}
                         openLightBox={[Function]}
                         renderLightBox={false}
                         style="card"
@@ -7879,6 +7783,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                         "href": "https://ibm.com",
                       }
                     }
+                    href=""
                     style="card"
                     type="download"
                   >
@@ -7890,6 +7795,8 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                             "href": "https://ibm.com",
                           }
                         }
+                        href=""
+                        media={null}
                         openLightBox={[Function]}
                         renderLightBox={false}
                         style="card"
@@ -8044,6 +7951,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                         "href": "https://ibm.com",
                       }
                     }
+                    href=""
                     style="card"
                     type="external"
                   >
@@ -8055,6 +7963,8 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                             "href": "https://ibm.com",
                           }
                         }
+                        href=""
+                        media={null}
                         openLightBox={[Function]}
                         renderLightBox={false}
                         style="card"
@@ -8203,6 +8113,8 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                   key="3"
                 >
                   <CTA
+                    copy=""
+                    href=""
                     media={
                       Object {
                         "src": "0_uka1msg4",
@@ -8214,6 +8126,9 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                   >
                     <div>
                       <CardCTA
+                        copy=""
+                        cta={null}
+                        href=""
                         media={
                           Object {
                             "src": "0_uka1msg4",
@@ -12509,7 +12424,6 @@ exports[`Storyshots Patterns (Blocks)|CalloutWithMedia Default 1`] = `
                                             />
                                             <img
                                               alt="Image alt text"
-                                              aria-describedby=""
                                               className="bx--image__img"
                                               src="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                             />
@@ -13621,7 +13535,6 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                         />
                                         <img
                                           alt="Image alt text"
-                                          aria-describedby=""
                                           className="bx--image__img"
                                           src="https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9"
                                         />
@@ -13701,6 +13614,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                   }
                                 }
                                 customClassName="bx--content-group__cta"
+                                href=""
                                 style="card"
                                 type="local"
                               >
@@ -13714,6 +13628,8 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                         "href": "https://www.example.com",
                                       }
                                     }
+                                    href=""
+                                    media={null}
                                     openLightBox={[Function]}
                                     renderLightBox={false}
                                     style="card"
@@ -14013,7 +13929,6 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                         />
                                         <img
                                           alt="Image alt text"
-                                          aria-describedby=""
                                           className="bx--image__img"
                                           src="https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9"
                                         />
@@ -14093,6 +14008,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                   }
                                 }
                                 customClassName="bx--content-group__cta"
+                                href=""
                                 style="card"
                                 type="local"
                               >
@@ -14106,6 +14022,8 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                         "href": "https://www.example.com",
                                       }
                                     }
+                                    href=""
+                                    media={null}
                                     openLightBox={[Function]}
                                     renderLightBox={false}
                                     style="card"
@@ -14270,8 +14188,10 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                         },
                       }
                     }
+                    copy=""
                     customClassName="bx--content-block__cta"
                     heading="Lorem ipsum dolor sit amet"
+                    href=""
                     style="feature"
                     type="local"
                   >
@@ -14297,7 +14217,9 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                             },
                           }
                         }
+                        copy=""
                         heading="Lorem ipsum dolor sit amet"
+                        href=""
                         openLightBox={[Function]}
                         renderLightBox={false}
                         style="feature"
@@ -14435,7 +14357,6 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                               >
                                                 <img
                                                   alt="Image alt text"
-                                                  aria-describedby=""
                                                   className="bx--image__img bx--card__img"
                                                   src="https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1"
                                                 />
@@ -14979,7 +14900,6 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                                 />
                                                 <img
                                                   alt="Image alt text"
-                                                  aria-describedby=""
                                                   className="bx--image__img"
                                                   src="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                                 />
@@ -15059,6 +14979,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                           }
                                         }
                                         customClassName="bx--content-group__cta"
+                                        href=""
                                         style="card"
                                         type="local"
                                       >
@@ -15072,6 +14993,8 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                                 "href": "https://www.example.com",
                                               }
                                             }
+                                            href=""
+                                            media={null}
                                             openLightBox={[Function]}
                                             renderLightBox={false}
                                             style="card"
@@ -15371,7 +15294,6 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                                 />
                                                 <img
                                                   alt="Image alt text"
-                                                  aria-describedby=""
                                                   className="bx--image__img"
                                                   src="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                                 />
@@ -15451,6 +15373,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                           }
                                         }
                                         customClassName="bx--content-group__cta"
+                                        href=""
                                         style="card"
                                         type="local"
                                       >
@@ -15464,6 +15387,8 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                                 "href": "https://www.example.com",
                                               }
                                             }
+                                            href=""
+                                            media={null}
                                             openLightBox={[Function]}
                                             renderLightBox={false}
                                             style="card"
@@ -15628,8 +15553,10 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                 },
                               }
                             }
+                            copy=""
                             customClassName="bx--content-block__cta"
                             heading="Lorem ipsum dolor sit amet"
+                            href=""
                             style="feature"
                             type="local"
                           >
@@ -15655,7 +15582,9 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                     },
                                   }
                                 }
+                                copy=""
                                 heading="Lorem ipsum dolor sit amet"
+                                href=""
                                 openLightBox={[Function]}
                                 renderLightBox={false}
                                 style="feature"
@@ -15793,7 +15722,6 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                                       >
                                                         <img
                                                           alt="Image alt text"
-                                                          aria-describedby=""
                                                           className="bx--image__img bx--card__img"
                                                           src="https://dummyimage.com/672x672/ee5396/161616&text=1x1"
                                                         />
@@ -15920,6 +15848,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                         "href": "https://ibm.com",
                                       }
                                     }
+                                    href=""
                                     style="card"
                                     type="local"
                                   >
@@ -15931,6 +15860,8 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                             "href": "https://ibm.com",
                                           }
                                         }
+                                        href=""
+                                        media={null}
                                         openLightBox={[Function]}
                                         renderLightBox={false}
                                         style="card"
@@ -16082,6 +16013,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                         "href": "https://ibm.com",
                                       }
                                     }
+                                    href=""
                                     style="card"
                                     type="external"
                                   >
@@ -16093,6 +16025,8 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                             "href": "https://ibm.com",
                                           }
                                         }
+                                        href=""
+                                        media={null}
                                         openLightBox={[Function]}
                                         renderLightBox={false}
                                         style="card"
@@ -17799,7 +17733,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                         />
                                         <img
                                           alt="Image alt text"
-                                          aria-describedby=""
                                           className="bx--image__img"
                                           src="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                         />
@@ -17885,6 +17818,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                       }
                       customClassName="bx--content-block__cta bx--content-block__cta-col"
                       heading="Lorem ipsum dolor sit amet"
+                      href=""
                       style="card"
                       type="local"
                     >
@@ -17899,6 +17833,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                             }
                           }
                           heading="Lorem ipsum dolor sit amet"
+                          href=""
+                          media={null}
                           openLightBox={[Function]}
                           renderLightBox={false}
                           style="card"
@@ -19693,7 +19629,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                 />
                                                 <img
                                                   alt="Image alt text"
-                                                  aria-describedby=""
                                                   className="bx--image__img"
                                                   src="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                                 />
@@ -19779,6 +19714,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                               }
                               customClassName="bx--content-block__cta bx--content-block__cta-col"
                               heading="Lorem ipsum dolor sit amet"
+                              href=""
                               style="card"
                               type="local"
                             >
@@ -19793,6 +19729,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                     }
                                   }
                                   heading="Lorem ipsum dolor sit amet"
+                                  href=""
+                                  media={null}
                                   openLightBox={[Function]}
                                   renderLightBox={false}
                                   style="card"
@@ -19983,6 +19921,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                         "href": "https://ibm.com",
                                       }
                                     }
+                                    href=""
                                     style="card"
                                     type="local"
                                   >
@@ -19994,6 +19933,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                             "href": "https://ibm.com",
                                           }
                                         }
+                                        href=""
+                                        media={null}
                                         openLightBox={[Function]}
                                         renderLightBox={false}
                                         style="card"
@@ -20145,6 +20086,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                         "href": "https://ibm.com",
                                       }
                                     }
+                                    href=""
                                     style="card"
                                     type="external"
                                   >
@@ -20156,6 +20098,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                             "href": "https://ibm.com",
                                           }
                                         }
+                                        href=""
+                                        media={null}
                                         openLightBox={[Function]}
                                         renderLightBox={false}
                                         style="card"
@@ -20549,7 +20493,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                               />
                               <img
                                 alt="Image alt text"
-                                aria-describedby=""
                                 className="bx--image__img"
                                 src="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                               />
@@ -20827,7 +20770,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                       />
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby=""
                                         className="bx--image__img"
                                         src="https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9"
                                       />
@@ -20944,6 +20886,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                         }
                       }
                       customClassName="bx--content-block__cta bx--content-block__cta-col"
+                      href=""
                       style="card"
                       type="local"
                     >
@@ -20957,6 +20900,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                               "href": "https://www.example.com",
                             }
                           }
+                          href=""
+                          media={null}
                           openLightBox={[Function]}
                           renderLightBox={false}
                           style="card"
@@ -21429,7 +21374,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                       />
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby=""
                                         className="bx--image__img"
                                         src="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                       />
@@ -21608,7 +21552,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                               />
                                               <img
                                                 alt="Image alt text"
-                                                aria-describedby=""
                                                 className="bx--image__img"
                                                 src="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                               />
@@ -21640,6 +21583,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                 }
                               }
                               customClassName="bx--content-block__cta bx--content-block__cta-col"
+                              href=""
                               style="card"
                               type="local"
                             >
@@ -21653,6 +21597,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                       "href": "https://www.example.com",
                                     }
                                   }
+                                  href=""
+                                  media={null}
                                   openLightBox={[Function]}
                                   renderLightBox={false}
                                   style="card"
@@ -21843,6 +21789,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                         "href": "https://ibm.com",
                                       }
                                     }
+                                    href=""
                                     style="card"
                                     type="local"
                                   >
@@ -21854,6 +21801,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                             "href": "https://ibm.com",
                                           }
                                         }
+                                        href=""
+                                        media={null}
                                         openLightBox={[Function]}
                                         renderLightBox={false}
                                         style="card"
@@ -22005,6 +21954,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                         "href": "https://ibm.com",
                                       }
                                     }
+                                    href=""
                                     style="card"
                                     type="external"
                                   >
@@ -22016,6 +21966,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                             "href": "https://ibm.com",
                                           }
                                         }
+                                        href=""
+                                        media={null}
                                         openLightBox={[Function]}
                                         renderLightBox={false}
                                         style="card"
@@ -22391,7 +22343,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                                 />
                                 <img
                                   alt="Image alt text"
-                                  aria-describedby=""
                                   className="bx--image__img"
                                   src="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                 />
@@ -22421,6 +22372,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                       }
                       customClassName="bx--content-block__cta bx--content-block__cta-col"
                       heading="Lorem ipsum dolor sit amet"
+                      href=""
                       style="card"
                       type="local"
                     >
@@ -22435,6 +22387,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                             }
                           }
                           heading="Lorem ipsum dolor sit amet"
+                          href=""
+                          media={null}
                           openLightBox={[Function]}
                           renderLightBox={false}
                           style="card"
@@ -22895,7 +22849,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                         />
                                         <img
                                           alt="Image alt text"
-                                          aria-describedby=""
                                           className="bx--image__img"
                                           src="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                         />
@@ -22925,6 +22878,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                               }
                               customClassName="bx--content-block__cta bx--content-block__cta-col"
                               heading="Lorem ipsum dolor sit amet"
+                              href=""
                               style="card"
                               type="local"
                             >
@@ -22939,6 +22893,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                     }
                                   }
                                   heading="Lorem ipsum dolor sit amet"
+                                  href=""
+                                  media={null}
                                   openLightBox={[Function]}
                                   renderLightBox={false}
                                   style="card"
@@ -23129,6 +23085,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                         "href": "https://ibm.com",
                                       }
                                     }
+                                    href=""
                                     style="card"
                                     type="local"
                                   >
@@ -23140,6 +23097,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                             "href": "https://ibm.com",
                                           }
                                         }
+                                        href=""
+                                        media={null}
                                         openLightBox={[Function]}
                                         renderLightBox={false}
                                         style="card"
@@ -23291,6 +23250,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                         "href": "https://ibm.com",
                                       }
                                     }
+                                    href=""
                                     style="card"
                                     type="external"
                                   >
@@ -23302,6 +23262,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                             "href": "https://ibm.com",
                                           }
                                         }
+                                        href=""
+                                        media={null}
                                         openLightBox={[Function]}
                                         renderLightBox={false}
                                         style="card"
@@ -24248,6 +24210,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                           "href": "https://example.com",
                                         }
                                       }
+                                      href=""
                                       style="text"
                                       type="local"
                                     >
@@ -24259,6 +24222,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                               "href": "https://example.com",
                                             }
                                           }
+                                          href=""
                                           openLightBox={[Function]}
                                           renderLightBox={false}
                                           style="text"
@@ -24338,6 +24302,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                           "href": "https://example.com",
                                         }
                                       }
+                                      href=""
                                       style="text"
                                       type="external"
                                     >
@@ -24349,6 +24314,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                               "href": "https://example.com",
                                             }
                                           }
+                                          href=""
                                           openLightBox={[Function]}
                                           renderLightBox={false}
                                           style="text"
@@ -24532,6 +24498,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                           "href": "https://example.com",
                                         }
                                       }
+                                      href=""
                                       style="text"
                                       type="local"
                                     >
@@ -24543,6 +24510,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                               "href": "https://example.com",
                                             }
                                           }
+                                          href=""
                                           openLightBox={[Function]}
                                           renderLightBox={false}
                                           style="text"
@@ -24622,6 +24590,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                           "href": "https://example.com",
                                         }
                                       }
+                                      href=""
                                       style="text"
                                       type="external"
                                     >
@@ -24633,6 +24602,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                               "href": "https://example.com",
                                             }
                                           }
+                                          href=""
                                           openLightBox={[Function]}
                                           renderLightBox={false}
                                           style="text"
@@ -24802,6 +24772,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                           "href": "https://example.com",
                                         }
                                       }
+                                      href=""
                                       style="text"
                                       type="local"
                                     >
@@ -24813,6 +24784,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                               "href": "https://example.com",
                                             }
                                           }
+                                          href=""
                                           openLightBox={[Function]}
                                           renderLightBox={false}
                                           style="text"
@@ -25478,7 +25450,6 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupSimple Default 1`] = `
                               />
                               <img
                                 alt="Image alt text"
-                                aria-describedby=""
                                 className="bx--image__img"
                                 src="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                               />
@@ -25558,6 +25529,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupSimple Default 1`] = `
                         }
                       }
                       customClassName="bx--content-group__cta"
+                      href=""
                       style="card"
                       type="local"
                     >
@@ -25571,6 +25543,8 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupSimple Default 1`] = `
                               "href": "https://www.example.com",
                             }
                           }
+                          href=""
+                          media={null}
                           openLightBox={[Function]}
                           renderLightBox={false}
                           style="card"
@@ -25830,7 +25804,6 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockLarge Default 1`] = `
                       >
                         <img
                           alt="Image alt text"
-                          aria-describedby=""
                           className="bx--image__img bx--card__img"
                           src="https://dummyimage.com/600x300/ee5396/161616&amp;text=2:1"
                         />
@@ -26065,7 +26038,6 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockMedium Default 1`] = `
                                 >
                                   <img
                                     alt="Image alt text"
-                                    aria-describedby=""
                                     className="bx--image__img bx--card__img"
                                     src="https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1"
                                   />
@@ -26369,7 +26341,6 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                               />
                               <img
                                 alt="Image alt text"
-                                aria-describedby=""
                                 className="bx--image__img"
                                 src="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                               />
@@ -26436,6 +26407,7 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                   "href": "https://ibm.com",
                                 }
                               }
+                              href=""
                               style="text"
                               type="local"
                             >
@@ -26447,6 +26419,7 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                       "href": "https://ibm.com",
                                     }
                                   }
+                                  href=""
                                   openLightBox={[Function]}
                                   renderLightBox={false}
                                   style="text"
@@ -26526,6 +26499,7 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                   "href": "https://ibm.com",
                                 }
                               }
+                              href=""
                               style="text"
                               type="local"
                             >
@@ -26537,6 +26511,7 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                       "href": "https://ibm.com",
                                     }
                                   }
+                                  href=""
                                   openLightBox={[Function]}
                                   renderLightBox={false}
                                   style="text"
@@ -26616,6 +26591,7 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                   "href": "https://ibm.com",
                                 }
                               }
+                              href=""
                               style="text"
                               type="download"
                             >
@@ -26627,6 +26603,7 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                       "href": "https://ibm.com",
                                     }
                                   }
+                                  href=""
                                   openLightBox={[Function]}
                                   renderLightBox={false}
                                   style="text"
@@ -26718,7 +26695,9 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                           },
                         ]
                       }
+                      copy=""
                       customClassName="bx--leadspace-block__cta bx--leadspace-block__cta-col"
+                      href=""
                       style="button"
                       type="local"
                     >
@@ -26742,6 +26721,8 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                               },
                             ]
                           }
+                          copy=""
+                          href=""
                           openLightBox={[Function]}
                           renderLightBox={false}
                           style="button"
@@ -27366,6 +27347,7 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                             }
                           }
                           customClassName="bx--content-block__cta bx--content-block__cta-col"
+                          href=""
                           style="card"
                           type="local"
                         >
@@ -27379,6 +27361,8 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                   "href": "http://local.url.com/",
                                 }
                               }
+                              href=""
+                              media={null}
                               openLightBox={[Function]}
                               renderLightBox={false}
                               style="card"
@@ -27560,12 +27544,9 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
               "href": "https://example.com/",
               "iconDescription": "right arrow icon",
               "onClick": [Function],
-              "renderIcon": Object {
-                "$$typeof": Symbol(react.forward_ref),
-                "render": [Function],
-              },
+              "renderIcon": null,
               "target": null,
-              "type": "local",
+              "type": "default",
             },
           ],
           "style": "button",
@@ -27614,12 +27595,9 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
                   "href": "https://example.com/",
                   "iconDescription": "right arrow icon",
                   "onClick": [Function],
-                  "renderIcon": Object {
-                    "$$typeof": Symbol(react.forward_ref),
-                    "render": [Function],
-                  },
+                  "renderIcon": null,
                   "target": null,
-                  "type": "local",
+                  "type": "default",
                 },
               ],
               "style": "button",
@@ -27664,16 +27642,15 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
                       "href": "https://example.com/",
                       "iconDescription": "right arrow icon",
                       "onClick": [Function],
-                      "renderIcon": Object {
-                        "$$typeof": Symbol(react.forward_ref),
-                        "render": [Function],
-                      },
+                      "renderIcon": null,
                       "target": null,
-                      "type": "local",
+                      "type": "default",
                     },
                   ]
                 }
+                copy=""
                 customClassName="bx--content-block__cta bx--content-block__cta-col"
+                href=""
                 style="button"
                 type="local"
               >
@@ -27688,15 +27665,14 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
                           "href": "https://example.com/",
                           "iconDescription": "right arrow icon",
                           "onClick": [Function],
-                          "renderIcon": Object {
-                            "$$typeof": Symbol(react.forward_ref),
-                            "render": [Function],
-                          },
+                          "renderIcon": null,
                           "target": null,
-                          "type": "local",
+                          "type": "default",
                         },
                       ]
                     }
+                    copy=""
+                    href=""
                     openLightBox={[Function]}
                     renderLightBox={false}
                     style="button"
@@ -27718,12 +27694,9 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
                             "href": "https://example.com/",
                             "iconDescription": "right arrow icon",
                             "onClick": [Function],
-                            "renderIcon": Object {
-                              "$$typeof": Symbol(react.forward_ref),
-                              "render": [Function],
-                            },
+                            "renderIcon": null,
                             "target": null,
-                            "type": "local",
+                            "type": "default",
                           },
                         ]
                       }
@@ -27744,12 +27717,7 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
                             iconDescription="right arrow icon"
                             kind="primary"
                             onClick={[Function]}
-                            renderIcon={
-                              Object {
-                                "$$typeof": Symbol(react.forward_ref),
-                                "render": [Function],
-                              }
-                            }
+                            renderIcon={null}
                             tabIndex={2}
                             target={null}
                             type="button"
@@ -27764,39 +27732,6 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
                               target={null}
                             >
                               Contact sales
-                              <ForwardRef(ArrowRight20)
-                                aria-hidden="true"
-                                aria-label="right arrow icon"
-                                className="bx--btn__icon"
-                              >
-                                <Icon
-                                  aria-hidden="true"
-                                  aria-label="right arrow icon"
-                                  className="bx--btn__icon"
-                                  height={20}
-                                  preserveAspectRatio="xMidYMid meet"
-                                  viewBox="0 0 20 20"
-                                  width={20}
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    aria-label="right arrow icon"
-                                    className="bx--btn__icon"
-                                    focusable="false"
-                                    height={20}
-                                    preserveAspectRatio="xMidYMid meet"
-                                    role="img"
-                                    viewBox="0 0 20 20"
-                                    width={20}
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
-                                    />
-                                  </svg>
-                                </Icon>
-                              </ForwardRef(ArrowRight20)>
                             </a>
                           </ForwardRef(Button)>
                         </li>
@@ -28287,7 +28222,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                               >
                                 <img
                                   alt="Image alt text"
-                                  aria-describedby=""
                                   className="bx--image__img bx--card__img"
                                   src="https://dummyimage.com/1056x792/ee5396/161616%26text=4:3"
                                 />
@@ -28420,7 +28354,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                               >
                                 <img
                                   alt="Image alt text"
-                                  aria-describedby=""
                                   className="bx--image__img bx--card__img"
                                   src="https://dummyimage.com/792x1056/ee5396/161616%26text=3:4"
                                 />
@@ -28553,7 +28486,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                               >
                                 <img
                                   alt="Image alt text"
-                                  aria-describedby=""
                                   className="bx--image__img bx--card__img"
                                   src="https://dummyimage.com/1056x1056/ee5396/161616%26text=1:1"
                                 />
@@ -28686,7 +28618,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                               >
                                 <img
                                   alt="Image alt text"
-                                  aria-describedby=""
                                   className="bx--image__img bx--card__img"
                                   src="https://dummyimage.com/1056x528/ee5396/161616%26text=2:1"
                                 />
@@ -28819,7 +28750,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                               >
                                 <img
                                   alt="Image alt text"
-                                  aria-describedby=""
                                   className="bx--image__img bx--card__img"
                                   src="https://dummyimage.com/1056x594/ee5396/161616%26text=16:9"
                                 />
@@ -30012,7 +29942,6 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with image 1`] = `
               />
               <img
                 alt="lead space image"
-                aria-describedby=""
                 className="bx--image__img"
                 src="https://picsum.photos/id/1076/1056/480"
               />
