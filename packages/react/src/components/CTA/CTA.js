@@ -44,8 +44,14 @@ const CTA = ({ style, type, customClassName, ...otherProps }) => {
     ...otherProps,
   };
 
+  const ariaLabel = otherProps?.copy ?? videoTitle[0].title;
+  const ariaProps = style === 'card' && {
+    'aria-label': ariaLabel,
+    role: 'region',
+  };
+
   return (
-    <div className={customClassName}>
+    <div className={customClassName} {...ariaProps}>
       <CTAComponent {...ctaProps} />
     </div>
   );
@@ -74,6 +80,7 @@ CTA.propTypes = {
    * | `external` | Launch20         | Describes launch arrow onClick which loads in new tab.           |
    * | `download` | Download20       | Describes download arrow onClick for downloading files.          |
    * | `video`    | PlayOutline20    | Describes play icon onClick which loads the video in a lightbox. |
+   * | `default`  | None             | Describes the default CTA - without icon                         |
    *
    * For more details of icons, refer to:
    *
@@ -82,9 +89,23 @@ CTA.propTypes = {
    * - [carbon-icons](https://www.npmjs.com/package/carbon-icons)!👀
    */
   type: PropTypes.oneOfType([
-    PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video']),
+    PropTypes.oneOf([
+      'jump',
+      'local',
+      'external',
+      'download',
+      'video',
+      'default',
+    ]),
     PropTypes.arrayOf(
-      PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video'])
+      PropTypes.oneOf([
+        'jump',
+        'local',
+        'external',
+        'download',
+        'video',
+        'default',
+      ])
     ),
   ]),
 
@@ -104,6 +125,13 @@ CTA.propTypes = {
    * Custom classname from parent.
    */
   customClassName: PropTypes.string,
+};
+
+CTA.defaultProps = {
+  style: 'text',
+  type: 'default',
+  copy: '',
+  href: '',
 };
 
 export default CTA;

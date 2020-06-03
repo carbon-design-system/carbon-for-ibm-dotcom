@@ -196,17 +196,25 @@ const TableOfContents = ({
       data-autoid={`${stablePrefix}--tableofcontents`}
       className={classNames(`${prefix}--tableofcontents`, _setTheme(theme))}>
       <Layout {...layoutProps}>
-        <div
-          style={{ position: 'sticky', top: '0' }}
-          className={`${prefix}--tableofcontents__sidebar`}
-          data-sticky="true">
+        <div className={`${prefix}--tableofcontents__sidebar`}>
+          {headingContent ? (
+            <div className={`${prefix}--tableofcontents__desktop__children`}>
+              {headingContent}
+
+              {menuRule ? (
+                <hr className={`${prefix}--tableofcontents__desktop__rule`} />
+              ) : null}
+            </div>
+          ) : null}
           <div className={`${prefix}--tableofcontents__mobile-top`}></div>
-          <TOCDesktop
-            menuRule={menuRule}
-            headingContent={headingContent}
-            {...props}
-          />
-          <TOCMobile {...props} />
+          <div style={{ position: 'sticky', top: '0' }}>
+            <TOCDesktop
+              menuRule={menuRule}
+              headingContent={headingContent}
+              {...props}
+            />
+            <TOCMobile {...props} />
+          </div>
         </div>
         <div className={`${prefix}--tableofcontents__content`}>
           <div className={`${prefix}--tableofcontents__content-wrapper`}>
