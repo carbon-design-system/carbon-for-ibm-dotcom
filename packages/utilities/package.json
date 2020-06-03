@@ -66,6 +66,7 @@
     "jest": "24.0.0",
     "jest-circus": "24.0.0",
     "jsdoc": "^3.6.2",
+    "marked": "^1.1.0",
     "object-assign": "^4.1.1",
     "promise": "^8.0.1",
     "rimraf": "^2.6.3",

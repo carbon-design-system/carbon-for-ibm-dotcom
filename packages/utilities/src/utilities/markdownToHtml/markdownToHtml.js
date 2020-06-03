@@ -5,14 +5,15 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import marked from 'marked';
 import settings from 'carbon-components/es/globals/js/settings';
 const { prefix } = settings;
 
 const _htmlTagRegex = /<.*?>/g;
 const _cleanStringRegex = /\n|\s{2,}|&([a-zA-Z]+);/g;
-const _italicRegex = /[_*](.*?)[_*]/g;
-const _boldRegex = /[_*]{2}(.*?)[_*]{2}/g;
-const _paraRegex = /\n\n/g;
+// const _italicRegex = /[_*](.*?)[_*]/g;
+// const _boldRegex = /[_*]{2}(.*?)[_*]{2}/g;
+// const _paraRegex = /\n\n/g;
 
 /**
  * Removes any html tags from a string and keeps inner text if any
@@ -31,7 +32,7 @@ const _removeHtmlTags = str => str.replace(_htmlTagRegex, '');
  * @returns {string} String with multiple spaces and single new lines removed
  * @private
  */
-const _cleanString = str => str.replace(_cleanStringRegex, ' ');
+// const _cleanString = str => str.replace(_cleanStringRegex, ' ');
 
 /**
  * Converts some markdown syntaxes into html
@@ -63,46 +64,92 @@ const _cleanString = str => str.replace(_cleanStringRegex, ' ');
 function markdownToHtml(
   str,
   {
-    italic = true,
-    bold = true,
-    useCarbonClasses = true,
+    // italic = true,
+    // bold = true,
+    // useCarbonClasses = true,
     allowHtml = false,
-    cleanString = false,
-    createParagraphs = true,
+    // cleanString = false,
+    // createParagraphs = true,
   } = {}
 ) {
-  let paraList = '';
+  // const options = {};
+  // options.renderer = new marked.Renderer();
+
+  // options.renderer.link = {
+  //   classes: {
+  //     rendered: 'foo',
+  //   },
+  // };
+  // let paraList = '';
   let converted = allowHtml ? str : _removeHtmlTags(str);
-  converted = cleanString ? _cleanString(converted) : converted;
-  const paras = converted.split(_paraRegex);
 
-  paras.map(para => {
-    if (italic) {
-      para = _cleanString(para).replace(_italicRegex, (match, p1) => {
-        if (!p1.length) {
-          return match;
-        }
-        return useCarbonClasses
-          ? `<em class="${prefix}--type-light">${p1}</em>`
-          : `<em>${p1}</em>`;
-      });
-    }
+  const renderer = {
+    link(href, title, text) {
+      // console.log('this', this.link);
+      const linkTitle = title ? `title="${title}"` : null;
+      return `
+        <a class="${prefix}--link" href="${href}" ${linkTitle}>${text}</a>
+      `;
+    },
+    list(ordered, start) {
+      // console.log('list body', body);
+      console.log('list ordered', ordered);
+      console.log('list start', start);
+      const listType = ordered ? 'ol' : 'ul';
+      const listClass = ordered
+        ? `${prefix}--list--ordered`
+        : `${prefix}--list--unordered`;
 
-    if (bold) {
-      para = _cleanString(para).replace(_boldRegex, (match, p1) => {
-        if (!p1.length) {
-          return match;
-        }
-        return useCarbonClasses
-          ? `<strong class="${prefix}--type-semibold">${p1}</strong>`
-          : `<strong>${p1}</strong>`;
-      });
-    }
+      return `
+        <${listType} class="${listClass}">
+      `;
+    },
+    listItem(text) {
+      return `
+        <li class="${prefix}--list__item">${text}</li>
+      `;
+    },
+  };
 
-    paraList += createParagraphs ? `<p>${para}</p>` : para;
-  });
+  marked.use({ renderer });
 
-  return paraList;
+  // converted = cleanString ? _cleanString(converted) : converted;
+  // const paras = converted.split(_paraRegex);
+
+  // paras.map(para => {
+  //   if (italic) {
+  //     para = _cleanString(para).replace(_italicRegex, (match, p1) => {
+  //       if (!p1.length) {
+  //         return match;
+  //       }
+  //       return useCarbonClasses
+  //         ? `<em class="${prefix}--type-light">${p1}</em>`
+  //         : `<em>${p1}</em>`;
+  //     });
+  //   }
+
+  //   if (bold) {
+  //     para = _cleanString(para).replace(_boldRegex, (match, p1) => {
+  //       if (!p1.length) {
+  //         return match;
+  //       }
+  //       return useCarbonClasses
+  //         ? `<strong class="${prefix}--type-semibold">${p1}</strong>`
+  //         : `<strong>${p1}</strong>`;
+  //     });
+  //   }
+
+  //   paraList += createParagraphs ? `<p>${para}</p>` : para;
+  // });
+
+  return marked(converted);
 }
+
+// function renderer() {
+//   const render = new marked.Renderer();
+//   console.log('foo', render.link.classes);
+//   // render.link.classes = 'foo';
+//   return render;
+// }
 
 export default markdownToHtml;
