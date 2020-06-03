@@ -10597,26 +10597,20 @@ exports[`Storyshots Components|Table of Contents Dynamic Items 1`] = `
                 className="bx--row"
               >
                 <div
-                  className="bx--col-lg-4 bx--layout--sticky-mobile"
+                  className="bx--tableofcontents__sidebar bx--col-lg-4"
                   key="0"
-                  style={
-                    Object {
-                      "top": 0,
-                    }
-                  }
                 >
                   <div
-                    className="bx--tableofcontents__sidebar bx--layout--sticky-desktop"
-                    data-sticky="true"
+                    className="bx--tableofcontents__mobile-top"
+                  />
+                  <div
                     style={
                       Object {
-                        "top": 0,
+                        "position": "sticky",
+                        "top": "0",
                       }
                     }
                   >
-                    <div
-                      className="bx--tableofcontents__mobile-top"
-                    />
                     <TOCDesktop
                       menuItems={
                         Array [
@@ -10946,26 +10940,20 @@ exports[`Storyshots Components|Table of Contents Manually define Menu Items 1`] 
               className="bx--row"
             >
               <div
-                className="bx--col-lg-4 bx--layout--sticky-mobile"
+                className="bx--tableofcontents__sidebar bx--col-lg-4"
                 key="0"
-                style={
-                  Object {
-                    "top": 0,
-                  }
-                }
               >
                 <div
-                  className="bx--tableofcontents__sidebar bx--layout--sticky-desktop"
-                  data-sticky="true"
+                  className="bx--tableofcontents__mobile-top"
+                />
+                <div
                   style={
                     Object {
-                      "top": 0,
+                      "position": "sticky",
+                      "top": "0",
                     }
                   }
                 >
-                  <div
-                    className="bx--tableofcontents__mobile-top"
-                  />
                   <TOCDesktop
                     menuItems={
                       Array [
@@ -11518,26 +11506,39 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
                 className="bx--row"
               >
                 <div
-                  className="bx--col-lg-4 bx--layout--sticky-mobile"
+                  className="bx--tableofcontents__sidebar bx--col-lg-4"
                   key="0"
-                  style={
-                    Object {
-                      "top": 0,
-                    }
-                  }
                 >
                   <div
-                    className="bx--tableofcontents__sidebar bx--layout--sticky-desktop"
-                    data-sticky="true"
+                    className="bx--tableofcontents__desktop__children"
+                  >
+                    <div
+                      style={
+                        Object {
+                          "alignItems": "center",
+                          "background": "#f4f4f4",
+                          "display": "flex",
+                          "height": "200px",
+                          "justifyContent": "center",
+                        }
+                      }
+                    >
+                      <h4>
+                        Example children
+                      </h4>
+                    </div>
+                  </div>
+                  <div
+                    className="bx--tableofcontents__mobile-top"
+                  />
+                  <div
                     style={
                       Object {
-                        "top": 0,
+                        "position": "sticky",
+                        "top": "0",
                       }
                     }
                   >
-                    <div
-                      className="bx--tableofcontents__mobile-top"
-                    />
                     <TOCDesktop
                       headingContent={
                         <div
@@ -11594,25 +11595,6 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
                         className="bx--tableofcontents__desktop"
                         data-autoid="dds--tableofcontents__desktop"
                       >
-                        <div
-                          className="bx--tableofcontents__desktop__children"
-                        >
-                          <div
-                            style={
-                              Object {
-                                "alignItems": "center",
-                                "background": "#f4f4f4",
-                                "display": "flex",
-                                "height": "200px",
-                                "justifyContent": "center",
-                              }
-                            }
-                          >
-                            <h4>
-                              Example children
-                            </h4>
-                          </div>
-                        </div>
                         <ul>
                           <li
                             className="bx--tableofcontents__desktop__item bx--tableofcontents__desktop__item--active"
