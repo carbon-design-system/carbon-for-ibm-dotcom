@@ -1,5 +1,5 @@
 import { Props } from '@storybook/addon-docs/blocks';
-import { Card } from '../Card';
+import { CardLink } from '../CardLink';
 
 # CardLink
 
@@ -19,7 +19,7 @@ Here's a quick example to get you started.
 @import '@carbon/type/scss/font-face/sans';
 @include carbon--font-face-mono();
 @include carbon--font-face-sans();
-@import '@carbon/ibmdotcom-styles/scss/patterns/sub-patterns/card/index.scss';
+@import '@carbon/ibmdotcom-styles/scss/components/card-link/card-link';
 ```
 
 > 💡 Only import fonts once per usage. Don't forget to import the Card styles
@@ -47,6 +47,7 @@ function App() {
           },
         },
       }}
+      disabled={false}
     />
   );
 }
@@ -66,7 +67,7 @@ Add the following line in your `.env` file at the root of your project.
 
 ## Props
 
-<Props of={Card} />
+<Props of={CardLink} />
 
 ## 🙌 Contributing
 
