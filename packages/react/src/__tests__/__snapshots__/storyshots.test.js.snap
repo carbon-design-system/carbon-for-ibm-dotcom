@@ -24017,7 +24017,6 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
           className="bx--col-sm-4 bx--col-lg-10 bx--offset-lg-4"
         >
           <ContentGroupHorizontal
-            border={true}
             heading="Aliquam condimentum"
             items={
               Array [

@@ -17,7 +17,7 @@ const { prefix } = settings;
 /**
  * ContentGroupHorizontal pattern.
  */
-const ContentGroupHorizontal = ({ heading, items, border }) => {
+const ContentGroupHorizontal = ({ heading, items }) => {
   return (
     <div
       data-autoid={`${stablePrefix}--content-group-horizontal`}
@@ -26,7 +26,7 @@ const ContentGroupHorizontal = ({ heading, items, border }) => {
         heading={heading}
         aside={{
           items: <div></div>,
-          border: border,
+          border: true,
         }}>
         {items.map((item, index) => (
           <ContentItemHorizontal
@@ -66,14 +66,7 @@ ContentGroupHorizontal.propTypes = {
       ).isRequired,
     })
   ),
-  /**
-   * `true` to use the optional border at the bottom of pattern.
-   */
-  border: PropTypes.bool,
 };
 
-ContentGroupHorizontal.defaultProps = {
-  border: true,
-};
 
 export default ContentGroupHorizontal;

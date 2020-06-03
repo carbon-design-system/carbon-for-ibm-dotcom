@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { boolean, object, text } from '@storybook/addon-knobs';
+import { object, text } from '@storybook/addon-knobs';
 import ContentGroupHorizontal from '../ContentGroupHorizontal';
 import items from './data/items.json';
 import React from 'react';
@@ -20,14 +20,13 @@ export default {
       ContentGroupHorizontal: ({ groupId }) => ({
         heading: text('Heading', 'Aliquam condimentum', groupId),
         items: object('Items', items.items, groupId),
-        border: boolean('Optional border:', true, groupId),
       }),
     },
   },
 };
 
 export const Default = ({ parameters }) => {
-  const { heading, items, border } =
+  const { heading, items } =
     parameters?.props?.ContentGroupHorizontal ?? {};
   return (
     <div className="bx--grid">
@@ -36,7 +35,6 @@ export const Default = ({ parameters }) => {
           <ContentGroupHorizontal
             heading={heading}
             items={items}
-            border={border}
           />
         </div>
       </div>
