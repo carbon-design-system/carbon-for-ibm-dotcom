@@ -24036,7 +24036,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
           className="bx--col-sm-4 bx--col-lg-10 bx--offset-lg-4"
         >
           <ContentGroupHorizontal
-            border={false}
+            border={true}
             heading="Aliquam condimentum"
             items={
               Array [
@@ -24110,92 +24110,79 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
               data-autoid="dds--content-group-horizontal"
             >
               <ContentBlock
+                aside={
+                  Object {
+                    "border": true,
+                    "items": <div />,
+                  }
+                }
                 heading="Aliquam condimentum"
               >
                 <div
                   className="bx--content-block"
                   data-autoid="dds--content-block"
                 >
-                  <div>
-                    <h2
-                      className="bx--content-block__heading"
-                      data-autoid="dds--content-block__heading"
-                    >
-                      Aliquam condimentum
-                    </h2>
-                  </div>
-                  <div
-                    className="bx--content-block__children"
-                    data-autoid="dds--content-block__children"
+                  <Layout
+                    border={false}
+                    marginBottom={null}
+                    marginTop={null}
+                    nested={true}
+                    stickyOffset={null}
+                    type="2-1"
                   >
-                    <ContentItemHorizontal
-                      copy="Lorem ipsum dolor sit amet, _consectetur_ sellus at elit sollicitudin."
-                      cta={
-                        Object {
-                          "items": Array [
-                            Object {
-                              "copy": "Link text",
-                              "cta": Object {
-                                "href": "https://example.com",
-                              },
-                              "type": "local",
-                            },
-                            Object {
-                              "copy": "External link text",
-                              "cta": Object {
-                                "href": "https://example.com",
-                              },
-                              "type": "external",
-                            },
-                          ],
-                        }
-                      }
-                      eyebrow="Lorem ipsum"
-                      heading="Aliquam condimentum"
-                      key="0"
+                    <section
+                      className=""
+                      data-autoid="dds--layout"
                     >
                       <div
-                        className="bx--content-item-horizontal__item bx"
-                        data-autoid="dds--content-item-horizontal__item"
+                        className="bx--row"
                       >
                         <div
-                          className="bx--content-item-horizontal__row"
+                          className="bx--layout-2-3"
+                          key="0"
+                        >
+                          <h2
+                            className="bx--content-block__heading"
+                            data-autoid="dds--content-block__heading"
+                          >
+                            Aliquam condimentum
+                          </h2>
+                        </div>
+                        <div
+                          className="bx--layout-1-3"
+                          key="1"
+                        />
+                      </div>
+                    </section>
+                  </Layout>
+                  <Layout
+                    border={true}
+                    marginBottom={null}
+                    marginTop={null}
+                    nested={true}
+                    stickyOffset={null}
+                    type="2-1"
+                  >
+                    <section
+                      className=""
+                      data-autoid="dds--layout"
+                    >
+                      <div
+                        className="bx--row bx--layout--border"
+                      >
+                        <div
+                          className="bx--layout-2-3"
+                          key="0"
                         >
                           <div
-                            className="bx--content-item-horizontal__col"
+                            className="bx--content-block__children"
+                            data-autoid="dds--content-block__children"
                           >
-                            <p
-                              className="bx--content-item-horizontal__item--eyebrow"
-                              data-autoid="dds--content-item-horizontal__item--eyebrow"
-                            >
-                              Lorem ipsum
-                            </p>
-                            <h3
-                              className="bx--content-item-horizontal__item--heading"
-                              data-autoid="dds--content-item-horizontal__item--heading"
-                            >
-                              Aliquam condimentum
-                            </h3>
-                          </div>
-                          <div
-                            className="bx--content-item-horizontal__col"
-                          >
-                            <div
-                              className="bx--content-item-horizontal__item--copy"
-                              dangerouslySetInnerHTML={
+                            <ContentItemHorizontal
+                              copy="Lorem ipsum dolor sit amet, _consectetur_ sellus at elit sollicitudin."
+                              cta={
                                 Object {
-                                  "__html": "<p>Lorem ipsum dolor sit amet, <em class=\\"bx--type-light\\">consectetur</em> sellus at elit sollicitudin.</p>",
-                                }
-                              }
-                              data-autoid="dds--content-item-horizontal__item--copy"
-                            />
-                            <div
-                              className="bx--content-item-horizontal__item--cta"
-                              data-autoid="dds--content-item-horizontal__item--cta"
-                            >
-                              <LinkList
-                                items={
-                                  Array [
+                                  "items": Array [
                                     Object {
                                       "copy": "Link text",
                                       "cta": Object {
@@ -24210,276 +24197,276 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                       },
                                       "type": "external",
                                     },
-                                  ]
-                                }
-                                style="horizontal"
-                              >
-                                <div
-                                  className="bx--link-list"
-                                  data-autoid="dds--link-list"
-                                >
-                                  <ul
-                                    className="bx--link-list__list bx--link-list__list--horizontal"
-                                  >
-                                    <li
-                                      className="bx--link-list__list__CTA bx--link-list__list--local"
-                                      key="0"
-                                    >
-                                      <CTA
-                                        copy="Link text"
-                                        cta={
-                                          Object {
-                                            "href": "https://example.com",
-                                          }
-                                        }
-                                        style="text"
-                                        type="local"
-                                      >
-                                        <div>
-                                          <TextCTA
-                                            copy="Link text"
-                                            cta={
-                                              Object {
-                                                "href": "https://example.com",
-                                              }
-                                            }
-                                            openLightBox={[Function]}
-                                            renderLightBox={false}
-                                            style="text"
-                                            type="local"
-                                            videoTitle={
-                                              Array [
-                                                Object {
-                                                  "key": 0,
-                                                  "title": "",
-                                                },
-                                              ]
-                                            }
-                                          >
-                                            <LinkWithIcon
-                                              href="https://example.com"
-                                              onClick={[Function]}
-                                              target={null}
-                                            >
-                                              <div
-                                                className="bx--link-with-icon__container"
-                                                data-autoid="dds--link-with-icon"
-                                              >
-                                                <Link
-                                                  className="bx--link-with-icon"
-                                                  href="https://example.com"
-                                                  onClick={[Function]}
-                                                  target={null}
-                                                >
-                                                  <a
-                                                    className="bx--link bx--link-with-icon"
-                                                    href="https://example.com"
-                                                    onClick={[Function]}
-                                                    target={null}
-                                                  >
-                                                    <span>
-                                                      Link text
-                                                    </span>
-                                                    <ForwardRef(ArrowRight20)>
-                                                      <Icon
-                                                        height={20}
-                                                        preserveAspectRatio="xMidYMid meet"
-                                                        viewBox="0 0 20 20"
-                                                        width={20}
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                      >
-                                                        <svg
-                                                          aria-hidden={true}
-                                                          focusable="false"
-                                                          height={20}
-                                                          preserveAspectRatio="xMidYMid meet"
-                                                          viewBox="0 0 20 20"
-                                                          width={20}
-                                                          xmlns="http://www.w3.org/2000/svg"
-                                                        >
-                                                          <path
-                                                            d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
-                                                          />
-                                                        </svg>
-                                                      </Icon>
-                                                    </ForwardRef(ArrowRight20)>
-                                                  </a>
-                                                </Link>
-                                              </div>
-                                            </LinkWithIcon>
-                                          </TextCTA>
-                                        </div>
-                                      </CTA>
-                                    </li>
-                                    <li
-                                      className="bx--link-list__list__CTA bx--link-list__list--external"
-                                      key="1"
-                                    >
-                                      <CTA
-                                        copy="External link text"
-                                        cta={
-                                          Object {
-                                            "href": "https://example.com",
-                                          }
-                                        }
-                                        style="text"
-                                        type="external"
-                                      >
-                                        <div>
-                                          <TextCTA
-                                            copy="External link text"
-                                            cta={
-                                              Object {
-                                                "href": "https://example.com",
-                                              }
-                                            }
-                                            openLightBox={[Function]}
-                                            renderLightBox={false}
-                                            style="text"
-                                            type="external"
-                                            videoTitle={
-                                              Array [
-                                                Object {
-                                                  "key": 0,
-                                                  "title": "",
-                                                },
-                                              ]
-                                            }
-                                          >
-                                            <LinkWithIcon
-                                              href="https://example.com"
-                                              onClick={[Function]}
-                                              target="_blank"
-                                            >
-                                              <div
-                                                className="bx--link-with-icon__container"
-                                                data-autoid="dds--link-with-icon"
-                                              >
-                                                <Link
-                                                  className="bx--link-with-icon"
-                                                  href="https://example.com"
-                                                  onClick={[Function]}
-                                                  target="_blank"
-                                                >
-                                                  <a
-                                                    className="bx--link bx--link-with-icon"
-                                                    href="https://example.com"
-                                                    onClick={[Function]}
-                                                    target="_blank"
-                                                  >
-                                                    <span>
-                                                      External link text
-                                                    </span>
-                                                    <ForwardRef(Launch20)>
-                                                      <Icon
-                                                        height={20}
-                                                        preserveAspectRatio="xMidYMid meet"
-                                                        viewBox="0 0 32 32"
-                                                        width={20}
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                      >
-                                                        <svg
-                                                          aria-hidden={true}
-                                                          focusable="false"
-                                                          height={20}
-                                                          preserveAspectRatio="xMidYMid meet"
-                                                          viewBox="0 0 32 32"
-                                                          width={20}
-                                                          xmlns="http://www.w3.org/2000/svg"
-                                                        >
-                                                          <path
-                                                            d="M26,28H6a2,2,0,0,1-2-2V6A2,2,0,0,1,6,4h9V6H6V26H26V17h2v9A2,2,0,0,1,26,28Z"
-                                                          />
-                                                          <path
-                                                            d="M21 2L21 4 26.59 4 18 12.59 19.41 14 28 5.41 28 11 30 11 30 2 21 2z"
-                                                          />
-                                                        </svg>
-                                                      </Icon>
-                                                    </ForwardRef(Launch20)>
-                                                  </a>
-                                                </Link>
-                                              </div>
-                                            </LinkWithIcon>
-                                          </TextCTA>
-                                        </div>
-                                      </CTA>
-                                    </li>
-                                  </ul>
-                                </div>
-                              </LinkList>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </ContentItemHorizontal>
-                    <ContentItemHorizontal
-                      copy="Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin."
-                      cta={
-                        Object {
-                          "items": Array [
-                            Object {
-                              "copy": "Link text",
-                              "cta": Object {
-                                "href": "https://example.com",
-                              },
-                              "type": "local",
-                            },
-                            Object {
-                              "copy": "External link text",
-                              "cta": Object {
-                                "href": "https://example.com",
-                              },
-                              "type": "external",
-                            },
-                          ],
-                        }
-                      }
-                      eyebrow="Lorem ipsum"
-                      heading="Aliquam condimentum"
-                      key="1"
-                    >
-                      <div
-                        className="bx--content-item-horizontal__item bx"
-                        data-autoid="dds--content-item-horizontal__item"
-                      >
-                        <div
-                          className="bx--content-item-horizontal__row"
-                        >
-                          <div
-                            className="bx--content-item-horizontal__col"
-                          >
-                            <p
-                              className="bx--content-item-horizontal__item--eyebrow"
-                              data-autoid="dds--content-item-horizontal__item--eyebrow"
-                            >
-                              Lorem ipsum
-                            </p>
-                            <h3
-                              className="bx--content-item-horizontal__item--heading"
-                              data-autoid="dds--content-item-horizontal__item--heading"
-                            >
-                              Aliquam condimentum
-                            </h3>
-                          </div>
-                          <div
-                            className="bx--content-item-horizontal__col"
-                          >
-                            <div
-                              className="bx--content-item-horizontal__item--copy"
-                              dangerouslySetInnerHTML={
-                                Object {
-                                  "__html": "<p>Lorem ipsum dolor sit amet, <em class=\\"bx--type-light\\">consectetur</em> adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.</p>",
+                                  ],
                                 }
                               }
-                              data-autoid="dds--content-item-horizontal__item--copy"
-                            />
-                            <div
-                              className="bx--content-item-horizontal__item--cta"
-                              data-autoid="dds--content-item-horizontal__item--cta"
+                              eyebrow="Lorem ipsum"
+                              heading="Aliquam condimentum"
+                              key="0"
                             >
-                              <LinkList
-                                items={
-                                  Array [
+                              <div
+                                className="bx--content-item-horizontal__item bx"
+                                data-autoid="dds--content-item-horizontal__item"
+                              >
+                                <div
+                                  className="bx--content-item-horizontal__row"
+                                >
+                                  <div
+                                    className="bx--content-item-horizontal__col"
+                                  >
+                                    <p
+                                      className="bx--content-item-horizontal__item--eyebrow"
+                                      data-autoid="dds--content-item-horizontal__item--eyebrow"
+                                    >
+                                      Lorem ipsum
+                                    </p>
+                                    <h3
+                                      className="bx--content-item-horizontal__item--heading"
+                                      data-autoid="dds--content-item-horizontal__item--heading"
+                                    >
+                                      Aliquam condimentum
+                                    </h3>
+                                  </div>
+                                  <div
+                                    className="bx--content-item-horizontal__col"
+                                  >
+                                    <div
+                                      className="bx--content-item-horizontal__item--copy"
+                                      dangerouslySetInnerHTML={
+                                        Object {
+                                          "__html": "<p>Lorem ipsum dolor sit amet, <em class=\\"bx--type-light\\">consectetur</em> sellus at elit sollicitudin.</p>",
+                                        }
+                                      }
+                                      data-autoid="dds--content-item-horizontal__item--copy"
+                                    />
+                                    <div
+                                      className="bx--content-item-horizontal__item--cta"
+                                      data-autoid="dds--content-item-horizontal__item--cta"
+                                    >
+                                      <LinkList
+                                        items={
+                                          Array [
+                                            Object {
+                                              "copy": "Link text",
+                                              "cta": Object {
+                                                "href": "https://example.com",
+                                              },
+                                              "type": "local",
+                                            },
+                                            Object {
+                                              "copy": "External link text",
+                                              "cta": Object {
+                                                "href": "https://example.com",
+                                              },
+                                              "type": "external",
+                                            },
+                                          ]
+                                        }
+                                        style="horizontal"
+                                      >
+                                        <div
+                                          className="bx--link-list"
+                                          data-autoid="dds--link-list"
+                                        >
+                                          <ul
+                                            className="bx--link-list__list bx--link-list__list--horizontal"
+                                          >
+                                            <li
+                                              className="bx--link-list__list__CTA bx--link-list__list--local"
+                                              key="0"
+                                            >
+                                              <CTA
+                                                copy="Link text"
+                                                cta={
+                                                  Object {
+                                                    "href": "https://example.com",
+                                                  }
+                                                }
+                                                style="text"
+                                                type="local"
+                                              >
+                                                <div>
+                                                  <TextCTA
+                                                    copy="Link text"
+                                                    cta={
+                                                      Object {
+                                                        "href": "https://example.com",
+                                                      }
+                                                    }
+                                                    openLightBox={[Function]}
+                                                    renderLightBox={false}
+                                                    style="text"
+                                                    type="local"
+                                                    videoTitle={
+                                                      Array [
+                                                        Object {
+                                                          "key": 0,
+                                                          "title": "",
+                                                        },
+                                                      ]
+                                                    }
+                                                  >
+                                                    <LinkWithIcon
+                                                      href="https://example.com"
+                                                      onClick={[Function]}
+                                                      target={null}
+                                                    >
+                                                      <div
+                                                        className="bx--link-with-icon__container"
+                                                        data-autoid="dds--link-with-icon"
+                                                      >
+                                                        <Link
+                                                          className="bx--link-with-icon"
+                                                          href="https://example.com"
+                                                          onClick={[Function]}
+                                                          target={null}
+                                                        >
+                                                          <a
+                                                            className="bx--link bx--link-with-icon"
+                                                            href="https://example.com"
+                                                            onClick={[Function]}
+                                                            target={null}
+                                                          >
+                                                            <span>
+                                                              Link text
+                                                            </span>
+                                                            <ForwardRef(ArrowRight20)>
+                                                              <Icon
+                                                                height={20}
+                                                                preserveAspectRatio="xMidYMid meet"
+                                                                viewBox="0 0 20 20"
+                                                                width={20}
+                                                                xmlns="http://www.w3.org/2000/svg"
+                                                              >
+                                                                <svg
+                                                                  aria-hidden={true}
+                                                                  focusable="false"
+                                                                  height={20}
+                                                                  preserveAspectRatio="xMidYMid meet"
+                                                                  viewBox="0 0 20 20"
+                                                                  width={20}
+                                                                  xmlns="http://www.w3.org/2000/svg"
+                                                                >
+                                                                  <path
+                                                                    d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                                                  />
+                                                                </svg>
+                                                              </Icon>
+                                                            </ForwardRef(ArrowRight20)>
+                                                          </a>
+                                                        </Link>
+                                                      </div>
+                                                    </LinkWithIcon>
+                                                  </TextCTA>
+                                                </div>
+                                              </CTA>
+                                            </li>
+                                            <li
+                                              className="bx--link-list__list__CTA bx--link-list__list--external"
+                                              key="1"
+                                            >
+                                              <CTA
+                                                copy="External link text"
+                                                cta={
+                                                  Object {
+                                                    "href": "https://example.com",
+                                                  }
+                                                }
+                                                style="text"
+                                                type="external"
+                                              >
+                                                <div>
+                                                  <TextCTA
+                                                    copy="External link text"
+                                                    cta={
+                                                      Object {
+                                                        "href": "https://example.com",
+                                                      }
+                                                    }
+                                                    openLightBox={[Function]}
+                                                    renderLightBox={false}
+                                                    style="text"
+                                                    type="external"
+                                                    videoTitle={
+                                                      Array [
+                                                        Object {
+                                                          "key": 0,
+                                                          "title": "",
+                                                        },
+                                                      ]
+                                                    }
+                                                  >
+                                                    <LinkWithIcon
+                                                      href="https://example.com"
+                                                      onClick={[Function]}
+                                                      target="_blank"
+                                                    >
+                                                      <div
+                                                        className="bx--link-with-icon__container"
+                                                        data-autoid="dds--link-with-icon"
+                                                      >
+                                                        <Link
+                                                          className="bx--link-with-icon"
+                                                          href="https://example.com"
+                                                          onClick={[Function]}
+                                                          target="_blank"
+                                                        >
+                                                          <a
+                                                            className="bx--link bx--link-with-icon"
+                                                            href="https://example.com"
+                                                            onClick={[Function]}
+                                                            target="_blank"
+                                                          >
+                                                            <span>
+                                                              External link text
+                                                            </span>
+                                                            <ForwardRef(Launch20)>
+                                                              <Icon
+                                                                height={20}
+                                                                preserveAspectRatio="xMidYMid meet"
+                                                                viewBox="0 0 32 32"
+                                                                width={20}
+                                                                xmlns="http://www.w3.org/2000/svg"
+                                                              >
+                                                                <svg
+                                                                  aria-hidden={true}
+                                                                  focusable="false"
+                                                                  height={20}
+                                                                  preserveAspectRatio="xMidYMid meet"
+                                                                  viewBox="0 0 32 32"
+                                                                  width={20}
+                                                                  xmlns="http://www.w3.org/2000/svg"
+                                                                >
+                                                                  <path
+                                                                    d="M26,28H6a2,2,0,0,1-2-2V6A2,2,0,0,1,6,4h9V6H6V26H26V17h2v9A2,2,0,0,1,26,28Z"
+                                                                  />
+                                                                  <path
+                                                                    d="M21 2L21 4 26.59 4 18 12.59 19.41 14 28 5.41 28 11 30 11 30 2 21 2z"
+                                                                  />
+                                                                </svg>
+                                                              </Icon>
+                                                            </ForwardRef(Launch20)>
+                                                          </a>
+                                                        </Link>
+                                                      </div>
+                                                    </LinkWithIcon>
+                                                  </TextCTA>
+                                                </div>
+                                              </CTA>
+                                            </li>
+                                          </ul>
+                                        </div>
+                                      </LinkList>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </ContentItemHorizontal>
+                            <ContentItemHorizontal
+                              copy="Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin."
+                              cta={
+                                Object {
+                                  "items": Array [
                                     Object {
                                       "copy": "Link text",
                                       "cta": Object {
@@ -24494,269 +24481,276 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                       },
                                       "type": "external",
                                     },
-                                  ]
-                                }
-                                style="horizontal"
-                              >
-                                <div
-                                  className="bx--link-list"
-                                  data-autoid="dds--link-list"
-                                >
-                                  <ul
-                                    className="bx--link-list__list bx--link-list__list--horizontal"
-                                  >
-                                    <li
-                                      className="bx--link-list__list__CTA bx--link-list__list--local"
-                                      key="0"
-                                    >
-                                      <CTA
-                                        copy="Link text"
-                                        cta={
-                                          Object {
-                                            "href": "https://example.com",
-                                          }
-                                        }
-                                        style="text"
-                                        type="local"
-                                      >
-                                        <div>
-                                          <TextCTA
-                                            copy="Link text"
-                                            cta={
-                                              Object {
-                                                "href": "https://example.com",
-                                              }
-                                            }
-                                            openLightBox={[Function]}
-                                            renderLightBox={false}
-                                            style="text"
-                                            type="local"
-                                            videoTitle={
-                                              Array [
-                                                Object {
-                                                  "key": 0,
-                                                  "title": "",
-                                                },
-                                              ]
-                                            }
-                                          >
-                                            <LinkWithIcon
-                                              href="https://example.com"
-                                              onClick={[Function]}
-                                              target={null}
-                                            >
-                                              <div
-                                                className="bx--link-with-icon__container"
-                                                data-autoid="dds--link-with-icon"
-                                              >
-                                                <Link
-                                                  className="bx--link-with-icon"
-                                                  href="https://example.com"
-                                                  onClick={[Function]}
-                                                  target={null}
-                                                >
-                                                  <a
-                                                    className="bx--link bx--link-with-icon"
-                                                    href="https://example.com"
-                                                    onClick={[Function]}
-                                                    target={null}
-                                                  >
-                                                    <span>
-                                                      Link text
-                                                    </span>
-                                                    <ForwardRef(ArrowRight20)>
-                                                      <Icon
-                                                        height={20}
-                                                        preserveAspectRatio="xMidYMid meet"
-                                                        viewBox="0 0 20 20"
-                                                        width={20}
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                      >
-                                                        <svg
-                                                          aria-hidden={true}
-                                                          focusable="false"
-                                                          height={20}
-                                                          preserveAspectRatio="xMidYMid meet"
-                                                          viewBox="0 0 20 20"
-                                                          width={20}
-                                                          xmlns="http://www.w3.org/2000/svg"
-                                                        >
-                                                          <path
-                                                            d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
-                                                          />
-                                                        </svg>
-                                                      </Icon>
-                                                    </ForwardRef(ArrowRight20)>
-                                                  </a>
-                                                </Link>
-                                              </div>
-                                            </LinkWithIcon>
-                                          </TextCTA>
-                                        </div>
-                                      </CTA>
-                                    </li>
-                                    <li
-                                      className="bx--link-list__list__CTA bx--link-list__list--external"
-                                      key="1"
-                                    >
-                                      <CTA
-                                        copy="External link text"
-                                        cta={
-                                          Object {
-                                            "href": "https://example.com",
-                                          }
-                                        }
-                                        style="text"
-                                        type="external"
-                                      >
-                                        <div>
-                                          <TextCTA
-                                            copy="External link text"
-                                            cta={
-                                              Object {
-                                                "href": "https://example.com",
-                                              }
-                                            }
-                                            openLightBox={[Function]}
-                                            renderLightBox={false}
-                                            style="text"
-                                            type="external"
-                                            videoTitle={
-                                              Array [
-                                                Object {
-                                                  "key": 0,
-                                                  "title": "",
-                                                },
-                                              ]
-                                            }
-                                          >
-                                            <LinkWithIcon
-                                              href="https://example.com"
-                                              onClick={[Function]}
-                                              target="_blank"
-                                            >
-                                              <div
-                                                className="bx--link-with-icon__container"
-                                                data-autoid="dds--link-with-icon"
-                                              >
-                                                <Link
-                                                  className="bx--link-with-icon"
-                                                  href="https://example.com"
-                                                  onClick={[Function]}
-                                                  target="_blank"
-                                                >
-                                                  <a
-                                                    className="bx--link bx--link-with-icon"
-                                                    href="https://example.com"
-                                                    onClick={[Function]}
-                                                    target="_blank"
-                                                  >
-                                                    <span>
-                                                      External link text
-                                                    </span>
-                                                    <ForwardRef(Launch20)>
-                                                      <Icon
-                                                        height={20}
-                                                        preserveAspectRatio="xMidYMid meet"
-                                                        viewBox="0 0 32 32"
-                                                        width={20}
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                      >
-                                                        <svg
-                                                          aria-hidden={true}
-                                                          focusable="false"
-                                                          height={20}
-                                                          preserveAspectRatio="xMidYMid meet"
-                                                          viewBox="0 0 32 32"
-                                                          width={20}
-                                                          xmlns="http://www.w3.org/2000/svg"
-                                                        >
-                                                          <path
-                                                            d="M26,28H6a2,2,0,0,1-2-2V6A2,2,0,0,1,6,4h9V6H6V26H26V17h2v9A2,2,0,0,1,26,28Z"
-                                                          />
-                                                          <path
-                                                            d="M21 2L21 4 26.59 4 18 12.59 19.41 14 28 5.41 28 11 30 11 30 2 21 2z"
-                                                          />
-                                                        </svg>
-                                                      </Icon>
-                                                    </ForwardRef(Launch20)>
-                                                  </a>
-                                                </Link>
-                                              </div>
-                                            </LinkWithIcon>
-                                          </TextCTA>
-                                        </div>
-                                      </CTA>
-                                    </li>
-                                  </ul>
-                                </div>
-                              </LinkList>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </ContentItemHorizontal>
-                    <ContentItemHorizontal
-                      copy="Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin."
-                      cta={
-                        Object {
-                          "items": Array [
-                            Object {
-                              "copy": "Link text",
-                              "cta": Object {
-                                "href": "https://example.com",
-                              },
-                              "type": "local",
-                            },
-                          ],
-                        }
-                      }
-                      eyebrow="Lorem ipsum"
-                      heading="Aliquam condimentum"
-                      key="2"
-                    >
-                      <div
-                        className="bx--content-item-horizontal__item bx"
-                        data-autoid="dds--content-item-horizontal__item"
-                      >
-                        <div
-                          className="bx--content-item-horizontal__row"
-                        >
-                          <div
-                            className="bx--content-item-horizontal__col"
-                          >
-                            <p
-                              className="bx--content-item-horizontal__item--eyebrow"
-                              data-autoid="dds--content-item-horizontal__item--eyebrow"
-                            >
-                              Lorem ipsum
-                            </p>
-                            <h3
-                              className="bx--content-item-horizontal__item--heading"
-                              data-autoid="dds--content-item-horizontal__item--heading"
-                            >
-                              Aliquam condimentum
-                            </h3>
-                          </div>
-                          <div
-                            className="bx--content-item-horizontal__col"
-                          >
-                            <div
-                              className="bx--content-item-horizontal__item--copy"
-                              dangerouslySetInnerHTML={
-                                Object {
-                                  "__html": "<p>Lorem ipsum dolor sit amet, <em class=\\"bx--type-light\\">consectetur</em> adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.</p>",
+                                  ],
                                 }
                               }
-                              data-autoid="dds--content-item-horizontal__item--copy"
-                            />
-                            <div
-                              className="bx--content-item-horizontal__item--cta"
-                              data-autoid="dds--content-item-horizontal__item--cta"
+                              eyebrow="Lorem ipsum"
+                              heading="Aliquam condimentum"
+                              key="1"
                             >
-                              <LinkList
-                                items={
-                                  Array [
+                              <div
+                                className="bx--content-item-horizontal__item bx"
+                                data-autoid="dds--content-item-horizontal__item"
+                              >
+                                <div
+                                  className="bx--content-item-horizontal__row"
+                                >
+                                  <div
+                                    className="bx--content-item-horizontal__col"
+                                  >
+                                    <p
+                                      className="bx--content-item-horizontal__item--eyebrow"
+                                      data-autoid="dds--content-item-horizontal__item--eyebrow"
+                                    >
+                                      Lorem ipsum
+                                    </p>
+                                    <h3
+                                      className="bx--content-item-horizontal__item--heading"
+                                      data-autoid="dds--content-item-horizontal__item--heading"
+                                    >
+                                      Aliquam condimentum
+                                    </h3>
+                                  </div>
+                                  <div
+                                    className="bx--content-item-horizontal__col"
+                                  >
+                                    <div
+                                      className="bx--content-item-horizontal__item--copy"
+                                      dangerouslySetInnerHTML={
+                                        Object {
+                                          "__html": "<p>Lorem ipsum dolor sit amet, <em class=\\"bx--type-light\\">consectetur</em> adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.</p>",
+                                        }
+                                      }
+                                      data-autoid="dds--content-item-horizontal__item--copy"
+                                    />
+                                    <div
+                                      className="bx--content-item-horizontal__item--cta"
+                                      data-autoid="dds--content-item-horizontal__item--cta"
+                                    >
+                                      <LinkList
+                                        items={
+                                          Array [
+                                            Object {
+                                              "copy": "Link text",
+                                              "cta": Object {
+                                                "href": "https://example.com",
+                                              },
+                                              "type": "local",
+                                            },
+                                            Object {
+                                              "copy": "External link text",
+                                              "cta": Object {
+                                                "href": "https://example.com",
+                                              },
+                                              "type": "external",
+                                            },
+                                          ]
+                                        }
+                                        style="horizontal"
+                                      >
+                                        <div
+                                          className="bx--link-list"
+                                          data-autoid="dds--link-list"
+                                        >
+                                          <ul
+                                            className="bx--link-list__list bx--link-list__list--horizontal"
+                                          >
+                                            <li
+                                              className="bx--link-list__list__CTA bx--link-list__list--local"
+                                              key="0"
+                                            >
+                                              <CTA
+                                                copy="Link text"
+                                                cta={
+                                                  Object {
+                                                    "href": "https://example.com",
+                                                  }
+                                                }
+                                                style="text"
+                                                type="local"
+                                              >
+                                                <div>
+                                                  <TextCTA
+                                                    copy="Link text"
+                                                    cta={
+                                                      Object {
+                                                        "href": "https://example.com",
+                                                      }
+                                                    }
+                                                    openLightBox={[Function]}
+                                                    renderLightBox={false}
+                                                    style="text"
+                                                    type="local"
+                                                    videoTitle={
+                                                      Array [
+                                                        Object {
+                                                          "key": 0,
+                                                          "title": "",
+                                                        },
+                                                      ]
+                                                    }
+                                                  >
+                                                    <LinkWithIcon
+                                                      href="https://example.com"
+                                                      onClick={[Function]}
+                                                      target={null}
+                                                    >
+                                                      <div
+                                                        className="bx--link-with-icon__container"
+                                                        data-autoid="dds--link-with-icon"
+                                                      >
+                                                        <Link
+                                                          className="bx--link-with-icon"
+                                                          href="https://example.com"
+                                                          onClick={[Function]}
+                                                          target={null}
+                                                        >
+                                                          <a
+                                                            className="bx--link bx--link-with-icon"
+                                                            href="https://example.com"
+                                                            onClick={[Function]}
+                                                            target={null}
+                                                          >
+                                                            <span>
+                                                              Link text
+                                                            </span>
+                                                            <ForwardRef(ArrowRight20)>
+                                                              <Icon
+                                                                height={20}
+                                                                preserveAspectRatio="xMidYMid meet"
+                                                                viewBox="0 0 20 20"
+                                                                width={20}
+                                                                xmlns="http://www.w3.org/2000/svg"
+                                                              >
+                                                                <svg
+                                                                  aria-hidden={true}
+                                                                  focusable="false"
+                                                                  height={20}
+                                                                  preserveAspectRatio="xMidYMid meet"
+                                                                  viewBox="0 0 20 20"
+                                                                  width={20}
+                                                                  xmlns="http://www.w3.org/2000/svg"
+                                                                >
+                                                                  <path
+                                                                    d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                                                  />
+                                                                </svg>
+                                                              </Icon>
+                                                            </ForwardRef(ArrowRight20)>
+                                                          </a>
+                                                        </Link>
+                                                      </div>
+                                                    </LinkWithIcon>
+                                                  </TextCTA>
+                                                </div>
+                                              </CTA>
+                                            </li>
+                                            <li
+                                              className="bx--link-list__list__CTA bx--link-list__list--external"
+                                              key="1"
+                                            >
+                                              <CTA
+                                                copy="External link text"
+                                                cta={
+                                                  Object {
+                                                    "href": "https://example.com",
+                                                  }
+                                                }
+                                                style="text"
+                                                type="external"
+                                              >
+                                                <div>
+                                                  <TextCTA
+                                                    copy="External link text"
+                                                    cta={
+                                                      Object {
+                                                        "href": "https://example.com",
+                                                      }
+                                                    }
+                                                    openLightBox={[Function]}
+                                                    renderLightBox={false}
+                                                    style="text"
+                                                    type="external"
+                                                    videoTitle={
+                                                      Array [
+                                                        Object {
+                                                          "key": 0,
+                                                          "title": "",
+                                                        },
+                                                      ]
+                                                    }
+                                                  >
+                                                    <LinkWithIcon
+                                                      href="https://example.com"
+                                                      onClick={[Function]}
+                                                      target="_blank"
+                                                    >
+                                                      <div
+                                                        className="bx--link-with-icon__container"
+                                                        data-autoid="dds--link-with-icon"
+                                                      >
+                                                        <Link
+                                                          className="bx--link-with-icon"
+                                                          href="https://example.com"
+                                                          onClick={[Function]}
+                                                          target="_blank"
+                                                        >
+                                                          <a
+                                                            className="bx--link bx--link-with-icon"
+                                                            href="https://example.com"
+                                                            onClick={[Function]}
+                                                            target="_blank"
+                                                          >
+                                                            <span>
+                                                              External link text
+                                                            </span>
+                                                            <ForwardRef(Launch20)>
+                                                              <Icon
+                                                                height={20}
+                                                                preserveAspectRatio="xMidYMid meet"
+                                                                viewBox="0 0 32 32"
+                                                                width={20}
+                                                                xmlns="http://www.w3.org/2000/svg"
+                                                              >
+                                                                <svg
+                                                                  aria-hidden={true}
+                                                                  focusable="false"
+                                                                  height={20}
+                                                                  preserveAspectRatio="xMidYMid meet"
+                                                                  viewBox="0 0 32 32"
+                                                                  width={20}
+                                                                  xmlns="http://www.w3.org/2000/svg"
+                                                                >
+                                                                  <path
+                                                                    d="M26,28H6a2,2,0,0,1-2-2V6A2,2,0,0,1,6,4h9V6H6V26H26V17h2v9A2,2,0,0,1,26,28Z"
+                                                                  />
+                                                                  <path
+                                                                    d="M21 2L21 4 26.59 4 18 12.59 19.41 14 28 5.41 28 11 30 11 30 2 21 2z"
+                                                                  />
+                                                                </svg>
+                                                              </Icon>
+                                                            </ForwardRef(Launch20)>
+                                                          </a>
+                                                        </Link>
+                                                      </div>
+                                                    </LinkWithIcon>
+                                                  </TextCTA>
+                                                </div>
+                                              </CTA>
+                                            </li>
+                                          </ul>
+                                        </div>
+                                      </LinkList>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </ContentItemHorizontal>
+                            <ContentItemHorizontal
+                              copy="Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin."
+                              cta={
+                                Object {
+                                  "items": Array [
                                     Object {
                                       "copy": "Link text",
                                       "cta": Object {
@@ -24764,116 +24758,182 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                       },
                                       "type": "local",
                                     },
-                                  ]
+                                  ],
                                 }
-                                style="horizontal"
+                              }
+                              eyebrow="Lorem ipsum"
+                              heading="Aliquam condimentum"
+                              key="2"
+                            >
+                              <div
+                                className="bx--content-item-horizontal__item bx"
+                                data-autoid="dds--content-item-horizontal__item"
                               >
                                 <div
-                                  className="bx--link-list"
-                                  data-autoid="dds--link-list"
+                                  className="bx--content-item-horizontal__row"
                                 >
-                                  <ul
-                                    className="bx--link-list__list bx--link-list__list--horizontal"
+                                  <div
+                                    className="bx--content-item-horizontal__col"
                                   >
-                                    <li
-                                      className="bx--link-list__list__CTA bx--link-list__list--local"
-                                      key="0"
+                                    <p
+                                      className="bx--content-item-horizontal__item--eyebrow"
+                                      data-autoid="dds--content-item-horizontal__item--eyebrow"
                                     >
-                                      <CTA
-                                        copy="Link text"
-                                        cta={
-                                          Object {
-                                            "href": "https://example.com",
-                                          }
+                                      Lorem ipsum
+                                    </p>
+                                    <h3
+                                      className="bx--content-item-horizontal__item--heading"
+                                      data-autoid="dds--content-item-horizontal__item--heading"
+                                    >
+                                      Aliquam condimentum
+                                    </h3>
+                                  </div>
+                                  <div
+                                    className="bx--content-item-horizontal__col"
+                                  >
+                                    <div
+                                      className="bx--content-item-horizontal__item--copy"
+                                      dangerouslySetInnerHTML={
+                                        Object {
+                                          "__html": "<p>Lorem ipsum dolor sit amet, <em class=\\"bx--type-light\\">consectetur</em> adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.</p>",
                                         }
-                                        style="text"
-                                        type="local"
-                                      >
-                                        <div>
-                                          <TextCTA
-                                            copy="Link text"
-                                            cta={
-                                              Object {
+                                      }
+                                      data-autoid="dds--content-item-horizontal__item--copy"
+                                    />
+                                    <div
+                                      className="bx--content-item-horizontal__item--cta"
+                                      data-autoid="dds--content-item-horizontal__item--cta"
+                                    >
+                                      <LinkList
+                                        items={
+                                          Array [
+                                            Object {
+                                              "copy": "Link text",
+                                              "cta": Object {
                                                 "href": "https://example.com",
-                                              }
-                                            }
-                                            openLightBox={[Function]}
-                                            renderLightBox={false}
-                                            style="text"
-                                            type="local"
-                                            videoTitle={
-                                              Array [
-                                                Object {
-                                                  "key": 0,
-                                                  "title": "",
-                                                },
-                                              ]
-                                            }
+                                              },
+                                              "type": "local",
+                                            },
+                                          ]
+                                        }
+                                        style="horizontal"
+                                      >
+                                        <div
+                                          className="bx--link-list"
+                                          data-autoid="dds--link-list"
+                                        >
+                                          <ul
+                                            className="bx--link-list__list bx--link-list__list--horizontal"
                                           >
-                                            <LinkWithIcon
-                                              href="https://example.com"
-                                              onClick={[Function]}
-                                              target={null}
+                                            <li
+                                              className="bx--link-list__list__CTA bx--link-list__list--local"
+                                              key="0"
                                             >
-                                              <div
-                                                className="bx--link-with-icon__container"
-                                                data-autoid="dds--link-with-icon"
+                                              <CTA
+                                                copy="Link text"
+                                                cta={
+                                                  Object {
+                                                    "href": "https://example.com",
+                                                  }
+                                                }
+                                                style="text"
+                                                type="local"
                                               >
-                                                <Link
-                                                  className="bx--link-with-icon"
-                                                  href="https://example.com"
-                                                  onClick={[Function]}
-                                                  target={null}
-                                                >
-                                                  <a
-                                                    className="bx--link bx--link-with-icon"
-                                                    href="https://example.com"
-                                                    onClick={[Function]}
-                                                    target={null}
+                                                <div>
+                                                  <TextCTA
+                                                    copy="Link text"
+                                                    cta={
+                                                      Object {
+                                                        "href": "https://example.com",
+                                                      }
+                                                    }
+                                                    openLightBox={[Function]}
+                                                    renderLightBox={false}
+                                                    style="text"
+                                                    type="local"
+                                                    videoTitle={
+                                                      Array [
+                                                        Object {
+                                                          "key": 0,
+                                                          "title": "",
+                                                        },
+                                                      ]
+                                                    }
                                                   >
-                                                    <span>
-                                                      Link text
-                                                    </span>
-                                                    <ForwardRef(ArrowRight20)>
-                                                      <Icon
-                                                        height={20}
-                                                        preserveAspectRatio="xMidYMid meet"
-                                                        viewBox="0 0 20 20"
-                                                        width={20}
-                                                        xmlns="http://www.w3.org/2000/svg"
+                                                    <LinkWithIcon
+                                                      href="https://example.com"
+                                                      onClick={[Function]}
+                                                      target={null}
+                                                    >
+                                                      <div
+                                                        className="bx--link-with-icon__container"
+                                                        data-autoid="dds--link-with-icon"
                                                       >
-                                                        <svg
-                                                          aria-hidden={true}
-                                                          focusable="false"
-                                                          height={20}
-                                                          preserveAspectRatio="xMidYMid meet"
-                                                          viewBox="0 0 20 20"
-                                                          width={20}
-                                                          xmlns="http://www.w3.org/2000/svg"
+                                                        <Link
+                                                          className="bx--link-with-icon"
+                                                          href="https://example.com"
+                                                          onClick={[Function]}
+                                                          target={null}
                                                         >
-                                                          <path
-                                                            d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
-                                                          />
-                                                        </svg>
-                                                      </Icon>
-                                                    </ForwardRef(ArrowRight20)>
-                                                  </a>
-                                                </Link>
-                                              </div>
-                                            </LinkWithIcon>
-                                          </TextCTA>
+                                                          <a
+                                                            className="bx--link bx--link-with-icon"
+                                                            href="https://example.com"
+                                                            onClick={[Function]}
+                                                            target={null}
+                                                          >
+                                                            <span>
+                                                              Link text
+                                                            </span>
+                                                            <ForwardRef(ArrowRight20)>
+                                                              <Icon
+                                                                height={20}
+                                                                preserveAspectRatio="xMidYMid meet"
+                                                                viewBox="0 0 20 20"
+                                                                width={20}
+                                                                xmlns="http://www.w3.org/2000/svg"
+                                                              >
+                                                                <svg
+                                                                  aria-hidden={true}
+                                                                  focusable="false"
+                                                                  height={20}
+                                                                  preserveAspectRatio="xMidYMid meet"
+                                                                  viewBox="0 0 20 20"
+                                                                  width={20}
+                                                                  xmlns="http://www.w3.org/2000/svg"
+                                                                >
+                                                                  <path
+                                                                    d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                                                  />
+                                                                </svg>
+                                                              </Icon>
+                                                            </ForwardRef(ArrowRight20)>
+                                                          </a>
+                                                        </Link>
+                                                      </div>
+                                                    </LinkWithIcon>
+                                                  </TextCTA>
+                                                </div>
+                                              </CTA>
+                                            </li>
+                                          </ul>
                                         </div>
-                                      </CTA>
-                                    </li>
-                                  </ul>
+                                      </LinkList>
+                                    </div>
+                                  </div>
                                 </div>
-                              </LinkList>
-                            </div>
+                              </div>
+                            </ContentItemHorizontal>
                           </div>
                         </div>
+                        <aside
+                          className="bx--layout-1-3"
+                          key="1"
+                        >
+                          <div />
+                        </aside>
                       </div>
-                    </ContentItemHorizontal>
-                  </div>
+                    </section>
+                  </Layout>
                 </div>
               </ContentBlock>
             </div>

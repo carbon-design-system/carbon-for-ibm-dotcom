@@ -4,7 +4,6 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import classnames from 'classnames';
 import ContentBlock from '../../../internal/components/ContentBlock/ContentBlock';
 import { ContentItemHorizontal } from '../../../components/ContentItemHorizontal';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
@@ -22,11 +21,13 @@ const ContentGroupHorizontal = ({ heading, items, border }) => {
   return (
     <div
       data-autoid={`${stablePrefix}--content-group-horizontal`}
-      className={classnames(
-        `${prefix}--content-group-horizontal`,
-        border ? `${prefix}--content-group-horizontal--border` : ''
-      )}>
-      <ContentBlock heading={heading}>
+      className={`${prefix}--content-group-horizontal`}>
+      <ContentBlock
+        heading={heading}
+        aside={{
+          items: <div></div>,
+          border: border,
+        }}>
         {items.map((item, index) => (
           <ContentItemHorizontal
             eyebrow={item.eyebrow}
@@ -69,6 +70,10 @@ ContentGroupHorizontal.propTypes = {
    * `true` to use the optional border at the bottom of pattern.
    */
   border: PropTypes.bool,
+};
+
+ContentGroupHorizontal.defaultProps = {
+  border: true,
 };
 
 export default ContentGroupHorizontal;

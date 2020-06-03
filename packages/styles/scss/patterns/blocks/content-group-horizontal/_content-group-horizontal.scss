@@ -10,8 +10,19 @@
 
 @mixin content-group-horizontal {
   .#{$prefix}--content-group-horizontal {
-    &--border {
-      border-bottom: solid 1px $ui-04;
+    .#{$prefix}--content-item-horizontal__item:last-child {
+      @include carbon--breakpoint('max') {
+        padding-bottom: $layout-07;
+      }
+      @include carbon--breakpoint('lg') {
+        padding-bottom: $layout-07;
+      }
+      @include carbon--breakpoint('md') {
+        padding-bottom: $layout-06;
+      }
+      @include carbon--breakpoint('sm') {
+        padding-bottom: $layout-05;
+      }
     }
   }
 }

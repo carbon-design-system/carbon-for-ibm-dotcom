@@ -20,7 +20,7 @@ export default {
       ContentGroupHorizontal: ({ groupId }) => ({
         heading: text('Heading', 'Aliquam condimentum', groupId),
         items: object('Items', items.items, groupId),
-        border: boolean('Optional border:', false),
+        border: boolean('Optional border:', true, groupId),
       }),
     },
   },
