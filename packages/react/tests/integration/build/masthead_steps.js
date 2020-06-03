@@ -18,7 +18,7 @@ describe('Basic example', () => {
   beforeAll(async () => {
     const stylesRoot = path.resolve(__dirname, '../../../../styles');
     const reactRoot = path.resolve(__dirname, '../../..');
-    const src = path.resolve(__dirname, '../../../examples/codesandbox/masthead');
+    const src = path.resolve(__dirname, '../../../examples/codesandbox/components/masthead');
     const tmpDir = process.env.DDS_EXAMPLE_TMPDIR;
     await setupDevServer({
       command: [

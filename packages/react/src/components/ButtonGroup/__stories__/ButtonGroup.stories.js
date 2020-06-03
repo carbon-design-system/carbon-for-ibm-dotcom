@@ -20,7 +20,7 @@ const iconMap = {
 };
 
 const iconOptions = {
-  None: null,
+  Default: null,
   'Arrow Right': 'ArrowRight20',
   'Arrow Down': 'ArrowDown20',
   PDF: 'Pdf20',
@@ -44,7 +44,7 @@ export default {
               select(
                 `Icon ${i + 1}`,
                 iconOptions,
-                iconOptions['Arrow Right'],
+                iconOptions['Default'],
                 groupId
               )
             ],

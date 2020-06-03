@@ -71,9 +71,23 @@ CTASection.propTypes = {
   cta: PropTypes.shape({
     style: PropTypes.oneOf(['text', 'card', 'button', 'feature']),
     type: PropTypes.oneOfType([
-      PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video']),
+      PropTypes.oneOf([
+        'jump',
+        'local',
+        'external',
+        'download',
+        'video',
+        'default',
+      ]),
       PropTypes.arrayOf(
-        PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video'])
+        PropTypes.oneOf([
+          'jump',
+          'local',
+          'external',
+          'download',
+          'video',
+          'default',
+        ])
       ),
     ]),
     copy: PropTypes.string,
@@ -100,7 +114,14 @@ CTASection.propTypes = {
         cta: PropTypes.shape({
           style: PropTypes.oneOf(['text', 'card', 'button', 'feature']),
           type: PropTypes.oneOfType([
-            PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video']),
+            PropTypes.oneOf([
+              'jump',
+              'local',
+              'external',
+              'download',
+              'video',
+              'default',
+            ]),
             PropTypes.arrayOf(
               PropTypes.oneOf([
                 'jump',
@@ -108,6 +129,7 @@ CTASection.propTypes = {
                 'external',
                 'download',
                 'video',
+                'default',
               ])
             ),
           ]),

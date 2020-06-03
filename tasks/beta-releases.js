@@ -64,6 +64,13 @@ const prevTag = args.prevtag;
 const newTag = args.newtag;
 
 /**
+ * Uses a delimiter for splitting the comments into an array
+ *
+ * @type {string}
+ */
+const delimeter = '----DELIMITER----';
+
+/**
  * Returns back the commits in an array
  *
  * @returns {string[]} Commits array of objects
@@ -71,11 +78,11 @@ const newTag = args.newtag;
 function getCommits() {
   // Gets the git output between the two tags
   const output = child
-    .execSync(`git log ${prevTag}..HEAD --pretty=format:"%s"----DELIMITER----`)
+    .execSync(`git log ${prevTag}..HEAD --pretty=format:"%s"${delimeter}`)
     .toString('utf-8');
 
   // Generates the array of commit comments
-  return output.split('----DELIMITER----\n');
+  return output.split(`${delimeter}\n`);
 }
 
 /**
@@ -96,6 +103,7 @@ function getChangelog() {
   const commitsArray = getCommits();
 
   commitsArray.forEach(commit => {
+    commit = commit.replace(delimeter, '');
     if (commit.startsWith('feat(')) {
       let pushFeat = commit.replace('feat(', '- **').replace('):', '**: ');
       features.push(`${pushFeat}\n`);
