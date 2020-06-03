@@ -32,6 +32,10 @@
   }
 }
 
+body [dir="rtl"] {
+  direction: rtl;
+}
+
 .storybook-readme-story {
   width: 100%;
 }
