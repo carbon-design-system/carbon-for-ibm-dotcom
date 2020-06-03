@@ -71,20 +71,22 @@ export default {
         for (let i = 0; i < pictogramCount; i++) {
           items.push({
             heading: text(
-              `Item ${i + 1} Heading (required)`,
+              `Item ${i + 1} Heading (items.heading)`,
               'Aliquam condimentum interdum',
               groupId
             ),
             copy: text(
-              `Item ${i + 1} Copy (required)`,
+              `Item ${i + 1} Copy (items.copy)`,
               'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
               groupId
             ),
-            cta: toggleCTA(boolean(`Item ${i + 1} CTA`, false, groupId)),
+            cta: toggleCTA(
+              boolean(`Item ${i + 1} CTA (items.cta)`, false, groupId)
+            ),
             pictogram: {
               src: selectPictogram(
                 select(
-                  `Item ${i + 1} Pictogram (required)`,
+                  `Item ${i + 1} Pictogram (pictogram)`,
                   pictograms,
                   pictograms.Desktop,
                   groupId
@@ -96,12 +98,12 @@ export default {
         }
         return {
           heading: text(
-            'Pattern title (required)',
+            'Pattern title (heading)',
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
             groupId
           ),
           copy: text(
-            'Copy (optional)',
+            'Copy (copy)',
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
             groupId
           ),
