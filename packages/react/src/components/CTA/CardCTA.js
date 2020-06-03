@@ -4,12 +4,12 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-
 import { CardLink } from '../CardLink';
 import CTALogic from './CTALogic';
 import PropTypes from 'prop-types';
 import React from 'react';
 import settings from 'carbon-components/es/globals/js/settings';
+import { VideoPlayerAPI } from '@carbon/ibmdotcom-services';
 
 const { prefix } = settings;
 
@@ -25,44 +25,64 @@ const CardCTA = ({
 }) => {
   // eslint-disable-next-line no-unused-vars
   const { style, ...cardProps } = otherProps;
-  return type === 'video' ? (
-    <>
-      {CTALogic.launchLightBox(renderLightBox, openLightBox, otherProps.media)}
-      {!renderLightBox && (
-        <CardLink
-          customClassName={`${prefix}--card__video`}
-          card={{
-            ...cardProps,
-            cta: {
-              href: '#',
-              icon: {
-                src: CTALogic.iconSelector(type),
+
+  if (type === 'video') {
+    // use image src if passed in through props, otherwise use Kaltura's generated thumbnail image
+    const image = cardProps.image
+      ? cardProps.image
+      : {
+          defaultSrc: VideoPlayerAPI.getThumbnailUrl({
+            videoId: cardProps.media?.src,
+            width: '320',
+          }),
+          alt: videoTitle[0].title,
+        };
+
+    return (
+      <>
+        {CTALogic.launchLightBox(
+          renderLightBox,
+          openLightBox,
+          otherProps.media
+        )}
+        {!renderLightBox && (
+          <CardLink
+            customClassName={`${prefix}--card__video`}
+            card={{
+              ...cardProps,
+              cta: {
+                href: '#',
+                icon: {
+                  src: CTALogic.iconSelector(type),
+                },
+                copy: videoTitle[0].duration.replace(/\(|\)/g, ''),
               },
-              copy: videoTitle[0].duration.replace(/\(|\)/g, ''),
+              image: image,
+              copy: videoTitle[0].title,
+              handleClick: e => CTALogic.setLightBox(e, openLightBox),
+            }}
+          />
+        )}
+      </>
+    );
+  } else {
+    return (
+      <CardLink
+        card={{
+          ...cardProps,
+          cta: {
+            type,
+            href: otherProps.cta.href,
+            icon: {
+              src: CTALogic.iconSelector(type),
             },
-            image: cardProps.image,
-            copy: videoTitle[0].title,
-            handleClick: e => CTALogic.setLightBox(e, openLightBox),
-          }}
-        />
-      )}
-    </>
-  ) : (
-    <CardLink
-      card={{
-        ...cardProps,
-        cta: {
-          type,
-          href: otherProps.cta.href,
-          icon: {
-            src: CTALogic.iconSelector(type),
           },
-        },
-        copy: otherProps.copy,
-        target: CTALogic.external(type),
-      }}
-    />
-  );
+          copy: otherProps.copy,
+          target: CTALogic.external(type),
+        }}
+      />
+    );
+  }
 };
 
 CardCTA.propTypes = {
