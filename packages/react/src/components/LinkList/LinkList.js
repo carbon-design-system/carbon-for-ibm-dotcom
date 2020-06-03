@@ -38,7 +38,8 @@ const LinkList = ({ heading, items, style }) => {
           return (
             <li
               className={`${prefix}--link-list__list__CTA ${prefix}--link-list__list--${cta.type}`}
-              key={index}>
+              key={index}
+              role="region">
               <CTA style={linkStyle} {...cta} />
             </li>
           );
