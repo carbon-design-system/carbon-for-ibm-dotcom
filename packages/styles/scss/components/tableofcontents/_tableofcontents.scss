@@ -44,6 +44,16 @@
 
 @mixin tableofcontents {
   .#{$prefix}--tableofcontents {
+    &__sidebar {
+      position: sticky;
+      top: 0;
+
+      @include carbon--breakpoint('lg') {
+        position: inherit;
+        top: auto;
+      }
+    }
+
     &__children__mobile {
       @include carbon--breakpoint('lg') {
         display: none;
