@@ -6,7 +6,7 @@
  */
 
 import { Card } from '../Card';
-import classnames from 'classnames';
+import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 import settings from 'carbon-components/es/globals/js/settings';
@@ -16,13 +16,18 @@ const { prefix } = settings;
 /**
  * CardLink component
  */
-const CardLink = ({ card, customClassName }) => {
+const CardLink = ({ card, customClassName, disabled }) => {
+  const type = disabled ? '' : 'link';
+  const cardLinkClassname = cx(`${prefix}--card__CTA`, customClassName, {
+    [`${prefix}--card__CTA--disabled`]: disabled,
+  });
   return (
     <Card
-      customClassName={classnames(`${prefix}--card__CTA`, customClassName)}
+      customClassName={cardLinkClassname}
       {...card}
       role="region"
-      type="link"
+      type={type}
+      disabled={disabled}
     />
   );
 };
@@ -38,6 +43,14 @@ CardLink.propTypes = {
    * Custom className
    */
   customClassName: PropTypes.string,
+  /**
+   * disabled: `true` to disable it.
+   */
+  disabled: PropTypes.bool,
+};
+
+CardLink.defaultProps = {
+  disabled: false,
 };
 
 export default CardLink;

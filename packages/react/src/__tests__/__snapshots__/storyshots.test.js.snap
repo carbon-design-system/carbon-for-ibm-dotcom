@@ -43,18 +43,12 @@ exports[`Storyshots Components|ButtonGroup Default 1`] = `
                 Object {
                   "copy": "Button 1",
                   "href": "https://example.com",
-                  "renderIcon": Object {
-                    "$$typeof": Symbol(react.forward_ref),
-                    "render": [Function],
-                  },
+                  "renderIcon": undefined,
                 },
                 Object {
                   "copy": "Button 2",
                   "href": "https://example.com",
-                  "renderIcon": Object {
-                    "$$typeof": Symbol(react.forward_ref),
-                    "render": [Function],
-                  },
+                  "renderIcon": undefined,
                 },
               ]
             }
@@ -73,12 +67,6 @@ exports[`Storyshots Components|ButtonGroup Default 1`] = `
                   disabled={false}
                   href="https://example.com"
                   kind="primary"
-                  renderIcon={
-                    Object {
-                      "$$typeof": Symbol(react.forward_ref),
-                      "render": [Function],
-                    }
-                  }
                   tabIndex={2}
                   type="button"
                 >
@@ -90,35 +78,6 @@ exports[`Storyshots Components|ButtonGroup Default 1`] = `
                     tabIndex={2}
                   >
                     Button 1
-                    <ForwardRef(ArrowRight20)
-                      aria-hidden="true"
-                      className="bx--btn__icon"
-                    >
-                      <Icon
-                        aria-hidden="true"
-                        className="bx--btn__icon"
-                        height={20}
-                        preserveAspectRatio="xMidYMid meet"
-                        viewBox="0 0 20 20"
-                        width={20}
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <svg
-                          aria-hidden={true}
-                          className="bx--btn__icon"
-                          focusable="false"
-                          height={20}
-                          preserveAspectRatio="xMidYMid meet"
-                          viewBox="0 0 20 20"
-                          width={20}
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
-                          />
-                        </svg>
-                      </Icon>
-                    </ForwardRef(ArrowRight20)>
                   </a>
                 </ForwardRef(Button)>
               </li>
@@ -132,12 +91,6 @@ exports[`Storyshots Components|ButtonGroup Default 1`] = `
                   disabled={false}
                   href="https://example.com"
                   kind="tertiary"
-                  renderIcon={
-                    Object {
-                      "$$typeof": Symbol(react.forward_ref),
-                      "render": [Function],
-                    }
-                  }
                   tabIndex={1}
                   type="button"
                 >
@@ -149,35 +102,6 @@ exports[`Storyshots Components|ButtonGroup Default 1`] = `
                     tabIndex={1}
                   >
                     Button 2
-                    <ForwardRef(ArrowRight20)
-                      aria-hidden="true"
-                      className="bx--btn__icon"
-                    >
-                      <Icon
-                        aria-hidden="true"
-                        className="bx--btn__icon"
-                        height={20}
-                        preserveAspectRatio="xMidYMid meet"
-                        viewBox="0 0 20 20"
-                        width={20}
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <svg
-                          aria-hidden={true}
-                          className="bx--btn__icon"
-                          focusable="false"
-                          height={20}
-                          preserveAspectRatio="xMidYMid meet"
-                          viewBox="0 0 20 20"
-                          width={20}
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
-                          />
-                        </svg>
-                      </Icon>
-                    </ForwardRef(ArrowRight20)>
                   </a>
                 </ForwardRef(Button)>
               </li>
@@ -201,18 +125,12 @@ exports[`Storyshots Components|ButtonGroup Default 1`] = `
             Object {
               "copy": "Button 1",
               "href": "https://example.com",
-              "renderIcon": Object {
-                "$$typeof": Symbol(react.forward_ref),
-                "render": [Function],
-              },
+              "renderIcon": undefined,
             },
             Object {
               "copy": "Button 2",
               "href": "https://example.com",
-              "renderIcon": Object {
-                "$$typeof": Symbol(react.forward_ref),
-                "render": [Function],
-              },
+              "renderIcon": undefined,
             },
           ]
         }
@@ -231,12 +149,6 @@ exports[`Storyshots Components|ButtonGroup Default 1`] = `
               disabled={false}
               href="https://example.com"
               kind="primary"
-              renderIcon={
-                Object {
-                  "$$typeof": Symbol(react.forward_ref),
-                  "render": [Function],
-                }
-              }
               tabIndex={2}
               type="button"
             >
@@ -248,35 +160,6 @@ exports[`Storyshots Components|ButtonGroup Default 1`] = `
                 tabIndex={2}
               >
                 Button 1
-                <ForwardRef(ArrowRight20)
-                  aria-hidden="true"
-                  className="bx--btn__icon"
-                >
-                  <Icon
-                    aria-hidden="true"
-                    className="bx--btn__icon"
-                    height={20}
-                    preserveAspectRatio="xMidYMid meet"
-                    viewBox="0 0 20 20"
-                    width={20}
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <svg
-                      aria-hidden={true}
-                      className="bx--btn__icon"
-                      focusable="false"
-                      height={20}
-                      preserveAspectRatio="xMidYMid meet"
-                      viewBox="0 0 20 20"
-                      width={20}
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
-                      />
-                    </svg>
-                  </Icon>
-                </ForwardRef(ArrowRight20)>
               </a>
             </ForwardRef(Button)>
           </li>
@@ -290,12 +173,6 @@ exports[`Storyshots Components|ButtonGroup Default 1`] = `
               disabled={false}
               href="https://example.com"
               kind="tertiary"
-              renderIcon={
-                Object {
-                  "$$typeof": Symbol(react.forward_ref),
-                  "render": [Function],
-                }
-              }
               tabIndex={1}
               type="button"
             >
@@ -307,35 +184,6 @@ exports[`Storyshots Components|ButtonGroup Default 1`] = `
                 tabIndex={1}
               >
                 Button 2
-                <ForwardRef(ArrowRight20)
-                  aria-hidden="true"
-                  className="bx--btn__icon"
-                >
-                  <Icon
-                    aria-hidden="true"
-                    className="bx--btn__icon"
-                    height={20}
-                    preserveAspectRatio="xMidYMid meet"
-                    viewBox="0 0 20 20"
-                    width={20}
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <svg
-                      aria-hidden={true}
-                      className="bx--btn__icon"
-                      focusable="false"
-                      height={20}
-                      preserveAspectRatio="xMidYMid meet"
-                      viewBox="0 0 20 20"
-                      width={20}
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
-                      />
-                    </svg>
-                  </Icon>
-                </ForwardRef(ArrowRight20)>
               </a>
             </ForwardRef(Button)>
           </li>
@@ -1610,6 +1458,7 @@ exports[`Storyshots Components|CardLink Default 1`] = `
                 },
               }
             }
+            disabled={false}
           >
             <Card
               copy="Explore AI use cases in all industries"
@@ -1625,6 +1474,7 @@ exports[`Storyshots Components|CardLink Default 1`] = `
                 }
               }
               customClassName="bx--card__CTA"
+              disabled={false}
               role="region"
               type="link"
             >
@@ -1632,6 +1482,7 @@ exports[`Storyshots Components|CardLink Default 1`] = `
                 className="bx--card bx--card--link bx--card__CTA"
                 clicked={false}
                 data-autoid="dds--card"
+                disabled={false}
                 handleClick={[Function]}
                 handleKeyDown={[Function]}
                 href="https://www.example.com"
@@ -1643,6 +1494,7 @@ exports[`Storyshots Components|CardLink Default 1`] = `
                 <a
                   className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
                   data-autoid="dds--card"
+                  disabled={false}
                   href="https://www.example.com"
                   onClick={[Function]}
                   onKeyDown={[Function]}
@@ -1851,6 +1703,7 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
                                   "href": "https://ibm.com",
                                 }
                               }
+                              href=""
                               style="text"
                               type="local"
                             >
@@ -1862,6 +1715,7 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
                                       "href": "https://ibm.com",
                                     }
                                   }
+                                  href=""
                                   openLightBox={[Function]}
                                   renderLightBox={false}
                                   style="text"
@@ -1941,6 +1795,7 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
                                   "href": "https://ibm.com",
                                 }
                               }
+                              href=""
                               style="text"
                               type="external"
                             >
@@ -1952,6 +1807,7 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
                                       "href": "https://ibm.com",
                                     }
                                   }
+                                  href=""
                                   openLightBox={[Function]}
                                   renderLightBox={false}
                                   style="text"
@@ -3772,6 +3628,11 @@ exports[`Storyshots Components|FeatureCard Default 1`] = `
       >
         <div
           className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
+          style={
+            Object {
+              "paddingTop": "20px",
+            }
+          }
         >
           <FeatureCard
             card={
@@ -5408,10 +5269,14 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                         "href": "https://ibm.com",
                       }
                     }
+                    href=""
                     style="card"
                     type="local"
                   >
-                    <div>
+                    <div
+                      aria-label="Learn more"
+                      role="region"
+                    >
                       <CardCTA
                         copy="Learn more"
                         cta={
@@ -5419,6 +5284,8 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                             "href": "https://ibm.com",
                           }
                         }
+                        href=""
+                        media={null}
                         openLightBox={[Function]}
                         renderLightBox={false}
                         style="card"
@@ -5449,6 +5316,7 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                               "target": null,
                             }
                           }
+                          disabled={false}
                         >
                           <Card
                             copy="Learn more"
@@ -5465,6 +5333,7 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                               }
                             }
                             customClassName="bx--card__CTA"
+                            disabled={false}
                             role="region"
                             target={null}
                             type="link"
@@ -5473,6 +5342,7 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                               className="bx--card bx--card--link bx--card__CTA"
                               clicked={false}
                               data-autoid="dds--card"
+                              disabled={false}
                               handleClick={[Function]}
                               handleKeyDown={[Function]}
                               href="https://ibm.com"
@@ -5484,6 +5354,7 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                               <a
                                 className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
                                 data-autoid="dds--card"
+                                disabled={false}
                                 href="https://ibm.com"
                                 onClick={[Function]}
                                 onKeyDown={[Function]}
@@ -5570,10 +5441,14 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                         "href": "https://ibm.com",
                       }
                     }
+                    href=""
                     style="card"
                     type="download"
                   >
-                    <div>
+                    <div
+                      aria-label="Containerization A Complete Guide"
+                      role="region"
+                    >
                       <CardCTA
                         copy="Containerization A Complete Guide"
                         cta={
@@ -5581,6 +5456,8 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                             "href": "https://ibm.com",
                           }
                         }
+                        href=""
+                        media={null}
                         openLightBox={[Function]}
                         renderLightBox={false}
                         style="card"
@@ -5611,6 +5488,7 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                               "target": null,
                             }
                           }
+                          disabled={false}
                         >
                           <Card
                             copy="Containerization A Complete Guide"
@@ -5627,6 +5505,7 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                               }
                             }
                             customClassName="bx--card__CTA"
+                            disabled={false}
                             role="region"
                             target={null}
                             type="link"
@@ -5635,6 +5514,7 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                               className="bx--card bx--card--link bx--card__CTA"
                               clicked={false}
                               data-autoid="dds--card"
+                              disabled={false}
                               handleClick={[Function]}
                               handleKeyDown={[Function]}
                               href="https://ibm.com"
@@ -5646,6 +5526,7 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                               <a
                                 className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
                                 data-autoid="dds--card"
+                                disabled={false}
                                 href="https://ibm.com"
                                 onClick={[Function]}
                                 onKeyDown={[Function]}
@@ -5735,10 +5616,14 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                         "href": "https://ibm.com",
                       }
                     }
+                    href=""
                     style="card"
                     type="external"
                   >
-                    <div>
+                    <div
+                      aria-label="Microservices and containers"
+                      role="region"
+                    >
                       <CardCTA
                         copy="Microservices and containers"
                         cta={
@@ -5746,6 +5631,8 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                             "href": "https://ibm.com",
                           }
                         }
+                        href=""
+                        media={null}
                         openLightBox={[Function]}
                         renderLightBox={false}
                         style="card"
@@ -5776,6 +5663,7 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                               "target": "_blank",
                             }
                           }
+                          disabled={false}
                         >
                           <Card
                             copy="Microservices and containers"
@@ -5792,6 +5680,7 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                               }
                             }
                             customClassName="bx--card__CTA"
+                            disabled={false}
                             role="region"
                             target="_blank"
                             type="link"
@@ -5800,6 +5689,7 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                               className="bx--card bx--card--link bx--card__CTA"
                               clicked={false}
                               data-autoid="dds--card"
+                              disabled={false}
                               handleClick={[Function]}
                               handleKeyDown={[Function]}
                               href="https://ibm.com"
@@ -5811,6 +5701,7 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                               <a
                                 className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
                                 data-autoid="dds--card"
+                                disabled={false}
                                 href="https://ibm.com"
                                 onClick={[Function]}
                                 onKeyDown={[Function]}
@@ -5894,6 +5785,8 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                   key="3"
                 >
                   <CTA
+                    copy=""
+                    href=""
                     media={
                       Object {
                         "src": "0_uka1msg4",
@@ -5903,8 +5796,14 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                     style="card"
                     type="video"
                   >
-                    <div>
+                    <div
+                      aria-label=""
+                      role="region"
+                    >
                       <CardCTA
+                        copy=""
+                        cta={null}
+                        href=""
                         media={
                           Object {
                             "src": "0_uka1msg4",
@@ -5940,6 +5839,7 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                               "handleClick": [Function],
                             }
                           }
+                          disabled={false}
                         >
                           <Card
                             copy=""
@@ -5955,6 +5855,7 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                               }
                             }
                             customClassName="bx--card__CTA"
+                            disabled={false}
                             handleClick={[Function]}
                             role="region"
                             type="link"
@@ -5963,6 +5864,7 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                               className="bx--card bx--card--link bx--card__CTA"
                               clicked={false}
                               data-autoid="dds--card"
+                              disabled={false}
                               handleClick={[Function]}
                               handleKeyDown={[Function]}
                               href="#"
@@ -5974,6 +5876,7 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                               <a
                                 className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
                                 data-autoid="dds--card"
+                                disabled={false}
                                 href="#"
                                 onClick={[Function]}
                                 onKeyDown={[Function]}
@@ -6140,6 +6043,7 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                         "href": "https://ibm.com",
                       }
                     }
+                    href=""
                     style="text"
                     type="local"
                   >
@@ -6151,6 +6055,7 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                             "href": "https://ibm.com",
                           }
                         }
+                        href=""
                         openLightBox={[Function]}
                         renderLightBox={false}
                         style="text"
@@ -6230,6 +6135,7 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                         "href": "https://ibm.com",
                       }
                     }
+                    href=""
                     style="text"
                     type="download"
                   >
@@ -6241,6 +6147,7 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                             "href": "https://ibm.com",
                           }
                         }
+                        href=""
                         openLightBox={[Function]}
                         renderLightBox={false}
                         style="text"
@@ -6323,6 +6230,7 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                         "href": "https://ibm.com",
                       }
                     }
+                    href=""
                     style="text"
                     type="external"
                   >
@@ -6334,6 +6242,7 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                             "href": "https://ibm.com",
                           }
                         }
+                        href=""
                         openLightBox={[Function]}
                         renderLightBox={false}
                         style="text"
@@ -6410,6 +6319,8 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                   key="3"
                 >
                   <CTA
+                    copy=""
+                    href=""
                     media={
                       Object {
                         "src": "0_uka1msg4",
@@ -6421,6 +6332,8 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                   >
                     <div>
                       <TextCTA
+                        copy=""
+                        href=""
                         media={
                           Object {
                             "src": "0_uka1msg4",
@@ -6577,6 +6490,7 @@ exports[`Storyshots Components|LinkList Horizontal 1`] = `
                         "href": "https://ibm.com",
                       }
                     }
+                    href=""
                     style="text"
                     type="local"
                   >
@@ -6588,6 +6502,7 @@ exports[`Storyshots Components|LinkList Horizontal 1`] = `
                             "href": "https://ibm.com",
                           }
                         }
+                        href=""
                         openLightBox={[Function]}
                         renderLightBox={false}
                         style="text"
@@ -6667,6 +6582,7 @@ exports[`Storyshots Components|LinkList Horizontal 1`] = `
                         "href": "https://ibm.com",
                       }
                     }
+                    href=""
                     style="text"
                     type="download"
                   >
@@ -6678,6 +6594,7 @@ exports[`Storyshots Components|LinkList Horizontal 1`] = `
                             "href": "https://ibm.com",
                           }
                         }
+                        href=""
                         openLightBox={[Function]}
                         renderLightBox={false}
                         style="text"
@@ -6845,6 +6762,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                         "href": "https://ibm.com",
                       }
                     }
+                    href=""
                     style="text"
                     type="local"
                   >
@@ -6856,6 +6774,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                             "href": "https://ibm.com",
                           }
                         }
+                        href=""
                         openLightBox={[Function]}
                         renderLightBox={false}
                         style="text"
@@ -6935,6 +6854,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                         "href": "https://ibm.com",
                       }
                     }
+                    href=""
                     style="text"
                     type="download"
                   >
@@ -6946,6 +6866,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                             "href": "https://ibm.com",
                           }
                         }
+                        href=""
                         openLightBox={[Function]}
                         renderLightBox={false}
                         style="text"
@@ -7028,6 +6949,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                         "href": "https://ibm.com",
                       }
                     }
+                    href=""
                     style="text"
                     type="external"
                   >
@@ -7039,6 +6961,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                             "href": "https://ibm.com",
                           }
                         }
+                        href=""
                         openLightBox={[Function]}
                         renderLightBox={false}
                         style="text"
@@ -7115,6 +7038,8 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                   key="3"
                 >
                   <CTA
+                    copy=""
+                    href=""
                     media={
                       Object {
                         "src": "0_uka1msg4",
@@ -7126,6 +7051,8 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                   >
                     <div>
                       <TextCTA
+                        copy=""
+                        href=""
                         media={
                           Object {
                             "src": "0_uka1msg4",
@@ -7296,6 +7223,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                         "href": "https://ibm.com",
                       }
                     }
+                    href=""
                     style="text"
                     type="local"
                   >
@@ -7307,6 +7235,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                             "href": "https://ibm.com",
                           }
                         }
+                        href=""
                         openLightBox={[Function]}
                         renderLightBox={false}
                         style="text"
@@ -7386,6 +7315,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                         "href": "https://ibm.com",
                       }
                     }
+                    href=""
                     style="text"
                     type="download"
                   >
@@ -7397,6 +7327,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                             "href": "https://ibm.com",
                           }
                         }
+                        href=""
                         openLightBox={[Function]}
                         renderLightBox={false}
                         style="text"
@@ -7479,6 +7410,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                         "href": "https://ibm.com",
                       }
                     }
+                    href=""
                     style="text"
                     type="external"
                   >
@@ -7490,6 +7422,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                             "href": "https://ibm.com",
                           }
                         }
+                        href=""
                         openLightBox={[Function]}
                         renderLightBox={false}
                         style="text"
@@ -7566,6 +7499,8 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                   key="3"
                 >
                   <CTA
+                    copy=""
+                    href=""
                     media={
                       Object {
                         "src": "0_uka1msg4",
@@ -7577,6 +7512,8 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                   >
                     <div>
                       <TextCTA
+                        copy=""
+                        href=""
                         media={
                           Object {
                             "src": "0_uka1msg4",
@@ -7713,10 +7650,14 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                         "href": "https://ibm.com",
                       }
                     }
+                    href=""
                     style="card"
                     type="local"
                   >
-                    <div>
+                    <div
+                      aria-label="Learn more"
+                      role="region"
+                    >
                       <CardCTA
                         copy="Learn more"
                         cta={
@@ -7724,6 +7665,8 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                             "href": "https://ibm.com",
                           }
                         }
+                        href=""
+                        media={null}
                         openLightBox={[Function]}
                         renderLightBox={false}
                         style="card"
@@ -7754,6 +7697,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                               "target": null,
                             }
                           }
+                          disabled={false}
                         >
                           <Card
                             copy="Learn more"
@@ -7770,6 +7714,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                               }
                             }
                             customClassName="bx--card__CTA"
+                            disabled={false}
                             role="region"
                             target={null}
                             type="link"
@@ -7778,6 +7723,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                               className="bx--card bx--card--link bx--card__CTA"
                               clicked={false}
                               data-autoid="dds--card"
+                              disabled={false}
                               handleClick={[Function]}
                               handleKeyDown={[Function]}
                               href="https://ibm.com"
@@ -7789,6 +7735,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                               <a
                                 className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
                                 data-autoid="dds--card"
+                                disabled={false}
                                 href="https://ibm.com"
                                 onClick={[Function]}
                                 onKeyDown={[Function]}
@@ -7875,10 +7822,14 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                         "href": "https://ibm.com",
                       }
                     }
+                    href=""
                     style="card"
                     type="download"
                   >
-                    <div>
+                    <div
+                      aria-label="Containerization A Complete Guide"
+                      role="region"
+                    >
                       <CardCTA
                         copy="Containerization A Complete Guide"
                         cta={
@@ -7886,6 +7837,8 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                             "href": "https://ibm.com",
                           }
                         }
+                        href=""
+                        media={null}
                         openLightBox={[Function]}
                         renderLightBox={false}
                         style="card"
@@ -7916,6 +7869,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                               "target": null,
                             }
                           }
+                          disabled={false}
                         >
                           <Card
                             copy="Containerization A Complete Guide"
@@ -7932,6 +7886,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                               }
                             }
                             customClassName="bx--card__CTA"
+                            disabled={false}
                             role="region"
                             target={null}
                             type="link"
@@ -7940,6 +7895,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                               className="bx--card bx--card--link bx--card__CTA"
                               clicked={false}
                               data-autoid="dds--card"
+                              disabled={false}
                               handleClick={[Function]}
                               handleKeyDown={[Function]}
                               href="https://ibm.com"
@@ -7951,6 +7907,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                               <a
                                 className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
                                 data-autoid="dds--card"
+                                disabled={false}
                                 href="https://ibm.com"
                                 onClick={[Function]}
                                 onKeyDown={[Function]}
@@ -8040,10 +7997,14 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                         "href": "https://ibm.com",
                       }
                     }
+                    href=""
                     style="card"
                     type="external"
                   >
-                    <div>
+                    <div
+                      aria-label="Microservices and containers"
+                      role="region"
+                    >
                       <CardCTA
                         copy="Microservices and containers"
                         cta={
@@ -8051,6 +8012,8 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                             "href": "https://ibm.com",
                           }
                         }
+                        href=""
+                        media={null}
                         openLightBox={[Function]}
                         renderLightBox={false}
                         style="card"
@@ -8081,6 +8044,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                               "target": "_blank",
                             }
                           }
+                          disabled={false}
                         >
                           <Card
                             copy="Microservices and containers"
@@ -8097,6 +8061,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                               }
                             }
                             customClassName="bx--card__CTA"
+                            disabled={false}
                             role="region"
                             target="_blank"
                             type="link"
@@ -8105,6 +8070,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                               className="bx--card bx--card--link bx--card__CTA"
                               clicked={false}
                               data-autoid="dds--card"
+                              disabled={false}
                               handleClick={[Function]}
                               handleKeyDown={[Function]}
                               href="https://ibm.com"
@@ -8116,6 +8082,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                               <a
                                 className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
                                 data-autoid="dds--card"
+                                disabled={false}
                                 href="https://ibm.com"
                                 onClick={[Function]}
                                 onKeyDown={[Function]}
@@ -8199,6 +8166,8 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                   key="3"
                 >
                   <CTA
+                    copy=""
+                    href=""
                     media={
                       Object {
                         "src": "0_uka1msg4",
@@ -8208,8 +8177,14 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                     style="card"
                     type="video"
                   >
-                    <div>
+                    <div
+                      aria-label=""
+                      role="region"
+                    >
                       <CardCTA
+                        copy=""
+                        cta={null}
+                        href=""
                         media={
                           Object {
                             "src": "0_uka1msg4",
@@ -8245,6 +8220,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                               "handleClick": [Function],
                             }
                           }
+                          disabled={false}
                         >
                           <Card
                             copy=""
@@ -8260,6 +8236,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                               }
                             }
                             customClassName="bx--card__CTA"
+                            disabled={false}
                             handleClick={[Function]}
                             role="region"
                             type="link"
@@ -8268,6 +8245,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                               className="bx--card bx--card--link bx--card__CTA"
                               clicked={false}
                               data-autoid="dds--card"
+                              disabled={false}
                               handleClick={[Function]}
                               handleKeyDown={[Function]}
                               href="#"
@@ -8279,6 +8257,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                               <a
                                 className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
                                 data-autoid="dds--card"
+                                disabled={false}
                                 href="#"
                                 onClick={[Function]}
                                 onKeyDown={[Function]}
@@ -10618,26 +10597,20 @@ exports[`Storyshots Components|Table of Contents Dynamic Items 1`] = `
                 className="bx--row"
               >
                 <div
-                  className="bx--col-lg-4 bx--layout--sticky-mobile"
+                  className="bx--tableofcontents__sidebar bx--col-lg-4"
                   key="0"
-                  style={
-                    Object {
-                      "top": 0,
-                    }
-                  }
                 >
                   <div
-                    className="bx--tableofcontents__sidebar bx--layout--sticky-desktop"
-                    data-sticky="true"
+                    className="bx--tableofcontents__mobile-top"
+                  />
+                  <div
                     style={
                       Object {
-                        "top": 0,
+                        "position": "sticky",
+                        "top": "0",
                       }
                     }
                   >
-                    <div
-                      className="bx--tableofcontents__mobile-top"
-                    />
                     <TOCDesktop
                       menuItems={
                         Array [
@@ -10967,26 +10940,20 @@ exports[`Storyshots Components|Table of Contents Manually define Menu Items 1`] 
               className="bx--row"
             >
               <div
-                className="bx--col-lg-4 bx--layout--sticky-mobile"
+                className="bx--tableofcontents__sidebar bx--col-lg-4"
                 key="0"
-                style={
-                  Object {
-                    "top": 0,
-                  }
-                }
               >
                 <div
-                  className="bx--tableofcontents__sidebar bx--layout--sticky-desktop"
-                  data-sticky="true"
+                  className="bx--tableofcontents__mobile-top"
+                />
+                <div
                   style={
                     Object {
-                      "top": 0,
+                      "position": "sticky",
+                      "top": "0",
                     }
                   }
                 >
-                  <div
-                    className="bx--tableofcontents__mobile-top"
-                  />
                   <TOCDesktop
                     menuItems={
                       Array [
@@ -11539,26 +11506,39 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
                 className="bx--row"
               >
                 <div
-                  className="bx--col-lg-4 bx--layout--sticky-mobile"
+                  className="bx--tableofcontents__sidebar bx--col-lg-4"
                   key="0"
-                  style={
-                    Object {
-                      "top": 0,
-                    }
-                  }
                 >
                   <div
-                    className="bx--tableofcontents__sidebar bx--layout--sticky-desktop"
-                    data-sticky="true"
+                    className="bx--tableofcontents__desktop__children"
+                  >
+                    <div
+                      style={
+                        Object {
+                          "alignItems": "center",
+                          "background": "#f4f4f4",
+                          "display": "flex",
+                          "height": "200px",
+                          "justifyContent": "center",
+                        }
+                      }
+                    >
+                      <h4>
+                        Example children
+                      </h4>
+                    </div>
+                  </div>
+                  <div
+                    className="bx--tableofcontents__mobile-top"
+                  />
+                  <div
                     style={
                       Object {
-                        "top": 0,
+                        "position": "sticky",
+                        "top": "0",
                       }
                     }
                   >
-                    <div
-                      className="bx--tableofcontents__mobile-top"
-                    />
                     <TOCDesktop
                       headingContent={
                         <div
@@ -11615,25 +11595,6 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
                         className="bx--tableofcontents__desktop"
                         data-autoid="dds--tableofcontents__desktop"
                       >
-                        <div
-                          className="bx--tableofcontents__desktop__children"
-                        >
-                          <div
-                            style={
-                              Object {
-                                "alignItems": "center",
-                                "background": "#f4f4f4",
-                                "display": "flex",
-                                "height": "200px",
-                                "justifyContent": "center",
-                              }
-                            }
-                          >
-                            <h4>
-                              Example children
-                            </h4>
-                          </div>
-                        </div>
                         <ul>
                           <li
                             className="bx--tableofcontents__desktop__item bx--tableofcontents__desktop__item--active"
@@ -13695,11 +13656,14 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                   }
                                 }
                                 customClassName="bx--content-group__cta"
+                                href=""
                                 style="card"
                                 type="local"
                               >
                                 <div
+                                  aria-label="Lorem ipsum dolor sit ametttt"
                                   className="bx--content-group__cta"
+                                  role="region"
                                 >
                                   <CardCTA
                                     copy="Lorem ipsum dolor sit ametttt"
@@ -13708,6 +13672,8 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                         "href": "https://www.example.com",
                                       }
                                     }
+                                    href=""
+                                    media={null}
                                     openLightBox={[Function]}
                                     renderLightBox={false}
                                     style="card"
@@ -13738,6 +13704,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                           "target": null,
                                         }
                                       }
+                                      disabled={false}
                                     >
                                       <Card
                                         copy="Lorem ipsum dolor sit ametttt"
@@ -13754,6 +13721,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                           }
                                         }
                                         customClassName="bx--card__CTA"
+                                        disabled={false}
                                         role="region"
                                         target={null}
                                         type="link"
@@ -13762,6 +13730,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                           className="bx--card bx--card--link bx--card__CTA"
                                           clicked={false}
                                           data-autoid="dds--card"
+                                          disabled={false}
                                           handleClick={[Function]}
                                           handleKeyDown={[Function]}
                                           href="https://www.example.com"
@@ -13773,6 +13742,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                           <a
                                             className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
                                             data-autoid="dds--card"
+                                            disabled={false}
                                             href="https://www.example.com"
                                             onClick={[Function]}
                                             onKeyDown={[Function]}
@@ -14086,11 +14056,14 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                   }
                                 }
                                 customClassName="bx--content-group__cta"
+                                href=""
                                 style="card"
                                 type="local"
                               >
                                 <div
+                                  aria-label="Lorem ipsum dolor sit ametttt"
                                   className="bx--content-group__cta"
+                                  role="region"
                                 >
                                   <CardCTA
                                     copy="Lorem ipsum dolor sit ametttt"
@@ -14099,6 +14072,8 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                         "href": "https://www.example.com",
                                       }
                                     }
+                                    href=""
+                                    media={null}
                                     openLightBox={[Function]}
                                     renderLightBox={false}
                                     style="card"
@@ -14129,6 +14104,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                           "target": null,
                                         }
                                       }
+                                      disabled={false}
                                     >
                                       <Card
                                         copy="Lorem ipsum dolor sit ametttt"
@@ -14145,6 +14121,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                           }
                                         }
                                         customClassName="bx--card__CTA"
+                                        disabled={false}
                                         role="region"
                                         target={null}
                                         type="link"
@@ -14153,6 +14130,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                           className="bx--card bx--card--link bx--card__CTA"
                                           clicked={false}
                                           data-autoid="dds--card"
+                                          disabled={false}
                                           handleClick={[Function]}
                                           handleKeyDown={[Function]}
                                           href="https://www.example.com"
@@ -14164,6 +14142,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                           <a
                                             className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
                                             data-autoid="dds--card"
+                                            disabled={false}
                                             href="https://www.example.com"
                                             onClick={[Function]}
                                             onKeyDown={[Function]}
@@ -14263,8 +14242,10 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                         },
                       }
                     }
+                    copy=""
                     customClassName="bx--content-block__cta"
                     heading="Lorem ipsum dolor sit amet"
+                    href=""
                     style="feature"
                     type="local"
                   >
@@ -14290,7 +14271,9 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                             },
                           }
                         }
+                        copy=""
                         heading="Lorem ipsum dolor sit amet"
+                        href=""
                         openLightBox={[Function]}
                         renderLightBox={false}
                         style="feature"
@@ -15050,11 +15033,14 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                           }
                                         }
                                         customClassName="bx--content-group__cta"
+                                        href=""
                                         style="card"
                                         type="local"
                                       >
                                         <div
+                                          aria-label="Lorem ipsum dolor sit ametttt"
                                           className="bx--content-group__cta"
+                                          role="region"
                                         >
                                           <CardCTA
                                             copy="Lorem ipsum dolor sit ametttt"
@@ -15063,6 +15049,8 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                                 "href": "https://www.example.com",
                                               }
                                             }
+                                            href=""
+                                            media={null}
                                             openLightBox={[Function]}
                                             renderLightBox={false}
                                             style="card"
@@ -15093,6 +15081,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                                   "target": null,
                                                 }
                                               }
+                                              disabled={false}
                                             >
                                               <Card
                                                 copy="Lorem ipsum dolor sit ametttt"
@@ -15109,6 +15098,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                                   }
                                                 }
                                                 customClassName="bx--card__CTA"
+                                                disabled={false}
                                                 role="region"
                                                 target={null}
                                                 type="link"
@@ -15117,6 +15107,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                                   className="bx--card bx--card--link bx--card__CTA"
                                                   clicked={false}
                                                   data-autoid="dds--card"
+                                                  disabled={false}
                                                   handleClick={[Function]}
                                                   handleKeyDown={[Function]}
                                                   href="https://www.example.com"
@@ -15128,6 +15119,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                                   <a
                                                     className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
                                                     data-autoid="dds--card"
+                                                    disabled={false}
                                                     href="https://www.example.com"
                                                     onClick={[Function]}
                                                     onKeyDown={[Function]}
@@ -15441,11 +15433,14 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                           }
                                         }
                                         customClassName="bx--content-group__cta"
+                                        href=""
                                         style="card"
                                         type="local"
                                       >
                                         <div
+                                          aria-label="Lorem ipsum dolor sit ametttt"
                                           className="bx--content-group__cta"
+                                          role="region"
                                         >
                                           <CardCTA
                                             copy="Lorem ipsum dolor sit ametttt"
@@ -15454,6 +15449,8 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                                 "href": "https://www.example.com",
                                               }
                                             }
+                                            href=""
+                                            media={null}
                                             openLightBox={[Function]}
                                             renderLightBox={false}
                                             style="card"
@@ -15484,6 +15481,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                                   "target": null,
                                                 }
                                               }
+                                              disabled={false}
                                             >
                                               <Card
                                                 copy="Lorem ipsum dolor sit ametttt"
@@ -15500,6 +15498,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                                   }
                                                 }
                                                 customClassName="bx--card__CTA"
+                                                disabled={false}
                                                 role="region"
                                                 target={null}
                                                 type="link"
@@ -15508,6 +15507,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                                   className="bx--card bx--card--link bx--card__CTA"
                                                   clicked={false}
                                                   data-autoid="dds--card"
+                                                  disabled={false}
                                                   handleClick={[Function]}
                                                   handleKeyDown={[Function]}
                                                   href="https://www.example.com"
@@ -15519,6 +15519,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                                   <a
                                                     className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
                                                     data-autoid="dds--card"
+                                                    disabled={false}
                                                     href="https://www.example.com"
                                                     onClick={[Function]}
                                                     onKeyDown={[Function]}
@@ -15618,8 +15619,10 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                 },
                               }
                             }
+                            copy=""
                             customClassName="bx--content-block__cta"
                             heading="Lorem ipsum dolor sit amet"
+                            href=""
                             style="feature"
                             type="local"
                           >
@@ -15645,7 +15648,9 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                     },
                                   }
                                 }
+                                copy=""
                                 heading="Lorem ipsum dolor sit amet"
+                                href=""
                                 openLightBox={[Function]}
                                 renderLightBox={false}
                                 style="feature"
@@ -15909,10 +15914,14 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                         "href": "https://ibm.com",
                                       }
                                     }
+                                    href=""
                                     style="card"
                                     type="local"
                                   >
-                                    <div>
+                                    <div
+                                      aria-label="Containerization A Complete Guide"
+                                      role="region"
+                                    >
                                       <CardCTA
                                         copy="Containerization A Complete Guide"
                                         cta={
@@ -15920,6 +15929,8 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                             "href": "https://ibm.com",
                                           }
                                         }
+                                        href=""
+                                        media={null}
                                         openLightBox={[Function]}
                                         renderLightBox={false}
                                         style="card"
@@ -15950,6 +15961,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                               "target": null,
                                             }
                                           }
+                                          disabled={false}
                                         >
                                           <Card
                                             copy="Containerization A Complete Guide"
@@ -15966,6 +15978,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                               }
                                             }
                                             customClassName="bx--card__CTA"
+                                            disabled={false}
                                             role="region"
                                             target={null}
                                             type="link"
@@ -15974,6 +15987,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                               className="bx--card bx--card--link bx--card__CTA"
                                               clicked={false}
                                               data-autoid="dds--card"
+                                              disabled={false}
                                               handleClick={[Function]}
                                               handleKeyDown={[Function]}
                                               href="https://ibm.com"
@@ -15985,6 +15999,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                               <a
                                                 className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
                                                 data-autoid="dds--card"
+                                                disabled={false}
                                                 href="https://ibm.com"
                                                 onClick={[Function]}
                                                 onKeyDown={[Function]}
@@ -16071,10 +16086,14 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                         "href": "https://ibm.com",
                                       }
                                     }
+                                    href=""
                                     style="card"
                                     type="external"
                                   >
-                                    <div>
+                                    <div
+                                      aria-label="Why should you use microservices and containers"
+                                      role="region"
+                                    >
                                       <CardCTA
                                         copy="Why should you use microservices and containers"
                                         cta={
@@ -16082,6 +16101,8 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                             "href": "https://ibm.com",
                                           }
                                         }
+                                        href=""
+                                        media={null}
                                         openLightBox={[Function]}
                                         renderLightBox={false}
                                         style="card"
@@ -16112,6 +16133,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                               "target": "_blank",
                                             }
                                           }
+                                          disabled={false}
                                         >
                                           <Card
                                             copy="Why should you use microservices and containers"
@@ -16128,6 +16150,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                               }
                                             }
                                             customClassName="bx--card__CTA"
+                                            disabled={false}
                                             role="region"
                                             target="_blank"
                                             type="link"
@@ -16136,6 +16159,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                               className="bx--card bx--card--link bx--card__CTA"
                                               clicked={false}
                                               data-autoid="dds--card"
+                                              disabled={false}
                                               handleClick={[Function]}
                                               handleKeyDown={[Function]}
                                               href="https://ibm.com"
@@ -16147,6 +16171,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                               <a
                                                 className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
                                                 data-autoid="dds--card"
+                                                disabled={false}
                                                 href="https://ibm.com"
                                                 onClick={[Function]}
                                                 onKeyDown={[Function]}
@@ -17873,11 +17898,14 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                       }
                       customClassName="bx--content-block__cta bx--content-block__cta-col"
                       heading="Lorem ipsum dolor sit amet"
+                      href=""
                       style="card"
                       type="local"
                     >
                       <div
+                        aria-label="Lorem ipsum dolor sit ametttt"
                         className="bx--content-block__cta bx--content-block__cta-col"
+                        role="region"
                       >
                         <CardCTA
                           copy="Lorem ipsum dolor sit ametttt"
@@ -17887,6 +17915,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                             }
                           }
                           heading="Lorem ipsum dolor sit amet"
+                          href=""
+                          media={null}
                           openLightBox={[Function]}
                           renderLightBox={false}
                           style="card"
@@ -17917,6 +17947,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                 "target": null,
                               }
                             }
+                            disabled={false}
                           >
                             <Card
                               copy="Lorem ipsum dolor sit ametttt"
@@ -17933,6 +17964,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                 }
                               }
                               customClassName="bx--card__CTA"
+                              disabled={false}
                               role="region"
                               target={null}
                               type="link"
@@ -17941,6 +17973,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                 className="bx--card bx--card--link bx--card__CTA"
                                 clicked={false}
                                 data-autoid="dds--card"
+                                disabled={false}
                                 handleClick={[Function]}
                                 handleKeyDown={[Function]}
                                 href="https://www.ibm.com"
@@ -17952,6 +17985,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                 <a
                                   className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
                                   data-autoid="dds--card"
+                                  disabled={false}
                                   href="https://www.ibm.com"
                                   onClick={[Function]}
                                   onKeyDown={[Function]}
@@ -19766,11 +19800,14 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                               }
                               customClassName="bx--content-block__cta bx--content-block__cta-col"
                               heading="Lorem ipsum dolor sit amet"
+                              href=""
                               style="card"
                               type="local"
                             >
                               <div
+                                aria-label="Lorem ipsum dolor sit ametttt"
                                 className="bx--content-block__cta bx--content-block__cta-col"
+                                role="region"
                               >
                                 <CardCTA
                                   copy="Lorem ipsum dolor sit ametttt"
@@ -19780,6 +19817,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                     }
                                   }
                                   heading="Lorem ipsum dolor sit amet"
+                                  href=""
+                                  media={null}
                                   openLightBox={[Function]}
                                   renderLightBox={false}
                                   style="card"
@@ -19810,6 +19849,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                         "target": null,
                                       }
                                     }
+                                    disabled={false}
                                   >
                                     <Card
                                       copy="Lorem ipsum dolor sit ametttt"
@@ -19826,6 +19866,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                         }
                                       }
                                       customClassName="bx--card__CTA"
+                                      disabled={false}
                                       role="region"
                                       target={null}
                                       type="link"
@@ -19834,6 +19875,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                         className="bx--card bx--card--link bx--card__CTA"
                                         clicked={false}
                                         data-autoid="dds--card"
+                                        disabled={false}
                                         handleClick={[Function]}
                                         handleKeyDown={[Function]}
                                         href="https://www.ibm.com"
@@ -19845,6 +19887,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                         <a
                                           className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
                                           data-autoid="dds--card"
+                                          disabled={false}
                                           href="https://www.ibm.com"
                                           onClick={[Function]}
                                           onKeyDown={[Function]}
@@ -19970,10 +20013,14 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                         "href": "https://ibm.com",
                                       }
                                     }
+                                    href=""
                                     style="card"
                                     type="local"
                                   >
-                                    <div>
+                                    <div
+                                      aria-label="Containerization A Complete Guide"
+                                      role="region"
+                                    >
                                       <CardCTA
                                         copy="Containerization A Complete Guide"
                                         cta={
@@ -19981,6 +20028,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                             "href": "https://ibm.com",
                                           }
                                         }
+                                        href=""
+                                        media={null}
                                         openLightBox={[Function]}
                                         renderLightBox={false}
                                         style="card"
@@ -20011,6 +20060,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                               "target": null,
                                             }
                                           }
+                                          disabled={false}
                                         >
                                           <Card
                                             copy="Containerization A Complete Guide"
@@ -20027,6 +20077,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                               }
                                             }
                                             customClassName="bx--card__CTA"
+                                            disabled={false}
                                             role="region"
                                             target={null}
                                             type="link"
@@ -20035,6 +20086,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                               className="bx--card bx--card--link bx--card__CTA"
                                               clicked={false}
                                               data-autoid="dds--card"
+                                              disabled={false}
                                               handleClick={[Function]}
                                               handleKeyDown={[Function]}
                                               href="https://ibm.com"
@@ -20046,6 +20098,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                               <a
                                                 className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
                                                 data-autoid="dds--card"
+                                                disabled={false}
                                                 href="https://ibm.com"
                                                 onClick={[Function]}
                                                 onKeyDown={[Function]}
@@ -20132,10 +20185,14 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                         "href": "https://ibm.com",
                                       }
                                     }
+                                    href=""
                                     style="card"
                                     type="external"
                                   >
-                                    <div>
+                                    <div
+                                      aria-label="Why should you use microservices and containers"
+                                      role="region"
+                                    >
                                       <CardCTA
                                         copy="Why should you use microservices and containers"
                                         cta={
@@ -20143,6 +20200,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                             "href": "https://ibm.com",
                                           }
                                         }
+                                        href=""
+                                        media={null}
                                         openLightBox={[Function]}
                                         renderLightBox={false}
                                         style="card"
@@ -20173,6 +20232,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                               "target": "_blank",
                                             }
                                           }
+                                          disabled={false}
                                         >
                                           <Card
                                             copy="Why should you use microservices and containers"
@@ -20189,6 +20249,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                               }
                                             }
                                             customClassName="bx--card__CTA"
+                                            disabled={false}
                                             role="region"
                                             target="_blank"
                                             type="link"
@@ -20197,6 +20258,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                               className="bx--card bx--card--link bx--card__CTA"
                                               clicked={false}
                                               data-autoid="dds--card"
+                                              disabled={false}
                                               handleClick={[Function]}
                                               handleKeyDown={[Function]}
                                               href="https://ibm.com"
@@ -20208,6 +20270,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                               <a
                                                 className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
                                                 data-autoid="dds--card"
+                                                disabled={false}
                                                 href="https://ibm.com"
                                                 onClick={[Function]}
                                                 onKeyDown={[Function]}
@@ -20929,11 +20992,14 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                         }
                       }
                       customClassName="bx--content-block__cta bx--content-block__cta-col"
+                      href=""
                       style="card"
                       type="local"
                     >
                       <div
+                        aria-label="Lorem ipsum dolor"
                         className="bx--content-block__cta bx--content-block__cta-col"
+                        role="region"
                       >
                         <CardCTA
                           copy="Lorem ipsum dolor"
@@ -20942,6 +21008,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                               "href": "https://www.example.com",
                             }
                           }
+                          href=""
+                          media={null}
                           openLightBox={[Function]}
                           renderLightBox={false}
                           style="card"
@@ -20972,6 +21040,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                 "target": null,
                               }
                             }
+                            disabled={false}
                           >
                             <Card
                               copy="Lorem ipsum dolor"
@@ -20988,6 +21057,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                 }
                               }
                               customClassName="bx--card__CTA"
+                              disabled={false}
                               role="region"
                               target={null}
                               type="link"
@@ -20996,6 +21066,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                 className="bx--card bx--card--link bx--card__CTA"
                                 clicked={false}
                                 data-autoid="dds--card"
+                                disabled={false}
                                 handleClick={[Function]}
                                 handleKeyDown={[Function]}
                                 href="https://www.example.com"
@@ -21007,6 +21078,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                 <a
                                   className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
                                   data-autoid="dds--card"
+                                  disabled={false}
                                   href="https://www.example.com"
                                   onClick={[Function]}
                                   onKeyDown={[Function]}
@@ -21623,11 +21695,14 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                 }
                               }
                               customClassName="bx--content-block__cta bx--content-block__cta-col"
+                              href=""
                               style="card"
                               type="local"
                             >
                               <div
+                                aria-label="Lorem ipsum dolor"
                                 className="bx--content-block__cta bx--content-block__cta-col"
+                                role="region"
                               >
                                 <CardCTA
                                   copy="Lorem ipsum dolor"
@@ -21636,6 +21711,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                       "href": "https://www.example.com",
                                     }
                                   }
+                                  href=""
+                                  media={null}
                                   openLightBox={[Function]}
                                   renderLightBox={false}
                                   style="card"
@@ -21666,6 +21743,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                         "target": null,
                                       }
                                     }
+                                    disabled={false}
                                   >
                                     <Card
                                       copy="Lorem ipsum dolor"
@@ -21682,6 +21760,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                         }
                                       }
                                       customClassName="bx--card__CTA"
+                                      disabled={false}
                                       role="region"
                                       target={null}
                                       type="link"
@@ -21690,6 +21769,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                         className="bx--card bx--card--link bx--card__CTA"
                                         clicked={false}
                                         data-autoid="dds--card"
+                                        disabled={false}
                                         handleClick={[Function]}
                                         handleKeyDown={[Function]}
                                         href="https://www.example.com"
@@ -21701,6 +21781,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                         <a
                                           className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
                                           data-autoid="dds--card"
+                                          disabled={false}
                                           href="https://www.example.com"
                                           onClick={[Function]}
                                           onKeyDown={[Function]}
@@ -21826,10 +21907,14 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                         "href": "https://ibm.com",
                                       }
                                     }
+                                    href=""
                                     style="card"
                                     type="local"
                                   >
-                                    <div>
+                                    <div
+                                      aria-label="Containerization A Complete Guide"
+                                      role="region"
+                                    >
                                       <CardCTA
                                         copy="Containerization A Complete Guide"
                                         cta={
@@ -21837,6 +21922,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                             "href": "https://ibm.com",
                                           }
                                         }
+                                        href=""
+                                        media={null}
                                         openLightBox={[Function]}
                                         renderLightBox={false}
                                         style="card"
@@ -21867,6 +21954,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                               "target": null,
                                             }
                                           }
+                                          disabled={false}
                                         >
                                           <Card
                                             copy="Containerization A Complete Guide"
@@ -21883,6 +21971,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                               }
                                             }
                                             customClassName="bx--card__CTA"
+                                            disabled={false}
                                             role="region"
                                             target={null}
                                             type="link"
@@ -21891,6 +21980,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                               className="bx--card bx--card--link bx--card__CTA"
                                               clicked={false}
                                               data-autoid="dds--card"
+                                              disabled={false}
                                               handleClick={[Function]}
                                               handleKeyDown={[Function]}
                                               href="https://ibm.com"
@@ -21902,6 +21992,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                               <a
                                                 className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
                                                 data-autoid="dds--card"
+                                                disabled={false}
                                                 href="https://ibm.com"
                                                 onClick={[Function]}
                                                 onKeyDown={[Function]}
@@ -21988,10 +22079,14 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                         "href": "https://ibm.com",
                                       }
                                     }
+                                    href=""
                                     style="card"
                                     type="external"
                                   >
-                                    <div>
+                                    <div
+                                      aria-label="Why should you use microservices and containers"
+                                      role="region"
+                                    >
                                       <CardCTA
                                         copy="Why should you use microservices and containers"
                                         cta={
@@ -21999,6 +22094,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                             "href": "https://ibm.com",
                                           }
                                         }
+                                        href=""
+                                        media={null}
                                         openLightBox={[Function]}
                                         renderLightBox={false}
                                         style="card"
@@ -22029,6 +22126,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                               "target": "_blank",
                                             }
                                           }
+                                          disabled={false}
                                         >
                                           <Card
                                             copy="Why should you use microservices and containers"
@@ -22045,6 +22143,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                               }
                                             }
                                             customClassName="bx--card__CTA"
+                                            disabled={false}
                                             role="region"
                                             target="_blank"
                                             type="link"
@@ -22053,6 +22152,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                               className="bx--card bx--card--link bx--card__CTA"
                                               clicked={false}
                                               data-autoid="dds--card"
+                                              disabled={false}
                                               handleClick={[Function]}
                                               handleKeyDown={[Function]}
                                               href="https://ibm.com"
@@ -22064,6 +22164,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                               <a
                                                 className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
                                                 data-autoid="dds--card"
+                                                disabled={false}
                                                 href="https://ibm.com"
                                                 onClick={[Function]}
                                                 onKeyDown={[Function]}
@@ -22403,11 +22504,14 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                       }
                       customClassName="bx--content-block__cta bx--content-block__cta-col"
                       heading="Lorem ipsum dolor sit amet"
+                      href=""
                       style="card"
                       type="local"
                     >
                       <div
+                        aria-label="Lorem ipsum dolor sit ametttt"
                         className="bx--content-block__cta bx--content-block__cta-col"
+                        role="region"
                       >
                         <CardCTA
                           copy="Lorem ipsum dolor sit ametttt"
@@ -22417,6 +22521,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                             }
                           }
                           heading="Lorem ipsum dolor sit amet"
+                          href=""
+                          media={null}
                           openLightBox={[Function]}
                           renderLightBox={false}
                           style="card"
@@ -22447,6 +22553,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                                 "target": null,
                               }
                             }
+                            disabled={false}
                           >
                             <Card
                               copy="Lorem ipsum dolor sit ametttt"
@@ -22463,6 +22570,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                                 }
                               }
                               customClassName="bx--card__CTA"
+                              disabled={false}
                               role="region"
                               target={null}
                               type="link"
@@ -22471,6 +22579,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                                 className="bx--card bx--card--link bx--card__CTA"
                                 clicked={false}
                                 data-autoid="dds--card"
+                                disabled={false}
                                 handleClick={[Function]}
                                 handleKeyDown={[Function]}
                                 href="https://www.ibm.com"
@@ -22482,6 +22591,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                                 <a
                                   className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
                                   data-autoid="dds--card"
+                                  disabled={false}
                                   href="https://www.ibm.com"
                                   onClick={[Function]}
                                   onKeyDown={[Function]}
@@ -22906,11 +23016,14 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                               }
                               customClassName="bx--content-block__cta bx--content-block__cta-col"
                               heading="Lorem ipsum dolor sit amet"
+                              href=""
                               style="card"
                               type="local"
                             >
                               <div
+                                aria-label="Lorem ipsum dolor sit ametttt"
                                 className="bx--content-block__cta bx--content-block__cta-col"
+                                role="region"
                               >
                                 <CardCTA
                                   copy="Lorem ipsum dolor sit ametttt"
@@ -22920,6 +23033,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                     }
                                   }
                                   heading="Lorem ipsum dolor sit amet"
+                                  href=""
+                                  media={null}
                                   openLightBox={[Function]}
                                   renderLightBox={false}
                                   style="card"
@@ -22950,6 +23065,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                         "target": null,
                                       }
                                     }
+                                    disabled={false}
                                   >
                                     <Card
                                       copy="Lorem ipsum dolor sit ametttt"
@@ -22966,6 +23082,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                         }
                                       }
                                       customClassName="bx--card__CTA"
+                                      disabled={false}
                                       role="region"
                                       target={null}
                                       type="link"
@@ -22974,6 +23091,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                         className="bx--card bx--card--link bx--card__CTA"
                                         clicked={false}
                                         data-autoid="dds--card"
+                                        disabled={false}
                                         handleClick={[Function]}
                                         handleKeyDown={[Function]}
                                         href="https://www.ibm.com"
@@ -22985,6 +23103,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                         <a
                                           className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
                                           data-autoid="dds--card"
+                                          disabled={false}
                                           href="https://www.ibm.com"
                                           onClick={[Function]}
                                           onKeyDown={[Function]}
@@ -23110,10 +23229,14 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                         "href": "https://ibm.com",
                                       }
                                     }
+                                    href=""
                                     style="card"
                                     type="local"
                                   >
-                                    <div>
+                                    <div
+                                      aria-label="Containerization A Complete Guide"
+                                      role="region"
+                                    >
                                       <CardCTA
                                         copy="Containerization A Complete Guide"
                                         cta={
@@ -23121,6 +23244,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                             "href": "https://ibm.com",
                                           }
                                         }
+                                        href=""
+                                        media={null}
                                         openLightBox={[Function]}
                                         renderLightBox={false}
                                         style="card"
@@ -23151,6 +23276,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                               "target": null,
                                             }
                                           }
+                                          disabled={false}
                                         >
                                           <Card
                                             copy="Containerization A Complete Guide"
@@ -23167,6 +23293,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                               }
                                             }
                                             customClassName="bx--card__CTA"
+                                            disabled={false}
                                             role="region"
                                             target={null}
                                             type="link"
@@ -23175,6 +23302,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                               className="bx--card bx--card--link bx--card__CTA"
                                               clicked={false}
                                               data-autoid="dds--card"
+                                              disabled={false}
                                               handleClick={[Function]}
                                               handleKeyDown={[Function]}
                                               href="https://ibm.com"
@@ -23186,6 +23314,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                               <a
                                                 className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
                                                 data-autoid="dds--card"
+                                                disabled={false}
                                                 href="https://ibm.com"
                                                 onClick={[Function]}
                                                 onKeyDown={[Function]}
@@ -23272,10 +23401,14 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                         "href": "https://ibm.com",
                                       }
                                     }
+                                    href=""
                                     style="card"
                                     type="external"
                                   >
-                                    <div>
+                                    <div
+                                      aria-label="Why should you use microservices and containers"
+                                      role="region"
+                                    >
                                       <CardCTA
                                         copy="Why should you use microservices and containers"
                                         cta={
@@ -23283,6 +23416,8 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                             "href": "https://ibm.com",
                                           }
                                         }
+                                        href=""
+                                        media={null}
                                         openLightBox={[Function]}
                                         renderLightBox={false}
                                         style="card"
@@ -23313,6 +23448,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                               "target": "_blank",
                                             }
                                           }
+                                          disabled={false}
                                         >
                                           <Card
                                             copy="Why should you use microservices and containers"
@@ -23329,6 +23465,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                               }
                                             }
                                             customClassName="bx--card__CTA"
+                                            disabled={false}
                                             role="region"
                                             target="_blank"
                                             type="link"
@@ -23337,6 +23474,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                               className="bx--card bx--card--link bx--card__CTA"
                                               clicked={false}
                                               data-autoid="dds--card"
+                                              disabled={false}
                                               handleClick={[Function]}
                                               handleKeyDown={[Function]}
                                               href="https://ibm.com"
@@ -23348,6 +23486,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                               <a
                                                 className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
                                                 data-autoid="dds--card"
+                                                disabled={false}
                                                 href="https://ibm.com"
                                                 onClick={[Function]}
                                                 onKeyDown={[Function]}
@@ -24229,6 +24368,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                           "href": "https://example.com",
                                         }
                                       }
+                                      href=""
                                       style="text"
                                       type="local"
                                     >
@@ -24240,6 +24380,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                               "href": "https://example.com",
                                             }
                                           }
+                                          href=""
                                           openLightBox={[Function]}
                                           renderLightBox={false}
                                           style="text"
@@ -24319,6 +24460,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                           "href": "https://example.com",
                                         }
                                       }
+                                      href=""
                                       style="text"
                                       type="external"
                                     >
@@ -24330,6 +24472,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                               "href": "https://example.com",
                                             }
                                           }
+                                          href=""
                                           openLightBox={[Function]}
                                           renderLightBox={false}
                                           style="text"
@@ -24513,6 +24656,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                           "href": "https://example.com",
                                         }
                                       }
+                                      href=""
                                       style="text"
                                       type="local"
                                     >
@@ -24524,6 +24668,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                               "href": "https://example.com",
                                             }
                                           }
+                                          href=""
                                           openLightBox={[Function]}
                                           renderLightBox={false}
                                           style="text"
@@ -24603,6 +24748,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                           "href": "https://example.com",
                                         }
                                       }
+                                      href=""
                                       style="text"
                                       type="external"
                                     >
@@ -24614,6 +24760,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                               "href": "https://example.com",
                                             }
                                           }
+                                          href=""
                                           openLightBox={[Function]}
                                           renderLightBox={false}
                                           style="text"
@@ -24783,6 +24930,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                           "href": "https://example.com",
                                         }
                                       }
+                                      href=""
                                       style="text"
                                       type="local"
                                     >
@@ -24794,6 +24942,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                               "href": "https://example.com",
                                             }
                                           }
+                                          href=""
                                           openLightBox={[Function]}
                                           renderLightBox={false}
                                           style="text"
@@ -25538,11 +25687,14 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupSimple Default 1`] = `
                         }
                       }
                       customClassName="bx--content-group__cta"
+                      href=""
                       style="card"
                       type="local"
                     >
                       <div
+                        aria-label="Lorem ipsum dolor sit ametttt"
                         className="bx--content-group__cta"
+                        role="region"
                       >
                         <CardCTA
                           copy="Lorem ipsum dolor sit ametttt"
@@ -25551,6 +25703,8 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupSimple Default 1`] = `
                               "href": "https://www.example.com",
                             }
                           }
+                          href=""
+                          media={null}
                           openLightBox={[Function]}
                           renderLightBox={false}
                           style="card"
@@ -25581,6 +25735,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupSimple Default 1`] = `
                                 "target": null,
                               }
                             }
+                            disabled={false}
                           >
                             <Card
                               copy="Lorem ipsum dolor sit ametttt"
@@ -25597,6 +25752,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupSimple Default 1`] = `
                                 }
                               }
                               customClassName="bx--card__CTA"
+                              disabled={false}
                               role="region"
                               target={null}
                               type="link"
@@ -25605,6 +25761,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupSimple Default 1`] = `
                                 className="bx--card bx--card--link bx--card__CTA"
                                 clicked={false}
                                 data-autoid="dds--card"
+                                disabled={false}
                                 handleClick={[Function]}
                                 handleKeyDown={[Function]}
                                 href="https://www.example.com"
@@ -25616,6 +25773,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupSimple Default 1`] = `
                                 <a
                                   className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
                                   data-autoid="dds--card"
+                                  disabled={false}
                                   href="https://www.example.com"
                                   onClick={[Function]}
                                   onKeyDown={[Function]}
@@ -26413,6 +26571,7 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                   "href": "https://ibm.com",
                                 }
                               }
+                              href=""
                               style="text"
                               type="local"
                             >
@@ -26424,6 +26583,7 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                       "href": "https://ibm.com",
                                     }
                                   }
+                                  href=""
                                   openLightBox={[Function]}
                                   renderLightBox={false}
                                   style="text"
@@ -26503,6 +26663,7 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                   "href": "https://ibm.com",
                                 }
                               }
+                              href=""
                               style="text"
                               type="local"
                             >
@@ -26514,6 +26675,7 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                       "href": "https://ibm.com",
                                     }
                                   }
+                                  href=""
                                   openLightBox={[Function]}
                                   renderLightBox={false}
                                   style="text"
@@ -26593,6 +26755,7 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                   "href": "https://ibm.com",
                                 }
                               }
+                              href=""
                               style="text"
                               type="download"
                             >
@@ -26604,6 +26767,7 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                       "href": "https://ibm.com",
                                     }
                                   }
+                                  href=""
                                   openLightBox={[Function]}
                                   renderLightBox={false}
                                   style="text"
@@ -26695,7 +26859,9 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                           },
                         ]
                       }
+                      copy=""
                       customClassName="bx--leadspace-block__cta bx--leadspace-block__cta-col"
+                      href=""
                       style="button"
                       type="local"
                     >
@@ -26719,6 +26885,8 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                               },
                             ]
                           }
+                          copy=""
+                          href=""
                           openLightBox={[Function]}
                           renderLightBox={false}
                           style="button"
@@ -27343,11 +27511,14 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                             }
                           }
                           customClassName="bx--content-block__cta bx--content-block__cta-col"
+                          href=""
                           style="card"
                           type="local"
                         >
                           <div
+                            aria-label="Lorem ipsum dolor sit amet"
                             className="bx--content-block__cta bx--content-block__cta-col"
+                            role="region"
                           >
                             <CardCTA
                               copy="Lorem ipsum dolor sit amet"
@@ -27356,6 +27527,8 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                   "href": "http://local.url.com/",
                                 }
                               }
+                              href=""
+                              media={null}
                               openLightBox={[Function]}
                               renderLightBox={false}
                               style="card"
@@ -27386,6 +27559,7 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                     "target": null,
                                   }
                                 }
+                                disabled={false}
                               >
                                 <Card
                                   copy="Lorem ipsum dolor sit amet"
@@ -27402,6 +27576,7 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                     }
                                   }
                                   customClassName="bx--card__CTA"
+                                  disabled={false}
                                   role="region"
                                   target={null}
                                   type="link"
@@ -27410,6 +27585,7 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                     className="bx--card bx--card--link bx--card__CTA"
                                     clicked={false}
                                     data-autoid="dds--card"
+                                    disabled={false}
                                     handleClick={[Function]}
                                     handleKeyDown={[Function]}
                                     href="http://local.url.com/"
@@ -27421,6 +27597,7 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                     <a
                                       className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
                                       data-autoid="dds--card"
+                                      disabled={false}
                                       href="http://local.url.com/"
                                       onClick={[Function]}
                                       onKeyDown={[Function]}
@@ -27537,12 +27714,9 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
               "href": "https://example.com/",
               "iconDescription": "right arrow icon",
               "onClick": [Function],
-              "renderIcon": Object {
-                "$$typeof": Symbol(react.forward_ref),
-                "render": [Function],
-              },
+              "renderIcon": null,
               "target": null,
-              "type": "local",
+              "type": "default",
             },
           ],
           "style": "button",
@@ -27591,12 +27765,9 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
                   "href": "https://example.com/",
                   "iconDescription": "right arrow icon",
                   "onClick": [Function],
-                  "renderIcon": Object {
-                    "$$typeof": Symbol(react.forward_ref),
-                    "render": [Function],
-                  },
+                  "renderIcon": null,
                   "target": null,
-                  "type": "local",
+                  "type": "default",
                 },
               ],
               "style": "button",
@@ -27641,16 +27812,15 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
                       "href": "https://example.com/",
                       "iconDescription": "right arrow icon",
                       "onClick": [Function],
-                      "renderIcon": Object {
-                        "$$typeof": Symbol(react.forward_ref),
-                        "render": [Function],
-                      },
+                      "renderIcon": null,
                       "target": null,
-                      "type": "local",
+                      "type": "default",
                     },
                   ]
                 }
+                copy=""
                 customClassName="bx--content-block__cta bx--content-block__cta-col"
+                href=""
                 style="button"
                 type="local"
               >
@@ -27665,15 +27835,14 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
                           "href": "https://example.com/",
                           "iconDescription": "right arrow icon",
                           "onClick": [Function],
-                          "renderIcon": Object {
-                            "$$typeof": Symbol(react.forward_ref),
-                            "render": [Function],
-                          },
+                          "renderIcon": null,
                           "target": null,
-                          "type": "local",
+                          "type": "default",
                         },
                       ]
                     }
+                    copy=""
+                    href=""
                     openLightBox={[Function]}
                     renderLightBox={false}
                     style="button"
@@ -27695,12 +27864,9 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
                             "href": "https://example.com/",
                             "iconDescription": "right arrow icon",
                             "onClick": [Function],
-                            "renderIcon": Object {
-                              "$$typeof": Symbol(react.forward_ref),
-                              "render": [Function],
-                            },
+                            "renderIcon": null,
                             "target": null,
-                            "type": "local",
+                            "type": "default",
                           },
                         ]
                       }
@@ -27721,12 +27887,7 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
                             iconDescription="right arrow icon"
                             kind="primary"
                             onClick={[Function]}
-                            renderIcon={
-                              Object {
-                                "$$typeof": Symbol(react.forward_ref),
-                                "render": [Function],
-                              }
-                            }
+                            renderIcon={null}
                             tabIndex={2}
                             target={null}
                             type="button"
@@ -27741,39 +27902,6 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
                               target={null}
                             >
                               Contact sales
-                              <ForwardRef(ArrowRight20)
-                                aria-hidden="true"
-                                aria-label="right arrow icon"
-                                className="bx--btn__icon"
-                              >
-                                <Icon
-                                  aria-hidden="true"
-                                  aria-label="right arrow icon"
-                                  className="bx--btn__icon"
-                                  height={20}
-                                  preserveAspectRatio="xMidYMid meet"
-                                  viewBox="0 0 20 20"
-                                  width={20}
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    aria-label="right arrow icon"
-                                    className="bx--btn__icon"
-                                    focusable="false"
-                                    height={20}
-                                    preserveAspectRatio="xMidYMid meet"
-                                    role="img"
-                                    viewBox="0 0 20 20"
-                                    width={20}
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
-                                    />
-                                  </svg>
-                                </Icon>
-                              </ForwardRef(ArrowRight20)>
                             </a>
                           </ForwardRef(Button)>
                         </li>
