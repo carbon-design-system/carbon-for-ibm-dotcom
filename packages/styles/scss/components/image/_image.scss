@@ -8,6 +8,10 @@
 @import '../../globals/imports';
 
 @mixin image {
+  .#{$prefix}--image {
+    position: relative;
+  }
+
   .#{$prefix}--image__img {
     width: 100%;
     height: 100%;
@@ -22,6 +26,12 @@
     left: -10000px;
     top: auto;
     overflow: hidden;
+  }
+
+  .#{$prefix}--image__icon {
+    position: absolute;
+    top: calc(50% - 32px);
+    right: calc(50% - 32px);
   }
 }
 

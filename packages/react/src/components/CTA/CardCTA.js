@@ -6,6 +6,7 @@
  */
 import { CardLink } from '../CardLink';
 import CTALogic from './CTALogic';
+import PlayIcon from '@carbon/ibmdotcom-styles/icons/svg/play-video.svg';
 import PropTypes from 'prop-types';
 import React from 'react';
 import settings from 'carbon-components/es/globals/js/settings';
@@ -57,7 +58,7 @@ const CardCTA = ({
                 },
                 copy: videoTitle[0].duration.replace(/\(|\)/g, ''),
               },
-              image: image,
+              image: { ...image, icon: PlayIcon },
               copy: videoTitle[0].title,
               handleClick: e => CTALogic.setLightBox(e, openLightBox),
             }}
