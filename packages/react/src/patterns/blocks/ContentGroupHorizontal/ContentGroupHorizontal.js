@@ -68,5 +68,4 @@ ContentGroupHorizontal.propTypes = {
   ),
 };
 
-
 export default ContentGroupHorizontal;

@@ -26,16 +26,12 @@ export default {
 };
 
 export const Default = ({ parameters }) => {
-  const { heading, items } =
-    parameters?.props?.ContentGroupHorizontal ?? {};
+  const { heading, items } = parameters?.props?.ContentGroupHorizontal ?? {};
   return (
     <div className="bx--grid">
       <div className="bx--row">
         <div className="bx--col-sm-4 bx--col-lg-10 bx--offset-lg-4">
-          <ContentGroupHorizontal
-            heading={heading}
-            items={items}
-          />
+          <ContentGroupHorizontal heading={heading} items={items} />
         </div>
       </div>
     </div>
