@@ -1691,6 +1691,7 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
                           <li
                             className="bx--link-list__list__CTA bx--link-list__list--local"
                             key="0"
+                            role="region"
                           >
                             <CTA
                               copy="Learn more"
@@ -1783,6 +1784,7 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
                           <li
                             className="bx--link-list__list__CTA bx--link-list__list--external"
                             key="1"
+                            role="region"
                           >
                             <CTA
                               copy="Microservices and containers"
@@ -5257,6 +5259,7 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                 <li
                   className="bx--link-list__list__CTA bx--link-list__list--local"
                   key="0"
+                  role="region"
                 >
                   <CTA
                     copy="Learn more"
@@ -5425,6 +5428,7 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                 <li
                   className="bx--link-list__list__CTA bx--link-list__list--download"
                   key="1"
+                  role="region"
                 >
                   <CTA
                     copy="Containerization A Complete Guide"
@@ -5596,6 +5600,7 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                 <li
                   className="bx--link-list__list__CTA bx--link-list__list--external"
                   key="2"
+                  role="region"
                 >
                   <CTA
                     copy="Microservices and containers"
@@ -5767,6 +5772,7 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                 <li
                   className="bx--link-list__list__CTA bx--link-list__list--video"
                   key="3"
+                  role="region"
                 >
                   <CTA
                     copy=""
@@ -6015,6 +6021,7 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                 <li
                   className="bx--link-list__list__CTA bx--link-list__list--local"
                   key="0"
+                  role="region"
                 >
                   <CTA
                     copy="Learn more"
@@ -6107,6 +6114,7 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                 <li
                   className="bx--link-list__list__CTA bx--link-list__list--download"
                   key="1"
+                  role="region"
                 >
                   <CTA
                     copy="Containerization A Complete Guide"
@@ -6202,6 +6210,7 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                 <li
                   className="bx--link-list__list__CTA bx--link-list__list--external"
                   key="2"
+                  role="region"
                 >
                   <CTA
                     copy="Microservices and containers"
@@ -6297,6 +6306,7 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                 <li
                   className="bx--link-list__list__CTA bx--link-list__list--video"
                   key="3"
+                  role="region"
                 >
                   <CTA
                     copy=""
@@ -6462,6 +6472,7 @@ exports[`Storyshots Components|LinkList Horizontal 1`] = `
                 <li
                   className="bx--link-list__list__CTA bx--link-list__list--local"
                   key="0"
+                  role="region"
                 >
                   <CTA
                     copy="Learn more"
@@ -6554,6 +6565,7 @@ exports[`Storyshots Components|LinkList Horizontal 1`] = `
                 <li
                   className="bx--link-list__list__CTA bx--link-list__list--download"
                   key="1"
+                  role="region"
                 >
                   <CTA
                     copy="Containerization A Complete Guide"
@@ -6734,6 +6746,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                 <li
                   className="bx--link-list__list__CTA bx--link-list__list--local"
                   key="0"
+                  role="region"
                 >
                   <CTA
                     copy="Learn more"
@@ -6826,6 +6839,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                 <li
                   className="bx--link-list__list__CTA bx--link-list__list--download"
                   key="1"
+                  role="region"
                 >
                   <CTA
                     copy="Containerization A Complete Guide"
@@ -6921,6 +6935,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                 <li
                   className="bx--link-list__list__CTA bx--link-list__list--external"
                   key="2"
+                  role="region"
                 >
                   <CTA
                     copy="Microservices and containers"
@@ -7016,6 +7031,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                 <li
                   className="bx--link-list__list__CTA bx--link-list__list--video"
                   key="3"
+                  role="region"
                 >
                   <CTA
                     copy=""
@@ -7195,6 +7211,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                 <li
                   className="bx--link-list__list__CTA bx--link-list__list--local"
                   key="0"
+                  role="region"
                 >
                   <CTA
                     copy="Learn more"
@@ -7287,6 +7304,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                 <li
                   className="bx--link-list__list__CTA bx--link-list__list--download"
                   key="1"
+                  role="region"
                 >
                   <CTA
                     copy="Containerization A Complete Guide"
@@ -7382,6 +7400,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                 <li
                   className="bx--link-list__list__CTA bx--link-list__list--external"
                   key="2"
+                  role="region"
                 >
                   <CTA
                     copy="Microservices and containers"
@@ -7477,6 +7496,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                 <li
                   className="bx--link-list__list__CTA bx--link-list__list--video"
                   key="3"
+                  role="region"
                 >
                   <CTA
                     copy=""
@@ -7622,6 +7642,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                 <li
                   className="bx--link-list__list__CTA bx--link-list__list--local"
                   key="0"
+                  role="region"
                 >
                   <CTA
                     copy="Learn more"
@@ -7790,6 +7811,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                 <li
                   className="bx--link-list__list__CTA bx--link-list__list--download"
                   key="1"
+                  role="region"
                 >
                   <CTA
                     copy="Containerization A Complete Guide"
@@ -7961,6 +7983,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                 <li
                   className="bx--link-list__list__CTA bx--link-list__list--external"
                   key="2"
+                  role="region"
                 >
                   <CTA
                     copy="Microservices and containers"
@@ -8132,6 +8155,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                 <li
                   className="bx--link-list__list__CTA bx--link-list__list--video"
                   key="3"
+                  role="region"
                 >
                   <CTA
                     copy=""
@@ -15854,6 +15878,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                 <li
                                   className="bx--link-list__list__CTA bx--link-list__list--local"
                                   key="0"
+                                  role="region"
                                 >
                                   <CTA
                                     copy="Containerization A Complete Guide"
@@ -16022,6 +16047,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                 <li
                                   className="bx--link-list__list__CTA bx--link-list__list--external"
                                   key="1"
+                                  role="region"
                                 >
                                   <CTA
                                     copy="Why should you use microservices and containers"
@@ -19937,6 +19963,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                 <li
                                   className="bx--link-list__list__CTA bx--link-list__list--local"
                                   key="0"
+                                  role="region"
                                 >
                                   <CTA
                                     copy="Containerization A Complete Guide"
@@ -20105,6 +20132,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                 <li
                                   className="bx--link-list__list__CTA bx--link-list__list--external"
                                   key="1"
+                                  role="region"
                                 >
                                   <CTA
                                     copy="Why should you use microservices and containers"
@@ -21815,6 +21843,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                 <li
                                   className="bx--link-list__list__CTA bx--link-list__list--local"
                                   key="0"
+                                  role="region"
                                 >
                                   <CTA
                                     copy="Containerization A Complete Guide"
@@ -21983,6 +22012,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                 <li
                                   className="bx--link-list__list__CTA bx--link-list__list--external"
                                   key="1"
+                                  role="region"
                                 >
                                   <CTA
                                     copy="Why should you use microservices and containers"
@@ -23121,6 +23151,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                 <li
                                   className="bx--link-list__list__CTA bx--link-list__list--local"
                                   key="0"
+                                  role="region"
                                 >
                                   <CTA
                                     copy="Containerization A Complete Guide"
@@ -23289,6 +23320,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                 <li
                                   className="bx--link-list__list__CTA bx--link-list__list--external"
                                   key="1"
+                                  role="region"
                                 >
                                   <CTA
                                     copy="Why should you use microservices and containers"
@@ -24252,6 +24284,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                   <li
                                     className="bx--link-list__list__CTA bx--link-list__list--local"
                                     key="0"
+                                    role="region"
                                   >
                                     <CTA
                                       copy="Link text"
@@ -24344,6 +24377,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                   <li
                                     className="bx--link-list__list__CTA bx--link-list__list--external"
                                     key="1"
+                                    role="region"
                                   >
                                     <CTA
                                       copy="External link text"
@@ -24540,6 +24574,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                   <li
                                     className="bx--link-list__list__CTA bx--link-list__list--local"
                                     key="0"
+                                    role="region"
                                   >
                                     <CTA
                                       copy="Link text"
@@ -24632,6 +24667,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                   <li
                                     className="bx--link-list__list__CTA bx--link-list__list--external"
                                     key="1"
+                                    role="region"
                                   >
                                     <CTA
                                       copy="External link text"
@@ -24814,6 +24850,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                   <li
                                     className="bx--link-list__list__CTA bx--link-list__list--local"
                                     key="0"
+                                    role="region"
                                   >
                                     <CTA
                                       copy="Link text"
@@ -26451,6 +26488,7 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                           <li
                             className="bx--link-list__list__CTA bx--link-list__list--local"
                             key="0"
+                            role="region"
                           >
                             <CTA
                               copy="IBM Cloud Continuous Delivery"
@@ -26543,6 +26581,7 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                           <li
                             className="bx--link-list__list__CTA bx--link-list__list--local"
                             key="1"
+                            role="region"
                           >
                             <CTA
                               copy="UrbanCode"
@@ -26635,6 +26674,7 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                           <li
                             className="bx--link-list__list__CTA bx--link-list__list--download"
                             key="2"
+                            role="region"
                           >
                             <CTA
                               copy="View all products"
