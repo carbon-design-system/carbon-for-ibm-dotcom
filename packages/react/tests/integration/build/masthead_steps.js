@@ -10,11 +10,11 @@
 const path = require('path');
 const { setup: setupDevServer, teardown: teardownDevServer } = require('jest-dev-server');
 
-const PORT = 1234;
+const PORT = 1235;
 const DEST_DIRS_STYLES = ['scss'];
 const DEST_DIRS_REACT = ['es', 'lib', 'umd'];
 
-describe('Basic example', () => {
+describe('Masthead example', () => {
   beforeAll(async () => {
     const stylesRoot = path.resolve(__dirname, '../../../../styles');
     const reactRoot = path.resolve(__dirname, '../../..');
