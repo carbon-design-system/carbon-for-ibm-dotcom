@@ -45,11 +45,13 @@ const CTA = ({ style, type, customClassName, ...otherProps }) => {
   };
 
   const ariaLabel = otherProps?.copy ?? videoTitle[0].title;
+  const ariaProps = style === 'card' && {
+    'aria-label': ariaLabel,
+    role: 'region',
+  };
 
   return (
-    <div
-      className={customClassName}
-      {...(style === 'card' && { 'aria-label': ariaLabel })}>
+    <div className={customClassName} {...ariaProps}>
       <CTAComponent {...ctaProps} />
     </div>
   );

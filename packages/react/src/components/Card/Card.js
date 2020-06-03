@@ -60,8 +60,7 @@ export const Card = ({
       )}
       href={cta.href}
       {...linkProps}
-      {...props}
-      role="region">
+      {...props}>
       {image && <Image {...image} classname={`${prefix}--card__img`} />}
       <div className={`${prefix}--card__wrapper`}>
         {eyebrow && <p className={`${prefix}--card__eyebrow`}>{eyebrow}</p>}
