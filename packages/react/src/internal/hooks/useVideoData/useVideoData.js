@@ -20,6 +20,8 @@ function useVideoData(type, videoId) {
     { title: '', duration: '', key: 0 },
   ]);
 
+  let getVideoData;
+
   useEffect(() => {
     getVideoData();
   }, [getVideoData, type]);
@@ -30,7 +32,7 @@ function useVideoData(type, videoId) {
    * sets the `videoTitle` state with an array of title objects
    *
    */
-  const getVideoData = useCallback(async () => {
+  getVideoData = useCallback(async () => {
     if (type === 'video' || type.includes('video')) {
       const title = await Promise.all(
         videoId.map(async vidId => {
