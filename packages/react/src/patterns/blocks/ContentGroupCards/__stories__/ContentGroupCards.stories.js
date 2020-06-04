@@ -25,6 +25,7 @@ export const Default = () => {
         <div className="bx--col-lg-10 bx--col-sm-4 bx--offset-lg-4">
           <ContentGroupCards
             heading={ContentGroupCardsKnobs.heading}
+            copy={ContentGroupCardsKnobs.copy}
             items={ContentGroupCardsKnobs.items}
           />
         </div>
