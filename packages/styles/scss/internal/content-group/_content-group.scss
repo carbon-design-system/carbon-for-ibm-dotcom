@@ -31,6 +31,14 @@
       margin-bottom: $carbon--spacing-07;
     }
 
+    &__copy {
+      margin-bottom: $layout-04;
+
+      @include carbon--breakpoint(md) {
+        margin-bottom: $layout-05;
+      }
+    }
+
     &__cta {
       @include carbon--make-col-ready;
 

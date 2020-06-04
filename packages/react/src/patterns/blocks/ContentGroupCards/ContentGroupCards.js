@@ -19,7 +19,7 @@ const { stablePrefix } = ddsSettings;
 /**
  * Card Array Component.
  */
-const ContentGroupCards = ({ heading, items }) => {
+const ContentGroupCards = ({ heading, items, copy }) => {
   const containerRef = useRef();
 
   useEffect(() => {
@@ -52,7 +52,7 @@ const ContentGroupCards = ({ heading, items }) => {
     <section
       data-autoid={`${stablePrefix}--content-group-cards`}
       className={`${prefix}--content-group-cards`}>
-      <ContentGroup heading={heading}>
+      <ContentGroup heading={heading} copy={copy}>
         <div
           data-autoid={`${stablePrefix}--content-group-cards-group`}
           ref={containerRef}
@@ -100,6 +100,11 @@ ContentGroupCards.propTypes = {
    * Main heading of the pattern.
    */
   heading: PropTypes.string.isRequired,
+
+  /**
+   * Copy text (enabled for the `markdownToHtml` utility)
+   */
+  copy: PropTypes.string,
 
   /**
    * Array of content group objects. Has the following structure:

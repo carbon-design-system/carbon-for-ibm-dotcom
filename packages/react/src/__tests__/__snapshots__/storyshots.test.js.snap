@@ -23611,6 +23611,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
           className="bx--col-lg-10 bx--col-sm-4 bx--offset-lg-4"
         >
           <ContentGroupCards
+            copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
             heading="Lorem ipsum dolor sit amet."
             items={
               Array [
@@ -23650,6 +23651,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
               data-autoid="dds--content-group-cards"
             >
               <ContentGroup
+                copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
                 heading="Lorem ipsum dolor sit amet."
               >
                 <div
@@ -23662,6 +23664,14 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
                   >
                     Lorem ipsum dolor sit amet.
                   </h3>
+                  <div
+                    className="bx--content-group__copy"
+                    dangerouslySetInnerHTML={
+                      Object {
+                        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>",
+                      }
+                    }
+                  />
                   <div
                     className="bx--content-group__col bx--content-group__children"
                     data-autoid="dds--content-group__children"
@@ -25056,6 +25066,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupPictograms Default 1`] = `
       >
         <ContentGroupPictograms
           className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
+          copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
           heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
           items={
             Array [
@@ -25103,6 +25114,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupPictograms Default 1`] = `
             data-autoid="dds--content-group-pictograms"
           >
             <ContentGroup
+              copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
               heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
             >
               <div
@@ -25115,6 +25127,14 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupPictograms Default 1`] = `
                 >
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                 </h3>
+                <div
+                  className="bx--content-group__copy"
+                  dangerouslySetInnerHTML={
+                    Object {
+                      "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>",
+                    }
+                  }
+                />
                 <div
                   className="bx--content-group__col bx--content-group__children"
                   data-autoid="dds--content-group__children"
@@ -25455,6 +25475,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupSimple Default 1`] = `
           className="bx--col-lg-8 bx--col-sm-4 bx--offset-lg-4"
         >
           <ContentGroupSimple
+            copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis magna."
             cta={
               Object {
                 "copy": "Lorem ipsum dolor sit ametttt",
@@ -25508,6 +25529,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupSimple Default 1`] = `
               data-autoid="dds--content-group-simple"
             >
               <ContentGroup
+                copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis magna."
                 cta={
                   Object {
                     "copy": "Lorem ipsum dolor sit ametttt",
@@ -25530,6 +25552,14 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupSimple Default 1`] = `
                   >
                     Lorem ipsum dolor sit amet
                   </h3>
+                  <div
+                    className="bx--content-group__copy"
+                    dangerouslySetInnerHTML={
+                      Object {
+                        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis magna.</p>",
+                      }
+                    }
+                  />
                   <div
                     className="bx--content-group__col bx--content-group__children"
                     data-autoid="dds--content-group__children"
