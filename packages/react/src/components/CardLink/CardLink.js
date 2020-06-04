@@ -25,7 +25,6 @@ const CardLink = ({ card, customClassName, disabled }) => {
     <Card
       customClassName={cardLinkClassname}
       {...card}
-      role="region"
       type={type}
       disabled={disabled}
     />
