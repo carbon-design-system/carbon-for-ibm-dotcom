@@ -17,6 +17,7 @@ const ButtonCTA = ({
   openLightBox,
   renderLightBox,
   videoTitle,
+  formatCTAcopy,
   ...otherProps
 }) => {
   const [mediaData, setMediaData] = useState({});
@@ -30,6 +31,7 @@ const ButtonCTA = ({
             videoTitle,
             openLightBox,
             setMediaData,
+            formatCTAcopy,
             ...otherProps,
           })}
         />
@@ -47,6 +49,7 @@ const ButtonCTA = ({
  * @param {Function} param.openLightBox func to set renderLightBox state
  * @param {Array} param.videoTitle array of video titles
  * @param {Function} param.setMediaData func to set media data state
+ * @param {Function} param.formatCTAcopy func to format the cta copy
  * @param {object} param.buttons object with buttons array
  * @private
  * @returns {*} object
@@ -55,6 +58,7 @@ const _renderButtons = ({
   openLightBox,
   videoTitle,
   setMediaData,
+  formatCTAcopy,
   buttons,
 }) => {
   return buttons.map((button, key) => {
@@ -69,7 +73,7 @@ const _renderButtons = ({
       });
       button.copy = !title[0]
         ? button.copy
-        : `${title[0].title} ${title[0].duration}`;
+        : formatCTAcopy({ title: title[0].title, duration: title[0].duration });
       button.href = '#';
     } else {
       button.onClick = e => CTALogic.jump(e, button.type);
@@ -167,10 +171,16 @@ ButtonCTA.propTypes = {
    * The function to set media data.
    */
   setMediaData: PropTypes.func,
+
+  /**
+   * Func to format the cta copy
+   */
+  formatCTAcopy: PropTypes.func,
 };
 
 ButtonCTA.defaultProps = {
   type: 'default',
+  formatCTAcopy: ({ title, duration }) => `${title} ${duration}`,
 };
 
 export default ButtonCTA;
