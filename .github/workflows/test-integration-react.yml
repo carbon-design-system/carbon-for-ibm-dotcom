@@ -1,9 +1,9 @@
-name: ci-check
+name: test-integration-react
 
 on: [push, pull_request]
 
 jobs:
-  ci-check:
+  test-integration-react:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -21,6 +21,4 @@ jobs:
       - name: Build
         run: yarn build
       - name: Run checks
-        env:
-          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_REACT }}
-        run: xvfb-run --auto-servernum percy exec -- yarn lerna run --stream --prefix --scope=@carbon/ibmdotcom-react test:integration:build
+        run: xvfb-run --auto-servernum yarn lerna run --stream --prefix --scope=@carbon/ibmdotcom-react test:integration:build

@@ -15,6 +15,9 @@ module.exports = async config => {
   if (!process.env.LAUNCH_TIMEOUT) {
     process.env.LAUNCH_TIMEOUT = 120000;
   }
+  if (!process.env.NAVIGATION_TIMEOUT) {
+    process.env.NAVIGATION_TIMEOUT = 120000;
+  }
   process.env.DDS_EXAMPLE_TMPDIR = await promisify(mkdir)('dds-');
   track();
   await setup(config);

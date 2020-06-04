@@ -24,5 +24,9 @@ jasmine.getEnv().addReporter({
 });
 
 afterEach(async () => {
-  await percySnapshot(page, currentFullName);
+  if (process.env.PERCY_TOKEN) {
+    await page.setBypassCSP(true);
+    await percySnapshot(page, currentFullName);
+    await page.setBypassCSP(false);
+  }
 });

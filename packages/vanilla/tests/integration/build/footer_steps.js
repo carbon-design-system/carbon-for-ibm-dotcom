@@ -26,32 +26,37 @@ describe('Footer example', () => {
     const tmpDir = process.env.DDS_EXAMPLE_TMPDIR;
     await setupDevServer({
       command: [
-        `cp -r ${src} ${tmpDir}`,
+        `cp -r '${src}' ${tmpDir}`,
         `cd ${tmpDir}/footer`,
         `echo 'CORS_PROXY=${process.env.CORS_PROXY}' > .env`,
         'yarn install',
         ...DEST_DIRS_SERVICES.map(dir => `rm -Rf node_modules/@carbon/ibmdotcom-services/${dir}`),
-        ...DEST_DIRS_SERVICES.map(dir => `cp -r ${servicesRoot}/${dir} node_modules/@carbon/ibmdotcom-services`),
+        ...DEST_DIRS_SERVICES.map(dir => `cp -r '${servicesRoot}/${dir}' node_modules/@carbon/ibmdotcom-services`),
         ...DEST_DIRS_STYLES.map(dir => `rm -Rf node_modules/@carbon/ibmdotcom-styles/${dir}`),
-        ...DEST_DIRS_STYLES.map(dir => `cp -r ${stylesRoot}/${dir} node_modules/@carbon/ibmdotcom-styles`),
+        ...DEST_DIRS_STYLES.map(dir => `cp -r '${stylesRoot}/${dir}' node_modules/@carbon/ibmdotcom-styles`),
         ...DEST_DIRS_UTILITIES.map(dir => `rm -Rf node_modules/@carbon/ibmdotcom-utilities/${dir}`),
-        ...DEST_DIRS_UTILITIES.map(dir => `cp -r ${utilitiesRoot}/${dir} node_modules/@carbon/ibmdotcom-utilities`),
+        ...DEST_DIRS_UTILITIES.map(dir => `cp -r '${utilitiesRoot}/${dir}' node_modules/@carbon/ibmdotcom-utilities`),
         ...DEST_DIRS_VANILLA.map(dir => `rm -Rf node_modules/@carbon/ibmdotcom-vanilla/${dir}`),
-        ...DEST_DIRS_VANILLA.map(dir => `cp -r ${vanillaRoot}/${dir} node_modules/@carbon/ibmdotcom-vanilla`),
-        `yarn parcel --port ${PORT} index.html`,
+        ...DEST_DIRS_VANILLA.map(dir => `cp -r '${vanillaRoot}/${dir}' node_modules/@carbon/ibmdotcom-vanilla`),
+        'yarn parcel build index.html',
+        `cp -r dist ${tmpDir}`,
+        `cd ${tmpDir}/dist`,
+        `echo '{}' > package.json`,
+        'yarn add -D http-server@^0.12.0',
+        `yarn http-server -p ${PORT}`,
       ].join(' && '),
       debug: true,
       launchTimeout: Number(process.env.LAUNCH_TIMEOUT),
       port: PORT,
     });
-    await page.setDefaultNavigationTimeout(Number(process.env.LAUNCH_TIMEOUT));
+    await page.setDefaultNavigationTimeout(Number(process.env.NAVIGATION_TIMEOUT));
     await page.goto(`http://localhost:${PORT}`);
   }, Number(process.env.LAUNCH_TIMEOUT));
 
   it('should have search box styled correctly', async () => {
-    const backgroundColorValue = await page.evaluate(footer => footer.ownerDocument.defaultView.getComputedStyle(footer).getPropertyValue('background-color'), await expect(page).toMatchElement('.bx--footer', { timeout: Number(process.env.LAUNCH_TIMEOUT), visible: true }));
+    const backgroundColorValue = await page.evaluate(footer => footer.ownerDocument.defaultView.getComputedStyle(footer).getPropertyValue('background-color'), await expect(page).toMatchElement('.bx--footer', { timeout: Number(process.env.NAVIGATION_TIMEOUT), visible: true }));
     expect(backgroundColorValue).toEqual(expect.stringMatching(/rgb\(\s*38,\s*38,\s*38\s*\)/));
-  }, Number(process.env.LAUNCH_TIMEOUT));
+  }, Number(process.env.NAVIGATION_TIMEOUT));
 
   afterAll(async () => {
     await teardownDevServer();

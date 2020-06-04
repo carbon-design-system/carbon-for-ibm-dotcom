@@ -15,8 +15,4 @@ module.exports = {
   setupFilesAfterEnv: ['expect-puppeteer', '<rootDir>/percy-reporter.js'],
   testEnvironment: 'jest-environment-puppeteer',
   testRegex: '.*_steps\\.js$',
-  reporters: [
-    'default',
-    '<rootDir>/percy-reporter.js',
-  ],
 };
