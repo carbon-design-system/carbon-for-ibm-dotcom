@@ -1,5 +1,4 @@
 from compiler.ast import Assert
-from lib2to3.pgen2 import driver
 
 from selenium import webdriver
 import time
@@ -9,7 +8,8 @@ from selenium.webdriver.support.select import Select
 
 class leadspace(unittest.TestCase):
     def test_leadspace(self):
-        driver = webdriver.Chrome('C:\Sel_chrome\chromedriver.exe')
+        driver = webdriver.Chrome('C:\\Users\\PraveenS\\PycharmProjects\\ibm'
+                                  '-dotcom-library\packages\\react\\src\\patterns\\sections\\LeadSpace\\__tests__\\chromedriver.exe')
         driver.maximize_window()
         driver.refresh()
         driver.get("https://ibmdotcom-react-staging.mybluemix.net/")
