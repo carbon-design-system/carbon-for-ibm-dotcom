@@ -7,7 +7,19 @@
 
 @mixin content-group-pictograms {
   .#{$prefix}--content-group-pictograms {
-    // empty for now
+    .#{$prefix}--content-group__copy {
+      margin-bottom: $spacing-05;
+
+      @include carbon--breakpoint('md') {
+        margin-bottom: $spacing-07;
+      }
+    }
+
+    &__item:last-child {
+      .#{$prefix}--content-item {
+        margin-bottom: 0;
+      }
+    }
   }
 }
 @include exports('content-group-pictograms') {
