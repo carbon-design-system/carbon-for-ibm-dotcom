@@ -125,7 +125,7 @@ Image.propTypes = {
   /**
    * Icon that overlays the image
    */
-  icon: PropTypes.element,
+  icon: PropTypes.func,
 };
 
 export default Image;
