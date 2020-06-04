@@ -20,11 +20,18 @@ const { stablePrefix } = ddsSettings;
 /**
  * ContentGroupSimple.
  */
-const ContentGroupSimple = ({ heading, mediaType, mediaData, items, cta }) => (
+const ContentGroupSimple = ({
+  heading,
+  mediaType,
+  mediaData,
+  items,
+  cta,
+  copy,
+}) => (
   <div
     data-autoid={`${stablePrefix}--content-group-simple`}
     className={`${prefix}--content-group-simple`}>
-    <ContentGroup cta={cta} heading={heading}>
+    <ContentGroup cta={cta} heading={heading} copy={copy}>
       {_renderMedia(mediaType, mediaData)}
       {_renderContent(items)}
     </ContentGroup>
@@ -63,6 +70,11 @@ ContentGroupSimple.propTypes = {
    * Main heading of the pattern.
    */
   heading: PropTypes.string.isRequired,
+
+  /**
+   * Copy text (enabled for the `markdownToHtml` utility)
+   */
+  copy: PropTypes.string,
 
   /**
    * Determines media type (image or video).

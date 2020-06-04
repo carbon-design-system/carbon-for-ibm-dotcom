@@ -13,6 +13,7 @@
 
 const ContentGroupCardsKnobs = {
   heading: 'Lorem ipsum dolor sit amet.',
+  copy: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
   items: [
     {
       heading:
