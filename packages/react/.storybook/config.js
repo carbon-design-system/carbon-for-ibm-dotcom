@@ -20,6 +20,7 @@ const SORT_ORDER_GROUP = [
 
 const SORT_ORDER = [
   'overview-getting-started--page',
+  'overview-building-for-ibm-dot-com--page',
   'overview-environment-variables--page',
   'overview-feature-flags--page',
 ];
