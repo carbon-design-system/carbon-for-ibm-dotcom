@@ -21,8 +21,6 @@
       color: $text-01;
     }
     &__list {
-      overflow: hidden;
-
       &__CTA {
         .#{$prefix}--link-list__list--horizontal & {
           float: left;
