@@ -38,7 +38,7 @@ class Footer {
    * @returns {Promise} Returned HTML content
    */
   static async getFooterWithData(type) {
-    const lang = LocaleAPI.getLang();
+    const lang = await LocaleAPI.getLang();
     const response = await TranslationAPI.getTranslation(lang);
 
     return footerTemplate({
