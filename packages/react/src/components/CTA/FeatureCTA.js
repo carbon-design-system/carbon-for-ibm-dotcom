@@ -19,7 +19,6 @@ const FeatureCTA = ({
   videoTitle,
   ...otherProps
 }) => {
-  console.log(otherProps);
   return type === 'video' ? (
     <div>
       {CTALogic.launchLightBox(

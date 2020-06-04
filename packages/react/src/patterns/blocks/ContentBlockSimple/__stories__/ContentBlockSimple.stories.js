@@ -59,14 +59,14 @@ const copy = `Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean 
   nulla quis, *consequat* libero. Here are
   some common categories:
 
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+  Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
 
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
 
-  [test link](https://www.ibm.com)
-
-  - list item 1
-  - list item 2
+  - [list item](https://www.ibm.com)
+    1. list item 1a
+  1. list item 2
+    - list item 2a
 `;
 
 /**

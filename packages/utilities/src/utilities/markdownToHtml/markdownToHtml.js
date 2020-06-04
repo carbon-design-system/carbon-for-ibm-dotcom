@@ -5,6 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import DOMPurify from 'dompurify';
 import marked from 'marked';
 import settings from 'carbon-components/es/globals/js/settings';
 const { prefix } = settings;
@@ -72,29 +73,70 @@ function markdownToHtml(
     // createParagraphs = true,
   } = {}
 ) {
-  // const options = {};
-  // options.renderer = new marked.Renderer();
+  const allowedMarkdown = whitelist => {
+    const marked = require('marked');
 
-  // options.renderer.link = {
-  //   classes: {
-  //     rendered: 'foo',
-  //   },
-  // };
-  // let paraList = '';
+    const lexer = (marked, whitelist) => {
+      const list = [
+        'code',
+        'blockquote',
+        'html',
+        'heading',
+        'hr',
+        'list',
+        'listitem',
+        'paragraph',
+        'table',
+        'tablerow',
+        'tablecell',
+        'strong',
+        'em',
+        'codespan',
+        'br',
+        'del',
+        'link',
+        'image',
+        'text',
+      ];
+      const blacklist = list.filter(item => {
+        return whitelist.indexOf(item) < 0;
+      });
+      const lexer = new marked.Lexer();
+      for (let i in blacklist) {
+        const key = blacklist[i];
+        console.log('key', key);
+        if (!lexer.rules[key]) continue;
+        lexer.rules[key].exec = () => {}; // noop
+      }
+    };
+    marked.lexer = lexer(marked, whitelist);
+
+    return marked;
+  };
+
+  const marked = allowedMarkdown([
+    'paragraph',
+    'text',
+    'br',
+    'em',
+    'list',
+    'listitem',
+    'strong',
+  ]);
+
   let converted = allowHtml ? str : _removeHtmlTags(str);
+
+  // const tokens = marked.lexer(converted);
+  // console.log('tokens', tokens);
 
   const renderer = {
     link(href, title, text) {
-      // console.log('this', this.link);
       const linkTitle = title ? `title="${title}"` : null;
       return `
         <a class="${prefix}--link" href="${href}" ${linkTitle}>${text}</a>
       `;
     },
-    list(ordered, start) {
-      // console.log('list body', body);
-      console.log('list ordered', ordered);
-      console.log('list start', start);
+    list(body, ordered) {
       const listType = ordered ? 'ol' : 'ul';
       const listClass = ordered
         ? `${prefix}--list--ordered`
@@ -102,14 +144,18 @@ function markdownToHtml(
 
       return `
         <${listType} class="${listClass}">
+          ${body}
+        </${listType}>
       `;
     },
-    listItem(text) {
+    listitem(text) {
       return `
         <li class="${prefix}--list__item">${text}</li>
       `;
     },
   };
+
+  // console.log('renderer', renderer.list);
 
   marked.use({ renderer });
 
@@ -142,7 +188,7 @@ function markdownToHtml(
   //   paraList += createParagraphs ? `<p>${para}</p>` : para;
   // });
 
-  return marked(converted);
+  return DOMPurify.sanitize(marked(converted));
 }
 
 // function renderer() {
