@@ -18,7 +18,7 @@ const { prefix } = settings;
 /**
  * DesktopMenu Component.
  */
-const TOCDesktop = ({ menuItems, selectedId, menuRule, headingContent }) => {
+const TOCDesktop = ({ menuItems, selectedId }) => {
   /**
    * Render menu items
    *
@@ -79,14 +79,6 @@ const TOCDesktop = ({ menuItems, selectedId, menuRule, headingContent }) => {
     <div
       className={`${prefix}--tableofcontents__desktop`}
       data-autoid={`${stablePrefix}--tableofcontents__desktop`}>
-      {headingContent ? (
-        <div className={`${prefix}--tableofcontents__desktop__children`}>
-          {headingContent}
-        </div>
-      ) : null}
-      {menuRule ? (
-        <hr className={`${prefix}--tableofcontents__desktop__rule`} />
-      ) : null}
       <ul>{renderMenuItems(menuItems, selectedId)}</ul>
     </div>
   );
@@ -108,16 +100,6 @@ TOCDesktop.propTypes = {
    * Id of a menu item.
    */
   selectedId: PropTypes.string,
-
-  /**
-   * `true` to use the rule
-   */
-  menuRule: PropTypes.bool,
-
-  /**
-   * Content to be displayed above the navigation menu.
-   */
-  headingContent: PropTypes.node,
 };
 
 export default TOCDesktop;

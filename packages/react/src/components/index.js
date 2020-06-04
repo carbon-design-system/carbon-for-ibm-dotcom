@@ -9,6 +9,7 @@ export * from './ButtonGroup';
 export * from './Callout';
 export * from './Card';
 export * from './CardGroup';
+export * from './CardLink';
 export * from './ContentItemHorizontal';
 export * from './CTA';
 export * from './DotcomShell';

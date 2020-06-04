@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -27,6 +27,7 @@ const smoothScroll = (e, selector, offset = 0) => {
   if (e !== null) {
     e.preventDefault();
     getSelector = e.currentTarget.getAttribute('href');
+    console.log('getSelector', getSelector);
   } else if (selector) {
     getSelector = selector;
   } else {

@@ -4,13 +4,11 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import { Card } from '../Card';
+
+import { CardLink } from '../CardLink';
 import CTALogic from './CTALogic';
 import PropTypes from 'prop-types';
 import React from 'react';
-import settings from 'carbon-components/es/globals/js/settings';
-
-const { prefix } = settings;
 
 /**
  * Card subcomponent for CTA.
@@ -23,37 +21,36 @@ const CardCTA = ({
   ...otherProps
 }) => {
   return type === 'video' ? (
-    <div>
+    <>
       {CTALogic.launchLightBox(renderLightBox, openLightBox, otherProps.media)}
       {!renderLightBox && (
-        <Card
-          customClassName={`${prefix}--card__CTA`}
-          cta={{
-            href: '#',
-            icon: {
-              src: CTALogic.iconSelector(type),
+        <CardLink
+          card={{
+            cta: {
+              href: '#',
+              icon: {
+                src: CTALogic.iconSelector(type),
+              },
             },
+            copy: videoTitle[0].title,
+            handleClick: e => CTALogic.setLightBox(e, openLightBox),
           }}
-          copy={videoTitle[0].title}
-          type="link"
-          handleClick={e => CTALogic.setLightBox(e, openLightBox)}
         />
       )}
-    </div>
+    </>
   ) : (
-    <Card
-      customClassName={`${prefix}--card__CTA`}
-      cta={{
-        type,
-        href: otherProps.cta.href,
-        icon: {
-          src: CTALogic.iconSelector(type),
+    <CardLink
+      card={{
+        cta: {
+          type,
+          href: otherProps.cta.href,
+          icon: {
+            src: CTALogic.iconSelector(type),
+          },
         },
+        copy: otherProps.copy,
+        target: CTALogic.external(type),
       }}
-      copy={otherProps.copy}
-      type="link"
-      target={CTALogic.external(type)}
-      role="region"
     />
   );
 };
@@ -69,6 +66,7 @@ CardCTA.propTypes = {
    * | `external` | Launch20         | Describes launch arrow onClick which loads in new tab.           |
    * | `download` | Download20       | Describes download arrow onClick for downloading files.          |
    * | `video`    | PlayOutline20    | Describes play icon onClick which loads the video in a lightbox. |
+   * | `default`  | None             | Describes the default CTA - without icon                         |
    *
    * For more details of icons, refer to:
    *
@@ -77,9 +75,23 @@ CardCTA.propTypes = {
    * - [carbon-icons](https://www.npmjs.com/package/carbon-icons)!👀
    */
   type: PropTypes.oneOfType([
-    PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video']),
+    PropTypes.oneOf([
+      'jump',
+      'local',
+      'external',
+      'download',
+      'video',
+      'default',
+    ]),
     PropTypes.arrayOf(
-      PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video'])
+      PropTypes.oneOf([
+        'jump',
+        'local',
+        'external',
+        'download',
+        'video',
+        'default',
+      ])
     ),
   ]),
 
@@ -102,6 +114,13 @@ CardCTA.propTypes = {
       key: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     })
   ),
+};
+
+CardCTA.defaultProps = {
+  type: 'default',
+  copy: '',
+  cta: null,
+  media: null,
 };
 
 export default CardCTA;

@@ -8,6 +8,7 @@
 import classNames from 'classnames';
 import { CTA } from '../../../components/CTA';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import { markdownToHtml } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
 import React from 'react';
 import settings from 'carbon-components/es/globals/js/settings';
@@ -25,7 +26,7 @@ const { prefix } = settings;
  * @param {*} props.cta CTA component props object
  * @returns {*} JSX ContentGroup component
  */
-const ContentGroup = ({ children, heading, customClassName, cta }) => {
+const ContentGroup = ({ children, heading, customClassName, cta, copy }) => {
   const className = classNames(`${prefix}--content-group`, customClassName);
 
   return (
@@ -35,6 +36,14 @@ const ContentGroup = ({ children, heading, customClassName, cta }) => {
         className={`${prefix}--content-group__title`}>
         {heading}
       </h3>
+      {copy && (
+        <div
+          className={`${prefix}--content-group__copy`}
+          dangerouslySetInnerHTML={{
+            __html: markdownToHtml(copy, { bold: false }),
+          }}
+        />
+      )}
       <div
         data-autoid={`${stablePrefix}--content-group__children`}
         className={classNames(
@@ -63,6 +72,11 @@ ContentGroup.propTypes = {
    * Heading text.
    */
   heading: PropTypes.string,
+
+  /**
+   * Copy text (enabled for the `markdownToHtml` utility)
+   */
+  copy: PropTypes.string,
 
   /**
    * Container for other components.

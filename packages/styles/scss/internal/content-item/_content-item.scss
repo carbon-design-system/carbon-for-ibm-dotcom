@@ -23,7 +23,9 @@
     margin-bottom: $carbon--spacing-07;
     &__heading,
     &__copy {
-      @include content-width;
+      @include carbon--breakpoint(md) {
+        @include content-width;
+      }
     }
 
     &__heading {
