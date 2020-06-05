@@ -5,11 +5,9 @@ import time
 import unittest
 from selenium.webdriver.support.select import Select
 
-
 class leadspace(unittest.TestCase):
     def test_leadspace(self):
-        driver = webdriver.Chrome('C:\\Users\\PraveenS\\PycharmProjects\\ibm'
-                                  '-dotcom-library\packages\\react\\src\\patterns\\sections\\LeadSpace\\__tests__\\chromedriver.exe')
+        driver = webdriver.Chrome('C:\Sel_chrome\chromedriver.exe')
         driver.maximize_window()
         driver.refresh()
         driver.get("https://ibmdotcom-react-staging.mybluemix.net/")
