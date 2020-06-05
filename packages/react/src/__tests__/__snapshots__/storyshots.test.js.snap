@@ -20680,6 +20680,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
 
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.",
                   "cta": Object {
+                    "copy": "Lorem Ipsum dolor sit",
                     "href": "https://example.com",
                     "type": "local",
                   },
@@ -20690,6 +20691,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
 
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.",
                   "cta": Object {
+                    "copy": "Lorem Ipsum dolor sit",
                     "href": "https://example.com",
                     "type": "local",
                   },
@@ -20880,6 +20882,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                     <ContentGroup
                       cta={
                         Object {
+                          "copy": "Lorem Ipsum dolor sit",
                           "href": "https://example.com",
                           "style": "text",
                           "type": "local",
@@ -20933,7 +20936,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                           data-autoid="dds--content-group__cta"
                         >
                           <CTA
-                            copy=""
+                            copy="Lorem Ipsum dolor sit"
                             customClassName="bx--content-group__cta"
                             href="https://example.com"
                             style="text"
@@ -20943,7 +20946,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                               className="bx--content-group__cta"
                             >
                               <TextCTA
-                                copy=""
+                                copy="Lorem Ipsum dolor sit"
                                 formatCTAcopy={[Function]}
                                 href="https://example.com"
                                 openLightBox={[Function]}
@@ -20981,7 +20984,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                         onClick={[Function]}
                                         target={null}
                                       >
-                                        <span />
+                                        <span>
+                                          Lorem Ipsum dolor sit
+                                        </span>
                                         <ForwardRef(ArrowRight20)>
                                           <Icon
                                             height={20}
@@ -21018,6 +21023,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                     <ContentGroup
                       cta={
                         Object {
+                          "copy": "Lorem Ipsum dolor sit",
                           "href": "https://example.com",
                           "style": "text",
                           "type": "local",
@@ -21161,7 +21167,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                           data-autoid="dds--content-group__cta"
                         >
                           <CTA
-                            copy=""
+                            copy="Lorem Ipsum dolor sit"
                             customClassName="bx--content-group__cta"
                             href="https://example.com"
                             style="text"
@@ -21171,7 +21177,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                               className="bx--content-group__cta"
                             >
                               <TextCTA
-                                copy=""
+                                copy="Lorem Ipsum dolor sit"
                                 formatCTAcopy={[Function]}
                                 href="https://example.com"
                                 openLightBox={[Function]}
@@ -21209,7 +21215,9 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                         onClick={[Function]}
                                         target={null}
                                       >
-                                        <span />
+                                        <span>
+                                          Lorem Ipsum dolor sit
+                                        </span>
                                         <ForwardRef(ArrowRight20)>
                                           <Icon
                                             height={20}
