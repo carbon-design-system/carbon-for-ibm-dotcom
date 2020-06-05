@@ -16529,10 +16529,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
     nulla quis, *consequat* libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
             cta={
               Object {
+                "copy": "Lorem ipsum dolor sit ametttt",
                 "cta": Object {
                   "href": "https://www.ibm.com",
                 },
-                "heading": "Lorem ipsum dolor sit amet",
                 "style": "card",
                 "type": "local",
               }
@@ -16677,10 +16677,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
     nulla quis, *consequat* libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
                 cta={
                   Object {
+                    "copy": "Lorem ipsum dolor sit ametttt",
                     "cta": Object {
                       "href": "https://www.ibm.com",
                     },
-                    "heading": "Lorem ipsum dolor sit amet",
                     "style": "card",
                     "type": "local",
                   }
@@ -18128,31 +18128,29 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                     data-autoid="dds--content-block__cta"
                   >
                     <CTA
-                      copy=""
+                      copy="Lorem ipsum dolor sit ametttt"
                       cta={
                         Object {
                           "href": "https://www.ibm.com",
                         }
                       }
                       customClassName="bx--content-block__cta bx--content-block__cta-col"
-                      heading="Lorem ipsum dolor sit amet"
                       href=""
                       style="card"
                       type="local"
                     >
                       <div
-                        aria-label=""
+                        aria-label="Lorem ipsum dolor sit ametttt"
                         className="bx--content-block__cta bx--content-block__cta-col"
                         role="region"
                       >
                         <CardCTA
-                          copy=""
+                          copy="Lorem ipsum dolor sit ametttt"
                           cta={
                             Object {
                               "href": "https://www.ibm.com",
                             }
                           }
-                          heading="Lorem ipsum dolor sit amet"
                           href=""
                           media={null}
                           openLightBox={[Function]}
@@ -18172,7 +18170,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                           <CardLink
                             card={
                               Object {
-                                "copy": "",
+                                "copy": "Lorem ipsum dolor sit ametttt",
                                 "cta": Object {
                                   "href": "https://www.ibm.com",
                                   "icon": Object {
@@ -18183,7 +18181,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                   },
                                   "type": "local",
                                 },
-                                "heading": "Lorem ipsum dolor sit amet",
                                 "href": "",
                                 "media": null,
                                 "target": null,
@@ -18192,7 +18189,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                             disabled={false}
                           >
                             <Card
-                              copy=""
+                              copy="Lorem ipsum dolor sit ametttt"
                               cta={
                                 Object {
                                   "href": "https://www.ibm.com",
@@ -18207,7 +18204,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                               }
                               customClassName="bx--card__CTA"
                               disabled={false}
-                              heading="Lorem ipsum dolor sit amet"
                               href=""
                               media={null}
                               target={null}
@@ -18239,11 +18235,14 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                   <div
                                     className="bx--card__wrapper"
                                   >
-                                    <h3
-                                      className="bx--card__heading"
-                                    >
-                                      Lorem ipsum dolor sit amet
-                                    </h3>
+                                    <div
+                                      className="bx--card__copy"
+                                      dangerouslySetInnerHTML={
+                                        Object {
+                                          "__html": "<p>Lorem ipsum dolor sit ametttt</p>",
+                                        }
+                                      }
+                                    />
                                     <div
                                       className="bx--card__footer"
                                     >
@@ -18374,10 +18373,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
     nulla quis, *consequat* libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
             cta={
               Object {
+                "copy": "Lorem ipsum dolor sit ametttt",
                 "cta": Object {
                   "href": "https://www.ibm.com",
                 },
-                "heading": "Lorem ipsum dolor sit amet",
                 "style": "card",
                 "type": "local",
               }
@@ -18549,10 +18548,10 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
     nulla quis, *consequat* libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
                 cta={
                   Object {
+                    "copy": "Lorem ipsum dolor sit ametttt",
                     "cta": Object {
                       "href": "https://www.ibm.com",
                     },
-                    "heading": "Lorem ipsum dolor sit amet",
                     "style": "card",
                     "type": "local",
                   }
@@ -20044,31 +20043,29 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                             data-autoid="dds--content-block__cta"
                           >
                             <CTA
-                              copy=""
+                              copy="Lorem ipsum dolor sit ametttt"
                               cta={
                                 Object {
                                   "href": "https://www.ibm.com",
                                 }
                               }
                               customClassName="bx--content-block__cta bx--content-block__cta-col"
-                              heading="Lorem ipsum dolor sit amet"
                               href=""
                               style="card"
                               type="local"
                             >
                               <div
-                                aria-label=""
+                                aria-label="Lorem ipsum dolor sit ametttt"
                                 className="bx--content-block__cta bx--content-block__cta-col"
                                 role="region"
                               >
                                 <CardCTA
-                                  copy=""
+                                  copy="Lorem ipsum dolor sit ametttt"
                                   cta={
                                     Object {
                                       "href": "https://www.ibm.com",
                                     }
                                   }
-                                  heading="Lorem ipsum dolor sit amet"
                                   href=""
                                   media={null}
                                   openLightBox={[Function]}
@@ -20088,7 +20085,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                   <CardLink
                                     card={
                                       Object {
-                                        "copy": "",
+                                        "copy": "Lorem ipsum dolor sit ametttt",
                                         "cta": Object {
                                           "href": "https://www.ibm.com",
                                           "icon": Object {
@@ -20099,7 +20096,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                           },
                                           "type": "local",
                                         },
-                                        "heading": "Lorem ipsum dolor sit amet",
                                         "href": "",
                                         "media": null,
                                         "target": null,
@@ -20108,7 +20104,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                     disabled={false}
                                   >
                                     <Card
-                                      copy=""
+                                      copy="Lorem ipsum dolor sit ametttt"
                                       cta={
                                         Object {
                                           "href": "https://www.ibm.com",
@@ -20123,7 +20119,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                       }
                                       customClassName="bx--card__CTA"
                                       disabled={false}
-                                      heading="Lorem ipsum dolor sit amet"
                                       href=""
                                       media={null}
                                       target={null}
@@ -20155,11 +20150,14 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                           <div
                                             className="bx--card__wrapper"
                                           >
-                                            <h3
-                                              className="bx--card__heading"
-                                            >
-                                              Lorem ipsum dolor sit amet
-                                            </h3>
+                                            <div
+                                              className="bx--card__copy"
+                                              dangerouslySetInnerHTML={
+                                                Object {
+                                                  "__html": "<p>Lorem ipsum dolor sit ametttt</p>",
+                                                }
+                                              }
+                                            />
                                             <div
                                               className="bx--card__footer"
                                             >
@@ -22594,7 +22592,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                 "cta": Object {
                   "href": "https://www.ibm.com",
                 },
-                "heading": "Lorem ipsum dolor sit amet",
                 "style": "card",
                 "type": "local",
               }
@@ -22637,7 +22634,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                     "cta": Object {
                       "href": "https://www.ibm.com",
                     },
-                    "heading": "Lorem ipsum dolor sit amet",
                     "style": "card",
                     "type": "local",
                   }
@@ -22795,7 +22791,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                         }
                       }
                       customClassName="bx--content-block__cta bx--content-block__cta-col"
-                      heading="Lorem ipsum dolor sit amet"
                       href=""
                       style="card"
                       type="local"
@@ -22812,7 +22807,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                               "href": "https://www.ibm.com",
                             }
                           }
-                          heading="Lorem ipsum dolor sit amet"
                           href=""
                           media={null}
                           openLightBox={[Function]}
@@ -22843,7 +22837,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                                   },
                                   "type": "local",
                                 },
-                                "heading": "Lorem ipsum dolor sit amet",
                                 "href": "",
                                 "media": null,
                                 "target": null,
@@ -22867,7 +22860,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                               }
                               customClassName="bx--card__CTA"
                               disabled={false}
-                              heading="Lorem ipsum dolor sit amet"
                               href=""
                               media={null}
                               target={null}
@@ -22899,11 +22891,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                                   <div
                                     className="bx--card__wrapper"
                                   >
-                                    <h3
-                                      className="bx--card__heading"
-                                    >
-                                      Lorem ipsum dolor sit amet
-                                    </h3>
                                     <div
                                       className="bx--card__copy"
                                       dangerouslySetInnerHTML={
@@ -23052,7 +23039,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                 "cta": Object {
                   "href": "https://www.ibm.com",
                 },
-                "heading": "Lorem ipsum dolor sit amet",
                 "style": "card",
                 "type": "local",
               }
@@ -23121,7 +23107,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                     "cta": Object {
                       "href": "https://www.ibm.com",
                     },
-                    "heading": "Lorem ipsum dolor sit amet",
                     "style": "card",
                     "type": "local",
                   }
@@ -23321,7 +23306,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                 }
                               }
                               customClassName="bx--content-block__cta bx--content-block__cta-col"
-                              heading="Lorem ipsum dolor sit amet"
                               href=""
                               style="card"
                               type="local"
@@ -23338,7 +23322,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                       "href": "https://www.ibm.com",
                                     }
                                   }
-                                  heading="Lorem ipsum dolor sit amet"
                                   href=""
                                   media={null}
                                   openLightBox={[Function]}
@@ -23369,7 +23352,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                           },
                                           "type": "local",
                                         },
-                                        "heading": "Lorem ipsum dolor sit amet",
                                         "href": "",
                                         "media": null,
                                         "target": null,
@@ -23393,7 +23375,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                       }
                                       customClassName="bx--card__CTA"
                                       disabled={false}
-                                      heading="Lorem ipsum dolor sit amet"
                                       href=""
                                       media={null}
                                       target={null}
@@ -23425,11 +23406,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                           <div
                                             className="bx--card__wrapper"
                                           >
-                                            <h3
-                                              className="bx--card__heading"
-                                            >
-                                              Lorem ipsum dolor sit amet
-                                            </h3>
                                             <div
                                               className="bx--card__copy"
                                               dangerouslySetInnerHTML={
