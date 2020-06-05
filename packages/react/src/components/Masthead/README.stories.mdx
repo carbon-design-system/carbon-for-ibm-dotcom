@@ -1,4 +1,5 @@
-import { Props } from '@storybook/addon-docs/blocks';
+import { Props, Description } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../docs/contributing-license.md';
 import Masthead from './Masthead';
 
 # Masthead
@@ -107,19 +108,12 @@ A cors proxy can be configured using the following
 
 `CORS_PROXY=https://myproxy.com/`
 
+or for `create-react-app`:
+
+`REACT_APP_CORS_PROXY=https://myproxy.com/`
+
 > NOTE: The `CORS_PROXY` is not necessary when publishing to production
 > (www.ibm.com). Be sure to either set `CORS_PROXY` as blank or leave it
 > unconfigured when pushing your application to production.
 
-## 🙌 Contributing
-
-We're always looking for contributors to help us fix bugs, build new features,
-or help us improve the project documentation. If you're interested, definitely
-check out our
-[Contributing Guide](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/.github/CONTRIBUTING.md)!
-👀
-
-## 📝 License
-
-Licensed under the
-[Apache 2.0 License](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/LICENSE).
+<Description markdown={contributing} />

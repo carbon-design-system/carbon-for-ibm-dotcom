@@ -11,7 +11,7 @@ import { globalInit } from '../';
 
 jest.mock('../../DDO', () => ({
   DDOAPI: {
-    setVersion: jest.fn(),
+    setVersion: jest.fn(async () => {}),
   },
 }));
 jest.mock('../../Analytics', () => ({

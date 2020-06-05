@@ -259,7 +259,7 @@ class Masthead {
       mastheadProps = Object.assign(defaultProps, { hasProfile: hasProfile });
     }
 
-    const lang = LocaleAPI.getLang();
+    const lang = await LocaleAPI.getLang();
     const response = await TranslationAPI.getTranslation(lang);
 
     if (searchProps.hasSearch) {
