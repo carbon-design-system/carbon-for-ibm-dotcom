@@ -20,20 +20,30 @@ export default {
     ...readme.parameters,
     knobs: {
       ContentGroupSimple: ({ groupId }) => {
-        const mediaType = select('Media type:', types, types.image, groupId);
+        const mediaType = select(
+          'Media type (mediaType):',
+          types,
+          types.image,
+          groupId
+        );
         return {
           mediaType,
           mediaData:
             mediaType === 'image'
               ? ContentGroupSimpleKnobs.mediaData.image
               : ContentGroupSimpleKnobs.mediaData.video,
-          heading: text('Heading', ContentGroupSimpleKnobs.heading, groupId),
+          heading: text(
+            'Heading (heading)',
+            ContentGroupSimpleKnobs.heading,
+            groupId
+          ),
+          copy: text('Copy (copy):', ContentGroupSimpleKnobs.copy, groupId),
           items: object(
-            'Content Items:',
+            'Content Items (items):',
             ContentGroupSimpleKnobs.items,
             groupId
           ),
-          cta: object('CTA Data:', ContentGroupSimpleKnobs.cta, groupId),
+          cta: object('CTA Data (cta):', ContentGroupSimpleKnobs.cta, groupId),
         };
       },
     },
@@ -41,7 +51,7 @@ export default {
 };
 
 export const Default = ({ parameters }) => {
-  const { mediaType, mediaData, heading, items, cta } =
+  const { mediaType, mediaData, heading, items, cta, copy } =
     parameters?.props?.ContentGroupSimple ?? {};
   return (
     <div className="bx--grid">
@@ -52,6 +62,7 @@ export const Default = ({ parameters }) => {
             mediaData={mediaData}
             heading={heading}
             items={items}
+            copy={copy}
             cta={cta}
           />
         </div>

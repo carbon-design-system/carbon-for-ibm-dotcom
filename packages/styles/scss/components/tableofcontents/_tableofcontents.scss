@@ -100,6 +100,7 @@
 
     &__desktop {
       padding-top: $carbon--spacing-07;
+      margin-top: $carbon--spacing-07;
       @include carbon--make-col(3, 4);
       &__item {
         a {
@@ -132,6 +133,7 @@
 
       &__children {
         padding-top: $layout-05;
+        margin-bottom: -$carbon--spacing-07;
 
         @include carbon--make-col(3, 4);
 
