@@ -413,7 +413,6 @@ exports[`Storyshots Components|Card Link/Clickable 1`] = `
               copy=""
               cta={
                 Object {
-                  "copy": "click here",
                   "href": "https://example.com",
                   "icon": Object {
                     "src": Object {
@@ -509,9 +508,7 @@ exports[`Storyshots Components|Card Link/Clickable 1`] = `
                           </svg>
                         </Icon>
                       </ForwardRef(ArrowRight20)>
-                      <span>
-                        click here
-                      </span>
+                      <span />
                     </div>
                   </div>
                 </a>
@@ -16532,7 +16529,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
     nulla quis, *consequat* libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
             cta={
               Object {
-                "copy": "Lorem ipsum dolor sit ametttt",
                 "cta": Object {
                   "href": "https://www.ibm.com",
                 },
@@ -16681,7 +16677,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
     nulla quis, *consequat* libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
                 cta={
                   Object {
-                    "copy": "Lorem ipsum dolor sit ametttt",
                     "cta": Object {
                       "href": "https://www.ibm.com",
                     },
@@ -18133,7 +18128,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                     data-autoid="dds--content-block__cta"
                   >
                     <CTA
-                      copy="Lorem ipsum dolor sit ametttt"
+                      copy=""
                       cta={
                         Object {
                           "href": "https://www.ibm.com",
@@ -18146,12 +18141,12 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                       type="local"
                     >
                       <div
-                        aria-label="Lorem ipsum dolor sit ametttt"
+                        aria-label=""
                         className="bx--content-block__cta bx--content-block__cta-col"
                         role="region"
                       >
                         <CardCTA
-                          copy="Lorem ipsum dolor sit ametttt"
+                          copy=""
                           cta={
                             Object {
                               "href": "https://www.ibm.com",
@@ -18177,7 +18172,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                           <CardLink
                             card={
                               Object {
-                                "copy": "Lorem ipsum dolor sit ametttt",
+                                "copy": "",
                                 "cta": Object {
                                   "href": "https://www.ibm.com",
                                   "icon": Object {
@@ -18197,7 +18192,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                             disabled={false}
                           >
                             <Card
-                              copy="Lorem ipsum dolor sit ametttt"
+                              copy=""
                               cta={
                                 Object {
                                   "href": "https://www.ibm.com",
@@ -18249,14 +18244,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                     >
                                       Lorem ipsum dolor sit amet
                                     </h3>
-                                    <div
-                                      className="bx--card__copy"
-                                      dangerouslySetInnerHTML={
-                                        Object {
-                                          "__html": "<p>Lorem ipsum dolor sit ametttt</p>",
-                                        }
-                                      }
-                                    />
                                     <div
                                       className="bx--card__footer"
                                     >
@@ -18387,7 +18374,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
     nulla quis, *consequat* libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
             cta={
               Object {
-                "copy": "Lorem ipsum dolor sit ametttt",
                 "cta": Object {
                   "href": "https://www.ibm.com",
                 },
@@ -18563,7 +18549,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
     nulla quis, *consequat* libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero."
                 cta={
                   Object {
-                    "copy": "Lorem ipsum dolor sit ametttt",
                     "cta": Object {
                       "href": "https://www.ibm.com",
                     },
@@ -20059,7 +20044,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                             data-autoid="dds--content-block__cta"
                           >
                             <CTA
-                              copy="Lorem ipsum dolor sit ametttt"
+                              copy=""
                               cta={
                                 Object {
                                   "href": "https://www.ibm.com",
@@ -20072,12 +20057,12 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                               type="local"
                             >
                               <div
-                                aria-label="Lorem ipsum dolor sit ametttt"
+                                aria-label=""
                                 className="bx--content-block__cta bx--content-block__cta-col"
                                 role="region"
                               >
                                 <CardCTA
-                                  copy="Lorem ipsum dolor sit ametttt"
+                                  copy=""
                                   cta={
                                     Object {
                                       "href": "https://www.ibm.com",
@@ -20103,7 +20088,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                   <CardLink
                                     card={
                                       Object {
-                                        "copy": "Lorem ipsum dolor sit ametttt",
+                                        "copy": "",
                                         "cta": Object {
                                           "href": "https://www.ibm.com",
                                           "icon": Object {
@@ -20123,7 +20108,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                     disabled={false}
                                   >
                                     <Card
-                                      copy="Lorem ipsum dolor sit ametttt"
+                                      copy=""
                                       cta={
                                         Object {
                                           "href": "https://www.ibm.com",
@@ -20175,14 +20160,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                             >
                                               Lorem ipsum dolor sit amet
                                             </h3>
-                                            <div
-                                              className="bx--card__copy"
-                                              dangerouslySetInnerHTML={
-                                                Object {
-                                                  "__html": "<p>Lorem ipsum dolor sit ametttt</p>",
-                                                }
-                                              }
-                                            />
                                             <div
                                               className="bx--card__footer"
                                             >
@@ -20705,7 +20682,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
 
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.",
                   "cta": Object {
-                    "copy": "Lorem Ipsum dolor sit",
                     "href": "https://example.com",
                     "type": "local",
                   },
@@ -20716,7 +20692,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
 
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.",
                   "cta": Object {
-                    "copy": "Lorem Ipsum dolor sit",
                     "href": "https://example.com",
                     "type": "local",
                   },
@@ -20907,7 +20882,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                     <ContentGroup
                       cta={
                         Object {
-                          "copy": "Lorem Ipsum dolor sit",
                           "href": "https://example.com",
                           "style": "text",
                           "type": "local",
@@ -20961,7 +20935,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                           data-autoid="dds--content-group__cta"
                         >
                           <CTA
-                            copy="Lorem Ipsum dolor sit"
+                            copy=""
                             customClassName="bx--content-group__cta"
                             href="https://example.com"
                             style="text"
@@ -20971,7 +20945,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                               className="bx--content-group__cta"
                             >
                               <TextCTA
-                                copy="Lorem Ipsum dolor sit"
+                                copy=""
                                 formatCTAcopy={[Function]}
                                 href="https://example.com"
                                 openLightBox={[Function]}
@@ -21009,9 +20983,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                         onClick={[Function]}
                                         target={null}
                                       >
-                                        <span>
-                                          Lorem Ipsum dolor sit
-                                        </span>
+                                        <span />
                                         <ForwardRef(ArrowRight20)>
                                           <Icon
                                             height={20}
@@ -21048,7 +21020,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                     <ContentGroup
                       cta={
                         Object {
-                          "copy": "Lorem Ipsum dolor sit",
                           "href": "https://example.com",
                           "style": "text",
                           "type": "local",
@@ -21192,7 +21163,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                           data-autoid="dds--content-group__cta"
                         >
                           <CTA
-                            copy="Lorem Ipsum dolor sit"
+                            copy=""
                             customClassName="bx--content-group__cta"
                             href="https://example.com"
                             style="text"
@@ -21202,7 +21173,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                               className="bx--content-group__cta"
                             >
                               <TextCTA
-                                copy="Lorem Ipsum dolor sit"
+                                copy=""
                                 formatCTAcopy={[Function]}
                                 href="https://example.com"
                                 openLightBox={[Function]}
@@ -21240,9 +21211,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                         onClick={[Function]}
                                         target={null}
                                       >
-                                        <span>
-                                          Lorem Ipsum dolor sit
-                                        </span>
+                                        <span />
                                         <ForwardRef(ArrowRight20)>
                                           <Icon
                                             height={20}
