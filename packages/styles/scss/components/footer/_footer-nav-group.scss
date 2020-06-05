@@ -13,7 +13,7 @@
   $TEMP--footer-nav-group-type: 'heading-02';
 
   .#{$prefix}--footer-nav-group {
-    padding-left: 0;
+    padding-left: 1px;
     margin-bottom: 0;
     &__title {
       // need to remove once 16 variants come out
@@ -57,7 +57,7 @@
     @include carbon--breakpoint('md') {
       @include carbon--make-col-ready;
 
-      padding-left: 0;
+      padding-left: 1px;
       display: inline-block;
       margin-bottom: carbon--mini-units(6);
 
