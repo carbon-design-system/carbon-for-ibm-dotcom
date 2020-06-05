@@ -47,6 +47,8 @@
 
           svg {
             align-self: start;
+            position: relative;
+            top: 1px;
             margin-left: 0;
             margin-right: $carbon--spacing-03;
           }
