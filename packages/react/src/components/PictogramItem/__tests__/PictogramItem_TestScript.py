@@ -7,7 +7,7 @@ import time
 class pictogramitem(unittest.TestCase):
     def setUp(self):
         global driver
-        filepath = "C:/Users/ChetanKanakeri/Desktop/liburl.xlsx"
+        filepath = "C:/Users/ChetanKanakeri/PycharmProjects/ibm-dotcom-library/URL_List/liburl.xlsx"
         wb = load_workbook(filepath)
         sheet = wb.active
         a1 = sheet['A1']
@@ -28,10 +28,10 @@ class pictogramitem(unittest.TestCase):
         Pictogram_Item.click()
         time.sleep(2)
 
-        Select_Default = driver.find_element_by_xpath(
-            "//div[@id='patterns-sub-patterns-pictogramitem--default']//span[contains(text(),'Default')]")
-        Select_Default.click()
-        time.sleep(2)
+        #Select_Default = driver.find_element_by_xpath(
+            #"//div[@id='patterns-sub-patterns-pictogramitem--default']//span[contains(text(),'Default')]")
+        #Select_Default.click()
+        #time.sleep(2)
 
         full_screen = driver.find_element_by_xpath("//*[contains(@title, 'Open canvas in new tab')]")
         full_screen.click()

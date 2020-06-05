@@ -8,7 +8,7 @@ class leadspaceblock(unittest.TestCase):
 
     def setUp(self):
         global driver
-        filepath = "URL_List\liburl.xlsx"
+        filepath = "/ibm-dotcom-library/URL_List/liburl.xlsx"
         wb = load_workbook(filepath)
         sheet = wb.active
         a1 = sheet['A1']
