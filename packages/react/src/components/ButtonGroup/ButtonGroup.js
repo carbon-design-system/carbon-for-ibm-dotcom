@@ -22,7 +22,7 @@ const ButtonGroup = ({ buttons, enableSizeByContent }) => {
   const shouldUseResizeObserver =
     enableSizeByContent && typeof ResizeObserver !== 'undefined';
   const resizeObserverButtonsRef = useRef(
-    new ResizeObserver(entries => {
+    !shouldUseResizeObserver  ? null : new ResizeObserver(entries => {
       const groups = entries.reduce((acc, entry) => {
         const group = entry.target.closest('.bx--buttongroup');
         if (group) {
