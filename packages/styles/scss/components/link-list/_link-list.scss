@@ -99,6 +99,10 @@
             border-bottom: 1px solid $ui-03;
           }
         }
+
+        &.#{$prefix}--link-list__list--video .#{$prefix}--card__footer span {
+          color: $link-01;
+        }
       }
 
       &.#{$prefix}--link-list__list--card {
