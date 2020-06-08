@@ -17,9 +17,9 @@ const FeatureCTA = ({
   openLightBox,
   renderLightBox,
   videoTitle,
+  formatCTAcopy,
   ...otherProps
 }) => {
-  console.log(otherProps);
   return type === 'video' ? (
     <div>
       {CTALogic.launchLightBox(
@@ -33,7 +33,10 @@ const FeatureCTA = ({
           card={_renderFeatureCard({
             card: {
               ...otherProps.card,
-              heading: videoTitle[0].title,
+              heading: formatCTAcopy({
+                title: videoTitle[0].title,
+                duration: videoTitle[0].duration,
+              }),
             },
           })}
           onClick={e => CTALogic.setLightBox(e, openLightBox)}
@@ -114,7 +117,6 @@ FeatureCTA.propTypes = {
    * Func to set renderLightBox state.
    */
   openLightBox: PropTypes.func,
-
   /**
    * Bool to determine whether to open lightbox.
    */
@@ -126,13 +128,20 @@ FeatureCTA.propTypes = {
   videoTitle: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
+      duration: PropTypes.string,
       key: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     })
   ),
+
+  /**
+   * Func to format the cta copy
+   */
+  formatCTAcopy: PropTypes.func,
 };
 
 FeatureCTA.defaultProps = {
   type: 'default',
+  formatCTAcopy: ({ title, duration }) => `${title} ${duration}`,
 };
 
 export default FeatureCTA;

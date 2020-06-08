@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64px" height="64px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group 3</title>
+    <g id="visual-spec" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Card-group-video" transform="translate(-736.000000, -1746.000000)">
+            <g id="Group-2-Copy-2" transform="translate(608.000000, 1658.000000)">
+                <g id="Group-3" transform="translate(128.000000, 88.000000)">
+                    <circle id="Oval-Copy-3" fill-opacity="0.9" fill="#525252" cx="32" cy="32" r="32"></circle>
+                    <path d="M26.5555476,43.111135 C26.0032708,43.111135 25.5555476,42.6633959 25.5555476,42.1111111 L25.5555476,20.1111111 C25.5541311,19.7531358 25.7441673,19.4217049 26.0538295,19.2421008 C26.3634918,19.0624967 26.745539,19.0621192 27.0555476,19.2411111 L46.0555476,30.2411111 C46.368866,30.4186723 46.5625038,30.7509842 46.5625038,31.1111111 C46.5625038,31.4712381 46.368866,31.8035499 46.0555476,31.9811111 L27.0555476,42.9811111 C26.9031526,43.0674916 26.7307319,43.1123209 26.5555476,43.111135 Z" id="Path-Copy" fill="#F3F3F3" fill-rule="nonzero"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

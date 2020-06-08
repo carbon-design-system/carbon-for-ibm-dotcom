@@ -91,7 +91,6 @@ const getBaseKnobs = ({ groupId }) => {
       },
       style: select('CTA style', ctaStyles, ctaStyles.card, groupId),
       type: select('CTA type', ctaTypes, ctaTypes.local, groupId),
-      heading: 'Lorem ipsum dolor sit amet',
       copy: 'Lorem ipsum dolor sit ametttt',
     },
   };
