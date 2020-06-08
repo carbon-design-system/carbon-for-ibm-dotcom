@@ -5082,7 +5082,7 @@ exports[`Storyshots Components|LightboxMediaViewer Embedded Video Player 1`] = `
                               videoId="0_uka1msg4"
                             >
                               <div
-                                aria-label="undefined undefined"
+                                aria-label=" (1:00)"
                                 className="bx--video-player"
                               >
                                 <div
@@ -12199,7 +12199,7 @@ exports[`Storyshots Components|VideoPlayer Default 1`] = `
             videoId="0_uka1msg4"
           >
             <div
-              aria-label="undefined undefined"
+              aria-label=" (1:00)"
               className="bx--video-player"
             >
               <div
@@ -12215,6 +12215,7 @@ exports[`Storyshots Components|VideoPlayer Default 1`] = `
                 className="bx--video-player__video-caption"
               >
                  
+                (1:00)
               </div>
             </div>
           </VideoPlayer>
