@@ -22,30 +22,32 @@ const ButtonGroup = ({ buttons, enableSizeByContent }) => {
   const shouldUseResizeObserver =
     enableSizeByContent && typeof ResizeObserver !== 'undefined';
   const resizeObserverButtonsRef = useRef(
-    !shouldUseResizeObserver  ? null : new ResizeObserver(entries => {
-      const groups = entries.reduce((acc, entry) => {
-        const group = entry.target.closest('.bx--buttongroup');
-        if (group) {
-          acc.add(group);
-        }
-        return acc;
-      }, new Set());
-      groups.forEach(group => {
-        const width = Array.prototype.reduce.call(
-          group.querySelectorAll('.bx--buttongroup-item--pseudo .bx--btn'),
-          (acc, item) => Math.max(acc, item.offsetWidth),
-          0
-        );
-        Array.prototype.forEach.call(
-          group.querySelectorAll(
-            '.bx--buttongroup-item:not(.bx--buttongroup-item--pseudo) .bx--btn'
-          ),
-          item => {
-            item.style.width = `${width}px`;
-          }
-        );
-      });
-    })
+    !shouldUseResizeObserver
+      ? null
+      : new ResizeObserver(entries => {
+          const groups = entries.reduce((acc, entry) => {
+            const group = entry.target.closest('.bx--buttongroup');
+            if (group) {
+              acc.add(group);
+            }
+            return acc;
+          }, new Set());
+          groups.forEach(group => {
+            const width = Array.prototype.reduce.call(
+              group.querySelectorAll('.bx--buttongroup-item--pseudo .bx--btn'),
+              (acc, item) => Math.max(acc, item.offsetWidth),
+              0
+            );
+            Array.prototype.forEach.call(
+              group.querySelectorAll(
+                '.bx--buttongroup-item:not(.bx--buttongroup-item--pseudo) .bx--btn'
+              ),
+              item => {
+                item.style.width = `${width}px`;
+              }
+            );
+          });
+        })
   );
 
   useLayoutEffect(() => {
@@ -82,7 +84,9 @@ const ButtonGroup = ({ buttons, enableSizeByContent }) => {
   useEffect(() => {
     return () => {
       const { current: resizeObserverButtons } = resizeObserverButtonsRef;
-      resizeObserverButtons.disconnect();
+      if (resizeObserverButtons) {
+        resizeObserverButtons.disconnect();
+      }
     };
   }, []);
 

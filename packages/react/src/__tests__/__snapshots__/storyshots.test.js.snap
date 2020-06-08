@@ -52,6 +52,7 @@ exports[`Storyshots Components|ButtonGroup Default 1`] = `
                 },
               ]
             }
+            enableSizeByContent={true}
           >
             <ol
               className="bx--buttongroup"
@@ -134,6 +135,7 @@ exports[`Storyshots Components|ButtonGroup Default 1`] = `
             },
           ]
         }
+        enableSizeByContent={true}
       >
         <ol
           className="bx--buttongroup"
@@ -3302,6 +3304,7 @@ exports[`Storyshots Components|Expressive Modal Default 1`] = `
                           },
                         ]
                       }
+                      enableSizeByContent={true}
                     >
                       <ol
                         className="bx--buttongroup"
@@ -3526,6 +3529,7 @@ exports[`Storyshots Components|Expressive Modal Expanded 1`] = `
                           },
                         ]
                       }
+                      enableSizeByContent={true}
                     >
                       <ol
                         className="bx--buttongroup"
@@ -27296,6 +27300,7 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                 },
                               ]
                             }
+                            enableSizeByContent={true}
                           >
                             <ol
                               className="bx--buttongroup"
@@ -28274,6 +28279,7 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
                           },
                         ]
                       }
+                      enableSizeByContent={true}
                     >
                       <ol
                         className="bx--buttongroup"
@@ -30381,6 +30387,7 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with image 1`] = `
                       },
                     ]
                   }
+                  enableSizeByContent={true}
                 >
                   <ol
                     className="bx--buttongroup"
@@ -30701,6 +30708,7 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with no image 1`] = `
                         },
                       ]
                     }
+                    enableSizeByContent={true}
                   >
                     <ol
                       className="bx--buttongroup"
