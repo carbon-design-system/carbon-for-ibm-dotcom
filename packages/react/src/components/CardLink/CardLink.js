@@ -16,9 +16,9 @@ const { prefix } = settings;
 /**
  * CardLink component
  */
-const CardLink = ({ card, disabled }) => {
+const CardLink = ({ card, customClassName, disabled }) => {
   const type = disabled ? '' : 'link';
-  const cardLinkClassname = cx(`${prefix}--card__CTA`, {
+  const cardLinkClassname = cx(`${prefix}--card__CTA`, customClassName, {
     [`${prefix}--card__CTA--disabled`]: disabled,
   });
   return (
@@ -37,6 +37,11 @@ CardLink.propTypes = {
    * See [`<Card>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-card--link-clickable#props) for full usage details.
    */
   card: PropTypes.shape(Card.propTypes).isRequired,
+
+  /**
+   * Custom className
+   */
+  customClassName: PropTypes.string,
   /**
    * disabled: `true` to disable it.
    */
