@@ -28,16 +28,20 @@ const CardCTA = ({
   const { style, ...cardProps } = otherProps;
 
   if (type === 'video') {
-    // use image src if passed in through props, otherwise use Kaltura's generated thumbnail image
-    const image = cardProps.image
-      ? cardProps.image
-      : {
-          defaultSrc: VideoPlayerAPI.getThumbnailUrl({
-            videoId: cardProps.media?.src,
-            width: '320',
-          }),
-          alt: videoTitle[0].title,
-        };
+    let image;
+    if (!cardProps.disableImage) {
+      // use image src if passed in through props, otherwise use Kaltura's generated thumbnail image
+      image = cardProps.image
+        ? cardProps.image
+        : {
+            defaultSrc: VideoPlayerAPI.getThumbnailUrl({
+              videoId: cardProps.media?.src,
+              width: '320',
+            }),
+            alt: videoTitle[0].title,
+          };
+      image = { ...image, icon: PlayIcon };
+    }
 
     return (
       <>
@@ -58,7 +62,7 @@ const CardCTA = ({
                 },
                 copy: videoTitle[0].duration?.replace(/\(|\)/g, ''),
               },
-              image: { ...image, icon: PlayIcon },
+              image: image,
               copy: videoTitle[0].title,
               handleClick: e => CTALogic.setLightBox(e, openLightBox),
             }}
