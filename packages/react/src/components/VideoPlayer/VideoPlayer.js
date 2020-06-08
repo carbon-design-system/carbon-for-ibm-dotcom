@@ -19,7 +19,7 @@ const { prefix } = settings;
  * VideoPlayer component.
  */
 const VideoPlayer = ({ inverse, showCaption, videoId, customClassName }) => {
-  const [videoData, setVideoData] = useState({ description: '' });
+  const [videoData, setVideoData] = useState({ description: '', name: '' });
   const videoPlayerId = `video-player__video-${videoId}`;
   const videoDuration = VideoPlayerAPI.getVideoDuration(videoData.msDuration);
 
@@ -56,7 +56,8 @@ const VideoPlayer = ({ inverse, showCaption, videoId, customClassName }) => {
         data-autoid={`${stablePrefix}--${videoPlayerId}`}>
         <div
           className={`${prefix}--video-player__video`}
-          id={`${prefix}--${videoPlayerId}`}></div>
+          id={`${prefix}--${videoPlayerId}`}
+        />
       </div>
       {showCaption && (
         <div className={`${prefix}--video-player__video-caption`}>
