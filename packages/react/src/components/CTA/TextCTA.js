@@ -17,6 +17,7 @@ const TextCTA = ({
   openLightBox,
   renderLightBox,
   videoTitle,
+  formatCTAcopy,
   ...otherProps
 }) => {
   const Icon = CTALogic.iconSelector(type);
@@ -33,7 +34,12 @@ const TextCTA = ({
         <LinkWithIcon
           href="#"
           onClick={e => CTALogic.setLightBox(e, openLightBox)}>
-          <span>{videoTitle[0].title}</span>
+          <span>
+            {formatCTAcopy({
+              title: videoTitle[0].title,
+              duration: videoTitle[0].duration,
+            })}
+          </span>
           <Icon />
         </LinkWithIcon>
       )}
@@ -105,13 +111,20 @@ TextCTA.propTypes = {
   videoTitle: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
+      duration: PropTypes.string,
       key: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     })
   ),
+
+  /**
+   * Func to format the cta copy
+   */
+  formatCTAcopy: PropTypes.func,
 };
 
 TextCTA.defaultProps = {
   type: 'default',
+  formatCTAcopy: ({ title, duration }) => `${title} ${duration}`,
 };
 
 export default TextCTA;
