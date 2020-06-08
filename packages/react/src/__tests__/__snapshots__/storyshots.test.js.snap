@@ -1709,6 +1709,7 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
                                   "href": "https://ibm.com",
                                 }
                               }
+                              disableImage={true}
                               href=""
                               style="text"
                               type="local"
@@ -1721,6 +1722,7 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
                                       "href": "https://ibm.com",
                                     }
                                   }
+                                  disableImage={true}
                                   formatCTAcopy={[Function]}
                                   href=""
                                   openLightBox={[Function]}
@@ -1803,6 +1805,7 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
                                   "href": "https://ibm.com",
                                 }
                               }
+                              disableImage={true}
                               href=""
                               style="text"
                               type="external"
@@ -1815,6 +1818,7 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
                                       "href": "https://ibm.com",
                                     }
                                   }
+                                  disableImage={true}
                                   formatCTAcopy={[Function]}
                                   href=""
                                   openLightBox={[Function]}
@@ -5288,6 +5292,7 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                         "href": "https://ibm.com",
                       }
                     }
+                    disableImage={true}
                     href=""
                     style="card"
                     type="local"
@@ -5303,6 +5308,7 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                             "href": "https://ibm.com",
                           }
                         }
+                        disableImage={true}
                         href=""
                         media={null}
                         openLightBox={[Function]}
@@ -5465,6 +5471,7 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                         "href": "https://ibm.com",
                       }
                     }
+                    disableImage={true}
                     href=""
                     style="card"
                     type="download"
@@ -5480,6 +5487,7 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                             "href": "https://ibm.com",
                           }
                         }
+                        disableImage={true}
                         href=""
                         media={null}
                         openLightBox={[Function]}
@@ -5645,6 +5653,7 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                         "href": "https://ibm.com",
                       }
                     }
+                    disableImage={true}
                     href=""
                     style="card"
                     type="external"
@@ -5660,6 +5669,7 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                             "href": "https://ibm.com",
                           }
                         }
+                        disableImage={true}
                         href=""
                         media={null}
                         openLightBox={[Function]}
@@ -5820,6 +5830,7 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                 >
                   <CTA
                     copy=""
+                    disableImage={true}
                     href=""
                     media={
                       Object {
@@ -5837,6 +5848,7 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                       <CardCTA
                         copy=""
                         cta={null}
+                        disableImage={true}
                         href=""
                         media={
                           Object {
@@ -5874,11 +5886,7 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                               },
                               "handleClick": [Function],
                               "href": "",
-                              "image": Object {
-                                "alt": "",
-                                "defaultSrc": "https://cdnsecakmi.kaltura.com/p/1773841/thumbnail/entry_id/0_uka1msg4/width/320",
-                                "icon": [Function],
-                              },
+                              "image": undefined,
                               "media": Object {
                                 "src": "0_uka1msg4",
                                 "type": "video",
@@ -5906,13 +5914,6 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                             disabled={false}
                             handleClick={[Function]}
                             href=""
-                            image={
-                              Object {
-                                "alt": "",
-                                "defaultSrc": "https://cdnsecakmi.kaltura.com/p/1773841/thumbnail/entry_id/0_uka1msg4/width/320",
-                                "icon": [Function],
-                              }
-                            }
                             media={
                               Object {
                                 "src": "0_uka1msg4",
@@ -5954,12 +5955,6 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                                 onKeyDown={[Function]}
                                 target={null}
                               >
-                                <Image
-                                  alt=""
-                                  classname="bx--card__img"
-                                  defaultSrc="https://cdnsecakmi.kaltura.com/p/1773841/thumbnail/entry_id/0_uka1msg4/width/320"
-                                  icon={[Function]}
-                                />
                                 <div
                                   className="bx--card__wrapper"
                                 >
@@ -6121,6 +6116,7 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                         "href": "https://ibm.com",
                       }
                     }
+                    disableImage={true}
                     href=""
                     style="text"
                     type="local"
@@ -6133,6 +6129,7 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                             "href": "https://ibm.com",
                           }
                         }
+                        disableImage={true}
                         formatCTAcopy={[Function]}
                         href=""
                         openLightBox={[Function]}
@@ -6215,6 +6212,7 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                         "href": "https://ibm.com",
                       }
                     }
+                    disableImage={true}
                     href=""
                     style="text"
                     type="download"
@@ -6227,6 +6225,7 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                             "href": "https://ibm.com",
                           }
                         }
+                        disableImage={true}
                         formatCTAcopy={[Function]}
                         href=""
                         openLightBox={[Function]}
@@ -6312,6 +6311,7 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                         "href": "https://ibm.com",
                       }
                     }
+                    disableImage={true}
                     href=""
                     style="text"
                     type="external"
@@ -6324,6 +6324,7 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                             "href": "https://ibm.com",
                           }
                         }
+                        disableImage={true}
                         formatCTAcopy={[Function]}
                         href=""
                         openLightBox={[Function]}
@@ -6404,6 +6405,7 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                 >
                   <CTA
                     copy=""
+                    disableImage={true}
                     href=""
                     media={
                       Object {
@@ -6417,6 +6419,7 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                     <div>
                       <TextCTA
                         copy=""
+                        disableImage={true}
                         formatCTAcopy={[Function]}
                         href=""
                         media={
@@ -6578,6 +6581,7 @@ exports[`Storyshots Components|LinkList Horizontal 1`] = `
                         "href": "https://ibm.com",
                       }
                     }
+                    disableImage={true}
                     href=""
                     style="text"
                     type="local"
@@ -6590,6 +6594,7 @@ exports[`Storyshots Components|LinkList Horizontal 1`] = `
                             "href": "https://ibm.com",
                           }
                         }
+                        disableImage={true}
                         formatCTAcopy={[Function]}
                         href=""
                         openLightBox={[Function]}
@@ -6672,6 +6677,7 @@ exports[`Storyshots Components|LinkList Horizontal 1`] = `
                         "href": "https://ibm.com",
                       }
                     }
+                    disableImage={true}
                     href=""
                     style="text"
                     type="download"
@@ -6684,6 +6690,7 @@ exports[`Storyshots Components|LinkList Horizontal 1`] = `
                             "href": "https://ibm.com",
                           }
                         }
+                        disableImage={true}
                         formatCTAcopy={[Function]}
                         href=""
                         openLightBox={[Function]}
@@ -6854,6 +6861,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                         "href": "https://ibm.com",
                       }
                     }
+                    disableImage={true}
                     href=""
                     style="text"
                     type="local"
@@ -6866,6 +6874,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                             "href": "https://ibm.com",
                           }
                         }
+                        disableImage={true}
                         formatCTAcopy={[Function]}
                         href=""
                         openLightBox={[Function]}
@@ -6948,6 +6957,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                         "href": "https://ibm.com",
                       }
                     }
+                    disableImage={true}
                     href=""
                     style="text"
                     type="download"
@@ -6960,6 +6970,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                             "href": "https://ibm.com",
                           }
                         }
+                        disableImage={true}
                         formatCTAcopy={[Function]}
                         href=""
                         openLightBox={[Function]}
@@ -7045,6 +7056,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                         "href": "https://ibm.com",
                       }
                     }
+                    disableImage={true}
                     href=""
                     style="text"
                     type="external"
@@ -7057,6 +7069,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                             "href": "https://ibm.com",
                           }
                         }
+                        disableImage={true}
                         formatCTAcopy={[Function]}
                         href=""
                         openLightBox={[Function]}
@@ -7137,6 +7150,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                 >
                   <CTA
                     copy=""
+                    disableImage={true}
                     href=""
                     media={
                       Object {
@@ -7150,6 +7164,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                     <div>
                       <TextCTA
                         copy=""
+                        disableImage={true}
                         formatCTAcopy={[Function]}
                         href=""
                         media={
@@ -7325,6 +7340,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                         "href": "https://ibm.com",
                       }
                     }
+                    disableImage={true}
                     href=""
                     style="text"
                     type="local"
@@ -7337,6 +7353,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                             "href": "https://ibm.com",
                           }
                         }
+                        disableImage={true}
                         formatCTAcopy={[Function]}
                         href=""
                         openLightBox={[Function]}
@@ -7419,6 +7436,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                         "href": "https://ibm.com",
                       }
                     }
+                    disableImage={true}
                     href=""
                     style="text"
                     type="download"
@@ -7431,6 +7449,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                             "href": "https://ibm.com",
                           }
                         }
+                        disableImage={true}
                         formatCTAcopy={[Function]}
                         href=""
                         openLightBox={[Function]}
@@ -7516,6 +7535,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                         "href": "https://ibm.com",
                       }
                     }
+                    disableImage={true}
                     href=""
                     style="text"
                     type="external"
@@ -7528,6 +7548,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                             "href": "https://ibm.com",
                           }
                         }
+                        disableImage={true}
                         formatCTAcopy={[Function]}
                         href=""
                         openLightBox={[Function]}
@@ -7608,6 +7629,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                 >
                   <CTA
                     copy=""
+                    disableImage={true}
                     href=""
                     media={
                       Object {
@@ -7621,6 +7643,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                     <div>
                       <TextCTA
                         copy=""
+                        disableImage={true}
                         formatCTAcopy={[Function]}
                         href=""
                         media={
@@ -7762,6 +7785,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                         "href": "https://ibm.com",
                       }
                     }
+                    disableImage={true}
                     href=""
                     style="card"
                     type="local"
@@ -7777,6 +7801,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                             "href": "https://ibm.com",
                           }
                         }
+                        disableImage={true}
                         href=""
                         media={null}
                         openLightBox={[Function]}
@@ -7939,6 +7964,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                         "href": "https://ibm.com",
                       }
                     }
+                    disableImage={true}
                     href=""
                     style="card"
                     type="download"
@@ -7954,6 +7980,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                             "href": "https://ibm.com",
                           }
                         }
+                        disableImage={true}
                         href=""
                         media={null}
                         openLightBox={[Function]}
@@ -8119,6 +8146,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                         "href": "https://ibm.com",
                       }
                     }
+                    disableImage={true}
                     href=""
                     style="card"
                     type="external"
@@ -8134,6 +8162,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                             "href": "https://ibm.com",
                           }
                         }
+                        disableImage={true}
                         href=""
                         media={null}
                         openLightBox={[Function]}
@@ -8294,6 +8323,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                 >
                   <CTA
                     copy=""
+                    disableImage={true}
                     href=""
                     media={
                       Object {
@@ -8311,6 +8341,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                       <CardCTA
                         copy=""
                         cta={null}
+                        disableImage={true}
                         href=""
                         media={
                           Object {
@@ -8348,11 +8379,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                               },
                               "handleClick": [Function],
                               "href": "",
-                              "image": Object {
-                                "alt": "",
-                                "defaultSrc": "https://cdnsecakmi.kaltura.com/p/1773841/thumbnail/entry_id/0_uka1msg4/width/320",
-                                "icon": [Function],
-                              },
+                              "image": undefined,
                               "media": Object {
                                 "src": "0_uka1msg4",
                                 "type": "video",
@@ -8380,13 +8407,6 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                             disabled={false}
                             handleClick={[Function]}
                             href=""
-                            image={
-                              Object {
-                                "alt": "",
-                                "defaultSrc": "https://cdnsecakmi.kaltura.com/p/1773841/thumbnail/entry_id/0_uka1msg4/width/320",
-                                "icon": [Function],
-                              }
-                            }
                             media={
                               Object {
                                 "src": "0_uka1msg4",
@@ -8428,12 +8448,6 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                 onKeyDown={[Function]}
                                 target={null}
                               >
-                                <Image
-                                  alt=""
-                                  classname="bx--card__img"
-                                  defaultSrc="https://cdnsecakmi.kaltura.com/p/1773841/thumbnail/entry_id/0_uka1msg4/width/320"
-                                  icon={[Function]}
-                                />
                                 <div
                                   className="bx--card__wrapper"
                                 >
@@ -13854,6 +13868,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                         "href": "https://www.example.com",
                                       }
                                     }
+                                    disableImage={false}
                                     href=""
                                     media={null}
                                     openLightBox={[Function]}
@@ -14261,6 +14276,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                         "href": "https://www.example.com",
                                       }
                                     }
+                                    disableImage={false}
                                     href=""
                                     media={null}
                                     openLightBox={[Function]}
@@ -15250,6 +15266,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                                 "href": "https://www.example.com",
                                               }
                                             }
+                                            disableImage={false}
                                             href=""
                                             media={null}
                                             openLightBox={[Function]}
@@ -15657,6 +15674,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                                 "href": "https://www.example.com",
                                               }
                                             }
+                                            disableImage={false}
                                             href=""
                                             media={null}
                                             openLightBox={[Function]}
@@ -16132,6 +16150,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                         "href": "https://ibm.com",
                                       }
                                     }
+                                    disableImage={true}
                                     href=""
                                     style="card"
                                     type="local"
@@ -16147,6 +16166,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                             "href": "https://ibm.com",
                                           }
                                         }
+                                        disableImage={true}
                                         href=""
                                         media={null}
                                         openLightBox={[Function]}
@@ -16309,6 +16329,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                         "href": "https://ibm.com",
                                       }
                                     }
+                                    disableImage={true}
                                     href=""
                                     style="card"
                                     type="external"
@@ -16324,6 +16345,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                             "href": "https://ibm.com",
                                           }
                                         }
+                                        disableImage={true}
                                         href=""
                                         media={null}
                                         openLightBox={[Function]}
@@ -18151,6 +18173,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                               "href": "https://www.ibm.com",
                             }
                           }
+                          disableImage={false}
                           href=""
                           media={null}
                           openLightBox={[Function]}
@@ -20066,6 +20089,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                       "href": "https://www.ibm.com",
                                     }
                                   }
+                                  disableImage={false}
                                   href=""
                                   media={null}
                                   openLightBox={[Function]}
@@ -20267,6 +20291,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                         "href": "https://ibm.com",
                                       }
                                     }
+                                    disableImage={true}
                                     href=""
                                     style="card"
                                     type="local"
@@ -20282,6 +20307,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                             "href": "https://ibm.com",
                                           }
                                         }
+                                        disableImage={true}
                                         href=""
                                         media={null}
                                         openLightBox={[Function]}
@@ -20444,6 +20470,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                         "href": "https://ibm.com",
                                       }
                                     }
+                                    disableImage={true}
                                     href=""
                                     style="card"
                                     type="external"
@@ -20459,6 +20486,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                             "href": "https://ibm.com",
                                           }
                                         }
+                                        disableImage={true}
                                         href=""
                                         media={null}
                                         openLightBox={[Function]}
@@ -21280,6 +21308,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                               "href": "https://www.example.com",
                             }
                           }
+                          disableImage={false}
                           href=""
                           media={null}
                           openLightBox={[Function]}
@@ -21992,6 +22021,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                       "href": "https://www.example.com",
                                     }
                                   }
+                                  disableImage={false}
                                   href=""
                                   media={null}
                                   openLightBox={[Function]}
@@ -22193,6 +22223,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                         "href": "https://ibm.com",
                                       }
                                     }
+                                    disableImage={true}
                                     href=""
                                     style="card"
                                     type="local"
@@ -22208,6 +22239,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                             "href": "https://ibm.com",
                                           }
                                         }
+                                        disableImage={true}
                                         href=""
                                         media={null}
                                         openLightBox={[Function]}
@@ -22370,6 +22402,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                         "href": "https://ibm.com",
                                       }
                                     }
+                                    disableImage={true}
                                     href=""
                                     style="card"
                                     type="external"
@@ -22385,6 +22418,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                             "href": "https://ibm.com",
                                           }
                                         }
+                                        disableImage={true}
                                         href=""
                                         media={null}
                                         openLightBox={[Function]}
@@ -22815,6 +22849,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                               "href": "https://www.ibm.com",
                             }
                           }
+                          disableImage={false}
                           href=""
                           media={null}
                           openLightBox={[Function]}
@@ -23330,6 +23365,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                       "href": "https://www.ibm.com",
                                     }
                                   }
+                                  disableImage={false}
                                   href=""
                                   media={null}
                                   openLightBox={[Function]}
@@ -23531,6 +23567,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                         "href": "https://ibm.com",
                                       }
                                     }
+                                    disableImage={true}
                                     href=""
                                     style="card"
                                     type="local"
@@ -23546,6 +23583,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                             "href": "https://ibm.com",
                                           }
                                         }
+                                        disableImage={true}
                                         href=""
                                         media={null}
                                         openLightBox={[Function]}
@@ -23708,6 +23746,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                         "href": "https://ibm.com",
                                       }
                                     }
+                                    disableImage={true}
                                     href=""
                                     style="card"
                                     type="external"
@@ -23723,6 +23762,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                             "href": "https://ibm.com",
                                           }
                                         }
+                                        disableImage={true}
                                         href=""
                                         media={null}
                                         openLightBox={[Function]}
@@ -24694,6 +24734,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                           "href": "https://example.com",
                                         }
                                       }
+                                      disableImage={true}
                                       href=""
                                       style="text"
                                       type="local"
@@ -24706,6 +24747,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                               "href": "https://example.com",
                                             }
                                           }
+                                          disableImage={true}
                                           formatCTAcopy={[Function]}
                                           href=""
                                           openLightBox={[Function]}
@@ -24788,6 +24830,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                           "href": "https://example.com",
                                         }
                                       }
+                                      disableImage={true}
                                       href=""
                                       style="text"
                                       type="external"
@@ -24800,6 +24843,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                               "href": "https://example.com",
                                             }
                                           }
+                                          disableImage={true}
                                           formatCTAcopy={[Function]}
                                           href=""
                                           openLightBox={[Function]}
@@ -24986,6 +25030,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                           "href": "https://example.com",
                                         }
                                       }
+                                      disableImage={true}
                                       href=""
                                       style="text"
                                       type="local"
@@ -24998,6 +25043,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                               "href": "https://example.com",
                                             }
                                           }
+                                          disableImage={true}
                                           formatCTAcopy={[Function]}
                                           href=""
                                           openLightBox={[Function]}
@@ -25080,6 +25126,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                           "href": "https://example.com",
                                         }
                                       }
+                                      disableImage={true}
                                       href=""
                                       style="text"
                                       type="external"
@@ -25092,6 +25139,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                               "href": "https://example.com",
                                             }
                                           }
+                                          disableImage={true}
                                           formatCTAcopy={[Function]}
                                           href=""
                                           openLightBox={[Function]}
@@ -25264,6 +25312,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                           "href": "https://example.com",
                                         }
                                       }
+                                      disableImage={true}
                                       href=""
                                       style="text"
                                       type="local"
@@ -25276,6 +25325,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                               "href": "https://example.com",
                                             }
                                           }
+                                          disableImage={true}
                                           formatCTAcopy={[Function]}
                                           href=""
                                           openLightBox={[Function]}
@@ -26061,6 +26111,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupSimple Default 1`] = `
                               "href": "https://www.example.com",
                             }
                           }
+                          disableImage={false}
                           href=""
                           media={null}
                           openLightBox={[Function]}
@@ -26942,6 +26993,7 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                   "href": "https://ibm.com",
                                 }
                               }
+                              disableImage={true}
                               href=""
                               style="text"
                               type="local"
@@ -26954,6 +27006,7 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                       "href": "https://ibm.com",
                                     }
                                   }
+                                  disableImage={true}
                                   formatCTAcopy={[Function]}
                                   href=""
                                   openLightBox={[Function]}
@@ -27036,6 +27089,7 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                   "href": "https://ibm.com",
                                 }
                               }
+                              disableImage={true}
                               href=""
                               style="text"
                               type="local"
@@ -27048,6 +27102,7 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                       "href": "https://ibm.com",
                                     }
                                   }
+                                  disableImage={true}
                                   formatCTAcopy={[Function]}
                                   href=""
                                   openLightBox={[Function]}
@@ -27130,6 +27185,7 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                   "href": "https://ibm.com",
                                 }
                               }
+                              disableImage={true}
                               href=""
                               style="text"
                               type="download"
@@ -27142,6 +27198,7 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                       "href": "https://ibm.com",
                                     }
                                   }
+                                  disableImage={true}
                                   formatCTAcopy={[Function]}
                                   href=""
                                   openLightBox={[Function]}
@@ -27924,6 +27981,7 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                   "href": "http://local.url.com/",
                                 }
                               }
+                              disableImage={false}
                               href=""
                               media={null}
                               openLightBox={[Function]}
