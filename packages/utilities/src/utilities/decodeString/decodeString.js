@@ -20,9 +20,9 @@
  *
  */
 function decodeString(str) {
-  const parser = new DOMParser();
-  return parser.parseFromString(`<!doctype html><body>${str}`, 'text/html').body
-    .textContent;
+  const div = document.createElement('div');
+  div.innerHTML = str;
+  return div.textContent;
 }
 
 export default decodeString;
