@@ -22,6 +22,7 @@ const CardCTA = ({
   openLightBox,
   renderLightBox,
   videoTitle,
+  disableImage,
   ...otherProps
 }) => {
   // eslint-disable-next-line no-unused-vars
@@ -29,7 +30,7 @@ const CardCTA = ({
 
   if (type === 'video') {
     let image;
-    if (!cardProps.disableImage) {
+    if (!disableImage) {
       // use image src if passed in through props, otherwise use Kaltura's generated thumbnail image
       image = cardProps.image
         ? cardProps.image
@@ -131,6 +132,10 @@ CardCTA.propTypes = {
   ]),
 
   /**
+   * Boolean to determine whether to disable image for card
+   */
+  disableImage: PropTypes.bool,
+  /**
    * Func to set renderLightBox state.
    */
   openLightBox: PropTypes.func,
@@ -156,6 +161,7 @@ CardCTA.defaultProps = {
   type: 'default',
   copy: '',
   cta: null,
+  disableImage: false,
   media: null,
 };
 

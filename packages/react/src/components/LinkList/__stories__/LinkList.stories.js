@@ -70,6 +70,7 @@ Default.story = {
               src: '0_uka1msg4',
               type: 'video',
             },
+            disableImage: true,
           },
         ];
 
