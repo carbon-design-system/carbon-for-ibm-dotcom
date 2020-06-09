@@ -24,10 +24,7 @@ const ContentGroupHorizontal = ({ heading, items }) => {
       className={`${prefix}--content-group-horizontal`}>
       <ContentBlock
         heading={heading}
-        aside={{
-          items: <div></div>,
-          border: true,
-        }}>
+        border={true}>
         {items.map((item, index) => (
           <ContentItemHorizontal
             eyebrow={item.eyebrow}

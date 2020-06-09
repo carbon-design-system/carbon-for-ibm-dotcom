@@ -71,6 +71,9 @@
         margin-right: -$carbon--spacing-05;
       }
     }
+    .#{$prefix}--hr {
+      margin: 0 -1rem 0 -1rem;
+    }
   }
 }
 
