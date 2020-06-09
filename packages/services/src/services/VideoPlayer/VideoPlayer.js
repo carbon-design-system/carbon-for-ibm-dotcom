@@ -169,6 +169,7 @@ class VideoPlayerAPI {
    *
    * @param {string} videoId  The videoId we're embedding the placeholder for.
    * @param {string} targetId The targetId the ID where we're putting the placeholder.
+   * @param {boolean} autoPlay Determine whether to autoplay on load of video.
    * @returns {object}  object
    *
    * @example
@@ -180,7 +181,7 @@ class VideoPlayerAPI {
    *   VideoPlayerAPI.embedVideo(videoid, elem);
    * }
    */
-  static async embedVideo(videoId, targetId) {
+  static async embedVideo(videoId, targetId, autoPlay) {
     const fireEvent = this.fireEvent;
     return await this.checkScript().then(() => {
       root.kWidget.embed({
@@ -189,7 +190,7 @@ class VideoPlayerAPI {
         uiconf_id: _uiConfId,
         entry_id: videoId,
         flashvars: {
-          autoPlay: false,
+          autoPlay: autoPlay,
           titleLabel: {
             plugin: true,
             align: 'left',

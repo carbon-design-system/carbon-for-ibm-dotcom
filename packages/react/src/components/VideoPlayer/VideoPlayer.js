@@ -18,7 +18,13 @@ const { prefix } = settings;
 /**
  * VideoPlayer component.
  */
-const VideoPlayer = ({ inverse, showCaption, videoId, customClassName }) => {
+const VideoPlayer = ({
+  inverse,
+  showCaption,
+  videoId,
+  customClassName,
+  autoPlay,
+}) => {
   const [videoData, setVideoData] = useState({ description: '', name: '' });
   const videoPlayerId = `video-player__video-${videoId}`;
   const videoDuration = VideoPlayerAPI.getVideoDuration(videoData.msDuration);
@@ -26,7 +32,11 @@ const VideoPlayer = ({ inverse, showCaption, videoId, customClassName }) => {
   useEffect(() => {
     let stale = false;
     (async () => {
-      await VideoPlayerAPI.embedVideo(videoId, `${prefix}--${videoPlayerId}`);
+      await VideoPlayerAPI.embedVideo(
+        videoId,
+        `${prefix}--${videoPlayerId}`,
+        autoPlay
+      );
       if (stale) {
         return;
       }
@@ -39,7 +49,7 @@ const VideoPlayer = ({ inverse, showCaption, videoId, customClassName }) => {
     return () => {
       stale = true;
     };
-  }, [videoId, videoPlayerId]);
+  }, [autoPlay, videoId, videoPlayerId]);
 
   const classnames = cx(
     `${prefix}--video-player`,
@@ -70,6 +80,10 @@ const VideoPlayer = ({ inverse, showCaption, videoId, customClassName }) => {
 
 VideoPlayer.propTypes = {
   /**
+   * `true` to autoplay the video on load
+   */
+  autoPlay: PropTypes.bool,
+  /**
    * The CSS class name to apply.
    */
   customClassName: PropTypes.string,
@@ -88,6 +102,10 @@ VideoPlayer.propTypes = {
    * `true` to use the inverse theme.
    */
   inverse: PropTypes.bool,
+};
+
+VideoPlayer.defaultProps = {
+  autoPlay: false,
 };
 
 export default VideoPlayer;
