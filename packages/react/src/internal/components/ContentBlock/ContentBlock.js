@@ -90,7 +90,7 @@ const ContentBlock = ({
             aside.border
           )
         : content}
-      {setborder ? <HorizontalRule/> : ''}
+      {setborder ? <HorizontalRule /> : ''}
     </div>
   );
 };

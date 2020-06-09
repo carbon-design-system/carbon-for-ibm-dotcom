@@ -22,9 +22,7 @@ const ContentGroupHorizontal = ({ heading, items }) => {
     <div
       data-autoid={`${stablePrefix}--content-group-horizontal`}
       className={`${prefix}--content-group-horizontal`}>
-      <ContentBlock
-        heading={heading}
-        border={true}>
+      <ContentBlock heading={heading} border={true}>
         {items.map((item, index) => (
           <ContentItemHorizontal
             eyebrow={item.eyebrow}
