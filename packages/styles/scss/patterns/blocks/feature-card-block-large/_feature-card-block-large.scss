@@ -106,9 +106,9 @@ $fcb-breakpoint-up--lg: map-get(
         .#{$prefix}--card__heading,
         .#{$prefix}--card__copy {
           width: 100%;
+          max-width: carbon--rem(480px);
           @include carbon--breakpoint('md') {
             width: 90%;
-            max-width: carbon--rem(480px);
           }
         }
 
