@@ -39,7 +39,7 @@ const LinkList = ({ heading, items, style }) => {
             <li
               className={`${prefix}--link-list__list__CTA ${prefix}--link-list__list--${cta.type}`}
               key={index}>
-              <CTA style={linkStyle} {...cta} />
+              <CTA style={linkStyle} {...cta} disableImage={true} />
             </li>
           );
         })}
