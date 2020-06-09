@@ -17,13 +17,15 @@ const { prefix } = settings;
 /**
  * Placeholder <li/> element for injection of the TrustE cookie preferences link
  *
+ * @param {number} key - the key for the JSX object
  * @returns {*} JSX object
  */
-const renderTrusteItem = () => {
+const renderTrusteItem = key => {
   return (
     <li
       className={`${prefix}--legal-nav__list-item`}
       data-autoid={`${stablePrefix}--privacy-cp`}
+      key={key}
     />
   );
 };
@@ -73,7 +75,8 @@ function renderListItems(links) {
     );
   });
 
-  renderedLinks.push(renderTrusteItem());
+  const key = parseFloat(renderedLinks[renderedLinks.length - 1].key) + 1;
+  renderedLinks.push(renderTrusteItem(key));
 
   const chunked_arr = [];
   let index = 0;
