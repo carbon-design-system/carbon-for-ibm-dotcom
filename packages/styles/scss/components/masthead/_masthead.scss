@@ -352,6 +352,12 @@ $search-transition-timing: 95ms;
   .#{$prefix}--header__action.#{$prefix}--overflow-menu {
     height: $spacing-09;
   }
+
+  html[dir='rtl'] {
+    .#{$prefix}--overflow-menu-options.#{$prefix}--overflow-menu-options--open {
+        right: 0 !important;
+    }
+  }
 }
 
 @include exports('masthead') {
