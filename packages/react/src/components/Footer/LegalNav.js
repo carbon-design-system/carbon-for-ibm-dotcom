@@ -75,7 +75,7 @@ function renderListItems(links) {
     );
   });
 
-  const key = parseFloat(renderedLinks[renderedLinks.length - 1].key) + 1;
+  const key = renderedLinks.length + 1;
   renderedLinks.push(renderTrusteItem(key));
 
   const chunked_arr = [];
