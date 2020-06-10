@@ -72,7 +72,7 @@
         border: none;
         background-color: transparent;
         height: carbon--rem(48px);
-        width: 100%;
+        width: 90%;
         appearance: none;
         @include carbon--type-style(body-short-02);
         @include focus-outline('reset');

@@ -4,7 +4,6 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-
 import ContentBlock from '../../../internal/components/ContentBlock/ContentBlock';
 import { ContentItemHorizontal } from '../../../components/ContentItemHorizontal';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
@@ -20,20 +19,21 @@ const { prefix } = settings;
  */
 const ContentGroupHorizontal = ({ heading, items }) => {
   return (
-    <ContentBlock
-      heading={heading}
-      autoid={`${stablePrefix}--content-group-horizontal`}
+    <div
+      data-autoid={`${stablePrefix}--content-group-horizontal`}
       className={`${prefix}--content-group-horizontal`}>
-      {items.map((item, index) => (
-        <ContentItemHorizontal
-          eyebrow={item.eyebrow}
-          heading={item.heading}
-          copy={item.copy}
-          cta={item.cta}
-          key={index}
-        />
-      ))}
-    </ContentBlock>
+      <ContentBlock heading={heading} border={true}>
+        {items.map((item, index) => (
+          <ContentItemHorizontal
+            eyebrow={item.eyebrow}
+            heading={item.heading}
+            copy={item.copy}
+            cta={item.cta}
+            key={index}
+          />
+        ))}
+      </ContentBlock>
+    </div>
   );
 };
 
