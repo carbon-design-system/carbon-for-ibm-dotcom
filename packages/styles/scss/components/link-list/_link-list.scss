@@ -21,8 +21,6 @@
       color: $text-01;
     }
     &__list {
-      overflow: hidden;
-
       &__CTA {
         .#{$prefix}--link-list__list--horizontal & {
           float: left;
@@ -49,6 +47,8 @@
 
           svg {
             align-self: start;
+            position: relative;
+            top: 1px;
             margin-left: 0;
             margin-right: $carbon--spacing-03;
           }
@@ -98,6 +98,10 @@
           &:last-of-type {
             border-bottom: 1px solid $ui-03;
           }
+        }
+
+        &.#{$prefix}--link-list__list--video .#{$prefix}--card__footer span {
+          color: $link-01;
         }
       }
 
