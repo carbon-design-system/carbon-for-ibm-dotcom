@@ -22,22 +22,27 @@ const CardCTA = ({
   openLightBox,
   renderLightBox,
   videoTitle,
+  disableImage,
   ...otherProps
 }) => {
   // eslint-disable-next-line no-unused-vars
   const { style, ...cardProps } = otherProps;
 
   if (type === 'video') {
-    // use image src if passed in through props, otherwise use Kaltura's generated thumbnail image
-    const image = cardProps.image
-      ? cardProps.image
-      : {
-          defaultSrc: VideoPlayerAPI.getThumbnailUrl({
-            videoId: cardProps.media?.src,
-            width: '320',
-          }),
-          alt: videoTitle[0].title,
-        };
+    let image;
+    if (!disableImage) {
+      // use image src if passed in through props, otherwise use Kaltura's generated thumbnail image
+      image = cardProps.image
+        ? cardProps.image
+        : {
+            defaultSrc: VideoPlayerAPI.getThumbnailUrl({
+              videoId: cardProps.media?.src,
+              width: '320',
+            }),
+            alt: videoTitle[0].title,
+          };
+      image = { ...image, icon: PlayIcon };
+    }
 
     return (
       <>
@@ -58,7 +63,7 @@ const CardCTA = ({
                 },
                 copy: videoTitle[0].duration?.replace(/\(|\)/g, ''),
               },
-              image: { ...image, icon: PlayIcon },
+              image: image,
               copy: videoTitle[0].title,
               handleClick: e => CTALogic.setLightBox(e, openLightBox),
             }}
@@ -127,6 +132,10 @@ CardCTA.propTypes = {
   ]),
 
   /**
+   * Boolean to determine whether to disable image for card
+   */
+  disableImage: PropTypes.bool,
+  /**
    * Func to set renderLightBox state.
    */
   openLightBox: PropTypes.func,
@@ -152,6 +161,7 @@ CardCTA.defaultProps = {
   type: 'default',
   copy: '',
   cta: null,
+  disableImage: false,
   media: null,
 };
 

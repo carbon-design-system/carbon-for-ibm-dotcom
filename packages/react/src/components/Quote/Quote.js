@@ -9,13 +9,13 @@ import {
   settings as ddsSettings,
   decodeString,
 } from '@carbon/ibmdotcom-utilities';
+import React, { useState, useEffect } from 'react';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
 import classnames from 'classnames';
 import { HorizontalRule } from '../HorizontalRule';
 import Launch20 from '@carbon/icons-react/es/launch/20';
 import { LinkWithIcon } from '../LinkWithIcon';
 import PropTypes from 'prop-types';
-import React from 'react';
 import settings from 'carbon-components/es/globals/js/settings';
 
 const { stablePrefix } = ddsSettings;
@@ -38,6 +38,12 @@ const { prefix } = settings;
  * @returns {*} Quote Pattern
  */
 const Quote = ({ markType = 'doubleCurved', copy, source, cta, inverse }) => {
+  const [decodedCopy, setDecodedCopy] = useState('');
+
+  useEffect(() => {
+    setDecodedCopy(decodeString(copy));
+  }, [copy]);
+
   /**
    * Render the Quote copy with the selected quote marks
    *
@@ -50,7 +56,7 @@ const Quote = ({ markType = 'doubleCurved', copy, source, cta, inverse }) => {
           <>
             <span className={`${prefix}--quote__mark`}>“</span>
             <blockquote className={`${prefix}--quote__copy`}>
-              {decodeString(copy)}”
+              {decodedCopy}”
             </blockquote>
           </>
         );
@@ -59,7 +65,7 @@ const Quote = ({ markType = 'doubleCurved', copy, source, cta, inverse }) => {
           <>
             <span className={`${prefix}--quote__mark`}>‘</span>
             <blockquote className={`${prefix}--quote__copy`}>
-              {decodeString(copy)}’
+              {decodedCopy}’
             </blockquote>
           </>
         );
@@ -68,7 +74,7 @@ const Quote = ({ markType = 'doubleCurved', copy, source, cta, inverse }) => {
           <>
             <span className={`${prefix}--quote__mark`}>«</span>
             <blockquote className={`${prefix}--quote__copy`}>
-              {decodeString(copy)}»
+              {decodedCopy}»
             </blockquote>
           </>
         );
@@ -77,7 +83,7 @@ const Quote = ({ markType = 'doubleCurved', copy, source, cta, inverse }) => {
           <>
             <span className={`${prefix}--quote__mark`}>‹</span>
             <blockquote className={`${prefix}--quote__copy`}>
-              {decodeString(copy)}›
+              {decodedCopy}›
             </blockquote>
           </>
         );
@@ -86,7 +92,7 @@ const Quote = ({ markType = 'doubleCurved', copy, source, cta, inverse }) => {
           <>
             <span className={`${prefix}--quote__mark`}>„</span>
             <blockquote className={`${prefix}--quote__copy`}>
-              {decodeString(copy)}“
+              {decodedCopy}“
             </blockquote>
           </>
         );
@@ -110,11 +116,9 @@ const Quote = ({ markType = 'doubleCurved', copy, source, cta, inverse }) => {
             className={`${prefix}--quote__source`}
             data-autoid={`${stablePrefix}--quote__source`}>
             <p className={`${prefix}--quote__source-heading`}>
-              {decodeString(source.heading)}
+              {source.heading}
             </p>
-            <p className={`${prefix}--quote__source-body`}>
-              {decodeString(source.copy)}
-            </p>
+            <p className={`${prefix}--quote__source-body`}>{source.copy}</p>
           </div>
         ) : (
           false

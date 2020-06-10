@@ -22,6 +22,12 @@ global.window.location = {
   href: 'http://localhost',
 };
 
+jest.mock('@carbon/ibmdotcom-services', () => ({
+  LocaleAPI: require('./__mocks__/LocaleAPI'),
+  VideoPlayerAPI: require('./__mocks__/VideoPlayerAPI'),
+  globalInit: jest.fn(() => {}),
+}));
+
 const enzyme = require.requireActual('enzyme');
 const Adapter = require.requireActual('enzyme-adapter-react-16');
 
