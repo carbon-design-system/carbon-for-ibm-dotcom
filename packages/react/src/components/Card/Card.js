@@ -28,6 +28,7 @@ const { prefix } = settings;
  */
 export const Card = ({
   type,
+  theme,
   inverse,
   image,
   eyebrow,
@@ -38,6 +39,9 @@ export const Card = ({
   ...props
 }) => {
   const CardTile = type === 'link' ? ClickableTile : Tile;
+  const _setTheme = theme => {
+    return theme && `${prefix}--card--theme--${theme}`;
+  };
   const linkProps =
     type === 'link'
       ? {
@@ -56,6 +60,7 @@ export const Card = ({
           [`${prefix}--card--inverse`]: inverse,
           [`${prefix}--card--link`]: type === 'link',
         },
+        _setTheme(theme),
         customClassName
       )}
       href={cta.href}
@@ -123,6 +128,11 @@ export const cardPropTypes = {
    * Concise yet descriptive string of text describing the linked resource.
    */
   heading: PropTypes.string,
+
+  /**
+   * Theme name.
+   */
+  theme: PropTypes.oneOf(['white', 'g10', 'g90', 'g100']),
 
   /**
    * Eyebrow text to be passed as a property to the Card component.

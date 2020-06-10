@@ -578,6 +578,7 @@ exports[`Storyshots Components|Card Link/Clickable 1`] = `
               heading="Lorem ipsum dolor sit amet"
               image={null}
               inverse={false}
+              theme=""
               type="link"
             >
               <ClickableTile
@@ -722,6 +723,7 @@ exports[`Storyshots Components|Card Static 1`] = `
               heading="Lorem ipsum dolor sit amet"
               image={null}
               inverse={false}
+              theme=""
               type="static"
             >
               <Tile

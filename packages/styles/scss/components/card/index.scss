@@ -12,6 +12,20 @@
 @import 'carbon-components/scss/components/link/link';
 @import 'carbon-components/scss/components/tile/tile';
 
+@mixin themed-items {
+  color: $text-01;
+  background-color: $ui-background;
+  .#{$prefix}--card {
+    &__heading {
+      color: $text-01;
+    }
+    &__copy,
+    &__eyebrow {
+      color: $text-02;
+    }
+  }
+}
+
 @mixin card {
   .#{$prefix}--card {
     background-color: $ui-01;
@@ -124,6 +138,22 @@
     .#{$prefix}--card__cta a,
     .#{$prefix}--card__cta a:visited {
       color: $inverse-link;
+    }
+  }
+
+  .#{$prefix}--card--theme--g10 {
+    @include carbon--theme($carbon--theme--g10) {
+      @include themed-items;
+    }
+  }
+  .#{$prefix}--card--theme--g90 {
+    @include carbon--theme($carbon--theme--g90) {
+      @include themed-items;
+    }
+  }
+  .#{$prefix}--card--theme--g100 {
+    @include carbon--theme($carbon--theme--g100) {
+      @include themed-items;
     }
   }
 }

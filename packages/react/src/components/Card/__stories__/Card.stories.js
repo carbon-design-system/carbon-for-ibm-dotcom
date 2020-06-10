@@ -63,7 +63,12 @@ export const Static = () => {
       <div className="bx--grid">
         <div className="bx--row">
           <div className="bx--col-sm-2 bx--col-md-3 bx--col-lg-6 bx--col-xlg-4 bx--no-gutter">
-            <Card {...knobProps.cardProps()} image={image} type="static" />
+            <Card
+              {...knobProps.cardProps()}
+              image={image}
+              theme={select('theme', themes, themes.white)}
+              type="static"
+            />
           </div>
         </div>
       </div>
@@ -90,7 +95,12 @@ export const LinkClickable = () => {
       <div className="bx--grid">
         <div className="bx--row">
           <div className="bx--col-sm-2 bx--col-md-3 bx--col-lg-6 bx--col-xlg-4 bx--no-gutter">
-            <Card {...knobProps.cardProps()} image={image} type="link" />
+            <Card
+              {...knobProps.cardProps()}
+              image={image}
+              theme={select('theme', themes, themes.white)}
+              type="link"
+            />
           </div>
         </div>
       </div>
