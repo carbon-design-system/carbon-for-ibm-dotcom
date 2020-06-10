@@ -29,6 +29,7 @@
       }
 
       &--heading {
+        color: $text-01;
         @include carbon--type-style('expressive-heading-03', true);
         @include carbon--breakpoint(sm) {
           margin-bottom: $carbon--spacing-07;
@@ -53,6 +54,10 @@
         }
         @include carbon--breakpoint(lg) {
           margin-bottom: $layout-05;
+        }
+
+        p {
+          color: $text-01;
         }
       }
 
