@@ -38,7 +38,6 @@ const _cleanString = str => str.replace(_cleanStringRegex, ' ');
  * @param {string} str String to convert to html
  * @param {object} [options={}] Object with options for the conversion
  * @param {boolean} [options.allowHtml=false] Defines if should allow or remove html tags
- * @param {boolean} [options.cleanString=false] Defines if string should be cleaned of multiple spaces, html entities, or single new lines
  * @returns {string} String converted to html
  * @example
  * import { markdownToHtml } from '@carbon/ibmdotcom-utilities';
@@ -46,7 +45,7 @@ const _cleanString = str => str.replace(_cleanStringRegex, ' ');
  * markdownToHtml('Lorem *ipsum* dolor __sit__.')
  * // 'Lorem <em class="bx--type-light">ipsum</em> dolor <strong class="bx--type-semibold">sit</strong>.'
  */
-function markdownToHtml(str, { allowHtml = false, cleanString = false } = {}) {
+function markdownToHtml(str, { allowHtml = false } = {}) {
   let converted = allowHtml ? str : _removeHtmlTags(str);
 
   /**
@@ -56,9 +55,7 @@ function markdownToHtml(str, { allowHtml = false, cleanString = false } = {}) {
   const renderer = {
     link(href, title, text) {
       const linkTitle = title ? `title="${title}"` : null;
-      return `
-        <a class="${prefix}--link" href="${href}" ${linkTitle}>${text}</a>
-      `;
+      return `<a class="${prefix}--link" href="${href}" ${linkTitle}>${text}</a>`;
     },
     list(body, ordered) {
       const listType = ordered ? 'ol' : 'ul';
@@ -66,23 +63,17 @@ function markdownToHtml(str, { allowHtml = false, cleanString = false } = {}) {
         ? `${prefix}--list--ordered`
         : `${prefix}--list--unordered`;
 
-      return `
-        <${listType} class="${listClass}">
-          ${body}
-        </${listType}>
-      `;
+      return `<${listType} class="${listClass}">${body}</${listType}>`;
     },
     listitem(text) {
-      return `
-        <li class="${prefix}--list__item">${text}</li>
-      `;
+      return `<li class="${prefix}--list__item">${text}</li>`;
     },
   };
 
   marked.use({ renderer });
-  converted = cleanString ? _cleanString(converted) : converted;
+  const convertedMarkdown = DOMPurify.sanitize(marked(converted));
 
-  return DOMPurify.sanitize(marked(converted));
+  return _cleanString(convertedMarkdown);
 }
 
 export default markdownToHtml;
