@@ -13,17 +13,22 @@
 
 $fcb-large-custom-bp-copy: 992px;
 $fcb-large-custom-bp-nocopy: 752px;
+$fcb-breakpoint-up--lg: map-get(
+    map-get($carbon--grid-breakpoints, 'lg'),
+    'width'
+  ) - carbon--rem(1px);
 
 @mixin feature-card-block-large {
   .#{$prefix}--feature-card-block-large {
     color: $text-01;
     background: $ui-background;
     position: relative;
-    padding-top: 20px;
-    padding-bottom: 20px;
     height: 100%;
 
-    @include carbon--breakpoint-between($fcb-large-custom-bp-copy, 'lg') {
+    @include carbon--breakpoint-between(
+      $fcb-large-custom-bp-copy,
+      $fcb-breakpoint-up--lg
+    ) {
       padding-top: aspect-ratio(2, 1);
     }
     @include carbon--breakpoint('xlg') {
@@ -34,6 +39,9 @@ $fcb-large-custom-bp-nocopy: 752px;
     &__card.#{$prefix}--card--inverse .#{$prefix}--card__cta:visited {
       float: none;
       color: $inverse-link;
+      width: $layout-03;
+      height: $layout-03;
+
       @include carbon--type-style('productive-heading-05');
     }
 
@@ -41,7 +49,10 @@ $fcb-large-custom-bp-nocopy: 752px;
       background: none;
       height: 100%;
 
-      @include carbon--breakpoint-between($fcb-large-custom-bp-copy, 'lg') {
+      @include carbon--breakpoint-between(
+        $fcb-large-custom-bp-copy,
+        $fcb-breakpoint-up--lg
+      ) {
         position: absolute;
         top: 0;
         left: 0;
@@ -60,7 +71,10 @@ $fcb-large-custom-bp-nocopy: 752px;
 
       &__wrapper,
       .#{$prefix}--image {
-        @include carbon--breakpoint-between($fcb-large-custom-bp-copy, 'lg') {
+        @include carbon--breakpoint-between(
+          $fcb-large-custom-bp-copy,
+          $fcb-breakpoint-up--lg
+        ) {
           width: 50%;
           height: 100%;
         }
@@ -78,8 +92,9 @@ $fcb-large-custom-bp-nocopy: 752px;
         background: $inverse-02;
         min-height: 50%;
         height: auto;
+        padding: $spacing-07 $spacing-05;
 
-        @include carbon--breakpoint('xlg') {
+        @include carbon--breakpoint('md') {
           padding: $layout-03;
         }
 
@@ -87,15 +102,20 @@ $fcb-large-custom-bp-nocopy: 752px;
           padding: $layout-05;
         }
 
+        .#{$prefix}--card__eyebrow,
+        .#{$prefix}--card__heading,
+        .#{$prefix}--card__copy {
+          width: 100%;
+          max-width: carbon--rem(480px);
+          @include carbon--breakpoint('md') {
+            width: 90%;
+          }
+        }
+
         .#{$prefix}--card__eyebrow {
-          margin-bottom: $spacing-05;
+          margin: 0 0 $spacing-05 0;
           color: $inverse-01;
           @include carbon--type-style('body-long-02');
-
-          @include carbon--breakpoint-down('md') {
-            margin-top: $spacing-07;
-            margin-bottom: $spacing-05;
-          }
         }
 
         .#{$prefix}--card__heading {
@@ -117,26 +137,24 @@ $fcb-large-custom-bp-nocopy: 752px;
 
     // special breakpoint for no copy present
     &.#{$prefix}--feature-card-block-large_no-copy-text {
-      @include carbon--breakpoint-between($fcb-large-custom-bp-nocopy, 'lg') {
+      @include carbon--breakpoint($fcb-large-custom-bp-nocopy) {
         padding-top: aspect-ratio(2, 1);
       }
 
       .#{$prefix}--card {
-        @include carbon--breakpoint-between($fcb-large-custom-bp-nocopy, 'lg') {
+        @include carbon--breakpoint($fcb-large-custom-bp-nocopy) {
           position: absolute;
           top: 0;
           left: 0;
           right: 0;
           bottom: 0;
           flex-direction: row;
-        }
-      }
 
-      .#{$prefix}--card__wrapper,
-      .#{$prefix}--image {
-        @include carbon--breakpoint-between($fcb-large-custom-bp-nocopy, 'lg') {
-          width: 50%;
-          height: 100%;
+          &__wrapper,
+          .#{$prefix}--image {
+            width: 50%;
+            height: 100%;
+          }
         }
       }
     }

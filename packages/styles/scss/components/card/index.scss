@@ -116,6 +116,21 @@
     &.#{$prefix}--tile {
       padding: 0;
     }
+
+    &__video {
+      .#{$prefix}--card__footer {
+        display: flex;
+      }
+
+      .#{$prefix}--card__footer span {
+        color: $text-02;
+        @include carbon--type-style('body-short-01');
+      }
+
+      .#{$prefix}--card__cta {
+        margin-right: $carbon--spacing-03;
+      }
+    }
   }
 
   .#{$prefix}--card--inverse {

@@ -44,6 +44,16 @@
 
 @mixin tableofcontents {
   .#{$prefix}--tableofcontents {
+    &__sidebar {
+      position: sticky;
+      top: 0;
+
+      @include carbon--breakpoint('lg') {
+        position: inherit;
+        top: auto;
+      }
+    }
+
     &__children__mobile {
       @include carbon--breakpoint('lg') {
         display: none;
@@ -62,7 +72,7 @@
         border: none;
         background-color: transparent;
         height: carbon--rem(48px);
-        width: 100%;
+        width: 90%;
         appearance: none;
         @include carbon--type-style(body-short-02);
         @include focus-outline('reset');
@@ -89,9 +99,8 @@
     }
 
     &__desktop {
-      margin-top: $carbon--spacing-07;
       padding-top: $carbon--spacing-07;
-
+      margin-top: $carbon--spacing-07;
       @include carbon--make-col(3, 4);
       &__item {
         a {
@@ -117,12 +126,22 @@
       }
 
       &__rule {
+        margin-top: $layout-03;
         margin-left: $spacing-05;
-        margin-bottom: $layout-03;
+        margin-bottom: 0;
       }
 
       &__children {
-        margin-bottom: $layout-03;
+        padding-top: $layout-05;
+        margin-bottom: -$carbon--spacing-07;
+
+        @include carbon--make-col(3, 4);
+
+        display: none;
+
+        @include carbon--breakpoint('lg') {
+          display: block;
+        }
       }
     }
     @include carbon--breakpoint('sm') {
