@@ -30,16 +30,19 @@
       }
     }
 
-    &__heading {
-      @include carbon--type-style('expressive-heading-05', true);
-    }
-
     .#{$prefix}--content-block {
       padding-top: 0;
       padding-bottom: $layout-05;
 
+      &__heading {
+        color: $text-01;
+      }
+
       &__copy {
         color: $text-01;
+        p {
+          @include carbon--type-style('expressive-heading-03', true);
+        }
       }
 
       @include carbon--breakpoint('sm') {
