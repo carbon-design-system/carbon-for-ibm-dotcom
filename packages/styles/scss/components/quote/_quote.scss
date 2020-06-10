@@ -29,17 +29,24 @@
 
     &__copy {
       @include carbon--make-col-ready;
-      @include carbon--type-style(quotation-02, true);
+      @include carbon--type-style('quotation-01', true);
+      @include carbon--font-family('serif');
 
-      padding: 0 2rem $carbon--layout-04 2rem;
+      word-break: break-word;
+      padding: 0 2rem $carbon--layout-03 2rem;
 
-      @include carbon--breakpoint-down('md') {
-        padding-bottom: $carbon--layout-03;
+      @include carbon--breakpoint('md') {
+        padding-bottom: $carbon--layout-04;
+        @include carbon--type-style('quotation-02', true);
       }
     }
 
     &__mark {
-      @include carbon--type-style(quotation-02, true);
+      @include carbon--type-style('quotation-01', true);
+      @include carbon--font-family('serif');
+      @include carbon--breakpoint('md') {
+        @include carbon--type-style('quotation-02', true);
+      }
 
       position: absolute;
       left: 0.6rem;
