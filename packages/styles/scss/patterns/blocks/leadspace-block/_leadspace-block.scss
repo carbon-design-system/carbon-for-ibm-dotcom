@@ -38,6 +38,10 @@
       padding-top: 0;
       padding-bottom: $layout-05;
 
+      &__copy {
+        color: $text-01;
+      }
+
       @include carbon--breakpoint('sm') {
         padding-bottom: $layout-01;
       }
