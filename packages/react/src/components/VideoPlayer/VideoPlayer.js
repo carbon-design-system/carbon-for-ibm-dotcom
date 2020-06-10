@@ -72,15 +72,15 @@ const VideoPlayer = ({
         data-autoid={`${stablePrefix}--${videoPlayerId}`}>
         <div
           className={`${prefix}--video-player__video`}
-          id={`${prefix}--${videoPlayerId}`}
-        />
-        {!autoPlay && (
-          <VideoImageOverlay
-            videoId={videoId}
-            videoData={videoData}
-            setEmbedVideo={setEmbedVideo}
-          />
-        )}
+          id={`${prefix}--${videoPlayerId}`}>
+          {!autoPlay && (
+            <VideoImageOverlay
+              videoId={videoId}
+              videoData={videoData}
+              embedVideo={setEmbedVideo}
+            />
+          )}
+        </div>
       </div>
       {showCaption && (
         <div className={`${prefix}--video-player__video-caption`}>

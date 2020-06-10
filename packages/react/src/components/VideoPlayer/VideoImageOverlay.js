@@ -13,15 +13,16 @@ import { VideoPlayerAPI } from '@carbon/ibmdotcom-services';
 /**
  * VideoPlayer Image Overlay component
  */
-const VideoImageOverlay = ({ videoId, videoData, setEmbedVideo }) => {
+const VideoImageOverlay = ({ videoId, videoData, embedVideo }) => {
   return (
     <button
       id="video-thumbnail-overlay"
-      onClick={() => _embedPlayer({ setEmbedVideo })}>
+      onClick={() => _embedPlayer({ embedVideo })}>
       <Image
         defaultSrc={VideoPlayerAPI.getThumbnailUrl({
           videoId,
           width: '655',
+          height: '378',
         })}
         alt={videoData.name}
         icon={PlayIcon}
@@ -30,10 +31,10 @@ const VideoImageOverlay = ({ videoId, videoData, setEmbedVideo }) => {
   );
 };
 
-const _embedPlayer = ({ setEmbedVideo }) => {
+const _embedPlayer = ({ embedVideo }) => {
   var element = document.getElementById('video-thumbnail-overlay');
   element.parentNode.removeChild(element);
-  setEmbedVideo(true);
+  embedVideo(true);
 };
 
 VideoImageOverlay.propTypes = {
@@ -50,11 +51,7 @@ VideoImageOverlay.propTypes = {
   /**
    * Func to set state to trigger embedding of video
    */
-  setEmbedVideo: PropTypes.func,
-};
-
-VideoImageOverlay.defaultProps = {
-  autoPlay: false,
+  embedVideo: PropTypes.func,
 };
 
 export default VideoImageOverlay;
