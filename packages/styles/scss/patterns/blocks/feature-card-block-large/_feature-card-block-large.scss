@@ -24,6 +24,7 @@ $fcb-breakpoint-up--lg: map-get(
     background: $ui-background;
     position: relative;
     height: 100%;
+    @include hang;
 
     @include carbon--breakpoint-between(
       $fcb-large-custom-bp-copy,
