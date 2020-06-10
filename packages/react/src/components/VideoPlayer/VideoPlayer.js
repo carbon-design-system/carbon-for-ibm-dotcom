@@ -10,6 +10,7 @@ import cx from 'classnames';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
 import settings from 'carbon-components/es/globals/js/settings';
+import VideoImageOverlay from './VideoImageOverlay';
 import { VideoPlayerAPI } from '@carbon/ibmdotcom-services';
 
 const { stablePrefix } = ddsSettings;
@@ -26,17 +27,22 @@ const VideoPlayer = ({
   autoPlay,
 }) => {
   const [videoData, setVideoData] = useState({ description: '', name: '' });
+
+  // embedVideo is set to true when overlay thumbnail is clicked
+  const [embedVideo, setEmbedVideo] = useState(false);
   const videoPlayerId = `video-player__video-${videoId}`;
   const videoDuration = VideoPlayerAPI.getVideoDuration(videoData.msDuration);
 
   useEffect(() => {
     let stale = false;
     (async () => {
-      await VideoPlayerAPI.embedVideo(
-        videoId,
-        `${prefix}--${videoPlayerId}`,
-        autoPlay
-      );
+      if (autoPlay || embedVideo) {
+        await VideoPlayerAPI.embedVideo(
+          videoId,
+          `${prefix}--${videoPlayerId}`,
+          true
+        );
+      }
       if (stale) {
         return;
       }
@@ -49,7 +55,7 @@ const VideoPlayer = ({
     return () => {
       stale = true;
     };
-  }, [autoPlay, videoId, videoPlayerId]);
+  }, [autoPlay, videoId, videoPlayerId, embedVideo]);
 
   const classnames = cx(
     `${prefix}--video-player`,
@@ -68,6 +74,13 @@ const VideoPlayer = ({
           className={`${prefix}--video-player__video`}
           id={`${prefix}--${videoPlayerId}`}
         />
+        {!autoPlay && (
+          <VideoImageOverlay
+            videoId={videoId}
+            videoData={videoData}
+            setEmbedVideo={setEmbedVideo}
+          />
+        )}
       </div>
       {showCaption && (
         <div className={`${prefix}--video-player__video-caption`}>
