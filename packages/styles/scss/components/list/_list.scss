@@ -28,7 +28,6 @@
   }
 
   .#{$prefix}--list--unordered {
-    // margin-left: 1rem;
     margin-left: 1rem;
 
     .#{$prefix}--list__item {
@@ -40,12 +39,6 @@
 
   .#{$prefix}--list__item {
     margin-top: 0.25rem;
-    ol {
-      // margin-left: 1.5rem;
-    }
-    ul {
-      // margin-left: 1rem;
-    }
   }
 }
 
