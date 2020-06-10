@@ -71,6 +71,11 @@
         margin-right: -$carbon--spacing-05;
       }
     }
+    .#{$prefix}--hr {
+      margin-top: 0;
+      margin-right: -1rem;
+      margin-left: -1rem;
+    }
   }
 }
 

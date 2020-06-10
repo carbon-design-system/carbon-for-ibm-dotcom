@@ -11,6 +11,7 @@ import {
 } from '@carbon/ibmdotcom-utilities';
 import { CTA } from '../../../components/CTA';
 import cx from 'classnames';
+import { HorizontalRule } from '../../../components/HorizontalRule';
 import { Layout } from '../../../components/Layout';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -30,6 +31,7 @@ const ContentBlock = ({
   cta,
   aside,
   inverse,
+  border,
 }) => {
   const classnames = cx(
     `${prefix}--content-block`,
@@ -37,6 +39,7 @@ const ContentBlock = ({
     customClassName
   );
 
+  const setborder = aside ? false : border;
   const content = (
     <>
       {copy && (
@@ -87,6 +90,7 @@ const ContentBlock = ({
             aside.border
           )
         : content}
+      {setborder ? <HorizontalRule /> : ''}
     </div>
   );
 };
@@ -190,6 +194,13 @@ ContentBlock.propTypes = {
     items: PropTypes.element,
     border: PropTypes.bool,
   }),
+  /**
+   * border for content block.
+   */
+  border: PropTypes.bool,
 };
 
+ContentBlock.defaultProps = {
+  border: false,
+};
 export default ContentBlock;
