@@ -22,7 +22,7 @@
       padding-top: aspect-ratio(2, 1);
     }
 
-    @include carbon--breakpoint-down('md') {
+    @include carbon--breakpoint('sm') {
       margin-right: -$spacing-05;
       margin-left: -$spacing-05;
     }
