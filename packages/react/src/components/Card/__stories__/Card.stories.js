@@ -5,18 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { select, text, boolean, object } from '@storybook/addon-knobs';
+import { text, boolean, object } from '@storybook/addon-knobs';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
 import { Card } from '../';
 import React from 'react';
 import readme from '../README.stories.mdx';
-
-const themes = {
-  white: '',
-  g10: 'g10',
-  g90: 'g90',
-  g100: 'g100',
-};
 
 export default {
   title: 'Components|Card',
@@ -40,9 +33,6 @@ export default {
         copy: text('copy', '', groupId),
         inverse: boolean('inverse', false, groupId),
       }),
-      Other: ({ groupId }) => ({
-        theme: select('theme', themes, themes.white, groupId),
-      }),
     },
   },
 };
@@ -57,7 +47,7 @@ export const Static = ({ parameters }) => {
     },
   });
 
-  const { theme } = parameters?.props?.Other ?? {};
+  const theme = document.documentElement.getAttribute('storybook-carbon-theme');
 
   return (
     <div className={`bx--card--${theme}`}>
@@ -85,7 +75,7 @@ export const LinkClickable = ({ parameters }) => {
       src: ArrowRight20,
     },
   });
-  const { theme } = parameters?.props?.Other ?? {};
+  const theme = document.documentElement.getAttribute('storybook-carbon-theme');
 
   return (
     <div className={`bx--card--${theme}`}>
