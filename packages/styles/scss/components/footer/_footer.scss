@@ -50,6 +50,7 @@
 
       &:focus {
         outline-color: $focus;
+        outline-offset: -1px;
       }
 
       &:active {
