@@ -320,6 +320,7 @@ $search-transition-timing: 95ms;
     background-color: $ui-background;
     position: fixed;
     z-index: 99999;
+    right: auto #{'/*rtl:ignore*/'};
 
     &__btn {
       @include carbon--type-style(body-short-02, true);
@@ -351,12 +352,6 @@ $search-transition-timing: 95ms;
   }
   .#{$prefix}--header__action.#{$prefix}--overflow-menu {
     height: $spacing-09;
-  }
-
-  html[dir='rtl'] {
-    .#{$prefix}--overflow-menu-options.#{$prefix}--overflow-menu-options--open {
-        right: 0 !important;
-    }
   }
 }
 

@@ -10,7 +10,7 @@ import {
   TranslationAPI,
   globalInit,
 } from '@carbon/ibmdotcom-services';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import cx from 'classnames';
 import { DDS_MASTHEAD_L1 } from '../../internal/FeatureFlags';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
@@ -120,6 +120,7 @@ const Masthead = ({
   };
 
   const [isMastheadSticky, setIsMastheadSticky] = useState(false);
+  const [shouldFlipProfile, setShouldFlipProfile] = useState(undefined);
   const stickyRef = useRef(null);
   const mastheadL1Ref = useRef(null);
 
@@ -131,6 +132,16 @@ const Masthead = ({
   const hasPlatform = cx({
     [`${prefix}--masthead__platform`]: platform,
   });
+
+  useLayoutEffect(() => {
+    const { current: stickyRefNode } = stickyRef;
+    if (stickyRefNode) {
+      setShouldFlipProfile(
+        window.getComputedStyle(stickyRefNode).getPropertyValue('direction') !==
+          'rtl'
+      );
+    }
+  }, [hasProfile]);
 
   useEffect(() => {
     /**
@@ -208,25 +219,27 @@ const Masthead = ({
 
               {hasProfile && (
                 <HeaderGlobalBar>
-                  <MastheadProfile
-                    overflowMenuProps={{
-                      ariaLabel: 'User Profile',
-                      'data-autoid': `${stablePrefix}--masthead__profile`,
-                      flipped: true,
-                      style: { width: '3rem' },
-                      onOpen: () => _setProfileListPosition(),
-                      renderIcon: () =>
-                        isAuthenticated ? <UserOnline20 /> : <User20 />,
-                    }}
-                    overflowMenuItemProps={{
-                      wrapperClassName: `${prefix}--masthead__profile-item`,
-                    }}
-                    profileMenu={
-                      isAuthenticated
-                        ? profileData.signedin
-                        : profileData.signedout
-                    }
-                  />
+                  {shouldFlipProfile !== undefined && (
+                    <MastheadProfile
+                      overflowMenuProps={{
+                        ariaLabel: 'User Profile',
+                        'data-autoid': `${stablePrefix}--masthead__profile`,
+                        flipped: shouldFlipProfile,
+                        style: { width: '3rem' },
+                        onOpen: () => _setProfileListPosition(),
+                        renderIcon: () =>
+                          isAuthenticated ? <UserOnline20 /> : <User20 />,
+                      }}
+                      overflowMenuItemProps={{
+                        wrapperClassName: `${prefix}--masthead__profile-item`,
+                      }}
+                      profileMenu={
+                        isAuthenticated
+                          ? profileData.signedin
+                          : profileData.signedout
+                      }
+                    />
+                  )}
                 </HeaderGlobalBar>
               )}
 

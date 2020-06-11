@@ -33,6 +33,14 @@ addParameters({
 
 addDecorator(addReadme);
 
+addDecorator(story => {
+  if (process.env.VANILLA_STORYBOOK_USE_RTL === 'true') {
+    document.documentElement.dir = 'rtl';
+    document.getElementsByTagName('html')[0].setAttribute('dir', 'rtl');
+  }
+  return story();
+});
+
 const reqDocs = requireContext('../docs', true, /\.stories\.mdx$/);
 configure(reqDocs, module);
 

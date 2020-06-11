@@ -24,6 +24,25 @@ import settings from 'carbon-components/es/globals/js/settings';
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
 
+class MastheadProfileMenu extends OverflowMenu {
+  changeState(...args) {
+    const { element } = this;
+    const shouldAddFlipClass =
+      element.ownerDocument.defaultView
+        .getComputedStyle(element)
+        .getPropertyValue('direction') !== 'rtl';
+
+    const {
+      element: optionMenu = element.querySelector(
+        this.options.selectorOptionMenu
+      ),
+    } = this.optionMenu || {};
+    optionMenu.classList.toggle(this.options.classMenuFlip, shouldAddFlipClass);
+
+    super.changeState(...args);
+  }
+}
+
 /**
  * Sets up default masthead props
  *
@@ -69,7 +88,7 @@ class Masthead {
     const overflowMenu = defaultProps.hasProfile
       ? document.getElementById('data-floating-menu-container')
       : null;
-    OverflowMenu.create(overflowMenu);
+    MastheadProfileMenu.create(overflowMenu);
 
     const headerNav = document.querySelector(this.options.mastheadNav);
     if (headerNav) {
