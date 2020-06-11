@@ -392,83 +392,96 @@ exports[`Storyshots Components|Card Link/Clickable 1`] = `
     }
   >
     <div
-      className="bx--card--null"
+      className="bx--grid"
     >
       <div
-        className="bx--grid"
+        className="bx--row"
       >
         <div
-          className="bx--row"
+          className="bx--col-sm-2 bx--col-md-3 bx--col-lg-6 bx--col-xlg-4 bx--no-gutter"
         >
-          <div
-            className="bx--col-sm-2 bx--col-md-3 bx--col-lg-6 bx--col-xlg-4 bx--no-gutter"
-          >
-            <Card
-              copy=""
-              cta={
-                Object {
-                  "href": "https://example.com",
-                  "icon": Object {
-                    "src": Object {
-                      "$$typeof": Symbol(react.forward_ref),
-                      "render": [Function],
-                    },
+          <Card
+            copy=""
+            cta={
+              Object {
+                "href": "https://example.com",
+                "icon": Object {
+                  "src": Object {
+                    "$$typeof": Symbol(react.forward_ref),
+                    "render": [Function],
                   },
-                  "type": "local",
-                }
+                },
+                "type": "local",
               }
-              eyebrow="eyebrow text"
-              heading="Lorem ipsum dolor sit amet"
-              inverse={false}
-              theme=""
-              type="link"
+            }
+            eyebrow="eyebrow text"
+            heading="Lorem ipsum dolor sit amet"
+            inverse={false}
+            theme={null}
+            type="link"
+          >
+            <ClickableTile
+              className="bx--card bx--card--link"
+              clicked={false}
+              data-autoid="dds--card"
+              handleClick={[Function]}
+              handleKeyDown={[Function]}
+              href="https://example.com"
+              light={false}
+              onClick={[Function]}
+              target={null}
             >
-              <ClickableTile
-                className="bx--card bx--card--link"
-                clicked={false}
+              <a
+                className="bx--tile bx--tile--clickable bx--card bx--card--link"
                 data-autoid="dds--card"
-                handleClick={[Function]}
-                handleKeyDown={[Function]}
                 href="https://example.com"
-                light={false}
                 onClick={[Function]}
+                onKeyDown={[Function]}
                 target={null}
               >
-                <a
-                  className="bx--tile bx--tile--clickable bx--card bx--card--link"
-                  data-autoid="dds--card"
-                  href="https://example.com"
-                  onClick={[Function]}
-                  onKeyDown={[Function]}
-                  target={null}
+                <div
+                  className="bx--card__wrapper"
                 >
-                  <div
-                    className="bx--card__wrapper"
+                  <p
+                    className="bx--card__eyebrow"
                   >
-                    <p
-                      className="bx--card__eyebrow"
+                    eyebrow text
+                  </p>
+                  <h3
+                    className="bx--card__heading"
+                  >
+                    Lorem ipsum dolor sit amet
+                  </h3>
+                  <div
+                    className="bx--card__footer"
+                  >
+                    <ForwardRef(ArrowRight20)
+                      className="bx--card__cta"
+                      src={
+                        Object {
+                          "$$typeof": Symbol(react.forward_ref),
+                          "render": [Function],
+                        }
+                      }
                     >
-                      eyebrow text
-                    </p>
-                    <h3
-                      className="bx--card__heading"
-                    >
-                      Lorem ipsum dolor sit amet
-                    </h3>
-                    <div
-                      className="bx--card__footer"
-                    >
-                      <ForwardRef(ArrowRight20)
+                      <Icon
                         className="bx--card__cta"
+                        height={20}
+                        preserveAspectRatio="xMidYMid meet"
                         src={
                           Object {
                             "$$typeof": Symbol(react.forward_ref),
                             "render": [Function],
                           }
                         }
+                        viewBox="0 0 20 20"
+                        width={20}
+                        xmlns="http://www.w3.org/2000/svg"
                       >
-                        <Icon
+                        <svg
+                          aria-hidden={true}
                           className="bx--card__cta"
+                          focusable="false"
                           height={20}
                           preserveAspectRatio="xMidYMid meet"
                           src={
@@ -481,35 +494,18 @@ exports[`Storyshots Components|Card Link/Clickable 1`] = `
                           width={20}
                           xmlns="http://www.w3.org/2000/svg"
                         >
-                          <svg
-                            aria-hidden={true}
-                            className="bx--card__cta"
-                            focusable="false"
-                            height={20}
-                            preserveAspectRatio="xMidYMid meet"
-                            src={
-                              Object {
-                                "$$typeof": Symbol(react.forward_ref),
-                                "render": [Function],
-                              }
-                            }
-                            viewBox="0 0 20 20"
-                            width={20}
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
-                            />
-                          </svg>
-                        </Icon>
-                      </ForwardRef(ArrowRight20)>
-                      <span />
-                    </div>
+                          <path
+                            d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                          />
+                        </svg>
+                      </Icon>
+                    </ForwardRef(ArrowRight20)>
+                    <span />
                   </div>
-                </a>
-              </ClickableTile>
-            </Card>
-          </div>
+                </div>
+              </a>
+            </ClickableTile>
+          </Card>
         </div>
       </div>
     </div>
@@ -536,123 +532,119 @@ exports[`Storyshots Components|Card Static 1`] = `
     }
   >
     <div
-      className="bx--card--null"
+      className="bx--grid"
     >
       <div
-        className="bx--grid"
+        className="bx--row"
       >
         <div
-          className="bx--row"
+          className="bx--col-sm-2 bx--col-md-3 bx--col-lg-6 bx--col-xlg-4 bx--no-gutter"
         >
-          <div
-            className="bx--col-sm-2 bx--col-md-3 bx--col-lg-6 bx--col-xlg-4 bx--no-gutter"
-          >
-            <Card
-              copy=""
-              cta={
-                Object {
-                  "copy": "click here",
-                  "href": "https://example.com",
-                  "icon": Object {
-                    "src": Object {
-                      "$$typeof": Symbol(react.forward_ref),
-                      "render": [Function],
-                    },
+          <Card
+            copy=""
+            cta={
+              Object {
+                "copy": "click here",
+                "href": "https://example.com",
+                "icon": Object {
+                  "src": Object {
+                    "$$typeof": Symbol(react.forward_ref),
+                    "render": [Function],
                   },
-                  "type": "local",
-                }
+                },
+                "type": "local",
               }
-              eyebrow="eyebrow text"
-              heading="Lorem ipsum dolor sit amet"
-              inverse={false}
-              theme=""
-              type="static"
+            }
+            eyebrow="eyebrow text"
+            heading="Lorem ipsum dolor sit amet"
+            inverse={false}
+            theme={null}
+            type="static"
+          >
+            <Tile
+              className="bx--card"
+              data-autoid="dds--card"
+              href="https://example.com"
+              light={false}
             >
-              <Tile
-                className="bx--card"
+              <div
+                className="bx--tile bx--card"
                 data-autoid="dds--card"
                 href="https://example.com"
-                light={false}
               >
                 <div
-                  className="bx--tile bx--card"
-                  data-autoid="dds--card"
-                  href="https://example.com"
+                  className="bx--card__wrapper"
                 >
-                  <div
-                    className="bx--card__wrapper"
+                  <p
+                    className="bx--card__eyebrow"
                   >
-                    <p
-                      className="bx--card__eyebrow"
+                    eyebrow text
+                  </p>
+                  <h3
+                    className="bx--card__heading"
+                  >
+                    Lorem ipsum dolor sit amet
+                  </h3>
+                  <div
+                    className="bx--card__footer"
+                  >
+                    <LinkWithIcon
+                      href="https://example.com"
+                      onClick={[Function]}
+                      target={null}
                     >
-                      eyebrow text
-                    </p>
-                    <h3
-                      className="bx--card__heading"
-                    >
-                      Lorem ipsum dolor sit amet
-                    </h3>
-                    <div
-                      className="bx--card__footer"
-                    >
-                      <LinkWithIcon
-                        href="https://example.com"
-                        onClick={[Function]}
-                        target={null}
+                      <div
+                        className="bx--link-with-icon__container"
+                        data-autoid="dds--link-with-icon"
                       >
-                        <div
-                          className="bx--link-with-icon__container"
-                          data-autoid="dds--link-with-icon"
+                        <Link
+                          className="bx--link-with-icon"
+                          href="https://example.com"
+                          onClick={[Function]}
+                          target={null}
                         >
-                          <Link
-                            className="bx--link-with-icon"
+                          <a
+                            className="bx--link bx--link-with-icon"
                             href="https://example.com"
                             onClick={[Function]}
                             target={null}
                           >
-                            <a
-                              className="bx--link bx--link-with-icon"
-                              href="https://example.com"
-                              onClick={[Function]}
-                              target={null}
-                            >
-                              <span>
-                                click here
-                              </span>
-                               
-                              <ForwardRef(ArrowRight20)>
-                                <Icon
+                            <span>
+                              click here
+                            </span>
+                             
+                            <ForwardRef(ArrowRight20)>
+                              <Icon
+                                height={20}
+                                preserveAspectRatio="xMidYMid meet"
+                                viewBox="0 0 20 20"
+                                width={20}
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <svg
+                                  aria-hidden={true}
+                                  focusable="false"
                                   height={20}
                                   preserveAspectRatio="xMidYMid meet"
                                   viewBox="0 0 20 20"
                                   width={20}
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
-                                  <svg
-                                    aria-hidden={true}
-                                    focusable="false"
-                                    height={20}
-                                    preserveAspectRatio="xMidYMid meet"
-                                    viewBox="0 0 20 20"
-                                    width={20}
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
-                                    />
-                                  </svg>
-                                </Icon>
-                              </ForwardRef(ArrowRight20)>
-                            </a>
-                          </Link>
-                        </div>
-                      </LinkWithIcon>
-                    </div>
+                                  <path
+                                    d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                  />
+                                </svg>
+                              </Icon>
+                            </ForwardRef(ArrowRight20)>
+                          </a>
+                        </Link>
+                      </div>
+                    </LinkWithIcon>
                   </div>
                 </div>
-              </Tile>
-            </Card>
-          </div>
+              </div>
+            </Tile>
+          </Card>
         </div>
       </div>
     </div>

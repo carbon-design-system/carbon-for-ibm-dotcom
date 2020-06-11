@@ -50,17 +50,15 @@ export const Static = ({ parameters }) => {
   const theme = document.documentElement.getAttribute('storybook-carbon-theme');
 
   return (
-    <div className={`bx--card--${theme}`}>
-      <div className="bx--grid">
-        <div className="bx--row">
-          <div className="bx--col-sm-2 bx--col-md-3 bx--col-lg-6 bx--col-xlg-4 bx--no-gutter">
-            <Card
-              {...(parameters?.props?.Card ?? {})}
-              cta={cta}
-              theme={theme}
-              type="static"
-            />
-          </div>
+    <div className="bx--grid">
+      <div className="bx--row">
+        <div className="bx--col-sm-2 bx--col-md-3 bx--col-lg-6 bx--col-xlg-4 bx--no-gutter">
+          <Card
+            {...(parameters?.props?.Card ?? {})}
+            cta={cta}
+            theme={theme}
+            type="static"
+          />
         </div>
       </div>
     </div>
@@ -78,17 +76,15 @@ export const LinkClickable = ({ parameters }) => {
   const theme = document.documentElement.getAttribute('storybook-carbon-theme');
 
   return (
-    <div className={`bx--card--${theme}`}>
-      <div className="bx--grid">
-        <div className="bx--row">
-          <div className="bx--col-sm-2 bx--col-md-3 bx--col-lg-6 bx--col-xlg-4 bx--no-gutter">
-            <Card
-              {...(parameters?.props?.Card ?? {})}
-              cta={cta}
-              theme={theme}
-              type="link"
-            />
-          </div>
+    <div className="bx--grid">
+      <div className="bx--row">
+        <div className="bx--col-sm-2 bx--col-md-3 bx--col-lg-6 bx--col-xlg-4 bx--no-gutter">
+          <Card
+            {...(parameters?.props?.Card ?? {})}
+            cta={cta}
+            theme={theme}
+            type="link"
+          />
         </div>
       </div>
     </div>
