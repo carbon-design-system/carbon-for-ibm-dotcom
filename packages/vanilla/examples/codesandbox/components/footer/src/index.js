@@ -5,15 +5,20 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import "@carbon/ibmdotcom-styles/scss/components/footer/index.scss";
+import "./index.scss";
 import { Footer } from "@carbon/ibmdotcom-vanilla";
 
 async function _getFooter() {
-  const template = await Footer.getFooterWithData();
+  try {
+    const template = await Footer.getFooterWithData();
 
-  const yourapp = document.getElementById("app");
-  yourapp.innerHTML = template;
-  Footer.init(yourapp);
+    const yourapp = document.getElementById("app");
+    yourapp.innerHTML = template;
+    Footer.init(yourapp);
+  } catch (error) {
+    // This example seems to have polling timeout for `root.digitalData.page.isDataLayerReady`.
+    console.error('Error fetching dotcom shell data:', error);
+  }
 }
 
 _getFooter();

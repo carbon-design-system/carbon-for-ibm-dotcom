@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import "@carbon/ibmdotcom-styles/scss/components/masthead/index.scss";
+import "./index.scss";
 import { Masthead } from "@carbon/ibmdotcom-vanilla";
 
 const mastheadProps = {
@@ -24,17 +24,22 @@ const mastheadProps = {
 };
 
 async function _getMasthead() {
-  const template = await Masthead.getMastheadWithData(
-    mastheadProps.navigation,
-    mastheadProps.platform,
-    mastheadProps.hasNavigation,
-    mastheadProps.hasProfile,
-    mastheadProps.searchProps
-  );
+  try {
+    const template = await Masthead.getMastheadWithData(
+      mastheadProps.navigation,
+      mastheadProps.platform,
+      mastheadProps.hasNavigation,
+      mastheadProps.hasProfile,
+      mastheadProps.searchProps
+    );
 
-  const yourapp = document.getElementById("app");
-  yourapp.innerHTML = template;
-  Masthead.init();
+    const yourapp = document.getElementById("app");
+    yourapp.innerHTML = template;
+    Masthead.init();
+  } catch (error) {
+    // This example seems to have polling timeout for `root.digitalData.page.isDataLayerReady`.
+    console.error('Error fetching dotcom shell data:', error);
+  }
 }
 
 _getMasthead();
