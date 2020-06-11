@@ -27,7 +27,12 @@ export function globalInit() {
   }
 
   // Sets the version of the library in the DDO
-  DDOAPI.setVersion();
+  DDOAPI.setVersion().catch(error => {
+    console.error(
+      'Error setting the version of the library in the DDO:',
+      error
+    );
+  });
 
   // analytics tracking
   AnalyticsAPI.initAll();

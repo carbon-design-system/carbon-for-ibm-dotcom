@@ -1,5 +1,6 @@
-import { Props } from '@storybook/addon-docs/blocks';
-import { Card } from '../Card';
+import { Props, Description } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../docs/contributing-license.md';
+import { CardLink } from '../CardLink';
 
 # CardLink
 
@@ -19,7 +20,7 @@ Here's a quick example to get you started.
 @import '@carbon/type/scss/font-face/sans';
 @include carbon--font-face-mono();
 @include carbon--font-face-sans();
-@import '@carbon/ibmdotcom-styles/scss/patterns/sub-patterns/card/index.scss';
+@import '@carbon/ibmdotcom-styles/scss/components/card-link/card-link';
 ```
 
 > 💡 Only import fonts once per usage. Don't forget to import the Card styles
@@ -47,6 +48,7 @@ function App() {
           },
         },
       }}
+      disabled={false}
     />
   );
 }
@@ -66,17 +68,6 @@ Add the following line in your `.env` file at the root of your project.
 
 ## Props
 
-<Props of={Card} />
+<Props of={CardLink} />
 
-## 🙌 Contributing
-
-We're always looking for contributors to help us fix bugs, build new features,
-or help us improve the project documentation. If you're interested, definitely
-check out our
-[Contributing Guide](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/.github/CONTRIBUTING.md)!
-👀
-
-## 📝 License
-
-Licensed under the
-[Apache 2.0 License](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/LICENSE).
+<Description markdown={contributing} />

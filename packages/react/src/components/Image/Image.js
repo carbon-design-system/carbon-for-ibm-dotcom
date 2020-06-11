@@ -41,7 +41,14 @@ const sortSources = sources => {
 /**
  * Picture element.
  */
-const Image = ({ classname, sources, defaultSrc, alt, longDescription }) => {
+const Image = ({
+  classname,
+  sources,
+  defaultSrc,
+  alt,
+  longDescription,
+  icon: Icon,
+}) => {
   if (!defaultSrc || !alt) {
     return null;
   }
@@ -49,10 +56,10 @@ const Image = ({ classname, sources, defaultSrc, alt, longDescription }) => {
   const sortedImages = sources ? sortSources(sources) : [];
   const id = uniqueid(`${prefix}--image-`);
   return (
-    <>
-      <picture
-        className={`${prefix}--image`}
-        data-autoid={`${stablePrefix}--image__longdescription-`}>
+    <div
+      className={`${prefix}--image`}
+      data-autoid={`${stablePrefix}--image__longdescription-`}>
+      <picture>
         {sortedImages.map((imgSrc, key) => {
           return (
             <source
@@ -74,7 +81,8 @@ const Image = ({ classname, sources, defaultSrc, alt, longDescription }) => {
           {longDescription}
         </div>
       ) : null}
-    </>
+      {Icon && <Icon className={`${prefix}--image__icon`} />}
+    </div>
   );
 };
 
@@ -113,6 +121,11 @@ Image.propTypes = {
    * Visible to screen readers, hidden from users.
    */
   longDescription: PropTypes.string,
+
+  /**
+   * Icon that overlays the image
+   */
+  icon: PropTypes.func,
 };
 
 export default Image;

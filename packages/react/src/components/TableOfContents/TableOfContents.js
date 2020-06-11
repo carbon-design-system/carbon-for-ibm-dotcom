@@ -10,7 +10,6 @@ import classNames from 'classnames';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import Layout from '../Layout/Layout';
 import PropTypes from 'prop-types';
-import root from 'window-or-global';
 import settings from 'carbon-components/es/globals/js/settings';
 import TOCDesktop from './TOCDesktop';
 import TOCMobile from './TOCMobile';
@@ -113,10 +112,22 @@ const TableOfContents = ({
    * @returns {string} name attribute
    */
   const getElemsInView = () => {
-    const items = [...document.querySelectorAll('a[name]')].filter(
-      elem => elem.getBoundingClientRect().y <= root.innerHeight / 2
-    );
-    return items[items.length - 1].getAttribute('name');
+    const items = [...document.querySelectorAll('a[name]')]
+      .map((elem, index, arr) => ({
+        elem,
+        height: arr[index + 1]
+          ? arr[index + 1].getBoundingClientRect().y -
+            elem.getBoundingClientRect().y
+          : null,
+        position: elem.getBoundingClientRect().y,
+      }))
+      .filter((elem, index, arr) =>
+        elem.height === null
+          ? arr[index - 1].position < arr[index - 1].height
+          : elem.position > -elem.height
+      );
+
+    return items[0].elem.getAttribute('name');
   };
 
   /**
@@ -196,17 +207,25 @@ const TableOfContents = ({
       data-autoid={`${stablePrefix}--tableofcontents`}
       className={classNames(`${prefix}--tableofcontents`, _setTheme(theme))}>
       <Layout {...layoutProps}>
-        <div
-          style={{ position: 'sticky', top: '0' }}
-          className={`${prefix}--tableofcontents__sidebar`}
-          data-sticky="true">
+        <div className={`${prefix}--tableofcontents__sidebar`}>
+          {headingContent ? (
+            <div className={`${prefix}--tableofcontents__desktop__children`}>
+              {headingContent}
+
+              {menuRule ? (
+                <hr className={`${prefix}--tableofcontents__desktop__rule`} />
+              ) : null}
+            </div>
+          ) : null}
           <div className={`${prefix}--tableofcontents__mobile-top`}></div>
-          <TOCDesktop
-            menuRule={menuRule}
-            headingContent={headingContent}
-            {...props}
-          />
-          <TOCMobile {...props} />
+          <div style={{ position: 'sticky', top: '0' }}>
+            <TOCDesktop
+              menuRule={menuRule}
+              headingContent={headingContent}
+              {...props}
+            />
+            <TOCMobile {...props} />
+          </div>
         </div>
         <div className={`${prefix}--tableofcontents__content`}>
           <div className={`${prefix}--tableofcontents__content-wrapper`}>
