@@ -7,15 +7,6 @@
 
 @import '../../../globals/imports';
 
-@mixin contentblockcards-large-spacing {
-  padding-top: $carbon--layout-05;
-  padding-bottom: $carbon--layout-07;
-
-  .#{$prefix}--content-block__heading {
-    margin-bottom: $carbon--layout-05;
-  }
-}
-
 @mixin content-block-cards {
   .#{$prefix}--content-block-cards {
     .#{$prefix}--content-block {
@@ -26,19 +17,17 @@
         padding-bottom: $carbon--layout-06;
       }
       @include carbon--breakpoint('lg') {
-        @include contentblockcards-large-spacing;
-      }
-      @include carbon--breakpoint('xlg') {
-        @include contentblockcards-large-spacing;
-      }
-      @include carbon--breakpoint('max') {
-        @include contentblockcards-large-spacing;
+        padding-top: $carbon--layout-05;
+        padding-bottom: $carbon--layout-07;
       }
 
       &__heading {
         margin-bottom: $carbon--layout-03;
         @include carbon--breakpoint('md') {
           margin-bottom: $carbon--layout-04;
+        }
+        @include carbon--breakpoint('lg') {
+          margin-bottom: $carbon--layout-05;
         }
       }
     }
