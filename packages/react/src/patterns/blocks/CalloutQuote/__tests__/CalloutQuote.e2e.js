@@ -30,10 +30,12 @@ const _path = '?path=/story/patterns-blocks-calloutquote--default';
  */
 const _quoteCopy = process?.env.SELENIUM_QUOTE_COPY || 'Lorem Ipsum';
 
-xdescribe('CalloutQuote', () => {
+describe('CalloutQuote', () => {
   beforeAll(() => {
     browser.url(_url + _path);
-    $('textarea[id="Quote (copy): _CalloutQuote"]').setValue(_quoteCopy);
+    const quote = $('textarea[id="Quote (copy): _CalloutQuote"]');
+    quote.setValue('');
+    quote.setValue(_quoteCopy);
     $('button[title="Open canvas in new tab"]').click();
     browser.switchWindow('iframe.html');
     browser.setWindowSize(1200, 800);
@@ -74,10 +76,12 @@ xdescribe('CalloutQuote', () => {
   });
 });
 
-xdescribe('CalloutQuote (320px)', () => {
+describe('CalloutQuote (320px)', () => {
   beforeAll(() => {
     browser.url(_url + _path);
-    $('textarea[id="Quote (copy): _CalloutQuote"]').setValue(_quoteCopy);
+    const quote = $('textarea[id="Quote (copy): _CalloutQuote"]');
+    quote.setValue('');
+    quote.setValue(_quoteCopy);
     $('button[title="Open canvas in new tab"]').click();
     browser.switchWindow('iframe.html');
     browser.setWindowSize(320, 315);
@@ -106,10 +110,12 @@ xdescribe('CalloutQuote (320px)', () => {
   });
 });
 
-xdescribe('CalloutQuote (1058px)', () => {
+describe('CalloutQuote (1058px)', () => {
   beforeAll(() => {
     browser.url(_url + _path);
-    $('textarea[id="Quote (copy): _CalloutQuote"]').setValue(_quoteCopy);
+    const quote = $('textarea[id="Quote (copy): _CalloutQuote"]');
+    quote.setValue('');
+    quote.setValue(_quoteCopy);
     $('button[title="Open canvas in new tab"]').click();
     browser.switchWindow('iframe.html');
     browser.setWindowSize(1058, 515);
