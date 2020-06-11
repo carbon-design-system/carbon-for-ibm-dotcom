@@ -10,13 +10,6 @@ import CTASection from '../CTASection';
 import React from 'react';
 import readme from '../README.stories.mdx';
 
-const themes = {
-  g10: 'g10',
-  g90: 'g90',
-  g100: 'g100',
-  white: '',
-};
-
 const types = ['local', 'external', 'default'];
 
 const contentItemsProps = [
@@ -54,7 +47,6 @@ export default {
           `Want to discuss your options with a DevOps expert? Contact our sales team to evaluate your needs.`,
           groupId
         ),
-        theme: select('theme', themes, themes.g10, groupId),
         cta: {
           style: 'button',
           type: types[0],
@@ -73,8 +65,8 @@ export default {
 };
 
 export const Default = ({ parameters }) => {
-  const { heading, copy, theme, cta, items } =
-    parameters?.props?.CTASection ?? {};
+  const { heading, copy, cta, items } = parameters?.props?.CTASection ?? {};
+  const theme = document.documentElement.getAttribute('storybook-carbon-theme');
   return (
     <CTASection
       heading={heading}

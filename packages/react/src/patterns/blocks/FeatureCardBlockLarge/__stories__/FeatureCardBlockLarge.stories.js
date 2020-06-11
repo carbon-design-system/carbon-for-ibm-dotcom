@@ -62,7 +62,7 @@ export const Default = ({ parameters }) => {
   return (
     <div className="bx--grid">
       <div className="bx--row">
-        <div className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-2">
+        <div className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4">
           <FeatureCardBlockLarge
             eyebrow={eyebrow}
             heading={heading}
