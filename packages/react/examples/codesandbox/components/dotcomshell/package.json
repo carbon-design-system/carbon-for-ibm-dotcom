@@ -15,6 +15,7 @@
     "react-dom": "^16.9.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.10.0",
     "parcel": "latest",
     "sass": "^1.26.5"
   }
