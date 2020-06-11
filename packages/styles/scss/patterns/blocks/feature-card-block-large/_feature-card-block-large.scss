@@ -103,6 +103,16 @@ $fcb-breakpoint-up--lg: map-get(
           padding: $layout-05;
         }
 
+        .#{$prefix}--card__eyebrow,
+        .#{$prefix}--card__heading,
+        .#{$prefix}--card__copy {
+          width: 100%;
+          max-width: carbon--rem(480px);
+          @include carbon--breakpoint('md') {
+            width: 90%;
+          }
+        }
+
         .#{$prefix}--card__eyebrow {
           margin: 0 0 $spacing-05 0;
           color: $inverse-01;
