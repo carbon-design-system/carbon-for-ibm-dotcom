@@ -26324,7 +26324,7 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockLarge Default 1`] = `
         className="bx--row"
       >
         <div
-          className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-2"
+          className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4"
         >
           <FeatureCardBlockLarge
             copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.."
