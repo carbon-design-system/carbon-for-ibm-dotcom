@@ -9,7 +9,7 @@ exports[`Storyshots Components|ButtonGroup Default 1`] = `
     role="main"
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "",
       }
     }
   >
@@ -17,18 +17,11 @@ exports[`Storyshots Components|ButtonGroup Default 1`] = `
       className="bx-grid"
       style={
         Object {
-          "backgroundColor": "black",
           "padding": "2rem",
         }
       }
     >
-      <div
-        style={
-          Object {
-            "color": "white",
-          }
-        }
-      >
+      <div>
         This button group is wrapped within the grid to let the buttons shrink when the text gets smaller
       </div>
       <div
@@ -113,7 +106,6 @@ exports[`Storyshots Components|ButtonGroup Default 1`] = `
       <div
         style={
           Object {
-            "color": "white",
             "paddingTop": "20px",
           }
         }
@@ -210,7 +202,7 @@ exports[`Storyshots Components|CTA Default 1`] = `
     role="main"
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "",
       }
     }
   >
@@ -335,7 +327,7 @@ exports[`Storyshots Components|Callout Simple example 1`] = `
     role="main"
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "",
       }
     }
   >
@@ -395,12 +387,12 @@ exports[`Storyshots Components|Card Link/Clickable 1`] = `
     role="main"
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "",
       }
     }
   >
     <div
-      className="bx--card--"
+      className="bx--card--null"
     >
       <div
         className="bx--grid"
@@ -538,12 +530,12 @@ exports[`Storyshots Components|Card Static 1`] = `
     role="main"
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "",
       }
     }
   >
     <div
-      className="bx--card--"
+      className="bx--card--null"
     >
       <div
         className="bx--grid"
@@ -680,7 +672,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
     role="main"
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "",
       }
     }
   >
@@ -1440,7 +1432,7 @@ exports[`Storyshots Components|CardLink Default 1`] = `
     role="main"
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "",
       }
     }
   >
@@ -1595,7 +1587,7 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
     role="main"
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "",
       }
     }
   >
@@ -1924,7 +1916,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
     role="main"
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "",
       }
     }
   >
@@ -3185,7 +3177,7 @@ exports[`Storyshots Components|Expressive Modal Default 1`] = `
     role="main"
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "",
       }
     }
   >
@@ -3409,7 +3401,7 @@ exports[`Storyshots Components|Expressive Modal Expanded 1`] = `
     role="main"
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "",
       }
     }
   >
@@ -3634,7 +3626,7 @@ exports[`Storyshots Components|FeatureCard Default 1`] = `
     role="main"
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "",
       }
     }
   >
@@ -3821,7 +3813,7 @@ exports[`Storyshots Components|Footer Default 1`] = `
     role="main"
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "",
       }
     }
   >
@@ -3978,7 +3970,7 @@ exports[`Storyshots Components|Footer Short 1`] = `
     role="main"
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "",
       }
     }
   >
@@ -3986,6 +3978,9 @@ exports[`Storyshots Components|Footer Short 1`] = `
       parameters={
         Object {
           "__id": "components-footer--short",
+          "carbon-theme": Object {
+            "disabled": true,
+          },
           "component": undefined,
           "docs": Object {},
           "fileName": null,
@@ -4154,7 +4149,7 @@ exports[`Storyshots Components|HorizontalRule Default 1`] = `
     role="main"
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "",
       }
     }
   >
@@ -4235,7 +4230,7 @@ exports[`Storyshots Components|Image Default 1`] = `
     role="main"
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "",
       }
     }
   >
@@ -4317,7 +4312,7 @@ exports[`Storyshots Components|ImageWithCaption Default 1`] = `
     role="main"
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "",
       }
     }
   >
@@ -4464,7 +4459,7 @@ exports[`Storyshots Components|Layout Default 1`] = `
     role="main"
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "",
       }
     }
   >
@@ -4758,7 +4753,7 @@ exports[`Storyshots Components|LightboxMediaViewer Default 1`] = `
     role="main"
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "",
       }
     }
   >
@@ -4942,7 +4937,7 @@ exports[`Storyshots Components|LightboxMediaViewer Embedded Video Player 1`] = `
     role="main"
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "",
       }
     }
   >
@@ -5083,6 +5078,7 @@ exports[`Storyshots Components|LightboxMediaViewer Embedded Video Player 1`] = `
                             className="bx--lightbox-media-viewer__media bx--no-gutter"
                           >
                             <VideoPlayer
+                              autoPlay={true}
                               videoId="0_uka1msg4"
                             >
                               <div
@@ -5144,7 +5140,7 @@ exports[`Storyshots Components|Link with Icon Default 1`] = `
     role="main"
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "",
       }
     }
   >
@@ -5224,7 +5220,7 @@ exports[`Storyshots Components|LinkList Default 1`] = `
     role="main"
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "",
       }
     }
   >
@@ -6048,7 +6044,7 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
     role="main"
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "",
       }
     }
   >
@@ -6527,7 +6523,7 @@ exports[`Storyshots Components|LinkList Horizontal 1`] = `
     role="main"
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "",
       }
     }
   >
@@ -6793,7 +6789,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
     role="main"
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "",
       }
     }
   >
@@ -7272,7 +7268,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
     role="main"
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "",
       }
     }
   >
@@ -8541,7 +8537,7 @@ exports[`Storyshots Components|Locale Modal Default 1`] = `
     role="main"
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "",
       }
     }
   >
@@ -8832,7 +8828,7 @@ exports[`Storyshots Components|Masthead Default 1`] = `
     role="main"
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "",
       }
     }
   >
@@ -9264,7 +9260,7 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
     role="main"
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "",
       }
     }
   >
@@ -9866,7 +9862,7 @@ exports[`Storyshots Components|Masthead With Platform 1`] = `
     role="main"
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "",
       }
     }
   >
@@ -9874,6 +9870,9 @@ exports[`Storyshots Components|Masthead With Platform 1`] = `
       parameters={
         Object {
           "__id": "components-masthead--with-platform",
+          "carbon-theme": Object {
+            "disabled": true,
+          },
           "component": undefined,
           "docs": Object {},
           "fileName": null,
@@ -10361,7 +10360,7 @@ exports[`Storyshots Components|PictogramItem Default 1`] = `
     role="main"
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "",
       }
     }
   >
@@ -10586,7 +10585,7 @@ exports[`Storyshots Components|Quote Default 1`] = `
     role="main"
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "",
       }
     }
   >
@@ -10732,7 +10731,7 @@ exports[`Storyshots Components|Table of Contents Dynamic Items 1`] = `
     role="main"
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "",
       }
     }
   >
@@ -10755,7 +10754,6 @@ exports[`Storyshots Components|Table of Contents Dynamic Items 1`] = `
           "props": Object {
             "TableOfContents": Object {
               "menuLabel": "Jump to",
-              "theme": "",
             },
           },
           "subcomponents": undefined,
@@ -10766,7 +10764,7 @@ exports[`Storyshots Components|Table of Contents Dynamic Items 1`] = `
         menuItems={null}
         menuLabel="Jump to"
         stickyOffset={null}
-        theme=""
+        theme={null}
       >
         <section
           className="bx--tableofcontents"
@@ -11077,7 +11075,7 @@ exports[`Storyshots Components|Table of Contents Manually define Menu Items 1`] 
     role="main"
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "",
       }
     }
   >
@@ -11109,7 +11107,7 @@ exports[`Storyshots Components|Table of Contents Manually define Menu Items 1`] 
       menuLabel="Jump to"
       menuRule={false}
       stickyOffset={null}
-      theme=""
+      theme={null}
     >
       <section
         className="bx--tableofcontents"
@@ -11562,7 +11560,7 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
     role="main"
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "",
       }
     }
   >
@@ -11623,7 +11621,6 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
               ],
               "menuLabel": "Jump to",
               "menuRule": false,
-              "theme": "",
             },
           },
           "subcomponents": undefined,
@@ -11675,7 +11672,7 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
         menuLabel="Jump to"
         menuRule={false}
         stickyOffset={null}
-        theme=""
+        theme={null}
       >
         <section
           className="bx--tableofcontents"
@@ -12184,7 +12181,7 @@ exports[`Storyshots Components|VideoPlayer Default 1`] = `
     role="main"
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "",
       }
     }
   >
@@ -12198,6 +12195,7 @@ exports[`Storyshots Components|VideoPlayer Default 1`] = `
           className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
         >
           <VideoPlayer
+            autoPlay={false}
             inverse={false}
             showCaption={true}
             videoId="0_uka1msg4"
@@ -12213,7 +12211,31 @@ exports[`Storyshots Components|VideoPlayer Default 1`] = `
                 <div
                   className="bx--video-player__video"
                   id="bx--video-player__video-0_uka1msg4"
-                />
+                >
+                  <VideoImageOverlay
+                    embedVideo={[Function]}
+                    videoData={
+                      Object {
+                        "description": "",
+                        "name": "",
+                      }
+                    }
+                    videoId="0_uka1msg4"
+                  >
+                    <button
+                      className="bx--video-player__image-overlay"
+                      data-autoid="dds--video-player__image-overlay"
+                      id="video-thumbnail-overlay"
+                      onClick={[Function]}
+                    >
+                      <Image
+                        alt=""
+                        defaultSrc="https://cdnsecakmi.kaltura.com/p/123456/thumbnail/entry_id/0_uka1msg4/width/320"
+                        icon={[Function]}
+                      />
+                    </button>
+                  </VideoImageOverlay>
+                </div>
               </div>
               <div
                 className="bx--video-player__video-caption"
@@ -12244,7 +12266,7 @@ exports[`Storyshots Patterns (Blocks)|CalloutQuote Default 1`] = `
     role="main"
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "",
       }
     }
   >
@@ -12430,7 +12452,7 @@ exports[`Storyshots Patterns (Blocks)|CalloutWithMedia Default 1`] = `
     role="main"
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "",
       }
     }
   >
@@ -12708,7 +12730,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
     role="main"
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "",
       }
     }
   >
@@ -13434,7 +13456,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia Default 1`] = `
     role="main"
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "",
       }
     }
   >
@@ -14735,7 +14757,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMedia With aside elements 1`] 
     role="main"
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "",
       }
     }
   >
@@ -16541,7 +16563,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
     role="main"
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "",
       }
     }
   >
@@ -18360,7 +18382,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
     role="main"
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "",
       }
     }
   >
@@ -20684,7 +20706,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
     role="main"
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "",
       }
     }
   >
@@ -21497,7 +21519,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
     role="main"
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "",
       }
     }
   >
@@ -22618,7 +22640,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
     role="main"
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "",
       }
     }
   >
@@ -23040,7 +23062,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
     role="main"
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "",
       }
     }
   >
@@ -23964,7 +23986,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
     role="main"
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "",
       }
     }
   >
@@ -24542,7 +24564,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
     role="main"
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "",
       }
     }
   >
@@ -25455,7 +25477,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupPictograms Default 1`] = `
     role="main"
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "",
       }
     }
   >
@@ -25862,7 +25884,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupSimple Default 1`] = `
     role="main"
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "",
       }
     }
   >
@@ -26313,7 +26335,7 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockLarge Default 1`] = `
     role="main"
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "",
       }
     }
   >
@@ -26324,7 +26346,7 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockLarge Default 1`] = `
         className="bx--row"
       >
         <div
-          className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-2"
+          className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4"
         >
           <FeatureCardBlockLarge
             copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.."
@@ -26512,7 +26534,7 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockMedium Default 1`] = `
     role="main"
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "",
       }
     }
   >
@@ -26741,7 +26763,7 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
     role="main"
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "",
       }
     }
   >
@@ -27490,7 +27512,7 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
     role="main"
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "",
       }
     }
   >
@@ -28188,7 +28210,7 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
     role="main"
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "",
       }
     }
   >
@@ -28237,10 +28259,10 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
           },
         ]
       }
-      theme="g10"
+      theme={null}
     >
       <section
-        className="bx--cta-section bx--cta-section--g10"
+        className="bx--cta-section"
         data-autoid="dds--cta-section"
       >
         <ContentBlock
@@ -28669,7 +28691,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
     role="main"
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "",
       }
     }
   >
@@ -28734,7 +28756,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
         ]
       }
       heading="Aliquam condimentum interdum"
-      theme=""
+      theme={null}
     >
       <ContentSection
         autoid="dds--card-group-images-group"
@@ -29529,7 +29551,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
     role="main"
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "",
       }
     }
   >
@@ -29582,7 +29604,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
         }
       }
       heading="Aliquam condimentum interdum"
-      theme=""
+      theme={null}
     >
       <ContentSection
         autoid="dds--card-group-simple-group"
@@ -30361,7 +30383,7 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with image 1`] = `
     role="main"
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "",
       }
     }
   >
@@ -30404,12 +30426,12 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with image 1`] = `
           ],
         }
       }
-      theme="g100"
+      theme={null}
       title="Lead space title"
       type="small"
     >
       <section
-        className="bx--leadspace bx--leadspace--g100 bx--leadspace--productive"
+        className="bx--leadspace bx--leadspace--productive"
         data-autoid="dds--leadspace"
         style={
           Object {
@@ -30658,7 +30680,7 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with no image 1`] = `
     role="main"
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "",
       }
     }
   >
@@ -30699,7 +30721,6 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with no image 1`] = `
                 },
               ],
               "copy": "Use this area for a short line of copy to support the title",
-              "theme": "g100",
               "title": "Lead space title",
               "type": "small",
             },
@@ -30730,12 +30751,12 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with no image 1`] = `
           ]
         }
         copy="Use this area for a short line of copy to support the title"
-        theme="g100"
+        theme={null}
         title="Lead space title"
         type="small"
       >
         <section
-          className="bx--leadspace bx--leadspace--g100 bx--leadspace--productive"
+          className="bx--leadspace bx--leadspace--productive"
           data-autoid="dds--leadspace"
         >
           <div

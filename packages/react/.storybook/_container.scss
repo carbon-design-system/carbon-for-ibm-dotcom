@@ -11,14 +11,40 @@
 // @import '~carbon-components/src/globals/scss/styles.scss'; // SEE THE NOTE ABOVE
 
 // Carbon fonts
-@import '@carbon/type/scss/font-face/mono';
-@import '@carbon/type/scss/font-face/sans';
+@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/type/font-face/mono';
+@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/type/font-face/sans';
 @include carbon--font-face-mono();
 @include carbon--font-face-sans();
 
 @import '@carbon/layout/scss/breakpoint';
 
 @import '../../styles/scss/ibm-dotcom-styles.scss';
+
+@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/themes/mixins';
+
+:root {
+  @include carbon--theme($carbon--theme--white, true);
+
+  height: 100%;
+}
+
+:root[storybook-carbon-theme='g10'] {
+  @include carbon--theme($carbon--theme--g10, true);
+}
+
+:root[storybook-carbon-theme='g90'] {
+  @include carbon--theme($carbon--theme--g90, true);
+}
+
+:root[storybook-carbon-theme='g100'] {
+  @include carbon--theme($carbon--theme--g100, true);
+}
+
+body {
+  background-color: $ui-background;
+  color: $text-01;
+  height: 100%;
+}
 
 // Storybook styles
 .storybook-center-container {
@@ -34,10 +60,6 @@
 
 .storybook-readme-story {
   width: 100%;
-}
-
-.bx--visually-hidden {
-  display: none;
 }
 
 // hide the cookie button

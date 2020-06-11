@@ -23,6 +23,7 @@ export default {
 
   parameters: {
     ...readme.parameters,
+    'carbon-theme': { disabled: true },
     knobs: {
       DotcomShell: () => {
         const {
