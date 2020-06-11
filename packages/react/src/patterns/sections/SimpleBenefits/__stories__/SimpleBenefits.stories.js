@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { object, select, text } from '@storybook/addon-knobs';
+import { object, text } from '@storybook/addon-knobs';
 import { DDS_SIMPLEBENEFITS } from '../../../../internal/FeatureFlags';
 import React from 'react';
 import readme from '../README.stories.mdx';
@@ -64,13 +64,6 @@ const defaultContent = [
   },
 ];
 
-const themes = {
-  white: '',
-  g10: 'g10',
-  g90: 'g90',
-  g100: 'g100',
-};
-
 export default !DDS_SIMPLEBENEFITS
   ? undefined
   : {
@@ -81,7 +74,6 @@ export default !DDS_SIMPLEBENEFITS
         knobs: {
           SimpleBenefits: ({ groupId }) => ({
             content: object('Content group', defaultContent, groupId),
-            theme: select('Theme', themes, themes.white, groupId),
             title: text(
               'Pattern title (required)',
               'Lorem ipsum dolor sit amet consectetur adipiscing elit',
@@ -93,6 +85,7 @@ export default !DDS_SIMPLEBENEFITS
     };
 
 export const Default = ({ parameters }) => {
-  const { content, theme, title } = parameters?.props?.SimpleBenefits ?? {};
+  const { content, title } = parameters?.props?.SimpleBenefits ?? {};
+  const theme = document.documentElement.getAttribute('storybook-carbon-theme');
   return <SimpleBenefits content={content} theme={theme} title={title} />;
 };
