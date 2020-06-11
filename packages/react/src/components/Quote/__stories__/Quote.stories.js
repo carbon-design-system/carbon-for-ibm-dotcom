@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { text, select, object, boolean } from '@storybook/addon-knobs';
+import { text, select, object } from '@storybook/addon-knobs';
 import Quote from '../Quote';
 import React from 'react';
 import readme from '../README.stories.mdx';
@@ -59,15 +59,17 @@ export default {
           },
           groupId
         ),
-        inverse: boolean('Inverse theme: ', false, groupId),
       }),
     },
   },
 };
 
 export const Default = ({ parameters }) => {
-  const { markType, copy, source, cta, inverse } =
-    parameters?.props?.Quote ?? {};
+  const { markType, copy, source, cta } = parameters?.props?.Quote ?? {};
+  const inverse =
+    ['g90', 'g100'].indexOf(
+      document.documentElement.getAttribute('storybook-carbon-theme')
+    ) >= 0;
   return (
     <div className="bx--grid">
       <div className="bx--row">

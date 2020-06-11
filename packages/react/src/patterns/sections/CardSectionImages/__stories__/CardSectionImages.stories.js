@@ -5,18 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { object, select, text } from '@storybook/addon-knobs';
+import { object, text } from '@storybook/addon-knobs';
 import cards from '../../../../components/CardGroup/__stories__/data/cards.json';
 import CardSectionImages from '../CardSectionImages';
 import React from 'react';
 import readme from '../README.stories.mdx';
-
-const themes = {
-  white: '',
-  g10: 'g10',
-  g90: 'g90',
-  g100: 'g100',
-};
 
 export default {
   title: 'Patterns (Sections)|CardSectionImages',
@@ -30,7 +23,6 @@ export default {
           'Aliquam condimentum interdum',
           groupId
         ),
-        theme: select('theme', themes, themes.white, groupId),
         cards: object('Data', cards.Images, groupId),
       }),
     },
@@ -38,6 +30,7 @@ export default {
 };
 
 export const Default = ({ parameters }) => {
-  const { heading, theme, cards } = parameters?.props?.CardSectionImages ?? {};
+  const { heading, cards } = parameters?.props?.CardSectionImages ?? {};
+  const theme = document.documentElement.getAttribute('storybook-carbon-theme');
   return <CardSectionImages heading={heading} theme={theme} cards={cards} />;
 };
