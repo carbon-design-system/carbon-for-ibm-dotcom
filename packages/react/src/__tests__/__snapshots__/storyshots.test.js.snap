@@ -770,10 +770,11 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                   customClassName="bx--card-group__card"
                   heading="Nunc convallis lobortis"
                   key="0"
+                  theme="white"
                   type="link"
                 >
                   <ClickableTile
-                    className="bx--card bx--card--link bx--card-group__card"
+                    className="bx--card bx--card--link bx--card--theme--white bx--card-group__card"
                     clicked={false}
                     data-autoid="dds--card"
                     handleClick={[Function]}
@@ -784,7 +785,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                     target={null}
                   >
                     <a
-                      className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
+                      className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card--theme--white bx--card-group__card"
                       data-autoid="dds--card"
                       href="https://www.example.com"
                       onClick={[Function]}
@@ -884,10 +885,11 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                   customClassName="bx--card-group__card"
                   heading="Fusce gravida eu arcu"
                   key="1"
+                  theme="white"
                   type="link"
                 >
                   <ClickableTile
-                    className="bx--card bx--card--link bx--card-group__card"
+                    className="bx--card bx--card--link bx--card--theme--white bx--card-group__card"
                     clicked={false}
                     data-autoid="dds--card"
                     handleClick={[Function]}
@@ -898,7 +900,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                     target={null}
                   >
                     <a
-                      className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
+                      className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card--theme--white bx--card-group__card"
                       data-autoid="dds--card"
                       href="https://www.example.com"
                       onClick={[Function]}
@@ -998,10 +1000,11 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                   customClassName="bx--card-group__card"
                   heading="Interdum et malesuada"
                   key="2"
+                  theme="white"
                   type="link"
                 >
                   <ClickableTile
-                    className="bx--card bx--card--link bx--card-group__card"
+                    className="bx--card bx--card--link bx--card--theme--white bx--card-group__card"
                     clicked={false}
                     data-autoid="dds--card"
                     handleClick={[Function]}
@@ -1012,7 +1015,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                     target={null}
                   >
                     <a
-                      className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
+                      className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card--theme--white bx--card-group__card"
                       data-autoid="dds--card"
                       href="https://www.example.com"
                       onClick={[Function]}
@@ -1112,10 +1115,11 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                   customClassName="bx--card-group__card"
                   heading="Nunc convallis loborti"
                   key="3"
+                  theme="white"
                   type="link"
                 >
                   <ClickableTile
-                    className="bx--card bx--card--link bx--card-group__card"
+                    className="bx--card bx--card--link bx--card--theme--white bx--card-group__card"
                     clicked={false}
                     data-autoid="dds--card"
                     handleClick={[Function]}
@@ -1126,7 +1130,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                     target={null}
                   >
                     <a
-                      className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
+                      className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card--theme--white bx--card-group__card"
                       data-autoid="dds--card"
                       href="https://www.example.com"
                       onClick={[Function]}
@@ -1226,10 +1230,11 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                   customClassName="bx--card-group__card"
                   heading="Nunc convallis lbortis"
                   key="4"
+                  theme="white"
                   type="link"
                 >
                   <ClickableTile
-                    className="bx--card bx--card--link bx--card-group__card"
+                    className="bx--card bx--card--link bx--card--theme--white bx--card-group__card"
                     clicked={false}
                     data-autoid="dds--card"
                     handleClick={[Function]}
@@ -1240,7 +1245,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                     target={null}
                   >
                     <a
-                      className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
+                      className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card--theme--white bx--card-group__card"
                       data-autoid="dds--card"
                       href="https://www.example.com"
                       onClick={[Function]}
@@ -1335,10 +1340,11 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                   }
                   heading="Top level card link"
                   inverse={true}
+                  theme="white"
                   type="link"
                 >
                   <ClickableTile
-                    className="bx--card bx--card--inverse bx--card--link"
+                    className="bx--card bx--card--inverse bx--card--link bx--card--theme--white"
                     clicked={false}
                     data-autoid="dds--card"
                     handleClick={[Function]}
@@ -1349,7 +1355,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                     target={null}
                   >
                     <a
-                      className="bx--tile bx--tile--clickable bx--card bx--card--inverse bx--card--link"
+                      className="bx--tile bx--tile--clickable bx--card bx--card--inverse bx--card--link bx--card--theme--white"
                       data-autoid="dds--card"
                       href="https://www.example.com"
                       onClick={[Function]}
@@ -1487,10 +1493,11 @@ exports[`Storyshots Components|CardLink Default 1`] = `
               }
               customClassName="bx--card__CTA"
               disabled={false}
+              theme="white"
               type="link"
             >
               <ClickableTile
-                className="bx--card bx--card--link bx--card__CTA"
+                className="bx--card bx--card--link bx--card--theme--white bx--card__CTA"
                 clicked={false}
                 data-autoid="dds--card"
                 disabled={false}
@@ -1502,7 +1509,7 @@ exports[`Storyshots Components|CardLink Default 1`] = `
                 target={null}
               >
                 <a
-                  className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                  className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card--theme--white bx--card__CTA"
                   data-autoid="dds--card"
                   disabled={false}
                   href="https://www.example.com"
@@ -3699,10 +3706,11 @@ exports[`Storyshots Components|FeatureCard Default 1`] = `
                   }
                 }
                 inverse={true}
+                theme="white"
                 type="link"
               >
                 <ClickableTile
-                  className="bx--card bx--card--inverse bx--card--link bx--feature-card__card"
+                  className="bx--card bx--card--inverse bx--card--link bx--card--theme--white bx--feature-card__card"
                   clicked={false}
                   data-autoid="dds--card"
                   handleClick={[Function]}
@@ -3713,7 +3721,7 @@ exports[`Storyshots Components|FeatureCard Default 1`] = `
                   target={null}
                 >
                   <a
-                    className="bx--tile bx--tile--clickable bx--card bx--card--inverse bx--card--link bx--feature-card__card"
+                    className="bx--tile bx--tile--clickable bx--card bx--card--inverse bx--card--link bx--card--theme--white bx--feature-card__card"
                     data-autoid="dds--card"
                     href="https://www.example.com"
                     onClick={[Function]}
@@ -5371,10 +5379,11 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                             href=""
                             media={null}
                             target={null}
+                            theme="white"
                             type="link"
                           >
                             <ClickableTile
-                              className="bx--card bx--card--link bx--card__CTA"
+                              className="bx--card bx--card--link bx--card--theme--white bx--card__CTA"
                               clicked={false}
                               data-autoid="dds--card"
                               disabled={false}
@@ -5387,7 +5396,7 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                               target={null}
                             >
                               <a
-                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card--theme--white bx--card__CTA"
                                 data-autoid="dds--card"
                                 disabled={false}
                                 href=""
@@ -5550,10 +5559,11 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                             href=""
                             media={null}
                             target={null}
+                            theme="white"
                             type="link"
                           >
                             <ClickableTile
-                              className="bx--card bx--card--link bx--card__CTA"
+                              className="bx--card bx--card--link bx--card--theme--white bx--card__CTA"
                               clicked={false}
                               data-autoid="dds--card"
                               disabled={false}
@@ -5566,7 +5576,7 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                               target={null}
                             >
                               <a
-                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card--theme--white bx--card__CTA"
                                 data-autoid="dds--card"
                                 disabled={false}
                                 href=""
@@ -5732,10 +5742,11 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                             href=""
                             media={null}
                             target="_blank"
+                            theme="white"
                             type="link"
                           >
                             <ClickableTile
-                              className="bx--card bx--card--link bx--card__CTA"
+                              className="bx--card bx--card--link bx--card--theme--white bx--card__CTA"
                               clicked={false}
                               data-autoid="dds--card"
                               disabled={false}
@@ -5748,7 +5759,7 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                               target="_blank"
                             >
                               <a
-                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card--theme--white bx--card__CTA"
                                 data-autoid="dds--card"
                                 disabled={false}
                                 href=""
@@ -5926,10 +5937,11 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                                 "type": "video",
                               }
                             }
+                            theme="white"
                             type="link"
                           >
                             <ClickableTile
-                              className="bx--card bx--card--link bx--card__CTA bx--card__video"
+                              className="bx--card bx--card--link bx--card--theme--white bx--card__CTA bx--card__video"
                               clicked={false}
                               data-autoid="dds--card"
                               disabled={false}
@@ -5947,7 +5959,7 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                               target={null}
                             >
                               <a
-                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA bx--card__video"
+                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card--theme--white bx--card__CTA bx--card__video"
                                 data-autoid="dds--card"
                                 disabled={false}
                                 href=""
@@ -7864,10 +7876,11 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                             href=""
                             media={null}
                             target={null}
+                            theme="white"
                             type="link"
                           >
                             <ClickableTile
-                              className="bx--card bx--card--link bx--card__CTA"
+                              className="bx--card bx--card--link bx--card--theme--white bx--card__CTA"
                               clicked={false}
                               data-autoid="dds--card"
                               disabled={false}
@@ -7880,7 +7893,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                               target={null}
                             >
                               <a
-                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card--theme--white bx--card__CTA"
                                 data-autoid="dds--card"
                                 disabled={false}
                                 href=""
@@ -8043,10 +8056,11 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                             href=""
                             media={null}
                             target={null}
+                            theme="white"
                             type="link"
                           >
                             <ClickableTile
-                              className="bx--card bx--card--link bx--card__CTA"
+                              className="bx--card bx--card--link bx--card--theme--white bx--card__CTA"
                               clicked={false}
                               data-autoid="dds--card"
                               disabled={false}
@@ -8059,7 +8073,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                               target={null}
                             >
                               <a
-                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card--theme--white bx--card__CTA"
                                 data-autoid="dds--card"
                                 disabled={false}
                                 href=""
@@ -8225,10 +8239,11 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                             href=""
                             media={null}
                             target="_blank"
+                            theme="white"
                             type="link"
                           >
                             <ClickableTile
-                              className="bx--card bx--card--link bx--card__CTA"
+                              className="bx--card bx--card--link bx--card--theme--white bx--card__CTA"
                               clicked={false}
                               data-autoid="dds--card"
                               disabled={false}
@@ -8241,7 +8256,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                               target="_blank"
                             >
                               <a
-                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card--theme--white bx--card__CTA"
                                 data-autoid="dds--card"
                                 disabled={false}
                                 href=""
@@ -8419,10 +8434,11 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                 "type": "video",
                               }
                             }
+                            theme="white"
                             type="link"
                           >
                             <ClickableTile
-                              className="bx--card bx--card--link bx--card__CTA bx--card__video"
+                              className="bx--card bx--card--link bx--card--theme--white bx--card__CTA bx--card__video"
                               clicked={false}
                               data-autoid="dds--card"
                               disabled={false}
@@ -8440,7 +8456,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                               target={null}
                             >
                               <a
-                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA bx--card__video"
+                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card--theme--white bx--card__CTA bx--card__video"
                                 data-autoid="dds--card"
                                 disabled={false}
                                 href=""
@@ -12859,10 +12875,11 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                               customClassName="bx--card-group__card"
                               heading="Nunc convallis lobortis"
                               key="0"
+                              theme="white"
                               type="link"
                             >
                               <ClickableTile
-                                className="bx--card bx--card--link bx--card-group__card"
+                                className="bx--card bx--card--link bx--card--theme--white bx--card-group__card"
                                 clicked={false}
                                 data-autoid="dds--card"
                                 handleClick={[Function]}
@@ -12873,7 +12890,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                 target={null}
                               >
                                 <a
-                                  className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
+                                  className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card--theme--white bx--card-group__card"
                                   data-autoid="dds--card"
                                   href="https://www.example.com"
                                   onClick={[Function]}
@@ -12973,10 +12990,11 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                               customClassName="bx--card-group__card"
                               heading="Fusce gravida eu arcu"
                               key="1"
+                              theme="white"
                               type="link"
                             >
                               <ClickableTile
-                                className="bx--card bx--card--link bx--card-group__card"
+                                className="bx--card bx--card--link bx--card--theme--white bx--card-group__card"
                                 clicked={false}
                                 data-autoid="dds--card"
                                 handleClick={[Function]}
@@ -12987,7 +13005,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                 target={null}
                               >
                                 <a
-                                  className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
+                                  className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card--theme--white bx--card-group__card"
                                   data-autoid="dds--card"
                                   href="https://www.example.com"
                                   onClick={[Function]}
@@ -13087,10 +13105,11 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                               customClassName="bx--card-group__card"
                               heading="Interdum et malesuada"
                               key="2"
+                              theme="white"
                               type="link"
                             >
                               <ClickableTile
-                                className="bx--card bx--card--link bx--card-group__card"
+                                className="bx--card bx--card--link bx--card--theme--white bx--card-group__card"
                                 clicked={false}
                                 data-autoid="dds--card"
                                 handleClick={[Function]}
@@ -13101,7 +13120,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                 target={null}
                               >
                                 <a
-                                  className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
+                                  className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card--theme--white bx--card-group__card"
                                   data-autoid="dds--card"
                                   href="https://www.example.com"
                                   onClick={[Function]}
@@ -13201,10 +13220,11 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                               customClassName="bx--card-group__card"
                               heading="Nunc convallis loborti"
                               key="3"
+                              theme="white"
                               type="link"
                             >
                               <ClickableTile
-                                className="bx--card bx--card--link bx--card-group__card"
+                                className="bx--card bx--card--link bx--card--theme--white bx--card-group__card"
                                 clicked={false}
                                 data-autoid="dds--card"
                                 handleClick={[Function]}
@@ -13215,7 +13235,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                 target={null}
                               >
                                 <a
-                                  className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
+                                  className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card--theme--white bx--card-group__card"
                                   data-autoid="dds--card"
                                   href="https://www.example.com"
                                   onClick={[Function]}
@@ -13315,10 +13335,11 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                               customClassName="bx--card-group__card"
                               heading="Nunc convallis lbortis"
                               key="4"
+                              theme="white"
                               type="link"
                             >
                               <ClickableTile
-                                className="bx--card bx--card--link bx--card-group__card"
+                                className="bx--card bx--card--link bx--card--theme--white bx--card-group__card"
                                 clicked={false}
                                 data-autoid="dds--card"
                                 handleClick={[Function]}
@@ -13329,7 +13350,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                 target={null}
                               >
                                 <a
-                                  className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
+                                  className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card--theme--white bx--card-group__card"
                                   data-autoid="dds--card"
                                   href="https://www.example.com"
                                   onClick={[Function]}
@@ -13935,10 +13956,11 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                         href=""
                                         media={null}
                                         target={null}
+                                        theme="white"
                                         type="link"
                                       >
                                         <ClickableTile
-                                          className="bx--card bx--card--link bx--card__CTA"
+                                          className="bx--card bx--card--link bx--card--theme--white bx--card__CTA"
                                           clicked={false}
                                           data-autoid="dds--card"
                                           disabled={false}
@@ -13951,7 +13973,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                           target={null}
                                         >
                                           <a
-                                            className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                            className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card--theme--white bx--card__CTA"
                                             data-autoid="dds--card"
                                             disabled={false}
                                             href=""
@@ -14343,10 +14365,11 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                         href=""
                                         media={null}
                                         target={null}
+                                        theme="white"
                                         type="link"
                                       >
                                         <ClickableTile
-                                          className="bx--card bx--card--link bx--card__CTA"
+                                          className="bx--card bx--card--link bx--card--theme--white bx--card__CTA"
                                           clicked={false}
                                           data-autoid="dds--card"
                                           disabled={false}
@@ -14359,7 +14382,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                           target={null}
                                         >
                                           <a
-                                            className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                            className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card--theme--white bx--card__CTA"
                                             data-autoid="dds--card"
                                             disabled={false}
                                             href=""
@@ -14601,10 +14624,11 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                         }
                                         inverse={true}
                                         target={null}
+                                        theme="white"
                                         type="link"
                                       >
                                         <ClickableTile
-                                          className="bx--card bx--card--inverse bx--card--link bx--feature-card__card"
+                                          className="bx--card bx--card--inverse bx--card--link bx--card--theme--white bx--feature-card__card"
                                           clicked={false}
                                           data-autoid="dds--card"
                                           handleClick={[Function]}
@@ -14615,7 +14639,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                           target={null}
                                         >
                                           <a
-                                            className="bx--tile bx--tile--clickable bx--card bx--card--inverse bx--card--link bx--feature-card__card"
+                                            className="bx--tile bx--tile--clickable bx--card bx--card--inverse bx--card--link bx--card--theme--white bx--feature-card__card"
                                             data-autoid="dds--card"
                                             href="https://www.example.com"
                                             onClick={[Function]}
@@ -15334,10 +15358,11 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                                 href=""
                                                 media={null}
                                                 target={null}
+                                                theme="white"
                                                 type="link"
                                               >
                                                 <ClickableTile
-                                                  className="bx--card bx--card--link bx--card__CTA"
+                                                  className="bx--card bx--card--link bx--card--theme--white bx--card__CTA"
                                                   clicked={false}
                                                   data-autoid="dds--card"
                                                   disabled={false}
@@ -15350,7 +15375,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                                   target={null}
                                                 >
                                                   <a
-                                                    className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                                    className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card--theme--white bx--card__CTA"
                                                     data-autoid="dds--card"
                                                     disabled={false}
                                                     href=""
@@ -15742,10 +15767,11 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                                 href=""
                                                 media={null}
                                                 target={null}
+                                                theme="white"
                                                 type="link"
                                               >
                                                 <ClickableTile
-                                                  className="bx--card bx--card--link bx--card__CTA"
+                                                  className="bx--card bx--card--link bx--card--theme--white bx--card__CTA"
                                                   clicked={false}
                                                   data-autoid="dds--card"
                                                   disabled={false}
@@ -15758,7 +15784,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                                   target={null}
                                                 >
                                                   <a
-                                                    className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                                    className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card--theme--white bx--card__CTA"
                                                     data-autoid="dds--card"
                                                     disabled={false}
                                                     href=""
@@ -16000,10 +16026,11 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                                 }
                                                 inverse={true}
                                                 target={null}
+                                                theme="white"
                                                 type="link"
                                               >
                                                 <ClickableTile
-                                                  className="bx--card bx--card--inverse bx--card--link bx--feature-card__card"
+                                                  className="bx--card bx--card--inverse bx--card--link bx--card--theme--white bx--feature-card__card"
                                                   clicked={false}
                                                   data-autoid="dds--card"
                                                   handleClick={[Function]}
@@ -16014,7 +16041,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                                   target={null}
                                                 >
                                                   <a
-                                                    className="bx--tile bx--tile--clickable bx--card bx--card--inverse bx--card--link bx--feature-card__card"
+                                                    className="bx--tile bx--tile--clickable bx--card bx--card--inverse bx--card--link bx--card--theme--white bx--feature-card__card"
                                                     data-autoid="dds--card"
                                                     href="https://www.example.com"
                                                     onClick={[Function]}
@@ -16234,10 +16261,11 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                             href=""
                                             media={null}
                                             target={null}
+                                            theme="white"
                                             type="link"
                                           >
                                             <ClickableTile
-                                              className="bx--card bx--card--link bx--card__CTA"
+                                              className="bx--card bx--card--link bx--card--theme--white bx--card__CTA"
                                               clicked={false}
                                               data-autoid="dds--card"
                                               disabled={false}
@@ -16250,7 +16278,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                               target={null}
                                             >
                                               <a
-                                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card--theme--white bx--card__CTA"
                                                 data-autoid="dds--card"
                                                 disabled={false}
                                                 href=""
@@ -16413,10 +16441,11 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                             href=""
                                             media={null}
                                             target="_blank"
+                                            theme="white"
                                             type="link"
                                           >
                                             <ClickableTile
-                                              className="bx--card bx--card--link bx--card__CTA"
+                                              className="bx--card bx--card--link bx--card--theme--white bx--card__CTA"
                                               clicked={false}
                                               data-autoid="dds--card"
                                               disabled={false}
@@ -16429,7 +16458,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                               target="_blank"
                                             >
                                               <a
-                                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card--theme--white bx--card__CTA"
                                                 data-autoid="dds--card"
                                                 disabled={false}
                                                 href=""
@@ -16832,11 +16861,12 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                       }
                                       customClassName="bx--content-group-cards-item"
                                       heading="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt"
+                                      theme="white"
                                       type="link"
                                     >
                                       <ClickableTile
                                         aria-label="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt"
-                                        className="bx--card bx--card--link bx--content-group-cards-item"
+                                        className="bx--card bx--card--link bx--card--theme--white bx--content-group-cards-item"
                                         clicked={false}
                                         data-autoid="dds--card"
                                         handleClick={[Function]}
@@ -16848,7 +16878,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                       >
                                         <a
                                           aria-label="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt"
-                                          className="bx--tile bx--tile--clickable bx--card bx--card--link bx--content-group-cards-item"
+                                          className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card--theme--white bx--content-group-cards-item"
                                           data-autoid="dds--card"
                                           href="https://www.example.com"
                                           onClick={[Function]}
@@ -16948,11 +16978,12 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                       }
                                       customClassName="bx--content-group-cards-item"
                                       heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+                                      theme="white"
                                       type="link"
                                     >
                                       <ClickableTile
                                         aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-                                        className="bx--card bx--card--link bx--content-group-cards-item"
+                                        className="bx--card bx--card--link bx--card--theme--white bx--content-group-cards-item"
                                         clicked={false}
                                         data-autoid="dds--card"
                                         handleClick={[Function]}
@@ -16964,7 +16995,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                       >
                                         <a
                                           aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-                                          className="bx--tile bx--tile--clickable bx--card bx--card--link bx--content-group-cards-item"
+                                          className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card--theme--white bx--content-group-cards-item"
                                           data-autoid="dds--card"
                                           href="https://www.example.com"
                                           onClick={[Function]}
@@ -17064,11 +17095,12 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                       }
                                       customClassName="bx--content-group-cards-item"
                                       heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+                                      theme="white"
                                       type="link"
                                     >
                                       <ClickableTile
                                         aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-                                        className="bx--card bx--card--link bx--content-group-cards-item"
+                                        className="bx--card bx--card--link bx--card--theme--white bx--content-group-cards-item"
                                         clicked={false}
                                         data-autoid="dds--card"
                                         handleClick={[Function]}
@@ -17080,7 +17112,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                       >
                                         <a
                                           aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-                                          className="bx--tile bx--tile--clickable bx--card bx--card--link bx--content-group-cards-item"
+                                          className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card--theme--white bx--content-group-cards-item"
                                           data-autoid="dds--card"
                                           href="https://www.example.com"
                                           onClick={[Function]}
@@ -17180,11 +17212,12 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                       }
                                       customClassName="bx--content-group-cards-item"
                                       heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+                                      theme="white"
                                       type="link"
                                     >
                                       <ClickableTile
                                         aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-                                        className="bx--card bx--card--link bx--content-group-cards-item"
+                                        className="bx--card bx--card--link bx--card--theme--white bx--content-group-cards-item"
                                         clicked={false}
                                         data-autoid="dds--card"
                                         handleClick={[Function]}
@@ -17196,7 +17229,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                       >
                                         <a
                                           aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-                                          className="bx--tile bx--tile--clickable bx--card bx--card--link bx--content-group-cards-item"
+                                          className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card--theme--white bx--content-group-cards-item"
                                           data-autoid="dds--card"
                                           href="https://www.example.com"
                                           onClick={[Function]}
@@ -18242,10 +18275,11 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                               href=""
                               media={null}
                               target={null}
+                              theme="white"
                               type="link"
                             >
                               <ClickableTile
-                                className="bx--card bx--card--link bx--card__CTA"
+                                className="bx--card bx--card--link bx--card--theme--white bx--card__CTA"
                                 clicked={false}
                                 data-autoid="dds--card"
                                 disabled={false}
@@ -18258,7 +18292,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                 target={null}
                               >
                                 <a
-                                  className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                  className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card--theme--white bx--card__CTA"
                                   data-autoid="dds--card"
                                   disabled={false}
                                   href=""
@@ -18749,11 +18783,12 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                               }
                                               customClassName="bx--content-group-cards-item"
                                               heading="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt"
+                                              theme="white"
                                               type="link"
                                             >
                                               <ClickableTile
                                                 aria-label="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt"
-                                                className="bx--card bx--card--link bx--content-group-cards-item"
+                                                className="bx--card bx--card--link bx--card--theme--white bx--content-group-cards-item"
                                                 clicked={false}
                                                 data-autoid="dds--card"
                                                 handleClick={[Function]}
@@ -18765,7 +18800,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                               >
                                                 <a
                                                   aria-label="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt"
-                                                  className="bx--tile bx--tile--clickable bx--card bx--card--link bx--content-group-cards-item"
+                                                  className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card--theme--white bx--content-group-cards-item"
                                                   data-autoid="dds--card"
                                                   href="https://www.example.com"
                                                   onClick={[Function]}
@@ -18865,11 +18900,12 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                               }
                                               customClassName="bx--content-group-cards-item"
                                               heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+                                              theme="white"
                                               type="link"
                                             >
                                               <ClickableTile
                                                 aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-                                                className="bx--card bx--card--link bx--content-group-cards-item"
+                                                className="bx--card bx--card--link bx--card--theme--white bx--content-group-cards-item"
                                                 clicked={false}
                                                 data-autoid="dds--card"
                                                 handleClick={[Function]}
@@ -18881,7 +18917,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                               >
                                                 <a
                                                   aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-                                                  className="bx--tile bx--tile--clickable bx--card bx--card--link bx--content-group-cards-item"
+                                                  className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card--theme--white bx--content-group-cards-item"
                                                   data-autoid="dds--card"
                                                   href="https://www.example.com"
                                                   onClick={[Function]}
@@ -18981,11 +19017,12 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                               }
                                               customClassName="bx--content-group-cards-item"
                                               heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+                                              theme="white"
                                               type="link"
                                             >
                                               <ClickableTile
                                                 aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-                                                className="bx--card bx--card--link bx--content-group-cards-item"
+                                                className="bx--card bx--card--link bx--card--theme--white bx--content-group-cards-item"
                                                 clicked={false}
                                                 data-autoid="dds--card"
                                                 handleClick={[Function]}
@@ -18997,7 +19034,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                               >
                                                 <a
                                                   aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-                                                  className="bx--tile bx--tile--clickable bx--card bx--card--link bx--content-group-cards-item"
+                                                  className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card--theme--white bx--content-group-cards-item"
                                                   data-autoid="dds--card"
                                                   href="https://www.example.com"
                                                   onClick={[Function]}
@@ -19097,11 +19134,12 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                               }
                                               customClassName="bx--content-group-cards-item"
                                               heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+                                              theme="white"
                                               type="link"
                                             >
                                               <ClickableTile
                                                 aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-                                                className="bx--card bx--card--link bx--content-group-cards-item"
+                                                className="bx--card bx--card--link bx--card--theme--white bx--content-group-cards-item"
                                                 clicked={false}
                                                 data-autoid="dds--card"
                                                 handleClick={[Function]}
@@ -19113,7 +19151,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                               >
                                                 <a
                                                   aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-                                                  className="bx--tile bx--tile--clickable bx--card bx--card--link bx--content-group-cards-item"
+                                                  className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card--theme--white bx--content-group-cards-item"
                                                   data-autoid="dds--card"
                                                   href="https://www.example.com"
                                                   onClick={[Function]}
@@ -20159,10 +20197,11 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                       href=""
                                       media={null}
                                       target={null}
+                                      theme="white"
                                       type="link"
                                     >
                                       <ClickableTile
-                                        className="bx--card bx--card--link bx--card__CTA"
+                                        className="bx--card bx--card--link bx--card--theme--white bx--card__CTA"
                                         clicked={false}
                                         data-autoid="dds--card"
                                         disabled={false}
@@ -20175,7 +20214,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                         target={null}
                                       >
                                         <a
-                                          className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                          className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card--theme--white bx--card__CTA"
                                           data-autoid="dds--card"
                                           disabled={false}
                                           href=""
@@ -20377,10 +20416,11 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                             href=""
                                             media={null}
                                             target={null}
+                                            theme="white"
                                             type="link"
                                           >
                                             <ClickableTile
-                                              className="bx--card bx--card--link bx--card__CTA"
+                                              className="bx--card bx--card--link bx--card--theme--white bx--card__CTA"
                                               clicked={false}
                                               data-autoid="dds--card"
                                               disabled={false}
@@ -20393,7 +20433,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                               target={null}
                                             >
                                               <a
-                                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card--theme--white bx--card__CTA"
                                                 data-autoid="dds--card"
                                                 disabled={false}
                                                 href=""
@@ -20556,10 +20596,11 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                             href=""
                                             media={null}
                                             target="_blank"
+                                            theme="white"
                                             type="link"
                                           >
                                             <ClickableTile
-                                              className="bx--card bx--card--link bx--card__CTA"
+                                              className="bx--card bx--card--link bx--card--theme--white bx--card__CTA"
                                               clicked={false}
                                               data-autoid="dds--card"
                                               disabled={false}
@@ -20572,7 +20613,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                               target="_blank"
                                             >
                                               <a
-                                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card--theme--white bx--card__CTA"
                                                 data-autoid="dds--card"
                                                 disabled={false}
                                                 href=""
@@ -21379,10 +21420,11 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                               href=""
                               media={null}
                               target={null}
+                              theme="white"
                               type="link"
                             >
                               <ClickableTile
-                                className="bx--card bx--card--link bx--card__CTA"
+                                className="bx--card bx--card--link bx--card--theme--white bx--card__CTA"
                                 clicked={false}
                                 data-autoid="dds--card"
                                 disabled={false}
@@ -21395,7 +21437,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                 target={null}
                               >
                                 <a
-                                  className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                  className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card--theme--white bx--card__CTA"
                                   data-autoid="dds--card"
                                   disabled={false}
                                   href=""
@@ -22093,10 +22135,11 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                       href=""
                                       media={null}
                                       target={null}
+                                      theme="white"
                                       type="link"
                                     >
                                       <ClickableTile
-                                        className="bx--card bx--card--link bx--card__CTA"
+                                        className="bx--card bx--card--link bx--card--theme--white bx--card__CTA"
                                         clicked={false}
                                         data-autoid="dds--card"
                                         disabled={false}
@@ -22109,7 +22152,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                         target={null}
                                       >
                                         <a
-                                          className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                          className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card--theme--white bx--card__CTA"
                                           data-autoid="dds--card"
                                           disabled={false}
                                           href=""
@@ -22311,10 +22354,11 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                             href=""
                                             media={null}
                                             target={null}
+                                            theme="white"
                                             type="link"
                                           >
                                             <ClickableTile
-                                              className="bx--card bx--card--link bx--card__CTA"
+                                              className="bx--card bx--card--link bx--card--theme--white bx--card__CTA"
                                               clicked={false}
                                               data-autoid="dds--card"
                                               disabled={false}
@@ -22327,7 +22371,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                               target={null}
                                             >
                                               <a
-                                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card--theme--white bx--card__CTA"
                                                 data-autoid="dds--card"
                                                 disabled={false}
                                                 href=""
@@ -22490,10 +22534,11 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                             href=""
                                             media={null}
                                             target="_blank"
+                                            theme="white"
                                             type="link"
                                           >
                                             <ClickableTile
-                                              className="bx--card bx--card--link bx--card__CTA"
+                                              className="bx--card bx--card--link bx--card--theme--white bx--card__CTA"
                                               clicked={false}
                                               data-autoid="dds--card"
                                               disabled={false}
@@ -22506,7 +22551,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                               target="_blank"
                                             >
                                               <a
-                                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card--theme--white bx--card__CTA"
                                                 data-autoid="dds--card"
                                                 disabled={false}
                                                 href=""
@@ -22922,10 +22967,11 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                               href=""
                               media={null}
                               target={null}
+                              theme="white"
                               type="link"
                             >
                               <ClickableTile
-                                className="bx--card bx--card--link bx--card__CTA"
+                                className="bx--card bx--card--link bx--card--theme--white bx--card__CTA"
                                 clicked={false}
                                 data-autoid="dds--card"
                                 disabled={false}
@@ -22938,7 +22984,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                                 target={null}
                               >
                                 <a
-                                  className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                  className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card--theme--white bx--card__CTA"
                                   data-autoid="dds--card"
                                   disabled={false}
                                   href=""
@@ -23439,10 +23485,11 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                       href=""
                                       media={null}
                                       target={null}
+                                      theme="white"
                                       type="link"
                                     >
                                       <ClickableTile
-                                        className="bx--card bx--card--link bx--card__CTA"
+                                        className="bx--card bx--card--link bx--card--theme--white bx--card__CTA"
                                         clicked={false}
                                         data-autoid="dds--card"
                                         disabled={false}
@@ -23455,7 +23502,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                         target={null}
                                       >
                                         <a
-                                          className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                          className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card--theme--white bx--card__CTA"
                                           data-autoid="dds--card"
                                           disabled={false}
                                           href=""
@@ -23657,10 +23704,11 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                             href=""
                                             media={null}
                                             target={null}
+                                            theme="white"
                                             type="link"
                                           >
                                             <ClickableTile
-                                              className="bx--card bx--card--link bx--card__CTA"
+                                              className="bx--card bx--card--link bx--card--theme--white bx--card__CTA"
                                               clicked={false}
                                               data-autoid="dds--card"
                                               disabled={false}
@@ -23673,7 +23721,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                               target={null}
                                             >
                                               <a
-                                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card--theme--white bx--card__CTA"
                                                 data-autoid="dds--card"
                                                 disabled={false}
                                                 href=""
@@ -23836,10 +23884,11 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                             href=""
                                             media={null}
                                             target="_blank"
+                                            theme="white"
                                             type="link"
                                           >
                                             <ClickableTile
-                                              className="bx--card bx--card--link bx--card__CTA"
+                                              className="bx--card bx--card--link bx--card--theme--white bx--card__CTA"
                                               clicked={false}
                                               data-autoid="dds--card"
                                               disabled={false}
@@ -23852,7 +23901,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                               target="_blank"
                                             >
                                               <a
-                                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card--theme--white bx--card__CTA"
                                                 data-autoid="dds--card"
                                                 disabled={false}
                                                 href=""
@@ -24074,11 +24123,12 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
                             }
                             customClassName="bx--content-group-cards-item"
                             heading="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt"
+                            theme="white"
                             type="link"
                           >
                             <ClickableTile
                               aria-label="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt"
-                              className="bx--card bx--card--link bx--content-group-cards-item"
+                              className="bx--card bx--card--link bx--card--theme--white bx--content-group-cards-item"
                               clicked={false}
                               data-autoid="dds--card"
                               handleClick={[Function]}
@@ -24090,7 +24140,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
                             >
                               <a
                                 aria-label="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt"
-                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--content-group-cards-item"
+                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card--theme--white bx--content-group-cards-item"
                                 data-autoid="dds--card"
                                 href="https://www.example.com"
                                 onClick={[Function]}
@@ -24190,11 +24240,12 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
                             }
                             customClassName="bx--content-group-cards-item"
                             heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+                            theme="white"
                             type="link"
                           >
                             <ClickableTile
                               aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-                              className="bx--card bx--card--link bx--content-group-cards-item"
+                              className="bx--card bx--card--link bx--card--theme--white bx--content-group-cards-item"
                               clicked={false}
                               data-autoid="dds--card"
                               handleClick={[Function]}
@@ -24206,7 +24257,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
                             >
                               <a
                                 aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--content-group-cards-item"
+                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card--theme--white bx--content-group-cards-item"
                                 data-autoid="dds--card"
                                 href="https://www.example.com"
                                 onClick={[Function]}
@@ -24306,11 +24357,12 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
                             }
                             customClassName="bx--content-group-cards-item"
                             heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+                            theme="white"
                             type="link"
                           >
                             <ClickableTile
                               aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-                              className="bx--card bx--card--link bx--content-group-cards-item"
+                              className="bx--card bx--card--link bx--card--theme--white bx--content-group-cards-item"
                               clicked={false}
                               data-autoid="dds--card"
                               handleClick={[Function]}
@@ -24322,7 +24374,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
                             >
                               <a
                                 aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--content-group-cards-item"
+                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card--theme--white bx--content-group-cards-item"
                                 data-autoid="dds--card"
                                 href="https://www.example.com"
                                 onClick={[Function]}
@@ -24422,11 +24474,12 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
                             }
                             customClassName="bx--content-group-cards-item"
                             heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+                            theme="white"
                             type="link"
                           >
                             <ClickableTile
                               aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-                              className="bx--card bx--card--link bx--content-group-cards-item"
+                              className="bx--card bx--card--link bx--card--theme--white bx--content-group-cards-item"
                               clicked={false}
                               data-autoid="dds--card"
                               handleClick={[Function]}
@@ -24438,7 +24491,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
                             >
                               <a
                                 aria-label="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--content-group-cards-item"
+                                className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card--theme--white bx--content-group-cards-item"
                                 data-autoid="dds--card"
                                 href="https://www.example.com"
                                 onClick={[Function]}
@@ -26195,10 +26248,11 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupSimple Default 1`] = `
                               href=""
                               media={null}
                               target={null}
+                              theme="white"
                               type="link"
                             >
                               <ClickableTile
-                                className="bx--card bx--card--link bx--card__CTA"
+                                className="bx--card bx--card--link bx--card--theme--white bx--card__CTA"
                                 clicked={false}
                                 data-autoid="dds--card"
                                 disabled={false}
@@ -26211,7 +26265,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupSimple Default 1`] = `
                                 target={null}
                               >
                                 <a
-                                  className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                  className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card--theme--white bx--card__CTA"
                                   data-autoid="dds--card"
                                   disabled={false}
                                   href=""
@@ -26377,10 +26431,11 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockLarge Default 1`] = `
                   }
                 }
                 inverse={true}
+                theme="white"
                 type="link"
               >
                 <ClickableTile
-                  className="bx--card bx--card--inverse bx--card--link bx--feature-card-block-large__card"
+                  className="bx--card bx--card--inverse bx--card--link bx--card--theme--white bx--feature-card-block-large__card"
                   clicked={false}
                   data-autoid="dds--card"
                   handleClick={[Function]}
@@ -26391,7 +26446,7 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockLarge Default 1`] = `
                   target={null}
                 >
                   <a
-                    className="bx--tile bx--tile--clickable bx--card bx--card--inverse bx--card--link bx--feature-card-block-large__card"
+                    className="bx--tile bx--tile--clickable bx--card bx--card--inverse bx--card--link bx--card--theme--white bx--feature-card-block-large__card"
                     data-autoid="dds--card"
                     href="https://www.example.com"
                     onClick={[Function]}
@@ -26614,10 +26669,11 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockMedium Default 1`] = `
                             }
                           }
                           inverse={true}
+                          theme="white"
                           type="link"
                         >
                           <ClickableTile
-                            className="bx--card bx--card--inverse bx--card--link bx--feature-card__card"
+                            className="bx--card bx--card--inverse bx--card--link bx--card--theme--white bx--feature-card__card"
                             clicked={false}
                             data-autoid="dds--card"
                             handleClick={[Function]}
@@ -26628,7 +26684,7 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockMedium Default 1`] = `
                             target={null}
                           >
                             <a
-                              className="bx--tile bx--tile--clickable bx--card bx--card--inverse bx--card--link bx--feature-card__card"
+                              className="bx--tile bx--tile--clickable bx--card bx--card--inverse bx--card--link bx--card--theme--white bx--feature-card__card"
                               data-autoid="dds--card"
                               href="https://www.example.com"
                               onClick={[Function]}
@@ -28068,10 +28124,11 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                   href=""
                                   media={null}
                                   target={null}
+                                  theme="white"
                                   type="link"
                                 >
                                   <ClickableTile
-                                    className="bx--card bx--card--link bx--card__CTA"
+                                    className="bx--card bx--card--link bx--card--theme--white bx--card__CTA"
                                     clicked={false}
                                     data-autoid="dds--card"
                                     disabled={false}
@@ -28084,7 +28141,7 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                     target={null}
                                   >
                                     <a
-                                      className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
+                                      className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card--theme--white bx--card__CTA"
                                       data-autoid="dds--card"
                                       disabled={false}
                                       href=""
@@ -28858,10 +28915,11 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                           }
                         }
                         key="0"
+                        theme="white"
                         type="link"
                       >
                         <ClickableTile
-                          className="bx--card bx--card--link bx--card-group__card"
+                          className="bx--card bx--card--link bx--card--theme--white bx--card-group__card"
                           clicked={false}
                           data-autoid="dds--card"
                           handleClick={[Function]}
@@ -28872,7 +28930,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                           target={null}
                         >
                           <a
-                            className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
+                            className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card--theme--white bx--card-group__card"
                             data-autoid="dds--card"
                             href="https://www.example.com"
                             onClick={[Function]}
@@ -28993,10 +29051,11 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                           }
                         }
                         key="1"
+                        theme="white"
                         type="link"
                       >
                         <ClickableTile
-                          className="bx--card bx--card--link bx--card-group__card"
+                          className="bx--card bx--card--link bx--card--theme--white bx--card-group__card"
                           clicked={false}
                           data-autoid="dds--card"
                           handleClick={[Function]}
@@ -29007,7 +29066,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                           target={null}
                         >
                           <a
-                            className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
+                            className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card--theme--white bx--card-group__card"
                             data-autoid="dds--card"
                             href="https://www.example.com"
                             onClick={[Function]}
@@ -29128,10 +29187,11 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                           }
                         }
                         key="2"
+                        theme="white"
                         type="link"
                       >
                         <ClickableTile
-                          className="bx--card bx--card--link bx--card-group__card"
+                          className="bx--card bx--card--link bx--card--theme--white bx--card-group__card"
                           clicked={false}
                           data-autoid="dds--card"
                           handleClick={[Function]}
@@ -29142,7 +29202,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                           target={null}
                         >
                           <a
-                            className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
+                            className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card--theme--white bx--card-group__card"
                             data-autoid="dds--card"
                             href="https://www.example.com"
                             onClick={[Function]}
@@ -29263,10 +29323,11 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                           }
                         }
                         key="3"
+                        theme="white"
                         type="link"
                       >
                         <ClickableTile
-                          className="bx--card bx--card--link bx--card-group__card"
+                          className="bx--card bx--card--link bx--card--theme--white bx--card-group__card"
                           clicked={false}
                           data-autoid="dds--card"
                           handleClick={[Function]}
@@ -29277,7 +29338,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                           target={null}
                         >
                           <a
-                            className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
+                            className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card--theme--white bx--card-group__card"
                             data-autoid="dds--card"
                             href="https://www.example.com"
                             onClick={[Function]}
@@ -29398,10 +29459,11 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                           }
                         }
                         key="4"
+                        theme="white"
                         type="link"
                       >
                         <ClickableTile
-                          className="bx--card bx--card--link bx--card-group__card"
+                          className="bx--card bx--card--link bx--card--theme--white bx--card-group__card"
                           clicked={false}
                           data-autoid="dds--card"
                           handleClick={[Function]}
@@ -29412,7 +29474,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                           target={null}
                         >
                           <a
-                            className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
+                            className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card--theme--white bx--card-group__card"
                             data-autoid="dds--card"
                             href="https://www.example.com"
                             onClick={[Function]}
@@ -29688,10 +29750,11 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                         customClassName="bx--card-group__card"
                         heading="Nunc convallis lobortis"
                         key="0"
+                        theme="white"
                         type="link"
                       >
                         <ClickableTile
-                          className="bx--card bx--card--link bx--card-group__card"
+                          className="bx--card bx--card--link bx--card--theme--white bx--card-group__card"
                           clicked={false}
                           data-autoid="dds--card"
                           handleClick={[Function]}
@@ -29702,7 +29765,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                           target={null}
                         >
                           <a
-                            className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
+                            className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card--theme--white bx--card-group__card"
                             data-autoid="dds--card"
                             href="https://www.example.com"
                             onClick={[Function]}
@@ -29802,10 +29865,11 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                         customClassName="bx--card-group__card"
                         heading="Fusce gravida eu arcu"
                         key="1"
+                        theme="white"
                         type="link"
                       >
                         <ClickableTile
-                          className="bx--card bx--card--link bx--card-group__card"
+                          className="bx--card bx--card--link bx--card--theme--white bx--card-group__card"
                           clicked={false}
                           data-autoid="dds--card"
                           handleClick={[Function]}
@@ -29816,7 +29880,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                           target={null}
                         >
                           <a
-                            className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
+                            className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card--theme--white bx--card-group__card"
                             data-autoid="dds--card"
                             href="https://www.example.com"
                             onClick={[Function]}
@@ -29916,10 +29980,11 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                         customClassName="bx--card-group__card"
                         heading="Interdum et malesuada"
                         key="2"
+                        theme="white"
                         type="link"
                       >
                         <ClickableTile
-                          className="bx--card bx--card--link bx--card-group__card"
+                          className="bx--card bx--card--link bx--card--theme--white bx--card-group__card"
                           clicked={false}
                           data-autoid="dds--card"
                           handleClick={[Function]}
@@ -29930,7 +29995,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                           target={null}
                         >
                           <a
-                            className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
+                            className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card--theme--white bx--card-group__card"
                             data-autoid="dds--card"
                             href="https://www.example.com"
                             onClick={[Function]}
@@ -30030,10 +30095,11 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                         customClassName="bx--card-group__card"
                         heading="Nunc convallis loborti"
                         key="3"
+                        theme="white"
                         type="link"
                       >
                         <ClickableTile
-                          className="bx--card bx--card--link bx--card-group__card"
+                          className="bx--card bx--card--link bx--card--theme--white bx--card-group__card"
                           clicked={false}
                           data-autoid="dds--card"
                           handleClick={[Function]}
@@ -30044,7 +30110,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                           target={null}
                         >
                           <a
-                            className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
+                            className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card--theme--white bx--card-group__card"
                             data-autoid="dds--card"
                             href="https://www.example.com"
                             onClick={[Function]}
@@ -30144,10 +30210,11 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                         customClassName="bx--card-group__card"
                         heading="Nunc convallis lbortis"
                         key="4"
+                        theme="white"
                         type="link"
                       >
                         <ClickableTile
-                          className="bx--card bx--card--link bx--card-group__card"
+                          className="bx--card bx--card--link bx--card--theme--white bx--card-group__card"
                           clicked={false}
                           data-autoid="dds--card"
                           handleClick={[Function]}
@@ -30158,7 +30225,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                           target={null}
                         >
                           <a
-                            className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card-group__card"
+                            className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card--theme--white bx--card-group__card"
                             data-autoid="dds--card"
                             href="https://www.example.com"
                             onClick={[Function]}
@@ -30253,10 +30320,11 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                         }
                         heading="Top level card link"
                         inverse={true}
+                        theme="white"
                         type="link"
                       >
                         <ClickableTile
-                          className="bx--card bx--card--inverse bx--card--link"
+                          className="bx--card bx--card--inverse bx--card--link bx--card--theme--white"
                           clicked={false}
                           data-autoid="dds--card"
                           handleClick={[Function]}
@@ -30267,7 +30335,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                           target={null}
                         >
                           <a
-                            className="bx--tile bx--tile--clickable bx--card bx--card--inverse bx--card--link"
+                            className="bx--tile bx--tile--clickable bx--card bx--card--inverse bx--card--link bx--card--theme--white"
                             data-autoid="dds--card"
                             href="https://www.example.com"
                             onClick={[Function]}
