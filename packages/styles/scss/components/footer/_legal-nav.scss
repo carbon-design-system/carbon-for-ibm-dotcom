@@ -78,7 +78,7 @@
     &__list-item {
       display: inline-block;
       margin-right: carbon--mini-units(4);
-      padding: temp--padding-diff($TEMP--link-height, $TEMP--link-type) 0 0 0;
+      padding: $spacing-03 0 0 0;
 
       &:last-child {
         margin-right: 0;
