@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useState, useEffect } from 'react';
 import { CURRENT_THEME } from '../shared';
 import { Form } from '@storybook/components';
 import PropTypes from 'prop-types';
@@ -14,6 +14,12 @@ import PropTypes from 'prop-types';
  * Storybook add-on panel for Carbon theme switcher.
  */
 const Panel = ({ api, active }) => {
+  useEffect(() => {
+    if (!active) {
+      setCurrentTheme('');
+    }
+  }, [active]);
+
   const [currentTheme, setCurrentTheme] = useState('white');
   const handleChange = useCallback(
     event => {

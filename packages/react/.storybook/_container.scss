@@ -23,9 +23,11 @@
 @import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/themes/mixins';
 
 :root {
-  @include carbon--theme($carbon--theme--white, true);
-
   height: 100%;
+}
+
+:root[storybook-carbon-theme='white'] {
+  @include carbon--theme($carbon--theme--white, true);
 }
 
 :root[storybook-carbon-theme='g10'] {
