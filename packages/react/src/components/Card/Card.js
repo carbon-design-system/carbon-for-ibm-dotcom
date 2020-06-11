@@ -19,7 +19,6 @@ import { LinkWithIcon } from '../LinkWithIcon';
 import PropTypes from 'prop-types';
 import React from 'react';
 import settings from 'carbon-components/es/globals/js/settings';
-import TableOfContents from '../TableOfContents/TableOfContents';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
