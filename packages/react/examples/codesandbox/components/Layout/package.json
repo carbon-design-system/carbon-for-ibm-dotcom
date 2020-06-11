@@ -8,8 +8,8 @@
     "build": "parcel build index.html"
   },
   "dependencies": {
-    "@carbon/ibmdotcom-react": "1.7.0",
-    "@carbon/ibmdotcom-styles": "1.7.0",
+    "@carbon/ibmdotcom-react": "latest",
+    "@carbon/ibmdotcom-styles": "latest",
     "@carbon/icons-react": "10.11.0",
     "react": "16.9.0",
     "react-dom": "16.9.0",
