@@ -5080,6 +5080,7 @@ exports[`Storyshots Components|LightboxMediaViewer Embedded Video Player 1`] = `
                             className="bx--lightbox-media-viewer__media bx--no-gutter"
                           >
                             <VideoPlayer
+                              autoPlay={true}
                               videoId="0_uka1msg4"
                             >
                               <div
@@ -12196,6 +12197,7 @@ exports[`Storyshots Components|VideoPlayer Default 1`] = `
           className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
         >
           <VideoPlayer
+            autoPlay={false}
             inverse={false}
             showCaption={true}
             videoId="0_uka1msg4"
@@ -12211,7 +12213,31 @@ exports[`Storyshots Components|VideoPlayer Default 1`] = `
                 <div
                   className="bx--video-player__video"
                   id="bx--video-player__video-0_uka1msg4"
-                />
+                >
+                  <VideoImageOverlay
+                    embedVideo={[Function]}
+                    videoData={
+                      Object {
+                        "description": "",
+                        "name": "",
+                      }
+                    }
+                    videoId="0_uka1msg4"
+                  >
+                    <button
+                      className="bx--video-player__image-overlay"
+                      data-autoid="dds--video-player__image-overlay"
+                      id="video-thumbnail-overlay"
+                      onClick={[Function]}
+                    >
+                      <Image
+                        alt=""
+                        defaultSrc="https://cdnsecakmi.kaltura.com/p/123456/thumbnail/entry_id/0_uka1msg4/width/320"
+                        icon={[Function]}
+                      />
+                    </button>
+                  </VideoImageOverlay>
+                </div>
               </div>
               <div
                 className="bx--video-player__video-caption"
