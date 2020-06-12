@@ -28,8 +28,9 @@
     }
 
     @include carbon--breakpoint-down('md') {
-      margin-right: calc(#{$spacing-05} * -1);
-      margin-left: calc(#{$spacing-05} * -1);
+      &__card {
+        @include carbon--make-row;
+      }
     }
 
     &__card.#{$prefix}--card--inverse .#{$prefix}--card__cta,
