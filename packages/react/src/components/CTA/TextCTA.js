@@ -25,7 +25,7 @@ const TextCTA = ({
     type !== 'video'
       ? otherProps.href
         ? otherProps.href
-        : otherProps.cta.href
+        : otherProps.cta?.href
       : null;
   return type === 'video' ? (
     <div>

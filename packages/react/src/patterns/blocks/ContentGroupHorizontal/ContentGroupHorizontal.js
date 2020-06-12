@@ -60,7 +60,7 @@ ContentGroupHorizontal.propTypes = {
         })
       ).isRequired,
     })
-  ),
+  ).isRequired,
 };
 
 export default ContentGroupHorizontal;
