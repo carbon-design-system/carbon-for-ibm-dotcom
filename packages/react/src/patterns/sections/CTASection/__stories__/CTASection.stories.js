@@ -63,6 +63,11 @@ export default {
         items: object('ContentItems | Data', contentItemsProps, groupId),
       }),
     },
+    props: {
+      CTASection: {
+        items: contentItemsProps,
+      },
+    },
   },
 };
 

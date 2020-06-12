@@ -102,6 +102,7 @@
     "babel-plugin-inline-react-svg": "^1.1.0",
     "babel-plugin-macros": "^2.6.1",
     "babel-plugin-react-docgen": "^2.0.0",
+    "babel-plugin-transform-define": "^2.0.0",
     "babel-plugin-transform-inline-environment-variables": "^0.4.0",
     "browserslist-config-carbon": "10.3.0",
     "chalk": "^2.3.0",

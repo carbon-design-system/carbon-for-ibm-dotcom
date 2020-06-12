@@ -24,7 +24,11 @@ const {
 
 module.exports = {
   a11y(done) {
-    process.env.AAT_VERBOSE = !!verbose;
+    if (specs.length > 1) {
+      throw new RangeError(
+        'test:a11y can take only one -s option, which is a regular expression of target stories.'
+      );
+    }
     new Server(
       {
         configFile: path.resolve(

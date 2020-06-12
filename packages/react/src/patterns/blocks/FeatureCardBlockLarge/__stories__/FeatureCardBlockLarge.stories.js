@@ -53,6 +53,20 @@ export default {
         ),
       }),
     },
+    props: {
+      FeatureCardBlockLarge: {
+        eyebrow: 'this is an eyebrow',
+        heading: 'Explore AI use cases in all industries',
+        cta: {
+          href: 'https://www.example.com',
+          src: ArrowRight20,
+        },
+        image: {
+          defaultSrc: 'https://dummyimage.com/600x300/ee5396/161616&text=2:1',
+          alt: 'Image alt text',
+        },
+      },
+    },
   },
 };
 

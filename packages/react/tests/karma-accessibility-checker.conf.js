@@ -36,12 +36,12 @@ module.exports = function setupKarmaIBMa(config) {
     files: [
       'tests/utils/achecker-compliance.js',
       'tests/a11y/karma-setup-context.js',
-    ].concat(specs.length > 0 ? specs : ['tests/a11y/karma-test-shim.js']),
+      'tests/a11y/karma-test-shim.js',
+    ],
 
     preprocessors: {
       'src/**/*.js': ['webpack', 'sourcemap'],
       'tests/a11y/**/*.js': ['webpack', 'sourcemap'],
-      'tests/karma-test-shim.js': ['webpack', 'sourcemap'],
       'tests/utils/**/*.js': ['webpack', 'sourcemap'],
     },
 
@@ -57,6 +57,10 @@ module.exports = function setupKarmaIBMa(config) {
           {
             test: /\.mdx$/,
             use: 'null-loader',
+          },
+          {
+            test: /\.svg$/,
+            use: ['@svgr/webpack'],
           },
           {
             test: /\.js$/,
@@ -88,11 +92,20 @@ module.exports = function setupKarmaIBMa(config) {
                     ],
                   ],
                   plugins: [
+                    '@babel/plugin-proposal-class-properties',
+                    '@babel/plugin-proposal-export-default-from',
                     '@babel/plugin-proposal-nullish-coalescing-operator',
                     '@babel/plugin-proposal-optional-chaining',
                     [
-                      'babel-plugin-transform-inline-environment-variables',
-                      { include: 'AAT_VERBOSE' },
+                      'babel-plugin-transform-define',
+                      {
+                        'process.env.AAT_STORIES_REGEXP':
+                          specs.length > 0
+                            ? new RegExp(specs[0])
+                            : /\.stories\.js$/,
+                        'process.env.AAT_VERBOSE': !!verbose,
+                        'process.env.CORS_PROXY': process.env.CORS_PROXY,
+                      },
                     ],
                   ],
                 },
@@ -161,7 +174,7 @@ module.exports = function setupKarmaIBMa(config) {
 
     reporters: ['spec', 'aChecker'],
 
-    port: 9876,
+    port: 9000,
 
     colors: true,
 

@@ -48,6 +48,7 @@ export default {
           contrasts['medium-contrast'],
           groupId
         ),
+        weight: select('weight', weights, weights.thin),
       }),
       Other: ({ groupId }) => ({
         words: text(
@@ -61,7 +62,8 @@ export default {
 };
 
 export const Default = ({ parameters }) => {
-  const { style, size, contrast } = parameters?.props?.HorizontalRule ?? {};
+  const { style, size, contrast, weight } =
+    parameters?.props?.HorizontalRule ?? {};
   const { words } = parameters?.props?.Other ?? {};
 
   return (
@@ -76,7 +78,7 @@ export const Default = ({ parameters }) => {
               style={style}
               size={size}
               contrast={contrast}
-              weight={select('weight', weights, weights.thin)}
+              weight={weight}
             />
           </div>
         </div>
@@ -93,7 +95,7 @@ export const Default = ({ parameters }) => {
               style={style}
               size={size}
               contrast={contrast}
-              weight={select('weight', weights, weights.thin)}
+              weight={weight}
             />
             <h4>{words}</h4>
           </div>
