@@ -32,11 +32,6 @@ const iconOptions = {
   PDF: 'Pdf20',
 };
 
-const themes = {
-  g100: 'g100',
-  white: '',
-};
-
 const images = {
   sources: [
     { src: 'https://picsum.photos/id/1076/320/370', breakpoint: 'sm' },
@@ -88,7 +83,6 @@ DefaultWithNoImage.story = {
 
         return {
           type: select('type', type, type.small, groupId),
-          theme: select('theme', themes, themes.g100, groupId),
           title: text('title', 'Lead space title', groupId),
           copy: text(
             'copy',
@@ -103,8 +97,9 @@ DefaultWithNoImage.story = {
 };
 
 export const DefaultWithImage = ({ parameters }) => {
-  const { type, theme, title, copy, gradient, buttons, image } =
+  const { type, title, copy, gradient, buttons, image } =
     parameters?.props?.LeadSpace ?? {};
+  const theme = document.documentElement.getAttribute('storybook-carbon-theme');
   return (
     <LeadSpace
       type={type}

@@ -7,8 +7,11 @@
 
 import React from 'react';
 import requireContext from 'require-context.macro';
+import addons from '@storybook/addons';
+import coreEvents from '@storybook/core-events';
 import { configure, addParameters, addDecorator } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
+import { CURRENT_THEME } from '@carbon/storybook-addon-theme/es/shared';
 import Container from './Container';
 
 const SORT_ORDER_GROUP = [
@@ -68,7 +71,27 @@ addDecorator((story, { parameters }) => {
   return story();
 });
 
+let preservedTheme;
+
+addDecorator((story, { parameters }) => {
+  const root = document.documentElement;
+  if (parameters['carbon-theme']?.disabled) {
+    root.setAttribute('storybook-carbon-theme', '');
+  } else {
+    root.setAttribute('storybook-carbon-theme', preservedTheme || '');
+  }
+  return story();
+});
+
 addDecorator(story => <Container story={story} />);
+
+addons.getChannel().on(CURRENT_THEME, theme => {
+  document.documentElement.setAttribute(
+    'storybook-carbon-theme',
+    (preservedTheme = theme)
+  );
+  addons.getChannel().emit(coreEvents.FORCE_RE_RENDER);
+});
 
 const reqDocs = requireContext('../docs', true, /\.stories\.mdx$/);
 configure(reqDocs, module);

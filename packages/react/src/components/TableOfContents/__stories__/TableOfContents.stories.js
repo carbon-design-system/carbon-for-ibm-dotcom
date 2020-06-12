@@ -5,16 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { object, select, text, boolean } from '@storybook/addon-knobs';
+import { object, text, boolean } from '@storybook/addon-knobs';
 import dataContent from './data/dataContent';
 import React from 'react';
 import readme from '../README.stories.mdx';
 import TableOfContents from '../TableOfContents';
-
-const themes = {
-  g100: 'g100',
-  white: '',
-};
 
 const defaultMenuItems = [
   {
@@ -48,8 +43,9 @@ export default {
 };
 
 export const ManuallyDefineMenuItems = ({ parameters }) => {
-  const { theme, menuItems, menuLabel, menuRule, headingContent } =
+  const { menuItems, menuLabel, menuRule, headingContent } =
     parameters?.props?.TableOfContents ?? {};
+  const theme = document.documentElement.getAttribute('storybook-carbon-theme');
   return (
     <TableOfContents
       theme={theme}
@@ -67,7 +63,6 @@ ManuallyDefineMenuItems.story = {
   parameters: {
     knobs: {
       TableOfContents: ({ groupId }) => ({
-        theme: select('theme', themes, themes.white, groupId),
         menuItems: object('menuItems', defaultMenuItems, groupId),
         menuLabel: text('menu label', 'Jump to', groupId),
         menuRule: boolean('Optional Rule', false, groupId),
@@ -84,7 +79,6 @@ DynamicItems.story = {
   parameters: {
     knobs: {
       TableOfContents: ({ groupId }) => ({
-        theme: select('theme', themes, themes.white, groupId),
         menuLabel: text('menu label', 'Jump to', groupId),
       }),
     },
@@ -99,7 +93,6 @@ WithHeadingContent.story = {
   parameters: {
     knobs: {
       TableOfContents: ({ groupId }) => ({
-        theme: select('theme', themes, themes.white, groupId),
         menuItems: object('menuItems', defaultMenuItems, groupId),
         menuLabel: text('menu label', 'Jump to', groupId),
         menuRule: boolean('Optional Rule', false, groupId),

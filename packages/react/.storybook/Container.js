@@ -15,13 +15,14 @@ export default class Container extends Component {
     if (process.env.REACT_STORYBOOK_USE_RTL === 'true') {
       document.documentElement.dir = 'rtl';
       document.getElementsByTagName('html')[0].setAttribute('dir', 'rtl');
+      document.body.classList.add('bx--body');
     }
   }
 
   render() {
     const { story } = this.props;
 
-    let bgColor = '#ffffff';
+    let bgColor = '';
     if (
       story().props.context &&
       story().props.context.kind === '[Experimental] UI Shell'
