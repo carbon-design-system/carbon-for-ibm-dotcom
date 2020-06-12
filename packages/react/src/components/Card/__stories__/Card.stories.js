@@ -20,7 +20,8 @@ export default {
 };
 
 export const Static = ({ parameters }) => {
-  const theme = document.documentElement.getAttribute('storybook-carbon-theme');
+  const theme =
+    document.documentElement.getAttribute('storybook-carbon-theme') || 'white';
 
   return (
     <div className={`bx--card--${theme}`}>
@@ -67,7 +68,8 @@ Static.story = {
 };
 
 export const LinkClickable = ({ parameters }) => {
-  const theme = document.documentElement.getAttribute('storybook-carbon-theme');
+  const theme =
+    document.documentElement.getAttribute('storybook-carbon-theme') || 'white';
 
   return (
     <div className={`bx--card--${theme}`}>
