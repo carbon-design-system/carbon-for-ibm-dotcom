@@ -22,9 +22,14 @@
       padding-top: aspect-ratio(2, 1);
     }
 
-    @include carbon--breakpoint('sm') {
-      margin-right: -$spacing-05;
-      margin-left: -$spacing-05;
+    @include carbon--breakpoint('lg') {
+      margin-right: $spacing-05;
+      margin-left: $spacing-05;
+    }
+
+    @include carbon--breakpoint-down('md') {
+      margin-right: calc(#{$spacing-05} * -1);
+      margin-left: calc(#{$spacing-05} * -1);
     }
 
     &__card.#{$prefix}--card--inverse .#{$prefix}--card__cta,
