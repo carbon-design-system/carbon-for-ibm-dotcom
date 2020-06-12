@@ -84,7 +84,7 @@ CardSectionSimple.propTypes = {
         href: PropTypes.string,
       }),
     })
-  ),
+  ).isRequired,
 
   /**
    * Optional CTA card for group. Always displays as last item.

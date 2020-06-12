@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-utilities@1.7.0...@carbon/ibmdotcom-utilities@1.8.0-rc.0) (2020-06-12)
+
+### Bug Fixes
+
+- **decodeString:** updated decode-string to work on server-side rendering
+  ([#2677](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2677))
+  ([ac3d67d](https://github.com/carbon-design-system/ibm-dotcom-library/commit/ac3d67d))
+- **VideoPlayer:** fix for mocking VideoPlayerAPI in storyshots
+  ([#2692](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2692))
+  ([3699699](https://github.com/carbon-design-system/ibm-dotcom-library/commit/3699699))
+
+### Features
+
+- **cardlink:** adds cardlink
+  ([#2506](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2506))
+  ([bfae7e0](https://github.com/carbon-design-system/ibm-dotcom-library/commit/bfae7e0))
+- **markdownToHTML:** adds full markdown support
+  ([#2715](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2715))
+  ([41ebf6f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/41ebf6f))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.7.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-utilities@1.7.0-rc.1...@carbon/ibmdotcom-utilities@1.7.0) (2020-05-27)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-utilities

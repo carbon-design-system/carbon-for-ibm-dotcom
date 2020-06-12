@@ -64,6 +64,11 @@ ContentBlockMixed.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.oneOfType([
       PropTypes.shape({
+        type: PropTypes.oneOf([
+          'ContentGroupCards',
+          'ContentGroupSimple',
+          'ContentGroupPictograms',
+        ]).isRequired,
         heading: PropTypes.string.isRequired,
         items: PropTypes.arrayOf(
           PropTypes.shape({
@@ -76,6 +81,11 @@ ContentBlockMixed.propTypes = {
         ),
       }),
       PropTypes.shape({
+        type: PropTypes.oneOf([
+          'ContentGroupCards',
+          'ContentGroupSimple',
+          'ContentGroupPictograms',
+        ]).isRequired,
         heading: PropTypes.string.isRequired,
         mediaType: PropTypes.oneOf(['image', 'video']),
         mediaData: PropTypes.oneOfType([
@@ -195,6 +205,11 @@ ContentBlockMixed.propTypes = {
         }),
       }),
       PropTypes.shape({
+        type: PropTypes.oneOf([
+          'ContentGroupCards',
+          'ContentGroupSimple',
+          'ContentGroupPictograms',
+        ]).isRequired,
         heading: PropTypes.string.isRequired,
         items: PropTypes.arrayOf(
           PropTypes.shape({
@@ -233,7 +248,7 @@ ContentBlockMixed.propTypes = {
         className: PropTypes.string,
       }),
     ])
-  ),
+  ).isRequired,
 
   /**
    * CTA used at the end of content body. `Card` style supported.

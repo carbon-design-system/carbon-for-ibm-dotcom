@@ -320,6 +320,9 @@ $search-transition-timing: 95ms;
     background-color: $ui-background;
     position: fixed;
     z-index: 99999;
+    /* !rtl:raw:
+    left: 0 !important;
+    */
 
     &__btn {
       @include carbon--type-style(body-short-02, true);

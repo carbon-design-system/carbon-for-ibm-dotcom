@@ -100,7 +100,7 @@ CardSectionImages.propTypes = {
         href: PropTypes.string,
       }),
     })
-  ),
+  ).isRequired,
 };
 
 export default CardSectionImages;
