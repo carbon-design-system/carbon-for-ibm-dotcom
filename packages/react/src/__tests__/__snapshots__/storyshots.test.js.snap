@@ -392,7 +392,7 @@ exports[`Storyshots Components|Card Link/Clickable 1`] = `
     }
   >
     <div
-      className="bx--card--null"
+      className="bx--card--white"
     >
       <div
         className="bx--grid"
@@ -535,7 +535,7 @@ exports[`Storyshots Components|Card Static 1`] = `
     }
   >
     <div
-      className="bx--card--null"
+      className="bx--card--white"
     >
       <div
         className="bx--grid"
@@ -10764,7 +10764,7 @@ exports[`Storyshots Components|Table of Contents Dynamic Items 1`] = `
         menuItems={null}
         menuLabel="Jump to"
         stickyOffset={null}
-        theme={null}
+        theme=""
       >
         <section
           className="bx--tableofcontents"
@@ -11107,7 +11107,7 @@ exports[`Storyshots Components|Table of Contents Manually define Menu Items 1`] 
       menuLabel="Jump to"
       menuRule={false}
       stickyOffset={null}
-      theme={null}
+      theme=""
     >
       <section
         className="bx--tableofcontents"
@@ -11672,7 +11672,7 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
         menuLabel="Jump to"
         menuRule={false}
         stickyOffset={null}
-        theme={null}
+        theme=""
       >
         <section
           className="bx--tableofcontents"
@@ -28259,7 +28259,7 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
           },
         ]
       }
-      theme={null}
+      theme=""
     >
       <section
         className="bx--cta-section"
@@ -28756,7 +28756,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
         ]
       }
       heading="Aliquam condimentum interdum"
-      theme={null}
+      theme=""
     >
       <ContentSection
         autoid="dds--card-group-images-group"
@@ -29604,7 +29604,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
         }
       }
       heading="Aliquam condimentum interdum"
-      theme={null}
+      theme=""
     >
       <ContentSection
         autoid="dds--card-group-simple-group"
@@ -30426,7 +30426,7 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with image 1`] = `
           ],
         }
       }
-      theme={null}
+      theme=""
       title="Lead space title"
       type="small"
     >
@@ -30751,7 +30751,7 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with no image 1`] = `
           ]
         }
         copy="Use this area for a short line of copy to support the title"
-        theme={null}
+        theme=""
         title="Lead space title"
         type="small"
       >
