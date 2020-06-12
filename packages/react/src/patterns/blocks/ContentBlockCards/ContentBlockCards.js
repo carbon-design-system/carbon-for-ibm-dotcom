@@ -83,7 +83,7 @@ ContentBlockCards.propTypes = {
         href: PropTypes.string,
       }),
     })
-  ),
+  ).isRequired,
 };
 
 export default ContentBlockCards;

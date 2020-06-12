@@ -114,7 +114,7 @@ LeadSpaceBlock.propTypes = {
         href: PropTypes.string,
         customClassName: PropTypes.string,
       })
-    ),
+    ).isRequired,
   }).isRequired,
 
   /**
