@@ -43,6 +43,7 @@ export default {
 
   parameters: {
     ...readme.parameters,
+    'carbon-theme': { disabled: true },
     knobs: {
       ExpressiveModal: ({ groupId }) => ({
         open: boolean('Toggle modal', true, groupId),

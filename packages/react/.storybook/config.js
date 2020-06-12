@@ -71,10 +71,25 @@ addDecorator((story, { parameters }) => {
   return story();
 });
 
+let preservedTheme;
+
+addDecorator((story, { parameters }) => {
+  const root = document.documentElement;
+  if (parameters['carbon-theme']?.disabled) {
+    root.setAttribute('storybook-carbon-theme', '');
+  } else {
+    root.setAttribute('storybook-carbon-theme', preservedTheme || '');
+  }
+  return story();
+});
+
 addDecorator(story => <Container story={story} />);
 
 addons.getChannel().on(CURRENT_THEME, theme => {
-  document.documentElement.setAttribute('storybook-carbon-theme', theme);
+  document.documentElement.setAttribute(
+    'storybook-carbon-theme',
+    (preservedTheme = theme)
+  );
   addons.getChannel().emit(coreEvents.FORCE_RE_RENDER);
 });
 
