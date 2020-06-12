@@ -30,13 +30,7 @@ function _checkFlag() {
  */
 const _timeoutRetries = 50;
 
-/**
- * Tracks the number of attempts for the datalayer ready loop
- *
- * @type {number}
- * @private
- */
-let _attempt = 0;
+let _dataLayerReadyPromise;
 
 /**
  * Timeout loop to check if the digitalData object is ready.
@@ -44,24 +38,40 @@ let _attempt = 0;
  * is fired from jQuery's custom event layer as
  * $(document).trigger('datalayer_ready')
  *
- * @param {Function} resolve Resolve function
- * @param {Function} reject Reject function
  * @private
  */
-function _datalayerReady(resolve, reject) {
-  if (_checkFlag()) {
-    resolve();
-  } else {
-    _attempt++;
+function _datalayerReady() {
+  if (!_dataLayerReadyPromise) {
+    _dataLayerReadyPromise = new Promise((resolve, reject) => {
+      /**
+       * Tracks the number of attempts for the datalayer ready loop
+       *
+       * @type {number}
+       * @private
+       */
+      let _attempt = 0;
 
-    if (_attempt < _timeoutRetries) {
-      setTimeout(() => {
-        _datalayerReady(resolve, reject);
-      }, 100);
-    } else {
-      reject();
-    }
+      function _dataLayerReadyImpl() {
+        if (_checkFlag()) {
+          resolve();
+        } else {
+          _attempt++;
+
+          if (_attempt < _timeoutRetries) {
+            setTimeout(() => {
+              _dataLayerReadyImpl(resolve, reject);
+            }, 100);
+          } else {
+            reject(new Error('Timeout polling for digital data object.'));
+          }
+        }
+      }
+
+      _dataLayerReadyImpl();
+    });
   }
+
+  return _dataLayerReadyPromise;
 }
 
 /**
@@ -75,9 +85,7 @@ class DDOAPI {
    * @returns {Promise} Resolved data layer ready signal
    */
   static isReady() {
-    return new Promise((resolve, reject) => {
-      _datalayerReady(resolve, reject);
-    });
+    return _datalayerReady();
   }
 
   /**

@@ -145,7 +145,6 @@ Default.story = {
             },
             style: 'card',
             type: select('CTA type', ctaTypes, ctaTypes.local, groupId),
-            heading: 'Lorem ipsum dolor sit amet',
             copy: 'Lorem ipsum dolor sit ametttt',
           },
           items,

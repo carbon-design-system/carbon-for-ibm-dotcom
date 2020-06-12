@@ -24,6 +24,7 @@ $fcb-breakpoint-up--lg: map-get(
     background: $ui-background;
     position: relative;
     height: 100%;
+    @include hang;
 
     @include carbon--breakpoint-between(
       $fcb-large-custom-bp-copy,
@@ -39,6 +40,9 @@ $fcb-breakpoint-up--lg: map-get(
     &__card.#{$prefix}--card--inverse .#{$prefix}--card__cta:visited {
       float: none;
       color: $inverse-link;
+      width: $layout-03;
+      height: $layout-03;
+
       @include carbon--type-style('productive-heading-05');
     }
 
@@ -97,6 +101,16 @@ $fcb-breakpoint-up--lg: map-get(
 
         @include carbon--breakpoint('max') {
           padding: $layout-05;
+        }
+
+        .#{$prefix}--card__eyebrow,
+        .#{$prefix}--card__heading,
+        .#{$prefix}--card__copy {
+          width: 100%;
+          max-width: carbon--rem(480px);
+          @include carbon--breakpoint('md') {
+            width: 90%;
+          }
         }
 
         .#{$prefix}--card__eyebrow {

@@ -20,7 +20,7 @@ const iconMap = {
 };
 
 const iconOptions = {
-  None: null,
+  Default: null,
   'Arrow Right': 'ArrowRight20',
   'Arrow Down': 'ArrowDown20',
   PDF: 'Pdf20',
@@ -44,7 +44,7 @@ export default {
               select(
                 `Icon ${i + 1}`,
                 iconOptions,
-                iconOptions['Arrow Right'],
+                iconOptions['Default'],
                 groupId
               )
             ],
@@ -61,9 +61,8 @@ export const Default = ({ parameters }) => {
       className="bx-grid"
       style={{
         padding: 2 + `rem`,
-        backgroundColor: 'black',
       }}>
-      <div style={{ color: 'white' }}>
+      <div>
         This button group is wrapped within the grid to let the buttons shrink
         when the text gets smaller
       </div>
@@ -72,7 +71,7 @@ export const Default = ({ parameters }) => {
           <ButtonGroup buttons={buttons} />
         </div>
       </div>
-      <div style={{ color: 'white', paddingTop: '20px' }}>
+      <div style={{ paddingTop: '20px' }}>
         This button group is not using the grid, so the buttons won't shrink
         according to the text size
       </div>

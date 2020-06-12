@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -83,6 +83,8 @@ class CTALogic {
         return ArrowDown20;
       case 'video':
         return PlayOutline20;
+      case 'default':
+        return null;
       default:
         return ArrowRight20;
     }

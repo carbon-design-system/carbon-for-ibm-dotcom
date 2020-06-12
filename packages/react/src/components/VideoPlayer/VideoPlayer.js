@@ -10,6 +10,7 @@ import cx from 'classnames';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import PropTypes from 'prop-types';
 import settings from 'carbon-components/es/globals/js/settings';
+import VideoImageOverlay from './VideoImageOverlay';
 import { VideoPlayerAPI } from '@carbon/ibmdotcom-services';
 
 const { stablePrefix } = ddsSettings;
@@ -18,15 +19,30 @@ const { prefix } = settings;
 /**
  * VideoPlayer component.
  */
-const VideoPlayer = ({ inverse, showCaption, videoId, customClassName }) => {
-  const [videoData, setVideoData] = useState({ description: '' });
+const VideoPlayer = ({
+  inverse,
+  showCaption,
+  videoId,
+  customClassName,
+  autoPlay,
+}) => {
+  const [videoData, setVideoData] = useState({ description: '', name: '' });
+
+  // embedVideo is set to true when overlay thumbnail is clicked
+  const [embedVideo, setEmbedVideo] = useState(false);
   const videoPlayerId = `video-player__video-${videoId}`;
   const videoDuration = VideoPlayerAPI.getVideoDuration(videoData.msDuration);
 
   useEffect(() => {
     let stale = false;
     (async () => {
-      await VideoPlayerAPI.embedVideo(videoId, `${prefix}--${videoPlayerId}`);
+      if (autoPlay || embedVideo) {
+        await VideoPlayerAPI.embedVideo(
+          videoId,
+          `${prefix}--${videoPlayerId}`,
+          true
+        );
+      }
       if (stale) {
         return;
       }
@@ -39,7 +55,7 @@ const VideoPlayer = ({ inverse, showCaption, videoId, customClassName }) => {
     return () => {
       stale = true;
     };
-  }, [videoId, videoPlayerId]);
+  }, [autoPlay, videoId, videoPlayerId, embedVideo]);
 
   const classnames = cx(
     `${prefix}--video-player`,
@@ -56,7 +72,15 @@ const VideoPlayer = ({ inverse, showCaption, videoId, customClassName }) => {
         data-autoid={`${stablePrefix}--${videoPlayerId}`}>
         <div
           className={`${prefix}--video-player__video`}
-          id={`${prefix}--${videoPlayerId}`}></div>
+          id={`${prefix}--${videoPlayerId}`}>
+          {!autoPlay && (
+            <VideoImageOverlay
+              videoId={videoId}
+              videoData={videoData}
+              embedVideo={setEmbedVideo}
+            />
+          )}
+        </div>
       </div>
       {showCaption && (
         <div className={`${prefix}--video-player__video-caption`}>
@@ -68,6 +92,10 @@ const VideoPlayer = ({ inverse, showCaption, videoId, customClassName }) => {
 };
 
 VideoPlayer.propTypes = {
+  /**
+   * `true` to autoplay the video on load
+   */
+  autoPlay: PropTypes.bool,
   /**
    * The CSS class name to apply.
    */
@@ -87,6 +115,10 @@ VideoPlayer.propTypes = {
    * `true` to use the inverse theme.
    */
   inverse: PropTypes.bool,
+};
+
+VideoPlayer.defaultProps = {
+  autoPlay: false,
 };
 
 export default VideoPlayer;

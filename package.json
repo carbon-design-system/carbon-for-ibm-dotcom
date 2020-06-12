@@ -34,7 +34,7 @@
     "test": "yarn test:unit && yarn test:a11y && yarn test:integration:build",
     "test:a11y": "yarn lerna run --stream --prefix test:a11y",
     "test:unit": "cross-env BABEL_ENV=test jest",
-    "test:integration:build": "yarn lerna run --stream --prefix test:integration:build"
+    "test:integration:build": "yarn lerna run --stream --prefix --scope=@carbon/ibmdotcom-vanilla test:integration:build && yarn lerna run --stream --prefix --scope=@carbon/ibmdotcom-react test:integration:build"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",

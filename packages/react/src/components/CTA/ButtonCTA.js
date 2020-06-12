@@ -17,6 +17,7 @@ const ButtonCTA = ({
   openLightBox,
   renderLightBox,
   videoTitle,
+  formatCTAcopy,
   ...otherProps
 }) => {
   const [mediaData, setMediaData] = useState({});
@@ -30,6 +31,7 @@ const ButtonCTA = ({
             videoTitle,
             openLightBox,
             setMediaData,
+            formatCTAcopy,
             ...otherProps,
           })}
         />
@@ -47,6 +49,7 @@ const ButtonCTA = ({
  * @param {Function} param.openLightBox func to set renderLightBox state
  * @param {Array} param.videoTitle array of video titles
  * @param {Function} param.setMediaData func to set media data state
+ * @param {Function} param.formatCTAcopy func to format the cta copy
  * @param {object} param.buttons object with buttons array
  * @private
  * @returns {*} object
@@ -55,6 +58,7 @@ const _renderButtons = ({
   openLightBox,
   videoTitle,
   setMediaData,
+  formatCTAcopy,
   buttons,
 }) => {
   return buttons.map((button, key) => {
@@ -67,7 +71,9 @@ const _renderButtons = ({
       let title = videoTitle.filter(name => {
         return name.key === key;
       });
-      button.copy = !title[0] ? button.copy : title[0].title;
+      button.copy = !title[0]
+        ? button.copy
+        : formatCTAcopy({ title: title[0].title, duration: title[0].duration });
       button.href = '#';
     } else {
       button.onClick = e => CTALogic.jump(e, button.type);
@@ -111,6 +117,7 @@ ButtonCTA.propTypes = {
    * | `external` | Launch20         | Describes launch arrow onClick which loads in new tab.           |
    * | `download` | Download20       | Describes download arrow onClick for downloading files.          |
    * | `video`    | PlayOutline20    | Describes play icon onClick which loads the video in a lightbox. |
+   * | `default`  | None             | Describes the default CTA - without icon                         |
    *
    * For more details of icons, refer to:
    *
@@ -119,9 +126,23 @@ ButtonCTA.propTypes = {
    * - [carbon-icons](https://www.npmjs.com/package/carbon-icons)!👀
    */
   type: PropTypes.oneOfType([
-    PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video']),
+    PropTypes.oneOf([
+      'jump',
+      'local',
+      'external',
+      'download',
+      'video',
+      'default',
+    ]),
     PropTypes.arrayOf(
-      PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video'])
+      PropTypes.oneOf([
+        'jump',
+        'local',
+        'external',
+        'download',
+        'video',
+        'default',
+      ])
     ),
   ]),
 
@@ -141,6 +162,7 @@ ButtonCTA.propTypes = {
   videoTitle: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
+      duration: PropTypes.string,
       key: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     })
   ),
@@ -149,6 +171,16 @@ ButtonCTA.propTypes = {
    * The function to set media data.
    */
   setMediaData: PropTypes.func,
+
+  /**
+   * Func to format the cta copy
+   */
+  formatCTAcopy: PropTypes.func,
+};
+
+ButtonCTA.defaultProps = {
+  type: 'default',
+  formatCTAcopy: ({ title, duration }) => `${title} ${duration}`,
 };
 
 export default ButtonCTA;

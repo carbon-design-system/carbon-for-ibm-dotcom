@@ -1,0 +1,22 @@
+{
+  "name": "ibmdotcom-react-footer-example",
+  "private": true,
+  "version": "0.1.0",
+  "main": "index.html",
+  "scripts": {
+    "start": "parcel serve -p 9000 index.html",
+    "build": "parcel build index.html"
+  },
+  "dependencies": {
+    "@carbon/ibmdotcom-react": "1.8.0-alpha.4303",
+    "@carbon/ibmdotcom-styles": "1.8.0-alpha.4303",
+    "carbon-components": "10.11.2",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.0",
+    "parcel": "latest",
+    "sass": "^1.26.7"
+  }
+}

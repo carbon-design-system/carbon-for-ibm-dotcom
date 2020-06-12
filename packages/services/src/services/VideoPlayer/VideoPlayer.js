@@ -31,6 +31,12 @@ const _uiConfId = process.env.KALTURA_UICONF_ID || 27941801;
 const _embedUrl = `https://cdnapisec.kaltura.com/p/${_partnerId}/sp/${_partnerId}00/embedIframeJs/uiconf_id/${_uiConfId}/partner_id/${_partnerId}`;
 
 /**
+ * @type {string} _thumbnailUrl
+ * @private
+ */
+const _thumbnailUrl = `https://cdnsecakmi.kaltura.com/p/${_partnerId}/thumbnail/entry_id/`;
+
+/**
  * Number of times to retry the script ready loop before failing
  *
  * @type {number}
@@ -130,10 +136,40 @@ class VideoPlayerAPI {
   }
 
   /**
+   * Creates thumbnail image url with customizable params
+   *
+   * @param {object} params param object
+   * @param {string} params.videoId video id
+   * @param {string} params.height specify height in pixels
+   * @param {string} params.width specify width in pixels
+   *
+   * @returns {string} url of thumbnail image
+   *
+   * @example
+   * import { VideoPlayerAPI } from '@carbon/ibmdotcom-services';
+   *
+   * function thumbnail() {
+   *   const thumbnailData = {
+   *      videoId: '0_uka1msg4',
+   *      height: '240',
+   *      width: '320'
+   *   }
+   *   const thumbnailUrl = VideoPlayerAPI.getThumbnailUrl(thumbnailData);
+   * }
+   */
+  static getThumbnailUrl({ videoId, height, width }) {
+    let url = _thumbnailUrl + videoId;
+    if (height) url = url + `/height/${height}`;
+    if (width) url = url + `/width/${width}`;
+    return url;
+  }
+
+  /**
    * Gets the embed meta data
    *
    * @param {string} videoId  The videoId we're embedding the placeholder for.
    * @param {string} targetId The targetId the ID where we're putting the placeholder.
+   * @param {boolean} autoPlay Determine whether to autoplay on load of video.
    * @returns {object}  object
    *
    * @example
@@ -145,7 +181,7 @@ class VideoPlayerAPI {
    *   VideoPlayerAPI.embedVideo(videoid, elem);
    * }
    */
-  static async embedVideo(videoId, targetId) {
+  static async embedVideo(videoId, targetId, autoPlay) {
     const fireEvent = this.fireEvent;
     return await this.checkScript().then(() => {
       root.kWidget.embed({
@@ -154,7 +190,7 @@ class VideoPlayerAPI {
         uiconf_id: _uiConfId,
         entry_id: videoId,
         flashvars: {
-          autoPlay: false,
+          autoPlay: autoPlay,
           titleLabel: {
             plugin: true,
             align: 'left',
