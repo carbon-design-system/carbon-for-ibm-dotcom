@@ -97,7 +97,7 @@ LogoGrid.propTypes = {
       altText: PropTypes.string,
       href: PropTypes.string,
     })
-  ),
+  ).isRequired,
   /**
    * Optional copy for the CTA
    */
