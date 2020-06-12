@@ -11,84 +11,87 @@
 
 @mixin legal-nav {
   .#{$prefix}--legal-nav {
-    @include carbon--make-row;
+    @include carbon--theme(
+      $carbon--theme--g90,
+      feature-flag-enabled('enable-css-custom-properties')
+    ) {
+      @include carbon--make-row;
 
-    border-top: 1px solid $ui-03;
+      border-top: 1px solid $ui-03;
 
-    .#{$prefix}--footer:not(.#{$prefix}--footer--short) & {
-      @include carbon--breakpoint-down($TEMP--breakpoint-down--md) {
-        border-top: 0;
+      .#{$prefix}--footer:not(.#{$prefix}--footer--short) & {
+        @include carbon--breakpoint-down($TEMP--breakpoint-down--md) {
+          border-top: 0;
+        }
       }
-    }
 
-    &__container {
-      @include carbon--make-container;
-    }
+      &__container {
+        @include carbon--make-container;
+      }
 
-    &__list {
-      @include carbon--make-col-ready;
-
-      display: flex;
-      flex-wrap: wrap;
-      padding-bottom: $carbon--layout-04;
-    }
-
-    &__holder {
-      @include carbon--make-col-ready;
-      @include carbon--breakpoint-down('lg') {
-        @include carbon--make-col(4, 4);
+      &__list {
+        @include carbon--make-col-ready;
 
         display: flex;
-        flex-direction: column;
-        padding-left: 0;
+        flex-wrap: wrap;
+        padding-bottom: $carbon--layout-04;
+      }
 
-        @include carbon--breakpoint('md') {
-          @include carbon--make-col(2, 4);
+      &__holder {
+        @include carbon--make-col-ready;
+        @include carbon--breakpoint-down('lg') {
+          @include carbon--make-col(4, 4);
+
+          display: flex;
+          flex-direction: column;
+          padding-left: 0;
+
+          @include carbon--breakpoint('md') {
+            @include carbon--make-col(2, 4);
+
+            display: flex;
+            flex-direction: column;
+
+            &:not(:first-child) {
+              padding-left: $carbon--layout-01;
+            }
+
+            &:nth-child(odd):not(:first-child) {
+              padding-left: 0;
+            }
+          }
+        }
+
+        @include carbon--breakpoint('lg') {
+          @include carbon--make-col(1, 4);
 
           display: flex;
           flex-direction: column;
 
-          &:not(:first-child) {
-            padding-left: $carbon--layout-01;
+          &:nth-child(odd) {
+            padding-left: $carbon--spacing-06;
           }
+          &:first-child {
+            @include carbon--make-col-offset(1, 4);
 
-          &:nth-child(odd):not(:first-child) {
-            padding-left: 0;
+            padding-left: $carbon--spacing-03;
           }
         }
       }
 
-      @include carbon--breakpoint('lg') {
-        @include carbon--make-col(1, 4);
+      &__list-item {
+        display: inline-block;
+        margin-right: carbon--mini-units(4);
+        padding: $spacing-03 0 0 0;
 
-        display: flex;
-        flex-direction: column;
-
-        &:nth-child(odd) {
-          padding-left: $carbon--spacing-06;
+        &:last-child {
+          margin-right: 0;
         }
-        &:first-child {
-          @include carbon--make-col-offset(1, 4);
-
-          padding-left: $carbon--spacing-03;
-        }
-      }
-    }
-
-    &__list-item {
-      display: inline-block;
-      margin-right: carbon--mini-units(4);
-      padding: $spacing-03 0 0 0;
-
-      &:last-child {
-        margin-right: 0;
       }
     }
   }
 }
 
 @include exports('legal-nav') {
-  @include carbon--theme($carbon--theme--g90) {
-    @include legal-nav;
-  }
+  @include legal-nav;
 }

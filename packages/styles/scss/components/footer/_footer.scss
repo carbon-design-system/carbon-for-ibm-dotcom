@@ -13,69 +13,74 @@
 
 @mixin footer {
   .#{$prefix}--footer {
-    @include temp-link-expressive;
+    @include carbon--theme(
+      $carbon--theme--g90,
+      feature-flag-enabled('enable-css-custom-properties')
+    ) {
+      @include temp-link-expressive;
 
-    color: $text-01;
-    background-color: $ui-background;
-    padding-top: carbon--mini-units(6);
+      color: $text-01;
+      background-color: $ui-background;
+      padding-top: carbon--mini-units(6);
 
-    &--short {
-      padding-top: carbon--mini-units(4);
-    }
-
-    &__main {
-      @include carbon--make-container;
-    }
-
-    &__main-container {
-      @include carbon--make-row;
-
-      flex-direction: column;
-
-      .#{$prefix}--footer--short & {
-        flex-direction: row;
+      &--short {
+        padding-top: carbon--mini-units(4);
       }
 
-      @include carbon--breakpoint('lg') {
-        flex-direction: row;
-      }
-    }
-
-    .#{$prefix}--footer__link.#{$prefix}--link {
-      &,
-      &:visited,
-      &:visited:hover {
-        color: $text-02;
+      &__main {
+        @include carbon--make-container;
       }
 
-      &:focus {
-        outline-color: $focus;
-        outline-offset: -1px;
+      &__main-container {
+        @include carbon--make-row;
+
+        flex-direction: column;
+
+        .#{$prefix}--footer--short & {
+          flex-direction: row;
+        }
+
+        @include carbon--breakpoint('lg') {
+          flex-direction: row;
+        }
       }
 
-      &:active {
-        color: $text-04;
-      }
-
-      &:hover {
-        color: $text-01;
-      }
-    }
-
-    .#{$prefix}--legal-nav__list
-      .#{$prefix}--legal-nav__list-item
-      .#{$prefix}--link {
-      color: $text-02;
-      &:hover {
-        color: $text-01;
-      }
-    }
-
-    .#{$prefix}--modal-content {
-      .#{$prefix}--link {
+      .#{$prefix}--footer__link.#{$prefix}--link {
         &,
-        &:visited {
-          color: $inverse-01;
+        &:visited,
+        &:visited:hover {
+          color: $text-02;
+        }
+
+        &:focus {
+          outline-color: $focus;
+          outline-offset: -1px;
+        }
+
+        &:active {
+          color: $text-04;
+        }
+
+        &:hover {
+          color: $text-01;
+        }
+      }
+
+      .#{$prefix}--legal-nav__list
+        .#{$prefix}--legal-nav__list-item
+        .#{$prefix}--link {
+        color: $text-02;
+        &:hover {
+          color: $text-01;
+        }
+      }
+
+      .#{$prefix}--modal-content {
+        .#{$prefix}--link {
+          &,
+          &:visited {
+            color: $inverse-01;
+          }
         }
       }
     }
@@ -83,7 +88,5 @@
 }
 
 @include exports('footer') {
-  @include carbon--theme($carbon--theme--g90) {
-    @include footer;
-  }
+  @include footer;
 }
