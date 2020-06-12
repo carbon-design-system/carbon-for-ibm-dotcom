@@ -14,50 +14,53 @@
 
 @mixin footer-nav {
   .#{$prefix}--footer-nav {
-    @include accordion;
-    @include temp-accordion-expressive;
-    @include carbon--make-col-ready;
+    @include carbon--theme(
+      $carbon--theme--g90,
+      feature-flag-enabled('enable-css-custom-properties')
+    ) {
+      @include accordion;
+      @include temp-accordion-expressive;
+      @include carbon--make-col-ready;
 
-    padding: 0;
-    order: 1;
+      padding: 0;
+      order: 1;
 
-    .#{$prefix}--footer--short & {
-      display: none;
-    }
+      .#{$prefix}--footer--short & {
+        display: none;
+      }
 
-    @include carbon--breakpoint('md') {
-      padding: 0 $carbon--grid-gutter / 2;
-    }
-
-    @include carbon--breakpoint-between('md', $TEMP--breakpoint-down--lg) {
-      padding-top: carbon--mini-units(2);
-      border-top: 1px solid $ui-03;
-    }
-
-    @include carbon--breakpoint('lg') {
-      @include carbon--make-col(12, 16);
-      @include carbon--make-col-offset(2, 16);
-    }
-
-    &__container {
       @include carbon--breakpoint('md') {
-        @include carbon--make-row;
+        padding: 0 $carbon--grid-gutter / 2;
+      }
 
-        display: block;
-        column-count: 2;
-        column-gap: $carbon--grid-gutter;
+      @include carbon--breakpoint-between('md', $TEMP--breakpoint-down--lg) {
+        padding-top: carbon--mini-units(2);
+        border-top: 1px solid $ui-03;
       }
 
       @include carbon--breakpoint('lg') {
-        column-count: 3;
-        column-gap: $carbon--grid-gutter;
+        @include carbon--make-col(12, 16);
+        @include carbon--make-col-offset(2, 16);
+      }
+
+      &__container {
+        @include carbon--breakpoint('md') {
+          @include carbon--make-row;
+
+          display: block;
+          column-count: 2;
+          column-gap: $carbon--grid-gutter;
+        }
+
+        @include carbon--breakpoint('lg') {
+          column-count: 3;
+          column-gap: $carbon--grid-gutter;
+        }
       }
     }
   }
 }
 
 @include exports('footer-nav') {
-  @include carbon--theme($carbon--theme--g90) {
-    @include footer-nav;
-  }
+  @include footer-nav;
 }

@@ -47,7 +47,8 @@ export const Static = ({ parameters }) => {
     },
   });
 
-  const theme = document.documentElement.getAttribute('storybook-carbon-theme');
+  const theme =
+    document.documentElement.getAttribute('storybook-carbon-theme') || 'white';
 
   return (
     <div className="bx--grid">
@@ -73,7 +74,8 @@ export const LinkClickable = ({ parameters }) => {
       src: ArrowRight20,
     },
   });
-  const theme = document.documentElement.getAttribute('storybook-carbon-theme');
+  const theme =
+    document.documentElement.getAttribute('storybook-carbon-theme') || 'white';
 
   return (
     <div className="bx--grid">

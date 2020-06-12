@@ -14,66 +14,69 @@
 
 @mixin local-button {
   .#{$prefix}--locale-btn__container {
-    @include button;
-    @include temp-button-expressive;
-    @include carbon--make-col-ready;
-    @include carbon--make-col(4, 4);
+    @include carbon--theme(
+      $carbon--theme--g90,
+      feature-flag-enabled('enable-css-custom-properties')
+    ) {
+      @include button;
+      @include temp-button-expressive;
+      @include carbon--make-col-ready;
+      @include carbon--make-col(4, 4);
 
-    margin-top: carbon--mini-units(2);
-    padding-left: 0;
-    padding-right: 0;
-    order: 0;
+      margin-top: carbon--mini-units(2);
+      padding-left: 0;
+      padding-right: 0;
+      order: 0;
 
-    .#{$prefix}--locale-btn {
-      max-width: 100%;
-      width: 100%;
+      .#{$prefix}--locale-btn {
+        max-width: 100%;
+        width: 100%;
 
-      @include carbon--breakpoint('md') {
-        min-width: carbon--mini-units(27);
-        max-width: carbon--mini-units(40);
+        @include carbon--breakpoint('md') {
+          min-width: carbon--mini-units(27);
+          max-width: carbon--mini-units(40);
 
-        .#{$prefix}--footer--short & {
-          float: right;
+          .#{$prefix}--footer--short & {
+            float: right;
+          }
         }
       }
-    }
-
-    .#{$prefix}--footer--short & {
-      margin-top: 0;
-    }
-
-    @include carbon--breakpoint('md') {
-      @include carbon--make-col(4, 8);
-
-      margin-bottom: carbon--mini-units(2);
 
       .#{$prefix}--footer--short & {
-        @include carbon--make-col-offset(2, 8);
+        margin-top: 0;
       }
-    }
 
-    @include carbon--breakpoint('lg') {
-      @include carbon--make-col(4, 16);
+      @include carbon--breakpoint('md') {
+        @include carbon--make-col(4, 8);
 
-      order: 1;
+        margin-bottom: carbon--mini-units(2);
 
-      .#{$prefix}--footer--short & {
-        @include carbon--make-col-offset(10, 16);
+        .#{$prefix}--footer--short & {
+          @include carbon--make-col-offset(2, 8);
+        }
       }
-    }
 
-    @include carbon--breakpoint('max') {
-      @include carbon--make-col(3, 16);
+      @include carbon--breakpoint('lg') {
+        @include carbon--make-col(4, 16);
 
-      .#{$prefix}--footer--short & {
-        @include carbon--make-col-offset(11, 16);
+        order: 1;
+
+        .#{$prefix}--footer--short & {
+          @include carbon--make-col-offset(10, 16);
+        }
+      }
+
+      @include carbon--breakpoint('max') {
+        @include carbon--make-col(3, 16);
+
+        .#{$prefix}--footer--short & {
+          @include carbon--make-col-offset(11, 16);
+        }
       }
     }
   }
 }
 
 @include exports('local-button') {
-  @include carbon--theme($carbon--theme--g90) {
-    @include local-button;
-  }
+  @include local-button;
 }
