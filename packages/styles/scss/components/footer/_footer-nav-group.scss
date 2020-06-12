@@ -13,91 +13,94 @@
   $TEMP--footer-nav-group-type: 'heading-02';
 
   .#{$prefix}--footer-nav-group {
-    padding-left: 0;
-    margin-bottom: 0;
-    &__title {
-      // need to remove once 16 variants come out
-      @include carbon--type-style($TEMP--footer-nav-group-type);
-
-      display: none;
-    }
-
-    .#{$prefix}--accordion__content {
+    @include carbon--theme(
+      $carbon--theme--g90,
+      feature-flag-enabled('enable-css-custom-properties')
+    ) {
       padding-left: 0;
-      padding-right: 0;
-    }
-
-    .#{$prefix}--link {
-      @include carbon--breakpoint-down($TEMP--breakpoint-down--md) {
-        margin-top: 0;
-        display: block;
-        padding: temp--padding-diff($TEMP--link-height, $TEMP--link-type)
-          ($carbon--grid-gutter / 2);
-
-        &:hover,
-        &:active {
-          text-decoration: none;
-        }
-
-        &:hover {
-          background-color: $hover-ui;
-        }
-
-        &:active {
-          background-color: $active-ui;
-        }
-
-        &:focus {
-          outline-width: 0;
-          box-shadow: inset 0 0 0 1px $focus;
-        }
-      }
-    }
-
-    @include carbon--breakpoint('md') {
-      @include carbon--make-col-ready;
-
-      padding-left: 0;
-      display: inline-block;
-      margin-bottom: carbon--mini-units(6);
-
+      margin-bottom: 0;
       &__title {
-        display: block;
-      }
+        // need to remove once 16 variants come out
+        @include carbon--type-style($TEMP--footer-nav-group-type);
 
-      &__item {
-        margin-top: carbon--mini-units(1);
-      }
-
-      &.#{$prefix}--accordion__item {
-        border-top: 0 transparent;
-
-        &:last-child {
-          border-bottom: 0;
-        }
-      }
-
-      .#{$prefix}--accordion__heading {
         display: none;
       }
 
       .#{$prefix}--accordion__content {
-        display: block;
-        height: auto;
-        opacity: 1;
-        visibility: visible;
+        padding-left: 0;
+        padding-right: 0;
       }
 
-      .#{$prefix}--accordion__content,
-      &.#{$prefix}--accordion__item--active .#{$prefix}--accordion__content {
-        padding: 0;
+      .#{$prefix}--link {
+        @include carbon--breakpoint-down($TEMP--breakpoint-down--md) {
+          margin-top: 0;
+          display: block;
+          padding: temp--padding-diff($TEMP--link-height, $TEMP--link-type)
+            ($carbon--grid-gutter / 2);
+
+          &:hover,
+          &:active {
+            text-decoration: none;
+          }
+
+          &:hover {
+            background-color: $hover-ui;
+          }
+
+          &:active {
+            background-color: $active-ui;
+          }
+
+          &:focus {
+            outline-width: 0;
+            box-shadow: inset 0 0 0 1px $focus;
+          }
+        }
+      }
+
+      @include carbon--breakpoint('md') {
+        @include carbon--make-col-ready;
+
+        padding-left: 0;
+        display: inline-block;
+        margin-bottom: carbon--mini-units(6);
+
+        &__title {
+          display: block;
+        }
+
+        &__item {
+          margin-top: carbon--mini-units(1);
+        }
+
+        &.#{$prefix}--accordion__item {
+          border-top: 0 transparent;
+
+          &:last-child {
+            border-bottom: 0;
+          }
+        }
+
+        .#{$prefix}--accordion__heading {
+          display: none;
+        }
+
+        .#{$prefix}--accordion__content {
+          display: block;
+          height: auto;
+          opacity: 1;
+          visibility: visible;
+        }
+
+        .#{$prefix}--accordion__content,
+        &.#{$prefix}--accordion__item--active .#{$prefix}--accordion__content {
+          padding: 0;
+        }
       }
     }
   }
 }
 
 @include exports('footer-nav-group') {
-  @include carbon--theme($carbon--theme--g90) {
-    @include footer-nav-group;
-  }
+  @include footer-nav-group;
 }

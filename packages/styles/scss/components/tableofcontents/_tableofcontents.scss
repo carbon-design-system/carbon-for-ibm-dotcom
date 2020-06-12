@@ -169,13 +169,19 @@
   }
 
   .#{$prefix}--tableofcontents--g100 {
-    @include carbon--theme($carbon--theme--g100) {
+    @include carbon--theme(
+      $carbon--theme--g100,
+      feature-flag-enabled('enable-css-custom-properties')
+    ) {
       @include themed-items;
     }
   }
 
   .#{$prefix}--tableofcontents--g10 {
-    @include carbon--theme($carbon--theme--g10) {
+    @include carbon--theme(
+      $carbon--theme--g10,
+      feature-flag-enabled('enable-css-custom-properties')
+    ) {
       @include themed-items;
     }
   }
