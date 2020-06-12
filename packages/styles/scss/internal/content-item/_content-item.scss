@@ -7,6 +7,7 @@
 
 @import '../../globals/imports';
 @import '../../globals/utils/content-width';
+@import '../../components/list/list';
 
 @mixin content-item {
   .#{$prefix}--content-item--inverse {
