@@ -22,5 +22,6 @@
   "keywords": [],
   "sass": {
     "includePaths": ["./node_modules"]
-  }
+  },
+  "private": true
 }
