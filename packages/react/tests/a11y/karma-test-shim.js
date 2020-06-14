@@ -28,7 +28,7 @@ describe('Test a11y compliance', function() {
           ?.disabled
     )
     .forEach(storyModule => {
-      const { title: groupTitle } = storyModule.default;
+      const { title: groupTitle } = storyModule.default ?? {};
 
       Object.keys(storyModule)
         .filter(name => {
