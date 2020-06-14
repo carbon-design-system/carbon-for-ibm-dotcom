@@ -74,7 +74,7 @@ FeatureCardBlockLarge.propTypes = {
         PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video'])
       ),
     ]),
-  }),
+  }).isRequired,
 
   /**
    * Contains source and alt text properties.

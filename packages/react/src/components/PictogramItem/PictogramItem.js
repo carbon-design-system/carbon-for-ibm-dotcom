@@ -84,7 +84,7 @@ PictogramItem.propTypes = {
    */
   pictogram: PropTypes.shape({
     src: PropTypes.object.isRequired,
-  }),
+  }).isRequired,
 
   /**
    * Pictogram Item `className`` prop.

@@ -139,7 +139,7 @@ CTASection.propTypes = {
         }),
       }),
     })
-  ),
+  ).isRequired,
 };
 
 export default CTASection;
