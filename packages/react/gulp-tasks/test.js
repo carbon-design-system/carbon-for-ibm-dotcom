@@ -13,14 +13,7 @@ const { Server } = require('karma');
 const config = require('./config');
 
 const { cloptions, testsDir } = config;
-const {
-  browsers,
-  specs,
-  keepalive,
-  random,
-  useExperimentalFeatures,
-  verbose,
-} = cloptions;
+const { browsers, specs, keepalive, verbose } = cloptions;
 
 module.exports = {
   a11y(done) {
@@ -40,9 +33,7 @@ module.exports = {
         singleRun: !keepalive,
         customConfig: {
           browsers, // We'll massage browser list in `karma.config.js`
-          random,
           specs,
-          useExperimentalFeatures,
           verbose,
         },
       },

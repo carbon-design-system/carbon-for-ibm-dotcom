@@ -64,10 +64,17 @@ export default !DDS_SIMPLE_OVERVIEW
       },
     };
 
-export const Default = ({ parameters }) => {
-  const { label, heading, copy, link } =
-    parameters?.props?.SimpleOverview ?? {};
-  return (
-    <SimpleOverview label={label} heading={heading} copy={copy} link={link} />
-  );
-};
+export const Default = !DDS_SIMPLE_OVERVIEW
+  ? undefined
+  : ({ parameters }) => {
+      const { label, heading, copy, link } =
+        parameters?.props?.SimpleOverview ?? {};
+      return (
+        <SimpleOverview
+          label={label}
+          heading={heading}
+          copy={copy}
+          link={link}
+        />
+      );
+    };

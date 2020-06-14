@@ -14,10 +14,10 @@ You can test your changes by running our test commands:
 > gulp test:a11y
 ```
 
-If you are very sure that your change affects a specific set of components, you can use `-s` option, like:
+If you are very sure that your change affects a specific set of components, you can use `-s` option with a regular expression of the list of stories that should be tested, like:
 
 ```sh
-> gulp test:a11y -s tests/a11y/CTA_a11y-check.js
+> gulp test:a11y -s 'CTA\.stories\.js$'
 ```
 
 You can run the test in a real browser with `-b` option along with other options to keep the test session (`-k`), like:
@@ -35,7 +35,7 @@ You can enable verbose output with `--verbose` option, like:
 Above options can be used together, like:
 
 ```sh
-> gulp test:a11y -s tests/a11y/CTA_a11y-check.js -b Chrome -k --verbose
+> gulp test:a11y -s 'CTA\.stories\.js$' -b Chrome -k --verbose
 ```
 
 ## Ignoring aChecker results
