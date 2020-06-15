@@ -63,6 +63,7 @@ const LogoGrid = ({ heading, logosGroup, ctaCopy, ctaHref, hideBorder }) => {
                         alt={placeholder.altText}
                         longDescription={placeholder.label}
                       />
+                      <div class="hover-border"></div>
                     </div>
                   </a>
                 </div>
