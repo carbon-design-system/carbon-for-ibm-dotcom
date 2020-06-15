@@ -1,0 +1,27 @@
+{
+  "name": "ibmdotcom-videoplayer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "start": "parcel index.html --open",
+    "build": "parcel build index.html"
+  },
+  "dependencies": {
+    "@carbon/ibmdotcom-react": "latest",
+    "@carbon/ibmdotcom-styles": "latest",
+    "@carbon/icons-react": "10.11.0",
+    "react": "16.9.0",
+    "react-dom": "16.9.0",
+    "sass": "1.26.8"
+  },
+  "devDependencies": {
+    "@babel/core": "7.2.0",
+    "parcel-bundler": "^1.6.1"
+  },
+  "keywords": [],
+  "sass": {
+    "includePaths": ["./node_modules"]
+  },
+  "private": true
+}
