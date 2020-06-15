@@ -215,7 +215,7 @@ do
           echo -e "${GREEN}Creating full major release...${NC}"
           set -x
           release_full_major
-          echo -e "${GREEN}Publish complete, run 'node ./tasks/tag-release.sh' to tag and create the Github release.${NC}"
+          echo -e "${GREEN}Publish complete, run 'node ./tasks/tag-release.js' to tag and create the Github release.${NC}"
           exit 0
           ;;
         "cancel")
