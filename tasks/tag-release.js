@@ -19,7 +19,7 @@ const chalk = require('chalk');
  *
  * @type {string}
  */
-const repoSlug = 'jeffchew/ibm-dotcom-library';
+const repoSlug = 'carbon-design-system/ibm-dotcom-library';
 
 /**
  * Github release API
@@ -122,12 +122,15 @@ function createRelease(tagName) {
           });
 
           res.on('end', () => {
-            console.log(response);
-            console.log(
-              chalk.green(
-                `Release created: https://github.com/${repoSlug}/releases/tag/${tagName}`
-              )
-            );
+            if (JSON.parse(response).id) {
+              console.log(
+                chalk.green(
+                  `Release created: https://github.com/${repoSlug}/releases/tag/${tagName}`
+                )
+              );
+            } else {
+              console.log(chalk.red(`Error creating release:`, response));
+            }
           });
         });
 

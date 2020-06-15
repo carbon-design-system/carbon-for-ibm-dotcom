@@ -12,14 +12,18 @@
 const child = require('child_process');
 const https = require('https');
 const program = require('commander');
+const chalk = require('chalk');
 
 program
-  .option('-t, --token <github token>', 'Github Token')
-  .option(
+  .requiredOption('-t, --token <github token>', 'Github Token')
+  .requiredOption(
     '-p, --prevtag <previous git tag>',
     'Previous Git tag to get changelog range'
   )
-  .option('-n, --newtag <new git tag>', 'New Git tag to create the release');
+  .requiredOption(
+    '-n, --newtag <new git tag>',
+    'New Git tag to create the release'
+  );
 
 /**
  * Github Repo Slug
@@ -67,23 +71,23 @@ const newTag = args.newtag;
  * Creates the Beta Release on Github
  */
 function createBetaRelease() {
-  const options = {
-    hostname: 'api.github.com',
-    path: repoUrl,
-    method: 'POST',
-    headers: {
-      'User-Agent': 'node/https',
-      Authorization: `token ${githubToken}`,
-    },
-  };
-
   const changelog = child.spawn('node', [
     `${__dirname}/get-changelog.js`,
-    `--tagFrom ${prevTag}`,
-    `--tagTo ${newTag}`,
+    `-f ${prevTag}`,
+    `-t ${newTag}`,
   ]);
 
   changelog.stdout.on('data', data => {
+    const options = {
+      hostname: 'api.github.com',
+      path: repoUrl,
+      method: 'POST',
+      headers: {
+        'User-Agent': 'node/https',
+        Authorization: `token ${githubToken}`,
+      },
+    };
+
     const dataObj = JSON.stringify({
       tag_name: newTag,
       name: newTag,
@@ -101,10 +105,15 @@ function createBetaRelease() {
       });
 
       res.on('end', () => {
-        console.log(response);
-        console.log(
-          `Release created: https://github.com/${repoSlug}/releases/tag/${newTag}`
-        );
+        if (JSON.parse(response).id) {
+          console.log(
+            chalk.green(
+              `Release created: https://github.com/${repoSlug}/releases/tag/${newTag}`
+            )
+          );
+        } else {
+          console.log(chalk.red(`Error creating release:`, response));
+        }
       });
     });
 
