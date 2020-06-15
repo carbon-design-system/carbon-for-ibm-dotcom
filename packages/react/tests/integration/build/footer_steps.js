@@ -11,32 +11,18 @@ const path = require('path');
 const { setup: setupDevServer, teardown: teardownDevServer } = require('jest-dev-server');
 
 const PORT = 9000;
-const DEST_DIRS_REACT = ['es', 'lib', 'umd'];
-const DEST_DIRS_SERVICES = ['es', 'lib', 'umd'];
-const DEST_DIRS_STYLES = ['scss'];
-const DEST_DIRS_UTILITIES = ['es', 'lib', 'umd'];
 
 describe('Footer example', () => {
   beforeAll(async () => {
-    const reactRoot = path.resolve(__dirname, '../../..');
-    const servicesRoot = path.resolve(__dirname, '../../../../services');
-    const stylesRoot = path.resolve(__dirname, '../../../../styles');
-    const utilitiesRoot = path.resolve(__dirname, '../../../../utilities');
+    const projectRoot = path.resolve(__dirname, '../../../../..');
     const src = path.resolve(__dirname, '../../../examples/codesandbox/components/footer');
     const tmpDir = process.env.DDS_EXAMPLE_TMPDIR;
     await setupDevServer({
       command: [
         `cp -r '${src}' ${tmpDir}`,
+        `node ${projectRoot}/tasks/replace-dependencies.js ${tmpDir}/footer/package.json`,
         `cd ${tmpDir}/footer`,
         'yarn install',
-        ...DEST_DIRS_REACT.map(dir => `rm -Rf node_modules/@carbon/ibmdotcom-react/${dir}`),
-        ...DEST_DIRS_REACT.map(dir => `cp -r '${reactRoot}/${dir}' node_modules/@carbon/ibmdotcom-react`),
-        ...DEST_DIRS_SERVICES.map(dir => `rm -Rf node_modules/@carbon/ibmdotcom-services/${dir}`),
-        ...DEST_DIRS_SERVICES.map(dir => `cp -r '${servicesRoot}/${dir}' node_modules/@carbon/ibmdotcom-services`),
-        ...DEST_DIRS_STYLES.map(dir => `rm -Rf node_modules/@carbon/ibmdotcom-styles/${dir}`),
-        ...DEST_DIRS_STYLES.map(dir => `cp -r '${stylesRoot}/${dir}' node_modules/@carbon/ibmdotcom-styles`),
-        ...DEST_DIRS_UTILITIES.map(dir => `rm -Rf node_modules/@carbon/ibmdotcom-utilities/${dir}`),
-        ...DEST_DIRS_UTILITIES.map(dir => `cp -r '${utilitiesRoot}/${dir}' node_modules/@carbon/ibmdotcom-utilities`),
         'yarn parcel build index.html',
         `cp -r dist ${tmpDir}`,
         `cd ${tmpDir}/dist`,
