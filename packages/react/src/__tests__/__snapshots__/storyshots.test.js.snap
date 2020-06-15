@@ -793,7 +793,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                           className="bx--card__copy"
                           dangerouslySetInnerHTML={
                             Object {
-                              "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
+                              "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
                             }
                           }
                         />
@@ -907,7 +907,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                           className="bx--card__copy"
                           dangerouslySetInnerHTML={
                             Object {
-                              "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
+                              "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
                             }
                           }
                         />
@@ -1021,7 +1021,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                           className="bx--card__copy"
                           dangerouslySetInnerHTML={
                             Object {
-                              "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
+                              "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
                             }
                           }
                         />
@@ -1135,7 +1135,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                           className="bx--card__copy"
                           dangerouslySetInnerHTML={
                             Object {
-                              "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
+                              "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
                             }
                           }
                         />
@@ -1249,7 +1249,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                           className="bx--card__copy"
                           dangerouslySetInnerHTML={
                             Object {
-                              "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
+                              "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
                             }
                           }
                         />
@@ -1437,7 +1437,7 @@ exports[`Storyshots Components|CardLink Default 1`] = `
     }
   >
     <div
-      className="bx--grid"
+      className="bx--grid bx--grid--condensed"
     >
       <div
         className="bx--row"
@@ -1507,7 +1507,7 @@ exports[`Storyshots Components|CardLink Default 1`] = `
                       className="bx--card__copy"
                       dangerouslySetInnerHTML={
                         Object {
-                          "__html": "<p>Explore AI use cases in all industries</p> ",
+                          "__html": "<p>Explore AI use cases in all industries</p>",
                         }
                       }
                     />
@@ -1655,7 +1655,7 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
                     className="bx--content-item-horizontal__item--copy"
                     dangerouslySetInnerHTML={
                       Object {
-                        "__html": "<p>Lorem ipsum dolor sit amet, <em>consectetur</em> adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.</p> ",
+                        "__html": "<p>Lorem ipsum dolor sit amet, <em class=\\"bx--type-light\\">consectetur</em> adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.</p>",
                       }
                     }
                     data-autoid="dds--content-item-horizontal__item--copy"
@@ -4898,7 +4898,7 @@ exports[`Storyshots Components|LightboxMediaViewer Default 1`] = `
                               className="bx--lightbox-media-viewer__content__desc"
                               data-autoid="dds--lightbox-media-viewer__content__desc"
                             >
-                              &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Here are some common categories:&lt;/p&gt; 
+                              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Here are some common categories:
                             </div>
                           </div>
                         </div>
@@ -5397,7 +5397,7 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                                     className="bx--card__copy"
                                     dangerouslySetInnerHTML={
                                       Object {
-                                        "__html": "<p>Learn more</p> ",
+                                        "__html": "<p>Learn more</p>",
                                       }
                                     }
                                   />
@@ -5576,7 +5576,7 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                                     className="bx--card__copy"
                                     dangerouslySetInnerHTML={
                                       Object {
-                                        "__html": "<p>Containerization A Complete Guide</p> ",
+                                        "__html": "<p>Containerization A Complete Guide</p>",
                                       }
                                     }
                                   />
@@ -5758,7 +5758,7 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                                     className="bx--card__copy"
                                     dangerouslySetInnerHTML={
                                       Object {
-                                        "__html": "<p>Microservices and containers</p> ",
+                                        "__html": "<p>Microservices and containers</p>",
                                       }
                                     }
                                   />
@@ -7890,7 +7890,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                     className="bx--card__copy"
                                     dangerouslySetInnerHTML={
                                       Object {
-                                        "__html": "<p>Learn more</p> ",
+                                        "__html": "<p>Learn more</p>",
                                       }
                                     }
                                   />
@@ -8069,7 +8069,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                     className="bx--card__copy"
                                     dangerouslySetInnerHTML={
                                       Object {
-                                        "__html": "<p>Containerization A Complete Guide</p> ",
+                                        "__html": "<p>Containerization A Complete Guide</p>",
                                       }
                                     }
                                   />
@@ -8251,7 +8251,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                     className="bx--card__copy"
                                     dangerouslySetInnerHTML={
                                       Object {
-                                        "__html": "<p>Microservices and containers</p> ",
+                                        "__html": "<p>Microservices and containers</p>",
                                       }
                                     }
                                   />
@@ -10471,7 +10471,7 @@ exports[`Storyshots Components|PictogramItem Default 1`] = `
                         className="bx--content-item__copy"
                         dangerouslySetInnerHTML={
                           Object {
-                            "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p> ",
+                            "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>",
                           }
                         }
                         data-autoid="dds--content-item__copy"
@@ -12588,7 +12588,7 @@ exports[`Storyshots Patterns (Blocks)|CalloutWithMedia Default 1`] = `
                                         className="bx--content-item__copy"
                                         dangerouslySetInnerHTML={
                                           Object {
-                                            "__html": "<p>Lorem ipsum <em>dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est.  Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales  nulla quis, <em>consequat</em> libero. Here are  some common categories:</p> ",
+                                            "__html": "<p>Lorem ipsum <em class=\\"bx--type-light\\">dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est.  Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales  nulla quis, <em class=\\"bx--type-light\\">consequat</em> libero. Here are  some common categories:</p>",
                                           }
                                         }
                                         data-autoid="dds--content-item__copy"
@@ -12900,7 +12900,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                       className="bx--card__copy"
                                       dangerouslySetInnerHTML={
                                         Object {
-                                          "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
+                                          "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
                                         }
                                       }
                                     />
@@ -13014,7 +13014,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                       className="bx--card__copy"
                                       dangerouslySetInnerHTML={
                                         Object {
-                                          "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
+                                          "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
                                         }
                                       }
                                     />
@@ -13128,7 +13128,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                       className="bx--card__copy"
                                       dangerouslySetInnerHTML={
                                         Object {
-                                          "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
+                                          "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
                                         }
                                       }
                                     />
@@ -13242,7 +13242,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                       className="bx--card__copy"
                                       dangerouslySetInnerHTML={
                                         Object {
-                                          "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
+                                          "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
                                         }
                                       }
                                     />
@@ -13356,7 +13356,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                       className="bx--card__copy"
                                       dangerouslySetInnerHTML={
                                         Object {
-                                          "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
+                                          "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
                                         }
                                       }
                                     />
@@ -13660,7 +13660,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                     className="bx--content-block__copy"
                     dangerouslySetInnerHTML={
                       Object {
-                        "__html": "<p>Lorem ipsum <em>dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, <em>consequat</em> libero. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
+                        "__html": "<p>Lorem ipsum <em class=\\"bx--type-light\\">dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, <em class=\\"bx--type-light\\">consequat</em> libero. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
                       }
                     }
                   />
@@ -13875,7 +13875,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                     className="bx--content-item__copy"
                                     dangerouslySetInnerHTML={
                                       Object {
-                                        "__html": "<p>Lorem ipsum dolor sit amet, <em>consectetur</em> adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p> ",
+                                        "__html": "<p>Lorem ipsum dolor sit amet, <em class=\\"bx--type-light\\">consectetur</em> adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p>",
                                       }
                                     }
                                     data-autoid="dds--content-item__copy"
@@ -13914,7 +13914,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                     className="bx--content-item__copy"
                                     dangerouslySetInnerHTML={
                                       Object {
-                                        "__html": "<p>Lorem ipsum <em>dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, <em>consequat</em> libero. Here are some common categories:</p> <p>Lorem ipsum dolor sit amet, <a href=\\"https://www.ibm.com\\" class=\\"bx--link\\">consectetur adipiscing</a> elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat <strong>libero</strong>.</p> <ul class=\\"bx--list--unordered\\"><li class=\\"bx--list__item\\"><a href=\\"https://www.ibm.com\\" class=\\"bx--link\\">list item link</a><ol class=\\"bx--list--ordered\\"><li class=\\"bx--list__item\\">list item 1a</li><li class=\\"bx--list__item\\">list item 2a<ul class=\\"bx--list--unordered\\"><li class=\\"bx--list__item\\">list item 2a.a</li></ul></li></ol></li></ul><ol class=\\"bx--list--ordered\\"><li class=\\"bx--list__item\\">list item 2<ul class=\\"bx--list--unordered\\"><li class=\\"bx--list__item\\">list item 2a</li></ul></li></ol>",
+                                        "__html": "<p>Lorem ipsum <em class=\\"bx--type-light\\">dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, <em class=\\"bx--type-light\\">consequat</em> libero. Here are some common categories:</p><p>Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat __libero__.</p><p>- [list item link](https://www.ibm.com)  1. list item 1a  2. list item 2a  - list item 2a.a 1. list item 2  - list item 2a </p>",
                                       }
                                     }
                                     data-autoid="dds--content-item__copy"
@@ -13940,7 +13940,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                     className="bx--content-item__copy"
                                     dangerouslySetInnerHTML={
                                       Object {
-                                        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p> ",
+                                        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p>",
                                       }
                                     }
                                     data-autoid="dds--content-item__copy"
@@ -14065,7 +14065,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                 className="bx--card__copy"
                                                 dangerouslySetInnerHTML={
                                                   Object {
-                                                    "__html": "<p>Lorem ipsum dolor sit ametttt</p> ",
+                                                    "__html": "<p>Lorem ipsum dolor sit ametttt</p>",
                                                   }
                                                 }
                                               />
@@ -14339,7 +14339,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                     className="bx--content-item__copy"
                                     dangerouslySetInnerHTML={
                                       Object {
-                                        "__html": "<p>Lorem ipsum dolor sit amet, <em>consectetur</em> adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p> ",
+                                        "__html": "<p>Lorem ipsum dolor sit amet, <em class=\\"bx--type-light\\">consectetur</em> adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p>",
                                       }
                                     }
                                     data-autoid="dds--content-item__copy"
@@ -14378,7 +14378,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                     className="bx--content-item__copy"
                                     dangerouslySetInnerHTML={
                                       Object {
-                                        "__html": "<p>Lorem ipsum <em>dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, <em>consequat</em> libero. Here are some common categories:</p> <p>Lorem ipsum dolor sit amet, <a href=\\"https://www.ibm.com\\" class=\\"bx--link\\">consectetur adipiscing</a> elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat <strong>libero</strong>.</p> <ul class=\\"bx--list--unordered\\"><li class=\\"bx--list__item\\"><a href=\\"https://www.ibm.com\\" class=\\"bx--link\\">list item link</a><ol class=\\"bx--list--ordered\\"><li class=\\"bx--list__item\\">list item 1a</li><li class=\\"bx--list__item\\">list item 2a<ul class=\\"bx--list--unordered\\"><li class=\\"bx--list__item\\">list item 2a.a</li></ul></li></ol></li></ul><ol class=\\"bx--list--ordered\\"><li class=\\"bx--list__item\\">list item 2<ul class=\\"bx--list--unordered\\"><li class=\\"bx--list__item\\">list item 2a</li></ul></li></ol>",
+                                        "__html": "<p>Lorem ipsum <em class=\\"bx--type-light\\">dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, <em class=\\"bx--type-light\\">consequat</em> libero. Here are some common categories:</p><p>Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat __libero__.</p><p>- [list item link](https://www.ibm.com)  1. list item 1a  2. list item 2a  - list item 2a.a 1. list item 2  - list item 2a </p>",
                                       }
                                     }
                                     data-autoid="dds--content-item__copy"
@@ -14404,7 +14404,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                     className="bx--content-item__copy"
                                     dangerouslySetInnerHTML={
                                       Object {
-                                        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p> ",
+                                        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p>",
                                       }
                                     }
                                     data-autoid="dds--content-item__copy"
@@ -14529,7 +14529,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                 className="bx--card__copy"
                                                 dangerouslySetInnerHTML={
                                                   Object {
-                                                    "__html": "<p>Lorem ipsum dolor sit ametttt</p> ",
+                                                    "__html": "<p>Lorem ipsum dolor sit ametttt</p>",
                                                   }
                                                 }
                                               />
@@ -15205,7 +15205,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                             className="bx--content-block__copy"
                             dangerouslySetInnerHTML={
                               Object {
-                                "__html": "<p>Lorem ipsum <em>dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, <em>consequat</em> libero. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
+                                "__html": "<p>Lorem ipsum <em class=\\"bx--type-light\\">dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, <em class=\\"bx--type-light\\">consequat</em> libero. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
                               }
                             }
                           />
@@ -15420,7 +15420,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                             className="bx--content-item__copy"
                                             dangerouslySetInnerHTML={
                                               Object {
-                                                "__html": "<p>Lorem ipsum dolor sit amet, <em>consectetur</em> adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p> ",
+                                                "__html": "<p>Lorem ipsum dolor sit amet, <em class=\\"bx--type-light\\">consectetur</em> adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p>",
                                               }
                                             }
                                             data-autoid="dds--content-item__copy"
@@ -15459,7 +15459,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                             className="bx--content-item__copy"
                                             dangerouslySetInnerHTML={
                                               Object {
-                                                "__html": "<p>Lorem ipsum <em>dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, <em>consequat</em> libero. Here are some common categories:</p> <p>Lorem ipsum dolor sit amet, <a href=\\"https://www.ibm.com\\" class=\\"bx--link\\">consectetur adipiscing</a> elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat <strong>libero</strong>.</p> <ul class=\\"bx--list--unordered\\"><li class=\\"bx--list__item\\"><a href=\\"https://www.ibm.com\\" class=\\"bx--link\\">list item link</a><ol class=\\"bx--list--ordered\\"><li class=\\"bx--list__item\\">list item 1a</li><li class=\\"bx--list__item\\">list item 2a<ul class=\\"bx--list--unordered\\"><li class=\\"bx--list__item\\">list item 2a.a</li></ul></li></ol></li></ul><ol class=\\"bx--list--ordered\\"><li class=\\"bx--list__item\\">list item 2<ul class=\\"bx--list--unordered\\"><li class=\\"bx--list__item\\">list item 2a</li></ul></li></ol>",
+                                                "__html": "<p>Lorem ipsum <em class=\\"bx--type-light\\">dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, <em class=\\"bx--type-light\\">consequat</em> libero. Here are some common categories:</p><p>Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat __libero__.</p><p>- [list item link](https://www.ibm.com)  1. list item 1a  2. list item 2a  - list item 2a.a 1. list item 2  - list item 2a </p>",
                                               }
                                             }
                                             data-autoid="dds--content-item__copy"
@@ -15485,7 +15485,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                             className="bx--content-item__copy"
                                             dangerouslySetInnerHTML={
                                               Object {
-                                                "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p> ",
+                                                "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p>",
                                               }
                                             }
                                             data-autoid="dds--content-item__copy"
@@ -15610,7 +15610,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                         className="bx--card__copy"
                                                         dangerouslySetInnerHTML={
                                                           Object {
-                                                            "__html": "<p>Lorem ipsum dolor sit ametttt</p> ",
+                                                            "__html": "<p>Lorem ipsum dolor sit ametttt</p>",
                                                           }
                                                         }
                                                       />
@@ -15884,7 +15884,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                             className="bx--content-item__copy"
                                             dangerouslySetInnerHTML={
                                               Object {
-                                                "__html": "<p>Lorem ipsum dolor sit amet, <em>consectetur</em> adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p> ",
+                                                "__html": "<p>Lorem ipsum dolor sit amet, <em class=\\"bx--type-light\\">consectetur</em> adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p>",
                                               }
                                             }
                                             data-autoid="dds--content-item__copy"
@@ -15923,7 +15923,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                             className="bx--content-item__copy"
                                             dangerouslySetInnerHTML={
                                               Object {
-                                                "__html": "<p>Lorem ipsum <em>dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, <em>consequat</em> libero. Here are some common categories:</p> <p>Lorem ipsum dolor sit amet, <a href=\\"https://www.ibm.com\\" class=\\"bx--link\\">consectetur adipiscing</a> elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat <strong>libero</strong>.</p> <ul class=\\"bx--list--unordered\\"><li class=\\"bx--list__item\\"><a href=\\"https://www.ibm.com\\" class=\\"bx--link\\">list item link</a><ol class=\\"bx--list--ordered\\"><li class=\\"bx--list__item\\">list item 1a</li><li class=\\"bx--list__item\\">list item 2a<ul class=\\"bx--list--unordered\\"><li class=\\"bx--list__item\\">list item 2a.a</li></ul></li></ol></li></ul><ol class=\\"bx--list--ordered\\"><li class=\\"bx--list__item\\">list item 2<ul class=\\"bx--list--unordered\\"><li class=\\"bx--list__item\\">list item 2a</li></ul></li></ol>",
+                                                "__html": "<p>Lorem ipsum <em class=\\"bx--type-light\\">dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, <em class=\\"bx--type-light\\">consequat</em> libero. Here are some common categories:</p><p>Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat __libero__.</p><p>- [list item link](https://www.ibm.com)  1. list item 1a  2. list item 2a  - list item 2a.a 1. list item 2  - list item 2a </p>",
                                               }
                                             }
                                             data-autoid="dds--content-item__copy"
@@ -15949,7 +15949,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                             className="bx--content-item__copy"
                                             dangerouslySetInnerHTML={
                                               Object {
-                                                "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p> ",
+                                                "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p>",
                                               }
                                             }
                                             data-autoid="dds--content-item__copy"
@@ -16074,7 +16074,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                         className="bx--card__copy"
                                                         dangerouslySetInnerHTML={
                                                           Object {
-                                                            "__html": "<p>Lorem ipsum dolor sit ametttt</p> ",
+                                                            "__html": "<p>Lorem ipsum dolor sit ametttt</p>",
                                                           }
                                                         }
                                                       />
@@ -16566,7 +16566,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                     className="bx--card__copy"
                                                     dangerouslySetInnerHTML={
                                                       Object {
-                                                        "__html": "<p>Containerization A Complete Guide</p> ",
+                                                        "__html": "<p>Containerization A Complete Guide</p>",
                                                       }
                                                     }
                                                   />
@@ -16745,7 +16745,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                     className="bx--card__copy"
                                                     dangerouslySetInnerHTML={
                                                       Object {
-                                                        "__html": "<p>Why should you use microservices and containers</p> ",
+                                                        "__html": "<p>Why should you use microservices and containers</p>",
                                                       }
                                                     }
                                                   />
@@ -17054,7 +17054,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                     className="bx--content-block__copy"
                     dangerouslySetInnerHTML={
                       Object {
-                        "__html": "<p>Lorem ipsum <em>dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est.  Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales  nulla quis, <em>consequat</em> libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
+                        "__html": "<p>Lorem ipsum <em class=\\"bx--type-light\\">dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est.  Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales  nulla quis, <em class=\\"bx--type-light\\">consequat</em> libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
                       }
                     }
                   />
@@ -17184,7 +17184,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                               className="bx--card__copy"
                                               dangerouslySetInnerHTML={
                                                 Object {
-                                                  "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
+                                                  "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
                                                 }
                                               }
                                             />
@@ -17300,7 +17300,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                               className="bx--card__copy"
                                               dangerouslySetInnerHTML={
                                                 Object {
-                                                  "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p> ",
+                                                  "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>",
                                                 }
                                               }
                                             />
@@ -17416,7 +17416,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                               className="bx--card__copy"
                                               dangerouslySetInnerHTML={
                                                 Object {
-                                                  "__html": "<p>Lorem ipsum dolor sit amet</p> ",
+                                                  "__html": "<p>Lorem ipsum dolor sit amet</p>",
                                                 }
                                               }
                                             />
@@ -17532,7 +17532,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                               className="bx--card__copy"
                                               dangerouslySetInnerHTML={
                                                 Object {
-                                                  "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p> ",
+                                                  "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>",
                                                 }
                                               }
                                             />
@@ -17777,7 +17777,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                             className="bx--content-item__copy"
                                             dangerouslySetInnerHTML={
                                               Object {
-                                                "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
+                                                "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
                                               }
                                             }
                                             data-autoid="dds--content-item__copy"
@@ -17972,7 +17972,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                             className="bx--content-item__copy"
                                             dangerouslySetInnerHTML={
                                               Object {
-                                                "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
+                                                "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
                                               }
                                             }
                                             data-autoid="dds--content-item__copy"
@@ -18166,7 +18166,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                             className="bx--content-item__copy"
                                             dangerouslySetInnerHTML={
                                               Object {
-                                                "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
+                                                "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
                                               }
                                             }
                                             data-autoid="dds--content-item__copy"
@@ -18452,7 +18452,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                     className="bx--content-item__copy"
                                     dangerouslySetInnerHTML={
                                       Object {
-                                        "__html": "<p>Lorem ipsum dolor sit amet, <em>consectetur</em> adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p> ",
+                                        "__html": "<p>Lorem ipsum dolor sit amet, <em class=\\"bx--type-light\\">consectetur</em> adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p>",
                                       }
                                     }
                                     data-autoid="dds--content-item__copy"
@@ -18491,7 +18491,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                     className="bx--content-item__copy"
                                     dangerouslySetInnerHTML={
                                       Object {
-                                        "__html": "<p>Lorem ipsum <em>dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, <em>consequat</em> libero. Here are some common categories:</p> <p>Lorem ipsum dolor sit amet, <a href=\\"https://www.ibm.com\\" class=\\"bx--link\\">consectetur adipiscing</a> elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat <strong>libero</strong>.</p> <ul class=\\"bx--list--unordered\\"><li class=\\"bx--list__item\\"><a href=\\"https://www.ibm.com\\" class=\\"bx--link\\">list item link</a><ol class=\\"bx--list--ordered\\"><li class=\\"bx--list__item\\">list item 1a</li><li class=\\"bx--list__item\\">list item 2a<ul class=\\"bx--list--unordered\\"><li class=\\"bx--list__item\\">list item 2a.a</li></ul></li></ol></li></ul><ol class=\\"bx--list--ordered\\"><li class=\\"bx--list__item\\">list item 2<ul class=\\"bx--list--unordered\\"><li class=\\"bx--list__item\\">list item 2a</li></ul></li></ol>",
+                                        "__html": "<p>Lorem ipsum <em class=\\"bx--type-light\\">dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, <em class=\\"bx--type-light\\">consequat</em> libero. Here are some common categories:</p><p>Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat __libero__.</p><p>- [list item link](https://www.ibm.com)  1. list item 1a  2. list item 2a  - list item 2a.a 1. list item 2  - list item 2a </p>",
                                       }
                                     }
                                     data-autoid="dds--content-item__copy"
@@ -18517,7 +18517,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                     className="bx--content-item__copy"
                                     dangerouslySetInnerHTML={
                                       Object {
-                                        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p> ",
+                                        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p>",
                                       }
                                     }
                                     data-autoid="dds--content-item__copy"
@@ -18647,7 +18647,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                       className="bx--card__copy"
                                       dangerouslySetInnerHTML={
                                         Object {
-                                          "__html": "<p>Lorem ipsum dolor sit ametttt</p> ",
+                                          "__html": "<p>Lorem ipsum dolor sit ametttt</p>",
                                         }
                                       }
                                     />
@@ -19044,7 +19044,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                             className="bx--content-block__copy"
                             dangerouslySetInnerHTML={
                               Object {
-                                "__html": "<p>Lorem ipsum <em>dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est.  Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales  nulla quis, <em>consequat</em> libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
+                                "__html": "<p>Lorem ipsum <em class=\\"bx--type-light\\">dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est.  Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales  nulla quis, <em class=\\"bx--type-light\\">consequat</em> libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
                               }
                             }
                           />
@@ -19174,7 +19174,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                       className="bx--card__copy"
                                                       dangerouslySetInnerHTML={
                                                         Object {
-                                                          "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
+                                                          "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
                                                         }
                                                       }
                                                     />
@@ -19290,7 +19290,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                       className="bx--card__copy"
                                                       dangerouslySetInnerHTML={
                                                         Object {
-                                                          "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p> ",
+                                                          "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>",
                                                         }
                                                       }
                                                     />
@@ -19406,7 +19406,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                       className="bx--card__copy"
                                                       dangerouslySetInnerHTML={
                                                         Object {
-                                                          "__html": "<p>Lorem ipsum dolor sit amet</p> ",
+                                                          "__html": "<p>Lorem ipsum dolor sit amet</p>",
                                                         }
                                                       }
                                                     />
@@ -19522,7 +19522,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                       className="bx--card__copy"
                                                       dangerouslySetInnerHTML={
                                                         Object {
-                                                          "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p> ",
+                                                          "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>",
                                                         }
                                                       }
                                                     />
@@ -19767,7 +19767,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                     className="bx--content-item__copy"
                                                     dangerouslySetInnerHTML={
                                                       Object {
-                                                        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
+                                                        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
                                                       }
                                                     }
                                                     data-autoid="dds--content-item__copy"
@@ -19962,7 +19962,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                     className="bx--content-item__copy"
                                                     dangerouslySetInnerHTML={
                                                       Object {
-                                                        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
+                                                        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
                                                       }
                                                     }
                                                     data-autoid="dds--content-item__copy"
@@ -20156,7 +20156,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                     className="bx--content-item__copy"
                                                     dangerouslySetInnerHTML={
                                                       Object {
-                                                        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
+                                                        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
                                                       }
                                                     }
                                                     data-autoid="dds--content-item__copy"
@@ -20442,7 +20442,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                             className="bx--content-item__copy"
                                             dangerouslySetInnerHTML={
                                               Object {
-                                                "__html": "<p>Lorem ipsum dolor sit amet, <em>consectetur</em> adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p> ",
+                                                "__html": "<p>Lorem ipsum dolor sit amet, <em class=\\"bx--type-light\\">consectetur</em> adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p>",
                                               }
                                             }
                                             data-autoid="dds--content-item__copy"
@@ -20481,7 +20481,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                             className="bx--content-item__copy"
                                             dangerouslySetInnerHTML={
                                               Object {
-                                                "__html": "<p>Lorem ipsum <em>dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, <em>consequat</em> libero. Here are some common categories:</p> <p>Lorem ipsum dolor sit amet, <a href=\\"https://www.ibm.com\\" class=\\"bx--link\\">consectetur adipiscing</a> elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat <strong>libero</strong>.</p> <ul class=\\"bx--list--unordered\\"><li class=\\"bx--list__item\\"><a href=\\"https://www.ibm.com\\" class=\\"bx--link\\">list item link</a><ol class=\\"bx--list--ordered\\"><li class=\\"bx--list__item\\">list item 1a</li><li class=\\"bx--list__item\\">list item 2a<ul class=\\"bx--list--unordered\\"><li class=\\"bx--list__item\\">list item 2a.a</li></ul></li></ol></li></ul><ol class=\\"bx--list--ordered\\"><li class=\\"bx--list__item\\">list item 2<ul class=\\"bx--list--unordered\\"><li class=\\"bx--list__item\\">list item 2a</li></ul></li></ol>",
+                                                "__html": "<p>Lorem ipsum <em class=\\"bx--type-light\\">dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, <em class=\\"bx--type-light\\">consequat</em> libero. Here are some common categories:</p><p>Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat __libero__.</p><p>- [list item link](https://www.ibm.com)  1. list item 1a  2. list item 2a  - list item 2a.a 1. list item 2  - list item 2a </p>",
                                               }
                                             }
                                             data-autoid="dds--content-item__copy"
@@ -20507,7 +20507,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                             className="bx--content-item__copy"
                                             dangerouslySetInnerHTML={
                                               Object {
-                                                "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p> ",
+                                                "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p>",
                                               }
                                             }
                                             data-autoid="dds--content-item__copy"
@@ -20637,7 +20637,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                               className="bx--card__copy"
                                               dangerouslySetInnerHTML={
                                                 Object {
-                                                  "__html": "<p>Lorem ipsum dolor sit ametttt</p> ",
+                                                  "__html": "<p>Lorem ipsum dolor sit ametttt</p>",
                                                 }
                                               }
                                             />
@@ -20855,7 +20855,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                     className="bx--card__copy"
                                                     dangerouslySetInnerHTML={
                                                       Object {
-                                                        "__html": "<p>Containerization A Complete Guide</p> ",
+                                                        "__html": "<p>Containerization A Complete Guide</p>",
                                                       }
                                                     }
                                                   />
@@ -21034,7 +21034,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                     className="bx--card__copy"
                                                     dangerouslySetInnerHTML={
                                                       Object {
-                                                        "__html": "<p>Why should you use microservices and containers</p> ",
+                                                        "__html": "<p>Why should you use microservices and containers</p>",
                                                       }
                                                     }
                                                   />
@@ -21265,7 +21265,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                     className="bx--content-block__copy"
                     dangerouslySetInnerHTML={
                       Object {
-                        "__html": "<p>Lorem ipsum <em>dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est.  Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales  nulla quis, <em>consequat</em> libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.</p> ",
+                        "__html": "<p>Lorem ipsum <em class=\\"bx--type-light\\">dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est.  Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales  nulla quis, <em class=\\"bx--type-light\\">consequat</em> libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.</p>",
                       }
                     }
                   />
@@ -21404,7 +21404,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                   className="bx--content-item__copy"
                                   dangerouslySetInnerHTML={
                                     Object {
-                                      "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p> ",
+                                      "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p>",
                                     }
                                   }
                                   data-autoid="dds--content-item__copy"
@@ -21543,7 +21543,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                   className="bx--content-item__copy"
                                   dangerouslySetInnerHTML={
                                     Object {
-                                      "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p> ",
+                                      "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p>",
                                     }
                                   }
                                   data-autoid="dds--content-item__copy"
@@ -21849,7 +21849,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                       className="bx--card__copy"
                                       dangerouslySetInnerHTML={
                                         Object {
-                                          "__html": "<p>Lorem ipsum dolor</p> ",
+                                          "__html": "<p>Lorem ipsum dolor</p>",
                                         }
                                       }
                                     />
@@ -22163,7 +22163,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                             className="bx--content-block__copy"
                             dangerouslySetInnerHTML={
                               Object {
-                                "__html": "<p>Lorem ipsum <em>dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est.  Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales  nulla quis, <em>consequat</em> libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.</p> ",
+                                "__html": "<p>Lorem ipsum <em class=\\"bx--type-light\\">dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est.  Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales  nulla quis, <em class=\\"bx--type-light\\">consequat</em> libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.</p>",
                               }
                             }
                           />
@@ -22297,7 +22297,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                           className="bx--content-item__copy"
                                           dangerouslySetInnerHTML={
                                             Object {
-                                              "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p> <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p> ",
+                                              "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p><p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p>",
                                             }
                                           }
                                           data-autoid="dds--content-item__copy"
@@ -22344,7 +22344,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                           className="bx--content-item__copy"
                                           dangerouslySetInnerHTML={
                                             Object {
-                                              "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p> <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p> ",
+                                              "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p><p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p>",
                                             }
                                           }
                                           data-autoid="dds--content-item__copy"
@@ -22563,7 +22563,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                               className="bx--card__copy"
                                               dangerouslySetInnerHTML={
                                                 Object {
-                                                  "__html": "<p>Lorem ipsum dolor</p> ",
+                                                  "__html": "<p>Lorem ipsum dolor</p>",
                                                 }
                                               }
                                             />
@@ -22781,7 +22781,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                                     className="bx--card__copy"
                                                     dangerouslySetInnerHTML={
                                                       Object {
-                                                        "__html": "<p>Containerization A Complete Guide</p> ",
+                                                        "__html": "<p>Containerization A Complete Guide</p>",
                                                       }
                                                     }
                                                   />
@@ -22960,7 +22960,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                                     className="bx--card__copy"
                                                     dangerouslySetInnerHTML={
                                                       Object {
-                                                        "__html": "<p>Why should you use microservices and containers</p> ",
+                                                        "__html": "<p>Why should you use microservices and containers</p>",
                                                       }
                                                     }
                                                   />
@@ -23186,7 +23186,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                             className="bx--content-item__copy"
                             dangerouslySetInnerHTML={
                               Object {
-                                "__html": "<p>Lorem ipsum <em>dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est.  Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales  nulla quis, <em>consequat</em> libero. Here are  some common categories:</p> <p> Lorem ipsum dolor sit amet, <a href=\\"https://www.ibm.com\\" class=\\"bx--link\\">consectetur adipiscing</a> elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> <ul class=\\"bx--list--unordered\\"><li class=\\"bx--list__item\\"><a href=\\"https://www.ibm.com\\" class=\\"bx--link\\">list item</a><ol class=\\"bx--list--ordered\\"><li class=\\"bx--list__item\\">list item 1a</li></ol></li></ul><ol class=\\"bx--list--ordered\\"><li class=\\"bx--list__item\\">list item 2<ul class=\\"bx--list--unordered\\"><li class=\\"bx--list__item\\">list item 2a</li></ul></li></ol>",
+                                "__html": "<p>Lorem ipsum <em class=\\"bx--type-light\\">dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est.  Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales  nulla quis, <em class=\\"bx--type-light\\">consequat</em> libero. Here are  some common categories:</p><p> Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p><p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p><p> - [list item](https://www.ibm.com)  1. list item 1a  1. list item 2  - list item 2a </p>",
                               }
                             }
                             data-autoid="dds--content-item__copy"
@@ -23402,7 +23402,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                                       className="bx--card__copy"
                                       dangerouslySetInnerHTML={
                                         Object {
-                                          "__html": "<p>Lorem ipsum dolor sit ametttt</p> ",
+                                          "__html": "<p>Lorem ipsum dolor sit ametttt</p>",
                                         }
                                       }
                                     />
@@ -23713,7 +23713,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                     className="bx--content-item__copy"
                                     dangerouslySetInnerHTML={
                                       Object {
-                                        "__html": "<p>Lorem ipsum <em>dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est.  Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales  nulla quis, <em>consequat</em> libero. Here are  some common categories:</p> <p> Lorem ipsum dolor sit amet, <a href=\\"https://www.ibm.com\\" class=\\"bx--link\\">consectetur adipiscing</a> elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> <ul class=\\"bx--list--unordered\\"><li class=\\"bx--list__item\\"><a href=\\"https://www.ibm.com\\" class=\\"bx--link\\">list item</a><ol class=\\"bx--list--ordered\\"><li class=\\"bx--list__item\\">list item 1a</li></ol></li></ul><ol class=\\"bx--list--ordered\\"><li class=\\"bx--list__item\\">list item 2<ul class=\\"bx--list--unordered\\"><li class=\\"bx--list__item\\">list item 2a</li></ul></li></ol>",
+                                        "__html": "<p>Lorem ipsum <em class=\\"bx--type-light\\">dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est.  Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales  nulla quis, <em class=\\"bx--type-light\\">consequat</em> libero. Here are  some common categories:</p><p> Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p><p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p><p> - [list item](https://www.ibm.com)  1. list item 1a  1. list item 2  - list item 2a </p>",
                                       }
                                     }
                                     data-autoid="dds--content-item__copy"
@@ -23929,7 +23929,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                               className="bx--card__copy"
                                               dangerouslySetInnerHTML={
                                                 Object {
-                                                  "__html": "<p>Lorem ipsum dolor sit ametttt</p> ",
+                                                  "__html": "<p>Lorem ipsum dolor sit ametttt</p>",
                                                 }
                                               }
                                             />
@@ -24147,7 +24147,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                                     className="bx--card__copy"
                                                     dangerouslySetInnerHTML={
                                                       Object {
-                                                        "__html": "<p>Containerization A Complete Guide</p> ",
+                                                        "__html": "<p>Containerization A Complete Guide</p>",
                                                       }
                                                     }
                                                   />
@@ -24326,7 +24326,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                                     className="bx--card__copy"
                                                     dangerouslySetInnerHTML={
                                                       Object {
-                                                        "__html": "<p>Why should you use microservices and containers</p> ",
+                                                        "__html": "<p>Why should you use microservices and containers</p>",
                                                       }
                                                     }
                                                   />
@@ -24495,7 +24495,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
                     className="bx--content-group__copy"
                     dangerouslySetInnerHTML={
                       Object {
-                        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> ",
+                        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>",
                       }
                     }
                   />
@@ -24567,7 +24567,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
                                     className="bx--card__copy"
                                     dangerouslySetInnerHTML={
                                       Object {
-                                        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
+                                        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
                                       }
                                     }
                                   />
@@ -24683,7 +24683,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
                                     className="bx--card__copy"
                                     dangerouslySetInnerHTML={
                                       Object {
-                                        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p> ",
+                                        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>",
                                       }
                                     }
                                   />
@@ -24799,7 +24799,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
                                     className="bx--card__copy"
                                     dangerouslySetInnerHTML={
                                       Object {
-                                        "__html": "<p>Lorem ipsum dolor sit amet</p> ",
+                                        "__html": "<p>Lorem ipsum dolor sit amet</p>",
                                       }
                                     }
                                   />
@@ -24915,7 +24915,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
                                     className="bx--card__copy"
                                     dangerouslySetInnerHTML={
                                       Object {
-                                        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p> ",
+                                        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>",
                                       }
                                     }
                                   />
@@ -25164,7 +25164,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                               className="bx--content-item-horizontal__item--copy"
                               dangerouslySetInnerHTML={
                                 Object {
-                                  "__html": "<p>Lorem ipsum dolor sit amet, <em>consectetur</em> sellus at elit sollicitudin.</p> ",
+                                  "__html": "<p>Lorem ipsum dolor sit amet, <em class=\\"bx--type-light\\">consectetur</em> sellus at elit sollicitudin.</p>",
                                 }
                               }
                               data-autoid="dds--content-item-horizontal__item--copy"
@@ -25460,7 +25460,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                               className="bx--content-item-horizontal__item--copy"
                               dangerouslySetInnerHTML={
                                 Object {
-                                  "__html": "<p>Lorem ipsum dolor sit amet, <em>consectetur</em> adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.</p> ",
+                                  "__html": "<p>Lorem ipsum dolor sit amet, <em class=\\"bx--type-light\\">consectetur</em> adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.</p>",
                                 }
                               }
                               data-autoid="dds--content-item-horizontal__item--copy"
@@ -25749,7 +25749,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                               className="bx--content-item-horizontal__item--copy"
                               dangerouslySetInnerHTML={
                                 Object {
-                                  "__html": "<p>Lorem ipsum dolor sit amet, <em>consectetur</em> adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.</p> ",
+                                  "__html": "<p>Lorem ipsum dolor sit amet, <em class=\\"bx--type-light\\">consectetur</em> adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.</p>",
                                 }
                               }
                               data-autoid="dds--content-item-horizontal__item--copy"
@@ -25992,7 +25992,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupPictograms Default 1`] = `
                   className="bx--content-group__copy"
                   dangerouslySetInnerHTML={
                     Object {
-                      "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> ",
+                      "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>",
                     }
                   }
                 />
@@ -26088,7 +26088,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupPictograms Default 1`] = `
                                 className="bx--content-item__copy"
                                 dangerouslySetInnerHTML={
                                   Object {
-                                    "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
+                                    "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
                                   }
                                 }
                                 data-autoid="dds--content-item__copy"
@@ -26187,7 +26187,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupPictograms Default 1`] = `
                                 className="bx--content-item__copy"
                                 dangerouslySetInnerHTML={
                                   Object {
-                                    "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
+                                    "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
                                   }
                                 }
                                 data-autoid="dds--content-item__copy"
@@ -26286,7 +26286,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupPictograms Default 1`] = `
                                 className="bx--content-item__copy"
                                 dangerouslySetInnerHTML={
                                   Object {
-                                    "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
+                                    "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
                                   }
                                 }
                                 data-autoid="dds--content-item__copy"
@@ -26434,7 +26434,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                     className="bx--content-group__copy"
                     dangerouslySetInnerHTML={
                       Object {
-                        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis magna.</p> ",
+                        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis magna.</p>",
                       }
                     }
                   />
@@ -26551,7 +26551,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                           className="bx--content-item__copy"
                           dangerouslySetInnerHTML={
                             Object {
-                              "__html": "<p>Lorem ipsum dolor sit amet, <em>consectetur</em> adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p> ",
+                              "__html": "<p>Lorem ipsum dolor sit amet, <em class=\\"bx--type-light\\">consectetur</em> adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p>",
                             }
                           }
                           data-autoid="dds--content-item__copy"
@@ -26590,7 +26590,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                           className="bx--content-item__copy"
                           dangerouslySetInnerHTML={
                             Object {
-                              "__html": "<p>Lorem ipsum <em>dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, <em>consequat</em> libero. Here are some common categories:</p> <p>Lorem ipsum dolor sit amet, <a href=\\"https://www.ibm.com\\" class=\\"bx--link\\">consectetur adipiscing</a> elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat <strong>libero</strong>.</p> <ul class=\\"bx--list--unordered\\"><li class=\\"bx--list__item\\"><a href=\\"https://www.ibm.com\\" class=\\"bx--link\\">list item link</a><ol class=\\"bx--list--ordered\\"><li class=\\"bx--list__item\\">list item 1a</li><li class=\\"bx--list__item\\">list item 2a<ul class=\\"bx--list--unordered\\"><li class=\\"bx--list__item\\">list item 2a.a</li></ul></li></ol></li></ul><ol class=\\"bx--list--ordered\\"><li class=\\"bx--list__item\\">list item 2<ul class=\\"bx--list--unordered\\"><li class=\\"bx--list__item\\">list item 2a</li></ul></li></ol>",
+                              "__html": "<p>Lorem ipsum <em class=\\"bx--type-light\\">dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, <em class=\\"bx--type-light\\">consequat</em> libero. Here are some common categories:</p><p>Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat __libero__.</p><p>- [list item link](https://www.ibm.com)  1. list item 1a  2. list item 2a  - list item 2a.a 1. list item 2  - list item 2a </p>",
                             }
                           }
                           data-autoid="dds--content-item__copy"
@@ -26616,7 +26616,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                           className="bx--content-item__copy"
                           dangerouslySetInnerHTML={
                             Object {
-                              "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p> ",
+                              "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p>",
                             }
                           }
                           data-autoid="dds--content-item__copy"
@@ -26741,7 +26741,7 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                       className="bx--card__copy"
                                       dangerouslySetInnerHTML={
                                         Object {
-                                          "__html": "<p>Lorem ipsum dolor sit ametttt</p> ",
+                                          "__html": "<p>Lorem ipsum dolor sit ametttt</p>",
                                         }
                                       }
                                     />
@@ -26947,7 +26947,7 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockLarge Default 1`] = `
                         className="bx--card__copy"
                         dangerouslySetInnerHTML={
                           Object {
-                            "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..</p> ",
+                            "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..</p>",
                           }
                         }
                       />
@@ -27384,7 +27384,7 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                     className="bx--content-block__copy"
                     dangerouslySetInnerHTML={
                       Object {
-                        "__html": "<p>Automate your software release process with continuous delivery (CD)—the most critical part of adopting DevOps. Build, test, and deploy code changes quickly, ensuring software is always ready for deployment.</p> ",
+                        "__html": "<p>Automate your software release process with continuous delivery (CD)—the most critical part of adopting DevOps. Build, test, and deploy code changes quickly, ensuring software is always ready for deployment.</p>",
                       }
                     }
                   />
@@ -28614,7 +28614,7 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                           className="bx--card__copy"
                                           dangerouslySetInnerHTML={
                                             Object {
-                                              "__html": "<p>Lorem ipsum dolor sit amet</p> ",
+                                              "__html": "<p>Lorem ipsum dolor sit amet</p>",
                                             }
                                           }
                                         />
@@ -28794,7 +28794,7 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
               className="bx--content-block__copy"
               dangerouslySetInnerHTML={
                 Object {
-                  "__html": "<p>Want to discuss your options with a DevOps expert? Contact our sales team to evaluate your needs.</p> ",
+                  "__html": "<p>Want to discuss your options with a DevOps expert? Contact our sales team to evaluate your needs.</p>",
                 }
               }
             />
@@ -28953,7 +28953,7 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
                   className="bx--content-item__copy"
                   dangerouslySetInnerHTML={
                     Object {
-                      "__html": "<p>IBM DevOps partners have a wide range of expertise. Find one to build the right solution for you.</p> ",
+                      "__html": "<p>IBM DevOps partners have a wide range of expertise. Find one to build the right solution for you.</p>",
                     }
                   }
                   data-autoid="dds--content-item__copy"
@@ -29068,7 +29068,7 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
                   className="bx--content-item__copy"
                   dangerouslySetInnerHTML={
                     Object {
-                      "__html": "<p>Dig into more self-directed learning about DevOps methodologies.</p> ",
+                      "__html": "<p>Dig into more self-directed learning about DevOps methodologies.</p>",
                     }
                   }
                   data-autoid="dds--content-item__copy"
@@ -30229,7 +30229,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                 className="bx--card__copy"
                                 dangerouslySetInnerHTML={
                                   Object {
-                                    "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
+                                    "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
                                   }
                                 }
                               />
@@ -30343,7 +30343,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                 className="bx--card__copy"
                                 dangerouslySetInnerHTML={
                                   Object {
-                                    "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
+                                    "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
                                   }
                                 }
                               />
@@ -30457,7 +30457,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                 className="bx--card__copy"
                                 dangerouslySetInnerHTML={
                                   Object {
-                                    "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
+                                    "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
                                   }
                                 }
                               />
@@ -30571,7 +30571,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                 className="bx--card__copy"
                                 dangerouslySetInnerHTML={
                                   Object {
-                                    "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
+                                    "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
                                   }
                                 }
                               />
@@ -30685,7 +30685,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                 className="bx--card__copy"
                                 dangerouslySetInnerHTML={
                                   Object {
-                                    "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
+                                    "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
                                   }
                                 }
                               />
