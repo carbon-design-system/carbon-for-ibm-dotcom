@@ -64,117 +64,57 @@ const prevTag = args.prevtag;
 const newTag = args.newtag;
 
 /**
- * Uses a delimiter for splitting the comments into an array
- *
- * @type {string}
- */
-const delimeter = '----DELIMITER----';
-
-/**
- * Returns back the commits in an array
- *
- * @returns {string[]} Commits array of objects
- */
-function getCommits() {
-  // Gets the git output between the two tags
-  const output = child
-    .execSync(`git log ${prevTag}..HEAD --pretty=format:"%s"${delimeter}`)
-    .toString('utf-8');
-
-  // Generates the array of commit comments
-  return output.split(`${delimeter}\n`);
-}
-
-/**
- * Gets the changelog content
- *
- * @returns {*} Changelog content
- */
-function getChangelog() {
-  // Stores the changelog
-  let changelog = '';
-
-  // Stores the list of features
-  const features = [];
-
-  // Stores the list of fixes
-  const fixes = [];
-
-  const commitsArray = getCommits();
-
-  commitsArray.forEach(commit => {
-    commit = commit.replace(delimeter, '');
-    if (commit.startsWith('feat(')) {
-      let pushFeat = commit.replace('feat(', '- **').replace('):', '**: ');
-      features.push(`${pushFeat}\n`);
-    }
-    if (commit.startsWith('fix(')) {
-      let pushFeat = commit.replace('fix(', '- **').replace('):', '**: ');
-      fixes.push(`${pushFeat}\n`);
-    }
-  });
-
-  if (features.length) {
-    changelog += `## Features\n`;
-    features.forEach(feature => {
-      changelog += feature;
-    });
-    changelog += '\n';
-  }
-
-  if (fixes.length) {
-    changelog += `## Fixes\n`;
-    fixes.forEach(fix => {
-      changelog += fix;
-    });
-    changelog += '\n';
-  }
-
-  return changelog;
-}
-
-/**
  * Creates the Beta Release on Github
  */
 function createBetaRelease() {
-  const changelog = getChangelog();
-
-  let path = repoUrl;
-  let method = 'POST';
-
   const options = {
     hostname: 'api.github.com',
-    path,
-    method,
+    path: repoUrl,
+    method: 'POST',
     headers: {
       'User-Agent': 'node/https',
       Authorization: `token ${githubToken}`,
     },
   };
 
-  const data = JSON.stringify({
-    tag_name: newTag,
-    name: newTag,
-    target_commitish: 'master',
-    body: changelog,
-    draft: false,
-    prerelease: true,
-  });
+  const changelog = child.spawn('node', [
+    `${__dirname}/get-changelog.js`,
+    `--tagFrom ${prevTag}`,
+    `--tagTo ${newTag}`,
+  ]);
 
-  const req = https.request(options, res => {
-    res.on('end', () => {
-      console.log(
-        `Release created: https://github.com/${repoSlug}/releases/tag/${newTag}`
-      );
+  changelog.stdout.on('data', data => {
+    const dataObj = JSON.stringify({
+      tag_name: newTag,
+      name: newTag,
+      target_commitish: 'master',
+      body: data.toString(),
+      draft: false,
+      prerelease: true,
     });
-  });
 
-  req.on('error', error => {
-    console.error(error);
-  });
+    const req = https.request(options, res => {
+      let response = '';
 
-  req.write(data);
-  req.end();
+      res.on('data', chunk => {
+        response += chunk;
+      });
+
+      res.on('end', () => {
+        console.log(response);
+        console.log(
+          `Release created: https://github.com/${repoSlug}/releases/tag/${newTag}`
+        );
+      });
+    });
+
+    req.on('error', error => {
+      console.error(error);
+    });
+
+    req.write(dataObj);
+    req.end();
+  });
 }
 
 createBetaRelease();
