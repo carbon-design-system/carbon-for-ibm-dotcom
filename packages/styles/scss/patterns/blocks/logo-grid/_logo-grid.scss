@@ -11,8 +11,6 @@
 
 @mixin logo-grid {
   .#{$prefix}--logo-grid {
-    padding: $spacing-03;
-
     .#{$prefix}--content-block {
       padding-top: 0;
       padding-bottom: 0;
@@ -98,6 +96,7 @@
 
     &__wrapper {
       width: 100%;
+      padding: 0;
     }
 
     .#{$prefix}--image {
