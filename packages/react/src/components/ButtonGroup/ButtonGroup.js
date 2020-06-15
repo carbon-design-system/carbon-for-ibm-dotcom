@@ -172,7 +172,7 @@ ButtonGroup.propTypes = {
       href: PropTypes.string.isRequired,
       renderIcon: PropTypes.elementType,
     })
-  ),
+  ).isRequired,
 
   /**
    * `true` to make the buttons change their sizes by their contents.
