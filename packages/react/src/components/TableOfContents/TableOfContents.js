@@ -30,7 +30,7 @@ const _findMenuItems = () => {
     if (element.getAttribute('name') !== 'menuLabel') {
       menuItems.push({
         id: element.getAttribute('name'),
-        title: element.getAttribute('data-title'),
+        title: element.getAttribute('data-title') || '',
       });
     }
   });

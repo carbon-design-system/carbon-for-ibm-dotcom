@@ -69,7 +69,7 @@ FeatureCardBlockMedium.propTypes = {
           PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video'])
         ),
       ]),
-    }),
+    }).isRequired,
     image: PropTypes.shape({
       classname: PropTypes.string,
       sources: PropTypes.arrayOf(
