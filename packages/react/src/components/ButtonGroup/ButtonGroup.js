@@ -43,7 +43,7 @@ const ButtonGroup = ({ buttons, enableSizeByContent }) => {
                 '.bx--buttongroup-item:not(.bx--buttongroup-item--pseudo) .bx--btn'
               ),
               item => {
-                item.style.width = `${width}px`;
+                item.style.width = `${width + 1}px`;
                 item.style.display = `inline-block`;
               }
             );

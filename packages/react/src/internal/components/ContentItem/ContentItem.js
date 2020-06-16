@@ -102,7 +102,6 @@ ContentItem.propTypes = {
    * See the [`<CTA>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-cta--default#props) for full usage details.
    */
   cta: PropTypes.shape({
-    style: PropTypes.oneOf(['text', 'card', 'button', 'feature']),
     type: PropTypes.oneOfType([
       PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video']),
       PropTypes.arrayOf(
