@@ -41,11 +41,22 @@
 
     .#{$prefix}--content-block__cta {
       margin-top: $layout-01;
-      margin-bottom: $layout-07;
+      margin-bottom: $layout-06;
       @include carbon--make-col-ready;
       @include carbon--make-col(1, 1);
 
+      @include carbon--breakpoint('md') {
+        margin-bottom: $layout-07;
+      }
+
       padding-left: $spacing-05;
+
+      &.#{$prefix}--content-block__cta-col {
+        @include carbon--breakpoint('md') {
+          padding-left: 0;
+          padding-right: 0;
+        }
+      }
 
       @include carbon--breakpoint('md') {
         @include carbon--make-col(1, 3);
@@ -63,11 +74,35 @@
 
     &__link {
       display: block;
+      position: relative;
+      /*
       &:hover .#{$prefix}--logo-grid__logo {
         box-shadow: inset 0 0 0 1px $ui-04;
       }
       &:active .#{$prefix}--logo-grid__logo {
         box-shadow: inset 0 0 0 1px $ui-03;
+      }
+      */
+      .hover-border {
+        display: none;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+      }
+      &:hover {
+        .hover-border {
+          display: block;
+          border: 1px solid $ui-04;
+        }
+      }
+      &:active {
+        .hover-border {
+          display: block;
+          border: 1px solid $ui-03;
+        }
       }
     }
 
