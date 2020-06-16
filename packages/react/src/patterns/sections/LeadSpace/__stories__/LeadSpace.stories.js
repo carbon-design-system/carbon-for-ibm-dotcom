@@ -182,6 +182,77 @@ Centered.story = {
   },
 };
 
+export const CenteredWithImage = ({ parameters }) => {
+  const { title, copy, gradient, buttons } = parameters?.props?.Leadspace ?? {};
+  const theme = document.documentElement.getAttribute('storybook-carbon-theme');
+  return (
+    <LeadSpace
+      type="centered"
+      theme={theme}
+      title={title}
+      copy={copy}
+      gradient={gradient}
+      buttons={buttons}
+      image={{
+        sources: [
+          {
+            src: 'https://dummyimage.com/320x370/ee5396/ee5396',
+            breakpoint: 'sm',
+          },
+          {
+            src: 'https://dummyimage.com/672x400/ee5396/ee5396',
+            breakpoint: 'md',
+          },
+        ],
+        defaultSrc: 'https://dummyimage.com/1056x480/ee5396/ee5396',
+        alt: 'lead space image',
+      }}
+    />
+  );
+};
+
+CenteredWithImage.story = {
+  name: 'Centered with image',
+  parameters: {
+    knobs: {
+      Leadspace: ({ groupId }) => {
+        const buttonCount = number('Number of buttons', 2, {}, groupId);
+        const buttons = [];
+
+        for (let i = 0; i < buttonCount; i++) {
+          buttons.push({
+            copy: text(`Button ${i + 1}`, `Button ${i + 1}`, groupId),
+            renderIcon:
+              iconMap[
+                select(
+                  `Button Icon ${i + 1}`,
+                  iconOptions,
+                  iconOptions.ArrowRight,
+                  groupId
+                )
+              ],
+            href: text(
+              'Primary button link',
+              'https://www.example.com',
+              groupId
+            ),
+          });
+        }
+
+        return {
+          title: text('title', 'Leadspace Title', groupId),
+          copy: text(
+            'copy',
+            'Use this area for a short line of copy to support the title',
+            groupId
+          ),
+          buttons,
+        };
+      },
+    },
+  },
+};
+
 export const Small = ({ parameters }) => {
   const { title, copy, gradient, buttons, image } =
     parameters?.props?.Leadspace ?? {};
@@ -234,6 +305,66 @@ Small.story = {
             'Use this area for a short line of copy to support the title',
             groupId
           ),
+          buttons,
+        };
+      },
+    },
+  },
+};
+
+export const SmallWithImage = ({ parameters }) => {
+  const { title, copy, gradient, buttons, image } =
+    parameters?.props?.Leadspace ?? {};
+  const theme = document.documentElement.getAttribute('storybook-carbon-theme');
+  return (
+    <LeadSpace
+      type="small"
+      theme={theme}
+      title={title}
+      copy={copy}
+      gradient={gradient}
+      buttons={buttons}
+      image={image}
+    />
+  );
+};
+
+SmallWithImage.story = {
+  name: 'Small with image',
+  parameters: {
+    knobs: {
+      Leadspace: ({ groupId }) => {
+        const buttonCount = number('Number of buttons', 2, {}, groupId);
+        const buttons = [];
+
+        for (let i = 0; i < buttonCount; i++) {
+          buttons.push({
+            copy: text(`Button ${i + 1}`, `Button ${i + 1}`, groupId),
+            renderIcon:
+              iconMap[
+                select(
+                  `Button Icon ${i + 1}`,
+                  iconOptions,
+                  iconOptions.ArrowRight,
+                  groupId
+                )
+              ],
+            href: text(
+              'Primary button link',
+              'https://www.example.com',
+              groupId
+            ),
+          });
+        }
+
+        return {
+          title: text('title', 'Leadspace Title', groupId),
+          copy: text(
+            'copy',
+            'Use this area for a short line of copy to support the title',
+            groupId
+          ),
+          image: object('image', images, groupId),
           buttons,
         };
       },
