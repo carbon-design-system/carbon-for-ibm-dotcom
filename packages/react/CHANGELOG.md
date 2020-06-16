@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.8.0-rc.0...@carbon/ibmdotcom-react@1.8.0-rc.1) (2020-06-16)
+
+### Bug Fixes
+
+- **ButtonGroup:** text wrapping fix
+  ([#2775](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2775))
+  ([d0897c2](https://github.com/carbon-design-system/ibm-dotcom-library/commit/d0897c2))
+- **TableOfContents:** added offset to fix scroll issue on mobile
+  ([#2760](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2760))
+  ([a7754f9](https://github.com/carbon-design-system/ibm-dotcom-library/commit/a7754f9))
+- **utilities:** add new util to remove html tags and entities
+  ([9bab97f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/9bab97f))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.8.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-react@1.7.0...@carbon/ibmdotcom-react@1.8.0-rc.0) (2020-06-12)
 
 ### Bug Fixes
