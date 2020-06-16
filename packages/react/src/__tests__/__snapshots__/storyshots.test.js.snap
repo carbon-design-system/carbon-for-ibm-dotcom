@@ -31098,6 +31098,272 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Centered 1`] = `
 </Container>
 `;
 
+exports[`Storyshots Patterns (Sections)|LeadSpace Centered with image 1`] = `
+<Container
+  story={[Function]}
+>
+  <div
+    data-floating-menu-container=""
+    role="main"
+    style={
+      Object {
+        "backgroundColor": "",
+      }
+    }
+  >
+    <LeadSpace
+      buttons={
+        Array [
+          Object {
+            "copy": "Button 1",
+            "href": "https://www.example.com",
+            "renderIcon": Object {
+              "$$typeof": Symbol(react.forward_ref),
+              "render": [Function],
+            },
+          },
+          Object {
+            "copy": "Button 2",
+            "href": "https://www.example.com",
+            "renderIcon": Object {
+              "$$typeof": Symbol(react.forward_ref),
+              "render": [Function],
+            },
+          },
+        ]
+      }
+      copy="Use this area for a short line of copy to support the title"
+      image={
+        Object {
+          "alt": "lead space image",
+          "defaultSrc": "https://dummyimage.com/1056x480/ee5396/ee5396",
+          "sources": Array [
+            Object {
+              "breakpoint": "sm",
+              "src": "https://dummyimage.com/320x370/ee5396/ee5396",
+            },
+            Object {
+              "breakpoint": "md",
+              "src": "https://dummyimage.com/672x400/ee5396/ee5396",
+            },
+          ],
+        }
+      }
+      theme=""
+      title="Leadspace Title"
+      type="centered"
+    >
+      <section
+        className="bx--leadspace--centered bx--leadspace--centered__image"
+        data-autoid="dds--leadspace"
+        style={
+          Object {
+            "backgroundImage": "url(https://dummyimage.com/1056x480/ee5396/ee5396)",
+          }
+        }
+      >
+        <div
+          className="bx--leadspace--centered__container"
+        >
+          <div
+            className="bx--leadspace--centered__overlay"
+          >
+            <div
+              className="bx--leadspace--centered--content__container"
+            >
+              <div
+                className="bx--leadspace--centered__row"
+              >
+                <h1
+                  className="bx--leadspace--centered__title"
+                >
+                  Leadspace Title
+                </h1>
+              </div>
+              <div
+                className="bx--leadspace__content"
+              >
+                <div
+                  className="bx--leadspace--centered__row"
+                >
+                  <p
+                    className="bx--leadspace--centered__desc"
+                    data-autoid="dds--leadspace__desc"
+                  >
+                    Use this area for a short line of copy to support the title
+                  </p>
+                </div>
+                <ButtonGroup
+                  buttons={
+                    Array [
+                      Object {
+                        "copy": "Button 1",
+                        "href": "https://www.example.com",
+                        "renderIcon": Object {
+                          "$$typeof": Symbol(react.forward_ref),
+                          "render": [Function],
+                        },
+                      },
+                      Object {
+                        "copy": "Button 2",
+                        "href": "https://www.example.com",
+                        "renderIcon": Object {
+                          "$$typeof": Symbol(react.forward_ref),
+                          "render": [Function],
+                        },
+                      },
+                    ]
+                  }
+                  enableSizeByContent={true}
+                >
+                  <ol
+                    className="bx--buttongroup"
+                    data-autoid="dds--button-group"
+                  >
+                    <li
+                      className="bx--buttongroup-item"
+                      key="0"
+                    >
+                      <ForwardRef(Button)
+                        copy="Button 1"
+                        data-autoid="dds--button-group-0"
+                        disabled={false}
+                        href="https://www.example.com"
+                        kind="primary"
+                        renderIcon={
+                          Object {
+                            "$$typeof": Symbol(react.forward_ref),
+                            "render": [Function],
+                          }
+                        }
+                        tabIndex={2}
+                        type="button"
+                      >
+                        <a
+                          className="bx--btn bx--btn--primary"
+                          copy="Button 1"
+                          data-autoid="dds--button-group-0"
+                          href="https://www.example.com"
+                          tabIndex={2}
+                        >
+                          Button 1
+                          <ForwardRef(ArrowRight20)
+                            aria-hidden="true"
+                            className="bx--btn__icon"
+                          >
+                            <Icon
+                              aria-hidden="true"
+                              className="bx--btn__icon"
+                              height={20}
+                              preserveAspectRatio="xMidYMid meet"
+                              viewBox="0 0 20 20"
+                              width={20}
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <svg
+                                aria-hidden={true}
+                                className="bx--btn__icon"
+                                focusable="false"
+                                height={20}
+                                preserveAspectRatio="xMidYMid meet"
+                                viewBox="0 0 20 20"
+                                width={20}
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                />
+                              </svg>
+                            </Icon>
+                          </ForwardRef(ArrowRight20)>
+                        </a>
+                      </ForwardRef(Button)>
+                    </li>
+                    <li
+                      className="bx--buttongroup-item"
+                      key="1"
+                    >
+                      <ForwardRef(Button)
+                        copy="Button 2"
+                        data-autoid="dds--button-group-1"
+                        disabled={false}
+                        href="https://www.example.com"
+                        kind="tertiary"
+                        renderIcon={
+                          Object {
+                            "$$typeof": Symbol(react.forward_ref),
+                            "render": [Function],
+                          }
+                        }
+                        tabIndex={1}
+                        type="button"
+                      >
+                        <a
+                          className="bx--btn bx--btn--tertiary"
+                          copy="Button 2"
+                          data-autoid="dds--button-group-1"
+                          href="https://www.example.com"
+                          tabIndex={1}
+                        >
+                          Button 2
+                          <ForwardRef(ArrowRight20)
+                            aria-hidden="true"
+                            className="bx--btn__icon"
+                          >
+                            <Icon
+                              aria-hidden="true"
+                              className="bx--btn__icon"
+                              height={20}
+                              preserveAspectRatio="xMidYMid meet"
+                              viewBox="0 0 20 20"
+                              width={20}
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <svg
+                                aria-hidden={true}
+                                className="bx--btn__icon"
+                                focusable="false"
+                                height={20}
+                                preserveAspectRatio="xMidYMid meet"
+                                viewBox="0 0 20 20"
+                                width={20}
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                />
+                              </svg>
+                            </Icon>
+                          </ForwardRef(ArrowRight20)>
+                        </a>
+                      </ForwardRef(Button)>
+                    </li>
+                  </ol>
+                </ButtonGroup>
+              </div>
+            </div>
+          </div>
+          <div
+            className="bx--leadspace--centered--mobile__image"
+            data-autoid="dds--leadspace--centered--mobile__image"
+          >
+            <img
+              alt="lead space image"
+              src="https://dummyimage.com/1056x480/ee5396/ee5396"
+            />
+          </div>
+        </div>
+      </section>
+    </LeadSpace>
+  </div>
+  <input
+    aria-label="input-text-offleft"
+    className="bx--visually-hidden"
+    type="text"
+  />
+</Container>
+`;
+
 exports[`Storyshots Patterns (Sections)|LeadSpace Default with image 1`] = `
 <Container
   story={[Function]}
@@ -31898,6 +32164,302 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Small 1`] = `
               </div>
             </div>
           </div>
+        </div>
+      </section>
+    </LeadSpace>
+  </div>
+  <input
+    aria-label="input-text-offleft"
+    className="bx--visually-hidden"
+    type="text"
+  />
+</Container>
+`;
+
+exports[`Storyshots Patterns (Sections)|LeadSpace Small with image 1`] = `
+<Container
+  story={[Function]}
+>
+  <div
+    data-floating-menu-container=""
+    role="main"
+    style={
+      Object {
+        "backgroundColor": "",
+      }
+    }
+  >
+    <LeadSpace
+      buttons={
+        Array [
+          Object {
+            "copy": "Button 1",
+            "href": "https://www.example.com",
+            "renderIcon": Object {
+              "$$typeof": Symbol(react.forward_ref),
+              "render": [Function],
+            },
+          },
+          Object {
+            "copy": "Button 2",
+            "href": "https://www.example.com",
+            "renderIcon": Object {
+              "$$typeof": Symbol(react.forward_ref),
+              "render": [Function],
+            },
+          },
+        ]
+      }
+      copy="Use this area for a short line of copy to support the title"
+      image={
+        Object {
+          "alt": "lead space image",
+          "defaultSrc": "https://picsum.photos/id/1076/1056/480",
+          "sources": Array [
+            Object {
+              "breakpoint": "sm",
+              "src": "https://picsum.photos/id/1076/320/370",
+            },
+            Object {
+              "breakpoint": "md",
+              "src": "https://picsum.photos/id/1076/672/400",
+            },
+          ],
+        }
+      }
+      theme=""
+      title="Leadspace Title"
+      type="small"
+    >
+      <section
+        className="bx--leadspace bx--leadspace--productive"
+        data-autoid="dds--leadspace"
+        style={
+          Object {
+            "backgroundImage": "url(https://picsum.photos/id/1076/1056/480)",
+          }
+        }
+      >
+        <div
+          className="bx--leadspace__container"
+        >
+          <div
+            className="bx--leadspace__overlay"
+          >
+            <div
+              className="bx--leadspace--content__container"
+            >
+              <div
+                className="bx--leadspace__row"
+              >
+                <h1
+                  className="bx--leadspace__title"
+                >
+                  Leadspace Title
+                </h1>
+              </div>
+              <div
+                className="bx--leadspace__content"
+              >
+                <div
+                  className="bx--leadspace__row"
+                >
+                  <p
+                    className="bx--leadspace__desc"
+                    data-autoid="dds--leadspace__desc"
+                  >
+                    Use this area for a short line of copy to support the title
+                  </p>
+                </div>
+                <ButtonGroup
+                  buttons={
+                    Array [
+                      Object {
+                        "copy": "Button 1",
+                        "href": "https://www.example.com",
+                        "renderIcon": Object {
+                          "$$typeof": Symbol(react.forward_ref),
+                          "render": [Function],
+                        },
+                      },
+                      Object {
+                        "copy": "Button 2",
+                        "href": "https://www.example.com",
+                        "renderIcon": Object {
+                          "$$typeof": Symbol(react.forward_ref),
+                          "render": [Function],
+                        },
+                      },
+                    ]
+                  }
+                  enableSizeByContent={true}
+                >
+                  <ol
+                    className="bx--buttongroup"
+                    data-autoid="dds--button-group"
+                  >
+                    <li
+                      className="bx--buttongroup-item"
+                      key="0"
+                    >
+                      <ForwardRef(Button)
+                        copy="Button 1"
+                        data-autoid="dds--button-group-0"
+                        disabled={false}
+                        href="https://www.example.com"
+                        kind="primary"
+                        renderIcon={
+                          Object {
+                            "$$typeof": Symbol(react.forward_ref),
+                            "render": [Function],
+                          }
+                        }
+                        tabIndex={2}
+                        type="button"
+                      >
+                        <a
+                          className="bx--btn bx--btn--primary"
+                          copy="Button 1"
+                          data-autoid="dds--button-group-0"
+                          href="https://www.example.com"
+                          tabIndex={2}
+                        >
+                          Button 1
+                          <ForwardRef(ArrowRight20)
+                            aria-hidden="true"
+                            className="bx--btn__icon"
+                          >
+                            <Icon
+                              aria-hidden="true"
+                              className="bx--btn__icon"
+                              height={20}
+                              preserveAspectRatio="xMidYMid meet"
+                              viewBox="0 0 20 20"
+                              width={20}
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <svg
+                                aria-hidden={true}
+                                className="bx--btn__icon"
+                                focusable="false"
+                                height={20}
+                                preserveAspectRatio="xMidYMid meet"
+                                viewBox="0 0 20 20"
+                                width={20}
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                />
+                              </svg>
+                            </Icon>
+                          </ForwardRef(ArrowRight20)>
+                        </a>
+                      </ForwardRef(Button)>
+                    </li>
+                    <li
+                      className="bx--buttongroup-item"
+                      key="1"
+                    >
+                      <ForwardRef(Button)
+                        copy="Button 2"
+                        data-autoid="dds--button-group-1"
+                        disabled={false}
+                        href="https://www.example.com"
+                        kind="tertiary"
+                        renderIcon={
+                          Object {
+                            "$$typeof": Symbol(react.forward_ref),
+                            "render": [Function],
+                          }
+                        }
+                        tabIndex={1}
+                        type="button"
+                      >
+                        <a
+                          className="bx--btn bx--btn--tertiary"
+                          copy="Button 2"
+                          data-autoid="dds--button-group-1"
+                          href="https://www.example.com"
+                          tabIndex={1}
+                        >
+                          Button 2
+                          <ForwardRef(ArrowRight20)
+                            aria-hidden="true"
+                            className="bx--btn__icon"
+                          >
+                            <Icon
+                              aria-hidden="true"
+                              className="bx--btn__icon"
+                              height={20}
+                              preserveAspectRatio="xMidYMid meet"
+                              viewBox="0 0 20 20"
+                              width={20}
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <svg
+                                aria-hidden={true}
+                                className="bx--btn__icon"
+                                focusable="false"
+                                height={20}
+                                preserveAspectRatio="xMidYMid meet"
+                                viewBox="0 0 20 20"
+                                width={20}
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                />
+                              </svg>
+                            </Icon>
+                          </ForwardRef(ArrowRight20)>
+                        </a>
+                      </ForwardRef(Button)>
+                    </li>
+                  </ol>
+                </ButtonGroup>
+              </div>
+            </div>
+          </div>
+          <Image
+            alt="lead space image"
+            defaultSrc="https://picsum.photos/id/1076/1056/480"
+            sources={
+              Array [
+                Object {
+                  "breakpoint": "sm",
+                  "src": "https://picsum.photos/id/1076/320/370",
+                },
+                Object {
+                  "breakpoint": "md",
+                  "src": "https://picsum.photos/id/1076/672/400",
+                },
+              ]
+            }
+          >
+            <div
+              className="bx--image"
+              data-autoid="dds--image__longdescription-"
+            >
+              <picture>
+                <source
+                  key="0"
+                  media="(min-width: 672px )"
+                  srcSet="https://picsum.photos/id/1076/672/400"
+                />
+                <source
+                  key="1"
+                  media="(min-width: 320px )"
+                  srcSet="https://picsum.photos/id/1076/320/370"
+                />
+                <img
+                  alt="lead space image"
+                  className="bx--image__img"
+                  src="https://picsum.photos/id/1076/1056/480"
+                />
+              </picture>
+            </div>
+          </Image>
         </div>
       </section>
     </LeadSpace>
