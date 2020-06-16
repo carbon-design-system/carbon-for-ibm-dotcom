@@ -112,12 +112,15 @@
 
     .#{$prefix}--card {
       max-width: none;
+
       &__wrapper {
         flex-direction: row;
         justify-content: space-between;
+        align-items: center;
 
         @include carbon--breakpoint('lg') {
           flex-direction: column;
+          align-items: flex-start;
         }
 
         .#{$prefix}--card__copy {
@@ -138,6 +141,11 @@
           padding-right: $carbon--spacing-07;
         }
       }
+
+      &__footer {
+        margin-top: 0;
+      }
+
       &:not(:hover) {
         background: $ui-background;
       }
