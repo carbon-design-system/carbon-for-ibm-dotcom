@@ -10,7 +10,13 @@
 /// @group masthead
 
 @mixin masthead-sidenav {
-  .#{$prefix}--side-nav__navigation {
+  .#{$prefix}--masthead .#{$prefix}--side-nav__navigation {
+    height: calc(100vh - #{mini-units(6)});
+
+    > nav {
+      height: 100%;
+    }
+
     @include carbon--breakpoint-up(lg) {
       display: none;
     }
@@ -47,13 +53,10 @@
     }
   }
 
-  .#{$prefix}--side-nav {
+  .#{$prefix}--masthead .#{$prefix}--side-nav {
     &__items {
       padding-top: 0;
-    }
-
-    &__header-navigation {
-      height: 100vh;
+      height: 100%;
     }
 
     &--ux {
