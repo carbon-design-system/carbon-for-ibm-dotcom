@@ -29,6 +29,7 @@
       transition: all $duration--fast-01 motion(entrance, productive), width 0s,
         height 0s;
       &__icon {
+        top: $carbon--spacing-04;
         width: auto;
         height: auto;
       }
