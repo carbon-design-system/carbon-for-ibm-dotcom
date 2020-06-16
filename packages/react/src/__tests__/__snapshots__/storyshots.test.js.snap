@@ -1437,7 +1437,7 @@ exports[`Storyshots Components|CardLink Default 1`] = `
     }
   >
     <div
-      className="bx--grid"
+      className="bx--grid bx--grid--condensed"
     >
       <div
         className="bx--row"
