@@ -15,7 +15,9 @@ import root from 'window-or-global';
  * @private
  */
 const _host =
-  (process && process.env.TRANSLATION_HOST) || 'https://www.ibm.com';
+  (process &&
+    (process.env.REACT_APP_TRANSLATION_HOST || process.env.TRANSLATION_HOST)) ||
+  'https://www.ibm.com';
 
 /**
  * @constant {string | string} CORS proxy for lower environment calls
