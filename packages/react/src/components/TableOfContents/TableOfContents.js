@@ -124,7 +124,7 @@ const TableOfContents = ({
       .filter((elem, index, arr) =>
         elem.height === null
           ? arr[index - 1].position < arr[index - 1].height
-          : elem.position > -elem.height
+          : elem.position - 50 > -elem.height
       );
 
     return items[0].elem.getAttribute('name');
