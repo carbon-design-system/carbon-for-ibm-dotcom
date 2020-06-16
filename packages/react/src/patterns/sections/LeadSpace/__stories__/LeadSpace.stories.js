@@ -16,7 +16,6 @@ import readme from '../README.stories.mdx';
 const type = {
   left: '',
   small: 'small',
-  centered: 'centered',
 };
 
 const iconMap = {
@@ -125,6 +124,65 @@ DefaultWithImage.story = {
           ...knobs,
           gradient: boolean('gradient overlay', true, groupId),
           image: object('image', images, groupId),
+        };
+      },
+    },
+  },
+};
+
+export const Centered = ({ parameters }) => {
+  const { title, copy, gradient, buttons, image } =
+    parameters?.props?.Leadspace ?? {};
+  const theme = document.documentElement.getAttribute('storybook-carbon-theme');
+  return (
+    <LeadSpace
+      type="centered"
+      theme={theme}
+      title={title}
+      copy={copy}
+      gradient={gradient}
+      buttons={buttons}
+      image={image}
+    />
+  );
+};
+
+Centered.story = {
+  name: 'Centered',
+  parameters: {
+    knobs: {
+      Leadspace: ({ groupId }) => {
+        const buttonCount = number('Number of buttons', 2, {}, groupId);
+        const buttons = [];
+
+        for (let i = 0; i < buttonCount; i++) {
+          buttons.push({
+            copy: text(`Button ${i + 1}`, `Button ${i + 1}`, groupId),
+            renderIcon:
+              iconMap[
+                select(
+                  `Button Icon ${i + 1}`,
+                  iconOptions,
+                  iconOptions.ArrowRight,
+                  groupId
+                )
+              ],
+            href: text(
+              'Primary button link',
+              'https://www.example.com',
+              groupId
+            ),
+          });
+        }
+
+        return {
+          title: text('title', 'Leadspace Title', groupId),
+          copy: text(
+            'copy',
+            'Use this area for a short line of copy to support the title',
+            groupId
+          ),
+          buttons,
         };
       },
     },
