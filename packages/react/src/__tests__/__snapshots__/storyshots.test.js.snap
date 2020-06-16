@@ -4898,7 +4898,7 @@ exports[`Storyshots Components|LightboxMediaViewer Default 1`] = `
                               className="bx--lightbox-media-viewer__content__desc"
                               data-autoid="dds--lightbox-media-viewer__content__desc"
                             >
-                              &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Here are some common categories:&lt;/p&gt; 
+                              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Here are some common categories:
                             </div>
                           </div>
                         </div>
