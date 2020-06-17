@@ -11,21 +11,6 @@
  * type {{}}
  */
 
-const copyWithList = `Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
-Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
-nulla quis, *consequat* libero. Here are
-some common categories:
-
-Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat __libero__.
-
-- [list item link](https://www.ibm.com)
-  1. list item 1a
-  2. list item 2a
-    - list item 2a.a
-1. list item 2
-  - list item 2a
-`;
-
 const ContentGroupSimpleKnobs = {
   heading: 'Lorem ipsum dolor sit amet',
   copy:
@@ -67,11 +52,7 @@ const ContentGroupSimpleKnobs = {
     {
       heading: 'Lorem ipsum dolor sit amet.',
       copy:
-        'Lorem ipsum dolor sit amet, *consectetur* adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.',
-    },
-    {
-      heading: 'Lorem ipsum dolor sit amet.',
-      copy: copyWithList,
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.',
     },
     {
       heading: 'Lorem ipsum dolor sit amet.',
