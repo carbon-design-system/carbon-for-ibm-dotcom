@@ -45,6 +45,7 @@ const LanguageSelector = ({ items, initialSelectedItem, callback }) => {
         initialSelectedItem={initialSelectedItem}
         selectedItem={selectedItem}
         direction="top"
+        placeholder=""
       />
     </div>
   );
