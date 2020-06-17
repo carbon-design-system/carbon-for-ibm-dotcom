@@ -103,14 +103,10 @@ function renderFooter(cta, type) {
           <LinkWithIcon
             href={cta.href}
             target={CTALogic.external(cta.type)}
+            copy={cta.copy}
             onClick={e => {
               cta.type === 'jump' ? CTALogic.jump(e, cta.type) : false;
             }}>
-            {cta.icon?.src && (
-              <>
-                <span>{cta.copy}</span> <cta.icon.src />
-              </>
-            )}
           </LinkWithIcon>
         ) : (
           cta.icon?.src && (

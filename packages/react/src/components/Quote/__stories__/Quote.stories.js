@@ -54,7 +54,6 @@ export default {
           'CTA Object:',
           {
             copy: 'Link with Icon',
-            type: 'local',
             href: 'https://example.com',
           },
           groupId

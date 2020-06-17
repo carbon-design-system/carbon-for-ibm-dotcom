@@ -32,10 +32,7 @@ const SimpleBenefitsItem = ({ title, copy, link }) => (
       </div>
       {link && (
         <div className={`${prefix}--simplebenefits__content-item__link`}>
-          <LinkWithIcon href={link.href} target={link.target}>
-            <span>{link.text}</span>
-            <ArrowRight20 />
-          </LinkWithIcon>
+          <LinkWithIcon href={link.href} target={link.target} copy={link.text}/>
         </div>
       )}
     </div>

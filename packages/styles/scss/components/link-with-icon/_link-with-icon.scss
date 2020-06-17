@@ -9,29 +9,71 @@
 @import '../../temp-carbon-expressive/link/link-expressive';
 
 @mixin link-with-icon {
-  .#{$prefix}--link-with-icon {
-    &__container {
-      display: table;
+  .#{$prefix}--link-with-icon__container {
+    &--disabled {
+      cursor: not-allowed;
     }
 
-    display: flex;
+    .#{$prefix}--link-with-icon {
+      &__container {
+        display: table;
+      }
 
-    span {
-      @include carbon--type-style(body-short-02, true);
+      &:hover {
+        color: $hover-primary-text;
+        text-decoration: underline;
+      }
 
-      vertical-align: middle;
-      align-self: center;
-    }
+      &:active,
+      &:active:visited,
+      &:active:visited:hover {
+        color: $text-01;
+        text-decoration: underline;
+      }
 
-    svg {
-      margin-left: $carbon--spacing-03;
-      vertical-align: middle;
-      align-self: center;
-      fill: currentColor;
-    }
+      &:focus {
+        color: $link-01;
+        border: 1px solid $focus;
+      }
 
-    &:not(:first-of-type) {
-      margin-left: $carbon--spacing-07;
+      &:visited,
+      &--visited {
+        color: $visited-link;
+        text-decoration: none;
+      }
+
+      &:visited:hover,
+      &--visited:hover {
+        color: $visited-link;
+        text-decoration: underline;
+      }
+
+      display: flex;
+
+      span {
+        @include carbon--type-style(body-short-02, true);
+
+        vertical-align: middle;
+        align-self: center;
+      }
+
+      &_left-icon {
+        margin-right: $carbon--spacing-03;
+        vertical-align: middle;
+        align-self: center;
+        fill: currentColor;
+      }
+
+      &_right-icon {
+        margin-left: $carbon--spacing-03;
+        vertical-align: middle;
+        align-self: center;
+        fill: currentColor;
+      }
+
+      &:not(:first-of-type) {
+        margin-left: $carbon--spacing-07;
+      }
     }
   }
 }

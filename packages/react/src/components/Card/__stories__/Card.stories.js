@@ -42,9 +42,6 @@ export const Static = ({ parameters }) => {
     type: 'local',
     copy: 'click here',
     href: 'https://example.com',
-    icon: {
-      src: ArrowRight20,
-    },
   });
 
   const theme =

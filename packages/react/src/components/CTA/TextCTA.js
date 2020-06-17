@@ -33,6 +33,7 @@ const TextCTA = ({
       {!renderLightBox && (
         <LinkWithIcon
           href="#"
+          type={type}
           onClick={e => CTALogic.setLightBox(e, openLightBox)}>
           <span>
             {formatCTAcopy({
@@ -40,7 +41,6 @@ const TextCTA = ({
               duration: videoTitle[0].duration,
             })}
           </span>
-          <Icon />
         </LinkWithIcon>
       )}
     </div>
@@ -48,9 +48,9 @@ const TextCTA = ({
     <LinkWithIcon
       href={href}
       target={CTALogic.external(type)}
+      copy={otherProps.copy}
+      type={type}
       onClick={e => CTALogic.jump(e, type)}>
-      <span>{otherProps.copy}</span>
-      {type !== 'default' && <Icon />}
     </LinkWithIcon>
   );
 };
@@ -61,12 +61,10 @@ TextCTA.propTypes = {
    *
    * | Type       | SVG element Name | Description                                                      |
    * | ---------- | ---------------- | ---------------------------------------------------------------- |
-   * | `local`    | ArrowRight20     | Describes right arrow onClick which loads in self page.          |
    * | `jump`     | ArrowDown20      | Describes down arrow onClick which scrollToView of target.       |
    * | `external` | Launch20         | Describes launch arrow onClick which loads in new tab.           |
    * | `download` | Download20       | Describes download arrow onClick for downloading files.          |
    * | `video`    | PlayOutline20    | Describes play icon onClick which loads the video in a lightbox. |
-   * | `default`  | None             | Describes the default CTA - without icon                         |
    *
    * For more details of icons, refer to:
    *
@@ -77,20 +75,16 @@ TextCTA.propTypes = {
   type: PropTypes.oneOfType([
     PropTypes.oneOf([
       'jump',
-      'local',
       'external',
       'download',
       'video',
-      'default',
     ]),
     PropTypes.arrayOf(
       PropTypes.oneOf([
         'jump',
-        'local',
         'external',
         'download',
         'video',
-        'default',
       ])
     ),
   ]),
