@@ -9,8 +9,8 @@
   .#{$prefix}--content-block-mixed {
     @include themed-items;
 
-    .#{$prefix}--content-item:last-child {
-      margin-bottom: -1rem;
+    .#{$prefix}--content-block__cta {
+      margin-top: -1rem;
     }
   }
 }
