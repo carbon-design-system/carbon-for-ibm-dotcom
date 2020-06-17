@@ -52,7 +52,7 @@ export const Default = ({ parameters }) => {
 
   return (
     <DotcomShell mastheadProps={mastheadProps} footerProps={footerProps}>
-      {content}
+      <div style={{ paddingTop: '6rem' }}>{content}</div>
     </DotcomShell>
   );
 };
