@@ -20,7 +20,6 @@ const TextCTA = ({
   formatCTAcopy,
   ...otherProps
 }) => {
-  const Icon = CTALogic.iconSelector(type);
   const href =
     type !== 'video'
       ? otherProps.href
@@ -50,8 +49,7 @@ const TextCTA = ({
       target={CTALogic.external(type)}
       copy={otherProps.copy}
       type={type}
-      onClick={e => CTALogic.jump(e, type)}>
-    </LinkWithIcon>
+      onClick={e => CTALogic.jump(e, type)}></LinkWithIcon>
   );
 };
 
@@ -73,19 +71,9 @@ TextCTA.propTypes = {
    * - [carbon-icons](https://www.npmjs.com/package/carbon-icons)!👀
    */
   type: PropTypes.oneOfType([
-    PropTypes.oneOf([
-      'jump',
-      'external',
-      'download',
-      'video',
-    ]),
+    PropTypes.oneOf(['jump', 'external', 'download', 'video']),
     PropTypes.arrayOf(
-      PropTypes.oneOf([
-        'jump',
-        'external',
-        'download',
-        'video',
-      ])
+      PropTypes.oneOf(['jump', 'external', 'download', 'video'])
     ),
   ]),
 

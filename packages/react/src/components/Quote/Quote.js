@@ -10,10 +10,8 @@ import {
   decodeString,
 } from '@carbon/ibmdotcom-utilities';
 import React, { useState, useEffect } from 'react';
-import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
 import classnames from 'classnames';
 import { HorizontalRule } from '../HorizontalRule';
-import Launch20 from '@carbon/icons-react/es/launch/20';
 import { LinkWithIcon } from '../LinkWithIcon';
 import PropTypes from 'prop-types';
 import settings from 'carbon-components/es/globals/js/settings';
@@ -127,7 +125,7 @@ const Quote = ({ markType = 'doubleCurved', copy, source, cta, inverse }) => {
       {cta ? (
         <div className={`${prefix}--quote__footer`}>
           <HorizontalRule />
-          <LinkWithIcon href={cta.href} copy={cta.copy}/>
+          <LinkWithIcon href={cta.href} copy={cta.copy} />
         </div>
       ) : (
         false

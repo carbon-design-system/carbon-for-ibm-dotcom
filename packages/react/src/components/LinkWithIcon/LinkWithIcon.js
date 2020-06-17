@@ -5,18 +5,17 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-
 import ArrowDown20 from '@carbon/icons-react/es/arrow--down/20';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
-import cx from "classnames";
+import cx from 'classnames';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import Download20 from '@carbon/icons-react/es/download/20';
 import Launch20 from '@carbon/icons-react/es/launch/20';
 import Link from '../../internal/vendor/carbon-components-react/components/Link/Link';
+import PlayOutline20 from '@carbon/icons-react/lib/play--outline/20';
 import PropTypes from 'prop-types';
 import React from 'react';
 import settings from 'carbon-components/es/globals/js/settings';
-import PlayOutline20 from "@carbon/icons-react/lib/play--outline/20";
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
@@ -24,7 +23,15 @@ const { prefix } = settings;
 /**
  * LinkWithIcon component.
  */
-const LinkWithIcon = ({children, href, copy, type, direction, visited, ...props }) => {
+const LinkWithIcon = ({
+  children,
+  href,
+  copy,
+  type,
+  direction,
+  visited,
+  ...props
+}) => {
   const RenderIcon = _renderLinkIcon(type);
 
   console.log('visited state', visited);
@@ -32,22 +39,32 @@ const LinkWithIcon = ({children, href, copy, type, direction, visited, ...props 
     <div
       className={cx(`${prefix}--link-with-icon__container`, {
         [`${prefix}--link-with-icon__container--disabled`]: props.disabled,
-      }) }
+      })}
       data-autoid={`${stablePrefix}--link-with-icon`}>
-      <Link href={href} className={cx(`${prefix}--link-with-icon`, {
-        [`${prefix}--link-with-icon--visited`]: visited,
-      })} {...props}>
-        {direction === 'left' ? <RenderIcon className={`${prefix}--link-with-icon_left-icon`}/> : ''}
+      <Link
+        href={href}
+        className={cx(`${prefix}--link-with-icon`, {
+          [`${prefix}--link-with-icon--visited`]: visited,
+        })}
+        {...props}>
+        {direction === 'left' ? (
+          <RenderIcon className={`${prefix}--link-with-icon_left-icon`} />
+        ) : (
+          ''
+        )}
         {copy}
         {children}
-        {direction === 'right' ? <RenderIcon className={`${prefix}--link-with-icon_right-icon`}/> : ''}
+        {direction === 'right' ? (
+          <RenderIcon className={`${prefix}--link-with-icon_right-icon`} />
+        ) : (
+          ''
+        )}
       </Link>
     </div>
   );
 };
 
-
-const _renderLinkIcon = (type) => {
+const _renderLinkIcon = type => {
   switch (type) {
     case 'download':
       return Download20;
@@ -90,42 +107,27 @@ LinkWithIcon.propTypes = {
    * | `jump`     | ArrowDown20      | Describes down arrow onClick which scrollToView of target.       |
    * | `external` | Launch20         | Describes launch arrow onClick which loads in new tab.           |
    * | `download` | Download20       | Describes download arrow onClick for downloading files.          |
+   * | `video`    | PlayOutline20    | Describes play icon onClick which loads the video in a lightbox. |
    *
    */
-   type: PropTypes.oneOfType([
-   PropTypes.oneOf([
-   'external',
-   'download',
-   'jump',
-   ]),
-   PropTypes.arrayOf(
-   PropTypes.oneOf([
-   'external',
-   'download',
-   'jump',
-   ])
-   ),
-   ]),
+  type: PropTypes.oneOfType([
+    PropTypes.oneOf(['external', 'download', 'video', 'jump']),
+    PropTypes.arrayOf(
+      PropTypes.oneOf(['external', 'download', 'video', 'jump'])
+    ),
+  ]),
 
-   /***  icon direction
+  /***  icon direction
    *
    * | Name         | Data Type | Description           |
    * | ------------ | --------- | --------------------- |
    * | `left`       | String    | icon on the left      |
    * | `right`      | string    | icon on the right     |
    */
-    direction: PropTypes.oneOfType([
-      PropTypes.oneOf([
-        'right',
-        'left',
-      ]),
-      PropTypes.arrayOf(
-        PropTypes.oneOf([
-          'right',
-          'left',
-        ])
-      ),
-    ]),
+  direction: PropTypes.oneOfType([
+    PropTypes.oneOf(['right', 'left']),
+    PropTypes.arrayOf(PropTypes.oneOf(['right', 'left'])),
+  ]),
 };
 
 LinkWithIcon.defaultProps = {

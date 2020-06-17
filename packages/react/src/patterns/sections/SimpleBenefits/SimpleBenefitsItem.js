@@ -4,8 +4,6 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-
-import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import { LinkWithIcon } from '../../../components/LinkWithIcon';
 import PropTypes from 'prop-types';
@@ -32,7 +30,11 @@ const SimpleBenefitsItem = ({ title, copy, link }) => (
       </div>
       {link && (
         <div className={`${prefix}--simplebenefits__content-item__link`}>
-          <LinkWithIcon href={link.href} target={link.target} copy={link.text}/>
+          <LinkWithIcon
+            href={link.href}
+            target={link.target}
+            copy={link.text}
+          />
         </div>
       )}
     </div>

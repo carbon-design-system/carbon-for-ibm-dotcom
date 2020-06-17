@@ -253,9 +253,13 @@ exports[`Storyshots Components|CTA Default 1`] = `
                 }
               >
                 <LinkWithIcon
+                  copy="Lorem ipsum dolor sit amet"
+                  direction="right"
+                  disabled={false}
                   href="https://www.example.com"
                   onClick={[Function]}
                   target={null}
+                  type="local"
                 >
                   <div
                     className="bx--link-with-icon__container"
@@ -263,6 +267,7 @@ exports[`Storyshots Components|CTA Default 1`] = `
                   >
                     <Link
                       className="bx--link-with-icon"
+                      disabled={false}
                       href="https://www.example.com"
                       onClick={[Function]}
                       target={null}
@@ -273,11 +278,12 @@ exports[`Storyshots Components|CTA Default 1`] = `
                         onClick={[Function]}
                         target={null}
                       >
-                        <span>
-                          Lorem ipsum dolor sit amet
-                        </span>
-                        <ForwardRef(ArrowRight20)>
+                        Lorem ipsum dolor sit amet
+                        <ForwardRef(ArrowRight20)
+                          className="bx--link-with-icon_right-icon"
+                        >
                           <Icon
+                            className="bx--link-with-icon_right-icon"
                             height={20}
                             preserveAspectRatio="xMidYMid meet"
                             viewBox="0 0 20 20"
@@ -286,6 +292,7 @@ exports[`Storyshots Components|CTA Default 1`] = `
                           >
                             <svg
                               aria-hidden={true}
+                              className="bx--link-with-icon_right-icon"
                               focusable="false"
                               height={20}
                               preserveAspectRatio="xMidYMid meet"
@@ -552,12 +559,6 @@ exports[`Storyshots Components|Card Static 1`] = `
                 Object {
                   "copy": "click here",
                   "href": "https://example.com",
-                  "icon": Object {
-                    "src": Object {
-                      "$$typeof": Symbol(react.forward_ref),
-                      "render": [Function],
-                    },
-                  },
                   "type": "local",
                 }
               }
@@ -594,9 +595,13 @@ exports[`Storyshots Components|Card Static 1`] = `
                       className="bx--card__footer"
                     >
                       <LinkWithIcon
+                        copy="click here"
+                        direction="right"
+                        disabled={false}
                         href="https://example.com"
                         onClick={[Function]}
                         target={null}
+                        type=""
                       >
                         <div
                           className="bx--link-with-icon__container"
@@ -604,6 +609,7 @@ exports[`Storyshots Components|Card Static 1`] = `
                         >
                           <Link
                             className="bx--link-with-icon"
+                            disabled={false}
                             href="https://example.com"
                             onClick={[Function]}
                             target={null}
@@ -614,12 +620,12 @@ exports[`Storyshots Components|Card Static 1`] = `
                               onClick={[Function]}
                               target={null}
                             >
-                              <span>
-                                click here
-                              </span>
-                               
-                              <ForwardRef(ArrowRight20)>
+                              click here
+                              <ForwardRef(ArrowRight20)
+                                className="bx--link-with-icon_right-icon"
+                              >
                                 <Icon
+                                  className="bx--link-with-icon_right-icon"
                                   height={20}
                                   preserveAspectRatio="xMidYMid meet"
                                   viewBox="0 0 20 20"
@@ -628,6 +634,7 @@ exports[`Storyshots Components|Card Static 1`] = `
                                 >
                                   <svg
                                     aria-hidden={true}
+                                    className="bx--link-with-icon_right-icon"
                                     focusable="false"
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
@@ -1734,9 +1741,13 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
                                   }
                                 >
                                   <LinkWithIcon
+                                    copy="Learn more"
+                                    direction="right"
+                                    disabled={false}
                                     href="https://ibm.com"
                                     onClick={[Function]}
                                     target={null}
+                                    type="local"
                                   >
                                     <div
                                       className="bx--link-with-icon__container"
@@ -1744,6 +1755,7 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
                                     >
                                       <Link
                                         className="bx--link-with-icon"
+                                        disabled={false}
                                         href="https://ibm.com"
                                         onClick={[Function]}
                                         target={null}
@@ -1754,11 +1766,12 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
                                           onClick={[Function]}
                                           target={null}
                                         >
-                                          <span>
-                                            Learn more
-                                          </span>
-                                          <ForwardRef(ArrowRight20)>
+                                          Learn more
+                                          <ForwardRef(ArrowRight20)
+                                            className="bx--link-with-icon_right-icon"
+                                          >
                                             <Icon
+                                              className="bx--link-with-icon_right-icon"
                                               height={20}
                                               preserveAspectRatio="xMidYMid meet"
                                               viewBox="0 0 20 20"
@@ -1767,6 +1780,7 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
                                             >
                                               <svg
                                                 aria-hidden={true}
+                                                className="bx--link-with-icon_right-icon"
                                                 focusable="false"
                                                 height={20}
                                                 preserveAspectRatio="xMidYMid meet"
@@ -1830,9 +1844,13 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
                                   }
                                 >
                                   <LinkWithIcon
+                                    copy="Microservices and containers"
+                                    direction="right"
+                                    disabled={false}
                                     href="https://ibm.com"
                                     onClick={[Function]}
                                     target="_blank"
+                                    type="external"
                                   >
                                     <div
                                       className="bx--link-with-icon__container"
@@ -1840,6 +1858,7 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
                                     >
                                       <Link
                                         className="bx--link-with-icon"
+                                        disabled={false}
                                         href="https://ibm.com"
                                         onClick={[Function]}
                                         target="_blank"
@@ -1850,11 +1869,12 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
                                           onClick={[Function]}
                                           target="_blank"
                                         >
-                                          <span>
-                                            Microservices and containers
-                                          </span>
-                                          <ForwardRef(Launch20)>
+                                          Microservices and containers
+                                          <ForwardRef(Launch20)
+                                            className="bx--link-with-icon_right-icon"
+                                          >
                                             <Icon
+                                              className="bx--link-with-icon_right-icon"
                                               height={20}
                                               preserveAspectRatio="xMidYMid meet"
                                               viewBox="0 0 32 32"
@@ -1863,6 +1883,7 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
                                             >
                                               <svg
                                                 aria-hidden={true}
+                                                className="bx--link-with-icon_right-icon"
                                                 focusable="false"
                                                 height={20}
                                                 preserveAspectRatio="xMidYMid meet"
@@ -2772,9 +2793,13 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                             }
                                                           >
                                                             <LinkWithIcon
+                                                              copy="IBM Cloud Continuous Delivery"
+                                                              direction="right"
+                                                              disabled={false}
                                                               href="https://ibm.com"
                                                               onClick={[Function]}
                                                               target={null}
+                                                              type="local"
                                                             >
                                                               <div
                                                                 className="bx--link-with-icon__container"
@@ -2782,6 +2807,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                               >
                                                                 <Link
                                                                   className="bx--link-with-icon"
+                                                                  disabled={false}
                                                                   href="https://ibm.com"
                                                                   onClick={[Function]}
                                                                   target={null}
@@ -2792,11 +2818,12 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                     onClick={[Function]}
                                                                     target={null}
                                                                   >
-                                                                    <span>
-                                                                      IBM Cloud Continuous Delivery
-                                                                    </span>
-                                                                    <ForwardRef(ArrowRight20)>
+                                                                    IBM Cloud Continuous Delivery
+                                                                    <ForwardRef(ArrowRight20)
+                                                                      className="bx--link-with-icon_right-icon"
+                                                                    >
                                                                       <Icon
+                                                                        className="bx--link-with-icon_right-icon"
                                                                         height={20}
                                                                         preserveAspectRatio="xMidYMid meet"
                                                                         viewBox="0 0 20 20"
@@ -2805,6 +2832,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                       >
                                                                         <svg
                                                                           aria-hidden={true}
+                                                                          className="bx--link-with-icon_right-icon"
                                                                           focusable="false"
                                                                           height={20}
                                                                           preserveAspectRatio="xMidYMid meet"
@@ -2868,9 +2896,13 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                             }
                                                           >
                                                             <LinkWithIcon
+                                                              copy="UrbanCode"
+                                                              direction="right"
+                                                              disabled={false}
                                                               href="https://ibm.com"
                                                               onClick={[Function]}
                                                               target={null}
+                                                              type="local"
                                                             >
                                                               <div
                                                                 className="bx--link-with-icon__container"
@@ -2878,6 +2910,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                               >
                                                                 <Link
                                                                   className="bx--link-with-icon"
+                                                                  disabled={false}
                                                                   href="https://ibm.com"
                                                                   onClick={[Function]}
                                                                   target={null}
@@ -2888,11 +2921,12 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                     onClick={[Function]}
                                                                     target={null}
                                                                   >
-                                                                    <span>
-                                                                      UrbanCode
-                                                                    </span>
-                                                                    <ForwardRef(ArrowRight20)>
+                                                                    UrbanCode
+                                                                    <ForwardRef(ArrowRight20)
+                                                                      className="bx--link-with-icon_right-icon"
+                                                                    >
                                                                       <Icon
+                                                                        className="bx--link-with-icon_right-icon"
                                                                         height={20}
                                                                         preserveAspectRatio="xMidYMid meet"
                                                                         viewBox="0 0 20 20"
@@ -2901,6 +2935,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                       >
                                                                         <svg
                                                                           aria-hidden={true}
+                                                                          className="bx--link-with-icon_right-icon"
                                                                           focusable="false"
                                                                           height={20}
                                                                           preserveAspectRatio="xMidYMid meet"
@@ -2964,9 +2999,13 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                             }
                                                           >
                                                             <LinkWithIcon
+                                                              copy="View all products"
+                                                              direction="right"
+                                                              disabled={false}
                                                               href="https://ibm.com"
                                                               onClick={[Function]}
                                                               target={null}
+                                                              type="local"
                                                             >
                                                               <div
                                                                 className="bx--link-with-icon__container"
@@ -2974,6 +3013,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                               >
                                                                 <Link
                                                                   className="bx--link-with-icon"
+                                                                  disabled={false}
                                                                   href="https://ibm.com"
                                                                   onClick={[Function]}
                                                                   target={null}
@@ -2984,11 +3024,12 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                     onClick={[Function]}
                                                                     target={null}
                                                                   >
-                                                                    <span>
-                                                                      View all products
-                                                                    </span>
-                                                                    <ForwardRef(ArrowRight20)>
+                                                                    View all products
+                                                                    <ForwardRef(ArrowRight20)
+                                                                      className="bx--link-with-icon_right-icon"
+                                                                    >
                                                                       <Icon
+                                                                        className="bx--link-with-icon_right-icon"
                                                                         height={20}
                                                                         preserveAspectRatio="xMidYMid meet"
                                                                         viewBox="0 0 20 20"
@@ -2997,6 +3038,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                       >
                                                                         <svg
                                                                           aria-hidden={true}
+                                                                          className="bx--link-with-icon_right-icon"
                                                                           focusable="false"
                                                                           height={20}
                                                                           preserveAspectRatio="xMidYMid meet"
@@ -3336,9 +3378,13 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                   }
                                                 >
                                                   <LinkWithIcon
+                                                    copy="Lorem Ipsum dolor sit"
+                                                    direction="right"
+                                                    disabled={false}
                                                     href="https://example.com"
                                                     onClick={[Function]}
                                                     target={null}
+                                                    type="local"
                                                   >
                                                     <div
                                                       className="bx--link-with-icon__container"
@@ -3346,6 +3392,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                     >
                                                       <Link
                                                         className="bx--link-with-icon"
+                                                        disabled={false}
                                                         href="https://example.com"
                                                         onClick={[Function]}
                                                         target={null}
@@ -3356,11 +3403,12 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                           onClick={[Function]}
                                                           target={null}
                                                         >
-                                                          <span>
-                                                            Lorem Ipsum dolor sit
-                                                          </span>
-                                                          <ForwardRef(ArrowRight20)>
+                                                          Lorem Ipsum dolor sit
+                                                          <ForwardRef(ArrowRight20)
+                                                            className="bx--link-with-icon_right-icon"
+                                                          >
                                                             <Icon
+                                                              className="bx--link-with-icon_right-icon"
                                                               height={20}
                                                               preserveAspectRatio="xMidYMid meet"
                                                               viewBox="0 0 20 20"
@@ -3369,6 +3417,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                             >
                                                               <svg
                                                                 aria-hidden={true}
+                                                                className="bx--link-with-icon_right-icon"
                                                                 focusable="false"
                                                                 height={20}
                                                                 preserveAspectRatio="xMidYMid meet"
@@ -3520,9 +3569,13 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                   }
                                                 >
                                                   <LinkWithIcon
+                                                    copy="Lorem Ipsum dolor sit"
+                                                    direction="right"
+                                                    disabled={false}
                                                     href="https://example.com"
                                                     onClick={[Function]}
                                                     target={null}
+                                                    type="local"
                                                   >
                                                     <div
                                                       className="bx--link-with-icon__container"
@@ -3530,6 +3583,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                     >
                                                       <Link
                                                         className="bx--link-with-icon"
+                                                        disabled={false}
                                                         href="https://example.com"
                                                         onClick={[Function]}
                                                         target={null}
@@ -3540,11 +3594,12 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                           onClick={[Function]}
                                                           target={null}
                                                         >
-                                                          <span>
-                                                            Lorem Ipsum dolor sit
-                                                          </span>
-                                                          <ForwardRef(ArrowRight20)>
+                                                          Lorem Ipsum dolor sit
+                                                          <ForwardRef(ArrowRight20)
+                                                            className="bx--link-with-icon_right-icon"
+                                                          >
                                                             <Icon
+                                                              className="bx--link-with-icon_right-icon"
                                                               height={20}
                                                               preserveAspectRatio="xMidYMid meet"
                                                               viewBox="0 0 20 20"
@@ -3553,6 +3608,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                             >
                                                               <svg
                                                                 aria-hidden={true}
+                                                                className="bx--link-with-icon_right-icon"
                                                                 focusable="false"
                                                                 height={20}
                                                                 preserveAspectRatio="xMidYMid meet"
@@ -4077,9 +4133,13 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                   }
                                                 >
                                                   <LinkWithIcon
+                                                    copy="Lorem Ipsum dolor sit"
+                                                    direction="right"
+                                                    disabled={false}
                                                     href="https://example.com"
                                                     onClick={[Function]}
                                                     target={null}
+                                                    type="local"
                                                   >
                                                     <div
                                                       className="bx--link-with-icon__container"
@@ -4087,6 +4147,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                     >
                                                       <Link
                                                         className="bx--link-with-icon"
+                                                        disabled={false}
                                                         href="https://example.com"
                                                         onClick={[Function]}
                                                         target={null}
@@ -4097,11 +4158,12 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                           onClick={[Function]}
                                                           target={null}
                                                         >
-                                                          <span>
-                                                            Lorem Ipsum dolor sit
-                                                          </span>
-                                                          <ForwardRef(ArrowRight20)>
+                                                          Lorem Ipsum dolor sit
+                                                          <ForwardRef(ArrowRight20)
+                                                            className="bx--link-with-icon_right-icon"
+                                                          >
                                                             <Icon
+                                                              className="bx--link-with-icon_right-icon"
                                                               height={20}
                                                               preserveAspectRatio="xMidYMid meet"
                                                               viewBox="0 0 20 20"
@@ -4110,6 +4172,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                             >
                                                               <svg
                                                                 aria-hidden={true}
+                                                                className="bx--link-with-icon_right-icon"
                                                                 focusable="false"
                                                                 height={20}
                                                                 preserveAspectRatio="xMidYMid meet"
@@ -4808,9 +4871,13 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                               }
                                                             >
                                                               <LinkWithIcon
+                                                                copy="Link text"
+                                                                direction="right"
+                                                                disabled={false}
                                                                 href="https://example.com"
                                                                 onClick={[Function]}
                                                                 target={null}
+                                                                type="local"
                                                               >
                                                                 <div
                                                                   className="bx--link-with-icon__container"
@@ -4818,6 +4885,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                 >
                                                                   <Link
                                                                     className="bx--link-with-icon"
+                                                                    disabled={false}
                                                                     href="https://example.com"
                                                                     onClick={[Function]}
                                                                     target={null}
@@ -4828,11 +4896,12 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                       onClick={[Function]}
                                                                       target={null}
                                                                     >
-                                                                      <span>
-                                                                        Link text
-                                                                      </span>
-                                                                      <ForwardRef(ArrowRight20)>
+                                                                      Link text
+                                                                      <ForwardRef(ArrowRight20)
+                                                                        className="bx--link-with-icon_right-icon"
+                                                                      >
                                                                         <Icon
+                                                                          className="bx--link-with-icon_right-icon"
                                                                           height={20}
                                                                           preserveAspectRatio="xMidYMid meet"
                                                                           viewBox="0 0 20 20"
@@ -4841,6 +4910,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                         >
                                                                           <svg
                                                                             aria-hidden={true}
+                                                                            className="bx--link-with-icon_right-icon"
                                                                             focusable="false"
                                                                             height={20}
                                                                             preserveAspectRatio="xMidYMid meet"
@@ -4894,9 +4964,13 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                               }
                                                             >
                                                               <LinkWithIcon
+                                                                copy="External link text"
+                                                                direction="right"
+                                                                disabled={false}
                                                                 href="https://example.com"
                                                                 onClick={[Function]}
                                                                 target="_blank"
+                                                                type="external"
                                                               >
                                                                 <div
                                                                   className="bx--link-with-icon__container"
@@ -4904,6 +4978,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                 >
                                                                   <Link
                                                                     className="bx--link-with-icon"
+                                                                    disabled={false}
                                                                     href="https://example.com"
                                                                     onClick={[Function]}
                                                                     target="_blank"
@@ -4914,11 +4989,12 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                       onClick={[Function]}
                                                                       target="_blank"
                                                                     >
-                                                                      <span>
-                                                                        External link text
-                                                                      </span>
-                                                                      <ForwardRef(Launch20)>
+                                                                      External link text
+                                                                      <ForwardRef(Launch20)
+                                                                        className="bx--link-with-icon_right-icon"
+                                                                      >
                                                                         <Icon
+                                                                          className="bx--link-with-icon_right-icon"
                                                                           height={20}
                                                                           preserveAspectRatio="xMidYMid meet"
                                                                           viewBox="0 0 32 32"
@@ -4927,6 +5003,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                         >
                                                                           <svg
                                                                             aria-hidden={true}
+                                                                            className="bx--link-with-icon_right-icon"
                                                                             focusable="false"
                                                                             height={20}
                                                                             preserveAspectRatio="xMidYMid meet"
@@ -5076,9 +5153,13 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                               }
                                                             >
                                                               <LinkWithIcon
+                                                                copy="Link text"
+                                                                direction="right"
+                                                                disabled={false}
                                                                 href="https://example.com"
                                                                 onClick={[Function]}
                                                                 target={null}
+                                                                type="local"
                                                               >
                                                                 <div
                                                                   className="bx--link-with-icon__container"
@@ -5086,6 +5167,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                 >
                                                                   <Link
                                                                     className="bx--link-with-icon"
+                                                                    disabled={false}
                                                                     href="https://example.com"
                                                                     onClick={[Function]}
                                                                     target={null}
@@ -5096,11 +5178,12 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                       onClick={[Function]}
                                                                       target={null}
                                                                     >
-                                                                      <span>
-                                                                        Link text
-                                                                      </span>
-                                                                      <ForwardRef(ArrowRight20)>
+                                                                      Link text
+                                                                      <ForwardRef(ArrowRight20)
+                                                                        className="bx--link-with-icon_right-icon"
+                                                                      >
                                                                         <Icon
+                                                                          className="bx--link-with-icon_right-icon"
                                                                           height={20}
                                                                           preserveAspectRatio="xMidYMid meet"
                                                                           viewBox="0 0 20 20"
@@ -5109,6 +5192,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                         >
                                                                           <svg
                                                                             aria-hidden={true}
+                                                                            className="bx--link-with-icon_right-icon"
                                                                             focusable="false"
                                                                             height={20}
                                                                             preserveAspectRatio="xMidYMid meet"
@@ -5162,9 +5246,13 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                               }
                                                             >
                                                               <LinkWithIcon
+                                                                copy="External link text"
+                                                                direction="right"
+                                                                disabled={false}
                                                                 href="https://example.com"
                                                                 onClick={[Function]}
                                                                 target="_blank"
+                                                                type="external"
                                                               >
                                                                 <div
                                                                   className="bx--link-with-icon__container"
@@ -5172,6 +5260,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                 >
                                                                   <Link
                                                                     className="bx--link-with-icon"
+                                                                    disabled={false}
                                                                     href="https://example.com"
                                                                     onClick={[Function]}
                                                                     target="_blank"
@@ -5182,11 +5271,12 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                       onClick={[Function]}
                                                                       target="_blank"
                                                                     >
-                                                                      <span>
-                                                                        External link text
-                                                                      </span>
-                                                                      <ForwardRef(Launch20)>
+                                                                      External link text
+                                                                      <ForwardRef(Launch20)
+                                                                        className="bx--link-with-icon_right-icon"
+                                                                      >
                                                                         <Icon
+                                                                          className="bx--link-with-icon_right-icon"
                                                                           height={20}
                                                                           preserveAspectRatio="xMidYMid meet"
                                                                           viewBox="0 0 32 32"
@@ -5195,6 +5285,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                         >
                                                                           <svg
                                                                             aria-hidden={true}
+                                                                            className="bx--link-with-icon_right-icon"
                                                                             focusable="false"
                                                                             height={20}
                                                                             preserveAspectRatio="xMidYMid meet"
@@ -6340,7 +6431,11 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                 />
                                               </HorizontalRule>
                                               <LinkWithIcon
+                                                copy="Link with Icon"
+                                                direction="right"
+                                                disabled={false}
                                                 href="https://example.com"
+                                                type=""
                                               >
                                                 <div
                                                   className="bx--link-with-icon__container"
@@ -6348,6 +6443,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                 >
                                                   <Link
                                                     className="bx--link-with-icon"
+                                                    disabled={false}
                                                     href="https://example.com"
                                                   >
                                                     <a
@@ -6355,8 +6451,11 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                       href="https://example.com"
                                                     >
                                                       Link with Icon
-                                                      <ForwardRef(ArrowRight20)>
+                                                      <ForwardRef(ArrowRight20)
+                                                        className="bx--link-with-icon_right-icon"
+                                                      >
                                                         <Icon
+                                                          className="bx--link-with-icon_right-icon"
                                                           height={20}
                                                           preserveAspectRatio="xMidYMid meet"
                                                           viewBox="0 0 20 20"
@@ -6365,6 +6464,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                         >
                                                           <svg
                                                             aria-hidden={true}
+                                                            className="bx--link-with-icon_right-icon"
                                                             focusable="false"
                                                             height={20}
                                                             preserveAspectRatio="xMidYMid meet"
@@ -6749,9 +6849,13 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                 }
                               >
                                 <LinkWithIcon
+                                  copy="Find a partner"
+                                  direction="right"
+                                  disabled={false}
                                   href="https://example.com/"
                                   onClick={[Function]}
                                   target={null}
+                                  type="local"
                                 >
                                   <div
                                     className="bx--link-with-icon__container"
@@ -6759,6 +6863,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                   >
                                     <Link
                                       className="bx--link-with-icon"
+                                      disabled={false}
                                       href="https://example.com/"
                                       onClick={[Function]}
                                       target={null}
@@ -6769,11 +6874,12 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                         onClick={[Function]}
                                         target={null}
                                       >
-                                        <span>
-                                          Find a partner
-                                        </span>
-                                        <ForwardRef(ArrowRight20)>
+                                        Find a partner
+                                        <ForwardRef(ArrowRight20)
+                                          className="bx--link-with-icon_right-icon"
+                                        >
                                           <Icon
+                                            className="bx--link-with-icon_right-icon"
                                             height={20}
                                             preserveAspectRatio="xMidYMid meet"
                                             viewBox="0 0 20 20"
@@ -6782,6 +6888,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                           >
                                             <svg
                                               aria-hidden={true}
+                                              className="bx--link-with-icon_right-icon"
                                               focusable="false"
                                               height={20}
                                               preserveAspectRatio="xMidYMid meet"
@@ -6864,9 +6971,13 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                 }
                               >
                                 <LinkWithIcon
+                                  copy="Browse tutorials"
+                                  direction="right"
+                                  disabled={false}
                                   href="https://example.com/"
                                   onClick={[Function]}
                                   target={null}
+                                  type="local"
                                 >
                                   <div
                                     className="bx--link-with-icon__container"
@@ -6874,6 +6985,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                   >
                                     <Link
                                       className="bx--link-with-icon"
+                                      disabled={false}
                                       href="https://example.com/"
                                       onClick={[Function]}
                                       target={null}
@@ -6884,11 +6996,12 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                         onClick={[Function]}
                                         target={null}
                                       >
-                                        <span>
-                                          Browse tutorials
-                                        </span>
-                                        <ForwardRef(ArrowRight20)>
+                                        Browse tutorials
+                                        <ForwardRef(ArrowRight20)
+                                          className="bx--link-with-icon_right-icon"
+                                        >
                                           <Icon
+                                            className="bx--link-with-icon_right-icon"
                                             height={20}
                                             preserveAspectRatio="xMidYMid meet"
                                             viewBox="0 0 20 20"
@@ -6897,6 +7010,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                           >
                                             <svg
                                               aria-hidden={true}
+                                              className="bx--link-with-icon_right-icon"
                                               focusable="false"
                                               height={20}
                                               preserveAspectRatio="xMidYMid meet"
@@ -9058,8 +9172,12 @@ exports[`Storyshots Components|Link with Icon Default 1`] = `
       }
     >
       <LinkWithIcon
+        copy="Link text"
+        direction="right"
         disabled={false}
         href="https://www.example.com"
+        type=""
+        visited={false}
       >
         <div
           className="bx--link-with-icon__container"
@@ -9074,11 +9192,12 @@ exports[`Storyshots Components|Link with Icon Default 1`] = `
               className="bx--link bx--link-with-icon"
               href="https://www.example.com"
             >
-              <span>
-                Link text
-              </span>
-              <ForwardRef(ArrowRight20)>
+              Link text
+              <ForwardRef(ArrowRight20)
+                className="bx--link-with-icon_right-icon"
+              >
                 <Icon
+                  className="bx--link-with-icon_right-icon"
                   height={20}
                   preserveAspectRatio="xMidYMid meet"
                   viewBox="0 0 20 20"
@@ -9087,6 +9206,7 @@ exports[`Storyshots Components|Link with Icon Default 1`] = `
                 >
                   <svg
                     aria-hidden={true}
+                    className="bx--link-with-icon_right-icon"
                     focusable="false"
                     height={20}
                     preserveAspectRatio="xMidYMid meet"
@@ -10050,9 +10170,13 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                         }
                       >
                         <LinkWithIcon
+                          copy="Learn more"
+                          direction="right"
+                          disabled={false}
                           href="https://ibm.com"
                           onClick={[Function]}
                           target={null}
+                          type="local"
                         >
                           <div
                             className="bx--link-with-icon__container"
@@ -10060,6 +10184,7 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                           >
                             <Link
                               className="bx--link-with-icon"
+                              disabled={false}
                               href="https://ibm.com"
                               onClick={[Function]}
                               target={null}
@@ -10070,11 +10195,12 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                                 onClick={[Function]}
                                 target={null}
                               >
-                                <span>
-                                  Learn more
-                                </span>
-                                <ForwardRef(ArrowRight20)>
+                                Learn more
+                                <ForwardRef(ArrowRight20)
+                                  className="bx--link-with-icon_right-icon"
+                                >
                                   <Icon
+                                    className="bx--link-with-icon_right-icon"
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
                                     viewBox="0 0 20 20"
@@ -10083,6 +10209,7 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                                   >
                                     <svg
                                       aria-hidden={true}
+                                      className="bx--link-with-icon_right-icon"
                                       focusable="false"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
@@ -10146,9 +10273,13 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                         }
                       >
                         <LinkWithIcon
+                          copy="Containerization A Complete Guide"
+                          direction="right"
+                          disabled={false}
                           href="https://ibm.com"
                           onClick={[Function]}
                           target={null}
+                          type="download"
                         >
                           <div
                             className="bx--link-with-icon__container"
@@ -10156,6 +10287,7 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                           >
                             <Link
                               className="bx--link-with-icon"
+                              disabled={false}
                               href="https://ibm.com"
                               onClick={[Function]}
                               target={null}
@@ -10166,11 +10298,12 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                                 onClick={[Function]}
                                 target={null}
                               >
-                                <span>
-                                  Containerization A Complete Guide
-                                </span>
-                                <ForwardRef(Download20)>
+                                Containerization A Complete Guide
+                                <ForwardRef(Download20)
+                                  className="bx--link-with-icon_right-icon"
+                                >
                                   <Icon
+                                    className="bx--link-with-icon_right-icon"
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
                                     viewBox="0 0 32 32"
@@ -10179,6 +10312,7 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                                   >
                                     <svg
                                       aria-hidden={true}
+                                      className="bx--link-with-icon_right-icon"
                                       focusable="false"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
@@ -10245,9 +10379,13 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                         }
                       >
                         <LinkWithIcon
+                          copy="Microservices and containers"
+                          direction="right"
+                          disabled={false}
                           href="https://ibm.com"
                           onClick={[Function]}
                           target="_blank"
+                          type="external"
                         >
                           <div
                             className="bx--link-with-icon__container"
@@ -10255,6 +10393,7 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                           >
                             <Link
                               className="bx--link-with-icon"
+                              disabled={false}
                               href="https://ibm.com"
                               onClick={[Function]}
                               target="_blank"
@@ -10265,11 +10404,12 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                                 onClick={[Function]}
                                 target="_blank"
                               >
-                                <span>
-                                  Microservices and containers
-                                </span>
-                                <ForwardRef(Launch20)>
+                                Microservices and containers
+                                <ForwardRef(Launch20)
+                                  className="bx--link-with-icon_right-icon"
+                                >
                                   <Icon
+                                    className="bx--link-with-icon_right-icon"
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
                                     viewBox="0 0 32 32"
@@ -10278,6 +10418,7 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                                   >
                                     <svg
                                       aria-hidden={true}
+                                      className="bx--link-with-icon_right-icon"
                                       focusable="false"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
@@ -10347,8 +10488,12 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                       >
                         <div>
                           <LinkWithIcon
+                            copy=""
+                            direction="right"
+                            disabled={false}
                             href="#"
                             onClick={[Function]}
+                            type="video"
                           >
                             <div
                               className="bx--link-with-icon__container"
@@ -10356,6 +10501,7 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                             >
                               <Link
                                 className="bx--link-with-icon"
+                                disabled={false}
                                 href="#"
                                 onClick={[Function]}
                               >
@@ -10367,8 +10513,11 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                                   <span>
                                      
                                   </span>
-                                  <ForwardRef(PlayOutline20)>
+                                  <ForwardRef(PlayOutline20)
+                                    className="bx--link-with-icon_right-icon"
+                                  >
                                     <Icon
+                                      className="bx--link-with-icon_right-icon"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
                                       viewBox="0 0 32 32"
@@ -10377,6 +10526,7 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                                     >
                                       <svg
                                         aria-hidden={true}
+                                        className="bx--link-with-icon_right-icon"
                                         focusable="false"
                                         height={20}
                                         preserveAspectRatio="xMidYMid meet"
@@ -10515,9 +10665,13 @@ exports[`Storyshots Components|LinkList Horizontal 1`] = `
                         }
                       >
                         <LinkWithIcon
+                          copy="Learn more"
+                          direction="right"
+                          disabled={false}
                           href="https://ibm.com"
                           onClick={[Function]}
                           target={null}
+                          type="local"
                         >
                           <div
                             className="bx--link-with-icon__container"
@@ -10525,6 +10679,7 @@ exports[`Storyshots Components|LinkList Horizontal 1`] = `
                           >
                             <Link
                               className="bx--link-with-icon"
+                              disabled={false}
                               href="https://ibm.com"
                               onClick={[Function]}
                               target={null}
@@ -10535,11 +10690,12 @@ exports[`Storyshots Components|LinkList Horizontal 1`] = `
                                 onClick={[Function]}
                                 target={null}
                               >
-                                <span>
-                                  Learn more
-                                </span>
-                                <ForwardRef(ArrowRight20)>
+                                Learn more
+                                <ForwardRef(ArrowRight20)
+                                  className="bx--link-with-icon_right-icon"
+                                >
                                   <Icon
+                                    className="bx--link-with-icon_right-icon"
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
                                     viewBox="0 0 20 20"
@@ -10548,6 +10704,7 @@ exports[`Storyshots Components|LinkList Horizontal 1`] = `
                                   >
                                     <svg
                                       aria-hidden={true}
+                                      className="bx--link-with-icon_right-icon"
                                       focusable="false"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
@@ -10611,9 +10768,13 @@ exports[`Storyshots Components|LinkList Horizontal 1`] = `
                         }
                       >
                         <LinkWithIcon
+                          copy="Containerization A Complete Guide"
+                          direction="right"
+                          disabled={false}
                           href="https://ibm.com"
                           onClick={[Function]}
                           target={null}
+                          type="download"
                         >
                           <div
                             className="bx--link-with-icon__container"
@@ -10621,6 +10782,7 @@ exports[`Storyshots Components|LinkList Horizontal 1`] = `
                           >
                             <Link
                               className="bx--link-with-icon"
+                              disabled={false}
                               href="https://ibm.com"
                               onClick={[Function]}
                               target={null}
@@ -10631,11 +10793,12 @@ exports[`Storyshots Components|LinkList Horizontal 1`] = `
                                 onClick={[Function]}
                                 target={null}
                               >
-                                <span>
-                                  Containerization A Complete Guide
-                                </span>
-                                <ForwardRef(Download20)>
+                                Containerization A Complete Guide
+                                <ForwardRef(Download20)
+                                  className="bx--link-with-icon_right-icon"
+                                >
                                   <Icon
+                                    className="bx--link-with-icon_right-icon"
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
                                     viewBox="0 0 32 32"
@@ -10644,6 +10807,7 @@ exports[`Storyshots Components|LinkList Horizontal 1`] = `
                                   >
                                     <svg
                                       aria-hidden={true}
+                                      className="bx--link-with-icon_right-icon"
                                       focusable="false"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
@@ -10795,9 +10959,13 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                         }
                       >
                         <LinkWithIcon
+                          copy="Learn more"
+                          direction="right"
+                          disabled={false}
                           href="https://ibm.com"
                           onClick={[Function]}
                           target={null}
+                          type="local"
                         >
                           <div
                             className="bx--link-with-icon__container"
@@ -10805,6 +10973,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                           >
                             <Link
                               className="bx--link-with-icon"
+                              disabled={false}
                               href="https://ibm.com"
                               onClick={[Function]}
                               target={null}
@@ -10815,11 +10984,12 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                                 onClick={[Function]}
                                 target={null}
                               >
-                                <span>
-                                  Learn more
-                                </span>
-                                <ForwardRef(ArrowRight20)>
+                                Learn more
+                                <ForwardRef(ArrowRight20)
+                                  className="bx--link-with-icon_right-icon"
+                                >
                                   <Icon
+                                    className="bx--link-with-icon_right-icon"
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
                                     viewBox="0 0 20 20"
@@ -10828,6 +10998,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                                   >
                                     <svg
                                       aria-hidden={true}
+                                      className="bx--link-with-icon_right-icon"
                                       focusable="false"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
@@ -10891,9 +11062,13 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                         }
                       >
                         <LinkWithIcon
+                          copy="Containerization A Complete Guide"
+                          direction="right"
+                          disabled={false}
                           href="https://ibm.com"
                           onClick={[Function]}
                           target={null}
+                          type="download"
                         >
                           <div
                             className="bx--link-with-icon__container"
@@ -10901,6 +11076,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                           >
                             <Link
                               className="bx--link-with-icon"
+                              disabled={false}
                               href="https://ibm.com"
                               onClick={[Function]}
                               target={null}
@@ -10911,11 +11087,12 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                                 onClick={[Function]}
                                 target={null}
                               >
-                                <span>
-                                  Containerization A Complete Guide
-                                </span>
-                                <ForwardRef(Download20)>
+                                Containerization A Complete Guide
+                                <ForwardRef(Download20)
+                                  className="bx--link-with-icon_right-icon"
+                                >
                                   <Icon
+                                    className="bx--link-with-icon_right-icon"
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
                                     viewBox="0 0 32 32"
@@ -10924,6 +11101,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                                   >
                                     <svg
                                       aria-hidden={true}
+                                      className="bx--link-with-icon_right-icon"
                                       focusable="false"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
@@ -10990,9 +11168,13 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                         }
                       >
                         <LinkWithIcon
+                          copy="Microservices and containers"
+                          direction="right"
+                          disabled={false}
                           href="https://ibm.com"
                           onClick={[Function]}
                           target="_blank"
+                          type="external"
                         >
                           <div
                             className="bx--link-with-icon__container"
@@ -11000,6 +11182,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                           >
                             <Link
                               className="bx--link-with-icon"
+                              disabled={false}
                               href="https://ibm.com"
                               onClick={[Function]}
                               target="_blank"
@@ -11010,11 +11193,12 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                                 onClick={[Function]}
                                 target="_blank"
                               >
-                                <span>
-                                  Microservices and containers
-                                </span>
-                                <ForwardRef(Launch20)>
+                                Microservices and containers
+                                <ForwardRef(Launch20)
+                                  className="bx--link-with-icon_right-icon"
+                                >
                                   <Icon
+                                    className="bx--link-with-icon_right-icon"
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
                                     viewBox="0 0 32 32"
@@ -11023,6 +11207,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                                   >
                                     <svg
                                       aria-hidden={true}
+                                      className="bx--link-with-icon_right-icon"
                                       focusable="false"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
@@ -11092,8 +11277,12 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                       >
                         <div>
                           <LinkWithIcon
+                            copy=""
+                            direction="right"
+                            disabled={false}
                             href="#"
                             onClick={[Function]}
+                            type="video"
                           >
                             <div
                               className="bx--link-with-icon__container"
@@ -11101,6 +11290,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                             >
                               <Link
                                 className="bx--link-with-icon"
+                                disabled={false}
                                 href="#"
                                 onClick={[Function]}
                               >
@@ -11112,8 +11302,11 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                                   <span>
                                      
                                   </span>
-                                  <ForwardRef(PlayOutline20)>
+                                  <ForwardRef(PlayOutline20)
+                                    className="bx--link-with-icon_right-icon"
+                                  >
                                     <Icon
+                                      className="bx--link-with-icon_right-icon"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
                                       viewBox="0 0 32 32"
@@ -11122,6 +11315,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                                     >
                                       <svg
                                         aria-hidden={true}
+                                        className="bx--link-with-icon_right-icon"
                                         focusable="false"
                                         height={20}
                                         preserveAspectRatio="xMidYMid meet"
@@ -11274,9 +11468,13 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                         }
                       >
                         <LinkWithIcon
+                          copy="Learn more"
+                          direction="right"
+                          disabled={false}
                           href="https://ibm.com"
                           onClick={[Function]}
                           target={null}
+                          type="local"
                         >
                           <div
                             className="bx--link-with-icon__container"
@@ -11284,6 +11482,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                           >
                             <Link
                               className="bx--link-with-icon"
+                              disabled={false}
                               href="https://ibm.com"
                               onClick={[Function]}
                               target={null}
@@ -11294,11 +11493,12 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                 onClick={[Function]}
                                 target={null}
                               >
-                                <span>
-                                  Learn more
-                                </span>
-                                <ForwardRef(ArrowRight20)>
+                                Learn more
+                                <ForwardRef(ArrowRight20)
+                                  className="bx--link-with-icon_right-icon"
+                                >
                                   <Icon
+                                    className="bx--link-with-icon_right-icon"
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
                                     viewBox="0 0 20 20"
@@ -11307,6 +11507,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                   >
                                     <svg
                                       aria-hidden={true}
+                                      className="bx--link-with-icon_right-icon"
                                       focusable="false"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
@@ -11370,9 +11571,13 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                         }
                       >
                         <LinkWithIcon
+                          copy="Containerization A Complete Guide"
+                          direction="right"
+                          disabled={false}
                           href="https://ibm.com"
                           onClick={[Function]}
                           target={null}
+                          type="download"
                         >
                           <div
                             className="bx--link-with-icon__container"
@@ -11380,6 +11585,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                           >
                             <Link
                               className="bx--link-with-icon"
+                              disabled={false}
                               href="https://ibm.com"
                               onClick={[Function]}
                               target={null}
@@ -11390,11 +11596,12 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                 onClick={[Function]}
                                 target={null}
                               >
-                                <span>
-                                  Containerization A Complete Guide
-                                </span>
-                                <ForwardRef(Download20)>
+                                Containerization A Complete Guide
+                                <ForwardRef(Download20)
+                                  className="bx--link-with-icon_right-icon"
+                                >
                                   <Icon
+                                    className="bx--link-with-icon_right-icon"
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
                                     viewBox="0 0 32 32"
@@ -11403,6 +11610,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                   >
                                     <svg
                                       aria-hidden={true}
+                                      className="bx--link-with-icon_right-icon"
                                       focusable="false"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
@@ -11469,9 +11677,13 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                         }
                       >
                         <LinkWithIcon
+                          copy="Microservices and containers"
+                          direction="right"
+                          disabled={false}
                           href="https://ibm.com"
                           onClick={[Function]}
                           target="_blank"
+                          type="external"
                         >
                           <div
                             className="bx--link-with-icon__container"
@@ -11479,6 +11691,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                           >
                             <Link
                               className="bx--link-with-icon"
+                              disabled={false}
                               href="https://ibm.com"
                               onClick={[Function]}
                               target="_blank"
@@ -11489,11 +11702,12 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                 onClick={[Function]}
                                 target="_blank"
                               >
-                                <span>
-                                  Microservices and containers
-                                </span>
-                                <ForwardRef(Launch20)>
+                                Microservices and containers
+                                <ForwardRef(Launch20)
+                                  className="bx--link-with-icon_right-icon"
+                                >
                                   <Icon
+                                    className="bx--link-with-icon_right-icon"
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
                                     viewBox="0 0 32 32"
@@ -11502,6 +11716,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                   >
                                     <svg
                                       aria-hidden={true}
+                                      className="bx--link-with-icon_right-icon"
                                       focusable="false"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
@@ -11571,8 +11786,12 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                       >
                         <div>
                           <LinkWithIcon
+                            copy=""
+                            direction="right"
+                            disabled={false}
                             href="#"
                             onClick={[Function]}
+                            type="video"
                           >
                             <div
                               className="bx--link-with-icon__container"
@@ -11580,6 +11799,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                             >
                               <Link
                                 className="bx--link-with-icon"
+                                disabled={false}
                                 href="#"
                                 onClick={[Function]}
                               >
@@ -11591,8 +11811,11 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                   <span>
                                      
                                   </span>
-                                  <ForwardRef(PlayOutline20)>
+                                  <ForwardRef(PlayOutline20)
+                                    className="bx--link-with-icon_right-icon"
+                                  >
                                     <Icon
+                                      className="bx--link-with-icon_right-icon"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
                                       viewBox="0 0 32 32"
@@ -11601,6 +11824,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                     >
                                       <svg
                                         aria-hidden={true}
+                                        className="bx--link-with-icon_right-icon"
                                         focusable="false"
                                         height={20}
                                         preserveAspectRatio="xMidYMid meet"
@@ -14408,9 +14632,13 @@ exports[`Storyshots Components|PictogramItem Default 1`] = `
                             }
                           >
                             <LinkWithIcon
+                              copy="Lorem ipsum dolor"
+                              direction="right"
+                              disabled={false}
                               href="https://www.example.com"
                               onClick={[Function]}
                               target={null}
+                              type="local"
                             >
                               <div
                                 className="bx--link-with-icon__container"
@@ -14418,6 +14646,7 @@ exports[`Storyshots Components|PictogramItem Default 1`] = `
                               >
                                 <Link
                                   className="bx--link-with-icon"
+                                  disabled={false}
                                   href="https://www.example.com"
                                   onClick={[Function]}
                                   target={null}
@@ -14428,11 +14657,12 @@ exports[`Storyshots Components|PictogramItem Default 1`] = `
                                     onClick={[Function]}
                                     target={null}
                                   >
-                                    <span>
-                                      Lorem ipsum dolor
-                                    </span>
-                                    <ForwardRef(ArrowRight20)>
+                                    Lorem ipsum dolor
+                                    <ForwardRef(ArrowRight20)
+                                      className="bx--link-with-icon_right-icon"
+                                    >
                                       <Icon
+                                        className="bx--link-with-icon_right-icon"
                                         height={20}
                                         preserveAspectRatio="xMidYMid meet"
                                         viewBox="0 0 20 20"
@@ -14441,6 +14671,7 @@ exports[`Storyshots Components|PictogramItem Default 1`] = `
                                       >
                                         <svg
                                           aria-hidden={true}
+                                          className="bx--link-with-icon_right-icon"
                                           focusable="false"
                                           height={20}
                                           preserveAspectRatio="xMidYMid meet"
@@ -14507,7 +14738,6 @@ exports[`Storyshots Components|Quote Default 1`] = `
               Object {
                 "copy": "Link with Icon",
                 "href": "https://example.com",
-                "type": "local",
               }
             }
             inverse={false}
@@ -14568,7 +14798,11 @@ exports[`Storyshots Components|Quote Default 1`] = `
                   />
                 </HorizontalRule>
                 <LinkWithIcon
+                  copy="Link with Icon"
+                  direction="right"
+                  disabled={false}
                   href="https://example.com"
+                  type=""
                 >
                   <div
                     className="bx--link-with-icon__container"
@@ -14576,6 +14810,7 @@ exports[`Storyshots Components|Quote Default 1`] = `
                   >
                     <Link
                       className="bx--link-with-icon"
+                      disabled={false}
                       href="https://example.com"
                     >
                       <a
@@ -14583,8 +14818,11 @@ exports[`Storyshots Components|Quote Default 1`] = `
                         href="https://example.com"
                       >
                         Link with Icon
-                        <ForwardRef(ArrowRight20)>
+                        <ForwardRef(ArrowRight20)
+                          className="bx--link-with-icon_right-icon"
+                        >
                           <Icon
+                            className="bx--link-with-icon_right-icon"
                             height={20}
                             preserveAspectRatio="xMidYMid meet"
                             viewBox="0 0 20 20"
@@ -14593,6 +14831,7 @@ exports[`Storyshots Components|Quote Default 1`] = `
                           >
                             <svg
                               aria-hidden={true}
+                              className="bx--link-with-icon_right-icon"
                               focusable="false"
                               height={20}
                               preserveAspectRatio="xMidYMid meet"
@@ -16283,7 +16522,11 @@ exports[`Storyshots Patterns (Blocks)|CalloutQuote Default 1`] = `
                               />
                             </HorizontalRule>
                             <LinkWithIcon
+                              copy="Link with Icon"
+                              direction="right"
+                              disabled={false}
                               href="https://example.com"
+                              type=""
                             >
                               <div
                                 className="bx--link-with-icon__container"
@@ -16291,6 +16534,7 @@ exports[`Storyshots Patterns (Blocks)|CalloutQuote Default 1`] = `
                               >
                                 <Link
                                   className="bx--link-with-icon"
+                                  disabled={false}
                                   href="https://example.com"
                                 >
                                   <a
@@ -16298,8 +16542,11 @@ exports[`Storyshots Patterns (Blocks)|CalloutQuote Default 1`] = `
                                     href="https://example.com"
                                   >
                                     Link with Icon
-                                    <ForwardRef(ArrowRight20)>
+                                    <ForwardRef(ArrowRight20)
+                                      className="bx--link-with-icon_right-icon"
+                                    >
                                       <Icon
+                                        className="bx--link-with-icon_right-icon"
                                         height={20}
                                         preserveAspectRatio="xMidYMid meet"
                                         viewBox="0 0 20 20"
@@ -16308,6 +16555,7 @@ exports[`Storyshots Patterns (Blocks)|CalloutQuote Default 1`] = `
                                       >
                                         <svg
                                           aria-hidden={true}
+                                          className="bx--link-with-icon_right-icon"
                                           focusable="false"
                                           height={20}
                                           preserveAspectRatio="xMidYMid meet"
@@ -21417,9 +21665,13 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                                 }
                                               >
                                                 <LinkWithIcon
+                                                  copy="Lorem ipsum dolor"
+                                                  direction="right"
+                                                  disabled={false}
                                                   href="https://www.ibm.com"
                                                   onClick={[Function]}
                                                   target={null}
+                                                  type="local"
                                                 >
                                                   <div
                                                     className="bx--link-with-icon__container"
@@ -21427,6 +21679,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                                   >
                                                     <Link
                                                       className="bx--link-with-icon"
+                                                      disabled={false}
                                                       href="https://www.ibm.com"
                                                       onClick={[Function]}
                                                       target={null}
@@ -21437,11 +21690,12 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                                         onClick={[Function]}
                                                         target={null}
                                                       >
-                                                        <span>
-                                                          Lorem ipsum dolor
-                                                        </span>
-                                                        <ForwardRef(ArrowRight20)>
+                                                        Lorem ipsum dolor
+                                                        <ForwardRef(ArrowRight20)
+                                                          className="bx--link-with-icon_right-icon"
+                                                        >
                                                           <Icon
+                                                            className="bx--link-with-icon_right-icon"
                                                             height={20}
                                                             preserveAspectRatio="xMidYMid meet"
                                                             viewBox="0 0 20 20"
@@ -21450,6 +21704,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                                           >
                                                             <svg
                                                               aria-hidden={true}
+                                                              className="bx--link-with-icon_right-icon"
                                                               focusable="false"
                                                               height={20}
                                                               preserveAspectRatio="xMidYMid meet"
@@ -21612,9 +21867,13 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                                 }
                                               >
                                                 <LinkWithIcon
+                                                  copy="Lorem ipsum dolor"
+                                                  direction="right"
+                                                  disabled={false}
                                                   href="https://www.ibm.com"
                                                   onClick={[Function]}
                                                   target={null}
+                                                  type="local"
                                                 >
                                                   <div
                                                     className="bx--link-with-icon__container"
@@ -21622,6 +21881,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                                   >
                                                     <Link
                                                       className="bx--link-with-icon"
+                                                      disabled={false}
                                                       href="https://www.ibm.com"
                                                       onClick={[Function]}
                                                       target={null}
@@ -21632,11 +21892,12 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                                         onClick={[Function]}
                                                         target={null}
                                                       >
-                                                        <span>
-                                                          Lorem ipsum dolor
-                                                        </span>
-                                                        <ForwardRef(ArrowRight20)>
+                                                        Lorem ipsum dolor
+                                                        <ForwardRef(ArrowRight20)
+                                                          className="bx--link-with-icon_right-icon"
+                                                        >
                                                           <Icon
+                                                            className="bx--link-with-icon_right-icon"
                                                             height={20}
                                                             preserveAspectRatio="xMidYMid meet"
                                                             viewBox="0 0 20 20"
@@ -21645,6 +21906,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                                           >
                                                             <svg
                                                               aria-hidden={true}
+                                                              className="bx--link-with-icon_right-icon"
                                                               focusable="false"
                                                               height={20}
                                                               preserveAspectRatio="xMidYMid meet"
@@ -21806,9 +22068,13 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                                 }
                                               >
                                                 <LinkWithIcon
+                                                  copy="Lorem ipsum dolor"
+                                                  direction="right"
+                                                  disabled={false}
                                                   href="https://www.ibm.com"
                                                   onClick={[Function]}
                                                   target={null}
+                                                  type="local"
                                                 >
                                                   <div
                                                     className="bx--link-with-icon__container"
@@ -21816,6 +22082,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                                   >
                                                     <Link
                                                       className="bx--link-with-icon"
+                                                      disabled={false}
                                                       href="https://www.ibm.com"
                                                       onClick={[Function]}
                                                       target={null}
@@ -21826,11 +22093,12 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                                         onClick={[Function]}
                                                         target={null}
                                                       >
-                                                        <span>
-                                                          Lorem ipsum dolor
-                                                        </span>
-                                                        <ForwardRef(ArrowRight20)>
+                                                        Lorem ipsum dolor
+                                                        <ForwardRef(ArrowRight20)
+                                                          className="bx--link-with-icon_right-icon"
+                                                        >
                                                           <Icon
+                                                            className="bx--link-with-icon_right-icon"
                                                             height={20}
                                                             preserveAspectRatio="xMidYMid meet"
                                                             viewBox="0 0 20 20"
@@ -21839,6 +22107,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                                           >
                                                             <svg
                                                               aria-hidden={true}
+                                                              className="bx--link-with-icon_right-icon"
                                                               focusable="false"
                                                               height={20}
                                                               preserveAspectRatio="xMidYMid meet"
@@ -23334,9 +23603,13 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                         }
                                                       >
                                                         <LinkWithIcon
+                                                          copy="Lorem ipsum dolor"
+                                                          direction="right"
+                                                          disabled={false}
                                                           href="https://www.ibm.com"
                                                           onClick={[Function]}
                                                           target={null}
+                                                          type="local"
                                                         >
                                                           <div
                                                             className="bx--link-with-icon__container"
@@ -23344,6 +23617,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                           >
                                                             <Link
                                                               className="bx--link-with-icon"
+                                                              disabled={false}
                                                               href="https://www.ibm.com"
                                                               onClick={[Function]}
                                                               target={null}
@@ -23354,11 +23628,12 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                                 onClick={[Function]}
                                                                 target={null}
                                                               >
-                                                                <span>
-                                                                  Lorem ipsum dolor
-                                                                </span>
-                                                                <ForwardRef(ArrowRight20)>
+                                                                Lorem ipsum dolor
+                                                                <ForwardRef(ArrowRight20)
+                                                                  className="bx--link-with-icon_right-icon"
+                                                                >
                                                                   <Icon
+                                                                    className="bx--link-with-icon_right-icon"
                                                                     height={20}
                                                                     preserveAspectRatio="xMidYMid meet"
                                                                     viewBox="0 0 20 20"
@@ -23367,6 +23642,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                                   >
                                                                     <svg
                                                                       aria-hidden={true}
+                                                                      className="bx--link-with-icon_right-icon"
                                                                       focusable="false"
                                                                       height={20}
                                                                       preserveAspectRatio="xMidYMid meet"
@@ -23529,9 +23805,13 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                         }
                                                       >
                                                         <LinkWithIcon
+                                                          copy="Lorem ipsum dolor"
+                                                          direction="right"
+                                                          disabled={false}
                                                           href="https://www.ibm.com"
                                                           onClick={[Function]}
                                                           target={null}
+                                                          type="local"
                                                         >
                                                           <div
                                                             className="bx--link-with-icon__container"
@@ -23539,6 +23819,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                           >
                                                             <Link
                                                               className="bx--link-with-icon"
+                                                              disabled={false}
                                                               href="https://www.ibm.com"
                                                               onClick={[Function]}
                                                               target={null}
@@ -23549,11 +23830,12 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                                 onClick={[Function]}
                                                                 target={null}
                                                               >
-                                                                <span>
-                                                                  Lorem ipsum dolor
-                                                                </span>
-                                                                <ForwardRef(ArrowRight20)>
+                                                                Lorem ipsum dolor
+                                                                <ForwardRef(ArrowRight20)
+                                                                  className="bx--link-with-icon_right-icon"
+                                                                >
                                                                   <Icon
+                                                                    className="bx--link-with-icon_right-icon"
                                                                     height={20}
                                                                     preserveAspectRatio="xMidYMid meet"
                                                                     viewBox="0 0 20 20"
@@ -23562,6 +23844,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                                   >
                                                                     <svg
                                                                       aria-hidden={true}
+                                                                      className="bx--link-with-icon_right-icon"
                                                                       focusable="false"
                                                                       height={20}
                                                                       preserveAspectRatio="xMidYMid meet"
@@ -23723,9 +24006,13 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                         }
                                                       >
                                                         <LinkWithIcon
+                                                          copy="Lorem ipsum dolor"
+                                                          direction="right"
+                                                          disabled={false}
                                                           href="https://www.ibm.com"
                                                           onClick={[Function]}
                                                           target={null}
+                                                          type="local"
                                                         >
                                                           <div
                                                             className="bx--link-with-icon__container"
@@ -23733,6 +24020,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                           >
                                                             <Link
                                                               className="bx--link-with-icon"
+                                                              disabled={false}
                                                               href="https://www.ibm.com"
                                                               onClick={[Function]}
                                                               target={null}
@@ -23743,11 +24031,12 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                                 onClick={[Function]}
                                                                 target={null}
                                                               >
-                                                                <span>
-                                                                  Lorem ipsum dolor
-                                                                </span>
-                                                                <ForwardRef(ArrowRight20)>
+                                                                Lorem ipsum dolor
+                                                                <ForwardRef(ArrowRight20)
+                                                                  className="bx--link-with-icon_right-icon"
+                                                                >
                                                                   <Icon
+                                                                    className="bx--link-with-icon_right-icon"
                                                                     height={20}
                                                                     preserveAspectRatio="xMidYMid meet"
                                                                     viewBox="0 0 20 20"
@@ -23756,6 +24045,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                                   >
                                                                     <svg
                                                                       aria-hidden={true}
+                                                                      className="bx--link-with-icon_right-icon"
                                                                       focusable="false"
                                                                       height={20}
                                                                       preserveAspectRatio="xMidYMid meet"
@@ -24929,9 +25219,13 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                 }
                               >
                                 <LinkWithIcon
+                                  copy="Lorem Ipsum dolor sit"
+                                  direction="right"
+                                  disabled={false}
                                   href="https://example.com"
                                   onClick={[Function]}
                                   target={null}
+                                  type="local"
                                 >
                                   <div
                                     className="bx--link-with-icon__container"
@@ -24939,6 +25233,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                   >
                                     <Link
                                       className="bx--link-with-icon"
+                                      disabled={false}
                                       href="https://example.com"
                                       onClick={[Function]}
                                       target={null}
@@ -24949,11 +25244,12 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                         onClick={[Function]}
                                         target={null}
                                       >
-                                        <span>
-                                          Lorem Ipsum dolor sit
-                                        </span>
-                                        <ForwardRef(ArrowRight20)>
+                                        Lorem Ipsum dolor sit
+                                        <ForwardRef(ArrowRight20)
+                                          className="bx--link-with-icon_right-icon"
+                                        >
                                           <Icon
+                                            className="bx--link-with-icon_right-icon"
                                             height={20}
                                             preserveAspectRatio="xMidYMid meet"
                                             viewBox="0 0 20 20"
@@ -24962,6 +25258,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                           >
                                             <svg
                                               aria-hidden={true}
+                                              className="bx--link-with-icon_right-icon"
                                               focusable="false"
                                               height={20}
                                               preserveAspectRatio="xMidYMid meet"
@@ -25160,9 +25457,13 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                 }
                               >
                                 <LinkWithIcon
+                                  copy="Lorem Ipsum dolor sit"
+                                  direction="right"
+                                  disabled={false}
                                   href="https://example.com"
                                   onClick={[Function]}
                                   target={null}
+                                  type="local"
                                 >
                                   <div
                                     className="bx--link-with-icon__container"
@@ -25170,6 +25471,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                   >
                                     <Link
                                       className="bx--link-with-icon"
+                                      disabled={false}
                                       href="https://example.com"
                                       onClick={[Function]}
                                       target={null}
@@ -25180,11 +25482,12 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                         onClick={[Function]}
                                         target={null}
                                       >
-                                        <span>
-                                          Lorem Ipsum dolor sit
-                                        </span>
-                                        <ForwardRef(ArrowRight20)>
+                                        Lorem Ipsum dolor sit
+                                        <ForwardRef(ArrowRight20)
+                                          className="bx--link-with-icon_right-icon"
+                                        >
                                           <Icon
+                                            className="bx--link-with-icon_right-icon"
                                             height={20}
                                             preserveAspectRatio="xMidYMid meet"
                                             viewBox="0 0 20 20"
@@ -25193,6 +25496,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                           >
                                             <svg
                                               aria-hidden={true}
+                                              className="bx--link-with-icon_right-icon"
                                               focusable="false"
                                               height={20}
                                               preserveAspectRatio="xMidYMid meet"
@@ -28708,9 +29012,13 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                             }
                                           >
                                             <LinkWithIcon
+                                              copy="Link text"
+                                              direction="right"
+                                              disabled={false}
                                               href="https://example.com"
                                               onClick={[Function]}
                                               target={null}
+                                              type="local"
                                             >
                                               <div
                                                 className="bx--link-with-icon__container"
@@ -28718,6 +29026,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                               >
                                                 <Link
                                                   className="bx--link-with-icon"
+                                                  disabled={false}
                                                   href="https://example.com"
                                                   onClick={[Function]}
                                                   target={null}
@@ -28728,11 +29037,12 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                                     onClick={[Function]}
                                                     target={null}
                                                   >
-                                                    <span>
-                                                      Link text
-                                                    </span>
-                                                    <ForwardRef(ArrowRight20)>
+                                                    Link text
+                                                    <ForwardRef(ArrowRight20)
+                                                      className="bx--link-with-icon_right-icon"
+                                                    >
                                                       <Icon
+                                                        className="bx--link-with-icon_right-icon"
                                                         height={20}
                                                         preserveAspectRatio="xMidYMid meet"
                                                         viewBox="0 0 20 20"
@@ -28741,6 +29051,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                                       >
                                                         <svg
                                                           aria-hidden={true}
+                                                          className="bx--link-with-icon_right-icon"
                                                           focusable="false"
                                                           height={20}
                                                           preserveAspectRatio="xMidYMid meet"
@@ -28804,9 +29115,13 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                             }
                                           >
                                             <LinkWithIcon
+                                              copy="External link text"
+                                              direction="right"
+                                              disabled={false}
                                               href="https://example.com"
                                               onClick={[Function]}
                                               target="_blank"
+                                              type="external"
                                             >
                                               <div
                                                 className="bx--link-with-icon__container"
@@ -28814,6 +29129,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                               >
                                                 <Link
                                                   className="bx--link-with-icon"
+                                                  disabled={false}
                                                   href="https://example.com"
                                                   onClick={[Function]}
                                                   target="_blank"
@@ -28824,11 +29140,12 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                                     onClick={[Function]}
                                                     target="_blank"
                                                   >
-                                                    <span>
-                                                      External link text
-                                                    </span>
-                                                    <ForwardRef(Launch20)>
+                                                    External link text
+                                                    <ForwardRef(Launch20)
+                                                      className="bx--link-with-icon_right-icon"
+                                                    >
                                                       <Icon
+                                                        className="bx--link-with-icon_right-icon"
                                                         height={20}
                                                         preserveAspectRatio="xMidYMid meet"
                                                         viewBox="0 0 32 32"
@@ -28837,6 +29154,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                                       >
                                                         <svg
                                                           aria-hidden={true}
+                                                          className="bx--link-with-icon_right-icon"
                                                           focusable="false"
                                                           height={20}
                                                           preserveAspectRatio="xMidYMid meet"
@@ -29004,9 +29322,13 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                             }
                                           >
                                             <LinkWithIcon
+                                              copy="Link text"
+                                              direction="right"
+                                              disabled={false}
                                               href="https://example.com"
                                               onClick={[Function]}
                                               target={null}
+                                              type="local"
                                             >
                                               <div
                                                 className="bx--link-with-icon__container"
@@ -29014,6 +29336,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                               >
                                                 <Link
                                                   className="bx--link-with-icon"
+                                                  disabled={false}
                                                   href="https://example.com"
                                                   onClick={[Function]}
                                                   target={null}
@@ -29024,11 +29347,12 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                                     onClick={[Function]}
                                                     target={null}
                                                   >
-                                                    <span>
-                                                      Link text
-                                                    </span>
-                                                    <ForwardRef(ArrowRight20)>
+                                                    Link text
+                                                    <ForwardRef(ArrowRight20)
+                                                      className="bx--link-with-icon_right-icon"
+                                                    >
                                                       <Icon
+                                                        className="bx--link-with-icon_right-icon"
                                                         height={20}
                                                         preserveAspectRatio="xMidYMid meet"
                                                         viewBox="0 0 20 20"
@@ -29037,6 +29361,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                                       >
                                                         <svg
                                                           aria-hidden={true}
+                                                          className="bx--link-with-icon_right-icon"
                                                           focusable="false"
                                                           height={20}
                                                           preserveAspectRatio="xMidYMid meet"
@@ -29100,9 +29425,13 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                             }
                                           >
                                             <LinkWithIcon
+                                              copy="External link text"
+                                              direction="right"
+                                              disabled={false}
                                               href="https://example.com"
                                               onClick={[Function]}
                                               target="_blank"
+                                              type="external"
                                             >
                                               <div
                                                 className="bx--link-with-icon__container"
@@ -29110,6 +29439,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                               >
                                                 <Link
                                                   className="bx--link-with-icon"
+                                                  disabled={false}
                                                   href="https://example.com"
                                                   onClick={[Function]}
                                                   target="_blank"
@@ -29120,11 +29450,12 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                                     onClick={[Function]}
                                                     target="_blank"
                                                   >
-                                                    <span>
-                                                      External link text
-                                                    </span>
-                                                    <ForwardRef(Launch20)>
+                                                    External link text
+                                                    <ForwardRef(Launch20)
+                                                      className="bx--link-with-icon_right-icon"
+                                                    >
                                                       <Icon
+                                                        className="bx--link-with-icon_right-icon"
                                                         height={20}
                                                         preserveAspectRatio="xMidYMid meet"
                                                         viewBox="0 0 32 32"
@@ -29133,6 +29464,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                                       >
                                                         <svg
                                                           aria-hidden={true}
+                                                          className="bx--link-with-icon_right-icon"
                                                           focusable="false"
                                                           height={20}
                                                           preserveAspectRatio="xMidYMid meet"
@@ -29286,9 +29618,13 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                             }
                                           >
                                             <LinkWithIcon
+                                              copy="Link text"
+                                              direction="right"
+                                              disabled={false}
                                               href="https://example.com"
                                               onClick={[Function]}
                                               target={null}
+                                              type="local"
                                             >
                                               <div
                                                 className="bx--link-with-icon__container"
@@ -29296,6 +29632,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                               >
                                                 <Link
                                                   className="bx--link-with-icon"
+                                                  disabled={false}
                                                   href="https://example.com"
                                                   onClick={[Function]}
                                                   target={null}
@@ -29306,11 +29643,12 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                                     onClick={[Function]}
                                                     target={null}
                                                   >
-                                                    <span>
-                                                      Link text
-                                                    </span>
-                                                    <ForwardRef(ArrowRight20)>
+                                                    Link text
+                                                    <ForwardRef(ArrowRight20)
+                                                      className="bx--link-with-icon_right-icon"
+                                                    >
                                                       <Icon
+                                                        className="bx--link-with-icon_right-icon"
                                                         height={20}
                                                         preserveAspectRatio="xMidYMid meet"
                                                         viewBox="0 0 20 20"
@@ -29319,6 +29657,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                                       >
                                                         <svg
                                                           aria-hidden={true}
+                                                          className="bx--link-with-icon_right-icon"
                                                           focusable="false"
                                                           height={20}
                                                           preserveAspectRatio="xMidYMid meet"
@@ -30975,9 +31314,13 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                   }
                                 >
                                   <LinkWithIcon
+                                    copy="IBM Cloud Continuous Delivery"
+                                    direction="right"
+                                    disabled={false}
                                     href="https://ibm.com"
                                     onClick={[Function]}
                                     target={null}
+                                    type="local"
                                   >
                                     <div
                                       className="bx--link-with-icon__container"
@@ -30985,6 +31328,7 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                     >
                                       <Link
                                         className="bx--link-with-icon"
+                                        disabled={false}
                                         href="https://ibm.com"
                                         onClick={[Function]}
                                         target={null}
@@ -30995,11 +31339,12 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                           onClick={[Function]}
                                           target={null}
                                         >
-                                          <span>
-                                            IBM Cloud Continuous Delivery
-                                          </span>
-                                          <ForwardRef(ArrowRight20)>
+                                          IBM Cloud Continuous Delivery
+                                          <ForwardRef(ArrowRight20)
+                                            className="bx--link-with-icon_right-icon"
+                                          >
                                             <Icon
+                                              className="bx--link-with-icon_right-icon"
                                               height={20}
                                               preserveAspectRatio="xMidYMid meet"
                                               viewBox="0 0 20 20"
@@ -31008,6 +31353,7 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                             >
                                               <svg
                                                 aria-hidden={true}
+                                                className="bx--link-with-icon_right-icon"
                                                 focusable="false"
                                                 height={20}
                                                 preserveAspectRatio="xMidYMid meet"
@@ -31071,9 +31417,13 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                   }
                                 >
                                   <LinkWithIcon
+                                    copy="UrbanCode"
+                                    direction="right"
+                                    disabled={false}
                                     href="https://ibm.com"
                                     onClick={[Function]}
                                     target={null}
+                                    type="local"
                                   >
                                     <div
                                       className="bx--link-with-icon__container"
@@ -31081,6 +31431,7 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                     >
                                       <Link
                                         className="bx--link-with-icon"
+                                        disabled={false}
                                         href="https://ibm.com"
                                         onClick={[Function]}
                                         target={null}
@@ -31091,11 +31442,12 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                           onClick={[Function]}
                                           target={null}
                                         >
-                                          <span>
-                                            UrbanCode
-                                          </span>
-                                          <ForwardRef(ArrowRight20)>
+                                          UrbanCode
+                                          <ForwardRef(ArrowRight20)
+                                            className="bx--link-with-icon_right-icon"
+                                          >
                                             <Icon
+                                              className="bx--link-with-icon_right-icon"
                                               height={20}
                                               preserveAspectRatio="xMidYMid meet"
                                               viewBox="0 0 20 20"
@@ -31104,6 +31456,7 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                             >
                                               <svg
                                                 aria-hidden={true}
+                                                className="bx--link-with-icon_right-icon"
                                                 focusable="false"
                                                 height={20}
                                                 preserveAspectRatio="xMidYMid meet"
@@ -31167,9 +31520,13 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                   }
                                 >
                                   <LinkWithIcon
+                                    copy="View all products"
+                                    direction="right"
+                                    disabled={false}
                                     href="https://ibm.com"
                                     onClick={[Function]}
                                     target={null}
+                                    type="download"
                                   >
                                     <div
                                       className="bx--link-with-icon__container"
@@ -31177,6 +31534,7 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                     >
                                       <Link
                                         className="bx--link-with-icon"
+                                        disabled={false}
                                         href="https://ibm.com"
                                         onClick={[Function]}
                                         target={null}
@@ -31187,11 +31545,12 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                           onClick={[Function]}
                                           target={null}
                                         >
-                                          <span>
-                                            View all products
-                                          </span>
-                                          <ForwardRef(Download20)>
+                                          View all products
+                                          <ForwardRef(Download20)
+                                            className="bx--link-with-icon_right-icon"
+                                          >
                                             <Icon
+                                              className="bx--link-with-icon_right-icon"
                                               height={20}
                                               preserveAspectRatio="xMidYMid meet"
                                               viewBox="0 0 32 32"
@@ -31200,6 +31559,7 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                             >
                                               <svg
                                                 aria-hidden={true}
+                                                className="bx--link-with-icon_right-icon"
                                                 focusable="false"
                                                 height={20}
                                                 preserveAspectRatio="xMidYMid meet"
@@ -32402,9 +32762,13 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
                       }
                     >
                       <LinkWithIcon
+                        copy="Find a partner"
+                        direction="right"
+                        disabled={false}
                         href="https://example.com/"
                         onClick={[Function]}
                         target={null}
+                        type="local"
                       >
                         <div
                           className="bx--link-with-icon__container"
@@ -32412,6 +32776,7 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
                         >
                           <Link
                             className="bx--link-with-icon"
+                            disabled={false}
                             href="https://example.com/"
                             onClick={[Function]}
                             target={null}
@@ -32422,11 +32787,12 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
                               onClick={[Function]}
                               target={null}
                             >
-                              <span>
-                                Find a partner
-                              </span>
-                              <ForwardRef(ArrowRight20)>
+                              Find a partner
+                              <ForwardRef(ArrowRight20)
+                                className="bx--link-with-icon_right-icon"
+                              >
                                 <Icon
+                                  className="bx--link-with-icon_right-icon"
                                   height={20}
                                   preserveAspectRatio="xMidYMid meet"
                                   viewBox="0 0 20 20"
@@ -32435,6 +32801,7 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
                                 >
                                   <svg
                                     aria-hidden={true}
+                                    className="bx--link-with-icon_right-icon"
                                     focusable="false"
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
@@ -32517,9 +32884,13 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
                       }
                     >
                       <LinkWithIcon
+                        copy="Browse tutorials"
+                        direction="right"
+                        disabled={false}
                         href="https://example.com/"
                         onClick={[Function]}
                         target={null}
+                        type="local"
                       >
                         <div
                           className="bx--link-with-icon__container"
@@ -32527,6 +32898,7 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
                         >
                           <Link
                             className="bx--link-with-icon"
+                            disabled={false}
                             href="https://example.com/"
                             onClick={[Function]}
                             target={null}
@@ -32537,11 +32909,12 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
                               onClick={[Function]}
                               target={null}
                             >
-                              <span>
-                                Browse tutorials
-                              </span>
-                              <ForwardRef(ArrowRight20)>
+                              Browse tutorials
+                              <ForwardRef(ArrowRight20)
+                                className="bx--link-with-icon_right-icon"
+                              >
                                 <Icon
+                                  className="bx--link-with-icon_right-icon"
                                   height={20}
                                   preserveAspectRatio="xMidYMid meet"
                                   viewBox="0 0 20 20"
@@ -32550,6 +32923,7 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
                                 >
                                   <svg
                                     aria-hidden={true}
+                                    className="bx--link-with-icon_right-icon"
                                     focusable="false"
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
