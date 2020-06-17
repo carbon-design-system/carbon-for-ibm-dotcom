@@ -49,7 +49,7 @@
 // adjustments.
 
 @include exports('carbon-expressive') {
-  @if dds-feature-flag-enabled('carbon-expressive') {
+  @if dds-feature-flag-enabled('carbon-expressive-experimental') {
     @include carbon-expressive-tokens;
     @include carbon-expressive-component-tokens;
 
