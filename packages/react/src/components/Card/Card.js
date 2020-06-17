@@ -106,7 +106,8 @@ function renderFooter(cta, type) {
             copy={cta.copy}
             onClick={e => {
               cta.type === 'jump' ? CTALogic.jump(e, cta.type) : false;
-            }}/>
+            }}
+          />
         ) : (
           cta.icon?.src && (
             <>
