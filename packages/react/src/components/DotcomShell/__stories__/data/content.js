@@ -18,7 +18,7 @@ import {
   LogoGrid,
   FeatureCardBlockLarge,
   TableOfContents,
-} from '@carbon/ibmdotcom-react';
+} from '../../../../../';
 
 import { ArrowRight20 } from '@carbon/icons-react';
 import React from 'react';
