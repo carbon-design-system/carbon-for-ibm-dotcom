@@ -43,9 +43,9 @@ const LegalNav = ({ links }) => {
       data-autoid={`${stablePrefix}--footer-legal-nav`}
       className={`${prefix}--legal-nav__container`}>
       <nav className={`${prefix}--legal-nav`}>
-        <ul className={`${prefix}--legal-nav__list`}>
+        <div className={`${prefix}--legal-nav__list`}>
           {renderListItems(links)}
-        </ul>
+        </div>
       </nav>
     </aside>
   );
