@@ -27,7 +27,6 @@
 
     &--actions {
       position: absolute;
-      z-index: 10001;
       top: 0;
       right: 0;
     }
@@ -95,6 +94,10 @@
       position: absolute;
       z-index: 999;
       width: 100%;
+
+      .#{$prefix}--header__search--actions {
+        z-index: 10001;
+      }
 
       .react-autosuggest__container {
         &::after {
