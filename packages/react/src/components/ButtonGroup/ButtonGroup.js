@@ -44,7 +44,6 @@ const ButtonGroup = ({ buttons, enableSizeByContent }) => {
               ),
               item => {
                 item.style.width = `${width + 1}px`;
-                item.style.display = `inline-block`;
               }
             );
           });
