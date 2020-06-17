@@ -6,7 +6,13 @@
  */
 
 @mixin content-block-mixed {
-  // empty for now
+  .#{$prefix}--content-block-mixed {
+    @include themed-items;
+
+    .#{$prefix}--content-item:last-child {
+      margin-bottom: -1rem;
+    }
+  }
 }
 
 @include exports('content-block-mixed') {
