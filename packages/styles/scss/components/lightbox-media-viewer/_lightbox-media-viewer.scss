@@ -114,6 +114,12 @@
         padding-top: $carbon--layout-05;
         padding-bottom: 0;
       }
+
+      .#{$prefix}--lightbox-media-viewer__media,
+      .#{$prefix}--lightbox-media-viewer__media .#{$prefix}--image {
+        width: 100%;
+        height: 100%;
+      }
     }
     @include carbon--breakpoint('lg') {
       .#{$prefix}--model-container {
