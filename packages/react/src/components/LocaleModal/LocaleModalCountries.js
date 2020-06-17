@@ -166,14 +166,7 @@ const LocaleModalCountries = ({
  * @type {{regionList: Array, availabilityText: string, unavailabilityText: string, placeHolderText: string, labelText: string}}
  */
 LocaleModalCountries.propTypes = {
-  /**
-   * Array of regions, countries, and languages.
-   */
   regionList: PropTypes.array,
-
-  /**
-   * Func to clear search input.
-   */
   setClearResults: PropTypes.func,
 };
 
