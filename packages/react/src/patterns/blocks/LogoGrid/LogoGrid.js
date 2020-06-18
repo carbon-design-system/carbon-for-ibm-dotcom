@@ -4,9 +4,9 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import classNames from 'classnames';
 import ContentBlock from '../../../internal/components/ContentBlock/ContentBlock';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import HorizontalRule from '../../../components/HorizontalRule/HorizontalRule';
 import { Image } from '../../../components/Image';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -41,9 +41,7 @@ const LogoGrid = ({ heading, logosGroup, ctaCopy, ctaHref, hideBorder }) => {
   return (
     <section
       data-autoid={`${stablePrefix}--logo-grid ${prefix}--logo-grid`}
-      className={classNames(`${prefix}--logo-grid`, {
-        [`${prefix}--logo-grid__no-border`]: hideBorder,
-      })}>
+      className={`${prefix}--logo-grid`}>
       <div className={`${prefix}--logo-grid__container`}>
         <div
           className={`${prefix}--logo-grid__wrapper ${prefix}--grid ${prefix}--grid--full-width`}>
@@ -70,6 +68,7 @@ const LogoGrid = ({ heading, logosGroup, ctaCopy, ctaHref, hideBorder }) => {
               ))}
             </div>
           </ContentBlock>
+          {!hideBorder && <HorizontalRule></HorizontalRule>}
         </div>
       </div>
     </section>
