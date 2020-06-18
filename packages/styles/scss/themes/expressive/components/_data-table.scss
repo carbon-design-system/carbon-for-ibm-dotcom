@@ -28,7 +28,7 @@
     height: rem(20px);
     width: rem(20px);
   }
-  .#{$prefix}--btn__icon {
+  .#{$prefix}--action-list .#{$prefix}--btn__icon {
     height: rem(20px);
     width: rem(20px);
   }
@@ -38,7 +38,7 @@
     height: var(--cds-layout-04, 3.25rem);
     width: var(--cds-layout-04, 3.25rem);
   }
-  .#{$prefix}--btn .#{$prefix}--btn__icon {
+  .#{$prefix}--action-list .#{$prefix}--btn .#{$prefix}--btn__icon {
     height: rem(20px);
     width: rem(20px);
   }
