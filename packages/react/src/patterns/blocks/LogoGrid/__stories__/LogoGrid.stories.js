@@ -41,7 +41,7 @@ export const Default = ({ parameters }) => {
   return (
     <div className="bx--grid">
       <div className="bx--row">
-        <div className="bx--col-sm-4 bx--col-md-12 bx--col-lg-16">
+        <div className="bx--col-sm-4 bx--col-md-8 bx--col-lg-12 bx--offset-lg-4">
           <LogoGrid
             heading={heading}
             logosGroup={logosGroup}
