@@ -1,3 +1,10 @@
+/**
+ * Copyright IBM Corp. 2020
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
@@ -55,7 +62,10 @@ const styleLoaders = [
     },
   },
   {
-    loader: 'sass-loader',
+    loader:
+      process.env.NODE_ENV === 'production'
+        ? 'sass-loader'
+        : 'fast-sass-loader',
     options: {
       includePaths: [
         path.resolve(__dirname, '..', 'node_modules'),
