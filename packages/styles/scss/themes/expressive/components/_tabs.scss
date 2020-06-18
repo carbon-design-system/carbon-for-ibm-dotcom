@@ -16,31 +16,31 @@
 /// @access private
 /// @group tabs-expressive
 @mixin tabs-expressive {
-  .#{$prefix}--tabs__nav-item .#{$prefix}--tabs__nav-link {
-    height: 2.5rem;
-    padding-left: 0;
-  }
   .#{$prefix}--tabs-trigger {
-    height: 3rem;
+    height: $input-height;
   }
+
   @include carbon--breakpoint(md) {
-    .#{$prefix}--tabs__nav-item .#{$prefix}--tabs__nav-link {
-      height: 3rem;
-      padding: carbon--rem(11.5px) $carbon--spacing-05;
+    .#{$prefix}--tabs {
+      min-height: $tab-height;
     }
-    .#{$prefix}--tabs__nav-item--selected:not(.#{$prefix}--tabs__nav-item--disabled)
-      .#{$prefix}--tabs__nav-link {
-      padding: 0.7188rem 1rem;
+
+    .#{$prefix}--tabs--container {
+      min-height: $tab-container-height;
+
+      a.#{$prefix}--tabs__nav-link {
+        height: $tab-container-height;
+      }
     }
-    a.bx--tabs__nav-link:active {
-      padding: 0.7188rem 1rem;
+
+    .#{$prefix}--tabs__nav-item,
+    a.#{$prefix}--tabs__nav-link {
+      height: $tab-height;
     }
-  }
-  .#{$prefix}--tabs__nav-item--selected:not(.#{$prefix}--tabs__nav-item--disabled)
-    .#{$prefix}--tabs__nav-link {
-    padding: 0.7188rem 1rem;
-  }
-  a.bx--tabs__nav-link:active {
-    padding: 0.7188rem 1rem;
+
+    a.#{$prefix}--tabs__nav-link {
+      display: flex;
+      align-items: center;
+    }
   }
 }

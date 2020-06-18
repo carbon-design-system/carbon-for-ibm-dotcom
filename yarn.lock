@@ -10331,7 +10331,7 @@ fast-safe-stringify@^2.0.4:
   resolved "https://registry.yarnpkg.com/fast-safe-stringify/-/fast-safe-stringify-2.0.7.tgz#124aa885899261f68aedb42a7c080de9da608743"
   integrity sha512-Utm6CdzT+6xsDk2m8S6uL8VHxNwI6Jub+e9NYTcAms28T84pTa25GJQV9j0CY0N1rM8hK4x6grpF2BQf+2qwVA==
 
-fast-sass-loader@1.5.0:
+fast-sass-loader@1.5.0, fast-sass-loader@^1.5.0:
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/fast-sass-loader/-/fast-sass-loader-1.5.0.tgz#b3bcf91aaa5fd042e01c536bb338db74b03fef0c"
   integrity sha512-3K4/xG/sm0MqdjrOBKZhnOrrQ3TWMsdvqjxI4ZN0FlVwImNqChYHFUChpyQ9ecQsXS0pytOMEa5H+MDfatPqBA==
@@ -14599,11 +14599,6 @@ marked@^0.7.0:
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/marked/-/marked-0.7.0.tgz#b64201f051d271b1edc10a04d1ae9b74bb8e5c0e"
   integrity sha512-c+yYdCZJQrsRjTPhUx7VKkApw9bwDkNbHUKo1ovgcfDjb2kc8rLuRbIFyXL5WOEUwzSSKo3IXpph2K6DqB/KZg==
-
-marked@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/marked/-/marked-1.1.0.tgz#62504ad4d11550c942935ccc5e39d64e5a4c4e50"
-  integrity sha512-EkE7RW6KcXfMHy2PA7Jg0YJE1l8UPEZE8k45tylzmZM30/r1M1MUXWQfJlrSbsTeh7m/XTwHbWUENvAJZpp1YA==
 
 marksy@^8.0.0:
   version "8.0.0"

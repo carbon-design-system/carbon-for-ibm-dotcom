@@ -1,7 +1,7 @@
 {
   "name": "@carbon/ibmdotcom-styles",
   "description": "IBM.com Library Styles",
-  "version": "1.8.0-rc.0",
+  "version": "1.8.0-rc.2",
   "license": "Apache-2.0",
   "main": "dist/ibm-dotcom-styles.min.css",
   "module": "src/scss",
@@ -57,6 +57,7 @@
     "browserslist-config-carbon": "^10.4.0",
     "carbon-components-react": "7.11.3",
     "del": "^3.0.0",
+    "fast-sass-loader": "^1.5.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^6.1.0",
     "gulp-clean-css": "^4.2.0",
