@@ -44,6 +44,9 @@
     &__mark {
       @include carbon--type-style('quotation-01', true);
       @include carbon--font-family('serif');
+      @include carbon--breakpoint-down('md') {
+        left: 1.4rem;
+      }
       @include carbon--breakpoint('md') {
         @include carbon--type-style('quotation-02', true);
       }
