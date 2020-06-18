@@ -28017,7 +28017,7 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
         className="bx--row"
       >
         <div
-          className="bx--col-sm-4 bx--col-md-8 bx--col-lg-12 bx--offset-lg-2"
+          className="bx--col-sm-4 bx--col-md-12 bx--col-lg-16"
         >
           <LogoGrid
             ctaCopy="Lorem ipsum dolor sit amet"
@@ -28164,6 +28164,9 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                     </div>
                                   </div>
                                 </Image>
+                                <div
+                                  class="hover-border"
+                                />
                               </div>
                             </a>
                           </div>
@@ -28205,6 +28208,9 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                     </div>
                                   </div>
                                 </Image>
+                                <div
+                                  class="hover-border"
+                                />
                               </div>
                             </a>
                           </div>
@@ -28246,6 +28252,9 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                     </div>
                                   </div>
                                 </Image>
+                                <div
+                                  class="hover-border"
+                                />
                               </div>
                             </a>
                           </div>
@@ -28287,6 +28296,9 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                     </div>
                                   </div>
                                 </Image>
+                                <div
+                                  class="hover-border"
+                                />
                               </div>
                             </a>
                           </div>
@@ -28328,6 +28340,9 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                     </div>
                                   </div>
                                 </Image>
+                                <div
+                                  class="hover-border"
+                                />
                               </div>
                             </a>
                           </div>
@@ -28369,6 +28384,9 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                     </div>
                                   </div>
                                 </Image>
+                                <div
+                                  class="hover-border"
+                                />
                               </div>
                             </a>
                           </div>
@@ -28410,6 +28428,9 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                     </div>
                                   </div>
                                 </Image>
+                                <div
+                                  class="hover-border"
+                                />
                               </div>
                             </a>
                           </div>
@@ -28451,6 +28472,9 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                     </div>
                                   </div>
                                 </Image>
+                                <div
+                                  class="hover-border"
+                                />
                               </div>
                             </a>
                           </div>
@@ -28492,6 +28516,9 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                     </div>
                                   </div>
                                 </Image>
+                                <div
+                                  class="hover-border"
+                                />
                               </div>
                             </a>
                           </div>
@@ -28679,6 +28706,12 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                       </div>
                     </div>
                   </ContentBlock>
+                  <HorizontalRule>
+                    <hr
+                      className="bx--hr"
+                      data-autoid="dds--hr"
+                    />
+                  </HorizontalRule>
                 </div>
               </div>
             </section>
