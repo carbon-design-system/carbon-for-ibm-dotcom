@@ -15,50 +15,60 @@
 /// @access private
 /// @group button-expressive
 @mixin button-expressive {
-  $button-padding: calc(0.875rem - 4px) rem(61px) calc(0.875rem - 4px) rem(13px);
-  $button-padding-field: rem(6px) rem(61px) rem(6px) rem(13px);
-  $button-padding-ghost: calc(0.875rem - 4px) rem(13px);
-  $button-padding-ghost-field: rem(6px) rem(13px);
-
   .#{$prefix}--btn {
-    padding: $button-padding;
-
-    &.#{$prefix}--btn--ghost {
-      padding: $button-padding-ghost;
-    }
+    padding-top: calc(
+      (#{$button-height} - #{map-get($body-short-01, 'line-height')}) / 2 - #{$button-outline-width}
+    );
+    padding-bottom: calc(
+      (#{$button-height} - #{map-get($body-short-01, 'line-height')}) / 2 - #{$button-outline-width}
+    );
 
     .#{$prefix}--btn__icon {
-      width: auto;
-      height: auto;
+      width: $icon-size-01;
+      height: $icon-size-01;
     }
   }
 
-  .#{$prefix}--btn--field,
-  .#{$prefix}--btn--sm {
-    padding: $button-padding-field;
-    &.#{$prefix}--btn--tertiary {
-      height: rem(40px);
-    }
-    &.#{$prefix}--btn--ghost {
-      padding: $button-padding-ghost-field;
-    }
+  &.#{$prefix}--btn--field {
+    min-height: $button-field-height;
+    padding-top: calc(
+      (#{$button-field-height} - #{map-get($body-short-01, 'line-height')}) / 2 -
+        #{$button-outline-width}
+    );
+    padding-bottom: calc(
+      (#{$button-field-height} - #{map-get($body-short-01, 'line-height')}) / 2 -
+        #{$button-outline-width}
+    );
+  }
+
+  &.#{$prefix}--btn--sm {
+    min-height: $button-sm-height;
+    padding-top: calc(
+      (#{$button-sm-height} - #{map-get($body-short-01, 'line-height')}) / 2 - #{$button-outline-width}
+    );
+    padding-bottom: calc(
+      (#{$button-sm-height} - #{map-get($body-short-01, 'line-height')}) / 2 - #{$button-outline-width}
+    );
   }
 
   .#{$prefix}--btn--icon-only {
-    padding: calc(0.875rem - 3px);
+    min-width: $button-height;
+    padding: calc(
+      (#{$button-height} - #{$icon-size-01}) / 2 - #{$button-outline-width}
+    );
 
-    &.#{$prefix}--btn--tertiary {
-      padding: calc(0.875rem - 1px);
+    &.#{$prefix}--btn--field {
+      min-width: $button-field-height;
+      padding: calc(
+        (#{$button-field-height} - #{$icon-size-01}) / 2 - #{$button-outline-width}
+      );
     }
 
-    &.#{$prefix}--btn--field,
     &.#{$prefix}--btn--sm {
-      padding: rem(7px);
-    }
-
-    &.#{$prefix}--btn--field.#{$prefix}--btn--tertiary,
-    &.#{$prefix}--btn--sm.#{$prefix}--btn--tertiary {
-      padding: rem(9px);
+      min-width: $button-sm-height;
+      padding: calc(
+        (#{$button-sm-height} - #{$icon-size-01}) / 2 - #{$button-outline-width}
+      );
     }
   }
 }

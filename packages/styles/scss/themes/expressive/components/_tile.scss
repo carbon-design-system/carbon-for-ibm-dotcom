@@ -20,20 +20,20 @@
   }
 
   .#{$prefix}--tile__checkmark {
-    height: carbon--rem(20px);
+    height: $icon-size-01;
 
     svg {
-      height: carbon--rem(20px);
-      width: carbon--rem(20px);
+      height: $icon-size-01;
+      width: $icon-size-01;
     }
   }
 
   .#{$prefix}--tile__chevron {
-    height: carbon--rem(20px);
+    height: $icon-size-01;
 
     svg {
-      height: carbon--rem(20px);
-      width: carbon--rem(20px);
+      height: $icon-size-01;
+      width: $icon-size-01;
     }
   }
 }
