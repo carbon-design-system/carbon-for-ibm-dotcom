@@ -133,7 +133,14 @@
       @include carbon--make-col-ready;
       @include carbon--make-col(1, 1);
 
+      padding-left: 0;
+      padding-right: 0;
+
       margin-bottom: $layout-06;
+
+      @include carbon--breakpoint('sm') {
+        @include carbon--make-col(1, 2);
+      }
 
       @include carbon--breakpoint('md') {
         @include carbon--make-col(1, 3);
