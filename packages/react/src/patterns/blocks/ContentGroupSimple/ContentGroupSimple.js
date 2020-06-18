@@ -127,7 +127,6 @@ ContentGroupSimple.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.shape({
       cta: PropTypes.shape({
-        style: PropTypes.oneOf(['text', 'card', 'button', 'feature']),
         type: PropTypes.oneOfType([
           PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video']),
           PropTypes.arrayOf(

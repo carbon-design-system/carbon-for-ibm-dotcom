@@ -6,7 +6,7 @@
  */
 import {
   settings as ddsSettings,
-  markdownToHtml,
+  removeHtmlTagEntities,
 } from '@carbon/ibmdotcom-utilities';
 import React, { useEffect, useState } from 'react';
 import { ExpressiveModal } from '../ExpressiveModal';
@@ -55,10 +55,7 @@ const LightboxMediaViewer = ({ media, ...modalProps }) => {
     };
   }, [media]);
 
-  const videoDesc = markdownToHtml(videoData.description, {
-    createParagraphs: false,
-    cleanString: true,
-  });
+  const videoDesc = removeHtmlTagEntities(videoData.description);
 
   return (
     <section

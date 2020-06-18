@@ -56,7 +56,7 @@ export const Default = ({ parameters }) => {
   const { card, disabled } = parameters?.props?.CardLink ?? {};
 
   return (
-    <div className="bx--grid">
+    <div className="bx--grid bx--grid--condensed">
       <div className="bx--row">
         <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
           <CardLink card={card} disabled={disabled} />

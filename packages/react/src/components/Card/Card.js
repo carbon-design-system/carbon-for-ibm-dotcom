@@ -157,12 +157,7 @@ export const cardPropTypes = {
   cta: PropTypes.shape({
     copy: PropTypes.string,
     href: PropTypes.string,
-    type: PropTypes.oneOfType([
-      PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video']),
-      PropTypes.arrayOf(
-        PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video'])
-      ),
-    ]),
+    type: PropTypes.oneOf(['jump', 'local', 'external', 'download']),
     icon: PropTypes.shape({
       src: PropTypes.elementType,
     }),

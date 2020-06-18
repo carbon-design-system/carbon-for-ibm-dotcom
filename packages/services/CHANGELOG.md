@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0-rc.2](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.8.0-rc.1...@carbon/ibmdotcom-services@1.8.0-rc.2) (2020-06-17)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-services
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.8.0-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.8.0-rc.0...@carbon/ibmdotcom-services@1.8.0-rc.1) (2020-06-16)
+
+### Features
+
+- **services:** support REACT_APP_TRANSLATION_HOST
+  ([#2766](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2766))
+  ([1a9800d](https://github.com/carbon-design-system/ibm-dotcom-library/commit/1a9800d)),
+  closes
+  [#2761](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2761)
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.8.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.7.0...@carbon/ibmdotcom-services@1.8.0-rc.0) (2020-06-12)
 
 ### Bug Fixes
