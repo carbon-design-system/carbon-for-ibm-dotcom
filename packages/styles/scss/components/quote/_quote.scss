@@ -64,21 +64,26 @@
     &__source {
       @include carbon--make-col-ready;
 
-      max-width: 80%;
-      &-heading {
-        @include carbon--type-style(expressive-heading-02, true);
+      @include carbon--breakpoint-down('md') {
+        padding-bottom: $spacing-05;
+      }
 
+      max-width: 80%;
+      padding-bottom: $carbon--layout-04;
+
+      &-heading {
         padding-left: 1rem;
+        @include carbon--type-style(expressive-heading-02, true);
       }
       &-body {
-        @include carbon--type-style(body-long-02, true);
-
-        padding-bottom: $carbon--layout-04;
         padding-left: 1rem;
+        @include carbon--type-style(body-long-02, true);
+      }
 
-        @include carbon--breakpoint-down('md') {
-          padding-bottom: $carbon--layout-03;
-        }
+      &-optional-copy {
+        color: $inverse-01;
+        padding-left: 1rem;
+        @include carbon--type-style(body-long-02, true);
       }
     }
 
