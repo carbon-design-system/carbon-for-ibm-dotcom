@@ -119,6 +119,11 @@ const Quote = ({ markType = 'doubleCurved', copy, source, cta, inverse }) => {
               {source.heading}
             </p>
             <p className={`${prefix}--quote__source-body`}>{source.copy}</p>
+            {source.copy2 && (
+              <p className={`${prefix}--quote__source-optional-copy`}>
+                {source.copy2}
+              </p>
+            )}
           </div>
         ) : (
           false
@@ -168,14 +173,16 @@ Quote.propTypes = {
   /**
    * Source object. The structure is:
    *
-   * | Name      | Required | Data Type | Default Value | Description      |
-   * | --------- | -------- | --------- | ------------- | ---------------- |
-   * | `heading` | YES      | String    | null          | Source heading   |
-   * | `copy`    | YES      | String    | null          | Source body text |
+   * | Name      | Required | Data Type | Default Value | Description                  |
+   * | --------- | -------- | --------- | ------------- | ---------------------------- |
+   * | `heading` | YES      | String    | null          | Source heading               |
+   * | `copy`    | YES      | String    | null          | Source body text             |
+   * | `copy2`   | NO       | String    | null          | Optional second line of copy |
    */
   source: PropTypes.shape({
     heading: PropTypes.string.isRequired,
     copy: PropTypes.string.isRequired,
+    copy2: PropTypes.string,
   }),
 
   /**
