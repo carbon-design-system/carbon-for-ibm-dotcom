@@ -14515,6 +14515,7 @@ exports[`Storyshots Components|Quote Default 1`] = `
             source={
               Object {
                 "copy": "consectetur adipiscing elit",
+                "copy2": "IBM Cloud",
                 "heading": "Lorem ipsum dolor sit amet",
               }
             }
@@ -14555,6 +14556,11 @@ exports[`Storyshots Components|Quote Default 1`] = `
                     className="bx--quote__source-body"
                   >
                     consectetur adipiscing elit
+                  </p>
+                  <p
+                    className="bx--quote__source-optional-copy"
+                  >
+                    IBM Cloud
                   </p>
                 </div>
               </div>
