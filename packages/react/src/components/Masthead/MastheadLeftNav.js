@@ -6,7 +6,7 @@
  */
 
 import ArrowLeft16 from '@carbon/icons-react/es/arrow--left/16';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import HeaderSideNavItems from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderSideNavItems';
 import PropTypes from 'prop-types';
 import React from 'react';

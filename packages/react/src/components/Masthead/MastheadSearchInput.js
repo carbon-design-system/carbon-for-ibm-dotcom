@@ -6,7 +6,7 @@
  */
 
 import React, { useCallback, useEffect, useRef } from 'react';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import PropTypes from 'prop-types';
 
 const { stablePrefix } = ddsSettings;

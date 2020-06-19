@@ -2,7 +2,7 @@
 /* istanbul ignore file */
 
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -13,8 +13,11 @@ import settings from 'carbon-components/es/globals/js/settings';
 import cx from 'classnames';
 import React from 'react';
 import PropTypes from 'prop-types';
-import { keys, matches } from '../../../internal/keyboard';
-import { AriaLabelPropType } from '../../../prop-types/AriaPropTypes';
+import {
+  keys,
+  matches,
+} from '../../../internal/vendor/carbon-components-react/internal/keyboard';
+import { AriaLabelPropType } from '../../../internal/vendor/carbon-components-react/prop-types/AriaPropTypes';
 
 const { prefix } = settings;
 

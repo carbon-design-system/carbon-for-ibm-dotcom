@@ -7,7 +7,7 @@
 
 import ContentGroup from '../../../internal/components/ContentGroup/ContentGroup';
 import ContentItem from '../../../internal/components/ContentItem/ContentItem';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import { ImageWithCaption } from '../../../components/ImageWithCaption';
 import PropTypes from 'prop-types';
 import React from 'react';
