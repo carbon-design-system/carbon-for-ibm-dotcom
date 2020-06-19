@@ -45,6 +45,7 @@
       @include carbon--type-style('quotation-01', true);
       @include carbon--font-family('serif');
       @include carbon--breakpoint-down('md') {
+        // this value was chosen by visually stay the closest as possible from the quotation text in the small breakpoint
         left: 1.4rem;
       }
       @include carbon--breakpoint('md') {
@@ -52,6 +53,7 @@
       }
 
       position: absolute;
+      // this value was chosen by visually stay the closest as possible from the quotation text in the md and above breakpoints
       left: 0.6rem;
       color: $text-01;
     }
