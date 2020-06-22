@@ -38,6 +38,10 @@ const defaultMenuItems = [
 const sources = [
   {
     src: 'https://dummyimage.com/672x200',
+    breakpoint: 400,
+  },
+  {
+    src: 'https://dummyimage.com/672x200',
     breakpoint: 672,
   },
   {
