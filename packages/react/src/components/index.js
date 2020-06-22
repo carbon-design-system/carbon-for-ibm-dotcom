@@ -6,7 +6,6 @@
  */
 
 export * from './ButtonGroup';
-export * from './Callout';
 export * from './Card';
 export * from './CardGroup';
 export * from './CardLink';
