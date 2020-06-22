@@ -7,6 +7,7 @@
 
 import { object, text, boolean } from '@storybook/addon-knobs';
 import dataContent from './data/dataContent';
+import Image from '../../Image/Image';
 import React from 'react';
 import readme from '../README.stories.mdx';
 import TableOfContents from '../TableOfContents';
@@ -33,6 +34,25 @@ const defaultMenuItems = [
     id: '14',
   },
 ];
+
+const sources = [
+  {
+    src: 'https://dummyimage.com/672x200',
+    breakpoint: 400,
+  },
+  {
+    src: 'https://dummyimage.com/672x200',
+    breakpoint: 672,
+  },
+  {
+    src: 'https://dummyimage.com/672x672',
+    breakpoint: 1056,
+  },
+];
+
+const defaultSrc = 'https://dummyimage.com/672x672';
+const alt = 'Lorem Ipsum';
+const longDescription = 'Lorem Ipsum Dolor';
 
 export default {
   title: 'Components|Table of Contents',
@@ -97,16 +117,18 @@ WithHeadingContent.story = {
         menuLabel: text('menu label', 'Jump to', groupId),
         menuRule: boolean('Optional Rule', false, groupId),
         headingContent: (
-          <div
+          <Image
+            sources={sources}
+            defaultSrc={defaultSrc}
+            alt={alt}
+            longDescription={longDescription}
             style={{
-              background: '#f4f4f4',
               height: '200px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-            }}>
-            <h4>Example children</h4>
-          </div>
+            }}
+          />
         ),
       }),
     },
