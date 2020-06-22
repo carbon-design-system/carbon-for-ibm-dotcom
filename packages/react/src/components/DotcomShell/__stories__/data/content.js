@@ -1,160 +1,430 @@
 /**
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import 'carbon-components/scss/components/button/_button.scss';
-import 'carbon-components/scss/components/data-table/_data-table.scss';
-import 'carbon-components/scss/components/structured-list/_structured-list.scss';
+/* eslint-disable jsx-a11y/anchor-is-valid, jsx-a11y/anchor-has-content */
 import {
-  Button,
-  DataTableSkeleton,
-  StructuredListBody,
-  StructuredListCell,
-  StructuredListHead,
-  StructuredListRow,
-  StructuredListWrapper,
-} from 'carbon-components-react';
+  CalloutQuote,
+  CalloutWithMedia,
+  ContentBlockCards,
+  ContentBlockSegmented,
+  ContentGroupHorizontal,
+  CTASection,
+  Layout,
+  LeadSpaceBlock,
+  LogoGrid,
+  FeatureCardBlockLarge,
+  TableOfContents,
+} from '../../../../../';
+
+import { ArrowRight20 } from '@carbon/icons-react';
 import React from 'react';
 
+/**
+ * DDS patterns template
+ *
+ * @returns {*} JSX for Learn template
+ */
 const content = (
-  <div className="bx--grid">
-    <div className="bx--row">
-      <div className="bx--col-lg-8">
-        <h1>Some random content</h1>
-        <p style={{ paddingBottom: '1rem' }}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-      </div>
-    </div>
-    <div className="bx--row">
-      <div className="bx--col-lg-10" style={{ paddingTop: '4rem' }}>
-        <h1>Carbon structured list</h1>
-        <StructuredListWrapper>
-          <StructuredListHead>
-            <StructuredListRow head>
-              <StructuredListCell head>ColumnA</StructuredListCell>
-              <StructuredListCell head>ColumnB</StructuredListCell>
-              <StructuredListCell head>ColumnC</StructuredListCell>
-            </StructuredListRow>
-          </StructuredListHead>
-          <StructuredListBody>
-            <StructuredListRow>
-              <StructuredListCell noWrap>Row 1</StructuredListCell>
-              <StructuredListCell>Row 1</StructuredListCell>
-              <StructuredListCell>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-                dui magna, finibus id tortor sed, aliquet bibendum augue. Aenean
-                posuere sem vel euismod dignissim. Nulla ut cursus dolor.
-                Pellentesque vulputate nisl a porttitor interdum.
-              </StructuredListCell>
-            </StructuredListRow>
-            <StructuredListRow>
-              <StructuredListCell noWrap>Row 2</StructuredListCell>
-              <StructuredListCell>Row 2</StructuredListCell>
-              <StructuredListCell>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-                dui magna, finibus id tortor sed, aliquet bibendum augue. Aenean
-                posuere sem vel euismod dignissim. Nulla ut cursus dolor.
-                Pellentesque vulputate nisl a porttitor interdum.
-              </StructuredListCell>
-            </StructuredListRow>
-          </StructuredListBody>
-        </StructuredListWrapper>
-      </div>
-    </div>
-    <div className="bx--row">
-      <div className="bx--col-lg-5" style={{ paddingTop: '0rem' }}>
-        <h1>Some info about this data table</h1>
-        <p style={{ paddingBottom: '2rem' }}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
-      </div>
-      <div className="bx--col-lg-7" style={{ paddingTop: '0rem' }}>
-        <DataTableSkeleton
-          headers={['Name', 'Protocol', 'Port', 'Rule', 'Attached Groups']}
-          zebra={false}
-          compact={false}
-        />
-      </div>
-    </div>
-    <div
-      className="bx--row"
-      style={{
-        marginTop: '5rem',
-        backgroundColor: '#f3f3f3',
-        paddingTop: '2rem',
-        paddingBottom: '2rem',
-        paddingRight: '2rem',
-      }}>
-      <div
-        className="bx--col-md-2"
-        style={{ paddingBottom: '2rem', paddingTop: '2rem' }}>
-        <h5>Content card</h5>
-        <p style={{ paddingBottom: '2rem', paddingTop: '2rem' }}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
-      </div>
-      <div
-        className="bx--col-md-2"
-        style={{ paddingBottom: '2rem', paddingTop: '2rem' }}>
-        <div style={{ padding: '2rem', backgroundColor: '#fff' }}>
-          <h5>Content card</h5>
-          <p style={{ paddingBottom: '2rem', paddingTop: '2rem' }}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
-          <p style={{ paddingBottom: '2rem' }}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
-          <Button>Click me</Button>
+  <>
+    <TableOfContents menuLabel="Jump to" theme="white">
+      <a name="section-1" data-title="Lorem ipsum dolor sit amet" />
+      <Layout type="2-1">
+        <div>
+          <LeadSpaceBlock
+            title="Lorem ipsum dolor sit amet"
+            copy="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+            heading="Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut."
+            mediaType="video"
+            mediaData={{
+              videoId: '0_uka1msg4',
+              showDescription: true,
+            }}
+            items={{
+              heading: 'Featured products',
+              items: [
+                {
+                  type: 'local',
+                  copy: 'IBM Cloud Continuous Delivery',
+                  cta: {
+                    href: 'https://ibm.com',
+                  },
+                },
+                {
+                  type: 'local',
+                  copy: 'UrbanCode',
+                  cta: {
+                    href: 'https://ibm.com',
+                  },
+                },
+                {
+                  type: 'local',
+                  copy: 'View all products',
+                  cta: {
+                    href: 'https://ibm.com',
+                  },
+                },
+              ],
+            }}
+            cta={{
+              style: 'button',
+              type: 'local',
+              buttons: [
+                {
+                  type: 'local',
+                  copy: 'Excepteur sint occaecat',
+                  href: 'https://example.com/',
+                },
+              ],
+            }}
+          />
         </div>
-      </div>
-      <div
-        className="bx--col-md-2"
-        style={{ paddingBottom: '2rem', paddingTop: '2rem' }}>
-        <div style={{ padding: '2rem', backgroundColor: '#fff' }}>
-          <h5>Content card</h5>
-          <p style={{ paddingBottom: '2rem', paddingTop: '2rem' }}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
-          <p style={{ paddingBottom: '2rem' }}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
-          <Button>Click me</Button>
-        </div>
-      </div>
-      <div
-        className="bx--col-md-2"
-        style={{ paddingBottom: '2rem', paddingTop: '2rem' }}>
-        <div style={{ padding: '2rem', backgroundColor: '#fff' }}>
-          <h5>Content card</h5>
-          <p style={{ paddingBottom: '2rem', paddingTop: '2rem' }}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
-          <p style={{ paddingBottom: '2rem' }}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
-          <Button>Click me</Button>
-        </div>
-      </div>
-    </div>
-  </div>
+        <></>
+      </Layout>
+
+      <a
+        name="section-2"
+        data-title="Pharetra pharetra massa massa ultricies mi quis."
+      />
+      <ContentBlockSegmented
+        heading="Pharetra pharetra massa massa ultricies mi quis."
+        items={[
+          {
+            heading: 'A scelerisque purus semper eget duis at tellus.',
+            copy:
+              'Elementum nibh tellus molestie nunc non. Habitant morbi tristique senectus et netus et malesuada fames.',
+            cta: {
+              type: 'local',
+              copy: 'Lorem Ipsum dolor sit',
+              href: 'https://example.com',
+            },
+          },
+          {
+            heading: 'A scelerisque purus semper eget duis at tellus.',
+            copy:
+              'Elementum nibh tellus molestie nunc non. Habitant morbi tristique senectus et netus et malesuada fames.',
+          },
+          {
+            heading: 'A scelerisque purus semper eget duis at tellus.',
+            copy:
+              'Elementum nibh tellus molestie nunc non. Habitant morbi tristique senectus et netus et malesuada fames.',
+            cta: {
+              type: 'local',
+              copy: 'Lorem Ipsum dolor sit',
+              href: 'https://example.com',
+            },
+          },
+          {
+            heading: 'A scelerisque purus semper eget duis at tellus.',
+            copy:
+              'Elementum nibh tellus molestie nunc non. Habitant morbi tristique senectus et netus et malesuada fames.',
+          },
+        ]}
+      />
+      <FeatureCardBlockLarge
+        eyebrow="scelerisque purus"
+        heading="Elementum nibh tellus molestie nunc?"
+        copy="Habitant morbi tristique senectus et netus et malesuada fames. Habitant morbi tristique."
+        cta={{
+          href: 'https://example.com',
+          icon: {
+            src: ArrowRight20,
+          },
+        }}
+        image={{
+          defaultSrc: 'https://dummyimage.com/600x600/ee5396/161616&text=1:1',
+          alt: 'Image alt text',
+        }}
+      />
+
+      <a
+        name="section-3"
+        data-title="Elementum nibh tellus molestie nunc non"
+      />
+      <ContentBlockSegmented
+        heading="Elementum nibh tellus molestie nunc non."
+        items={[
+          {
+            heading: 'A scelerisque purus semper eget duis at tellus.',
+            copy:
+              'Elementum nibh tellus molestie nunc non. Habitant morbi tristique senectus et netus et malesuada fames.',
+            image: {
+              heading: 'Mauris iaculis eget dolor nec hendrerit.',
+              image: {
+                sources: [
+                  {
+                    src:
+                      'https://dummyimage.com/320x180/ee5396/161616&text=16:9',
+                    breakpoint: 320,
+                  },
+                  {
+                    src:
+                      'https://dummyimage.com/400x225/ee5396/161616&text=16:9',
+                    breakpoint: 400,
+                  },
+                  {
+                    src:
+                      'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
+                    breakpoint: 672,
+                  },
+                ],
+                alt: 'Image alt text',
+                defaultSrc:
+                  'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
+              },
+            },
+            cta: {
+              type: 'local',
+              copy: 'Lorem Ipsum dolor sit',
+              href: 'https://example.com',
+            },
+          },
+          {
+            heading: 'A scelerisque purus semper eget duis at tellus.',
+            copy:
+              'Elementum nibh tellus molestie nunc non. Habitant morbi tristique senectus et netus et malesuada fames.',
+            image: {
+              heading: 'Mauris iaculis eget dolor nec hendrerit.',
+              image: {
+                sources: [
+                  {
+                    src:
+                      'https://dummyimage.com/320x180/ee5396/161616&text=16:9',
+                    breakpoint: 320,
+                  },
+                  {
+                    src:
+                      'https://dummyimage.com/400x225/ee5396/161616&text=16:9',
+                    breakpoint: 400,
+                  },
+                  {
+                    src:
+                      'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
+                    breakpoint: 672,
+                  },
+                ],
+                alt: 'Image alt text',
+                defaultSrc:
+                  'https://dummyimage.com/672x378/ee5396/161616&text=16:9',
+              },
+            },
+          },
+        ]}
+        cta={{
+          style: 'card',
+          disableImage: true,
+          type: 'video',
+          media: {
+            src: '0_uka1msg4',
+            type: 'video',
+          },
+        }}
+        mediaType="image"
+      />
+
+      <CalloutWithMedia
+        heading="Mauris ultrices eros in cursus"
+        copy="Porttitor eget dolor morbi non arcu. Et ligula ullamcorper malesuada proin libero nunc consequat. In est ante in nibh mauris cursus mattis. Turpis tincidunt id aliquet risus feugiat in. Vel facilisis volutpat est velit egestas dui."
+        mediaType="video"
+        mediaData={{
+          src: '0_uka1msg4',
+          type: 'video',
+        }}
+      />
+
+      <a name="section-4" data-title="Tincidunt ornare massa" />
+      <ContentGroupHorizontal
+        heading="Tincidunt ornare massa"
+        items={[
+          {
+            eyebrow: 'Lorem ipsum',
+            heading: 'Aliquam condimentum',
+            copy:
+              'Lorem ipsum dolor sit amet, _consectetur_ sellus at elit sollicitudin.',
+            cta: {
+              items: [
+                {
+                  type: 'local',
+                  copy: 'Link text',
+                  href: 'https://example.com',
+                },
+                {
+                  type: 'external',
+                  copy: 'External link text',
+                  href: 'https://example.com',
+                },
+              ],
+            },
+          },
+          {
+            eyebrow: 'Lorem ipsum',
+            heading: 'Aliquam condimentum',
+            copy:
+              'Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.',
+            cta: {
+              items: [
+                {
+                  type: 'local',
+                  copy: 'Link text',
+                  href: 'https://example.com',
+                },
+                {
+                  type: 'external',
+                  copy: 'External link text',
+                  href: 'https://example.com',
+                },
+              ],
+            },
+          },
+        ]}
+      />
+
+      <a name="section-5" data-title="Lobortis elementum nibh tellus" />
+      <LogoGrid
+        heading="Lobortis elementum nibh tellus"
+        logosGroup={[
+          {
+            title: 'Company A',
+            imgSrc: 'https://dummyimage.com/140x140',
+            altText: 'Image alt text',
+            href: 'http://example.com/',
+          },
+          {
+            title: 'Company B',
+            imgSrc: 'https://dummyimage.com/140x140',
+            altText: 'Image alt text',
+            href: 'http://example.com/',
+          },
+          {
+            title: 'Company C',
+            imgSrc: 'https://dummyimage.com/140x140',
+            altText: 'Image alt text',
+            href: 'http://example.com/',
+          },
+          {
+            title: 'Company D',
+            imgSrc: 'https://dummyimage.com/140x140',
+            altText: 'Image alt text',
+            href: 'http://example.com/',
+          },
+          {
+            title: 'Company E',
+            imgSrc: 'https://dummyimage.com/140x140',
+            altText: 'Image alt text',
+            href: 'http://example.com/',
+          },
+          {
+            title: 'Company F',
+            imgSrc: 'https://dummyimage.com/140x140',
+            altText: 'Image alt text',
+            href: 'http://example.com/',
+          },
+        ]}
+        ctaCopy="Amet justo donec"
+        ctaHref="https://www.example.com"
+      />
+
+      <a name="section-6" data-title="Aliquam condimentum interdum" />
+      <ContentBlockCards
+        heading="Aliquam condimentum interdum"
+        cards={[
+          {
+            image: {
+              defaultSrc:
+                'https://dummyimage.com/1056x792/ee5396/161616%26text=4:3',
+              alt: 'Image alt text',
+            },
+            eyebrow: 'Topic',
+            heading: 'Natural language processing.',
+            cta: {
+              href: 'https://www.example.com',
+            },
+          },
+          {
+            image: {
+              defaultSrc:
+                'https://dummyimage.com/1056x792/ee5396/161616%26text=4:3',
+              alt: 'Image alt text',
+            },
+            eyebrow: 'Topic',
+            heading: 'Natural language processing.',
+            cta: {
+              href: 'https://www.example.com',
+            },
+          },
+          {
+            image: {
+              defaultSrc:
+                'https://dummyimage.com/1056x792/ee5396/161616%26text=4:3',
+              alt: 'Image alt text',
+            },
+            eyebrow: 'Topic',
+            heading: 'Natural language processing.',
+            cta: {
+              href: 'https://www.example.com',
+            },
+          },
+        ]}
+      />
+      <a name="section-7" data-title="Duis aute irure dolor in reprehenderit" />
+      <CalloutQuote
+        quote={{
+          copy: 'Duis aute irure dolor in reprehenderit',
+          source: {
+            heading: 'Lorem ipsum',
+            copy: 'dolor sit amet',
+          },
+          cta: {
+            copy: 'Link with Icon',
+            type: 'local',
+            href: 'https://example.com',
+          },
+        }}
+      />
+    </TableOfContents>
+    <CTASection
+      theme="g10"
+      cta={{
+        style: 'button',
+        type: 'local',
+        buttons: [
+          {
+            type: 'local',
+            copy: ['Contact sales'],
+          },
+        ],
+      }}
+      items={[
+        {
+          heading: 'Get connected',
+          copy: `
+            IBM DevOps partners have a wide range of expertise.
+            Find one to build the right solution for you.
+            `,
+          cta: {
+            copy: 'Find a partner',
+            type: 'local',
+            href: 'https://example.com/',
+          },
+        },
+        {
+          heading: 'Learn how',
+          copy:
+            'Dig into more self-directed learning about DevOps methodologies.',
+          cta: {
+            copy: 'Browse tutorials',
+            type: 'local',
+            href: 'https://example.com/',
+          },
+        },
+      ]}
+      heading="Take the next step"
+      copy="Want to discuss your options with a DevOps expert? Contact our sales team to evaluate your needs."
+    />
+  </>
 );
 
 export default content;

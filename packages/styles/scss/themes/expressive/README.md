@@ -22,7 +22,7 @@ $feature-flags: (
   enable-css-custom-properties: true,
 );
 $dds-feature-flags: (
-  carbon-expressive: true,
+  carbon-expressive-experimental: true,
 );
 
 // application imports and styles
@@ -40,7 +40,7 @@ Alternatively, if using Webpack, this can be applied in `sass-loader`:
         enable-css-custom-properties: true
       );
       $dds-feature-flags: (
-        carbon-expressive: true,
+        carbon-expressive-experimental: true,
       );
     `,
     // other sass-loader options
