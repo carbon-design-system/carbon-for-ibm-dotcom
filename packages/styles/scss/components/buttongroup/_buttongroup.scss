@@ -7,6 +7,7 @@
 
 @import '../../globals/imports';
 @import 'carbon-components/scss/components/button/button';
+@import '../lightbox-media-viewer/lightbox-media-viewer';
 
 @mixin buttongroup {
   @include button;
