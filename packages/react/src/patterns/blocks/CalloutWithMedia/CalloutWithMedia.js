@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { Callout } from '../../../components';
+import Callout from '../../../internal/components/Callout/Callout';
 import { ContentBlockSimple } from '../ContentBlockSimple';
 import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import React from 'react';
