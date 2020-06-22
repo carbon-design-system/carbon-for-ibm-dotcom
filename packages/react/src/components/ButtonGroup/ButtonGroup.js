@@ -38,12 +38,19 @@ const ButtonGroup = ({ buttons, enableSizeByContent }) => {
               (acc, item) => Math.max(acc, item.offsetWidth),
               0
             );
+            const height = Array.prototype.reduce.call(
+              group.querySelectorAll('.bx--buttongroup-item--pseudo .bx--btn'),
+              (acc, item) => Math.max(acc, item.offsetHeight),
+              0
+            );
+            const hasWordWrap = height > 48;
             Array.prototype.forEach.call(
               group.querySelectorAll(
                 '.bx--buttongroup-item:not(.bx--buttongroup-item--pseudo) .bx--btn'
               ),
               item => {
                 item.style.width = `${width + 1}px`;
+                item.classList.toggle(`${prefix}--btn--multiline`, hasWordWrap);
               }
             );
           });
