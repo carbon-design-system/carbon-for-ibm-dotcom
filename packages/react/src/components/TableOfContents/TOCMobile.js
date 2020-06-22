@@ -94,7 +94,10 @@ const renderOptions = (options, label) => {
           className={`${prefix}--tableofcontents__mobile__select__option`}
           data-autoid={`${stablePrefix}}--tableofcontents__mobile__select__option-${option.id}`}
           key={index}
-          value={option.id}>
+          value={option.id}
+          selected={index === 0}
+          disabled={index === 0}
+          hidden={index === 0}>
           {option.title}
         </option>
       );
