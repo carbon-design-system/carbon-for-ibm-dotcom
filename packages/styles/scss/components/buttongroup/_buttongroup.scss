@@ -34,6 +34,10 @@
         height: auto;
       }
     }
+
+    .#{$prefix}--btn--multiline {
+      align-items: start;
+    }
   }
 
   .#{$prefix}--buttongroup-item {
