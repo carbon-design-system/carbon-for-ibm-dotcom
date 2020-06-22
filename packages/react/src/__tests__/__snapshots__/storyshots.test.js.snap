@@ -2405,7 +2405,10 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                     <option
                                       className="bx--tableofcontents__mobile__select__option"
                                       data-autoid="dds}--tableofcontents__mobile__select__option-menuLabel"
+                                      disabled={true}
+                                      hidden={true}
                                       key="0"
+                                      selected={true}
                                       value="menuLabel"
                                     >
                                       Jump to ...
@@ -14700,7 +14703,10 @@ exports[`Storyshots Components|Table of Contents Dynamic Items 1`] = `
                             <option
                               className="bx--tableofcontents__mobile__select__option"
                               data-autoid="dds}--tableofcontents__mobile__select__option-menuLabel"
+                              disabled={true}
+                              hidden={true}
                               key="0"
+                              selected={true}
                               value="menuLabel"
                             >
                               Jump to ...
@@ -15146,7 +15152,10 @@ exports[`Storyshots Components|Table of Contents Manually define Menu Items 1`] 
                           <option
                             className="bx--tableofcontents__mobile__select__option"
                             data-autoid="dds}--tableofcontents__mobile__select__option-menuLabel"
+                            disabled={true}
+                            hidden={true}
                             key="0"
+                            selected={true}
                             value="menuLabel"
                           >
                             Jump to ...
@@ -15154,7 +15163,10 @@ exports[`Storyshots Components|Table of Contents Manually define Menu Items 1`] 
                           <option
                             className="bx--tableofcontents__mobile__select__option"
                             data-autoid="dds}--tableofcontents__mobile__select__option-8"
+                            disabled={false}
+                            hidden={false}
                             key="1"
+                            selected={false}
                             value="8"
                           >
                             Cras molestie condimentum
@@ -15162,7 +15174,10 @@ exports[`Storyshots Components|Table of Contents Manually define Menu Items 1`] 
                           <option
                             className="bx--tableofcontents__mobile__select__option"
                             data-autoid="dds}--tableofcontents__mobile__select__option-7"
+                            disabled={false}
+                            hidden={false}
                             key="2"
+                            selected={false}
                             value="7"
                           >
                             Praesent fermentum sodales
@@ -15170,7 +15185,10 @@ exports[`Storyshots Components|Table of Contents Manually define Menu Items 1`] 
                           <option
                             className="bx--tableofcontents__mobile__select__option"
                             data-autoid="dds}--tableofcontents__mobile__select__option-2"
+                            disabled={false}
+                            hidden={false}
                             key="3"
+                            selected={false}
                             value="2"
                           >
                             Nulla tristique lacinia
@@ -15178,7 +15196,10 @@ exports[`Storyshots Components|Table of Contents Manually define Menu Items 1`] 
                           <option
                             className="bx--tableofcontents__mobile__select__option"
                             data-autoid="dds}--tableofcontents__mobile__select__option-3"
+                            disabled={false}
+                            hidden={false}
                             key="4"
+                            selected={false}
                             value="3"
                           >
                             Morbi id nibh metus
@@ -15186,7 +15207,10 @@ exports[`Storyshots Components|Table of Contents Manually define Menu Items 1`] 
                           <option
                             className="bx--tableofcontents__mobile__select__option"
                             data-autoid="dds}--tableofcontents__mobile__select__option-14"
+                            disabled={false}
+                            hidden={false}
                             key="5"
+                            selected={false}
                             value="14"
                           >
                             Integer non scelerisque
@@ -15747,7 +15771,10 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
                             <option
                               className="bx--tableofcontents__mobile__select__option"
                               data-autoid="dds}--tableofcontents__mobile__select__option-menuLabel"
+                              disabled={true}
+                              hidden={true}
                               key="0"
+                              selected={true}
                               value="menuLabel"
                             >
                               Jump to ...
@@ -15755,7 +15782,10 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
                             <option
                               className="bx--tableofcontents__mobile__select__option"
                               data-autoid="dds}--tableofcontents__mobile__select__option-8"
+                              disabled={false}
+                              hidden={false}
                               key="1"
+                              selected={false}
                               value="8"
                             >
                               Cras molestie condimentum
@@ -15763,7 +15793,10 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
                             <option
                               className="bx--tableofcontents__mobile__select__option"
                               data-autoid="dds}--tableofcontents__mobile__select__option-7"
+                              disabled={false}
+                              hidden={false}
                               key="2"
+                              selected={false}
                               value="7"
                             >
                               Praesent fermentum sodales
@@ -15771,7 +15804,10 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
                             <option
                               className="bx--tableofcontents__mobile__select__option"
                               data-autoid="dds}--tableofcontents__mobile__select__option-2"
+                              disabled={false}
+                              hidden={false}
                               key="3"
+                              selected={false}
                               value="2"
                             >
                               Nulla tristique lacinia
@@ -15779,7 +15815,10 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
                             <option
                               className="bx--tableofcontents__mobile__select__option"
                               data-autoid="dds}--tableofcontents__mobile__select__option-3"
+                              disabled={false}
+                              hidden={false}
                               key="4"
+                              selected={false}
                               value="3"
                             >
                               Morbi id nibh metus
@@ -15787,7 +15826,10 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
                             <option
                               className="bx--tableofcontents__mobile__select__option"
                               data-autoid="dds}--tableofcontents__mobile__select__option-14"
+                              disabled={false}
+                              hidden={false}
                               key="5"
+                              selected={false}
                               value="14"
                             >
                               Integer non scelerisque
