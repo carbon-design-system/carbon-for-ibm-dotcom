@@ -16,7 +16,7 @@
 /// @group structured-list-expressive
 @mixin structured-list-expressive {
   .#{$prefix}--structured-list-svg {
-    height: rem(20px);
-    width: rem(20px);
+    height: $icon-size-01;
+    width: $icon-size-01;
   }
 }

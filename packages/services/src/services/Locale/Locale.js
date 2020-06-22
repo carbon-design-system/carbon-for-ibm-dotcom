@@ -14,7 +14,10 @@ import root from 'window-or-global';
  * @constant {string | string} Host for the Locale API call
  * @private
  */
-const _host = process?.env.TRANSLATION_HOST || 'https://www.ibm.com';
+const _host =
+  (process &&
+    (process.env.REACT_APP_TRANSLATION_HOST || process.env.TRANSLATION_HOST)) ||
+  'https://www.ibm.com';
 
 /**
  * @constant {string | string} CORS proxy for lower environment calls
@@ -23,7 +26,10 @@ const _host = process?.env.TRANSLATION_HOST || 'https://www.ibm.com';
 const _proxy =
   root.location?.host === 'www.ibm.com'
     ? ''
-    : process?.env.REACT_APP_CORS_PROXY || process?.env.CORS_PROXY || '';
+    : // Optional chaining operator in `process.env.ENVVAR` does not work in some build systems, notably Parcel
+      (process &&
+        (process.env.REACT_APP_CORS_PROXY || process.env.CORS_PROXY)) ||
+      '';
 
 /**
  * Sets the default location if nothing is returned

@@ -15,7 +15,6 @@ export default class Container extends Component {
     if (process.env.REACT_STORYBOOK_USE_RTL === 'true') {
       document.documentElement.dir = 'rtl';
       document.getElementsByTagName('html')[0].setAttribute('dir', 'rtl');
-      document.body.classList.add('bx--body');
     }
   }
 

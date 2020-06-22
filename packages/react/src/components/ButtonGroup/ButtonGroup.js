@@ -43,7 +43,7 @@ const ButtonGroup = ({ buttons, enableSizeByContent }) => {
                 '.bx--buttongroup-item:not(.bx--buttongroup-item--pseudo) .bx--btn'
               ),
               item => {
-                item.style.width = `${width}px`;
+                item.style.width = `${width + 1}px`;
               }
             );
           });
@@ -150,7 +150,7 @@ ButtonGroup.propTypes = {
       href: PropTypes.string.isRequired,
       renderIcon: PropTypes.elementType,
     })
-  ),
+  ).isRequired,
 
   /**
    * `true` to make the buttons change their sizes by their contents.

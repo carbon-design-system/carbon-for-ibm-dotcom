@@ -41,9 +41,9 @@ export const Card = ({
   const linkProps =
     type === 'link'
       ? {
-          target: CTALogic.external(cta.type),
+          target: CTALogic.external(cta?.type),
           onClick: e => {
-            cta.type === 'jump' ? CTALogic.jump(e, cta.type) : false;
+            cta?.type === 'jump' ? CTALogic.jump(e, cta.type) : false;
           },
         }
       : {};
@@ -58,7 +58,7 @@ export const Card = ({
         },
         customClassName
       )}
-      href={cta.href}
+      href={cta?.href}
       {...linkProps}
       {...props}>
       {image && <Image {...image} classname={`${prefix}--card__img`} />}
@@ -106,10 +106,14 @@ function renderFooter(cta, type) {
             onClick={e => {
               cta.type === 'jump' ? CTALogic.jump(e, cta.type) : false;
             }}>
-            <span>{cta.copy}</span> <cta.icon.src />
+            {cta.icon?.src && (
+              <>
+                <span>{cta.copy}</span> <cta.icon.src />
+              </>
+            )}
           </LinkWithIcon>
         ) : (
-          cta.icon.src && (
+          cta.icon?.src && (
             <>
               <cta.icon.src className={`${prefix}--card__cta`} {...cta.icon} />
               <span>{cta.copy}</span>
@@ -153,12 +157,10 @@ export const cardPropTypes = {
   cta: PropTypes.shape({
     copy: PropTypes.string,
     href: PropTypes.string,
-    type: PropTypes.oneOfType([
-      PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video']),
-      PropTypes.arrayOf(
-        PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video'])
-      ),
-    ]),
+    type: PropTypes.oneOf(['jump', 'local', 'external', 'download']),
+    icon: PropTypes.shape({
+      src: PropTypes.elementType,
+    }),
   }),
 
   /**

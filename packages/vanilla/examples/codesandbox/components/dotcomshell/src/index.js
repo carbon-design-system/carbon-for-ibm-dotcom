@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import "@carbon/ibmdotcom-styles/scss/components/dotcom-shell/_dotcom-shell.scss";
+import "./index.scss";
 import content from "./data/content";
 import { DotcomShell } from "@carbon/ibmdotcom-vanilla";
 
@@ -30,14 +30,19 @@ const dotcomShellProps = {
 };
 
 async function _loadDotcomShell() {
-  const template = await DotcomShell.getDotcomShellWithData({
-    content,
-    ...dotcomShellProps,
-  });
+  try {
+    const template = await DotcomShell.getDotcomShellWithData({
+      content,
+      ...dotcomShellProps,
+    });
 
-  const yourapp = document.getElementById("app");
-  yourapp.innerHTML = template;
-  DotcomShell.init(yourapp);
+    const yourapp = document.getElementById("app");
+    yourapp.innerHTML = template;
+    DotcomShell.init(yourapp);
+  } catch (error) {
+    // This example seems to have polling timeout for `root.digitalData.page.isDataLayerReady`.
+    console.error('Error fetching dotcom shell data:', error);
+  }
 }
 
 _loadDotcomShell();

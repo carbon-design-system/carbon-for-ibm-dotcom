@@ -3,6 +3,61 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0-rc.2](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.8.0-rc.1...@carbon/ibmdotcom-services@1.8.0-rc.2) (2020-06-17)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-services
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.8.0-rc.1](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.8.0-rc.0...@carbon/ibmdotcom-services@1.8.0-rc.1) (2020-06-16)
+
+### Features
+
+- **services:** support REACT_APP_TRANSLATION_HOST
+  ([#2766](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2766))
+  ([1a9800d](https://github.com/carbon-design-system/ibm-dotcom-library/commit/1a9800d)),
+  closes
+  [#2761](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2761)
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.8.0-rc.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.7.0...@carbon/ibmdotcom-services@1.8.0-rc.0) (2020-06-12)
+
+### Bug Fixes
+
+- **VideoPlayer:** have overlay poster image on video player to align with
+  visual specs
+  ([#2716](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2716))
+  ([0ceed38](https://github.com/carbon-design-system/ibm-dotcom-library/commit/0ceed38))
+
+# 1.8.0-beta.4335 (2020-06-05)
+
+### Bug Fixes
+
+- **corsproxy:** removing cors proxy on production environments
+  ([#2633](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2633))
+  ([81a4587](https://github.com/carbon-design-system/ibm-dotcom-library/commit/81a4587))
+- **services:** fix uncaught rejections
+  ([#2655](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2655))
+  ([77b5298](https://github.com/carbon-design-system/ibm-dotcom-library/commit/77b5298))
+
+### Features
+
+- **component:** enhance card to support video
+  ([#2652](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2652))
+  ([d363d4f](https://github.com/carbon-design-system/ibm-dotcom-library/commit/d363d4f))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.7.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-services@1.7.0-rc.1...@carbon/ibmdotcom-services@1.7.0) (2020-05-27)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-services

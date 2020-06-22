@@ -8,6 +8,7 @@
 @import '../../../globals/imports';
 @import '../../../globals/utils/content-width';
 @import '../../../globals/utils/hang';
+@import '../../../components/buttongroup/buttongroup';
 
 @mixin leadspace-block {
   .#{$prefix}--leadspace-block {
@@ -30,13 +31,15 @@
       }
     }
 
-    &__heading {
-      @include carbon--type-style('expressive-heading-05', true);
-    }
-
     .#{$prefix}--content-block {
       padding-top: 0;
       padding-bottom: $layout-05;
+
+      &__copy {
+        p {
+          @include carbon--type-style('expressive-heading-03', true);
+        }
+      }
 
       @include carbon--breakpoint('sm') {
         padding-bottom: $layout-01;

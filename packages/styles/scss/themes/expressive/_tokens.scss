@@ -16,50 +16,371 @@
 /// @group carbon-expressive
 
 @mixin carbon-expressive-tokens {
+  // Container tokens
+  $container-01: 2rem !global;
+  $container-02: 2.5rem !global;
+  $container-03: 3rem !global;
+  $container-04: 3rem !global;
+  $container-05: 4.5rem !global;
+
+  // Icon size tokens
+  $icon-size-01: 1.25rem !global;
+
+  // Type tokens
+  $body-short-01: (
+    font-size: carbon--type-scale(3),
+    font-weight: carbon--font-weight('regular'),
+    line-height: carbon--rem(22px),
+    letter-spacing: 0,
+  ) !global;
+
+  $body-long-01: (
+    font-size: carbon--type-scale(3),
+    font-weight: carbon--font-weight('regular'),
+    line-height: carbon--rem(24px),
+    letter-spacing: 0,
+  ) !global;
+
+  $label-01: (
+    font-size: carbon--type-scale(2),
+    font-weight: carbon--font-weight('regular'),
+    line-height: carbon--rem(18px),
+    letter-spacing: 0.16px,
+  ) !global;
+
+  $caption-01: (
+    font-size: carbon--type-scale(2),
+    font-weight: carbon--font-weight('regular'),
+    line-height: carbon--rem(18px),
+    letter-spacing: 0.16px,
+  ) !global;
+
+  $code-01: (
+    font-family: carbon--font-family('mono'),
+    font-size: carbon--type-scale(2),
+    font-weight: carbon--font-weight('regular'),
+    line-height: carbon--rem(20px),
+    letter-spacing: 0,
+  ) !global;
+
+  $code-02: (
+    font-family: carbon--font-family('mono'),
+    font-size: carbon--type-scale(3),
+    font-weight: carbon--font-weight('regular'),
+    line-height: carbon--rem(24px),
+    letter-spacing: 0,
+  ) !global;
+
+  $helper-text-01: (
+    font-size: carbon--type-scale(2),
+    font-weight: carbon--font-weight('regular'),
+    line-height: carbon--rem(18px),
+    letter-spacing: 0.16px,
+  ) !global;
+
+  $heading-01: (
+    font-size: carbon--type-scale(3),
+    font-weight: carbon--font-weight('semibold'),
+    line-height: carbon--rem(22px),
+    letter-spacing: 0,
+  ) !global;
+
+  $productive-heading-01: (
+    font-size: carbon--type-scale(3),
+    font-weight: carbon--font-weight('semibold'),
+    line-height: carbon--rem(22px),
+    letter-spacing: 0,
+  ) !global;
+
+  $expressive-heading-01: (
+    font-size: carbon--type-scale(2),
+    font-weight: carbon--font-weight('semibold'),
+    line-height: carbon--rem(20px),
+    letter-spacing: 0.16px,
+  ) !global;
+
+  // Ensures `$carbon--theme` and `$carbon--theme--themename` are in sync to:
+  // 1) Ensure `@include carbon--theme()` call in `_theme-tokens.scss` picks up correct type token values.
+  //    Ref: https://unpkg.com/browse/@carbon/themes@10.12.0/scss/generated/_mixins.scss
+  // 2) Ensure the comparison in `@function get-token-value` works.
+  //    Ref: https://github.com/carbon-design-system/carbon/blob/v10.11.0/packages/components/src/globals/scss/_component-tokens.scss#L28
+  $carbon--theme: map-merge(
+    $carbon--theme,
+    (
+      caption-01: $caption-01,
+      label-01: $label-01,
+      helper-text-01: $helper-text-01,
+      body-short-01: $body-short-01,
+      body-long-01: $body-long-01,
+      code-01: $code-01,
+      code-02: $code-02,
+      heading-01: $heading-01,
+      productive-heading-01: $productive-heading-01,
+      expressive-heading-01: $expressive-heading-01,
+      container-01: $container-01,
+      container-02: $container-02,
+      container-03: $container-03,
+      container-04: $container-04,
+      container-05: $container-05,
+      icon-size-01: $icon-size-01,
+    )
+  ) !global;
+
+  $carbon--theme--white: map-merge(
+    $carbon--theme--white,
+    (
+      caption-01: $caption-01,
+      label-01: $label-01,
+      helper-text-01: $helper-text-01,
+      body-short-01: $body-short-01,
+      body-long-01: $body-long-01,
+      code-01: $code-01,
+      code-02: $code-02,
+      heading-01: $heading-01,
+      productive-heading-01: $productive-heading-01,
+      expressive-heading-01: $expressive-heading-01,
+      container-01: $container-01,
+      container-02: $container-02,
+      container-03: $container-03,
+      container-04: $container-04,
+      container-05: $container-05,
+      icon-size-01: $icon-size-01,
+    )
+  ) !global;
+
+  $carbon--theme--g10: map-merge(
+    $carbon--theme--g10,
+    (
+      caption-01: $caption-01,
+      label-01: $label-01,
+      helper-text-01: $helper-text-01,
+      body-short-01: $body-short-01,
+      body-long-01: $body-long-01,
+      code-01: $code-01,
+      code-02: $code-02,
+      heading-01: $heading-01,
+      productive-heading-01: $productive-heading-01,
+      expressive-heading-01: $expressive-heading-01,
+      container-01: $container-01,
+      container-02: $container-02,
+      container-03: $container-03,
+      container-04: $container-04,
+      container-05: $container-05,
+      icon-size-01: $icon-size-01,
+    )
+  ) !global;
+
+  $carbon--theme--g90: map-merge(
+    $carbon--theme--g90,
+    (
+      caption-01: $caption-01,
+      label-01: $label-01,
+      helper-text-01: $helper-text-01,
+      body-short-01: $body-short-01,
+      body-long-01: $body-long-01,
+      code-01: $code-01,
+      code-02: $code-02,
+      heading-01: $heading-01,
+      productive-heading-01: $productive-heading-01,
+      expressive-heading-01: $expressive-heading-01,
+      container-01: $container-01,
+      container-02: $container-02,
+      container-03: $container-03,
+      container-04: $container-04,
+      container-05: $container-05,
+      icon-size-01: $icon-size-01,
+    )
+  ) !global;
+
+  $carbon--theme--g100: map-merge(
+    $carbon--theme--g100,
+    (
+      caption-01: $caption-01,
+      label-01: $label-01,
+      helper-text-01: $helper-text-01,
+      body-short-01: $body-short-01,
+      body-long-01: $body-long-01,
+      code-01: $code-01,
+      code-02: $code-02,
+      heading-01: $heading-01,
+      productive-heading-01: $productive-heading-01,
+      expressive-heading-01: $expressive-heading-01,
+      container-01: $container-01,
+      container-02: $container-02,
+      container-03: $container-03,
+      container-04: $container-04,
+      container-05: $container-05,
+      icon-size-01: $icon-size-01,
+    )
+  );
+
   :root {
+    // Container tokens
+    --#{$custom-property-prefix}-container-01: #{$container-01};
+    --#{$custom-property-prefix}-container-02: #{$container-02};
+    --#{$custom-property-prefix}-container-03: #{$container-03};
+    --#{$custom-property-prefix}-container-04: #{$container-04};
+    --#{$custom-property-prefix}-container-05: #{$container-05};
+
+    // Icon size tokens
+    --#{$custom-property-prefix}-icon-size-01: #{$icon-size-01};
+
     // body-short-01
-    --#{$custom-property-prefix}-body-short-01-font-size: 1rem; /* carbon--type-scale(3) */
-    --#{$custom-property-prefix}-body-short-01-line-height: 1.375rem; /* carbon--rem(22px) */
-    --#{$custom-property-prefix}-body-short-01-letter-spacing: 0;
+    --#{$custom-property-prefix}-body-short-01-font-size: #{map-get(
+        $body-short-01,
+        'font-size'
+      )};
+    --#{$custom-property-prefix}-body-short-01-line-height: #{map-get(
+        $body-short-01,
+        'line-height'
+      )};
+    --#{$custom-property-prefix}-body-short-01-letter-spacing: #{map-get(
+        $body-short-01,
+        'letter-spacing'
+      )};
 
     // body-long-01
-    --#{$custom-property-prefix}-body-long-01-font-size: 1rem; /* carbon--type-scale(3) */
-    --#{$custom-property-prefix}-body-long-01-line-height: 1.5rem; /* carbon--rem(24px) */
-    --#{$custom-property-prefix}-body-long-01-letter-spacing: 0;
+    --#{$custom-property-prefix}-body-long-01-font-size: #{map-get(
+        $body-long-01,
+        'font-size'
+      )};
+    --#{$custom-property-prefix}-body-long-01-line-height: #{map-get(
+        $body-long-01,
+        'line-height'
+      )};
+    --#{$custom-property-prefix}-body-long-01-letter-spacing: #{map-get(
+        $body-long-01,
+        'letter-spacing'
+      )};
 
     // label-01
-    --#{$custom-property-prefix}-label-01-font-size: 0.875rem; /* carbon--type-scale(2) */
-    --#{$custom-property-prefix}-label-01-line-height: 1.125rem; /* carbon--rem(18px) */
-    --#{$custom-property-prefix}-label-01-letter-spacing: 0.16px;
+    --#{$custom-property-prefix}-label-01-font-size: #{map-get(
+        $label-01,
+        'font-size'
+      )};
+    --#{$custom-property-prefix}-label-01-line-height: #{map-get(
+        $label-01,
+        'line-height'
+      )};
+    --#{$custom-property-prefix}-label-01-letter-spacing: #{map-get(
+        $label-01,
+        'letter-spacing'
+      )};
 
     // caption-01
-    --#{$custom-property-prefix}-caption-01-font-size: 0.875rem; /* carbon--type-scale(2) */
-    --#{$custom-property-prefix}-caption-01-line-height: 1.125rem; /* carbon--rem(18px) */
-    --#{$custom-property-prefix}-caption-01-letter-spacing: 0.16px;
+    --#{$custom-property-prefix}-caption-01-font-size: #{map-get(
+        $caption-01,
+        'font-size'
+      )};
+    --#{$custom-property-prefix}-caption-01-line-height: #{map-get(
+        $caption-01,
+        'line-height'
+      )};
+    --#{$custom-property-prefix}-caption-01-letter-spacing: #{map-get(
+        $caption-01,
+        'letter-spacing'
+      )};
 
     // code-01
-    --#{$custom-property-prefix}-code-01-font-size: 0.875rem; /* carbon--type-scale(2) */
-    --#{$custom-property-prefix}-code-01-line-height: 1.25rem; /* carbon--rem(20px) */
-    --#{$custom-property-prefix}-code-01-letter-spacing: 0;
+    --#{$custom-property-prefix}-code-01-font-size: #{map-get(
+        $code-01,
+        'font-size'
+      )};
+    --#{$custom-property-prefix}-code-01-line-height: #{map-get(
+        $code-01,
+        'line-height'
+      )};
+    --#{$custom-property-prefix}-code-01-letter-spacing: #{map-get(
+        $code-01,
+        'letter-spacing'
+      )};
 
     // code-02
-    --#{$custom-property-prefix}-code-02-font-size: 1rem; /* carbon--type-scale(3) */
-    --#{$custom-property-prefix}-code-02-line-height: 1.5rem; /* carbon--rem(24px) */
-    --#{$custom-property-prefix}-code-02-letter-spacing: 0;
+    --#{$custom-property-prefix}-code-02-font-size: #{map-get(
+        $code-02,
+        'font-size'
+      )};
+    --#{$custom-property-prefix}-code-02-line-height: #{map-get(
+        $code-02,
+        'line-height'
+      )};
+    --#{$custom-property-prefix}-code-02-letter-spacing: #{map-get(
+        $code-02,
+        'letter-spacing'
+      )};
 
     // helper-text-01
-    --#{$custom-property-prefix}-helper-text-01-font-size: 0.875rem; /* carbon--type-scale(2) */
-    --#{$custom-property-prefix}-helper-text-01-line-height: 1.125rem; /* carbon--rem(18px) */
-    --#{$custom-property-prefix}-helper-text-01-letter-spacing: 0.16px;
+    --#{$custom-property-prefix}-helper-text-01-font-size: #{map-get(
+        $helper-text-01,
+        'font-size'
+      )};
+    --#{$custom-property-prefix}-helper-text-01-line-height: #{map-get(
+        $helper-text-01,
+        'line-height'
+      )};
+    --#{$custom-property-prefix}-helper-text-01-letter-spacing: #{map-get(
+        $helper-text-01,
+        'letter-spacing'
+      )};
 
     // productive-heading-01
-    --#{$custom-property-prefix}-productive-heading-01-font-size: 1rem; /* carbon--type-scale(3) */
-    --#{$custom-property-prefix}-productive-heading-01-line-height: 1.25rem; /* carbon--rem(22px) */
-    --#{$custom-property-prefix}-productive-heading-01-letter-spacing: 0;
+    --#{$custom-property-prefix}-productive-heading-01-font-size: #{map-get(
+        $productive-heading-01,
+        'font-size'
+      )};
+    --#{$custom-property-prefix}-productive-heading-01-line-height: #{map-get(
+        $productive-heading-01,
+        'line-height'
+      )};
+    --#{$custom-property-prefix}-productive-heading-01-letter-spacing: #{map-get(
+        $productive-heading-01,
+        'letter-spacing'
+      )};
 
     // expressive-heading-01
-    --#{$custom-property-prefix}-expressive-heading-01-font-size: 0.875rem; /* carbon--type-scale(2) */
-    --#{$custom-property-prefix}-expressive-heading-01-line-height: 1.25rem; /* carbon--rem(20px) */
-    --#{$custom-property-prefix}-expressive-heading-01-letter-spacing: 0.16px;
+    --#{$custom-property-prefix}-expressive-heading-01-font-size: #{map-get(
+        $expressive-heading-01,
+        'font-size'
+      )};
+    --#{$custom-property-prefix}-expressive-heading-01-line-height: #{map-get(
+        $expressive-heading-01,
+        'line-height'
+      )};
+    --#{$custom-property-prefix}-expressive-heading-01-letter-spacing: #{map-get(
+        $expressive-heading-01,
+        'letter-spacing'
+      )};
   }
+}
+
+@mixin carbon-expressive-component-tokens {
+  /// @type Number
+  /// @access public
+  /// @group button
+  $button-height: $container-04 !default !global;
+
+  /// @type Number
+  /// @access private
+  /// @group button
+  $button-sm-height: $container-02 !default !global;
+
+  /// @type Number
+  /// @access private
+  /// @group button
+  $button-field-height: $container-03 !default !global;
+
+  /// @type Number
+  /// @access private
+  /// @group form
+  $input-height: $container-03 !default !global;
+
+  /// @type Number
+  /// @access private
+  /// @group tabs
+  $tab-height: $container-03 !default !global;
+
+  /// @type Number
+  /// @access private
+  /// @group tabs
+  $tab-container-height: $container-04 !default !global;
 }
