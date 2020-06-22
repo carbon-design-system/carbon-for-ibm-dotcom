@@ -125,16 +125,6 @@ WithHeadingContent.story = {
               justifyContent: 'center',
             }}
           />
-          // <div
-          //   style={{
-          //     background: '#f4f4f4',
-          //     height: '200px',
-          //     display: 'flex',
-          //     alignItems: 'center',
-          //     justifyContent: 'center',
-          //   }}>
-          //   <h4>Example children</h4>
-          // </div>
         ),
       }),
     },
