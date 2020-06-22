@@ -1,5 +1,5 @@
 {
-  "name": "ibmdotcom-react-tableofcontents-example",
+  "name": "ibmdotcom-react-pictogramitem-example",
   "private": true,
   "version": "1.0.0",
   "main": "index.html",
@@ -12,12 +12,13 @@
     "@carbon/ibmdotcom-styles": "latest",
     "@carbon/icons-react": "10.11.0",
     "react": "16.9.0",
-    "react-dom": "16.9.0"
+    "react-dom": "16.9.0",
+    "sass": "1.26.8"
   },
   "devDependencies": {
-    "@babel/core": "^7.10.0",
-    "parcel-bundler": "latest",
-    "sass": "1.26.8"
+    "@babel/core": "7.2.0",
+    "@carbon/pictograms-react": "10.10.2",
+    "parcel-bundler": "latest"
   },
   "sass": {
     "includePaths": [
