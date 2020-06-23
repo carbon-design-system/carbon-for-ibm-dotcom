@@ -2475,7 +2475,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                           <button
                                                             className="bx--video-player__image-overlay"
                                                             data-autoid="dds--video-player__image-overlay"
-                                                            id="video-thumbnail-overlay"
                                                             onClick={[Function]}
                                                           >
                                                             <Image
@@ -4392,7 +4391,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                 <button
                                                                   className="bx--video-player__image-overlay"
                                                                   data-autoid="dds--video-player__image-overlay"
-                                                                  id="video-thumbnail-overlay"
                                                                   onClick={[Function]}
                                                                 >
                                                                   <Image
@@ -16114,7 +16112,6 @@ exports[`Storyshots Components|VideoPlayer Default 1`] = `
                     <button
                       className="bx--video-player__image-overlay"
                       data-autoid="dds--video-player__image-overlay"
-                      id="video-thumbnail-overlay"
                       onClick={[Function]}
                     >
                       <Image
