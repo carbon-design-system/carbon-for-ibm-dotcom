@@ -7,7 +7,7 @@
 
 import { ButtonGroup } from '../../../components/ButtonGroup';
 import classnames from 'classnames';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import { Image } from '../../../components/Image';
 import PropTypes from 'prop-types';
 import React from 'react';

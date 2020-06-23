@@ -9,11 +9,12 @@ import DDOAPI from '../DDO';
 import digitalDataResponse from './data/response.json';
 import root from 'window-or-global';
 
-jest.mock('@carbon/ibmdotcom-utilities', () => ({
-  settings: {
+jest.mock(
+  '@carbon/ibmdotcom-utilities/lib/utilities/settings/settings',
+  () => ({
     version: 'dds.v1.0.0',
-  },
-}));
+  })
+);
 
 describe('DDOAPI', () => {
   beforeEach(function() {
