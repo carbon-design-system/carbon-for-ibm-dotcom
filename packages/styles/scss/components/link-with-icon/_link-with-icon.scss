@@ -7,6 +7,7 @@
 
 @import '../../globals/imports';
 @import '../../temp-carbon-expressive/link/link-expressive';
+@import '../lightbox-media-viewer/lightbox-media-viewer';
 
 @mixin link-with-icon {
   .#{$prefix}--link-with-icon__container {

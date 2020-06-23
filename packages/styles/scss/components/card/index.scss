@@ -11,6 +11,7 @@
 
 @import 'carbon-components/scss/components/link/link';
 @import 'carbon-components/scss/components/tile/tile';
+@import '../lightbox-media-viewer/lightbox-media-viewer';
 
 @mixin card {
   .#{$prefix}--card {

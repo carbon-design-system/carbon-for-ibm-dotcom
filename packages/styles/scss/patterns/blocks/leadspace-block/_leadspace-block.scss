@@ -8,6 +8,7 @@
 @import '../../../globals/imports';
 @import '../../../globals/utils/content-width';
 @import '../../../globals/utils/hang';
+@import '../../../components/buttongroup/buttongroup';
 
 @mixin leadspace-block {
   .#{$prefix}--leadspace-block {
