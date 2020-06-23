@@ -36,19 +36,23 @@ const CTASection = ({ heading, copy, cta, items, theme }) => {
       data-autoid={`${stablePrefix}--cta-section`}
       className={classNames(`${prefix}--cta-section`, _setTheme(theme))}>
       <ContentBlock heading={heading} copy={copy} cta={cta} />
-      <hr className={`${prefix}--horizontal-line`} />
-      <div className={`${prefix}--helper-wrapper`}>
-        <div className={`${prefix}--content-item-wrapper`}>
-          {items.map((item, index) => (
-            <ContentItem
-              key={index}
-              heading={item.heading}
-              copy={item.copy}
-              cta={item.cta}
-            />
-          ))}
-        </div>
-      </div>
+      {items && (
+        <>
+          <hr className={`${prefix}--horizontal-line`} />
+          <div className={`${prefix}--helper-wrapper`}>
+            <div className={`${prefix}--content-item-wrapper`}>
+              {items.map((item, index) => (
+                <ContentItem
+                  key={index}
+                  heading={item.heading}
+                  copy={item.copy}
+                  cta={item.cta}
+                />
+              ))}
+            </div>
+          </div>
+        </>
+      )}
     </section>
   );
 };
