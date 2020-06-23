@@ -56,7 +56,6 @@
         @include carbon--breakpoint(lg) {
           margin-bottom: $layout-05;
         }
-
         p {
           color: $text-01;
         }
@@ -67,10 +66,8 @@
         @include carbon--breakpoint(md) {
           margin-left: $carbon--spacing-06;
         }
-
         .#{$prefix}--link-list {
           padding: 0;
-
           &:first-of-type {
             padding: 0;
           }
