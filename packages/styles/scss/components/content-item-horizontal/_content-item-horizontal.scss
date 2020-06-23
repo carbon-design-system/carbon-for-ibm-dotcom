@@ -50,6 +50,7 @@
           margin-bottom: $carbon--spacing-07;
         }
         @include carbon--breakpoint(md) {
+          margin-left: $carbon--spacing-06;
           margin-bottom: $layout-05;
         }
         @include carbon--breakpoint(lg) {
@@ -63,6 +64,9 @@
 
       &--cta {
         margin-top: auto;
+        @include carbon--breakpoint(md) {
+          margin-left: $carbon--spacing-06;
+        }
 
         .#{$prefix}--link-list {
           padding: 0;
