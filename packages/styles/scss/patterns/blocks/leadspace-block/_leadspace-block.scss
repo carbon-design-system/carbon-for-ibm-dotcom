@@ -31,6 +31,11 @@
       }
     }
 
+    &__media {
+      width: 100%;
+      max-width: carbon--mini-units(80);
+    }
+
     .#{$prefix}--content-block {
       padding-top: 0;
       padding-bottom: $layout-05;
