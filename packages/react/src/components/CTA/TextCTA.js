@@ -14,6 +14,7 @@ import React from 'react';
  */
 const TextCTA = ({
   type,
+  direction,
   openLightBox,
   renderLightBox,
   videoTitle,
@@ -33,6 +34,7 @@ const TextCTA = ({
         <LinkWithIcon
           href="#"
           type={type}
+          direction={direction}
           onClick={e => CTALogic.setLightBox(e, openLightBox)}>
           <span>
             {formatCTAcopy({
@@ -49,6 +51,7 @@ const TextCTA = ({
       target={CTALogic.external(type)}
       copy={otherProps.copy}
       type={type}
+      direction={direction}
       onClick={e => CTALogic.jump(e, type)}></LinkWithIcon>
   );
 };
@@ -75,6 +78,17 @@ TextCTA.propTypes = {
     PropTypes.arrayOf(
       PropTypes.oneOf(['jump', 'external', 'download', 'video'])
     ),
+  ]),
+  /***  icon direction
+   *
+   * | Name         | Data Type | Description           |
+   * | ------------ | --------- | --------------------- |
+   * | `left`       | String    | icon on the left      |
+   * | `right`      | string    | icon on the right     |
+   */
+  direction: PropTypes.oneOfType([
+    PropTypes.oneOf(['right', 'left']),
+    PropTypes.arrayOf(PropTypes.oneOf(['right', 'left'])),
   ]),
 
   /**
@@ -107,6 +121,7 @@ TextCTA.propTypes = {
 TextCTA.defaultProps = {
   type: 'default',
   formatCTAcopy: ({ title, duration }) => `${title} ${duration}`,
+  direction: 'right',
 };
 
 export default TextCTA;

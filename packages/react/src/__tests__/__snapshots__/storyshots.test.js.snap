@@ -217,6 +217,7 @@ exports[`Storyshots Components|CTA Default 1`] = `
         >
           <CTA
             copy="Lorem ipsum dolor sit amet"
+            direction="right"
             href="https://www.example.com"
             media={
               Object {
@@ -230,6 +231,7 @@ exports[`Storyshots Components|CTA Default 1`] = `
             <div>
               <TextCTA
                 copy="Lorem ipsum dolor sit amet"
+                direction="right"
                 formatCTAcopy={[Function]}
                 href="https://www.example.com"
                 media={
@@ -1723,6 +1725,7 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
                                       "href": "https://ibm.com",
                                     }
                                   }
+                                  direction="right"
                                   disableImage={true}
                                   formatCTAcopy={[Function]}
                                   href=""
@@ -1826,6 +1829,7 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
                                       "href": "https://ibm.com",
                                     }
                                   }
+                                  direction="right"
                                   disableImage={true}
                                   formatCTAcopy={[Function]}
                                   href=""
@@ -10152,6 +10156,7 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                             "href": "https://ibm.com",
                           }
                         }
+                        direction="right"
                         disableImage={true}
                         formatCTAcopy={[Function]}
                         href=""
@@ -10255,6 +10260,7 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                             "href": "https://ibm.com",
                           }
                         }
+                        direction="right"
                         disableImage={true}
                         formatCTAcopy={[Function]}
                         href=""
@@ -10361,6 +10367,7 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                             "href": "https://ibm.com",
                           }
                         }
+                        direction="right"
                         disableImage={true}
                         formatCTAcopy={[Function]}
                         href=""
@@ -10463,6 +10470,7 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                     <div>
                       <TextCTA
                         copy=""
+                        direction="right"
                         disableImage={true}
                         formatCTAcopy={[Function]}
                         href=""
@@ -10647,6 +10655,7 @@ exports[`Storyshots Components|LinkList Horizontal 1`] = `
                             "href": "https://ibm.com",
                           }
                         }
+                        direction="right"
                         disableImage={true}
                         formatCTAcopy={[Function]}
                         href=""
@@ -10750,6 +10759,7 @@ exports[`Storyshots Components|LinkList Horizontal 1`] = `
                             "href": "https://ibm.com",
                           }
                         }
+                        direction="right"
                         disableImage={true}
                         formatCTAcopy={[Function]}
                         href=""
@@ -10876,8 +10886,10 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                 Object {
                   "copy": "Learn more",
                   "cta": Object {
+                    "direction": "left",
                     "href": "https://ibm.com",
                   },
+                  "direction": "left",
                   "type": "local",
                 },
                 Object {
@@ -10885,6 +10897,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                   "cta": Object {
                     "href": "https://ibm.com",
                   },
+                  "direction": "left",
                   "type": "download",
                 },
                 Object {
@@ -10892,9 +10905,11 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                   "cta": Object {
                     "href": "https://ibm.com",
                   },
+                  "direction": "left",
                   "type": "external",
                 },
                 Object {
+                  "direction": "left",
                   "media": Object {
                     "src": "0_uka1msg4",
                     "type": "video",
@@ -10925,9 +10940,11 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                     copy="Learn more"
                     cta={
                       Object {
+                        "direction": "left",
                         "href": "https://ibm.com",
                       }
                     }
+                    direction="left"
                     disableImage={true}
                     href=""
                     style="text"
@@ -10938,9 +10955,11 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                         copy="Learn more"
                         cta={
                           Object {
+                            "direction": "left",
                             "href": "https://ibm.com",
                           }
                         }
+                        direction="left"
                         disableImage={true}
                         formatCTAcopy={[Function]}
                         href=""
@@ -10960,7 +10979,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                       >
                         <LinkWithIcon
                           copy="Learn more"
-                          direction="right"
+                          direction="left"
                           disabled={false}
                           href="https://ibm.com"
                           onClick={[Function]}
@@ -10984,12 +11003,11 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                                 onClick={[Function]}
                                 target={null}
                               >
-                                Learn more
                                 <ForwardRef(ArrowRight20)
-                                  className="bx--link-with-icon_right-icon"
+                                  className="bx--link-with-icon_left-icon"
                                 >
                                   <Icon
-                                    className="bx--link-with-icon_right-icon"
+                                    className="bx--link-with-icon_left-icon"
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
                                     viewBox="0 0 20 20"
@@ -10998,7 +11016,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                                   >
                                     <svg
                                       aria-hidden={true}
-                                      className="bx--link-with-icon_right-icon"
+                                      className="bx--link-with-icon_left-icon"
                                       focusable="false"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
@@ -11012,6 +11030,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                                     </svg>
                                   </Icon>
                                 </ForwardRef(ArrowRight20)>
+                                Learn more
                               </a>
                             </Link>
                           </div>
@@ -11031,6 +11050,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                         "href": "https://ibm.com",
                       }
                     }
+                    direction="left"
                     disableImage={true}
                     href=""
                     style="text"
@@ -11044,6 +11064,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                             "href": "https://ibm.com",
                           }
                         }
+                        direction="left"
                         disableImage={true}
                         formatCTAcopy={[Function]}
                         href=""
@@ -11063,7 +11084,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                       >
                         <LinkWithIcon
                           copy="Containerization A Complete Guide"
-                          direction="right"
+                          direction="left"
                           disabled={false}
                           href="https://ibm.com"
                           onClick={[Function]}
@@ -11087,12 +11108,11 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                                 onClick={[Function]}
                                 target={null}
                               >
-                                Containerization A Complete Guide
                                 <ForwardRef(Download20)
-                                  className="bx--link-with-icon_right-icon"
+                                  className="bx--link-with-icon_left-icon"
                                 >
                                   <Icon
-                                    className="bx--link-with-icon_right-icon"
+                                    className="bx--link-with-icon_left-icon"
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
                                     viewBox="0 0 32 32"
@@ -11101,7 +11121,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                                   >
                                     <svg
                                       aria-hidden={true}
-                                      className="bx--link-with-icon_right-icon"
+                                      className="bx--link-with-icon_left-icon"
                                       focusable="false"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
@@ -11118,6 +11138,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                                     </svg>
                                   </Icon>
                                 </ForwardRef(Download20)>
+                                Containerization A Complete Guide
                               </a>
                             </Link>
                           </div>
@@ -11137,6 +11158,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                         "href": "https://ibm.com",
                       }
                     }
+                    direction="left"
                     disableImage={true}
                     href=""
                     style="text"
@@ -11150,6 +11172,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                             "href": "https://ibm.com",
                           }
                         }
+                        direction="left"
                         disableImage={true}
                         formatCTAcopy={[Function]}
                         href=""
@@ -11169,7 +11192,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                       >
                         <LinkWithIcon
                           copy="Microservices and containers"
-                          direction="right"
+                          direction="left"
                           disabled={false}
                           href="https://ibm.com"
                           onClick={[Function]}
@@ -11193,12 +11216,11 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                                 onClick={[Function]}
                                 target="_blank"
                               >
-                                Microservices and containers
                                 <ForwardRef(Launch20)
-                                  className="bx--link-with-icon_right-icon"
+                                  className="bx--link-with-icon_left-icon"
                                 >
                                   <Icon
-                                    className="bx--link-with-icon_right-icon"
+                                    className="bx--link-with-icon_left-icon"
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
                                     viewBox="0 0 32 32"
@@ -11207,7 +11229,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                                   >
                                     <svg
                                       aria-hidden={true}
-                                      className="bx--link-with-icon_right-icon"
+                                      className="bx--link-with-icon_left-icon"
                                       focusable="false"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
@@ -11224,6 +11246,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                                     </svg>
                                   </Icon>
                                 </ForwardRef(Launch20)>
+                                Microservices and containers
                               </a>
                             </Link>
                           </div>
@@ -11238,6 +11261,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                 >
                   <CTA
                     copy=""
+                    direction="left"
                     disableImage={true}
                     href=""
                     media={
@@ -11252,6 +11276,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                     <div>
                       <TextCTA
                         copy=""
+                        direction="left"
                         disableImage={true}
                         formatCTAcopy={[Function]}
                         href=""
@@ -11278,7 +11303,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                         <div>
                           <LinkWithIcon
                             copy=""
-                            direction="right"
+                            direction="left"
                             disabled={false}
                             href="#"
                             onClick={[Function]}
@@ -11299,14 +11324,11 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                                   href="#"
                                   onClick={[Function]}
                                 >
-                                  <span>
-                                     
-                                  </span>
                                   <ForwardRef(PlayOutline20)
-                                    className="bx--link-with-icon_right-icon"
+                                    className="bx--link-with-icon_left-icon"
                                   >
                                     <Icon
-                                      className="bx--link-with-icon_right-icon"
+                                      className="bx--link-with-icon_left-icon"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
                                       viewBox="0 0 32 32"
@@ -11315,7 +11337,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                                     >
                                       <svg
                                         aria-hidden={true}
-                                        className="bx--link-with-icon_right-icon"
+                                        className="bx--link-with-icon_left-icon"
                                         focusable="false"
                                         height={20}
                                         preserveAspectRatio="xMidYMid meet"
@@ -11332,6 +11354,9 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                                       </svg>
                                     </Icon>
                                   </ForwardRef(PlayOutline20)>
+                                  <span>
+                                     
+                                  </span>
                                 </a>
                               </Link>
                             </div>
@@ -11387,6 +11412,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                   "cta": Object {
                     "href": "https://ibm.com",
                   },
+                  "direction": "left",
                   "type": "local",
                 },
                 Object {
@@ -11394,6 +11420,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                   "cta": Object {
                     "href": "https://ibm.com",
                   },
+                  "direction": "left",
                   "type": "download",
                 },
                 Object {
@@ -11401,9 +11428,11 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                   "cta": Object {
                     "href": "https://ibm.com",
                   },
+                  "direction": "left",
                   "type": "external",
                 },
                 Object {
+                  "direction": "left",
                   "media": Object {
                     "src": "0_uka1msg4",
                     "type": "video",
@@ -11437,6 +11466,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                         "href": "https://ibm.com",
                       }
                     }
+                    direction="left"
                     disableImage={true}
                     href=""
                     style="text"
@@ -11450,6 +11480,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                             "href": "https://ibm.com",
                           }
                         }
+                        direction="left"
                         disableImage={true}
                         formatCTAcopy={[Function]}
                         href=""
@@ -11469,7 +11500,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                       >
                         <LinkWithIcon
                           copy="Learn more"
-                          direction="right"
+                          direction="left"
                           disabled={false}
                           href="https://ibm.com"
                           onClick={[Function]}
@@ -11493,12 +11524,11 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                 onClick={[Function]}
                                 target={null}
                               >
-                                Learn more
                                 <ForwardRef(ArrowRight20)
-                                  className="bx--link-with-icon_right-icon"
+                                  className="bx--link-with-icon_left-icon"
                                 >
                                   <Icon
-                                    className="bx--link-with-icon_right-icon"
+                                    className="bx--link-with-icon_left-icon"
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
                                     viewBox="0 0 20 20"
@@ -11507,7 +11537,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                   >
                                     <svg
                                       aria-hidden={true}
-                                      className="bx--link-with-icon_right-icon"
+                                      className="bx--link-with-icon_left-icon"
                                       focusable="false"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
@@ -11521,6 +11551,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                     </svg>
                                   </Icon>
                                 </ForwardRef(ArrowRight20)>
+                                Learn more
                               </a>
                             </Link>
                           </div>
@@ -11540,6 +11571,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                         "href": "https://ibm.com",
                       }
                     }
+                    direction="left"
                     disableImage={true}
                     href=""
                     style="text"
@@ -11553,6 +11585,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                             "href": "https://ibm.com",
                           }
                         }
+                        direction="left"
                         disableImage={true}
                         formatCTAcopy={[Function]}
                         href=""
@@ -11572,7 +11605,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                       >
                         <LinkWithIcon
                           copy="Containerization A Complete Guide"
-                          direction="right"
+                          direction="left"
                           disabled={false}
                           href="https://ibm.com"
                           onClick={[Function]}
@@ -11596,12 +11629,11 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                 onClick={[Function]}
                                 target={null}
                               >
-                                Containerization A Complete Guide
                                 <ForwardRef(Download20)
-                                  className="bx--link-with-icon_right-icon"
+                                  className="bx--link-with-icon_left-icon"
                                 >
                                   <Icon
-                                    className="bx--link-with-icon_right-icon"
+                                    className="bx--link-with-icon_left-icon"
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
                                     viewBox="0 0 32 32"
@@ -11610,7 +11642,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                   >
                                     <svg
                                       aria-hidden={true}
-                                      className="bx--link-with-icon_right-icon"
+                                      className="bx--link-with-icon_left-icon"
                                       focusable="false"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
@@ -11627,6 +11659,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                     </svg>
                                   </Icon>
                                 </ForwardRef(Download20)>
+                                Containerization A Complete Guide
                               </a>
                             </Link>
                           </div>
@@ -11646,6 +11679,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                         "href": "https://ibm.com",
                       }
                     }
+                    direction="left"
                     disableImage={true}
                     href=""
                     style="text"
@@ -11659,6 +11693,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                             "href": "https://ibm.com",
                           }
                         }
+                        direction="left"
                         disableImage={true}
                         formatCTAcopy={[Function]}
                         href=""
@@ -11678,7 +11713,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                       >
                         <LinkWithIcon
                           copy="Microservices and containers"
-                          direction="right"
+                          direction="left"
                           disabled={false}
                           href="https://ibm.com"
                           onClick={[Function]}
@@ -11702,12 +11737,11 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                 onClick={[Function]}
                                 target="_blank"
                               >
-                                Microservices and containers
                                 <ForwardRef(Launch20)
-                                  className="bx--link-with-icon_right-icon"
+                                  className="bx--link-with-icon_left-icon"
                                 >
                                   <Icon
-                                    className="bx--link-with-icon_right-icon"
+                                    className="bx--link-with-icon_left-icon"
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
                                     viewBox="0 0 32 32"
@@ -11716,7 +11750,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                   >
                                     <svg
                                       aria-hidden={true}
-                                      className="bx--link-with-icon_right-icon"
+                                      className="bx--link-with-icon_left-icon"
                                       focusable="false"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
@@ -11733,6 +11767,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                     </svg>
                                   </Icon>
                                 </ForwardRef(Launch20)>
+                                Microservices and containers
                               </a>
                             </Link>
                           </div>
@@ -11747,6 +11782,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                 >
                   <CTA
                     copy=""
+                    direction="left"
                     disableImage={true}
                     href=""
                     media={
@@ -11761,6 +11797,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                     <div>
                       <TextCTA
                         copy=""
+                        direction="left"
                         disableImage={true}
                         formatCTAcopy={[Function]}
                         href=""
@@ -11787,7 +11824,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                         <div>
                           <LinkWithIcon
                             copy=""
-                            direction="right"
+                            direction="left"
                             disabled={false}
                             href="#"
                             onClick={[Function]}
@@ -11808,14 +11845,11 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                   href="#"
                                   onClick={[Function]}
                                 >
-                                  <span>
-                                     
-                                  </span>
                                   <ForwardRef(PlayOutline20)
-                                    className="bx--link-with-icon_right-icon"
+                                    className="bx--link-with-icon_left-icon"
                                   >
                                     <Icon
-                                      className="bx--link-with-icon_right-icon"
+                                      className="bx--link-with-icon_left-icon"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
                                       viewBox="0 0 32 32"
@@ -11824,7 +11858,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                     >
                                       <svg
                                         aria-hidden={true}
-                                        className="bx--link-with-icon_right-icon"
+                                        className="bx--link-with-icon_left-icon"
                                         focusable="false"
                                         height={20}
                                         preserveAspectRatio="xMidYMid meet"
@@ -11841,6 +11875,9 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                       </svg>
                                     </Icon>
                                   </ForwardRef(PlayOutline20)>
+                                  <span>
+                                     
+                                  </span>
                                 </a>
                               </Link>
                             </div>
@@ -11862,6 +11899,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                   "cta": Object {
                     "href": "https://ibm.com",
                   },
+                  "direction": "left",
                   "type": "local",
                 },
                 Object {
@@ -11869,6 +11907,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                   "cta": Object {
                     "href": "https://ibm.com",
                   },
+                  "direction": "left",
                   "type": "download",
                 },
                 Object {
@@ -11876,9 +11915,11 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                   "cta": Object {
                     "href": "https://ibm.com",
                   },
+                  "direction": "left",
                   "type": "external",
                 },
                 Object {
+                  "direction": "left",
                   "media": Object {
                     "src": "0_uka1msg4",
                     "type": "video",
@@ -11912,6 +11953,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                         "href": "https://ibm.com",
                       }
                     }
+                    direction="left"
                     disableImage={true}
                     href=""
                     style="card"
@@ -11928,6 +11970,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                             "href": "https://ibm.com",
                           }
                         }
+                        direction="left"
                         disableImage={true}
                         href=""
                         media={null}
@@ -11959,6 +12002,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                 },
                                 "type": "local",
                               },
+                              "direction": "left",
                               "href": "",
                               "media": null,
                               "target": null,
@@ -11981,6 +12025,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                               }
                             }
                             customClassName="bx--card__CTA"
+                            direction="left"
                             disabled={false}
                             href=""
                             media={null}
@@ -11991,6 +12036,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                               className="bx--card bx--card--link bx--card__CTA"
                               clicked={false}
                               data-autoid="dds--card"
+                              direction="left"
                               disabled={false}
                               handleClick={[Function]}
                               handleKeyDown={[Function]}
@@ -12003,6 +12049,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                               <a
                                 className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
                                 data-autoid="dds--card"
+                                direction="left"
                                 disabled={false}
                                 href=""
                                 media={null}
@@ -12091,6 +12138,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                         "href": "https://ibm.com",
                       }
                     }
+                    direction="left"
                     disableImage={true}
                     href=""
                     style="card"
@@ -12107,6 +12155,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                             "href": "https://ibm.com",
                           }
                         }
+                        direction="left"
                         disableImage={true}
                         href=""
                         media={null}
@@ -12138,6 +12187,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                 },
                                 "type": "download",
                               },
+                              "direction": "left",
                               "href": "",
                               "media": null,
                               "target": null,
@@ -12160,6 +12210,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                               }
                             }
                             customClassName="bx--card__CTA"
+                            direction="left"
                             disabled={false}
                             href=""
                             media={null}
@@ -12170,6 +12221,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                               className="bx--card bx--card--link bx--card__CTA"
                               clicked={false}
                               data-autoid="dds--card"
+                              direction="left"
                               disabled={false}
                               handleClick={[Function]}
                               handleKeyDown={[Function]}
@@ -12182,6 +12234,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                               <a
                                 className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
                                 data-autoid="dds--card"
+                                direction="left"
                                 disabled={false}
                                 href=""
                                 media={null}
@@ -12273,6 +12326,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                         "href": "https://ibm.com",
                       }
                     }
+                    direction="left"
                     disableImage={true}
                     href=""
                     style="card"
@@ -12289,6 +12343,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                             "href": "https://ibm.com",
                           }
                         }
+                        direction="left"
                         disableImage={true}
                         href=""
                         media={null}
@@ -12320,6 +12375,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                 },
                                 "type": "external",
                               },
+                              "direction": "left",
                               "href": "",
                               "media": null,
                               "target": "_blank",
@@ -12342,6 +12398,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                               }
                             }
                             customClassName="bx--card__CTA"
+                            direction="left"
                             disabled={false}
                             href=""
                             media={null}
@@ -12352,6 +12409,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                               className="bx--card bx--card--link bx--card__CTA"
                               clicked={false}
                               data-autoid="dds--card"
+                              direction="left"
                               disabled={false}
                               handleClick={[Function]}
                               handleKeyDown={[Function]}
@@ -12364,6 +12422,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                               <a
                                 className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA"
                                 data-autoid="dds--card"
+                                direction="left"
                                 disabled={false}
                                 href=""
                                 media={null}
@@ -12450,6 +12509,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                 >
                   <CTA
                     copy=""
+                    direction="left"
                     disableImage={true}
                     href=""
                     media={
@@ -12468,6 +12528,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                       <CardCTA
                         copy=""
                         cta={null}
+                        direction="left"
                         disableImage={true}
                         href=""
                         media={
@@ -12504,6 +12565,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                   },
                                 },
                               },
+                              "direction": "left",
                               "handleClick": [Function],
                               "href": "",
                               "image": undefined,
@@ -12531,6 +12593,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                               }
                             }
                             customClassName="bx--card__CTA bx--card__video"
+                            direction="left"
                             disabled={false}
                             handleClick={[Function]}
                             href=""
@@ -12546,6 +12609,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                               className="bx--card bx--card--link bx--card__CTA bx--card__video"
                               clicked={false}
                               data-autoid="dds--card"
+                              direction="left"
                               disabled={false}
                               handleClick={[Function]}
                               handleKeyDown={[Function]}
@@ -12563,6 +12627,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                               <a
                                 className="bx--tile bx--tile--clickable bx--card bx--card--link bx--card__CTA bx--card__video"
                                 data-autoid="dds--card"
+                                direction="left"
                                 disabled={false}
                                 href=""
                                 media={
@@ -14615,6 +14680,7 @@ exports[`Storyshots Components|PictogramItem Default 1`] = `
                         >
                           <TextCTA
                             copy="Lorem ipsum dolor"
+                            direction="right"
                             formatCTAcopy={[Function]}
                             href="https://www.example.com"
                             openLightBox={[Function]}
@@ -21648,6 +21714,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                             >
                                               <TextCTA
                                                 copy="Lorem ipsum dolor"
+                                                direction="right"
                                                 formatCTAcopy={[Function]}
                                                 href="https://www.ibm.com"
                                                 openLightBox={[Function]}
@@ -21850,6 +21917,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                             >
                                               <TextCTA
                                                 copy="Lorem ipsum dolor"
+                                                direction="right"
                                                 formatCTAcopy={[Function]}
                                                 href="https://www.ibm.com"
                                                 openLightBox={[Function]}
@@ -22051,6 +22119,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                             >
                                               <TextCTA
                                                 copy="Lorem ipsum dolor"
+                                                direction="right"
                                                 formatCTAcopy={[Function]}
                                                 href="https://www.ibm.com"
                                                 openLightBox={[Function]}
@@ -23586,6 +23655,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                     >
                                                       <TextCTA
                                                         copy="Lorem ipsum dolor"
+                                                        direction="right"
                                                         formatCTAcopy={[Function]}
                                                         href="https://www.ibm.com"
                                                         openLightBox={[Function]}
@@ -23788,6 +23858,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                     >
                                                       <TextCTA
                                                         copy="Lorem ipsum dolor"
+                                                        direction="right"
                                                         formatCTAcopy={[Function]}
                                                         href="https://www.ibm.com"
                                                         openLightBox={[Function]}
@@ -23989,6 +24060,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                     >
                                                       <TextCTA
                                                         copy="Lorem ipsum dolor"
+                                                        direction="right"
                                                         formatCTAcopy={[Function]}
                                                         href="https://www.ibm.com"
                                                         openLightBox={[Function]}
@@ -25202,6 +25274,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                             >
                               <TextCTA
                                 copy="Lorem Ipsum dolor sit"
+                                direction="right"
                                 formatCTAcopy={[Function]}
                                 href="https://example.com"
                                 openLightBox={[Function]}
@@ -25440,6 +25513,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                             >
                               <TextCTA
                                 copy="Lorem Ipsum dolor sit"
+                                direction="right"
                                 formatCTAcopy={[Function]}
                                 href="https://example.com"
                                 openLightBox={[Function]}
@@ -28994,6 +29068,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                                 "href": "https://example.com",
                                               }
                                             }
+                                            direction="right"
                                             disableImage={true}
                                             formatCTAcopy={[Function]}
                                             href=""
@@ -29097,6 +29172,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                                 "href": "https://example.com",
                                               }
                                             }
+                                            direction="right"
                                             disableImage={true}
                                             formatCTAcopy={[Function]}
                                             href=""
@@ -29304,6 +29380,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                                 "href": "https://example.com",
                                               }
                                             }
+                                            direction="right"
                                             disableImage={true}
                                             formatCTAcopy={[Function]}
                                             href=""
@@ -29407,6 +29484,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                                 "href": "https://example.com",
                                               }
                                             }
+                                            direction="right"
                                             disableImage={true}
                                             formatCTAcopy={[Function]}
                                             href=""
@@ -29600,6 +29678,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                                 "href": "https://example.com",
                                               }
                                             }
+                                            direction="right"
                                             disableImage={true}
                                             formatCTAcopy={[Function]}
                                             href=""
@@ -31296,6 +31375,7 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                       "href": "https://ibm.com",
                                     }
                                   }
+                                  direction="right"
                                   disableImage={true}
                                   formatCTAcopy={[Function]}
                                   href=""
@@ -31399,6 +31479,7 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                       "href": "https://ibm.com",
                                     }
                                   }
+                                  direction="right"
                                   disableImage={true}
                                   formatCTAcopy={[Function]}
                                   href=""
@@ -31502,6 +31583,7 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                       "href": "https://ibm.com",
                                     }
                                   }
+                                  direction="right"
                                   disableImage={true}
                                   formatCTAcopy={[Function]}
                                   href=""
@@ -32745,6 +32827,7 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
                   >
                     <TextCTA
                       copy="Find a partner"
+                      direction="right"
                       formatCTAcopy={[Function]}
                       href="https://example.com/"
                       openLightBox={[Function]}
@@ -32867,6 +32950,7 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
                   >
                     <TextCTA
                       copy="Browse tutorials"
+                      direction="right"
                       formatCTAcopy={[Function]}
                       href="https://example.com/"
                       openLightBox={[Function]}

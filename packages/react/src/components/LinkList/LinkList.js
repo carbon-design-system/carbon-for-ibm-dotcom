@@ -24,6 +24,7 @@ const { prefix } = settings;
  */
 const LinkList = ({ heading, items, style }) => {
   const linkStyle = style === 'card' ? 'card' : 'text';
+  console.log('items', items);
   return (
     <div
       className={`${prefix}--link-list`}

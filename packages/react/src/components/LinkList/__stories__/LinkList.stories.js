@@ -83,13 +83,18 @@ Default.story = {
 };
 
 export const Horizontal = ({ parameters }) => {
-  const { heading, items } = parameters?.props?.LinkList ?? {};
+  const { heading, items, direction } = parameters?.props?.LinkList ?? {};
 
   return (
     <div className="bx--grid">
       <div className="bx--row">
         <div className="bx--col-sm-4 bx--col-lg-10 bx--offset-lg-4">
-          <LinkList style="horizontal" heading={heading} items={items} />
+          <LinkList
+            style="horizontal"
+            heading={heading}
+            items={items}
+            direction={direction}
+          />
         </div>
       </div>
     </div>
@@ -160,13 +165,16 @@ Vertical.story = {
         const items = [
           {
             type: types[1],
+            direction: 'left',
             copy: headlines[0],
             cta: {
               href: 'https://ibm.com',
+              direction: 'left',
             },
           },
           {
             type: types[0],
+            direction: 'left',
             copy: headlines[1],
             cta: {
               href: 'https://ibm.com',
@@ -174,6 +182,7 @@ Vertical.story = {
           },
           {
             type: types[2],
+            direction: 'left',
             copy: headlines[2],
             cta: {
               href: 'https://ibm.com',
@@ -181,6 +190,7 @@ Vertical.story = {
           },
           {
             type: types[3],
+            direction: 'left',
             media: {
               src: '0_uka1msg4',
               type: 'video',
@@ -226,6 +236,7 @@ VerticalWithCards.story = {
           {
             type: types[1],
             copy: headlines[0],
+            direction: 'left',
             cta: {
               href: 'https://ibm.com',
             },
@@ -233,6 +244,7 @@ VerticalWithCards.story = {
           {
             type: types[0],
             copy: headlines[1],
+            direction: 'left',
             cta: {
               href: 'https://ibm.com',
             },
@@ -240,12 +252,14 @@ VerticalWithCards.story = {
           {
             type: types[2],
             copy: headlines[2],
+            direction: 'left',
             cta: {
               href: 'https://ibm.com',
             },
           },
           {
             type: types[3],
+            direction: 'left',
             media: {
               src: '0_uka1msg4',
               type: 'video',

@@ -10,6 +10,7 @@
 
 @mixin link-with-icon {
   .#{$prefix}--link-with-icon__container {
+    @include reset;
     &--disabled {
       cursor: not-allowed;
     }
@@ -36,13 +37,11 @@
         border: 1px solid $focus;
       }
 
-      &:visited,
       &--visited {
         color: $visited-link;
         text-decoration: none;
       }
 
-      &:visited:hover,
       &--visited:hover {
         color: $visited-link;
         text-decoration: underline;

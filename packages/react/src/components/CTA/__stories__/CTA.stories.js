@@ -14,6 +14,7 @@ import { select } from '@storybook/addon-knobs';
 const styles = ['text', 'card', 'feature', 'button'];
 const types = ['local', 'download', 'jump', 'external', 'video', 'default'];
 const copy = ['Lorem ipsum dolor sit amet', 'Consectetur adipisicing elit'];
+const iconDirection = ['right', 'left'];
 
 const urlBy = {
   download:
@@ -29,6 +30,7 @@ const miscCTAData = {
     return {
       type: type,
       href: urlBy[type],
+      direction: select('style', iconDirection, iconDirection[0]),
       copy: copy[0],
       media: {
         src: '0_uka1msg4',
