@@ -1623,14 +1623,14 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
                           },
                         ]
                       }
-                      style="horizontal"
+                      style="vertical"
                     >
                       <div
                         className="bx--link-list"
                         data-autoid="dds--link-list"
                       >
                         <ul
-                          className="bx--link-list__list bx--link-list__list--horizontal"
+                          className="bx--link-list__list bx--link-list__list--vertical"
                         >
                           <li
                             className="bx--link-list__list__CTA bx--link-list__list--local"
@@ -4710,14 +4710,14 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                       },
                                                     ]
                                                   }
-                                                  style="horizontal"
+                                                  style="vertical"
                                                 >
                                                   <div
                                                     className="bx--link-list"
                                                     data-autoid="dds--link-list"
                                                   >
                                                     <ul
-                                                      className="bx--link-list__list bx--link-list__list--horizontal"
+                                                      className="bx--link-list__list bx--link-list__list--vertical"
                                                     >
                                                       <li
                                                         className="bx--link-list__list__CTA bx--link-list__list--local"
@@ -4978,14 +4978,14 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                       },
                                                     ]
                                                   }
-                                                  style="horizontal"
+                                                  style="vertical"
                                                 >
                                                   <div
                                                     className="bx--link-list"
                                                     data-autoid="dds--link-list"
                                                   >
                                                     <ul
-                                                      className="bx--link-list__list bx--link-list__list--horizontal"
+                                                      className="bx--link-list__list bx--link-list__list--vertical"
                                                     >
                                                       <li
                                                         className="bx--link-list__list__CTA bx--link-list__list--local"
@@ -28785,14 +28785,14 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                     },
                                   ]
                                 }
-                                style="horizontal"
+                                style="vertical"
                               >
                                 <div
                                   className="bx--link-list"
                                   data-autoid="dds--link-list"
                                 >
                                   <ul
-                                    className="bx--link-list__list bx--link-list__list--horizontal"
+                                    className="bx--link-list__list bx--link-list__list--vertical"
                                   >
                                     <li
                                       className="bx--link-list__list__CTA bx--link-list__list--local"
@@ -29081,14 +29081,14 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                     },
                                   ]
                                 }
-                                style="horizontal"
+                                style="vertical"
                               >
                                 <div
                                   className="bx--link-list"
                                   data-autoid="dds--link-list"
                                 >
                                   <ul
-                                    className="bx--link-list__list bx--link-list__list--horizontal"
+                                    className="bx--link-list__list bx--link-list__list--vertical"
                                   >
                                     <li
                                       className="bx--link-list__list__CTA bx--link-list__list--local"
@@ -29363,14 +29363,14 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                     },
                                   ]
                                 }
-                                style="horizontal"
+                                style="vertical"
                               >
                                 <div
                                   className="bx--link-list"
                                   data-autoid="dds--link-list"
                                 >
                                   <ul
-                                    className="bx--link-list__list bx--link-list__list--horizontal"
+                                    className="bx--link-list__list bx--link-list__list--vertical"
                                   >
                                     <li
                                       className="bx--link-list__list__CTA bx--link-list__list--local"

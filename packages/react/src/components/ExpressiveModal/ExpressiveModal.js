@@ -8,7 +8,7 @@
 import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import ComposedModal from '../../internal/vendor/carbon-components-react/components/ComposedModal/ComposedModal';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import ExpressiveModalCloseBtn from './ExpressiveModalCloseBtn';
 import PropTypes from 'prop-types';
 import settings from 'carbon-components/es/globals/js/settings';
