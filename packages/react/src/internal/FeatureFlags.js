@@ -55,3 +55,11 @@ export const DDS_SIMPLE_OVERVIEW =
  */
 export const DDS_LOGO_GRID =
   process.env.DDS_LOGO_GRID === 'true' || DDS_FLAGS_ALL || false;
+
+/**
+ * This determines if the logo grid will be rendered or not
+ *
+ * @type {string | boolean}
+ */
+export const DDS_CALLOUT_DATA =
+process.env.DDS_CALLOUT_DATA === 'true' || DDS_FLAGS_ALL || false;
