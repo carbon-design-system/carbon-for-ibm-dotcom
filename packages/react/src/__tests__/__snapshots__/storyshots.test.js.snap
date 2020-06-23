@@ -2593,7 +2593,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                   videoId="0_uka1msg4"
                                                 >
                                                   <div
-                                                    aria-label=" (1:00)"
+                                                    aria-label=" undefined"
                                                     className="bx--video-player"
                                                   >
                                                     <div
@@ -2622,7 +2622,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                           >
                                                             <Image
                                                               alt=""
-                                                              defaultSrc="https://cdnsecakmi.kaltura.com/p/123456/thumbnail/entry_id/0_uka1msg4/width/320"
+                                                              defaultSrc="https://cdnsecakmi.kaltura.com/p/1773841/thumbnail/entry_id/0_uka1msg4/width/655"
                                                               icon={[Function]}
                                                             />
                                                           </button>
@@ -4511,7 +4511,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                         type="video"
                                                       >
                                                         <div
-                                                          aria-label=" (1:00)"
+                                                          aria-label=" undefined"
                                                           className="bx--video-player bx--video-player--inverse"
                                                         >
                                                           <div
@@ -4539,7 +4539,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                 >
                                                                   <Image
                                                                     alt=""
-                                                                    defaultSrc="https://cdnsecakmi.kaltura.com/p/123456/thumbnail/entry_id/0_uka1msg4/width/320"
+                                                                    defaultSrc="https://cdnsecakmi.kaltura.com/p/1773841/thumbnail/entry_id/undefined/width/655"
                                                                     icon={[Function]}
                                                                   />
                                                                 </button>
@@ -8928,7 +8928,7 @@ exports[`Storyshots Components|LightboxMediaViewer Embedded Video Player 1`] = `
                               videoId="0_uka1msg4"
                             >
                               <div
-                                aria-label=" (1:00)"
+                                aria-label=" undefined"
                                 className="bx--video-player"
                               >
                                 <div
@@ -16232,7 +16232,7 @@ exports[`Storyshots Components|VideoPlayer Default 1`] = `
             videoId="0_uka1msg4"
           >
             <div
-              aria-label=" (1:00)"
+              aria-label=" undefined"
               className="bx--video-player"
             >
               <div
@@ -16261,7 +16261,7 @@ exports[`Storyshots Components|VideoPlayer Default 1`] = `
                     >
                       <Image
                         alt=""
-                        defaultSrc="https://cdnsecakmi.kaltura.com/p/123456/thumbnail/entry_id/0_uka1msg4/width/320"
+                        defaultSrc="https://cdnsecakmi.kaltura.com/p/1773841/thumbnail/entry_id/0_uka1msg4/width/655"
                         icon={[Function]}
                       />
                     </button>
@@ -16272,7 +16272,6 @@ exports[`Storyshots Components|VideoPlayer Default 1`] = `
                 className="bx--video-player__video-caption"
               >
                  
-                (1:00)
               </div>
             </div>
           </VideoPlayer>
