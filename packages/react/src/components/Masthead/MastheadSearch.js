@@ -10,7 +10,7 @@ import Autosuggest from 'react-autosuggest';
 import Close20 from '@carbon/icons-react/es/close/20';
 import cx from 'classnames';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
-import escapeRegExp from '@carbon/ibmdotcom-utilities/es/utilities/escapeRegExp/escapeRegExp';
+import escapeRegExp from '@carbon/ibmdotcom-utilities/es/utilities/escaperegexp/escaperegexp';
 import HeaderGlobalAction from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderGlobalAction';
 import LocaleAPI from '@carbon/ibmdotcom-services/es/services/Locale/Locale';
 import MastheadSearchInput from './MastheadSearchInput';
