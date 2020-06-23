@@ -7,35 +7,45 @@
 
 import "./styles.scss";
 
+import ArrowRight20 from "@carbon/icons-react/es/arrow--right/20";
 import React from "react";
 import ReactDom from "react-dom";
-import { ContentItemHorizontal } from "@carbon/ibmdotcom-react";
+import { Card } from "@carbon/ibmdotcom-react";
+
+const card = {
+  eyebrow: "eyebrow text",
+  heading: "Lorem ipsum dolor sit amet",
+};
+
+const ctaStatic = {
+  type: "local",
+  copy: "click here",
+  href: "https://example.com",
+  icon: {
+    src: ArrowRight20,
+  },
+};
+
+const ctaLink = {
+  type: "local",
+  href: "https://example.com",
+  icon: {
+    src: ArrowRight20,
+  },
+};
 
 const App = () => (
   <div className="bx--grid">
     <div className="bx--row">
       <div className="bx--col-sm-4 bx--col-lg-6">
-        <ContentItemHorizontal
-          eyebrow="Lorem ipsum"
-          heading="Aliquam condimentum"
-          copy="Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin."
-          cta={[
-            {
-              type: "local",
-              copy: "Learn more",
-              cta: {
-                href: "https://ibm.com",
-              },
-            },
-            {
-              type: "external",
-              copy: "Microservices and containers",
-              cta: {
-                href: "https://ibm.com",
-              },
-            },
-          ]}
-        />
+        <h4>Static</h4>
+        <Card cta={ctaStatic} {...card} type="static" />
+      </div>
+    </div>
+    <div className="bx--row">
+      <div className="bx--col-sm-4 bx--col-lg-6">
+        <h4>Link</h4>
+        <Card cta={ctaLink} {...card} type="link" />
       </div>
     </div>
   </div>
