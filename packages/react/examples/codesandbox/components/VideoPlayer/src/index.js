@@ -9,12 +9,15 @@ import "./styles.scss";
 
 import React from "react";
 import ReactDom from "react-dom";
-
 import { VideoPlayer } from "@carbon/ibmdotcom-react";
 
 const App = () => (
-  <div>
-    <VideoPlayer inverse={false} videoId="0_uka1msg4" showCaption={true} />
+  <div className="bx--grid">
+    <div className="bx--row">
+      <div className="bx--col-sm-4 bx--col-lg-12">
+        <VideoPlayer inverse={false} videoId="0_uka1msg4" showCaption={true} />
+      </div>
+    </div>
   </div>
 );
 

@@ -7,10 +7,9 @@
 
 import "./styles.scss";
 
+import { Layout } from "@carbon/ibmdotcom-react";
 import React from "react";
 import ReactDom from "react-dom";
-
-import { Layout } from "@carbon/ibmdotcom-react";
 
 const App = () => (
   <Layout type="2-1" border={true}>

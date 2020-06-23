@@ -1,7 +1,7 @@
 {
-  "name": "ibmdotcom-layout",
+  "name": "ibmdotcom-react-layout-example",
+  "private": true,
   "version": "1.0.0",
-  "description": "",
   "main": "index.html",
   "scripts": {
     "start": "parcel index.html --open",
@@ -12,14 +12,13 @@
     "@carbon/ibmdotcom-styles": "latest",
     "@carbon/icons-react": "10.11.0",
     "react": "16.9.0",
-    "react-dom": "16.9.0",
-    "sass": "1.26.8"
+    "react-dom": "16.9.0"
   },
   "devDependencies": {
-    "@babel/core": "7.2.0",
-    "parcel-bundler": "^1.6.1"
+    "@babel/core": "^7.10.0",
+    "parcel-bundler": "latest",
+    "sass": "1.26.8"
   },
-  "keywords": [],
   "sass": {
     "includePaths": [
       "./node_modules"
