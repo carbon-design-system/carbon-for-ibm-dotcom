@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -62,4 +62,4 @@ export const DDS_LOGO_GRID =
  * @type {string | boolean}
  */
 export const DDS_CALLOUT_DATA =
-process.env.DDS_CALLOUT_DATA === 'true' || DDS_FLAGS_ALL || false;
+  process.env.DDS_CALLOUT_DATA === 'true' || DDS_FLAGS_ALL || false;

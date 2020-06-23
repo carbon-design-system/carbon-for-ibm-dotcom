@@ -5,11 +5,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { text, select, object } from '@storybook/addon-knobs';
 import CalloutData from '../CalloutData';
 import React from 'react';
 import readme from '../README.stories.mdx';
-import { console } from 'window-or-global';
+import { text } from '@storybook/addon-knobs';
 
 export default {
   title: 'Patterns (Blocks)|CalloutData',
@@ -19,21 +18,27 @@ export default {
       CalloutData: ({ groupId }) => ({
         props: {
           data: text('Data (data):', '51%', groupId),
-          copy: text('Short copy (copy):', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', groupId),
-          source: text('Source (source):', ' Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.')
-        }
+          copy: text(
+            'Short copy (copy):',
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
+            groupId
+          ),
+          source: text(
+            'Source (source):',
+            ' Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
+          ),
+        },
       }),
     },
   },
 };
 
 export const Default = ({ parameters }) => {
-
   return (
     <div className="bx--grid">
       <div className="bx--row">
         <div className="bx--offset-lg-4 bx--col-lg-12">
-          <CalloutData {...parameters.props.CalloutData.props}/>
+          <CalloutData {...parameters.props.CalloutData.props} />
         </div>
       </div>
     </div>
