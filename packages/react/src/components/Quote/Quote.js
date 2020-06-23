@@ -5,13 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import {
-  settings as ddsSettings,
-  decodeString,
-} from '@carbon/ibmdotcom-utilities';
 import React, { useState, useEffect } from 'react';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
 import classnames from 'classnames';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import decodeString from '@carbon/ibmdotcom-utilities/es/utilities/decodeString/decodeString';
 import { HorizontalRule } from '../HorizontalRule';
 import Launch20 from '@carbon/icons-react/es/launch/20';
 import { LinkWithIcon } from '../LinkWithIcon';
