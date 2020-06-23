@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -7,6 +7,8 @@
 
 import { ArrowLeft, ArrowRight } from './keys';
 import { match } from './match';
+
+// DEPRECATED. Use `packages/react/src/internal/vendor/carbon-components-react/internal/keyboard/navigation.js` instead
 
 /**
  * Various utilities to help with a11y work

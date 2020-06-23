@@ -1,0 +1,27 @@
+{
+  "name": "ibmdotcom-react-cardlink-example",
+  "private": true,
+  "version": "1.0.0",
+  "main": "index.html",
+  "scripts": {
+    "start": "parcel index.html --open",
+    "build": "parcel build index.html"
+  },
+  "dependencies": {
+    "@carbon/ibmdotcom-react": "latest",
+    "@carbon/ibmdotcom-styles": "latest",
+    "@carbon/icons-react": "10.11.0",
+    "react": "16.9.0",
+    "react-dom": "16.9.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.0",
+    "parcel-bundler": "latest",
+    "sass": "1.26.8"
+  },
+  "sass": {
+    "includePaths": [
+      "./node_modules"
+    ]
+  }
+}

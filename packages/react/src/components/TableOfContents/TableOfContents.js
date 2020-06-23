@@ -7,7 +7,7 @@
 
 import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import Layout from '../Layout/Layout';
 import PropTypes from 'prop-types';
 import settings from 'carbon-components/es/globals/js/settings';
