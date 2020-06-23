@@ -2405,7 +2405,10 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                     <option
                                       className="bx--tableofcontents__mobile__select__option"
                                       data-autoid="dds}--tableofcontents__mobile__select__option-menuLabel"
+                                      disabled={true}
+                                      hidden={true}
                                       key="0"
+                                      selected={true}
                                       value="menuLabel"
                                     >
                                       Jump to ...
