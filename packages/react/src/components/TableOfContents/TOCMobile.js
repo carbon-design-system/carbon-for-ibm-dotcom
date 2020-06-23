@@ -6,10 +6,10 @@
  */
 
 import React, { useState, useEffect } from 'react';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import PropTypes from 'prop-types';
 import settings from 'carbon-components/es/globals/js/settings';
-import { smoothScroll } from '@carbon/ibmdotcom-utilities';
+import smoothScroll from '@carbon/ibmdotcom-utilities/es/utilities/smoothScroll/smoothScroll';
 import TableOfContents20 from '@carbon/icons-react/es/table-of-contents/20';
 
 const { stablePrefix } = ddsSettings;

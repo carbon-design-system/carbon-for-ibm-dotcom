@@ -22,9 +22,14 @@ global.window.location = {
   href: 'http://localhost',
 };
 
-jest.mock('@carbon/ibmdotcom-services', () => ({
-  LocaleAPI: require('./__mocks__/LocaleAPI'),
-  VideoPlayerAPI: require('./__mocks__/VideoPlayerAPI'),
+jest.mock('@carbon/ibmdotcom-services/lib/services/Locale/Locale', () =>
+  require('./__mocks__/LocaleAPI')
+);
+jest.mock(
+  '@carbon/ibmdotcom-services/lib/services/VideoPlayer/VideoPlayer',
+  () => require('./__mocks__/VideoPlayerAPI')
+);
+jest.mock('@carbon/ibmdotcom-services/lib/services/global/global', () => ({
   globalInit: jest.fn(() => {}),
 }));
 

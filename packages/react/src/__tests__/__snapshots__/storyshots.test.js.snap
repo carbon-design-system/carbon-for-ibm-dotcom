@@ -1481,14 +1481,14 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
                           },
                         ]
                       }
-                      style="horizontal"
+                      style="vertical"
                     >
                       <div
                         className="bx--link-list"
                         data-autoid="dds--link-list"
                       >
                         <ul
-                          className="bx--link-list__list bx--link-list__list--horizontal"
+                          className="bx--link-list__list bx--link-list__list--vertical"
                         >
                           <li
                             className="bx--link-list__list__CTA bx--link-list__list--local"
@@ -28643,14 +28643,14 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                     },
                                   ]
                                 }
-                                style="horizontal"
+                                style="vertical"
                               >
                                 <div
                                   className="bx--link-list"
                                   data-autoid="dds--link-list"
                                 >
                                   <ul
-                                    className="bx--link-list__list bx--link-list__list--horizontal"
+                                    className="bx--link-list__list bx--link-list__list--vertical"
                                   >
                                     <li
                                       className="bx--link-list__list__CTA bx--link-list__list--local"
@@ -28939,14 +28939,14 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                     },
                                   ]
                                 }
-                                style="horizontal"
+                                style="vertical"
                               >
                                 <div
                                   className="bx--link-list"
                                   data-autoid="dds--link-list"
                                 >
                                   <ul
-                                    className="bx--link-list__list bx--link-list__list--horizontal"
+                                    className="bx--link-list__list bx--link-list__list--vertical"
                                   >
                                     <li
                                       className="bx--link-list__list__CTA bx--link-list__list--local"
@@ -29221,14 +29221,14 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                     },
                                   ]
                                 }
-                                style="horizontal"
+                                style="vertical"
                               >
                                 <div
                                   className="bx--link-list"
                                   data-autoid="dds--link-list"
                                 >
                                   <ul
-                                    className="bx--link-list__list bx--link-list__list--horizontal"
+                                    className="bx--link-list__list bx--link-list__list--vertical"
                                   >
                                     <li
                                       className="bx--link-list__list__CTA bx--link-list__list--local"
@@ -30663,11 +30663,11 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
         className="bx--row"
       >
         <div
-          className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4"
+          className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4"
         >
           <LeadSpaceBlock
-            copy="Automate your software release process with continuous delivery (CD)—the most 
-            critical part of adopting DevOps. Build, test, and deploy code changes quickly, 
+            copy="Automate your software release process with continuous delivery (CD)—the most
+            critical part of adopting DevOps. Build, test, and deploy code changes quickly,
             ensuring software is always ready for deployment."
             cta={
               Object {
@@ -30758,8 +30758,8 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
               </div>
               <ContentBlock
                 border={false}
-                copy="Automate your software release process with continuous delivery (CD)—the most 
-            critical part of adopting DevOps. Build, test, and deploy code changes quickly, 
+                copy="Automate your software release process with continuous delivery (CD)—the most
+            critical part of adopting DevOps. Build, test, and deploy code changes quickly,
             ensuring software is always ready for deployment."
                 heading="Innovate like a startup and scale for the enterprise "
               >
@@ -30779,7 +30779,7 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                     className="bx--content-block__copy"
                     dangerouslySetInnerHTML={
                       Object {
-                        "__html": "<p>Automate your software release process with continuous delivery (CD)—the most critical part of adopting DevOps. Build, test, and deploy code changes quickly, ensuring software is always ready for deployment.</p>",
+                        "__html": "<p>Automate your software release process with continuous delivery (CD)—the most  critical part of adopting DevOps. Build, test, and deploy code changes quickly,  ensuring software is always ready for deployment.</p>",
                       }
                     }
                   />

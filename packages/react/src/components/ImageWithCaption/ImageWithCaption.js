@@ -7,7 +7,7 @@
 import React, { useState } from 'react';
 import CTALogic from '../CTA/CTALogic';
 import cx from 'classnames';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import { Image } from '../Image';
 import PropTypes from 'prop-types';
 import settings from 'carbon-components/es/globals/js/settings';

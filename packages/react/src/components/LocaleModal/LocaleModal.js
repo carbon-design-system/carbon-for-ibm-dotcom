@@ -5,16 +5,17 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { altlangs, settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
 import ComposedModal, {
   ModalBody,
   ModalHeader,
 } from '../../internal/vendor/carbon-components-react/components/ComposedModal/ComposedModal';
 import React, { useEffect, useState } from 'react';
+import altlangs from '@carbon/ibmdotcom-utilities/es/utilities/altlangs/altlangs';
 import ArrowLeft20 from '@carbon/icons-react/es/arrow--left/20';
 import cx from 'classnames';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import EarthFilled20 from '@carbon/icons-react/es/earth--filled/20';
-import { LocaleAPI } from '@carbon/ibmdotcom-services';
+import LocaleAPI from '@carbon/ibmdotcom-services/es/services/Locale/Locale';
 import LocaleModalCountries from './LocaleModalCountries';
 import LocaleModalRegions from './LocaleModalRegions';
 import PropTypes from 'prop-types';
