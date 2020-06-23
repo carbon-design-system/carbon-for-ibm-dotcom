@@ -1,5 +1,5 @@
 {
-  "name": "ibmdotcom-react-buttongroup-example",
+  "name": "ibmdotcom-react-lightboxmediaviewer-example",
   "private": true,
   "version": "1.0.0",
   "main": "index.html",
@@ -15,7 +15,7 @@
     "react-dom": "16.9.0"
   },
   "devDependencies": {
-    "@babel/core": "7.2.0",
+    "@babel/core": "^7.10.0",
     "parcel-bundler": "latest",
     "sass": "1.26.8"
   },

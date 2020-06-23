@@ -12,13 +12,13 @@
     "@carbon/ibmdotcom-styles": "latest",
     "@carbon/icons-react": "10.11.0",
     "react": "16.9.0",
-    "react-dom": "16.9.0",
-    "sass": "1.26.8"
+    "react-dom": "16.9.0"
   },
   "devDependencies": {
-    "@babel/core": "7.2.0",
+    "@babel/core": "^7.10.0",
     "@carbon/pictograms-react": "10.10.2",
-    "parcel-bundler": "latest"
+    "parcel-bundler": "latest",
+    "sass": "1.26.8"
   },
   "sass": {
     "includePaths": [

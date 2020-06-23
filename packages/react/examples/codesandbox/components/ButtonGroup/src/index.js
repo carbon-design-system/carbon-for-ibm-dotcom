@@ -5,33 +5,33 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import './styles.scss';
+import "./styles.scss";
 
-import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
-import { ButtonGroup } from '@carbon/ibmdotcom-react';
-import React from 'react';
-import ReactDom from 'react-dom';
+import ArrowRight20 from "@carbon/icons-react/es/arrow--right/20";
+import { ButtonGroup } from "@carbon/ibmdotcom-react";
+import React from "react";
+import ReactDom from "react-dom";
 
 const buttons = [
   {
-    href: 'https://www.example.com',
-    copy: 'Button 2',
+    href: "https://www.example.com",
+    copy: "Button 2",
   },
   {
-    href: 'https://www.example.com',
-    copy: 'Button 1',
+    href: "https://www.example.com",
+    copy: "Button 1",
   },
 ];
 
 const buttonsWithIcons = [
   {
-    href: 'https://www.example.com',
-    copy: 'Button 2',
+    href: "https://www.example.com",
+    copy: "Button 2",
     renderIcon: ArrowRight20,
   },
   {
-    href: 'https://www.example.com',
-    copy: 'Button 1',
+    href: "https://www.example.com",
+    copy: "Button 1",
     renderIcon: ArrowRight20,
   },
 ];
@@ -44,7 +44,7 @@ const App = () => (
         <div>
           <ButtonGroup buttons={buttons} />
         </div>
-        <p style={{ paddingTop: '2rem' }}>Buttons with icons</p>
+        <p style={{ paddingTop: "2rem" }}>Buttons with icons</p>
         <div>
           <ButtonGroup buttons={buttonsWithIcons} />
         </div>
@@ -53,4 +53,4 @@ const App = () => (
   </div>
 );
 
-ReactDom.render(<App />, document.getElementById('app'));
+ReactDom.render(<App />, document.getElementById("app"));
