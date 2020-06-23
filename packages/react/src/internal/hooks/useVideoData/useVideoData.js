@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 import { useState, useEffect, useCallback } from 'react';
-import { VideoPlayerAPI } from '@carbon/ibmdotcom-services';
+import VideoPlayerAPI from '@carbon/ibmdotcom-services/es/services/VideoPlayer/VideoPlayer';
 
 /**
  * utilizes the videoplayerAPI to extract video data and

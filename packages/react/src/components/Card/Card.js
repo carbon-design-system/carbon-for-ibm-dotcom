@@ -5,17 +5,15 @@
  * LICENSE file in the root directory of this source tree.
  */
 import {
-  settings as ddsSettings,
-  markdownToHtml,
-} from '@carbon/ibmdotcom-utilities';
-import {
   Tile,
   ClickableTile,
 } from '../../internal/vendor/carbon-components-react/components/Tile/Tile';
 import classNames from 'classnames';
 import CTALogic from '../CTA/CTALogic';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import { Image } from '../Image';
 import { LinkWithIcon } from '../LinkWithIcon';
+import markdownToHtml from '@carbon/ibmdotcom-utilities/es/utilities/markdownToHtml/markdownToHtml';
 import PropTypes from 'prop-types';
 import React from 'react';
 import settings from 'carbon-components/es/globals/js/settings';

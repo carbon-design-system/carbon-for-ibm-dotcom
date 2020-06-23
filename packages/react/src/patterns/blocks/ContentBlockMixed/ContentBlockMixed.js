@@ -9,7 +9,7 @@ import ContentBlock from '../../../internal/components/ContentBlock/ContentBlock
 import { ContentGroupCards } from '../ContentGroupCards';
 import { ContentGroupPictograms } from '../ContentGroupPictograms';
 import { ContentGroupSimple } from '../ContentGroupSimple';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import PropTypes from 'prop-types';
 import React from 'react';
 import settings from 'carbon-components/es/globals/js/settings';

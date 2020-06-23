@@ -7,18 +7,22 @@
 
 import "./styles.scss";
 
+import ArrowRight20 from "@carbon/icons-react/es/arrow--right/20";
+import { LinkWithIcon } from "@carbon/ibmdotcom-react";
 import React from "react";
 import ReactDom from "react-dom";
 
-import { ArrowRight20 } from "@carbon/icons-react";
-import { LinkWithIcon } from "@carbon/ibmdotcom-react";
 
 const App = () => (
-  <div>
-    <LinkWithIcon href="https://www.example.com">
-      <span>LinkWithIcon</span>
-      <ArrowRight20 />
-    </LinkWithIcon>
+  <div className="bx--grid">
+    <div className="bx--row">
+      <div className="bx--col-sm-4 bx--col-lg-8">
+        <LinkWithIcon href="https://www.example.com">
+          <span>LinkWithIcon</span>
+          <ArrowRight20 />
+        </LinkWithIcon>
+      </div>
+    </div>
   </div>
 );
 
