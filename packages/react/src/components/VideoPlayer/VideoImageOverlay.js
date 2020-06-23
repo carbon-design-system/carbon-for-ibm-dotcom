@@ -21,10 +21,10 @@ const { prefix } = settings;
 const VideoImageOverlay = ({ videoId, videoData, embedVideo }) => {
   return (
     <button
-      id="video-thumbnail-overlay"
+      id={`video-thumbnail-overlay-${videoId}`}
       className={`${prefix}--video-player__image-overlay`}
       data-autoid={`${stablePrefix}--video-player__image-overlay`}
-      onClick={() => _embedPlayer({ embedVideo })}>
+      onClick={() => _embedPlayer({ embedVideo, videoId })}>
       <Image
         defaultSrc={VideoPlayerAPI.getThumbnailUrl({
           videoId,
@@ -37,8 +37,8 @@ const VideoImageOverlay = ({ videoId, videoData, embedVideo }) => {
   );
 };
 
-const _embedPlayer = ({ embedVideo }) => {
-  var element = document.getElementById('video-thumbnail-overlay');
+const _embedPlayer = ({ embedVideo, videoId }) => {
+  var element = document.getElementById(`video-thumbnail-overlay-${videoId}`);
   element.parentNode.removeChild(element);
   embedVideo(true);
 };
