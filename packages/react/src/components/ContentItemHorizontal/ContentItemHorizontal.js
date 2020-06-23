@@ -57,7 +57,7 @@ const ContentItemHorizontal = ({ eyebrow, heading, copy, cta }) => (
           <div
             className={`${prefix}--content-item-horizontal__item--cta`}
             data-autoid={`${stablePrefix}--content-item-horizontal__item--cta`}>
-            <LinkList style="horizontal" {...cta} />
+            <LinkList style="vertical" {...cta} />
           </div>
         )}
       </div>
