@@ -7,11 +7,10 @@
 
 import "./styles.scss";
 
-import ArrowRight20 from "@carbon/icons-react/es/arrow--right/20";
+import { CardGroup } from "@carbon/ibmdotcom-react";
 import data from "./data.json";
 import React from "react";
 import ReactDom from "react-dom";
-import { CardGroup } from "@carbon/ibmdotcom-react";
 
 const cta = {
   heading: "Top level card link",

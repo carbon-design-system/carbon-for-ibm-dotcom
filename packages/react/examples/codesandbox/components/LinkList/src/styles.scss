@@ -5,6 +5,16 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+.bx--grid {
+  padding-top: 1rem;
+}
+
+.bx--row {
+  padding-top: 1rem;
+  h4 {
+    margin-top: 1rem;
+  }
+}
+
 @import "@carbon/ibmdotcom-styles/scss/components/link-list/index";
 @import "@carbon/ibmdotcom-styles/scss/components/link-with-icon/link-with-icon";
-// @import "@carbon/ibmdotcom-styles/scss/components/card-link/card-link";

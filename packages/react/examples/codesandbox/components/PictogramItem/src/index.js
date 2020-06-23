@@ -6,10 +6,11 @@
  */
 
 import "./styles.scss";
-import { Desktop } from "@carbon/pictograms-react";
+
+import Desktop from "@carbon/pictograms-react/es/desktop";
+import { PictogramItem } from "@carbon/ibmdotcom-react";
 import React from "react";
 import ReactDom from "react-dom";
-import { PictogramItem } from "@carbon/ibmdotcom-react";
 
 const heading = "Lorem ipsum dolor sit";
 const copy =

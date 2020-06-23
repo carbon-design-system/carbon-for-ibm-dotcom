@@ -7,9 +7,9 @@
 
 import "./styles.scss";
 
+import { Quote } from "@carbon/ibmdotcom-react";
 import React from "react";
 import ReactDom from "react-dom";
-import { Quote } from "@carbon/ibmdotcom-react";
 
 const copy =
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus est purus, posuere at est vitae, ornare rhoncus sem. Suspendisse vitae tellus fermentum, hendrerit augue eu, placerat magna.";

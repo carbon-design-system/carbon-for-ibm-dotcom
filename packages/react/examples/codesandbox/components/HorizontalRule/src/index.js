@@ -7,9 +7,9 @@
 
 import "./styles.scss";
 
+import { HorizontalRule } from "@carbon/ibmdotcom-react";
 import React from "react";
 import ReactDom from "react-dom";
-import { HorizontalRule } from "@carbon/ibmdotcom-react";
 
 const App = () => (
   <div className="bx--grid">

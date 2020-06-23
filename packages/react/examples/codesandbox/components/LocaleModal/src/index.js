@@ -7,9 +7,9 @@
 
 import "./styles.scss";
 
+import { LocaleModal } from "@carbon/ibmdotcom-react";
 import React from "react";
 import ReactDom from "react-dom";
-import { LocaleModal } from "@carbon/ibmdotcom-react";
 
 const App = () => <LocaleModal isOpen={true} />;
 

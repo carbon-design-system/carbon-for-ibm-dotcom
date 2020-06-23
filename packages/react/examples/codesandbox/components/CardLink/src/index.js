@@ -8,9 +8,9 @@
 import "./styles.scss";
 
 import ArrowRight20 from "@carbon/icons-react/es/arrow--right/20";
+import { CardLink } from "@carbon/ibmdotcom-react";
 import React from "react";
 import ReactDom from "react-dom";
-import { CardLink } from "@carbon/ibmdotcom-react";
 
 const card = {
   copy: "Explore AI use cases in all industries",
