@@ -11,7 +11,6 @@
 
 // Components
 @import 'components/buttongroup/buttongroup';
-@import 'components/callout/callout';
 @import 'components/card/index';
 @import 'components/card-group/card-group';
 @import 'components/card-link/card-link';
@@ -40,7 +39,6 @@
 @import 'patterns/sections/leadspace/leadspace';
 @import 'patterns/sections/simplebenefits/simplebenefits';
 @import 'patterns/sections/ctasection/index';
-@import 'patterns/sections/simpleoverview/simpleoverview';
 
 // Patterns - Blocks
 @import 'patterns/blocks/callout-quote/index';
@@ -68,6 +66,7 @@
 @import 'themes/expressive/index';
 
 // Internal
+@import 'internal/callout/callout';
 @import 'internal/content-block/content-block';
 @import 'internal/content-item/content-item';
 @import 'internal/content-group/content-group';
