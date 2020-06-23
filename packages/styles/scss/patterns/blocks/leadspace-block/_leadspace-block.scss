@@ -60,6 +60,8 @@
       .#{$prefix}--link-list {
         padding-top: $spacing-09;
         padding-bottom: $spacing-09;
+        width: 100%;
+        max-width: carbon--mini-units(80);
       }
 
       .#{$prefix}--leadspace-block__media {
@@ -85,6 +87,8 @@
     .#{$prefix}--hr {
       border-color: $ui-04;
       margin-top: 0;
+      width: 100%;
+      max-width: carbon--mini-units(80);
     }
   }
 }
