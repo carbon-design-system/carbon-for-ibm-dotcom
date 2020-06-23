@@ -5,4 +5,15 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import '@carbon/ibmdotcom-styles/scss/patterns/sub-patterns/feature-card/feature-card';
+.bx--grid {
+  padding-top: 1rem;
+}
+
+.bx--row {
+  padding-top: 1rem;
+  h4 {
+    margin-top: 1rem;
+  }
+}
+
+@import "@carbon/ibmdotcom-styles/scss/components/feature-card/feature-card";
