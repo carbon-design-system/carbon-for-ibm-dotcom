@@ -15452,21 +15452,35 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
           },
           "props": Object {
             "TableOfContents": Object {
-              "headingContent": <div
+              "headingContent": <Image
+                alt="Lorem Ipsum"
+                defaultSrc="https://dummyimage.com/672x672"
+                longDescription="Lorem Ipsum Dolor"
+                sources={
+                  Array [
+                    Object {
+                      "breakpoint": 400,
+                      "src": "https://dummyimage.com/672x200",
+                    },
+                    Object {
+                      "breakpoint": 672,
+                      "src": "https://dummyimage.com/672x200",
+                    },
+                    Object {
+                      "breakpoint": 1056,
+                      "src": "https://dummyimage.com/672x672",
+                    },
+                  ]
+                }
                 style={
                   Object {
                     "alignItems": "center",
-                    "background": "#f4f4f4",
                     "display": "flex",
                     "height": "200px",
                     "justifyContent": "center",
                   }
                 }
-              >
-                <h4>
-                  Example children
-                </h4>
-              </div>,
+              />,
               "menuItems": Array [
                 Object {
                   "id": "8",
@@ -15499,21 +15513,35 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
     >
       <TableOfContents
         headingContent={
-          <div
+          <Image
+            alt="Lorem Ipsum"
+            defaultSrc="https://dummyimage.com/672x672"
+            longDescription="Lorem Ipsum Dolor"
+            sources={
+              Array [
+                Object {
+                  "breakpoint": 400,
+                  "src": "https://dummyimage.com/672x200",
+                },
+                Object {
+                  "breakpoint": 672,
+                  "src": "https://dummyimage.com/672x200",
+                },
+                Object {
+                  "breakpoint": 1056,
+                  "src": "https://dummyimage.com/672x672",
+                },
+              ]
+            }
             style={
               Object {
                 "alignItems": "center",
-                "background": "#f4f4f4",
                 "display": "flex",
                 "height": "200px",
                 "justifyContent": "center",
               }
             }
-          >
-            <h4>
-              Example children
-            </h4>
-          </div>
+          />
         }
         menuItems={
           Array [
@@ -15570,21 +15598,70 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
                   <div
                     className="bx--tableofcontents__desktop__children"
                   >
-                    <div
+                    <Image
+                      alt="Lorem Ipsum"
+                      defaultSrc="https://dummyimage.com/672x672"
+                      longDescription="Lorem Ipsum Dolor"
+                      sources={
+                        Array [
+                          Object {
+                            "breakpoint": 400,
+                            "src": "https://dummyimage.com/672x200",
+                          },
+                          Object {
+                            "breakpoint": 672,
+                            "src": "https://dummyimage.com/672x200",
+                          },
+                          Object {
+                            "breakpoint": 1056,
+                            "src": "https://dummyimage.com/672x672",
+                          },
+                        ]
+                      }
                       style={
                         Object {
                           "alignItems": "center",
-                          "background": "#f4f4f4",
                           "display": "flex",
                           "height": "200px",
                           "justifyContent": "center",
                         }
                       }
                     >
-                      <h4>
-                        Example children
-                      </h4>
-                    </div>
+                      <div
+                        className="bx--image"
+                        data-autoid="dds--image__longdescription-"
+                      >
+                        <picture>
+                          <source
+                            key="0"
+                            media="(min-width: 1056px )"
+                            srcSet="https://dummyimage.com/672x672"
+                          />
+                          <source
+                            key="1"
+                            media="(min-width: 672px )"
+                            srcSet="https://dummyimage.com/672x200"
+                          />
+                          <source
+                            key="2"
+                            media="(min-width: 400px )"
+                            srcSet="https://dummyimage.com/672x200"
+                          />
+                          <img
+                            alt="Lorem Ipsum"
+                            aria-describedby="bx--image-17"
+                            className="bx--image__img"
+                            src="https://dummyimage.com/672x672"
+                          />
+                        </picture>
+                        <div
+                          className="bx--image__longdescription"
+                          id="bx--image-17"
+                        >
+                          Lorem Ipsum Dolor
+                        </div>
+                      </div>
+                    </Image>
                   </div>
                   <div
                     className="bx--tableofcontents__mobile-top"
@@ -15599,21 +15676,35 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
                   >
                     <TOCDesktop
                       headingContent={
-                        <div
+                        <Image
+                          alt="Lorem Ipsum"
+                          defaultSrc="https://dummyimage.com/672x672"
+                          longDescription="Lorem Ipsum Dolor"
+                          sources={
+                            Array [
+                              Object {
+                                "breakpoint": 400,
+                                "src": "https://dummyimage.com/672x200",
+                              },
+                              Object {
+                                "breakpoint": 672,
+                                "src": "https://dummyimage.com/672x200",
+                              },
+                              Object {
+                                "breakpoint": 1056,
+                                "src": "https://dummyimage.com/672x672",
+                              },
+                            ]
+                          }
                           style={
                             Object {
                               "alignItems": "center",
-                              "background": "#f4f4f4",
                               "display": "flex",
                               "height": "200px",
                               "justifyContent": "center",
                             }
                           }
-                        >
-                          <h4>
-                            Example children
-                          </h4>
-                        </div>
+                        />
                       }
                       menuItems={
                         Array [
@@ -15880,21 +15971,70 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
                     <div
                       className="bx--tableofcontents__children__mobile"
                     >
-                      <div
+                      <Image
+                        alt="Lorem Ipsum"
+                        defaultSrc="https://dummyimage.com/672x672"
+                        longDescription="Lorem Ipsum Dolor"
+                        sources={
+                          Array [
+                            Object {
+                              "breakpoint": 400,
+                              "src": "https://dummyimage.com/672x200",
+                            },
+                            Object {
+                              "breakpoint": 672,
+                              "src": "https://dummyimage.com/672x200",
+                            },
+                            Object {
+                              "breakpoint": 1056,
+                              "src": "https://dummyimage.com/672x672",
+                            },
+                          ]
+                        }
                         style={
                           Object {
                             "alignItems": "center",
-                            "background": "#f4f4f4",
                             "display": "flex",
                             "height": "200px",
                             "justifyContent": "center",
                           }
                         }
                       >
-                        <h4>
-                          Example children
-                        </h4>
-                      </div>
+                        <div
+                          className="bx--image"
+                          data-autoid="dds--image__longdescription-"
+                        >
+                          <picture>
+                            <source
+                              key="0"
+                              media="(min-width: 1056px )"
+                              srcSet="https://dummyimage.com/672x672"
+                            />
+                            <source
+                              key="1"
+                              media="(min-width: 672px )"
+                              srcSet="https://dummyimage.com/672x200"
+                            />
+                            <source
+                              key="2"
+                              media="(min-width: 400px )"
+                              srcSet="https://dummyimage.com/672x200"
+                            />
+                            <img
+                              alt="Lorem Ipsum"
+                              aria-describedby="bx--image-18"
+                              className="bx--image__img"
+                              src="https://dummyimage.com/672x672"
+                            />
+                          </picture>
+                          <div
+                            className="bx--image__longdescription"
+                            id="bx--image-18"
+                          >
+                            Lorem Ipsum Dolor
+                          </div>
+                        </div>
+                      </Image>
                     </div>
                     <div>
                       <a
@@ -31545,14 +31685,14 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-36"
+                                        aria-describedby="bx--image-38"
                                         className="bx--image__img bx--logo-grid_img"
                                         src="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-36"
+                                      id="bx--image-38"
                                     >
                                       Company A
                                     </div>
@@ -31586,14 +31726,14 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-37"
+                                        aria-describedby="bx--image-39"
                                         className="bx--image__img bx--logo-grid_img"
                                         src="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-37"
+                                      id="bx--image-39"
                                     >
                                       Company B
                                     </div>
@@ -31627,14 +31767,14 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-38"
+                                        aria-describedby="bx--image-40"
                                         className="bx--image__img bx--logo-grid_img"
                                         src="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-38"
+                                      id="bx--image-40"
                                     >
                                       Company C
                                     </div>
@@ -31668,14 +31808,14 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-39"
+                                        aria-describedby="bx--image-41"
                                         className="bx--image__img bx--logo-grid_img"
                                         src="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-39"
+                                      id="bx--image-41"
                                     >
                                       Company D
                                     </div>
@@ -31709,14 +31849,14 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-40"
+                                        aria-describedby="bx--image-42"
                                         className="bx--image__img bx--logo-grid_img"
                                         src="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-40"
+                                      id="bx--image-42"
                                     >
                                       Company E
                                     </div>
@@ -31750,14 +31890,14 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-41"
+                                        aria-describedby="bx--image-43"
                                         className="bx--image__img bx--logo-grid_img"
                                         src="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-41"
+                                      id="bx--image-43"
                                     >
                                       Company F
                                     </div>
@@ -31791,14 +31931,14 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-42"
+                                        aria-describedby="bx--image-44"
                                         className="bx--image__img bx--logo-grid_img"
                                         src="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-42"
+                                      id="bx--image-44"
                                     >
                                       Company G
                                     </div>
@@ -31832,14 +31972,14 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-43"
+                                        aria-describedby="bx--image-45"
                                         className="bx--image__img bx--logo-grid_img"
                                         src="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-43"
+                                      id="bx--image-45"
                                     >
                                       Company H
                                     </div>
@@ -31873,14 +32013,14 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                     <picture>
                                       <img
                                         alt="Image alt text"
-                                        aria-describedby="bx--image-44"
+                                        aria-describedby="bx--image-46"
                                         className="bx--image__img bx--logo-grid_img"
                                         src="https://dummyimage.com/288x216/ee5396/161616&amp;text=1:1"
                                       />
                                     </picture>
                                     <div
                                       className="bx--image__longdescription"
-                                      id="bx--image-44"
+                                      id="bx--image-46"
                                     >
                                       Company I
                                     </div>
