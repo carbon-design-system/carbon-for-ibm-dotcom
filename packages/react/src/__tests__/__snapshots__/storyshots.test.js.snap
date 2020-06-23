@@ -318,7 +318,7 @@ exports[`Storyshots Components|CTA Default 1`] = `
 </Container>
 `;
 
-exports[`Storyshots Components|Card Link/Clickable 1`] = `
+exports[`Storyshots Components|Card Default 1`] = `
 <Container
   story={[Function]}
 >
@@ -447,148 +447,6 @@ exports[`Storyshots Components|Card Link/Clickable 1`] = `
                   </div>
                 </a>
               </ClickableTile>
-            </Card>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <input
-    aria-label="input-text-offleft"
-    className="bx--visually-hidden"
-    type="text"
-  />
-</Container>
-`;
-
-exports[`Storyshots Components|Card Static 1`] = `
-<Container
-  story={[Function]}
->
-  <div
-    data-floating-menu-container=""
-    role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
-  >
-    <div
-      className="bx--card--white"
-    >
-      <div
-        className="bx--grid"
-      >
-        <div
-          className="bx--row"
-        >
-          <div
-            className="bx--col-sm-2 bx--col-md-3 bx--col-lg-6 bx--col-xlg-4 bx--no-gutter"
-          >
-            <Card
-              copy=""
-              cta={
-                Object {
-                  "copy": "click here",
-                  "href": "https://example.com",
-                  "icon": Object {
-                    "src": Object {
-                      "$$typeof": Symbol(react.forward_ref),
-                      "render": [Function],
-                    },
-                  },
-                  "type": "local",
-                }
-              }
-              eyebrow="eyebrow text"
-              heading="Lorem ipsum dolor sit amet"
-              inverse={false}
-              type="static"
-            >
-              <Tile
-                className="bx--card"
-                data-autoid="dds--card"
-                href="https://example.com"
-                light={false}
-              >
-                <div
-                  className="bx--tile bx--card"
-                  data-autoid="dds--card"
-                  href="https://example.com"
-                >
-                  <div
-                    className="bx--card__wrapper"
-                  >
-                    <p
-                      className="bx--card__eyebrow"
-                    >
-                      eyebrow text
-                    </p>
-                    <h3
-                      className="bx--card__heading"
-                    >
-                      Lorem ipsum dolor sit amet
-                    </h3>
-                    <div
-                      className="bx--card__footer"
-                    >
-                      <LinkWithIcon
-                        href="https://example.com"
-                        onClick={[Function]}
-                        target={null}
-                      >
-                        <div
-                          className="bx--link-with-icon__container"
-                          data-autoid="dds--link-with-icon"
-                        >
-                          <Link
-                            className="bx--link-with-icon"
-                            href="https://example.com"
-                            onClick={[Function]}
-                            target={null}
-                          >
-                            <a
-                              className="bx--link bx--link-with-icon"
-                              href="https://example.com"
-                              onClick={[Function]}
-                              target={null}
-                            >
-                              <span>
-                                click here
-                              </span>
-                               
-                              <ForwardRef(ArrowRight20)>
-                                <Icon
-                                  height={20}
-                                  preserveAspectRatio="xMidYMid meet"
-                                  viewBox="0 0 20 20"
-                                  width={20}
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <svg
-                                    aria-hidden={true}
-                                    focusable="false"
-                                    height={20}
-                                    preserveAspectRatio="xMidYMid meet"
-                                    viewBox="0 0 20 20"
-                                    width={20}
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
-                                    />
-                                  </svg>
-                                </Icon>
-                              </ForwardRef(ArrowRight20)>
-                            </a>
-                          </Link>
-                        </div>
-                      </LinkWithIcon>
-                    </div>
-                  </div>
-                </div>
-              </Tile>
             </Card>
           </div>
         </div>
@@ -4710,14 +4568,14 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                       },
                                                     ]
                                                   }
-                                                  style="horizontal"
+                                                  style="vertical"
                                                 >
                                                   <div
                                                     className="bx--link-list"
                                                     data-autoid="dds--link-list"
                                                   >
                                                     <ul
-                                                      className="bx--link-list__list bx--link-list__list--horizontal"
+                                                      className="bx--link-list__list bx--link-list__list--vertical"
                                                     >
                                                       <li
                                                         className="bx--link-list__list__CTA bx--link-list__list--local"
@@ -4978,14 +4836,14 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                       },
                                                     ]
                                                   }
-                                                  style="horizontal"
+                                                  style="vertical"
                                                 >
                                                   <div
                                                     className="bx--link-list"
                                                     data-autoid="dds--link-list"
                                                   >
                                                     <ul
-                                                      className="bx--link-list__list bx--link-list__list--horizontal"
+                                                      className="bx--link-list__list bx--link-list__list--vertical"
                                                     >
                                                       <li
                                                         className="bx--link-list__list__CTA bx--link-list__list--local"
@@ -32245,162 +32103,92 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
       }
     }
   >
-    <CTASection
-      copy="Want to discuss your options with a DevOps expert? Contact our sales team to evaluate your needs."
-      cta={
-        Object {
-          "buttons": Array [
-            Object {
-              "copy": "Contact sales",
-              "href": "https://example.com/",
-              "iconDescription": "right arrow icon",
-              "onClick": [Function],
-              "renderIcon": null,
-              "target": null,
-              "type": "default",
-            },
-          ],
-          "style": "button",
-          "type": "local",
-        }
-      }
-      heading="Take the next step"
-      items={
-        Array [
-          Object {
-            "copy": "
-          IBM DevOps partners have a wide range of expertise.
-          Find one to build the right solution for you.
-          ",
-            "cta": Object {
-              "copy": "Find a partner",
-              "href": "https://example.com/",
-              "type": "local",
-            },
-            "heading": "Get connected",
-          },
-          Object {
-            "copy": "Dig into more self-directed learning about DevOps methodologies.",
-            "cta": Object {
-              "copy": "Browse tutorials",
-              "href": "https://example.com/",
-              "type": "local",
-            },
-            "heading": "Learn how",
-          },
-        ]
-      }
-      theme=""
+    <div
+      className="bx--grid"
     >
-      <section
-        className="bx--cta-section"
-        data-autoid="dds--cta-section"
+      <div
+        className="bx--row"
       >
-        <ContentBlock
-          border={false}
-          copy="Want to discuss your options with a DevOps expert? Contact our sales team to evaluate your needs."
-          cta={
-            Object {
-              "buttons": Array [
-                Object {
-                  "copy": "Contact sales",
-                  "href": "https://example.com/",
-                  "iconDescription": "right arrow icon",
-                  "onClick": [Function],
-                  "renderIcon": null,
-                  "target": null,
-                  "type": "default",
-                },
-              ],
-              "style": "button",
-              "type": "local",
-            }
-          }
-          heading="Take the next step"
+        <div
+          className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4"
         >
-          <div
-            className="bx--content-block"
-            data-autoid="dds--content-block"
-          >
-            <div>
-              <h2
-                className="bx--content-block__heading"
-                data-autoid="dds--content-block__heading"
-              >
-                Take the next step
-              </h2>
-            </div>
-            <div
-              className="bx--content-block__copy"
-              dangerouslySetInnerHTML={
-                Object {
-                  "__html": "<p>Want to discuss your options with a DevOps expert? Contact our sales team to evaluate your needs.</p>",
-                }
+          <CTASection
+            copy="Want to discuss your options with a DevOps expert? Contact our sales team to evaluate your needs."
+            cta={
+              Object {
+                "buttons": Array [
+                  Object {
+                    "copy": "Contact sales",
+                    "href": "https://example.com/",
+                    "iconDescription": "right arrow icon",
+                    "onClick": [Function],
+                    "renderIcon": null,
+                    "target": null,
+                    "type": "default",
+                  },
+                ],
+                "style": "button",
+                "type": "local",
               }
-            />
-            <div
-              className="bx--content-block__children"
-              data-autoid="dds--content-block__children"
-            />
-            <div
-              className="bx--content-block__cta-row"
-              data-autoid="dds--content-block__cta"
+            }
+            heading="Take the next step"
+            theme=""
+          >
+            <section
+              className="bx--cta-section"
+              data-autoid="dds--cta-section"
             >
-              <CTA
-                buttons={
-                  Array [
-                    Object {
-                      "copy": "Contact sales",
-                      "href": "https://example.com/",
-                      "iconDescription": "right arrow icon",
-                      "onClick": [Function],
-                      "renderIcon": null,
-                      "target": null,
-                      "type": "default",
-                    },
-                  ]
+              <ContentBlock
+                border={false}
+                copy="Want to discuss your options with a DevOps expert? Contact our sales team to evaluate your needs."
+                cta={
+                  Object {
+                    "buttons": Array [
+                      Object {
+                        "copy": "Contact sales",
+                        "href": "https://example.com/",
+                        "iconDescription": "right arrow icon",
+                        "onClick": [Function],
+                        "renderIcon": null,
+                        "target": null,
+                        "type": "default",
+                      },
+                    ],
+                    "style": "button",
+                    "type": "local",
+                  }
                 }
-                copy=""
-                customClassName="bx--content-block__cta bx--content-block__cta-col"
-                href=""
-                style="button"
-                type="local"
+                heading="Take the next step"
               >
                 <div
-                  className="bx--content-block__cta bx--content-block__cta-col"
+                  className="bx--content-block"
+                  data-autoid="dds--content-block"
                 >
-                  <ButtonCTA
-                    buttons={
-                      Array [
-                        Object {
-                          "copy": "Contact sales",
-                          "href": "https://example.com/",
-                          "iconDescription": "right arrow icon",
-                          "onClick": [Function],
-                          "renderIcon": null,
-                          "target": null,
-                          "type": "default",
-                        },
-                      ]
+                  <div>
+                    <h2
+                      className="bx--content-block__heading"
+                      data-autoid="dds--content-block__heading"
+                    >
+                      Take the next step
+                    </h2>
+                  </div>
+                  <div
+                    className="bx--content-block__copy"
+                    dangerouslySetInnerHTML={
+                      Object {
+                        "__html": "<p>Want to discuss your options with a DevOps expert? Contact our sales team to evaluate your needs.</p>",
+                      }
                     }
-                    copy=""
-                    formatCTAcopy={[Function]}
-                    href=""
-                    openLightBox={[Function]}
-                    renderLightBox={false}
-                    style="button"
-                    type="local"
-                    videoTitle={
-                      Array [
-                        Object {
-                          "duration": "",
-                          "key": 0,
-                          "title": "",
-                        },
-                      ]
-                    }
+                  />
+                  <div
+                    className="bx--content-block__children"
+                    data-autoid="dds--content-block__children"
+                  />
+                  <div
+                    className="bx--content-block__cta-row"
+                    data-autoid="dds--content-block__cta"
                   >
-                    <ButtonGroup
+                    <CTA
                       buttons={
                         Array [
                           Object {
@@ -32414,296 +32202,599 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
                           },
                         ]
                       }
-                      enableSizeByContent={true}
+                      copy=""
+                      customClassName="bx--content-block__cta bx--content-block__cta-col"
+                      href=""
+                      style="button"
+                      type="local"
                     >
-                      <ol
-                        className="bx--buttongroup"
-                        data-autoid="dds--button-group"
+                      <div
+                        className="bx--content-block__cta bx--content-block__cta-col"
                       >
-                        <li
-                          className="bx--buttongroup-item"
-                          key="0"
+                        <ButtonCTA
+                          buttons={
+                            Array [
+                              Object {
+                                "copy": "Contact sales",
+                                "href": "https://example.com/",
+                                "iconDescription": "right arrow icon",
+                                "onClick": [Function],
+                                "renderIcon": null,
+                                "target": null,
+                                "type": "default",
+                              },
+                            ]
+                          }
+                          copy=""
+                          formatCTAcopy={[Function]}
+                          href=""
+                          openLightBox={[Function]}
+                          renderLightBox={false}
+                          style="button"
+                          type="local"
+                          videoTitle={
+                            Array [
+                              Object {
+                                "duration": "",
+                                "key": 0,
+                                "title": "",
+                              },
+                            ]
+                          }
                         >
-                          <ForwardRef(Button)
-                            copy="Contact sales"
-                            data-autoid="dds--button-group-0"
-                            disabled={false}
-                            href="https://example.com/"
-                            iconDescription="right arrow icon"
-                            kind="primary"
-                            onClick={[Function]}
-                            renderIcon={null}
-                            tabIndex={2}
-                            target={null}
-                            type="button"
+                          <ButtonGroup
+                            buttons={
+                              Array [
+                                Object {
+                                  "copy": "Contact sales",
+                                  "href": "https://example.com/",
+                                  "iconDescription": "right arrow icon",
+                                  "onClick": [Function],
+                                  "renderIcon": null,
+                                  "target": null,
+                                  "type": "default",
+                                },
+                              ]
+                            }
+                            enableSizeByContent={true}
                           >
-                            <a
-                              className="bx--btn bx--btn--primary"
-                              copy="Contact sales"
-                              data-autoid="dds--button-group-0"
-                              href="https://example.com/"
-                              onClick={[Function]}
-                              tabIndex={2}
-                              target={null}
+                            <ol
+                              className="bx--buttongroup"
+                              data-autoid="dds--button-group"
                             >
-                              Contact sales
-                            </a>
-                          </ForwardRef(Button)>
-                        </li>
-                      </ol>
-                    </ButtonGroup>
-                  </ButtonCTA>
+                              <li
+                                className="bx--buttongroup-item"
+                                key="0"
+                              >
+                                <ForwardRef(Button)
+                                  copy="Contact sales"
+                                  data-autoid="dds--button-group-0"
+                                  disabled={false}
+                                  href="https://example.com/"
+                                  iconDescription="right arrow icon"
+                                  kind="primary"
+                                  onClick={[Function]}
+                                  renderIcon={null}
+                                  tabIndex={2}
+                                  target={null}
+                                  type="button"
+                                >
+                                  <a
+                                    className="bx--btn bx--btn--primary"
+                                    copy="Contact sales"
+                                    data-autoid="dds--button-group-0"
+                                    href="https://example.com/"
+                                    onClick={[Function]}
+                                    tabIndex={2}
+                                    target={null}
+                                  >
+                                    Contact sales
+                                  </a>
+                                </ForwardRef(Button)>
+                              </li>
+                            </ol>
+                          </ButtonGroup>
+                        </ButtonCTA>
+                      </div>
+                    </CTA>
+                  </div>
                 </div>
-              </CTA>
-            </div>
-          </div>
-        </ContentBlock>
-        <hr
-          className="bx--horizontal-line"
-        />
+              </ContentBlock>
+            </section>
+          </CTASection>
+        </div>
+      </div>
+    </div>
+  </div>
+  <input
+    aria-label="input-text-offleft"
+    className="bx--visually-hidden"
+    type="text"
+  />
+</Container>
+`;
+
+exports[`Storyshots Patterns (Sections)|CTASection With Content Items 1`] = `
+<Container
+  story={[Function]}
+>
+  <div
+    data-floating-menu-container=""
+    role="main"
+    style={
+      Object {
+        "backgroundColor": "",
+      }
+    }
+  >
+    <div
+      className="bx--grid"
+    >
+      <div
+        className="bx--row"
+      >
         <div
-          className="bx--helper-wrapper"
+          className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4"
         >
-          <div
-            className="bx--content-item-wrapper"
+          <CTASection
+            copy="Want to discuss your options with a DevOps expert? Contact our sales team to evaluate your needs."
+            cta={
+              Object {
+                "buttons": Array [
+                  Object {
+                    "copy": "Contact sales",
+                    "href": "https://example.com/",
+                    "iconDescription": "right arrow icon",
+                    "onClick": [Function],
+                    "renderIcon": null,
+                    "target": null,
+                    "type": "default",
+                  },
+                ],
+                "style": "button",
+                "type": "local",
+              }
+            }
+            heading="Take the next step"
+            items={
+              Array [
+                Object {
+                  "copy": "
+          IBM DevOps partners have a wide range of expertise.
+          Find one to build the right solution for you.
+          ",
+                  "cta": Object {
+                    "copy": "Find a partner",
+                    "href": "https://example.com/",
+                    "type": "local",
+                  },
+                  "heading": "Get connected",
+                },
+                Object {
+                  "copy": "Dig into more self-directed learning about DevOps methodologies.",
+                  "cta": Object {
+                    "copy": "Browse tutorials",
+                    "href": "https://example.com/",
+                    "type": "local",
+                  },
+                  "heading": "Learn how",
+                },
+              ]
+            }
+            theme=""
           >
-            <ContentItem
-              copy="
+            <section
+              className="bx--cta-section bx--cta-section__has-items"
+              data-autoid="dds--cta-section"
+            >
+              <ContentBlock
+                border={false}
+                copy="Want to discuss your options with a DevOps expert? Contact our sales team to evaluate your needs."
+                cta={
+                  Object {
+                    "buttons": Array [
+                      Object {
+                        "copy": "Contact sales",
+                        "href": "https://example.com/",
+                        "iconDescription": "right arrow icon",
+                        "onClick": [Function],
+                        "renderIcon": null,
+                        "target": null,
+                        "type": "default",
+                      },
+                    ],
+                    "style": "button",
+                    "type": "local",
+                  }
+                }
+                heading="Take the next step"
+              >
+                <div
+                  className="bx--content-block"
+                  data-autoid="dds--content-block"
+                >
+                  <div>
+                    <h2
+                      className="bx--content-block__heading"
+                      data-autoid="dds--content-block__heading"
+                    >
+                      Take the next step
+                    </h2>
+                  </div>
+                  <div
+                    className="bx--content-block__copy"
+                    dangerouslySetInnerHTML={
+                      Object {
+                        "__html": "<p>Want to discuss your options with a DevOps expert? Contact our sales team to evaluate your needs.</p>",
+                      }
+                    }
+                  />
+                  <div
+                    className="bx--content-block__children"
+                    data-autoid="dds--content-block__children"
+                  />
+                  <div
+                    className="bx--content-block__cta-row"
+                    data-autoid="dds--content-block__cta"
+                  >
+                    <CTA
+                      buttons={
+                        Array [
+                          Object {
+                            "copy": "Contact sales",
+                            "href": "https://example.com/",
+                            "iconDescription": "right arrow icon",
+                            "onClick": [Function],
+                            "renderIcon": null,
+                            "target": null,
+                            "type": "default",
+                          },
+                        ]
+                      }
+                      copy=""
+                      customClassName="bx--content-block__cta bx--content-block__cta-col"
+                      href=""
+                      style="button"
+                      type="local"
+                    >
+                      <div
+                        className="bx--content-block__cta bx--content-block__cta-col"
+                      >
+                        <ButtonCTA
+                          buttons={
+                            Array [
+                              Object {
+                                "copy": "Contact sales",
+                                "href": "https://example.com/",
+                                "iconDescription": "right arrow icon",
+                                "onClick": [Function],
+                                "renderIcon": null,
+                                "target": null,
+                                "type": "default",
+                              },
+                            ]
+                          }
+                          copy=""
+                          formatCTAcopy={[Function]}
+                          href=""
+                          openLightBox={[Function]}
+                          renderLightBox={false}
+                          style="button"
+                          type="local"
+                          videoTitle={
+                            Array [
+                              Object {
+                                "duration": "",
+                                "key": 0,
+                                "title": "",
+                              },
+                            ]
+                          }
+                        >
+                          <ButtonGroup
+                            buttons={
+                              Array [
+                                Object {
+                                  "copy": "Contact sales",
+                                  "href": "https://example.com/",
+                                  "iconDescription": "right arrow icon",
+                                  "onClick": [Function],
+                                  "renderIcon": null,
+                                  "target": null,
+                                  "type": "default",
+                                },
+                              ]
+                            }
+                            enableSizeByContent={true}
+                          >
+                            <ol
+                              className="bx--buttongroup"
+                              data-autoid="dds--button-group"
+                            >
+                              <li
+                                className="bx--buttongroup-item"
+                                key="0"
+                              >
+                                <ForwardRef(Button)
+                                  copy="Contact sales"
+                                  data-autoid="dds--button-group-0"
+                                  disabled={false}
+                                  href="https://example.com/"
+                                  iconDescription="right arrow icon"
+                                  kind="primary"
+                                  onClick={[Function]}
+                                  renderIcon={null}
+                                  tabIndex={2}
+                                  target={null}
+                                  type="button"
+                                >
+                                  <a
+                                    className="bx--btn bx--btn--primary"
+                                    copy="Contact sales"
+                                    data-autoid="dds--button-group-0"
+                                    href="https://example.com/"
+                                    onClick={[Function]}
+                                    tabIndex={2}
+                                    target={null}
+                                  >
+                                    Contact sales
+                                  </a>
+                                </ForwardRef(Button)>
+                              </li>
+                            </ol>
+                          </ButtonGroup>
+                        </ButtonCTA>
+                      </div>
+                    </CTA>
+                  </div>
+                </div>
+              </ContentBlock>
+              <div
+                className="bx--helper-wrapper"
+              >
+                <div
+                  className="bx--content-item-wrapper"
+                >
+                  <ContentItem
+                    copy="
           IBM DevOps partners have a wide range of expertise.
           Find one to build the right solution for you.
           "
-              cta={
-                Object {
-                  "copy": "Find a partner",
-                  "href": "https://example.com/",
-                  "type": "local",
-                }
-              }
-              heading="Get connected"
-              key="0"
-            >
-              <div
-                className="bx--content-item"
-                data-autoid="dds--content-item"
-              >
-                <h4
-                  className="bx--content-item__heading"
-                  data-autoid="dds--content-item__heading"
-                >
-                  Get connected
-                </h4>
-                <div
-                  className="bx--content-item__copy"
-                  dangerouslySetInnerHTML={
-                    Object {
-                      "__html": "<p>  IBM DevOps partners have a wide range of expertise.  Find one to build the right solution for you.  </p>",
-                    }
-                  }
-                  data-autoid="dds--content-item__copy"
-                />
-                <CTA
-                  copy="Find a partner"
-                  customClassName="bx--content-item__cta"
-                  href="https://example.com/"
-                  style="text"
-                  type="local"
-                >
-                  <div
-                    className="bx--content-item__cta"
-                  >
-                    <TextCTA
-                      copy="Find a partner"
-                      formatCTAcopy={[Function]}
-                      href="https://example.com/"
-                      openLightBox={[Function]}
-                      renderLightBox={false}
-                      style="text"
-                      type="local"
-                      videoTitle={
-                        Array [
-                          Object {
-                            "duration": "",
-                            "key": 0,
-                            "title": "",
-                          },
-                        ]
+                    cta={
+                      Object {
+                        "copy": "Find a partner",
+                        "href": "https://example.com/",
+                        "type": "local",
                       }
+                    }
+                    heading="Get connected"
+                    key="0"
+                  >
+                    <div
+                      className="bx--content-item"
+                      data-autoid="dds--content-item"
                     >
-                      <LinkWithIcon
+                      <h4
+                        className="bx--content-item__heading"
+                        data-autoid="dds--content-item__heading"
+                      >
+                        Get connected
+                      </h4>
+                      <div
+                        className="bx--content-item__copy"
+                        dangerouslySetInnerHTML={
+                          Object {
+                            "__html": "<p>  IBM DevOps partners have a wide range of expertise.  Find one to build the right solution for you.  </p>",
+                          }
+                        }
+                        data-autoid="dds--content-item__copy"
+                      />
+                      <CTA
+                        copy="Find a partner"
+                        customClassName="bx--content-item__cta"
                         href="https://example.com/"
-                        onClick={[Function]}
-                        target={null}
+                        style="text"
+                        type="local"
                       >
                         <div
-                          className="bx--link-with-icon__container"
-                          data-autoid="dds--link-with-icon"
+                          className="bx--content-item__cta"
                         >
-                          <Link
-                            className="bx--link-with-icon"
+                          <TextCTA
+                            copy="Find a partner"
+                            formatCTAcopy={[Function]}
                             href="https://example.com/"
-                            onClick={[Function]}
-                            target={null}
+                            openLightBox={[Function]}
+                            renderLightBox={false}
+                            style="text"
+                            type="local"
+                            videoTitle={
+                              Array [
+                                Object {
+                                  "duration": "",
+                                  "key": 0,
+                                  "title": "",
+                                },
+                              ]
+                            }
                           >
-                            <a
-                              className="bx--link bx--link-with-icon"
+                            <LinkWithIcon
                               href="https://example.com/"
                               onClick={[Function]}
                               target={null}
                             >
-                              <span>
-                                Find a partner
-                              </span>
-                              <ForwardRef(ArrowRight20)>
-                                <Icon
-                                  height={20}
-                                  preserveAspectRatio="xMidYMid meet"
-                                  viewBox="0 0 20 20"
-                                  width={20}
-                                  xmlns="http://www.w3.org/2000/svg"
+                              <div
+                                className="bx--link-with-icon__container"
+                                data-autoid="dds--link-with-icon"
+                              >
+                                <Link
+                                  className="bx--link-with-icon"
+                                  href="https://example.com/"
+                                  onClick={[Function]}
+                                  target={null}
                                 >
-                                  <svg
-                                    aria-hidden={true}
-                                    focusable="false"
-                                    height={20}
-                                    preserveAspectRatio="xMidYMid meet"
-                                    viewBox="0 0 20 20"
-                                    width={20}
-                                    xmlns="http://www.w3.org/2000/svg"
+                                  <a
+                                    className="bx--link bx--link-with-icon"
+                                    href="https://example.com/"
+                                    onClick={[Function]}
+                                    target={null}
                                   >
-                                    <path
-                                      d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
-                                    />
-                                  </svg>
-                                </Icon>
-                              </ForwardRef(ArrowRight20)>
-                            </a>
-                          </Link>
+                                    <span>
+                                      Find a partner
+                                    </span>
+                                    <ForwardRef(ArrowRight20)>
+                                      <Icon
+                                        height={20}
+                                        preserveAspectRatio="xMidYMid meet"
+                                        viewBox="0 0 20 20"
+                                        width={20}
+                                        xmlns="http://www.w3.org/2000/svg"
+                                      >
+                                        <svg
+                                          aria-hidden={true}
+                                          focusable="false"
+                                          height={20}
+                                          preserveAspectRatio="xMidYMid meet"
+                                          viewBox="0 0 20 20"
+                                          width={20}
+                                          xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                          <path
+                                            d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                          />
+                                        </svg>
+                                      </Icon>
+                                    </ForwardRef(ArrowRight20)>
+                                  </a>
+                                </Link>
+                              </div>
+                            </LinkWithIcon>
+                          </TextCTA>
                         </div>
-                      </LinkWithIcon>
-                    </TextCTA>
-                  </div>
-                </CTA>
-              </div>
-            </ContentItem>
-            <ContentItem
-              copy="Dig into more self-directed learning about DevOps methodologies."
-              cta={
-                Object {
-                  "copy": "Browse tutorials",
-                  "href": "https://example.com/",
-                  "type": "local",
-                }
-              }
-              heading="Learn how"
-              key="1"
-            >
-              <div
-                className="bx--content-item"
-                data-autoid="dds--content-item"
-              >
-                <h4
-                  className="bx--content-item__heading"
-                  data-autoid="dds--content-item__heading"
-                >
-                  Learn how
-                </h4>
-                <div
-                  className="bx--content-item__copy"
-                  dangerouslySetInnerHTML={
-                    Object {
-                      "__html": "<p>Dig into more self-directed learning about DevOps methodologies.</p>",
-                    }
-                  }
-                  data-autoid="dds--content-item__copy"
-                />
-                <CTA
-                  copy="Browse tutorials"
-                  customClassName="bx--content-item__cta"
-                  href="https://example.com/"
-                  style="text"
-                  type="local"
-                >
-                  <div
-                    className="bx--content-item__cta"
-                  >
-                    <TextCTA
-                      copy="Browse tutorials"
-                      formatCTAcopy={[Function]}
-                      href="https://example.com/"
-                      openLightBox={[Function]}
-                      renderLightBox={false}
-                      style="text"
-                      type="local"
-                      videoTitle={
-                        Array [
-                          Object {
-                            "duration": "",
-                            "key": 0,
-                            "title": "",
-                          },
-                        ]
+                      </CTA>
+                    </div>
+                  </ContentItem>
+                  <ContentItem
+                    copy="Dig into more self-directed learning about DevOps methodologies."
+                    cta={
+                      Object {
+                        "copy": "Browse tutorials",
+                        "href": "https://example.com/",
+                        "type": "local",
                       }
+                    }
+                    heading="Learn how"
+                    key="1"
+                  >
+                    <div
+                      className="bx--content-item"
+                      data-autoid="dds--content-item"
                     >
-                      <LinkWithIcon
+                      <h4
+                        className="bx--content-item__heading"
+                        data-autoid="dds--content-item__heading"
+                      >
+                        Learn how
+                      </h4>
+                      <div
+                        className="bx--content-item__copy"
+                        dangerouslySetInnerHTML={
+                          Object {
+                            "__html": "<p>Dig into more self-directed learning about DevOps methodologies.</p>",
+                          }
+                        }
+                        data-autoid="dds--content-item__copy"
+                      />
+                      <CTA
+                        copy="Browse tutorials"
+                        customClassName="bx--content-item__cta"
                         href="https://example.com/"
-                        onClick={[Function]}
-                        target={null}
+                        style="text"
+                        type="local"
                       >
                         <div
-                          className="bx--link-with-icon__container"
-                          data-autoid="dds--link-with-icon"
+                          className="bx--content-item__cta"
                         >
-                          <Link
-                            className="bx--link-with-icon"
+                          <TextCTA
+                            copy="Browse tutorials"
+                            formatCTAcopy={[Function]}
                             href="https://example.com/"
-                            onClick={[Function]}
-                            target={null}
+                            openLightBox={[Function]}
+                            renderLightBox={false}
+                            style="text"
+                            type="local"
+                            videoTitle={
+                              Array [
+                                Object {
+                                  "duration": "",
+                                  "key": 0,
+                                  "title": "",
+                                },
+                              ]
+                            }
                           >
-                            <a
-                              className="bx--link bx--link-with-icon"
+                            <LinkWithIcon
                               href="https://example.com/"
                               onClick={[Function]}
                               target={null}
                             >
-                              <span>
-                                Browse tutorials
-                              </span>
-                              <ForwardRef(ArrowRight20)>
-                                <Icon
-                                  height={20}
-                                  preserveAspectRatio="xMidYMid meet"
-                                  viewBox="0 0 20 20"
-                                  width={20}
-                                  xmlns="http://www.w3.org/2000/svg"
+                              <div
+                                className="bx--link-with-icon__container"
+                                data-autoid="dds--link-with-icon"
+                              >
+                                <Link
+                                  className="bx--link-with-icon"
+                                  href="https://example.com/"
+                                  onClick={[Function]}
+                                  target={null}
                                 >
-                                  <svg
-                                    aria-hidden={true}
-                                    focusable="false"
-                                    height={20}
-                                    preserveAspectRatio="xMidYMid meet"
-                                    viewBox="0 0 20 20"
-                                    width={20}
-                                    xmlns="http://www.w3.org/2000/svg"
+                                  <a
+                                    className="bx--link bx--link-with-icon"
+                                    href="https://example.com/"
+                                    onClick={[Function]}
+                                    target={null}
                                   >
-                                    <path
-                                      d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
-                                    />
-                                  </svg>
-                                </Icon>
-                              </ForwardRef(ArrowRight20)>
-                            </a>
-                          </Link>
+                                    <span>
+                                      Browse tutorials
+                                    </span>
+                                    <ForwardRef(ArrowRight20)>
+                                      <Icon
+                                        height={20}
+                                        preserveAspectRatio="xMidYMid meet"
+                                        viewBox="0 0 20 20"
+                                        width={20}
+                                        xmlns="http://www.w3.org/2000/svg"
+                                      >
+                                        <svg
+                                          aria-hidden={true}
+                                          focusable="false"
+                                          height={20}
+                                          preserveAspectRatio="xMidYMid meet"
+                                          viewBox="0 0 20 20"
+                                          width={20}
+                                          xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                          <path
+                                            d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                          />
+                                        </svg>
+                                      </Icon>
+                                    </ForwardRef(ArrowRight20)>
+                                  </a>
+                                </Link>
+                              </div>
+                            </LinkWithIcon>
+                          </TextCTA>
                         </div>
-                      </LinkWithIcon>
-                    </TextCTA>
-                  </div>
-                </CTA>
+                      </CTA>
+                    </div>
+                  </ContentItem>
+                </div>
               </div>
-            </ContentItem>
-          </div>
+            </section>
+          </CTASection>
         </div>
-      </section>
-    </CTASection>
+      </div>
+    </div>
   </div>
   <input
     aria-label="input-text-offleft"
