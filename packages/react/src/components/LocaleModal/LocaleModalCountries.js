@@ -5,11 +5,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import {
-  settings as ddsSettings,
-  ipcinfoCookie,
-} from '@carbon/ibmdotcom-utilities';
 import React, { useEffect } from 'react';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import ipcinfoCookie from '@carbon/ibmdotcom-utilities/es/utilities/ipcinfoCookie/ipcinfoCookie';
 import PropTypes from 'prop-types';
 import Search from '../../internal/vendor/carbon-components-react/components/Search/Search';
 import settings from 'carbon-components/es/globals/js/settings';

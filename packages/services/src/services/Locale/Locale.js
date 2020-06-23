@@ -5,9 +5,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { geolocation, ipcinfoCookie } from '@carbon/ibmdotcom-utilities';
 import axios from 'axios';
 import DDOAPI from '../DDO/DDO';
+import geolocation from '@carbon/ibmdotcom-utilities/es/utilities/geolocation/geolocation';
+import ipcinfoCookie from '@carbon/ibmdotcom-utilities/es/utilities/ipcinfoCookie/ipcinfoCookie';
 import root from 'window-or-global';
 
 /**
