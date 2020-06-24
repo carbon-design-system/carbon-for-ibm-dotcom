@@ -35,10 +35,11 @@
     "semantic-release": "semantic-release",
     "start": "yarn storybook",
     "storybook": "start-storybook -p 9000",
-    "test": "yarn test:unit && yarn test:integration:build",
+    "test": "yarn test:unit && yarn test:integration:build && yarn test:integration:bundle",
     "test:unit": "jest",
     "test:unit:updateSnapshot": "jest -u",
     "test:integration:build": "jest -c tests/integration/build/jest.config.js --runInBand",
+    "test:integration:bundle": "jest -c tests/integration/bundle/jest.config.js",
     "test-ssr": "yarn build && node ssr-tests/*.js",
     "visual-snapshot": "yarn build-storybook && percy-storybook --widths=320,1280"
   },

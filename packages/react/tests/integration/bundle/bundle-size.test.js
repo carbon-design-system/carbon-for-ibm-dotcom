@@ -43,7 +43,7 @@ const ignore = [
   '**/__mocks__/**',
 ];
 
-const cwd = path.resolve(__dirname, '../es');
+const cwd = path.resolve(__dirname, '../../../es');
 const files = glob.sync('**/*.js', {
   cwd,
   ignore,
@@ -179,34 +179,34 @@ describe('ES modules', () => {
             plugins: [
               [
                 require.resolve(
-                  '../../../tasks/babel-plugin-temporarily-eliminate-react-redundant-code'
+                  '../../../../../tasks/babel-plugin-temporarily-eliminate-react-redundant-code'
                 ),
                 {
                   excludes: ['**/node_modules/**'],
                   callExpressionDefaultExports: [
                     require.resolve(
-                      '../es/internal/vendor/carbon-components-react/components/DatePicker/plugins/appendToPlugin'
+                      '../../../es/internal/vendor/carbon-components-react/components/DatePicker/plugins/appendToPlugin'
                     ),
                     require.resolve(
-                      '../es/internal/vendor/carbon-components-react/components/DatePicker/plugins/fixEventsPlugin'
+                      '../../../es/internal/vendor/carbon-components-react/components/DatePicker/plugins/fixEventsPlugin'
                     ),
                     require.resolve(
-                      '../es/internal/vendor/carbon-components-react/components/DatePicker/plugins/rangePlugin'
+                      '../../../es/internal/vendor/carbon-components-react/components/DatePicker/plugins/rangePlugin'
                     ),
                     require.resolve(
-                      '../es/internal/vendor/carbon-components-react/components/InlineCheckbox/InlineCheckbox'
+                      '../../../es/internal/vendor/carbon-components-react/components/InlineCheckbox/InlineCheckbox'
                     ),
                     require.resolve(
-                      '../es/internal/vendor/carbon-components-react/components/NumberInput/NumberInput'
+                      '../../../es/internal/vendor/carbon-components-react/components/NumberInput/NumberInput'
                     ),
                     require.resolve(
-                      '../es/internal/vendor/carbon-components-react/components/OverflowMenu/OverflowMenu'
+                      '../../../es/internal/vendor/carbon-components-react/components/OverflowMenu/OverflowMenu'
                     ),
                     require.resolve(
-                      '../es/internal/vendor/carbon-components-react/components/RadioButton/RadioButton'
+                      '../../../es/internal/vendor/carbon-components-react/components/RadioButton/RadioButton'
                     ),
                     require.resolve(
-                      '../es/internal/vendor/carbon-components-react/components/Tooltip/Tooltip'
+                      '../../../es/internal/vendor/carbon-components-react/components/Tooltip/Tooltip'
                     ),
                   ],
                   symbols: [
