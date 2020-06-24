@@ -2465,11 +2465,15 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                           id="bx--video-player__video-0_uka1msg4"
                                                         >
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> fix(callout-data): fixed wrong proptypes
                                                           <button
                                                             className="bx--video-player__image-overlay"
                                                             data-autoid="dds--video-player__image-overlay"
                                                             id="video-thumbnail-overlay"
                                                             onClick={[Function]}
+<<<<<<< HEAD
 =======
                                                           <VideoImageOverlay
                                                             embedVideo={[Function]}
@@ -2481,6 +2485,8 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                             }
                                                             videoId="0_uka1msg4"
 >>>>>>> chore(Dotcomshell): avoid side effect in story module
+=======
+>>>>>>> fix(callout-data): fixed wrong proptypes
                                                           >
                                                             <button
                                                               className="bx--video-player__image-overlay"
@@ -4390,11 +4396,15 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                 id="bx--video-player__video-undefined"
                                                               >
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> fix(callout-data): fixed wrong proptypes
                                                                 <button
                                                                   className="bx--video-player__image-overlay"
                                                                   data-autoid="dds--video-player__image-overlay"
                                                                   id="video-thumbnail-overlay"
                                                                   onClick={[Function]}
+<<<<<<< HEAD
 =======
                                                                 <VideoImageOverlay
                                                                   embedVideo={[Function]}
@@ -4405,6 +4415,8 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                     }
                                                                   }
 >>>>>>> chore(Dotcomshell): avoid side effect in story module
+=======
+>>>>>>> fix(callout-data): fixed wrong proptypes
                                                                 >
                                                                   <button
                                                                     className="bx--video-player__image-overlay"
@@ -4564,6 +4576,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                     }
                                                   }
 <<<<<<< HEAD
+<<<<<<< HEAD
                                                   style="horizontal"
 =======
                                                   data-autoid="dds--content-item-horizontal__item--copy"
@@ -4572,6 +4585,9 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                   className="bx--content-item-horizontal__item--cta"
                                                   data-autoid="dds--content-item-horizontal__item--cta"
 >>>>>>> chore(Dotcomshell): avoid side effect in story module
+=======
+                                                  style="horizontal"
+>>>>>>> fix(callout-data): fixed wrong proptypes
                                                 >
                                                   <LinkList
                                                     items={
@@ -4591,6 +4607,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                     style="vertical"
                                                   >
 <<<<<<< HEAD
+<<<<<<< HEAD
                                                     <ul
                                                       className="bx--link-list__list bx--link-list__list--horizontal"
 =======
@@ -4598,6 +4615,10 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                       className="bx--link-list"
                                                       data-autoid="dds--link-list"
 >>>>>>> chore(Dotcomshell): avoid side effect in story module
+=======
+                                                    <ul
+                                                      className="bx--link-list__list bx--link-list__list--horizontal"
+>>>>>>> fix(callout-data): fixed wrong proptypes
                                                     >
                                                       <ul
                                                         className="bx--link-list__list bx--link-list__list--vertical"
@@ -4841,6 +4862,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                     }
                                                   }
 <<<<<<< HEAD
+<<<<<<< HEAD
                                                   style="horizontal"
 =======
                                                   data-autoid="dds--content-item-horizontal__item--copy"
@@ -4849,6 +4871,9 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                   className="bx--content-item-horizontal__item--cta"
                                                   data-autoid="dds--content-item-horizontal__item--cta"
 >>>>>>> chore(Dotcomshell): avoid side effect in story module
+=======
+                                                  style="horizontal"
+>>>>>>> fix(callout-data): fixed wrong proptypes
                                                 >
                                                   <LinkList
                                                     items={
@@ -4868,6 +4893,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                     style="vertical"
                                                   >
 <<<<<<< HEAD
+<<<<<<< HEAD
                                                     <ul
                                                       className="bx--link-list__list bx--link-list__list--horizontal"
 =======
@@ -4875,6 +4901,10 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                       className="bx--link-list"
                                                       data-autoid="dds--link-list"
 >>>>>>> chore(Dotcomshell): avoid side effect in story module
+=======
+                                                    <ul
+                                                      className="bx--link-list__list bx--link-list__list--horizontal"
+>>>>>>> fix(callout-data): fixed wrong proptypes
                                                     >
                                                       <ul
                                                         className="bx--link-list__list bx--link-list__list--vertical"
