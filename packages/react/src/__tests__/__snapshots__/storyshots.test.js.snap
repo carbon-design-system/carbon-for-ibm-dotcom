@@ -2259,7 +2259,10 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                     <option
                                       className="bx--tableofcontents__mobile__select__option"
                                       data-autoid="dds}--tableofcontents__mobile__select__option-menuLabel"
+                                      disabled={true}
+                                      hidden={true}
                                       key="0"
+                                      selected={true}
                                       value="menuLabel"
                                     >
                                       <option
@@ -2471,7 +2474,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                           <button
                                                             className="bx--video-player__image-overlay"
                                                             data-autoid="dds--video-player__image-overlay"
-                                                            id="video-thumbnail-overlay"
                                                             onClick={[Function]}
 <<<<<<< HEAD
 =======
@@ -4402,7 +4404,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                 <button
                                                                   className="bx--video-player__image-overlay"
                                                                   data-autoid="dds--video-player__image-overlay"
-                                                                  id="video-thumbnail-overlay"
                                                                   onClick={[Function]}
 <<<<<<< HEAD
 =======
@@ -4577,6 +4578,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                   }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                                                   style="horizontal"
 =======
                                                   data-autoid="dds--content-item-horizontal__item--copy"
@@ -4588,6 +4590,9 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
 =======
                                                   style="horizontal"
 >>>>>>> fix(callout-data): fixed wrong proptypes
+=======
+                                                  style="vertical"
+>>>>>>> chore(test): updated snapshot
                                                 >
                                                   <LinkList
                                                     items={
@@ -4609,6 +4614,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
 <<<<<<< HEAD
 <<<<<<< HEAD
                                                     <ul
+<<<<<<< HEAD
                                                       className="bx--link-list__list bx--link-list__list--horizontal"
 =======
                                                     <div
@@ -4619,6 +4625,9 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                     <ul
                                                       className="bx--link-list__list bx--link-list__list--horizontal"
 >>>>>>> fix(callout-data): fixed wrong proptypes
+=======
+                                                      className="bx--link-list__list bx--link-list__list--vertical"
+>>>>>>> chore(test): updated snapshot
                                                     >
                                                       <ul
                                                         className="bx--link-list__list bx--link-list__list--vertical"
@@ -4863,6 +4872,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                   }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                                                   style="horizontal"
 =======
                                                   data-autoid="dds--content-item-horizontal__item--copy"
@@ -4874,6 +4884,9 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
 =======
                                                   style="horizontal"
 >>>>>>> fix(callout-data): fixed wrong proptypes
+=======
+                                                  style="vertical"
+>>>>>>> chore(test): updated snapshot
                                                 >
                                                   <LinkList
                                                     items={
@@ -4895,6 +4908,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
 <<<<<<< HEAD
 <<<<<<< HEAD
                                                     <ul
+<<<<<<< HEAD
                                                       className="bx--link-list__list bx--link-list__list--horizontal"
 =======
                                                     <div
@@ -4905,6 +4919,9 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                     <ul
                                                       className="bx--link-list__list bx--link-list__list--horizontal"
 >>>>>>> fix(callout-data): fixed wrong proptypes
+=======
+                                                      className="bx--link-list__list bx--link-list__list--vertical"
+>>>>>>> chore(test): updated snapshot
                                                     >
                                                       <ul
                                                         className="bx--link-list__list bx--link-list__list--vertical"
