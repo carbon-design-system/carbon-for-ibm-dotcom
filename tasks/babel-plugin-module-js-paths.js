@@ -12,6 +12,8 @@ const replaceTable = {
   '@carbon/icons-react/es': '@carbon/icons-react/lib',
   'carbon-components/es': 'carbon-components/umd',
   'carbon-components-react/es': 'carbon-components-react/lib',
+  '@carbon/ibmdotcom-services/es': '@carbon/ibmdotcom-services/lib',
+  '@carbon/ibmdotcom-utilities/es': '@carbon/ibmdotcom-utilities/lib',
 };
 
 module.exports = function resourceJSPaths(babel) {

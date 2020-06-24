@@ -31,6 +31,11 @@
       }
     }
 
+    &__media {
+      width: 100%;
+      max-width: carbon--mini-units(80);
+    }
+
     .#{$prefix}--content-block {
       padding-top: 0;
       padding-bottom: $layout-05;
@@ -55,6 +60,10 @@
       .#{$prefix}--link-list {
         padding-top: $spacing-09;
         padding-bottom: $spacing-09;
+        max-width: carbon--mini-units(80);
+        &__list__CTA {
+          max-width: none;
+        }
       }
 
       .#{$prefix}--leadspace-block__media {
