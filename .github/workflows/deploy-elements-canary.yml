@@ -1,4 +1,4 @@
-name: Deploy @carbon/ibmdotcom-elements storybook to IBM Cloud (Canary)
+name: Deploy @carbon/ibmdotcom-web-components storybook to IBM Cloud (Canary)
 
 on:
   push:
@@ -24,7 +24,7 @@ jobs:
         uses: ./.github/actions/login-ibmcloud
         with:
           cloud-api-key: ${{ secrets.CLOUD_API_KEY }}
-      - name: Building @carbon/ibmdotcom-elements storybook
+      - name: Building @carbon/ibmdotcom-web-components storybook
         env:
           CORS_PROXY: ${{ secrets.CORS_PROXY }}
           KALTURA_PARTNER_ID: ${{ secrets.KALTURA_PARTNER_ID }}
@@ -32,8 +32,8 @@ jobs:
         run: |
           cd packages/elements
           yarn build-storybook
-      - name: Deploying @carbon/ibmdotcom-elements storybook to IBM Cloud
+      - name: Deploying @carbon/ibmdotcom-web-components storybook to IBM Cloud
         uses: ./.github/actions/deploy-ibmcloud
         with:
-          cf-app: ibmdotcom-elements-canary
+          cf-app: ibmdotcom-web-components-canary
           cf-manifest: manifest-canary.yml

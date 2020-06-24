@@ -14,7 +14,7 @@ import customElements from '../custom-elements.json';
 import theme from './theme';
 import containerStyles from './container.scss'; // eslint-disable-line import/first
 
-if (process.env.STORYBOOK_IBMDOTCOM_ELEMENTS_USE_RTL === 'true') {
+if (process.env.STORYBOOK_IBMDOTCOM_WEB_COMPONENTS_USE_RTL === 'true') {
   document.documentElement.setAttribute('dir', 'rtl');
 }
 

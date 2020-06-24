@@ -10,6 +10,6 @@
 import { create } from '@storybook/theming';
 
 export default create({
-  brandTitle: 'ibmdotcom-elements',
-  brandUrl: 'https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/elements',
+  brandTitle: 'ibmdotcom-web-components',
+  brandUrl: 'https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components',
 });

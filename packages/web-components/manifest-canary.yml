@@ -1,8 +1,8 @@
 ---
 applications:
-- name: ibmdotcom-elements-canary
+- name: ibmdotcom-web-components-canary
   path: ./storybook-static
   memory: 64M
   buildpack: https://github.com/cloudfoundry/staticfile-buildpack.git
   routes:
-    - route: ibmdotcom-elements-canary.mybluemix.net
+    - route: ibmdotcom-web-components-canary.mybluemix.net

@@ -12,8 +12,8 @@ const webpack = require('webpack');
 const TerserPlugin = require('terser-webpack-plugin');
 const rtlcss = require('rtlcss');
 
-const useStyleSourceMap = process.env.STORYBOOK_IBMDOTCOM_ELEMENTS_USE_STYLE_SOURCEMAP === 'true';
-const useRtl = process.env.STORYBOOK_IBMDOTCOM_ELEMENTS_USE_RTL === 'true';
+const useStyleSourceMap = process.env.STORYBOOK_IBMDOTCOM_WEB_COMPONENTS_USE_STYLE_SOURCEMAP === 'true';
+const useRtl = process.env.STORYBOOK_IBMDOTCOM_WEB_COMPONENTS_USE_RTL === 'true';
 
 module.exports = ({ config, mode }) => {
   config.devtool = useStyleSourceMap ? 'source-map' : '';

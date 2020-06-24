@@ -32,7 +32,7 @@
 
 ## Linters/formatters
 
-`@carbon/ibmdotcom-elements` uses ESLint with `typescript-eslint` for linting, and Prettier for code formatting.
+`@carbon/ibmdotcom-web-components` uses ESLint with `typescript-eslint` for linting, and Prettier for code formatting.
 Most of ESLint configurations are same as [ones in `carbon-components`](https://www.npmjs.com/package/eslint-config-carbon-base).
 
 ## TSDoc comments
@@ -70,7 +70,7 @@ For example, `<CTA>` in `@carbon/ibmdotcom-react` is heavy, and thus components 
 
 To avoid memory leaks and zombie event listeners, we ensure the event listeners on custom elements themselves (hosts) and ones on `document`, etc. are released when they get out of render tree.
 
-For that purpose, similar to `carbon-custom-elements`, `@carbon/ibmdotcom-elements` uses `@HostListener(type, options)` decorator. `@HostListener(type, options)` decorator works with a custom element class inheriting `HostListenerMixin()` and attaches an event listener using the target method as the listener. The `type` argument can be something like `document:click` so the `click` event listener is attached to `document`.
+For that purpose, similar to `carbon-custom-elements`, `@carbon/ibmdotcom-web-components` uses `@HostListener(type, options)` decorator. `@HostListener(type, options)` decorator works with a custom element class inheriting `HostListenerMixin()` and attaches an event listener using the target method as the listener. The `type` argument can be something like `document:click` so the `click` event listener is attached to `document`.
 
 Here's an example seen in `<bx-modal>` code:
 
@@ -98,7 +98,7 @@ class BXModal extends HostListenerMixin(LitElement) {
 
 Carbon core CSS uses BEM modifier like `bx--btn--danger` to style different states/variants of a component.
 
-OTOH, similar to `carbonm-custom-elements`, `@carbon/ibmdotcom-elements` uses attributes to represent different states/variants (e.g. `<bx-btn type="danger">`), in a similar manner as how attributes influence states/variants of native elements (e.g. `<input type="hidden">`).
+OTOH, similar to `carbonm-custom-elements`, `@carbon/ibmdotcom-web-components` uses attributes to represent different states/variants (e.g. `<bx-btn type="danger">`), in a similar manner as how attributes influence states/variants of native elements (e.g. `<input type="hidden">`).
 
 If such states/variants should affect the style of custom element (shadow host), we define attribute styles from the following reasons:
 
@@ -107,7 +107,7 @@ If such states/variants should affect the style of custom element (shadow host),
 
 ## Customizing components
 
-Like `carbon-components` library does, `@carbon/ibmdotcom-elements` ensures components are written in a flexible manner enough to support use cases different applications have.
+Like `carbon-components` library does, `@carbon/ibmdotcom-web-components` ensures components are written in a flexible manner enough to support use cases different applications have.
 
 ### Defining (default) component options
 
@@ -160,9 +160,9 @@ CustomElementClass.staticPropName;
 
 ## Avoiding direct DOM mutation and data flow
 
-`@carbon/ibmdotcom-elements` uses `lit-html` template primary to change the DOM. It means that most of the component DOM works as a projection of public attribute/property and internal state.
+`@carbon/ibmdotcom-web-components` uses `lit-html` template primary to change the DOM. It means that most of the component DOM works as a projection of public attribute/property and internal state.
 
-Especially, `@carbon/ibmdotcom-elements` avoids direct mutation of the DOM outside the component. Instead, `@carbon/ibmdotcom-elements` uses events to communicate user gestures, state changes, etc. to other components.
+Especially, `@carbon/ibmdotcom-web-components` avoids direct mutation of the DOM outside the component. Instead, `@carbon/ibmdotcom-web-components` uses events to communicate user gestures, state changes, etc. to other components.
 
 In general:
 
@@ -171,7 +171,7 @@ In general:
 
 ### Custom events
 
-Similar to `carbon-custom-elements`, wherever it makes sense, `@carbon/ibmdotcom-elements` translates user-initiated events to something that gives event listeners more context of what they mean. For example, `<bx-modal>` translates `click` event on `<bx-modal-close-button>` to `bx-modal-beingclosed` and `bx-modal-closed` custom events.
+Similar to `carbon-custom-elements`, wherever it makes sense, `@carbon/ibmdotcom-web-components` translates user-initiated events to something that gives event listeners more context of what they mean. For example, `<bx-modal>` translates `click` event on `<bx-modal-close-button>` to `bx-modal-beingclosed` and `bx-modal-closed` custom events.
 
 `bx-modal-beingclosed` is cancelable in a similar manner as how `click` event on `<a href="...">` is cancelable; If `bx-modal-beingclosed` is canceled, `<bx-modal>` stops closing itself.
 
@@ -209,7 +209,7 @@ If you get TypeScript "may be null" errors, think twice to see if there is such 
 
 ## Updating view upon change in `private`/`protected` properties
 
-`lit-element` observes for changes in declared properties for updating the view. `@carbon/ibmdotcom-elements` codebase doesn't use this feature simply to get properties observed. Specifically, `@carbon/ibmdotcom-elements` doesn't set `private`/`protected` properties as declared. Whenever change in `private`/`protected` should cause update in the view, we take manual approach (`.requestUpdate()`).
+`lit-element` observes for changes in declared properties for updating the view. `@carbon/ibmdotcom-web-components` codebase doesn't use this feature simply to get properties observed. Specifically, `@carbon/ibmdotcom-web-components` doesn't set `private`/`protected` properties as declared. Whenever change in `private`/`protected` should cause update in the view, we take manual approach (`.requestUpdate()`).
 
 ## Custom element registration
 

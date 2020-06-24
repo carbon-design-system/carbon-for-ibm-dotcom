@@ -1,8 +1,8 @@
 A Carbon Design System variant that's as easy to use as native HTML elements, with no framework tax, no framework silo.
 
-# `@carbon/ibmdotcom-elements`
+# `@carbon/ibmdotcom-web-components`
 
-`@carbon/ibmdotcom-elements` is a variant of ibm.com Design System with Custom Elements v1 and Shadow DOM v1 specs.
+`@carbon/ibmdotcom-web-components` is a variant of ibm.com Design System with Custom Elements v1 and Shadow DOM v1 specs.
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -18,7 +18,7 @@ A Carbon Design System variant that's as easy to use as native HTML elements, wi
 
 1. Fork this repository and clone it
 2. `yarn install`
-3. `yarn storybook`
+3. `yarn wca && yarn storybook`
 
 ## Browser support
 
