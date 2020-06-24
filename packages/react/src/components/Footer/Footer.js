@@ -4,22 +4,20 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import {
-  globalInit,
-  LocaleAPI,
-  TranslationAPI,
-} from '@carbon/ibmdotcom-services';
 import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import { DDS_LANGUAGE_SELECTOR } from '../../internal/FeatureFlags';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import FooterLogo from './FooterLogo';
 import FooterNav from './FooterNav';
+import { globalInit } from '@carbon/ibmdotcom-services/es/services/global/global';
 import LanguageSelector from './LanguageSelector';
 import LegalNav from './LegalNav';
+import LocaleAPI from '@carbon/ibmdotcom-services/es/services/Locale/Locale';
 import LocaleButton from './LocaleButton';
 import PropTypes from 'prop-types';
 import settings from 'carbon-components/es/globals/js/settings';
+import TranslationAPI from '@carbon/ibmdotcom-services/es/services/Translation/Translation';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;

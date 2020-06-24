@@ -11,7 +11,7 @@ import Launch20 from '@carbon/icons-react/es/launch/20';
 import { LightboxMediaViewer } from '../LightboxMediaViewer';
 import PlayOutline20 from '@carbon/icons-react/es/play--outline/20';
 import React from 'react';
-import { smoothScroll } from '@carbon/ibmdotcom-utilities';
+import smoothScroll from '@carbon/ibmdotcom-utilities/es/utilities/smoothScroll/smoothScroll';
 
 /**
  * The logic behind the CTA component

@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-styles@1.8.0-rc.4...@carbon/ibmdotcom-styles@1.8.0) (2020-06-23)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.8.0-rc.4](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-styles@1.8.0-rc.3...@carbon/ibmdotcom-styles@1.8.0-rc.4) (2020-06-22)
+
+### Bug Fixes
+
+- **CardLink:** add missing css
+  ([#2850](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2850))
+  ([fbc8b6d](https://github.com/carbon-design-system/ibm-dotcom-library/commit/fbc8b6d))
+- **PictogramItem:** add missing style import
+  ([#2855](https://github.com/carbon-design-system/ibm-dotcom-library/issues/2855))
+  ([01590b2](https://github.com/carbon-design-system/ibm-dotcom-library/commit/01590b2))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.8.0-rc.3](https://github.com/carbon-design-system/ibm-dotcom-library/compare/@carbon/ibmdotcom-styles@1.8.0-rc.2...@carbon/ibmdotcom-styles@1.8.0-rc.3) (2020-06-19)
 
 ### Bug Fixes

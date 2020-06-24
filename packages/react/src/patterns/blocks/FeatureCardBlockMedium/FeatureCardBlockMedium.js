@@ -6,7 +6,7 @@
  */
 
 import ContentGroup from '../../../internal/components/ContentGroup/ContentGroup';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import { FeatureCard } from '../../../components/FeatureCard';
 import PropTypes from 'prop-types';
 import React from 'react';

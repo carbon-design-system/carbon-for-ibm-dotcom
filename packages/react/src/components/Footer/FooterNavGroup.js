@@ -6,7 +6,7 @@
  */
 
 import AccordionItem from '../../internal/vendor/carbon-components-react/components/Accordion/AccordionItem';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import Link from '../../internal/vendor/carbon-components-react/components/Link/Link';
 import PropTypes from 'prop-types';
 import React from 'react';
