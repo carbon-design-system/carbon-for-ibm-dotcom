@@ -44,12 +44,12 @@ CalloutData.PropTypes = {
   /**
    * Copy text
    */
-  copy: PropTypes.copy.isRequired,
+  copy: PropTypes.string.isRequired,
 
   /**
    * Source test
    */
-  source: PropTypes.copy.isRequired,
+  source: PropTypes.string.isRequired,
 };
 
 export default CalloutData;
