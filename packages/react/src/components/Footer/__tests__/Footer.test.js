@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,7 +9,7 @@ import { act } from 'react-dom/test-utils';
 import Footer from '../Footer';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { TranslationAPI } from '@carbon/ibmdotcom-services';
+import TranslationAPI from '@carbon/ibmdotcom-services/es/services/Translation/Translation';
 
 const FOOTER_MENU_MOCK_DATA = require('../__data__/footer-menu.json');
 const FOOTER_THIN_MOCK_DATA = require('../__data__/footer-thin.json');
@@ -19,21 +19,28 @@ const MOCK_DATA = {
   footerThin: FOOTER_THIN_MOCK_DATA,
 };
 
-jest.mock('@carbon/ibmdotcom-services', () => ({
-  TranslationAPI: {
+jest.mock(
+  '@carbon/ibmdotcom-services/lib/services/Translation/Translation',
+  () => ({
     getTranslation: jest.fn(() => Promise.resolve(MOCK_DATA)),
-  },
-  LocaleAPI: {
-    getLocale: jest.fn(() => Promise.resolve({ cc: 'us', lc: 'en' })),
-    getList: jest.fn(() => Promise.resolve({})),
-  },
-  DDOAPI: {
-    setVersion: jest.fn(),
-  },
-  AnalyticsAPI: {
-    initAll: jest.fn(),
-  },
+  })
+);
+
+jest.mock('@carbon/ibmdotcom-services/lib/services/Locale/Locale', () => ({
+  getLocale: jest.fn(() => Promise.resolve({ cc: 'us', lc: 'en' })),
+  getList: jest.fn(() => Promise.resolve({})),
 }));
+
+jest.mock('@carbon/ibmdotcom-services/lib/services/DDO/DDO', () => ({
+  setVersion: jest.fn(),
+}));
+
+jest.mock(
+  '@carbon/ibmdotcom-services/lib/services/Analytics/Analytics',
+  () => ({
+    initAll: jest.fn(),
+  })
+);
 
 xdescribe('<Footer />', () => {
   let container;

@@ -7,7 +7,7 @@
 
 import React, { useState } from 'react';
 import Button from '../../internal/vendor/carbon-components-react/components/Button/Button';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import EarthFilled20 from '@carbon/icons-react/es/earth--filled/20';
 import LocaleModal from '../LocaleModal/LocaleModal';
 import PropTypes from 'prop-types';

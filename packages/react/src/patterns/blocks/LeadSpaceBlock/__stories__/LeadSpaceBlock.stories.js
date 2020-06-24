@@ -55,8 +55,8 @@ export default {
 
         return {
           title: 'Continuous delivery',
-          copy: `Automate your software release process with continuous delivery (CD)—the most 
-            critical part of adopting DevOps. Build, test, and deploy code changes quickly, 
+          copy: `Automate your software release process with continuous delivery (CD)—the most
+            critical part of adopting DevOps. Build, test, and deploy code changes quickly,
             ensuring software is always ready for deployment.`,
           heading: text(
             'Heading (required)',
@@ -123,7 +123,7 @@ export const Default = ({ parameters }) => {
   return (
     <div className="bx--grid">
       <div className="bx--row">
-        <div className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4">
+        <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
           <LeadSpaceBlock
             title={title}
             copy={copy}
