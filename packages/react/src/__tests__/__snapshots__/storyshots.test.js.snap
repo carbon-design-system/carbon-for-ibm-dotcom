@@ -2617,6 +2617,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                           <button
                                                             className="bx--video-player__image-overlay"
                                                             data-autoid="dds--video-player__image-overlay"
+                                                            id="video-thumbnail-overlay"
                                                             onClick={[Function]}
                                                           >
                                                             <Image
@@ -4533,6 +4534,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                 <button
                                                                   className="bx--video-player__image-overlay"
                                                                   data-autoid="dds--video-player__image-overlay"
+                                                                  id="video-thumbnail-overlay"
                                                                   onClick={[Function]}
                                                                 >
                                                                   <Image
@@ -4708,14 +4710,14 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                       },
                                                     ]
                                                   }
-                                                  style="vertical"
+                                                  style="horizontal"
                                                 >
                                                   <div
                                                     className="bx--link-list"
                                                     data-autoid="dds--link-list"
                                                   >
                                                     <ul
-                                                      className="bx--link-list__list bx--link-list__list--vertical"
+                                                      className="bx--link-list__list bx--link-list__list--horizontal"
                                                     >
                                                       <li
                                                         className="bx--link-list__list__CTA bx--link-list__list--local"
@@ -4976,14 +4978,14 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                       },
                                                     ]
                                                   }
-                                                  style="vertical"
+                                                  style="horizontal"
                                                 >
                                                   <div
                                                     className="bx--link-list"
                                                     data-autoid="dds--link-list"
                                                   >
                                                     <ul
-                                                      className="bx--link-list__list bx--link-list__list--vertical"
+                                                      className="bx--link-list__list bx--link-list__list--horizontal"
                                                     >
                                                       <li
                                                         className="bx--link-list__list__CTA bx--link-list__list--local"
@@ -15461,15 +15463,15 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
                   Array [
                     Object {
                       "breakpoint": 400,
-                      "src": "https://dummyimage.com/672x200",
+                      "src": "https://dummyimage.com/672x200&text=Example%20Children",
                     },
                     Object {
                       "breakpoint": 672,
-                      "src": "https://dummyimage.com/672x200",
+                      "src": "https://dummyimage.com/672x200&text=Example%20Children",
                     },
                     Object {
                       "breakpoint": 1056,
-                      "src": "https://dummyimage.com/672x672",
+                      "src": "https://dummyimage.com/672x672&text=Example%20Children",
                     },
                   ]
                 }
@@ -15522,15 +15524,15 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
               Array [
                 Object {
                   "breakpoint": 400,
-                  "src": "https://dummyimage.com/672x200",
+                  "src": "https://dummyimage.com/672x200&text=Example%20Children",
                 },
                 Object {
                   "breakpoint": 672,
-                  "src": "https://dummyimage.com/672x200",
+                  "src": "https://dummyimage.com/672x200&text=Example%20Children",
                 },
                 Object {
                   "breakpoint": 1056,
-                  "src": "https://dummyimage.com/672x672",
+                  "src": "https://dummyimage.com/672x672&text=Example%20Children",
                 },
               ]
             }
@@ -15607,15 +15609,15 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
                         Array [
                           Object {
                             "breakpoint": 400,
-                            "src": "https://dummyimage.com/672x200",
+                            "src": "https://dummyimage.com/672x200&text=Example%20Children",
                           },
                           Object {
                             "breakpoint": 672,
-                            "src": "https://dummyimage.com/672x200",
+                            "src": "https://dummyimage.com/672x200&text=Example%20Children",
                           },
                           Object {
                             "breakpoint": 1056,
-                            "src": "https://dummyimage.com/672x672",
+                            "src": "https://dummyimage.com/672x672&text=Example%20Children",
                           },
                         ]
                       }
@@ -15636,17 +15638,17 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
                           <source
                             key="0"
                             media="(min-width: 1056px )"
-                            srcSet="https://dummyimage.com/672x672"
+                            srcSet="https://dummyimage.com/672x672&text=Example%20Children"
                           />
                           <source
                             key="1"
                             media="(min-width: 672px )"
-                            srcSet="https://dummyimage.com/672x200"
+                            srcSet="https://dummyimage.com/672x200&text=Example%20Children"
                           />
                           <source
                             key="2"
                             media="(min-width: 400px )"
-                            srcSet="https://dummyimage.com/672x200"
+                            srcSet="https://dummyimage.com/672x200&text=Example%20Children"
                           />
                           <img
                             alt="Lorem Ipsum"
@@ -15685,15 +15687,15 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
                             Array [
                               Object {
                                 "breakpoint": 400,
-                                "src": "https://dummyimage.com/672x200",
+                                "src": "https://dummyimage.com/672x200&text=Example%20Children",
                               },
                               Object {
                                 "breakpoint": 672,
-                                "src": "https://dummyimage.com/672x200",
+                                "src": "https://dummyimage.com/672x200&text=Example%20Children",
                               },
                               Object {
                                 "breakpoint": 1056,
-                                "src": "https://dummyimage.com/672x672",
+                                "src": "https://dummyimage.com/672x672&text=Example%20Children",
                               },
                             ]
                           }
@@ -15980,15 +15982,15 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
                           Array [
                             Object {
                               "breakpoint": 400,
-                              "src": "https://dummyimage.com/672x200",
+                              "src": "https://dummyimage.com/672x200&text=Example%20Children",
                             },
                             Object {
                               "breakpoint": 672,
-                              "src": "https://dummyimage.com/672x200",
+                              "src": "https://dummyimage.com/672x200&text=Example%20Children",
                             },
                             Object {
                               "breakpoint": 1056,
-                              "src": "https://dummyimage.com/672x672",
+                              "src": "https://dummyimage.com/672x672&text=Example%20Children",
                             },
                           ]
                         }
@@ -16009,17 +16011,17 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
                             <source
                               key="0"
                               media="(min-width: 1056px )"
-                              srcSet="https://dummyimage.com/672x672"
+                              srcSet="https://dummyimage.com/672x672&text=Example%20Children"
                             />
                             <source
                               key="1"
                               media="(min-width: 672px )"
-                              srcSet="https://dummyimage.com/672x200"
+                              srcSet="https://dummyimage.com/672x200&text=Example%20Children"
                             />
                             <source
                               key="2"
                               media="(min-width: 400px )"
-                              srcSet="https://dummyimage.com/672x200"
+                              srcSet="https://dummyimage.com/672x200&text=Example%20Children"
                             />
                             <img
                               alt="Lorem Ipsum"
