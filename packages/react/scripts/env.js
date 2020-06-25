@@ -24,9 +24,8 @@ module.exports = () => ({
   plugins: [
     '@babel/plugin-proposal-nullish-coalescing-operator',
     '@babel/plugin-proposal-optional-chaining',
-    require('../../../tasks/babel-plugin-pure-annotate-react-prop-types'),
     ...(BABEL_ENV === 'es'
-      ? []
+      ? [require('../../../tasks/babel-plugin-pure-annotate-react-prop-types')]
       : [require('../../../tasks/babel-plugin-module-js-paths')]),
   ],
 });
