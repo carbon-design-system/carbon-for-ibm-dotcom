@@ -44,6 +44,7 @@
     &__sidebar {
       position: sticky;
       top: 0;
+      z-index: 1;
 
       @include carbon--breakpoint('lg') {
         position: inherit;
@@ -145,8 +146,6 @@
     @include carbon--breakpoint('md') {
       &__mobile {
         padding-left: $carbon--spacing-07;
-        //margin-left: -$carbon--spacing-07;
-        //margin-right: -$carbon--spacing-07;
       }
     }
     @include carbon--breakpoint('lg') {
