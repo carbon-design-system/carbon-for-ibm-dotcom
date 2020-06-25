@@ -37,37 +37,7 @@ export default {
   },
 };
 
-export const Static = ({ parameters }) => {
-  const cta = object('cta', {
-    type: 'local',
-    copy: 'click here',
-    href: 'https://example.com',
-    icon: {
-      src: ArrowRight20,
-    },
-  });
-
-  const theme =
-    document.documentElement.getAttribute('storybook-carbon-theme') || 'white';
-
-  return (
-    <div className={`bx--card--${theme}`}>
-      <div className="bx--grid">
-        <div className="bx--row">
-          <div className="bx--col-sm-2 bx--col-md-3 bx--col-lg-6 bx--col-xlg-4 bx--no-gutter">
-            <Card
-              {...(parameters?.props?.Card ?? {})}
-              cta={cta}
-              type="static"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export const LinkClickable = ({ parameters }) => {
+export const Default = ({ parameters }) => {
   const cta = object('cta', {
     type: 'local',
     href: 'https://example.com',
@@ -89,8 +59,4 @@ export const LinkClickable = ({ parameters }) => {
       </div>
     </div>
   );
-};
-
-LinkClickable.story = {
-  name: 'Link/Clickable',
 };
