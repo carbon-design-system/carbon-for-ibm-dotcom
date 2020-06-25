@@ -8873,6 +8873,7 @@ exports[`Storyshots Components|Link with Icon Default 1`] = `
       <LinkWithIcon
         disabled={false}
         href="https://www.example.com"
+        inverse={false}
       >
         <div
           className="bx--link-with-icon__container"
