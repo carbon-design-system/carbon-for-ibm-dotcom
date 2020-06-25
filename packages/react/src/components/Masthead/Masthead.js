@@ -231,6 +231,7 @@ const Masthead = ({
               {navigation && (
                 <MastheadLeftNav
                   {...mastheadProps}
+                  platform={platform}
                   navigation={mastheadData}
                   isSideNavExpanded={isSideNavExpanded}
                 />
