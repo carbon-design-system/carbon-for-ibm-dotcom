@@ -27,6 +27,7 @@ const FooterNavGroup = ({ title, links }) => {
     <AccordionItem
       data-autoid={`${stablePrefix}--footer-nav-group`}
       title={title}
+      iconDescription={null}
       className={`${prefix}--footer-nav-group`}>
       <h2 className={`${prefix}--footer-nav-group__title`}>{title}</h2>
       <ul>{renderListItems(links)}</ul>
