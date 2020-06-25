@@ -6263,7 +6263,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                       theme="g10"
                     >
                       <section
-                        className="bx--cta-section bx--cta-section--g10 bx--cta-section__has-items"
+                        className="bx--cta-section bx--cta-section--g10"
                         data-autoid="dds--cta-section"
                       >
                         <ContentBlock
@@ -6490,6 +6490,9 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                             </div>
                           </div>
                         </ContentBlock>
+                        <hr
+                          className="bx--horizontal-line"
+                        />
                         <div
                           className="bx--helper-wrapper"
                         >
