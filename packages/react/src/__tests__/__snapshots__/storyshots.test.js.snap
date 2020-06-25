@@ -6342,6 +6342,9 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                               "heading": "Learn how",
                             },
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> chore(test): updated snapshot
                             "heading": "Learn how",
                           },
                         ]
@@ -6351,11 +6354,14 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                       <section
                         className="bx--cta-section bx--cta-section--g10"
                         data-autoid="dds--cta-section"
+<<<<<<< HEAD
 =======
                           ]
                         }
                         theme="g10"
 >>>>>>> chore(Dotcomshell): avoid side effect in story module
+=======
+>>>>>>> chore(test): updated snapshot
                       >
                         <section
                           className="bx--cta-section bx--cta-section__has-items bx--cta-section--g10"
@@ -6585,6 +6591,9 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                               </div>
                             </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> chore(test): updated snapshot
                           </div>
                         </ContentBlock>
                         <hr
@@ -6593,9 +6602,12 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                         <div
                           className="bx--helper-wrapper"
                         >
+<<<<<<< HEAD
 =======
                           </ContentBlock>
 >>>>>>> chore(Dotcomshell): avoid side effect in story module
+=======
+>>>>>>> chore(test): updated snapshot
                           <div
                             className="bx--helper-wrapper"
                           >
