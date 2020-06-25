@@ -21,10 +21,9 @@ const { prefix } = settings;
 const LinkWithIcon = ({ children, href, inverse, ...props }) => {
   return (
     <div
-      className={classnames(
-        `${prefix}--link-with-icon__container`,
-        inverse ? `${prefix}--link-with-icon__container__inverse` : null
-      )}
+      className={classnames(`${prefix}--link-with-icon__container`, {
+        [`${prefix}--link-with-icon__container__inverse`]: inverse,
+      })}
       data-autoid={`${stablePrefix}--link-with-icon`}>
       <Link href={href} className={`${prefix}--link-with-icon`} {...props}>
         {children}
