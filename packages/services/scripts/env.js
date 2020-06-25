@@ -7,6 +7,8 @@
 
 'use strict';
 
+const path = require('path');
+
 const BABEL_ENV = process.env.BABEL_ENV;
 
 module.exports = () => ({
@@ -20,5 +22,15 @@ module.exports = () => ({
         },
       },
     ],
+  ],
+  plugins: [
+    ...(BABEL_ENV === 'es'
+      ? []
+      : [
+          path.resolve(
+            __dirname,
+            '../../../tasks/babel-plugin-module-js-paths'
+          ),
+        ]),
   ],
 });

@@ -8,6 +8,7 @@
 @import '../../../globals/imports';
 @import '../../../globals/utils/content-width';
 @import '../../../globals/utils/hang';
+@import '../../../components/buttongroup/buttongroup';
 
 @mixin leadspace-block {
   .#{$prefix}--leadspace-block {
@@ -24,6 +25,11 @@
       @include carbon--breakpoint('lg') {
         padding-top: $layout-05;
       }
+    }
+
+    &__media {
+      width: 100%;
+      max-width: carbon--mini-units(80);
     }
 
     .#{$prefix}--content-block {

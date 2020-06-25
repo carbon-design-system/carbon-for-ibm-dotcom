@@ -4,18 +4,16 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import {
-  settings as ddsSettings,
-  removeHtmlTagEntities,
-} from '@carbon/ibmdotcom-utilities';
 import React, { useEffect, useState } from 'react';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import { ExpressiveModal } from '../ExpressiveModal';
 import { Image } from '../Image';
 import { ModalBody } from '../../internal/vendor/carbon-components-react/components/ComposedModal/ComposedModal';
 import PropTypes from 'prop-types';
+import removeHtmlTagEntities from '@carbon/ibmdotcom-utilities/es/utilities/removeHtmlTagEntities/removeHtmlTagEntities';
 import settings from 'carbon-components/es/globals/js/settings';
 import { VideoPlayer } from '../VideoPlayer';
-import { VideoPlayerAPI } from '@carbon/ibmdotcom-services';
+import VideoPlayerAPI from '@carbon/ibmdotcom-services/es/services/VideoPlayer/VideoPlayer';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
