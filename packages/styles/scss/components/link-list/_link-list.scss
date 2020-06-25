@@ -63,6 +63,7 @@
         .#{$prefix}--link-list__list--vertical-end & {
           border-bottom: 1px solid $ui-03;
           max-width: 640px;
+          @include hang;
 
           &:first-of-type {
             border-top: 1px solid $ui-03;
@@ -70,6 +71,7 @@
 
           .bx--link-with-icon__container {
             width: 100%;
+            @include carbon--make-col-ready;
             a {
               padding: $carbon--spacing-05 0;
               justify-content: space-between;
