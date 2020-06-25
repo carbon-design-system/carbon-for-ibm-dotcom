@@ -24,6 +24,14 @@
         margin-top: -$layout-02;
       }
     }
+
+    .#{$prefix}--row {
+      &.#{$prefix}--layout--border {
+        @include carbon--breakpoint('lg') {
+          padding-bottom: $carbon--layout-06;
+        }
+      }
+    }
   }
 }
 
