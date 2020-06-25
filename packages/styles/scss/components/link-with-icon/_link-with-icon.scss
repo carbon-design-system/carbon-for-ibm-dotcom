@@ -13,6 +13,19 @@
   .#{$prefix}--link-with-icon {
     &__container {
       display: table;
+
+      &__inverse {
+        .#{$prefix}--link {
+          color: $inverse-link;
+        }
+
+        @include carbon--theme(
+          $carbon--theme--g100,
+          feature-flag-enabled('enable-css-custom-properties')
+        ) {
+          @include link;
+        }
+      }
     }
 
     display: flex;
