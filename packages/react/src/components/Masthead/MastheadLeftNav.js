@@ -69,7 +69,7 @@ const MastheadLeftNav = ({ navigation, isSideNavExpanded, platform }) => {
         {platform && (
           <a
             data-autoid={`${stablePrefix}--side-nav__submenu-platform`}
-            href="yi jian mei"
+            href={platform.url}
             aria-haspopup="true"
             className={`${prefix}--side-nav__submenu ${prefix}--side-nav__submenu-platform`}>
             {platform.name}

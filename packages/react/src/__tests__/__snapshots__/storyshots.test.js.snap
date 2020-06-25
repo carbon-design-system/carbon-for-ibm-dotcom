@@ -14046,7 +14046,7 @@ exports[`Storyshots Components|Masthead With Platform 1`] = `
                               aria-haspopup="true"
                               className="bx--side-nav__submenu bx--side-nav__submenu-platform"
                               data-autoid="dds--side-nav__submenu-platform"
-                              href="yi jian mei"
+                              href="https://www.ibm.com/cloud"
                             >
                               IBM Cloud
                             </a>
