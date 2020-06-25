@@ -55,6 +55,10 @@
       .#{$prefix}--link-list {
         padding-top: $spacing-09;
         padding-bottom: $spacing-09;
+        max-width: carbon--mini-units(80);
+        &__list__CTA {
+          max-width: none;
+        }
       }
 
       .#{$prefix}--leadspace-block__media {
