@@ -2105,6 +2105,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                     <MastheadLeftNav
                       isSideNavExpanded={false}
                       navigation={Array []}
+                      platform={null}
                     >
                       <ForwardRef(SideNav)
                         addFocusListeners={true}
@@ -12915,6 +12916,7 @@ exports[`Storyshots Components|Masthead Default 1`] = `
                   <MastheadLeftNav
                     isSideNavExpanded={false}
                     navigation={Array []}
+                    platform={null}
                   >
                     <ForwardRef(SideNav)
                       addFocusListeners={true}
@@ -13517,6 +13519,7 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
                   <MastheadLeftNav
                     isSideNavExpanded={false}
                     navigation={Array []}
+                    platform={null}
                   >
                     <ForwardRef(SideNav)
                       addFocusListeners={true}
@@ -14014,6 +14017,12 @@ exports[`Storyshots Components|Masthead With Platform 1`] = `
                     <MastheadLeftNav
                       isSideNavExpanded={false}
                       navigation={Array []}
+                      platform={
+                        Object {
+                          "name": "IBM Cloud",
+                          "url": "https://www.ibm.com/cloud",
+                        }
+                      }
                     >
                       <ForwardRef(SideNav)
                         addFocusListeners={true}
@@ -14038,6 +14047,14 @@ exports[`Storyshots Components|Masthead With Platform 1`] = `
                           <nav
                             data-autoid="dds--masthead__l0-sidenav"
                           >
+                            <a
+                              aria-haspopup="true"
+                              className="bx--side-nav__submenu bx--side-nav__submenu-platform"
+                              data-autoid="dds--side-nav__submenu-platform"
+                              href="https://www.ibm.com/cloud"
+                            >
+                              IBM Cloud
+                            </a>
                             <SideNavItems>
                               <ul
                                 className="bx--side-nav__items"
