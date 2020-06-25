@@ -209,15 +209,13 @@ const TableOfContents = ({
       className={classNames(`${prefix}--tableofcontents`, _setTheme(theme))}>
       <Layout {...layoutProps}>
         <div className={`${prefix}--tableofcontents__sidebar`}>
-          {headingContent ? (
+          {headingContent && (
             <div className={`${prefix}--tableofcontents__desktop__children`}>
               {headingContent}
 
-              {menuRule && (
-                <HorizontalRule />
-              )}
+              {menuRule && <HorizontalRule />}
             </div>
-          ) : null}
+          )}
           <div className={`${prefix}--tableofcontents__mobile-top`}></div>
           <div style={{ position: 'sticky', top: '0' }}>
             <TOCDesktop
