@@ -19,13 +19,14 @@ export default {
     knobs: {
       LinkWithIcon: ({ groupId }) => ({
         disabled: boolean('Disabled', false, groupId),
+        inverse: boolean('Inverse (inverse):', false, groupId),
       }),
     },
   },
 };
 
 export const Default = ({ parameters }) => {
-  const { disabled } = parameters?.props?.LinkWithIcon ?? {};
+  const { disabled, inverse } = parameters?.props?.LinkWithIcon ?? {};
   return (
     <div
       style={{
@@ -34,7 +35,10 @@ export const Default = ({ parameters }) => {
         alignItems: 'center',
         flexDirection: 'column',
       }}>
-      <LinkWithIcon href="https://www.example.com" disabled={disabled}>
+      <LinkWithIcon
+        href="https://www.example.com"
+        inverse={inverse}
+        disabled={disabled}>
         <span>Link text</span>
         <ArrowRight20 />
       </LinkWithIcon>

@@ -15,4 +15,4 @@ jobs:
           type: now
           target_branch: 'master'
         env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN_ACTIONS}}
+          GITHUB_TOKEN: ${{secrets.MERGE_ACTION}}
