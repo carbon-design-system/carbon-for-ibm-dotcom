@@ -213,7 +213,9 @@ const TableOfContents = ({
             <div className={`${prefix}--tableofcontents__desktop__children`}>
               {headingContent}
 
-              {menuRule ? <HorizontalRule /> : null}
+              {menuRule && (
+                <HorizontalRule />
+              )}
             </div>
           ) : null}
           <div className={`${prefix}--tableofcontents__mobile-top`}></div>
