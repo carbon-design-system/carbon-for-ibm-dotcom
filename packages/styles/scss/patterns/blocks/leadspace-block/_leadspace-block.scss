@@ -8,49 +8,38 @@
 @import '../../../globals/imports';
 @import '../../../globals/utils/content-width';
 @import '../../../globals/utils/hang';
-@import '../../../components/buttongroup/buttongroup';
 
 @mixin leadspace-block {
   .#{$prefix}--leadspace-block {
     &__title {
       width: 90%;
       color: $text-01;
-      padding-top: $layout-05;
+      padding-top: $layout-03;
       @include carbon--type-style('expressive-heading-06', true);
-
-      @include carbon--breakpoint('lg') {
-        padding-top: $layout-05;
-      }
 
       @include carbon--breakpoint('md') {
         padding-top: $layout-03;
       }
 
-      @include carbon--breakpoint('sm') {
-        padding-top: $layout-03;
+      @include carbon--breakpoint('lg') {
+        padding-top: $layout-05;
       }
-    }
-
-    &__media {
-      width: 100%;
-      max-width: carbon--mini-units(80);
     }
 
     .#{$prefix}--content-block {
       padding-top: 0;
-      padding-bottom: $layout-05;
-
+      padding-bottom: $layout-01;
       &__copy {
         p {
           @include carbon--type-style('expressive-heading-03', true);
         }
       }
 
-      @include carbon--breakpoint('sm') {
-        padding-bottom: $layout-01;
-      }
       @include carbon--breakpoint('md') {
         padding-bottom: $layout-06;
+      }
+      @include carbon--breakpoint('lg') {
+        padding-bottom: $layout-07;
       }
 
       .#{$prefix}--image-with-caption {
