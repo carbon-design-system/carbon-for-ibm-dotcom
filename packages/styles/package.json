@@ -41,12 +41,12 @@
     "carbon-components": "10.11.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.7.4",
-    "@babel/plugin-proposal-class-properties": "^7.7.4",
-    "@babel/plugin-syntax-dynamic-import": "^7.7.4",
-    "@babel/plugin-transform-runtime": "^7.7.4",
-    "@babel/preset-env": "^7.7.4",
-    "@babel/preset-react": "^7.7.4",
+    "@babel/core": "^7.10.0",
+    "@babel/plugin-proposal-class-properties": "^7.10.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.0",
+    "@babel/plugin-transform-runtime": "^7.10.0",
+    "@babel/preset-env": "^7.10.0",
+    "@babel/preset-react": "^7.10.0",
     "@carbon/icons-react": "^10.8.0",
     "@percy/storybook": "^3.3.0",
     "@storybook/addon-actions": "^5.3.0",

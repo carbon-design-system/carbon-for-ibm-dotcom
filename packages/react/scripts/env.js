@@ -7,8 +7,6 @@
 
 'use strict';
 
-const path = require('path');
-
 const BABEL_ENV = process.env.BABEL_ENV;
 
 module.exports = () => ({
@@ -26,13 +24,9 @@ module.exports = () => ({
   plugins: [
     '@babel/plugin-proposal-nullish-coalescing-operator',
     '@babel/plugin-proposal-optional-chaining',
+    require('../../../tasks/babel-plugin-pure-annotate-react-prop-types'),
     ...(BABEL_ENV === 'es'
       ? []
-      : [
-          path.resolve(
-            __dirname,
-            '../../../tasks/babel-plugin-module-js-paths'
-          ),
-        ]),
+      : [require('../../../tasks/babel-plugin-module-js-paths')]),
   ],
 });
