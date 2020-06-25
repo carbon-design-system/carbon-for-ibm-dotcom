@@ -26,9 +26,13 @@
 
     &__title {
       @include carbon--type-style('expressive-heading-04', true);
-      @include content-width;
 
       margin-bottom: $carbon--spacing-07;
+    }
+
+    &__title,
+    &__copy {
+      @include content-width;
     }
 
     &__copy {
