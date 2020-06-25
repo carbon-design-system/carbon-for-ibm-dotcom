@@ -6,70 +6,72 @@
  */
 
 @mixin callout-data {
-  .#{$prefix}--callout {
-    &-data {
-      &__data {
-        @include carbon--type-style('display-03', true);
+  .#{$prefix}--callout-data {
+    .#{$prefix}--callout {
+      &-data {
+        &__data {
+          @include carbon--type-style('display-03', true);
 
-        color: $inverse-01;
-        padding-top: $layout-02;
-        padding-bottom: $layout-05;
-      }
-
-      &__copy {
-        @include carbon--type-style('expressive-heading-03', true);
-
-        color: $inverse-01;
-        margin-top: auto;
-        padding-bottom: $layout-02;
-      }
-
-      &__source {
-        @include carbon--type-style('body-short-01', true);
-
-        padding-bottom: $layout-03;
-
-        @include carbon--breakpoint('md') {
+          color: $inverse-01;
+          padding-top: $layout-02;
           padding-bottom: $layout-05;
         }
 
-        @include carbon--breakpoint('lg') {
-          padding-bottom: $layout-06;
+        &__copy {
+          @include carbon--type-style('expressive-heading-03', true);
+
+          color: $inverse-01;
+          margin-top: auto;
+          padding-bottom: $layout-02;
         }
 
-        padding-top: $layout-01;
-        color: $text-05;
-      }
-    }
+        &__source {
+          @include carbon--type-style('body-short-01', true);
 
-    &__column {
-      height: auto;
+          padding-bottom: $layout-03;
 
-      @include carbon--breakpoint('md') {
-        height: 320px;
-      }
+          @include carbon--breakpoint('md') {
+            padding-bottom: $layout-05;
+          }
 
-      @include carbon--breakpoint('lg') {
-        height: 400px;
-      }
+          @include carbon--breakpoint('lg') {
+            padding-bottom: $layout-06;
+          }
 
-      @include carbon--breakpoint('xlg') {
-        height: 480px;
+          padding-top: $layout-01;
+          color: $text-05;
+        }
       }
 
-      @include carbon--breakpoint('max') {
-        height: 560px;
-      }
-    }
+      &__column {
+        height: auto;
 
-    &__content {
-      padding-left: 0;
-      margin-left: 0;
-      display: flex;
-      height: 100%;
-      flex-direction: column;
-      width: 90%;
-      max-width: 640px;
+        @include carbon--breakpoint('md') {
+          height: 320px;
+        }
+
+        @include carbon--breakpoint('lg') {
+          height: 400px;
+        }
+
+        @include carbon--breakpoint('xlg') {
+          height: 480px;
+        }
+
+        @include carbon--breakpoint('max') {
+          height: 560px;
+        }
+      }
+
+      &__content {
+        padding-left: 0;
+        margin-left: 0;
+        display: flex;
+        height: 100%;
+        flex-direction: column;
+        width: 90%;
+        max-width: 640px;
+      }
     }
   }
 }
