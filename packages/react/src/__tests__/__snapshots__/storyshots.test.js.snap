@@ -2475,7 +2475,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                           <button
                                                             className="bx--video-player__image-overlay"
                                                             data-autoid="dds--video-player__image-overlay"
-                                                            id="video-thumbnail-overlay"
                                                             onClick={[Function]}
                                                           >
                                                             <Image
@@ -4392,7 +4391,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                 <button
                                                                   className="bx--video-player__image-overlay"
                                                                   data-autoid="dds--video-player__image-overlay"
-                                                                  id="video-thumbnail-overlay"
                                                                   onClick={[Function]}
                                                                 >
                                                                   <Image
@@ -4568,14 +4566,14 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                       },
                                                     ]
                                                   }
-                                                  style="horizontal"
+                                                  style="vertical"
                                                 >
                                                   <div
                                                     className="bx--link-list"
                                                     data-autoid="dds--link-list"
                                                   >
                                                     <ul
-                                                      className="bx--link-list__list bx--link-list__list--horizontal"
+                                                      className="bx--link-list__list bx--link-list__list--vertical"
                                                     >
                                                       <li
                                                         className="bx--link-list__list__CTA bx--link-list__list--local"
@@ -4836,14 +4834,14 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                       },
                                                     ]
                                                   }
-                                                  style="horizontal"
+                                                  style="vertical"
                                                 >
                                                   <div
                                                     className="bx--link-list"
                                                     data-autoid="dds--link-list"
                                                   >
                                                     <ul
-                                                      className="bx--link-list__list bx--link-list__list--horizontal"
+                                                      className="bx--link-list__list bx--link-list__list--vertical"
                                                     >
                                                       <li
                                                         className="bx--link-list__list__CTA bx--link-list__list--local"
@@ -6265,7 +6263,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                       theme="g10"
                     >
                       <section
-                        className="bx--cta-section bx--cta-section--g10"
+                        className="bx--cta-section bx--cta-section--g10 bx--cta-section__has-items"
                         data-autoid="dds--cta-section"
                       >
                         <ContentBlock
@@ -6492,9 +6490,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                             </div>
                           </div>
                         </ContentBlock>
-                        <hr
-                          className="bx--horizontal-line"
-                        />
                         <div
                           className="bx--helper-wrapper"
                         >
