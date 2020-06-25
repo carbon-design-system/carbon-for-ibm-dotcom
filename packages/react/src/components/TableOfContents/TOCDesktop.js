@@ -34,8 +34,7 @@ const TOCDesktop = ({ menuItems, selectedId }) => {
           <li
             key={index}
             data-autoid={`${stablePrefix}--tableofcontents__desktop__item-${item.id}`}
-            className={classNames({
-              [`${prefix}--tableofcontents__desktop__item`]: true,
+            className={classNames(`${prefix}--tableofcontents__desktop__item`, {
               [`${prefix}--tableofcontents__desktop__item--active`]: isActive,
             })}>
             <a
