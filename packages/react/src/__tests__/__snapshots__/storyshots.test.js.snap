@@ -2475,6 +2475,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                           <button
                                                             className="bx--video-player__image-overlay"
                                                             data-autoid="dds--video-player__image-overlay"
+                                                            id="video-thumbnail-overlay"
                                                             onClick={[Function]}
                                                           >
                                                             <Image
@@ -4391,6 +4392,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                 <button
                                                                   className="bx--video-player__image-overlay"
                                                                   data-autoid="dds--video-player__image-overlay"
+                                                                  id="video-thumbnail-overlay"
                                                                   onClick={[Function]}
                                                                 >
                                                                   <Image
@@ -4566,14 +4568,14 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                       },
                                                     ]
                                                   }
-                                                  style="vertical"
+                                                  style="horizontal"
                                                 >
                                                   <div
                                                     className="bx--link-list"
                                                     data-autoid="dds--link-list"
                                                   >
                                                     <ul
-                                                      className="bx--link-list__list bx--link-list__list--vertical"
+                                                      className="bx--link-list__list bx--link-list__list--horizontal"
                                                     >
                                                       <li
                                                         className="bx--link-list__list__CTA bx--link-list__list--local"
@@ -4834,14 +4836,14 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                       },
                                                     ]
                                                   }
-                                                  style="vertical"
+                                                  style="horizontal"
                                                 >
                                                   <div
                                                     className="bx--link-list"
                                                     data-autoid="dds--link-list"
                                                   >
                                                     <ul
-                                                      className="bx--link-list__list bx--link-list__list--vertical"
+                                                      className="bx--link-list__list bx--link-list__list--horizontal"
                                                     >
                                                       <li
                                                         className="bx--link-list__list__CTA bx--link-list__list--local"
