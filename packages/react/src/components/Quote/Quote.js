@@ -131,7 +131,7 @@ const Quote = ({ markType = 'doubleCurved', copy, source, cta, inverse }) => {
         <div className={`${prefix}--quote__footer`}>
           <HorizontalRule />
           <LinkWithIcon href={cta.href}>
-            {cta.copy}
+            <span>{cta.copy}</span>
             {cta.type === 'local' ? <ArrowRight20 /> : false}
             {cta.type === 'external' ? <Launch20 /> : false}
           </LinkWithIcon>
