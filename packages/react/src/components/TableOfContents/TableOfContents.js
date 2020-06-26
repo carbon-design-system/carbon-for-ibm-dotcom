@@ -143,25 +143,12 @@ const TableOfContents = ({
   };
 
   /**
-   * sets the class name based on theme type
-   *
-   * @private
-   * @param {string} theme theme type ( g100 | white/default )
-   * @returns {string} theme css class names
-   */
-  const _setTheme = theme => {
-    return theme && `${prefix}--tableofcontents--${theme}`;
-  };
-
-  /**
    * Props for the Layout component
    *
    * @type {{marginBottom: string, type: string, marginTop: string}}
    */
   const layoutProps = {
     type: '1-3',
-    marginTop: 'none',
-    marginBottom: 'none',
     stickyOffset,
   };
 
@@ -206,7 +193,9 @@ const TableOfContents = ({
   return (
     <section
       data-autoid={`${stablePrefix}--tableofcontents`}
-      className={classNames(`${prefix}--tableofcontents`, _setTheme(theme))}>
+      className={classNames(`${prefix}--tableofcontents`, {
+        [`${prefix}--tableofcontents--${theme}`]: theme,
+      })}>
       <Layout {...layoutProps}>
         <div className={`${prefix}--tableofcontents__sidebar`}>
           {headingContent && (

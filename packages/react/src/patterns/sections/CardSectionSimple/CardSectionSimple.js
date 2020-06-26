@@ -25,22 +25,13 @@ const CardSectionSimple = ({ cards, cta, theme, ...otherProps }) => {
       !image && !eyebrow && heading && copy && href
   );
 
-  /**
-   * sets the class name based on theme type
-   *
-   * @private
-   * @param {string} theme theme type ( g10 | g100 | white/default )
-   * @returns {string} theme css class names
-   */
-  const _setTheme = theme => {
-    return theme && `${prefix}--card-group--${theme}`;
-  };
-
   return (
     <ContentSection
       heading={otherProps.heading}
       autoid={`${stablePrefix}--card-group-simple-group`}
-      customClassName={classNames(`${prefix}--card-group`, _setTheme(theme))}>
+      customClassName={classNames(`${prefix}--card-group`, {
+        [`${prefix}--card-group--${theme}`]: theme,
+      })}>
       <CardGroup cards={cardsWithoutImages} cta={cta} />
     </ContentSection>
   );
