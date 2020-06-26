@@ -13,15 +13,16 @@
   color: $text-01;
   background: $ui-background;
   .#{$prefix}--tableofcontents__mobile {
-    border-top: 1px solid $ui-04;
     border-bottom: 1px solid $ui-04;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+
     &:hover {
       background-color: $hover-ui;
     }
   }
   .#{$prefix}--tableofcontents__desktop__item {
     a {
-      border-left: carbon--rem(4px) solid $ui-01;
+      border-left: carbon--rem(4px) solid $ui-03;
       color: $text-02;
 
       &:hover {
@@ -33,10 +34,6 @@
       a {
         color: $text-01;
         border-left-color: $interactive-04;
-
-        &:hover {
-          border-left-color: $interactive-04;
-        }
       }
     }
   }
@@ -44,6 +41,17 @@
 
 @mixin tableofcontents {
   .#{$prefix}--tableofcontents {
+    &__sidebar {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+
+      @include carbon--breakpoint('lg') {
+        position: inherit;
+        top: auto;
+      }
+    }
+
     &__children__mobile {
       @include carbon--breakpoint('lg') {
         display: none;
@@ -62,18 +70,20 @@
         border: none;
         background-color: transparent;
         height: carbon--rem(48px);
-        width: 100%;
         appearance: none;
         @include carbon--type-style(body-short-02);
         @include focus-outline('reset');
 
+        max-width: 100%;
+        text-overflow: ellipsis;
+        padding-right: $carbon--spacing-06;
         display: block;
         cursor: pointer;
         transition: background-color $duration--fast-01
             motion(standard, productive),
           outline $duration--fast-01 motion(standard, productive);
         &__wrapper {
-          height: carbon--rem(48px);
+          height: carbon--rem(47px);
           position: relative;
           display: flex;
           align-items: center;
@@ -89,19 +99,18 @@
     }
 
     &__desktop {
-      margin-top: $carbon--spacing-07;
       padding-top: $carbon--spacing-07;
-
+      margin-top: $carbon--spacing-07;
       @include carbon--make-col(3, 4);
       &__item {
         a {
           text-decoration: none;
           display: inline-block;
           width: 100%;
-          padding-top: carbon--rem(13px);
-          padding-bottom: carbon--rem(13px);
+          padding-top: carbon--rem(12px);
+          padding-bottom: carbon--rem(12px);
           padding-left: carbon--rem(12px);
-          @include carbon--type-style('body-short-02');
+          @include carbon--type-style('body-long-02');
 
           transition: all $duration--fast-01 motion(standard, productive);
         }
@@ -116,13 +125,17 @@
         }
       }
 
-      &__rule {
-        margin-left: $spacing-05;
-        margin-bottom: $layout-03;
-      }
-
       &__children {
-        margin-bottom: $layout-03;
+        padding-top: $layout-05;
+        margin-bottom: -$carbon--spacing-07;
+
+        @include carbon--make-col(3, 4);
+
+        display: none;
+
+        @include carbon--breakpoint('lg') {
+          display: block;
+        }
       }
     }
     @include carbon--breakpoint('sm') {
@@ -133,8 +146,6 @@
     @include carbon--breakpoint('md') {
       &__mobile {
         padding-left: $carbon--spacing-07;
-        margin-left: -$carbon--spacing-07;
-        margin-right: -$carbon--spacing-07;
       }
     }
     @include carbon--breakpoint('lg') {
@@ -145,18 +156,29 @@
         display: block;
       }
     }
+    .#{$prefix}--hr {
+      margin-top: $layout-02;
+      margin-left: $spacing-05;
+      margin-bottom: 0;
+    }
 
     @include themed-items;
   }
 
   .#{$prefix}--tableofcontents--g100 {
-    @include carbon--theme($carbon--theme--g100) {
+    @include carbon--theme(
+      $carbon--theme--g100,
+      feature-flag-enabled('enable-css-custom-properties')
+    ) {
       @include themed-items;
     }
   }
 
   .#{$prefix}--tableofcontents--g10 {
-    @include carbon--theme($carbon--theme--g10) {
+    @include carbon--theme(
+      $carbon--theme--g10,
+      feature-flag-enabled('enable-css-custom-properties')
+    ) {
       @include themed-items;
     }
   }

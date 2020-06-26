@@ -9,11 +9,12 @@ import DDOAPI from '../DDO';
 import digitalDataResponse from './data/response.json';
 import root from 'window-or-global';
 
-jest.mock('@carbon/ibmdotcom-utilities', () => ({
-  settings: {
+jest.mock(
+  '@carbon/ibmdotcom-utilities/lib/utilities/settings/settings',
+  () => ({
     version: 'dds.v1.0.0',
-  },
-}));
+  })
+);
 
 describe('DDOAPI', () => {
   beforeEach(function() {
@@ -38,17 +39,35 @@ describe('DDOAPI', () => {
     expect(root.digitalData.page.version).toEqual('dds.v1.0.0');
   });
 
-  it('should set a loop if the data layer is not ready', () => {
+  it('should set a loop if the data layer is not ready', async () => {
     root.digitalData.page.isDataLayerReady = false;
     jest.useFakeTimers();
 
-    DDOAPI.isReady();
+    const promise = DDOAPI.isReady();
 
     setTimeout(() => {
       root.digitalData.page.isDataLayerReady = true;
     }, 500);
-    jest.runAllTimers();
+    jest.advanceTimersByTime(500);
 
     expect(root.digitalData.page.isDataLayerReady).toEqual(true);
+
+    await promise; // Rejection of this promise should fail this test
+  });
+
+  it('should not increase the retry count upon multiple calls of isReady()', async () => {
+    root.digitalData.page.isDataLayerReady = false;
+    jest.useFakeTimers();
+
+    const promiseReadies = Promise.all(
+      Array.from({ length: 100 }).map(() => DDOAPI.isReady())
+    );
+
+    setTimeout(() => {
+      root.digitalData.page.isDataLayerReady = true;
+    }, 500);
+    jest.advanceTimersByTime(500);
+
+    await promiseReadies; // Rejection of this promise should fail this test
   });
 });

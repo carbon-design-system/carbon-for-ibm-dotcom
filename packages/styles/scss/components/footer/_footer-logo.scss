@@ -11,52 +11,55 @@
 
 @mixin footer-logo {
   .#{$prefix}--footer-logo {
-    @include carbon--make-col-ready;
-    @include carbon--make-col(2, 4);
+    @include carbon--theme(
+      $carbon--theme--g90,
+      feature-flag-enabled('enable-css-custom-properties')
+    ) {
+      @include carbon--make-col-ready;
+      @include carbon--make-col(2, 4);
 
-    margin-bottom: carbon--mini-units(6);
+      margin-bottom: carbon--mini-units(6);
 
-    @include carbon--breakpoint('md') {
-      @include carbon--make-col(2, 8);
-    }
-
-    @include carbon--breakpoint('lg') {
-      @include carbon--make-col(2, 16);
-    }
-
-    &__link {
-      $logo-padding: $carbon--grid-gutter / 2;
-      $logo-size: carbon--mini-units(16) + ($logo-padding * 2);
-
-      color: $text-01;
-      margin-top: -1 * $logo-padding;
-      margin-left: -1 * $logo-padding;
-      padding: $logo-padding;
-      display: block;
-
-      &:focus {
-        outline: none;
-        box-shadow: inset 0 0 0 2px $focus;
-      }
-
-      @include carbon--breakpoint-down($TEMP--breakpoint-down--md) {
-        max-width: $logo-size;
+      @include carbon--breakpoint('md') {
+        @include carbon--make-col(2, 8);
       }
 
       @include carbon--breakpoint('lg') {
-        min-width: $logo-size;
+        @include carbon--make-col(2, 16);
       }
-    }
 
-    &__logo {
-      fill: currentColor;
-      display: block;
+      &__link {
+        $logo-padding: $carbon--grid-gutter / 2;
+        $logo-size: carbon--mini-units(16) + ($logo-padding * 2);
+
+        color: $text-01;
+        margin-top: -1 * $logo-padding;
+        margin-left: -1 * $logo-padding;
+        padding: $logo-padding;
+        display: block;
+
+        &:focus {
+          outline: none;
+          box-shadow: inset 0 0 0 2px $focus;
+        }
+
+        @include carbon--breakpoint-down($TEMP--breakpoint-down--md) {
+          max-width: $logo-size;
+        }
+
+        @include carbon--breakpoint('lg') {
+          min-width: $logo-size;
+        }
+      }
+
+      &__logo {
+        fill: currentColor;
+        display: block;
+      }
     }
   }
 }
 
 @include exports('footer-logo') {
-  @include carbon--theme($carbon--theme--g90) {
-    @include footer-logo;
-  }
+  @include footer-logo;
 }

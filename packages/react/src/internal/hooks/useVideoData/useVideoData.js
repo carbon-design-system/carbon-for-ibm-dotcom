@@ -1,11 +1,11 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 import { useState, useEffect, useCallback } from 'react';
-import { VideoPlayerAPI } from '@carbon/ibmdotcom-services';
+import VideoPlayerAPI from '@carbon/ibmdotcom-services/es/services/VideoPlayer/VideoPlayer';
 
 /**
  * utilizes the videoplayerAPI to extract video data and
@@ -16,12 +16,15 @@ import { VideoPlayerAPI } from '@carbon/ibmdotcom-services';
  * @returns {*} JSX Object
  */
 function useVideoData(type, videoId) {
-  const [videoTitle, setVideoTitle] = useState([{ title: '', key: 0 }]);
+  const [videoTitle, setVideoTitle] = useState([
+    { title: '', duration: '', key: 0 },
+  ]);
+
+  let getVideoData;
 
   useEffect(() => {
     getVideoData();
   }, [getVideoData, type]);
-
   /**
    * retrieve duration and title information from the video if
    * the type of the CTA is `video`
@@ -29,14 +32,15 @@ function useVideoData(type, videoId) {
    * sets the `videoTitle` state with an array of title objects
    *
    */
-  const getVideoData = useCallback(async () => {
+  getVideoData = useCallback(async () => {
     if (type === 'video' || type.includes('video')) {
       const title = await Promise.all(
         videoId.map(async vidId => {
           const video = await VideoPlayerAPI.api(vidId.src);
           const time = VideoPlayerAPI.getVideoDuration(video.msDuration);
           return {
-            title: `${video.name} ${time}`,
+            title: video.name,
+            duration: time,
             key: vidId.key,
           };
         })

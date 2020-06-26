@@ -14,13 +14,21 @@ import root from 'window-or-global';
  * @private
  */
 const _host =
-  (process && process.env.TRANSLATION_HOST) || 'https://www.ibm.com';
+  (process &&
+    (process.env.REACT_APP_TRANSLATION_HOST || process.env.TRANSLATION_HOST)) ||
+  'https://www.ibm.com';
 
 /**
  * @constant {string | string} CORS proxy for lower environment calls
  * @private
  */
-const _proxy = (process && process.env.CORS_PROXY) || '';
+const _proxy =
+  root.location?.host === 'www.ibm.com'
+    ? ''
+    : // Optional chaining operator in `process.env.ENVVAR` does not work in some build systems, notably Parcel
+      (process &&
+        (process.env.REACT_APP_CORS_PROXY || process.env.CORS_PROXY)) ||
+      '';
 
 /**
  * Translation API endpoint

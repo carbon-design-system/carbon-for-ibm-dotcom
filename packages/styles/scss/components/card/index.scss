@@ -11,6 +11,7 @@
 
 @import 'carbon-components/scss/components/link/link';
 @import 'carbon-components/scss/components/tile/tile';
+@import '../lightbox-media-viewer/lightbox-media-viewer';
 
 @mixin card {
   .#{$prefix}--card {
@@ -91,7 +92,7 @@
       text-decoration: none;
 
       .#{$prefix}--card__img {
-        filter: brightness(80%);
+        filter: brightness(92%);
       }
     }
 
@@ -101,6 +102,21 @@
 
     &.#{$prefix}--tile {
       padding: 0;
+    }
+
+    &__video {
+      .#{$prefix}--card__footer {
+        display: flex;
+      }
+
+      .#{$prefix}--card__footer span {
+        color: $text-02;
+        @include carbon--type-style('body-short-01');
+      }
+
+      .#{$prefix}--card__cta {
+        margin-right: $carbon--spacing-03;
+      }
     }
   }
 

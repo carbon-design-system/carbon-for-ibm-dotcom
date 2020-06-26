@@ -16,7 +16,7 @@
 /// @example
 /// @example scss - Overriding defaults from the `$dds-default-feature-flags` map
 ///   $dds-feature-flags: (
-///     carbon-expressive: true,
+///     carbon-expressive-experimental: true,
 ///   );
 $dds-feature-flags: () !default;
 
@@ -25,7 +25,7 @@ $dds-feature-flags: () !default;
 /// @type Map
 /// @group dds-feature-flags
 $dds-default-feature-flags: (
-  carbon-expressive: false,
+  carbon-expressive-experimental: false,
 );
 
 /// @access private

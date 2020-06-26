@@ -7,7 +7,7 @@
 
 import ContentGroup from '../../../internal/components/ContentGroup/ContentGroup';
 import ContentItem from '../../../internal/components/ContentItem/ContentItem';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import { ImageWithCaption } from '../../../components/ImageWithCaption';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -20,11 +20,18 @@ const { stablePrefix } = ddsSettings;
 /**
  * ContentGroupSimple.
  */
-const ContentGroupSimple = ({ heading, mediaType, mediaData, items, cta }) => (
+const ContentGroupSimple = ({
+  heading,
+  mediaType,
+  mediaData,
+  items,
+  cta,
+  copy,
+}) => (
   <div
     data-autoid={`${stablePrefix}--content-group-simple`}
     className={`${prefix}--content-group-simple`}>
-    <ContentGroup cta={cta} heading={heading}>
+    <ContentGroup cta={cta} heading={heading} copy={copy}>
       {_renderMedia(mediaType, mediaData)}
       {_renderContent(items)}
     </ContentGroup>
@@ -63,6 +70,11 @@ ContentGroupSimple.propTypes = {
    * Main heading of the pattern.
    */
   heading: PropTypes.string.isRequired,
+
+  /**
+   * Copy text (enabled for the `markdownToHtml` utility)
+   */
+  copy: PropTypes.string,
 
   /**
    * Determines media type (image or video).
@@ -115,7 +127,6 @@ ContentGroupSimple.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.shape({
       cta: PropTypes.shape({
-        style: PropTypes.oneOf(['text', 'card', 'button', 'feature']),
         type: PropTypes.oneOfType([
           PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video']),
           PropTypes.arrayOf(

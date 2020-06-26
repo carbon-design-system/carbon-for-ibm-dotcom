@@ -4,22 +4,20 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import {
-  globalInit,
-  LocaleAPI,
-  TranslationAPI,
-} from '@carbon/ibmdotcom-services';
 import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import { DDS_LANGUAGE_SELECTOR } from '../../internal/FeatureFlags';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import FooterLogo from './FooterLogo';
 import FooterNav from './FooterNav';
+import { globalInit } from '@carbon/ibmdotcom-services/es/services/global/global';
 import LanguageSelector from './LanguageSelector';
 import LegalNav from './LegalNav';
+import LocaleAPI from '@carbon/ibmdotcom-services/es/services/Locale/Locale';
 import LocaleButton from './LocaleButton';
 import PropTypes from 'prop-types';
 import settings from 'carbon-components/es/globals/js/settings';
+import TranslationAPI from '@carbon/ibmdotcom-services/es/services/Translation/Translation';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
@@ -95,7 +93,9 @@ const Footer = ({
   return (
     <footer
       data-autoid={`${stablePrefix}--footer`}
-      className={classNames(`${prefix}--footer`, _setFooterType(type))}>
+      className={classNames(`${prefix}--footer`, {
+        [`${prefix}--footer--short`]: type === 'short',
+      })}>
       <section className={`${prefix}--footer__main`}>
         <div className={`${prefix}--footer__main-container`}>
           <FooterLogo />
@@ -165,23 +165,6 @@ function _optionalFooterNav(type, data) {
   if (type !== 'short') {
     return <FooterNav groups={data} />;
   }
-}
-
-/**
- * sets the footer type
- *
- * @param {string} type type of footer in use
- * @returns {object} JSX object
- * @private
- */
-function _setFooterType(type) {
-  let typeClassName;
-
-  if (type === 'short') {
-    typeClassName = `${prefix}--footer--short`;
-  }
-
-  return typeClassName;
 }
 
 Footer.propTypes = {

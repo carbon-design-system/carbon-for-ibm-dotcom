@@ -14,19 +14,24 @@ import root from 'window-or-global';
 
 const mockDigitalDataResponse = digitalDataResponse;
 
-jest.mock('@carbon/ibmdotcom-utilities', () => ({
-  ipcinfoCookie: {
+jest.mock(
+  '@carbon/ibmdotcom-utilities/lib/utilities/ipcinfoCookie/ipcinfoCookie',
+  () => ({
     get: jest.fn(() => Promise.resolve({ cc: 'us', lc: 'en' })),
     set: jest.fn(() => Promise.resolve({})),
-  },
-  geolocation: jest.fn(() => Promise.resolve('us')),
-}));
+  })
+);
+
+jest.mock(
+  '@carbon/ibmdotcom-utilities/lib/utilities/geolocation/geolocation',
+  () => jest.fn(() => Promise.resolve('us'))
+);
 
 describe('LocaleAPI', () => {
   const _cc = 'us';
   const _lc = 'en';
 
-  const endpoint = `${process.env.CORS_PROXY}${process.env.TRANSLATION_HOST}/common/js/dynamicnav/www/countrylist/jsononly`;
+  const endpoint = `${process.env.REACT_APP_CORS_PROXY}${process.env.TRANSLATION_HOST}/common/js/dynamicnav/www/countrylist/jsononly`;
   const fetchUrl = `${endpoint}/${_cc}${_lc}-utf8.json`;
 
   beforeEach(function() {

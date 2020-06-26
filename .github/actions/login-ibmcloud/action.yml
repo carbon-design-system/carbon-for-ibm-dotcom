@@ -1,0 +1,9 @@
+name: Logging into IBM Cloud
+description: Logging into IBM Cloud
+inputs:
+  cloud-api-key:
+    description: 'IBM Cloud API key'
+    required: true
+runs:
+  using: 'node12'
+  main: 'index.js'

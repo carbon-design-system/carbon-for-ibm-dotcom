@@ -8,10 +8,10 @@
 import React, { useEffect, useRef } from 'react';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
 import { Card } from '../Card';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import PropTypes from 'prop-types';
 import root from 'window-or-global';
-import { sameHeight } from '@carbon/ibmdotcom-utilities';
+import sameHeight from '@carbon/ibmdotcom-utilities/es/utilities/sameHeight/sameHeight';
 import settings from 'carbon-components/es/globals/js/settings';
 
 const { stablePrefix } = ddsSettings;
@@ -161,7 +161,7 @@ CardGroup.propTypes = {
         href: PropTypes.string,
       }),
     })
-  ),
+  ).isRequired,
 
   /**
    * Optional CTA card for group. Always displays as last item.

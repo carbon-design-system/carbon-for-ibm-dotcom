@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2018, 2018
+ * Copyright IBM Corp. 2018, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -163,14 +163,8 @@ module.exports = {
     // Specify a blacklist of disallowed words within comments.
     'comment-word-blacklist': OFF,
 
-    // General / Sheet
-    // Limit the depth of nesting.
-    'max-nesting-depth': [
-      0,
-      {
-        ignoreAtRules: ['if', 'else', 'each', 'include', 'mixin'],
-      },
-    ],
+    // `ibm-dotcom-library` codebase uses Sass nesting
+    'max-nesting-depth': OFF,
     // Disallow unknown animations.
     'no-unknown-animations': true,
   },

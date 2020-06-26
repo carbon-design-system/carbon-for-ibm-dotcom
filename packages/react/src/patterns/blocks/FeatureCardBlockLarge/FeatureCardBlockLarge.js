@@ -7,7 +7,7 @@
 
 import { Card } from '../../../components/Card';
 import classNames from 'classnames';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import PropTypes from 'prop-types';
 import React from 'react';
 import settings from 'carbon-components/es/globals/js/settings';
@@ -74,7 +74,7 @@ FeatureCardBlockLarge.propTypes = {
         PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video'])
       ),
     ]),
-  }),
+  }).isRequired,
 
   /**
    * Contains source and alt text properties.

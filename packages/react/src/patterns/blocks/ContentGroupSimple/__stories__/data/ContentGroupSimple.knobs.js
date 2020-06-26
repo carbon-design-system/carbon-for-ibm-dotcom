@@ -13,6 +13,8 @@
 
 const ContentGroupSimpleKnobs = {
   heading: 'Lorem ipsum dolor sit amet',
+  copy:
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis magna.',
   mediaData: {
     image: {
       heading: 'Lorem ipsum dolor sit amet.',

@@ -1,0 +1,5 @@
+*.d.ts
+dist
+es
+node_modules
+tests/coverage

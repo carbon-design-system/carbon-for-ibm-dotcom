@@ -7,7 +7,7 @@
 
 import classNames from 'classnames';
 import ContentGroup from '../../../internal/components/ContentGroup/ContentGroup';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import { PictogramItem } from '../../../components/PictogramItem';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -19,11 +19,13 @@ const { prefix } = settings;
 /**
  * Content group — with pictograms.
  */
-const ContentGroupPictograms = ({ heading, items, className }) => (
+const ContentGroupPictograms = ({ heading, items, className, copy }) => (
   <div
     data-autoid={`${stablePrefix}--content-group-pictograms`}
     className={classNames(className, `${prefix}--content-group-pictograms`)}>
-    <ContentGroup heading={heading}>{_renderItems(items)}</ContentGroup>
+    <ContentGroup heading={heading} copy={copy}>
+      {_renderItems(items)}
+    </ContentGroup>
   </div>
 );
 
@@ -48,6 +50,11 @@ ContentGroupPictograms.propTypes = {
    * Main title of Content Group — with Pictograms pattern.
    */
   heading: PropTypes.string.isRequired,
+
+  /**
+   * Copy text (enabled for the `markdownToHtml` utility)
+   */
+  copy: PropTypes.string,
 
   /**
    * Array of PictogramItems.

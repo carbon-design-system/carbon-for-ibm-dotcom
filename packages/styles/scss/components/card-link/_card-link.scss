@@ -1,0 +1,35 @@
+/**
+ * Copyright IBM Corp. 2016, 2020
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+@import '../../globals/imports';
+@import '../card/index';
+
+@mixin card-link {
+  .#{$prefix}--card__CTA--disabled {
+    cursor: not-allowed;
+    &.#{$prefix}--card {
+      .#{$prefix}--card__heading,
+      .#{$prefix}--card__copy,
+      .#{$prefix}--card__eyebrow {
+        color: $disabled-02;
+      }
+
+      .#{$prefix}--card__footer {
+        .#{$prefix}--link-with-icon {
+          svg {
+            margin-left: 0;
+            color: $disabled-02;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include exports('card-link') {
+  @include card-link;
+}

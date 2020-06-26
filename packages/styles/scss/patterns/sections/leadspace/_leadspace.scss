@@ -90,6 +90,7 @@ $btn-min-width: 26;
     }
 
     &__container {
+      overflow: hidden;
       position: absolute;
       top: 0;
       height: 100%;
@@ -104,6 +105,7 @@ $btn-min-width: 26;
       justify-content: space-between;
       padding-top: $carbon--layout-03;
       padding-bottom: $carbon--layout-03;
+      z-index: 2;
       position: absolute;
       top: 0;
       height: 100%;
@@ -141,7 +143,10 @@ $btn-min-width: 26;
   }
 
   .#{$prefix}--leadspace--g100 {
-    @include carbon--theme($carbon--theme--g100) {
+    @include carbon--theme(
+      $carbon--theme--g100,
+      feature-flag-enabled('enable-css-custom-properties')
+    ) {
       @include themed-items;
     }
   }
@@ -300,7 +305,10 @@ $btn-min-width: 26;
     }
   }
   .#{$prefix}--leadspace--centered--g100 {
-    @include carbon--theme($carbon--theme--g100) {
+    @include carbon--theme(
+      $carbon--theme--g100,
+      feature-flag-enabled('enable-css-custom-properties')
+    ) {
       @include themed-items;
     }
   }

@@ -7,7 +7,7 @@
 
 import classNames from 'classnames';
 import ContentItem from '../../internal/components/ContentItem/ContentItem';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import PropTypes from 'prop-types';
 import React from 'react';
 import settings from 'carbon-components/es/globals/js/settings';
@@ -62,7 +62,6 @@ PictogramItem.propTypes = {
    * See the [`<CTA>`'s README](http://ibmdotcom-react.mybluemix.net/?path=/docs/components-cta--default#props) for full usage details.
    */
   cta: PropTypes.shape({
-    style: PropTypes.oneOf(['text', 'card', 'button', 'feature']),
     type: PropTypes.oneOfType([
       PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video']),
       PropTypes.arrayOf(
@@ -84,7 +83,7 @@ PictogramItem.propTypes = {
    */
   pictogram: PropTypes.shape({
     src: PropTypes.object.isRequired,
-  }),
+  }).isRequired,
 
   /**
    * Pictogram Item `className`` prop.

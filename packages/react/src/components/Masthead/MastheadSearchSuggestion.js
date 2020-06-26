@@ -6,7 +6,7 @@
  */
 
 import classNames from 'classnames';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import match from 'autosuggest-highlight/match';
 import parse from 'autosuggest-highlight/parse';
 import PropTypes from 'prop-types';

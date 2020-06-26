@@ -91,6 +91,13 @@
     .#{$prefix}--image__caption--inverse {
     color: $text-04;
   }
+
+  .#{$prefix}--image__caption--inverse {
+    @include carbon--type-style('body-short-01', true);
+
+    margin-top: $carbon--spacing-03;
+    color: $text-05;
+  }
 }
 
 @include exports('image-with-caption') {

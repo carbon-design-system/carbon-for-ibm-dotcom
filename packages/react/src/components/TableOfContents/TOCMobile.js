@@ -6,10 +6,10 @@
  */
 
 import React, { useState, useEffect } from 'react';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import PropTypes from 'prop-types';
 import settings from 'carbon-components/es/globals/js/settings';
-import { smoothScroll } from '@carbon/ibmdotcom-utilities';
+import smoothScroll from '@carbon/ibmdotcom-utilities/es/utilities/smoothScroll/smoothScroll';
 import TableOfContents20 from '@carbon/icons-react/es/table-of-contents/20';
 
 const { stablePrefix } = ddsSettings;
@@ -94,7 +94,10 @@ const renderOptions = (options, label) => {
           className={`${prefix}--tableofcontents__mobile__select__option`}
           data-autoid={`${stablePrefix}}--tableofcontents__mobile__select__option-${option.id}`}
           key={index}
-          value={option.id}>
+          value={option.id}
+          selected={index === 0}
+          disabled={index === 0}
+          hidden={index === 0}>
           {option.title}
         </option>
       );

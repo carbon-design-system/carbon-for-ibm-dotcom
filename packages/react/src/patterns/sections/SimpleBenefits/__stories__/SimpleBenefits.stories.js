@@ -5,93 +5,87 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { object, select, text, withKnobs } from '@storybook/addon-knobs';
+import { object, text } from '@storybook/addon-knobs';
 import { DDS_SIMPLEBENEFITS } from '../../../../internal/FeatureFlags';
 import React from 'react';
 import readme from '../README.stories.mdx';
 import SimpleBenefits from '../SimpleBenefits';
 
+const defaultContent = [
+  {
+    title: 'Aliquam condimentum interdum',
+    copy:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
+  },
+  {
+    title: 'Aliquam',
+    copy:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
+    link: {
+      href: 'https://www.example.com',
+      text: 'Learn more',
+      target: '_self',
+    },
+  },
+  {
+    title: 'Aliquam condimentum interdum',
+    copy:
+      'Lorem ipsum dolor sit amet. Consectetur adipiscing elit. Aenean et ultricies est. Aenean et ultricies est.',
+    link: {
+      href: 'https://www.example.com',
+      text: 'Learn more',
+      target: '_self',
+    },
+  },
+  {
+    title: 'Aliquam condimentum interdum ultricies est',
+    copy:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.',
+    link: {
+      href: 'https://www.example.com',
+      text: 'Learn more',
+      target: '_self',
+    },
+  },
+  {
+    title: 'Aliquam condimentum interdum',
+    copy:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
+  },
+  {
+    title: 'Aliquam condimentum interdum',
+    copy:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
+    link: {
+      href: 'https://www.example.com',
+      text: 'Learn more',
+      target: '_self',
+    },
+  },
+];
+
 export default !DDS_SIMPLEBENEFITS
   ? undefined
   : {
       title: 'Patterns (Sections)|Simple Benefits',
-      decorators: [withKnobs],
 
       parameters: {
         ...readme.parameters,
+        knobs: {
+          SimpleBenefits: ({ groupId }) => ({
+            content: object('Content group', defaultContent, groupId),
+            title: text(
+              'Pattern title (required)',
+              'Lorem ipsum dolor sit amet consectetur adipiscing elit',
+              groupId
+            ),
+          }),
+        },
       },
     };
 
-export const Default = () => {
-  const title = text(
-    'Pattern title (required)',
-    'Lorem ipsum dolor sit amet consectetur adipiscing elit'
-  );
-  const content = [
-    {
-      title: 'Aliquam condimentum interdum',
-      copy:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
-    },
-    {
-      title: 'Aliquam',
-      copy:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
-      link: {
-        href: 'https://www.example.com',
-        text: 'Learn more',
-        target: '_self',
-      },
-    },
-    {
-      title: 'Aliquam condimentum interdum',
-      copy:
-        'Lorem ipsum dolor sit amet. Consectetur adipiscing elit. Aenean et ultricies est. Aenean et ultricies est.',
-      link: {
-        href: 'https://www.example.com',
-        text: 'Learn more',
-        target: '_self',
-      },
-    },
-    {
-      title: 'Aliquam condimentum interdum ultricies est',
-      copy:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.',
-      link: {
-        href: 'https://www.example.com',
-        text: 'Learn more',
-        target: '_self',
-      },
-    },
-    {
-      title: 'Aliquam condimentum interdum',
-      copy:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
-    },
-    {
-      title: 'Aliquam condimentum interdum',
-      copy:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
-      link: {
-        href: 'https://www.example.com',
-        text: 'Learn more',
-        target: '_self',
-      },
-    },
-  ];
-
-  const themes = {
-    white: '',
-    g10: 'g10',
-    g90: 'g90',
-    g100: 'g100',
-  };
-
-  return (
-    <SimpleBenefits
-      content={object('Content group', content)}
-      theme={select('Theme', themes, themes.white)}
-      title={title}
-    />
-  );
+export const Default = ({ parameters }) => {
+  const { content, title } = parameters?.props?.SimpleBenefits ?? {};
+  const theme = document.documentElement.getAttribute('storybook-carbon-theme');
+  return <SimpleBenefits content={content} theme={theme} title={title} />;
 };

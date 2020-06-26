@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2018
+ * Copyright IBM Corp. 2016, 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -11,6 +11,7 @@
  *   The new prop type checkers that checks if one of the given props exist,
  *   in addition to the original type checkings.
  */
+// DEPRECATED. Use `packages/react/src/internal/vendor/carbon-components-react/prop-types/isRequiredOneOf.js` instead
 export default function isRequiredOneOf(propTypes) {
   const names = Object.keys(propTypes);
   const checker = propType => (props, propName, componentName, ...rest) => {
