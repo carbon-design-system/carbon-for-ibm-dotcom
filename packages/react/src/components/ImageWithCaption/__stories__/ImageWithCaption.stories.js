@@ -35,9 +35,13 @@ export default {
                 src: 'https://dummyimage.com/400x200/ee5396/161616&text=2x1',
                 breakpoint: 'md',
               },
+              {
+                src: 'https://dummyimage.com/672x336/ee5396/161616&text=2x1',
+                breakpoint: 'lg',
+              },
             ],
             alt: 'image with caption image',
-            defaultSrc: 'https://dummyimage.com/672x672/ee5396/161616&text=1x1',
+            defaultSrc: 'https://dummyimage.com/672x336/ee5396/161616&text=2x1',
           },
           groupId
         ),

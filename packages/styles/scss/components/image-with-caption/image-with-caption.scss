@@ -6,6 +6,8 @@
  */
 
 @import '../../globals/imports';
+@import '../image/image';
+@import '../lightbox-media-viewer/lightbox-media-viewer';
 @import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/motion/motion.scss';
 
 @mixin image-with-caption {
