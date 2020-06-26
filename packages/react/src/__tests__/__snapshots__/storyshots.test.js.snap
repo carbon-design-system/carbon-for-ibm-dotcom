@@ -2464,20 +2464,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                           className="bx--video-player__video"
                                                           id="bx--video-player__video-0_uka1msg4"
                                                         >
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> fix(callout-data): fixed wrong proptypes
-                                                          <button
-                                                            className="bx--video-player__image-overlay"
-                                                            data-autoid="dds--video-player__image-overlay"
-                                                            id="video-thumbnail-overlay"
-                                                            onClick={[Function]}
-<<<<<<< HEAD
-=======
-=======
->>>>>>> chore(snapshot): snapshot updated
                                                           <VideoImageOverlay
                                                             embedVideo={[Function]}
                                                             videoData={
@@ -2487,12 +2473,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                               }
                                                             }
                                                             videoId="0_uka1msg4"
-<<<<<<< HEAD
->>>>>>> chore(Dotcomshell): avoid side effect in story module
-=======
->>>>>>> fix(callout-data): fixed wrong proptypes
-=======
->>>>>>> chore(snapshot): snapshot updated
                                                           >
                                                             <button
                                                               className="bx--video-player__image-overlay"
@@ -4401,20 +4381,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                 className="bx--video-player__video"
                                                                 id="bx--video-player__video-undefined"
                                                               >
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> fix(callout-data): fixed wrong proptypes
-                                                                <button
-                                                                  className="bx--video-player__image-overlay"
-                                                                  data-autoid="dds--video-player__image-overlay"
-                                                                  id="video-thumbnail-overlay"
-                                                                  onClick={[Function]}
-<<<<<<< HEAD
-=======
-=======
->>>>>>> chore(snapshot): snapshot updated
                                                                 <VideoImageOverlay
                                                                   embedVideo={[Function]}
                                                                   videoData={
@@ -4423,12 +4389,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                       "name": "",
                                                                     }
                                                                   }
-<<<<<<< HEAD
->>>>>>> chore(Dotcomshell): avoid side effect in story module
-=======
->>>>>>> fix(callout-data): fixed wrong proptypes
-=======
->>>>>>> chore(snapshot): snapshot updated
                                                                 >
                                                                   <button
                                                                     className="bx--video-player__image-overlay"
@@ -4587,33 +4547,11 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                       "__html": "<p>Lorem ipsum dolor sit amet, <em class=\\"bx--type-light\\">consectetur</em> sellus at elit sollicitudin.</p>",
                                                     }
                                                   }
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-                                                  style="horizontal"
-=======
-=======
->>>>>>> chore(snapshot): snapshot updated
                                                   data-autoid="dds--content-item-horizontal__item--copy"
                                                 />
                                                 <div
                                                   className="bx--content-item-horizontal__item--cta"
                                                   data-autoid="dds--content-item-horizontal__item--cta"
-<<<<<<< HEAD
->>>>>>> chore(Dotcomshell): avoid side effect in story module
-=======
-                                                  style="horizontal"
->>>>>>> fix(callout-data): fixed wrong proptypes
-=======
-                                                  style="vertical"
->>>>>>> chore(test): updated snapshot
-=======
-                                                  style="horizontal"
->>>>>>> chore(snapshot): snapshot updated
-=======
->>>>>>> chore(snapshot): snapshot updated
                                                 >
                                                   <LinkList
                                                     items={
@@ -4632,32 +4570,9 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                     }
                                                     style="vertical"
                                                   >
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-                                                    <ul
-<<<<<<< HEAD
-                                                      className="bx--link-list__list bx--link-list__list--horizontal"
-=======
                                                     <div
                                                       className="bx--link-list"
                                                       data-autoid="dds--link-list"
->>>>>>> chore(Dotcomshell): avoid side effect in story module
-=======
-                                                    <ul
-                                                      className="bx--link-list__list bx--link-list__list--horizontal"
-<<<<<<< HEAD
->>>>>>> fix(callout-data): fixed wrong proptypes
-=======
-                                                      className="bx--link-list__list bx--link-list__list--vertical"
->>>>>>> chore(test): updated snapshot
-=======
->>>>>>> chore(snapshot): snapshot updated
-=======
-                                                    <div
-                                                      className="bx--link-list"
-                                                      data-autoid="dds--link-list"
->>>>>>> chore(snapshot): snapshot updated
                                                     >
                                                       <ul
                                                         className="bx--link-list__list bx--link-list__list--vertical"
@@ -4900,33 +4815,11 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                       "__html": "<p>Lorem ipsum dolor sit amet, <em class=\\"bx--type-light\\">consectetur</em> adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.</p>",
                                                     }
                                                   }
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-                                                  style="horizontal"
-=======
-=======
->>>>>>> chore(snapshot): snapshot updated
                                                   data-autoid="dds--content-item-horizontal__item--copy"
                                                 />
                                                 <div
                                                   className="bx--content-item-horizontal__item--cta"
                                                   data-autoid="dds--content-item-horizontal__item--cta"
-<<<<<<< HEAD
->>>>>>> chore(Dotcomshell): avoid side effect in story module
-=======
-                                                  style="horizontal"
->>>>>>> fix(callout-data): fixed wrong proptypes
-=======
-                                                  style="vertical"
->>>>>>> chore(test): updated snapshot
-=======
-                                                  style="horizontal"
->>>>>>> chore(snapshot): snapshot updated
-=======
->>>>>>> chore(snapshot): snapshot updated
                                                 >
                                                   <LinkList
                                                     items={
@@ -4945,32 +4838,9 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                     }
                                                     style="vertical"
                                                   >
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-                                                    <ul
-<<<<<<< HEAD
-                                                      className="bx--link-list__list bx--link-list__list--horizontal"
-=======
                                                     <div
                                                       className="bx--link-list"
                                                       data-autoid="dds--link-list"
->>>>>>> chore(Dotcomshell): avoid side effect in story module
-=======
-                                                    <ul
-                                                      className="bx--link-list__list bx--link-list__list--horizontal"
-<<<<<<< HEAD
->>>>>>> fix(callout-data): fixed wrong proptypes
-=======
-                                                      className="bx--link-list__list bx--link-list__list--vertical"
->>>>>>> chore(test): updated snapshot
-=======
->>>>>>> chore(snapshot): snapshot updated
-=======
-                                                    <div
-                                                      className="bx--link-list"
-                                                      data-autoid="dds--link-list"
->>>>>>> chore(snapshot): snapshot updated
                                                     >
                                                       <ul
                                                         className="bx--link-list__list bx--link-list__list--vertical"
@@ -6390,33 +6260,9 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                               },
                               "heading": "Learn how",
                             },
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> chore(test): updated snapshot
-                            "heading": "Learn how",
-                          },
-                        ]
-                      }
-                      theme="g10"
-                    >
-                      <section
-                        className="bx--cta-section bx--cta-section--g10"
-                        data-autoid="dds--cta-section"
-<<<<<<< HEAD
-=======
                           ]
                         }
                         theme="g10"
->>>>>>> chore(Dotcomshell): avoid side effect in story module
-=======
->>>>>>> chore(test): updated snapshot
-=======
-                          ]
-                        }
-                        theme="g10"
->>>>>>> chore(snapshot): snapshot updated
                       >
                         <section
                           className="bx--cta-section bx--cta-section__has-items bx--cta-section--g10"
@@ -6645,28 +6491,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                 </CTA>
                               </div>
                             </div>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> chore(test): updated snapshot
-                          </div>
-                        </ContentBlock>
-                        <hr
-                          className="bx--horizontal-line"
-                        />
-                        <div
-                          className="bx--helper-wrapper"
-                        >
-<<<<<<< HEAD
-=======
                           </ContentBlock>
->>>>>>> chore(Dotcomshell): avoid side effect in story module
-=======
->>>>>>> chore(test): updated snapshot
-=======
-                          </ContentBlock>
->>>>>>> chore(snapshot): snapshot updated
                           <div
                             className="bx--helper-wrapper"
                           >
@@ -16346,45 +16171,6 @@ exports[`Storyshots Components|VideoPlayer Default 1`] = `
               </div>
             </div>
           </VideoPlayer>
-        </div>
-      </div>
-    </div>
-  </div>
-  <input
-    aria-label="input-text-offleft"
-    className="bx--visually-hidden"
-    type="text"
-  />
-</Container>
-`;
-
-exports[`Storyshots Patterns (Blocks)|CalloutData Default 1`] = `
-<Container
-  story={[Function]}
->
-  <div
-    data-floating-menu-container=""
-    role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
-  >
-    <div
-      className="bx--grid"
-    >
-      <div
-        className="bx--row"
-      >
-        <div
-          className="bx--offset-lg-4 bx--col-lg-12"
-        >
-          <CalloutData
-            copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
-            data="51%"
-            source=" Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
-          />
         </div>
       </div>
     </div>
