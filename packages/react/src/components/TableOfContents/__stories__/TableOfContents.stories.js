@@ -6,7 +6,7 @@
  */
 
 import { object, text, boolean } from '@storybook/addon-knobs';
-import dataContent from './data/dataContent';
+import DataContent from './data/DataContent';
 import Image from '../../Image/Image';
 import React from 'react';
 import readme from '../README.stories.mdx';
@@ -37,15 +37,15 @@ const defaultMenuItems = [
 
 const sources = [
   {
-    src: 'https://dummyimage.com/672x200',
+    src: 'https://dummyimage.com/672x200&text=Example%20Children',
     breakpoint: 400,
   },
   {
-    src: 'https://dummyimage.com/672x200',
+    src: 'https://dummyimage.com/672x200&text=Example%20Children',
     breakpoint: 672,
   },
   {
-    src: 'https://dummyimage.com/672x672',
+    src: 'https://dummyimage.com/672x672&text=Example%20Children',
     breakpoint: 1056,
   },
 ];
@@ -73,7 +73,7 @@ export const ManuallyDefineMenuItems = ({ parameters }) => {
       menuLabel={menuLabel}
       menuRule={menuRule}
       headingContent={headingContent}>
-      {dataContent}
+      <DataContent />
     </TableOfContents>
   );
 };
