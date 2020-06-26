@@ -56,7 +56,7 @@ export default {
                 breakpoint: 'md',
               },
               {
-                src: 'https://dummyimage.com/600x300/ee5396/161616&text=2:1',
+                src: 'https://dummyimage.com/600x600/ee5396/161616&text=1:1',
                 breakpoint: 991,
               },
               {
