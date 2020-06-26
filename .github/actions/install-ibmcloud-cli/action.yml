@@ -1,0 +1,5 @@
+name: Install IBM Cloud CLI
+description: Install IBM Cloud CLI
+runs:
+  using: 'node12'
+  main: 'index.js'
