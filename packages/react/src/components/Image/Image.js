@@ -58,12 +58,12 @@ const Image = ({
   return (
     <div
       className={`${prefix}--image`}
-      data-autoid={`${stablePrefix}--image__longdescription-`}>
+      data-autoid={`${stablePrefix}--image__longdescription`}>
       <picture>
         {sortedImages.map((imgSrc, key) => {
           return (
             <source
-              media={`(min-width: ${imgSrc.breakpoint}px )`}
+              media={`(min-width: ${imgSrc.breakpoint}px)`}
               key={key}
               srcSet={imgSrc.src}
             />
