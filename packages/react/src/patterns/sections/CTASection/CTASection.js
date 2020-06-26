@@ -20,22 +20,12 @@ const { prefix } = settings;
  * CTASection pattern.
  */
 const CTASection = ({ heading, copy, cta, items, theme }) => {
-  /**
-   * sets the class name based on theme type
-   *
-   * @private
-   * @param {string} theme theme type
-   * @returns {string} theme css class names
-   */
-  const _setTheme = theme => {
-    return theme && `${prefix}--cta-section--${theme}`;
-  };
-
   return (
     <section
       data-autoid={`${stablePrefix}--cta-section`}
-      className={classNames(`${prefix}--cta-section`, _setTheme(theme), {
+      className={classNames(`${prefix}--cta-section`, {
         [`${prefix}--cta-section__has-items`]: items,
+        [`${prefix}--cta-section--${theme}`]: theme,
       })}>
       <ContentBlock heading={heading} copy={copy} cta={cta} />
       {items && (
