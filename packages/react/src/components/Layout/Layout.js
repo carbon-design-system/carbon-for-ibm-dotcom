@@ -106,16 +106,14 @@ const Layout = ({
 }) => (
   <section
     data-autoid={`${stablePrefix}--layout`}
-    className={classnames(
-      nested ? `` : `${prefix}--grid`,
-      _spacingClass('top', marginTop),
-      _spacingClass('bottom', marginBottom)
-    )}>
+    className={classnames(nested ? `` : `${prefix}--grid`, {
+      [_spacingClass('top', marginTop)]: marginTop,
+      [_spacingClass('bottom', marginBottom)]: marginBottom,
+    })}>
     <div
-      className={classnames(
-        `${prefix}--row`,
-        border ? `${prefix}--layout--border` : ''
-      )}>
+      className={classnames(`${prefix}--row`, {
+        [`${prefix}--layout--border`]: border,
+      })}>
       {_updateChild(type, stickyOffset, children)}
     </div>
   </section>
