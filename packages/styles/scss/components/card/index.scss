@@ -69,8 +69,6 @@
       }
     }
     &__CTA {
-      max-width: carbon--mini-units(40);
-
       .#{$prefix}--card__copy p {
         @include carbon--type-style('expressive-heading-02');
       }

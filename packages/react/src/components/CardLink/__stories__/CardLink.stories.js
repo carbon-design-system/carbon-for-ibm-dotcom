@@ -58,7 +58,7 @@ export const Default = ({ parameters }) => {
   return (
     <div className="bx--grid bx--grid--condensed">
       <div className="bx--row">
-        <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
+        <div className="bx--col-sm-4 bx--col-md-4 bx--col-lg-4 bx--offset-lg-4 bx--aspect-ratio--2x1">
           <CardLink card={card} disabled={disabled} />
         </div>
       </div>
