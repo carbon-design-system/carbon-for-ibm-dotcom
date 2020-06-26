@@ -1,0 +1,6 @@
+custom-elements.json
+es
+node_modules
+/scss
+storybook-static
+.vscode

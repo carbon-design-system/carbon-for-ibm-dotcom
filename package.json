@@ -36,6 +36,9 @@
     "test:integration:build": "yarn lerna run --stream --prefix --scope=@carbon/ibmdotcom-vanilla test:integration:build && yarn lerna run --stream --prefix --scope=@carbon/ibmdotcom-react test:integration:build"
   },
   "devDependencies": {
+    "@actions/core": "^1.2.0",
+    "@actions/exec": "^1.0.0",
+    "@actions/tool-cache": "^1.5.0",
     "@babel/core": "^7.9.0",
     "@babel/plugin-proposal-class-properties": "^7.5.0",
     "@babel/plugin-proposal-export-default-from": "^7.2.0",
@@ -57,6 +60,7 @@
     "doctoc": "^1.4.0",
     "enzyme-to-json": "^3.3.5",
     "eslint": "^6.8.0",
+    "eslint-plugin-babel": "^5.3.0",
     "eslint-plugin-jsdoc": "^24.0.0",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.19.0",

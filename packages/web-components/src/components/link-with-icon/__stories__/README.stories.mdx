@@ -1,0 +1,40 @@
+import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../../docs/contributing-license.md';
+import '../link-with-icon';
+
+# `<dds-link-with-icon>`
+
+> The `<dds-link-with-icon>` component should be used primarily as a navigational element,
+> with an icon as an indicator to the type of content being referenced, e.g.
+> url, external url, file.
+
+<Preview withToolbar>
+  <Story id="components-link-with-icon--default" height="120px" />
+</Preview>
+
+## Getting started
+
+##### JS
+
+```javascript
+import '@carbon/ibmdotcom-web-components/es/components/link-with-icon/link-with-icon';
+```
+
+##### HTML
+
+```html
+<dds-link-with-icon href="https://www.ibm.com/">
+  Link text
+  <svg slot="icon" ...>
+    ...
+  </svg>
+</dds-link-with-icon>
+```
+
+## Props
+
+<Props of="dds-link-with-icon" />
+
+## Contributing
+
+<Description markdown={contributing} />

@@ -99,10 +99,9 @@ const Quote = ({ markType = 'doubleCurved', copy, source, cta, inverse }) => {
   return (
     <div
       data-autoid={`${stablePrefix}--quote`}
-      className={classnames(
-        `${prefix}--quote`,
-        `${inverse ? `${prefix}--quote__inverse` : ''}`
-      )}>
+      className={classnames(`${prefix}--quote`, {
+        [`${prefix}--quote__inverse`]: inverse,
+      })}>
       <div className={`${prefix}--quote__container`}>
         <div
           className={`${prefix}--quote__wrapper`}
