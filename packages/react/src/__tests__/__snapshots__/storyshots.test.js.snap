@@ -1396,7 +1396,7 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
         className="bx--row"
       >
         <div
-          className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-2"
+          className="bx--col-sm-4 bx--col-lg-10 bx--offset-lg-2"
         >
           <ContentItemHorizontal
             copy="Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin."
@@ -1424,7 +1424,7 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
             heading="Aliquam condimentum"
           >
             <div
-              className="bx--content-item-horizontal__item bx"
+              className="bx--content-item-horizontal__item "
               data-autoid="dds--content-item-horizontal__item"
             >
               <div
@@ -4515,7 +4515,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                           key="0"
                                         >
                                           <div
-                                            className="bx--content-item-horizontal__item bx"
+                                            className="bx--content-item-horizontal__item "
                                             data-autoid="dds--content-item-horizontal__item"
                                           >
                                             <div
@@ -4783,7 +4783,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                           key="1"
                                         >
                                           <div
-                                            className="bx--content-item-horizontal__item bx"
+                                            className="bx--content-item-horizontal__item "
                                             data-autoid="dds--content-item-horizontal__item"
                                           >
                                             <div
@@ -15370,15 +15370,15 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
                   Array [
                     Object {
                       "breakpoint": 400,
-                      "src": "https://dummyimage.com/672x200",
+                      "src": "https://dummyimage.com/672x200&text=Example%20Children",
                     },
                     Object {
                       "breakpoint": 672,
-                      "src": "https://dummyimage.com/672x200",
+                      "src": "https://dummyimage.com/672x200&text=Example%20Children",
                     },
                     Object {
                       "breakpoint": 1056,
-                      "src": "https://dummyimage.com/672x672",
+                      "src": "https://dummyimage.com/672x672&text=Example%20Children",
                     },
                   ]
                 }
@@ -15431,15 +15431,15 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
               Array [
                 Object {
                   "breakpoint": 400,
-                  "src": "https://dummyimage.com/672x200",
+                  "src": "https://dummyimage.com/672x200&text=Example%20Children",
                 },
                 Object {
                   "breakpoint": 672,
-                  "src": "https://dummyimage.com/672x200",
+                  "src": "https://dummyimage.com/672x200&text=Example%20Children",
                 },
                 Object {
                   "breakpoint": 1056,
-                  "src": "https://dummyimage.com/672x672",
+                  "src": "https://dummyimage.com/672x672&text=Example%20Children",
                 },
               ]
             }
@@ -15516,15 +15516,15 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
                         Array [
                           Object {
                             "breakpoint": 400,
-                            "src": "https://dummyimage.com/672x200",
+                            "src": "https://dummyimage.com/672x200&text=Example%20Children",
                           },
                           Object {
                             "breakpoint": 672,
-                            "src": "https://dummyimage.com/672x200",
+                            "src": "https://dummyimage.com/672x200&text=Example%20Children",
                           },
                           Object {
                             "breakpoint": 1056,
-                            "src": "https://dummyimage.com/672x672",
+                            "src": "https://dummyimage.com/672x672&text=Example%20Children",
                           },
                         ]
                       }
@@ -15594,15 +15594,15 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
                             Array [
                               Object {
                                 "breakpoint": 400,
-                                "src": "https://dummyimage.com/672x200",
+                                "src": "https://dummyimage.com/672x200&text=Example%20Children",
                               },
                               Object {
                                 "breakpoint": 672,
-                                "src": "https://dummyimage.com/672x200",
+                                "src": "https://dummyimage.com/672x200&text=Example%20Children",
                               },
                               Object {
                                 "breakpoint": 1056,
-                                "src": "https://dummyimage.com/672x672",
+                                "src": "https://dummyimage.com/672x672&text=Example%20Children",
                               },
                             ]
                           }
@@ -15889,15 +15889,15 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
                           Array [
                             Object {
                               "breakpoint": 400,
-                              "src": "https://dummyimage.com/672x200",
+                              "src": "https://dummyimage.com/672x200&text=Example%20Children",
                             },
                             Object {
                               "breakpoint": 672,
-                              "src": "https://dummyimage.com/672x200",
+                              "src": "https://dummyimage.com/672x200&text=Example%20Children",
                             },
                             Object {
                               "breakpoint": 1056,
-                              "src": "https://dummyimage.com/672x672",
+                              "src": "https://dummyimage.com/672x672&text=Example%20Children",
                             },
                           ]
                         }
@@ -18495,48 +18495,79 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                             className="bx--feature-card-block-medium"
                             data-autoid="dds--feature-card-block-medium"
                           >
-                            <ContentGroup
-                              heading="Lorem ipsum dolor sit amet"
+                            <h3
+                              className="bx--feature-card-block-medium__heading"
+                            >
+                              Lorem ipsum dolor sit amet
+                            </h3>
+                            <FeatureCard
+                              card={
+                                Object {
+                                  "cta": Object {
+                                    "href": "https://www.example.com",
+                                    "icon": Object {
+                                      "src": Object {
+                                        "$$typeof": Symbol(react.forward_ref),
+                                        "render": [Function],
+                                      },
+                                    },
+                                  },
+                                  "heading": "Consectetur adipisicing elit",
+                                  "image": Object {
+                                    "alt": "Image alt text",
+                                    "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1",
+                                  },
+                                  "target": null,
+                                  "type": "link",
+                                }
+                              }
                             >
                               <div
-                                className="bx--content-group"
-                                data-autoid="dds--content-group"
+                                className="bx--feature-card"
+                                data-autoid="dds--feature-card"
                               >
-                                <h3
-                                  className="bx--content-group__title"
-                                  data-autoid="dds--content-group__title"
-                                >
-                                  Lorem ipsum dolor sit amet
-                                </h3>
-                                <div
-                                  className="bx--content-group__col bx--content-group__children"
-                                  data-autoid="dds--content-group__children"
-                                >
-                                  <FeatureCard
-                                    card={
-                                      Object {
-                                        "cta": Object {
-                                          "href": "https://www.example.com",
-                                          "icon": Object {
-                                            "src": Object {
-                                              "$$typeof": Symbol(react.forward_ref),
-                                              "render": [Function],
-                                            },
-                                          },
+                                <Card
+                                  cta={
+                                    Object {
+                                      "href": "https://www.example.com",
+                                      "icon": Object {
+                                        "src": Object {
+                                          "$$typeof": Symbol(react.forward_ref),
+                                          "render": [Function],
                                         },
-                                        "heading": "Consectetur adipisicing elit",
-                                        "image": Object {
-                                          "alt": "Image alt text",
-                                          "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1",
-                                        },
-                                        "target": null,
-                                        "type": "link",
-                                      }
+                                      },
                                     }
+                                  }
+                                  customClassName="bx--feature-card__card"
+                                  heading="Consectetur adipisicing elit"
+                                  image={
+                                    Object {
+                                      "alt": "Image alt text",
+                                      "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1",
+                                    }
+                                  }
+                                  inverse={true}
+                                  target={null}
+                                  type="link"
+                                >
+                                  <ClickableTile
+                                    className="bx--card bx--card--inverse bx--card--link bx--feature-card__card"
+                                    clicked={false}
+                                    data-autoid="dds--card"
+                                    handleClick={[Function]}
+                                    handleKeyDown={[Function]}
+                                    href="https://www.example.com"
+                                    light={false}
+                                    onClick={[Function]}
+                                    target={null}
                                   >
-                                    <div
-                                      className="bx--feature-card"
-                                      data-autoid="dds--feature-card"
+                                    <a
+                                      className="bx--tile bx--tile--clickable bx--card bx--card--inverse bx--card--link bx--feature-card__card"
+                                      data-autoid="dds--card"
+                                      href="https://www.example.com"
+                                      onClick={[Function]}
+                                      onKeyDown={[Function]}
+                                      target={null}
                                     >
                                       <Image
                                         alt="Image alt text"
@@ -18585,70 +18616,36 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                             <div
                                               className="bx--card__wrapper"
                                             >
-                                              <h3
-                                                className="bx--card__heading"
-                                              >
-                                                Consectetur adipisicing elit
-                                              </h3>
-                                              <div
-                                                className="bx--card__footer"
-                                              >
-                                                <ForwardRef(ArrowRight20)
-                                                  className="bx--card__cta"
-                                                  src={
-                                                    Object {
-                                                      "$$typeof": Symbol(react.forward_ref),
-                                                      "render": [Function],
-                                                    }
+                                              <svg
+                                                aria-hidden={true}
+                                                className="bx--card__cta"
+                                                focusable="false"
+                                                height={20}
+                                                preserveAspectRatio="xMidYMid meet"
+                                                src={
+                                                  Object {
+                                                    "$$typeof": Symbol(react.forward_ref),
+                                                    "render": [Function],
                                                   }
-                                                >
-                                                  <Icon
-                                                    className="bx--card__cta"
-                                                    height={20}
-                                                    preserveAspectRatio="xMidYMid meet"
-                                                    src={
-                                                      Object {
-                                                        "$$typeof": Symbol(react.forward_ref),
-                                                        "render": [Function],
-                                                      }
-                                                    }
-                                                    viewBox="0 0 20 20"
-                                                    width={20}
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                  >
-                                                    <svg
-                                                      aria-hidden={true}
-                                                      className="bx--card__cta"
-                                                      focusable="false"
-                                                      height={20}
-                                                      preserveAspectRatio="xMidYMid meet"
-                                                      src={
-                                                        Object {
-                                                          "$$typeof": Symbol(react.forward_ref),
-                                                          "render": [Function],
-                                                        }
-                                                      }
-                                                      viewBox="0 0 20 20"
-                                                      width={20}
-                                                      xmlns="http://www.w3.org/2000/svg"
-                                                    >
-                                                      <path
-                                                        d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
-                                                      />
-                                                    </svg>
-                                                  </Icon>
-                                                </ForwardRef(ArrowRight20)>
-                                                <span />
-                                              </div>
-                                            </div>
-                                          </a>
-                                        </ClickableTile>
-                                      </Card>
-                                    </div>
-                                  </FeatureCard>
-                                </div>
+                                                }
+                                                viewBox="0 0 20 20"
+                                                width={20}
+                                                xmlns="http://www.w3.org/2000/svg"
+                                              >
+                                                <path
+                                                  d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                                />
+                                              </svg>
+                                            </Icon>
+                                          </ForwardRef(ArrowRight20)>
+                                          <span />
+                                        </div>
+                                      </div>
+                                    </a>
+                                  </ClickableTile>
+                                </Card>
                               </div>
-                            </ContentGroup>
+                            </FeatureCard>
                           </section>
                         </FeatureCardBlockMedium>
                       </FeatureCTA>
@@ -19877,48 +19874,79 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                     className="bx--feature-card-block-medium"
                                     data-autoid="dds--feature-card-block-medium"
                                   >
-                                    <ContentGroup
-                                      heading="Lorem ipsum dolor sit amet"
+                                    <h3
+                                      className="bx--feature-card-block-medium__heading"
+                                    >
+                                      Lorem ipsum dolor sit amet
+                                    </h3>
+                                    <FeatureCard
+                                      card={
+                                        Object {
+                                          "cta": Object {
+                                            "href": "https://www.example.com",
+                                            "icon": Object {
+                                              "src": Object {
+                                                "$$typeof": Symbol(react.forward_ref),
+                                                "render": [Function],
+                                              },
+                                            },
+                                          },
+                                          "heading": "Consectetur adipisicing elit",
+                                          "image": Object {
+                                            "alt": "Image alt text",
+                                            "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&text=1x1",
+                                          },
+                                          "target": null,
+                                          "type": "link",
+                                        }
+                                      }
                                     >
                                       <div
-                                        className="bx--content-group"
-                                        data-autoid="dds--content-group"
+                                        className="bx--feature-card"
+                                        data-autoid="dds--feature-card"
                                       >
-                                        <h3
-                                          className="bx--content-group__title"
-                                          data-autoid="dds--content-group__title"
-                                        >
-                                          Lorem ipsum dolor sit amet
-                                        </h3>
-                                        <div
-                                          className="bx--content-group__col bx--content-group__children"
-                                          data-autoid="dds--content-group__children"
-                                        >
-                                          <FeatureCard
-                                            card={
-                                              Object {
-                                                "cta": Object {
-                                                  "href": "https://www.example.com",
-                                                  "icon": Object {
-                                                    "src": Object {
-                                                      "$$typeof": Symbol(react.forward_ref),
-                                                      "render": [Function],
-                                                    },
-                                                  },
+                                        <Card
+                                          cta={
+                                            Object {
+                                              "href": "https://www.example.com",
+                                              "icon": Object {
+                                                "src": Object {
+                                                  "$$typeof": Symbol(react.forward_ref),
+                                                  "render": [Function],
                                                 },
-                                                "heading": "Consectetur adipisicing elit",
-                                                "image": Object {
-                                                  "alt": "Image alt text",
-                                                  "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&text=1x1",
-                                                },
-                                                "target": null,
-                                                "type": "link",
-                                              }
+                                              },
                                             }
+                                          }
+                                          customClassName="bx--feature-card__card"
+                                          heading="Consectetur adipisicing elit"
+                                          image={
+                                            Object {
+                                              "alt": "Image alt text",
+                                              "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&text=1x1",
+                                            }
+                                          }
+                                          inverse={true}
+                                          target={null}
+                                          type="link"
+                                        >
+                                          <ClickableTile
+                                            className="bx--card bx--card--inverse bx--card--link bx--feature-card__card"
+                                            clicked={false}
+                                            data-autoid="dds--card"
+                                            handleClick={[Function]}
+                                            handleKeyDown={[Function]}
+                                            href="https://www.example.com"
+                                            light={false}
+                                            onClick={[Function]}
+                                            target={null}
                                           >
-                                            <div
-                                              className="bx--feature-card"
-                                              data-autoid="dds--feature-card"
+                                            <a
+                                              className="bx--tile bx--tile--clickable bx--card bx--card--inverse bx--card--link bx--feature-card__card"
+                                              data-autoid="dds--card"
+                                              href="https://www.example.com"
+                                              onClick={[Function]}
+                                              onKeyDown={[Function]}
+                                              target={null}
                                             >
                                               <Image
                                                 alt="Image alt text"
@@ -19951,70 +19979,36 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                                     <div
                                                       className="bx--card__wrapper"
                                                     >
-                                                      <h3
-                                                        className="bx--card__heading"
-                                                      >
-                                                        Consectetur adipisicing elit
-                                                      </h3>
-                                                      <div
-                                                        className="bx--card__footer"
-                                                      >
-                                                        <ForwardRef(ArrowRight20)
-                                                          className="bx--card__cta"
-                                                          src={
-                                                            Object {
-                                                              "$$typeof": Symbol(react.forward_ref),
-                                                              "render": [Function],
-                                                            }
+                                                      <svg
+                                                        aria-hidden={true}
+                                                        className="bx--card__cta"
+                                                        focusable="false"
+                                                        height={20}
+                                                        preserveAspectRatio="xMidYMid meet"
+                                                        src={
+                                                          Object {
+                                                            "$$typeof": Symbol(react.forward_ref),
+                                                            "render": [Function],
                                                           }
-                                                        >
-                                                          <Icon
-                                                            className="bx--card__cta"
-                                                            height={20}
-                                                            preserveAspectRatio="xMidYMid meet"
-                                                            src={
-                                                              Object {
-                                                                "$$typeof": Symbol(react.forward_ref),
-                                                                "render": [Function],
-                                                              }
-                                                            }
-                                                            viewBox="0 0 20 20"
-                                                            width={20}
-                                                            xmlns="http://www.w3.org/2000/svg"
-                                                          >
-                                                            <svg
-                                                              aria-hidden={true}
-                                                              className="bx--card__cta"
-                                                              focusable="false"
-                                                              height={20}
-                                                              preserveAspectRatio="xMidYMid meet"
-                                                              src={
-                                                                Object {
-                                                                  "$$typeof": Symbol(react.forward_ref),
-                                                                  "render": [Function],
-                                                                }
-                                                              }
-                                                              viewBox="0 0 20 20"
-                                                              width={20}
-                                                              xmlns="http://www.w3.org/2000/svg"
-                                                            >
-                                                              <path
-                                                                d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
-                                                              />
-                                                            </svg>
-                                                          </Icon>
-                                                        </ForwardRef(ArrowRight20)>
-                                                        <span />
-                                                      </div>
-                                                    </div>
-                                                  </a>
-                                                </ClickableTile>
-                                              </Card>
-                                            </div>
-                                          </FeatureCard>
-                                        </div>
+                                                        }
+                                                        viewBox="0 0 20 20"
+                                                        width={20}
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                      >
+                                                        <path
+                                                          d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                                        />
+                                                      </svg>
+                                                    </Icon>
+                                                  </ForwardRef(ArrowRight20)>
+                                                  <span />
+                                                </div>
+                                              </div>
+                                            </a>
+                                          </ClickableTile>
+                                        </Card>
                                       </div>
-                                    </ContentGroup>
+                                    </FeatureCard>
                                   </section>
                                 </FeatureCardBlockMedium>
                               </FeatureCTA>
@@ -28586,7 +28580,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                       key="0"
                     >
                       <div
-                        className="bx--content-item-horizontal__item bx"
+                        className="bx--content-item-horizontal__item "
                         data-autoid="dds--content-item-horizontal__item"
                       >
                         <div
@@ -28882,7 +28876,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                       key="1"
                     >
                       <div
-                        className="bx--content-item-horizontal__item bx"
+                        className="bx--content-item-horizontal__item "
                         data-autoid="dds--content-item-horizontal__item"
                       >
                         <div
@@ -29171,7 +29165,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                       key="2"
                     >
                       <div
-                        className="bx--content-item-horizontal__item bx"
+                        className="bx--content-item-horizontal__item "
                         data-autoid="dds--content-item-horizontal__item"
                       >
                         <div
@@ -30461,46 +30455,76 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockMedium Default 1`] = `
               className="bx--feature-card-block-medium"
               data-autoid="dds--feature-card-block-medium"
             >
-              <ContentGroup
-                heading="How is artificial intelligence used today in your industry?"
+              <h3
+                className="bx--feature-card-block-medium__heading"
+              >
+                How is artificial intelligence used today in your industry?
+              </h3>
+              <FeatureCard
+                card={
+                  Object {
+                    "cta": Object {
+                      "href": "https://www.example.com",
+                      "icon": Object {
+                        "src": Object {
+                          "$$typeof": Symbol(react.forward_ref),
+                          "render": [Function],
+                        },
+                      },
+                    },
+                    "heading": "Explore AI use cases in all industries",
+                    "image": Object {
+                      "alt": "Image alt text",
+                      "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1",
+                    },
+                  }
+                }
               >
                 <div
-                  className="bx--content-group"
-                  data-autoid="dds--content-group"
+                  className="bx--feature-card"
+                  data-autoid="dds--feature-card"
                 >
-                  <h3
-                    className="bx--content-group__title"
-                    data-autoid="dds--content-group__title"
-                  >
-                    How is artificial intelligence used today in your industry?
-                  </h3>
-                  <div
-                    className="bx--content-group__col bx--content-group__children"
-                    data-autoid="dds--content-group__children"
-                  >
-                    <FeatureCard
-                      card={
-                        Object {
-                          "cta": Object {
-                            "href": "https://www.example.com",
-                            "icon": Object {
-                              "src": Object {
-                                "$$typeof": Symbol(react.forward_ref),
-                                "render": [Function],
-                              },
-                            },
+                  <Card
+                    cta={
+                      Object {
+                        "href": "https://www.example.com",
+                        "icon": Object {
+                          "src": Object {
+                            "$$typeof": Symbol(react.forward_ref),
+                            "render": [Function],
                           },
-                          "heading": "Explore AI use cases in all industries",
-                          "image": Object {
-                            "alt": "Image alt text",
-                            "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1",
-                          },
-                        }
+                        },
                       }
+                    }
+                    customClassName="bx--feature-card__card"
+                    heading="Explore AI use cases in all industries"
+                    image={
+                      Object {
+                        "alt": "Image alt text",
+                        "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1",
+                      }
+                    }
+                    inverse={true}
+                    type="link"
+                  >
+                    <ClickableTile
+                      className="bx--card bx--card--inverse bx--card--link bx--feature-card__card"
+                      clicked={false}
+                      data-autoid="dds--card"
+                      handleClick={[Function]}
+                      handleKeyDown={[Function]}
+                      href="https://www.example.com"
+                      light={false}
+                      onClick={[Function]}
+                      target={null}
                     >
-                      <div
-                        className="bx--feature-card"
-                        data-autoid="dds--feature-card"
+                      <a
+                        className="bx--tile bx--tile--clickable bx--card bx--card--inverse bx--card--link bx--feature-card__card"
+                        data-autoid="dds--card"
+                        href="https://www.example.com"
+                        onClick={[Function]}
+                        onKeyDown={[Function]}
+                        target={null}
                       >
                         <Image
                           alt="Image alt text"
@@ -30549,70 +30573,36 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockMedium Default 1`] = `
                               <div
                                 className="bx--card__wrapper"
                               >
-                                <h3
-                                  className="bx--card__heading"
-                                >
-                                  Explore AI use cases in all industries
-                                </h3>
-                                <div
-                                  className="bx--card__footer"
-                                >
-                                  <ForwardRef(ArrowRight20)
-                                    className="bx--card__cta"
-                                    src={
-                                      Object {
-                                        "$$typeof": Symbol(react.forward_ref),
-                                        "render": [Function],
-                                      }
+                                <svg
+                                  aria-hidden={true}
+                                  className="bx--card__cta"
+                                  focusable="false"
+                                  height={20}
+                                  preserveAspectRatio="xMidYMid meet"
+                                  src={
+                                    Object {
+                                      "$$typeof": Symbol(react.forward_ref),
+                                      "render": [Function],
                                     }
-                                  >
-                                    <Icon
-                                      className="bx--card__cta"
-                                      height={20}
-                                      preserveAspectRatio="xMidYMid meet"
-                                      src={
-                                        Object {
-                                          "$$typeof": Symbol(react.forward_ref),
-                                          "render": [Function],
-                                        }
-                                      }
-                                      viewBox="0 0 20 20"
-                                      width={20}
-                                      xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                      <svg
-                                        aria-hidden={true}
-                                        className="bx--card__cta"
-                                        focusable="false"
-                                        height={20}
-                                        preserveAspectRatio="xMidYMid meet"
-                                        src={
-                                          Object {
-                                            "$$typeof": Symbol(react.forward_ref),
-                                            "render": [Function],
-                                          }
-                                        }
-                                        viewBox="0 0 20 20"
-                                        width={20}
-                                        xmlns="http://www.w3.org/2000/svg"
-                                      >
-                                        <path
-                                          d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
-                                        />
-                                      </svg>
-                                    </Icon>
-                                  </ForwardRef(ArrowRight20)>
-                                  <span />
-                                </div>
-                              </div>
-                            </a>
-                          </ClickableTile>
-                        </Card>
-                      </div>
-                    </FeatureCard>
-                  </div>
+                                  }
+                                  viewBox="0 0 20 20"
+                                  width={20}
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                  />
+                                </svg>
+                              </Icon>
+                            </ForwardRef(ArrowRight20)>
+                            <span />
+                          </div>
+                        </div>
+                      </a>
+                    </ClickableTile>
+                  </Card>
                 </div>
-              </ContentGroup>
+              </FeatureCard>
             </section>
           </FeatureCardBlockMedium>
         </div>
