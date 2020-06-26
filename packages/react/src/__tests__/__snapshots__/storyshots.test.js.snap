@@ -1396,7 +1396,7 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
         className="bx--row"
       >
         <div
-          className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-2"
+          className="bx--col-sm-4 bx--col-lg-10 bx--offset-lg-2"
         >
           <ContentItemHorizontal
             copy="Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin."
@@ -1424,7 +1424,7 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
             heading="Aliquam condimentum"
           >
             <div
-              className="bx--content-item-horizontal__item bx"
+              className="bx--content-item-horizontal__item "
               data-autoid="dds--content-item-horizontal__item"
             >
               <div
@@ -4515,7 +4515,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                           key="0"
                                         >
                                           <div
-                                            className="bx--content-item-horizontal__item bx"
+                                            className="bx--content-item-horizontal__item "
                                             data-autoid="dds--content-item-horizontal__item"
                                           >
                                             <div
@@ -4783,7 +4783,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                           key="1"
                                         >
                                           <div
-                                            className="bx--content-item-horizontal__item bx"
+                                            className="bx--content-item-horizontal__item "
                                             data-autoid="dds--content-item-horizontal__item"
                                           >
                                             <div
@@ -28623,7 +28623,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                       key="0"
                     >
                       <div
-                        className="bx--content-item-horizontal__item bx"
+                        className="bx--content-item-horizontal__item "
                         data-autoid="dds--content-item-horizontal__item"
                       >
                         <div
@@ -28919,7 +28919,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                       key="1"
                     >
                       <div
-                        className="bx--content-item-horizontal__item bx"
+                        className="bx--content-item-horizontal__item "
                         data-autoid="dds--content-item-horizontal__item"
                       >
                         <div
@@ -29208,7 +29208,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                       key="2"
                     >
                       <div
-                        className="bx--content-item-horizontal__item bx"
+                        className="bx--content-item-horizontal__item "
                         data-autoid="dds--content-item-horizontal__item"
                       >
                         <div
