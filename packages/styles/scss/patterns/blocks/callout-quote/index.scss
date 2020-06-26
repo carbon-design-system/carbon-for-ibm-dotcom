@@ -8,3 +8,15 @@
 @import '../../../globals/imports';
 @import '../../../components/callout/callout';
 @import '../../../components/quote/quote';
+@import '../../../globals/utils/hang';
+
+@mixin callout-quote {
+  .#{$prefix}--callout-quote {
+    @include hang;
+  }
+
+}
+
+@include exports('callout-quote') {
+  @include callout-quote;
+}
