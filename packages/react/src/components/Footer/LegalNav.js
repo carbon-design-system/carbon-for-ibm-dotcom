@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import Link from '../../internal/vendor/carbon-components-react/components/Link/Link';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -17,13 +17,15 @@ const { prefix } = settings;
 /**
  * Placeholder <li/> element for injection of the TrustE cookie preferences link
  *
+ * @param {number} key - the key for the JSX object
  * @returns {*} JSX object
  */
-const renderTrusteItem = () => {
+const renderTrusteItem = key => {
   return (
     <li
       className={`${prefix}--legal-nav__list-item`}
       data-autoid={`${stablePrefix}--privacy-cp`}
+      key={key}
     />
   );
 };
@@ -41,9 +43,9 @@ const LegalNav = ({ links }) => {
       data-autoid={`${stablePrefix}--footer-legal-nav`}
       className={`${prefix}--legal-nav__container`}>
       <nav className={`${prefix}--legal-nav`}>
-        <ul className={`${prefix}--legal-nav__list`}>
+        <div className={`${prefix}--legal-nav__list`}>
           {renderListItems(links)}
-        </ul>
+        </div>
       </nav>
     </aside>
   );
@@ -73,7 +75,8 @@ function renderListItems(links) {
     );
   });
 
-  renderedLinks.push(renderTrusteItem());
+  const key = renderedLinks.length + 1;
+  renderedLinks.push(renderTrusteItem(key));
 
   const chunked_arr = [];
   let index = 0;

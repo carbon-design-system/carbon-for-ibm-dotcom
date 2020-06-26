@@ -6,7 +6,7 @@
  */
 
 import ContentGroup from '../../../internal/components/ContentGroup/ContentGroup';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import { FeatureCard } from '../../../components/FeatureCard';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -69,7 +69,7 @@ FeatureCardBlockMedium.propTypes = {
           PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video'])
         ),
       ]),
-    }),
+    }).isRequired,
     image: PropTypes.shape({
       classname: PropTypes.string,
       sources: PropTypes.arrayOf(

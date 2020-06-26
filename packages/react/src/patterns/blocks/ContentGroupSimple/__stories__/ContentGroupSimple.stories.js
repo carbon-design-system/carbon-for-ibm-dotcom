@@ -5,32 +5,54 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { text, object, withKnobs, select } from '@storybook/addon-knobs';
+import { text, object, select } from '@storybook/addon-knobs';
 import ContentGroupSimple from '../ContentGroupSimple';
 import ContentGroupSimpleKnobs from './data/ContentGroupSimple.knobs';
 import React from 'react';
 import readme from '../README.stories.mdx';
 
+const types = ContentGroupSimpleKnobs.types;
+
 export default {
   title: 'Patterns (Blocks)|ContentGroupSimple',
-  decorators: [withKnobs],
 
   parameters: {
     ...readme.parameters,
+    knobs: {
+      ContentGroupSimple: ({ groupId }) => {
+        const mediaType = select(
+          'Media type (mediaType):',
+          types,
+          types.image,
+          groupId
+        );
+        return {
+          mediaType,
+          mediaData:
+            mediaType === 'image'
+              ? ContentGroupSimpleKnobs.mediaData.image
+              : ContentGroupSimpleKnobs.mediaData.video,
+          heading: text(
+            'Heading (heading)',
+            ContentGroupSimpleKnobs.heading,
+            groupId
+          ),
+          copy: text('Copy (copy):', ContentGroupSimpleKnobs.copy, groupId),
+          items: object(
+            'Content Items (items):',
+            ContentGroupSimpleKnobs.items,
+            groupId
+          ),
+          cta: object('CTA Data (cta):', ContentGroupSimpleKnobs.cta, groupId),
+        };
+      },
+    },
   },
 };
 
-export const Default = () => {
-  const heading = text('Heading', ContentGroupSimpleKnobs.heading);
-  const types = ContentGroupSimpleKnobs.types;
-  const mediaType = select('Media type:', types, types.image);
-  const mediaData =
-    mediaType === 'image'
-      ? ContentGroupSimpleKnobs.mediaData.image
-      : ContentGroupSimpleKnobs.mediaData.video;
-  const items = object('Content Items:', ContentGroupSimpleKnobs.items);
-  const cta = object('CTA Data:', ContentGroupSimpleKnobs.cta);
-
+export const Default = ({ parameters }) => {
+  const { mediaType, mediaData, heading, items, cta, copy } =
+    parameters?.props?.ContentGroupSimple ?? {};
   return (
     <div className="bx--grid">
       <div className="bx--row">
@@ -40,6 +62,7 @@ export const Default = () => {
             mediaData={mediaData}
             heading={heading}
             items={items}
+            copy={copy}
             cta={cta}
           />
         </div>

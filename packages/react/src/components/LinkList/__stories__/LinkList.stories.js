@@ -5,276 +5,323 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { text, withKnobs, object } from '@storybook/addon-knobs';
+import { text, object } from '@storybook/addon-knobs';
 import LinkList from '../LinkList';
 import React from 'react';
 import readme from '../README.stories.mdx';
 
 export default {
   title: 'Components|LinkList',
-  decorators: [withKnobs],
 
   parameters: {
     ...readme.parameters,
   },
 };
 
-export const Default = () => {
-  const heading = text('Heading (heading):', 'Tutorials');
-  const headlines = [
-    'Learn more',
-    'Containerization A Complete Guide',
-    'Microservices and containers',
-  ];
-  const types = ['download', 'local', 'external', 'video'];
-  const items = [
-    {
-      type: types[1],
-      copy: headlines[0],
-      cta: {
-        href: 'https://ibm.com',
-      },
-    },
-    {
-      type: types[0],
-      copy: headlines[1],
-      cta: {
-        href: 'https://ibm.com',
-      },
-    },
-    {
-      type: types[2],
-      copy: headlines[2],
-      cta: {
-        href: 'https://ibm.com',
-      },
-    },
-    {
-      type: types[3],
-      media: {
-        src: '0_uka1msg4',
-        type: 'video',
-      },
-    },
-  ];
+export const Default = ({ parameters }) => {
+  const { heading, items } = parameters?.props?.LinkList ?? {};
 
   return (
     <div className="bx--grid">
       <div className="bx--row">
         <div className="bx--col-sm-4 bx--col-lg-4 bx--offset-lg-4">
-          <LinkList
-            style="card"
-            heading={heading}
-            items={object('Items array ', items)}
-          />
+          <LinkList style="card" heading={heading} items={items} />
         </div>
       </div>
     </div>
   );
 };
 
-export const Horizontal = () => {
-  const heading = text('Heading (heading):', 'Tutorials');
-  const headlines = [
-    'Learn more',
-    'Containerization A Complete Guide',
-    'Microservices and containers',
-  ];
-  const types = ['download', 'local', 'external', 'video'];
+Default.story = {
+  parameters: {
+    knobs: {
+      LinkList: ({ groupId }) => {
+        const headlines = [
+          'Learn more',
+          'Containerization A Complete Guide',
+          'Microservices and containers',
+        ];
+        const types = ['download', 'local', 'external', 'video'];
+        const items = [
+          {
+            type: types[1],
+            copy: headlines[0],
+            cta: {
+              href: 'https://ibm.com',
+            },
+          },
+          {
+            type: types[0],
+            copy: headlines[1],
+            cta: {
+              href: 'https://ibm.com',
+            },
+          },
+          {
+            type: types[2],
+            copy: headlines[2],
+            cta: {
+              href: 'https://ibm.com',
+            },
+          },
+          {
+            type: types[3],
+            media: {
+              src: '0_uka1msg4',
+              type: 'video',
+            },
+          },
+        ];
+
+        return {
+          heading: text('Heading (heading):', 'Tutorials', groupId),
+          items: object('Items (items):', items, groupId),
+        };
+      },
+    },
+  },
+};
+
+export const Horizontal = ({ parameters }) => {
+  const { heading, items } = parameters?.props?.LinkList ?? {};
 
   return (
     <div className="bx--grid">
       <div className="bx--row">
         <div className="bx--col-sm-4 bx--col-lg-10 bx--offset-lg-4">
-          <LinkList
-            style="horizontal"
-            heading={heading}
-            items={object('Items array ', [
-              {
-                type: types[1],
-                copy: headlines[0],
-                cta: {
-                  href: 'https://ibm.com',
-                },
-              },
-              {
-                type: types[0],
-                copy: headlines[1],
-                cta: {
-                  href: 'https://ibm.com',
-                },
-              },
-            ])}
-          />
+          <LinkList style="horizontal" heading={heading} items={items} />
         </div>
       </div>
     </div>
   );
 };
 
-export const Vertical = () => {
-  const heading = text('Heading (heading):', 'Tutorials');
-  const headlines = [
-    'Learn more',
-    'Containerization A Complete Guide',
-    'Microservices and containers',
-  ];
-  const types = ['download', 'local', 'external', 'video'];
-  const items = [
-    {
-      type: types[1],
-      copy: headlines[0],
-      cta: {
-        href: 'https://ibm.com',
+Horizontal.story = {
+  parameters: {
+    knobs: {
+      LinkList: ({ groupId }) => {
+        const headlines = [
+          'Learn more',
+          'Containerization A Complete Guide',
+          'Microservices and containers',
+        ];
+        const types = ['download', 'local', 'external', 'video'];
+
+        const items = [
+          {
+            type: types[1],
+            copy: headlines[0],
+            cta: {
+              href: 'https://ibm.com',
+            },
+          },
+          {
+            type: types[0],
+            copy: headlines[1],
+            cta: {
+              href: 'https://ibm.com',
+            },
+          },
+        ];
+
+        return {
+          heading: text('Heading (heading):', 'Tutorials', groupId),
+          items: object('Items (items):', items, groupId),
+        };
       },
     },
-    {
-      type: types[0],
-      copy: headlines[1],
-      cta: {
-        href: 'https://ibm.com',
-      },
-    },
-    {
-      type: types[2],
-      copy: headlines[2],
-      cta: {
-        href: 'https://ibm.com',
-      },
-    },
-    {
-      type: types[3],
-      media: {
-        src: '0_uka1msg4',
-        type: 'video',
-      },
-    },
-  ];
+  },
+};
+
+export const Vertical = ({ parameters }) => {
+  const { heading, items } = parameters?.props?.LinkList ?? {};
 
   return (
     <div className="bx--grid">
       <div className="bx--row">
         <div className="bx--col-sm-4 bx--col-lg-4 bx--offset-lg-4">
-          <LinkList
-            style="vertical"
-            heading={heading}
-            items={object('Items (items):', items)}
-          />
+          <LinkList style="vertical" heading={heading} items={items} />
         </div>
       </div>
     </div>
   );
 };
 
-export const VerticalWithCards = () => {
-  const heading = text('Heading (heading):', 'Tutorials');
-  const headlines = [
-    'Learn more',
-    'Containerization A Complete Guide',
-    'Microservices and containers',
-  ];
-  const types = ['download', 'local', 'external', 'video'];
-  const items = [
-    {
-      type: types[1],
-      copy: headlines[0],
-      cta: {
-        href: 'https://ibm.com',
+Vertical.story = {
+  parameters: {
+    knobs: {
+      LinkList: ({ groupId }) => {
+        const headlines = [
+          'Learn more',
+          'Containerization A Complete Guide',
+          'Microservices and containers',
+        ];
+        const types = ['download', 'local', 'external', 'video'];
+        const items = [
+          {
+            type: types[1],
+            copy: headlines[0],
+            cta: {
+              href: 'https://ibm.com',
+            },
+          },
+          {
+            type: types[0],
+            copy: headlines[1],
+            cta: {
+              href: 'https://ibm.com',
+            },
+          },
+          {
+            type: types[2],
+            copy: headlines[2],
+            cta: {
+              href: 'https://ibm.com',
+            },
+          },
+          {
+            type: types[3],
+            media: {
+              src: '0_uka1msg4',
+              type: 'video',
+            },
+          },
+        ];
+
+        return {
+          heading: text('Heading (heading):', 'Tutorials', groupId),
+          items: object('Items (items):', items, groupId),
+        };
       },
     },
-    {
-      type: types[0],
-      copy: headlines[1],
-      cta: {
-        href: 'https://ibm.com',
-      },
-    },
-    {
-      type: types[2],
-      copy: headlines[2],
-      cta: {
-        href: 'https://ibm.com',
-      },
-    },
-    {
-      type: types[3],
-      media: {
-        src: '0_uka1msg4',
-        type: 'video',
-      },
-    },
-  ];
+  },
+};
+
+export const VerticalWithCards = ({ parameters }) => {
+  const { heading, items } = parameters?.props?.LinkList ?? {};
 
   return (
     <div className="bx--grid">
       <div className="bx--row">
         <div className="bx--col-sm-4 bx--col-lg-4 bx--offset-lg-4">
-          <LinkList
-            style="vertical"
-            heading={heading}
-            items={object('Items (items):', items)}
-          />
-          <LinkList
-            style="card"
-            heading={heading}
-            items={object('Items (items):', items)}
-          />
+          <LinkList style="vertical" heading={heading} items={items} />
+          <LinkList style="card" heading={heading} items={items} />
         </div>
       </div>
     </div>
   );
 };
 
-export const EndOfSection = () => {
-  const heading = text('Heading (heading):', 'Tutorials');
-  const headlines = [
-    'Learn more',
-    'Containerization A Complete Guide',
-    'Microservices and containers',
-  ];
-  const types = ['download', 'local', 'external', 'video'];
-  const items = [
-    {
-      type: types[1],
-      copy: headlines[0],
-      cta: {
-        href: 'https://ibm.com',
+VerticalWithCards.story = {
+  parameters: {
+    knobs: {
+      LinkList: ({ groupId }) => {
+        const headlines = [
+          'Learn more',
+          'Containerization A Complete Guide',
+          'Microservices and containers',
+        ];
+        const types = ['download', 'local', 'external', 'video'];
+        const items = [
+          {
+            type: types[1],
+            copy: headlines[0],
+            cta: {
+              href: 'https://ibm.com',
+            },
+          },
+          {
+            type: types[0],
+            copy: headlines[1],
+            cta: {
+              href: 'https://ibm.com',
+            },
+          },
+          {
+            type: types[2],
+            copy: headlines[2],
+            cta: {
+              href: 'https://ibm.com',
+            },
+          },
+          {
+            type: types[3],
+            media: {
+              src: '0_uka1msg4',
+              type: 'video',
+            },
+          },
+        ];
+
+        return {
+          heading: text('Heading (heading):', 'Tutorials', groupId),
+          items: object('Items (items):', items, groupId),
+        };
       },
     },
-    {
-      type: types[0],
-      copy: headlines[1],
-      cta: {
-        href: 'https://ibm.com',
-      },
-    },
-    {
-      type: types[2],
-      copy: headlines[2],
-      cta: {
-        href: 'https://ibm.com',
-      },
-    },
-    {
-      type: types[3],
-      media: {
-        src: '0_uka1msg4',
-        type: 'video',
-      },
-    },
-  ];
+  },
+};
+
+export const EndOfSection = ({ parameters }) => {
+  const { heading, items } = parameters?.props?.LinkList ?? {};
 
   return (
     <div className="bx--grid">
       <div className="bx--row">
         <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
-          <LinkList
-            style="vertical-end"
-            heading={heading}
-            items={object('Items (items):', items)}
-          />
+          <LinkList style="vertical-end" heading={heading} items={items} />
         </div>
       </div>
     </div>
   );
+};
+
+EndOfSection.story = {
+  parameters: {
+    knobs: {
+      LinkList: ({ groupId }) => {
+        const headlines = [
+          'Learn more',
+          'Containerization A Complete Guide',
+          'Microservices and containers',
+        ];
+        const types = ['download', 'local', 'external', 'video'];
+        const items = [
+          {
+            type: types[1],
+            copy: headlines[0],
+            cta: {
+              href: 'https://ibm.com',
+            },
+          },
+          {
+            type: types[0],
+            copy: headlines[1],
+            cta: {
+              href: 'https://ibm.com',
+            },
+          },
+          {
+            type: types[2],
+            copy: headlines[2],
+            cta: {
+              href: 'https://ibm.com',
+            },
+          },
+          {
+            type: types[3],
+            media: {
+              src: '0_uka1msg4',
+              type: 'video',
+            },
+          },
+        ];
+
+        return {
+          heading: text('Heading (heading):', 'Tutorials', groupId),
+          items: object('Items (items):', items, groupId),
+        };
+      },
+    },
+  },
 };

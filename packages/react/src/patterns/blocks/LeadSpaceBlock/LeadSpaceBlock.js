@@ -7,7 +7,7 @@
 
 import ContentBlock from '../../../internal/components/ContentBlock/ContentBlock';
 import { CTA } from '../../../components/CTA';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import { HorizontalRule } from '../../../components/HorizontalRule';
 import { ImageWithCaption } from '../../../components/ImageWithCaption';
 import { LinkList } from '../../../components/LinkList';
@@ -114,7 +114,7 @@ LeadSpaceBlock.propTypes = {
         href: PropTypes.string,
         customClassName: PropTypes.string,
       })
-    ),
+    ).isRequired,
   }).isRequired,
 
   /**

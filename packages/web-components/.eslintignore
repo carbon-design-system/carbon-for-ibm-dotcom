@@ -1,0 +1,6 @@
+*.d.ts
+dist
+es
+node_modules
+storybook-static
+tests/coverage

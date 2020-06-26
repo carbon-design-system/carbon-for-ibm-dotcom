@@ -6,11 +6,11 @@
  */
 import { baseFontSize, breakpoints } from '@carbon/layout';
 import classnames from 'classnames';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import PropTypes from 'prop-types';
 import React from 'react';
 import settings from 'carbon-components/es/globals/js/settings';
-import { uniqueid } from '@carbon/ibmdotcom-utilities';
+import uniqueid from '@carbon/ibmdotcom-utilities/es/utilities/uniqueid/uniqueid';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
@@ -41,7 +41,14 @@ const sortSources = sources => {
 /**
  * Picture element.
  */
-const Image = ({ classname, sources, defaultSrc, alt, longDescription }) => {
+const Image = ({
+  classname,
+  sources,
+  defaultSrc,
+  alt,
+  longDescription,
+  icon: Icon,
+}) => {
   if (!defaultSrc || !alt) {
     return null;
   }
@@ -49,14 +56,14 @@ const Image = ({ classname, sources, defaultSrc, alt, longDescription }) => {
   const sortedImages = sources ? sortSources(sources) : [];
   const id = uniqueid(`${prefix}--image-`);
   return (
-    <>
-      <picture
-        className={`${prefix}--image`}
-        data-autoid={`${stablePrefix}--image__longdescription-`}>
+    <div
+      className={`${prefix}--image`}
+      data-autoid={`${stablePrefix}--image__longdescription`}>
+      <picture>
         {sortedImages.map((imgSrc, key) => {
           return (
             <source
-              media={`(min-width: ${imgSrc.breakpoint}px )`}
+              media={`(min-width: ${imgSrc.breakpoint}px)`}
               key={key}
               srcSet={imgSrc.src}
             />
@@ -66,7 +73,7 @@ const Image = ({ classname, sources, defaultSrc, alt, longDescription }) => {
           className={classnames(`${prefix}--image__img`, classname)}
           src={defaultSrc}
           alt={alt}
-          aria-describedby={longDescription ? `${id}` : ''}
+          aria-describedby={longDescription ? `${id}` : undefined}
         />
       </picture>
       {longDescription ? (
@@ -74,7 +81,8 @@ const Image = ({ classname, sources, defaultSrc, alt, longDescription }) => {
           {longDescription}
         </div>
       ) : null}
-    </>
+      {Icon && <Icon className={`${prefix}--image__icon`} />}
+    </div>
   );
 };
 
@@ -113,6 +121,11 @@ Image.propTypes = {
    * Visible to screen readers, hidden from users.
    */
   longDescription: PropTypes.string,
+
+  /**
+   * Icon that overlays the image
+   */
+  icon: PropTypes.func,
 };
 
 export default Image;

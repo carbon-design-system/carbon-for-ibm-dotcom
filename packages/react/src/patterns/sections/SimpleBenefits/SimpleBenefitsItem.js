@@ -6,7 +6,7 @@
  */
 
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import { LinkWithIcon } from '../../../components/LinkWithIcon';
 import PropTypes from 'prop-types';
 import React from 'react';

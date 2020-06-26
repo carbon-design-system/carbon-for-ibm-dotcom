@@ -1,10 +1,15 @@
-import { Props } from '@storybook/addon-docs/blocks';
+import { Props, Description } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../docs/contributing-license.md';
 import ButtonGroup from './ButtonGroup';
 
 # Button Group
 
-> The button group component is to be utilized within IBM.com for grouping two
-> or more Button components together.
+> Use button groups when you want to display multiple buttons, such as in a
+> call-to-action.
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/examples/codesandbox/components/ButtonGroup)
+> example implementation.
 
 ## Getting started
 
@@ -122,15 +127,4 @@ ReactDOM.render(<App />, document.querySelector('#app'));
 | `dds--button-group`          | `ButtonGroup` wrapper layer                 |
 | `dds--button-group-${index}` | `Button` component within the `ButtonGroup` |
 
-## 🙌 Contributing
-
-We're always looking for contributors to help us fix bugs, build new features,
-or help us improve the project documentation. If you're interested, definitely
-check out our
-[Contributing Guide](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/.github/CONTRIBUTING.md)!
-👀
-
-## 📝 License
-
-Licensed under the
-[Apache 2.0 License](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/LICENSE).
+<Description markdown={contributing} />

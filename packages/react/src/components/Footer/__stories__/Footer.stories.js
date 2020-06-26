@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { boolean, object, withKnobs } from '@storybook/addon-knobs';
+import { boolean, object } from '@storybook/addon-knobs';
 import { DDS_LANGUAGE_SELECTOR } from '../../../internal/FeatureFlags';
 import { Footer } from '../';
 import footerMenu from '../__data__/footer-menu.json';
@@ -17,61 +17,81 @@ import readme from '../README.stories.mdx';
 
 export default {
   title: 'Components|Footer',
-  decorators: [withKnobs],
 
   parameters: {
     ...readme.parameters,
+    'carbon-theme': { disabled: true },
   },
 };
 
-/**
- * Footer (default configuration)
- *
- * @returns {*} CSF story
- */
-export const Default = () => {
-  let isCustom = boolean('show custom navigation (not a prop)', inPercy());
-
-  let navigation = isCustom
-    ? object('custom navigation data (navigation)', {
-        footerMenu,
-        footerThin,
-      })
-    : null;
-
-  let disableLocaleButton = boolean(
-    'hide the locale button (disableLocaleButton)',
-    false
-  );
-
-  let languageOnly =
-    DDS_LANGUAGE_SELECTOR &&
-    boolean('switch to the language selector (languageOnly)', false);
-
-  let items =
-    languageOnly &&
-    object('language dropdown items (languageItems)', languageItems);
-
-  /**
-   * Language callback demo function
-   *
-   * @param {string} selectedItem Selected item
-   */
-  const languageCallback = selectedItem => {
-    console.log('footer (language selector) selected item:', selectedItem);
-  };
+export const Default = ({ parameters }) => {
+  const {
+    type,
+    isCustom,
+    navigation,
+    disableLocaleButton,
+    languageOnly,
+    items,
+    languageInitialItem,
+    languageCallback,
+  } = parameters?.props?.Footer ?? {};
 
   return (
     <Footer
       navigation={isCustom ? navigation : null}
+      type={type}
       disableLocaleButton={disableLocaleButton}
       langCode={inPercy() ? { lc: 'en', cc: 'us' } : null}
       languageOnly={languageOnly}
       languageItems={languageOnly ? items : null}
-      languageInitialItem={{ id: 'en', text: 'English' }}
+      languageInitialItem={languageInitialItem}
       languageCallback={languageCallback}
     />
   );
+};
+
+Default.story = {
+  parameters: {
+    knobs: {
+      Footer: ({ groupId }) => {
+        const languageOnly =
+          DDS_LANGUAGE_SELECTOR &&
+          boolean(
+            'switch to the language selector (languageOnly)',
+            false,
+            groupId
+          );
+
+        /**
+         * Language callback demo function
+         *
+         * @param {string} selectedItem Selected item
+         */
+        const languageCallback = selectedItem => {
+          console.log(
+            'footer (language selector) selected item:',
+            selectedItem
+          );
+        };
+
+        const knobs = Short.story.parameters.knobs.Footer({ groupId });
+
+        return {
+          ...knobs,
+          languageOnly,
+          items: !languageOnly
+            ? undefined
+            : object(
+                'language dropdown items (languageItems)',
+                languageItems,
+                groupId
+              ),
+          languageInitialItem: { id: 'en', text: 'English' },
+          languageCallback,
+        };
+      },
+    },
+  },
 };
 
 /**
@@ -79,27 +99,48 @@ export const Default = () => {
  *
  * @returns {*} CSF story
  */
-export const Short = () => {
-  let isCustom = boolean('show custom navigation (not a prop)', inPercy());
+export const Short = ({ parameters }) => {
+  const massagedParameters = {
+    ...parameters,
+    props: {
+      Footer: {
+        ...(parameters?.props?.Footer ?? {}),
+        type: 'short',
+      },
+    },
+  };
 
-  let navigation = isCustom
-    ? object('custom navigation data (navigation)', {
-        footerMenu,
-        footerThin,
-      })
-    : null;
+  return <Default parameters={massagedParameters} />;
+};
 
-  let disableLocaleButton = boolean(
-    'hide the locale button (disableLocaleButton)',
-    false
-  );
-
-  return (
-    <Footer
-      navigation={isCustom ? navigation : null}
-      type="short"
-      disableLocaleButton={disableLocaleButton}
-      langCode={inPercy() ? { lc: 'en', cc: 'us' } : null}
-    />
-  );
+Short.story = {
+  parameters: {
+    knobs: {
+      Footer: ({ groupId }) => {
+        const isCustom = boolean(
+          'show custom navigation (not a prop)',
+          inPercy(),
+          groupId
+        );
+        return {
+          isCustom,
+          navigation: isCustom
+            ? object(
+                'custom navigation data (navigation)',
+                {
+                  footerMenu,
+                  footerThin,
+                },
+                groupId
+              )
+            : null,
+          disableLocaleButton: boolean(
+            'hide the locale button (disableLocaleButton)',
+            false,
+            groupId
+          ),
+        };
+      },
+    },
+  },
 };

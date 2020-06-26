@@ -5,51 +5,60 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { object, text, withKnobs } from '@storybook/addon-knobs';
+import { object, text } from '@storybook/addon-knobs';
 import ContentItemHorizontal from '../ContentItemHorizontal';
 import React from 'react';
 import readme from '../README.stories.mdx';
 
 export default {
   title: 'Components|ContentItemHorizontal',
-  decorators: [withKnobs],
 
   parameters: {
     ...readme.parameters,
+    knobs: {
+      ContentItemHorizontal: ({ groupId }) => ({
+        eyebrow: text('Eyebrow', 'Lorem ipsum', groupId),
+        heading: text('Heading', 'Aliquam condimentum', groupId),
+        copy: text(
+          'Copy',
+          'Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.',
+          groupId
+        ),
+        cta: {
+          items: object(
+            'link list items array',
+            [
+              {
+                type: 'local',
+                copy: 'Learn more',
+                cta: {
+                  href: 'https://ibm.com',
+                },
+              },
+              {
+                type: 'external',
+                copy: 'Microservices and containers',
+                cta: {
+                  href: 'https://ibm.com',
+                },
+              },
+            ],
+            groupId
+          ),
+        },
+      }),
+    },
   },
 };
 
-export const Default = () => {
-  const eyebrow = text('Eyebrow', 'Lorem ipsum');
-  const heading = text('Heading', 'Aliquam condimentum');
-  const copy = text(
-    'Copy',
-    'Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.'
-  );
-
-  const cta = {
-    items: object('link list items array', [
-      {
-        type: 'local',
-        copy: 'Learn more',
-        cta: {
-          href: 'https://ibm.com',
-        },
-      },
-      {
-        type: 'external',
-        copy: 'Microservices and containers',
-        cta: {
-          href: 'https://ibm.com',
-        },
-      },
-    ]),
-  };
+export const Default = ({ parameters }) => {
+  const { eyebrow, heading, copy, cta } =
+    parameters?.props?.ContentItemHorizontal ?? {};
 
   return (
     <div className="bx--grid bx--content-group-story">
       <div className="bx--row">
-        <div className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-2">
+        <div className="bx--col-sm-4 bx--col-lg-10 bx--offset-lg-2">
           <ContentItemHorizontal
             eyebrow={eyebrow}
             heading={heading}

@@ -13,7 +13,11 @@
 @mixin content-block {
   .#{$prefix}--content-block--inverse {
     background-color: $inverse-02;
-    color: $text-04;
+
+    .#{$prefix}--content-block__heading,
+    .#{$prefix}--content-block__copy p {
+      color: $text-04;
+    }
   }
   .#{$prefix}--content-block {
     padding-top: $carbon--layout-03;
@@ -32,6 +36,7 @@
     &__heading {
       @include carbon--type-style('expressive-heading-05', true);
 
+      color: $text-01;
       margin-bottom: $carbon--spacing-07;
       @include carbon--breakpoint('lg') {
         margin-bottom: $carbon--spacing-09;
@@ -39,8 +44,9 @@
     }
     &__copy {
       p {
-        @include carbon--type-style('expressive-paragraph-01', true);
+        @include carbon--type-style('expressive-heading-03', true);
 
+        color: $text-01;
         margin-bottom: $carbon--spacing-07;
       }
     }
@@ -70,6 +76,11 @@
         padding-top: 0;
         margin-right: -$carbon--spacing-05;
       }
+    }
+    .#{$prefix}--hr {
+      margin-top: 0;
+      margin-right: -1rem;
+      margin-left: -1rem;
     }
   }
 }

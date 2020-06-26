@@ -8,7 +8,7 @@
 import React, { useEffect } from 'react';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
 import { CardLink } from '../CardLink';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import Error20 from '@carbon/icons-react/es/error/20';
 import PropTypes from 'prop-types';
 import settings from 'carbon-components/es/globals/js/settings';

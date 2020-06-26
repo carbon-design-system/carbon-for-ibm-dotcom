@@ -1,10 +1,13 @@
-import { Props } from '@storybook/addon-docs/blocks';
+import { Props, Description } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../../docs/contributing-license.md';
 import ContentGroupSimple from './ContentGroupSimple';
 
 # Content Group - Simple
 
 > The Content Group – Simple pattern includes a heading, Content Items, an
 > optional CTA Component, and an optional media (image or video).
+
+> 💡 Check our [CodeSandbox](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/examples/codesandbox/patterns/blocks/ContentGroupSimple) example implementation.
 
 ## Getting started
 
@@ -119,17 +122,7 @@ Add the following line in your `.env` file at the root of your project.
 | Name                               | Description                                     |
 | ---------------------------------- | ----------------------------------------------- |
 | `dds--content-group-simple`        | Main Wrapper for Content Group - Simple pattern |
+| `dds--content-group__copy`         | Content group - Simple optional copy            |
 | `dds--content-group-simple__media` | Wrapper for the media component.                |
 
-## 🙌 Contributing
-
-We're always looking for contributors to help us fix bugs, build new features,
-or help us improve the project documentation. If you're interested, definitely
-check out our
-[Contributing Guide](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/.github/CONTRIBUTING.md)!
-👀
-
-## 📝 License
-
-Licensed under the
-[Apache 2.0 License](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/LICENSE).
+<Description markdown={contributing} />

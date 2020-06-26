@@ -7,7 +7,7 @@
 
 import { ButtonGroup } from '../../../components/ButtonGroup';
 import classnames from 'classnames';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import { Image } from '../../../components/Image';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -28,16 +28,11 @@ const className = (theme, type, image) => {
   const mainClassName = `${prefix}--leadspace${
     type === 'centered' ? '--centered' : ''
   }`;
-  return classnames(
-    mainClassName,
-    theme && `${mainClassName}--${theme}`,
-    {
-      [`${prefix}--leadspace--productive`]: type === 'small',
-    },
-    {
-      [`${prefix}--leadspace--centered__image`]: image && type === 'centered',
-    }
-  );
+  return classnames(mainClassName, {
+    [`${mainClassName}--${theme}`]: theme,
+    [`${prefix}--leadspace--productive`]: type === 'small',
+    [`${prefix}--leadspace--centered__image`]: image && type === 'centered',
+  });
 };
 
 /**

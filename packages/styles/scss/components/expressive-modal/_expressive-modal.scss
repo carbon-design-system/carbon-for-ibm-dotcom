@@ -31,10 +31,6 @@
       margin-bottom: 0;
       padding-top: 0;
 
-      *:last-child {
-        padding-bottom: 0;
-      }
-
       h1 {
         @include carbon--type-style('expressive-heading-04');
       }

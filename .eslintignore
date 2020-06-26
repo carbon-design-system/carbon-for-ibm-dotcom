@@ -11,6 +11,10 @@ packages/react/storybook-static
 packages/react/ssr-tests/nextjs/.next
 packages/react/src/internal/vendor
 
+# storybook-addon-theme
+packages/storybook-addon-theme/es
+packages/storybook-addon-theme/node_modules
+
 # local carbon-components-react
 packages/react/src/components/carbon-components-react
 packages/react/src/internal/keyboard

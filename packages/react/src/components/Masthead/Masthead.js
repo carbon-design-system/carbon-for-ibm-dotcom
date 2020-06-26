@@ -5,15 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import {
-  ProfileAPI,
-  TranslationAPI,
-  globalInit,
-} from '@carbon/ibmdotcom-services';
 import React, { useEffect, useRef, useState } from 'react';
 import cx from 'classnames';
 import { DDS_MASTHEAD_L1 } from '../../internal/FeatureFlags';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import { globalInit } from '@carbon/ibmdotcom-services/es/services/global/global';
 import Header from '../../internal/vendor/carbon-components-react/components/UIShell/Header';
 import HeaderContainer from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderContainer';
 import HeaderGlobalBar from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderGlobalBar';
@@ -24,10 +20,12 @@ import MastheadLeftNav from './MastheadLeftNav';
 import MastheadProfile from './MastheadProfile';
 import MastheadSearch from './MastheadSearch';
 import MastheadTopNav from './MastheadTopNav';
+import ProfileAPI from '@carbon/ibmdotcom-services/es/services/Profile/Profile';
 import PropTypes from 'prop-types';
 import root from 'window-or-global';
 import settings from 'carbon-components/es/globals/js/settings';
 import SkipToContent from '../../internal/vendor/carbon-components-react/components/UIShell/SkipToContent';
+import TranslationAPI from '@carbon/ibmdotcom-services/es/services/Translation/Translation';
 import User20 from '@carbon/icons-react/es/user/20';
 import UserOnline20 from '@carbon/icons-react/es/user--online/20';
 
@@ -233,6 +231,7 @@ const Masthead = ({
               {navigation && (
                 <MastheadLeftNav
                   {...mastheadProps}
+                  platform={platform}
                   navigation={mastheadData}
                   isSideNavExpanded={isSideNavExpanded}
                 />

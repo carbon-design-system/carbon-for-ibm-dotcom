@@ -1,9 +1,16 @@
-import { Props } from '@storybook/addon-docs/blocks';
+import { Props, Description } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../docs/contributing-license.md';
 import CTA from './CTA';
 
 # CTA
 
-> The CTA component will be used to select different cta types pages.
+> The CTA component is used to select from various CTA link types – text, cards,
+> and buttons – as well as defining their behavior, such as anchor links,
+> videos, and external links.
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/examples/codesandbox/components/CTA)
+> example implementation.
 
 ## Getting started
 
@@ -194,15 +201,4 @@ Add the following line in your `.env` file at the root of your project.
 
 <Props of={CTA} />
 
-## 🙌 Contributing
-
-We're always looking for contributors to help us fix bugs, build new features,
-or help us improve the project documentation. If you're interested, definitely
-check out our
-[Contributing Guide](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/.github/CONTRIBUTING.md)!
-👀
-
-## 📝 License
-
-Licensed under the
-[Apache 2.0 License](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/LICENSE).
+<Description markdown={contributing} />

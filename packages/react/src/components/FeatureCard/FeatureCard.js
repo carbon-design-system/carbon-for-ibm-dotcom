@@ -6,7 +6,7 @@
  */
 
 import { Card } from '../Card';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import PropTypes from 'prop-types';
 import React from 'react';
 import settings from 'carbon-components/es/globals/js/settings';
@@ -66,12 +66,7 @@ FeatureCard.propTypes = {
     cta: PropTypes.shape({
       copy: PropTypes.string,
       href: PropTypes.string,
-      type: PropTypes.oneOfType([
-        PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video']),
-        PropTypes.arrayOf(
-          PropTypes.oneOf(['jump', 'local', 'external', 'download', 'video'])
-        ),
-      ]),
+      type: PropTypes.oneOf(['jump', 'local', 'external', 'download']),
     }),
     image: PropTypes.shape({
       classname: PropTypes.string,

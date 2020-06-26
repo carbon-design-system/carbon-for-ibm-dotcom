@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { object, text, withKnobs } from '@storybook/addon-knobs';
+import { object, text } from '@storybook/addon-knobs';
 import Image from '../Image';
 import React from 'react';
 import readme from '../README.stories.mdx';
@@ -15,33 +15,42 @@ const { prefix } = settings;
 
 export default {
   title: 'Components|Image',
-  decorators: [withKnobs],
 
   parameters: {
     ...readme.parameters,
+    knobs: {
+      Image: ({ groupId }) => ({
+        image: object(
+          'sources:',
+          [
+            {
+              src: 'https://dummyimage.com/320x160/ee5396/161616&text=2x1',
+              breakpoint: 'sm',
+            },
+            {
+              src: 'https://dummyimage.com/400x200/ee5396/161616&text=2x1',
+              breakpoint: 'md',
+            },
+            {
+              src: 'https://dummyimage.com/672x336/ee5396/161616&text=2x1',
+              breakpoint: 'lg',
+            },
+          ],
+          groupId
+        ),
+        alt: text('Image alt text (required)', 'Image alt text', groupId),
+        defaultSrc: text(
+          'Default image (required)',
+          'https://dummyimage.com/672x336/ee5396/161616&text=2x1',
+          groupId
+        ),
+      }),
+    },
   },
 };
 
-export const Default = () => {
-  const image = object('sources:', [
-    {
-      src: 'https://dummyimage.com/320x160/ee5396/161616&text=2x1',
-      breakpoint: 320,
-    },
-    {
-      src: 'https://dummyimage.com/400x400/ee5396/161616&text=1x1',
-      breakpoint: 400,
-    },
-    {
-      src: 'https://dummyimage.com/672x672/ee5396/161616&text=1x1',
-      breakpoint: 672,
-    },
-  ]);
-  const alt = text('Image alt text (required)', 'Image alt text');
-  const defaultSrc = text(
-    'Default image (required)',
-    'https://dummyimage.com/672x672/ee5396/161616&text=1x1'
-  );
+export const Default = ({ parameters }) => {
+  const { image, alt, defaultSrc } = parameters?.props?.Image ?? {};
 
   return (
     <div className={`${prefix}--grid`}>

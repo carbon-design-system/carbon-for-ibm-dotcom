@@ -4,14 +4,11 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
+@import '../../../components/buttongroup/buttongroup';
 
 @mixin themed-items {
   color: $text-01;
   background: $ui-background;
-
-  .#{$prefix}--horizontal-line {
-    border-color: $ui-03;
-  }
 
   .#{$prefix}--content-item {
     &__heading {
@@ -32,10 +29,9 @@
 
 @mixin cta-section--pattern {
   .#{$prefix}--cta-section {
-    padding-bottom: $layout-05;
+    padding-bottom: $carbon--layout-05;
     .#{$prefix}--content-block {
-      padding-bottom: $layout-01;
-      @include carbon--make-col-ready;
+      padding-bottom: $carbon--spacing-07;
 
       &__heading,
       &__copy {
@@ -63,32 +59,18 @@
       }
 
       @include carbon--breakpoint('md') {
-        padding-bottom: $layout-05;
+        padding-bottom: $carbon--layout-06;
       }
 
       @include carbon--breakpoint('lg') {
-        padding-bottom: $layout-06;
-        @include carbon--make-col(8, 16);
-        @include carbon--make-col-offset(4, 16);
-      }
-    }
-
-    .#{$prefix}--horizontal-line {
-      margin: 0;
-      margin-right: $carbon--grid-gutter;
-      @include carbon--make-col-offset(16, 16);
-
-      @include carbon--breakpoint('lg') {
-        @include carbon--make-col(12, 16);
-        @include carbon--make-col-offset(4, 16);
+        padding-bottom: $carbon--layout-06;
       }
     }
 
     .#{$prefix}--helper-wrapper {
-      @include carbon--breakpoint('lg') {
-        @include carbon--make-col(12, 16);
-        @include carbon--make-col-offset(4, 16);
-      }
+      border-top: 1px solid $ui-03;
+
+      @include hang;
 
       .#{$prefix}--content-item-wrapper {
         display: flex;
@@ -99,7 +81,7 @@
         .#{$prefix}--content-item {
           width: 100%;
           margin-bottom: 0;
-          padding-bottom: $layout-01;
+          padding-bottom: $carbon--spacing-05;
           position: relative;
 
           &__heading {
@@ -136,25 +118,56 @@
       }
     }
 
-    @include carbon--breakpoint(lg) {
-      padding-bottom: $layout-06;
+    &.#{$prefix}--cta-section__has-items {
+      @include carbon--breakpoint('md') {
+        padding-bottom: $carbon--layout-06;
+      }
+
+      @include carbon--breakpoint('lg') {
+        padding-bottom: $carbon--layout-06;
+      }
+
+      .#{$prefix}--content-block {
+        padding-bottom: $carbon--layout-05;
+
+        @include carbon--breakpoint('md') {
+          padding-bottom: $carbon--layout-06;
+        }
+
+        @include carbon--breakpoint('lg') {
+          padding-bottom: $carbon--layout-06;
+        }
+      }
+    }
+
+    @include carbon--breakpoint('lg') {
+      padding-bottom: $carbon--layout-05;
     }
   }
 
   .#{$prefix}--cta-section--g10 {
-    @include carbon--theme($carbon--theme--g10) {
+    @include carbon--theme(
+      $carbon--theme--g10,
+      feature-flag-enabled('enable-css-custom-properties')
+    ) {
       @include themed-items;
     }
   }
 
   .#{$prefix}--cta-section--g90 {
-    @include carbon--theme($carbon--theme--g90) {
+    @include carbon--theme(
+      $carbon--theme--g90,
+      feature-flag-enabled('enable-css-custom-properties')
+    ) {
       @include themed-items;
     }
   }
 
   .#{$prefix}--cta-section--g100 {
-    @include carbon--theme($carbon--theme--g100) {
+    @include carbon--theme(
+      $carbon--theme--g100,
+      feature-flag-enabled('enable-css-custom-properties')
+    ) {
       @include themed-items;
     }
   }

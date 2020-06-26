@@ -1,10 +1,11 @@
-import { Props } from '@storybook/addon-docs/blocks';
+import { Props, Description } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../docs/contributing-license.md';
 import CardGroup from './CardGroup';
 
 # Card Group
 
-> The CardGroup component is a collection of Card components that can be used in
-> block and group -level patterns.
+> Card groups are a collection of card components that can be used in block and
+> group -level patterns.
 
 ## Getting started
 
@@ -25,6 +26,10 @@ Here's a quick example to get you started.
 > 💡 Only import fonts once per usage. Don't forget to import the card-group
 > styles from
 > [@carbon/ibmdotcom-styles](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/packages/styles).
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/react/examples/codesandbox/components/CardGroup)
+> example implementation.
 
 ##### JS
 
@@ -58,15 +63,4 @@ Add the following line in your `.env` file at the root of your project.
 | ----------------- | ----------- |
 | `dds--card-group` | Component   |
 
-## 🙌 Contributing
-
-We're always looking for contributors to help us fix bugs, build new features,
-or help us improve the project documentation. If you're interested, definitely
-check out our
-[Contributing Guide](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/.github/CONTRIBUTING.md)!
-👀
-
-## 📝 License
-
-Licensed under the
-[Apache 2.0 License](https://github.com/carbon-design-system/ibm-dotcom-library/blob/master/LICENSE).
+<Description markdown={contributing} />
