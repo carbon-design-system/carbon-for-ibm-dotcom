@@ -46,7 +46,29 @@ export default {
         image: object(
           'Card image(required) (image):',
           {
-            defaultSrc: 'https://dummyimage.com/600x300/ee5396/161616&text=2:1',
+            sources: [
+              {
+                src: 'https://dummyimage.com/320x160/ee5396/161616&text=2:1',
+                breakpoint: 'sm',
+              },
+              {
+                src: 'https://dummyimage.com/320x160/ee5396/161616&text=2:1',
+                breakpoint: 'md',
+              },
+              {
+                src: 'https://dummyimage.com/600x360/ee5396/161616&text=2:1',
+                breakpoint: 991,
+              },
+              {
+                src: 'https://dummyimage.com/600x300/ee5396/161616&text=2:1',
+                breakpoint: 'lg',
+              },
+              {
+                src: 'https://dummyimage.com/672x672/ee5396/161616&text=1:1',
+                breakpoint: 'xlg',
+              },
+            ],
+            defaultSrc: 'https://dummyimage.com/672x672/ee5396/161616&text=1:1',
             alt: 'Image alt text',
           },
           groupId
