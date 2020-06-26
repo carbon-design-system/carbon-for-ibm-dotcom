@@ -7,8 +7,8 @@
 
 import Callout from '../../../internal/components/Callout/Callout';
 import { DDS_CALLOUT_DATA } from '../../../internal/FeatureFlags';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
-import { featureFlag } from '@carbon/ibmdotcom-utilities';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import featureFlag from '@carbon/ibmdotcom-utilities/es/utilities/featureFlag/featureFlag';
 import PropTypes from 'prop-types';
 import React from 'react';
 import settings from 'carbon-components/es/globals/js/settings';
