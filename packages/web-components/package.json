@@ -26,6 +26,7 @@
   ],
   "scripts": {
     "build": "gulp build && yarn wca",
+    "build-storybook": "build-storybook",
     "ci-check": "yarn wca && yarn format:diff && yarn lint:src && yarn typecheck && yarn build && yarn test:unit",
     "clean": "gulp clean",
     "format": "prettier --write \"**/*.{css,js,ts,md,scss}\"",
