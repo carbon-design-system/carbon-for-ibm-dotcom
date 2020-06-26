@@ -2474,6 +2474,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                           <button
                                                             className="bx--video-player__image-overlay"
                                                             data-autoid="dds--video-player__image-overlay"
+                                                            id="video-thumbnail-overlay"
                                                             onClick={[Function]}
 <<<<<<< HEAD
 =======
@@ -4404,6 +4405,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                 <button
                                                                   className="bx--video-player__image-overlay"
                                                                   data-autoid="dds--video-player__image-overlay"
+                                                                  id="video-thumbnail-overlay"
                                                                   onClick={[Function]}
 <<<<<<< HEAD
 =======
@@ -4579,6 +4581,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                                                   style="horizontal"
 =======
                                                   data-autoid="dds--content-item-horizontal__item--copy"
@@ -4593,6 +4596,9 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
 =======
                                                   style="vertical"
 >>>>>>> chore(test): updated snapshot
+=======
+                                                  style="horizontal"
+>>>>>>> chore(snapshot): snapshot updated
                                                 >
                                                   <LinkList
                                                     items={
@@ -4624,10 +4630,13 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
 =======
                                                     <ul
                                                       className="bx--link-list__list bx--link-list__list--horizontal"
+<<<<<<< HEAD
 >>>>>>> fix(callout-data): fixed wrong proptypes
 =======
                                                       className="bx--link-list__list bx--link-list__list--vertical"
 >>>>>>> chore(test): updated snapshot
+=======
+>>>>>>> chore(snapshot): snapshot updated
                                                     >
                                                       <ul
                                                         className="bx--link-list__list bx--link-list__list--vertical"
@@ -4873,6 +4882,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                                                   style="horizontal"
 =======
                                                   data-autoid="dds--content-item-horizontal__item--copy"
@@ -4887,6 +4897,9 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
 =======
                                                   style="vertical"
 >>>>>>> chore(test): updated snapshot
+=======
+                                                  style="horizontal"
+>>>>>>> chore(snapshot): snapshot updated
                                                 >
                                                   <LinkList
                                                     items={
@@ -4918,10 +4931,13 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
 =======
                                                     <ul
                                                       className="bx--link-list__list bx--link-list__list--horizontal"
+<<<<<<< HEAD
 >>>>>>> fix(callout-data): fixed wrong proptypes
 =======
                                                       className="bx--link-list__list bx--link-list__list--vertical"
 >>>>>>> chore(test): updated snapshot
+=======
+>>>>>>> chore(snapshot): snapshot updated
                                                     >
                                                       <ul
                                                         className="bx--link-list__list bx--link-list__list--vertical"
