@@ -55,7 +55,6 @@
         @include carbon--breakpoint(lg) {
           margin-bottom: $layout-05;
         }
-
         p {
           color: $text-01;
         }
@@ -66,7 +65,6 @@
 
         .#{$prefix}--link-list {
           padding: 0;
-
           &:first-of-type {
             padding: 0;
           }
@@ -103,7 +101,6 @@
     &__row {
       @include carbon--make-row;
 
-      width: 100%;
       min-height: 160px;
     }
 
