@@ -6,7 +6,7 @@
  */
 
 import ArrowLeft16 from '@carbon/icons-react/es/arrow--left/16';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import HeaderSideNavItems from '../../internal/vendor/carbon-components-react/components/UIShell/HeaderSideNavItems';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -23,11 +23,7 @@ const { prefix } = settings;
 /**
  * Masthead left nav component.
  */
-const MastheadLeftNav = ({
-  navigation,
-  isSideNavExpanded,
-  ...leftNavProps
-}) => {
+const MastheadLeftNav = ({ navigation, isSideNavExpanded, platform }) => {
   /**
    * Left side navigation
    *
@@ -70,13 +66,13 @@ const MastheadLeftNav = ({
       expanded={isSideNavExpanded}
       isPersistent={false}>
       <nav data-autoid={`${stablePrefix}--masthead__l0-sidenav`}>
-        {leftNavProps.platform && (
+        {platform && (
           <a
             data-autoid={`${stablePrefix}--side-nav__submenu-platform`}
-            href={leftNavProps.platform.url}
+            href={platform.url}
             aria-haspopup="true"
             className={`${prefix}--side-nav__submenu ${prefix}--side-nav__submenu-platform`}>
-            {leftNavProps.platform.name}
+            {platform.name}
           </a>
         )}
         <SideNavItems>
@@ -131,11 +127,18 @@ MastheadLeftNav.propTypes = {
       ),
     })
   ),
-
   /**
    * `true` to make the sidenav expanded.
    */
   isSideNavExpanded: PropTypes.bool,
+
+  /**
+   * Platform object with name and url
+   */
+  platform: PropTypes.shape({
+    name: PropTypes.string,
+    url: PropTypes.string,
+  }),
 };
 
 export default MastheadLeftNav;

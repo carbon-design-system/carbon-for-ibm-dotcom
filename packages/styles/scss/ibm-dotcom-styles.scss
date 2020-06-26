@@ -11,7 +11,6 @@
 
 // Components
 @import 'components/buttongroup/buttongroup';
-@import 'components/callout/callout';
 @import 'components/card/index';
 @import 'components/card-group/card-group';
 @import 'components/card-link/card-link';
@@ -67,6 +66,7 @@
 @import 'themes/expressive/index';
 
 // Internal
+@import 'internal/callout/callout';
 @import 'internal/content-block/content-block';
 @import 'internal/content-item/content-item';
 @import 'internal/content-group/content-group';

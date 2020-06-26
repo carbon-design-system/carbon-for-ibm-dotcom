@@ -7,41 +7,45 @@
 
 import "./styles.scss";
 
+import { LinkList } from "@carbon/ibmdotcom-react";
 import React from "react";
 import ReactDom from "react-dom";
 
-import { LinkList } from "@carbon/ibmdotcom-react";
-
 const App = () => (
-  <div>
-    <LinkList
-      heading="Lorem ipsum dolor sit amet"
-      items={[
-        {
-          heading: "Containerization: A Complete Guide",
-          type: "local",
-          copy: "Lorem ipsum dolor sit amet",
-          cta: {
-            href: "https://ibm.com"
-          }
-        },
-        {
-          heading: "Why should you use microservices and containers?",
-          type: "external",
-          copy: "Lorem ipsum dolor sit amet",
-          cta: {
-            href: "https://ibm.com"
-          }
-        },
-        {
-          type: "video",
-          media: {
-            src: "0_uka1msg4",
-            type: "video"
-          }
-        }
-      ]}
-    />
+  <div className="bx--grid">
+    <div className="bx--row">
+      <div className="bx--col-sm-4 bx--col-lg-6">
+        <LinkList
+          style="vertical"
+          heading="Lorem ipsum dolor sit amet"
+          items={[
+            {
+              heading: "Containerization: A Complete Guide",
+              type: "local",
+              copy: "Lorem ipsum dolor sit amet",
+              cta: {
+                href: "https://ibm.com",
+              },
+            },
+            {
+              heading: "Why should you use microservices and containers?",
+              type: "external",
+              copy: "Lorem ipsum dolor sit amet",
+              cta: {
+                href: "https://ibm.com",
+              },
+            },
+            {
+              type: "video",
+              media: {
+                src: "0_uka1msg4",
+                type: "video",
+              },
+            },
+          ]}
+        />
+      </div>
+    </div>
   </div>
 );
 

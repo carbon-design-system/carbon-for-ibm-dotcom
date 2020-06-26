@@ -6,7 +6,7 @@
  */
 import React, { useEffect, useLayoutEffect, useRef } from 'react';
 import Button from '../../internal/vendor/carbon-components-react/components/Button/Button';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import PropTypes from 'prop-types';
 import settings from 'carbon-components/es/globals/js/settings';
 
@@ -38,12 +38,19 @@ const ButtonGroup = ({ buttons, enableSizeByContent }) => {
               (acc, item) => Math.max(acc, item.offsetWidth),
               0
             );
+            const height = Array.prototype.reduce.call(
+              group.querySelectorAll('.bx--buttongroup-item--pseudo .bx--btn'),
+              (acc, item) => Math.max(acc, item.offsetHeight),
+              0
+            );
+            const hasWordWrap = height > 48;
             Array.prototype.forEach.call(
               group.querySelectorAll(
                 '.bx--buttongroup-item:not(.bx--buttongroup-item--pseudo) .bx--btn'
               ),
               item => {
                 item.style.width = `${width + 1}px`;
+                item.classList.toggle(`${prefix}--btn--multiline`, hasWordWrap);
               }
             );
           });

@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import content from './data/content';
+import Content from './data/content';
 import DotcomShell from '../DotcomShell';
 import { Default as footerStory } from '../../Footer/__stories__/Footer.stories.js';
 import { Default as mastheadStory } from '../../Masthead/__stories__/Masthead.stories.js';
@@ -53,7 +53,9 @@ export const Default = ({ parameters }) => {
   return (
     <DotcomShell mastheadProps={mastheadProps} footerProps={footerProps}>
       <main id="main-content">
-        <div style={{ paddingTop: '6rem' }}>{content}</div>
+        <div style={{ paddingTop: '6rem' }}>
+          <Content />
+        </div>
       </main>
     </DotcomShell>
   );

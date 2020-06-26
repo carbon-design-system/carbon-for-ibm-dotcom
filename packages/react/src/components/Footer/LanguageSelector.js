@@ -7,7 +7,7 @@
 
 import React, { useState } from 'react';
 import ComboBox from '../../internal/vendor/carbon-components-react/components/ComboBox/ComboBox';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import PropTypes from 'prop-types';
 import settings from 'carbon-components/es/globals/js/settings';
 

@@ -5,5 +5,12 @@
  * LICENSE file in the root directory of this source tree.
 */
 
+.bx--grid {
+  padding-top: 1rem;
+}
+
+.bx--row {
+  padding-top: 1rem;
+}
 
 @import '@carbon/ibmdotcom-styles/scss/components/video-player/_video-player.scss';

@@ -41,6 +41,82 @@ export default {
 
   parameters: {
     ...readme.parameters,
+  },
+};
+
+export const Default = ({ parameters }) => {
+  const { heading, copy, cta, items } = parameters?.props?.CTASection ?? {};
+  const theme = document.documentElement.getAttribute('storybook-carbon-theme');
+  return (
+    <div className="bx--grid">
+      <div className="bx--row">
+        <div className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4">
+          <CTASection
+            heading={heading}
+            copy={copy}
+            theme={theme}
+            cta={cta}
+            items={items}
+          />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+Default.story = {
+  parameters: {
+    knobs: {
+      CTASection: ({ groupId }) => ({
+        heading: text('ContentBlock | heading:', 'Take the next step', groupId),
+        copy: text(
+          'ContentBlock | copy:',
+          `Want to discuss your options with a DevOps expert? Contact our sales team to evaluate your needs.`,
+          groupId
+        ),
+        cta: {
+          style: 'button',
+          type: types[0],
+          buttons: [
+            {
+              type: select('ContentBlock | CTA type', types, types[2], groupId),
+              copy: text('ContentBlock | CTA copy', 'Contact sales', groupId),
+              href: 'https://example.com/',
+            },
+          ],
+        },
+      }),
+    },
+    props: {
+      CTASection: {
+        items: contentItemsProps,
+      },
+    },
+  },
+};
+
+export const WithContentItems = ({ parameters }) => {
+  const { heading, copy, cta, items } = parameters?.props?.CTASection ?? {};
+  const theme = document.documentElement.getAttribute('storybook-carbon-theme');
+  return (
+    <div className="bx--grid">
+      <div className="bx--row">
+        <div className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4">
+          <CTASection
+            heading={heading}
+            copy={copy}
+            theme={theme}
+            cta={cta}
+            items={items}
+          />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+WithContentItems.story = {
+  parameters: {
     knobs: {
       CTASection: ({ groupId }) => ({
         heading: text('ContentBlock | heading:', 'Take the next step', groupId),
@@ -63,24 +139,5 @@ export default {
         items: object('ContentItems | Data', contentItemsProps, groupId),
       }),
     },
-    props: {
-      CTASection: {
-        items: contentItemsProps,
-      },
-    },
   },
-};
-
-export const Default = ({ parameters }) => {
-  const { heading, copy, cta, items } = parameters?.props?.CTASection ?? {};
-  const theme = document.documentElement.getAttribute('storybook-carbon-theme');
-  return (
-    <CTASection
-      heading={heading}
-      copy={copy}
-      theme={theme}
-      cta={cta}
-      items={items}
-    />
-  );
 };

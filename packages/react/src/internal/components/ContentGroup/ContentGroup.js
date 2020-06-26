@@ -7,8 +7,8 @@
 
 import classNames from 'classnames';
 import { CTA } from '../../../components/CTA';
-import { settings as ddsSettings } from '@carbon/ibmdotcom-utilities';
-import { markdownToHtml } from '@carbon/ibmdotcom-utilities';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import markdownToHtml from '@carbon/ibmdotcom-utilities/es/utilities/markdownToHtml/markdownToHtml';
 import PropTypes from 'prop-types';
 import React from 'react';
 import settings from 'carbon-components/es/globals/js/settings';

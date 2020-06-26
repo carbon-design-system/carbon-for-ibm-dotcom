@@ -6,6 +6,7 @@
  */
 
 @import '../../globals/imports';
+@import '../card/index';
 
 @mixin card-link {
   .#{$prefix}--card__CTA--disabled {
