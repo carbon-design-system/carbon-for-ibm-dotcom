@@ -18,7 +18,7 @@ import {
   LogoGrid,
   FeatureCardBlockLarge,
   TableOfContents,
-} from '../../../../../';
+} from '../../../../index';
 
 import { ArrowRight20 } from '@carbon/icons-react';
 import React from 'react';
@@ -28,7 +28,7 @@ import React from 'react';
  *
  * @returns {*} JSX for Learn template
  */
-const content = (
+const Content = () => (
   <>
     <TableOfContents menuLabel="Jump to" theme="white">
       <a name="section-1" data-title="Lorem ipsum dolor sit amet" />
@@ -433,4 +433,4 @@ const content = (
   </>
 );
 
-export default content;
+export default Content;
