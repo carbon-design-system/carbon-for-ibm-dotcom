@@ -44,9 +44,13 @@ const mediaDataByType = {
   },
 };
 
-const copy = `Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
-      Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
-      nulla quis, *consequat* libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.`;
+const copy = {
+  default:
+    'Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.\n' +
+    '      Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales\n' +
+    '      nulla quis, *consequat* libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.',
+  none: '',
+};
 
 const ctaStyles = {
   text: 'text',
@@ -74,7 +78,7 @@ const getBaseKnobs = ({ groupId }) => {
   return {
     mediaType,
     mediaData: mediaDataByType[mediaType],
-    copy,
+    copy: select('Copy (optional)', copy, copy.default),
     cta: {
       cta: {
         href: 'https://www.example.com',
