@@ -8,25 +8,28 @@
 @mixin content-block-segmented {
   .#{$prefix}--content-block-segmented {
     .#{$prefix}--content-group {
-      margin-top: $carbon--layout-04;
-      margin-bottom: $carbon--layout-04;
+      margin-top: $carbon--layout-05;
+      margin-bottom: $carbon--layout-05;
 
       @include carbon--breakpoint('lg') {
-        margin-top: $carbon--layout-05;
-        margin-bottom: $carbon--layout-05;
-      }
-
-      @include carbon--breakpoint('xlg') {
         margin-top: $carbon--layout-06;
+        margin-bottom: $carbon--layout-06;
       }
 
       &__cta {
         margin-top: -$layout-02;
       }
     }
+
+    .#{$prefix}--row {
+      &.#{$prefix}--layout--border {
+        @include carbon--breakpoint('lg') {
+          padding-bottom: $carbon--layout-06;
+        }
+      }
+    }
   }
 }
-
 @include exports('content-block-segmented') {
   @include content-block-segmented;
 }

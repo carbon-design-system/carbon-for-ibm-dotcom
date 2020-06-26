@@ -6,7 +6,7 @@
  */
 
 import { object, text, boolean } from '@storybook/addon-knobs';
-import dataContent from './data/dataContent';
+import DataContent from './data/DataContent';
 import Image from '../../Image/Image';
 import React from 'react';
 import readme from '../README.stories.mdx';
@@ -73,7 +73,7 @@ export const ManuallyDefineMenuItems = ({ parameters }) => {
       menuLabel={menuLabel}
       menuRule={menuRule}
       headingContent={headingContent}>
-      {dataContent}
+      <DataContent />
     </TableOfContents>
   );
 };
