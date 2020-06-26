@@ -2186,14 +2186,14 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                   >
                     <Layout
                       border={false}
-                      marginBottom="none"
-                      marginTop="none"
+                      marginBottom={null}
+                      marginTop={null}
                       nested={false}
                       stickyOffset={null}
                       type="1-3"
                     >
                       <section
-                        className="bx--grid bx--layout--top-none bx--layout--bottom-none"
+                        className="bx--grid"
                         data-autoid="dds--layout"
                       >
                         <div
@@ -6265,7 +6265,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                         theme="g10"
                       >
                         <section
-                          className="bx--cta-section bx--cta-section--g10 bx--cta-section__has-items"
+                          className="bx--cta-section bx--cta-section__has-items bx--cta-section--g10"
                           data-autoid="dds--cta-section"
                         >
                           <ContentBlock
@@ -14514,14 +14514,14 @@ exports[`Storyshots Components|Table of Contents Dynamic Items 1`] = `
         >
           <Layout
             border={false}
-            marginBottom="none"
-            marginTop="none"
+            marginBottom={null}
+            marginTop={null}
             nested={false}
             stickyOffset={null}
             type="1-3"
           >
             <section
-              className="bx--grid bx--layout--top-none bx--layout--bottom-none"
+              className="bx--grid"
               data-autoid="dds--layout"
             >
               <div
@@ -14862,14 +14862,14 @@ exports[`Storyshots Components|Table of Contents Manually define Menu Items 1`] 
       >
         <Layout
           border={false}
-          marginBottom="none"
-          marginTop="none"
+          marginBottom={null}
+          marginTop={null}
           nested={false}
           stickyOffset={null}
           type="1-3"
         >
           <section
-            className="bx--grid bx--layout--top-none bx--layout--bottom-none"
+            className="bx--grid"
             data-autoid="dds--layout"
           >
             <div
@@ -15475,14 +15475,14 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
         >
           <Layout
             border={false}
-            marginBottom="none"
-            marginTop="none"
+            marginBottom={null}
+            marginTop={null}
             nested={false}
             stickyOffset={null}
             type="1-3"
           >
             <section
-              className="bx--grid bx--layout--top-none bx--layout--bottom-none"
+              className="bx--grid"
               data-autoid="dds--layout"
             >
               <div
