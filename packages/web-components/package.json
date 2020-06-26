@@ -1,7 +1,7 @@
 {
   "name": "@carbon/ibmdotcom-web-components",
   "version": "0.1.0",
-  "description": "IBM.com Library Web Components and Patterns",
+  "description": "IBM.com Library Web Components",
   "license": "Apache-2.0",
   "main": "es/index.js",
   "module": "es/index.js",
@@ -11,6 +11,9 @@
     "scss/**/*",
     "custom-elements.json"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": "https://github.com/carbon-design-system/ibm-dotcom-library/tree/master/packages/web-components",
   "bugs": "https://github.com/carbon-design-system/ibm-dotcom-library/issues",
   "keywords": [
@@ -28,7 +31,7 @@
     "build": "gulp build && yarn wca",
     "build-storybook": "build-storybook",
     "ci-check": "yarn wca && yarn format:diff && yarn lint:src && yarn typecheck && yarn build && yarn test:unit",
-    "clean": "gulp clean",
+    "clean": "rimraf es scss storybook-static custom-elements.json",
     "format": "prettier --write \"**/*.{css,js,ts,md,scss}\"",
     "format:diff": "prettier --check \"**/*.{css,js,ts,md,scss}\"",
     "format:staged": "prettier --write",
@@ -46,8 +49,10 @@
     "prettier": "^1.19.0"
   },
   "dependencies": {
-    "@carbon/ibmdotcom-services": "^1.8.0",
-    "@carbon/ibmdotcom-utilities": "^1.8.0"
+    "@carbon/ibmdotcom-services": "1.8.0",
+    "@carbon/ibmdotcom-utilities": "1.8.0",
+    "carbon-components": "10.11.0",
+    "carbon-custom-elements": "1.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.8.0",
@@ -158,8 +163,6 @@
     "webpack": "^4.28.0"
   },
   "peerDependencies": {
-    "carbon-components": "~10.11.0",
-    "carbon-custom-elements": "~1.0.0",
     "lit-element": "^2.2.0",
     "lit-html": "^1.1.0"
   },
