@@ -1,0 +1,42 @@
+{
+  "parserOptions" : {
+    "ecmaVersion": 6,
+    "sourceType": "module"
+  },
+  "extends": [
+    "../.eslintrc.js"
+  ],
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "rules": {
+    "class-methods-use-this": [2, { "exceptMethods": ["render"] }],
+    "no-underscore-dangle": 0,
+    "jsdoc/check-tag-names": [2, {"definedTags": ["element"]}]
+  },
+  "overrides": [
+    {
+      "files": ["**/*.test.{js,ts}"],
+      "globals": {
+        "describe": true,
+        "beforeAll": true,
+        "beforeEach": true,
+        "afterAll": true,
+        "afterEach": true,
+        "it": true,
+        "expect": true,
+        "jasmine": true,
+        "spyOn": true,
+        "spyOnProperty": true
+      },
+      "rules": {
+        "func-names": 0,
+        "no-new": 0,
+        "no-underscore-dangle": 0,
+        "no-unused-expressions": 0,
+        "prefer-arrow-callback": 0
+      }
+    }
+  ]
+}
