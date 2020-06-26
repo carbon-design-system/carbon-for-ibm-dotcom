@@ -1,0 +1,5 @@
+/dist
+/tests/coverage
+/tests/snapshots
+es
+node_modules

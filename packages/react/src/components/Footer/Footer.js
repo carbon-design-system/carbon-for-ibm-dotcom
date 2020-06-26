@@ -93,7 +93,9 @@ const Footer = ({
   return (
     <footer
       data-autoid={`${stablePrefix}--footer`}
-      className={classNames(`${prefix}--footer`, _setFooterType(type))}>
+      className={classNames(`${prefix}--footer`, {
+        [`${prefix}--footer--short`]: type === 'short',
+      })}>
       <section className={`${prefix}--footer__main`}>
         <div className={`${prefix}--footer__main-container`}>
           <FooterLogo />
@@ -163,23 +165,6 @@ function _optionalFooterNav(type, data) {
   if (type !== 'short') {
     return <FooterNav groups={data} />;
   }
-}
-
-/**
- * sets the footer type
- *
- * @param {string} type type of footer in use
- * @returns {object} JSX object
- * @private
- */
-function _setFooterType(type) {
-  let typeClassName;
-
-  if (type === 'short') {
-    typeClassName = `${prefix}--footer--short`;
-  }
-
-  return typeClassName;
 }
 
 Footer.propTypes = {
