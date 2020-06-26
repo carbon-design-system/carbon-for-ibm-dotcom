@@ -52,11 +52,11 @@ export default {
                 breakpoint: 'sm',
               },
               {
-                src: 'https://dummyimage.com/320x160/ee5396/161616&text=2:1',
+                src: 'https://dummyimage.com/400x200/ee5396/161616&text=2:1',
                 breakpoint: 'md',
               },
               {
-                src: 'https://dummyimage.com/600x360/ee5396/161616&text=2:1',
+                src: 'https://dummyimage.com/600x300/ee5396/161616&text=2:1',
                 breakpoint: 991,
               },
               {
