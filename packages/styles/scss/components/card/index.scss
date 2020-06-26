@@ -77,6 +77,9 @@
 
       &:focus,
       &:active {
+        position: relative;
+        z-index: 2;
+
         .#{$prefix}--image__img {
           position: relative;
           z-index: -1;
