@@ -2256,14 +2256,11 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                   <div
                                     className="bx--tableofcontents__mobile__select__wrapper"
                                   >
-                                    <option
-                                      className="bx--tableofcontents__mobile__select__option"
-                                      data-autoid="dds}--tableofcontents__mobile__select__option-menuLabel"
-                                      disabled={true}
-                                      hidden={true}
-                                      key="0"
-                                      selected={true}
-                                      value="menuLabel"
+                                    <select
+                                      className="bx--tableofcontents__mobile__select"
+                                      onBlur={[Function]}
+                                      onChange={[Function]}
+                                      value=""
                                     >
                                       <option
                                         className="bx--tableofcontents__mobile__select__option"
@@ -2469,6 +2466,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                         >
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> fix(callout-data): fixed wrong proptypes
                                                           <button
@@ -2478,6 +2476,8 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                             onClick={[Function]}
 <<<<<<< HEAD
 =======
+=======
+>>>>>>> chore(snapshot): snapshot updated
                                                           <VideoImageOverlay
                                                             embedVideo={[Function]}
                                                             videoData={
@@ -2487,9 +2487,12 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                               }
                                                             }
                                                             videoId="0_uka1msg4"
+<<<<<<< HEAD
 >>>>>>> chore(Dotcomshell): avoid side effect in story module
 =======
 >>>>>>> fix(callout-data): fixed wrong proptypes
+=======
+>>>>>>> chore(snapshot): snapshot updated
                                                           >
                                                             <button
                                                               className="bx--video-player__image-overlay"
@@ -4400,6 +4403,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                               >
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> fix(callout-data): fixed wrong proptypes
                                                                 <button
@@ -4409,6 +4413,8 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                   onClick={[Function]}
 <<<<<<< HEAD
 =======
+=======
+>>>>>>> chore(snapshot): snapshot updated
                                                                 <VideoImageOverlay
                                                                   embedVideo={[Function]}
                                                                   videoData={
@@ -4417,9 +4423,12 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                       "name": "",
                                                                     }
                                                                   }
+<<<<<<< HEAD
 >>>>>>> chore(Dotcomshell): avoid side effect in story module
 =======
 >>>>>>> fix(callout-data): fixed wrong proptypes
+=======
+>>>>>>> chore(snapshot): snapshot updated
                                                                 >
                                                                   <button
                                                                     className="bx--video-player__image-overlay"
@@ -4582,13 +4591,17 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                                                   style="horizontal"
 =======
+=======
+>>>>>>> chore(snapshot): snapshot updated
                                                   data-autoid="dds--content-item-horizontal__item--copy"
                                                 />
                                                 <div
                                                   className="bx--content-item-horizontal__item--cta"
                                                   data-autoid="dds--content-item-horizontal__item--cta"
+<<<<<<< HEAD
 >>>>>>> chore(Dotcomshell): avoid side effect in story module
 =======
                                                   style="horizontal"
@@ -4598,6 +4611,8 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
 >>>>>>> chore(test): updated snapshot
 =======
                                                   style="horizontal"
+>>>>>>> chore(snapshot): snapshot updated
+=======
 >>>>>>> chore(snapshot): snapshot updated
                                                 >
                                                   <LinkList
@@ -4619,6 +4634,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                   >
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                                                     <ul
 <<<<<<< HEAD
                                                       className="bx--link-list__list bx--link-list__list--horizontal"
@@ -4636,6 +4652,11 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                       className="bx--link-list__list bx--link-list__list--vertical"
 >>>>>>> chore(test): updated snapshot
 =======
+>>>>>>> chore(snapshot): snapshot updated
+=======
+                                                    <div
+                                                      className="bx--link-list"
+                                                      data-autoid="dds--link-list"
 >>>>>>> chore(snapshot): snapshot updated
                                                     >
                                                       <ul
@@ -4883,13 +4904,17 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                                                   style="horizontal"
 =======
+=======
+>>>>>>> chore(snapshot): snapshot updated
                                                   data-autoid="dds--content-item-horizontal__item--copy"
                                                 />
                                                 <div
                                                   className="bx--content-item-horizontal__item--cta"
                                                   data-autoid="dds--content-item-horizontal__item--cta"
+<<<<<<< HEAD
 >>>>>>> chore(Dotcomshell): avoid side effect in story module
 =======
                                                   style="horizontal"
@@ -4899,6 +4924,8 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
 >>>>>>> chore(test): updated snapshot
 =======
                                                   style="horizontal"
+>>>>>>> chore(snapshot): snapshot updated
+=======
 >>>>>>> chore(snapshot): snapshot updated
                                                 >
                                                   <LinkList
@@ -4920,6 +4947,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                   >
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                                                     <ul
 <<<<<<< HEAD
                                                       className="bx--link-list__list bx--link-list__list--horizontal"
@@ -4937,6 +4965,11 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                       className="bx--link-list__list bx--link-list__list--vertical"
 >>>>>>> chore(test): updated snapshot
 =======
+>>>>>>> chore(snapshot): snapshot updated
+=======
+                                                    <div
+                                                      className="bx--link-list"
+                                                      data-autoid="dds--link-list"
 >>>>>>> chore(snapshot): snapshot updated
                                                     >
                                                       <ul
@@ -6359,6 +6392,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                             },
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> chore(test): updated snapshot
                             "heading": "Learn how",
@@ -6378,6 +6412,11 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
 >>>>>>> chore(Dotcomshell): avoid side effect in story module
 =======
 >>>>>>> chore(test): updated snapshot
+=======
+                          ]
+                        }
+                        theme="g10"
+>>>>>>> chore(snapshot): snapshot updated
                       >
                         <section
                           className="bx--cta-section bx--cta-section__has-items bx--cta-section--g10"
@@ -6608,6 +6647,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                             </div>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> chore(test): updated snapshot
                           </div>
@@ -6624,6 +6664,9 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
 >>>>>>> chore(Dotcomshell): avoid side effect in story module
 =======
 >>>>>>> chore(test): updated snapshot
+=======
+                          </ContentBlock>
+>>>>>>> chore(snapshot): snapshot updated
                           <div
                             className="bx--helper-wrapper"
                           >
@@ -7834,7 +7877,7 @@ exports[`Storyshots Components|Footer Short 1`] = `
           },
           "component": undefined,
           "docs": Object {},
-          "fileName": "./components/Footer/__stories__/Footer.stories.js",
+          "fileName": null,
           "framework": "react",
           "knobs": Object {
             "Footer": [Function],
@@ -8798,7 +8841,7 @@ exports[`Storyshots Components|LightboxMediaViewer Embedded Video Player 1`] = `
           "__id": "components-lightboxmediaviewer--embedded-video-player",
           "component": undefined,
           "docs": Object {},
-          "fileName": "./components/LightboxMediaViewer/__stories__/LightboxMediaViewer.stories.js",
+          "fileName": null,
           "framework": "react",
           "knobs": Object {
             "LightboxMediaViewer": [Function],
@@ -13729,7 +13772,7 @@ exports[`Storyshots Components|Masthead With Platform 1`] = `
           },
           "component": undefined,
           "docs": Object {},
-          "fileName": "./components/Masthead/__stories__/Masthead.stories.js",
+          "fileName": null,
           "framework": "react",
           "knobs": Object {
             "Masthead": [Function],
@@ -14615,7 +14658,7 @@ exports[`Storyshots Components|Table of Contents Dynamic Items 1`] = `
           "__id": "components-table-of-contents--dynamic-items",
           "component": undefined,
           "docs": Object {},
-          "fileName": "./components/TableOfContents/__stories__/TableOfContents.stories.js",
+          "fileName": null,
           "framework": "react",
           "knobs": Object {
             "TableOfContents": [Function],
@@ -15469,7 +15512,7 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
           "__id": "components-table-of-contents--with-heading-content",
           "component": undefined,
           "docs": Object {},
-          "fileName": "./components/TableOfContents/__stories__/TableOfContents.stories.js",
+          "fileName": null,
           "framework": "react",
           "knobs": Object {
             "TableOfContents": [Function],
@@ -35560,7 +35603,7 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with no image 1`] = `
           "__id": "patterns-sections-leadspace--default-with-no-image",
           "component": undefined,
           "docs": Object {},
-          "fileName": "./patterns/sections/LeadSpace/__stories__/LeadSpace.stories.js",
+          "fileName": null,
           "framework": "react",
           "knobs": Object {
             "LeadSpace": [Function],
