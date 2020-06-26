@@ -7,7 +7,7 @@
 
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
-const dataContent = (
+const DataContent = () => (
   <div>
     <a
       data-title="Cras molestie condimentum"
@@ -223,4 +223,4 @@ const dataContent = (
   </div>
 );
 
-export default dataContent;
+export default DataContent;
