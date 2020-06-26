@@ -49,6 +49,15 @@ $fcb-breakpoint-up--lg: map-get(
     .#{$prefix}--card {
       background: none;
       height: 100%;
+      margin-bottom: $carbon--layout-03;
+
+      @include carbon--breakpoint('md') {
+        margin-bottom: $carbon--layout-05;
+      }
+
+      @include carbon--breakpoint('lg') {
+        margin-bottom: $carbon--layout-06;
+      }
 
       @include carbon--breakpoint-between(
         $fcb-large-custom-bp-copy,
