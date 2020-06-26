@@ -45,6 +45,10 @@
   "resolutions": {
     "prettier": "^1.19.0"
   },
+  "dependencies": {
+    "@carbon/ibmdotcom-services": "^1.8.0",
+    "@carbon/ibmdotcom-utilities": "^1.8.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.8.0",
     "@babel/plugin-proposal-class-properties": "^7.8.0",
@@ -154,11 +158,8 @@
     "webpack": "^4.28.0"
   },
   "peerDependencies": {
-    "@carbon/ibmdotcom-services": "^1.8.0-rc.0",
-    "@carbon/ibmdotcom-utilities": "^1.8.0-rc.0",
     "carbon-components": "~10.11.0",
     "carbon-custom-elements": "~1.0.0",
-    "flatpickr": "4.6.1",
     "lit-element": "^2.2.0",
     "lit-html": "^1.1.0"
   },
