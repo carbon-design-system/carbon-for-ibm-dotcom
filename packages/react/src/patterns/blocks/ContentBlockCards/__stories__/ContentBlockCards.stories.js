@@ -28,7 +28,7 @@ export const Default = () => {
   return (
     <div className="bx--grid">
       <div className="bx--row">
-        <div className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-2 content-block-story">
+        <div className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4 content-block-story">
           <ContentBlockCards
             heading={text(
               'Heading (required):',
