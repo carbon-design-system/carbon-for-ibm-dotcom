@@ -8,6 +8,7 @@
 import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
+import { HorizontalRule } from '../HorizontalRule';
 import Layout from '../Layout/Layout';
 import PropTypes from 'prop-types';
 import settings from 'carbon-components/es/globals/js/settings';
@@ -197,15 +198,13 @@ const TableOfContents = ({
       })}>
       <Layout {...layoutProps}>
         <div className={`${prefix}--tableofcontents__sidebar`}>
-          {headingContent ? (
+          {headingContent && (
             <div className={`${prefix}--tableofcontents__desktop__children`}>
               {headingContent}
 
-              {menuRule ? (
-                <hr className={`${prefix}--tableofcontents__desktop__rule`} />
-              ) : null}
+              {menuRule && <HorizontalRule />}
             </div>
-          ) : null}
+          )}
           <div className={`${prefix}--tableofcontents__mobile-top`}></div>
           <div style={{ position: 'sticky', top: '0' }}>
             <TOCDesktop
