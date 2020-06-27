@@ -1,0 +1,171 @@
+//
+// Copyright IBM Corp. 2020
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@import 'carbon-components/scss/components/ui-shell/header';
+@import 'carbon-components/scss/components/ui-shell/side-nav';
+@import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead';
+@import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-leftnav';
+@import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-search';
+@import 'carbon-custom-elements/scss/components/ui-shell/header';
+@import 'carbon-custom-elements/scss/components/ui-shell/side-nav';
+@import '../../globals/scss/vars';
+
+:host(#{$dds-prefix}-masthead-menu-button) {
+  @extend :host(#{$prefix}-header-menu-button);
+
+  position: relative;
+  width: mini-units(6);
+  height: mini-units(6);
+}
+
+:host(#{$dds-prefix}-masthead-logo) {
+  @extend :host(#{$prefix}-header-name);
+  @include masthead-logo;
+}
+
+:host(#{$dds-prefix}-masthead-search) {
+  outline: none;
+}
+
+:host(#{$dds-prefix}-masthead-search-item) {
+  @extend .react-autosuggest__suggestion;
+
+  font-size: $carbon--spacing-05;
+}
+
+:host(#{$dds-prefix}-masthead-global-bar) {
+  @extend .#{$prefix}--header__global;
+}
+
+:host(#{$dds-prefix}-masthead-profile) {
+  .bx--header__menu-title[aria-expanded='true'] {
+    + .bx--header__menu {
+      left: auto;
+      right: 0;
+      width: rem(160px);
+    }
+  }
+}
+
+:host(#{$dds-prefix}-top-nav) {
+  @extend :host(#{$prefix}-header-nav);
+
+  .#{$prefix}-ce--header__divider {
+    background-color: $ui-03;
+  }
+}
+
+:host(#{$dds-prefix}-top-nav-item) {
+  @extend :host(#{$prefix}-header-nav-item);
+}
+
+:host(#{$dds-prefix}-top-nav-menu),
+:host(#{$dds-prefix}-masthead-profile) {
+  @extend :host(#{$prefix}-header-menu);
+
+  .#{$prefix}--header__menu-title[role='menuitem'][aria-expanded='true'] {
+    background-color: $ui-01;
+
+    + .#{$prefix}--header__menu {
+      background-color: $ui-02;
+      box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.3);
+      bottom: -1px;
+    }
+  }
+}
+
+:host(#{$dds-prefix}-top-nav-menu-item),
+:host(#{$dds-prefix}-masthead-profile-item) {
+  @extend :host(#{$prefix}-header-menu-item);
+  @include masthead-top-nav-menu-item;
+}
+
+:host(#{$dds-prefix}-top-nav-item),
+:host(#{$dds-prefix}-top-nav-menu),
+:host(#{$dds-prefix}-top-nav-menu-item),
+:host(#{$dds-prefix}-masthead-profile),
+:host(#{$dds-prefix}-masthead-profile-item) {
+  .#{$prefix}--header__menu-arrow {
+    fill: $text-01;
+  }
+
+  a.#{$prefix}--header__menu-item[role='menuitem'] {
+    @include masthead-top-nav-link;
+
+    &:hover {
+      color: $text-01;
+    }
+  }
+}
+
+:host(#{$dds-prefix}-left-nav) {
+  @extend :host(#{$prefix}-side-nav);
+
+  display: block;
+  overflow: auto;
+  margin-top: calc(#{mini-units(6)} + 1px);
+  height: calc(100% - #{mini-units(6)} - 1px);
+
+  &[usage-mode='header-nav'],
+  &[collapse-mode][usage-mode='header-nav'] {
+    width: 0;
+  }
+
+  &[expanded][usage-mode='header-nav'],
+  &[collapse-mode][expanded][usage-mode='header-nav'] {
+    @include carbon--breakpoint-down('lg') {
+      width: mini-units(32);
+    }
+  }
+}
+
+:host(#{$dds-prefix}-left-nav[expanded]) {
+  @extend .#{$prefix}--side-nav--expanded;
+}
+
+:host(#{$dds-prefix}-left-nav-items) {
+  @extend :host(#{$prefix}-side-nav-items);
+}
+
+:host(#{$dds-prefix}-left-nav-item) {
+  @extend :host(#{$prefix}-side-nav-link);
+
+  border-bottom: 1px solid $ui-03;
+}
+
+:host(#{$dds-prefix}-left-nav-menu) {
+  @extend :host(#{$prefix}-side-nav-menu);
+
+  border-bottom: 1px solid $ui-03;
+}
+
+:host(#{$dds-prefix}-left-nav-menu-item) {
+  @extend :host(#{$prefix}-side-nav-menu-item);
+
+  a.#{$prefix}--side-nav__link[role='menuitem'] {
+    padding-left: $carbon--spacing-05;
+    height: carbon--mini-units(6);
+    border-bottom: 1px solid $ui-03;
+  }
+}
+
+:host(#{$dds-prefix}-left-nav-item),
+:host(#{$dds-prefix}-left-nav-menu),
+:host(#{$dds-prefix}-left-nav-menu-item) {
+  .#{$prefix}--side-nav__link:hover {
+    background-color: $shell-side-nav-bg-04;
+    color: $ibm-color__gray-100;
+  }
+}
+
+:host(#{$dds-prefix}-left-nav-overlay) {
+  @extend .#{$prefix}--side-nav__overlay;
+
+  &[active] {
+    @extend .#{$prefix}--side-nav__overlay-active;
+  }
+}

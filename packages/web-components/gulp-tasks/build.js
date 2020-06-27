@@ -15,6 +15,7 @@ const { promisify } = require('util');
 const asyncDone = require('async-done');
 const gulp = require('gulp');
 const filter = require('gulp-filter');
+const rename = require('gulp-rename');
 const sourcemaps = require('gulp-sourcemaps');
 const babel = require('gulp-babel');
 const sass = require('gulp-sass');
@@ -30,6 +31,8 @@ const rtlcss = require('rtlcss');
 const replaceExtension = require('replace-ext');
 const babelPluginResourceJSPaths = require('../tools/babel-plugin-resource-js-paths');
 const fixHostPseudo = require('../tools/postcss-fix-host-pseudo');
+const descriptorFromSVG = require('../tools/descriptor-from-svg');
+const createSVGResultFromIconDescriptor = require('../tools/svg-result-from-icon-descriptor');
 
 const config = require('./config');
 
@@ -48,7 +51,7 @@ const cssStream = ({ banner, dir }) =>
     )
     .pipe(
       sass({
-        includePaths: ['node_modules'],
+        includePaths: ['node_modules', path.resolve(__dirname, '../../../node_modules')],
       })
     )
     .pipe(
@@ -81,6 +84,34 @@ module.exports = {
     async css() {
       const banner = await readFileAsync(path.resolve(__dirname, '../../../tasks/license.js'), 'utf8');
       await Promise.all([promisifyStream(() => cssStream({ banner })), promisifyStream(() => cssStream({ banner, dir: 'rtl' }))]);
+    },
+
+    async icons() {
+      const banner = await readFileAsync(path.resolve(__dirname, '../../../tasks/license.js'), 'utf8');
+      await promisifyStream(() =>
+        gulp
+          .src([`${config.iconsDir}/**/*.svg`])
+          .pipe(
+            through2.obj(async (file, enc, done) => {
+              const descriptor = await descriptorFromSVG(String(file.contents));
+              file.contents = Buffer.from(`
+                import { svg } from 'lit-html';
+                import spread from 'carbon-custom-elements/es/globals/directives/spread';
+                const svgResultIBMdotcomIcon = ${createSVGResultFromIconDescriptor(descriptor)};
+                export default svgResultIBMdotcomIcon;
+              `);
+              done(null, file);
+            })
+          )
+          .pipe(
+            rename(filePath => {
+              filePath.extname = '.js';
+            })
+          )
+          .pipe(prettier())
+          .pipe(header(banner))
+          .pipe(gulp.dest(path.resolve(config.jsDestDir, 'icons')))
+      );
     },
 
     scripts() {

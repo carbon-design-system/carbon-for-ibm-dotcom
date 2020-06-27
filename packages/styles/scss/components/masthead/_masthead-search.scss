@@ -8,7 +8,8 @@
 @mixin masthead-search {
   // main nav/search container excluding
   // profile and logo icons - TODO rename this
-  .#{$prefix}--header__search {
+  .#{$prefix}--header__search,
+  :host(#{$dds-prefix}-masthead-search) {
     display: flex;
     flex: 1;
     align-items: center;
