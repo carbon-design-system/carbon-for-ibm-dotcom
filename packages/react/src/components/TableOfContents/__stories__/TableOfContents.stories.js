@@ -37,15 +37,15 @@ const defaultMenuItems = [
 
 const sources = [
   {
-    src: 'https://dummyimage.com/672x200',
+    src: 'https://dummyimage.com/672x200&text=Example%20Children',
     breakpoint: 400,
   },
   {
-    src: 'https://dummyimage.com/672x200',
+    src: 'https://dummyimage.com/672x200&text=Example%20Children',
     breakpoint: 672,
   },
   {
-    src: 'https://dummyimage.com/672x672',
+    src: 'https://dummyimage.com/672x672&text=Example%20Children',
     breakpoint: 1056,
   },
 ];

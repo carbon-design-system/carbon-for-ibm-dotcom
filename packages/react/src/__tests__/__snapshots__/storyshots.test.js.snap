@@ -1396,7 +1396,7 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
         className="bx--row"
       >
         <div
-          className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-2"
+          className="bx--col-sm-4 bx--col-lg-10 bx--offset-lg-2"
         >
           <ContentItemHorizontal
             copy="Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin."
@@ -1424,7 +1424,7 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
             heading="Aliquam condimentum"
           >
             <div
-              className="bx--content-item-horizontal__item bx"
+              className="bx--content-item-horizontal__item "
               data-autoid="dds--content-item-horizontal__item"
             >
               <div
@@ -2186,14 +2186,14 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                   >
                     <Layout
                       border={false}
-                      marginBottom="none"
-                      marginTop="none"
+                      marginBottom={null}
+                      marginTop={null}
                       nested={false}
                       stickyOffset={null}
                       type="1-3"
                     >
                       <section
-                        className="bx--grid bx--layout--top-none bx--layout--bottom-none"
+                        className="bx--grid"
                         data-autoid="dds--layout"
                       >
                         <div
@@ -3505,7 +3505,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                         >
                                           <div
                                             className="bx--image"
-                                            data-autoid="dds--image__longdescription-"
+                                            data-autoid="dds--image__longdescription"
                                           >
                                             <picture>
                                               <img
@@ -3809,22 +3809,22 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                       >
                                                         <div
                                                           className="bx--image"
-                                                          data-autoid="dds--image__longdescription-"
+                                                          data-autoid="dds--image__longdescription"
                                                         >
                                                           <picture>
                                                             <source
                                                               key="0"
-                                                              media="(min-width: 672px )"
+                                                              media="(min-width: 672px)"
                                                               srcSet="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                                             />
                                                             <source
                                                               key="1"
-                                                              media="(min-width: 400px )"
+                                                              media="(min-width: 400px)"
                                                               srcSet="https://dummyimage.com/400x225/ee5396/161616&text=16:9"
                                                             />
                                                             <source
                                                               key="2"
-                                                              media="(min-width: 320px )"
+                                                              media="(min-width: 320px)"
                                                               srcSet="https://dummyimage.com/320x180/ee5396/161616&text=16:9"
                                                             />
                                                             <img
@@ -4031,22 +4031,22 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                       >
                                                         <div
                                                           className="bx--image"
-                                                          data-autoid="dds--image__longdescription-"
+                                                          data-autoid="dds--image__longdescription"
                                                         >
                                                           <picture>
                                                             <source
                                                               key="0"
-                                                              media="(min-width: 672px )"
+                                                              media="(min-width: 672px)"
                                                               srcSet="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                                             />
                                                             <source
                                                               key="1"
-                                                              media="(min-width: 400px )"
+                                                              media="(min-width: 400px)"
                                                               srcSet="https://dummyimage.com/400x225/ee5396/161616&text=16:9"
                                                             />
                                                             <source
                                                               key="2"
-                                                              media="(min-width: 320px )"
+                                                              media="(min-width: 320px)"
                                                               srcSet="https://dummyimage.com/320x180/ee5396/161616&text=16:9"
                                                             />
                                                             <img
@@ -4515,7 +4515,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                           key="0"
                                         >
                                           <div
-                                            className="bx--content-item-horizontal__item bx"
+                                            className="bx--content-item-horizontal__item "
                                             data-autoid="dds--content-item-horizontal__item"
                                           >
                                             <div
@@ -4783,7 +4783,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                           key="1"
                                         >
                                           <div
-                                            className="bx--content-item-horizontal__item bx"
+                                            className="bx--content-item-horizontal__item "
                                             data-autoid="dds--content-item-horizontal__item"
                                           >
                                             <div
@@ -5149,7 +5149,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                     >
                                                       <div
                                                         className="bx--image"
-                                                        data-autoid="dds--image__longdescription-"
+                                                        data-autoid="dds--image__longdescription"
                                                       >
                                                         <picture>
                                                           <img
@@ -5181,7 +5181,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                     >
                                                       <div
                                                         className="bx--image"
-                                                        data-autoid="dds--image__longdescription-"
+                                                        data-autoid="dds--image__longdescription"
                                                       >
                                                         <picture>
                                                           <img
@@ -5213,7 +5213,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                     >
                                                       <div
                                                         className="bx--image"
-                                                        data-autoid="dds--image__longdescription-"
+                                                        data-autoid="dds--image__longdescription"
                                                       >
                                                         <picture>
                                                           <img
@@ -5245,7 +5245,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                     >
                                                       <div
                                                         className="bx--image"
-                                                        data-autoid="dds--image__longdescription-"
+                                                        data-autoid="dds--image__longdescription"
                                                       >
                                                         <picture>
                                                           <img
@@ -5277,7 +5277,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                     >
                                                       <div
                                                         className="bx--image"
-                                                        data-autoid="dds--image__longdescription-"
+                                                        data-autoid="dds--image__longdescription"
                                                       >
                                                         <picture>
                                                           <img
@@ -5309,7 +5309,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                     >
                                                       <div
                                                         className="bx--image"
-                                                        data-autoid="dds--image__longdescription-"
+                                                        data-autoid="dds--image__longdescription"
                                                       >
                                                         <picture>
                                                           <img
@@ -5681,7 +5681,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                       >
                                                         <div
                                                           className="bx--image"
-                                                          data-autoid="dds--image__longdescription-"
+                                                          data-autoid="dds--image__longdescription"
                                                         >
                                                           <picture>
                                                             <img
@@ -5816,7 +5816,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                       >
                                                         <div
                                                           className="bx--image"
-                                                          data-autoid="dds--image__longdescription-"
+                                                          data-autoid="dds--image__longdescription"
                                                         >
                                                           <picture>
                                                             <img
@@ -5951,7 +5951,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                       >
                                                         <div
                                                           className="bx--image"
-                                                          data-autoid="dds--image__longdescription-"
+                                                          data-autoid="dds--image__longdescription"
                                                         >
                                                           <picture>
                                                             <img
@@ -6265,7 +6265,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                         theme="g10"
                       >
                         <section
-                          className="bx--cta-section bx--cta-section--g10 bx--cta-section__has-items"
+                          className="bx--cta-section bx--cta-section__has-items bx--cta-section--g10"
                           data-autoid="dds--cta-section"
                         >
                           <ContentBlock
@@ -7436,7 +7436,7 @@ exports[`Storyshots Components|FeatureCard Default 1`] = `
                     >
                       <div
                         className="bx--image"
-                        data-autoid="dds--image__longdescription-"
+                        data-autoid="dds--image__longdescription"
                       >
                         <picture>
                           <img
@@ -7702,7 +7702,7 @@ exports[`Storyshots Components|Footer Short 1`] = `
           },
           "component": undefined,
           "docs": Object {},
-          "fileName": null,
+          "fileName": "./components/Footer/__stories__/Footer.stories.js",
           "framework": "react",
           "knobs": Object {
             "Footer": [Function],
@@ -7964,48 +7964,48 @@ exports[`Storyshots Components|Image Default 1`] = `
         >
           <Image
             alt="Image alt text"
-            defaultSrc="https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1"
+            defaultSrc="https://dummyimage.com/672x336/ee5396/161616&amp;text=2x1"
             sources={
               Array [
                 Object {
-                  "breakpoint": 320,
+                  "breakpoint": "sm",
                   "src": "https://dummyimage.com/320x160/ee5396/161616&amp;text=2x1",
                 },
                 Object {
-                  "breakpoint": 400,
-                  "src": "https://dummyimage.com/400x400/ee5396/161616&amp;text=1x1",
+                  "breakpoint": "md",
+                  "src": "https://dummyimage.com/400x200/ee5396/161616&amp;text=2x1",
                 },
                 Object {
-                  "breakpoint": 672,
-                  "src": "https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1",
+                  "breakpoint": "lg",
+                  "src": "https://dummyimage.com/672x336/ee5396/161616&amp;text=2x1",
                 },
               ]
             }
           >
             <div
               className="bx--image"
-              data-autoid="dds--image__longdescription-"
+              data-autoid="dds--image__longdescription"
             >
               <picture>
                 <source
                   key="0"
-                  media="(min-width: 672px )"
-                  srcSet="https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1"
+                  media="(min-width: 1056px)"
+                  srcSet="https://dummyimage.com/672x336/ee5396/161616&amp;text=2x1"
                 />
                 <source
                   key="1"
-                  media="(min-width: 400px )"
-                  srcSet="https://dummyimage.com/400x400/ee5396/161616&amp;text=1x1"
+                  media="(min-width: 672px)"
+                  srcSet="https://dummyimage.com/400x200/ee5396/161616&amp;text=2x1"
                 />
                 <source
                   key="2"
-                  media="(min-width: 320px )"
+                  media="(min-width: 320px)"
                   srcSet="https://dummyimage.com/320x160/ee5396/161616&amp;text=2x1"
                 />
                 <img
                   alt="Image alt text"
                   className="bx--image__img"
-                  src="https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1"
+                  src="https://dummyimage.com/672x336/ee5396/161616&amp;text=2x1"
                 />
               </picture>
             </div>
@@ -8050,7 +8050,7 @@ exports[`Storyshots Components|ImageWithCaption Default 1`] = `
             image={
               Object {
                 "alt": "image with caption image",
-                "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1",
+                "defaultSrc": "https://dummyimage.com/672x336/ee5396/161616&amp;text=2x1",
                 "sources": Array [
                   Object {
                     "breakpoint": "sm",
@@ -8059,6 +8059,10 @@ exports[`Storyshots Components|ImageWithCaption Default 1`] = `
                   Object {
                     "breakpoint": "md",
                     "src": "https://dummyimage.com/400x200/ee5396/161616&amp;text=2x1",
+                  },
+                  Object {
+                    "breakpoint": "lg",
+                    "src": "https://dummyimage.com/672x336/ee5396/161616&amp;text=2x1",
                   },
                 ],
               }
@@ -8077,7 +8081,7 @@ exports[`Storyshots Components|ImageWithCaption Default 1`] = `
               >
                 <Image
                   alt="image with caption image"
-                  defaultSrc="https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1"
+                  defaultSrc="https://dummyimage.com/672x336/ee5396/161616&amp;text=2x1"
                   sources={
                     Array [
                       Object {
@@ -8088,28 +8092,37 @@ exports[`Storyshots Components|ImageWithCaption Default 1`] = `
                         "breakpoint": "md",
                         "src": "https://dummyimage.com/400x200/ee5396/161616&amp;text=2x1",
                       },
+                      Object {
+                        "breakpoint": "lg",
+                        "src": "https://dummyimage.com/672x336/ee5396/161616&amp;text=2x1",
+                      },
                     ]
                   }
                 >
                   <div
                     className="bx--image"
-                    data-autoid="dds--image__longdescription-"
+                    data-autoid="dds--image__longdescription"
                   >
                     <picture>
                       <source
                         key="0"
-                        media="(min-width: 672px )"
-                        srcSet="https://dummyimage.com/400x200/ee5396/161616&amp;text=2x1"
+                        media="(min-width: 1056px)"
+                        srcSet="https://dummyimage.com/672x336/ee5396/161616&amp;text=2x1"
                       />
                       <source
                         key="1"
-                        media="(min-width: 320px )"
+                        media="(min-width: 672px)"
+                        srcSet="https://dummyimage.com/400x200/ee5396/161616&amp;text=2x1"
+                      />
+                      <source
+                        key="2"
+                        media="(min-width: 320px)"
                         srcSet="https://dummyimage.com/320x160/ee5396/161616&amp;text=2x1"
                       />
                       <img
                         alt="image with caption image"
                         className="bx--image__img"
-                        src="https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1"
+                        src="https://dummyimage.com/672x336/ee5396/161616&amp;text=2x1"
                       />
                     </picture>
                   </div>
@@ -8589,7 +8602,7 @@ exports[`Storyshots Components|LightboxMediaViewer Default 1`] = `
                           >
                             <div
                               className="bx--image"
-                              data-autoid="dds--image__longdescription-"
+                              data-autoid="dds--image__longdescription"
                             >
                               <picture>
                                 <img
@@ -8666,7 +8679,7 @@ exports[`Storyshots Components|LightboxMediaViewer Embedded Video Player 1`] = `
           "__id": "components-lightboxmediaviewer--embedded-video-player",
           "component": undefined,
           "docs": Object {},
-          "fileName": null,
+          "fileName": "./components/LightboxMediaViewer/__stories__/LightboxMediaViewer.stories.js",
           "framework": "react",
           "knobs": Object {
             "LightboxMediaViewer": [Function],
@@ -13597,7 +13610,7 @@ exports[`Storyshots Components|Masthead With Platform 1`] = `
           },
           "component": undefined,
           "docs": Object {},
-          "fileName": null,
+          "fileName": "./components/Masthead/__stories__/Masthead.stories.js",
           "framework": "react",
           "knobs": Object {
             "Masthead": [Function],
@@ -14483,7 +14496,7 @@ exports[`Storyshots Components|Table of Contents Dynamic Items 1`] = `
           "__id": "components-table-of-contents--dynamic-items",
           "component": undefined,
           "docs": Object {},
-          "fileName": null,
+          "fileName": "./components/TableOfContents/__stories__/TableOfContents.stories.js",
           "framework": "react",
           "knobs": Object {
             "TableOfContents": [Function],
@@ -14514,14 +14527,14 @@ exports[`Storyshots Components|Table of Contents Dynamic Items 1`] = `
         >
           <Layout
             border={false}
-            marginBottom="none"
-            marginTop="none"
+            marginBottom={null}
+            marginTop={null}
             nested={false}
             stickyOffset={null}
             type="1-3"
           >
             <section
-              className="bx--grid bx--layout--top-none bx--layout--bottom-none"
+              className="bx--grid"
               data-autoid="dds--layout"
             >
               <div
@@ -14862,14 +14875,14 @@ exports[`Storyshots Components|Table of Contents Manually define Menu Items 1`] 
       >
         <Layout
           border={false}
-          marginBottom="none"
-          marginTop="none"
+          marginBottom={null}
+          marginTop={null}
           nested={false}
           stickyOffset={null}
           type="1-3"
         >
           <section
-            className="bx--grid bx--layout--top-none bx--layout--bottom-none"
+            className="bx--grid"
             data-autoid="dds--layout"
           >
             <div
@@ -15337,7 +15350,7 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
           "__id": "components-table-of-contents--with-heading-content",
           "component": undefined,
           "docs": Object {},
-          "fileName": null,
+          "fileName": "./components/TableOfContents/__stories__/TableOfContents.stories.js",
           "framework": "react",
           "knobs": Object {
             "TableOfContents": [Function],
@@ -15357,15 +15370,15 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
                   Array [
                     Object {
                       "breakpoint": 400,
-                      "src": "https://dummyimage.com/672x200",
+                      "src": "https://dummyimage.com/672x200&text=Example%20Children",
                     },
                     Object {
                       "breakpoint": 672,
-                      "src": "https://dummyimage.com/672x200",
+                      "src": "https://dummyimage.com/672x200&text=Example%20Children",
                     },
                     Object {
                       "breakpoint": 1056,
-                      "src": "https://dummyimage.com/672x672",
+                      "src": "https://dummyimage.com/672x672&text=Example%20Children",
                     },
                   ]
                 }
@@ -15418,15 +15431,15 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
               Array [
                 Object {
                   "breakpoint": 400,
-                  "src": "https://dummyimage.com/672x200",
+                  "src": "https://dummyimage.com/672x200&text=Example%20Children",
                 },
                 Object {
                   "breakpoint": 672,
-                  "src": "https://dummyimage.com/672x200",
+                  "src": "https://dummyimage.com/672x200&text=Example%20Children",
                 },
                 Object {
                   "breakpoint": 1056,
-                  "src": "https://dummyimage.com/672x672",
+                  "src": "https://dummyimage.com/672x672&text=Example%20Children",
                 },
               ]
             }
@@ -15475,14 +15488,14 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
         >
           <Layout
             border={false}
-            marginBottom="none"
-            marginTop="none"
+            marginBottom={null}
+            marginTop={null}
             nested={false}
             stickyOffset={null}
             type="1-3"
           >
             <section
-              className="bx--grid bx--layout--top-none bx--layout--bottom-none"
+              className="bx--grid"
               data-autoid="dds--layout"
             >
               <div
@@ -15503,15 +15516,15 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
                         Array [
                           Object {
                             "breakpoint": 400,
-                            "src": "https://dummyimage.com/672x200",
+                            "src": "https://dummyimage.com/672x200&text=Example%20Children",
                           },
                           Object {
                             "breakpoint": 672,
-                            "src": "https://dummyimage.com/672x200",
+                            "src": "https://dummyimage.com/672x200&text=Example%20Children",
                           },
                           Object {
                             "breakpoint": 1056,
-                            "src": "https://dummyimage.com/672x672",
+                            "src": "https://dummyimage.com/672x672&text=Example%20Children",
                           },
                         ]
                       }
@@ -15526,23 +15539,23 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
                     >
                       <div
                         className="bx--image"
-                        data-autoid="dds--image__longdescription-"
+                        data-autoid="dds--image__longdescription"
                       >
                         <picture>
                           <source
                             key="0"
-                            media="(min-width: 1056px )"
-                            srcSet="https://dummyimage.com/672x672"
+                            media="(min-width: 1056px)"
+                            srcSet="https://dummyimage.com/672x672&text=Example%20Children"
                           />
                           <source
                             key="1"
-                            media="(min-width: 672px )"
-                            srcSet="https://dummyimage.com/672x200"
+                            media="(min-width: 672px)"
+                            srcSet="https://dummyimage.com/672x200&text=Example%20Children"
                           />
                           <source
                             key="2"
-                            media="(min-width: 400px )"
-                            srcSet="https://dummyimage.com/672x200"
+                            media="(min-width: 400px)"
+                            srcSet="https://dummyimage.com/672x200&text=Example%20Children"
                           />
                           <img
                             alt="Lorem Ipsum"
@@ -15581,15 +15594,15 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
                             Array [
                               Object {
                                 "breakpoint": 400,
-                                "src": "https://dummyimage.com/672x200",
+                                "src": "https://dummyimage.com/672x200&text=Example%20Children",
                               },
                               Object {
                                 "breakpoint": 672,
-                                "src": "https://dummyimage.com/672x200",
+                                "src": "https://dummyimage.com/672x200&text=Example%20Children",
                               },
                               Object {
                                 "breakpoint": 1056,
-                                "src": "https://dummyimage.com/672x672",
+                                "src": "https://dummyimage.com/672x672&text=Example%20Children",
                               },
                             ]
                           }
@@ -15876,15 +15889,15 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
                           Array [
                             Object {
                               "breakpoint": 400,
-                              "src": "https://dummyimage.com/672x200",
+                              "src": "https://dummyimage.com/672x200&text=Example%20Children",
                             },
                             Object {
                               "breakpoint": 672,
-                              "src": "https://dummyimage.com/672x200",
+                              "src": "https://dummyimage.com/672x200&text=Example%20Children",
                             },
                             Object {
                               "breakpoint": 1056,
-                              "src": "https://dummyimage.com/672x672",
+                              "src": "https://dummyimage.com/672x672&text=Example%20Children",
                             },
                           ]
                         }
@@ -15899,23 +15912,23 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
                       >
                         <div
                           className="bx--image"
-                          data-autoid="dds--image__longdescription-"
+                          data-autoid="dds--image__longdescription"
                         >
                           <picture>
                             <source
                               key="0"
-                              media="(min-width: 1056px )"
-                              srcSet="https://dummyimage.com/672x672"
+                              media="(min-width: 1056px)"
+                              srcSet="https://dummyimage.com/672x672&text=Example%20Children"
                             />
                             <source
                               key="1"
-                              media="(min-width: 672px )"
-                              srcSet="https://dummyimage.com/672x200"
+                              media="(min-width: 672px)"
+                              srcSet="https://dummyimage.com/672x200&text=Example%20Children"
                             />
                             <source
                               key="2"
-                              media="(min-width: 400px )"
-                              srcSet="https://dummyimage.com/672x200"
+                              media="(min-width: 400px)"
+                              srcSet="https://dummyimage.com/672x200&text=Example%20Children"
                             />
                             <img
                               alt="Lorem Ipsum"
@@ -16588,22 +16601,22 @@ exports[`Storyshots Patterns (Blocks)|CalloutWithMedia Default 1`] = `
                                         >
                                           <div
                                             className="bx--image"
-                                            data-autoid="dds--image__longdescription-"
+                                            data-autoid="dds--image__longdescription"
                                           >
                                             <picture>
                                               <source
                                                 key="0"
-                                                media="(min-width: 672px )"
+                                                media="(min-width: 672px)"
                                                 srcSet="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                               />
                                               <source
                                                 key="1"
-                                                media="(min-width: 400px )"
+                                                media="(min-width: 400px)"
                                                 srcSet="https://dummyimage.com/400x225/ee5396/161616&text=16:9"
                                               />
                                               <source
                                                 key="2"
-                                                media="(min-width: 320px )"
+                                                media="(min-width: 320px)"
                                                 srcSet="https://dummyimage.com/320x180/ee5396/161616&text=16:9"
                                               />
                                               <img
@@ -17708,22 +17721,22 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                     >
                                       <div
                                         className="bx--image"
-                                        data-autoid="dds--image__longdescription-"
+                                        data-autoid="dds--image__longdescription"
                                       >
                                         <picture>
                                           <source
                                             key="0"
-                                            media="(min-width: 672px )"
+                                            media="(min-width: 672px)"
                                             srcSet="https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9"
                                           />
                                           <source
                                             key="1"
-                                            media="(min-width: 400px )"
+                                            media="(min-width: 400px)"
                                             srcSet="https://dummyimage.com/400x225/ee5396/161616&amp;text=16:9"
                                           />
                                           <source
                                             key="2"
-                                            media="(min-width: 320px )"
+                                            media="(min-width: 320px)"
                                             srcSet="https://dummyimage.com/320x180/ee5396/161616&amp;text=16:9"
                                           />
                                           <img
@@ -18116,22 +18129,22 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                     >
                                       <div
                                         className="bx--image"
-                                        data-autoid="dds--image__longdescription-"
+                                        data-autoid="dds--image__longdescription"
                                       >
                                         <picture>
                                           <source
                                             key="0"
-                                            media="(min-width: 672px )"
+                                            media="(min-width: 672px)"
                                             srcSet="https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9"
                                           />
                                           <source
                                             key="1"
-                                            media="(min-width: 400px )"
+                                            media="(min-width: 400px)"
                                             srcSet="https://dummyimage.com/400x225/ee5396/161616&amp;text=16:9"
                                           />
                                           <source
                                             key="2"
-                                            media="(min-width: 320px )"
+                                            media="(min-width: 320px)"
                                             srcSet="https://dummyimage.com/320x180/ee5396/161616&amp;text=16:9"
                                           />
                                           <img
@@ -18575,7 +18588,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                             >
                                               <div
                                                 className="bx--image"
-                                                data-autoid="dds--image__longdescription-"
+                                                data-autoid="dds--image__longdescription"
                                               >
                                                 <picture>
                                                   <img
@@ -19107,22 +19120,22 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                             >
                                               <div
                                                 className="bx--image"
-                                                data-autoid="dds--image__longdescription-"
+                                                data-autoid="dds--image__longdescription"
                                               >
                                                 <picture>
                                                   <source
                                                     key="0"
-                                                    media="(min-width: 672px )"
+                                                    media="(min-width: 672px)"
                                                     srcSet="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                                   />
                                                   <source
                                                     key="1"
-                                                    media="(min-width: 400px )"
+                                                    media="(min-width: 400px)"
                                                     srcSet="https://dummyimage.com/400x225/ee5396/161616&text=16:9"
                                                   />
                                                   <source
                                                     key="2"
-                                                    media="(min-width: 320px )"
+                                                    media="(min-width: 320px)"
                                                     srcSet="https://dummyimage.com/320x180/ee5396/161616&text=16:9"
                                                   />
                                                   <img
@@ -19515,22 +19528,22 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                             >
                                               <div
                                                 className="bx--image"
-                                                data-autoid="dds--image__longdescription-"
+                                                data-autoid="dds--image__longdescription"
                                               >
                                                 <picture>
                                                   <source
                                                     key="0"
-                                                    media="(min-width: 672px )"
+                                                    media="(min-width: 672px)"
                                                     srcSet="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                                   />
                                                   <source
                                                     key="1"
-                                                    media="(min-width: 400px )"
+                                                    media="(min-width: 400px)"
                                                     srcSet="https://dummyimage.com/400x225/ee5396/161616&text=16:9"
                                                   />
                                                   <source
                                                     key="2"
-                                                    media="(min-width: 320px )"
+                                                    media="(min-width: 320px)"
                                                     srcSet="https://dummyimage.com/320x180/ee5396/161616&text=16:9"
                                                   />
                                                   <img
@@ -19974,7 +19987,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                                     >
                                                       <div
                                                         className="bx--image"
-                                                        data-autoid="dds--image__longdescription-"
+                                                        data-autoid="dds--image__longdescription"
                                                       >
                                                         <picture>
                                                           <img
@@ -22010,22 +22023,22 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                     >
                                       <div
                                         className="bx--image"
-                                        data-autoid="dds--image__longdescription-"
+                                        data-autoid="dds--image__longdescription"
                                       >
                                         <picture>
                                           <source
                                             key="0"
-                                            media="(min-width: 672px )"
+                                            media="(min-width: 672px)"
                                             srcSet="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                           />
                                           <source
                                             key="1"
-                                            media="(min-width: 400px )"
+                                            media="(min-width: 400px)"
                                             srcSet="https://dummyimage.com/400x225/ee5396/161616&text=16:9"
                                           />
                                           <source
                                             key="2"
-                                            media="(min-width: 320px )"
+                                            media="(min-width: 320px)"
                                             srcSet="https://dummyimage.com/320x180/ee5396/161616&text=16:9"
                                           />
                                           <img
@@ -23927,22 +23940,22 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                             >
                                               <div
                                                 className="bx--image"
-                                                data-autoid="dds--image__longdescription-"
+                                                data-autoid="dds--image__longdescription"
                                               >
                                                 <picture>
                                                   <source
                                                     key="0"
-                                                    media="(min-width: 672px )"
+                                                    media="(min-width: 672px)"
                                                     srcSet="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                                   />
                                                   <source
                                                     key="1"
-                                                    media="(min-width: 400px )"
+                                                    media="(min-width: 400px)"
                                                     srcSet="https://dummyimage.com/400x225/ee5396/161616&text=16:9"
                                                   />
                                                   <source
                                                     key="2"
-                                                    media="(min-width: 320px )"
+                                                    media="(min-width: 320px)"
                                                     srcSet="https://dummyimage.com/320x180/ee5396/161616&text=16:9"
                                                   />
                                                   <img
@@ -24832,22 +24845,22 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                           >
                             <div
                               className="bx--image"
-                              data-autoid="dds--image__longdescription-"
+                              data-autoid="dds--image__longdescription"
                             >
                               <picture>
                                 <source
                                   key="0"
-                                  media="(min-width: 672px )"
+                                  media="(min-width: 672px)"
                                   srcSet="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                 />
                                 <source
                                   key="1"
-                                  media="(min-width: 400px )"
+                                  media="(min-width: 400px)"
                                   srcSet="https://dummyimage.com/400x225/ee5396/161616&text=16:9"
                                 />
                                 <source
                                   key="2"
-                                  media="(min-width: 320px )"
+                                  media="(min-width: 320px)"
                                   srcSet="https://dummyimage.com/320x180/ee5396/161616&text=16:9"
                                 />
                                 <img
@@ -25113,22 +25126,22 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                   >
                                     <div
                                       className="bx--image"
-                                      data-autoid="dds--image__longdescription-"
+                                      data-autoid="dds--image__longdescription"
                                     >
                                       <picture>
                                         <source
                                           key="0"
-                                          media="(min-width: 672px )"
+                                          media="(min-width: 672px)"
                                           srcSet="https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9"
                                         />
                                         <source
                                           key="1"
-                                          media="(min-width: 400px )"
+                                          media="(min-width: 400px)"
                                           srcSet="https://dummyimage.com/400x225/ee5396/161616&amp;text=16:9"
                                         />
                                         <source
                                           key="2"
-                                          media="(min-width: 320px )"
+                                          media="(min-width: 320px)"
                                           srcSet="https://dummyimage.com/320x180/ee5396/161616&amp;text=16:9"
                                         />
                                         <img
@@ -25734,22 +25747,22 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                   >
                                     <div
                                       className="bx--image"
-                                      data-autoid="dds--image__longdescription-"
+                                      data-autoid="dds--image__longdescription"
                                     >
                                       <picture>
                                         <source
                                           key="0"
-                                          media="(min-width: 672px )"
+                                          media="(min-width: 672px)"
                                           srcSet="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                         />
                                         <source
                                           key="1"
-                                          media="(min-width: 400px )"
+                                          media="(min-width: 400px)"
                                           srcSet="https://dummyimage.com/400x225/ee5396/161616&text=16:9"
                                         />
                                         <source
                                           key="2"
-                                          media="(min-width: 320px )"
+                                          media="(min-width: 320px)"
                                           srcSet="https://dummyimage.com/320x180/ee5396/161616&text=16:9"
                                         />
                                         <img
@@ -25914,22 +25927,22 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                           >
                                             <div
                                               className="bx--image"
-                                              data-autoid="dds--image__longdescription-"
+                                              data-autoid="dds--image__longdescription"
                                             >
                                               <picture>
                                                 <source
                                                   key="0"
-                                                  media="(min-width: 672px )"
+                                                  media="(min-width: 672px)"
                                                   srcSet="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                                 />
                                                 <source
                                                   key="1"
-                                                  media="(min-width: 400px )"
+                                                  media="(min-width: 400px)"
                                                   srcSet="https://dummyimage.com/400x225/ee5396/161616&text=16:9"
                                                 />
                                                 <source
                                                   key="2"
-                                                  media="(min-width: 320px )"
+                                                  media="(min-width: 320px)"
                                                   srcSet="https://dummyimage.com/320x180/ee5396/161616&text=16:9"
                                                 />
                                                 <img
@@ -26746,22 +26759,22 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                             >
                               <div
                                 className="bx--image"
-                                data-autoid="dds--image__longdescription-"
+                                data-autoid="dds--image__longdescription"
                               >
                                 <picture>
                                   <source
                                     key="0"
-                                    media="(min-width: 672px )"
+                                    media="(min-width: 672px)"
                                     srcSet="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                   />
                                   <source
                                     key="1"
-                                    media="(min-width: 400px )"
+                                    media="(min-width: 400px)"
                                     srcSet="https://dummyimage.com/400x225/ee5396/161616&text=16:9"
                                   />
                                   <source
                                     key="2"
-                                    media="(min-width: 320px )"
+                                    media="(min-width: 320px)"
                                     srcSet="https://dummyimage.com/320x180/ee5396/161616&text=16:9"
                                   />
                                   <img
@@ -27263,22 +27276,22 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                     >
                                       <div
                                         className="bx--image"
-                                        data-autoid="dds--image__longdescription-"
+                                        data-autoid="dds--image__longdescription"
                                       >
                                         <picture>
                                           <source
                                             key="0"
-                                            media="(min-width: 672px )"
+                                            media="(min-width: 672px)"
                                             srcSet="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                           />
                                           <source
                                             key="1"
-                                            media="(min-width: 400px )"
+                                            media="(min-width: 400px)"
                                             srcSet="https://dummyimage.com/400x225/ee5396/161616&text=16:9"
                                           />
                                           <source
                                             key="2"
-                                            media="(min-width: 320px )"
+                                            media="(min-width: 320px)"
                                             srcSet="https://dummyimage.com/320x180/ee5396/161616&text=16:9"
                                           />
                                           <img
@@ -28623,7 +28636,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                       key="0"
                     >
                       <div
-                        className="bx--content-item-horizontal__item bx"
+                        className="bx--content-item-horizontal__item "
                         data-autoid="dds--content-item-horizontal__item"
                       >
                         <div
@@ -28919,7 +28932,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                       key="1"
                     >
                       <div
-                        className="bx--content-item-horizontal__item bx"
+                        className="bx--content-item-horizontal__item "
                         data-autoid="dds--content-item-horizontal__item"
                       >
                         <div
@@ -29208,7 +29221,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                       key="2"
                     >
                       <div
-                        className="bx--content-item-horizontal__item bx"
+                        className="bx--content-item-horizontal__item "
                         data-autoid="dds--content-item-horizontal__item"
                       >
                         <div
@@ -29968,22 +29981,22 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupSimple Default 1`] = `
                           >
                             <div
                               className="bx--image"
-                              data-autoid="dds--image__longdescription-"
+                              data-autoid="dds--image__longdescription"
                             >
                               <picture>
                                 <source
                                   key="0"
-                                  media="(min-width: 672px )"
+                                  media="(min-width: 672px)"
                                   srcSet="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                 />
                                 <source
                                   key="1"
-                                  media="(min-width: 400px )"
+                                  media="(min-width: 400px)"
                                   srcSet="https://dummyimage.com/400x225/ee5396/161616&text=16:9"
                                 />
                                 <source
                                   key="2"
-                                  media="(min-width: 320px )"
+                                  media="(min-width: 320px)"
                                   srcSet="https://dummyimage.com/320x180/ee5396/161616&text=16:9"
                                 />
                                 <img
@@ -30351,7 +30364,7 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockLarge Default 1`] = `
                     >
                       <div
                         className="bx--image"
-                        data-autoid="dds--image__longdescription-"
+                        data-autoid="dds--image__longdescription"
                       >
                         <picture>
                           <img
@@ -30588,7 +30601,7 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockMedium Default 1`] = `
                               >
                                 <div
                                   className="bx--image"
-                                  data-autoid="dds--image__longdescription-"
+                                  data-autoid="dds--image__longdescription"
                                 >
                                   <picture>
                                     <img
@@ -30880,22 +30893,22 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                           >
                             <div
                               className="bx--image"
-                              data-autoid="dds--image__longdescription-"
+                              data-autoid="dds--image__longdescription"
                             >
                               <picture>
                                 <source
                                   key="0"
-                                  media="(min-width: 672px )"
+                                  media="(min-width: 672px)"
                                   srcSet="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                 />
                                 <source
                                   key="1"
-                                  media="(min-width: 400px )"
+                                  media="(min-width: 400px)"
                                   srcSet="https://dummyimage.com/400x225/ee5396/161616&text=16:9"
                                 />
                                 <source
                                   key="2"
-                                  media="(min-width: 320px )"
+                                  media="(min-width: 320px)"
                                   srcSet="https://dummyimage.com/320x180/ee5396/161616&text=16:9"
                                 />
                                 <img
@@ -31578,7 +31591,7 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                 >
                                   <div
                                     className="bx--image"
-                                    data-autoid="dds--image__longdescription-"
+                                    data-autoid="dds--image__longdescription"
                                   >
                                     <picture>
                                       <img
@@ -31619,7 +31632,7 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                 >
                                   <div
                                     className="bx--image"
-                                    data-autoid="dds--image__longdescription-"
+                                    data-autoid="dds--image__longdescription"
                                   >
                                     <picture>
                                       <img
@@ -31660,7 +31673,7 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                 >
                                   <div
                                     className="bx--image"
-                                    data-autoid="dds--image__longdescription-"
+                                    data-autoid="dds--image__longdescription"
                                   >
                                     <picture>
                                       <img
@@ -31701,7 +31714,7 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                 >
                                   <div
                                     className="bx--image"
-                                    data-autoid="dds--image__longdescription-"
+                                    data-autoid="dds--image__longdescription"
                                   >
                                     <picture>
                                       <img
@@ -31742,7 +31755,7 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                 >
                                   <div
                                     className="bx--image"
-                                    data-autoid="dds--image__longdescription-"
+                                    data-autoid="dds--image__longdescription"
                                   >
                                     <picture>
                                       <img
@@ -31783,7 +31796,7 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                 >
                                   <div
                                     className="bx--image"
-                                    data-autoid="dds--image__longdescription-"
+                                    data-autoid="dds--image__longdescription"
                                   >
                                     <picture>
                                       <img
@@ -31824,7 +31837,7 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                 >
                                   <div
                                     className="bx--image"
-                                    data-autoid="dds--image__longdescription-"
+                                    data-autoid="dds--image__longdescription"
                                   >
                                     <picture>
                                       <img
@@ -31865,7 +31878,7 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                 >
                                   <div
                                     className="bx--image"
-                                    data-autoid="dds--image__longdescription-"
+                                    data-autoid="dds--image__longdescription"
                                   >
                                     <picture>
                                       <img
@@ -31906,7 +31919,7 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                 >
                                   <div
                                     className="bx--image"
-                                    data-autoid="dds--image__longdescription-"
+                                    data-autoid="dds--image__longdescription"
                                   >
                                     <picture>
                                       <img
@@ -33065,7 +33078,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                             >
                               <div
                                 className="bx--image"
-                                data-autoid="dds--image__longdescription-"
+                                data-autoid="dds--image__longdescription"
                               >
                                 <picture>
                                   <img
@@ -33200,7 +33213,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                             >
                               <div
                                 className="bx--image"
-                                data-autoid="dds--image__longdescription-"
+                                data-autoid="dds--image__longdescription"
                               >
                                 <picture>
                                   <img
@@ -33335,7 +33348,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                             >
                               <div
                                 className="bx--image"
-                                data-autoid="dds--image__longdescription-"
+                                data-autoid="dds--image__longdescription"
                               >
                                 <picture>
                                   <img
@@ -33470,7 +33483,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                             >
                               <div
                                 className="bx--image"
-                                data-autoid="dds--image__longdescription-"
+                                data-autoid="dds--image__longdescription"
                               >
                                 <picture>
                                   <img
@@ -33605,7 +33618,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                             >
                               <div
                                 className="bx--image"
-                                data-autoid="dds--image__longdescription-"
+                                data-autoid="dds--image__longdescription"
                               >
                                 <picture>
                                   <img
@@ -35298,17 +35311,17 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with image 1`] = `
           >
             <div
               className="bx--image"
-              data-autoid="dds--image__longdescription-"
+              data-autoid="dds--image__longdescription"
             >
               <picture>
                 <source
                   key="0"
-                  media="(min-width: 672px )"
+                  media="(min-width: 672px)"
                   srcSet="https://picsum.photos/id/1076/672/400"
                 />
                 <source
                   key="1"
-                  media="(min-width: 320px )"
+                  media="(min-width: 320px)"
                   srcSet="https://picsum.photos/id/1076/320/370"
                 />
                 <img
@@ -35350,7 +35363,7 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with no image 1`] = `
           "__id": "patterns-sections-leadspace--default-with-no-image",
           "component": undefined,
           "docs": Object {},
-          "fileName": null,
+          "fileName": "./patterns/sections/LeadSpace/__stories__/LeadSpace.stories.js",
           "framework": "react",
           "knobs": Object {
             "LeadSpace": [Function],
@@ -36110,17 +36123,17 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Small with image 1`] = `
           >
             <div
               className="bx--image"
-              data-autoid="dds--image__longdescription-"
+              data-autoid="dds--image__longdescription"
             >
               <picture>
                 <source
                   key="0"
-                  media="(min-width: 672px )"
+                  media="(min-width: 672px)"
                   srcSet="https://picsum.photos/id/1076/672/400"
                 />
                 <source
                   key="1"
-                  media="(min-width: 320px )"
+                  media="(min-width: 320px)"
                   srcSet="https://picsum.photos/id/1076/320/370"
                 />
                 <img
