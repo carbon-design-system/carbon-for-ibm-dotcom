@@ -35,7 +35,9 @@ describe('Dotcomshell example', () => {
       port: PORT,
     });
     await page.setDefaultNavigationTimeout(Number(process.env.NAVIGATION_TIMEOUT));
-    await page.goto(`http://localhost:${PORT}`);
+    const pageUrl = `http://localhost:${PORT}`;
+    page.on('console', msg => console.log(`${pageUrl}:`, msg.text()));
+    await page.goto(pageUrl);
   }, Number(process.env.LAUNCH_TIMEOUT));
 
   it('should have search box styled correctly', async () => {
