@@ -6155,7 +6155,9 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                         className="bx--link bx--link-with-icon"
                                                         href="https://example.com"
                                                       >
-                                                        Link with Icon
+                                                        <span>
+                                                          Link with Icon
+                                                        </span>
                                                         <ForwardRef(ArrowRight20)>
                                                           <Icon
                                                             height={20}
@@ -14434,7 +14436,9 @@ exports[`Storyshots Components|Quote Default 1`] = `
                         className="bx--link bx--link-with-icon"
                         href="https://example.com"
                       >
-                        Link with Icon
+                        <span>
+                          Link with Icon
+                        </span>
                         <ForwardRef(ArrowRight20)>
                           <Icon
                             height={20}
@@ -16333,7 +16337,9 @@ exports[`Storyshots Patterns (Blocks)|CalloutQuote Default 1`] = `
                                     className="bx--link bx--link-with-icon"
                                     href="https://example.com"
                                   >
-                                    Link with Icon
+                                    <span>
+                                      Link with Icon
+                                    </span>
                                     <ForwardRef(ArrowRight20)>
                                       <Icon
                                         height={20}
