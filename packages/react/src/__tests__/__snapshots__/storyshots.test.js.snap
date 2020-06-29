@@ -3454,119 +3454,106 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                   className="bx--feature-card-block-large"
                                   data-autoid="dds--feature-card-block-large"
                                 >
-                                  <Card
-                                    copy="Habitant morbi tristique senectus et netus et malesuada fames. Habitant morbi tristique."
-                                    cta={
-                                      Object {
-                                        "href": "https://example.com",
-                                        "icon": Object {
-                                          "src": Object {
-                                            "$$typeof": Symbol(react.forward_ref),
-                                            "render": [Function],
-                                          },
-                                        },
-                                      }
-                                    }
-                                    customClassName="bx--feature-card-block-large__card"
-                                    eyebrow="scelerisque purus"
-                                    heading="Elementum nibh tellus molestie nunc?"
-                                    image={
-                                      Object {
-                                        "alt": "Image alt text",
-                                        "defaultSrc": "https://dummyimage.com/600x600/ee5396/161616&text=1:1",
-                                      }
-                                    }
-                                    inverse={true}
-                                    type="link"
+                                  <div
+                                    className="bx--feature-card-block-large__container"
                                   >
-                                    <ClickableTile
-                                      className="bx--card bx--card--inverse bx--card--link bx--feature-card-block-large__card"
-                                      clicked={false}
-                                      data-autoid="dds--card"
-                                      handleClick={[Function]}
-                                      handleKeyDown={[Function]}
-                                      href="https://example.com"
-                                      light={false}
-                                      onClick={[Function]}
-                                      target={null}
+                                    <Card
+                                      copy="Habitant morbi tristique senectus et netus et malesuada fames. Habitant morbi tristique."
+                                      cta={
+                                        Object {
+                                          "href": "https://example.com",
+                                          "icon": Object {
+                                            "src": Object {
+                                              "$$typeof": Symbol(react.forward_ref),
+                                              "render": [Function],
+                                            },
+                                          },
+                                        }
+                                      }
+                                      customClassName="bx--feature-card-block-large__card"
+                                      eyebrow="scelerisque purus"
+                                      heading="Elementum nibh tellus molestie nunc?"
+                                      image={
+                                        Object {
+                                          "alt": "Image alt text",
+                                          "defaultSrc": "https://dummyimage.com/600x600/ee5396/161616&text=1:1",
+                                        }
+                                      }
+                                      inverse={true}
+                                      type="link"
                                     >
-                                      <a
-                                        className="bx--tile bx--tile--clickable bx--card bx--card--inverse bx--card--link bx--feature-card-block-large__card"
+                                      <ClickableTile
+                                        className="bx--card bx--card--inverse bx--card--link bx--feature-card-block-large__card"
+                                        clicked={false}
                                         data-autoid="dds--card"
+                                        handleClick={[Function]}
+                                        handleKeyDown={[Function]}
                                         href="https://example.com"
+                                        light={false}
                                         onClick={[Function]}
-                                        onKeyDown={[Function]}
                                         target={null}
                                       >
-                                        <Image
-                                          alt="Image alt text"
-                                          classname="bx--card__img"
-                                          defaultSrc="https://dummyimage.com/600x600/ee5396/161616&text=1:1"
+                                        <a
+                                          className="bx--tile bx--tile--clickable bx--card bx--card--inverse bx--card--link bx--feature-card-block-large__card"
+                                          data-autoid="dds--card"
+                                          href="https://example.com"
+                                          onClick={[Function]}
+                                          onKeyDown={[Function]}
+                                          target={null}
                                         >
+                                          <Image
+                                            alt="Image alt text"
+                                            classname="bx--card__img"
+                                            defaultSrc="https://dummyimage.com/600x600/ee5396/161616&text=1:1"
+                                          >
+                                            <div
+                                              className="bx--image"
+                                              data-autoid="dds--image__longdescription"
+                                            >
+                                              <picture>
+                                                <img
+                                                  alt="Image alt text"
+                                                  className="bx--image__img bx--card__img"
+                                                  src="https://dummyimage.com/600x600/ee5396/161616&text=1:1"
+                                                />
+                                              </picture>
+                                            </div>
+                                          </Image>
                                           <div
-                                            className="bx--image"
-                                            data-autoid="dds--image__longdescription"
+                                            className="bx--card__wrapper"
                                           >
-                                            <picture>
-                                              <img
-                                                alt="Image alt text"
-                                                className="bx--image__img bx--card__img"
-                                                src="https://dummyimage.com/600x600/ee5396/161616&text=1:1"
-                                              />
-                                            </picture>
-                                          </div>
-                                        </Image>
-                                        <div
-                                          className="bx--card__wrapper"
-                                        >
-                                          <p
-                                            className="bx--card__eyebrow"
-                                          >
-                                            scelerisque purus
-                                          </p>
-                                          <h3
-                                            className="bx--card__heading"
-                                          >
-                                            Elementum nibh tellus molestie nunc?
-                                          </h3>
-                                          <div
-                                            className="bx--card__copy"
-                                            dangerouslySetInnerHTML={
-                                              Object {
-                                                "__html": "<p>Habitant morbi tristique senectus et netus et malesuada fames. Habitant morbi tristique.</p>",
-                                              }
-                                            }
-                                          />
-                                          <div
-                                            className="bx--card__footer"
-                                          >
-                                            <ForwardRef(ArrowRight20)
-                                              className="bx--card__cta"
-                                              src={
+                                            <p
+                                              className="bx--card__eyebrow"
+                                            >
+                                              scelerisque purus
+                                            </p>
+                                            <h3
+                                              className="bx--card__heading"
+                                            >
+                                              Elementum nibh tellus molestie nunc?
+                                            </h3>
+                                            <div
+                                              className="bx--card__copy"
+                                              dangerouslySetInnerHTML={
                                                 Object {
-                                                  "$$typeof": Symbol(react.forward_ref),
-                                                  "render": [Function],
+                                                  "__html": "<p>Habitant morbi tristique senectus et netus et malesuada fames. Habitant morbi tristique.</p>",
                                                 }
                                               }
+                                            />
+                                            <div
+                                              className="bx--card__footer"
                                             >
-                                              <Icon
+                                              <ForwardRef(ArrowRight20)
                                                 className="bx--card__cta"
-                                                height={20}
-                                                preserveAspectRatio="xMidYMid meet"
                                                 src={
                                                   Object {
                                                     "$$typeof": Symbol(react.forward_ref),
                                                     "render": [Function],
                                                   }
                                                 }
-                                                viewBox="0 0 20 20"
-                                                width={20}
-                                                xmlns="http://www.w3.org/2000/svg"
                                               >
-                                                <svg
-                                                  aria-hidden={true}
+                                                <Icon
                                                   className="bx--card__cta"
-                                                  focusable="false"
                                                   height={20}
                                                   preserveAspectRatio="xMidYMid meet"
                                                   src={
@@ -3579,18 +3566,35 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                   width={20}
                                                   xmlns="http://www.w3.org/2000/svg"
                                                 >
-                                                  <path
-                                                    d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
-                                                  />
-                                                </svg>
-                                              </Icon>
-                                            </ForwardRef(ArrowRight20)>
-                                            <span />
+                                                  <svg
+                                                    aria-hidden={true}
+                                                    className="bx--card__cta"
+                                                    focusable="false"
+                                                    height={20}
+                                                    preserveAspectRatio="xMidYMid meet"
+                                                    src={
+                                                      Object {
+                                                        "$$typeof": Symbol(react.forward_ref),
+                                                        "render": [Function],
+                                                      }
+                                                    }
+                                                    viewBox="0 0 20 20"
+                                                    width={20}
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                  >
+                                                    <path
+                                                      d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                                    />
+                                                  </svg>
+                                                </Icon>
+                                              </ForwardRef(ArrowRight20)>
+                                              <span />
+                                            </div>
                                           </div>
-                                        </div>
-                                      </a>
-                                    </ClickableTile>
-                                  </Card>
+                                        </a>
+                                      </ClickableTile>
+                                    </Card>
+                                  </div>
                                 </section>
                               </FeatureCardBlockLarge>
                               <a
@@ -16184,6 +16188,45 @@ exports[`Storyshots Components|VideoPlayer Default 1`] = `
               </div>
             </div>
           </VideoPlayer>
+        </div>
+      </div>
+    </div>
+  </div>
+  <input
+    aria-label="input-text-offleft"
+    className="bx--visually-hidden"
+    type="text"
+  />
+</Container>
+`;
+
+exports[`Storyshots Patterns (Blocks)|CalloutData Default 1`] = `
+<Container
+  story={[Function]}
+>
+  <div
+    data-floating-menu-container=""
+    role="main"
+    style={
+      Object {
+        "backgroundColor": "",
+      }
+    }
+  >
+    <div
+      className="bx--grid"
+    >
+      <div
+        className="bx--row"
+      >
+        <div
+          className="bx--offset-lg-4 bx--col-lg-12"
+        >
+          <CalloutData
+            copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+            data="51%"
+            source=" Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+          />
         </div>
       </div>
     </div>
@@ -30275,7 +30318,29 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockLarge Default 1`] = `
             image={
               Object {
                 "alt": "Image alt text",
-                "defaultSrc": "https://dummyimage.com/600x300/ee5396/161616&amp;text=2:1",
+                "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&amp;text=1:1",
+                "sources": Array [
+                  Object {
+                    "breakpoint": "sm",
+                    "src": "https://dummyimage.com/320x160/ee5396/161616&amp;text=2:1",
+                  },
+                  Object {
+                    "breakpoint": "md",
+                    "src": "https://dummyimage.com/400x200/ee5396/161616&amp;text=2:1",
+                  },
+                  Object {
+                    "breakpoint": 991,
+                    "src": "https://dummyimage.com/600x600/ee5396/161616&amp;text=1:1",
+                  },
+                  Object {
+                    "breakpoint": "lg",
+                    "src": "https://dummyimage.com/600x300/ee5396/161616&amp;text=2:1",
+                  },
+                  Object {
+                    "breakpoint": "xlg",
+                    "src": "https://dummyimage.com/672x672/ee5396/161616&amp;text=1:1",
+                  },
+                ],
               }
             }
           >
@@ -30283,119 +30348,177 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockLarge Default 1`] = `
               className="bx--feature-card-block-large"
               data-autoid="dds--feature-card-block-large"
             >
-              <Card
-                copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.."
-                cta={
-                  Object {
-                    "href": "https://www.example.com",
-                    "icon": Object {
-                      "src": Object {
-                        "$$typeof": Symbol(react.forward_ref),
-                        "render": [Function],
-                      },
-                    },
-                  }
-                }
-                customClassName="bx--feature-card-block-large__card"
-                eyebrow="this is an eyebrow"
-                heading="Explore AI use cases in all industries"
-                image={
-                  Object {
-                    "alt": "Image alt text",
-                    "defaultSrc": "https://dummyimage.com/600x300/ee5396/161616&amp;text=2:1",
-                  }
-                }
-                inverse={true}
-                type="link"
+              <div
+                className="bx--feature-card-block-large__container"
               >
-                <ClickableTile
-                  className="bx--card bx--card--inverse bx--card--link bx--feature-card-block-large__card"
-                  clicked={false}
-                  data-autoid="dds--card"
-                  handleClick={[Function]}
-                  handleKeyDown={[Function]}
-                  href="https://www.example.com"
-                  light={false}
-                  onClick={[Function]}
-                  target={null}
+                <Card
+                  copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.."
+                  cta={
+                    Object {
+                      "href": "https://www.example.com",
+                      "icon": Object {
+                        "src": Object {
+                          "$$typeof": Symbol(react.forward_ref),
+                          "render": [Function],
+                        },
+                      },
+                    }
+                  }
+                  customClassName="bx--feature-card-block-large__card"
+                  eyebrow="this is an eyebrow"
+                  heading="Explore AI use cases in all industries"
+                  image={
+                    Object {
+                      "alt": "Image alt text",
+                      "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&amp;text=1:1",
+                      "sources": Array [
+                        Object {
+                          "breakpoint": "sm",
+                          "src": "https://dummyimage.com/320x160/ee5396/161616&amp;text=2:1",
+                        },
+                        Object {
+                          "breakpoint": "md",
+                          "src": "https://dummyimage.com/400x200/ee5396/161616&amp;text=2:1",
+                        },
+                        Object {
+                          "breakpoint": 991,
+                          "src": "https://dummyimage.com/600x600/ee5396/161616&amp;text=1:1",
+                        },
+                        Object {
+                          "breakpoint": "lg",
+                          "src": "https://dummyimage.com/600x300/ee5396/161616&amp;text=2:1",
+                        },
+                        Object {
+                          "breakpoint": "xlg",
+                          "src": "https://dummyimage.com/672x672/ee5396/161616&amp;text=1:1",
+                        },
+                      ],
+                    }
+                  }
+                  inverse={true}
+                  type="link"
                 >
-                  <a
-                    className="bx--tile bx--tile--clickable bx--card bx--card--inverse bx--card--link bx--feature-card-block-large__card"
+                  <ClickableTile
+                    className="bx--card bx--card--inverse bx--card--link bx--feature-card-block-large__card"
+                    clicked={false}
                     data-autoid="dds--card"
+                    handleClick={[Function]}
+                    handleKeyDown={[Function]}
                     href="https://www.example.com"
+                    light={false}
                     onClick={[Function]}
-                    onKeyDown={[Function]}
                     target={null}
                   >
-                    <Image
-                      alt="Image alt text"
-                      classname="bx--card__img"
-                      defaultSrc="https://dummyimage.com/600x300/ee5396/161616&amp;text=2:1"
+                    <a
+                      className="bx--tile bx--tile--clickable bx--card bx--card--inverse bx--card--link bx--feature-card-block-large__card"
+                      data-autoid="dds--card"
+                      href="https://www.example.com"
+                      onClick={[Function]}
+                      onKeyDown={[Function]}
+                      target={null}
                     >
-                      <div
-                        className="bx--image"
-                        data-autoid="dds--image__longdescription"
-                      >
-                        <picture>
-                          <img
-                            alt="Image alt text"
-                            className="bx--image__img bx--card__img"
-                            src="https://dummyimage.com/600x300/ee5396/161616&amp;text=2:1"
-                          />
-                        </picture>
-                      </div>
-                    </Image>
-                    <div
-                      className="bx--card__wrapper"
-                    >
-                      <p
-                        className="bx--card__eyebrow"
-                      >
-                        this is an eyebrow
-                      </p>
-                      <h3
-                        className="bx--card__heading"
-                      >
-                        Explore AI use cases in all industries
-                      </h3>
-                      <div
-                        className="bx--card__copy"
-                        dangerouslySetInnerHTML={
-                          Object {
-                            "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..</p>",
-                          }
-                        }
-                      />
-                      <div
-                        className="bx--card__footer"
-                      >
-                        <ForwardRef(ArrowRight20)
-                          className="bx--card__cta"
-                          src={
+                      <Image
+                        alt="Image alt text"
+                        classname="bx--card__img"
+                        defaultSrc="https://dummyimage.com/672x672/ee5396/161616&amp;text=1:1"
+                        sources={
+                          Array [
                             Object {
-                              "$$typeof": Symbol(react.forward_ref),
-                              "render": [Function],
+                              "breakpoint": "sm",
+                              "src": "https://dummyimage.com/320x160/ee5396/161616&amp;text=2:1",
+                            },
+                            Object {
+                              "breakpoint": "md",
+                              "src": "https://dummyimage.com/400x200/ee5396/161616&amp;text=2:1",
+                            },
+                            Object {
+                              "breakpoint": 991,
+                              "src": "https://dummyimage.com/600x600/ee5396/161616&amp;text=1:1",
+                            },
+                            Object {
+                              "breakpoint": "lg",
+                              "src": "https://dummyimage.com/600x300/ee5396/161616&amp;text=2:1",
+                            },
+                            Object {
+                              "breakpoint": "xlg",
+                              "src": "https://dummyimage.com/672x672/ee5396/161616&amp;text=1:1",
+                            },
+                          ]
+                        }
+                      >
+                        <div
+                          className="bx--image"
+                          data-autoid="dds--image__longdescription"
+                        >
+                          <picture>
+                            <source
+                              key="0"
+                              media="(min-width: 1312px)"
+                              srcSet="https://dummyimage.com/672x672/ee5396/161616&amp;text=1:1"
+                            />
+                            <source
+                              key="1"
+                              media="(min-width: 1056px)"
+                              srcSet="https://dummyimage.com/600x300/ee5396/161616&amp;text=2:1"
+                            />
+                            <source
+                              key="2"
+                              media="(min-width: 991px)"
+                              srcSet="https://dummyimage.com/600x600/ee5396/161616&amp;text=1:1"
+                            />
+                            <source
+                              key="3"
+                              media="(min-width: 672px)"
+                              srcSet="https://dummyimage.com/400x200/ee5396/161616&amp;text=2:1"
+                            />
+                            <source
+                              key="4"
+                              media="(min-width: 320px)"
+                              srcSet="https://dummyimage.com/320x160/ee5396/161616&amp;text=2:1"
+                            />
+                            <img
+                              alt="Image alt text"
+                              className="bx--image__img bx--card__img"
+                              src="https://dummyimage.com/672x672/ee5396/161616&amp;text=1:1"
+                            />
+                          </picture>
+                        </div>
+                      </Image>
+                      <div
+                        className="bx--card__wrapper"
+                      >
+                        <p
+                          className="bx--card__eyebrow"
+                        >
+                          this is an eyebrow
+                        </p>
+                        <h3
+                          className="bx--card__heading"
+                        >
+                          Explore AI use cases in all industries
+                        </h3>
+                        <div
+                          className="bx--card__copy"
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..</p>",
                             }
                           }
+                        />
+                        <div
+                          className="bx--card__footer"
                         >
-                          <Icon
+                          <ForwardRef(ArrowRight20)
                             className="bx--card__cta"
-                            height={20}
-                            preserveAspectRatio="xMidYMid meet"
                             src={
                               Object {
                                 "$$typeof": Symbol(react.forward_ref),
                                 "render": [Function],
                               }
                             }
-                            viewBox="0 0 20 20"
-                            width={20}
-                            xmlns="http://www.w3.org/2000/svg"
                           >
-                            <svg
-                              aria-hidden={true}
+                            <Icon
                               className="bx--card__cta"
-                              focusable="false"
                               height={20}
                               preserveAspectRatio="xMidYMid meet"
                               src={
@@ -30408,18 +30531,35 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockLarge Default 1`] = `
                               width={20}
                               xmlns="http://www.w3.org/2000/svg"
                             >
-                              <path
-                                d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
-                              />
-                            </svg>
-                          </Icon>
-                        </ForwardRef(ArrowRight20)>
-                        <span />
+                              <svg
+                                aria-hidden={true}
+                                className="bx--card__cta"
+                                focusable="false"
+                                height={20}
+                                preserveAspectRatio="xMidYMid meet"
+                                src={
+                                  Object {
+                                    "$$typeof": Symbol(react.forward_ref),
+                                    "render": [Function],
+                                  }
+                                }
+                                viewBox="0 0 20 20"
+                                width={20}
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                />
+                              </svg>
+                            </Icon>
+                          </ForwardRef(ArrowRight20)>
+                          <span />
+                        </div>
                       </div>
-                    </div>
-                  </a>
-                </ClickableTile>
-              </Card>
+                    </a>
+                  </ClickableTile>
+                </Card>
+              </div>
             </section>
           </FeatureCardBlockLarge>
         </div>
