@@ -22,7 +22,7 @@ const { prefix } = settings;
  * @param {Array} props.items array of item
  * @returns {*} JSX LinkList component
  */
-const LinkList = ({ heading, items, style }) => {
+const LinkList = ({ heading, iconOnLeft, items, style }) => {
   const linkStyle = style === 'card' ? 'card' : 'text';
   return (
     <div
@@ -39,7 +39,12 @@ const LinkList = ({ heading, items, style }) => {
             <li
               className={`${prefix}--link-list__list__CTA ${prefix}--link-list__list--${cta.type}`}
               key={index}>
-              <CTA style={linkStyle} {...cta} disableImage={true} />
+              <CTA
+                style={linkStyle}
+                {...cta}
+                disableImage={true}
+                {...(iconOnLeft && linkStyle === 'text' && { iconOnLeft })}
+              />
             </li>
           );
         })}
@@ -79,6 +84,11 @@ LinkList.propTypes = {
       customClassName: PropTypes.string,
     })
   ).isRequired,
+
+  /**
+   * Display icon to left of link.
+   */
+  iconOnLeft: PropTypes.bool,
 
   /**
    * Orientation of LinkList.

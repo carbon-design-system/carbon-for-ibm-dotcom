@@ -4,6 +4,8 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
+import ArrowLeft20 from '@carbon/icons-react/es/arrow--left/20';
+import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20';
 import CTALogic from './CTALogic';
 import { LinkWithIcon } from '../LinkWithIcon';
 import PropTypes from 'prop-types';
@@ -18,6 +20,7 @@ const TextCTA = ({
   renderLightBox,
   videoTitle,
   formatCTAcopy,
+  iconOnLeft,
   ...otherProps
 }) => {
   const Icon = CTALogic.iconSelector(type);
@@ -33,7 +36,8 @@ const TextCTA = ({
       {!renderLightBox && (
         <LinkWithIcon
           href="#"
-          onClick={e => CTALogic.setLightBox(e, openLightBox)}>
+          onClick={e => CTALogic.setLightBox(e, openLightBox)}
+          {...(iconOnLeft && { iconOnLeft })}>
           <span>
             {formatCTAcopy({
               title: videoTitle[0].title,
@@ -48,9 +52,10 @@ const TextCTA = ({
     <LinkWithIcon
       href={href}
       target={CTALogic.external(type)}
-      onClick={e => CTALogic.jump(e, type)}>
+      onClick={e => CTALogic.jump(e, type)}
+      {...(iconOnLeft && { iconOnLeft })}>
       <span>{otherProps.copy}</span>
-      {type !== 'default' && <Icon />}
+      {type !== 'default' && iconOnLeft ? <ArrowLeft20 /> : <ArrowRight20 />}
     </LinkWithIcon>
   );
 };
@@ -94,6 +99,11 @@ TextCTA.propTypes = {
       ])
     ),
   ]),
+
+  /**
+   * Display icon to left of link.
+   */
+  iconOnLeft: PropTypes.bool,
 
   /**
    * Func to set renderLightBox state.

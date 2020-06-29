@@ -140,7 +140,12 @@ export const Vertical = ({ parameters }) => {
     <div className="bx--grid">
       <div className="bx--row">
         <div className="bx--col-sm-4 bx--col-lg-4 bx--offset-lg-4">
-          <LinkList style="vertical" heading={heading} items={items} />
+          <LinkList
+            style="vertical"
+            iconOnLeft
+            heading={heading}
+            items={items}
+          />
         </div>
       </div>
     </div>
@@ -204,7 +209,12 @@ export const VerticalWithCards = ({ parameters }) => {
     <div className="bx--grid">
       <div className="bx--row">
         <div className="bx--col-sm-4 bx--col-lg-4 bx--offset-lg-4">
-          <LinkList style="vertical" heading={heading} items={items} />
+          <LinkList
+            style="vertical"
+            iconOnLeft
+            heading={heading}
+            items={items}
+          />
           <LinkList style="card" heading={heading} items={items} />
         </div>
       </div>

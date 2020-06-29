@@ -218,6 +218,7 @@ exports[`Storyshots Components|CTA Default 1`] = `
           <CTA
             copy="Lorem ipsum dolor sit amet"
             href="https://www.example.com"
+            iconOnLeft={false}
             media={
               Object {
                 "src": "0_uka1msg4",
@@ -232,6 +233,7 @@ exports[`Storyshots Components|CTA Default 1`] = `
                 copy="Lorem ipsum dolor sit amet"
                 formatCTAcopy={[Function]}
                 href="https://www.example.com"
+                iconOnLeft={false}
                 media={
                   Object {
                     "src": "0_uka1msg4",
@@ -591,7 +593,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                           className="bx--card__copy"
                           dangerouslySetInnerHTML={
                             Object {
-                              "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
+                              "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
                             }
                           }
                         />
@@ -705,7 +707,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                           className="bx--card__copy"
                           dangerouslySetInnerHTML={
                             Object {
-                              "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
+                              "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
                             }
                           }
                         />
@@ -819,7 +821,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                           className="bx--card__copy"
                           dangerouslySetInnerHTML={
                             Object {
-                              "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
+                              "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
                             }
                           }
                         />
@@ -933,7 +935,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                           className="bx--card__copy"
                           dangerouslySetInnerHTML={
                             Object {
-                              "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
+                              "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
                             }
                           }
                         />
@@ -1047,7 +1049,7 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                           className="bx--card__copy"
                           dangerouslySetInnerHTML={
                             Object {
-                              "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
+                              "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
                             }
                           }
                         />
@@ -1305,7 +1307,7 @@ exports[`Storyshots Components|CardLink Default 1`] = `
                       className="bx--card__copy"
                       dangerouslySetInnerHTML={
                         Object {
-                          "__html": "<p>Explore AI use cases in all industries</p>",
+                          "__html": "<p>Explore AI use cases in all industries</p> ",
                         }
                       }
                     />
@@ -1453,7 +1455,7 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
                     className="bx--content-item-horizontal__item--copy"
                     dangerouslySetInnerHTML={
                       Object {
-                        "__html": "<p>Lorem ipsum dolor sit amet, <em class=\\"bx--type-light\\">consectetur</em> adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.</p>",
+                        "__html": "<p>Lorem ipsum dolor sit amet, <em>consectetur</em> adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.</p> ",
                       }
                     }
                     data-autoid="dds--content-item-horizontal__item--copy"
@@ -1651,11 +1653,11 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
                                           <span>
                                             Microservices and containers
                                           </span>
-                                          <ForwardRef(Launch20)>
+                                          <ForwardRef(ArrowRight20)>
                                             <Icon
                                               height={20}
                                               preserveAspectRatio="xMidYMid meet"
-                                              viewBox="0 0 32 32"
+                                              viewBox="0 0 20 20"
                                               width={20}
                                               xmlns="http://www.w3.org/2000/svg"
                                             >
@@ -1664,19 +1666,16 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
                                                 focusable="false"
                                                 height={20}
                                                 preserveAspectRatio="xMidYMid meet"
-                                                viewBox="0 0 32 32"
+                                                viewBox="0 0 20 20"
                                                 width={20}
                                                 xmlns="http://www.w3.org/2000/svg"
                                               >
                                                 <path
-                                                  d="M26,28H6a2,2,0,0,1-2-2V6A2,2,0,0,1,6,4h9V6H6V26H26V17h2v9A2,2,0,0,1,26,28Z"
-                                                />
-                                                <path
-                                                  d="M21 2L21 4 26.59 4 18 12.59 19.41 14 28 5.41 28 11 30 11 30 2 21 2z"
+                                                  d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
                                                 />
                                               </svg>
                                             </Icon>
-                                          </ForwardRef(Launch20)>
+                                          </ForwardRef(ArrowRight20)>
                                         </a>
                                       </Link>
                                     </div>
@@ -2435,7 +2434,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                 className="bx--content-block__copy"
                                                 dangerouslySetInnerHTML={
                                                   Object {
-                                                    "__html": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>",
+                                                    "__html": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> ",
                                                   }
                                                 }
                                               />
@@ -3096,7 +3095,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                       className="bx--content-item__copy"
                                                       dangerouslySetInnerHTML={
                                                         Object {
-                                                          "__html": "<p>Elementum nibh tellus molestie nunc non. Habitant morbi tristique senectus et netus et malesuada fames.</p>",
+                                                          "__html": "<p>Elementum nibh tellus molestie nunc non. Habitant morbi tristique senectus et netus et malesuada fames.</p> ",
                                                         }
                                                       }
                                                       data-autoid="dds--content-item__copy"
@@ -3228,7 +3227,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                       className="bx--content-item__copy"
                                                       dangerouslySetInnerHTML={
                                                         Object {
-                                                          "__html": "<p>Elementum nibh tellus molestie nunc non. Habitant morbi tristique senectus et netus et malesuada fames.</p>",
+                                                          "__html": "<p>Elementum nibh tellus molestie nunc non. Habitant morbi tristique senectus et netus et malesuada fames.</p> ",
                                                         }
                                                       }
                                                       data-autoid="dds--content-item__copy"
@@ -3280,7 +3279,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                       className="bx--content-item__copy"
                                                       dangerouslySetInnerHTML={
                                                         Object {
-                                                          "__html": "<p>Elementum nibh tellus molestie nunc non. Habitant morbi tristique senectus et netus et malesuada fames.</p>",
+                                                          "__html": "<p>Elementum nibh tellus molestie nunc non. Habitant morbi tristique senectus et netus et malesuada fames.</p> ",
                                                         }
                                                       }
                                                       data-autoid="dds--content-item__copy"
@@ -3412,7 +3411,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                       className="bx--content-item__copy"
                                                       dangerouslySetInnerHTML={
                                                         Object {
-                                                          "__html": "<p>Elementum nibh tellus molestie nunc non. Habitant morbi tristique senectus et netus et malesuada fames.</p>",
+                                                          "__html": "<p>Elementum nibh tellus molestie nunc non. Habitant morbi tristique senectus et netus et malesuada fames.</p> ",
                                                         }
                                                       }
                                                       data-autoid="dds--content-item__copy"
@@ -3536,7 +3535,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                               className="bx--card__copy"
                                               dangerouslySetInnerHTML={
                                                 Object {
-                                                  "__html": "<p>Habitant morbi tristique senectus et netus et malesuada fames. Habitant morbi tristique.</p>",
+                                                  "__html": "<p>Habitant morbi tristique senectus et netus et malesuada fames. Habitant morbi tristique.</p> ",
                                                 }
                                               }
                                             />
@@ -3751,7 +3750,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                       className="bx--content-item__copy"
                                                       dangerouslySetInnerHTML={
                                                         Object {
-                                                          "__html": "<p>Elementum nibh tellus molestie nunc non. Habitant morbi tristique senectus et netus et malesuada fames.</p>",
+                                                          "__html": "<p>Elementum nibh tellus molestie nunc non. Habitant morbi tristique senectus et netus et malesuada fames.</p> ",
                                                         }
                                                       }
                                                       data-autoid="dds--content-item__copy"
@@ -3973,7 +3972,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                       className="bx--content-item__copy"
                                                       dangerouslySetInnerHTML={
                                                         Object {
-                                                          "__html": "<p>Elementum nibh tellus molestie nunc non. Habitant morbi tristique senectus et netus et malesuada fames.</p>",
+                                                          "__html": "<p>Elementum nibh tellus molestie nunc non. Habitant morbi tristique senectus et netus et malesuada fames.</p> ",
                                                         }
                                                       }
                                                       data-autoid="dds--content-item__copy"
@@ -4357,7 +4356,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                             className="bx--content-item__copy"
                                                             dangerouslySetInnerHTML={
                                                               Object {
-                                                                "__html": "<p>Porttitor eget dolor morbi non arcu. Et ligula ullamcorper malesuada proin libero nunc consequat. In est ante in nibh mauris cursus mattis. Turpis tincidunt id aliquet risus feugiat in. Vel facilisis volutpat est velit egestas dui.</p>",
+                                                                "__html": "<p>Porttitor eget dolor morbi non arcu. Et ligula ullamcorper malesuada proin libero nunc consequat. In est ante in nibh mauris cursus mattis. Turpis tincidunt id aliquet risus feugiat in. Vel facilisis volutpat est velit egestas dui.</p> ",
                                                               }
                                                             }
                                                             data-autoid="dds--content-item__copy"
@@ -4548,7 +4547,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                   className="bx--content-item-horizontal__item--copy"
                                                   dangerouslySetInnerHTML={
                                                     Object {
-                                                      "__html": "<p>Lorem ipsum dolor sit amet, <em class=\\"bx--type-light\\">consectetur</em> sellus at elit sollicitudin.</p>",
+                                                      "__html": "<p>Lorem ipsum dolor sit amet, <em>consectetur</em> sellus at elit sollicitudin.</p> ",
                                                     }
                                                   }
                                                   data-autoid="dds--content-item-horizontal__item--copy"
@@ -4722,11 +4721,11 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                         <span>
                                                                           External link text
                                                                         </span>
-                                                                        <ForwardRef(Launch20)>
+                                                                        <ForwardRef(ArrowRight20)>
                                                                           <Icon
                                                                             height={20}
                                                                             preserveAspectRatio="xMidYMid meet"
-                                                                            viewBox="0 0 32 32"
+                                                                            viewBox="0 0 20 20"
                                                                             width={20}
                                                                             xmlns="http://www.w3.org/2000/svg"
                                                                           >
@@ -4735,19 +4734,16 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                               focusable="false"
                                                                               height={20}
                                                                               preserveAspectRatio="xMidYMid meet"
-                                                                              viewBox="0 0 32 32"
+                                                                              viewBox="0 0 20 20"
                                                                               width={20}
                                                                               xmlns="http://www.w3.org/2000/svg"
                                                                             >
                                                                               <path
-                                                                                d="M26,28H6a2,2,0,0,1-2-2V6A2,2,0,0,1,6,4h9V6H6V26H26V17h2v9A2,2,0,0,1,26,28Z"
-                                                                              />
-                                                                              <path
-                                                                                d="M21 2L21 4 26.59 4 18 12.59 19.41 14 28 5.41 28 11 30 11 30 2 21 2z"
+                                                                                d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
                                                                               />
                                                                             </svg>
                                                                           </Icon>
-                                                                        </ForwardRef(Launch20)>
+                                                                        </ForwardRef(ArrowRight20)>
                                                                       </a>
                                                                     </Link>
                                                                   </div>
@@ -4816,7 +4812,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                   className="bx--content-item-horizontal__item--copy"
                                                   dangerouslySetInnerHTML={
                                                     Object {
-                                                      "__html": "<p>Lorem ipsum dolor sit amet, <em class=\\"bx--type-light\\">consectetur</em> adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.</p>",
+                                                      "__html": "<p>Lorem ipsum dolor sit amet, <em>consectetur</em> adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.</p> ",
                                                     }
                                                   }
                                                   data-autoid="dds--content-item-horizontal__item--copy"
@@ -4990,11 +4986,11 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                         <span>
                                                                           External link text
                                                                         </span>
-                                                                        <ForwardRef(Launch20)>
+                                                                        <ForwardRef(ArrowRight20)>
                                                                           <Icon
                                                                             height={20}
                                                                             preserveAspectRatio="xMidYMid meet"
-                                                                            viewBox="0 0 32 32"
+                                                                            viewBox="0 0 20 20"
                                                                             width={20}
                                                                             xmlns="http://www.w3.org/2000/svg"
                                                                           >
@@ -5003,19 +4999,16 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                               focusable="false"
                                                                               height={20}
                                                                               preserveAspectRatio="xMidYMid meet"
-                                                                              viewBox="0 0 32 32"
+                                                                              viewBox="0 0 20 20"
                                                                               width={20}
                                                                               xmlns="http://www.w3.org/2000/svg"
                                                                             >
                                                                               <path
-                                                                                d="M26,28H6a2,2,0,0,1-2-2V6A2,2,0,0,1,6,4h9V6H6V26H26V17h2v9A2,2,0,0,1,26,28Z"
-                                                                              />
-                                                                              <path
-                                                                                d="M21 2L21 4 26.59 4 18 12.59 19.41 14 28 5.41 28 11 30 11 30 2 21 2z"
+                                                                                d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
                                                                               />
                                                                             </svg>
                                                                           </Icon>
-                                                                        </ForwardRef(Launch20)>
+                                                                        </ForwardRef(ArrowRight20)>
                                                                       </a>
                                                                     </Link>
                                                                   </div>
@@ -5446,7 +5439,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                               className="bx--card__copy"
                                                               dangerouslySetInnerHTML={
                                                                 Object {
-                                                                  "__html": "<p>Amet justo donec</p>",
+                                                                  "__html": "<p>Amet justo donec</p> ",
                                                                 }
                                                               }
                                                             />
@@ -6316,7 +6309,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                 className="bx--content-block__copy"
                                 dangerouslySetInnerHTML={
                                   Object {
-                                    "__html": "<p>Want to discuss your options with a DevOps expert? Contact our sales team to evaluate your needs.</p>",
+                                    "__html": "<p>Want to discuss your options with a DevOps expert? Contact our sales team to evaluate your needs.</p> ",
                                   }
                                 }
                               />
@@ -6533,7 +6526,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                     className="bx--content-item__copy"
                                     dangerouslySetInnerHTML={
                                       Object {
-                                        "__html": "<p>  IBM DevOps partners have a wide range of expertise.  Find one to build the right solution for you.  </p>",
+                                        "__html": "<pre><code> IBM DevOps partners have a wide range of expertise.  Find one to build the right solution for you.</code></pre> ",
                                       }
                                     }
                                     data-autoid="dds--content-item__copy"
@@ -6648,7 +6641,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                     className="bx--content-item__copy"
                                     dangerouslySetInnerHTML={
                                       Object {
-                                        "__html": "<p>Dig into more self-directed learning about DevOps methodologies.</p>",
+                                        "__html": "<p>Dig into more self-directed learning about DevOps methodologies.</p> ",
                                       }
                                     }
                                     data-autoid="dds--content-item__copy"
@@ -8869,87 +8862,6 @@ exports[`Storyshots Components|LightboxMediaViewer Embedded Video Player 1`] = `
 </Container>
 `;
 
-exports[`Storyshots Components|Link with Icon Default 1`] = `
-<Container
-  story={[Function]}
->
-  <div
-    data-floating-menu-container=""
-    role="main"
-    style={
-      Object {
-        "backgroundColor": "",
-      }
-    }
-  >
-    <div
-      style={
-        Object {
-          "alignItems": "center",
-          "display": "flex",
-          "flexDirection": "column",
-          "padding": "2rem",
-        }
-      }
-    >
-      <LinkWithIcon
-        disabled={false}
-        href="https://www.example.com"
-        inverse={false}
-      >
-        <div
-          className="bx--link-with-icon__container"
-          data-autoid="dds--link-with-icon"
-        >
-          <Link
-            className="bx--link-with-icon"
-            disabled={false}
-            href="https://www.example.com"
-          >
-            <a
-              className="bx--link bx--link-with-icon"
-              href="https://www.example.com"
-            >
-              <span>
-                Link text
-              </span>
-              <ForwardRef(ArrowRight20)>
-                <Icon
-                  height={20}
-                  preserveAspectRatio="xMidYMid meet"
-                  viewBox="0 0 20 20"
-                  width={20}
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <svg
-                    aria-hidden={true}
-                    focusable="false"
-                    height={20}
-                    preserveAspectRatio="xMidYMid meet"
-                    viewBox="0 0 20 20"
-                    width={20}
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
-                    />
-                  </svg>
-                </Icon>
-              </ForwardRef(ArrowRight20)>
-            </a>
-          </Link>
-        </div>
-      </LinkWithIcon>
-    </div>
-  </div>
-  <input
-    aria-label="input-text-offleft"
-    className="bx--visually-hidden"
-    type="text"
-  />
-</Container>
-`;
-
 exports[`Storyshots Components|LinkList Default 1`] = `
 <Container
   story={[Function]}
@@ -9136,7 +9048,7 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                                     className="bx--card__copy"
                                     dangerouslySetInnerHTML={
                                       Object {
-                                        "__html": "<p>Learn more</p>",
+                                        "__html": "<p>Learn more</p> ",
                                       }
                                     }
                                   />
@@ -9315,7 +9227,7 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                                     className="bx--card__copy"
                                     dangerouslySetInnerHTML={
                                       Object {
-                                        "__html": "<p>Containerization A Complete Guide</p>",
+                                        "__html": "<p>Containerization A Complete Guide</p> ",
                                       }
                                     }
                                   />
@@ -9497,7 +9409,7 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                                     className="bx--card__copy"
                                     dangerouslySetInnerHTML={
                                       Object {
-                                        "__html": "<p>Microservices and containers</p>",
+                                        "__html": "<p>Microservices and containers</p> ",
                                       }
                                     }
                                   />
@@ -10005,11 +9917,11 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                                 <span>
                                   Containerization A Complete Guide
                                 </span>
-                                <ForwardRef(Download20)>
+                                <ForwardRef(ArrowRight20)>
                                   <Icon
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
-                                    viewBox="0 0 32 32"
+                                    viewBox="0 0 20 20"
                                     width={20}
                                     xmlns="http://www.w3.org/2000/svg"
                                   >
@@ -10018,19 +9930,16 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                                       focusable="false"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
-                                      viewBox="0 0 32 32"
+                                      viewBox="0 0 20 20"
                                       width={20}
                                       xmlns="http://www.w3.org/2000/svg"
                                     >
                                       <path
-                                        d="M26 15L24.59 13.59 17 21.17 17 2 15 2 15 21.17 7.41 13.59 6 15 16 25 26 15z"
-                                      />
-                                      <path
-                                        d="M26,24v4H6V24H4v4H4a2,2,0,0,0,2,2H26a2,2,0,0,0,2-2h0V24Z"
+                                        d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
                                       />
                                     </svg>
                                   </Icon>
-                                </ForwardRef(Download20)>
+                                </ForwardRef(ArrowRight20)>
                               </a>
                             </Link>
                           </div>
@@ -10104,11 +10013,11 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                                 <span>
                                   Microservices and containers
                                 </span>
-                                <ForwardRef(Launch20)>
+                                <ForwardRef(ArrowRight20)>
                                   <Icon
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
-                                    viewBox="0 0 32 32"
+                                    viewBox="0 0 20 20"
                                     width={20}
                                     xmlns="http://www.w3.org/2000/svg"
                                   >
@@ -10117,19 +10026,16 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                                       focusable="false"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
-                                      viewBox="0 0 32 32"
+                                      viewBox="0 0 20 20"
                                       width={20}
                                       xmlns="http://www.w3.org/2000/svg"
                                     >
                                       <path
-                                        d="M26,28H6a2,2,0,0,1-2-2V6A2,2,0,0,1,6,4h9V6H6V26H26V17h2v9A2,2,0,0,1,26,28Z"
-                                      />
-                                      <path
-                                        d="M21 2L21 4 26.59 4 18 12.59 19.41 14 28 5.41 28 11 30 11 30 2 21 2z"
+                                        d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
                                       />
                                     </svg>
                                   </Icon>
-                                </ForwardRef(Launch20)>
+                                </ForwardRef(ArrowRight20)>
                               </a>
                             </Link>
                           </div>
@@ -10470,11 +10376,11 @@ exports[`Storyshots Components|LinkList Horizontal 1`] = `
                                 <span>
                                   Containerization A Complete Guide
                                 </span>
-                                <ForwardRef(Download20)>
+                                <ForwardRef(ArrowRight20)>
                                   <Icon
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
-                                    viewBox="0 0 32 32"
+                                    viewBox="0 0 20 20"
                                     width={20}
                                     xmlns="http://www.w3.org/2000/svg"
                                   >
@@ -10483,19 +10389,16 @@ exports[`Storyshots Components|LinkList Horizontal 1`] = `
                                       focusable="false"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
-                                      viewBox="0 0 32 32"
+                                      viewBox="0 0 20 20"
                                       width={20}
                                       xmlns="http://www.w3.org/2000/svg"
                                     >
                                       <path
-                                        d="M26 15L24.59 13.59 17 21.17 17 2 15 2 15 21.17 7.41 13.59 6 15 16 25 26 15z"
-                                      />
-                                      <path
-                                        d="M26,24v4H6V24H4v4H4a2,2,0,0,0,2,2H26a2,2,0,0,0,2-2h0V24Z"
+                                        d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
                                       />
                                     </svg>
                                   </Icon>
-                                </ForwardRef(Download20)>
+                                </ForwardRef(ArrowRight20)>
                               </a>
                             </Link>
                           </div>
@@ -10543,6 +10446,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
         >
           <LinkList
             heading="Tutorials"
+            iconOnLeft={true}
             items={
               Array [
                 Object {
@@ -10602,6 +10506,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                     }
                     disableImage={true}
                     href=""
+                    iconOnLeft={true}
                     style="text"
                     type="local"
                   >
@@ -10616,6 +10521,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                         disableImage={true}
                         formatCTAcopy={[Function]}
                         href=""
+                        iconOnLeft={true}
                         openLightBox={[Function]}
                         renderLightBox={false}
                         style="text"
@@ -10632,6 +10538,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                       >
                         <LinkWithIcon
                           href="https://ibm.com"
+                          iconOnLeft={true}
                           onClick={[Function]}
                           target={null}
                         >
@@ -10640,13 +10547,13 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                             data-autoid="dds--link-with-icon"
                           >
                             <Link
-                              className="bx--link-with-icon"
+                              className="bx--link-with-icon bx--link-with-icon__icon-left"
                               href="https://ibm.com"
                               onClick={[Function]}
                               target={null}
                             >
                               <a
-                                className="bx--link bx--link-with-icon"
+                                className="bx--link bx--link-with-icon bx--link-with-icon__icon-left"
                                 href="https://ibm.com"
                                 onClick={[Function]}
                                 target={null}
@@ -10654,11 +10561,11 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                                 <span>
                                   Learn more
                                 </span>
-                                <ForwardRef(ArrowRight20)>
+                                <ForwardRef(ArrowLeft20)>
                                   <Icon
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
-                                    viewBox="0 0 20 20"
+                                    viewBox="0 0 32 32"
                                     width={20}
                                     xmlns="http://www.w3.org/2000/svg"
                                   >
@@ -10667,16 +10574,16 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                                       focusable="false"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
-                                      viewBox="0 0 20 20"
+                                      viewBox="0 0 32 32"
                                       width={20}
                                       xmlns="http://www.w3.org/2000/svg"
                                     >
                                       <path
-                                        d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                        d="M13 26L14.41 24.59 6.83 17 29 17 29 15 6.83 15 14.41 7.41 13 6 3 16 13 26z"
                                       />
                                     </svg>
                                   </Icon>
-                                </ForwardRef(ArrowRight20)>
+                                </ForwardRef(ArrowLeft20)>
                               </a>
                             </Link>
                           </div>
@@ -10698,6 +10605,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                     }
                     disableImage={true}
                     href=""
+                    iconOnLeft={true}
                     style="text"
                     type="download"
                   >
@@ -10712,6 +10620,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                         disableImage={true}
                         formatCTAcopy={[Function]}
                         href=""
+                        iconOnLeft={true}
                         openLightBox={[Function]}
                         renderLightBox={false}
                         style="text"
@@ -10728,6 +10637,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                       >
                         <LinkWithIcon
                           href="https://ibm.com"
+                          iconOnLeft={true}
                           onClick={[Function]}
                           target={null}
                         >
@@ -10736,13 +10646,13 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                             data-autoid="dds--link-with-icon"
                           >
                             <Link
-                              className="bx--link-with-icon"
+                              className="bx--link-with-icon bx--link-with-icon__icon-left"
                               href="https://ibm.com"
                               onClick={[Function]}
                               target={null}
                             >
                               <a
-                                className="bx--link bx--link-with-icon"
+                                className="bx--link bx--link-with-icon bx--link-with-icon__icon-left"
                                 href="https://ibm.com"
                                 onClick={[Function]}
                                 target={null}
@@ -10750,7 +10660,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                                 <span>
                                   Containerization A Complete Guide
                                 </span>
-                                <ForwardRef(Download20)>
+                                <ForwardRef(ArrowLeft20)>
                                   <Icon
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
@@ -10768,14 +10678,11 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                                       xmlns="http://www.w3.org/2000/svg"
                                     >
                                       <path
-                                        d="M26 15L24.59 13.59 17 21.17 17 2 15 2 15 21.17 7.41 13.59 6 15 16 25 26 15z"
-                                      />
-                                      <path
-                                        d="M26,24v4H6V24H4v4H4a2,2,0,0,0,2,2H26a2,2,0,0,0,2-2h0V24Z"
+                                        d="M13 26L14.41 24.59 6.83 17 29 17 29 15 6.83 15 14.41 7.41 13 6 3 16 13 26z"
                                       />
                                     </svg>
                                   </Icon>
-                                </ForwardRef(Download20)>
+                                </ForwardRef(ArrowLeft20)>
                               </a>
                             </Link>
                           </div>
@@ -10797,6 +10704,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                     }
                     disableImage={true}
                     href=""
+                    iconOnLeft={true}
                     style="text"
                     type="external"
                   >
@@ -10811,6 +10719,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                         disableImage={true}
                         formatCTAcopy={[Function]}
                         href=""
+                        iconOnLeft={true}
                         openLightBox={[Function]}
                         renderLightBox={false}
                         style="text"
@@ -10827,6 +10736,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                       >
                         <LinkWithIcon
                           href="https://ibm.com"
+                          iconOnLeft={true}
                           onClick={[Function]}
                           target="_blank"
                         >
@@ -10835,13 +10745,13 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                             data-autoid="dds--link-with-icon"
                           >
                             <Link
-                              className="bx--link-with-icon"
+                              className="bx--link-with-icon bx--link-with-icon__icon-left"
                               href="https://ibm.com"
                               onClick={[Function]}
                               target="_blank"
                             >
                               <a
-                                className="bx--link bx--link-with-icon"
+                                className="bx--link bx--link-with-icon bx--link-with-icon__icon-left"
                                 href="https://ibm.com"
                                 onClick={[Function]}
                                 target="_blank"
@@ -10849,7 +10759,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                                 <span>
                                   Microservices and containers
                                 </span>
-                                <ForwardRef(Launch20)>
+                                <ForwardRef(ArrowLeft20)>
                                   <Icon
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
@@ -10867,14 +10777,11 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                                       xmlns="http://www.w3.org/2000/svg"
                                     >
                                       <path
-                                        d="M26,28H6a2,2,0,0,1-2-2V6A2,2,0,0,1,6,4h9V6H6V26H26V17h2v9A2,2,0,0,1,26,28Z"
-                                      />
-                                      <path
-                                        d="M21 2L21 4 26.59 4 18 12.59 19.41 14 28 5.41 28 11 30 11 30 2 21 2z"
+                                        d="M13 26L14.41 24.59 6.83 17 29 17 29 15 6.83 15 14.41 7.41 13 6 3 16 13 26z"
                                       />
                                     </svg>
                                   </Icon>
-                                </ForwardRef(Launch20)>
+                                </ForwardRef(ArrowLeft20)>
                               </a>
                             </Link>
                           </div>
@@ -10891,6 +10798,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                     copy=""
                     disableImage={true}
                     href=""
+                    iconOnLeft={true}
                     media={
                       Object {
                         "src": "0_uka1msg4",
@@ -10906,6 +10814,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                         disableImage={true}
                         formatCTAcopy={[Function]}
                         href=""
+                        iconOnLeft={true}
                         media={
                           Object {
                             "src": "0_uka1msg4",
@@ -10929,6 +10838,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                         <div>
                           <LinkWithIcon
                             href="#"
+                            iconOnLeft={true}
                             onClick={[Function]}
                           >
                             <div
@@ -10936,12 +10846,12 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                               data-autoid="dds--link-with-icon"
                             >
                               <Link
-                                className="bx--link-with-icon"
+                                className="bx--link-with-icon bx--link-with-icon__icon-left"
                                 href="#"
                                 onClick={[Function]}
                               >
                                 <a
-                                  className="bx--link bx--link-with-icon"
+                                  className="bx--link bx--link-with-icon bx--link-with-icon__icon-left"
                                   href="#"
                                   onClick={[Function]}
                                 >
@@ -11022,6 +10932,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
         >
           <LinkList
             heading="Tutorials"
+            iconOnLeft={true}
             items={
               Array [
                 Object {
@@ -11081,6 +10992,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                     }
                     disableImage={true}
                     href=""
+                    iconOnLeft={true}
                     style="text"
                     type="local"
                   >
@@ -11095,6 +11007,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                         disableImage={true}
                         formatCTAcopy={[Function]}
                         href=""
+                        iconOnLeft={true}
                         openLightBox={[Function]}
                         renderLightBox={false}
                         style="text"
@@ -11111,6 +11024,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                       >
                         <LinkWithIcon
                           href="https://ibm.com"
+                          iconOnLeft={true}
                           onClick={[Function]}
                           target={null}
                         >
@@ -11119,13 +11033,13 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                             data-autoid="dds--link-with-icon"
                           >
                             <Link
-                              className="bx--link-with-icon"
+                              className="bx--link-with-icon bx--link-with-icon__icon-left"
                               href="https://ibm.com"
                               onClick={[Function]}
                               target={null}
                             >
                               <a
-                                className="bx--link bx--link-with-icon"
+                                className="bx--link bx--link-with-icon bx--link-with-icon__icon-left"
                                 href="https://ibm.com"
                                 onClick={[Function]}
                                 target={null}
@@ -11133,11 +11047,11 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                 <span>
                                   Learn more
                                 </span>
-                                <ForwardRef(ArrowRight20)>
+                                <ForwardRef(ArrowLeft20)>
                                   <Icon
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
-                                    viewBox="0 0 20 20"
+                                    viewBox="0 0 32 32"
                                     width={20}
                                     xmlns="http://www.w3.org/2000/svg"
                                   >
@@ -11146,16 +11060,16 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                       focusable="false"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
-                                      viewBox="0 0 20 20"
+                                      viewBox="0 0 32 32"
                                       width={20}
                                       xmlns="http://www.w3.org/2000/svg"
                                     >
                                       <path
-                                        d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                        d="M13 26L14.41 24.59 6.83 17 29 17 29 15 6.83 15 14.41 7.41 13 6 3 16 13 26z"
                                       />
                                     </svg>
                                   </Icon>
-                                </ForwardRef(ArrowRight20)>
+                                </ForwardRef(ArrowLeft20)>
                               </a>
                             </Link>
                           </div>
@@ -11177,6 +11091,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                     }
                     disableImage={true}
                     href=""
+                    iconOnLeft={true}
                     style="text"
                     type="download"
                   >
@@ -11191,6 +11106,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                         disableImage={true}
                         formatCTAcopy={[Function]}
                         href=""
+                        iconOnLeft={true}
                         openLightBox={[Function]}
                         renderLightBox={false}
                         style="text"
@@ -11207,6 +11123,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                       >
                         <LinkWithIcon
                           href="https://ibm.com"
+                          iconOnLeft={true}
                           onClick={[Function]}
                           target={null}
                         >
@@ -11215,13 +11132,13 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                             data-autoid="dds--link-with-icon"
                           >
                             <Link
-                              className="bx--link-with-icon"
+                              className="bx--link-with-icon bx--link-with-icon__icon-left"
                               href="https://ibm.com"
                               onClick={[Function]}
                               target={null}
                             >
                               <a
-                                className="bx--link bx--link-with-icon"
+                                className="bx--link bx--link-with-icon bx--link-with-icon__icon-left"
                                 href="https://ibm.com"
                                 onClick={[Function]}
                                 target={null}
@@ -11229,7 +11146,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                 <span>
                                   Containerization A Complete Guide
                                 </span>
-                                <ForwardRef(Download20)>
+                                <ForwardRef(ArrowLeft20)>
                                   <Icon
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
@@ -11247,14 +11164,11 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                       xmlns="http://www.w3.org/2000/svg"
                                     >
                                       <path
-                                        d="M26 15L24.59 13.59 17 21.17 17 2 15 2 15 21.17 7.41 13.59 6 15 16 25 26 15z"
-                                      />
-                                      <path
-                                        d="M26,24v4H6V24H4v4H4a2,2,0,0,0,2,2H26a2,2,0,0,0,2-2h0V24Z"
+                                        d="M13 26L14.41 24.59 6.83 17 29 17 29 15 6.83 15 14.41 7.41 13 6 3 16 13 26z"
                                       />
                                     </svg>
                                   </Icon>
-                                </ForwardRef(Download20)>
+                                </ForwardRef(ArrowLeft20)>
                               </a>
                             </Link>
                           </div>
@@ -11276,6 +11190,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                     }
                     disableImage={true}
                     href=""
+                    iconOnLeft={true}
                     style="text"
                     type="external"
                   >
@@ -11290,6 +11205,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                         disableImage={true}
                         formatCTAcopy={[Function]}
                         href=""
+                        iconOnLeft={true}
                         openLightBox={[Function]}
                         renderLightBox={false}
                         style="text"
@@ -11306,6 +11222,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                       >
                         <LinkWithIcon
                           href="https://ibm.com"
+                          iconOnLeft={true}
                           onClick={[Function]}
                           target="_blank"
                         >
@@ -11314,13 +11231,13 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                             data-autoid="dds--link-with-icon"
                           >
                             <Link
-                              className="bx--link-with-icon"
+                              className="bx--link-with-icon bx--link-with-icon__icon-left"
                               href="https://ibm.com"
                               onClick={[Function]}
                               target="_blank"
                             >
                               <a
-                                className="bx--link bx--link-with-icon"
+                                className="bx--link bx--link-with-icon bx--link-with-icon__icon-left"
                                 href="https://ibm.com"
                                 onClick={[Function]}
                                 target="_blank"
@@ -11328,7 +11245,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                 <span>
                                   Microservices and containers
                                 </span>
-                                <ForwardRef(Launch20)>
+                                <ForwardRef(ArrowLeft20)>
                                   <Icon
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
@@ -11346,14 +11263,11 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                       xmlns="http://www.w3.org/2000/svg"
                                     >
                                       <path
-                                        d="M26,28H6a2,2,0,0,1-2-2V6A2,2,0,0,1,6,4h9V6H6V26H26V17h2v9A2,2,0,0,1,26,28Z"
-                                      />
-                                      <path
-                                        d="M21 2L21 4 26.59 4 18 12.59 19.41 14 28 5.41 28 11 30 11 30 2 21 2z"
+                                        d="M13 26L14.41 24.59 6.83 17 29 17 29 15 6.83 15 14.41 7.41 13 6 3 16 13 26z"
                                       />
                                     </svg>
                                   </Icon>
-                                </ForwardRef(Launch20)>
+                                </ForwardRef(ArrowLeft20)>
                               </a>
                             </Link>
                           </div>
@@ -11370,6 +11284,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                     copy=""
                     disableImage={true}
                     href=""
+                    iconOnLeft={true}
                     media={
                       Object {
                         "src": "0_uka1msg4",
@@ -11385,6 +11300,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                         disableImage={true}
                         formatCTAcopy={[Function]}
                         href=""
+                        iconOnLeft={true}
                         media={
                           Object {
                             "src": "0_uka1msg4",
@@ -11408,6 +11324,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                         <div>
                           <LinkWithIcon
                             href="#"
+                            iconOnLeft={true}
                             onClick={[Function]}
                           >
                             <div
@@ -11415,12 +11332,12 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                               data-autoid="dds--link-with-icon"
                             >
                               <Link
-                                className="bx--link-with-icon"
+                                className="bx--link-with-icon bx--link-with-icon__icon-left"
                                 href="#"
                                 onClick={[Function]}
                               >
                                 <a
-                                  className="bx--link bx--link-with-icon"
+                                  className="bx--link bx--link-with-icon bx--link-with-icon__icon-left"
                                   href="#"
                                   onClick={[Function]}
                                 >
@@ -11629,7 +11546,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                     className="bx--card__copy"
                                     dangerouslySetInnerHTML={
                                       Object {
-                                        "__html": "<p>Learn more</p>",
+                                        "__html": "<p>Learn more</p> ",
                                       }
                                     }
                                   />
@@ -11808,7 +11725,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                     className="bx--card__copy"
                                     dangerouslySetInnerHTML={
                                       Object {
-                                        "__html": "<p>Containerization A Complete Guide</p>",
+                                        "__html": "<p>Containerization A Complete Guide</p> ",
                                       }
                                     }
                                   />
@@ -11990,7 +11907,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                     className="bx--card__copy"
                                     dangerouslySetInnerHTML={
                                       Object {
-                                        "__html": "<p>Microservices and containers</p>",
+                                        "__html": "<p>Microservices and containers</p> ",
                                       }
                                     }
                                   />
@@ -12257,6 +12174,85 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
           </LinkList>
         </div>
       </div>
+    </div>
+  </div>
+  <input
+    aria-label="input-text-offleft"
+    className="bx--visually-hidden"
+    type="text"
+  />
+</Container>
+`;
+
+exports[`Storyshots Components|LinkwithIcon Default 1`] = `
+<Container
+  story={[Function]}
+>
+  <div
+    data-floating-menu-container=""
+    role="main"
+    style={
+      Object {
+        "backgroundColor": "",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "alignItems": "center",
+          "display": "flex",
+          "flexDirection": "column",
+          "padding": "2rem",
+        }
+      }
+    >
+      <LinkWithIcon
+        href="https://www.example.com"
+        inverse={false}
+      >
+        <div
+          className="bx--link-with-icon__container"
+          data-autoid="dds--link-with-icon"
+        >
+          <Link
+            className="bx--link-with-icon"
+            href="https://www.example.com"
+          >
+            <a
+              className="bx--link bx--link-with-icon"
+              href="https://www.example.com"
+            >
+              <span>
+                Link text
+              </span>
+              <ForwardRef(ArrowRight20)>
+                <Icon
+                  height={20}
+                  preserveAspectRatio="xMidYMid meet"
+                  viewBox="0 0 20 20"
+                  width={20}
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <svg
+                    aria-hidden={true}
+                    focusable="false"
+                    height={20}
+                    preserveAspectRatio="xMidYMid meet"
+                    viewBox="0 0 20 20"
+                    width={20}
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                    />
+                  </svg>
+                </Icon>
+              </ForwardRef(ArrowRight20)>
+            </a>
+          </Link>
+        </div>
+      </LinkWithIcon>
     </div>
   </div>
   <input
@@ -14226,7 +14222,7 @@ exports[`Storyshots Components|PictogramItem Default 1`] = `
                         className="bx--content-item__copy"
                         dangerouslySetInnerHTML={
                           Object {
-                            "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>",
+                            "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p> ",
                           }
                         }
                         data-autoid="dds--content-item__copy"
@@ -16588,7 +16584,7 @@ exports[`Storyshots Patterns (Blocks)|CalloutWithMedia Default 1`] = `
                                         className="bx--content-item__copy"
                                         dangerouslySetInnerHTML={
                                           Object {
-                                            "__html": "<p>Lorem ipsum <em class=\\"bx--type-light\\">dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est.  Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales  nulla quis, <em class=\\"bx--type-light\\">consequat</em> libero. Here are  some common categories:</p><p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p><p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
+                                            "__html": "<p>Lorem ipsum <em>dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est.  Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales  nulla quis, <em>consequat</em> libero. Here are  some common categories:</p> <pre><code> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</code></pre> ",
                                           }
                                         }
                                         data-autoid="dds--content-item__copy"
@@ -16900,7 +16896,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                       className="bx--card__copy"
                                       dangerouslySetInnerHTML={
                                         Object {
-                                          "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
+                                          "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
                                         }
                                       }
                                     />
@@ -17014,7 +17010,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                       className="bx--card__copy"
                                       dangerouslySetInnerHTML={
                                         Object {
-                                          "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
+                                          "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
                                         }
                                       }
                                     />
@@ -17128,7 +17124,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                       className="bx--card__copy"
                                       dangerouslySetInnerHTML={
                                         Object {
-                                          "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
+                                          "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
                                         }
                                       }
                                     />
@@ -17242,7 +17238,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                       className="bx--card__copy"
                                       dangerouslySetInnerHTML={
                                         Object {
-                                          "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
+                                          "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
                                         }
                                       }
                                     />
@@ -17356,7 +17352,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                       className="bx--card__copy"
                                       dangerouslySetInnerHTML={
                                         Object {
-                                          "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
+                                          "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
                                         }
                                       }
                                     />
@@ -17626,7 +17622,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                     className="bx--content-block__copy"
                     dangerouslySetInnerHTML={
                       Object {
-                        "__html": "<p>Lorem ipsum <em class=\\"bx--type-light\\">dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, <em class=\\"bx--type-light\\">consequat</em> libero. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
+                        "__html": "<p>Lorem ipsum <em>dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, <em>consequat</em> libero. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
                       }
                     }
                   />
@@ -17824,7 +17820,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                     className="bx--content-item__copy"
                                     dangerouslySetInnerHTML={
                                       Object {
-                                        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p>",
+                                        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p> ",
                                       }
                                     }
                                     data-autoid="dds--content-item__copy"
@@ -17850,7 +17846,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                     className="bx--content-item__copy"
                                     dangerouslySetInnerHTML={
                                       Object {
-                                        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p>",
+                                        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p> ",
                                       }
                                     }
                                     data-autoid="dds--content-item__copy"
@@ -17975,7 +17971,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                                 className="bx--card__copy"
                                                 dangerouslySetInnerHTML={
                                                   Object {
-                                                    "__html": "<p>Lorem ipsum dolor sit ametttt</p>",
+                                                    "__html": "<p>Lorem ipsum dolor sit ametttt</p> ",
                                                   }
                                                 }
                                               />
@@ -18232,7 +18228,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                     className="bx--content-item__copy"
                                     dangerouslySetInnerHTML={
                                       Object {
-                                        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p>",
+                                        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p> ",
                                       }
                                     }
                                     data-autoid="dds--content-item__copy"
@@ -18258,7 +18254,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                     className="bx--content-item__copy"
                                     dangerouslySetInnerHTML={
                                       Object {
-                                        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p>",
+                                        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p> ",
                                       }
                                     }
                                     data-autoid="dds--content-item__copy"
@@ -18383,7 +18379,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                                 className="bx--card__copy"
                                                 dangerouslySetInnerHTML={
                                                   Object {
-                                                    "__html": "<p>Lorem ipsum dolor sit ametttt</p>",
+                                                    "__html": "<p>Lorem ipsum dolor sit ametttt</p> ",
                                                   }
                                                 }
                                               />
@@ -19010,7 +19006,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                             className="bx--content-block__copy"
                             dangerouslySetInnerHTML={
                               Object {
-                                "__html": "<p>Lorem ipsum <em class=\\"bx--type-light\\">dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, <em class=\\"bx--type-light\\">consequat</em> libero. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
+                                "__html": "<p>Lorem ipsum <em>dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, <em>consequat</em> libero. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
                               }
                             }
                           />
@@ -19208,7 +19204,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                             className="bx--content-item__copy"
                                             dangerouslySetInnerHTML={
                                               Object {
-                                                "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p>",
+                                                "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p> ",
                                               }
                                             }
                                             data-autoid="dds--content-item__copy"
@@ -19234,7 +19230,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                             className="bx--content-item__copy"
                                             dangerouslySetInnerHTML={
                                               Object {
-                                                "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p>",
+                                                "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p> ",
                                               }
                                             }
                                             data-autoid="dds--content-item__copy"
@@ -19359,7 +19355,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                                         className="bx--card__copy"
                                                         dangerouslySetInnerHTML={
                                                           Object {
-                                                            "__html": "<p>Lorem ipsum dolor sit ametttt</p>",
+                                                            "__html": "<p>Lorem ipsum dolor sit ametttt</p> ",
                                                           }
                                                         }
                                                       />
@@ -19616,7 +19612,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                             className="bx--content-item__copy"
                                             dangerouslySetInnerHTML={
                                               Object {
-                                                "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p>",
+                                                "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p> ",
                                               }
                                             }
                                             data-autoid="dds--content-item__copy"
@@ -19642,7 +19638,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                             className="bx--content-item__copy"
                                             dangerouslySetInnerHTML={
                                               Object {
-                                                "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p>",
+                                                "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p> ",
                                               }
                                             }
                                             data-autoid="dds--content-item__copy"
@@ -19767,7 +19763,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                                         className="bx--card__copy"
                                                         dangerouslySetInnerHTML={
                                                           Object {
-                                                            "__html": "<p>Lorem ipsum dolor sit ametttt</p>",
+                                                            "__html": "<p>Lorem ipsum dolor sit ametttt</p> ",
                                                           }
                                                         }
                                                       />
@@ -20244,7 +20240,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                                     className="bx--card__copy"
                                                     dangerouslySetInnerHTML={
                                                       Object {
-                                                        "__html": "<p>Containerization A Complete Guide</p>",
+                                                        "__html": "<p>Containerization A Complete Guide</p> ",
                                                       }
                                                     }
                                                   />
@@ -20423,7 +20419,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                                     className="bx--card__copy"
                                                     dangerouslySetInnerHTML={
                                                       Object {
-                                                        "__html": "<p>Why should you use microservices and containers</p>",
+                                                        "__html": "<p>Why should you use microservices and containers</p> ",
                                                       }
                                                     }
                                                   />
@@ -20715,7 +20711,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                     className="bx--content-block__copy"
                     dangerouslySetInnerHTML={
                       Object {
-                        "__html": "<p>Lorem ipsum <em class=\\"bx--type-light\\">dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est.  Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales  nulla quis, <em class=\\"bx--type-light\\">consequat</em> libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
+                        "__html": "<p>Lorem ipsum <em>dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est.  Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales  nulla quis, <em>consequat</em> libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
                       }
                     }
                   />
@@ -20845,7 +20841,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                               className="bx--card__copy"
                                               dangerouslySetInnerHTML={
                                                 Object {
-                                                  "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
+                                                  "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
                                                 }
                                               }
                                             />
@@ -20961,7 +20957,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                               className="bx--card__copy"
                                               dangerouslySetInnerHTML={
                                                 Object {
-                                                  "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>",
+                                                  "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p> ",
                                                 }
                                               }
                                             />
@@ -21077,7 +21073,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                               className="bx--card__copy"
                                               dangerouslySetInnerHTML={
                                                 Object {
-                                                  "__html": "<p>Lorem ipsum dolor sit amet</p>",
+                                                  "__html": "<p>Lorem ipsum dolor sit amet</p> ",
                                                 }
                                               }
                                             />
@@ -21193,7 +21189,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                               className="bx--card__copy"
                                               dangerouslySetInnerHTML={
                                                 Object {
-                                                  "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>",
+                                                  "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p> ",
                                                 }
                                               }
                                             />
@@ -21438,7 +21434,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                             className="bx--content-item__copy"
                                             dangerouslySetInnerHTML={
                                               Object {
-                                                "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
+                                                "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
                                               }
                                             }
                                             data-autoid="dds--content-item__copy"
@@ -21633,7 +21629,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                             className="bx--content-item__copy"
                                             dangerouslySetInnerHTML={
                                               Object {
-                                                "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
+                                                "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
                                               }
                                             }
                                             data-autoid="dds--content-item__copy"
@@ -21827,7 +21823,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                             className="bx--content-item__copy"
                                             dangerouslySetInnerHTML={
                                               Object {
-                                                "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
+                                                "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
                                               }
                                             }
                                             data-autoid="dds--content-item__copy"
@@ -22096,7 +22092,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                     className="bx--content-item__copy"
                                     dangerouslySetInnerHTML={
                                       Object {
-                                        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p>",
+                                        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p> ",
                                       }
                                     }
                                     data-autoid="dds--content-item__copy"
@@ -22122,7 +22118,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                     className="bx--content-item__copy"
                                     dangerouslySetInnerHTML={
                                       Object {
-                                        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p>",
+                                        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p> ",
                                       }
                                     }
                                     data-autoid="dds--content-item__copy"
@@ -22252,7 +22248,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                       className="bx--card__copy"
                                       dangerouslySetInnerHTML={
                                         Object {
-                                          "__html": "<p>Lorem ipsum dolor sit ametttt</p>",
+                                          "__html": "<p>Lorem ipsum dolor sit ametttt</p> ",
                                         }
                                       }
                                     />
@@ -22632,7 +22628,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                             className="bx--content-block__copy"
                             dangerouslySetInnerHTML={
                               Object {
-                                "__html": "<p>Lorem ipsum <em class=\\"bx--type-light\\">dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est.  Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales  nulla quis, <em class=\\"bx--type-light\\">consequat</em> libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
+                                "__html": "<p>Lorem ipsum <em>dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est.  Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales  nulla quis, <em>consequat</em> libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
                               }
                             }
                           />
@@ -22762,7 +22758,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                       className="bx--card__copy"
                                                       dangerouslySetInnerHTML={
                                                         Object {
-                                                          "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
+                                                          "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
                                                         }
                                                       }
                                                     />
@@ -22878,7 +22874,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                       className="bx--card__copy"
                                                       dangerouslySetInnerHTML={
                                                         Object {
-                                                          "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>",
+                                                          "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p> ",
                                                         }
                                                       }
                                                     />
@@ -22994,7 +22990,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                       className="bx--card__copy"
                                                       dangerouslySetInnerHTML={
                                                         Object {
-                                                          "__html": "<p>Lorem ipsum dolor sit amet</p>",
+                                                          "__html": "<p>Lorem ipsum dolor sit amet</p> ",
                                                         }
                                                       }
                                                     />
@@ -23110,7 +23106,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                       className="bx--card__copy"
                                                       dangerouslySetInnerHTML={
                                                         Object {
-                                                          "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>",
+                                                          "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p> ",
                                                         }
                                                       }
                                                     />
@@ -23355,7 +23351,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                     className="bx--content-item__copy"
                                                     dangerouslySetInnerHTML={
                                                       Object {
-                                                        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
+                                                        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
                                                       }
                                                     }
                                                     data-autoid="dds--content-item__copy"
@@ -23550,7 +23546,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                     className="bx--content-item__copy"
                                                     dangerouslySetInnerHTML={
                                                       Object {
-                                                        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
+                                                        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
                                                       }
                                                     }
                                                     data-autoid="dds--content-item__copy"
@@ -23744,7 +23740,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                     className="bx--content-item__copy"
                                                     dangerouslySetInnerHTML={
                                                       Object {
-                                                        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
+                                                        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
                                                       }
                                                     }
                                                     data-autoid="dds--content-item__copy"
@@ -24013,7 +24009,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                             className="bx--content-item__copy"
                                             dangerouslySetInnerHTML={
                                               Object {
-                                                "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p>",
+                                                "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p> ",
                                               }
                                             }
                                             data-autoid="dds--content-item__copy"
@@ -24039,7 +24035,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                             className="bx--content-item__copy"
                                             dangerouslySetInnerHTML={
                                               Object {
-                                                "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p>",
+                                                "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p> ",
                                               }
                                             }
                                             data-autoid="dds--content-item__copy"
@@ -24169,7 +24165,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                               className="bx--card__copy"
                                               dangerouslySetInnerHTML={
                                                 Object {
-                                                  "__html": "<p>Lorem ipsum dolor sit ametttt</p>",
+                                                  "__html": "<p>Lorem ipsum dolor sit ametttt</p> ",
                                                 }
                                               }
                                             />
@@ -24387,7 +24383,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                     className="bx--card__copy"
                                                     dangerouslySetInnerHTML={
                                                       Object {
-                                                        "__html": "<p>Containerization A Complete Guide</p>",
+                                                        "__html": "<p>Containerization A Complete Guide</p> ",
                                                       }
                                                     }
                                                   />
@@ -24566,7 +24562,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                                     className="bx--card__copy"
                                                     dangerouslySetInnerHTML={
                                                       Object {
-                                                        "__html": "<p>Why should you use microservices and containers</p>",
+                                                        "__html": "<p>Why should you use microservices and containers</p> ",
                                                       }
                                                     }
                                                   />
@@ -24801,7 +24797,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                     className="bx--content-block__copy"
                     dangerouslySetInnerHTML={
                       Object {
-                        "__html": "<p>Lorem ipsum <em class=\\"bx--type-light\\">dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est.  Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales  nulla quis, <em class=\\"bx--type-light\\">consequat</em> libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.</p>",
+                        "__html": "<p>Lorem ipsum <em>dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est.  Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales  nulla quis, <em>consequat</em> libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.</p> ",
                       }
                     }
                   />
@@ -24942,7 +24938,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                   className="bx--content-item__copy"
                                   dangerouslySetInnerHTML={
                                     Object {
-                                      "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p><p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p>",
+                                      "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p> <pre><code> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</code></pre> ",
                                     }
                                   }
                                   data-autoid="dds--content-item__copy"
@@ -25083,7 +25079,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                   className="bx--content-item__copy"
                                   dangerouslySetInnerHTML={
                                     Object {
-                                      "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p><p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p>",
+                                      "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p> <pre><code> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</code></pre> ",
                                     }
                                   }
                                   data-autoid="dds--content-item__copy"
@@ -25389,7 +25385,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                       className="bx--card__copy"
                                       dangerouslySetInnerHTML={
                                         Object {
-                                          "__html": "<p>Lorem ipsum dolor</p>",
+                                          "__html": "<p>Lorem ipsum dolor</p> ",
                                         }
                                       }
                                     />
@@ -25703,7 +25699,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                             className="bx--content-block__copy"
                             dangerouslySetInnerHTML={
                               Object {
-                                "__html": "<p>Lorem ipsum <em class=\\"bx--type-light\\">dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est.  Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales  nulla quis, <em class=\\"bx--type-light\\">consequat</em> libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.</p>",
+                                "__html": "<p>Lorem ipsum <em>dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est.  Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales  nulla quis, <em>consequat</em> libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.</p> ",
                               }
                             }
                           />
@@ -25837,7 +25833,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                           className="bx--content-item__copy"
                                           dangerouslySetInnerHTML={
                                             Object {
-                                              "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p><p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p>",
+                                              "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p> <pre><code> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</code></pre> ",
                                             }
                                           }
                                           data-autoid="dds--content-item__copy"
@@ -25884,7 +25880,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                           className="bx--content-item__copy"
                                           dangerouslySetInnerHTML={
                                             Object {
-                                              "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p><p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p>",
+                                              "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p> <pre><code> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</code></pre> ",
                                             }
                                           }
                                           data-autoid="dds--content-item__copy"
@@ -26103,7 +26099,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                               className="bx--card__copy"
                                               dangerouslySetInnerHTML={
                                                 Object {
-                                                  "__html": "<p>Lorem ipsum dolor</p>",
+                                                  "__html": "<p>Lorem ipsum dolor</p> ",
                                                 }
                                               }
                                             />
@@ -26321,7 +26317,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                                     className="bx--card__copy"
                                                     dangerouslySetInnerHTML={
                                                       Object {
-                                                        "__html": "<p>Containerization A Complete Guide</p>",
+                                                        "__html": "<p>Containerization A Complete Guide</p> ",
                                                       }
                                                     }
                                                   />
@@ -26500,7 +26496,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                                     className="bx--card__copy"
                                                     dangerouslySetInnerHTML={
                                                       Object {
-                                                        "__html": "<p>Why should you use microservices and containers</p>",
+                                                        "__html": "<p>Why should you use microservices and containers</p> ",
                                                       }
                                                     }
                                                   />
@@ -26716,7 +26712,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                             className="bx--content-item__copy"
                             dangerouslySetInnerHTML={
                               Object {
-                                "__html": "<p>Lorem ipsum <em class=\\"bx--type-light\\">dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est.  Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales  nulla quis, <em class=\\"bx--type-light\\">consequat</em> libero. Here are  some common categories:</p><p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p><p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. </p>",
+                                "__html": "<p>Lorem ipsum <em>dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est.  Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales  nulla quis, <em>consequat</em> libero. Here are  some common categories:</p> <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
                               }
                             }
                             data-autoid="dds--content-item__copy"
@@ -26932,7 +26928,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                                       className="bx--card__copy"
                                       dangerouslySetInnerHTML={
                                         Object {
-                                          "__html": "<p>Lorem ipsum dolor sit ametttt</p>",
+                                          "__html": "<p>Lorem ipsum dolor sit ametttt</p> ",
                                         }
                                       }
                                     />
@@ -27233,7 +27229,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                     className="bx--content-item__copy"
                                     dangerouslySetInnerHTML={
                                       Object {
-                                        "__html": "<p>Lorem ipsum <em class=\\"bx--type-light\\">dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est.  Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales  nulla quis, <em class=\\"bx--type-light\\">consequat</em> libero. Here are  some common categories:</p><p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p><p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. </p>",
+                                        "__html": "<p>Lorem ipsum <em>dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est.  Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales  nulla quis, <em>consequat</em> libero. Here are  some common categories:</p> <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
                                       }
                                     }
                                     data-autoid="dds--content-item__copy"
@@ -27449,7 +27445,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                               className="bx--card__copy"
                                               dangerouslySetInnerHTML={
                                                 Object {
-                                                  "__html": "<p>Lorem ipsum dolor sit ametttt</p>",
+                                                  "__html": "<p>Lorem ipsum dolor sit ametttt</p> ",
                                                 }
                                               }
                                             />
@@ -27667,7 +27663,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                                     className="bx--card__copy"
                                                     dangerouslySetInnerHTML={
                                                       Object {
-                                                        "__html": "<p>Containerization A Complete Guide</p>",
+                                                        "__html": "<p>Containerization A Complete Guide</p> ",
                                                       }
                                                     }
                                                   />
@@ -27846,7 +27842,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                                     className="bx--card__copy"
                                                     dangerouslySetInnerHTML={
                                                       Object {
-                                                        "__html": "<p>Why should you use microservices and containers</p>",
+                                                        "__html": "<p>Why should you use microservices and containers</p> ",
                                                       }
                                                     }
                                                   />
@@ -28015,7 +28011,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
                     className="bx--content-group__copy"
                     dangerouslySetInnerHTML={
                       Object {
-                        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>",
+                        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> ",
                       }
                     }
                   />
@@ -28087,7 +28083,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
                                     className="bx--card__copy"
                                     dangerouslySetInnerHTML={
                                       Object {
-                                        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
+                                        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> ",
                                       }
                                     }
                                   />
@@ -28203,7 +28199,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
                                     className="bx--card__copy"
                                     dangerouslySetInnerHTML={
                                       Object {
-                                        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>",
+                                        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p> ",
                                       }
                                     }
                                   />
@@ -28319,7 +28315,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
                                     className="bx--card__copy"
                                     dangerouslySetInnerHTML={
                                       Object {
-                                        "__html": "<p>Lorem ipsum dolor sit amet</p>",
+                                        "__html": "<p>Lorem ipsum dolor sit amet</p> ",
                                       }
                                     }
                                   />
@@ -28435,7 +28431,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
                                     className="bx--card__copy"
                                     dangerouslySetInnerHTML={
                                       Object {
-                                        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>",
+                                        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p> ",
                                       }
                                     }
                                   />
@@ -28684,7 +28680,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                               className="bx--content-item-horizontal__item--copy"
                               dangerouslySetInnerHTML={
                                 Object {
-                                  "__html": "<p>Lorem ipsum dolor sit amet, <em class=\\"bx--type-light\\">consectetur</em> sellus at elit sollicitudin.</p>",
+                                  "__html": "<p>Lorem ipsum dolor sit amet, <em>consectetur</em> sellus at elit sollicitudin.</p> ",
                                 }
                               }
                               data-autoid="dds--content-item-horizontal__item--copy"
@@ -28882,11 +28878,11 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                                     <span>
                                                       External link text
                                                     </span>
-                                                    <ForwardRef(Launch20)>
+                                                    <ForwardRef(ArrowRight20)>
                                                       <Icon
                                                         height={20}
                                                         preserveAspectRatio="xMidYMid meet"
-                                                        viewBox="0 0 32 32"
+                                                        viewBox="0 0 20 20"
                                                         width={20}
                                                         xmlns="http://www.w3.org/2000/svg"
                                                       >
@@ -28895,19 +28891,16 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                                           focusable="false"
                                                           height={20}
                                                           preserveAspectRatio="xMidYMid meet"
-                                                          viewBox="0 0 32 32"
+                                                          viewBox="0 0 20 20"
                                                           width={20}
                                                           xmlns="http://www.w3.org/2000/svg"
                                                         >
                                                           <path
-                                                            d="M26,28H6a2,2,0,0,1-2-2V6A2,2,0,0,1,6,4h9V6H6V26H26V17h2v9A2,2,0,0,1,26,28Z"
-                                                          />
-                                                          <path
-                                                            d="M21 2L21 4 26.59 4 18 12.59 19.41 14 28 5.41 28 11 30 11 30 2 21 2z"
+                                                            d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
                                                           />
                                                         </svg>
                                                       </Icon>
-                                                    </ForwardRef(Launch20)>
+                                                    </ForwardRef(ArrowRight20)>
                                                   </a>
                                                 </Link>
                                               </div>
@@ -28980,7 +28973,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                               className="bx--content-item-horizontal__item--copy"
                               dangerouslySetInnerHTML={
                                 Object {
-                                  "__html": "<p>Lorem ipsum dolor sit amet, <em class=\\"bx--type-light\\">consectetur</em> adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.</p>",
+                                  "__html": "<p>Lorem ipsum dolor sit amet, <em>consectetur</em> adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.</p> ",
                                 }
                               }
                               data-autoid="dds--content-item-horizontal__item--copy"
@@ -29178,11 +29171,11 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                                     <span>
                                                       External link text
                                                     </span>
-                                                    <ForwardRef(Launch20)>
+                                                    <ForwardRef(ArrowRight20)>
                                                       <Icon
                                                         height={20}
                                                         preserveAspectRatio="xMidYMid meet"
-                                                        viewBox="0 0 32 32"
+                                                        viewBox="0 0 20 20"
                                                         width={20}
                                                         xmlns="http://www.w3.org/2000/svg"
                                                       >
@@ -29191,19 +29184,16 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                                           focusable="false"
                                                           height={20}
                                                           preserveAspectRatio="xMidYMid meet"
-                                                          viewBox="0 0 32 32"
+                                                          viewBox="0 0 20 20"
                                                           width={20}
                                                           xmlns="http://www.w3.org/2000/svg"
                                                         >
                                                           <path
-                                                            d="M26,28H6a2,2,0,0,1-2-2V6A2,2,0,0,1,6,4h9V6H6V26H26V17h2v9A2,2,0,0,1,26,28Z"
-                                                          />
-                                                          <path
-                                                            d="M21 2L21 4 26.59 4 18 12.59 19.41 14 28 5.41 28 11 30 11 30 2 21 2z"
+                                                            d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
                                                           />
                                                         </svg>
                                                       </Icon>
-                                                    </ForwardRef(Launch20)>
+                                                    </ForwardRef(ArrowRight20)>
                                                   </a>
                                                 </Link>
                                               </div>
@@ -29269,7 +29259,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                               className="bx--content-item-horizontal__item--copy"
                               dangerouslySetInnerHTML={
                                 Object {
-                                  "__html": "<p>Lorem ipsum dolor sit amet, <em class=\\"bx--type-light\\">consectetur</em> adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.</p>",
+                                  "__html": "<p>Lorem ipsum dolor sit amet, <em>consectetur</em> adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.</p> ",
                                 }
                               }
                               data-autoid="dds--content-item-horizontal__item--copy"
@@ -29512,7 +29502,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupPictograms Default 1`] = `
                   className="bx--content-group__copy"
                   dangerouslySetInnerHTML={
                     Object {
-                      "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>",
+                      "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> ",
                     }
                   }
                 />
@@ -29608,7 +29598,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupPictograms Default 1`] = `
                                 className="bx--content-item__copy"
                                 dangerouslySetInnerHTML={
                                   Object {
-                                    "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
+                                    "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
                                   }
                                 }
                                 data-autoid="dds--content-item__copy"
@@ -29707,7 +29697,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupPictograms Default 1`] = `
                                 className="bx--content-item__copy"
                                 dangerouslySetInnerHTML={
                                   Object {
-                                    "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
+                                    "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
                                   }
                                 }
                                 data-autoid="dds--content-item__copy"
@@ -29806,7 +29796,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupPictograms Default 1`] = `
                                 className="bx--content-item__copy"
                                 dangerouslySetInnerHTML={
                                   Object {
-                                    "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
+                                    "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
                                   }
                                 }
                                 data-autoid="dds--content-item__copy"
@@ -29937,7 +29927,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupSimple Default 1`] = `
                     className="bx--content-group__copy"
                     dangerouslySetInnerHTML={
                       Object {
-                        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis magna.</p>",
+                        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis magna.</p> ",
                       }
                     }
                   />
@@ -30054,7 +30044,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupSimple Default 1`] = `
                           className="bx--content-item__copy"
                           dangerouslySetInnerHTML={
                             Object {
-                              "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p>",
+                              "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p> ",
                             }
                           }
                           data-autoid="dds--content-item__copy"
@@ -30080,7 +30070,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupSimple Default 1`] = `
                           className="bx--content-item__copy"
                           dangerouslySetInnerHTML={
                             Object {
-                              "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p>",
+                              "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum tortor. Sed id pellentesque diam. In ut quam id mauris finibus efficitur quis ut arcu. Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem. Curabitur pretium elit non blandit lobortis. Donec quis pretium odio, in dignissim sapien.</p> ",
                             }
                           }
                           data-autoid="dds--content-item__copy"
@@ -30205,7 +30195,7 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupSimple Default 1`] = `
                                       className="bx--card__copy"
                                       dangerouslySetInnerHTML={
                                         Object {
-                                          "__html": "<p>Lorem ipsum dolor sit ametttt</p>",
+                                          "__html": "<p>Lorem ipsum dolor sit ametttt</p> ",
                                         }
                                       }
                                     />
@@ -30507,7 +30497,7 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockLarge Default 1`] = `
                           className="bx--card__copy"
                           dangerouslySetInnerHTML={
                             Object {
-                              "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..</p>",
+                              "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..</p> ",
                             }
                           }
                         />
@@ -30930,7 +30920,7 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                     className="bx--content-block__copy"
                     dangerouslySetInnerHTML={
                       Object {
-                        "__html": "<p>Automate your software release process with continuous delivery (CD)—the most  critical part of adopting DevOps. Build, test, and deploy code changes quickly,  ensuring software is always ready for deployment.</p>",
+                        "__html": "<p>Automate your software release process with continuous delivery (CD)—the most  critical part of adopting DevOps. Build, test, and deploy code changes quickly,  ensuring software is always ready for deployment.</p> ",
                       }
                     }
                   />
@@ -31327,11 +31317,11 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                           <span>
                                             View all products
                                           </span>
-                                          <ForwardRef(Download20)>
+                                          <ForwardRef(ArrowRight20)>
                                             <Icon
                                               height={20}
                                               preserveAspectRatio="xMidYMid meet"
-                                              viewBox="0 0 32 32"
+                                              viewBox="0 0 20 20"
                                               width={20}
                                               xmlns="http://www.w3.org/2000/svg"
                                             >
@@ -31340,19 +31330,16 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                                 focusable="false"
                                                 height={20}
                                                 preserveAspectRatio="xMidYMid meet"
-                                                viewBox="0 0 32 32"
+                                                viewBox="0 0 20 20"
                                                 width={20}
                                                 xmlns="http://www.w3.org/2000/svg"
                                               >
                                                 <path
-                                                  d="M26 15L24.59 13.59 17 21.17 17 2 15 2 15 21.17 7.41 13.59 6 15 16 25 26 15z"
-                                                />
-                                                <path
-                                                  d="M26,24v4H6V24H4v4H4a2,2,0,0,0,2,2H26a2,2,0,0,0,2-2h0V24Z"
+                                                  d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
                                                 />
                                               </svg>
                                             </Icon>
-                                          </ForwardRef(Download20)>
+                                          </ForwardRef(ArrowRight20)>
                                         </a>
                                       </Link>
                                     </div>
@@ -32160,7 +32147,7 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                           className="bx--card__copy"
                                           dangerouslySetInnerHTML={
                                             Object {
-                                              "__html": "<p>Lorem ipsum dolor sit amet</p>",
+                                              "__html": "<p>Lorem ipsum dolor sit amet</p> ",
                                             }
                                           }
                                         />
@@ -32327,7 +32314,7 @@ exports[`Storyshots Patterns (Sections)|CTASection Default 1`] = `
                     className="bx--content-block__copy"
                     dangerouslySetInnerHTML={
                       Object {
-                        "__html": "<p>Want to discuss your options with a DevOps expert? Contact our sales team to evaluate your needs.</p>",
+                        "__html": "<p>Want to discuss your options with a DevOps expert? Contact our sales team to evaluate your needs.</p> ",
                       }
                     }
                   />
@@ -32576,7 +32563,7 @@ exports[`Storyshots Patterns (Sections)|CTASection With Content Items 1`] = `
                     className="bx--content-block__copy"
                     dangerouslySetInnerHTML={
                       Object {
-                        "__html": "<p>Want to discuss your options with a DevOps expert? Contact our sales team to evaluate your needs.</p>",
+                        "__html": "<p>Want to discuss your options with a DevOps expert? Contact our sales team to evaluate your needs.</p> ",
                       }
                     }
                   />
@@ -32735,7 +32722,7 @@ exports[`Storyshots Patterns (Sections)|CTASection With Content Items 1`] = `
                         className="bx--content-item__copy"
                         dangerouslySetInnerHTML={
                           Object {
-                            "__html": "<p>  IBM DevOps partners have a wide range of expertise.  Find one to build the right solution for you.  </p>",
+                            "__html": "<pre><code> IBM DevOps partners have a wide range of expertise.  Find one to build the right solution for you.</code></pre> ",
                           }
                         }
                         data-autoid="dds--content-item__copy"
@@ -32850,7 +32837,7 @@ exports[`Storyshots Patterns (Sections)|CTASection With Content Items 1`] = `
                         className="bx--content-item__copy"
                         dangerouslySetInnerHTML={
                           Object {
-                            "__html": "<p>Dig into more self-directed learning about DevOps methodologies.</p>",
+                            "__html": "<p>Dig into more self-directed learning about DevOps methodologies.</p> ",
                           }
                         }
                         data-autoid="dds--content-item__copy"
@@ -34014,7 +34001,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                 className="bx--card__copy"
                                 dangerouslySetInnerHTML={
                                   Object {
-                                    "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
+                                    "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
                                   }
                                 }
                               />
@@ -34128,7 +34115,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                 className="bx--card__copy"
                                 dangerouslySetInnerHTML={
                                   Object {
-                                    "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
+                                    "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
                                   }
                                 }
                               />
@@ -34242,7 +34229,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                 className="bx--card__copy"
                                 dangerouslySetInnerHTML={
                                   Object {
-                                    "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
+                                    "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
                                   }
                                 }
                               />
@@ -34356,7 +34343,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                 className="bx--card__copy"
                                 dangerouslySetInnerHTML={
                                   Object {
-                                    "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
+                                    "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
                                   }
                                 }
                               />
@@ -34470,7 +34457,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                 className="bx--card__copy"
                                 dangerouslySetInnerHTML={
                                   Object {
-                                    "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p>",
+                                    "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.</p> ",
                                   }
                                 }
                               />
