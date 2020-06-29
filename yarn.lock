@@ -8416,19 +8416,19 @@ carbon-components-react@7.11.3:
     warning "^3.0.0"
     window-or-global "^1.0.1"
 
-carbon-components@10.11.2:
-  version "10.11.2"
-  resolved "https://registry.yarnpkg.com/carbon-components/-/carbon-components-10.11.2.tgz#c2e6e2168e548010d3033e3c620e3bdc4c1182c7"
-  integrity sha512-bclmy7lXH3/GXXh5Udwcup51i+MUDbDle1kUEilRF9e6phkVhn7I+qN7y/xuRfE4PuXsBC7CtMVNEjtnie6Qow==
+carbon-components@10.11.0:
+  version "10.11.0"
+  resolved "https://registry.yarnpkg.com/carbon-components/-/carbon-components-10.11.0.tgz#14216f02a08d3a298c5cd47710d6dd17eb955bea"
+  integrity sha512-NVcb5vswXKZE4B7QwFfb2M5ORU86pXL3mWC5j/WFYmbmn9k5BaEAPpVJuWHiyt1KCjKPcXHLLleYD0uixTGGtA==
   dependencies:
     flatpickr "4.6.1"
     lodash.debounce "^4.0.8"
     warning "^3.0.0"
 
-carbon-components@^10.11.0:
-  version "10.14.0"
-  resolved "https://registry.yarnpkg.com/carbon-components/-/carbon-components-10.14.0.tgz#1d688b8c03e082b8bac35f173246da4bf7d24f25"
-  integrity sha512-uE2BbCSxXH3zcJR7qJplGuoJ98g4MIJK3nyy00W7rHnzLww70x012EtbZWa2dho6qK0lzlo7m/t/IzotCYpHAw==
+carbon-components@10.11.2:
+  version "10.11.2"
+  resolved "https://registry.yarnpkg.com/carbon-components/-/carbon-components-10.11.2.tgz#c2e6e2168e548010d3033e3c620e3bdc4c1182c7"
+  integrity sha512-bclmy7lXH3/GXXh5Udwcup51i+MUDbDle1kUEilRF9e6phkVhn7I+qN7y/xuRfE4PuXsBC7CtMVNEjtnie6Qow==
   dependencies:
     flatpickr "4.6.1"
     lodash.debounce "^4.0.8"
@@ -8444,7 +8444,7 @@ carbon-components@^10.7.4:
     lodash.debounce "^4.0.8"
     warning "^3.0.0"
 
-carbon-custom-elements@^1.0.0:
+carbon-custom-elements@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/carbon-custom-elements/-/carbon-custom-elements-1.0.0.tgz#4507e05b57336e6cf6d0f55865b4c5ce7160826c"
   integrity sha512-BnRMixkHcDg3M2fuSug8t1rMjWwhJk1wUUCPTPsf827SdyOyr6d8DmlXtGOy4vfBJ3jjA6FwbUQLVWA031HkMw==
