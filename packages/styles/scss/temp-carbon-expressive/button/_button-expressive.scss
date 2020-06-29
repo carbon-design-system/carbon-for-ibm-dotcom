@@ -19,15 +19,8 @@
   $TEMP--button-icon-size: temp--get-icon-size($TEMP--button-type);
 
   .#{$prefix}--btn:not(.#{$prefix}--btn--sm) {
-    @include carbon--type-style($TEMP--button-type);
-    $button-padding: temp--padding-diff(
-      $TEMP--button-height,
-      $TEMP--button-type,
-      $border
-    );
-
-    padding-top: $button-padding;
-    padding-bottom: $button-padding;
+    padding-top: 0.5625rem;
+    padding-bottom: 0.5625rem;
 
     .#{$prefix}--btn__icon {
       width: $TEMP--button-icon-size;

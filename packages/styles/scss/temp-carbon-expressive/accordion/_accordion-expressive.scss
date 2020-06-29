@@ -22,11 +22,7 @@
     overflow: hidden;
 
     &__heading {
-      padding: temp--padding-diff(
-          $TEMP--accordion-height,
-          $TEMP--accordion-type
-        )
-        0;
+      padding: 0.75rem 0;
     }
 
     &__title {
