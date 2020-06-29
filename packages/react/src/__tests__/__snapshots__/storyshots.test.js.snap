@@ -278,7 +278,6 @@ exports[`Storyshots Components|CTA Default 1`] = `
                         </span>
                         <ForwardRef(ArrowRight20)>
                           <Icon
-                            fill="currentColor"
                             height={20}
                             preserveAspectRatio="xMidYMid meet"
                             viewBox="0 0 20 20"
@@ -287,7 +286,6 @@ exports[`Storyshots Components|CTA Default 1`] = `
                           >
                             <svg
                               aria-hidden={true}
-                              fill="currentColor"
                               focusable="false"
                               height={20}
                               preserveAspectRatio="xMidYMid meet"
@@ -410,7 +408,6 @@ exports[`Storyshots Components|Card Default 1`] = `
                       >
                         <Icon
                           className="bx--card__cta"
-                          fill="currentColor"
                           height={20}
                           preserveAspectRatio="xMidYMid meet"
                           src={
@@ -426,7 +423,6 @@ exports[`Storyshots Components|Card Default 1`] = `
                           <svg
                             aria-hidden={true}
                             className="bx--card__cta"
-                            fill="currentColor"
                             focusable="false"
                             height={20}
                             preserveAspectRatio="xMidYMid meet"
@@ -613,7 +609,6 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                           >
                             <Icon
                               className="bx--card__cta"
-                              fill="currentColor"
                               height={20}
                               preserveAspectRatio="xMidYMid meet"
                               src={
@@ -629,7 +624,6 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                               <svg
                                 aria-hidden={true}
                                 className="bx--card__cta"
-                                fill="currentColor"
                                 focusable="false"
                                 height={20}
                                 preserveAspectRatio="xMidYMid meet"
@@ -729,7 +723,6 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                           >
                             <Icon
                               className="bx--card__cta"
-                              fill="currentColor"
                               height={20}
                               preserveAspectRatio="xMidYMid meet"
                               src={
@@ -745,7 +738,6 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                               <svg
                                 aria-hidden={true}
                                 className="bx--card__cta"
-                                fill="currentColor"
                                 focusable="false"
                                 height={20}
                                 preserveAspectRatio="xMidYMid meet"
@@ -845,7 +837,6 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                           >
                             <Icon
                               className="bx--card__cta"
-                              fill="currentColor"
                               height={20}
                               preserveAspectRatio="xMidYMid meet"
                               src={
@@ -861,7 +852,6 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                               <svg
                                 aria-hidden={true}
                                 className="bx--card__cta"
-                                fill="currentColor"
                                 focusable="false"
                                 height={20}
                                 preserveAspectRatio="xMidYMid meet"
@@ -961,7 +951,6 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                           >
                             <Icon
                               className="bx--card__cta"
-                              fill="currentColor"
                               height={20}
                               preserveAspectRatio="xMidYMid meet"
                               src={
@@ -977,7 +966,6 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                               <svg
                                 aria-hidden={true}
                                 className="bx--card__cta"
-                                fill="currentColor"
                                 focusable="false"
                                 height={20}
                                 preserveAspectRatio="xMidYMid meet"
@@ -1077,7 +1065,6 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                           >
                             <Icon
                               className="bx--card__cta"
-                              fill="currentColor"
                               height={20}
                               preserveAspectRatio="xMidYMid meet"
                               src={
@@ -1093,7 +1080,6 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                               <svg
                                 aria-hidden={true}
                                 className="bx--card__cta"
-                                fill="currentColor"
                                 focusable="false"
                                 height={20}
                                 preserveAspectRatio="xMidYMid meet"
@@ -1180,7 +1166,6 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                           >
                             <Icon
                               className="bx--card__cta"
-                              fill="currentColor"
                               height={20}
                               preserveAspectRatio="xMidYMid meet"
                               src={
@@ -1196,7 +1181,6 @@ exports[`Storyshots Components|CardGroup Default 1`] = `
                               <svg
                                 aria-hidden={true}
                                 className="bx--card__cta"
-                                fill="currentColor"
                                 focusable="false"
                                 height={20}
                                 preserveAspectRatio="xMidYMid meet"
@@ -1339,7 +1323,6 @@ exports[`Storyshots Components|CardLink Default 1`] = `
                       >
                         <Icon
                           className="bx--card__cta"
-                          fill="currentColor"
                           height={20}
                           preserveAspectRatio="xMidYMid meet"
                           src={
@@ -1355,7 +1338,6 @@ exports[`Storyshots Components|CardLink Default 1`] = `
                           <svg
                             aria-hidden={true}
                             className="bx--card__cta"
-                            fill="currentColor"
                             focusable="false"
                             height={20}
                             preserveAspectRatio="xMidYMid meet"
@@ -1575,7 +1557,6 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
                                           </span>
                                           <ForwardRef(ArrowRight20)>
                                             <Icon
-                                              fill="currentColor"
                                               height={20}
                                               preserveAspectRatio="xMidYMid meet"
                                               viewBox="0 0 20 20"
@@ -1584,7 +1565,6 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
                                             >
                                               <svg
                                                 aria-hidden={true}
-                                                fill="currentColor"
                                                 focusable="false"
                                                 height={20}
                                                 preserveAspectRatio="xMidYMid meet"
@@ -1673,7 +1653,6 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
                                           </span>
                                           <ForwardRef(Launch20)>
                                             <Icon
-                                              fill="currentColor"
                                               height={20}
                                               preserveAspectRatio="xMidYMid meet"
                                               viewBox="0 0 32 32"
@@ -1682,7 +1661,6 @@ exports[`Storyshots Components|ContentItemHorizontal Default 1`] = `
                                             >
                                               <svg
                                                 aria-hidden={true}
-                                                fill="currentColor"
                                                 focusable="false"
                                                 height={20}
                                                 preserveAspectRatio="xMidYMid meet"
@@ -1828,7 +1806,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                       >
                         <ForwardRef(Menu20)>
                           <Icon
-                            fill="currentColor"
                             height={20}
                             preserveAspectRatio="xMidYMid meet"
                             viewBox="0 0 20 20"
@@ -1837,7 +1814,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                           >
                             <svg
                               aria-hidden={true}
-                              fill="currentColor"
                               focusable="false"
                               height={20}
                               preserveAspectRatio="xMidYMid meet"
@@ -1942,7 +1918,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                               >
                                 <ForwardRef(Search20)>
                                   <Icon
-                                    fill="currentColor"
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
                                     viewBox="0 0 32 32"
@@ -1951,7 +1926,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                   >
                                     <svg
                                       aria-hidden={true}
-                                      fill="currentColor"
                                       focusable="false"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
@@ -1982,7 +1956,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                               >
                                 <ForwardRef(Close20)>
                                   <Icon
-                                    fill="currentColor"
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
                                     viewBox="0 0 32 32"
@@ -1991,7 +1964,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                   >
                                     <svg
                                       aria-hidden={true}
-                                      fill="currentColor"
                                       focusable="false"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
@@ -2101,7 +2073,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                   >
                                     <ForwardRef(User20)>
                                       <Icon
-                                        fill="currentColor"
                                         height={20}
                                         preserveAspectRatio="xMidYMid meet"
                                         viewBox="0 0 32 32"
@@ -2110,7 +2081,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                       >
                                         <svg
                                           aria-hidden={true}
-                                          fill="currentColor"
                                           focusable="false"
                                           height={20}
                                           preserveAspectRatio="xMidYMid meet"
@@ -2311,7 +2281,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                       <Icon
                                         aria-label="menu icon"
                                         className="bx--tableofcontents__mobile__select__icon"
-                                        fill="currentColor"
                                         height={20}
                                         preserveAspectRatio="xMidYMid meet"
                                         viewBox="0 0 32 32"
@@ -2321,7 +2290,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                         <svg
                                           aria-label="menu icon"
                                           className="bx--tableofcontents__mobile__select__icon"
-                                          fill="currentColor"
                                           focusable="false"
                                           height={20}
                                           preserveAspectRatio="xMidYMid meet"
@@ -2631,7 +2599,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                       </span>
                                                                       <ForwardRef(ArrowRight20)>
                                                                         <Icon
-                                                                          fill="currentColor"
                                                                           height={20}
                                                                           preserveAspectRatio="xMidYMid meet"
                                                                           viewBox="0 0 20 20"
@@ -2640,7 +2607,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                         >
                                                                           <svg
                                                                             aria-hidden={true}
-                                                                            fill="currentColor"
                                                                             focusable="false"
                                                                             height={20}
                                                                             preserveAspectRatio="xMidYMid meet"
@@ -2729,7 +2695,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                       </span>
                                                                       <ForwardRef(ArrowRight20)>
                                                                         <Icon
-                                                                          fill="currentColor"
                                                                           height={20}
                                                                           preserveAspectRatio="xMidYMid meet"
                                                                           viewBox="0 0 20 20"
@@ -2738,7 +2703,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                         >
                                                                           <svg
                                                                             aria-hidden={true}
-                                                                            fill="currentColor"
                                                                             focusable="false"
                                                                             height={20}
                                                                             preserveAspectRatio="xMidYMid meet"
@@ -2827,7 +2791,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                       </span>
                                                                       <ForwardRef(ArrowRight20)>
                                                                         <Icon
-                                                                          fill="currentColor"
                                                                           height={20}
                                                                           preserveAspectRatio="xMidYMid meet"
                                                                           viewBox="0 0 20 20"
@@ -2836,7 +2799,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                         >
                                                                           <svg
                                                                             aria-hidden={true}
-                                                                            fill="currentColor"
                                                                             focusable="false"
                                                                             height={20}
                                                                             preserveAspectRatio="xMidYMid meet"
@@ -2985,7 +2947,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                     aria-hidden="true"
                                                                     aria-label="right arrow icon"
                                                                     className="bx--btn__icon"
-                                                                    fill="currentColor"
                                                                     height={20}
                                                                     preserveAspectRatio="xMidYMid meet"
                                                                     viewBox="0 0 20 20"
@@ -2996,7 +2957,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                       aria-hidden="true"
                                                                       aria-label="right arrow icon"
                                                                       className="bx--btn__icon"
-                                                                      fill="currentColor"
                                                                       focusable="false"
                                                                       height={20}
                                                                       preserveAspectRatio="xMidYMid meet"
@@ -3203,7 +3163,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                             </span>
                                                             <ForwardRef(ArrowRight20)>
                                                               <Icon
-                                                                fill="currentColor"
                                                                 height={20}
                                                                 preserveAspectRatio="xMidYMid meet"
                                                                 viewBox="0 0 20 20"
@@ -3212,7 +3171,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                               >
                                                                 <svg
                                                                   aria-hidden={true}
-                                                                  fill="currentColor"
                                                                   focusable="false"
                                                                   height={20}
                                                                   preserveAspectRatio="xMidYMid meet"
@@ -3389,7 +3347,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                             </span>
                                                             <ForwardRef(ArrowRight20)>
                                                               <Icon
-                                                                fill="currentColor"
                                                                 height={20}
                                                                 preserveAspectRatio="xMidYMid meet"
                                                                 viewBox="0 0 20 20"
@@ -3398,7 +3355,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                               >
                                                                 <svg
                                                                   aria-hidden={true}
-                                                                  fill="currentColor"
                                                                   focusable="false"
                                                                   height={20}
                                                                   preserveAspectRatio="xMidYMid meet"
@@ -3595,7 +3551,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                             >
                                               <Icon
                                                 className="bx--card__cta"
-                                                fill="currentColor"
                                                 height={20}
                                                 preserveAspectRatio="xMidYMid meet"
                                                 src={
@@ -3611,7 +3566,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                 <svg
                                                   aria-hidden={true}
                                                   className="bx--card__cta"
-                                                  fill="currentColor"
                                                   focusable="false"
                                                   height={20}
                                                   preserveAspectRatio="xMidYMid meet"
@@ -3950,7 +3904,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                             </span>
                                                             <ForwardRef(ArrowRight20)>
                                                               <Icon
-                                                                fill="currentColor"
                                                                 height={20}
                                                                 preserveAspectRatio="xMidYMid meet"
                                                                 viewBox="0 0 20 20"
@@ -3959,7 +3912,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                               >
                                                                 <svg
                                                                   aria-hidden={true}
-                                                                  fill="currentColor"
                                                                   focusable="false"
                                                                   height={20}
                                                                   preserveAspectRatio="xMidYMid meet"
@@ -4269,7 +4221,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                           >
                                                             <Icon
                                                               className="bx--card__cta"
-                                                              fill="currentColor"
                                                               height={20}
                                                               preserveAspectRatio="xMidYMid meet"
                                                               src={
@@ -4285,7 +4236,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                               <svg
                                                                 aria-hidden={true}
                                                                 className="bx--card__cta"
-                                                                fill="currentColor"
                                                                 focusable="false"
                                                                 height={20}
                                                                 preserveAspectRatio="xMidYMid meet"
@@ -4684,7 +4634,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                         </span>
                                                                         <ForwardRef(ArrowRight20)>
                                                                           <Icon
-                                                                            fill="currentColor"
                                                                             height={20}
                                                                             preserveAspectRatio="xMidYMid meet"
                                                                             viewBox="0 0 20 20"
@@ -4693,7 +4642,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                           >
                                                                             <svg
                                                                               aria-hidden={true}
-                                                                              fill="currentColor"
                                                                               focusable="false"
                                                                               height={20}
                                                                               preserveAspectRatio="xMidYMid meet"
@@ -4772,7 +4720,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                         </span>
                                                                         <ForwardRef(Launch20)>
                                                                           <Icon
-                                                                            fill="currentColor"
                                                                             height={20}
                                                                             preserveAspectRatio="xMidYMid meet"
                                                                             viewBox="0 0 32 32"
@@ -4781,7 +4728,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                           >
                                                                             <svg
                                                                               aria-hidden={true}
-                                                                              fill="currentColor"
                                                                               focusable="false"
                                                                               height={20}
                                                                               preserveAspectRatio="xMidYMid meet"
@@ -4956,7 +4902,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                         </span>
                                                                         <ForwardRef(ArrowRight20)>
                                                                           <Icon
-                                                                            fill="currentColor"
                                                                             height={20}
                                                                             preserveAspectRatio="xMidYMid meet"
                                                                             viewBox="0 0 20 20"
@@ -4965,7 +4910,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                           >
                                                                             <svg
                                                                               aria-hidden={true}
-                                                                              fill="currentColor"
                                                                               focusable="false"
                                                                               height={20}
                                                                               preserveAspectRatio="xMidYMid meet"
@@ -5044,7 +4988,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                         </span>
                                                                         <ForwardRef(Launch20)>
                                                                           <Icon
-                                                                            fill="currentColor"
                                                                             height={20}
                                                                             preserveAspectRatio="xMidYMid meet"
                                                                             viewBox="0 0 32 32"
@@ -5053,7 +4996,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                           >
                                                                             <svg
                                                                               aria-hidden={true}
-                                                                              fill="currentColor"
                                                                               focusable="false"
                                                                               height={20}
                                                                               preserveAspectRatio="xMidYMid meet"
@@ -5518,7 +5460,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                               >
                                                                 <Icon
                                                                   className="bx--card__cta"
-                                                                  fill="currentColor"
                                                                   height={20}
                                                                   preserveAspectRatio="xMidYMid meet"
                                                                   src={
@@ -5534,7 +5475,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                                   <svg
                                                                     aria-hidden={true}
                                                                     className="bx--card__cta"
-                                                                    fill="currentColor"
                                                                     focusable="false"
                                                                     height={20}
                                                                     preserveAspectRatio="xMidYMid meet"
@@ -5779,7 +5719,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                           >
                                                             <Icon
                                                               className="bx--card__cta"
-                                                              fill="currentColor"
                                                               height={20}
                                                               preserveAspectRatio="xMidYMid meet"
                                                               src={
@@ -5795,7 +5734,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                               <svg
                                                                 aria-hidden={true}
                                                                 className="bx--card__cta"
-                                                                fill="currentColor"
                                                                 focusable="false"
                                                                 height={20}
                                                                 preserveAspectRatio="xMidYMid meet"
@@ -5916,7 +5854,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                           >
                                                             <Icon
                                                               className="bx--card__cta"
-                                                              fill="currentColor"
                                                               height={20}
                                                               preserveAspectRatio="xMidYMid meet"
                                                               src={
@@ -5932,7 +5869,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                               <svg
                                                                 aria-hidden={true}
                                                                 className="bx--card__cta"
-                                                                fill="currentColor"
                                                                 focusable="false"
                                                                 height={20}
                                                                 preserveAspectRatio="xMidYMid meet"
@@ -6053,7 +5989,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                           >
                                                             <Icon
                                                               className="bx--card__cta"
-                                                              fill="currentColor"
                                                               height={20}
                                                               preserveAspectRatio="xMidYMid meet"
                                                               src={
@@ -6069,7 +6004,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                               <svg
                                                                 aria-hidden={true}
                                                                 className="bx--card__cta"
-                                                                fill="currentColor"
                                                                 focusable="false"
                                                                 height={20}
                                                                 preserveAspectRatio="xMidYMid meet"
@@ -6224,7 +6158,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                         Link with Icon
                                                         <ForwardRef(ArrowRight20)>
                                                           <Icon
-                                                            fill="currentColor"
                                                             height={20}
                                                             preserveAspectRatio="xMidYMid meet"
                                                             viewBox="0 0 20 20"
@@ -6233,7 +6166,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                           >
                                                             <svg
                                                               aria-hidden={true}
-                                                              fill="currentColor"
                                                               focusable="false"
                                                               height={20}
                                                               preserveAspectRatio="xMidYMid meet"
@@ -6525,7 +6457,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                     aria-hidden="true"
                                                     aria-label="right arrow icon"
                                                     className="bx--btn__icon"
-                                                    fill="currentColor"
                                                     height={20}
                                                     preserveAspectRatio="xMidYMid meet"
                                                     viewBox="0 0 20 20"
@@ -6536,7 +6467,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                       aria-hidden="true"
                                                       aria-label="right arrow icon"
                                                       className="bx--btn__icon"
-                                                      fill="currentColor"
                                                       focusable="false"
                                                       height={20}
                                                       preserveAspectRatio="xMidYMid meet"
@@ -6656,7 +6586,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                 </span>
                                                 <ForwardRef(ArrowRight20)>
                                                   <Icon
-                                                    fill="currentColor"
                                                     height={20}
                                                     preserveAspectRatio="xMidYMid meet"
                                                     viewBox="0 0 20 20"
@@ -6665,7 +6594,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                   >
                                                     <svg
                                                       aria-hidden={true}
-                                                      fill="currentColor"
                                                       focusable="false"
                                                       height={20}
                                                       preserveAspectRatio="xMidYMid meet"
@@ -6773,7 +6701,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                 </span>
                                                 <ForwardRef(ArrowRight20)>
                                                   <Icon
-                                                    fill="currentColor"
                                                     height={20}
                                                     preserveAspectRatio="xMidYMid meet"
                                                     viewBox="0 0 20 20"
@@ -6782,7 +6709,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                   >
                                                     <svg
                                                       aria-hidden={true}
-                                                      fill="currentColor"
                                                       focusable="false"
                                                       height={20}
                                                       preserveAspectRatio="xMidYMid meet"
@@ -6916,7 +6842,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                           aria-hidden="true"
                           aria-label="Earth Filled Icon"
                           className="bx--btn__icon"
-                          fill="currentColor"
                           height={20}
                           preserveAspectRatio="xMidYMid meet"
                           viewBox="0 0 32 32"
@@ -6927,7 +6852,6 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                             aria-hidden="true"
                             aria-label="Earth Filled Icon"
                             className="bx--btn__icon"
-                            fill="currentColor"
                             focusable="false"
                             height={20}
                             preserveAspectRatio="xMidYMid meet"
@@ -7027,7 +6951,6 @@ exports[`Storyshots Components|Expressive Modal Default 1`] = `
                   <Icon
                     aria-label="Close"
                     className="bx--modal-close__icon"
-                    fill="currentColor"
                     height={20}
                     preserveAspectRatio="xMidYMid meet"
                     viewBox="0 0 32 32"
@@ -7037,7 +6960,6 @@ exports[`Storyshots Components|Expressive Modal Default 1`] = `
                     <svg
                       aria-label="Close"
                       className="bx--modal-close__icon"
-                      fill="currentColor"
                       focusable="false"
                       height={20}
                       preserveAspectRatio="xMidYMid meet"
@@ -7138,7 +7060,6 @@ exports[`Storyshots Components|Expressive Modal Default 1`] = `
                                 <Icon
                                   aria-hidden="true"
                                   className="bx--btn__icon"
-                                  fill="currentColor"
                                   height={20}
                                   preserveAspectRatio="xMidYMid meet"
                                   viewBox="0 0 20 20"
@@ -7148,7 +7069,6 @@ exports[`Storyshots Components|Expressive Modal Default 1`] = `
                                   <svg
                                     aria-hidden={true}
                                     className="bx--btn__icon"
-                                    fill="currentColor"
                                     focusable="false"
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
@@ -7256,7 +7176,6 @@ exports[`Storyshots Components|Expressive Modal Expanded 1`] = `
                   <Icon
                     aria-label="Close"
                     className="bx--modal-close__icon"
-                    fill="currentColor"
                     height={20}
                     preserveAspectRatio="xMidYMid meet"
                     viewBox="0 0 32 32"
@@ -7266,7 +7185,6 @@ exports[`Storyshots Components|Expressive Modal Expanded 1`] = `
                     <svg
                       aria-label="Close"
                       className="bx--modal-close__icon"
-                      fill="currentColor"
                       focusable="false"
                       height={20}
                       preserveAspectRatio="xMidYMid meet"
@@ -7367,7 +7285,6 @@ exports[`Storyshots Components|Expressive Modal Expanded 1`] = `
                                 <Icon
                                   aria-hidden="true"
                                   className="bx--btn__icon"
-                                  fill="currentColor"
                                   height={20}
                                   preserveAspectRatio="xMidYMid meet"
                                   viewBox="0 0 20 20"
@@ -7377,7 +7294,6 @@ exports[`Storyshots Components|Expressive Modal Expanded 1`] = `
                                   <svg
                                     aria-hidden={true}
                                     className="bx--btn__icon"
-                                    fill="currentColor"
                                     focusable="false"
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
@@ -7553,7 +7469,6 @@ exports[`Storyshots Components|FeatureCard Default 1`] = `
                         >
                           <Icon
                             className="bx--card__cta"
-                            fill="currentColor"
                             height={20}
                             preserveAspectRatio="xMidYMid meet"
                             src={
@@ -7569,7 +7484,6 @@ exports[`Storyshots Components|FeatureCard Default 1`] = `
                             <svg
                               aria-hidden={true}
                               className="bx--card__cta"
-                              fill="currentColor"
                               focusable="false"
                               height={20}
                               preserveAspectRatio="xMidYMid meet"
@@ -7722,7 +7636,6 @@ exports[`Storyshots Components|Footer Default 1`] = `
                         aria-hidden="true"
                         aria-label="Earth Filled Icon"
                         className="bx--btn__icon"
-                        fill="currentColor"
                         height={20}
                         preserveAspectRatio="xMidYMid meet"
                         viewBox="0 0 32 32"
@@ -7733,7 +7646,6 @@ exports[`Storyshots Components|Footer Default 1`] = `
                           aria-hidden="true"
                           aria-label="Earth Filled Icon"
                           className="bx--btn__icon"
-                          fill="currentColor"
                           focusable="false"
                           height={20}
                           preserveAspectRatio="xMidYMid meet"
@@ -7902,7 +7814,6 @@ exports[`Storyshots Components|Footer Short 1`] = `
                           aria-hidden="true"
                           aria-label="Earth Filled Icon"
                           className="bx--btn__icon"
-                          fill="currentColor"
                           height={20}
                           preserveAspectRatio="xMidYMid meet"
                           viewBox="0 0 32 32"
@@ -7913,7 +7824,6 @@ exports[`Storyshots Components|Footer Short 1`] = `
                             aria-hidden="true"
                             aria-label="Earth Filled Icon"
                             className="bx--btn__icon"
-                            fill="currentColor"
                             focusable="false"
                             height={20}
                             preserveAspectRatio="xMidYMid meet"
@@ -8225,7 +8135,6 @@ exports[`Storyshots Components|ImageWithCaption Default 1`] = `
                   >
                     <Icon
                       aria-label="Zoom In Icon"
-                      fill="currentColor"
                       height={20}
                       preserveAspectRatio="xMidYMid meet"
                       viewBox="0 0 32 32"
@@ -8234,7 +8143,6 @@ exports[`Storyshots Components|ImageWithCaption Default 1`] = `
                     >
                       <svg
                         aria-label="Zoom In Icon"
-                        fill="currentColor"
                         focusable="false"
                         height={20}
                         preserveAspectRatio="xMidYMid meet"
@@ -8648,7 +8556,6 @@ exports[`Storyshots Components|LightboxMediaViewer Default 1`] = `
                       <Icon
                         aria-label="Close"
                         className="bx--modal-close__icon"
-                        fill="currentColor"
                         height={20}
                         preserveAspectRatio="xMidYMid meet"
                         viewBox="0 0 32 32"
@@ -8658,7 +8565,6 @@ exports[`Storyshots Components|LightboxMediaViewer Default 1`] = `
                         <svg
                           aria-label="Close"
                           className="bx--modal-close__icon"
-                          fill="currentColor"
                           focusable="false"
                           height={20}
                           preserveAspectRatio="xMidYMid meet"
@@ -8863,7 +8769,6 @@ exports[`Storyshots Components|LightboxMediaViewer Embedded Video Player 1`] = `
                         <Icon
                           aria-label="Close"
                           className="bx--modal-close__icon"
-                          fill="currentColor"
                           height={20}
                           preserveAspectRatio="xMidYMid meet"
                           viewBox="0 0 32 32"
@@ -8873,7 +8778,6 @@ exports[`Storyshots Components|LightboxMediaViewer Embedded Video Player 1`] = `
                           <svg
                             aria-label="Close"
                             className="bx--modal-close__icon"
-                            fill="currentColor"
                             focusable="false"
                             height={20}
                             preserveAspectRatio="xMidYMid meet"
@@ -9005,7 +8909,6 @@ exports[`Storyshots Components|Link with Icon Default 1`] = `
               </span>
               <ForwardRef(ArrowRight20)>
                 <Icon
-                  fill="currentColor"
                   height={20}
                   preserveAspectRatio="xMidYMid meet"
                   viewBox="0 0 20 20"
@@ -9014,7 +8917,6 @@ exports[`Storyshots Components|Link with Icon Default 1`] = `
                 >
                   <svg
                     aria-hidden={true}
-                    fill="currentColor"
                     focusable="false"
                     height={20}
                     preserveAspectRatio="xMidYMid meet"
@@ -9246,7 +9148,6 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                                     >
                                       <Icon
                                         className="bx--card__cta"
-                                        fill="currentColor"
                                         height={20}
                                         preserveAspectRatio="xMidYMid meet"
                                         src={
@@ -9262,7 +9163,6 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                                         <svg
                                           aria-hidden={true}
                                           className="bx--card__cta"
-                                          fill="currentColor"
                                           focusable="false"
                                           height={20}
                                           preserveAspectRatio="xMidYMid meet"
@@ -9427,7 +9327,6 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                                     >
                                       <Icon
                                         className="bx--card__cta"
-                                        fill="currentColor"
                                         height={20}
                                         preserveAspectRatio="xMidYMid meet"
                                         src={
@@ -9443,7 +9342,6 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                                         <svg
                                           aria-hidden={true}
                                           className="bx--card__cta"
-                                          fill="currentColor"
                                           focusable="false"
                                           height={20}
                                           preserveAspectRatio="xMidYMid meet"
@@ -9611,7 +9509,6 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                                     >
                                       <Icon
                                         className="bx--card__cta"
-                                        fill="currentColor"
                                         height={20}
                                         preserveAspectRatio="xMidYMid meet"
                                         src={
@@ -9627,7 +9524,6 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                                         <svg
                                           aria-hidden={true}
                                           className="bx--card__cta"
-                                          fill="currentColor"
                                           focusable="false"
                                           height={20}
                                           preserveAspectRatio="xMidYMid meet"
@@ -9809,7 +9705,6 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                                     >
                                       <Icon
                                         className="bx--card__cta"
-                                        fill="currentColor"
                                         height={20}
                                         preserveAspectRatio="xMidYMid meet"
                                         src={
@@ -9825,7 +9720,6 @@ exports[`Storyshots Components|LinkList Default 1`] = `
                                         <svg
                                           aria-hidden={true}
                                           className="bx--card__cta"
-                                          fill="currentColor"
                                           focusable="false"
                                           height={20}
                                           preserveAspectRatio="xMidYMid meet"
@@ -10011,7 +9905,6 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                                 </span>
                                 <ForwardRef(ArrowRight20)>
                                   <Icon
-                                    fill="currentColor"
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
                                     viewBox="0 0 20 20"
@@ -10020,7 +9913,6 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                                   >
                                     <svg
                                       aria-hidden={true}
-                                      fill="currentColor"
                                       focusable="false"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
@@ -10109,7 +10001,6 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                                 </span>
                                 <ForwardRef(Download20)>
                                   <Icon
-                                    fill="currentColor"
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
                                     viewBox="0 0 32 32"
@@ -10118,7 +10009,6 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                                   >
                                     <svg
                                       aria-hidden={true}
-                                      fill="currentColor"
                                       focusable="false"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
@@ -10210,7 +10100,6 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                                 </span>
                                 <ForwardRef(Launch20)>
                                   <Icon
-                                    fill="currentColor"
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
                                     viewBox="0 0 32 32"
@@ -10219,7 +10108,6 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                                   >
                                     <svg
                                       aria-hidden={true}
-                                      fill="currentColor"
                                       focusable="false"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
@@ -10311,7 +10199,6 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                                   </span>
                                   <ForwardRef(PlayOutline20)>
                                     <Icon
-                                      fill="currentColor"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
                                       viewBox="0 0 32 32"
@@ -10320,7 +10207,6 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                                     >
                                       <svg
                                         aria-hidden={true}
-                                        fill="currentColor"
                                         focusable="false"
                                         height={20}
                                         preserveAspectRatio="xMidYMid meet"
@@ -10484,7 +10370,6 @@ exports[`Storyshots Components|LinkList Horizontal 1`] = `
                                 </span>
                                 <ForwardRef(ArrowRight20)>
                                   <Icon
-                                    fill="currentColor"
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
                                     viewBox="0 0 20 20"
@@ -10493,7 +10378,6 @@ exports[`Storyshots Components|LinkList Horizontal 1`] = `
                                   >
                                     <svg
                                       aria-hidden={true}
-                                      fill="currentColor"
                                       focusable="false"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
@@ -10582,7 +10466,6 @@ exports[`Storyshots Components|LinkList Horizontal 1`] = `
                                 </span>
                                 <ForwardRef(Download20)>
                                   <Icon
-                                    fill="currentColor"
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
                                     viewBox="0 0 32 32"
@@ -10591,7 +10474,6 @@ exports[`Storyshots Components|LinkList Horizontal 1`] = `
                                   >
                                     <svg
                                       aria-hidden={true}
-                                      fill="currentColor"
                                       focusable="false"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
@@ -10768,7 +10650,6 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                                 </span>
                                 <ForwardRef(ArrowRight20)>
                                   <Icon
-                                    fill="currentColor"
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
                                     viewBox="0 0 20 20"
@@ -10777,7 +10658,6 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                                   >
                                     <svg
                                       aria-hidden={true}
-                                      fill="currentColor"
                                       focusable="false"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
@@ -10866,7 +10746,6 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                                 </span>
                                 <ForwardRef(Download20)>
                                   <Icon
-                                    fill="currentColor"
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
                                     viewBox="0 0 32 32"
@@ -10875,7 +10754,6 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                                   >
                                     <svg
                                       aria-hidden={true}
-                                      fill="currentColor"
                                       focusable="false"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
@@ -10967,7 +10845,6 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                                 </span>
                                 <ForwardRef(Launch20)>
                                   <Icon
-                                    fill="currentColor"
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
                                     viewBox="0 0 32 32"
@@ -10976,7 +10853,6 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                                   >
                                     <svg
                                       aria-hidden={true}
-                                      fill="currentColor"
                                       focusable="false"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
@@ -11068,7 +10944,6 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                                   </span>
                                   <ForwardRef(PlayOutline20)>
                                     <Icon
-                                      fill="currentColor"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
                                       viewBox="0 0 32 32"
@@ -11077,7 +10952,6 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                                     >
                                       <svg
                                         aria-hidden={true}
-                                        fill="currentColor"
                                         focusable="false"
                                         height={20}
                                         preserveAspectRatio="xMidYMid meet"
@@ -11255,7 +11129,6 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                 </span>
                                 <ForwardRef(ArrowRight20)>
                                   <Icon
-                                    fill="currentColor"
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
                                     viewBox="0 0 20 20"
@@ -11264,7 +11137,6 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                   >
                                     <svg
                                       aria-hidden={true}
-                                      fill="currentColor"
                                       focusable="false"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
@@ -11353,7 +11225,6 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                 </span>
                                 <ForwardRef(Download20)>
                                   <Icon
-                                    fill="currentColor"
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
                                     viewBox="0 0 32 32"
@@ -11362,7 +11233,6 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                   >
                                     <svg
                                       aria-hidden={true}
-                                      fill="currentColor"
                                       focusable="false"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
@@ -11454,7 +11324,6 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                 </span>
                                 <ForwardRef(Launch20)>
                                   <Icon
-                                    fill="currentColor"
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
                                     viewBox="0 0 32 32"
@@ -11463,7 +11332,6 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                   >
                                     <svg
                                       aria-hidden={true}
-                                      fill="currentColor"
                                       focusable="false"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
@@ -11555,7 +11423,6 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                   </span>
                                   <ForwardRef(PlayOutline20)>
                                     <Icon
-                                      fill="currentColor"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
                                       viewBox="0 0 32 32"
@@ -11564,7 +11431,6 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                     >
                                       <svg
                                         aria-hidden={true}
-                                        fill="currentColor"
                                         focusable="false"
                                         height={20}
                                         preserveAspectRatio="xMidYMid meet"
@@ -11775,7 +11641,6 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                     >
                                       <Icon
                                         className="bx--card__cta"
-                                        fill="currentColor"
                                         height={20}
                                         preserveAspectRatio="xMidYMid meet"
                                         src={
@@ -11791,7 +11656,6 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                         <svg
                                           aria-hidden={true}
                                           className="bx--card__cta"
-                                          fill="currentColor"
                                           focusable="false"
                                           height={20}
                                           preserveAspectRatio="xMidYMid meet"
@@ -11956,7 +11820,6 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                     >
                                       <Icon
                                         className="bx--card__cta"
-                                        fill="currentColor"
                                         height={20}
                                         preserveAspectRatio="xMidYMid meet"
                                         src={
@@ -11972,7 +11835,6 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                         <svg
                                           aria-hidden={true}
                                           className="bx--card__cta"
-                                          fill="currentColor"
                                           focusable="false"
                                           height={20}
                                           preserveAspectRatio="xMidYMid meet"
@@ -12140,7 +12002,6 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                     >
                                       <Icon
                                         className="bx--card__cta"
-                                        fill="currentColor"
                                         height={20}
                                         preserveAspectRatio="xMidYMid meet"
                                         src={
@@ -12156,7 +12017,6 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                         <svg
                                           aria-hidden={true}
                                           className="bx--card__cta"
-                                          fill="currentColor"
                                           focusable="false"
                                           height={20}
                                           preserveAspectRatio="xMidYMid meet"
@@ -12338,7 +12198,6 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                     >
                                       <Icon
                                         className="bx--card__cta"
-                                        fill="currentColor"
                                         height={20}
                                         preserveAspectRatio="xMidYMid meet"
                                         src={
@@ -12354,7 +12213,6 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                         <svg
                                           aria-hidden={true}
                                           className="bx--card__cta"
-                                          fill="currentColor"
                                           focusable="false"
                                           height={20}
                                           preserveAspectRatio="xMidYMid meet"
@@ -12478,7 +12336,6 @@ exports[`Storyshots Components|Locale Modal Default 1`] = `
                   >
                     <Icon
                       className="bx--locale-modal__label-globe"
-                      fill="currentColor"
                       height={20}
                       preserveAspectRatio="xMidYMid meet"
                       viewBox="0 0 32 32"
@@ -12488,7 +12345,6 @@ exports[`Storyshots Components|Locale Modal Default 1`] = `
                       <svg
                         aria-hidden={true}
                         className="bx--locale-modal__label-globe"
-                        fill="currentColor"
                         focusable="false"
                         height={20}
                         preserveAspectRatio="xMidYMid meet"
@@ -12515,7 +12371,6 @@ exports[`Storyshots Components|Locale Modal Default 1`] = `
                   >
                     <Icon
                       className="bx--modal-close__icon"
-                      fill="currentColor"
                       height={20}
                       preserveAspectRatio="xMidYMid meet"
                       viewBox="0 0 32 32"
@@ -12525,7 +12380,6 @@ exports[`Storyshots Components|Locale Modal Default 1`] = `
                       <svg
                         aria-hidden={true}
                         className="bx--modal-close__icon"
-                        fill="currentColor"
                         focusable="false"
                         height={20}
                         preserveAspectRatio="xMidYMid meet"
@@ -12593,7 +12447,6 @@ exports[`Storyshots Components|Locale Modal Default 1`] = `
                           >
                             <Icon
                               className="bx--search-magnifier"
-                              fill="currentColor"
                               height={16}
                               preserveAspectRatio="xMidYMid meet"
                               viewBox="0 0 16 16"
@@ -12603,7 +12456,6 @@ exports[`Storyshots Components|Locale Modal Default 1`] = `
                               <svg
                                 aria-hidden={true}
                                 className="bx--search-magnifier"
-                                fill="currentColor"
                                 focusable="false"
                                 height={16}
                                 preserveAspectRatio="xMidYMid meet"
@@ -12642,7 +12494,6 @@ exports[`Storyshots Components|Locale Modal Default 1`] = `
                           >
                             <ForwardRef(Close20)>
                               <Icon
-                                fill="currentColor"
                                 height={20}
                                 preserveAspectRatio="xMidYMid meet"
                                 viewBox="0 0 32 32"
@@ -12651,7 +12502,6 @@ exports[`Storyshots Components|Locale Modal Default 1`] = `
                               >
                                 <svg
                                   aria-hidden={true}
-                                  fill="currentColor"
                                   focusable="false"
                                   height={20}
                                   preserveAspectRatio="xMidYMid meet"
@@ -12777,7 +12627,6 @@ exports[`Storyshots Components|Masthead Default 1`] = `
                     >
                       <ForwardRef(Menu20)>
                         <Icon
-                          fill="currentColor"
                           height={20}
                           preserveAspectRatio="xMidYMid meet"
                           viewBox="0 0 20 20"
@@ -12786,7 +12635,6 @@ exports[`Storyshots Components|Masthead Default 1`] = `
                         >
                           <svg
                             aria-hidden={true}
-                            fill="currentColor"
                             focusable="false"
                             height={20}
                             preserveAspectRatio="xMidYMid meet"
@@ -12891,7 +12739,6 @@ exports[`Storyshots Components|Masthead Default 1`] = `
                             >
                               <ForwardRef(Search20)>
                                 <Icon
-                                  fill="currentColor"
                                   height={20}
                                   preserveAspectRatio="xMidYMid meet"
                                   viewBox="0 0 32 32"
@@ -12900,7 +12747,6 @@ exports[`Storyshots Components|Masthead Default 1`] = `
                                 >
                                   <svg
                                     aria-hidden={true}
-                                    fill="currentColor"
                                     focusable="false"
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
@@ -12931,7 +12777,6 @@ exports[`Storyshots Components|Masthead Default 1`] = `
                             >
                               <ForwardRef(Close20)>
                                 <Icon
-                                  fill="currentColor"
                                   height={20}
                                   preserveAspectRatio="xMidYMid meet"
                                   viewBox="0 0 32 32"
@@ -12940,7 +12785,6 @@ exports[`Storyshots Components|Masthead Default 1`] = `
                                 >
                                   <svg
                                     aria-hidden={true}
-                                    fill="currentColor"
                                     focusable="false"
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
@@ -13050,7 +12894,6 @@ exports[`Storyshots Components|Masthead Default 1`] = `
                                 >
                                   <ForwardRef(User20)>
                                     <Icon
-                                      fill="currentColor"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
                                       viewBox="0 0 32 32"
@@ -13059,7 +12902,6 @@ exports[`Storyshots Components|Masthead Default 1`] = `
                                     >
                                       <svg
                                         aria-hidden={true}
-                                        fill="currentColor"
                                         focusable="false"
                                         height={20}
                                         preserveAspectRatio="xMidYMid meet"
@@ -13218,7 +13060,6 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
                     >
                       <ForwardRef(Menu20)>
                         <Icon
-                          fill="currentColor"
                           height={20}
                           preserveAspectRatio="xMidYMid meet"
                           viewBox="0 0 20 20"
@@ -13227,7 +13068,6 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
                         >
                           <svg
                             aria-hidden={true}
-                            fill="currentColor"
                             focusable="false"
                             height={20}
                             preserveAspectRatio="xMidYMid meet"
@@ -13502,7 +13342,6 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
                             >
                               <ForwardRef(Search20)>
                                 <Icon
-                                  fill="currentColor"
                                   height={20}
                                   preserveAspectRatio="xMidYMid meet"
                                   viewBox="0 0 32 32"
@@ -13511,7 +13350,6 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
                                 >
                                   <svg
                                     aria-hidden={true}
-                                    fill="currentColor"
                                     focusable="false"
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
@@ -13542,7 +13380,6 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
                             >
                               <ForwardRef(Close20)>
                                 <Icon
-                                  fill="currentColor"
                                   height={20}
                                   preserveAspectRatio="xMidYMid meet"
                                   viewBox="0 0 32 32"
@@ -13551,7 +13388,6 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
                                 >
                                   <svg
                                     aria-hidden={true}
-                                    fill="currentColor"
                                     focusable="false"
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
@@ -13661,7 +13497,6 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
                                 >
                                   <ForwardRef(User20)>
                                     <Icon
-                                      fill="currentColor"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
                                       viewBox="0 0 32 32"
@@ -13670,7 +13505,6 @@ exports[`Storyshots Components|Masthead Search open by default 1`] = `
                                     >
                                       <svg
                                         aria-hidden={true}
-                                        fill="currentColor"
                                         focusable="false"
                                         height={20}
                                         preserveAspectRatio="xMidYMid meet"
@@ -13869,7 +13703,6 @@ exports[`Storyshots Components|Masthead With Platform 1`] = `
                       >
                         <ForwardRef(Menu20)>
                           <Icon
-                            fill="currentColor"
                             height={20}
                             preserveAspectRatio="xMidYMid meet"
                             viewBox="0 0 20 20"
@@ -13878,7 +13711,6 @@ exports[`Storyshots Components|Masthead With Platform 1`] = `
                           >
                             <svg
                               aria-hidden={true}
-                              fill="currentColor"
                               focusable="false"
                               height={20}
                               preserveAspectRatio="xMidYMid meet"
@@ -14008,7 +13840,6 @@ exports[`Storyshots Components|Masthead With Platform 1`] = `
                               >
                                 <ForwardRef(Search20)>
                                   <Icon
-                                    fill="currentColor"
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
                                     viewBox="0 0 32 32"
@@ -14017,7 +13848,6 @@ exports[`Storyshots Components|Masthead With Platform 1`] = `
                                   >
                                     <svg
                                       aria-hidden={true}
-                                      fill="currentColor"
                                       focusable="false"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
@@ -14048,7 +13878,6 @@ exports[`Storyshots Components|Masthead With Platform 1`] = `
                               >
                                 <ForwardRef(Close20)>
                                   <Icon
-                                    fill="currentColor"
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
                                     viewBox="0 0 32 32"
@@ -14057,7 +13886,6 @@ exports[`Storyshots Components|Masthead With Platform 1`] = `
                                   >
                                     <svg
                                       aria-hidden={true}
-                                      fill="currentColor"
                                       focusable="false"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
@@ -14167,7 +13995,6 @@ exports[`Storyshots Components|Masthead With Platform 1`] = `
                                   >
                                     <ForwardRef(User20)>
                                       <Icon
-                                        fill="currentColor"
                                         height={20}
                                         preserveAspectRatio="xMidYMid meet"
                                         viewBox="0 0 32 32"
@@ -14176,7 +14003,6 @@ exports[`Storyshots Components|Masthead With Platform 1`] = `
                                       >
                                         <svg
                                           aria-hidden={true}
-                                          fill="currentColor"
                                           focusable="false"
                                           height={20}
                                           preserveAspectRatio="xMidYMid meet"
@@ -14453,7 +14279,6 @@ exports[`Storyshots Components|PictogramItem Default 1`] = `
                                     </span>
                                     <ForwardRef(ArrowRight20)>
                                       <Icon
-                                        fill="currentColor"
                                         height={20}
                                         preserveAspectRatio="xMidYMid meet"
                                         viewBox="0 0 20 20"
@@ -14462,7 +14287,6 @@ exports[`Storyshots Components|PictogramItem Default 1`] = `
                                       >
                                         <svg
                                           aria-hidden={true}
-                                          fill="currentColor"
                                           focusable="false"
                                           height={20}
                                           preserveAspectRatio="xMidYMid meet"
@@ -14613,7 +14437,6 @@ exports[`Storyshots Components|Quote Default 1`] = `
                         Link with Icon
                         <ForwardRef(ArrowRight20)>
                           <Icon
-                            fill="currentColor"
                             height={20}
                             preserveAspectRatio="xMidYMid meet"
                             viewBox="0 0 20 20"
@@ -14622,7 +14445,6 @@ exports[`Storyshots Components|Quote Default 1`] = `
                           >
                             <svg
                               aria-hidden={true}
-                              fill="currentColor"
                               focusable="false"
                               height={20}
                               preserveAspectRatio="xMidYMid meet"
@@ -14800,7 +14622,6 @@ exports[`Storyshots Components|Table of Contents Dynamic Items 1`] = `
                             <Icon
                               aria-label="menu icon"
                               className="bx--tableofcontents__mobile__select__icon"
-                              fill="currentColor"
                               height={20}
                               preserveAspectRatio="xMidYMid meet"
                               viewBox="0 0 32 32"
@@ -14810,7 +14631,6 @@ exports[`Storyshots Components|Table of Contents Dynamic Items 1`] = `
                               <svg
                                 aria-label="menu icon"
                                 className="bx--tableofcontents__mobile__select__icon"
-                                fill="currentColor"
                                 focusable="false"
                                 height={20}
                                 preserveAspectRatio="xMidYMid meet"
@@ -15308,7 +15128,6 @@ exports[`Storyshots Components|Table of Contents Manually define Menu Items 1`] 
                           <Icon
                             aria-label="menu icon"
                             className="bx--tableofcontents__mobile__select__icon"
-                            fill="currentColor"
                             height={20}
                             preserveAspectRatio="xMidYMid meet"
                             viewBox="0 0 32 32"
@@ -15318,7 +15137,6 @@ exports[`Storyshots Components|Table of Contents Manually define Menu Items 1`] 
                             <svg
                               aria-label="menu icon"
                               className="bx--tableofcontents__mobile__select__icon"
-                              fill="currentColor"
                               focusable="false"
                               height={20}
                               preserveAspectRatio="xMidYMid meet"
@@ -16022,7 +15840,6 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
                             <Icon
                               aria-label="menu icon"
                               className="bx--tableofcontents__mobile__select__icon"
-                              fill="currentColor"
                               height={20}
                               preserveAspectRatio="xMidYMid meet"
                               viewBox="0 0 32 32"
@@ -16032,7 +15849,6 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
                               <svg
                                 aria-label="menu icon"
                                 className="bx--tableofcontents__mobile__select__icon"
-                                fill="currentColor"
                                 focusable="false"
                                 height={20}
                                 preserveAspectRatio="xMidYMid meet"
@@ -16520,7 +16336,6 @@ exports[`Storyshots Patterns (Blocks)|CalloutQuote Default 1`] = `
                                     Link with Icon
                                     <ForwardRef(ArrowRight20)>
                                       <Icon
-                                        fill="currentColor"
                                         height={20}
                                         preserveAspectRatio="xMidYMid meet"
                                         viewBox="0 0 20 20"
@@ -16529,7 +16344,6 @@ exports[`Storyshots Patterns (Blocks)|CalloutQuote Default 1`] = `
                                       >
                                         <svg
                                           aria-hidden={true}
-                                          fill="currentColor"
                                           focusable="false"
                                           height={20}
                                           preserveAspectRatio="xMidYMid meet"
@@ -17043,7 +16857,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                       >
                                         <Icon
                                           className="bx--card__cta"
-                                          fill="currentColor"
                                           height={20}
                                           preserveAspectRatio="xMidYMid meet"
                                           src={
@@ -17059,7 +16872,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                           <svg
                                             aria-hidden={true}
                                             className="bx--card__cta"
-                                            fill="currentColor"
                                             focusable="false"
                                             height={20}
                                             preserveAspectRatio="xMidYMid meet"
@@ -17159,7 +16971,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                       >
                                         <Icon
                                           className="bx--card__cta"
-                                          fill="currentColor"
                                           height={20}
                                           preserveAspectRatio="xMidYMid meet"
                                           src={
@@ -17175,7 +16986,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                           <svg
                                             aria-hidden={true}
                                             className="bx--card__cta"
-                                            fill="currentColor"
                                             focusable="false"
                                             height={20}
                                             preserveAspectRatio="xMidYMid meet"
@@ -17275,7 +17085,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                       >
                                         <Icon
                                           className="bx--card__cta"
-                                          fill="currentColor"
                                           height={20}
                                           preserveAspectRatio="xMidYMid meet"
                                           src={
@@ -17291,7 +17100,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                           <svg
                                             aria-hidden={true}
                                             className="bx--card__cta"
-                                            fill="currentColor"
                                             focusable="false"
                                             height={20}
                                             preserveAspectRatio="xMidYMid meet"
@@ -17391,7 +17199,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                       >
                                         <Icon
                                           className="bx--card__cta"
-                                          fill="currentColor"
                                           height={20}
                                           preserveAspectRatio="xMidYMid meet"
                                           src={
@@ -17407,7 +17214,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                           <svg
                                             aria-hidden={true}
                                             className="bx--card__cta"
-                                            fill="currentColor"
                                             focusable="false"
                                             height={20}
                                             preserveAspectRatio="xMidYMid meet"
@@ -17507,7 +17313,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                       >
                                         <Icon
                                           className="bx--card__cta"
-                                          fill="currentColor"
                                           height={20}
                                           preserveAspectRatio="xMidYMid meet"
                                           src={
@@ -17523,7 +17328,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockCards Default 1`] = `
                                           <svg
                                             aria-hidden={true}
                                             className="bx--card__cta"
-                                            fill="currentColor"
                                             focusable="false"
                                             height={20}
                                             preserveAspectRatio="xMidYMid meet"
@@ -18218,7 +18022,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                 >
                                                   <Icon
                                                     className="bx--card__cta"
-                                                    fill="currentColor"
                                                     height={20}
                                                     preserveAspectRatio="xMidYMid meet"
                                                     src={
@@ -18234,7 +18037,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                     <svg
                                                       aria-hidden={true}
                                                       className="bx--card__cta"
-                                                      fill="currentColor"
                                                       focusable="false"
                                                       height={20}
                                                       preserveAspectRatio="xMidYMid meet"
@@ -18684,7 +18486,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                 >
                                                   <Icon
                                                     className="bx--card__cta"
-                                                    fill="currentColor"
                                                     height={20}
                                                     preserveAspectRatio="xMidYMid meet"
                                                     src={
@@ -18700,7 +18501,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                     <svg
                                                       aria-hidden={true}
                                                       className="bx--card__cta"
-                                                      fill="currentColor"
                                                       focusable="false"
                                                       height={20}
                                                       preserveAspectRatio="xMidYMid meet"
@@ -18955,7 +18755,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                 >
                                                   <Icon
                                                     className="bx--card__cta"
-                                                    fill="currentColor"
                                                     height={20}
                                                     preserveAspectRatio="xMidYMid meet"
                                                     src={
@@ -18971,7 +18770,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                     <svg
                                                       aria-hidden={true}
                                                       className="bx--card__cta"
-                                                      fill="currentColor"
                                                       focusable="false"
                                                       height={20}
                                                       preserveAspectRatio="xMidYMid meet"
@@ -19769,7 +19567,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                         >
                                                           <Icon
                                                             className="bx--card__cta"
-                                                            fill="currentColor"
                                                             height={20}
                                                             preserveAspectRatio="xMidYMid meet"
                                                             src={
@@ -19785,7 +19582,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                             <svg
                                                               aria-hidden={true}
                                                               className="bx--card__cta"
-                                                              fill="currentColor"
                                                               focusable="false"
                                                               height={20}
                                                               preserveAspectRatio="xMidYMid meet"
@@ -20235,7 +20031,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                         >
                                                           <Icon
                                                             className="bx--card__cta"
-                                                            fill="currentColor"
                                                             height={20}
                                                             preserveAspectRatio="xMidYMid meet"
                                                             src={
@@ -20251,7 +20046,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                             <svg
                                                               aria-hidden={true}
                                                               className="bx--card__cta"
-                                                              fill="currentColor"
                                                               focusable="false"
                                                               height={20}
                                                               preserveAspectRatio="xMidYMid meet"
@@ -20506,7 +20300,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                         >
                                                           <Icon
                                                             className="bx--card__cta"
-                                                            fill="currentColor"
                                                             height={20}
                                                             preserveAspectRatio="xMidYMid meet"
                                                             src={
@@ -20522,7 +20315,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                             <svg
                                                               aria-hidden={true}
                                                               className="bx--card__cta"
-                                                              fill="currentColor"
                                                               focusable="false"
                                                               height={20}
                                                               preserveAspectRatio="xMidYMid meet"
@@ -20731,7 +20523,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                     >
                                                       <Icon
                                                         className="bx--card__cta"
-                                                        fill="currentColor"
                                                         height={20}
                                                         preserveAspectRatio="xMidYMid meet"
                                                         src={
@@ -20747,7 +20538,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                         <svg
                                                           aria-hidden={true}
                                                           className="bx--card__cta"
-                                                          fill="currentColor"
                                                           focusable="false"
                                                           height={20}
                                                           preserveAspectRatio="xMidYMid meet"
@@ -20912,7 +20702,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                     >
                                                       <Icon
                                                         className="bx--card__cta"
-                                                        fill="currentColor"
                                                         height={20}
                                                         preserveAspectRatio="xMidYMid meet"
                                                         src={
@@ -20928,7 +20717,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                         <svg
                                                           aria-hidden={true}
                                                           className="bx--card__cta"
-                                                          fill="currentColor"
                                                           focusable="false"
                                                           height={20}
                                                           preserveAspectRatio="xMidYMid meet"
@@ -21353,7 +21141,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                               >
                                                 <Icon
                                                   className="bx--card__cta"
-                                                  fill="currentColor"
                                                   height={20}
                                                   preserveAspectRatio="xMidYMid meet"
                                                   src={
@@ -21369,7 +21156,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                   <svg
                                                     aria-hidden={true}
                                                     className="bx--card__cta"
-                                                    fill="currentColor"
                                                     focusable="false"
                                                     height={20}
                                                     preserveAspectRatio="xMidYMid meet"
@@ -21471,7 +21257,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                               >
                                                 <Icon
                                                   className="bx--card__cta"
-                                                  fill="currentColor"
                                                   height={20}
                                                   preserveAspectRatio="xMidYMid meet"
                                                   src={
@@ -21487,7 +21272,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                   <svg
                                                     aria-hidden={true}
                                                     className="bx--card__cta"
-                                                    fill="currentColor"
                                                     focusable="false"
                                                     height={20}
                                                     preserveAspectRatio="xMidYMid meet"
@@ -21589,7 +21373,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                               >
                                                 <Icon
                                                   className="bx--card__cta"
-                                                  fill="currentColor"
                                                   height={20}
                                                   preserveAspectRatio="xMidYMid meet"
                                                   src={
@@ -21605,7 +21388,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                   <svg
                                                     aria-hidden={true}
                                                     className="bx--card__cta"
-                                                    fill="currentColor"
                                                     focusable="false"
                                                     height={20}
                                                     preserveAspectRatio="xMidYMid meet"
@@ -21707,7 +21489,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                               >
                                                 <Icon
                                                   className="bx--card__cta"
-                                                  fill="currentColor"
                                                   height={20}
                                                   preserveAspectRatio="xMidYMid meet"
                                                   src={
@@ -21723,7 +21504,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                   <svg
                                                     aria-hidden={true}
                                                     className="bx--card__cta"
-                                                    fill="currentColor"
                                                     focusable="false"
                                                     height={20}
                                                     preserveAspectRatio="xMidYMid meet"
@@ -21995,7 +21775,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                         </span>
                                                         <ForwardRef(ArrowRight20)>
                                                           <Icon
-                                                            fill="currentColor"
                                                             height={20}
                                                             preserveAspectRatio="xMidYMid meet"
                                                             viewBox="0 0 20 20"
@@ -22004,7 +21783,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                           >
                                                             <svg
                                                               aria-hidden={true}
-                                                              fill="currentColor"
                                                               focusable="false"
                                                               height={20}
                                                               preserveAspectRatio="xMidYMid meet"
@@ -22192,7 +21970,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                         </span>
                                                         <ForwardRef(ArrowRight20)>
                                                           <Icon
-                                                            fill="currentColor"
                                                             height={20}
                                                             preserveAspectRatio="xMidYMid meet"
                                                             viewBox="0 0 20 20"
@@ -22201,7 +21978,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                           >
                                                             <svg
                                                               aria-hidden={true}
-                                                              fill="currentColor"
                                                               focusable="false"
                                                               height={20}
                                                               preserveAspectRatio="xMidYMid meet"
@@ -22388,7 +22164,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                         </span>
                                                         <ForwardRef(ArrowRight20)>
                                                           <Icon
-                                                            fill="currentColor"
                                                             height={20}
                                                             preserveAspectRatio="xMidYMid meet"
                                                             viewBox="0 0 20 20"
@@ -22397,7 +22172,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                           >
                                                             <svg
                                                               aria-hidden={true}
-                                                              fill="currentColor"
                                                               focusable="false"
                                                               height={20}
                                                               preserveAspectRatio="xMidYMid meet"
@@ -22830,7 +22604,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                       >
                                         <Icon
                                           className="bx--card__cta"
-                                          fill="currentColor"
                                           height={20}
                                           preserveAspectRatio="xMidYMid meet"
                                           src={
@@ -22846,7 +22619,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                           <svg
                                             aria-hidden={true}
                                             className="bx--card__cta"
-                                            fill="currentColor"
                                             focusable="false"
                                             height={20}
                                             preserveAspectRatio="xMidYMid meet"
@@ -23359,7 +23131,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                       >
                                                         <Icon
                                                           className="bx--card__cta"
-                                                          fill="currentColor"
                                                           height={20}
                                                           preserveAspectRatio="xMidYMid meet"
                                                           src={
@@ -23375,7 +23146,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                           <svg
                                                             aria-hidden={true}
                                                             className="bx--card__cta"
-                                                            fill="currentColor"
                                                             focusable="false"
                                                             height={20}
                                                             preserveAspectRatio="xMidYMid meet"
@@ -23477,7 +23247,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                       >
                                                         <Icon
                                                           className="bx--card__cta"
-                                                          fill="currentColor"
                                                           height={20}
                                                           preserveAspectRatio="xMidYMid meet"
                                                           src={
@@ -23493,7 +23262,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                           <svg
                                                             aria-hidden={true}
                                                             className="bx--card__cta"
-                                                            fill="currentColor"
                                                             focusable="false"
                                                             height={20}
                                                             preserveAspectRatio="xMidYMid meet"
@@ -23595,7 +23363,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                       >
                                                         <Icon
                                                           className="bx--card__cta"
-                                                          fill="currentColor"
                                                           height={20}
                                                           preserveAspectRatio="xMidYMid meet"
                                                           src={
@@ -23611,7 +23378,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                           <svg
                                                             aria-hidden={true}
                                                             className="bx--card__cta"
-                                                            fill="currentColor"
                                                             focusable="false"
                                                             height={20}
                                                             preserveAspectRatio="xMidYMid meet"
@@ -23713,7 +23479,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                       >
                                                         <Icon
                                                           className="bx--card__cta"
-                                                          fill="currentColor"
                                                           height={20}
                                                           preserveAspectRatio="xMidYMid meet"
                                                           src={
@@ -23729,7 +23494,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                           <svg
                                                             aria-hidden={true}
                                                             className="bx--card__cta"
-                                                            fill="currentColor"
                                                             focusable="false"
                                                             height={20}
                                                             preserveAspectRatio="xMidYMid meet"
@@ -24001,7 +23765,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                                 </span>
                                                                 <ForwardRef(ArrowRight20)>
                                                                   <Icon
-                                                                    fill="currentColor"
                                                                     height={20}
                                                                     preserveAspectRatio="xMidYMid meet"
                                                                     viewBox="0 0 20 20"
@@ -24010,7 +23773,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                                   >
                                                                     <svg
                                                                       aria-hidden={true}
-                                                                      fill="currentColor"
                                                                       focusable="false"
                                                                       height={20}
                                                                       preserveAspectRatio="xMidYMid meet"
@@ -24198,7 +23960,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                                 </span>
                                                                 <ForwardRef(ArrowRight20)>
                                                                   <Icon
-                                                                    fill="currentColor"
                                                                     height={20}
                                                                     preserveAspectRatio="xMidYMid meet"
                                                                     viewBox="0 0 20 20"
@@ -24207,7 +23968,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                                   >
                                                                     <svg
                                                                       aria-hidden={true}
-                                                                      fill="currentColor"
                                                                       focusable="false"
                                                                       height={20}
                                                                       preserveAspectRatio="xMidYMid meet"
@@ -24394,7 +24154,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                                 </span>
                                                                 <ForwardRef(ArrowRight20)>
                                                                   <Icon
-                                                                    fill="currentColor"
                                                                     height={20}
                                                                     preserveAspectRatio="xMidYMid meet"
                                                                     viewBox="0 0 20 20"
@@ -24403,7 +24162,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                                   >
                                                                     <svg
                                                                       aria-hidden={true}
-                                                                      fill="currentColor"
                                                                       focusable="false"
                                                                       height={20}
                                                                       preserveAspectRatio="xMidYMid meet"
@@ -24836,7 +24594,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                               >
                                                 <Icon
                                                   className="bx--card__cta"
-                                                  fill="currentColor"
                                                   height={20}
                                                   preserveAspectRatio="xMidYMid meet"
                                                   src={
@@ -24852,7 +24609,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                   <svg
                                                     aria-hidden={true}
                                                     className="bx--card__cta"
-                                                    fill="currentColor"
                                                     focusable="false"
                                                     height={20}
                                                     preserveAspectRatio="xMidYMid meet"
@@ -25056,7 +24812,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                     >
                                                       <Icon
                                                         className="bx--card__cta"
-                                                        fill="currentColor"
                                                         height={20}
                                                         preserveAspectRatio="xMidYMid meet"
                                                         src={
@@ -25072,7 +24827,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                         <svg
                                                           aria-hidden={true}
                                                           className="bx--card__cta"
-                                                          fill="currentColor"
                                                           focusable="false"
                                                           height={20}
                                                           preserveAspectRatio="xMidYMid meet"
@@ -25237,7 +24991,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                     >
                                                       <Icon
                                                         className="bx--card__cta"
-                                                        fill="currentColor"
                                                         height={20}
                                                         preserveAspectRatio="xMidYMid meet"
                                                         src={
@@ -25253,7 +25006,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                                         <svg
                                                           aria-hidden={true}
                                                           className="bx--card__cta"
-                                                          fill="currentColor"
                                                           focusable="false"
                                                           height={20}
                                                           preserveAspectRatio="xMidYMid meet"
@@ -25658,7 +25410,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                         </span>
                                         <ForwardRef(ArrowRight20)>
                                           <Icon
-                                            fill="currentColor"
                                             height={20}
                                             preserveAspectRatio="xMidYMid meet"
                                             viewBox="0 0 20 20"
@@ -25667,7 +25418,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                           >
                                             <svg
                                               aria-hidden={true}
-                                              fill="currentColor"
                                               focusable="false"
                                               height={20}
                                               preserveAspectRatio="xMidYMid meet"
@@ -25889,7 +25639,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                         </span>
                                         <ForwardRef(ArrowRight20)>
                                           <Icon
-                                            fill="currentColor"
                                             height={20}
                                             preserveAspectRatio="xMidYMid meet"
                                             viewBox="0 0 20 20"
@@ -25898,7 +25647,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                           >
                                             <svg
                                               aria-hidden={true}
-                                              fill="currentColor"
                                               focusable="false"
                                               height={20}
                                               preserveAspectRatio="xMidYMid meet"
@@ -26058,7 +25806,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                       >
                                         <Icon
                                           className="bx--card__cta"
-                                          fill="currentColor"
                                           height={20}
                                           preserveAspectRatio="xMidYMid meet"
                                           src={
@@ -26074,7 +25821,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                           <svg
                                             aria-hidden={true}
                                             className="bx--card__cta"
-                                            fill="currentColor"
                                             focusable="false"
                                             height={20}
                                             preserveAspectRatio="xMidYMid meet"
@@ -26774,7 +26520,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                               >
                                                 <Icon
                                                   className="bx--card__cta"
-                                                  fill="currentColor"
                                                   height={20}
                                                   preserveAspectRatio="xMidYMid meet"
                                                   src={
@@ -26790,7 +26535,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                                   <svg
                                                     aria-hidden={true}
                                                     className="bx--card__cta"
-                                                    fill="currentColor"
                                                     focusable="false"
                                                     height={20}
                                                     preserveAspectRatio="xMidYMid meet"
@@ -26994,7 +26738,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                                     >
                                                       <Icon
                                                         className="bx--card__cta"
-                                                        fill="currentColor"
                                                         height={20}
                                                         preserveAspectRatio="xMidYMid meet"
                                                         src={
@@ -27010,7 +26753,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                                         <svg
                                                           aria-hidden={true}
                                                           className="bx--card__cta"
-                                                          fill="currentColor"
                                                           focusable="false"
                                                           height={20}
                                                           preserveAspectRatio="xMidYMid meet"
@@ -27175,7 +26917,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                                     >
                                                       <Icon
                                                         className="bx--card__cta"
-                                                        fill="currentColor"
                                                         height={20}
                                                         preserveAspectRatio="xMidYMid meet"
                                                         src={
@@ -27191,7 +26932,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                                         <svg
                                                           aria-hidden={true}
                                                           className="bx--card__cta"
-                                                          fill="currentColor"
                                                           focusable="false"
                                                           height={20}
                                                           preserveAspectRatio="xMidYMid meet"
@@ -27619,7 +27359,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                                       >
                                         <Icon
                                           className="bx--card__cta"
-                                          fill="currentColor"
                                           height={20}
                                           preserveAspectRatio="xMidYMid meet"
                                           src={
@@ -27635,7 +27374,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                                           <svg
                                             aria-hidden={true}
                                             className="bx--card__cta"
-                                            fill="currentColor"
                                             focusable="false"
                                             height={20}
                                             preserveAspectRatio="xMidYMid meet"
@@ -28148,7 +27886,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                               >
                                                 <Icon
                                                   className="bx--card__cta"
-                                                  fill="currentColor"
                                                   height={20}
                                                   preserveAspectRatio="xMidYMid meet"
                                                   src={
@@ -28164,7 +27901,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                                   <svg
                                                     aria-hidden={true}
                                                     className="bx--card__cta"
-                                                    fill="currentColor"
                                                     focusable="false"
                                                     height={20}
                                                     preserveAspectRatio="xMidYMid meet"
@@ -28368,7 +28104,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                                     >
                                                       <Icon
                                                         className="bx--card__cta"
-                                                        fill="currentColor"
                                                         height={20}
                                                         preserveAspectRatio="xMidYMid meet"
                                                         src={
@@ -28384,7 +28119,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                                         <svg
                                                           aria-hidden={true}
                                                           className="bx--card__cta"
-                                                          fill="currentColor"
                                                           focusable="false"
                                                           height={20}
                                                           preserveAspectRatio="xMidYMid meet"
@@ -28549,7 +28283,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                                     >
                                                       <Icon
                                                         className="bx--card__cta"
-                                                        fill="currentColor"
                                                         height={20}
                                                         preserveAspectRatio="xMidYMid meet"
                                                         src={
@@ -28565,7 +28298,6 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                                         <svg
                                                           aria-hidden={true}
                                                           className="bx--card__cta"
-                                                          fill="currentColor"
                                                           focusable="false"
                                                           height={20}
                                                           preserveAspectRatio="xMidYMid meet"
@@ -28792,7 +28524,6 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
                                     >
                                       <Icon
                                         className="bx--card__cta"
-                                        fill="currentColor"
                                         height={20}
                                         preserveAspectRatio="xMidYMid meet"
                                         src={
@@ -28808,7 +28539,6 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
                                         <svg
                                           aria-hidden={true}
                                           className="bx--card__cta"
-                                          fill="currentColor"
                                           focusable="false"
                                           height={20}
                                           preserveAspectRatio="xMidYMid meet"
@@ -28910,7 +28640,6 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
                                     >
                                       <Icon
                                         className="bx--card__cta"
-                                        fill="currentColor"
                                         height={20}
                                         preserveAspectRatio="xMidYMid meet"
                                         src={
@@ -28926,7 +28655,6 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
                                         <svg
                                           aria-hidden={true}
                                           className="bx--card__cta"
-                                          fill="currentColor"
                                           focusable="false"
                                           height={20}
                                           preserveAspectRatio="xMidYMid meet"
@@ -29028,7 +28756,6 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
                                     >
                                       <Icon
                                         className="bx--card__cta"
-                                        fill="currentColor"
                                         height={20}
                                         preserveAspectRatio="xMidYMid meet"
                                         src={
@@ -29044,7 +28771,6 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
                                         <svg
                                           aria-hidden={true}
                                           className="bx--card__cta"
-                                          fill="currentColor"
                                           focusable="false"
                                           height={20}
                                           preserveAspectRatio="xMidYMid meet"
@@ -29146,7 +28872,6 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
                                     >
                                       <Icon
                                         className="bx--card__cta"
-                                        fill="currentColor"
                                         height={20}
                                         preserveAspectRatio="xMidYMid meet"
                                         src={
@@ -29162,7 +28887,6 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupCards Default 1`] = `
                                         <svg
                                           aria-hidden={true}
                                           className="bx--card__cta"
-                                          fill="currentColor"
                                           focusable="false"
                                           height={20}
                                           preserveAspectRatio="xMidYMid meet"
@@ -29483,7 +29207,6 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                                     </span>
                                                     <ForwardRef(ArrowRight20)>
                                                       <Icon
-                                                        fill="currentColor"
                                                         height={20}
                                                         preserveAspectRatio="xMidYMid meet"
                                                         viewBox="0 0 20 20"
@@ -29492,7 +29215,6 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                                       >
                                                         <svg
                                                           aria-hidden={true}
-                                                          fill="currentColor"
                                                           focusable="false"
                                                           height={20}
                                                           preserveAspectRatio="xMidYMid meet"
@@ -29581,7 +29303,6 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                                     </span>
                                                     <ForwardRef(Launch20)>
                                                       <Icon
-                                                        fill="currentColor"
                                                         height={20}
                                                         preserveAspectRatio="xMidYMid meet"
                                                         viewBox="0 0 32 32"
@@ -29590,7 +29311,6 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                                       >
                                                         <svg
                                                           aria-hidden={true}
-                                                          fill="currentColor"
                                                           focusable="false"
                                                           height={20}
                                                           preserveAspectRatio="xMidYMid meet"
@@ -29783,7 +29503,6 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                                     </span>
                                                     <ForwardRef(ArrowRight20)>
                                                       <Icon
-                                                        fill="currentColor"
                                                         height={20}
                                                         preserveAspectRatio="xMidYMid meet"
                                                         viewBox="0 0 20 20"
@@ -29792,7 +29511,6 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                                       >
                                                         <svg
                                                           aria-hidden={true}
-                                                          fill="currentColor"
                                                           focusable="false"
                                                           height={20}
                                                           preserveAspectRatio="xMidYMid meet"
@@ -29881,7 +29599,6 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                                     </span>
                                                     <ForwardRef(Launch20)>
                                                       <Icon
-                                                        fill="currentColor"
                                                         height={20}
                                                         preserveAspectRatio="xMidYMid meet"
                                                         viewBox="0 0 32 32"
@@ -29890,7 +29607,6 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                                       >
                                                         <svg
                                                           aria-hidden={true}
-                                                          fill="currentColor"
                                                           focusable="false"
                                                           height={20}
                                                           preserveAspectRatio="xMidYMid meet"
@@ -30069,7 +29785,6 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                                     </span>
                                                     <ForwardRef(ArrowRight20)>
                                                       <Icon
-                                                        fill="currentColor"
                                                         height={20}
                                                         preserveAspectRatio="xMidYMid meet"
                                                         viewBox="0 0 20 20"
@@ -30078,7 +29793,6 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupHorizontal Default 1`] = `
                                                       >
                                                         <svg
                                                           aria-hidden={true}
-                                                          fill="currentColor"
                                                           focusable="false"
                                                           height={20}
                                                           preserveAspectRatio="xMidYMid meet"
@@ -30984,7 +30698,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                       >
                                         <Icon
                                           className="bx--card__cta"
-                                          fill="currentColor"
                                           height={20}
                                           preserveAspectRatio="xMidYMid meet"
                                           src={
@@ -31000,7 +30713,6 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit. 
                                           <svg
                                             aria-hidden={true}
                                             className="bx--card__cta"
-                                            fill="currentColor"
                                             focusable="false"
                                             height={20}
                                             preserveAspectRatio="xMidYMid meet"
@@ -31192,7 +30904,6 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockLarge Default 1`] = `
                         >
                           <Icon
                             className="bx--card__cta"
-                            fill="currentColor"
                             height={20}
                             preserveAspectRatio="xMidYMid meet"
                             src={
@@ -31208,7 +30919,6 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockLarge Default 1`] = `
                             <svg
                               aria-hidden={true}
                               className="bx--card__cta"
-                              fill="currentColor"
                               focusable="false"
                               height={20}
                               preserveAspectRatio="xMidYMid meet"
@@ -31418,7 +31128,6 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockMedium Default 1`] = `
                                   >
                                     <Icon
                                       className="bx--card__cta"
-                                      fill="currentColor"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
                                       src={
@@ -31434,7 +31143,6 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockMedium Default 1`] = `
                                       <svg
                                         aria-hidden={true}
                                         className="bx--card__cta"
-                                        fill="currentColor"
                                         focusable="false"
                                         height={20}
                                         preserveAspectRatio="xMidYMid meet"
@@ -31822,7 +31530,6 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                           </span>
                                           <ForwardRef(ArrowRight20)>
                                             <Icon
-                                              fill="currentColor"
                                               height={20}
                                               preserveAspectRatio="xMidYMid meet"
                                               viewBox="0 0 20 20"
@@ -31831,7 +31538,6 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                             >
                                               <svg
                                                 aria-hidden={true}
-                                                fill="currentColor"
                                                 focusable="false"
                                                 height={20}
                                                 preserveAspectRatio="xMidYMid meet"
@@ -31920,7 +31626,6 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                           </span>
                                           <ForwardRef(ArrowRight20)>
                                             <Icon
-                                              fill="currentColor"
                                               height={20}
                                               preserveAspectRatio="xMidYMid meet"
                                               viewBox="0 0 20 20"
@@ -31929,7 +31634,6 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                             >
                                               <svg
                                                 aria-hidden={true}
-                                                fill="currentColor"
                                                 focusable="false"
                                                 height={20}
                                                 preserveAspectRatio="xMidYMid meet"
@@ -32018,7 +31722,6 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                           </span>
                                           <ForwardRef(Download20)>
                                             <Icon
-                                              fill="currentColor"
                                               height={20}
                                               preserveAspectRatio="xMidYMid meet"
                                               viewBox="0 0 32 32"
@@ -32027,7 +31730,6 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                             >
                                               <svg
                                                 aria-hidden={true}
-                                                fill="currentColor"
                                                 focusable="false"
                                                 height={20}
                                                 preserveAspectRatio="xMidYMid meet"
@@ -32179,7 +31881,6 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                         aria-hidden="true"
                                         aria-label="right arrow icon"
                                         className="bx--btn__icon"
-                                        fill="currentColor"
                                         height={20}
                                         preserveAspectRatio="xMidYMid meet"
                                         viewBox="0 0 20 20"
@@ -32190,7 +31891,6 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                                           aria-hidden="true"
                                           aria-label="right arrow icon"
                                           className="bx--btn__icon"
-                                          fill="currentColor"
                                           focusable="false"
                                           height={20}
                                           preserveAspectRatio="xMidYMid meet"
@@ -32871,7 +32571,6 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                           >
                                             <Icon
                                               className="bx--card__cta"
-                                              fill="currentColor"
                                               height={20}
                                               preserveAspectRatio="xMidYMid meet"
                                               src={
@@ -32887,7 +32586,6 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                               <svg
                                                 aria-hidden={true}
                                                 className="bx--card__cta"
-                                                fill="currentColor"
                                                 focusable="false"
                                                 height={20}
                                                 preserveAspectRatio="xMidYMid meet"
@@ -33489,7 +33187,6 @@ exports[`Storyshots Patterns (Sections)|CTASection With Content Items 1`] = `
                                     </span>
                                     <ForwardRef(ArrowRight20)>
                                       <Icon
-                                        fill="currentColor"
                                         height={20}
                                         preserveAspectRatio="xMidYMid meet"
                                         viewBox="0 0 20 20"
@@ -33498,7 +33195,6 @@ exports[`Storyshots Patterns (Sections)|CTASection With Content Items 1`] = `
                                       >
                                         <svg
                                           aria-hidden={true}
-                                          fill="currentColor"
                                           focusable="false"
                                           height={20}
                                           preserveAspectRatio="xMidYMid meet"
@@ -33606,7 +33302,6 @@ exports[`Storyshots Patterns (Sections)|CTASection With Content Items 1`] = `
                                     </span>
                                     <ForwardRef(ArrowRight20)>
                                       <Icon
-                                        fill="currentColor"
                                         height={20}
                                         preserveAspectRatio="xMidYMid meet"
                                         viewBox="0 0 20 20"
@@ -33615,7 +33310,6 @@ exports[`Storyshots Patterns (Sections)|CTASection With Content Items 1`] = `
                                       >
                                         <svg
                                           aria-hidden={true}
-                                          fill="currentColor"
                                           focusable="false"
                                           height={20}
                                           preserveAspectRatio="xMidYMid meet"
@@ -33916,7 +33610,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                 >
                                   <Icon
                                     className="bx--card__cta"
-                                    fill="currentColor"
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
                                     src={
@@ -33932,7 +33625,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                     <svg
                                       aria-hidden={true}
                                       className="bx--card__cta"
-                                      fill="currentColor"
                                       focusable="false"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
@@ -34053,7 +33745,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                 >
                                   <Icon
                                     className="bx--card__cta"
-                                    fill="currentColor"
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
                                     src={
@@ -34069,7 +33760,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                     <svg
                                       aria-hidden={true}
                                       className="bx--card__cta"
-                                      fill="currentColor"
                                       focusable="false"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
@@ -34190,7 +33880,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                 >
                                   <Icon
                                     className="bx--card__cta"
-                                    fill="currentColor"
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
                                     src={
@@ -34206,7 +33895,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                     <svg
                                       aria-hidden={true}
                                       className="bx--card__cta"
-                                      fill="currentColor"
                                       focusable="false"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
@@ -34327,7 +34015,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                 >
                                   <Icon
                                     className="bx--card__cta"
-                                    fill="currentColor"
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
                                     src={
@@ -34343,7 +34030,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                     <svg
                                       aria-hidden={true}
                                       className="bx--card__cta"
-                                      fill="currentColor"
                                       focusable="false"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
@@ -34464,7 +34150,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                 >
                                   <Icon
                                     className="bx--card__cta"
-                                    fill="currentColor"
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
                                     src={
@@ -34480,7 +34165,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                                     <svg
                                       aria-hidden={true}
                                       className="bx--card__cta"
-                                      fill="currentColor"
                                       focusable="false"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
@@ -34741,7 +34425,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                 >
                                   <Icon
                                     className="bx--card__cta"
-                                    fill="currentColor"
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
                                     src={
@@ -34757,7 +34440,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                     <svg
                                       aria-hidden={true}
                                       className="bx--card__cta"
-                                      fill="currentColor"
                                       focusable="false"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
@@ -34857,7 +34539,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                 >
                                   <Icon
                                     className="bx--card__cta"
-                                    fill="currentColor"
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
                                     src={
@@ -34873,7 +34554,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                     <svg
                                       aria-hidden={true}
                                       className="bx--card__cta"
-                                      fill="currentColor"
                                       focusable="false"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
@@ -34973,7 +34653,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                 >
                                   <Icon
                                     className="bx--card__cta"
-                                    fill="currentColor"
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
                                     src={
@@ -34989,7 +34668,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                     <svg
                                       aria-hidden={true}
                                       className="bx--card__cta"
-                                      fill="currentColor"
                                       focusable="false"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
@@ -35089,7 +34767,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                 >
                                   <Icon
                                     className="bx--card__cta"
-                                    fill="currentColor"
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
                                     src={
@@ -35105,7 +34782,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                     <svg
                                       aria-hidden={true}
                                       className="bx--card__cta"
-                                      fill="currentColor"
                                       focusable="false"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
@@ -35205,7 +34881,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                 >
                                   <Icon
                                     className="bx--card__cta"
-                                    fill="currentColor"
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
                                     src={
@@ -35221,7 +34896,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                     <svg
                                       aria-hidden={true}
                                       className="bx--card__cta"
-                                      fill="currentColor"
                                       focusable="false"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
@@ -35308,7 +34982,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                 >
                                   <Icon
                                     className="bx--card__cta"
-                                    fill="currentColor"
                                     height={20}
                                     preserveAspectRatio="xMidYMid meet"
                                     src={
@@ -35324,7 +34997,6 @@ exports[`Storyshots Patterns (Sections)|CardSectionSimple Default 1`] = `
                                     <svg
                                       aria-hidden={true}
                                       className="bx--card__cta"
-                                      fill="currentColor"
                                       focusable="false"
                                       height={20}
                                       preserveAspectRatio="xMidYMid meet"
@@ -35503,7 +35175,6 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Centered 1`] = `
                             <Icon
                               aria-hidden="true"
                               className="bx--btn__icon"
-                              fill="currentColor"
                               height={20}
                               preserveAspectRatio="xMidYMid meet"
                               viewBox="0 0 20 20"
@@ -35513,7 +35184,6 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Centered 1`] = `
                               <svg
                                 aria-hidden={true}
                                 className="bx--btn__icon"
-                                fill="currentColor"
                                 focusable="false"
                                 height={20}
                                 preserveAspectRatio="xMidYMid meet"
@@ -35564,7 +35234,6 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Centered 1`] = `
                             <Icon
                               aria-hidden="true"
                               className="bx--btn__icon"
-                              fill="currentColor"
                               height={20}
                               preserveAspectRatio="xMidYMid meet"
                               viewBox="0 0 20 20"
@@ -35574,7 +35243,6 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Centered 1`] = `
                               <svg
                                 aria-hidden={true}
                                 className="bx--btn__icon"
-                                fill="currentColor"
                                 focusable="false"
                                 height={20}
                                 preserveAspectRatio="xMidYMid meet"
@@ -35764,7 +35432,6 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Centered with image 1`] = `
                             <Icon
                               aria-hidden="true"
                               className="bx--btn__icon"
-                              fill="currentColor"
                               height={20}
                               preserveAspectRatio="xMidYMid meet"
                               viewBox="0 0 20 20"
@@ -35774,7 +35441,6 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Centered with image 1`] = `
                               <svg
                                 aria-hidden={true}
                                 className="bx--btn__icon"
-                                fill="currentColor"
                                 focusable="false"
                                 height={20}
                                 preserveAspectRatio="xMidYMid meet"
@@ -35825,7 +35491,6 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Centered with image 1`] = `
                             <Icon
                               aria-hidden="true"
                               className="bx--btn__icon"
-                              fill="currentColor"
                               height={20}
                               preserveAspectRatio="xMidYMid meet"
                               viewBox="0 0 20 20"
@@ -35835,7 +35500,6 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Centered with image 1`] = `
                               <svg
                                 aria-hidden={true}
                                 className="bx--btn__icon"
-                                fill="currentColor"
                                 focusable="false"
                                 height={20}
                                 preserveAspectRatio="xMidYMid meet"
@@ -36034,7 +35698,6 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with image 1`] = `
                             <Icon
                               aria-hidden="true"
                               className="bx--btn__icon"
-                              fill="currentColor"
                               height={20}
                               preserveAspectRatio="xMidYMid meet"
                               viewBox="0 0 20 20"
@@ -36044,7 +35707,6 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with image 1`] = `
                               <svg
                                 aria-hidden={true}
                                 className="bx--btn__icon"
-                                fill="currentColor"
                                 focusable="false"
                                 height={20}
                                 preserveAspectRatio="xMidYMid meet"
@@ -36095,7 +35757,6 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with image 1`] = `
                             <Icon
                               aria-hidden="true"
                               className="bx--btn__icon"
-                              fill="currentColor"
                               height={20}
                               preserveAspectRatio="xMidYMid meet"
                               viewBox="0 0 20 20"
@@ -36105,7 +35766,6 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with image 1`] = `
                               <svg
                                 aria-hidden={true}
                                 className="bx--btn__icon"
-                                fill="currentColor"
                                 focusable="false"
                                 height={20}
                                 preserveAspectRatio="xMidYMid meet"
@@ -36356,7 +36016,6 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with no image 1`] = `
                               <Icon
                                 aria-hidden="true"
                                 className="bx--btn__icon"
-                                fill="currentColor"
                                 height={20}
                                 preserveAspectRatio="xMidYMid meet"
                                 viewBox="0 0 20 20"
@@ -36366,7 +36025,6 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with no image 1`] = `
                                 <svg
                                   aria-hidden={true}
                                   className="bx--btn__icon"
-                                  fill="currentColor"
                                   focusable="false"
                                   height={20}
                                   preserveAspectRatio="xMidYMid meet"
@@ -36417,7 +36075,6 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with no image 1`] = `
                               <Icon
                                 aria-hidden="true"
                                 className="bx--btn__icon"
-                                fill="currentColor"
                                 height={20}
                                 preserveAspectRatio="xMidYMid meet"
                                 viewBox="0 0 20 20"
@@ -36427,7 +36084,6 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with no image 1`] = `
                                 <svg
                                   aria-hidden={true}
                                   className="bx--btn__icon"
-                                  fill="currentColor"
                                   focusable="false"
                                   height={20}
                                   preserveAspectRatio="xMidYMid meet"
@@ -36597,7 +36253,6 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Small 1`] = `
                             <Icon
                               aria-hidden="true"
                               className="bx--btn__icon"
-                              fill="currentColor"
                               height={20}
                               preserveAspectRatio="xMidYMid meet"
                               viewBox="0 0 20 20"
@@ -36607,7 +36262,6 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Small 1`] = `
                               <svg
                                 aria-hidden={true}
                                 className="bx--btn__icon"
-                                fill="currentColor"
                                 focusable="false"
                                 height={20}
                                 preserveAspectRatio="xMidYMid meet"
@@ -36658,7 +36312,6 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Small 1`] = `
                             <Icon
                               aria-hidden="true"
                               className="bx--btn__icon"
-                              fill="currentColor"
                               height={20}
                               preserveAspectRatio="xMidYMid meet"
                               viewBox="0 0 20 20"
@@ -36668,7 +36321,6 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Small 1`] = `
                               <svg
                                 aria-hidden={true}
                                 className="bx--btn__icon"
-                                fill="currentColor"
                                 focusable="false"
                                 height={20}
                                 preserveAspectRatio="xMidYMid meet"
@@ -36858,7 +36510,6 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Small with image 1`] = `
                             <Icon
                               aria-hidden="true"
                               className="bx--btn__icon"
-                              fill="currentColor"
                               height={20}
                               preserveAspectRatio="xMidYMid meet"
                               viewBox="0 0 20 20"
@@ -36868,7 +36519,6 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Small with image 1`] = `
                               <svg
                                 aria-hidden={true}
                                 className="bx--btn__icon"
-                                fill="currentColor"
                                 focusable="false"
                                 height={20}
                                 preserveAspectRatio="xMidYMid meet"
@@ -36919,7 +36569,6 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Small with image 1`] = `
                             <Icon
                               aria-hidden="true"
                               className="bx--btn__icon"
-                              fill="currentColor"
                               height={20}
                               preserveAspectRatio="xMidYMid meet"
                               viewBox="0 0 20 20"
@@ -36929,7 +36578,6 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Small with image 1`] = `
                               <svg
                                 aria-hidden={true}
                                 className="bx--btn__icon"
-                                fill="currentColor"
                                 focusable="false"
                                 height={20}
                                 preserveAspectRatio="xMidYMid meet"

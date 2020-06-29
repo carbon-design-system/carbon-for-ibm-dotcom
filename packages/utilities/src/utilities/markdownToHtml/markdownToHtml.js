@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import DOMPurify from 'dompurify';
+import DOMPurify from 'isomorphic-dompurify';
 import marked from 'marked';
 import settings from 'carbon-components/es/globals/js/settings';
 const { prefix } = settings;
