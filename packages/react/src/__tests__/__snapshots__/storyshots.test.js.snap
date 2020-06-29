@@ -10308,7 +10308,7 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                                   onClick={[Function]}
                                 >
                                   <span>
-
+                                     
                                   </span>
                                   <ForwardRef(PlayOutline20)>
                                     <Icon
@@ -11065,7 +11065,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                                   onClick={[Function]}
                                 >
                                   <span>
-
+                                     
                                   </span>
                                   <ForwardRef(PlayOutline20)>
                                     <Icon
@@ -11552,7 +11552,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                   onClick={[Function]}
                                 >
                                   <span>
-
+                                     
                                   </span>
                                   <ForwardRef(PlayOutline20)>
                                     <Icon
@@ -16368,7 +16368,7 @@ exports[`Storyshots Components|VideoPlayer Default 1`] = `
               <div
                 className="bx--video-player__video-caption"
               >
-
+                 
                 (1:00)
               </div>
             </div>
@@ -18853,6 +18853,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                           >
                                             <Icon
                                               className="bx--card__cta"
+                                              fill="currentColor"
                                               height={20}
                                               preserveAspectRatio="xMidYMid meet"
                                               src={
@@ -18868,6 +18869,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                               <svg
                                                 aria-hidden={true}
                                                 className="bx--card__cta"
+                                                fill="currentColor"
                                                 focusable="false"
                                                 height={20}
                                                 preserveAspectRatio="xMidYMid meet"
@@ -20241,6 +20243,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                                   >
                                                     <Icon
                                                       className="bx--card__cta"
+                                                      fill="currentColor"
                                                       height={20}
                                                       preserveAspectRatio="xMidYMid meet"
                                                       src={
@@ -20256,6 +20259,7 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                                       <svg
                                                         aria-hidden={true}
                                                         className="bx--card__cta"
+                                                        fill="currentColor"
                                                         focusable="false"
                                                         height={20}
                                                         preserveAspectRatio="xMidYMid meet"
@@ -30931,6 +30935,7 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockMedium Default 1`] = `
                             >
                               <Icon
                                 className="bx--card__cta"
+                                fill="currentColor"
                                 height={20}
                                 preserveAspectRatio="xMidYMid meet"
                                 src={
@@ -30946,6 +30951,7 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockMedium Default 1`] = `
                                 <svg
                                   aria-hidden={true}
                                   className="bx--card__cta"
+                                  fill="currentColor"
                                   focusable="false"
                                   height={20}
                                   preserveAspectRatio="xMidYMid meet"
