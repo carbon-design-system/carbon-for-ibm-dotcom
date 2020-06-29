@@ -16385,6 +16385,45 @@ exports[`Storyshots Components|VideoPlayer Default 1`] = `
 </Container>
 `;
 
+exports[`Storyshots Patterns (Blocks)|CalloutData Default 1`] = `
+<Container
+  story={[Function]}
+>
+  <div
+    data-floating-menu-container=""
+    role="main"
+    style={
+      Object {
+        "backgroundColor": "",
+      }
+    }
+  >
+    <div
+      className="bx--grid"
+    >
+      <div
+        className="bx--row"
+      >
+        <div
+          className="bx--offset-lg-4 bx--col-lg-12"
+        >
+          <CalloutData
+            copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+            data="51%"
+            source=" Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <input
+    aria-label="input-text-offleft"
+    className="bx--visually-hidden"
+    type="text"
+  />
+</Container>
+`;
+
 exports[`Storyshots Patterns (Blocks)|CalloutQuote Default 1`] = `
 <Container
   story={[Function]}
