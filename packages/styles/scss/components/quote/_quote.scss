@@ -19,7 +19,9 @@
     &__footer {
       .#{$prefix}--link-with-icon {
         span {
-          flex: 1;
+          @include carbon--breakpoint(sm) {
+            max-width: calc(100% - 1.75rem);
+          }
         }
       }
     }
