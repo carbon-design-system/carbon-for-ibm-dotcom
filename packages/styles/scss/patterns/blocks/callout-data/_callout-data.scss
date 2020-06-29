@@ -47,19 +47,19 @@
         height: auto;
 
         @include carbon--breakpoint('md') {
-          height: 320px;
+          height: carbon--mini-units(40);
         }
 
         @include carbon--breakpoint('lg') {
-          height: 400px;
+          height: carbon--mini-units(50);
         }
 
         @include carbon--breakpoint('xlg') {
-          height: 480px;
+          height: carbon--mini-units(60);
         }
 
         @include carbon--breakpoint('max') {
-          height: 560px;
+          height: carbon--mini-units(70);
         }
       }
 
