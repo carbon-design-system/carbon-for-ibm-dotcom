@@ -7702,7 +7702,7 @@ exports[`Storyshots Components|Footer Short 1`] = `
           },
           "component": undefined,
           "docs": Object {},
-          "fileName": null,
+          "fileName": "./components/Footer/__stories__/Footer.stories.js",
           "framework": "react",
           "knobs": Object {
             "Footer": [Function],
@@ -8679,7 +8679,7 @@ exports[`Storyshots Components|LightboxMediaViewer Embedded Video Player 1`] = `
           "__id": "components-lightboxmediaviewer--embedded-video-player",
           "component": undefined,
           "docs": Object {},
-          "fileName": null,
+          "fileName": "./components/LightboxMediaViewer/__stories__/LightboxMediaViewer.stories.js",
           "framework": "react",
           "knobs": Object {
             "LightboxMediaViewer": [Function],
@@ -13610,7 +13610,7 @@ exports[`Storyshots Components|Masthead With Platform 1`] = `
           },
           "component": undefined,
           "docs": Object {},
-          "fileName": null,
+          "fileName": "./components/Masthead/__stories__/Masthead.stories.js",
           "framework": "react",
           "knobs": Object {
             "Masthead": [Function],
@@ -14496,7 +14496,7 @@ exports[`Storyshots Components|Table of Contents Dynamic Items 1`] = `
           "__id": "components-table-of-contents--dynamic-items",
           "component": undefined,
           "docs": Object {},
-          "fileName": null,
+          "fileName": "./components/TableOfContents/__stories__/TableOfContents.stories.js",
           "framework": "react",
           "knobs": Object {
             "TableOfContents": [Function],
@@ -15350,7 +15350,7 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
           "__id": "components-table-of-contents--with-heading-content",
           "component": undefined,
           "docs": Object {},
-          "fileName": null,
+          "fileName": "./components/TableOfContents/__stories__/TableOfContents.stories.js",
           "framework": "react",
           "knobs": Object {
             "TableOfContents": [Function],
@@ -35363,7 +35363,7 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with no image 1`] = `
           "__id": "patterns-sections-leadspace--default-with-no-image",
           "component": undefined,
           "docs": Object {},
-          "fileName": null,
+          "fileName": "./patterns/sections/LeadSpace/__stories__/LeadSpace.stories.js",
           "framework": "react",
           "knobs": Object {
             "LeadSpace": [Function],
