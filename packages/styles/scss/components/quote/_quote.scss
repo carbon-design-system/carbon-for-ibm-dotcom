@@ -19,7 +19,7 @@
     &__footer {
       .#{$prefix}--link-with-icon {
         span {
-          max-width: calc(100% - 1.75rem);
+          flex: 1;
         }
       }
     }
