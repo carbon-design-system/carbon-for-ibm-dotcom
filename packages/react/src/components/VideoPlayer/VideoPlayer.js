@@ -10,6 +10,7 @@ import cx from 'classnames';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import PropTypes from 'prop-types';
 import settings from 'carbon-components/es/globals/js/settings';
+import uniqueid from '@carbon/ibmdotcom-utilities/es/utilities/uniqueid/uniqueid';
 import VideoImageOverlay from './VideoImageOverlay';
 import VideoPlayerAPI from '@carbon/ibmdotcom-services/es/services/VideoPlayer/VideoPlayer';
 
@@ -30,7 +31,7 @@ const VideoPlayer = ({
 
   // embedVideo is set to true when overlay thumbnail is clicked
   const [embedVideo, setEmbedVideo] = useState(false);
-  const videoPlayerId = `video-player__video-${videoId}`;
+  const videoPlayerId = `video-player__video-${uniqueid(`${videoId}-`)}`;
   const videoDuration = VideoPlayerAPI.getVideoDuration(videoData.msDuration);
 
   useEffect(() => {
@@ -69,7 +70,7 @@ const VideoPlayer = ({
       className={classnames}>
       <div
         className={`${prefix}--video-player__video-container`}
-        data-autoid={`${stablePrefix}--${videoPlayerId}`}>
+        data-autoid={`${stablePrefix}--video-player__video-${videoId}`}>
         <div
           className={`${prefix}--video-player__video`}
           id={`${prefix}--${videoPlayerId}`}>
