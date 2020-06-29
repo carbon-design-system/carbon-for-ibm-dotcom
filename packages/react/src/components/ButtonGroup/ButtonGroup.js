@@ -8,6 +8,8 @@ import React, { useEffect, useLayoutEffect, useRef } from 'react';
 import Button from '../../internal/vendor/carbon-components-react/components/Button/Button';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings';
 import PropTypes from 'prop-types';
+import root from 'window-or-global';
+import { sameHeight } from '@carbon/ibmdotcom-utilities';
 import settings from 'carbon-components/es/globals/js/settings';
 
 const { stablePrefix } = ddsSettings;
@@ -96,6 +98,26 @@ const ButtonGroup = ({ buttons, enableSizeByContent }) => {
       }
     };
   }, []);
+
+  useEffect(() => {
+    setSameHeight();
+    root.addEventListener('resize', setSameHeight);
+    return () => root.removeEventListener('resize', setSameHeight);
+  }, []);
+
+  /**
+   * Set the buttons to have the same height based on the tallest one
+   */
+  const setSameHeight = () => {
+    root.requestAnimationFrame(() => {
+      const { current: containerNode } = groupRef;
+      if (containerNode) {
+        sameHeight(
+          containerNode.getElementsByClassName(`${prefix}--buttongroup-item`)
+        );
+      }
+    });
+  };
 
   return (
     <ol
