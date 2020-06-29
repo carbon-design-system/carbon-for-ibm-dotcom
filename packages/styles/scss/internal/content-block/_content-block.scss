@@ -44,7 +44,7 @@
     }
     &__copy {
       p {
-        @include carbon--type-style('expressive-paragraph-01', true);
+        @include carbon--type-style('expressive-heading-03', true);
 
         color: $text-01;
         margin-bottom: $carbon--spacing-07;

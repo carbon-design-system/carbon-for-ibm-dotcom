@@ -5,14 +5,29 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+@import '../../globals/vars';
 @import '../../globals/imports';
 @import '../../temp-carbon-expressive/link/link-expressive';
 @import '../lightbox-media-viewer/lightbox-media-viewer';
 
 @mixin link-with-icon {
-  .#{$prefix}--link-with-icon {
+  .#{$prefix}--link-with-icon,
+  :host(#{$dds-prefix}-link-with-icon) {
     &__container {
       display: table;
+
+      &__inverse {
+        .#{$prefix}--link {
+          color: $inverse-link;
+        }
+
+        @include carbon--theme(
+          $carbon--theme--g100,
+          feature-flag-enabled('enable-css-custom-properties')
+        ) {
+          @include link;
+        }
+      }
     }
 
     display: flex;
@@ -24,11 +39,18 @@
       align-self: center;
     }
 
-    svg {
+    svg,
+    ::slotted(svg[slot='icon']) {
       margin-left: $carbon--spacing-03;
       vertical-align: middle;
       align-self: center;
       fill: currentColor;
+    }
+
+    .#{$prefix}--link--disabled:visited {
+      // Carbon core's has ongoing discussion on disabled link support.
+      // Meanwhile, this CSS makes disabled and visited link makes the right color
+      color: $disabled-02;
     }
 
     &:not(:first-of-type) {

@@ -28,7 +28,7 @@ const { prefix } = settings;
  */
 const ContentItemHorizontal = ({ eyebrow, heading, copy, cta }) => (
   <div
-    className={`${prefix}--content-item-horizontal__item ${prefix}`}
+    className={`${prefix}--content-item-horizontal__item `}
     data-autoid={`${stablePrefix}--content-item-horizontal__item`}>
     <div className={`${prefix}--content-item-horizontal__row`}>
       <div className={`${prefix}--content-item-horizontal__col`}>

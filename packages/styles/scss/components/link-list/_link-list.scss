@@ -76,10 +76,14 @@
               padding: $carbon--spacing-05 0;
               justify-content: space-between;
             }
+            svg {
+              margin-left: $carbon--spacing-07;
+            }
           }
         }
 
         .#{$prefix}--link-list__list--card & {
+          max-width: carbon--mini-units(80);
           div .#{$prefix}--tile {
             margin-left: 0;
             margin-right: 0;

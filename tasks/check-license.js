@@ -33,34 +33,36 @@ const {
  * @returns {Promise<void>} The promise that is fulfilled when the check finishes.
  */
 const check = async (paths, { testCurrentYear, writeCurrentYear }) => {
-  const filesWithErrors = (await Promise.all(
-    paths.map(async item => {
-      const contents = await readFile(item, 'utf8');
-      const result = (testCurrentYear || writeCurrentYear
-        ? reLicenseTextCurrentYear
-        : reLicense
-      ).test(contents);
-      if (!result) {
-        if (writeCurrentYear) {
-          const newContents = contents
-            .replace(
-              reLicenseTextSingleYear,
-              match => `${match}, ${currentYear}`
-            )
-            .replace(
-              reLicenseTextRange,
-              (match, token) => `${token}${currentYear}`
-            );
-          if (!reLicenseTextCurrentYear.test(newContents)) {
+  const filesWithErrors = (
+    await Promise.all(
+      paths.map(async item => {
+        const contents = await readFile(item, 'utf8');
+        const result = (testCurrentYear || writeCurrentYear
+          ? reLicenseTextCurrentYear
+          : reLicense
+        ).test(contents);
+        if (!result) {
+          if (writeCurrentYear) {
+            const newContents = contents
+              .replace(
+                reLicenseTextSingleYear,
+                match => `${match}, ${currentYear}`
+              )
+              .replace(
+                reLicenseTextRange,
+                (match, token) => `${token}${currentYear}`
+              );
+            if (!reLicenseTextCurrentYear.test(newContents)) {
+              return item;
+            }
+            await writeFile(item, newContents, 'utf8');
+          } else {
             return item;
           }
-          await writeFile(item, newContents, 'utf8');
-        } else {
-          return item;
         }
-      }
-    })
-  )).filter(Boolean);
+      })
+    )
+  ).filter(Boolean);
   if (filesWithErrors.length > 0) {
     throw new Error(
       `Cannot find license text in: ${filesWithErrors.join(', ')}`

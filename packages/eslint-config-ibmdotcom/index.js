@@ -72,6 +72,7 @@ module.exports = {
     'jsdoc/check-param-names': 2,
     'jsdoc/check-tag-names': 2,
     'jsdoc/check-types': 2,
+    'jsdoc/check-values': 0,
     'jsx-a11y/no-static-element-interactions': 1,
     'jsx-a11y/no-noninteractive-element-interactions': 1,
     'jsx-a11y/click-events-have-key-events': 1,

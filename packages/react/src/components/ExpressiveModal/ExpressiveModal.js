@@ -36,29 +36,14 @@ const ExpressiveModal = ({
       onClose={onClose}
       open={isOpen}
       data-autoid={`${stablePrefix}--expressive-modal`}
-      className={classNames(
-        `${prefix}--modal--expressive`,
-        className,
-        setVariant(fullwidth)
-      )}
+      className={classNames(`${prefix}--modal--expressive`, className, {
+        [`${prefix}--modal--expressive--fullwidth`]: fullwidth,
+      })}
       {...props}>
       <ExpressiveModalCloseBtn onClick={closeModal} />
       {children}
     </ComposedModal>
   );
-
-  /**
-   * sets the class name based if model type is fullwidth
-   *
-   * @param {boolean} isFullwidth includes variant class name or not ( true | false )
-   * @returns {string} fullwidth variant css class name
-   */
-  function setVariant(isFullwidth) {
-    let fullwidth;
-    fullwidth =
-      isFullwidth === true ? `${prefix}--modal--expressive--fullwidth` : '';
-    return fullwidth;
-  }
 
   /**
    * Close modal
