@@ -28,16 +28,11 @@ const className = (theme, type, image) => {
   const mainClassName = `${prefix}--leadspace${
     type === 'centered' ? '--centered' : ''
   }`;
-  return classnames(
-    mainClassName,
-    theme && `${mainClassName}--${theme}`,
-    {
-      [`${prefix}--leadspace--productive`]: type === 'small',
-    },
-    {
-      [`${prefix}--leadspace--centered__image`]: image && type === 'centered',
-    }
-  );
+  return classnames(mainClassName, {
+    [`${mainClassName}--${theme}`]: theme,
+    [`${prefix}--leadspace--productive`]: type === 'small',
+    [`${prefix}--leadspace--centered__image`]: image && type === 'centered',
+  });
 };
 
 /**
