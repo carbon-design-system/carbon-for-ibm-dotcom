@@ -25,15 +25,15 @@ export default {
           [
             {
               src: 'https://dummyimage.com/320x160/ee5396/161616&text=2x1',
-              breakpoint: 320,
+              breakpoint: 'sm',
             },
             {
-              src: 'https://dummyimage.com/400x400/ee5396/161616&text=1x1',
-              breakpoint: 400,
+              src: 'https://dummyimage.com/400x200/ee5396/161616&text=2x1',
+              breakpoint: 'md',
             },
             {
-              src: 'https://dummyimage.com/672x672/ee5396/161616&text=1x1',
-              breakpoint: 672,
+              src: 'https://dummyimage.com/672x336/ee5396/161616&text=2x1',
+              breakpoint: 'lg',
             },
           ],
           groupId
@@ -41,7 +41,7 @@ export default {
         alt: text('Image alt text (required)', 'Image alt text', groupId),
         defaultSrc: text(
           'Default image (required)',
-          'https://dummyimage.com/672x672/ee5396/161616&text=1x1',
+          'https://dummyimage.com/672x336/ee5396/161616&text=2x1',
           groupId
         ),
       }),

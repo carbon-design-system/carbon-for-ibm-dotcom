@@ -341,7 +341,7 @@ exports[`Storyshots Components|Card Default 1`] = `
           className="bx--row"
         >
           <div
-            className="bx--col-sm-2 bx--col-md-3 bx--col-lg-6 bx--col-xlg-4 bx--no-gutter"
+            className="bx--col-sm-4 bx--col-md-3 bx--col-lg-6 bx--col-xlg-4 bx--no-gutter"
           >
             <Card
               copy=""
@@ -3508,7 +3508,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                           >
                                             <div
                                               className="bx--image"
-                                              data-autoid="dds--image__longdescription-"
+                                              data-autoid="dds--image__longdescription"
                                             >
                                               <picture>
                                                 <img
@@ -3813,22 +3813,22 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                       >
                                                         <div
                                                           className="bx--image"
-                                                          data-autoid="dds--image__longdescription-"
+                                                          data-autoid="dds--image__longdescription"
                                                         >
                                                           <picture>
                                                             <source
                                                               key="0"
-                                                              media="(min-width: 672px )"
+                                                              media="(min-width: 672px)"
                                                               srcSet="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                                             />
                                                             <source
                                                               key="1"
-                                                              media="(min-width: 400px )"
+                                                              media="(min-width: 400px)"
                                                               srcSet="https://dummyimage.com/400x225/ee5396/161616&text=16:9"
                                                             />
                                                             <source
                                                               key="2"
-                                                              media="(min-width: 320px )"
+                                                              media="(min-width: 320px)"
                                                               srcSet="https://dummyimage.com/320x180/ee5396/161616&text=16:9"
                                                             />
                                                             <img
@@ -4035,22 +4035,22 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                       >
                                                         <div
                                                           className="bx--image"
-                                                          data-autoid="dds--image__longdescription-"
+                                                          data-autoid="dds--image__longdescription"
                                                         >
                                                           <picture>
                                                             <source
                                                               key="0"
-                                                              media="(min-width: 672px )"
+                                                              media="(min-width: 672px)"
                                                               srcSet="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                                             />
                                                             <source
                                                               key="1"
-                                                              media="(min-width: 400px )"
+                                                              media="(min-width: 400px)"
                                                               srcSet="https://dummyimage.com/400x225/ee5396/161616&text=16:9"
                                                             />
                                                             <source
                                                               key="2"
-                                                              media="(min-width: 320px )"
+                                                              media="(min-width: 320px)"
                                                               srcSet="https://dummyimage.com/320x180/ee5396/161616&text=16:9"
                                                             />
                                                             <img
@@ -5153,7 +5153,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                     >
                                                       <div
                                                         className="bx--image"
-                                                        data-autoid="dds--image__longdescription-"
+                                                        data-autoid="dds--image__longdescription"
                                                       >
                                                         <picture>
                                                           <img
@@ -5185,7 +5185,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                     >
                                                       <div
                                                         className="bx--image"
-                                                        data-autoid="dds--image__longdescription-"
+                                                        data-autoid="dds--image__longdescription"
                                                       >
                                                         <picture>
                                                           <img
@@ -5217,7 +5217,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                     >
                                                       <div
                                                         className="bx--image"
-                                                        data-autoid="dds--image__longdescription-"
+                                                        data-autoid="dds--image__longdescription"
                                                       >
                                                         <picture>
                                                           <img
@@ -5249,7 +5249,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                     >
                                                       <div
                                                         className="bx--image"
-                                                        data-autoid="dds--image__longdescription-"
+                                                        data-autoid="dds--image__longdescription"
                                                       >
                                                         <picture>
                                                           <img
@@ -5281,7 +5281,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                     >
                                                       <div
                                                         className="bx--image"
-                                                        data-autoid="dds--image__longdescription-"
+                                                        data-autoid="dds--image__longdescription"
                                                       >
                                                         <picture>
                                                           <img
@@ -5313,7 +5313,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                     >
                                                       <div
                                                         className="bx--image"
-                                                        data-autoid="dds--image__longdescription-"
+                                                        data-autoid="dds--image__longdescription"
                                                       >
                                                         <picture>
                                                           <img
@@ -5685,7 +5685,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                       >
                                                         <div
                                                           className="bx--image"
-                                                          data-autoid="dds--image__longdescription-"
+                                                          data-autoid="dds--image__longdescription"
                                                         >
                                                           <picture>
                                                             <img
@@ -5820,7 +5820,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                       >
                                                         <div
                                                           className="bx--image"
-                                                          data-autoid="dds--image__longdescription-"
+                                                          data-autoid="dds--image__longdescription"
                                                         >
                                                           <picture>
                                                             <img
@@ -5955,7 +5955,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                                       >
                                                         <div
                                                           className="bx--image"
-                                                          data-autoid="dds--image__longdescription-"
+                                                          data-autoid="dds--image__longdescription"
                                                         >
                                                           <picture>
                                                             <img
@@ -7440,7 +7440,7 @@ exports[`Storyshots Components|FeatureCard Default 1`] = `
                     >
                       <div
                         className="bx--image"
-                        data-autoid="dds--image__longdescription-"
+                        data-autoid="dds--image__longdescription"
                       >
                         <picture>
                           <img
@@ -7968,48 +7968,48 @@ exports[`Storyshots Components|Image Default 1`] = `
         >
           <Image
             alt="Image alt text"
-            defaultSrc="https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1"
+            defaultSrc="https://dummyimage.com/672x336/ee5396/161616&amp;text=2x1"
             sources={
               Array [
                 Object {
-                  "breakpoint": 320,
+                  "breakpoint": "sm",
                   "src": "https://dummyimage.com/320x160/ee5396/161616&amp;text=2x1",
                 },
                 Object {
-                  "breakpoint": 400,
-                  "src": "https://dummyimage.com/400x400/ee5396/161616&amp;text=1x1",
+                  "breakpoint": "md",
+                  "src": "https://dummyimage.com/400x200/ee5396/161616&amp;text=2x1",
                 },
                 Object {
-                  "breakpoint": 672,
-                  "src": "https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1",
+                  "breakpoint": "lg",
+                  "src": "https://dummyimage.com/672x336/ee5396/161616&amp;text=2x1",
                 },
               ]
             }
           >
             <div
               className="bx--image"
-              data-autoid="dds--image__longdescription-"
+              data-autoid="dds--image__longdescription"
             >
               <picture>
                 <source
                   key="0"
-                  media="(min-width: 672px )"
-                  srcSet="https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1"
+                  media="(min-width: 1056px)"
+                  srcSet="https://dummyimage.com/672x336/ee5396/161616&amp;text=2x1"
                 />
                 <source
                   key="1"
-                  media="(min-width: 400px )"
-                  srcSet="https://dummyimage.com/400x400/ee5396/161616&amp;text=1x1"
+                  media="(min-width: 672px)"
+                  srcSet="https://dummyimage.com/400x200/ee5396/161616&amp;text=2x1"
                 />
                 <source
                   key="2"
-                  media="(min-width: 320px )"
+                  media="(min-width: 320px)"
                   srcSet="https://dummyimage.com/320x160/ee5396/161616&amp;text=2x1"
                 />
                 <img
                   alt="Image alt text"
                   className="bx--image__img"
-                  src="https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1"
+                  src="https://dummyimage.com/672x336/ee5396/161616&amp;text=2x1"
                 />
               </picture>
             </div>
@@ -8054,7 +8054,7 @@ exports[`Storyshots Components|ImageWithCaption Default 1`] = `
             image={
               Object {
                 "alt": "image with caption image",
-                "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1",
+                "defaultSrc": "https://dummyimage.com/672x336/ee5396/161616&amp;text=2x1",
                 "sources": Array [
                   Object {
                     "breakpoint": "sm",
@@ -8063,6 +8063,10 @@ exports[`Storyshots Components|ImageWithCaption Default 1`] = `
                   Object {
                     "breakpoint": "md",
                     "src": "https://dummyimage.com/400x200/ee5396/161616&amp;text=2x1",
+                  },
+                  Object {
+                    "breakpoint": "lg",
+                    "src": "https://dummyimage.com/672x336/ee5396/161616&amp;text=2x1",
                   },
                 ],
               }
@@ -8081,7 +8085,7 @@ exports[`Storyshots Components|ImageWithCaption Default 1`] = `
               >
                 <Image
                   alt="image with caption image"
-                  defaultSrc="https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1"
+                  defaultSrc="https://dummyimage.com/672x336/ee5396/161616&amp;text=2x1"
                   sources={
                     Array [
                       Object {
@@ -8092,28 +8096,37 @@ exports[`Storyshots Components|ImageWithCaption Default 1`] = `
                         "breakpoint": "md",
                         "src": "https://dummyimage.com/400x200/ee5396/161616&amp;text=2x1",
                       },
+                      Object {
+                        "breakpoint": "lg",
+                        "src": "https://dummyimage.com/672x336/ee5396/161616&amp;text=2x1",
+                      },
                     ]
                   }
                 >
                   <div
                     className="bx--image"
-                    data-autoid="dds--image__longdescription-"
+                    data-autoid="dds--image__longdescription"
                   >
                     <picture>
                       <source
                         key="0"
-                        media="(min-width: 672px )"
-                        srcSet="https://dummyimage.com/400x200/ee5396/161616&amp;text=2x1"
+                        media="(min-width: 1056px)"
+                        srcSet="https://dummyimage.com/672x336/ee5396/161616&amp;text=2x1"
                       />
                       <source
                         key="1"
-                        media="(min-width: 320px )"
+                        media="(min-width: 672px)"
+                        srcSet="https://dummyimage.com/400x200/ee5396/161616&amp;text=2x1"
+                      />
+                      <source
+                        key="2"
+                        media="(min-width: 320px)"
                         srcSet="https://dummyimage.com/320x160/ee5396/161616&amp;text=2x1"
                       />
                       <img
                         alt="image with caption image"
                         className="bx--image__img"
-                        src="https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1"
+                        src="https://dummyimage.com/672x336/ee5396/161616&amp;text=2x1"
                       />
                     </picture>
                   </div>
@@ -8593,7 +8606,7 @@ exports[`Storyshots Components|LightboxMediaViewer Default 1`] = `
                           >
                             <div
                               className="bx--image"
-                              data-autoid="dds--image__longdescription-"
+                              data-autoid="dds--image__longdescription"
                             >
                               <picture>
                                 <img
@@ -15530,22 +15543,22 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
                     >
                       <div
                         className="bx--image"
-                        data-autoid="dds--image__longdescription-"
+                        data-autoid="dds--image__longdescription"
                       >
                         <picture>
                           <source
                             key="0"
-                            media="(min-width: 1056px )"
+                            media="(min-width: 1056px)"
                             srcSet="https://dummyimage.com/672x672&text=Example%20Children"
                           />
                           <source
                             key="1"
-                            media="(min-width: 672px )"
+                            media="(min-width: 672px)"
                             srcSet="https://dummyimage.com/672x200&text=Example%20Children"
                           />
                           <source
                             key="2"
-                            media="(min-width: 400px )"
+                            media="(min-width: 400px)"
                             srcSet="https://dummyimage.com/672x200&text=Example%20Children"
                           />
                           <img
@@ -15903,22 +15916,22 @@ exports[`Storyshots Components|Table of Contents With Heading Content 1`] = `
                       >
                         <div
                           className="bx--image"
-                          data-autoid="dds--image__longdescription-"
+                          data-autoid="dds--image__longdescription"
                         >
                           <picture>
                             <source
                               key="0"
-                              media="(min-width: 1056px )"
+                              media="(min-width: 1056px)"
                               srcSet="https://dummyimage.com/672x672&text=Example%20Children"
                             />
                             <source
                               key="1"
-                              media="(min-width: 672px )"
+                              media="(min-width: 672px)"
                               srcSet="https://dummyimage.com/672x200&text=Example%20Children"
                             />
                             <source
                               key="2"
-                              media="(min-width: 400px )"
+                              media="(min-width: 400px)"
                               srcSet="https://dummyimage.com/672x200&text=Example%20Children"
                             />
                             <img
@@ -16592,22 +16605,22 @@ exports[`Storyshots Patterns (Blocks)|CalloutWithMedia Default 1`] = `
                                         >
                                           <div
                                             className="bx--image"
-                                            data-autoid="dds--image__longdescription-"
+                                            data-autoid="dds--image__longdescription"
                                           >
                                             <picture>
                                               <source
                                                 key="0"
-                                                media="(min-width: 672px )"
+                                                media="(min-width: 672px)"
                                                 srcSet="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                               />
                                               <source
                                                 key="1"
-                                                media="(min-width: 400px )"
+                                                media="(min-width: 400px)"
                                                 srcSet="https://dummyimage.com/400x225/ee5396/161616&text=16:9"
                                               />
                                               <source
                                                 key="2"
-                                                media="(min-width: 320px )"
+                                                media="(min-width: 320px)"
                                                 srcSet="https://dummyimage.com/320x180/ee5396/161616&text=16:9"
                                               />
                                               <img
@@ -17712,22 +17725,22 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                     >
                                       <div
                                         className="bx--image"
-                                        data-autoid="dds--image__longdescription-"
+                                        data-autoid="dds--image__longdescription"
                                       >
                                         <picture>
                                           <source
                                             key="0"
-                                            media="(min-width: 672px )"
+                                            media="(min-width: 672px)"
                                             srcSet="https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9"
                                           />
                                           <source
                                             key="1"
-                                            media="(min-width: 400px )"
+                                            media="(min-width: 400px)"
                                             srcSet="https://dummyimage.com/400x225/ee5396/161616&amp;text=16:9"
                                           />
                                           <source
                                             key="2"
-                                            media="(min-width: 320px )"
+                                            media="(min-width: 320px)"
                                             srcSet="https://dummyimage.com/320x180/ee5396/161616&amp;text=16:9"
                                           />
                                           <img
@@ -18120,22 +18133,22 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                     >
                                       <div
                                         className="bx--image"
-                                        data-autoid="dds--image__longdescription-"
+                                        data-autoid="dds--image__longdescription"
                                       >
                                         <picture>
                                           <source
                                             key="0"
-                                            media="(min-width: 672px )"
+                                            media="(min-width: 672px)"
                                             srcSet="https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9"
                                           />
                                           <source
                                             key="1"
-                                            media="(min-width: 400px )"
+                                            media="(min-width: 400px)"
                                             srcSet="https://dummyimage.com/400x225/ee5396/161616&amp;text=16:9"
                                           />
                                           <source
                                             key="2"
-                                            media="(min-width: 320px )"
+                                            media="(min-width: 320px)"
                                             srcSet="https://dummyimage.com/320x180/ee5396/161616&amp;text=16:9"
                                           />
                                           <img
@@ -18486,177 +18499,162 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                             className="bx--feature-card-block-medium"
                             data-autoid="dds--feature-card-block-medium"
                           >
-                            <ContentGroup
-                              heading="Lorem ipsum dolor sit amet"
+                            <h3
+                              className="bx--feature-card-block-medium__heading"
+                            >
+                              Lorem ipsum dolor sit amet
+                            </h3>
+                            <FeatureCard
+                              card={
+                                Object {
+                                  "cta": Object {
+                                    "href": "https://www.example.com",
+                                    "icon": Object {
+                                      "src": Object {
+                                        "$$typeof": Symbol(react.forward_ref),
+                                        "render": [Function],
+                                      },
+                                    },
+                                  },
+                                  "heading": "Consectetur adipisicing elit",
+                                  "image": Object {
+                                    "alt": "Image alt text",
+                                    "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1",
+                                  },
+                                  "target": null,
+                                  "type": "link",
+                                }
+                              }
                             >
                               <div
-                                className="bx--content-group"
-                                data-autoid="dds--content-group"
+                                className="bx--feature-card"
+                                data-autoid="dds--feature-card"
                               >
-                                <h3
-                                  className="bx--content-group__title"
-                                  data-autoid="dds--content-group__title"
-                                >
-                                  Lorem ipsum dolor sit amet
-                                </h3>
-                                <div
-                                  className="bx--content-group__col bx--content-group__children"
-                                  data-autoid="dds--content-group__children"
-                                >
-                                  <FeatureCard
-                                    card={
-                                      Object {
-                                        "cta": Object {
-                                          "href": "https://www.example.com",
-                                          "icon": Object {
-                                            "src": Object {
-                                              "$$typeof": Symbol(react.forward_ref),
-                                              "render": [Function],
-                                            },
-                                          },
+                                <Card
+                                  cta={
+                                    Object {
+                                      "href": "https://www.example.com",
+                                      "icon": Object {
+                                        "src": Object {
+                                          "$$typeof": Symbol(react.forward_ref),
+                                          "render": [Function],
                                         },
-                                        "heading": "Consectetur adipisicing elit",
-                                        "image": Object {
-                                          "alt": "Image alt text",
-                                          "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1",
-                                        },
-                                        "target": null,
-                                        "type": "link",
-                                      }
+                                      },
                                     }
+                                  }
+                                  customClassName="bx--feature-card__card"
+                                  heading="Consectetur adipisicing elit"
+                                  image={
+                                    Object {
+                                      "alt": "Image alt text",
+                                      "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1",
+                                    }
+                                  }
+                                  inverse={true}
+                                  target={null}
+                                  type="link"
+                                >
+                                  <ClickableTile
+                                    className="bx--card bx--card--inverse bx--card--link bx--feature-card__card"
+                                    clicked={false}
+                                    data-autoid="dds--card"
+                                    handleClick={[Function]}
+                                    handleKeyDown={[Function]}
+                                    href="https://www.example.com"
+                                    light={false}
+                                    onClick={[Function]}
+                                    target={null}
                                   >
-                                    <div
-                                      className="bx--feature-card"
-                                      data-autoid="dds--feature-card"
+                                    <a
+                                      className="bx--tile bx--tile--clickable bx--card bx--card--inverse bx--card--link bx--feature-card__card"
+                                      data-autoid="dds--card"
+                                      href="https://www.example.com"
+                                      onClick={[Function]}
+                                      onKeyDown={[Function]}
+                                      target={null}
                                     >
-                                      <Card
-                                        cta={
-                                          Object {
-                                            "href": "https://www.example.com",
-                                            "icon": Object {
-                                              "src": Object {
+                                      <Image
+                                        alt="Image alt text"
+                                        classname="bx--card__img"
+                                        defaultSrc="https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1"
+                                      >
+                                        <div
+                                          className="bx--image"
+                                          data-autoid="dds--image__longdescription"
+                                        >
+                                          <picture>
+                                            <img
+                                              alt="Image alt text"
+                                              className="bx--image__img bx--card__img"
+                                              src="https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1"
+                                            />
+                                          </picture>
+                                        </div>
+                                      </Image>
+                                      <div
+                                        className="bx--card__wrapper"
+                                      >
+                                        <h3
+                                          className="bx--card__heading"
+                                        >
+                                          Consectetur adipisicing elit
+                                        </h3>
+                                        <div
+                                          className="bx--card__footer"
+                                        >
+                                          <ForwardRef(ArrowRight20)
+                                            className="bx--card__cta"
+                                            src={
+                                              Object {
                                                 "$$typeof": Symbol(react.forward_ref),
                                                 "render": [Function],
-                                              },
-                                            },
-                                          }
-                                        }
-                                        customClassName="bx--feature-card__card"
-                                        heading="Consectetur adipisicing elit"
-                                        image={
-                                          Object {
-                                            "alt": "Image alt text",
-                                            "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1",
-                                          }
-                                        }
-                                        inverse={true}
-                                        target={null}
-                                        type="link"
-                                      >
-                                        <ClickableTile
-                                          className="bx--card bx--card--inverse bx--card--link bx--feature-card__card"
-                                          clicked={false}
-                                          data-autoid="dds--card"
-                                          handleClick={[Function]}
-                                          handleKeyDown={[Function]}
-                                          href="https://www.example.com"
-                                          light={false}
-                                          onClick={[Function]}
-                                          target={null}
-                                        >
-                                          <a
-                                            className="bx--tile bx--tile--clickable bx--card bx--card--inverse bx--card--link bx--feature-card__card"
-                                            data-autoid="dds--card"
-                                            href="https://www.example.com"
-                                            onClick={[Function]}
-                                            onKeyDown={[Function]}
-                                            target={null}
+                                              }
+                                            }
                                           >
-                                            <Image
-                                              alt="Image alt text"
-                                              classname="bx--card__img"
-                                              defaultSrc="https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1"
+                                            <Icon
+                                              className="bx--card__cta"
+                                              height={20}
+                                              preserveAspectRatio="xMidYMid meet"
+                                              src={
+                                                Object {
+                                                  "$$typeof": Symbol(react.forward_ref),
+                                                  "render": [Function],
+                                                }
+                                              }
+                                              viewBox="0 0 20 20"
+                                              width={20}
+                                              xmlns="http://www.w3.org/2000/svg"
                                             >
-                                              <div
-                                                className="bx--image"
-                                                data-autoid="dds--image__longdescription-"
-                                              >
-                                                <picture>
-                                                  <img
-                                                    alt="Image alt text"
-                                                    className="bx--image__img bx--card__img"
-                                                    src="https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1"
-                                                  />
-                                                </picture>
-                                              </div>
-                                            </Image>
-                                            <div
-                                              className="bx--card__wrapper"
-                                            >
-                                              <h3
-                                                className="bx--card__heading"
-                                              >
-                                                Consectetur adipisicing elit
-                                              </h3>
-                                              <div
-                                                className="bx--card__footer"
-                                              >
-                                                <ForwardRef(ArrowRight20)
-                                                  className="bx--card__cta"
-                                                  src={
-                                                    Object {
-                                                      "$$typeof": Symbol(react.forward_ref),
-                                                      "render": [Function],
-                                                    }
+                                              <svg
+                                                aria-hidden={true}
+                                                className="bx--card__cta"
+                                                focusable="false"
+                                                height={20}
+                                                preserveAspectRatio="xMidYMid meet"
+                                                src={
+                                                  Object {
+                                                    "$$typeof": Symbol(react.forward_ref),
+                                                    "render": [Function],
                                                   }
-                                                >
-                                                  <Icon
-                                                    className="bx--card__cta"
-                                                    height={20}
-                                                    preserveAspectRatio="xMidYMid meet"
-                                                    src={
-                                                      Object {
-                                                        "$$typeof": Symbol(react.forward_ref),
-                                                        "render": [Function],
-                                                      }
-                                                    }
-                                                    viewBox="0 0 20 20"
-                                                    width={20}
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                  >
-                                                    <svg
-                                                      aria-hidden={true}
-                                                      className="bx--card__cta"
-                                                      focusable="false"
-                                                      height={20}
-                                                      preserveAspectRatio="xMidYMid meet"
-                                                      src={
-                                                        Object {
-                                                          "$$typeof": Symbol(react.forward_ref),
-                                                          "render": [Function],
-                                                        }
-                                                      }
-                                                      viewBox="0 0 20 20"
-                                                      width={20}
-                                                      xmlns="http://www.w3.org/2000/svg"
-                                                    >
-                                                      <path
-                                                        d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
-                                                      />
-                                                    </svg>
-                                                  </Icon>
-                                                </ForwardRef(ArrowRight20)>
-                                                <span />
-                                              </div>
-                                            </div>
-                                          </a>
-                                        </ClickableTile>
-                                      </Card>
-                                    </div>
-                                  </FeatureCard>
-                                </div>
+                                                }
+                                                viewBox="0 0 20 20"
+                                                width={20}
+                                                xmlns="http://www.w3.org/2000/svg"
+                                              >
+                                                <path
+                                                  d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                                />
+                                              </svg>
+                                            </Icon>
+                                          </ForwardRef(ArrowRight20)>
+                                          <span />
+                                        </div>
+                                      </div>
+                                    </a>
+                                  </ClickableTile>
+                                </Card>
                               </div>
-                            </ContentGroup>
+                            </FeatureCard>
                           </section>
                         </FeatureCardBlockMedium>
                       </FeatureCTA>
@@ -19111,22 +19109,22 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                             >
                                               <div
                                                 className="bx--image"
-                                                data-autoid="dds--image__longdescription-"
+                                                data-autoid="dds--image__longdescription"
                                               >
                                                 <picture>
                                                   <source
                                                     key="0"
-                                                    media="(min-width: 672px )"
+                                                    media="(min-width: 672px)"
                                                     srcSet="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                                   />
                                                   <source
                                                     key="1"
-                                                    media="(min-width: 400px )"
+                                                    media="(min-width: 400px)"
                                                     srcSet="https://dummyimage.com/400x225/ee5396/161616&text=16:9"
                                                   />
                                                   <source
                                                     key="2"
-                                                    media="(min-width: 320px )"
+                                                    media="(min-width: 320px)"
                                                     srcSet="https://dummyimage.com/320x180/ee5396/161616&text=16:9"
                                                   />
                                                   <img
@@ -19519,22 +19517,22 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                             >
                                               <div
                                                 className="bx--image"
-                                                data-autoid="dds--image__longdescription-"
+                                                data-autoid="dds--image__longdescription"
                                               >
                                                 <picture>
                                                   <source
                                                     key="0"
-                                                    media="(min-width: 672px )"
+                                                    media="(min-width: 672px)"
                                                     srcSet="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                                   />
                                                   <source
                                                     key="1"
-                                                    media="(min-width: 400px )"
+                                                    media="(min-width: 400px)"
                                                     srcSet="https://dummyimage.com/400x225/ee5396/161616&text=16:9"
                                                   />
                                                   <source
                                                     key="2"
-                                                    media="(min-width: 320px )"
+                                                    media="(min-width: 320px)"
                                                     srcSet="https://dummyimage.com/320x180/ee5396/161616&text=16:9"
                                                   />
                                                   <img
@@ -19885,177 +19883,162 @@ nulla quis, *consequat* libero. Phasellus at elit sollicitudin, sodales nulla qu
                                     className="bx--feature-card-block-medium"
                                     data-autoid="dds--feature-card-block-medium"
                                   >
-                                    <ContentGroup
-                                      heading="Lorem ipsum dolor sit amet"
+                                    <h3
+                                      className="bx--feature-card-block-medium__heading"
+                                    >
+                                      Lorem ipsum dolor sit amet
+                                    </h3>
+                                    <FeatureCard
+                                      card={
+                                        Object {
+                                          "cta": Object {
+                                            "href": "https://www.example.com",
+                                            "icon": Object {
+                                              "src": Object {
+                                                "$$typeof": Symbol(react.forward_ref),
+                                                "render": [Function],
+                                              },
+                                            },
+                                          },
+                                          "heading": "Consectetur adipisicing elit",
+                                          "image": Object {
+                                            "alt": "Image alt text",
+                                            "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&text=1x1",
+                                          },
+                                          "target": null,
+                                          "type": "link",
+                                        }
+                                      }
                                     >
                                       <div
-                                        className="bx--content-group"
-                                        data-autoid="dds--content-group"
+                                        className="bx--feature-card"
+                                        data-autoid="dds--feature-card"
                                       >
-                                        <h3
-                                          className="bx--content-group__title"
-                                          data-autoid="dds--content-group__title"
-                                        >
-                                          Lorem ipsum dolor sit amet
-                                        </h3>
-                                        <div
-                                          className="bx--content-group__col bx--content-group__children"
-                                          data-autoid="dds--content-group__children"
-                                        >
-                                          <FeatureCard
-                                            card={
-                                              Object {
-                                                "cta": Object {
-                                                  "href": "https://www.example.com",
-                                                  "icon": Object {
-                                                    "src": Object {
-                                                      "$$typeof": Symbol(react.forward_ref),
-                                                      "render": [Function],
-                                                    },
-                                                  },
+                                        <Card
+                                          cta={
+                                            Object {
+                                              "href": "https://www.example.com",
+                                              "icon": Object {
+                                                "src": Object {
+                                                  "$$typeof": Symbol(react.forward_ref),
+                                                  "render": [Function],
                                                 },
-                                                "heading": "Consectetur adipisicing elit",
-                                                "image": Object {
-                                                  "alt": "Image alt text",
-                                                  "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&text=1x1",
-                                                },
-                                                "target": null,
-                                                "type": "link",
-                                              }
+                                              },
                                             }
+                                          }
+                                          customClassName="bx--feature-card__card"
+                                          heading="Consectetur adipisicing elit"
+                                          image={
+                                            Object {
+                                              "alt": "Image alt text",
+                                              "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&text=1x1",
+                                            }
+                                          }
+                                          inverse={true}
+                                          target={null}
+                                          type="link"
+                                        >
+                                          <ClickableTile
+                                            className="bx--card bx--card--inverse bx--card--link bx--feature-card__card"
+                                            clicked={false}
+                                            data-autoid="dds--card"
+                                            handleClick={[Function]}
+                                            handleKeyDown={[Function]}
+                                            href="https://www.example.com"
+                                            light={false}
+                                            onClick={[Function]}
+                                            target={null}
                                           >
-                                            <div
-                                              className="bx--feature-card"
-                                              data-autoid="dds--feature-card"
+                                            <a
+                                              className="bx--tile bx--tile--clickable bx--card bx--card--inverse bx--card--link bx--feature-card__card"
+                                              data-autoid="dds--card"
+                                              href="https://www.example.com"
+                                              onClick={[Function]}
+                                              onKeyDown={[Function]}
+                                              target={null}
                                             >
-                                              <Card
-                                                cta={
-                                                  Object {
-                                                    "href": "https://www.example.com",
-                                                    "icon": Object {
-                                                      "src": Object {
+                                              <Image
+                                                alt="Image alt text"
+                                                classname="bx--card__img"
+                                                defaultSrc="https://dummyimage.com/672x672/ee5396/161616&text=1x1"
+                                              >
+                                                <div
+                                                  className="bx--image"
+                                                  data-autoid="dds--image__longdescription"
+                                                >
+                                                  <picture>
+                                                    <img
+                                                      alt="Image alt text"
+                                                      className="bx--image__img bx--card__img"
+                                                      src="https://dummyimage.com/672x672/ee5396/161616&text=1x1"
+                                                    />
+                                                  </picture>
+                                                </div>
+                                              </Image>
+                                              <div
+                                                className="bx--card__wrapper"
+                                              >
+                                                <h3
+                                                  className="bx--card__heading"
+                                                >
+                                                  Consectetur adipisicing elit
+                                                </h3>
+                                                <div
+                                                  className="bx--card__footer"
+                                                >
+                                                  <ForwardRef(ArrowRight20)
+                                                    className="bx--card__cta"
+                                                    src={
+                                                      Object {
                                                         "$$typeof": Symbol(react.forward_ref),
                                                         "render": [Function],
-                                                      },
-                                                    },
-                                                  }
-                                                }
-                                                customClassName="bx--feature-card__card"
-                                                heading="Consectetur adipisicing elit"
-                                                image={
-                                                  Object {
-                                                    "alt": "Image alt text",
-                                                    "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&text=1x1",
-                                                  }
-                                                }
-                                                inverse={true}
-                                                target={null}
-                                                type="link"
-                                              >
-                                                <ClickableTile
-                                                  className="bx--card bx--card--inverse bx--card--link bx--feature-card__card"
-                                                  clicked={false}
-                                                  data-autoid="dds--card"
-                                                  handleClick={[Function]}
-                                                  handleKeyDown={[Function]}
-                                                  href="https://www.example.com"
-                                                  light={false}
-                                                  onClick={[Function]}
-                                                  target={null}
-                                                >
-                                                  <a
-                                                    className="bx--tile bx--tile--clickable bx--card bx--card--inverse bx--card--link bx--feature-card__card"
-                                                    data-autoid="dds--card"
-                                                    href="https://www.example.com"
-                                                    onClick={[Function]}
-                                                    onKeyDown={[Function]}
-                                                    target={null}
+                                                      }
+                                                    }
                                                   >
-                                                    <Image
-                                                      alt="Image alt text"
-                                                      classname="bx--card__img"
-                                                      defaultSrc="https://dummyimage.com/672x672/ee5396/161616&text=1x1"
+                                                    <Icon
+                                                      className="bx--card__cta"
+                                                      height={20}
+                                                      preserveAspectRatio="xMidYMid meet"
+                                                      src={
+                                                        Object {
+                                                          "$$typeof": Symbol(react.forward_ref),
+                                                          "render": [Function],
+                                                        }
+                                                      }
+                                                      viewBox="0 0 20 20"
+                                                      width={20}
+                                                      xmlns="http://www.w3.org/2000/svg"
                                                     >
-                                                      <div
-                                                        className="bx--image"
-                                                        data-autoid="dds--image__longdescription-"
-                                                      >
-                                                        <picture>
-                                                          <img
-                                                            alt="Image alt text"
-                                                            className="bx--image__img bx--card__img"
-                                                            src="https://dummyimage.com/672x672/ee5396/161616&text=1x1"
-                                                          />
-                                                        </picture>
-                                                      </div>
-                                                    </Image>
-                                                    <div
-                                                      className="bx--card__wrapper"
-                                                    >
-                                                      <h3
-                                                        className="bx--card__heading"
-                                                      >
-                                                        Consectetur adipisicing elit
-                                                      </h3>
-                                                      <div
-                                                        className="bx--card__footer"
-                                                      >
-                                                        <ForwardRef(ArrowRight20)
-                                                          className="bx--card__cta"
-                                                          src={
-                                                            Object {
-                                                              "$$typeof": Symbol(react.forward_ref),
-                                                              "render": [Function],
-                                                            }
+                                                      <svg
+                                                        aria-hidden={true}
+                                                        className="bx--card__cta"
+                                                        focusable="false"
+                                                        height={20}
+                                                        preserveAspectRatio="xMidYMid meet"
+                                                        src={
+                                                          Object {
+                                                            "$$typeof": Symbol(react.forward_ref),
+                                                            "render": [Function],
                                                           }
-                                                        >
-                                                          <Icon
-                                                            className="bx--card__cta"
-                                                            height={20}
-                                                            preserveAspectRatio="xMidYMid meet"
-                                                            src={
-                                                              Object {
-                                                                "$$typeof": Symbol(react.forward_ref),
-                                                                "render": [Function],
-                                                              }
-                                                            }
-                                                            viewBox="0 0 20 20"
-                                                            width={20}
-                                                            xmlns="http://www.w3.org/2000/svg"
-                                                          >
-                                                            <svg
-                                                              aria-hidden={true}
-                                                              className="bx--card__cta"
-                                                              focusable="false"
-                                                              height={20}
-                                                              preserveAspectRatio="xMidYMid meet"
-                                                              src={
-                                                                Object {
-                                                                  "$$typeof": Symbol(react.forward_ref),
-                                                                  "render": [Function],
-                                                                }
-                                                              }
-                                                              viewBox="0 0 20 20"
-                                                              width={20}
-                                                              xmlns="http://www.w3.org/2000/svg"
-                                                            >
-                                                              <path
-                                                                d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
-                                                              />
-                                                            </svg>
-                                                          </Icon>
-                                                        </ForwardRef(ArrowRight20)>
-                                                        <span />
-                                                      </div>
-                                                    </div>
-                                                  </a>
-                                                </ClickableTile>
-                                              </Card>
-                                            </div>
-                                          </FeatureCard>
-                                        </div>
+                                                        }
+                                                        viewBox="0 0 20 20"
+                                                        width={20}
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                      >
+                                                        <path
+                                                          d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                                        />
+                                                      </svg>
+                                                    </Icon>
+                                                  </ForwardRef(ArrowRight20)>
+                                                  <span />
+                                                </div>
+                                              </div>
+                                            </a>
+                                          </ClickableTile>
+                                        </Card>
                                       </div>
-                                    </ContentGroup>
+                                    </FeatureCard>
                                   </section>
                                 </FeatureCardBlockMedium>
                               </FeatureCTA>
@@ -22014,22 +21997,22 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed Default 1`] = `
                                     >
                                       <div
                                         className="bx--image"
-                                        data-autoid="dds--image__longdescription-"
+                                        data-autoid="dds--image__longdescription"
                                       >
                                         <picture>
                                           <source
                                             key="0"
-                                            media="(min-width: 672px )"
+                                            media="(min-width: 672px)"
                                             srcSet="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                           />
                                           <source
                                             key="1"
-                                            media="(min-width: 400px )"
+                                            media="(min-width: 400px)"
                                             srcSet="https://dummyimage.com/400x225/ee5396/161616&text=16:9"
                                           />
                                           <source
                                             key="2"
-                                            media="(min-width: 320px )"
+                                            media="(min-width: 320px)"
                                             srcSet="https://dummyimage.com/320x180/ee5396/161616&text=16:9"
                                           />
                                           <img
@@ -23931,22 +23914,22 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockMixed With aside elements 1`] 
                                             >
                                               <div
                                                 className="bx--image"
-                                                data-autoid="dds--image__longdescription-"
+                                                data-autoid="dds--image__longdescription"
                                               >
                                                 <picture>
                                                   <source
                                                     key="0"
-                                                    media="(min-width: 672px )"
+                                                    media="(min-width: 672px)"
                                                     srcSet="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                                   />
                                                   <source
                                                     key="1"
-                                                    media="(min-width: 400px )"
+                                                    media="(min-width: 400px)"
                                                     srcSet="https://dummyimage.com/400x225/ee5396/161616&text=16:9"
                                                   />
                                                   <source
                                                     key="2"
-                                                    media="(min-width: 320px )"
+                                                    media="(min-width: 320px)"
                                                     srcSet="https://dummyimage.com/320x180/ee5396/161616&text=16:9"
                                                   />
                                                   <img
@@ -24836,22 +24819,22 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                           >
                             <div
                               className="bx--image"
-                              data-autoid="dds--image__longdescription-"
+                              data-autoid="dds--image__longdescription"
                             >
                               <picture>
                                 <source
                                   key="0"
-                                  media="(min-width: 672px )"
+                                  media="(min-width: 672px)"
                                   srcSet="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                 />
                                 <source
                                   key="1"
-                                  media="(min-width: 400px )"
+                                  media="(min-width: 400px)"
                                   srcSet="https://dummyimage.com/400x225/ee5396/161616&text=16:9"
                                 />
                                 <source
                                   key="2"
-                                  media="(min-width: 320px )"
+                                  media="(min-width: 320px)"
                                   srcSet="https://dummyimage.com/320x180/ee5396/161616&text=16:9"
                                 />
                                 <img
@@ -25117,22 +25100,22 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                                   >
                                     <div
                                       className="bx--image"
-                                      data-autoid="dds--image__longdescription-"
+                                      data-autoid="dds--image__longdescription"
                                     >
                                       <picture>
                                         <source
                                           key="0"
-                                          media="(min-width: 672px )"
+                                          media="(min-width: 672px)"
                                           srcSet="https://dummyimage.com/672x378/ee5396/161616&amp;text=16:9"
                                         />
                                         <source
                                           key="1"
-                                          media="(min-width: 400px )"
+                                          media="(min-width: 400px)"
                                           srcSet="https://dummyimage.com/400x225/ee5396/161616&amp;text=16:9"
                                         />
                                         <source
                                           key="2"
-                                          media="(min-width: 320px )"
+                                          media="(min-width: 320px)"
                                           srcSet="https://dummyimage.com/320x180/ee5396/161616&amp;text=16:9"
                                         />
                                         <img
@@ -25738,22 +25721,22 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                   >
                                     <div
                                       className="bx--image"
-                                      data-autoid="dds--image__longdescription-"
+                                      data-autoid="dds--image__longdescription"
                                     >
                                       <picture>
                                         <source
                                           key="0"
-                                          media="(min-width: 672px )"
+                                          media="(min-width: 672px)"
                                           srcSet="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                         />
                                         <source
                                           key="1"
-                                          media="(min-width: 400px )"
+                                          media="(min-width: 400px)"
                                           srcSet="https://dummyimage.com/400x225/ee5396/161616&text=16:9"
                                         />
                                         <source
                                           key="2"
-                                          media="(min-width: 320px )"
+                                          media="(min-width: 320px)"
                                           srcSet="https://dummyimage.com/320x180/ee5396/161616&text=16:9"
                                         />
                                         <img
@@ -25918,22 +25901,22 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented With aside elements 
                                           >
                                             <div
                                               className="bx--image"
-                                              data-autoid="dds--image__longdescription-"
+                                              data-autoid="dds--image__longdescription"
                                             >
                                               <picture>
                                                 <source
                                                   key="0"
-                                                  media="(min-width: 672px )"
+                                                  media="(min-width: 672px)"
                                                   srcSet="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                                 />
                                                 <source
                                                   key="1"
-                                                  media="(min-width: 400px )"
+                                                  media="(min-width: 400px)"
                                                   srcSet="https://dummyimage.com/400x225/ee5396/161616&text=16:9"
                                                 />
                                                 <source
                                                   key="2"
-                                                  media="(min-width: 320px )"
+                                                  media="(min-width: 320px)"
                                                   srcSet="https://dummyimage.com/320x180/ee5396/161616&text=16:9"
                                                 />
                                                 <img
@@ -26750,22 +26733,22 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple Default 1`] = `
                             >
                               <div
                                 className="bx--image"
-                                data-autoid="dds--image__longdescription-"
+                                data-autoid="dds--image__longdescription"
                               >
                                 <picture>
                                   <source
                                     key="0"
-                                    media="(min-width: 672px )"
+                                    media="(min-width: 672px)"
                                     srcSet="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                   />
                                   <source
                                     key="1"
-                                    media="(min-width: 400px )"
+                                    media="(min-width: 400px)"
                                     srcSet="https://dummyimage.com/400x225/ee5396/161616&text=16:9"
                                   />
                                   <source
                                     key="2"
-                                    media="(min-width: 320px )"
+                                    media="(min-width: 320px)"
                                     srcSet="https://dummyimage.com/320x180/ee5396/161616&text=16:9"
                                   />
                                   <img
@@ -27267,22 +27250,22 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSimple With aside elements 1`]
                                     >
                                       <div
                                         className="bx--image"
-                                        data-autoid="dds--image__longdescription-"
+                                        data-autoid="dds--image__longdescription"
                                       >
                                         <picture>
                                           <source
                                             key="0"
-                                            media="(min-width: 672px )"
+                                            media="(min-width: 672px)"
                                             srcSet="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                           />
                                           <source
                                             key="1"
-                                            media="(min-width: 400px )"
+                                            media="(min-width: 400px)"
                                             srcSet="https://dummyimage.com/400x225/ee5396/161616&text=16:9"
                                           />
                                           <source
                                             key="2"
-                                            media="(min-width: 320px )"
+                                            media="(min-width: 320px)"
                                             srcSet="https://dummyimage.com/320x180/ee5396/161616&text=16:9"
                                           />
                                           <img
@@ -29972,22 +29955,22 @@ exports[`Storyshots Patterns (Blocks)|ContentGroupSimple Default 1`] = `
                           >
                             <div
                               className="bx--image"
-                              data-autoid="dds--image__longdescription-"
+                              data-autoid="dds--image__longdescription"
                             >
                               <picture>
                                 <source
                                   key="0"
-                                  media="(min-width: 672px )"
+                                  media="(min-width: 672px)"
                                   srcSet="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                 />
                                 <source
                                   key="1"
-                                  media="(min-width: 400px )"
+                                  media="(min-width: 400px)"
                                   srcSet="https://dummyimage.com/400x225/ee5396/161616&text=16:9"
                                 />
                                 <source
                                   key="2"
-                                  media="(min-width: 320px )"
+                                  media="(min-width: 320px)"
                                   srcSet="https://dummyimage.com/320x180/ee5396/161616&text=16:9"
                                 />
                                 <img
@@ -30426,32 +30409,32 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockLarge Default 1`] = `
                       >
                         <div
                           className="bx--image"
-                          data-autoid="dds--image__longdescription-"
+                          data-autoid="dds--image__longdescription"
                         >
                           <picture>
                             <source
                               key="0"
-                              media="(min-width: 1312px )"
+                              media="(min-width: 1312px)"
                               srcSet="https://dummyimage.com/672x672/ee5396/161616&amp;text=1:1"
                             />
                             <source
                               key="1"
-                              media="(min-width: 1056px )"
+                              media="(min-width: 1056px)"
                               srcSet="https://dummyimage.com/600x300/ee5396/161616&amp;text=2:1"
                             />
                             <source
                               key="2"
-                              media="(min-width: 991px )"
+                              media="(min-width: 991px)"
                               srcSet="https://dummyimage.com/600x600/ee5396/161616&amp;text=1:1"
                             />
                             <source
                               key="3"
-                              media="(min-width: 672px )"
+                              media="(min-width: 672px)"
                               srcSet="https://dummyimage.com/400x200/ee5396/161616&amp;text=2:1"
                             />
                             <source
                               key="4"
-                              media="(min-width: 320px )"
+                              media="(min-width: 320px)"
                               srcSet="https://dummyimage.com/320x160/ee5396/161616&amp;text=2:1"
                             />
                             <img
@@ -30599,174 +30582,159 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockMedium Default 1`] = `
               className="bx--feature-card-block-medium"
               data-autoid="dds--feature-card-block-medium"
             >
-              <ContentGroup
-                heading="How is artificial intelligence used today in your industry?"
+              <h3
+                className="bx--feature-card-block-medium__heading"
+              >
+                How is artificial intelligence used today in your industry?
+              </h3>
+              <FeatureCard
+                card={
+                  Object {
+                    "cta": Object {
+                      "href": "https://www.example.com",
+                      "icon": Object {
+                        "src": Object {
+                          "$$typeof": Symbol(react.forward_ref),
+                          "render": [Function],
+                        },
+                      },
+                    },
+                    "heading": "Explore AI use cases in all industries",
+                    "image": Object {
+                      "alt": "Image alt text",
+                      "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1",
+                    },
+                  }
+                }
               >
                 <div
-                  className="bx--content-group"
-                  data-autoid="dds--content-group"
+                  className="bx--feature-card"
+                  data-autoid="dds--feature-card"
                 >
-                  <h3
-                    className="bx--content-group__title"
-                    data-autoid="dds--content-group__title"
-                  >
-                    How is artificial intelligence used today in your industry?
-                  </h3>
-                  <div
-                    className="bx--content-group__col bx--content-group__children"
-                    data-autoid="dds--content-group__children"
-                  >
-                    <FeatureCard
-                      card={
-                        Object {
-                          "cta": Object {
-                            "href": "https://www.example.com",
-                            "icon": Object {
-                              "src": Object {
-                                "$$typeof": Symbol(react.forward_ref),
-                                "render": [Function],
-                              },
-                            },
+                  <Card
+                    cta={
+                      Object {
+                        "href": "https://www.example.com",
+                        "icon": Object {
+                          "src": Object {
+                            "$$typeof": Symbol(react.forward_ref),
+                            "render": [Function],
                           },
-                          "heading": "Explore AI use cases in all industries",
-                          "image": Object {
-                            "alt": "Image alt text",
-                            "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1",
-                          },
-                        }
+                        },
                       }
+                    }
+                    customClassName="bx--feature-card__card"
+                    heading="Explore AI use cases in all industries"
+                    image={
+                      Object {
+                        "alt": "Image alt text",
+                        "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1",
+                      }
+                    }
+                    inverse={true}
+                    type="link"
+                  >
+                    <ClickableTile
+                      className="bx--card bx--card--inverse bx--card--link bx--feature-card__card"
+                      clicked={false}
+                      data-autoid="dds--card"
+                      handleClick={[Function]}
+                      handleKeyDown={[Function]}
+                      href="https://www.example.com"
+                      light={false}
+                      onClick={[Function]}
+                      target={null}
                     >
-                      <div
-                        className="bx--feature-card"
-                        data-autoid="dds--feature-card"
+                      <a
+                        className="bx--tile bx--tile--clickable bx--card bx--card--inverse bx--card--link bx--feature-card__card"
+                        data-autoid="dds--card"
+                        href="https://www.example.com"
+                        onClick={[Function]}
+                        onKeyDown={[Function]}
+                        target={null}
                       >
-                        <Card
-                          cta={
-                            Object {
-                              "href": "https://www.example.com",
-                              "icon": Object {
-                                "src": Object {
+                        <Image
+                          alt="Image alt text"
+                          classname="bx--card__img"
+                          defaultSrc="https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1"
+                        >
+                          <div
+                            className="bx--image"
+                            data-autoid="dds--image__longdescription"
+                          >
+                            <picture>
+                              <img
+                                alt="Image alt text"
+                                className="bx--image__img bx--card__img"
+                                src="https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1"
+                              />
+                            </picture>
+                          </div>
+                        </Image>
+                        <div
+                          className="bx--card__wrapper"
+                        >
+                          <h3
+                            className="bx--card__heading"
+                          >
+                            Explore AI use cases in all industries
+                          </h3>
+                          <div
+                            className="bx--card__footer"
+                          >
+                            <ForwardRef(ArrowRight20)
+                              className="bx--card__cta"
+                              src={
+                                Object {
                                   "$$typeof": Symbol(react.forward_ref),
                                   "render": [Function],
-                                },
-                              },
-                            }
-                          }
-                          customClassName="bx--feature-card__card"
-                          heading="Explore AI use cases in all industries"
-                          image={
-                            Object {
-                              "alt": "Image alt text",
-                              "defaultSrc": "https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1",
-                            }
-                          }
-                          inverse={true}
-                          type="link"
-                        >
-                          <ClickableTile
-                            className="bx--card bx--card--inverse bx--card--link bx--feature-card__card"
-                            clicked={false}
-                            data-autoid="dds--card"
-                            handleClick={[Function]}
-                            handleKeyDown={[Function]}
-                            href="https://www.example.com"
-                            light={false}
-                            onClick={[Function]}
-                            target={null}
-                          >
-                            <a
-                              className="bx--tile bx--tile--clickable bx--card bx--card--inverse bx--card--link bx--feature-card__card"
-                              data-autoid="dds--card"
-                              href="https://www.example.com"
-                              onClick={[Function]}
-                              onKeyDown={[Function]}
-                              target={null}
+                                }
+                              }
                             >
-                              <Image
-                                alt="Image alt text"
-                                classname="bx--card__img"
-                                defaultSrc="https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1"
+                              <Icon
+                                className="bx--card__cta"
+                                height={20}
+                                preserveAspectRatio="xMidYMid meet"
+                                src={
+                                  Object {
+                                    "$$typeof": Symbol(react.forward_ref),
+                                    "render": [Function],
+                                  }
+                                }
+                                viewBox="0 0 20 20"
+                                width={20}
+                                xmlns="http://www.w3.org/2000/svg"
                               >
-                                <div
-                                  className="bx--image"
-                                  data-autoid="dds--image__longdescription-"
-                                >
-                                  <picture>
-                                    <img
-                                      alt="Image alt text"
-                                      className="bx--image__img bx--card__img"
-                                      src="https://dummyimage.com/672x672/ee5396/161616&amp;text=1x1"
-                                    />
-                                  </picture>
-                                </div>
-                              </Image>
-                              <div
-                                className="bx--card__wrapper"
-                              >
-                                <h3
-                                  className="bx--card__heading"
-                                >
-                                  Explore AI use cases in all industries
-                                </h3>
-                                <div
-                                  className="bx--card__footer"
-                                >
-                                  <ForwardRef(ArrowRight20)
-                                    className="bx--card__cta"
-                                    src={
-                                      Object {
-                                        "$$typeof": Symbol(react.forward_ref),
-                                        "render": [Function],
-                                      }
+                                <svg
+                                  aria-hidden={true}
+                                  className="bx--card__cta"
+                                  focusable="false"
+                                  height={20}
+                                  preserveAspectRatio="xMidYMid meet"
+                                  src={
+                                    Object {
+                                      "$$typeof": Symbol(react.forward_ref),
+                                      "render": [Function],
                                     }
-                                  >
-                                    <Icon
-                                      className="bx--card__cta"
-                                      height={20}
-                                      preserveAspectRatio="xMidYMid meet"
-                                      src={
-                                        Object {
-                                          "$$typeof": Symbol(react.forward_ref),
-                                          "render": [Function],
-                                        }
-                                      }
-                                      viewBox="0 0 20 20"
-                                      width={20}
-                                      xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                      <svg
-                                        aria-hidden={true}
-                                        className="bx--card__cta"
-                                        focusable="false"
-                                        height={20}
-                                        preserveAspectRatio="xMidYMid meet"
-                                        src={
-                                          Object {
-                                            "$$typeof": Symbol(react.forward_ref),
-                                            "render": [Function],
-                                          }
-                                        }
-                                        viewBox="0 0 20 20"
-                                        width={20}
-                                        xmlns="http://www.w3.org/2000/svg"
-                                      >
-                                        <path
-                                          d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
-                                        />
-                                      </svg>
-                                    </Icon>
-                                  </ForwardRef(ArrowRight20)>
-                                  <span />
-                                </div>
-                              </div>
-                            </a>
-                          </ClickableTile>
-                        </Card>
-                      </div>
-                    </FeatureCard>
-                  </div>
+                                  }
+                                  viewBox="0 0 20 20"
+                                  width={20}
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                                  />
+                                </svg>
+                              </Icon>
+                            </ForwardRef(ArrowRight20)>
+                            <span />
+                          </div>
+                        </div>
+                      </a>
+                    </ClickableTile>
+                  </Card>
                 </div>
-              </ContentGroup>
+              </FeatureCard>
             </section>
           </FeatureCardBlockMedium>
         </div>
@@ -30981,22 +30949,22 @@ exports[`Storyshots Patterns (Blocks)|LeadSpaceBlock Default 1`] = `
                           >
                             <div
                               className="bx--image"
-                              data-autoid="dds--image__longdescription-"
+                              data-autoid="dds--image__longdescription"
                             >
                               <picture>
                                 <source
                                   key="0"
-                                  media="(min-width: 672px )"
+                                  media="(min-width: 672px)"
                                   srcSet="https://dummyimage.com/672x378/ee5396/161616&text=16:9"
                                 />
                                 <source
                                   key="1"
-                                  media="(min-width: 400px )"
+                                  media="(min-width: 400px)"
                                   srcSet="https://dummyimage.com/400x225/ee5396/161616&text=16:9"
                                 />
                                 <source
                                   key="2"
-                                  media="(min-width: 320px )"
+                                  media="(min-width: 320px)"
                                   srcSet="https://dummyimage.com/320x180/ee5396/161616&text=16:9"
                                 />
                                 <img
@@ -31679,7 +31647,7 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                 >
                                   <div
                                     className="bx--image"
-                                    data-autoid="dds--image__longdescription-"
+                                    data-autoid="dds--image__longdescription"
                                   >
                                     <picture>
                                       <img
@@ -31720,7 +31688,7 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                 >
                                   <div
                                     className="bx--image"
-                                    data-autoid="dds--image__longdescription-"
+                                    data-autoid="dds--image__longdescription"
                                   >
                                     <picture>
                                       <img
@@ -31761,7 +31729,7 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                 >
                                   <div
                                     className="bx--image"
-                                    data-autoid="dds--image__longdescription-"
+                                    data-autoid="dds--image__longdescription"
                                   >
                                     <picture>
                                       <img
@@ -31802,7 +31770,7 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                 >
                                   <div
                                     className="bx--image"
-                                    data-autoid="dds--image__longdescription-"
+                                    data-autoid="dds--image__longdescription"
                                   >
                                     <picture>
                                       <img
@@ -31843,7 +31811,7 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                 >
                                   <div
                                     className="bx--image"
-                                    data-autoid="dds--image__longdescription-"
+                                    data-autoid="dds--image__longdescription"
                                   >
                                     <picture>
                                       <img
@@ -31884,7 +31852,7 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                 >
                                   <div
                                     className="bx--image"
-                                    data-autoid="dds--image__longdescription-"
+                                    data-autoid="dds--image__longdescription"
                                   >
                                     <picture>
                                       <img
@@ -31925,7 +31893,7 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                 >
                                   <div
                                     className="bx--image"
-                                    data-autoid="dds--image__longdescription-"
+                                    data-autoid="dds--image__longdescription"
                                   >
                                     <picture>
                                       <img
@@ -31966,7 +31934,7 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                 >
                                   <div
                                     className="bx--image"
-                                    data-autoid="dds--image__longdescription-"
+                                    data-autoid="dds--image__longdescription"
                                   >
                                     <picture>
                                       <img
@@ -32007,7 +31975,7 @@ exports[`Storyshots Patterns (Blocks)|LogoGrid Default 1`] = `
                                 >
                                   <div
                                     className="bx--image"
-                                    data-autoid="dds--image__longdescription-"
+                                    data-autoid="dds--image__longdescription"
                                   >
                                     <picture>
                                       <img
@@ -33166,7 +33134,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                             >
                               <div
                                 className="bx--image"
-                                data-autoid="dds--image__longdescription-"
+                                data-autoid="dds--image__longdescription"
                               >
                                 <picture>
                                   <img
@@ -33301,7 +33269,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                             >
                               <div
                                 className="bx--image"
-                                data-autoid="dds--image__longdescription-"
+                                data-autoid="dds--image__longdescription"
                               >
                                 <picture>
                                   <img
@@ -33436,7 +33404,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                             >
                               <div
                                 className="bx--image"
-                                data-autoid="dds--image__longdescription-"
+                                data-autoid="dds--image__longdescription"
                               >
                                 <picture>
                                   <img
@@ -33571,7 +33539,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                             >
                               <div
                                 className="bx--image"
-                                data-autoid="dds--image__longdescription-"
+                                data-autoid="dds--image__longdescription"
                               >
                                 <picture>
                                   <img
@@ -33706,7 +33674,7 @@ exports[`Storyshots Patterns (Sections)|CardSectionImages Default 1`] = `
                             >
                               <div
                                 className="bx--image"
-                                data-autoid="dds--image__longdescription-"
+                                data-autoid="dds--image__longdescription"
                               >
                                 <picture>
                                   <img
@@ -35399,17 +35367,17 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Default with image 1`] = `
           >
             <div
               className="bx--image"
-              data-autoid="dds--image__longdescription-"
+              data-autoid="dds--image__longdescription"
             >
               <picture>
                 <source
                   key="0"
-                  media="(min-width: 672px )"
+                  media="(min-width: 672px)"
                   srcSet="https://picsum.photos/id/1076/672/400"
                 />
                 <source
                   key="1"
-                  media="(min-width: 320px )"
+                  media="(min-width: 320px)"
                   srcSet="https://picsum.photos/id/1076/320/370"
                 />
                 <img
@@ -36211,17 +36179,17 @@ exports[`Storyshots Patterns (Sections)|LeadSpace Small with image 1`] = `
           >
             <div
               className="bx--image"
-              data-autoid="dds--image__longdescription-"
+              data-autoid="dds--image__longdescription"
             >
               <picture>
                 <source
                   key="0"
-                  media="(min-width: 672px )"
+                  media="(min-width: 672px)"
                   srcSet="https://picsum.photos/id/1076/672/400"
                 />
                 <source
                   key="1"
-                  media="(min-width: 320px )"
+                  media="(min-width: 320px)"
                   srcSet="https://picsum.photos/id/1076/320/370"
                 />
                 <img
