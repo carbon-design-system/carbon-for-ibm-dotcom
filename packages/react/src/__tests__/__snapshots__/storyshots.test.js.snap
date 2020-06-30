@@ -6246,10 +6246,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                         items={
                           Array [
                             Object {
-                              "copy": "
-            IBM DevOps partners have a wide range of expertise.
-            Find one to build the right solution for you.
-            ",
+                              "copy": "IBM DevOps partners have a wide range of expertise. Find one to build the right solution for you.",
                               "cta": Object {
                                 "copy": "Find a partner",
                                 "href": "https://example.com/",
@@ -6505,10 +6502,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                               className="bx--content-item-wrapper"
                             >
                               <ContentItem
-                                copy="
-            IBM DevOps partners have a wide range of expertise.
-            Find one to build the right solution for you.
-            "
+                                copy="IBM DevOps partners have a wide range of expertise. Find one to build the right solution for you."
                                 cta={
                                   Object {
                                     "copy": "Find a partner",
@@ -6533,7 +6527,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                     className="bx--content-item__copy"
                                     dangerouslySetInnerHTML={
                                       Object {
-                                        "__html": "<pre><code> IBM DevOps partners have a wide range of expertise.  Find one to build the right solution for you.</code></pre> ",
+                                        "__html": "<p>IBM DevOps partners have a wide range of expertise. Find one to build the right solution for you.</p> ",
                                       }
                                     }
                                     data-autoid="dds--content-item__copy"
@@ -33004,10 +32998,7 @@ exports[`Storyshots Patterns (Sections)|CTASection With Content Items 1`] = `
             items={
               Array [
                 Object {
-                  "copy": "
-          IBM DevOps partners have a wide range of expertise.
-          Find one to build the right solution for you.
-          ",
+                  "copy": "IBM DevOps partners have a wide range of expertise. Find one to build the right solution for you.",
                   "cta": Object {
                     "copy": "Find a partner",
                     "href": "https://example.com/",
@@ -33201,10 +33192,7 @@ exports[`Storyshots Patterns (Sections)|CTASection With Content Items 1`] = `
                   className="bx--content-item-wrapper"
                 >
                   <ContentItem
-                    copy="
-          IBM DevOps partners have a wide range of expertise.
-          Find one to build the right solution for you.
-          "
+                    copy="IBM DevOps partners have a wide range of expertise. Find one to build the right solution for you."
                     cta={
                       Object {
                         "copy": "Find a partner",
@@ -33229,7 +33217,7 @@ exports[`Storyshots Patterns (Sections)|CTASection With Content Items 1`] = `
                         className="bx--content-item__copy"
                         dangerouslySetInnerHTML={
                           Object {
-                            "__html": "<pre><code> IBM DevOps partners have a wide range of expertise.  Find one to build the right solution for you.</code></pre> ",
+                            "__html": "<p>IBM DevOps partners have a wide range of expertise. Find one to build the right solution for you.</p> ",
                           }
                         }
                         data-autoid="dds--content-item__copy"
