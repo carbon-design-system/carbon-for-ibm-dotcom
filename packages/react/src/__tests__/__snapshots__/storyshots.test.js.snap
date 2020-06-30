@@ -25098,9 +25098,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
           className="bx--col-lg-8 bx--col-sm-4 bx--offset-lg-4"
         >
           <ContentBlockSegmented
-            copy="Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
-      Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
-      nulla quis, *consequat* libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit."
+            copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit."
             cta={
               Object {
                 "copy": "Lorem ipsum dolor",
@@ -25186,9 +25184,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
             >
               <ContentBlock
                 border={false}
-                copy="Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
-      Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
-      nulla quis, *consequat* libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit."
+                copy="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit."
                 cta={
                   Object {
                     "copy": "Lorem ipsum dolor",
@@ -25217,7 +25213,7 @@ exports[`Storyshots Patterns (Blocks)|ContentBlockSegmented Default 1`] = `
                     className="bx--content-block__copy"
                     dangerouslySetInnerHTML={
                       Object {
-                        "__html": "<p>Lorem ipsum <em>dolor</em> sit amet, consectetur adipiscing elit. Aenean et ultricies est.  Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales  nulla quis, <em>consequat</em> libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.</p> ",
+                        "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.</p> ",
                       }
                     }
                   />

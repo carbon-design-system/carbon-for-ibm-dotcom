@@ -145,6 +145,11 @@ Default.story = {
 
         return {
           ...knobs,
+          copy: text(
+            'Copy',
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.',
+            groupId
+          ),
           heading: text('Heading', 'Lorem ipsum dolor sit amet.', groupId),
           items: object('Content items', defaultItems, groupId),
         };
