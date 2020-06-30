@@ -100,10 +100,12 @@ const ButtonGroup = ({ buttons, enableSizeByContent }) => {
   }, []);
 
   useEffect(() => {
-    setSameHeight();
-    root.addEventListener('resize', setSameHeight);
-    return () => root.removeEventListener('resize', setSameHeight);
-  }, []);
+    if (buttons.length > 1) {
+      setSameHeight();
+      root.addEventListener('resize', setSameHeight);
+      return () => root.removeEventListener('resize', setSameHeight);
+    }
+  }, [buttons]);
 
   /**
    * Set the buttons to have the same height based on the tallest one
