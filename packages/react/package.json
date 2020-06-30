@@ -39,7 +39,7 @@
     "test:unit": "jest",
     "test:unit:updateSnapshot": "jest -u",
     "test:integration:build": "jest -c tests/integration/build/jest.config.js --runInBand",
-    "test:integration:bundle": "jest -c tests/integration/bundle/jest.config.js",
+    "test:integration:bundle": "cross-env NODE_OPTIONS=--max-old-space-size=8192 jest -c tests/integration/bundle/jest.config.js",
     "test-ssr": "yarn build && node ssr-tests/*.js",
     "visual-snapshot": "yarn build-storybook && percy-storybook --widths=320,1280"
   },

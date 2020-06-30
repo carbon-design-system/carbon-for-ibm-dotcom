@@ -403,10 +403,8 @@ const Content = () => (
             items={[
               {
                 heading: 'Get connected',
-                copy: `
-            IBM DevOps partners have a wide range of expertise.
-            Find one to build the right solution for you.
-            `,
+                copy:
+                  'IBM DevOps partners have a wide range of expertise. Find one to build the right solution for you.',
                 cta: {
                   copy: 'Find a partner',
                   type: 'local',
