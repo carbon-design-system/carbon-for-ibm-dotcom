@@ -26,12 +26,6 @@
       }
     }
 
-    &--actions {
-      position: absolute;
-      top: 0;
-      right: 0;
-    }
-
     .#{$prefix}--header__nav {
       &::before {
         content: '';
@@ -84,6 +78,12 @@
         display: none;
       }
     }
+  }
+
+  .#{$prefix}--header__search--actions {
+    position: absolute;
+    top: 0;
+    right: 0;
   }
 
   // search container
