@@ -44,14 +44,6 @@ const mediaDataByType = {
   },
 };
 
-const copy = {
-  default:
-    'Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.\n' +
-    '      Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales\n' +
-    '      nulla quis, *consequat* libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.',
-  none: '',
-};
-
 const ctaStyles = {
   text: 'text',
   card: 'card',
@@ -78,7 +70,6 @@ const getBaseKnobs = ({ groupId }) => {
   return {
     mediaType,
     mediaData: mediaDataByType[mediaType],
-    copy: select('Copy (optional)', copy, copy.default),
     cta: {
       cta: {
         href: 'https://www.example.com',
@@ -153,6 +144,11 @@ Default.story = {
 
         return {
           ...knobs,
+          copy: text(
+            'Copy',
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit',
+            groupId
+          ),
           heading: text('Heading', 'Lorem ipsum dolor sit amet.', groupId),
           items: object('Content items', defaultItems, groupId),
         };
