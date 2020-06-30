@@ -6,6 +6,7 @@
  */
 
 @import '../../globals/imports';
+@import '../../globals/utils/aspect-ratio';
 @import '../../temp-carbon-expressive/temp-carbon-expressive';
 @import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/motion/motion.scss';
 
@@ -69,6 +70,8 @@
       }
     }
     &__CTA {
+      padding-top: aspect-ratio(2, 1);
+
       .#{$prefix}--card__copy p {
         @include carbon--type-style('expressive-heading-02');
       }
