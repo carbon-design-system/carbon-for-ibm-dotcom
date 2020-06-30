@@ -1241,7 +1241,7 @@ exports[`Storyshots Components|CardLink Default 1`] = `
         className="bx--row"
       >
         <div
-          className="bx--col-sm-4 bx--col-md-4 bx--col-lg-4 bx--offset-lg-4 bx--aspect-ratio--2x1"
+          className="bx--col-sm-4 bx--col-md-4 bx--col-lg-4 bx--offset-lg-4"
         >
           <CardLink
             card={
