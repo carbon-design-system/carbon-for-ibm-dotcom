@@ -3536,7 +3536,7 @@ exports[`Storyshots Components|Dotcom Shell Default 1`] = `
                                               className="bx--card__copy"
                                               dangerouslySetInnerHTML={
                                                 Object {
-                                                  "__html": "<p>Habitant morbi tristique senectus et netus et malesuada fames. Habitant morbi tristique.</p>",
+                                                  "__html": "<p>Habitant morbi tristique senectus et netus et malesuada fames. Habitant morbi tristique.</p> ",
                                                 }
                                               }
                                             />
@@ -10199,7 +10199,7 @@ exports[`Storyshots Components|LinkList End Of Section 1`] = `
                                   onClick={[Function]}
                                 >
                                   <span>
-
+                                     
                                   </span>
                                   <ForwardRef(PlayOutline20)>
                                     <Icon
@@ -10944,7 +10944,7 @@ exports[`Storyshots Components|LinkList Vertical 1`] = `
                                   onClick={[Function]}
                                 >
                                   <span>
-
+                                     
                                   </span>
                                   <ForwardRef(PlayOutline20)>
                                     <Icon
@@ -11423,7 +11423,7 @@ exports[`Storyshots Components|LinkList Vertical With Cards 1`] = `
                                   onClick={[Function]}
                                 >
                                   <span>
-
+                                     
                                   </span>
                                   <ForwardRef(PlayOutline20)>
                                     <Icon
@@ -16183,7 +16183,7 @@ exports[`Storyshots Components|VideoPlayer Default 1`] = `
               <div
                 className="bx--video-player__video-caption"
               >
-
+                 
                 (1:00)
               </div>
             </div>
@@ -30995,7 +30995,7 @@ exports[`Storyshots Patterns (Blocks)|FeatureCardBlockLarge Default 1`] = `
                           className="bx--card__copy"
                           dangerouslySetInnerHTML={
                             Object {
-                              "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..</p>",
+                              "__html": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..</p> ",
                             }
                           }
                         />
